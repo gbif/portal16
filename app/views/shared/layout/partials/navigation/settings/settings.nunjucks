@@ -1,0 +1,7 @@
+<div class="nav_settings navbar_action">
+    <div>
+        <a class="gb-icon-config">
+            <span class="nav_settings-title">Settings</span>
+        </a>
+    </div>
+</div>

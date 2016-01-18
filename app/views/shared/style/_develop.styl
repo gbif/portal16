@@ -1,0 +1,26 @@
+// Styles useful when developing
+$develop_vertical_rythm ?= false
+$develop_pink ?= false
+
+if ($develop_vertical_rythm)
+	body
+		grid-overlay(blue)//in development this can be nice to have to help you keep the vertical rhythm
+		/*&:after //we can also add the rhythm as an overlay*/
+			/*content ' '*/
+			/*display block*/
+			/*position absolute*/
+			/*top 0*/
+			/*left 0*/
+			/*bottom 0*/
+			/*width 100%*/
+			/*grid-overlay(blue)*/
+
+// make everything transparent pink to better see vertical rythm and element outlines
+// Simple class boosting to overwrite all other styles
+if ($develop_pink)
+	.page-wrapper.page-wrapper.page-wrapper.page-wrapper.page-wrapper.page-wrapper
+		*
+			background rgba(255, 100, 100, 0.1)
+			color #555
+		div
+			box-shadow inset 0 0 1px red // Border change layout. Shadows do not

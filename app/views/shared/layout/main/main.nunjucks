@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!--[if !IE]> -->
+<html lang="en" class="not_ie">
+<!-- <![endif]-->
+<!--[if IE]>
+<html lang="en" class="ie">
+<![endif]-->
+
+<head>
+    {% include "../partials/head/head.nunjucks" %}
+    <title>GBIF</title>
+</head>
+<body>
+
+
+<div class="page-wrapper">
+    {% include "../partials/navigation/navigation.nunjucks" %}
+
+    <main id="main">
+        <div class="main-content">
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+
+</div>
+
+{#<script src="js/vendor/vendor.js"></script>#}
+<script src="js/base/custom.js"></script>
+</body>
+</html>

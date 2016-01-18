@@ -1,0 +1,68 @@
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+
+{% block body %}
+<div class="home hero">
+    <h1>GBIF</h1>
+    <h4>Explore and share biodiversity data</h4>
+    <!-- <input type="text" placeholder="Search"> -->
+</div>
+    <p>lkjshdf lskjdhf lskj dhf</p>
+
+    {#<div class="home hero">#}
+        {#<h1>GBIF</h1>#}
+        {#<h4>An open platform for exploring biodiversity</h4>#}
+    {#</div>#}
+
+    {#<h1>{{title}}</h1>#}
+    {#<div class="test">#}
+        {#<div class="test-left">#}
+            {#left#}
+        {#</div>#}
+        {#<div class="test-right">#}
+            {#right#}
+        {#</div>#}
+    {#</div>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>a</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {#<p>sdflkjhsdflkjh</p>#}
+    {% include "../../components/basics/h1/h1.nunjucks" %}
+{% endblock %}

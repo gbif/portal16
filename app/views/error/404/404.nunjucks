@@ -1,0 +1,7 @@
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+
+{% block body %}
+
+<h1 class="giant gb-icon-dodo">
+
+{% endblock %}

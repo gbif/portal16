@@ -1,0 +1,40 @@
+$home_overlay_opacity = 0.3
+$home_overlay_color = rgba(0,0,0, $home_overlay_opacity)
+
+.hero
+	background-color $c_main
+	text-align center
+	padding 0 vr-block(1)
+	background-image linear-gradient(to right, $home_overlay_color,  $home_overlay_color), url('/img/mountain.jpeg')
+	background-size cover
+	width 100%
+	height 0px
+	padding-bottom (100/$golden)%
+	color white
+	h1
+		padding vr-block(1.5) 0 vr-block(0.5) 0
+		set-type(3)
+		line-height vr-block(3)
+		font-weight bold
+	h4
+		set-type(1)
+	input
+		margin vr-block(1) auto
+		width 50%
+		background none//rgba(255,255,255,0.1)
+		border 1px solid rgba(255, 255, 255, 0.5)
+		border-width 0 0 1px 0
+		border-radius 0
+		&::placeholder
+			color #aaa
+		&:focus
+			outline none
+			border-color white
+
+//LAPTOPS
++isAbove($laptop)
+	.hero
+		padding-bottom (100/$major-twelfth)%
+		h1
+			set-type(6)
+			font-weight bold

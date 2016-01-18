@@ -1,0 +1,11 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": [],
+  "env": {
+      "browser": true
+  },
+  "globals": {
+    "window": true,
+    "$": true
+  }
+}

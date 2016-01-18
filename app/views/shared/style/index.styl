@@ -1,0 +1,40 @@
+@import "_variables"
+global-reset()
+normalize-css()
+/*fluid-media()*/
+/*print-styles()*/
+/*border-box-html()*/
+
+@import "fonts/_font"
+@import "grid/_grid"
+@import "fonts/_typography"
+@import "_mediaQueryBlocks"
+typographic()
+
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  stylus dependencies when defined in the bower.json of your dependencies
+ */
+// bower:styl
+// endbower
+
+
+
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  your stylus files automatically. To see which filters that are applied see the build script 'style' task
+ */
+// injector
+// endinjector
+
+
+
+body
+	background $c_body
+
+/**
+ *  Add a style that might be helpful while creating the layout and composition.
+ */
+$develop_vertical_rythm = true
+$develop_pink = true
+@import "_develop"

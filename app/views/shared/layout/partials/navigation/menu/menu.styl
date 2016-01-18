@@ -1,0 +1,150 @@
++isBelow($laptop) {
+	.site_navbar .site_menu-main {
+		a {
+			display block
+			padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(2)
+		}
+		.site_menu-home, .site_menu-1Level {
+			> a {
+				position relative
+				&:before {
+					speak none
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+
+					content $icon-string-home
+					font-size vr-block(1)
+					font-family gbificons
+					position absolute
+					left 10px
+				}
+			}
+			&.site_menu-get > a:before {
+				content $icon-string-map
+			}
+			&.site_menu-share > a:before {
+				content $icon-string-cloud-upload
+			}
+			&.site_menu-about > a:before {
+				content $icon-string-info
+			}
+		}
+		.site_menu-1Level{
+			ul>li>ul li {
+				padding-left 10px
+				background darken($nav_drawer_bg, 10%)
+			}
+		}
+		li {
+			&.isExpandable {
+				>a {
+					&:after {
+						content $icon-string-gb_plus
+						font-size (vr-block(1) /$major-third)
+						font-family gbificons
+						position absolute
+						right 10px
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+// LAPTOPS
++isAbove($laptop) {
+	.site_menu-main {
+		absolute(top left)
+		>ul li {
+			float left
+			margin 0
+		}
+		.site_menu-home {
+			> a {
+				display inline-block
+				float left
+				width 0
+				margin 0 vr-block(1.5)
+				overflow hidden
+				&:before {
+					content $icon-string-logo
+					display block
+					width vr-block(3)
+					text-align center
+					absolute(top left)
+					set-type(2)
+					line-height vr-block(1)
+					margin-top vr-block(1)
+					font-family 'gbificons'
+				}
+			}
+			> ul {
+				float left
+			}
+		}
+		.site_menu-1Level {
+			/*font-size 16px*/
+			display inline
+			set-type(0)
+			padding 0 vr-block(1)
+			line-height vr-block(2.75)
+		}
+	}
+
+	.site_menu-1Level {
+		> ul, div > ul {
+			display none
+		}
+		&.isActive, &:hover {
+			position relative
+			> ul, > div > ul > li {
+				padding vr-block(0.5) 0
+			}
+			> ul, div > ul {
+				set-type()
+				display block
+				absolute()
+				top vr-block(3)
+				background $navbar_dropdown_bg
+				/*left -(vr-block(3.5))*/
+				li a {
+					color #555
+					padding 0 vr-block(1)
+					display block
+					overflow hidden
+					width vr-block(7)
+					text-overflow ellipsis
+				}
+			}
+			&:after {
+				position absolute
+				bottom -(1 + vr-block(0.25))
+				left 50%
+				margin-left -(vr-block(0.25) * 2)
+				content ''
+				triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
+			}
+		}
+	}
+
+	.site_menu-mega.site_menu-1Level.isActive, .site_menu-mega.site_menu-1Level:hover {
+		> div {
+			display block
+			fixed(left 0 top vr-block(3) right 0)
+			background $navbar_dropdown_bg
+			padding 0 vr-block(1) *$perfect-fourth
+			> ul {
+				width 100%
+				position initial
+				> li {
+					lost-column 1 / 4 0 0
+					> a {
+						color $c_navbar_text
+					}
+				}
+			}
+		}
+	}
+}

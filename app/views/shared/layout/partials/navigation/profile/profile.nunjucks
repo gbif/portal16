@@ -1,0 +1,19 @@
+<div class="nav_profile navbar_action ">
+    <div class="site_menu-1Level isActiveX">
+        <a class="gb-icon-user-female">
+            {#<span class="nav_profile-title">Profile</span>#}
+            <span class="nav_profile-username">Profile</span>
+        </a>
+        <ul>
+            <li>
+                <a>Sign in</a>
+            </li>
+            <li>
+                <a>Register</a>
+            </li>
+            <li>
+                <a>Sign out</a>
+            </li>
+        </ul>
+    </div>
+</div>

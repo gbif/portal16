@@ -1,0 +1,33 @@
+@font-face {
+	font-family: '{{fontName}}';
+	src:url('{{fontPath}}{{fontName}}.eot');
+	src:url('{{fontPath}}{{fontName}}.eot#iefix') format('embedded-opentype'),
+	url('{{fontPath}}{{fontName}}.ttf') format('truetype'),
+	url('{{fontPath}}{{fontName}}.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="{{className}}-"]:before, [class*=" {{className}}-"]:before {
+	font-family: '{{fontName}}';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+{% for glyph in glyphs %}
+
+$icon-string-{{glyph.name}} = "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}"
+
+.gb-icon-{{glyph.name}}:before {
+	content: "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}";
+}
+
+{% endfor %}

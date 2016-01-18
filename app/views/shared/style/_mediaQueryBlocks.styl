@@ -1,0 +1,11 @@
+//Exlusive above
+isAbove($mediaSize)
+	@media screen and (min-width: ($mediaSize+1px))
+		{block}
+
+//Inclusive below
+isBelow($mediaSize)
+	@media screen and (max-width: $mediaSize)
+		{block}
+
+

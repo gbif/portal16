@@ -1,0 +1,114 @@
+<div class="navigation site_menu">
+    <nav class="site_menu-main" id="site_menu">
+        <ul>
+            <li class="site_menu-home">
+                <a href="/">Home</a>
+                <ul>
+                    <li class="site_menu-1Level isExpandable site_menu-get isActiveX">
+                        <a href="#">
+                            Get data
+                        </a>
+                        <ul>
+                            <li>
+                                <a>Ocurrences</a>
+                            </li>
+                            <li>
+                                <a>Species</a>
+                            </li>
+                            <li>
+                                <a>Data sets</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="site_menu-1Level isExpandable site_menu-share isActiveX">
+                        <a>
+                            Share
+                        </a>
+                        <ul>
+                            <li>
+                                <a>Licensing</a>
+                            </li>
+                            <li>
+                                <a>Why</a>
+                            </li>
+                            <li>
+                                <a>Lorem</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="site_menu-1Level isExpandable site_menu-about site_menu-mega isActiveX">
+                        <a>
+                            About
+                        </a>
+                        <div>
+                            <ul>
+                                <li class="isExpandable">
+                                    <a href="#">Inside</a>
+                                    <ul>
+                                        <li>
+                                            <a>About GFIF</a>
+                                        </li>
+                                        <li>
+                                            <a>Facts and figures</a>
+                                        </li>
+                                        <li>
+                                            <a>Impact</a>
+                                        </li>
+                                        <li>
+                                            <a>Programmes and projects</a>
+                                        </li>
+                                        <li>
+                                            <a>Knowledge base</a>
+                                        </li>
+                                        <li>
+                                            <a>FAQ</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Pressroom</a>
+                                    <ul>
+                                        <li>
+                                            <a>Featured data use</a>
+                                        </li>
+                                        <li>
+                                            <a>News</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Community</a>
+                                    <ul>
+                                        <li>
+                                            <a>Join the community</a>
+                                        </li>
+                                        <li>
+                                            <a>Contact</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Development</a>
+                                    <ul>
+                                        <li>
+                                            <a>API</a>
+                                        </li>
+                                        <li>
+                                            <a>Python and R libraries</a>
+                                        </li>
+                                        <li>
+                                            <a>Front end</a>
+                                        </li>
+                                        <li>
+                                            <a>About development at GBIF</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,357 @@
+// Inspired by https://github.com/corysimmons/typographic
+
+
+// Settings
+
+$line-height-ratio  = 1.5
+$header-ratio       = $golden
+$body-font          = $helvetica
+$body-font-weight   = 300
+$body-color         = #666
+$header-font        = $helvetica
+$header-font-weight = 300
+$header-color       = #111
+$font-base-size		= 16px
+$min-width          = 600px
+$max-width          = 1140px
+$vertical-rhythm    = true
+
+
+// Ratios
+// https://24ways.org/2011/composing-the-new-canon
+$minor-second   = 1.067
+$major-second   = 1.125
+$minor-third    = 1.2
+$major-third    = 1.25
+$perfect-fourth = 1.333
+$aug-fourth     = 1.414
+$perfect-fifth  = 1.5
+$minor-sixth    = 1.6
+$golden         = 1.618
+$major-sixth    = 1.667
+$minor-seventh  = 1.778
+$major-seventh  = 1.875
+$octave         = 2
+$major-tenth    = 2.5
+$major-eleventh = 2.667
+$major-twelfth  = 3
+$double-octave  = 4
+
+$html-font-size = 14px;
+$base-font-size = $html-font-size
+$base-line-height = $base-font-size * 1.5
+$font-base-size = $base-font-size
+
+
+
+$type-base-ratio = $perfect-fourth
+//small text, body text,large text, main heading, hero heading
+$type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
+type-scale($level)
+	return $type-scale[$level+1]
+
+$line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
+type-line-height($level)
+	return $line-heights[$level+1]
+
+set-type($level = 0)
+	font-size type-scale($level)*$base-font-size
+	/*font-size (type-scale($level))rem*/
+	line-height type-line-height($level)
+	/*line-height (type-line-height($level))rem*/
+
+
+
+
+
+
+// Sans-serif
+//we use $helvetica
+
+$calibri       = 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$candara       = 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$courier       = 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
+$franklin      = 'Franklin Gothic Medium', 'Arial', 'sans-serif'
+$futura        = 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
+$geneva        = 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
+$gill-sans     = 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
+$helvetica     = 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
+$lucida-grande = 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
+$optima        = 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
+$segoe         = 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
+$tahoma        = 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
+$trebuchet     = 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
+$verdana       = 'Verdana', 'Geneva', 'sans-serif'
+
+
+// Serif
+
+$antiqua       = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$baskerville   = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$bodoni        = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$cambria       = 'Cambria', 'Georgia', 'serif'
+$caslon        = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
+$constantia    = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$didot         = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$garamond      = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
+$goudy         = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
+$hoefler       = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
+$lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
+$palatino      = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
+
+
+// Helpers
+
+/**
+ * Creates a baseline grid based off your $line-height-ratio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
+ *
+ * @param {color} [$color=black] - A color to be lightened and used as the color for the grid.
+ * @param {number} [$px-offset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
+ *
+ * @example
+ *   .page-wrapper
+ *       grid-overlay(blue, 2)
+ */
+
+grid-overlay($color = black, $px-offset = false)
+	background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
+	background-size: 100% $base-line-height
+	if $px-offset
+		background-position: 0 unit($px-offset, 'px')
+
+
+/**
+ * Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
+ *
+ * @param {number} [$units=1] - Number of units. Accepts floated numbers as well.
+ * @param {number} [$px-offset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
+ *
+ * @example
+ *   img
+ *     vr-block(5.25, .5)
+ */
+
+vr-block($units = 1, $px-offset = false)
+	if $px-offset
+		return $units*$base-line-height + $px-offset
+	else
+		return $units*$base-line-height
+
+
+// Typography Mixins
+
+t-reset() {
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	text-rendering: optimizeLegibility
+	// -webkit-font-smoothing: antialiased
+	// -moz-osx-font-smoothing: grayscale
+}
+
+t-block()
+	margin-bottom $base-line-height
+
+t-blockquote()
+	font-style: italic
+	cite
+		display: block
+		font-style: normal
+
+t-pre()
+	padding: vr-block(.5)
+	margin-bottom: vr-block(1)
+	code
+		padding: 0
+
+t-code()
+	font-family: $courier
+	padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
+	margin-bottom 0
+
+t-abbr()
+	border-bottom: 1px dotted currentColor
+	cursor: help
+
+t-dt()
+	color: $header-color
+	font-weight: bold
+
+t-fieldset()
+	padding: vr-block(.5) vr-block() vr-block()
+	border-width: 1px
+	border-style: solid
+	max-width: 100%
+	margin-bottom: vr-block(1, 1)
+
+	@media (min-width: $max-width)
+		margin-bottom: vr-block(1.25, -1)
+
+	button, input[type="submit"]
+		margin-bottom: 0
+
+t-legend()
+	color: $header-color
+	font-weight: bold
+
+t-label()
+	display: block
+	padding-bottom: vr-block(.125)
+	margin-bottom: vr-block(-.25, -10)
+
+t-input()
+	$local-min-font = $min-font
+	$local-max-font = $max-font
+
+	display: block
+	max-width: 100%
+	padding: vr-block(.25)
+
+	font-size: $local-min-font
+	margin-bottom: vr-block(.5, 7)
+
+t-button()
+	$local-min-font = $min-font
+	$local-max-font = $max-font
+
+	display: block
+	cursor: pointer
+
+	font-size: $local-min-font
+	padding: vr-block(.25) vr-block()
+	margin-bottom: vr-block(.75, -2)
+
+	@media (min-width: $min-width)
+		font-size: s('calc( %s + (%s - %s) * ((100vw - %s) / (%s - %s)) )', $local-min-font, remove-unit($local-max-font), remove-unit($local-min-font), $min-width, remove-unit($max-width), remove-unit($min-width))
+
+	@media (min-width: $max-width)
+		font-size: $local-max-font
+		margin-bottom: vr-block(.75)
+
+t-table()
+	width: 100%
+	border-spacing: 0
+	border-collapse: collapse
+	margin-bottom: vr-block(1)
+
+t-th()
+	text-align: left
+	color: $header-color
+
+	/*padding: vr-block(.125) vr-block(.5)*/
+
+	/*@media (min-width: $max-width)*/
+		/*padding: vr-block(.25) vr-block(.5)*/
+
+/*t-td()*/
+	/*padding: vr-block(.125) vr-block(.5)*/
+
+	/*@media (min-width: $max-width)*/
+		/*padding: vr-block(.25) vr-block(.5)*/
+
+/**
+ * The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
+ *
+ * @example
+ *   typographic()
+ */
+
+typographic()
+
+	html, body
+		height 100%
+		width 100%
+		font-family: $body-font
+		font-weight: $body-font-weight
+		color: $body-color
+
+		font-size: $html-font-size
+		line-height: ($line-height-ratio)em
+
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, div, span, p
+		t-reset()
+
+	p, blockquote, pre,
+	address,
+	dl, ol, ul,
+	table
+		t-block()
+
+	p
+		set-type()
+
+	h1, h2, h3, h4, h5, h6
+		font-family: $header-font
+		font-weight: $header-font-weight
+		clear: both
+	h1
+		set-type(4)
+	h2
+		set-type(3)
+	h3
+		set-type(2)
+	h4
+		set-type(1)
+	h5
+		set-type(0)
+	h6
+		set-type(-1)
+		font-weight 500
+
+	blockquote
+		t-blockquote()
+
+	pre
+		t-pre()
+
+	code
+		t-code()
+
+	big, small, sub, sup
+		line-height: 0
+
+	abbr, acronym
+		t-abbr()
+
+	address
+		font-style: normal
+
+	dt
+		t-dt()
+
+	/*ul*/
+		/*padding-left: 1.1em*/
+
+	/*ol*/
+		/*padding-left: 1.4em*/
+
+	fieldset
+		t-fieldset()
+
+	legend
+		t-legend()
+
+	label
+		t-label()
+
+	input[type="text"], input[type="email"], input[type="password"], textarea
+		t-input()
+
+	input[type="submit"], button
+		t-button()
+
+	table
+		t-table()
+
+	th
+		t-th()
+
+	td
+		t-td()

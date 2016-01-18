@@ -1,0 +1,101 @@
+@import "brand/_brand"
+$site_navbarLinksTop = $navbar_height+$navbar_borderWidth
+
+navbar_action_icon()
+	display inline-block
+	padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
+	relative()
+	height vr-block(2.75)
+	&:before
+		display block
+		width 100%
+		text-align center
+		absolute(top left)
+		set-type(2)
+		line-height vr-block(0)
+		margin-top vr-block(1)
+	>span
+		font-size (100/$major-third)%
+
+
++isBelow($laptop) {
+	.site_navbar-options {
+		display none
+	}
+}
+
+.site_navbar, .site_navbar a {
+	color $c_navbar_text
+}
+
+.site_navbar .site_navbar-links, .site_navbar .site_navbar-links a {
+	color $nav_drawer_color
+}
+
+.site_navbar-mobile
+	.navbar_action
+		width 33.33%
+		display inline-block
+		float left
+		>a
+			navbar_action_icon()
+		&.site_navbar-logo
+			text-align center
+		&.site_navbar-search
+			text-align right
+.site_navbar
+	ul, li
+		margin 0
+	fixed(top)
+	width 100%
+	background-color $c_main
+	border-bottom solid (vr-block(0.25)+1) $c_sec
+	color $c_navbar_text
+	a
+		text-decoration none
+
+	.site_navbar-links
+		position fixed
+		top vr-block(3)
+		bottom 0
+		width $drawer-width
+		background $nav_drawer_bg
+		overflow-y auto
+		left -($drawer-width)
+		&.isActive
+			left 0
+
+//LAPTOPS
++isAbove($laptop)
+	.site_navbar
+		.site_navbar-mobile
+			display none
+		.site_navbar-links
+			position initial
+			width inherit
+			overflow-y visible
+		.site_navbar-links, .site_navbar-links a {
+			color $c_navbar_text
+		}
+
+		.site_navbar-options
+			float right
+			position relative
+			>div
+				display inline-block
+				/*relative()*/
+			ul
+				position absolute
+			.navbar_action
+				>div>a
+					navbar_action_icon()
+			.site_menu-1Level
+				&.isActive, &:hover
+					>ul, div>ul
+						left -(vr-block(3.5))
+
+
+
+
+
+
