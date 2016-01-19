@@ -4,103 +4,103 @@
             <li class="site_menu-home">
                 <a href="/">Home</a>
                 <ul>
-                    <li class="site_menu-1Level isExpandable site_menu-get isActiveX">
+                    <li class="site_menu-1Level isCategory site_menu-get ">
                         <a href="#">
                             Get data
                         </a>
                         <ul>
                             <li>
-                                <a>Ocurrences</a>
+                                <a href="#">Ocurrences</a>
                             </li>
                             <li>
-                                <a>Species</a>
+                                <a href="#">Species</a>
                             </li>
                             <li>
-                                <a>Data sets</a>
+                                <a href="#">Data sets</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="site_menu-1Level isExpandable site_menu-share isActiveX">
-                        <a>
+                    <li class="site_menu-1Level isCategory site_menu-share ">
+                        <a href="#">
                             Share
                         </a>
                         <ul>
                             <li>
-                                <a>Licensing</a>
+                                <a href="#">Licensing</a>
                             </li>
                             <li>
-                                <a>Why</a>
+                                <a href="#">Why</a>
                             </li>
                             <li>
-                                <a>Lorem</a>
+                                <a href="#">Lorem</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="site_menu-1Level isExpandable site_menu-about site_menu-mega isActiveX">
-                        <a>
+                    <li class="site_menu-1Level isCategory isExpanded site_menu-about site_menu-mega ">
+                        <a href="#">
                             About
                         </a>
                         <div>
                             <ul>
-                                <li class="isExpandable">
+                                <li class="isCategory">
                                     <a href="#">Inside</a>
                                     <ul>
                                         <li>
-                                            <a>About GFIF</a>
+                                            <a href="#">About GFIF</a>
                                         </li>
                                         <li>
-                                            <a>Facts and figures</a>
+                                            <a href="#">Facts and figures</a>
                                         </li>
                                         <li>
-                                            <a>Impact</a>
+                                            <a href="#">Impact</a>
                                         </li>
                                         <li>
-                                            <a>Programmes and projects</a>
+                                            <a href="#">Programmes and projects</a>
                                         </li>
                                         <li>
-                                            <a>Knowledge base</a>
+                                            <a href="#">Knowledge base</a>
                                         </li>
                                         <li>
-                                            <a>FAQ</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a>Pressroom</a>
-                                    <ul>
-                                        <li>
-                                            <a>Featured data use</a>
-                                        </li>
-                                        <li>
-                                            <a>News</a>
+                                            <a href="#">FAQ</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a>Community</a>
+                                <li class="isCategory">
+                                    <a href="#">Pressroom</a>
                                     <ul>
                                         <li>
-                                            <a>Join the community</a>
+                                            <a href="#">Featured data use</a>
                                         </li>
                                         <li>
-                                            <a>Contact</a>
+                                            <a href="#">News</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a>Development</a>
+                                <li class="isCategory isExpanded">
+                                    <a href="#">Community</a>
                                     <ul>
                                         <li>
-                                            <a>API</a>
+                                            <a href="#">Join the community</a>
                                         </li>
                                         <li>
-                                            <a>Python and R libraries</a>
+                                            <a href="#">Contact</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="isCategory">
+                                    <a href="#">Development</a>
+                                    <ul>
+                                        <li>
+                                            <a href="#">API</a>
                                         </li>
                                         <li>
-                                            <a>Front end</a>
+                                            <a href="#">Python and R libraries</a>
                                         </li>
                                         <li>
-                                            <a>About development at GBIF</a>
+                                            <a href="#">Front end</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">About development at GBIF</a>
                                         </li>
                                     </ul>
                                 </li>

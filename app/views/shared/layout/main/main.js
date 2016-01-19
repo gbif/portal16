@@ -1,7 +1,5 @@
 var menu = require('../partials/navigation/navigation.js');
-$ = require('jquery');
-// var test = 5;
-// var test2 = 9;
+//$ = require('jquery');
 
 
 /**
@@ -38,6 +36,7 @@ window.onerror = function(msg, file, line, col, error) {
     return false; //still write error to console
 };
 
+var fail = 5*'sdf'
 // console.log('test');
 // window.mytest = $('.navbar');
 // menu.tester();
@@ -49,3 +48,43 @@ function increaseNumber(num) {
 module.exports = {
     increaseNumber: increaseNumber
 };
+
+
+
+
+//Create a global GBIF Object
+(function(global) {
+    var gb = {
+        VERSION: '0.0.1'
+    };
+
+    gb.addEventListener = function(el, eventName, handler) {
+        if (el.addEventListener) {
+            el.addEventListener(eventName, handler);
+        } else {
+            el.attachEvent('on' + eventName, function(){
+                handler.call(el);
+            });
+        }
+    };
+
+    gb.forEachElement = function(selector, fn) {
+        var elements = document.querySelectorAll(selector);
+        for (var i = 0; i < elements.length; i++)
+            fn(elements[i], i);
+    };
+
+
+    //Expose the gbif helper object globally
+    if (global.gb) {
+        throw new Error('gb has already been defined');
+    } else {
+        global.gb = gb;
+    }
+})(window);
+
+gb.forEachElement('.site_navbar-toggleMenu', function(e, i){
+    gb.addEventListener(e, 'click', function(){
+        alert('hej fra gb lib')
+    });
+});

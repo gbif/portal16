@@ -143,7 +143,6 @@ vr-block($units = 1, $px-offset = false)
 t-reset() {
 	margin: 0
 	padding: 0
-	box-sizing: border-box
 	text-rendering: optimizeLegibility
 	// -webkit-font-smoothing: antialiased
 	// -moz-osx-font-smoothing: grayscale
@@ -256,9 +255,9 @@ t-th()
  *   typographic()
  */
 
-typographic()
+typographic() {
 
-	html, body
+	html, body {
 		height 100%
 		width 100%
 		font-family: $body-font
@@ -266,7 +265,8 @@ typographic()
 		color: $body-color
 
 		font-size: $html-font-size
-		line-height: ($line-height-ratio)em
+		line-height: ($line-height-ratio) em
+	}
 
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 	a, abbr, acronym, address, big, cite, code,
@@ -275,83 +275,111 @@ typographic()
 	b, u, i, center,
 	dl, dt, dd, ol, ul, li,
 	fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td, div, span, p
+	table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
 		t-reset()
+	}
 
 	p, blockquote, pre,
 	address,
 	dl, ol, ul,
-	table
+	table {
 		t-block()
+	}
 
-	p
+	p {
 		set-type()
+	}
 
-	h1, h2, h3, h4, h5, h6
+	h1, h2, h3, h4, h5, h6 {
 		font-family: $header-font
 		font-weight: $header-font-weight
 		clear: both
-	h1
+	}
+	h1 {
 		set-type(4)
-	h2
+	}
+	h2 {
 		set-type(3)
-	h3
+	}
+	h3 {
 		set-type(2)
-	h4
+	}
+	h4 {
 		set-type(1)
-	h5
+	}
+	h5 {
 		set-type(0)
-	h6
+	}
+	h6 {
 		set-type(-1)
 		font-weight 500
+	}
 
-	blockquote
+	blockquote {
 		t-blockquote()
+	}
 
-	pre
+	pre {
 		t-pre()
+	}
 
-	code
+	code {
 		t-code()
+	}
 
-	big, small, sub, sup
+	big, small, sub, sup {
 		line-height: 0
+	}
 
-	abbr, acronym
+	abbr, acronym {
 		t-abbr()
+	}
 
-	address
+	address {
 		font-style: normal
+	}
 
-	dt
+	dt {
 		t-dt()
+	}
 
-	/*ul*/
+	/*ul {*/
 		/*padding-left: 1.1em*/
+	/*}*/
 
-	/*ol*/
+	/*ol {*/
 		/*padding-left: 1.4em*/
+	/*}*/
 
-	fieldset
+	fieldset {
 		t-fieldset()
+	}
 
-	legend
+	legend {
 		t-legend()
+	}
 
-	label
+	label {
 		t-label()
+	}
 
-	input[type="text"], input[type="email"], input[type="password"], textarea
+	input[type="text"], input[type="email"], input[type="password"], textarea {
 		t-input()
+	}
 
-	input[type="submit"], button
+	input[type="submit"], button {
 		t-button()
+	}
 
-	table
+	table {
 		t-table()
+	}
 
-	th
+	th {
 		t-th()
+	}
 
-	td
+	td {
 		t-td()
+	}
+}

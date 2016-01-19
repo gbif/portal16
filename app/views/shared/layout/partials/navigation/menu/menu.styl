@@ -4,6 +4,11 @@
 			display block
 			padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(2)
 		}
+		.site_menu-home {
+			> * {
+				border-bottom  1px solid lighten($nav_drawer_bg, 5%)
+			}
+		}
 		.site_menu-home, .site_menu-1Level {
 			> a {
 				position relative
@@ -19,6 +24,10 @@
 					left 10px
 				}
 			}
+			a:hover {
+				background-color rgba(0,0,0,0.15)
+				/*color lighten($nav_drawer_color, 50%)*/
+			}
 			&.site_menu-get > a:before {
 				content $icon-string-map
 			}
@@ -30,20 +39,33 @@
 			}
 		}
 		.site_menu-1Level{
-			ul>li>ul li {
-				padding-left 10px
-				background darken($nav_drawer_bg, 10%)
+			ul>li>ul li>a {
+				padding-left vr-block(3)
+				background darken($nav_drawer_bg, 8%)
 			}
 		}
 		li {
-			&.isExpandable {
+			&.isCategory {
 				>a {
 					&:after {
-						content $icon-string-gb_plus
-						font-size (vr-block(1) /$major-third)
-						font-family gbificons
+						content '+'
+						font-size (vr-block(1) / $perfect-fifth)
+						font-family 'Helvetica'//gbificons
 						position absolute
 						right 10px
+					}
+				}
+				> ul, >div>ul {
+					display none
+				}
+				&.isExpanded {
+					>a {
+						&:after {
+							content '–'
+						}
+					}
+					> ul, >div>ul {
+						display block
 					}
 				}
 			}
@@ -57,9 +79,10 @@
 +isAbove($laptop) {
 	.site_menu-main {
 		absolute(top left)
-		>ul li {
-			float left
-			margin 0
+		.site_menu-home {
+			>ul, >ul>li {
+				float left
+			}
 		}
 		.site_menu-home {
 			> a {
@@ -80,9 +103,6 @@
 					font-family 'gbificons'
 				}
 			}
-			> ul {
-				float left
-			}
 		}
 		.site_menu-1Level {
 			/*font-size 16px*/
@@ -97,7 +117,7 @@
 		> ul, div > ul {
 			display none
 		}
-		&.isActive, &:hover {
+		&.isExpanded, &:hover {
 			position relative
 			> ul, > div > ul > li {
 				padding vr-block(0.5) 0
@@ -129,17 +149,20 @@
 		}
 	}
 
-	.site_menu-mega.site_menu-1Level.isActive, .site_menu-mega.site_menu-1Level:hover {
+	.site_menu-mega.site_menu-1Level.isExpanded, .site_menu-mega.site_menu-1Level:hover {
 		> div {
 			display block
 			fixed(left 0 top vr-block(3) right 0)
+			/*max-width vr-block(40)*/
 			background $navbar_dropdown_bg
 			padding 0 vr-block(1) *$perfect-fourth
 			> ul {
 				width 100%
+				display block
 				position initial
 				> li {
 					lost-column 1 / 4 0 0
+					max-width vr-block(12)
 					> a {
 						color $c_navbar_text
 					}

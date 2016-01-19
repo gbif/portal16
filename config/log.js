@@ -1,5 +1,11 @@
 var bunyan = require('bunyan'),
-    PrettyStream = require('bunyan-prettystream');
+    fs = require('fs'),
+    PrettyStream = require('bunyan-prettystream'),
+    dir = './log';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
 
 var prettyStdOut = new PrettyStream();
 prettyStdOut.pipe(process.stdout);
