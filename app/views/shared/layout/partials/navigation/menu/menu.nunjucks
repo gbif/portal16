@@ -4,7 +4,7 @@
             <li class="site_menu-home">
                 <a href="/">Home</a>
                 <ul>
-                    <li class="site_menu-1Level isCategory site_menu-get ">
+                    <li class="site_menu-1Level isCategory site_menu-get">
                         <a href="#">
                             Get data
                         </a>
@@ -36,7 +36,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="site_menu-1Level isCategory isExpanded site_menu-about site_menu-mega ">
+                    <li class="site_menu-1Level isCategory isExpandedX site_menu-about site_menu-mega ">
                         <a href="#">
                             About
                         </a>

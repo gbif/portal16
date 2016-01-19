@@ -1,6 +1,6 @@
 <section class="site_navbar">
 
-    <div class="site_navbar-links isActive">
+    <div class="site_navbar-links" id="site_navbar-links">
         <div class="site_navbar-options">
             {% include "./search/search.nunjucks" %}
 
@@ -14,13 +14,13 @@
     </div>
 
     <div class="site_navbar-mobile">
-        <div class="site_navbar-toggleMenu navbar_action">
+        <div class="site_navbar-toggleMenu navigation_toggle navbar_action">
             <a href="#" class="gb-icon-menu">
                 {#<div class="icon-menu"></div>#}
                 <span>Menu</span>
             </a>
         </div>
-        <div class="site_navbar-logo navbar_action">
+        <div class="site_navbar-logo navbar_action navigation_toggle">
             <a href="#" class="gb-icon-logo">
                 <span>GBIF</span>
             </a>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-
+    <section class="nav_search"></section>
 </section>
 
 

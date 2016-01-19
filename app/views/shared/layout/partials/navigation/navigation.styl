@@ -1,6 +1,8 @@
 @import "brand/_brand"
 $site_navbarLinksTop = $navbar_height+$navbar_borderWidth
 
+
+
 navbar_action_icon()
 	display inline-block
 	padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
@@ -43,6 +45,11 @@ navbar_action_icon()
 			text-align center
 		&.site_navbar-search
 			text-align right
+		&.site_navbar-toggleMenu.isActive>a:before {
+			content $icon-string-close
+			font-size vr-block(2)//TODO
+		}
+
 .site_navbar
 	ul, li
 		margin 0

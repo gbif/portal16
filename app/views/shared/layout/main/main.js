@@ -24,19 +24,18 @@ function stackTrace() {
     return err.stack;
 }
 
-window.onerror = function(msg, file, line, col, error) {
-    $.post('/api/log/error', {
-        msg: msg,
-        file: file,
-        line: line,
-        col: col,
-        error: error,
-        stack: stackTrace()
-    });
-    return false; //still write error to console
-};
+//window.onerror = function(msg, file, line, col, error) {
+//    $.post('/api/log/error', {
+//        msg: msg,
+//        file: file,
+//        line: line,
+//        col: col,
+//        error: error,
+//        stack: stackTrace()
+//    });
+//    return false; //still write error to console
+//};
 
-var fail = 5*'sdf'
 // console.log('test');
 // window.mytest = $('.navbar');
 // menu.tester();
@@ -68,10 +67,36 @@ module.exports = {
         }
     };
 
+    gb.addEventListenerAll = function(selector, eventName, handler) {
+        gb.forEachElement(selector, function(el){
+            gb.addEventListener(el, eventName, handler);
+        })
+    };
+
     gb.forEachElement = function(selector, fn) {
         var elements = document.querySelectorAll(selector);
         for (var i = 0; i < elements.length; i++)
             fn(elements[i], i);
+    };
+
+    gb.toggleClass = function(el, className) {
+        if (el.classList) {
+            el.classList.toggle(className);
+        } else {
+            var classes = el.className.split(' ');
+            var existingIndex = -1;
+            for (var i = classes.length; i--;) {
+                if (classes[i] === className)
+                    existingIndex = i;
+            }
+
+            if (existingIndex >= 0)
+                classes.splice(existingIndex, 1);
+            else
+                classes.push(className);
+
+            el.className = classes.join(' ');
+        }
     };
 
 
@@ -83,8 +108,8 @@ module.exports = {
     }
 })(window);
 
-gb.forEachElement('.site_navbar-toggleMenu', function(e, i){
-    gb.addEventListener(e, 'click', function(){
-        alert('hej fra gb lib')
-    });
+
+gb.addEventListenerAll('.navigation_toggle', 'click', function(){
+    gb.toggleClass(this, 'isActive');
+    gb.toggleClass(document.getElementById('site_navbar-links'), 'isActive');
 });
