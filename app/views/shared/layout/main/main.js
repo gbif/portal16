@@ -113,3 +113,12 @@ gb.addEventListenerAll('.navigation_toggle', 'click', function(){
     gb.toggleClass(this, 'isActive');
     gb.toggleClass(document.getElementById('site_navbar-links'), 'isActive');
 });
+
+gb.addEventListenerAll('.isCategory>a', 'click', function(){
+    gb.toggleClass(this.parentElement, 'isExpanded');
+});
+
+gb.addEventListenerAll('.site_navbar-search-toggle', 'click', function(){
+    gb.toggleClass(this, 'isActive');
+    gb.toggleClass(document.getElementById('navbar_search_area'), 'isActive');
+});

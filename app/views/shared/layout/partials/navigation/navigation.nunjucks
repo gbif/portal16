@@ -1,38 +1,132 @@
-<section class="site_navbar">
+<header>
+    <section class="site_navbar">
 
-    <div class="site_navbar-links" id="site_navbar-links">
-        <div class="site_navbar-options">
-            {% include "./search/search.nunjucks" %}
+        <div class="site_navbar-links" id="site_navbar-links">
+            <div class="site_navbar-options">
+                {% include "./search/search.nunjucks" %}
 
-            {% include "./profile/profile.nunjucks" %}
+                {% include "./profile/profile.nunjucks" %}
 
-            {% include "./settings/settings.nunjucks" %}
+                {% include "./settings/settings.nunjucks" %}
+            </div>
+            <div class="site_navbar-menu">
+                {% include "./menu/menu.nunjucks" %}
+            </div>
         </div>
-        <div class="site_navbar-menu">
-            {% include "./menu/menu.nunjucks" %}
-        </div>
-    </div>
 
-    <div class="site_navbar-mobile">
-        <div class="site_navbar-toggleMenu navigation_toggle navbar_action">
-            <a href="#" class="gb-icon-menu">
-                {#<div class="icon-menu"></div>#}
-                <span>Menu</span>
-            </a>
+        <div class="site_navbar-mobile">
+            <div class="site_navbar-toggleMenu navigation_toggle navbar_action">
+                <a href="#" class="gb-icon-menu">
+                    <span>Menu</span>
+                </a>
+            </div>
+            <div class="site_navbar-logo navbar_action navigation_toggle">
+                <a href="#" class="gb-icon-logo">
+                    <span>GBIF</span>
+                </a>
+            </div>
+            <div class="site_navbar-search navbar_action">
+                <a href="#" class="gb-icon-search site_navbar-search-toggle">
+                    <span>Search</span>
+                </a>
+            </div>
         </div>
-        <div class="site_navbar-logo navbar_action navigation_toggle">
-            <a href="#" class="gb-icon-logo">
-                <span>GBIF</span>
-            </a>
-        </div>
-        <div class="site_navbar-search navbar_action">
-            <a href="#" class="gb-icon-search">
-                <span>Search</span>
-            </a>
-        </div>
-    </div>
 
-    <section class="nav_search"></section>
-</section>
+        <section class="nav_search"></section>
+    </section>
+    <section class="search" id="navbar_search_area">
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>a</p>
+        <p>aaaaa</p>
+        <p>aaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>aaaaa</p>
+        <p>sodiufy siudf skhjdgf kjhgs kdjhfgksjhdgfk jshdgf </p>
+    </section>
+</header>
 
 

@@ -1,8 +1,25 @@
-Xheader{
-	height 100px
-	background pink
-	position fixed
+header {
+	z-index 100
 }
+header>.search {
+	/*display none*/
+	position fixed
+	bottom 0
+	top vr-block(3)
+	width 100%
+	background green//rgba(200,100,100,1.0)
+	position fixed
+	overflow auto
+	z-index 100
+	display none
+	&.isActive {
+		display block
+	}
+}
+.site_navbar-search-toggle.isActive:before {
+	content 'X'
+}
+
 /* LAPTOPS */
 +isAbove($laptop)
 	.nav_search

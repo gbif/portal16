@@ -24,7 +24,7 @@
 					left 10px
 				}
 			}
-			a:hover {
+			a:hover, a.isActive {
 				background-color rgba(0,0,0,0.15)
 				/*color lighten($nav_drawer_color, 50%)*/
 			}
@@ -39,6 +39,9 @@
 			}
 		}
 		.site_menu-1Level{
+			ul>li>a {
+				color darken($nav_drawer_color, 20%)
+			}
 			ul>li>ul li>a {
 				padding-left vr-block(3)
 				background darken($nav_drawer_bg, 8%)
@@ -91,6 +94,7 @@
 				width 0
 				margin 0 vr-block(1.5)
 				overflow hidden
+				height vr-block(2.75)
 				&:before {
 					content $icon-string-logo
 					display block

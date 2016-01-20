@@ -7,7 +7,7 @@ var config = {
     development: {
         root: rootPath,
         app: {
-            name: 'mvc - dev'
+            name: 'portal - dev'
         },
         port: 3000,
         log: log
@@ -16,7 +16,7 @@ var config = {
     test: {
         root: rootPath,
         app: {
-            name: 'mvc - test'
+            name: 'portal - test'
         },
         port: 3000,
         log: log
@@ -25,7 +25,7 @@ var config = {
     production: {
         root: rootPath,
         app: {
-            name: 'mvc - prod'
+            name: 'portal - prod'
         },
         port: 3000,
         log: log
