@@ -5,12 +5,12 @@
                 <a href="/">Home</a>
                 <ul>
                     <li class="site_menu-1Level isCategory site_menu-get">
-                        <a href="#get data">
+                        <a href="#">
                             Get data
                         </a>
                         <ul>
                             <li>
-                                <a href="#">Ocurrences</a>
+                                <a href="/Ocurrences">Ocurrences</a>
                             </li>
                             <li>
                                 <a href="#">Species</a>

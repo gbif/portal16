@@ -1,23 +1,35 @@
 header {
 	z-index 100
 }
-header>.search {
-	/*display none*/
-	position fixed
-	bottom 0
+header>.navbar_search_area {
 	top vr-block(3)
 	width 100%
-	background green//rgba(200,100,100,1.0)
+	right 0
+	min-height 100%
 	position fixed
-	overflow auto
-	z-index 100
+	background $navbar_horizontal_color
+	/*z-index 100*/
 	display none
 	&.isActive {
 		display block
 	}
+	> input {
+		border none
+		/*border-bottom 1px solid lighten($Plum, 50%)*/
+		margin auto
+		height vr-block(3)
+		width 80%
+		background none
+		color $Plum
+		font-size vr-block(1)
+		&:focus {
+			outline none
+		}
+	}
 }
+
 .site_navbar-search-toggle.isActive:before {
-	content 'X'
+	@extends .icon-close
 }
 
 /* LAPTOPS */

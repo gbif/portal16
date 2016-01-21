@@ -2,7 +2,7 @@
 	.site_navbar .site_menu-main {
 		a {
 			display block
-			padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(2)
+			padding vr-block(0.5) vr-block(1) vr-block(0.5) vr-block(2)
 		}
 		.site_menu-home {
 			> * {
@@ -14,14 +14,15 @@
 				position relative
 				&:before {
 					speak none
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
+					-webkit-font-smoothing antialiased
+					-moz-osx-font-smoothing grayscale
 
 					content $icon-string-home
 					font-size vr-block(1)
 					font-family gbificons
 					position absolute
 					left 10px
+					top vr-block(0.25)
 				}
 			}
 			a:hover, a.isActive {

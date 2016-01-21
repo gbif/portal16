@@ -1,8 +1,6 @@
 @import "brand/_brand"
 $site_navbarLinksTop = $navbar_height+$navbar_borderWidth
 
-
-
 navbar_action_icon()
 	display inline-block
 	padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
@@ -19,6 +17,9 @@ navbar_action_icon()
 	>span
 		font-size (100/$major-third)%
 
+.icon-close {
+	content $icon-string-close_L
+}
 
 +isBelow($laptop) {
 	.site_navbar-options {
@@ -46,8 +47,7 @@ navbar_action_icon()
 		&.site_navbar-search
 			text-align right
 		&.site_navbar-toggleMenu.isActive>a:before {
-			content $icon-string-close
-			font-size vr-block(2)//TODO
+			@extends .icon-close
 		}
 
 .site_navbar
@@ -55,7 +55,7 @@ navbar_action_icon()
 		margin 0
 	fixed(top)
 	width 100%
-	background-color $c_main
+	background-color $navbar_horizontal_color
 	border-bottom solid (vr-block(0.25)+1) $c_sec
 	color $c_navbar_text
 	a

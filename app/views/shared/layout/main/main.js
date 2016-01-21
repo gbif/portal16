@@ -99,6 +99,13 @@ module.exports = {
         }
     };
 
+    gb.removeClass = function(el, className) {
+        if (el.classList)
+            el.classList.remove(className);
+        else
+            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    };
+
 
     //Expose the gbif helper object globally
     if (global.gb) {
@@ -109,16 +116,41 @@ module.exports = {
 })(window);
 
 
-gb.addEventListenerAll('.navigation_toggle', 'click', function(){
+var searchToggleSelector = '.site_navbar-search-toggle',
+    navToggleSelector = '.navigation_toggle';
+
+gb.addEventListenerAll(navToggleSelector, 'click', function(){
     gb.toggleClass(this, 'isActive');
     gb.toggleClass(document.getElementById('site_navbar-links'), 'isActive');
+
+    //Close search
+    gb.forEachElement(searchToggleSelector, function(el){
+        gb.removeClass(el, 'isActive');
+    });
+    var searchAreaEl = document.getElementById('navbar_search_area');
+    gb.removeClass(searchAreaEl, 'isActive');
 });
 
 gb.addEventListenerAll('.isCategory>a', 'click', function(){
     gb.toggleClass(this.parentElement, 'isExpanded');
 });
 
-gb.addEventListenerAll('.site_navbar-search-toggle', 'click', function(){
-    gb.toggleClass(this, 'isActive');
-    gb.toggleClass(document.getElementById('navbar_search_area'), 'isActive');
+
+
+gb.addEventListenerAll(searchToggleSelector, 'click', function(){
+    gb.forEachElement(searchToggleSelector, function(el){
+        gb.toggleClass(el, 'isActive');
+    });
+
+    var searchAreaEl = document.getElementById('navbar_search_area');
+    gb.toggleClass(searchAreaEl, 'isActive');
+    searchAreaEl.querySelector('input').focus();
+
+    //close menu
+    gb.forEachElement(navToggleSelector, function(el){
+        gb.removeClass(el, 'isActive');
+    });
+    gb.removeClass(document.getElementById('site_navbar-links'), 'isActive');
 });
+
+

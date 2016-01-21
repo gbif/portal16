@@ -257,7 +257,7 @@ t-th()
 
 typographic() {
 
-	html, body {
+	html {
 		height 100%
 		width 100%
 		font-family: $body-font
@@ -266,6 +266,9 @@ typographic() {
 
 		font-size: $html-font-size
 		line-height: ($line-height-ratio) em
+	}
+	body {
+		min-height 100%
 	}
 
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
