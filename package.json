@@ -1,6 +1,9 @@
 {
-  "name": "mvc",
+  "name": "gbif-portal16",
   "version": "0.0.1",
+  "description": "GBIFs main website",
+  "author": "GBIF secretariat <info@gbif.org>",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node app.js",
@@ -77,5 +80,16 @@
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "postcss-unmq": "^1.0.2"
-  }
+  },
+"repository": {
+    "type": "git",
+    "url": "https://github.com/gbif/portal16"
+},
+    "bugs": {
+    "url": "http://dev.gbif.org/issues/browse/PL"
+},
+    "keywords": [
+    "gbif"
+    ],
+    "license": "Apache 2.0"
 }

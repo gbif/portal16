@@ -121,58 +121,68 @@
 		}
 	}
 
-	.site_menu-1Level {
-		> ul, div > ul {
+	.site_navbar .site_menu-1Level {
+		position relative
+
+		>div {
 			display none
 		}
+		> ul, div > ul {
+			absolute()
+			display none
+			set-type()
+			top vr-block(3)
+			left 0
+			li {
+				background $navbar_dropdown_bg
+			}
+			li a {
+				color #555
+				padding 0 vr-block(1)
+				display block
+				overflow hidden
+				width auto
+				max-width vr-block(10)
+				white-space nowrap
+				text-overflow ellipsis
+			}
+		}
 		&:hover {
-			position relative
+			> ul, >div>ul, >div {
+				display block
+			}
+		}
+		> ul {
+			li:first-of-type {
+			padding-top vr-block(0.5)
+		}
+			li:last-of-type {
+				padding-bottom vr-block(0.5)
+			}
+		}
+		&:hover {
 			&:before {
 				content ''
 				position absolute;
-				width 900%
+				width 900px
 				height vr-block(1)
-				left -300%
+				left -300px
 				top vr-block(2)
 			}
 			>a:after {
 				content ''
 				position absolute;
-				width vr-block(1)
+				width vr-block(15)
 				height vr-block(3)
-				right -(vr-block(1))
+				right -(vr-block(15))
 				top 0
+				cursor default
 			}
-			> ul, div > ul {
-				set-type()
-				display block
-				absolute()
-				top vr-block(2)//vr-block(3)
-				padding-top vr-block(1)
-				li {
-					background $navbar_dropdown_bg
-				}
-				li a {
-					color #555
-					padding 0 vr-block(1)
-					display block
-					overflow hidden
-					width vr-block(7)
-					text-overflow ellipsis
-				}
-			}
-			> ul {
-				li:first-of-type {
-				padding-top vr-block(0.5)
-			}
-				li:last-of-type {
-					padding-bottom vr-block(0.5)
-				}
-			}
+			
 			&:after {
 				position absolute
 				bottom -(1 + vr-block(0.25))
-				left 50%
+				left vr-block(2)//50%
 				margin-left -(vr-block(0.25) * 2)
 				content ''
 				triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
@@ -180,17 +190,15 @@
 		}
 	}
 
-	.site_menu-mega.site_menu-1Level:hover{
+	.site_menu-mega.site_menu-1Level{
 		> div {
-			display block
 			fixed(left 0 top vr-block(3) right 0)
 			/*max-width vr-block(40)*/
 			background $navbar_dropdown_bg
-			padding 0 vr-block(1) *$perfect-fourth
+			padding vr-block(0.5) vr-block(1) *$perfect-fourth
 			> ul {
-				width 100%
-				display block
 				position initial
+				width 100%
 				> li {
 					lost-column 1 / 4 0 0
 					max-width vr-block(12)

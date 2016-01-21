@@ -97,9 +97,11 @@ navbar_action_icon()
 				>div>a
 					navbar_action_icon()
 			.site_menu-1Level
-				&.isActive, &:hover
-					>ul, div>ul
-						left -(vr-block(3.5))
+				>ul
+					left auto
+					right 0
+				&:hover:after
+					left 50%
 
 
 
