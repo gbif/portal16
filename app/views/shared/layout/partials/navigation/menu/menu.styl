@@ -60,7 +60,9 @@
 					}
 				}
 				> ul, >div>ul {
-					display none
+					position relative
+					max-height 0
+					overflow hidden
 				}
 				&.isExpanded {
 					>a {
@@ -69,7 +71,8 @@
 						}
 					}
 					> ul, >div>ul {
-						display block
+						transition max-height 1.3s
+						max-height 1000px
 					}
 				}
 			}
@@ -122,18 +125,33 @@
 		> ul, div > ul {
 			display none
 		}
-		&.isExpanded, &:hover {
+		&:hover {
 			position relative
-			> ul, > div > ul > li {
-				padding vr-block(0.5) 0
+			&:before {
+				content ''
+				position absolute;
+				width 900%
+				height vr-block(1)
+				left -300%
+				top vr-block(2)
+			}
+			>a:after {
+				content ''
+				position absolute;
+				width vr-block(1)
+				height vr-block(3)
+				right -(vr-block(1))
+				top 0
 			}
 			> ul, div > ul {
 				set-type()
 				display block
 				absolute()
-				top vr-block(3)
-				background $navbar_dropdown_bg
-				/*left -(vr-block(3.5))*/
+				top vr-block(2)//vr-block(3)
+				padding-top vr-block(1)
+				li {
+					background $navbar_dropdown_bg
+				}
 				li a {
 					color #555
 					padding 0 vr-block(1)
@@ -141,6 +159,14 @@
 					overflow hidden
 					width vr-block(7)
 					text-overflow ellipsis
+				}
+			}
+			> ul {
+				li:first-of-type {
+				padding-top vr-block(0.5)
+			}
+				li:last-of-type {
+					padding-bottom vr-block(0.5)
 				}
 			}
 			&:after {
@@ -154,7 +180,7 @@
 		}
 	}
 
-	.site_menu-mega.site_menu-1Level.isExpanded, .site_menu-mega.site_menu-1Level:hover {
+	.site_menu-mega.site_menu-1Level:hover{
 		> div {
 			display block
 			fixed(left 0 top vr-block(3) right 0)

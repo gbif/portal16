@@ -131,9 +131,16 @@ gb.addEventListenerAll(navToggleSelector, 'click', function(){
     gb.removeClass(searchAreaEl, 'isActive');
 });
 
-gb.addEventListenerAll('.isCategory>a', 'click', function(){
-    gb.toggleClass(this.parentElement, 'isExpanded');
+
+gb.addEventListenerAll('.isCategory>a', 'click', function(event){
+    var children = this.parentNode.querySelectorAll('.isCategory');
+    for (var i = 0; i < children.length; i++) {
+        children[i].classList.remove('isExpanded');
+    }
+    this.parentNode.classList.toggle('isExpanded');
 });
+
+
 
 
 
