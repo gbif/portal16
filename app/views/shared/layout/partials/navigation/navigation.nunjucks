@@ -1,4 +1,7 @@
 <header>
+    <section class="navbar_search_area" id="navbar_search_area">
+        <input type="text" placeholder="Search">
+    </section>
     <section class="site_navbar">
 
         <div class="site_navbar-links" id="site_navbar-links">
@@ -32,9 +35,7 @@
             </div>
         </div>
     </section>
-    <section class="navbar_search_area" id="navbar_search_area">
-        <input type="text" placeholder="Search">
-    </section>
+
 </header>
 
 
