@@ -4,19 +4,22 @@
             <li class="site_menu-home">
                 <a href="/">Home</a>
                 <ul>
-                    <li class="site_menu-1Level isCategory site_menu-get">
+                    <li class="site_menu-1Level isCategory site_menu-get" tabindex="0">
                         <a href="#">
                             Get data
                         </a>
                         <ul>
                             <li>
-                                <a href="/Ocurrences">Ocurrences sdfjh kjhs sdkjh lsjkdhf lkjshdlfkjhsdkljfh aaaa</a>
+                                <a href="/Ocurrences">Ocurrences</a>
                             </li>
                             <li>
                                 <a href="#">Species</a>
                             </li>
                             <li>
                                 <a href="#">Data sets</a>
+                            </li>
+                            <li>
+                                <a href="#">Very long menu titles will be cropped</a>
                             </li>
                         </ul>
                     </li>
@@ -36,13 +39,13 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="site_menu-1Level isCategory site_menu-about site_menu-mega">
+                    <li class="site_menu-1Level isCategory site_menu-about site_menu-mega isExpanded">
                         <a href="#">
                             About
                         </a>
                         <div>
                             <ul>
-                                <li class="isCategory">
+                                <li class="isCategory isExpanded">
                                     <a href="#">Inside</a>
                                     <ul>
                                         <li>
@@ -65,7 +68,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="isCategory">
+                                <li class="isCategory isExpanded">
                                     <a href="#">Pressroom</a>
                                     <ul>
                                         <li>
@@ -87,7 +90,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="isCategory">
+                                <li class="isCategory isExpanded">
                                     <a href="#">Development</a>
                                     <ul>
                                         <li>

@@ -3,10 +3,11 @@
 		a {
 			display block
 			padding vr-block(0.5) vr-block(1) vr-block(0.5) vr-block(2)
+			line-height vr-block(1)
 		}
 		.site_menu-home {
 			> * {
-				border-bottom  1px solid lighten($nav_drawer_bg, 5%)
+				box-shadow 0 1px 0 lighten($nav_drawer_bg, 5%) //used instead of border to keep the height
 			}
 		}
 		.site_menu-home, .site_menu-1Level {
@@ -22,7 +23,7 @@
 					font-family gbificons
 					position absolute
 					left 10px
-					top vr-block(0.25)
+					top vr-block(0.5)
 				}
 			}
 			a:hover, a.isActive {
@@ -42,10 +43,11 @@
 		.site_menu-1Level{
 			ul>li>a {
 				color darken($nav_drawer_color, 20%)
+				/*padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(3)*/
 			}
 			ul>li>ul li>a {
-				padding-left vr-block(3)
 				background darken($nav_drawer_bg, 8%)
+				padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(3)
 			}
 		}
 		li {
@@ -114,10 +116,15 @@
 		}
 		.site_menu-1Level {
 			/*font-size 16px*/
-			display inline
+			display inline-block
 			set-type(0)
-			padding 0 vr-block(1)
-			line-height vr-block(2.75)
+			>a {
+				display inline-block
+				padding 0 vr-block(1)
+				line-height vr-block(2.75)
+				height vr-block(2.75)
+			}
+
 		}
 	}
 
@@ -147,7 +154,7 @@
 				text-overflow ellipsis
 			}
 		}
-		&:hover {
+		&.isExpanded {
 			> ul, >div>ul, >div {
 				display block
 			}
@@ -160,7 +167,7 @@
 				padding-bottom vr-block(0.5)
 			}
 		}
-		&:hover {
+		&.isExpanded {
 			&:before {
 				content ''
 				position absolute;

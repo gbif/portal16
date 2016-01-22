@@ -116,29 +116,32 @@ module.exports = {
 })(window);
 
 
-var searchToggleSelector = '.site_navbar-search-toggle',
-    navToggleSelector = '.navigation_toggle';
-
-gb.addEventListenerAll(navToggleSelector, 'click', function(){
-    gb.toggleClass(this, 'isActive');
-    gb.toggleClass(document.getElementById('site_navbar-links'), 'isActive');
-
-    //Close search
+var toggleMenu = function(){
+    //document.getElementById('site-header').classList.toggle('mobileMenuActive');
+    gb.toggleClass(document.getElementById('site-header'), 'mobileMenuActive');
+    var searchAreaEl = document.getElementById('navbar_search_area');
+    gb.removeClass(searchAreaEl, 'isActive');
     gb.forEachElement(searchToggleSelector, function(el){
         gb.removeClass(el, 'isActive');
     });
-    var searchAreaEl = document.getElementById('navbar_search_area');
-    gb.removeClass(searchAreaEl, 'isActive');
-});
+};
+var searchToggleSelector = '.site_navbar-search-toggle',
+    navToggleSelector = '.navigation_toggle';
+
+gb.addEventListenerAll(navToggleSelector, 'click', toggleMenu);
+gb.addEventListener(document.getElementById('content-overlay'), 'touchstart', toggleMenu);
 
 
 gb.addEventListenerAll('.isCategory>a', 'click', function(event){
-    var children = this.parentNode.querySelectorAll('.isCategory');
+    var children = this.parentNode.parentNode.querySelectorAll('.isCategory');
     for (var i = 0; i < children.length; i++) {
-        children[i].classList.remove('isExpanded');
+        if (children[i] != this.parentNode) {
+            children[i].classList.remove('isExpanded');
+        }
     }
     this.parentNode.classList.toggle('isExpanded');
 });
+
 
 
 
@@ -154,10 +157,5 @@ gb.addEventListenerAll(searchToggleSelector, 'click', function(){
     searchAreaEl.querySelector('input').focus();
 
     //close menu
-    gb.forEachElement(navToggleSelector, function(el){
-        gb.removeClass(el, 'isActive');
-    });
-    gb.removeClass(document.getElementById('site_navbar-links'), 'isActive');
+    gb.removeClass(document.getElementById('site-header'), 'mobileMenuActive');
 });
-
-

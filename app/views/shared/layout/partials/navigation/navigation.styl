@@ -25,6 +25,28 @@ navbar_action_icon()
 	.site_navbar-options {
 		display none
 	}
+
+	.site-header.mobileMenuActive {
+		.overlay {
+			/*background rgba(0,0,0,0.2)*/
+			position fixed
+			top vr-block(3)
+			bottom 0
+			left 0
+			right 0
+		}
+		.site_navbar-toggleMenu>a:before {
+			@extends .icon-close
+		}
+		.site_navbar-links {
+			left 0
+		}
+	}
+	/*body.locked {*/
+		/*position fixed*/
+		/*overflow hidden*/
+		/*height 100%*/
+	/*}*/
 }
 
 .site_navbar, .site_navbar a {
@@ -33,6 +55,7 @@ navbar_action_icon()
 
 .site_navbar .site_navbar-links, .site_navbar .site_navbar-links a {
 	color $nav_drawer_color
+	-webkit-overflow-scrolling touch
 }
 
 .site_navbar-mobile
@@ -46,14 +69,14 @@ navbar_action_icon()
 			text-align center
 		&.site_navbar-search
 			text-align right
-		&.site_navbar-toggleMenu.isActive>a:before {
-			@extends .icon-close
-		}
 
 .site_navbar
 	ul, li
 		margin 0
-	fixed(top)
+
+	/*fixed(top)*/ //TODO
+	position absolute
+
 	width 100%
 	background-color $navbar_horizontal_color
 	border-bottom solid (vr-block(0.25)+1) $c_sec
@@ -65,12 +88,13 @@ navbar_action_icon()
 		position fixed
 		top vr-block(3)
 		bottom 0
+		/*height 100%*/
 		width $drawer-width
 		background $nav_drawer_bg
 		overflow-y auto
 		left -($drawer-width)
-		&.isActive
-			left 0
+
+
 
 //LAPTOPS
 +isAbove($laptop)
@@ -86,6 +110,7 @@ navbar_action_icon()
 		}
 
 		.site_navbar-options
+			z-index 1
 			float right
 			position relative
 			>div
