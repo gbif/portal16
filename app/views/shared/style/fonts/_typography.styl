@@ -1,67 +1,9 @@
+
+
+
 // Inspired by https://github.com/corysimmons/typographic
-
-
-// Settings
-
-$line-height-ratio  = 1.5
-$header-ratio       = $golden
-$body-font          = $helvetica
-$body-font-weight   = 300
-$body-color         = #666
-$header-font        = $helvetica
-$header-font-weight = 300
-$header-color       = #111
-$font-base-size		= 16px
-$min-width          = 600px
-$max-width          = 1140px
-$vertical-rhythm    = true
-
-
-// Ratios
-// https://24ways.org/2011/composing-the-new-canon
-$minor-second   = 1.067
-$major-second   = 1.125
-$minor-third    = 1.2
-$major-third    = 1.25
-$perfect-fourth = 1.333
-$aug-fourth     = 1.414
-$perfect-fifth  = 1.5
-$minor-sixth    = 1.6
-$golden         = 1.618
-$major-sixth    = 1.667
-$minor-seventh  = 1.778
-$major-seventh  = 1.875
-$octave         = 2
-$major-tenth    = 2.5
-$major-eleventh = 2.667
-$major-twelfth  = 3
-$double-octave  = 4
-
-$html-font-size = 14px;
-$base-font-size = $html-font-size
-$base-line-height = $base-font-size * 1.5
-$font-base-size = $base-font-size
-
-
-
-$type-base-ratio = $perfect-fourth
-//small text, body text,large text, main heading, hero heading
-$type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
-type-scale($level)
-	return $type-scale[$level+1]
-
-$line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
-type-line-height($level)
-	return $line-heights[$level+1]
-
-set-type($level = 0)
-	font-size type-scale($level)*$base-font-size
-	/*font-size (type-scale($level))rem*/
-	line-height type-line-height($level)
-	/*line-height (type-line-height($level))rem*/
-
-
-
+// not done - edit as the site needs base styling.
+// Currently we do not know what we want the look to be and which libraries that might style elemets for us
 
 
 
@@ -100,6 +42,64 @@ $lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
 $palatino      = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
 
 
+
+
+// Settings
+
+$line-height-ratio  = 1.5
+$header-ratio       = $golden
+$body-font          = $helvetica
+$body-font-weight   = 300
+$body-color         = #666
+$header-font        = $helvetica
+$header-font-weight = 300
+$header-color       = #111
+$html-font-size         = 14px
+$base-line-height = ($line-height-ratio)rem
+
+// Ratios
+// https://24ways.org/2011/composing-the-new-canon
+$minor-second   = 1.067
+$major-second   = 1.125
+$minor-third    = 1.2
+$major-third    = 1.25
+$perfect-fourth = 1.333
+$aug-fourth     = 1.414
+$perfect-fifth  = 1.5
+$minor-sixth    = 1.6
+$golden         = 1.618
+$major-sixth    = 1.667
+$minor-seventh  = 1.778
+$major-seventh  = 1.875
+$octave         = 2
+$major-tenth    = 2.5
+$major-eleventh = 2.667
+$major-twelfth  = 3
+$double-octave  = 4
+
+
+
+
+
+
+
+$type-base-ratio = $perfect-fourth
+//small text, body text,large text, main heading, hero heading
+$type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
+type-scale($level)
+	return $type-scale[$level+1]
+
+$line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
+type-line-height($level)
+	return $line-heights[$level+1]
+
+set-type($level = 0)
+	font-size (type-scale($level))rem
+	line-height (type-line-height($level))rem
+
+
+
+
 // Helpers
 
 /**
@@ -115,7 +115,7 @@ $palatino      = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiq
 
 grid-overlay($color = black, $px-offset = false)
 	background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
-	background-size: 100% $base-line-height
+	background-size: 100% ($line-height-ratio)em//$base-line-height
 	if $px-offset
 		background-position: 0 unit($px-offset, 'px')
 
@@ -138,116 +138,6 @@ vr-block($units = 1, $px-offset = false)
 		return $units*$base-line-height
 
 
-// Typography Mixins
-
-t-reset() {
-	margin: 0
-	padding: 0
-	text-rendering: optimizeLegibility
-	// -webkit-font-smoothing: antialiased
-	// -moz-osx-font-smoothing: grayscale
-}
-
-t-block()
-	margin-bottom $base-line-height
-
-t-blockquote()
-	font-style: italic
-	cite
-		display: block
-		font-style: normal
-
-t-pre()
-	padding: vr-block(.5)
-	margin-bottom: vr-block(1)
-	code
-		padding: 0
-
-t-code()
-	font-family: $courier
-	padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
-	margin-bottom 0
-
-t-abbr()
-	border-bottom: 1px dotted currentColor
-	cursor: help
-
-t-dt()
-	color: $header-color
-	font-weight: bold
-
-t-fieldset()
-	padding: vr-block(.5) vr-block() vr-block()
-	border-width: 1px
-	border-style: solid
-	max-width: 100%
-	margin-bottom: vr-block(1, 1)
-
-	@media (min-width: $max-width)
-		margin-bottom: vr-block(1.25, -1)
-
-	button, input[type="submit"]
-		margin-bottom: 0
-
-t-legend()
-	color: $header-color
-	font-weight: bold
-
-t-label()
-	display: block
-	padding-bottom: vr-block(.125)
-	margin-bottom: vr-block(-.25, -10)
-
-t-input()
-	$local-min-font = $min-font
-	$local-max-font = $max-font
-
-	display: block
-	max-width: 100%
-	padding: vr-block(.25)
-
-	font-size: $local-min-font
-	margin-bottom: vr-block(.5, 7)
-
-t-button()
-	$local-min-font = $min-font
-	$local-max-font = $max-font
-
-	display: block
-	cursor: pointer
-
-	font-size: $local-min-font
-	padding: vr-block(.25) vr-block()
-	margin-bottom: vr-block(.75, -2)
-
-	@media (min-width: $min-width)
-		font-size: s('calc( %s + (%s - %s) * ((100vw - %s) / (%s - %s)) )', $local-min-font, remove-unit($local-max-font), remove-unit($local-min-font), $min-width, remove-unit($max-width), remove-unit($min-width))
-
-	@media (min-width: $max-width)
-		font-size: $local-max-font
-		margin-bottom: vr-block(.75)
-
-t-table()
-	width: 100%
-	border-spacing: 0
-	border-collapse: collapse
-	margin-bottom: vr-block(1)
-
-t-th()
-	text-align: left
-	color: $header-color
-
-	/*padding: vr-block(.125) vr-block(.5)*/
-
-	/*@media (min-width: $max-width)*/
-		/*padding: vr-block(.25) vr-block(.5)*/
-
-/*t-td()*/
-	/*padding: vr-block(.125) vr-block(.5)*/
-
-	/*@media (min-width: $max-width)*/
-		/*padding: vr-block(.25) vr-block(.5)*/
-
 /**
  * The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
  *
@@ -265,28 +155,33 @@ typographic() {
 		color: $body-color
 
 		font-size: $html-font-size
-		line-height: ($line-height-ratio) em
+		line-height: $line-height-ratio
 	}
 	body {
-		min-height 100%
+		// min-height 100%
+		text-rendering optimizeLegibility
 	}
 
-	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-	a, abbr, acronym, address, big, cite, code,
-	del, dfn, em, img, ins, kbd, q, s, samp,
-	small, strike, strong, sub, sup, tt, var,
-	b, u, i, center,
-	dl, dt, dd, ol, ul, li,
-	fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
-		t-reset()
+	//This meyer-like reset strikes me as too much. Clutters dev tools
+	// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	// a, abbr, acronym, address, big, cite, code,
+	// del, dfn, em, img, ins, kbd, q, s, samp,
+	// small, strike, strong, sub, sup, tt, var,
+	// b, u, i, center,
+	// dl, dt, dd, ol, ul, li,
+	// fieldset, form, label, legend,
+	// table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
+	//      t-reset()
+	// }
+	h1, h2, h3, h4, h5, h6, p, ul, ol {
+		margin 0
 	}
 
 	p, blockquote, pre,
 	address,
 	dl, ol, ul,
 	table {
-		t-block()
+		margin-bottom $base-line-height
 	}
 
 	p {
@@ -319,70 +214,92 @@ typographic() {
 	}
 
 	blockquote {
-		t-blockquote()
+		font-style: italic
+		cite {
+			display: block
+			font-style: normal
+		}
 	}
 
 	pre {
-		t-pre()
+		padding: vr-block(.5)
+		margin-bottom: vr-block(1)
+		code {
+			padding: 0
+		}
 	}
 
 	code {
-		t-code()
+		font-family: $courier
+		padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
+		margin-bottom 0
 	}
 
-	big, small, sub, sup {
-		line-height: 0
+	// big, small, sub, sup {
+	//      line-height: 0
+	// }
+
+	abbr[title] {
+		// border-bottom: 1px dotted currentColor // should be inherited from normalize
+		cursor: help
 	}
 
-	abbr, acronym {
-		t-abbr()
+	// address {
+	//      font-style: normal
+	// }
+
+	// dt {
+	//      color: $header-color
+	//      font-weight: bold
+	// }
+
+	ul,ol {
+		padding 0
 	}
 
-	address {
-		font-style: normal
-	}
+	// fieldset {
+	//      padding: vr-block(.5) vr-block() vr-block()
+	//      border-width: 1px
+	//      border-style: solid
+	//      max-width: 100%
+	//      margin-bottom: vr-block(1, 1)
+	//      button, input[type="submit"] {
+	//              margin-bottom: 0
+	//      }
+	// }
 
-	dt {
-		t-dt()
-	}
+	// legend {
+	//      color: $header-color
+	//      font-weight: bold
+	// }
 
-	/*ul {*/
-		/*padding-left: 1.1em*/
-	/*}*/
-
-	/*ol {*/
-		/*padding-left: 1.4em*/
-	/*}*/
-
-	fieldset {
-		t-fieldset()
-	}
-
-	legend {
-		t-legend()
-	}
-
-	label {
-		t-label()
-	}
+	// label {
+	//      display: block
+	// }
 
 	input[type="text"], input[type="email"], input[type="password"], textarea {
-		t-input()
+		display: block
+		max-width: 100%
 	}
 
 	input[type="submit"], button {
-		t-button()
+		display: block
+		cursor: pointer
 	}
 
 	table {
-		t-table()
+		width: 100%
+		border-spacing: 0
+		border-collapse: collapse
+		margin-bottom: vr-block(1)
 	}
 
 	th {
-		t-th()
+		text-align: left
+		color: $header-color
 	}
 
 	td {
-		t-td()
+		padding: vr-block(.125) vr-block(.5)
 	}
 }

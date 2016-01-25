@@ -31,14 +31,16 @@
 
 {#<link rel="stylesheet" type="text/css" href="css/vendor/vendor.css">#}
 
+<link rel="stylesheet" type="text/css" href="css/base/index.css">
 
 <!--[if !IE]> -->
-<link rel="stylesheet" type="text/css" href="css/base/index.css">
+
 <!-- <![endif]-->
 
 <!--[if IE]>
-<link rel="stylesheet" type="text/css" href="css/base/ie/index.css">
+
 <![endif]-->
+{#<link rel="stylesheet" type="text/css" href="css/base/ie/index.css">#}
 
 
 <!--[if lt IE 9]>

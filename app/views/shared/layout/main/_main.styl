@@ -1,0 +1,576 @@
+/*body {*/
+/*-webkit-tap-highlight-color rgba(0, 0, 0, 0)*/
+/*background $c_body*/
+/*height 100%*/
+/*overflow hidden*/
+/*}*/
+/*.page-wrapper {*/
+/*position relative*/
+/*height 100%*/
+/*overflow hidden*/
+/*}*/
+
+/*header,.site_navbar .site_navbar-links {*/
+/*z-index 1000*/
+/*}*/
+/*#main {*/
+/*height 100%*/
+/*z-index -10*/
+/*padding-top vr-block(3)*/
+/*}*/
+/*.main-content {*/
+/*overflow hidden*/
+/*overflow-y auto*/
+/*height 100%*/
+/*-webkit-overflow-scrolling touch*/
+/*}*/
+
+/*:focus {*/
+/*outline auto*/
+/*}*/
+
+
+
+
+
+
+
+
+html, body, #page-wrapper {
+	/*height 100%*/
+	width 100%
+	overflow hidden
+}
+
+header {
+	background: tomato;
+	position: absolute;
+	width: 100%;
+	height 75px
+	overflow hidden //purele visual
+}
+
+#menu {
+	height 100%
+	width 100%
+}
+
+nav {
+	overflow auto
+	-webkit-overflow-scrolling: touch;
+	height 100%
+	width 70%
+	background #333333
+	color white
+	a {
+		color white
+	}
+	position absolute
+	left -70%
+	top 0
+}
+
+main {
+	//position 0 simply to avoid reflows that could be expensive
+	position absolute
+	top 0
+
+	padding-top 75px
+	width 100%
+	height 100%
+	overflow hidden
+}
+
+.contentArea {
+	background yellow
+	position relative //to be pushable by the filter drawer
+	box-sizing border-box
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+	overflow auto
+}
+
+.category-toggle, .category-hide, .hide {
+	display none
+}
+
+.category-toggle ~ ul {
+	max-height 0
+	overflow hidden
+	margin 0
+}
+
+.category-toggle:checked {
+	~ ul {
+		transition: max-height 500ms ease;
+		max-height 500px
+	}
+	~ label {
+		display none
+	}
+	~ .hide {
+		display block
+	}
+}
+
+label:focus {
+	color blue
+}
+
+// .kap1 {
+//      display none
+//      &:target {
+//              display block
+//      }
+// }
+
++isBelow(500px) {
+	nav {
+		left -70%
+		label {
+			display block
+			margin 0
+		}
+		li {
+			min-height 30px
+		}
+	}
+
+	#menu {
+		transition: left 500ms ease;
+		position relative
+		width 100%
+		left 0%
+		&:target {
+			background pink
+			left 70%
+			.menu-link {
+				display none
+			}
+			.close-link {
+				display inline-block
+			}
+		}
+	}
+}
+
++isAbove(500) {
+	nav {
+		transform: translate3d(0, 0, 0)
+		top 0
+		left 0
+		z-index 100
+		height 75px
+		width 100%
+		overflow visible
+		padding-left 100px
+		li {
+			min-height 30px
+			display inline-block
+			label {
+				padding 0 20px
+			}
+			&.isCategory {
+				position initial
+				> ul {
+					margin-top 50px
+					display block
+					background pink
+					position absolute
+					li {
+						display block
+					}
+				}
+
+				&.isMega {
+					> ul {
+						left 0
+						right 0
+						width 100% //500px
+						padding 0 60px
+						> li {
+							padding-top 40px
+							lost-column: 1 / 2
+							// li {
+							//      display block
+							// }
+						}
+					}
+				}
+			}
+		}
+		.category-toggle:checked ~ .hide {
+			color yellow
+			&:after {
+				content ''
+				display: block;
+				position: fixed;
+				left: 0;
+				right: 0;
+				// background: #d13f19;
+				height: 5000px;
+
+			}
+		}
+	}
+}
+
+//Siteheader
+.SiteHeader {
+	.SiteHeader__mobileOptions {
+		> div {
+			width 33.33%
+			display block
+			float left
+		}
+
+		a {
+			//display inline-block //used?
+			padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
+			relative()
+			height vr-block(2.75)
+			&:before {
+				display block
+				width 100%
+				text-align center
+				absolute(top left)
+				set-type(2)
+				line-height vr-block(0)
+				margin-top vr-block(1)
+			}
+			> span {
+				font-size (100 /$major-third) %
+			}
+			&.site_navbar-logo {
+				text-align center
+			}
+			&.site_navbar-search {
+				text-align right
+			}
+		}
+	}
+}
+
+//service menu
++isBelow(500px) {
+	.ServiceMenu {
+		.ServiceMenu__teaser {
+			height 150px
+			width 100%
+			background red
+			position relative
+			.ServiceMenu__teaser__message {
+				position absolute
+				bottom 0
+			}
+		}
+	}
+}
+
+//only beacuse ther isn't a js service to load user and such yet.
+@keyframes fadeInOut {
+	0% {
+		opacity: 0;
+		right 50px
+	}
+	20% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	84% {
+		opacity: 1;
+	}
+	99% {
+		right 50px
+	}
+	100% {
+		opacity: 0;
+		right -9999px;
+	}
+}
+
++isAbove(500px) {
+	.ServiceMenu {
+		position absolute
+		right 0
+		li {
+			display inline-block
+		}
+		.ServiceMenu__teaser {
+			position absolute
+			top 100px
+			width auto
+			white-space nowrap
+			padding 10px
+			opacity 0
+			animation: fadeInOut 5s;
+			// transition: opacity 3s ease-in-out;
+			// opacity 0
+			background deepskyblue
+		}
+	}
+}
+
+//can there be multilayer menu and push on desktop
++isBelow(500px) {
+	.ServiceMenu > ul {
+		// position relative //include image drawer header?
+	}
+	.isOwnMenu {
+		left -100%
+		transition: left 500ms ease;
+		position absolute
+		top 0
+		background pink
+		width 100%
+		height 100%
+		> a {
+			background #333
+			display block //visual
+			&:before {
+				content 'back '
+			}
+		}
+		&.isActive {
+			left 0%
+		}
+	}
+}
+
++isAbove(500px) {
+	.isOwnMenu {
+		> ul {
+			top 75px
+			right -300px
+			transition: right 500ms ease;
+			position absolute
+			background pink
+			width 300px
+			height calc(100vh - 75px)
+			> a {
+				background #333
+				display block //visual
+				&:before {
+					content 'back '
+				}
+			}
+		}
+		&.isActive > ul {
+			right 0px
+		}
+	}
+}
+
+#search {
+	//position 0 simply to avoid reflows that could be expensive
+	position absolute
+	top 0
+	z-index 10
+	width 100%
+	padding-top: 75px;
+	display none
+	background grey
+	height 100%
+	&:target {
+		display block
+		+ .main {
+			left 100%
+		}
+	}
+	.Search-content {
+		overflow auto
+		height: 100%;
+		-webkit-overflow-scrolling: touch;
+		overflow: auto;
+	}
+}
+
++isBelow(500px) {
+	.contentArea__tabs {
+		width 100%
+		background pink
+		height 30px
+		overflow hidden
+		ol {
+			max-width 100%
+			white-space: nowrap
+			overflow hidden
+			overflow-x auto
+			height 54px
+		}
+		li {
+			display inline-block
+			padding 10px
+			margin 0 5px
+		}
+	}
+}
+
++isAbove(500px) {
+	.contentArea__tabs {
+		z-index 1
+		background deepskyblue
+		position absolute
+		height 100%
+		overflow auto
+		overflow-x hidden
+		width 85px
+		ol {
+			max-height 100%
+		}
+		li {
+			width 75px
+			display block
+			height 100px
+			background darksalmon
+			margin 10px 0
+		}
+	}
+
+	.contentArea__main {
+		overflow auto
+		height 100%
+		padding-left 75px
+		padding-left 85px
+	}
+}
+
+//use sibling elements
+.contentArea {
+	right 0%
+	transition: right 500ms ease;
+}
+
+main > aside {
+	box-sizing border-box
+	width 90%
+	position absolute
+	padding-top 75px
+	top 0
+	transition: right 500ms ease;
+	height 100%
+	right -20%
+	background pink
+	overflow hidden
+	> div {
+		height 100%
+		background #333
+		color #ddd
+		overflow auto
+		-webkit-overflow-scrolling touch
+	}
+	&:target {
+		right 0%
+		~ .contentArea {
+			right 90%
+		}
+	}
+}
+
++isAbove(500px) {
+	main > aside {
+		right initial
+		left -200px
+		width 200px
+		transition: left 500ms ease;
+		~ .contentArea {
+			transition: left 500ms ease;
+			left 0
+		}
+		&:target {
+			right initial
+			left 0
+			~ .contentArea {
+				right initial
+				left 200px
+			}
+		}
+		&.isLocked {
+			z-index 10
+			transition initial
+			left 0
+			~ .contentArea {
+				padding-left 200px
+			}
+			&:target ~ .contentArea {
+				left 0
+			}
+		}
+	}
+}
+
+
+
+
+
+body {
+	/*scrollbar-face-color: #b46868;*/
+
+	/*scrollbar-base-color: #222;*/
+	/*scrollbar-3dlight-color: #222;*/
+	/*scrollbar-highlight-color: #222;*/
+	/*scrollbar-track-color: #3e3e42;*/
+	/*scrollbar-arrow-color: #111;*/
+	/*scrollbar-shadow-color: #222;*/
+	/*scrollbar-dark-shadow-color: #222;*/
+
+	/*-ms-overflow-style: -ms-autohiding-scrollbar;*/
+}
+::-webkit-scrollbar
+{
+	width: 8px;  /* for vertical scrollbars */
+	height: 8px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+	background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+	background: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/*::-webkit-scrollbar {*/
+	/*width: 10px;*/
+/*}  //this targets the default scrollbar (compulsory)*/
+
+/*::-webkit-scrollbar-track {*/
+	/*background-color: #b46868;*/
+/*}  //the new scrollbar will have a flat appearance with the set background color*/
+
+/*::-webkit-scrollbar-thumb {*/
+	/*background-color: rgba(0, 0, 0, 0.2);*/
+/*}  //this will style the thumb, ignoring the track*/
+
+/*::-webkit-scrollbar-button {*/
+	/*background-color: #7c2929;*/
+/*}  //optionally, you can style the top and the bottom buttons (left and right for horizontal bars)*/
+
+/*::-webkit-scrollbar-corner {*/
+	/*background-color: black;*/
+/*}  //if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled*/
+
+
+
+/*::-webkit-scrollbar {*/
+	/*height: 12px;*/
+	/*width: 12px;*/
+	/*background: #000;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+	/*background: rgba(0,0,0,0.9);*/
+	/*-webkit-border-radius: 1ex;*/
+	/*-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);*/
+/*}*/
+
+/*::-webkit-scrollbar-corner {*/
+	/*background: #000;*/
+/*}*/
