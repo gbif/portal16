@@ -8,4 +8,6 @@ isBelow($mediaSize)
 	@media screen and (max-width: $mediaSize)
 		{block}
 
-
+isBetween($mediaSizeMin, $mediaSizeMax)
+	@media screen and (min-width: $mediaSizeMin+1px) and (max-width: $mediaSizeMax)
+		{block}

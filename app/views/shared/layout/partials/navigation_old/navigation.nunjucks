@@ -1,0 +1,46 @@
+<header id="site-header" class="site-header mobileMenuActiveX">
+
+    <section class="navbar_search_area" id="navbar_search_area">
+        <form>
+            <input type="search" placeholder="Search" name="site_search">
+            <input type="submit">
+        </form>
+    </section>
+    <div class="overlay navigation_toggle" id="content-overlay"></div>
+    <section class="site_navbar">
+
+        <div class="site_navbar-links" id="site_navbar-links">
+            <div class="site_navbar-options">
+                {% include "./search/search.nunjucks" %}
+
+                {% include "./profile/profile.nunjucks" %}
+
+                {% include "./settings/settings.nunjucks" %}
+            </div>
+            <div class="site_navbar-menu">
+                {% include "./menu/menu.nunjucks" %}
+            </div>
+        </div>
+
+        <div class="site_navbar-mobile">
+            <div class="site_navbar-toggleMenu navigation_toggle navbar_action">
+                <a href="#" class="gb-icon-menu">
+                    <span>Menu</span>
+                </a>
+            </div>
+            <div class="site_navbar-logo navbar_action">
+                <a href="/" class="gb-icon-logo">
+                    <span>GBIF</span>
+                </a>
+            </div>
+            <div class="site_navbar-search navbar_action">
+                <a href="#" class="gb-icon-search site_navbar-search-toggle">
+                    <span>Search</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</header>
+
+

@@ -54,6 +54,7 @@ header {
 	width: 100%;
 	height 75px
 	overflow hidden //purele visual
+	z-index 100
 }
 
 #menu {
@@ -94,11 +95,11 @@ main {
 	-webkit-overflow-scrolling: touch;
 	overflow auto
 }
-+isAbove(500px) {
++isAbove($laptop) {
 	.contentArea {
-		height: initial	
+		height: initial
 	}
-	
+
 }
 
 .category-toggle, .category-hide, .hide {
@@ -129,7 +130,7 @@ label:focus {
 }
 
 
-+isBelow(500px) {
++isBelow($laptop) {
 	nav {
 		left -($mobiledrawer-width)
 		label {
@@ -142,20 +143,13 @@ label:focus {
 	}
 
 	#menu {
-		moveX(0)
-		transition: 300ms ease all;
-		backface-visibility: hidden;
-		
-		// transition: left 500ms ease;
+		transition: left 500ms ease;
 		position relative
 		width 100%
-		// left 0%
+		left 0
 		&:target {
 			background pink
-			
-
-			// left 70%
-			moveX($mobiledrawer-width)
+			left $mobiledrawer-width
 
 			.menu-link {
 				display none
@@ -167,7 +161,7 @@ label:focus {
 	}
 }
 
-+isAbove(500) {
++isAbove($laptop) {
 	nav {
 		top 0
 		left 0
@@ -265,7 +259,7 @@ label:focus {
 }
 
 //service menu
-+isBelow(500px) {
++isBelow($laptop) {
 	.ServiceMenu {
 		.ServiceMenu__teaser {
 			height 150px
@@ -304,7 +298,7 @@ label:focus {
 	}
 }
 
-+isAbove(500px) {
++isAbove($laptop) {
 	.ServiceMenu {
 		position absolute
 		right 0
@@ -327,7 +321,7 @@ label:focus {
 }
 
 //can there be multilayer menu and push on desktop
-+isBelow(500px) {
++isBelow($laptop) {
 	.ServiceMenu > ul {
 		// position relative //include image drawer header?
 	}
@@ -352,7 +346,7 @@ label:focus {
 	}
 }
 
-+isAbove(500px) {
++isAbove($laptop) {
 	.isOwnMenu {
 		> ul {
 			top 75px
@@ -400,7 +394,9 @@ label:focus {
 	}
 }
 
-+isBelow(500px) {
+
+
++isBelow($laptop) {
 	.contentArea__tabs {
 		width 100%
 		background pink
@@ -421,7 +417,7 @@ label:focus {
 	}
 }
 
-+isAbove(500px) {
++isAbove($laptop) {
 	.contentArea__tabs {
 		z-index 1
 		background deepskyblue
@@ -450,31 +446,26 @@ label:focus {
 	}
 }
 
+
+
+//FILTERS
+
 //use sibling elements
 .contentArea {
-	right 0%
+	right 0
 	transition: right 500ms ease;
-	// moveX(0)
-	// transition: 300ms ease all;
-	// backface-visibility: hidden;
 }
 
 main > aside {
 	right 0
-	box-sizing border-box
-	width 90%//$mobiledrawer-width
+	width $mobiledrawer-width
 	position absolute
-	padding-top 75px
-	top 0
+	top 0px
 	transition: right 500ms ease;
-	height 100%
-	right -20%
-	
-	// moveX( 50px)
-	// transition: 300ms ease all;
-	// backface-visibility: hidden;
-		
-	
+	height 100%;
+	right 0
+	padding-top: 75px
+
 	background pink
 	overflow hidden
 	> div {
@@ -485,23 +476,39 @@ main > aside {
 		-webkit-overflow-scrolling touch
 	}
 	&:target {
-		right 0
-		// moveX(0)
 		~ .contentArea {
-			right 90%
-			// moveX(-($mobiledrawer-width))
+			right $mobiledrawer-width
 			overflow hidden
 		}
 	}
 }
 
-+isAbove(500px) {
++isBelow($laptop) {
+	.toggleDrawer {
+		position fixed
+		top 100px
+		right 50px
+		z-index 10
+		width 50px
+		height 50px
+		background red
+	}
+}
+
+
+
+
++isAbove($laptop) {
 	main > aside {
+		z-index 100
 		right initial
 		left -200px
 		width 200px
 		transition: left 500ms ease;
 		position fixed
+		height calc(100vh - 75px)
+		padding-top 0
+		top 75px
 		~ .contentArea {
 			transition: left 500ms ease;
 			left 0
@@ -509,10 +516,10 @@ main > aside {
 		&:target {
 			right initial
 			left 0
-			~ .contentArea {
-				right initial
-				left 200px
-			}
+			/*~ .contentArea {*/
+				/*right initial*/
+				/*left 200px*/
+			/*}*/
 		}
 		&.isLocked {
 			z-index 10
@@ -526,12 +533,27 @@ main > aside {
 			}
 		}
 	}
+	.toggleDrawer {
+		padding-left 100px
+	}
+}
++isAbove($desktop) {
+	main > aside {
+		transition initial
+		left 0
+		~ .contentArea {
+			padding-left 200px
+		}
+		&:target ~ .contentArea {
+			left 0
+		}
+	}
 }
 
 
 
 
-
+//ie scrollbar styling
 body {
 	/*scrollbar-face-color: #b46868;*/
 
@@ -564,7 +586,6 @@ body {
 // 	background: rgba(150, 150, 150, 1);
 // }
 
-
 .page-wrapper * {
 	&::-webkit-scrollbar
 	{
@@ -594,29 +615,6 @@ body {
 // }
 
 
-
-/*::-webkit-scrollbar {*/
-	/*width: 10px;*/
-/*}  //this targets the default scrollbar (compulsory)*/
-
-/*::-webkit-scrollbar-track {*/
-	/*background-color: #b46868;*/
-/*}  //the new scrollbar will have a flat appearance with the set background color*/
-
-/*::-webkit-scrollbar-thumb {*/
-	/*background-color: rgba(0, 0, 0, 0.2);*/
-/*}  //this will style the thumb, ignoring the track*/
-
-/*::-webkit-scrollbar-button {*/
-	/*background-color: #7c2929;*/
-/*}  //optionally, you can style the top and the bottom buttons (left and right for horizontal bars)*/
-
-/*::-webkit-scrollbar-corner {*/
-	/*background-color: black;*/
-/*}  //if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled*/
-
-
-
 /*::-webkit-scrollbar {*/
 	/*height: 12px;*/
 	/*width: 12px;*/
@@ -634,7 +632,7 @@ body {
 /*}*/
 
 
-+isAbove(500px) {
++isAbove($laptop) {
 	.anchor:before { //compensate for the fixed header on desktop
 		display: block;
 	    content: " ";
@@ -642,4 +640,10 @@ body {
 	    margin-top: -75px;
 	    visibility: hidden;
 	}	
+}
+
++isBetween( ($laptop - 15px), $laptop) {
+	html {
+		overflow scroll
+	}
 }
