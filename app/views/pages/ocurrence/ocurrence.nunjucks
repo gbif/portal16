@@ -1,0 +1,117 @@
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+
+{% block body %}
+
+
+<aside class="isLockedX" id="filter">
+    <div>
+        <h2>Filters</h2>
+        <a href="#">Hide filters</a>
+        <p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>llllsdfkjhgsk djfhgskdjhf gskjhdgfksjhdgflllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>THE END</p>
+    </div>
+</aside>
+<a href="#filter" class="toggleDrawer">Show filters</a>
+<div class="contentArea">
+
+
+
+
+    <div class="contentArea__tabs">
+        <ol>
+            <li><a href="#">First tab</a></li>
+            <li><a href="#">Tab 2</a></li>
+            <li><a href="#">Tab 3</a></li>
+            <li><a href="#">Tab 4</a></li>
+            <li><a href="#">Tab 1</a></li>
+            <li><a href="#">Tab 2</a></li>
+            <li><a href="#">Tab 3</a></li>
+            <li><a href="#">Tab 4</a></li>
+            <li><a href="#">Tab 4</a></li>
+            <li><a href="#">Tab 1</a></li>
+            <li><a href="#">Tab 2</a></li>
+            <li><a href="#">Tab 3</a></li>
+            <li><a href="#">Last tab</a></li>
+        </ol>
+    </div>
+
+    <div class="contentArea__main">
+        <p><a href="#anchortest2">anchortest2</a><a href="#anchortest">anchortest</a></p>
+        <h1>Treasure Island</h1>
+        <h2 id="anchortest" class="anchor">MY ANCHOR</h2>
+        <p>SHOULD SEE<a class="anchortest" name="anchortest">MY ANCHOR</a> THIS "And now, sir," <big>continued</big> the <sup>doctor</sup>, "since I now know there's <sub>such</sub> a
+            fellow in my <small>district</small>, you may count I'll have an eye upon you day and
+            <abbr title="Global bio">GBIF.</abbr> I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p>
+        <p><a name="aname" class="anchor"><!--anchor--></a> A NAME "And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <h2 id="anchortest2" class="anchor">MY ANCHOR2</h2>
+        <p><a name="tester"><!--anchor--></a>TESTER anchor Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p><p><a name="id380542"><!--anchor--></a>"And now, sir," continued the doctor, "since I now know there's such a
+            fellow in my district, you may count I'll have an eye upon you day and
+            night. I'm not a doctor only; I'm a magistrate; and if I catch a breath
+            of complaint against you, if it's only for a piece of incivility like
+            tonight's, I'll take effectual means to have you hunted down and routed
+            out of this. Let that suffice."</p>
+        <p><a name="id380549"><!--anchor--></a>Soon after, Dr. Livesey's horse came to the door and he rode away, but
+            the captain held his peace that evening, and for many evenings to come.</p>
+        <p>THE END</p>
+    </div>
+</div>
+{% endblock %}

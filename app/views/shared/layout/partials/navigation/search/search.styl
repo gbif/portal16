@@ -1,0 +1,33 @@
+//SEARCH
+.Search {
+	//position 0 simply to avoid reflows that could be expensive
+	position absolute
+	top 0
+	z-index 50
+	width 100%
+	padding-top: 75px;
+	display none
+	background grey
+	overflow hidden
+	height 100%
+	&:target {
+		display block
+		+ .main {
+			left 100%
+			overflow hidden
+		}
+	}
+	.Search__content {
+		overflow auto
+		height: 100%;
+		-webkit-overflow-scrolling: touch;
+		overflow: auto;
+	}
+}
++isAbove($laptop) {
+	.Search {
+		overflow initial
+		min-height 100%
+		height auto
+	}
+}

@@ -1,421 +1,45 @@
-/*body {*/
-/*-webkit-tap-highlight-color rgba(0, 0, 0, 0)*/
-/*background $c_body*/
-/*height 100%*/
-/*overflow hidden*/
-/*}*/
-/*.page-wrapper {*/
-/*position relative*/
-/*height 100%*/
-/*overflow hidden*/
-/*}*/
-
-/*header,.site_navbar .site_navbar-links {*/
-/*z-index 1000*/
-/*}*/
-/*#main {*/
-/*height 100%*/
-/*z-index -10*/
-/*padding-top vr-block(3)*/
-/*}*/
-/*.main-content {*/
-/*overflow hidden*/
-/*overflow-y auto*/
-/*height 100%*/
-/*-webkit-overflow-scrolling touch*/
-/*}*/
-
-/*:focus {*/
-/*outline auto*/
-/*}*/
-
-
-
-
-
-$mobiledrawer-width = 300px
-moveX(x=0) {
-	transform: translateX(x);
-	transform: translate3d(x, 0, 0);
-}
 
 html, body, #page-wrapper {
 	height 100%
 	width 100%
 	overflow-x hidden
 }
-ul,ol {
-	margin 0
-}
+/*ul,ol {*/
+	/*margin 0*/
+/*}*/
 
-header {
-	background: tomato;
-	position: absolute;
-	width: 100%;
-	height 75px
-	overflow hidden //purele visual
-	z-index 200
-}
 
-#menu {
-	height 100%
-	width 100%
-}
 
-nav {
-	overflow auto
-	-webkit-overflow-scrolling: touch;
-	height 100%
-	width $mobiledrawer-width
-	background #333333
-	color white
-	a {
-		color white
-	}
-	position absolute
-	top 0
-}
 
-main {
-	//position 0 simply to avoid reflows that could be expensive
-	position absolute
-	top 0
 
-	padding-top 75px
-	width 100%
-	height 100%
-	// overflow hidden
-}
+//fixed toggle
+.toggleDrawer {
+	position fixed
+	top 95px
+	right initial
 
-.contentArea {
-	background yellow
-	position relative //to be pushable by the filter drawer
-	box-sizing border-box
-	overflow hidden
+	z-index 10
+	width 50px
+	height 50px
+	background red
 }
 +isBelow($laptop) {
-	.contentArea {
-		-webkit-overflow-scrolling: touch;
-		overflow auto
-		height: 100%
-	}
-
-}
-+isAbove($laptop) {
-	.contentArea {
-		height: initial
-	}
-
-}
-
-.category-toggle, .category-hide, .hide {
-	display none
-}
-
-.category-toggle ~ ul {
-	max-height 0
-	overflow hidden
-	margin 0
-}
-
-.category-toggle:checked {
-	~ ul {
-		transition: max-height 500ms ease;
-		max-height 500px
-	}
-	~ label {
-		display none
-	}
-	~ .hide {
-		display block
-	}
-}
-
-label:focus {
-	color blue
-}
-
-
-+isBelow($laptop) {
-	nav {
-		left -($mobiledrawer-width)
-		label {
-			display block
-			margin 0
-		}
-		li {
-			min-height 30px
-		}
-	}
-
-	#menu {
-		transition: left 500ms ease;
-		position relative
-		width 100%
-		left 0
-		&:target {
-			background pink
-			left $mobiledrawer-width
-
-			.menu-link {
-				display none
-			}
-			.close-link {
-				display inline-block
-			}
-		}
-	}
-}
-
-+isAbove($laptop) {
-	header {
-		display none
-	}
-	nav {
-		top 0
-		left 0
-		z-index 200
-		height 75px
-		width 100%
-		overflow visible
-		padding-left 100px
+	.toggleDrawer {
 		position fixed
-		li {
-			min-height 30px
-			display inline-block
-			label {
-				padding 0 20px
-			}
-			&.isCategory {
-				position initial
-				> ul {
-					margin-top 50px
-					display block
-					background pink
-					position absolute
-					li {
-						display block
-					}
-				}
-
-				&.isMega {
-					> ul {
-						left 0
-						right 0
-						width 100% //500px
-						padding 0 60px
-						> li {
-							padding-top 40px
-							lost-column: 1 / 2
-							// li {
-							//      display block
-							// }
-						}
-					}
-				}
-			}
-		}
-		.category-toggle:checked ~ .hide {
-			color yellow
-			&:after {
-				content ''
-				display: block;
-				position: fixed;
-				left: 0;
-				right: 0;
-				// background: #d13f19;
-				height: 5000px;
-
-			}
-		}
-	}
-}
-
-//Siteheader
-.SiteHeader {
-	.SiteHeader__mobileOptions {
-		> div {
-			width 33.33%
-			display block
-			float left
-		}
-
-		a {
-			//display inline-block //used?
-			padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
-			relative()
-			height vr-block(2.75)
-			&:before {
-				display block
-				width 100%
-				text-align center
-				absolute(top left)
-				set-type(2)
-				line-height vr-block(0)
-				margin-top vr-block(1)
-			}
-			> span {
-				font-size (100 /$major-third) %
-			}
-			&.site_navbar-logo {
-				text-align center
-			}
-			&.site_navbar-search {
-				text-align right
-			}
-		}
-	}
-}
-
-//service menu
-+isBelow($laptop) {
-	.ServiceMenu {
-		.ServiceMenu__teaser {
-			height 150px
-			width 100%
-			background red
-			position relative
-			.ServiceMenu__teaser__message {
-				position absolute
-				bottom 0
-			}
-		}
-	}
-}
-
-//only beacuse ther isn't a js service to load user and such yet.
-@keyframes fadeInOut {
-	0% {
-		opacity: 0;
-		right 50px
-	}
-	20% {
-		opacity: 0;
-	}
-	30% {
-		opacity: 1;
-	}
-	84% {
-		opacity: 1;
-	}
-	99% {
-		right 50px
-	}
-	100% {
-		opacity: 0;
-		right -9999px;
-	}
-}
-
-+isAbove($laptop) {
-	.ServiceMenu {
-		position absolute
-		right 0
-		li {
-			display inline-block
-		}
-		.ServiceMenu__teaser {
-			position absolute
-			top 100px
-			width auto
-			white-space nowrap
-			padding 10px
-			opacity 0
-			animation: fadeInOut 5s;
-			// transition: opacity 3s ease-in-out;
-			// opacity 0
-			background deepskyblue
-		}
-	}
-}
-
-//can there be multilayer menu and push on desktop
-+isBelow($laptop) {
-	.ServiceMenu > ul {
-		// position relative //include image drawer header?
-	}
-	.isOwnMenu {
-		left -100%
-		transition: left 500ms ease;
-		position absolute
-		top 0
-		background pink
-		width 100%
-		height 100%
-		> a {
-			background #333
-			display block //visual
-			&:before {
-				content 'back '
-			}
-		}
-		&.isActive {
-			left 0%
-		}
-	}
-}
-
-+isAbove($laptop) {
-	.isOwnMenu {
-		> ul {
-			top 75px
-			right -300px
-			transition: right 500ms ease;
-			position absolute
-			background pink
-			width 300px
-			height calc(100vh - 75px)
-			> a {
-				background #333
-				display block //visual
-				&:before {
-					content 'back '
-				}
-			}
-		}
-		&.isActive > ul {
-			right 0px
-		}
-	}
-}
-
-
-//SEARCH
-#search {
-	//position 0 simply to avoid reflows that could be expensive
-	position absolute
-	top 0
-	z-index 50
-	width 100%
-	padding-top: 75px;
-	display none
-	background grey
-	overflow hidden
-	height 100%
-	&:target {
-		display block
-		+ .main {
-			left 100%
-			overflow hidden
-		}
-	}
-	.Search__content {
-		overflow auto
-		height: 100%;
-		-webkit-overflow-scrolling: touch;
-		overflow: auto;
-	}
-}
-+isAbove($laptop) {
-	#search {
-		overflow initial
-		min-height 100%
-		height auto
+		top 95px
+		right 20px
+		z-index 10
+		width 50px
+		height 50px
+		background red
 	}
 }
 
 
 
+
+
+//TABS
 +isBelow($laptop) {
 	.contentArea__tabs {
 		width 100%
@@ -457,123 +81,14 @@ label:focus {
 			margin 10px 0
 		}
 	}
-
-	.contentArea__main {
-		/*overflow auto*/
-		/*height 100%*/
-		padding-left 75px
-		padding-left 85px
-	}
 }
+/*.contentArea__tabs {*/
+	/*display none*/
+/*}*/
 
 
 
-//FILTERS
 
-//use sibling elements
-.contentArea {
-	right 0
-	transition: right 500ms ease;
-}
-
-main > aside {
-	right 0
-	width $mobiledrawer-width
-	position absolute
-	top 0px
-	transition: right 500ms ease;
-	height 100%;
-	right 0
-	padding-top: 75px
-
-	background pink
-	overflow hidden
-	> div {
-		height 100%
-		background #333
-		color #ddd
-		overflow auto
-		-webkit-overflow-scrolling touch
-	}
-	&:target {
-		~ .contentArea {
-			right $mobiledrawer-width
-			overflow hidden
-		}
-	}
-}
-
-
-.toggleDrawer {
-	position fixed
-	top 95px
-	right initial
-
-	z-index 10
-	width 50px
-	height 50px
-	background red
-}
-+isBelow($laptop) {
-	.toggleDrawer {
-		position fixed
-		top 95px
-		right 20px
-		z-index 10
-		width 50px
-		height 50px
-		background red
-	}
-}
-
-
-+isAbove($laptop) {
-	main > aside {
-		z-index 20
-		right initial
-		left -200px
-		width 200px
-		transition: left 500ms ease;
-		position fixed
-		height calc(100vh - 75px)
-		padding-top 0
-		top 75px
-		~ .contentArea {
-			transition: left 500ms ease;
-			left 0
-		}
-		&:target {
-			right initial
-			left 0
-			/*~ .contentArea {*/
-				/*right initial*/
-				/*left 200px*/
-			/*}*/
-		}
-		&.isLocked {
-			transition initial
-			left 0
-			~ .contentArea {
-				padding-left 200px
-			}
-			&:target ~ .contentArea {
-				left 0
-			}
-		}
-	}
-}
-+isAbove($desktop) {
-	main > aside {
-		transition initial
-		left 0
-		~ .contentArea {
-			padding-left 200px
-		}
-		&:target ~ .contentArea {
-			left 0
-		}
-	}
-}
 
 
 
@@ -653,32 +168,8 @@ body {
 }
 
 
-// .SiteNav, .SiteNav * {
-// 	&::-webkit-scrollbar-thumb {
-// 	    // border-radius: 10px;
-// 	    background: rgba(255,255,255, 0.3)
-// 	    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-// 	}
-// }
 
-
-/*::-webkit-scrollbar {*/
-	/*height: 12px;*/
-	/*width: 12px;*/
-	/*background: #000;*/
-/*}*/
-
-/*::-webkit-scrollbar-thumb {*/
-	/*background: rgba(0,0,0,0.9);*/
-	/*-webkit-border-radius: 1ex;*/
-	/*-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);*/
-/*}*/
-
-/*::-webkit-scrollbar-corner {*/
-	/*background: #000;*/
-/*}*/
-
-
+//ANCHOR FOX OFFSET FOR FIXED HEADER HEIGHT
 +isAbove($laptop) {
 	.anchor:before { //compensate for the fixed header on desktop
 		display: block;
@@ -689,6 +180,7 @@ body {
 	}	
 }
 
+//Safari hack to prevent flicker. At mobile breakpoint it removes scrollbar and then thinks it is larger, leading to the laptop view. Where there is a scrollbar that makes the window smaller etc.
 +isBetween( ($laptop - 15px), $laptop) {
 	html {
 		overflow scroll

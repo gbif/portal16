@@ -1,0 +1,166 @@
+<header class="SiteHeader">
+    <div>
+        <div class="SiteHeader__title">
+            <a href="/">
+                <i>LOGO</i>
+                <span>GBIF</span>
+            </a>
+        </div>
+        <div class="SiteHeader__mobileOptions">
+            <div class="navbar_action">
+                <a href="#menu" class="gb-icon-menu">
+                    <span>Menu</span>
+                </a>
+            </div>
+            <div class="navbar_action">
+                <a href="/#" class="gb-icon-menu">
+                    <span>Logo</span>
+                </a>
+            </div>
+            <div class="navbar_action">
+                <a href="#search" class="gb-icon-menu">
+                    <span>Search</span>
+                </a>
+            </div>
+            <!-- <a href="#" class="close-link">Close</a>
+            <a href="#search" class="search-link">Search</a> -->
+        </div>
+    </div>
+</header>
+
+<nav id="nav" class="SiteNav" role="navigation">
+    <div class="ServiceMenu">
+        <div class="ServiceMenu__teaser">
+            <div class="ServiceMenu__teaser__message">
+                <span>Welcome back</span>
+                <span>Doctor Høfft</span>
+            </div>
+        </div>
+        <ul>
+            <li class="ServiceMenu__profile isCategory">
+                <a href="#search">Search</a>
+            </li>
+            <li class="ServiceMenu__profile isCategory">
+                <a href="#">Profile</a>
+                <ul>
+                    <li>
+                        <a href="#1">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="#2">Register</a>
+                    </li>
+                    <li>
+                        <a href="#3">Sign out</a>
+                    </li>
+                    <li>
+                        <a href="#4">My datasets</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ServiceMenu__language isCategory">
+                <a href="#">Language</a>
+                <ul>
+                    <li>
+                        <a href="#1">English</a>
+                    </li>
+                    <li>
+                        <a href="#2">Swahili</a>
+                    </li>
+                    <li>
+                        <a href="#3">Spanish</a>
+                    </li>
+                    <li>
+                        <a href="#4">Russian</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ServiceMenu__notifications isOwnMenu isActiveX">
+                <a href="#">Notifications</a>
+                <ul>
+                    <li>
+                        <a href="#1">sdf</a>
+                    </li>
+                    <li>
+                        <a href="#2">Swfghahili</a>
+                    </li>
+                    <li>
+                        <a href="#3">Spawernish</a>
+                    </li>
+                    <li>
+                        <a href="#4">Ruscvbsian</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="MainMenu">
+        <a href="/#">Home</a>
+        <ul>
+            <input id="hide" type="radio" name="kap" class="category-hide">
+            <li class="isCategory MainMenu__item">
+                <input id="kap1" type="radio" name="kap" class="category-toggle">
+                <label for="kap1" tabindex="0">Kapitel 1</label>
+                <label for="hide" class="hide">Kapitel 1</label>
+                <ul id="kap1" class="kap">
+                    <li>
+                        <a href="#1">kap1 test 2</a>
+                    </li>
+                    <li>
+                        <a href="#2">kap1 test 3</a>
+                    </li>
+                    <li>
+                        <a href="#3">kap1 test 4</a>
+                    </li>
+                    <li>
+                        <a href="#4">kap1 test 5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="isCategory isMega">
+                <input id="kap2" type="radio" name="kap" class="category-toggle">
+                <label for="kap2" tabindex="0">Kapitel 2</label>
+                <label for="hide" class="hide">Kapitel 2</label>
+                <ul id="kap2" class="kap">
+                    <li>
+                        <a href="#1">subtitle 1</a>
+                        <ul>
+                            <li>
+                                <a href="#1">sub menuitem1</a>
+                            </li>
+                            <li>
+                                <a href="#2">sub menuitem2</a>
+                            </li>
+                            <li>
+                                <a href="#3">sub menuitem3</a>
+                            </li>
+                            <li>
+                                <a href="#4">sub menuitem4</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#1">subtitle 2</a>
+                        <ul>
+                            <li>
+                                <a href="#1">sub menuitem1</a>
+                            </li>
+                            <li>
+                                <a href="#2">sub menuitem2</a>
+                            </li>
+                            <li>
+                                <a href="#3">sub menuitem3</a>
+                            </li>
+                            <li>
+                                <a href="#4">sub menuitem4</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/ocurrence">Chapter 2</a>
+            </li>
+        </ul>
+        <a class="close-btn" id="nav-close-btn" href="#">Return to Content</a>
+    </div>
+</nav>
