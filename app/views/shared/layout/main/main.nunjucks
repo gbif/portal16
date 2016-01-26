@@ -53,7 +53,7 @@
                         </a>
                     </div>
                     <div class="navbar_action">
-                        <a href="#menu" class="gb-icon-menu">
+                        <a href="#" class="gb-icon-menu">
                             <span>Logo</span>
                         </a>
                     </div>
@@ -77,6 +77,9 @@
                     </div>
                 </div>
                 <ul>
+                    <li class="ServiceMenu__profile isCategory">
+                        <a href="#search">Search</a>
+                    </li>
                     <li class="ServiceMenu__profile isCategory">
                         <a href="#">Profile</a>
                         <ul>
@@ -222,6 +225,7 @@
                     <p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>llllsdfkjhgsk djfhgskdjhf gskjhdgfksjhdgflllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p><p>b</p><p>b</p><p>b</p><p>b</p><p>b</p><p>lllllllllll</p>
                 </div>
             </aside>
+            <a href="#filter" class="toggleDrawer">Show filters</a>
             <div class="contentArea">
                 <div class="contentArea__tabs">
                     <ol>
@@ -240,7 +244,7 @@
                         <li><a href="#">Last tab</a></li>
                     </ol>
                 </div>
-                <a href="#filter" class="toggleDrawer">Show filters</a>
+
                 <div class="contentArea__main">
                     <p><a href="#anchortest2">anchortest2</a><a href="#anchortest">anchortest</a></p>
                     <h1>Treasure Island</h1>

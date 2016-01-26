@@ -28,10 +28,10 @@ var log = bunyan.createLogger({
             stream: prettyStdOut//process.stdout
         },
         {
-            type: 'rotating-file',
+            //type: 'rotating-file',
             path: './log/portal_info.log',
-            period: '1h',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
-            count: 7,        // keep n back copies
+            //period: '1h',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
+            //count: 7,        // keep n back copies
             level: 'info'
         }
         //,{

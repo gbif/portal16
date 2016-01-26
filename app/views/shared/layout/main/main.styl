@@ -54,7 +54,7 @@ header {
 	width: 100%;
 	height 75px
 	overflow hidden //purele visual
-	z-index 100
+	z-index 200
 }
 
 #menu {
@@ -91,9 +91,15 @@ main {
 	background yellow
 	position relative //to be pushable by the filter drawer
 	box-sizing border-box
-	height: 100%;
-	-webkit-overflow-scrolling: touch;
-	overflow auto
+	overflow hidden
+}
++isBelow($laptop) {
+	.contentArea {
+		-webkit-overflow-scrolling: touch;
+		overflow auto
+		height: 100%
+	}
+
 }
 +isAbove($laptop) {
 	.contentArea {
@@ -162,10 +168,13 @@ label:focus {
 }
 
 +isAbove($laptop) {
+	header {
+		display none
+	}
 	nav {
 		top 0
 		left 0
-		z-index 100
+		z-index 200
 		height 75px
 		width 100%
 		overflow visible
@@ -370,27 +379,38 @@ label:focus {
 	}
 }
 
+
+//SEARCH
 #search {
 	//position 0 simply to avoid reflows that could be expensive
 	position absolute
 	top 0
-	z-index 10
+	z-index 50
 	width 100%
 	padding-top: 75px;
 	display none
 	background grey
+	overflow hidden
 	height 100%
 	&:target {
 		display block
 		+ .main {
 			left 100%
+			overflow hidden
 		}
 	}
-	.Search-content {
+	.Search__content {
 		overflow auto
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
 		overflow: auto;
+	}
+}
++isAbove($laptop) {
+	#search {
+		overflow initial
+		min-height 100%
+		height auto
 	}
 }
 
@@ -419,7 +439,7 @@ label:focus {
 
 +isAbove($laptop) {
 	.contentArea__tabs {
-		z-index 1
+		z-index 5
 		background deepskyblue
 		position fixed
 		height calc(100% - 75px)
@@ -439,8 +459,8 @@ label:focus {
 	}
 
 	.contentArea__main {
-		overflow auto
-		height 100%
+		/*overflow auto*/
+		/*height 100%*/
 		padding-left 75px
 		padding-left 85px
 	}
@@ -483,11 +503,22 @@ main > aside {
 	}
 }
 
+
+.toggleDrawer {
+	position fixed
+	top 95px
+	right initial
+
+	z-index 10
+	width 50px
+	height 50px
+	background red
+}
 +isBelow($laptop) {
 	.toggleDrawer {
 		position fixed
-		top 100px
-		right 50px
+		top 95px
+		right 20px
 		z-index 10
 		width 50px
 		height 50px
@@ -496,11 +527,9 @@ main > aside {
 }
 
 
-
-
 +isAbove($laptop) {
 	main > aside {
-		z-index 100
+		z-index 20
 		right initial
 		left -200px
 		width 200px
@@ -522,7 +551,6 @@ main > aside {
 			/*}*/
 		}
 		&.isLocked {
-			z-index 10
 			transition initial
 			left 0
 			~ .contentArea {
@@ -532,9 +560,6 @@ main > aside {
 				left 0
 			}
 		}
-	}
-	.toggleDrawer {
-		padding-left 100px
 	}
 }
 +isAbove($desktop) {
@@ -605,6 +630,28 @@ body {
 	    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 	}
 }
+
+//SIMILUATE IE11 SCROLLBARS
+.page-wrapper * {
+	&::-webkit-scrollbar
+	{
+		width: 18px;  /* for vertical scrollbars */
+		height: 18px; /* for horizontal scrollbars */
+	}
+
+	&::-webkit-scrollbar-track {
+		// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		// border-radius: 10px;
+		background: rgba(220,220,220,1)
+	}
+
+	&::-webkit-scrollbar-thumb {
+		// border-radius: 10px;
+		background: rgba(180,180,180,1)
+		// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}
+}
+
 
 // .SiteNav, .SiteNav * {
 // 	&::-webkit-scrollbar-thumb {
