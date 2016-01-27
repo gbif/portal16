@@ -13,7 +13,7 @@
                 <a href="#search">Search</a>
             </li> -->
             <li class="ServiceMenu__profile isCategory">
-                <a href="#" class="gb-icon-user-female actionIcon">Profile</a>
+                <a href="#" class="gb-icon-user-female">Profile</a>
                 <ul>
                     <li>
                         <a href="#1">Sign in</a>
@@ -30,7 +30,7 @@
                 </ul>
             </li>
             <li class="ServiceMenu__language isCategory">
-                <a href="#" class="gb-icon-global actionIcon">Language</a>
+                <a href="#" class="gb-icon-global">Language</a>
                 <ul>
                     <li>
                         <a href="#1">English</a>
@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li class="ServiceMenu__notifications isOwnMenu isActiveX">
-                <a href="#" class="gb-icon-search actionIcon">Search</a>
+                <a href="#" class="gb-icon-search">Search</a>
                 <ul>
                     <li>
                         <a href="#1">sdf</a>

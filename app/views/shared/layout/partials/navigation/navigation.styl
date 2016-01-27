@@ -222,7 +222,7 @@ siteHeaderbar() {
 // }
 
 
-a.actionIcon {
+actionIcon(){
 	display inline-block
 	padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
 	relative()
@@ -238,6 +238,9 @@ a.actionIcon {
 		line-height vr-block(0)
 		margin-top vr-block(1)
 	}
+}
+a.actionIcon {
+	actionIcon()
 }
 
 
@@ -312,6 +315,9 @@ a.actionIcon {
 			// transition: opacity 3s ease-in-out;
 			// opacity 0
 			background deepskyblue
+		}
+		>ul>li>a {
+			actionIcon()
 		}
 	}
 }
