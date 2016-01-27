@@ -29,19 +29,23 @@
         <main class="main" role="main">
 
 
-            <aside class="isLockedX" id="filter">
+            {% if hasDrawer %}
+            <aside class="isLockedX Site__drawer" id="filter">
                 <div>
                     
                     {% block drawer %}{% endblock %}
                 </div>
             </aside>
+            {% endif %}
             
 
-            <div class="contentArea">
+            <div class="Site__contentArea">
 
-                {% block tools %}{% endblock %}
-                
-                <div class="contentArea__main">
+                {% if hasTools %}
+                    {% block tools %}{% endblock %}
+                {% endif %}
+
+                <div class="Site__contentArea__main">
                     {% block body %}{% endblock %}
                 </div>
             </div>

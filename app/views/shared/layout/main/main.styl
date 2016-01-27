@@ -41,57 +41,69 @@ ul,ol {
 
 
 
-
-//TABS
-+isBelow($laptop) {
-	.contentArea__tabs {
-		width 100%
-		background rgba(255,255,255,0.5)
-		position absolute
-		bottom 20px
-		left 20px
-		z-index 50
+.contentArea__tabs {
+	width 100%
+	background rgba(255,255,255,0.5)
+	position absolute
+	bottom 20px
+	left 20px
+	z-index 10
+	width 50px
+	height 50px
+	overflow hidden
+	ol {
+		max-width 100%
+	}
+	li {
+		display inline-block
 		width 50px
 		height 50px
-		overflow hidden
-		ol {
-			max-width 100%
-		}
-		li {
-			display inline-block
-			width 50px
-			height 50px
-			border-radius 25px
-			margin 0 10px 10px 0
-			background deepskyblue
-			float left
-		}
-		&:hover {
-			width auto
-			height auto
-		}
+		border-radius 25px
+		margin 0 10px 10px 0
+		background deepskyblue
+		float left
+	}
+	&:hover {
+		width auto
+		height auto
 	}
 }
 
+//TABS
+/*+isBelow($laptop) {*/
+	/*.contentArea__tabs {*/
+		/*width 100%*/
+		/*background rgba(255,255,255,0.5)*/
+		/*position absolute*/
+		/*bottom 20px*/
+		/*left 20px*/
+		/*z-index 50*/
+		/*width 50px*/
+		/*height 50px*/
+		/*overflow hidden*/
+		/*ol {*/
+			/*max-width 100%*/
+		/*}*/
+		/*li {*/
+			/*display inline-block*/
+			/*width 50px*/
+			/*height 50px*/
+			/*border-radius 25px*/
+			/*margin 0 10px 10px 0*/
+			/*background deepskyblue*/
+			/*float left*/
+		/*}*/
+		/*&:hover {*/
+			/*width auto*/
+			/*height auto*/
+		/*}*/
+	/*}*/
+/*}*/
+
 +isAbove($laptop) {
 	.contentArea__tabs {
-		z-index 5
-		background deepskyblue
 		position fixed
-		height "calc(100vh - %s)" % $navbar_height
-		overflow auto
-		overflow-x hidden
-		width 85px
-		ol {
-			max-height 100%
-		}
-		li {
-			width $navbar_height
-			display block
-			height 100px
-			background darksalmon
-			margin 10px 0
-		}
+		top 150px
 	}
 }
 
@@ -190,6 +202,6 @@ body {
 //Safari hack to prevent flicker. At mobile breakpoint it removes scrollbar and then thinks it is larger, leading to the laptop view. Where there is a scrollbar that makes the window smaller etc.
 +isBetween( ($laptop - 15px), $laptop) {
 	html {
-		overflow scroll
+		overflow-y scroll
 	}
 }

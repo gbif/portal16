@@ -11,6 +11,8 @@ router.get('/ocurrence', function (req, res) {
     //log.error({randomAttribute: 'ERROR'}, 'My ERROR MESSAGE GOES HERE');
     res.render('pages/ocurrence/ocurrence', {
         title: 'Ocurrences',
-        message: 'yada yada'
+        message: 'yada yada',
+        hasDrawer: true,
+        hasTools: true
     });
 });

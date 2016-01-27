@@ -1,3 +1,13 @@
+//shared between elements and media queries
+siteHeaderbar() {
+	background $navbar_bg
+	height $navbar_height
+	border-bottom $navbar_borderWidth solid $navbar_BorderColor
+	z-index 200
+	color $navbar_textColor
+}
+
+
 
 //navigation layout
 nav {
@@ -12,10 +22,6 @@ nav {
 +isBelow($laptop) {
 	nav {
 		left -($drawer-width)
-		label {
-			display block
-			margin 0
-		}
 	}
 
 	.siteCanvas {
@@ -24,9 +30,7 @@ nav {
 		width 100%
 		left 0
 		&.hasActiveMenu {
-			background pink
 			left $drawer-width
-
 			.menu-link {
 				display none
 			}
@@ -41,60 +45,99 @@ nav {
 	header {
 		display none
 	}
-	nav {
+	.SiteNav {
 		top 0
 		left 0
 		z-index 200
 		height $navbar_height
 		width 100%
 		overflow visible
-		padding-left 100px
 		position fixed
-		li {
+		>div>ul>li {
 			display inline-block
-			label {
-				padding 0 20px
-			}
 			&.isCategory {
-				position initial
 				> ul {
-					// margin-top 50px
-					display block
-					background pink
+					top $navbar_height
+					background $navbar_dropdown_bg
 					position absolute
+					padding vr-block(0.25) 0
+					box-shadow 2px 3px 3px rgba(0,0,0,0.2)
 					li {
 						display block
+						a {
+							color $navbar_dropdown_color
+							display block
+							padding vr-block(0.25) vr-block(1)
+						}
 					}
 				}
+				&.isExpanded {
+					>a {
+						position relative
+						&:after {
+							position absolute
+							top vr-block(2.75)
+							left 50%
+							margin-left -(vr-block(0.25) * 2)
+							content ''
+							triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
+						}
+					}
+				}
+
 
 				&.isMega {
 					> ul {
 						left 0
 						right 0
 						width 100% //500px
-						padding 0 60px
+						padding vr-block(0.25) vr-block(3)
 						> li {
-							padding-top 40px
-							lost-column: 1 / 2
-							// li {
-							//      display block
-							// }
+							lost-column: 1 / 4
+							> a {
+								color $navbar_textColor
+							}
+							>ul {
+								display block
+							}
 						}
 					}
 				}
 			}
 		}
-		.category-toggle:checked ~ .hide {
-			color yellow
-			&:after {
-				content ''
-				display: block;
-				position: fixed;
-				left: 0;
-				right: 0;
-				// background: #d13f19;
-				height: 5000px;
-
+		.ServiceMenu {
+			>ul>li {
+				position relative
+				>ul {
+					right 0
+				}
+			}
+		}
+		.MainMenu {
+			display relative
+			>ul, >a {
+				float left
+			}
+			>ul>li>a:before {
+				content unset
+			}
+			>ul>li>a, >a {
+				display block
+				line-height ($navbar_height - $navbar_borderWidth)
+				height ($navbar_height - $navbar_borderWidth)
+				padding 0 vr-block(0.75)
+			}
+			>a {
+				width vr-block(3)
+				span {
+					position absolute
+					left -9999px
+				}
+				&:before {
+					line-height ($navbar_height - $navbar_borderWidth)
+					content $icon-string-logo
+					font-size 42px
+				}
 			}
 		}
 	}
@@ -186,15 +229,7 @@ nav {
 		}
 	}
 }
-
-siteHeaderbar() {
-	background $navbar_bg
-	height $navbar_height
-	border-bottom $navbar_borderWidth solid $navbar_BorderColor
-	z-index 200
-	color $navbar_textColor
-}
-
+//nav content continues
 +isAbove($laptop) {
 	.SiteNav {
 		siteHeaderbar()
@@ -202,17 +237,33 @@ siteHeaderbar() {
 }
 
 
+
 //navigation interaction
-.isCategory > ul {
-	max-height 0
-	overflow hidden
-	margin 0
+
++isBelow($laptop) {
+	.SiteNav .isCategory > ul {
+		max-height 0
+		overflow hidden
+		margin 0
+	}
+
+	.SiteNav .isCategory.isExpanded {
+		> ul {
+			transition: max-height 500ms ease;
+			max-height 500px
+		}
+	}
 }
 
-.isCategory.isExpanded {
-	> ul {
-		transition: max-height 500ms ease;
-		max-height 500px
++isAbove($laptop) {
+	.SiteNav .isCategory > ul {
+		display none
+	}
+
+	.SiteNav .isCategory.isExpanded {
+		> ul {
+			display block
+		}
 	}
 }
 
@@ -242,6 +293,10 @@ actionIcon(){
 a.actionIcon {
 	actionIcon()
 }
+
+
+
+
 
 
 //service menu
@@ -399,18 +454,18 @@ main {
 	// overflow hidden
 }
 
-.contentArea {
-	background yellow
+.Site__contentArea {
+	background $content_bg
 	position relative //to be pushable by the filter drawer
 	overflow hidden
 	transition: right 500ms ease;
 }
 +isBelow($laptop) {
-	.contentArea {
+	.Site__contentArea {
 		height: 100%
 		right 0 //to make the transitition smooth we need a starting position
 		
-		.contentArea__main {
+		.Site__contentArea__main {
 			-webkit-overflow-scrolling: touch;
 			overflow auto
 			height 100%
@@ -418,12 +473,18 @@ main {
 	}
 
 }
-+isAbove($laptop) {
-	.contentArea__main {
-		padding-left 85px
-	}
+/*+isAbove($laptop) {*/
+	/*.Site__contentArea__main {*/
+		/*padding-left 85px*/
+	/*}*/
+/*}*/
 
-}
+
+
+
+
+
+
 
 
 
@@ -433,7 +494,7 @@ main {
 
 //use sibling elements
 
-main > aside {
+.Site__drawer {
 	right 0
 	width $drawer-width
 	position absolute
@@ -452,7 +513,7 @@ main > aside {
 		-webkit-overflow-scrolling touch
 	}
 	&:target {
-		~ .contentArea {
+		~ .Site__contentArea {
 			right $drawer-width
 			overflow hidden
 		}
@@ -466,29 +527,25 @@ main > aside {
 forceShowDrawer() {
 	transition initial
 	left 0
-	~ .contentArea {
+	~ .Site__contentArea {
 		padding-left $drawer-width
 	}
-	&:target ~ .contentArea {
+	&:target ~ .Site__contentArea {
 		left 0
 	}
 }
 +isAbove($laptop) {
-	main > aside {
+	.Site__drawer {
 		z-index 20
 		right initial
 		left -($drawer-width)
 		transition: left 500ms ease;
 		position fixed
 		top $navbar_height
-		~ .contentArea {
-			transition: left 500ms ease;
-			left 0
-		}
 		&:target {
 			right initial
 			left 0
-			/*~ .contentArea {*/
+			/*~ .Site__contentArea {*/
 				/*right initial*/
 				/*left $drawer-width*/
 			/*}*/
@@ -497,9 +554,13 @@ forceShowDrawer() {
 			forceShowDrawer()
 		}
 	}
+	.Site__contentArea {
+		transition: left 500ms ease;
+		left 0
+	}
 }
 +isAbove($desktop) {
-	main > aside {
+	.Site__drawer {
 		forceShowDrawer()
 	}
 }
