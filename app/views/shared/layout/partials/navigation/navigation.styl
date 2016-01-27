@@ -14,7 +14,7 @@ nav {
 	position absolute
 	top 0
 	overflow-y auto
-	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling touch
 	height 100%
 	width $drawer-width
 }
@@ -331,10 +331,11 @@ a.actionIcon {
 }
 
 //only beacuse ther isn't a js service to load user and such yet.
+$ServiceMenu_teaser_pos_r = vr-block(1);
 @keyframes fadeInOut {
 	0% {
 		opacity: 0;
-		right 50px
+		right $ServiceMenu_teaser_pos_r
 	}
 	20% {
 		opacity: 0;
@@ -345,12 +346,12 @@ a.actionIcon {
 	84% {
 		opacity: 1;
 	}
-	99% {
-		right 50px
+	90% {
+		right $ServiceMenu_teaser_pos_r
 	}
 	100% {
 		opacity: 0;
-		right -9999px;
+		right -200px;
 	}
 }
 
@@ -363,15 +364,15 @@ a.actionIcon {
 		}
 		.ServiceMenu__teaser {
 			position absolute
-			top 100px
+			top vr-block(4)
 			width auto
 			white-space nowrap
-			padding 10px
+			padding vr-block(0.25) vr-block(1)
 			opacity 0
+			right -9999px;
 			animation: fadeInOut 5s;
-			// transition: opacity 3s ease-in-out;
-			// opacity 0
-			background deepskyblue
+			background $Plum
+			color $Mist
 		}
 		>ul>li>a {
 			actionIcon()
@@ -468,7 +469,7 @@ main {
 		right 0 //to make the transitition smooth we need a starting position
 		
 		.Site__contentArea__main {
-			-webkit-overflow-scrolling: touch;
+			-webkit-overflow-scrolling touch
 			overflow-y auto
 			height 100%
 		}
