@@ -13,7 +13,7 @@ siteHeaderbar() {
 nav {
 	position absolute
 	top 0
-	overflow auto
+	overflow-y auto
 	-webkit-overflow-scrolling: touch;
 	height 100%
 	width $drawer-width
@@ -119,10 +119,12 @@ nav {
 				float left
 			}
 			>ul>li>a:before {
+				content ''
 				content unset
 			}
 			>ul>li>a, >a {
-				display block
+				white-space nowrap
+				display inline-block
 				line-height ($navbar_height - $navbar_borderWidth)
 				height ($navbar_height - $navbar_borderWidth)
 				padding 0 vr-block(0.75)
@@ -467,7 +469,7 @@ main {
 		
 		.Site__contentArea__main {
 			-webkit-overflow-scrolling: touch;
-			overflow auto
+			overflow-y auto
 			height 100%
 		}
 	}
@@ -509,7 +511,7 @@ main {
 		height 100%
 		background #333
 		color #ddd
-		overflow auto
+		overflow-y auto
 		-webkit-overflow-scrolling touch
 	}
 	&:target {

@@ -148,10 +148,10 @@ gb.addEventListenerAll('.isCategory>a', 'click', function (event) {
         }
 
         if (!isParent) {
-            child.classList.remove('isExpanded');
+            gb.removeClass(child, 'isExpanded');
         }
     }
-    this.parentNode.classList.toggle('isExpanded');
+    gb.toggleClass(this.parentNode, 'isExpanded');
 });
 
 
@@ -166,10 +166,10 @@ gb.addEventListenerAll(searchToggleSelector, 'click', function () {
 });
 
 gb.addEventListener(document, 'click', function(event){
-    var clickInsideMenu = gb.determineIfElementMatches(event.target, '.SiteNav .isCategory *');
+    var clickInsideMenu = gb.selectorMatches(event.target, '.SiteNav .isCategory *');
     if (!clickInsideMenu) {
         for (var i = 0; i < SiteNavCategoryItems.length; i++) {
-            SiteNavCategoryItems[i].classList.remove('isExpanded');
+            gb.removeClass(SiteNavCategoryItems[i], 'isExpanded');
         }
     }
 });
@@ -183,8 +183,5 @@ function selectorMatches(el, selector) {
     return f.call(el, selector);
 }
 
-function determineIfElementMatches(element, selector) {
-    return element.matches(selector);
-}
 
-gb.determineIfElementMatches = determineIfElementMatches;
+gb.selectorMatches = selectorMatches;
