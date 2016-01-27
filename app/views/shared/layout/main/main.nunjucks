@@ -17,7 +17,7 @@
 
 {#Main layout#}
 <div id="page-wrapper" class="page-wrapper">
-    <div id="menu">
+    <div class="siteCanvas" id="siteCanvas">
 
         {#Navigation#}
         {% include "../partials/navigation/navigation.nunjucks" %}
@@ -27,7 +27,24 @@
 
         {#Main layout cont#}
         <main class="main" role="main">
-            {% block body %}{% endblock %}
+
+
+            <aside class="isLockedX" id="filter">
+                <div>
+                    
+                    {% block drawer %}{% endblock %}
+                </div>
+            </aside>
+            
+
+            <div class="contentArea">
+
+                {% block tools %}{% endblock %}
+                
+                <div class="contentArea__main">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
         </main>
 
 

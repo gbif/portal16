@@ -1,6 +1,9 @@
-<div class="Search" id="search">
+<div class="Search" id="site_search">
     <div class="Search__content">
-        <h1>Search</h1>
+        <form>
+            <input type="search" placeholder="Search" name="site_search">
+            <input type="submit">
+        </form>
         <p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p><p>bb</p>
         <p>THE END</p>
     </div>

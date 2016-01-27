@@ -1,16 +1,19 @@
 //SEARCH
+
+
+
+//layout
 .Search {
 	//position 0 simply to avoid reflows that could be expensive
 	position absolute
-	top 0
+	top $navbar_height
 	z-index 50
 	width 100%
-	padding-top: 75px;
+	height "calc(100% - %s)" % $navbar_height
 	display none
 	background grey
 	overflow hidden
-	height 100%
-	&:target {
+	&.isActive {
 		display block
 		+ .main {
 			left 100%
@@ -21,7 +24,7 @@
 		overflow auto
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
-		overflow: auto;
+		overflow-y: auto;
 	}
 }
 +isAbove($laptop) {
@@ -29,5 +32,28 @@
 		overflow initial
 		min-height 100%
 		height auto
+	}
+}
+
+
+
+
+//content
+.Search .Search__content{
+	background $navbar_horizontal_color
+	>form {
+		width 80%
+		margin 0 10%
+		input {
+			border none
+			/*border-bottom 1px solid lighten($Plum, 50%)*/
+			height vr-block(3)
+			background none
+			color $Plum
+			font-size vr-block(1)
+			&:focus {
+				outline none
+			}
+		}
 	}
 }

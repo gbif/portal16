@@ -1,32 +1,4 @@
-<header class="SiteHeader">
-    <div>
-        <div class="SiteHeader__title">
-            <a href="/">
-                <i>LOGO</i>
-                <span>GBIF</span>
-            </a>
-        </div>
-        <div class="SiteHeader__mobileOptions">
-            <div class="navbar_action">
-                <a href="#menu" class="gb-icon-menu">
-                    <span>Menu</span>
-                </a>
-            </div>
-            <div class="navbar_action">
-                <a href="/#" class="gb-icon-menu">
-                    <span>Logo</span>
-                </a>
-            </div>
-            <div class="navbar_action">
-                <a href="#search" class="gb-icon-menu">
-                    <span>Search</span>
-                </a>
-            </div>
-            <!-- <a href="#" class="close-link">Close</a>
-            <a href="#search" class="search-link">Search</a> -->
-        </div>
-    </div>
-</header>
+{% include "./mobileheader/mobileheader.nunjucks" %}
 
 <nav id="nav" class="SiteNav" role="navigation">
     <div class="ServiceMenu">
@@ -37,11 +9,11 @@
             </div>
         </div>
         <ul>
-            <li class="ServiceMenu__profile isCategory">
+            <!-- <li class="ServiceMenu__search isCategory">
                 <a href="#search">Search</a>
-            </li>
+            </li> -->
             <li class="ServiceMenu__profile isCategory">
-                <a href="#">Profile</a>
+                <a href="#" class="gb-icon-user-female actionIcon">Profile</a>
                 <ul>
                     <li>
                         <a href="#1">Sign in</a>
@@ -58,7 +30,7 @@
                 </ul>
             </li>
             <li class="ServiceMenu__language isCategory">
-                <a href="#">Language</a>
+                <a href="#" class="gb-icon-global actionIcon">Language</a>
                 <ul>
                     <li>
                         <a href="#1">English</a>
@@ -75,7 +47,7 @@
                 </ul>
             </li>
             <li class="ServiceMenu__notifications isOwnMenu isActiveX">
-                <a href="#">Notifications</a>
+                <a href="#" class="gb-icon-search actionIcon">Search</a>
                 <ul>
                     <li>
                         <a href="#1">sdf</a>
@@ -93,34 +65,117 @@
             </li>
         </ul>
     </div>
+
+
     <div class="MainMenu">
-        <a href="/#">Home</a>
+        <a href="/#" class="gb-icon-home">Home</a>
         <ul>
-            <input id="hide" type="radio" name="kap" class="category-hide">
             <li class="isCategory MainMenu__item">
-                <input id="kap1" type="radio" name="kap" class="category-toggle">
-                <label for="kap1" tabindex="0">Kapitel 1</label>
-                <label for="hide" class="hide">Kapitel 1</label>
-                <ul id="kap1" class="kap">
+                <a href="#" class="gb-icon-map">
+                    Get data
+                </a>
+                <ul>
                     <li>
-                        <a href="#1">kap1 test 2</a>
+                        <a href="/Ocurrences">Ocurrences</a>
                     </li>
                     <li>
-                        <a href="#2">kap1 test 3</a>
+                        <a href="#">Species</a>
                     </li>
                     <li>
-                        <a href="#3">kap1 test 4</a>
+                        <a href="#">Data sets</a>
                     </li>
                     <li>
-                        <a href="#4">kap1 test 5</a>
+                        <a href="#">Very long menu titles will be cropped</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="isCategory MainMenu__item">
+                <a href="#" class="gb-icon-cloud-upload">
+                    Share
+                </a>
+                <ul>
+                    <li>
+                        <a href="#">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#">Why</a>
+                    </li>
+                    <li>
+                        <a href="#">Lorem</a>
                     </li>
                 </ul>
             </li>
             <li class="isCategory isMega">
-                <input id="kap2" type="radio" name="kap" class="category-toggle">
-                <label for="kap2" tabindex="0">Kapitel 2</label>
-                <label for="hide" class="hide">Kapitel 2</label>
-                <ul id="kap2" class="kap">
+                <a href="#" class="gb-icon-info">
+                    About
+                </a>
+                <!-- <div> -->
+                    <ul>
+                        <li class="isCategory isExpanded">
+                            <a href="#">Inside</a>
+                            <ul>
+                                <li>
+                                    <a href="#">About GFIF</a>
+                                </li>
+                                <li>
+                                    <a href="#">Facts and figures</a>
+                                </li>
+                                <li>
+                                    <a href="#">Impact</a>
+                                </li>
+                                <li>
+                                    <a href="#">Programmes and projects</a>
+                                </li>
+                                <li>
+                                    <a href="#">Knowledge base</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="isCategory isExpanded">
+                            <a href="#">Pressroom</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Featured data use</a>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="isCategory isExpanded">
+                            <a href="#">Community</a>
+                            <ul>
+                                <li>
+                                    <a href="#">Join the community</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="isCategory isExpanded">
+                            <a href="#">Development</a>
+                            <ul>
+                                <li>
+                                    <a href="#">API</a>
+                                </li>
+                                <li>
+                                    <a href="#">Python and R libraries</a>
+                                </li>
+                                <li>
+                                    <a href="#">Front end</a>
+                                </li>
+                                <li>
+                                    <a href="#">About development at GBIF</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                <!-- </div> -->
+                <!-- <ul id="kap2" class="kap">
                     <li>
                         <a href="#1">subtitle 1</a>
                         <ul>
@@ -155,12 +210,11 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
             </li>
             <li>
-                <a href="/ocurrence">Chapter 2</a>
+                <a href="/ocurrence">Ocurrences</a>
             </li>
         </ul>
-        <a class="close-btn" id="nav-close-btn" href="#">Return to Content</a>
     </div>
 </nav>

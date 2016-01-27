@@ -4,9 +4,13 @@ html, body, #page-wrapper {
 	width 100%
 	overflow-x hidden
 }
-/*ul,ol {*/
-	/*margin 0*/
-/*}*/
+.siteCanvas {
+	height 100%
+	width 100%
+}
+ul,ol {
+	margin 0
+}
 
 
 
@@ -14,10 +18,6 @@ html, body, #page-wrapper {
 
 //fixed toggle
 .toggleDrawer {
-	position fixed
-	top 95px
-	right initial
-
 	z-index 10
 	width 50px
 	height 50px
@@ -25,13 +25,16 @@ html, body, #page-wrapper {
 }
 +isBelow($laptop) {
 	.toggleDrawer {
+		position absolute
+		bottom 20px
+		right 20px
+	}
+}
++isAbove($laptop) {
+	.toggleDrawer {
 		position fixed
 		top 95px
-		right 20px
-		z-index 10
-		width 50px
-		height 50px
-		background red
+		right initial
 	}
 }
 
@@ -43,20 +46,29 @@ html, body, #page-wrapper {
 +isBelow($laptop) {
 	.contentArea__tabs {
 		width 100%
-		background pink
-		height 30px
+		background rgba(255,255,255,0.5)
+		position absolute
+		bottom 20px
+		left 20px
+		z-index 50
+		width 50px
+		height 50px
 		overflow hidden
 		ol {
 			max-width 100%
-			white-space: nowrap
-			overflow hidden
-			overflow-x auto
-			height 54px
 		}
 		li {
 			display inline-block
-			padding 10px
-			margin 0 5px
+			width 50px
+			height 50px
+			border-radius 25px
+			margin 0 10px 10px 0
+			background deepskyblue
+			float left
+		}
+		&:hover {
+			width auto
+			height auto
 		}
 	}
 }
@@ -66,7 +78,7 @@ html, body, #page-wrapper {
 		z-index 5
 		background deepskyblue
 		position fixed
-		height calc(100% - 75px)
+		height "calc(100vh - %s)" % $navbar_height
 		overflow auto
 		overflow-x hidden
 		width 85px
@@ -74,7 +86,7 @@ html, body, #page-wrapper {
 			max-height 100%
 		}
 		li {
-			width 75px
+			width $navbar_height
 			display block
 			height 100px
 			background darksalmon
@@ -82,11 +94,6 @@ html, body, #page-wrapper {
 		}
 	}
 }
-/*.contentArea__tabs {*/
-	/*display none*/
-/*}*/
-
-
 
 
 
@@ -174,8 +181,8 @@ body {
 	.anchor:before { //compensate for the fixed header on desktop
 		display: block;
 	    content: " ";
-	    height: 75px;
-	    margin-top: -75px;
+	    height: $navbar_height;
+	    margin-top: -($navbar_height);
 	    visibility: hidden;
 	}	
 }

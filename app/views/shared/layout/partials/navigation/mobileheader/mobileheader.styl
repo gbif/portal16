@@ -1,0 +1,20 @@
+.SiteHeader {
+	siteHeaderbar()
+	.SiteHeader__mobileOptions {
+		> div {
+			width 33.33%
+			display block
+			float left
+			&:nth-of-type(2) {
+				text-align center
+			}
+			&:nth-of-type(3) {
+				text-align right
+			}
+		}
+	}
+
+	.isActive.site__searchToggle:before, .isActive.site__menuToggle:before{
+		content $icon-string-close_L
+	}
+}

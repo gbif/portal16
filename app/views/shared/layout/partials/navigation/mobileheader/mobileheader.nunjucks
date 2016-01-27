@@ -1,0 +1,21 @@
+<header class="SiteHeader" id="SiteHeader">
+    <div>
+        <div class="SiteHeader__mobileOptions">
+            <div class="navbar_action">
+                <a href="#menu" class="actionIcon gb-icon-menu site__menuToggle">
+                    <span>Menu</span>
+                </a>
+            </div>
+            <div class="navbar_action">
+                <a href="/#" class="actionIcon gb-icon-logo">
+                    <span>Logo</span>
+                </a>
+            </div>
+            <div class="navbar_action">
+                <a href="#search" class="actionIcon gb-icon-search site__searchToggle">
+                    <span>Search</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
