@@ -1,12 +1,14 @@
 {% include "./mobileheader/mobileheader.nunjucks" %}
 
 <nav id="nav" class="SiteNav" role="navigation">
-    <div class="ServiceMenu">
+    <div class="ServiceMenu isCategory">
         <div class="ServiceMenu__teaser">
-            <div class="ServiceMenu__teaser__message">
-                <span>Welcome back</span>
-                <span>Doctor J. Lamiales</span>
-            </div>
+            <a href="#">
+                <div class="ServiceMenu__teaser__message">
+                    <span>Welcome back</span>
+                    <span>Doctor J. Lamiales</span>
+                </div>
+            </a>
         </div>
         <ul>
             <!-- <li class="ServiceMenu__search isCategory">

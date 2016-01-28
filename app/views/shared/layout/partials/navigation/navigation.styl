@@ -46,6 +46,19 @@ nav {
 		display none
 	}
 	.SiteNav {
+		&.isExpanded {
+			>div>ul>li.isCategory.isExpanded>a {
+				position relative
+				&:after {
+					position absolute
+					top vr-block(2.5)
+					left 50%
+					margin-left -(vr-block(0.25) * 2)
+					content ''
+					triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
+				}
+			}
+		}
 		top 0
 		left 0
 		z-index 200
@@ -68,22 +81,25 @@ nav {
 							color $navbar_dropdown_color
 							display block
 							padding vr-block(0.25) vr-block(1)
+							&:hover {
+								background darken($navbar_dropdown_bg, 7%)
+							}
 						}
 					}
 				}
-				&.isExpanded {
-					>a {
-						position relative
-						&:after {
-							position absolute
-							top vr-block(2.75)
-							left 50%
-							margin-left -(vr-block(0.25) * 2)
-							content ''
-							triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
-						}
-					}
-				}
+				/*&.isExpanded {*/
+					/*>a {*/
+						/*position relative*/
+						/*&:after {*/
+							/*position absolute*/
+							/*top vr-block(2.75)*/
+							/*left 50%*/
+							/*margin-left -(vr-block(0.25) * 2)*/
+							/*content ''*/
+							/*triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg*/
+						/*}*/
+					/*}*/
+				/*}*/
 
 
 				&.isMega {
@@ -131,14 +147,16 @@ nav {
 			}
 			>a {
 				width vr-block(3)
+				position relative
 				span {
 					position absolute
 					left -9999px
 				}
 				&:before {
-					line-height ($navbar_height - $navbar_borderWidth)
 					content $icon-string-logo
-					font-size 42px
+					font-size vr-block(2)
+					position absolute
+					bottom vr-block(0.5)
 				}
 			}
 		}
@@ -261,18 +279,21 @@ nav {
 	.SiteNav .isCategory > ul {
 		display none
 	}
+	.SiteNav>.ServiceMenu> ul {
+		display block
+	}
 
-	.SiteNav .isCategory.isExpanded {
+	.SiteNav.isExpanded .isCategory.isExpanded {
 		> ul {
 			display block
 		}
 	}
+	/*.SiteNav--collapseMenu .isCategory.isExpanded {*/
+		/*> ul {*/
+			/*display none*/
+		/*}*/
+	/*}*/
 }
-
-//TMP
-// .MainMenu {
-// 	display none
-// }
 
 
 actionIcon(){
@@ -305,9 +326,14 @@ a.actionIcon {
 +isBelow($laptop) {
 	.ServiceMenu {
 		.ServiceMenu__teaser {
+			>a {
+				display block
+				height 100%
+				width 100%
+			}
 			height vr-block(6)
 			width 100%
-			background url("http://wordlesstech.com/wp-content/uploads/2011/09/Wing-Secrets-mothwing.jpg")
+			background url("/img/moth_pattern1.jpg")
 			background-size cover
 			position relative
 			.ServiceMenu__teaser__message {
@@ -327,11 +353,17 @@ a.actionIcon {
 				}
 			}
 		}
+		//interaction
+		&.isExpanded {
+			.ServiceMenu__teaser__message:after {
+				content '-'
+			}
+		}
 	}
 }
 
 //only beacuse ther isn't a js service to load user and such yet.
-$ServiceMenu_teaser_pos_r = vr-block(1);
+$ServiceMenu_teaser_pos_r = vr-block(0.5);
 @keyframes fadeInOut {
 	0% {
 		opacity: 0;
@@ -364,7 +396,7 @@ $ServiceMenu_teaser_pos_r = vr-block(1);
 		}
 		.ServiceMenu__teaser {
 			position absolute
-			top vr-block(4)
+			top vr-block(3.5)
 			width auto
 			white-space nowrap
 			padding vr-block(0.25) vr-block(1)
@@ -382,8 +414,10 @@ $ServiceMenu_teaser_pos_r = vr-block(1);
 
 //can there be multilayer menu and push on desktop
 +isBelow($laptop) {
-	.ServiceMenu > ul {
-		// position relative //include image drawer header?
+	.ServiceMenu{
+		.ServiceMenu__search {
+			display none
+		}
 	}
 	.isOwnMenu {
 		left -100%
@@ -449,12 +483,20 @@ $ServiceMenu_teaser_pos_r = vr-block(1);
 
 
 main {
+	position relative
 	//position 0 simply to avoid reflows that could be expensive
-	position absolute
-	top $navbar_height
+	/*position absolute*/
+	padding-top 0
+	/*top $navbar_height*/
 	width 100%
-	height "calc(100vh - %s)" % $navbar_height
+	/*height "calc(100vh - %s)" % $navbar_height*/
+	height "calc(100% - %s)" % $navbar_height
 	// overflow hidden
+}
++isAbove($laptop) {
+	main {
+		padding-top $navbar_height
+	}
 }
 
 .Site__contentArea {
@@ -503,7 +545,7 @@ main {
 	position absolute
 	top 0px
 	transition: right 500ms ease;
-	height "calc(100vh - %s)" % $navbar_height
+	height 100%//"calc(100vh - %s)" % $navbar_height
 	right 0
 
 	background pink

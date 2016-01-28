@@ -31,7 +31,7 @@
 
 
 {% block body %}
-<div class="Ocurrences">
+<div class="Ocurrences" id="occurrence">
     <h1>Ocurrences</h1>
     <div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div>
 </div>

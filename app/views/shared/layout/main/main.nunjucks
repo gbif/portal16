@@ -26,7 +26,7 @@
         {#Navigation end#}
 
         {#Main layout cont#}
-        <main class="main" role="main">
+        <main class="main" role="main" id="main">
 
 
             {% if hasDrawer %}
@@ -47,6 +47,7 @@
 
                 <div class="Site__contentArea__main">
                     {% block body %}{% endblock %}
+                    <footer>Footer</footer>
                 </div>
             </div>
         </main>

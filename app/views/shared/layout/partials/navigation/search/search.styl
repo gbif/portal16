@@ -11,19 +11,17 @@
 	width 100%
 	height "calc(100% - %s)" % $navbar_height
 	display none
-	background green
+	background $content_bg
 	overflow hidden
 	&.isActive {
 		display block
 		+ .main {
-			overflow hidden
+			visibility hidden
 		}
 	}
 	.Search__content {
-		background pink
 		overflow hidden
 		height 100%
-		min-height "calc(100vh - %s)" % $navbar_height
 		-webkit-overflow-scrolling touch
 		overflow-y: auto;
 	}
@@ -74,7 +72,7 @@
 	.Search {
 		overflow initial
 		height auto
-		min-height "calc(100% - %s)" % $navbar_height
+		/*min-height "calc(100% - %s)" % $navbar_height*/
 		.Search__content {
 			form {
 				width 60%
