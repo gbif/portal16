@@ -34,7 +34,9 @@ function buildFont() {
             appendUnicode: true, // recommended option - adds unicode to the filename
             formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available 
             timestamp: runTimestamp, // recommended to get consistent builds when watching files 
-            normalize: true
+            normalize: true,
+            fontHeight: 448, // matching IcoMoon's defaults for the font-awesome icons @ "14px grid"
+            descent:    64
         }))
         .on('glyphs', function(glyphs, options) {
             g.nunjucksRender.nunjucks.configure(config.iconfont.templatePath, {watch: false});
