@@ -29,9 +29,9 @@
 <meta name="theme-color" content="#4c9e45">
 
 
-{#<link rel="stylesheet" type="text/css" href="css/vendor/vendor.css">#}
+{#<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">#}
 
-<link rel="stylesheet" type="text/css" href="css/base/index.css">
+<link rel="stylesheet" type="text/css" href="/css/base/index.css">
 
 <!--[if !IE]> -->
 
@@ -40,7 +40,7 @@
 <!--[if IE]>
 
 <![endif]-->
-{#<link rel="stylesheet" type="text/css" href="css/base/ie/index.css">#}
+{#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
 
 
 <!--[if lt IE 9]>

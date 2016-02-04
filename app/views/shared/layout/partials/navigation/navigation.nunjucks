@@ -81,10 +81,10 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="/ocurrence">Ocurrences</a>
+                        <a href="/occurrence">Occurrences</a>
                     </li>
                     <li>
-                        <a href="#">Species</a>
+                        <a href="/species/408">Species</a>
                     </li>
                     <li>
                         <a href="#">Data sets</a>

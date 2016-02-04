@@ -1,0 +1,12 @@
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+
+{% block body %}
+
+<div class="speciesKey">
+    <h1>{{title}}</h1>
+
+    <iframe id="map" name="map" src="//cdn.gbif.org/v1/map/index.html?type=TAXON&amp;key={{speciesKey}}&amp;resolution=1" allowfullscreen=""frameborder="0"></iframe>
+</div>
+
+
+{% endblock %}

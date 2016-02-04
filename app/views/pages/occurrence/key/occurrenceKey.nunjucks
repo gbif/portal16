@@ -1,0 +1,15 @@
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+
+{% block body %}
+
+<div class="occurrenceKey">
+    <h1>{{body.species}}</h1>
+    {{body.basisOfRecord}}
+
+	{% if showMap %}
+		<iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/point.html?&amp;style=grey-blue&amp;point={{body.decimalLatitude}},{{body.decimalLongitude}}&amp;lat={{body.decimalLatitude}}&amp;lng={{body.decimalLongitude}}&amp;zoom=8" frameborder="0"></iframe>
+	{% endif %}
+    
+</div>
+{% endblock %}
+
