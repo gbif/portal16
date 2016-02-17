@@ -1,8 +1,8 @@
 {
   "name": "gbif-portal16",
   "version": "0.0.1",
-  "description": "GBIFs main website",
-  "author": "GBIF secretariat <info@gbif.org>",
+  "description": "Weblayer for GBIF Portal 2016",
+  "author": "GBIF Secretariat <informatics@gbif.org>",
   "main": "app.js",
   "private": true,
   "scripts": {
