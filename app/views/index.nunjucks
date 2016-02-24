@@ -1,8 +1,0 @@
-{% extends 'layout.nunjucks' %}
-
-{% block content %}
-  <h1>{{ title }}</h1>
-  <p>Welcome to the portal!</p>
-  <p>{{message}}</p>
-  <a href="/">Home</a>
-{% endblock %}

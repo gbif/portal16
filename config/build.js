@@ -23,6 +23,8 @@ if (gutil.env.prod) {
     env = 'development';
 }
 
+console.log(gutil.env.payload);
+
 function loc(p) {
     return path.join(rootPath, p);
 }

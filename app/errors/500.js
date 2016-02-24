@@ -6,7 +6,7 @@ module.exports = function (app) {
         app.use(function(err, req, res, next) { //eslint-disable-line no-unused-vars
             // TODO needs implementation
             res.status(err.status || 500);
-            res.render('error', {
+            res.render('error/error', {
                 message: err.message,
                 error: err,
                 title: 'error'
@@ -21,7 +21,7 @@ module.exports = function (app) {
     app.use(function(err, req, res, next) { //eslint-disable-line no-unused-vars
         // TODO needs implementation
         res.status(err.status || 500);
-        res.render('error', {
+        res.render('error/500/500', {
             message: 'no server info here. just an excuse',
             error: {},
             title: 'error'
