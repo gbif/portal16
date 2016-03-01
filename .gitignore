@@ -4,3 +4,5 @@ public/
 .idea
 .DS_Store
 log/
+reports/
+coverage/

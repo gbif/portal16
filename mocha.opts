@@ -1,2 +1,0 @@
-./app/**/*.spec.js
---reporter tap

@@ -4,16 +4,25 @@ var gulp = require('gulp'),
     path = require('path'),
     KarmaServer = require('karma').Server,
     config = rootRequire('config/build'),
+    reporters = require('jasmine-reporters'),
     g = require('gulp-load-plugins')();
 
 /**
  * Test server code
  */
-gulp.task("test-server", function() {
+gulp.task("test-server", ['pre-test'], function() {
     return gulp.src(config.js.server.testPaths)
-        //.pipe(g.mocha.format('checkstyle', fs.createWriteStream('reports/checkstyle_server.xml')))
-        .pipe(g.mocha({ reporter: "tap" }))
-        //.pipe(g.mocha({ reporter: "spec" }));
+        .pipe(g.jasmine({
+            reporter: [new reporters.JUnitXmlReporter( {
+                savePath: './reports/'
+            }), new reporters.TapReporter()]
+        }))
+        .pipe(g.istanbul.writeReports( {
+            dir: './coverage',
+            reporters: [ 'lcov' ],
+            reportOpts: { dir: './build/unit-test-coverage' }
+        }));
+
     //TODO This is currently not rerunnable. It fails hard and don't run in its own process.
     //So variables may live across runs
     //gulp-spawn-mocha might remedy this
@@ -38,4 +47,13 @@ gulp.task('test-client-continuously', function (done) {
         configFile: path.resolve('./karma.conf.js'),
         singleRun: false
     }, done).start();
+});
+
+
+gulp.task('pre-test', function () {
+    return gulp.src(['lib/**/*.js'])
+        // Covering files
+        .pipe(g.istanbul())
+        // Force `require` to return covered files
+        .pipe(g.istanbul.hookRequire());
 });
