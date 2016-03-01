@@ -11,7 +11,9 @@ var gulp = require('gulp'),
  */
 gulp.task("test-server", function() {
     return gulp.src(config.js.server.testPaths)
-        .pipe(g.mocha({ reporter: "spec" }));
+        //.pipe(g.mocha.format('checkstyle', fs.createWriteStream('reports/checkstyle_server.xml')))
+        .pipe(g.mocha({ reporter: "tap" }))
+        //.pipe(g.mocha({ reporter: "spec" }));
     //TODO This is currently not rerunnable. It fails hard and don't run in its own process.
     //So variables may live across runs
     //gulp-spawn-mocha might remedy this

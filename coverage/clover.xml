@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1456835203007" clover="3.2.0">
+	<project timestamp="1456835203007"  name="All Files" >
+		<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="3"  coveredmethods="3"  elements="8"  coveredelements="8"  complexity="0"  packages="1"  files="1"  classes="1"  loc="7"  ncloc="7" />
+		<package name="main" >
+			<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="3"  coveredmethods="3" />
+			<file name="main.spec.js"  path="/Users/hoefft/dev/git/gbif/portal16/app/views/shared/layout/main/main.spec.js" >
+				<metrics statements="5"  coveredstatements="5"  conditionals="0"  coveredconditionals="0"  methods="3"  coveredmethods="3" />
+				<line num="1"  count="1"  type="stmt" />
+				<line num="4"  count="1"  type="stmt" />
+				<line num="5"  count="1"  type="stmt" />
+				<line num="6"  count="1"  type="stmt" />
+				<line num="7"  count="1"  type="stmt" />
+			</file>
+		</package>
+	</project>
+</coverage>

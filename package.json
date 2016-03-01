@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "install": "node_modules/bower/bin/bower install"
+    "install": "node_modules/bower/bin/bower install",
+    "ci-test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./app/**/*.spec.js > test.tap; node node_modules/istanbul/lib/cli.js report clover"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
@@ -39,6 +40,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
+    "istanbul": "^0.4.2",
     "jquery": "^1.11.3",
     "karma": "^0.13.15",
     "karma-browserify": "^4.4.2",
@@ -81,15 +83,15 @@
     "phantomjs": "^1.9.19",
     "postcss-unmq": "^1.0.2"
   },
-"repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/gbif/portal16"
-},
-    "bugs": {
+  },
+  "bugs": {
     "url": "http://dev.gbif.org/issues/browse/PL"
-},
-    "keywords": [
+  },
+  "keywords": [
     "gbif"
-    ],
-    "license": "Apache 2.0"
+  ],
+  "license": "Apache 2.0"
 }

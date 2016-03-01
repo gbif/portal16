@@ -1,0 +1,27 @@
+
+
+  Main
+    addNumbers
+      1) should be able to add two numbers
+
+
+  0 passing (7ms)
+  1 failing
+
+  1) Main addNumbers should be able to add two numbers:
+
+      AssertionError: expected 9 to not equal 9
+      + expected - actual
+
+      
+      at Context.<anonymous> (app/views/shared/layout/main/main.spec.js:9:468)
+
+
+
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 5/5 )
+Branches     : 100% ( 0/0 )
+Functions    : 100% ( 3/3 )
+Lines        : 100% ( 5/5 )
+================================================================================
