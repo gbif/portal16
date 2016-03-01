@@ -16,11 +16,6 @@ gulp.task("test-server", ['pre-test'], function() {
             reporter: [new reporters.JUnitXmlReporter( {
                 savePath: './reports/'
             }), new reporters.TapReporter()]
-        }))
-        .pipe(g.istanbul.writeReports( {
-            dir: './coverage',
-            reporters: [ 'lcov' ],
-            reportOpts: { dir: './build/unit-test-coverage' }
         }));
 
     //TODO This is currently not rerunnable. It fails hard and don't run in its own process.
@@ -47,13 +42,4 @@ gulp.task('test-client-continuously', function (done) {
         configFile: path.resolve('./karma.conf.js'),
         singleRun: false
     }, done).start();
-});
-
-
-gulp.task('pre-test', function () {
-    return gulp.src(['lib/**/*.js'])
-        // Covering files
-        .pipe(g.istanbul())
-        // Force `require` to return covered files
-        .pipe(g.istanbul.hookRequire());
 });

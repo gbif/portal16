@@ -1,5 +1,6 @@
-var Jasmine = require('jasmine');
-var jasmine = new Jasmine();
+var Jasmine = require('jasmine'),
+    jasmine = new Jasmine(),
+    jasmineReporters = require('jasmine-reporters');
 
 jasmine.loadConfigFile('spec/support/jasmine.json');
 
@@ -12,8 +13,6 @@ jasmine.onComplete(function(passed) {
     }
 });
 
-
-var jasmineReporters = require('jasmine-reporters');
 jasmine.addReporter(new jasmineReporters.TapReporter());
 jasmine.addReporter(new jasmineReporters.JUnitXmlReporter( {
     savePath: './reports/'

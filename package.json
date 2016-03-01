@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "install": "node_modules/bower/bin/bower install",
-    "ci-test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./app/**/*.spec.js > test.tap; node node_modules/istanbul/lib/cli.js report clover"
+    "ci-test": "node node_modules/istanbul/lib/cli.js cover jasmine-server.js; node node_modules/istanbul/lib/cli.js report clover"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
