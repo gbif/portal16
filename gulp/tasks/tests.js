@@ -4,23 +4,31 @@ var gulp = require('gulp'),
     path = require('path'),
     KarmaServer = require('karma').Server,
     config = rootRequire('config/build'),
+    SpecReporter = require('jasmine-spec-reporter'),
     reporters = require('jasmine-reporters'),
+    jasmineServerConfig = rootRequire('spec/support/jasmine_server'),
     g = require('gulp-load-plugins')();
 
 /**
  * Test server code
  */
 gulp.task("test-server", function() {
-    return gulp.src(config.js.server.testPaths)
+    return gulp.src(jasmineServerConfig.spec_files)
         .pipe(g.jasmine({
             reporter: [new reporters.JUnitXmlReporter( {
                 savePath: './reports/'
-            }), new reporters.TapReporter()]
+            }), new SpecReporter()],
+            errorOnFail: false
         }));
 
-    //TODO This is currently not rerunnable. It fails hard and don't run in its own process.
-    //So variables may live across runs
-    //gulp-spawn-mocha might remedy this
+    //TODO Test if there are residues across runs (globals or such that would compromise tests)
+});
+
+gulp.task('test-server-continuously', ['test-server'], function() {
+    gulp.watch([
+        'app/controllers/**/*.js',
+        'app/controllers/**/*.js'
+    ], ['test-server']);
 });
 
 

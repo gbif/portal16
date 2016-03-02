@@ -1,10 +1,10 @@
-describe("A suite", function() {
+describe("HOME", function() {
     it("contains spec with an expectation", function() {
         expect(false).toBe(true);
     });
 });
 
-describe("The 'toEqual' matcher", function() {
+describe("HOME The 'toEqual' matcher", function() {
 
     it("works for simple literals and variables", function() {
         var a = 12;

@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "install": "node_modules/bower/bin/bower install",
-    "ci-test": "node node_modules/istanbul/lib/cli.js cover jasmine-server.js; node node_modules/istanbul/lib/cli.js report clover"
+    "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
   },
   "dependencies": {
     "angular": "^1.5.0",
@@ -34,7 +34,6 @@
     "gulp-jasmine": "^2.3.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-minify-css": "^1.2.2",
-    "gulp-mocha": "^2.2.0",
     "gulp-notify": "^2.2.0",
     "gulp-postcss": "^6.0.1",
     "gulp-real-favicon": "^0.1.0",
@@ -45,14 +44,11 @@
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.2",
     "jasmine-reporters": "^2.1.1",
-    "jquery": "^1.11.3",
     "karma": "^0.13.15",
     "karma-browserify": "^4.4.2",
     "karma-jasmine": "^0.3.7",
     "karma-junit-reporter": "^0.3.8",
-    "kouto-swiss": "^0.11.13",
     "method-override": "^2.3.0",
-    "morgan": "^1.6.1",
     "nunjucks": "^2.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
@@ -66,9 +62,8 @@
     "wiredep": "^3.0.0"
   },
   "devDependencies": {
-    "axis": "^0.5.2",
+    "axis": "^0.6.1",
     "browser-sync": "^2.10.1",
-    "chai": "^3.4.1",
     "gulp": "^3.9.0",
     "gulp-cssnano": "^2.1.0",
     "gulp-data": "^1.2.1",
@@ -80,14 +75,12 @@
     "gulp-size": "^2.0.0",
     "gulp-stylus": "^2.0.0",
     "gulper": "^0.1.2",
+    "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.21",
-    "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.3",
-    "karma-mocha": "^0.2.1",
     "karma-phantomjs-launcher": "^0.2.2",
     "lost": "^6.6.3",
-    "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "postcss-unmq": "^1.0.2"
   },

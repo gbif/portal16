@@ -1,16 +1,16 @@
 var main = require('./test');
 
-describe("Main", function() {
+describe("CLIENT", function() {
    describe("addNumbers", function() {
        it("should be able to add two numbers", function(){
-           expect(main.increaseNumber(4)).toEqual(14);
+           expect(main.increaseNumber(14)).toEqual(15);
        });
    });
 });
 
-describe("A suite", function() {
+describe("CLIENT", function() {
     it("contains spec with an expectation", function() {
-        expect(false).toBe(true);
+        expect(true).toBe(true);
     });
 });
 

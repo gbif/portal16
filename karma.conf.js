@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        './app/views/shared/layout/main/main.spec.js'
+        './app/views/**/*.spec.js'
     ],
 
 
@@ -31,14 +31,13 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'junit', 'coverage'],
+    reporters: ['spec', 'junit'],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        './app/views/shared/layout/main/main.spec.js': [ 'browserify' ],
-        './app/views/**/test.js': ['coverage'] // source files, that you wanna generate coverage for. do not include tests or libraries. (these files will be instrumented by Istanbul)
+        './app/views/**/*.spec.js': [ 'browserify' ]
     },
 
     junitReporter: {
@@ -46,24 +45,6 @@ module.exports = function(config) {
         suite: '' // suite will become the package name attribute in xml testsuite element
     },
 
-    coverageReporter: {
-      // specify a common output directory
-      dir: 'coverage',
-      reporters: [
-        // reporters not supporting the `file` property
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' },
-        // reporters supporting the `file` property, use `subdir` to directly
-        // output them in the `dir` directory
-        { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
-        { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
-        { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
-        { type: 'text', subdir: '.', file: 'text.txt' },
-        { type: 'text-summary' },
-
-        { type: 'clover', subdir: '.', file: 'test.xml' },
-      ]
-    },
 
     // web server port
     port: 9877,
@@ -84,8 +65,8 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    //browsers: ['PhantomJS'],//Chrome PhantomJS
-    browsers: ['Chrome'],//Chrome PhantomJS
+    browsers: ['PhantomJS'],//Chrome PhantomJS
+    //browsers: ['Chrome'],//Chrome PhantomJS
 
 
     // Continuous Integration mode

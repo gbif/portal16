@@ -19,7 +19,7 @@ global.rootRequire = function(name) {
 };
 
 /**
- *  Require all tasks in gulp/tasks, including subfolders
+ *  Require all tasks in gulp/tasks, including sub folders
  */
 requireDir('./gulp/tasks', {
     recurse: true
@@ -41,8 +41,7 @@ gulp.task('production', function(callback) {
 
 gulp.task('test-drive-development', [], function(callback){
     runSequence(
-        ['test-server'],
-        ['test-client-continuously'],
+        ['test-server-continuously', 'test-client-continuously', 'development'],
         callback);
 });//TODO add development task
 
