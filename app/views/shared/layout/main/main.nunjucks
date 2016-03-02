@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <!--[if !IE]> -->
-<html lang="en" class="not_ie">
+<html lang="en" class="not_ie"  ng-app="portal">
 <!-- <![endif]-->
 <!--[if IE]>
-<html lang="en" class="ie">
+<html lang="en" class="ie"  ng-app="portal">
 <![endif]-->
 
 <head>

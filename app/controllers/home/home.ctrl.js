@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    log = rootRequire('config/log'),
+    log = require('../../../config/log'),
     Article = require('../../models/article');
 
 module.exports = function (app) {

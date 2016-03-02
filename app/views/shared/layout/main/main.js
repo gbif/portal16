@@ -1,3 +1,36 @@
+var angular = require('angular');
+
+(function () {
+    'use strict';
+
+    angular
+        .module('portal', []);
+    
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('portal')
+        .run(runBlock);
+
+    /** @ngInject */
+    function runBlock() { //$log
+        console.log('test 2');
+        //$log.debug('runBlock end');
+    }
+
+})();
+
+
+
+
+
+
+
+
+
 
 var menu = require('../partials/navigation/navigation.js');
 //$ = require('jquery');

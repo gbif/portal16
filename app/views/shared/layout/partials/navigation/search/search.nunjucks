@@ -4,9 +4,8 @@
             <input type="search" placeholder="Search" name="site_search">
             <button type="submit" class="gb-icon-search"><span>Search</span></button>
         </form>
-        <a href="#">sdfkljsh</a>
-        <p>Temporary search results? Last search. Suggestions. Contact info even?</p>
-        {#<p>start</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>The middle</p>#}
-        {#<p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>sdlkfjh</p><p>THE END</p>#}
+        <div class="Search__results">
+
+        </div>
     </div>
 </div>
