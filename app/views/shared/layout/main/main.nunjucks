@@ -8,6 +8,7 @@
 <![endif]-->
 
 <head>
+    <base href="/" />
     {% include "../partials/head/head.nunjucks" %}
     <title>GBIF</title>
 </head>
@@ -46,6 +47,12 @@
                 {% endif %}
 
                 <div class="Site__contentArea__main">
+                    <div ng-controller="WelcomeCtrl">
+                        {% raw %}
+                        <h2 ng-click="gototester()">model {{test}} </h2>
+                        {% endraw %}
+                    </div>
+                    <div ui-view></div>
                     {% block body %}{% endblock %}
                     <footer>Footer</footer>
                 </div>

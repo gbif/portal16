@@ -1,12 +1,11 @@
 {
   "extends": "eslint:recommended",
-  "plugins": [],
+  "plugins": ["angular"],
   "env": {
       "browser": true
   },
   "globals": {
     "window": true,
-    "$": true,
     "gb": true
   }
 }

@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     transform = require('vinyl-transform'),
     browserify = require('browserify'),
+    notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
 
 
@@ -37,12 +38,21 @@ function buildScripts() {
             entries: config.js.browserify.path,
             debug: true
         }).bundle()
+        .on('error', function (err) {
+            console.log(err.toString());
+            notifier.notify({
+                'title': 'Browserify',
+                'message': err.toString()
+            });
+            this.emit("end");
+        })
         .pipe(source('custom.js'))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({
             loadMaps: true
         }))
         // Add transformation tasks to the pipeline here.
+        .pipe(g.ngAnnotate()) // To not break angular injection when minified
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(g.sourcemaps.write('./'))

@@ -35,7 +35,7 @@ requireDir('./gulp/tasks', {
 
 gulp.task('production', function(callback) {
     runSequence(
-        ['clean-all'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets'], ['ieStyle'],
+        ['clean-all'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates'], ['ieStyle'],
         callback);
 });
 
@@ -56,12 +56,14 @@ gulp.task('watch', ['browser-sync'], function() {
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
     gulp.watch([config.js.client.paths], ['scripts-reload', 'client-lint']);
 
+    gulp.watch(['app/views/**/*.html'], ['templates']).on('change', browserSync.reload);
+
     browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
 });
 
 gulp.task('development', [], function(callback) {
     runSequence(
-        ['clean-all'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets'],
+        ['clean-all'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates'],
         ['ieStyle'],
         ['watch'],
         callback);

@@ -1,10 +1,10 @@
 var angular = require('angular');
-
+require('angular-ui-router');
 (function () {
     'use strict';
 
     angular
-        .module('portal', []);
+        .module('portal', ['ui.router']);
     
 })();
 
@@ -16,10 +16,64 @@ var angular = require('angular');
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock() { //$log
+    function runBlock($state) { //$log
         console.log('test 2');
         //$log.debug('runBlock end');
+
     }
+
+})();
+
+
+(function () {
+    'use strict';
+
+    angular
+        .module('portal')
+        .controller('WelcomeCtrl', WelcomeCtrl);
+
+    /** @ngInject */
+    function WelcomeCtrl($scope, $state) {
+        var vm = this;
+        $scope.test = 'hej med dig også';
+        $scope.gototester = function(){
+            console.log('testerpage');
+            $state.go('testerpage', {}, {reload: true});
+        };
+    }
+})();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('portal')
+        .controller('MainController', MainController);
+
+    /** @ngInject */
+    function MainController() {
+        var vm = this;
+        vm.test = 'value from main controller and the attached template';
+    }
+})();
+
+
+(function () {
+    'use strict';
+
+    angular
+        .module('portal')
+        .config(require('./angular/routerConfig'))
+        .config(["$locationProvider", function($locationProvider) {
+            //TODO how does this work with ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false,
+                rewriteLinks: false
+            });
+        }]);
+
+    
 
 })();
 
