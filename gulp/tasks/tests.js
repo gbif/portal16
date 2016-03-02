@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 /**
  * Test server code
  */
-gulp.task("test-server", ['pre-test'], function() {
+gulp.task("test-server", function() {
     return gulp.src(config.js.server.testPaths)
         .pipe(g.jasmine({
             reporter: [new reporters.JUnitXmlReporter( {

@@ -1,11 +1,7 @@
+
 var menu = require('../partials/navigation/navigation.js');
 //$ = require('jquery');
-
-
-
-
-
-
+//var angular = require('angular');
 
 
 

@@ -40,7 +40,7 @@ module.exports = function (app, config) {
     /**
      require all route controllers
      */
-    var controllers = glob.sync(config.root + '/app/controllers/**/*.js');
+    var controllers = glob.sync(config.root + '/app/controllers/**/*.ctrl.js');
     controllers.forEach(function (controller) {
         require(controller)(app);
     });

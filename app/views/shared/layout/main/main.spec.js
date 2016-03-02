@@ -1,18 +1,35 @@
-//var expect = require('chai').expect;
-////var main = require('./main');
-//
-//describe("Main", function() {
-//    describe("addNumbers", function() {
-//        it("should be able to add two numbers", function(){
-//            expect(4+5).to.not.equal(9);
-//            // expect(main.a).to.not.equal(4);
-//            //expect(main.increaseNumber(4)).to.equal(14);
-//        });
-//    });
-//});
+var main = require('./test');
+
+describe("Main", function() {
+   describe("addNumbers", function() {
+       it("should be able to add two numbers", function(){
+           expect(main.increaseNumber(4)).toEqual(14);
+       });
+   });
+});
 
 describe("A suite", function() {
     it("contains spec with an expectation", function() {
-        expect(true).toBe(false);
+        expect(false).toBe(true);
+    });
+});
+
+describe("The 'toEqual' matcher", function() {
+
+    it("works for simple literals and variables", function() {
+        var a = 12;
+        expect(a).toEqual(12);
+    });
+
+    it("should work for objects", function() {
+        var foo = {
+            a: 12,
+            b: 34
+        };
+        var bar = {
+            a: 12,
+            b: 34
+        };
+        expect(foo).toEqual(bar);
     });
 });
