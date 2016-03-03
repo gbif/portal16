@@ -4,6 +4,7 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
+    i18n = require("i18n"),
     bodyparser = require('body-parser');
     //log = rootRequire('config/log'),
 
@@ -27,6 +28,20 @@ module.exports = function (app, config) {
     //    next();
     //});
 
+
+    var locales = ['en', 'da'];
+    var defaultLocale = 'en';
+    i18n.configure({
+        locales: locales,
+        defaultLocale: defaultLocale,
+        directory: './locales/server/'
+    });
+    app.use(i18n.init);
+
+    //Middleware to remove locale from url and set i18n.locale based on url
+    require(config.root + '/app/helpers/middleware/i18n/localeFromQuery.js')(app, locales, defaultLocale);
+
+
     app.use(bodyparser.json());
     app.use(bodyparser.urlencoded({
         extended: true
@@ -35,6 +50,7 @@ module.exports = function (app, config) {
     app.use(compress());
     app.use(express.static(config.root + '/public'));
     app.use(methodOverride());
+
 
 
     /**

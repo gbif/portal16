@@ -1,0 +1,8 @@
+{
+  TITLE: 'Velkommen!',
+  MESSAGE: 'Denne app understøtter dit sprog!',
+  CATS: 'Jeg har {{catCount}} katte.',
+  SEARCH: {
+    PLACEHOLDER: 'pladsholder for søgetekst'
+  }
+}

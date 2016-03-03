@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
     "body-parser": "^1.13.3",
     "bower": "^1.7.1",
+    "brfs": "^1.4.3",
     "browserify": "^12.0.1",
     "bunyan": "^1.5.1",
     "bunyan-logstash": "^0.3.4",
@@ -42,6 +44,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
+    "i18n": "^0.8.1",
     "istanbul": "^0.4.2",
     "jasmine-reporters": "^2.1.1",
     "karma": "^0.13.15",

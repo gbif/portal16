@@ -1,10 +1,43 @@
+
+function getLocaleFromUrl(url, locales) {
+    if (url == '') {
+        return false;
+    }
+    var first = url.substring(1).split('/');
+    var matchedIndex = locales.indexOf(first[0]);
+    if (matchedIndex != -1) {
+        return locales[matchedIndex];
+    }
+    return false;
+}
+
+function removeLocaleFromUrl(url, locale) {
+    var expr = '(^' + locale + '\/)|(^' + locale + '$)';
+    var regex = new RegExp(expr);
+    return '/' + url.substring(1).replace(regex, '');
+}
+
+var locales = ['da', 'en'];
+var req = {url: '/da/sdf'};
+var locale = getLocaleFromUrl(req.url, locales);
+console.log(locale);
+if (locale) {
+    req.url = removeLocaleFromUrl(req.url, locale);
+    console.log('SET LOCALE ' + locale);
+} else {
+    console.log('SET DEFAULT LOCALE ');
+}
+console.log(req.url);
+
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-translate');
+
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router']);
+        .module('portal', ['ui.router', 'pascalprecht.translate']);
     
 })();
 
@@ -33,11 +66,15 @@ require('angular-ui-router');
         .controller('WelcomeCtrl', WelcomeCtrl);
 
     /** @ngInject */
-    function WelcomeCtrl($scope, $state) {
+    function WelcomeCtrl($scope, $state, $translate) {
         var vm = this;
         $scope.test = 'hej med dig også';
+        $translate('CATS', { catCount: '10' }).then(function (cats) {
+            $scope.translatedText = cats;
+        });
         $scope.gototester = function(){
             console.log('testerpage');
+            $translate.use('da');
             $state.go('testerpage', {}, {reload: true});
         };
     }
@@ -59,15 +96,7 @@ require('angular-ui-router');
 
 
 require('./angular/routerConfig');
-// (function () {
-//     'use strict';
-
-//     angular
-//         .module('portal')
-//         .config(require('./angular/routerConfig'));
-    
-
-// })();
+require('./angular/translate');
 
 
 

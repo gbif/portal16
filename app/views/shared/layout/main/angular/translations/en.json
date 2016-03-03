@@ -1,0 +1,8 @@
+{
+  "TITLE": "Welcome!",
+  "MESSAGE": "This app supports your lanaguage!",
+  "CATS": "I have {{catCount}} cats.",
+  "SEARCH": {
+    "PLACEHOLDER": "placeholder text for search"
+  }
+}

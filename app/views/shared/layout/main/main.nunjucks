@@ -47,9 +47,13 @@
                 {% endif %}
 
                 <div class="Site__contentArea__main">
+                    {{ __('Hello') }}
                     <div ng-controller="WelcomeCtrl">
                         {% raw %}
-                        <h2 ng-click="gototester()">model {{test}} </h2>
+                        <h1>{{ 'TITLE' | translate }}</h1>
+                        <p>{{ 'MESSAGE' | translate }}</p>
+                        <p>{{ 'SEARCH.PLACEHOLDER' | translate }}</p>
+                        <h2 ng-click="gototester()">model {{test}} TRANSLATE: {{ translatedText }}</h2>
                         {% endraw %}
                     </div>
                     <div ui-view></div>

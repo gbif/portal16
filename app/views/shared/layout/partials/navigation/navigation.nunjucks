@@ -73,7 +73,7 @@
 
 
     <div class="MainMenu">
-        <a href="/#" class="gb-icon-home"><span>Home</span></a>
+        <a href="/" class="gb-icon-home"><span>Home</span></a>
         <ul>
             <li class="isCategory MainMenu__item">
                 <a href="#" class="gb-icon-map">
