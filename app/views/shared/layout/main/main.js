@@ -58,24 +58,16 @@ require('angular-ui-router');
 })();
 
 
-(function () {
-    'use strict';
+require('./angular/routerConfig');
+// (function () {
+//     'use strict';
 
-    angular
-        .module('portal')
-        .config(require('./angular/routerConfig'))
-        .config(["$locationProvider", function($locationProvider) {
-            //TODO how does this work with ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false,
-                rewriteLinks: false
-            });
-        }]);
-
+//     angular
+//         .module('portal')
+//         .config(require('./angular/routerConfig'));
     
 
-})();
+// })();
 
 
 
