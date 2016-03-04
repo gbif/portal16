@@ -1,6 +1,5 @@
-{% extends "./test.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
 
-{% block searchresults %}
-    <h2>search data goes here</h2>
-    <p>{{name}}</p>
+{% block body %}
+
 {% endblock %}

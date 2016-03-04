@@ -39,7 +39,7 @@ module.exports = function (app, config) {
     app.use(i18n.init);
 
     //Middleware to remove locale from url and set i18n.locale based on url
-    require(config.root + '/app/helpers/middleware/i18n/localeFromQuery.js')(app, locales, defaultLocale);
+    require(config.root + '/app/helpers/middleware/i18n/localeFromQuery.js').use(app, locales, defaultLocale);
 
 
     app.use(bodyparser.json());

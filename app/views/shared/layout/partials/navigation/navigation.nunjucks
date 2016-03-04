@@ -14,9 +14,12 @@
             <!-- <li class="ServiceMenu__search isCategory">
                 <a href="#search">Search</a>
             </li> -->
-            <li class="ServiceMenu__search">
-                <a href="#" class="gb-icon-search site__searchToggle">Search</a>
-            </li>
+            {% if not __forceSearch %}
+                <li class="ServiceMenu__search">
+                    <a href="#" class="gb-icon-search site__searchToggle">Search</a>
+                </li>
+            {% endif %}
+
             <li class="ServiceMenu__profile isCategory">
                 <a href="#" class="gb-icon-user-female">Profile</a>
                 <ul>

@@ -1,11 +1,16 @@
-<div class="Search" id="site_search">
+<div class="Search {% if __forceSearch %} isActive {% endif %}" id="site_search" ng-controller="searchCtrl">
+    {% raw %}
+
+
     <div class="Search__content">
         <form>
-            <input type="search" placeholder="Search" name="site_search">
+            <input type="search" placeholder="{{ 'SEARCH.PLACEHOLDER' | translate }}" name="site_search">
             <button type="submit" class="gb-icon-search"><span>Search</span></button>
         </form>
         <div class="Search__results">
-
         </div>
     </div>
+
+
+    {% endraw %}
 </div>

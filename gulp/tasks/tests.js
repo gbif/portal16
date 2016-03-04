@@ -25,10 +25,7 @@ gulp.task("test-server", function() {
 });
 
 gulp.task('test-server-continuously', ['test-server'], function() {
-    gulp.watch([
-        'app/controllers/**/*.js',
-        'app/controllers/**/*.js'
-    ], ['test-server']);
+    gulp.watch(config.js.server.paths, ['test-server']);
 });
 
 

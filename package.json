@@ -86,6 +86,7 @@
     "karma": "^0.13.21",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.3",
+    "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "^0.2.2",
     "lost": "^6.6.3",
     "node-notifier": "^4.5.0",

@@ -31,7 +31,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'junit'],
+    reporters: ['spec', 'junit', 'notify'],
 
 
     // preprocess matching files before serving them to the browser
@@ -43,6 +43,11 @@ module.exports = function(config) {
     junitReporter: {
         outputDir: 'reports/karma', // results will be saved as $outputDir/$browserName.xml
         suite: '' // suite will become the package name attribute in xml testsuite element
+    },
+
+    notifyReporter: {
+      reportEachFailure: false, // Default: false, Will notify on every failed sepc
+      reportSuccess: false // Default: true, Will notify when a suite was successful
     },
 
 

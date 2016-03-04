@@ -97,6 +97,7 @@ require('angular-translate');
 
 require('./angular/routerConfig');
 require('./angular/translate');
+require('../partials/navigation/search/search.ctrl');
 
 
 

@@ -7,7 +7,7 @@ function getLocaleFromUrl(url, locales) {
     if (matchedIndex != -1) {
         return locales[matchedIndex];
     }
-    return false;
+    return undefined;
 }
 
 function removeLocaleFromUrl(url, locale) {
@@ -17,7 +17,7 @@ function removeLocaleFromUrl(url, locale) {
     return strippedUrl;
 }
 
-module.exports = function(app, locales, defaultLocale) {
+function use(app, locales, defaultLocale) {
 
     //Use middleware to set current language based on url
     app.use(function (req, res, next) {
@@ -31,5 +31,11 @@ module.exports = function(app, locales, defaultLocale) {
         next();
     });
 
-};
+}
+
+module.exports = {
+    use: use,
+    getLocaleFromUrl: getLocaleFromUrl,
+    removeLocaleFromUrl: removeLocaleFromUrl
+}
 
