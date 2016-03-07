@@ -15,6 +15,6 @@ describe("Language from url middleware", function() {
         expect(localeMiddleware.removeLocaleFromUrl('/en', 'en')).toEqual('/');
         expect(localeMiddleware.removeLocaleFromUrl('/en/', 'en')).toEqual('/');
         expect(localeMiddleware.removeLocaleFromUrl('/da/english', 'da')).toEqual('/english');
-        expect(localeMiddleware.removeLocaleFromUrl('/es/species/243','es')).toEqual('/species/243Y');
+        expect(localeMiddleware.removeLocaleFromUrl('/es/species/243','es')).toEqual('/species/243');
     });
 });

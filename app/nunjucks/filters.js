@@ -3,6 +3,14 @@ var path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
 
+    (function() {
+        nunjucksConfiguration.addFilter('rawJson', function(data) {
+            return JSON.stringify(data);
+        });
+
+    })();
+
+
     /**
     DEPRECATED
     Moved away from this and use source maps instead

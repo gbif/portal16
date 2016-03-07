@@ -1,4 +1,5 @@
 var express = require('express'),
+    search = require('../../../models/search/search'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -6,7 +7,13 @@ module.exports = function (app) {
 };
 
 router.get('/search', function (req, res) {
-    res.render('pages/search/search', {
-        __forceSearch: true
+    var searchString = req.query.q;
+    search.search(searchString, function(results){
+        res.render('pages/search/search', {
+            __forceSearch: false,
+            results: results//JSON.stringify(results)
+        });
     });
 });
+
+

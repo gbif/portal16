@@ -47,7 +47,6 @@
                 {% endif %}
 
                 <div class="Site__contentArea__main">
-                    {{ __('Hello') }}
                     <div ng-controller="WelcomeCtrl">
                         {#
                         {% raw %}

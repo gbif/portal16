@@ -1,34 +1,3 @@
-
-function getLocaleFromUrl(url, locales) {
-    if (url == '') {
-        return false;
-    }
-    var first = url.substring(1).split('/');
-    var matchedIndex = locales.indexOf(first[0]);
-    if (matchedIndex != -1) {
-        return locales[matchedIndex];
-    }
-    return false;
-}
-
-function removeLocaleFromUrl(url, locale) {
-    var expr = '(^' + locale + '\/)|(^' + locale + '$)';
-    var regex = new RegExp(expr);
-    return '/' + url.substring(1).replace(regex, '');
-}
-
-var locales = ['da', 'en'];
-var req = {url: '/da/sdf'};
-var locale = getLocaleFromUrl(req.url, locales);
-console.log(locale);
-if (locale) {
-    req.url = removeLocaleFromUrl(req.url, locale);
-    console.log('SET LOCALE ' + locale);
-} else {
-    console.log('SET DEFAULT LOCALE ');
-}
-console.log(req.url);
-
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-translate');
@@ -49,10 +18,8 @@ require('angular-translate');
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($state) { //$log
-        console.log('test 2');
+    function runBlock() { //$log
         //$log.debug('runBlock end');
-
     }
 
 })();
@@ -67,13 +34,11 @@ require('angular-translate');
 
     /** @ngInject */
     function WelcomeCtrl($scope, $state, $translate) {
-        var vm = this;
         $scope.test = 'hej med dig også';
         $translate('CATS', { catCount: '10' }).then(function (cats) {
             $scope.translatedText = cats;
         });
         $scope.gototester = function(){
-            console.log('testerpage');
             $translate.use('da');
             $state.go('testerpage', {}, {reload: true});
         };
@@ -172,10 +137,10 @@ this.Element && function(ElementPrototype) {
 }
  */
 
-function stackTrace() {
-    var err = new Error();
-    return err.stack;
-}
+//function stackTrace() {
+//    var err = new Error();
+//    return err.stack;
+//}
 
 //window.onerror = function(msg, file, line, col, error) {
 //    $.post('/api/log/error', {
@@ -286,7 +251,7 @@ gb.util.addEventListenerAll('.isCategory>a', 'click', function (event) {
 });
 
 //collapse expand service menu
-gb.util.addEventListenerAll('.ServiceMenu__teaser>a', 'click', function (event) {
+gb.util.addEventListenerAll('.ServiceMenu__teaser>a', 'click', function () {
     this.parentNode.parentNode.classList.toggle('isExpanded');
 });
 
