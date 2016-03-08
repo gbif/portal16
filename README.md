@@ -120,4 +120,5 @@ Basic configuration of server, build etc.
 
 
 
-
+## Debugging
+Initiating debugging is very slow. Unclear what the best approach is. Currently I start gulp in dev mode with `gulp --tdd` and then in another process starts node inspector with `node-debug app.js --port=3002`

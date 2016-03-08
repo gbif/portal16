@@ -1,0 +1,63 @@
+<section class="card speciesList">
+    {% for species in results.species %}
+    <div class="species">
+		<h2>{{species.scientificName}}</h2>
+		<ul class="taxonomic_placement">
+			<li>
+				<a>{{ species.kingdom }}</a>
+			</li>
+			<li>
+				<a>{{ species.phylum }}</a>
+			</li>
+			<li>
+				<a>{{ species.class }}</a>
+			</li>
+			<li>
+				<a>{{ species.order }}</a>
+			</li>
+			<li>
+				<a>{{ species.family }}</a>
+			</li>
+			<li>
+				<a>{{ species.genus }}</a>
+			</li>
+			<li>
+				<a>{{ species.species }}</a>
+			</li>
+		</ul>
+		{% if species.media and species.media.results.length > 0 %}
+	    	<div class="species__images">
+	    		<img src="http://api.gbif.org/v1/image?url={{ species.media.results[0].identifier }}&size=S">
+	    	</div>
+    	{% endif %}
+
+		{% if species.types and species.types.count > 0 %}
+    	<div class="species__type">
+	    	{% for type in species.types.results %}
+		    	{% if type.media.length > 0 %}
+		    	<img src="http://api.gbif.org/v1/image?url={{ type.media[0].identifier }}&size=S">
+		    	{% endif %}
+	    	{% endfor %}
+    	</div>
+    	{% endif %}
+
+
+    	{% if species.images and species.images.count > 0 %}
+    	<div class="species__gallery">
+	    	{% for image in species.images.results %}
+	    	<img src="http://api.gbif.org/v1/image?url={{ image.media[0].identifier }}&size=S">
+	    	{% endfor %}
+    	</div>
+    	{% endif %}
+
+    	<div class="species__map">
+	    	<div>
+	    		<img src="http://a.tiles.mapbox.com/v3/timrobertson100.map-x2mlizjd/0/0/0.png">
+	    		<img src="http://cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{species.usageKey}}&type=TAXON&resolution=8">
+	    	</div>
+    	</div>
+
+    </div>
+    {% endfor %}
+
+</section>

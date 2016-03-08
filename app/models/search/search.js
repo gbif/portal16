@@ -33,19 +33,19 @@ function getData(q, cb) {
     async.parallel([
             function(callback){
                 speciesSearch.getSpeciesData(q, callback)
-            },
-            function(callback){
-                request(options.endpoints.occurrences + queryString.stringify({q: q, limit: 5}), function(err, response, body) {
-                    if(err) {
-                        callback(new Error("failed getting something:" + err.message));
-                        return;
-                    }
-                    callback(null, {
-                        type: types.OCCURRENCES,
-                        data: JSON.parse(body)
-                    });
-                });
             }
+        //    , function(callback){
+        //         request(options.endpoints.occurrences + queryString.stringify({q: q, limit: 5}), function(err, response, body) {
+        //             if(err) {
+        //                 callback(new Error("failed getting something:" + err.message));
+        //                 return;
+        //             }
+        //             callback(null, {
+        //                 type: types.OCCURRENCES,
+        //                 data: JSON.parse(body)
+        //             });
+        //         });
+        //     }
         ],
         cb
     );
@@ -57,7 +57,11 @@ function search(q, cb) {
         if (err) {
             console.log(err);
         }
-        cb(results);
+        var data = {};
+        results.forEach(function(e){
+            data[e.key] = e.data;
+        });
+        cb(data);
     });
 }
 

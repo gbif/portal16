@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "angular": "^1.5.0",
+    "angular-translate": "^2.10.0",
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.13.3",
     "bower": "^1.7.1",

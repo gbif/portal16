@@ -1,7 +1,9 @@
 var path = require('path'),
     log = require('./log'),
+    yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+    env = process.env.NODE_ENV || 'development',
+    defaultPort = yargs.port || 3000;
 
 var config = {
     development: {
@@ -9,7 +11,7 @@ var config = {
         app: {
             name: 'portal - dev'
         },
-        port: 3000,
+        port: defaultPort,
         log: log
     },
 
@@ -18,7 +20,7 @@ var config = {
         app: {
             name: 'portal - test'
         },
-        port: 3000,
+        port: defaultPort,
         log: log
     },
 
@@ -27,7 +29,7 @@ var config = {
         app: {
             name: 'portal - prod'
         },
-        port: 3000,
+        port: defaultPort,
         log: log
     }
 };

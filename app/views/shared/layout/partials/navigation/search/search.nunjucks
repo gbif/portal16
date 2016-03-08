@@ -3,9 +3,10 @@
 
 
     <div class="Search__content">
-        <form>
-            <input type="search" placeholder="{{ 'SEARCH.PLACEHOLDER' | translate }}" name="site_search">
+        <form action="/search">
+            <input type="search" placeholder="{{ 'SEARCH.PLACEHOLDER' | translate }}" name="q">
             <button type="submit" class="gb-icon-search"><span>Search</span></button>
+            <input type="submit">
         </form>
         <div class="Search__results">
         </div>

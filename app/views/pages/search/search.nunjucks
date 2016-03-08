@@ -3,20 +3,11 @@
 {% block body %}
 <div class="SearcResults">
     <h2>{{ __('Search results') }}</h2>
-    <section class="card species">
-        <script>
-            var test = {{ results | rawJson | safe}};
-        </script>
+    
+    {% if results.species %}
+        {% include "./speciesHighlight.nunjucks" %}
+    {% endif %}
 
-        {% for x in results[0].data.results %}
-            <p>
-                {{ x.kingdom }}
-            </p>
-            {% if x.mediaData and x.mediaData.results.length > 0 %}
-                <img src="http://api.gbif.org/v1/image?url={{ x.mediaData.results[0].identifier }}&size=S">
-            {% endif %}
-        {% endfor %}
-    </section>
     <section class="card occurrences">
         occurrences
     </section>
