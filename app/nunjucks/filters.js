@@ -10,6 +10,13 @@ module.exports = function(nunjucksConfiguration, config) {
 
     })();
 
+    (function() {
+        nunjucksConfiguration.addFilter('limit', function(data, limit) {
+            return data.slice(0, limit);
+        });
+
+    })();
+
 
     /**
     DEPRECATED

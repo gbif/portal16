@@ -1,0 +1,20 @@
+<section class="card occurrences_list">
+    <h2>Occurrences</h2>
+    {% for species in results.species | limit(2) %}
+
+        <div class="occurrences">
+            <h3>{{species.scientificName}}</h3>
+            <p>
+                Total occurrences results {{ species.occurrences.count }}
+            </p>
+            {% if species.occurrences and species.occurrences.count > 0 %}
+                <div class="species__type">
+                    {% for occurrence in species.occurrences.results %}
+                        <p>lat: {{ occurrence.decimalLatitude }}. lng: {{ occurrence.decimalLongitude }} - {{ occurrence.country }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+</section>

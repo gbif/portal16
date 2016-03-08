@@ -10,8 +10,9 @@ router.get('/search', function (req, res) {
     var searchString = req.query.q;
     search.search(searchString, function(results){
         res.render('pages/search/search', {
-            __forceSearch: false,
-            results: results//JSON.stringify(results)
+            __hideSearchAction: true,
+            results: results,
+            query: searchString
         });
     });
 });

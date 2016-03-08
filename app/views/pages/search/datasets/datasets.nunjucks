@@ -1,0 +1,14 @@
+{%  if results.datasets.count > 0 %}
+<section class="card datasets">
+    <h2>Datasets</h2>
+
+    <ul>
+    {% for dataset in results.datasets.results | limit(5) %}
+        <li>
+            {{ dataset.title }}
+        </li>
+    {% endfor %}
+    </ul>
+
+</section>
+{% endif %}

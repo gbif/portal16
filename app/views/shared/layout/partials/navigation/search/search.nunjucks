@@ -1,17 +1,17 @@
-<div class="Search {% if __forceSearch %} isActive {% endif %}" id="site_search" ng-controller="searchCtrl">
-    {% raw %}
+<div class="Search" id="site_search" ng-controller="searchCtrl">
+
 
 
     <div class="Search__content">
-        <form action="/search">
-            <input type="search" placeholder="{{ 'SEARCH.PLACEHOLDER' | translate }}" name="q">
-            <button type="submit" class="gb-icon-search"><span>Search</span></button>
-            <input type="submit">
+        <form action="/search" class="Search__form">
+            <input type="text" placeholder="{{ __('search') }}" name="q" value="{{ query }}">
+            <button type="submit" class="gb-icon-search">
+                <span>{{ __('search') }}</span>
+            </button>
+            <input type="submit" class="Search__form__submit" value="{{ __('search') }}">
         </form>
-        <div class="Search__results">
-        </div>
     </div>
 
 
-    {% endraw %}
+
 </div>

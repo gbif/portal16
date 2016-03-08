@@ -113,7 +113,7 @@ function getApiData(path, propName, callback) {
     request(path, function(err, response, body) {
         if(err) {
             console.log('ERROR ' + err.message);
-            callback(new Error('Unable to get species related data :' + err.message));
+            callback(new Error('Unable to get data from API : ' + err.message));
             return;
         }
         data = JSON.parse(body);

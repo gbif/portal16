@@ -1,15 +1,39 @@
 {% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
 
 {% block body %}
-<div class="SearcResults">
-    <h2>{{ __('Search results') }}</h2>
-    
-    {% if results.species %}
-        {% include "./speciesHighlight.nunjucks" %}
-    {% endif %}
+    <div class="Search__content">
+        <form action="/search" class="Search__form">
+            <input type="text" placeholder="{{ __('search') }}" name="q" value="{{ query }}">
+            <button type="submit" class="gb-icon-search">
+                <span>{{ __('search') }}</span>
+            </button>
+            <input type="submit" class="Search__form__submit" value="{{ __('search') }}">
+        </form>
 
-    <section class="card occurrences">
-        occurrences
-    </section>
-</div>
+
+        <div class="SearchResults">
+            <script>
+                var res = {{ results | rawJson | safe }};
+            </script>
+
+
+            <div class="SearchResults__highlighted">
+                {% if results.species %}
+                    {% include "./species/speciesHighlight.nunjucks" %}
+                {% endif %}
+            </div>
+
+            <div class="SearchResults__other">
+                {% include "./species/SpeciesOccurrences.nunjucks" %}
+
+                {% include "./articles/articles.nunjucks" %}
+                {% include "./datasets/datasets.nunjucks" %}
+                {% include "./publishers/publishers.nunjucks" %}
+            </div>
+
+        </div>
+
+
+
+    </div>
 {% endblock %}

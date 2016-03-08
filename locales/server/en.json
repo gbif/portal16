@@ -1,4 +1,6 @@
 {
 	"Hello": "Hello",
-	"Search results": "Search results"
+	"Search results": "Search results",
+	"search.placeholder": "search.placeholder",
+	"search": "search"
 }
