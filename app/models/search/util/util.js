@@ -1,6 +1,27 @@
 var request = require('request'),
     async = require('async');
 
+var confidenceThreshold = 80;
+
+function getMatchesByConfidence(results) {
+    var alternative,
+        confidentMatches = [];
+
+    if (results && results.confidence > confidenceThreshold && results.matchType != 'NONE') {
+        delete results.alternatives;
+        confidentMatches.push(results);
+    } else if(results && results.alternatives) {
+        for (var i=0; i < results.alternatives.length; i++) {
+            alternative = results.alternatives[i];
+            if (alternative.confidence > confidenceThreshold) {
+                confidentMatches.push(alternative);
+            } else {
+                break;
+            }
+        }
+    }
+    return confidentMatches;
+}
 
 function getApiData(path, callback) {
     var data,
@@ -37,5 +58,6 @@ function getApiData(path, callback) {
 }
 
 module.exports = {
-    getApiData: getApiData
+    getApiData: getApiData,
+    getMatchesByConfidence: getMatchesByConfidence
 }

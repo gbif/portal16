@@ -1,13 +1,13 @@
 {% import "../forms.nunjucks" as helpers %}
-{% if results.speciesMatchData %}
+{% if results.speciesMatches %}
 <section class="card speciesList">
 	<h2>Species</h2>
 	<div>
 		<p>
-			Total species results {{ results.speciesMatchData.length }}
+			Total species results {{ results.speciesMatches.length }}
 		</p>
 	</div>
-    {% for species in results.speciesMatchData | limit(2) %}
+    {% for species in results.speciesMatches | limit(2) %}
     <div class="species">
 		<h3>{{species.scientificName}}</h3>
 		<ul class="taxonomic_placement">
@@ -33,16 +33,16 @@
 				<a>{{ species.species }}</a>
 			</li>
 		</ul>
-		{% if species.media and species.media.results.length > 0 %}
+		{% if species._custom.media and species._custom.media.results.length > 0 %}
 	    	<div class="species__images">
-	    		<img src="http://api.gbif.org/v1/image?url={{ species.media.results[0].identifier }}&size=S">
+	    		<img src="http://api.gbif.org/v1/image?url={{ species._custom.media.results[0].identifier }}&size=S">
 	    	</div>
     	{% endif %}
 
 		{% if species._custom.holotypes and species._custom.holotypes.count > 0 %}
     	<div class="species__type">
 	    	{% for type in species._custom.holotypes.results %}
-		    	{% if type.media.length > 0 %}
+		    	{% if type.media and type.media.length > 0 and type.media[0].identifier%}
 		    	<img src="http://api.gbif.org/v1/image?url={{ type.media[0].identifier }}&size=S">
 		    	{% endif %}
 	    	{% endfor %}

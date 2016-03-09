@@ -14,8 +14,7 @@
  */
 var queryString = require('queryString'),
     request = require('request'),
-    helper = require('./helper'),
-    speciesSearch = require('./species/species'),
+    helper = require('./util/util'),
     async = require('async');
 
 function augmentSpeciesData(speciesMatches, cb) {
@@ -51,13 +50,13 @@ function augmentSpeciesData(speciesMatches, cb) {
                 cb(err, data);
             }
         );
-    }, function(err, test){
+    }, function(err){
         if (err) {
             console.log(err);//FAILED GETTING SOME OR ALL DATA
             cb('failed to run async.each');
             return;
         }
-        cb(null, speciesMatches);
+        cb(null, true);
     });
     
 }
@@ -68,7 +67,7 @@ function getData(q, cb) {
             speciesMatches: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/species/match?verbose=true&name=' + q, function(err, data) {
                     if (data) {
-                        var confidentMatches = speciesSearch.getConfidentMatchesFromResults(data);
+                        var confidentMatches = helper.getMatchesByConfidence(data);
                     }
                     callback(err, confidentMatches)
                 });
@@ -127,10 +126,10 @@ function getData(q, cb) {
             publishers: function(callback) {
                 //publishers
                 helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
-            }
-            //, function(callback){
-            //     helper.getApiData('http://www.gbif-dev.org/api/search/' + q, 'articles', callback);
-            // }
+            },
+            articles: function(callback){
+                 helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
+             }
         },
         cb
     );

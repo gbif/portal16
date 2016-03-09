@@ -116,43 +116,6 @@ ul,ol {
 }
 
 
-
-
-
-
-//ie scrollbar styling
-body {
-	/*scrollbar-face-color: #b46868;*/
-
-	/*scrollbar-base-color: #222;*/
-	/*scrollbar-3dlight-color: #222;*/
-	/*scrollbar-highlight-color: #222;*/
-	/*scrollbar-track-color: #3e3e42;*/
-	/*scrollbar-arrow-color: #111;*/
-	/*scrollbar-shadow-color: #222;*/
-	/*scrollbar-dark-shadow-color: #222;*/
-
-	/*-ms-overflow-style: -ms-autohiding-scrollbar;*/
-}
-
-// ::-webkit-scrollbar
-// {
-// 	width: 17px;  /* for vertical scrollbars */
-// 	height: 17px; /* for horizontal scrollbars */
-// }
-
-// ::-webkit-scrollbar-track
-// {
-// 	background: rgba(220, 220, 220, 1);
-// 	border-radius: 0px;
-// }
-
-// ::-webkit-scrollbar-thumb
-// {
-// 	border-radius: 0px;
-// 	background: rgba(150, 150, 150, 1);
-// }
-
 .page-wrapper * {
 	&::-webkit-scrollbar
 	{
@@ -174,25 +137,21 @@ body {
 }
 
 //SIMILUATE IE11 SCROLLBARS
-.XXXpage-wrapper * {
-	&::-webkit-scrollbar
-	{
-		width: 18px;  /* for vertical scrollbars */
-		height: 18px; /* for horizontal scrollbars */
-	}
-
-	&::-webkit-scrollbar-track {
-		// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-		// border-radius: 10px;
-		background: rgba(220,220,220,1)
-	}
-
-	&::-webkit-scrollbar-thumb {
-		// border-radius: 10px;
-		background: rgba(180,180,180,1)
-		// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	}
-}
+//.page-wrapper * {
+//	&::-webkit-scrollbar
+//	{
+//		width: 18px;  /* for vertical scrollbars */
+//		height: 18px; /* for horizontal scrollbars */
+//	}
+//
+//	&::-webkit-scrollbar-track {
+//		background: rgba(220,220,220,1)
+//	}
+//
+//	&::-webkit-scrollbar-thumb {
+//		background: rgba(180,180,180,1)
+//	}
+//}
 
 
 
@@ -212,4 +171,18 @@ body {
 	html {
 		overflow-y scroll
 	}
+}
+
+
+
+//util classes should go where?
+.sr-only {
+	position absolute
+	width 1px
+	height 1px
+	padding 0
+	margin -1px
+	overflow hidden
+	clip rect(0,0,0,0)
+	border 0
 }
