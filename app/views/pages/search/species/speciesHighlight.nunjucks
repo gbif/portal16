@@ -1,11 +1,13 @@
+{% import "../forms.nunjucks" as helpers %}
+{% if results.speciesMatchData %}
 <section class="card speciesList">
 	<h2>Species</h2>
 	<div>
 		<p>
-			Total species results {{ results.species.length }}
+			Total species results {{ results.speciesMatchData.length }}
 		</p>
 	</div>
-    {% for species in results.species | limit(2) %}
+    {% for species in results.speciesMatchData | limit(2) %}
     <div class="species">
 		<h3>{{species.scientificName}}</h3>
 		<ul class="taxonomic_placement">
@@ -37,9 +39,9 @@
 	    	</div>
     	{% endif %}
 
-		{% if species.types and species.types.count > 0 %}
+		{% if species._custom.holotypes and species._custom.holotypes.count > 0 %}
     	<div class="species__type">
-	    	{% for type in species.types.results %}
+	    	{% for type in species._custom.holotypes.results %}
 		    	{% if type.media.length > 0 %}
 		    	<img src="http://api.gbif.org/v1/image?url={{ type.media[0].identifier }}&size=S">
 		    	{% endif %}
@@ -48,10 +50,10 @@
     	{% endif %}
 
 
-    	{% if species.images and species.images.count > 0 %}
+    	{% if species._custom.images and species._custom.images.count > 0 %}
     	<div class="species__gallery">
-	    	{% for image in species.images.results  | limit(3) %}
-	    	<img src="http://api.gbif.org/v1/image?url={{ image.media[0].identifier }}&size=S">
+	    	{% for image in species._custom.images.results  | limit(3) %}
+	    	{{ helpers.image(image.media[0].identifier) }}
 	    	{% endfor %}
     	</div>
     	{% endif %}
@@ -63,11 +65,12 @@
 	    	</div>
     	</div>
 
-		{% if species.types and species.types.count > 0 %}
-			<a href="/occurrence/{{ species.types.results[0].key }}">Type specimen</a> <a href="#">All types</a>
+		{% if species._custom.holotypes and species._custom.holotypes.count > 0 %}
+			<a href="/occurrence/{{ species._custom.holotypes.results[0].key }}">Type specimen</a> <a href="#">All types</a>
 		{% endif %}
 
     </div>
     {% endfor %}
 
 </section>
+{% endif %}

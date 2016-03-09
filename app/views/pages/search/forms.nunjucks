@@ -1,0 +1,20 @@
+{% macro occurrences(list) %}
+<div class="occurrences">
+	{% if list and list.length > 0 %}
+		<ul>
+			{% for item in list | limit(5) %}
+			<li>{{item.key}}</li>
+			{% endfor%}
+		</ul>
+	{% endif %}
+ 	
+</div>
+{% endmacro %}
+
+{% macro image(url) %}
+<div class="img">
+	<div class="responsiveImg">
+		<img src="http://api.gbif.org/v1/image?url={{url}}&size=S" >
+	</div>
+</div>
+{% endmacro %}

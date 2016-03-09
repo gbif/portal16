@@ -16,11 +16,14 @@
                 var res = {{ results | rawJson | safe }};
             </script>
 
+            {% import "./forms.nunjucks" as helpers %}
+datasets
+            {{ helpers.occurrences(results.datasets.results) }}
+publishers
+            {{ helpers.occurrences(results.publishers.results) }}
 
             <div class="SearchResults__highlighted">
-                {% if results.species %}
-                    {% include "./species/speciesHighlight.nunjucks" %}
-                {% endif %}
+                {% include "./species/speciesHighlight.nunjucks" %}
             </div>
 
             <div class="SearchResults__other">
@@ -32,8 +35,6 @@
             </div>
 
         </div>
-
-
 
     </div>
 {% endblock %}

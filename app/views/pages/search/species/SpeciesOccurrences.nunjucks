@@ -1,3 +1,4 @@
+{%  if results.species %}
 <section class="card occurrences_list">
     <h2>Occurrences</h2>
     {% for species in results.species | limit(2) %}
@@ -18,3 +19,4 @@
     {% endfor %}
 
 </section>
+{% endif %}
