@@ -1,3 +1,79 @@
-.SearchResults__highlighted {
-	background pink
+.card {
+	box-shadow 0 0 1px rgba(0,0,0,0.3)
+	background white
+}
+
+.card__content {
+	padding vr-block(1)
+}
+
++isAbove($laptop) {
+	.SearchResults {
+		display flex
+	}
+	.SearchResults__highlighted {
+		width 400px
+		order 2
+	}
+}
+
+
+.SearchResults__other {
+	max-width 800px
+	order 1
+}
+.SearchResults section {
+	margin vr-block(1)
+	h2 {
+		text-transform uppercase
+		font-size 15px
+		margin-left vr-block(1)
+		line-height 2rem
+	}
+	h3 {
+		font-size 18px
+		font-weight normal
+		a {
+			color deepskyblue
+		}
+	}
+}
+
+.SearchResults .card__content {
+	max-width 800px
+}
+.searchResults__list >div {
+	margin-bottom vr-block(1)
+	&:last-of-type {
+		margin 0
+	}
+	>div {
+		a {
+			color #aaa
+			&:hover {
+				border-bottom 1px solid $OrangePeel
+			}
+		}
+		.searchResults__list__custom {
+			color #aaa
+			span {
+				padding-right 5px
+			}
+		}
+		p {
+			margin 0
+		}
+	}
+}
+
+.SearchResults__section__more {
+	border-top 1px solid #eee
+	text-align center
+	color #aaa
+	padding vr-block(0.25)
+	font-size 90%
+	a {
+		margin 0 vr-block(1)
+		text-transform uppercase
+	}
 }

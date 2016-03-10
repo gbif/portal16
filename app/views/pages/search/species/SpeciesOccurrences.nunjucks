@@ -1,22 +1,62 @@
-{%  if results.species %}
-<section class="card occurrences_list">
-    <h2>Occurrences</h2>
-    {% for species in results.species | limit(2) %}
+{% if results.speciesMatches.length > 0 %}
+{% for species in results.speciesMatches | limit(2) %}
 
-        <div class="occurrences">
-            <h3>{{species.scientificName}}</h3>
-            <p>
-                Total occurrences results {{ species.occurrences.count }}
-            </p>
-            {% if species.occurrences and species.occurrences.count > 0 %}
-                <div class="species__type">
-                    {% for occurrence in species.occurrences.results %}
-                        <p>lat: {{ occurrence.decimalLatitude }}. lng: {{ occurrence.decimalLongitude }} - {{ occurrence.country }}</p>
-                    {% endfor %}
+<section class="SearchResults__section SearchResults-occurrences SearchResults-species">
+    <div class="card">
+        <div class="overview">
+            <div class="species__map">
+                <div>
+                    <img src="//a.tiles.mapbox.com/v4/gbif.faa58830/0/0/0.png?access_token=pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ">
+                    <img src="http://cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{species.usageKey}}&type=TAXON&resolution=1">
                 </div>
-            {% endif %}
+            </div>
+            <div class="overview__content">
+                <div>
+                    <h3>
+                        {{ species.scientificName }}
+                    </h3>
+                    <span>{{ species._custom.occurrences.count }} occurrence records</span>
+                </div>
+            </div>
         </div>
-    {% endfor %}
 
+        <div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Catalog number
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Verbatim locality
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in species._custom.occurrences.results | limit(4) %}
+                    <tr class="table-row">
+                        <td>
+                            {{ row.catalogNumber}}
+                        </td>
+                        <td>
+                            {{ row.year }}
+                        </td>
+                        <td>
+                            {{ row.verbatimLocality }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="SearchResults__section__more">
+            <a href="#">View all</a>
+        </div>
+    </div>
 </section>
+
+{% endfor %}
 {% endif %}

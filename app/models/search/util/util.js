@@ -1,5 +1,4 @@
-var request = require('request'),
-    async = require('async');
+var request = require('request');
 
 var confidenceThreshold = 80;
 
@@ -24,8 +23,10 @@ function getMatchesByConfidence(results) {
 }
 
 function getApiData(path, callback) {
-    var data,
-        timeoutProtect = setTimeout(function() {
+    var data;
+
+
+    var timeoutProtect = setTimeout(function() {
         // if timeout already have been triggered then do nothing
         // if (!timeoutProtect) {
         //     return
@@ -35,14 +36,18 @@ function getApiData(path, callback) {
         // Execute the callback with an error argument.
         callback(new Error('Timeout: ' + path));
     }, 3000);
+
+
     request(path, function(err, response, body) {
-        // if timeout already have been triggered then do nothing
+        //if timeout already have been triggered then do nothing
         if (!timeoutProtect) {
             return
         }
         // Clear the local timer variable, indicating the timeout has been triggered.
         clearTimeout(timeoutProtect);
         if(err) {
+            //TODO log error
+            console.log('ERROR ' + err.message);
             callback(new Error('Unable to get data from API : ' + err.message));
             return;
         }
@@ -50,9 +55,11 @@ function getApiData(path, callback) {
             data = JSON.parse(body);
         } catch(err) {
             //TODO log that parsing went wrong
+            console.log('PARSING ERROR');
             callback(err);
             return;
         }
+
         callback(null, data);
     });
 }

@@ -1,0 +1,12 @@
+{% import "../searchResults.macro.nunjucks" as searchMacro %}
+{% if results.country %}
+
+<section class="SearchResults__section SearchResults-country">
+    {#<h2>Country</h2>#}
+    {{ searchMacro.simpleCard(
+        results.country.title,
+        results.country.participationStatus,
+        '/country/' + results.country.country)
+    }}
+</section>
+{% endif %}

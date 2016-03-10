@@ -1,0 +1,12 @@
+{% import "../searchResults.macro.nunjucks" as searchMacro %}
+{% if results.catalogNumberOccurrences and results.catalogNumberOccurrences.count > 0 %}
+
+    <section class="SearchResults__section SearchResults-catalogNumber">
+        <h2>Catalog number</h2>
+        {{ searchMacro.simpleCard(
+        results.catalogNumberOccurrences.results[0].catalogNumber,
+        'Catalog number',
+        'http://www.gbif.org/occurrence/' + results.catalogNumberOccurrences.results[0].key)
+        }}
+    </section>
+{% endif %}

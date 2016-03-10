@@ -1,4 +1,5 @@
 {% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% import "./searchResults.macro.nunjucks" as searchMacro %}
 
 {% block body %}
     <div class="Search__content">
@@ -16,22 +17,50 @@
                 var res = {{ results | rawJson | safe }};
             </script>
 
-            {% import "./forms.nunjucks" as helpers %}
-datasets
-            {{ helpers.occurrences(results.datasets.results) }}
-publishers
-            {{ helpers.occurrences(results.publishers.results) }}
 
             <div class="SearchResults__highlighted">
                 {% include "./species/speciesHighlight.nunjucks" %}
+                {% include "./country/country.nunjucks" %}
+                {% include "./catalogNumber/catalogNumber.nunjucks" %}
             </div>
 
             <div class="SearchResults__other">
+                {% include "./occurrences/occurrences.nunjucks" %}
                 {% include "./species/SpeciesOccurrences.nunjucks" %}
 
-                {% include "./articles/articles.nunjucks" %}
-                {% include "./datasets/datasets.nunjucks" %}
-                {% include "./publishers/publishers.nunjucks" %}
+
+                {{ searchMacro.resultList(results.datasets.results, 'Datasets', {
+                    title: 'title',
+                    key: 'key',
+                    baseUrl: 'http://www.gbif.org/dataset/',
+                    description: 'description',
+                    sub: 'publishingOrganizationTitle',
+                    subKey: 'publishingOrganizationKey',
+                    subBaseUrl: 'http://www.gbif.org/publisher/'
+                }) }}
+
+
+                {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
+                    title: 'title',
+                    key: 'key',
+                    baseUrl: 'http://www.gbif.org/publisher/',
+                    description: 'description',
+                    chip: 'numPublishedDatasets'
+                    })
+                -%}
+                Datasets
+                {%- endcall %}
+
+
+
+                {{ searchMacro.resultList(results.articles.data, 'Articles', {
+                    title: 'title',
+                    key: 'key',
+                    baseUrl: '/archive/',
+                    description: 'body'
+                }) }}
+
+
             </div>
 
         </div>

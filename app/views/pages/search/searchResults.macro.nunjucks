@@ -1,0 +1,77 @@
+{% macro resultList(results, type, conf) %}
+
+
+    {%  if results.length > 0 %}
+        <section class="SearchResults__section">
+            <h2>{{ type }}</h2>
+            <div class="card">
+                <div class="searchResults__list card__content">
+                    {% for result in results | limit(3) %}
+                    <div>
+                        <h3>
+                            <a href="{{ conf.baseUrl }}{{ result[conf.key] }}">
+                                {{ result[conf.title] | truncate(80) }}
+                            </a>
+                        </h3>
+                        <div>
+
+                            {% if result[conf.sub] and result[conf.subKey] %}
+                            <a href="{% if conf.subBaseUrl %}{{ conf.subBaseUrl }}{% endif %}{{ result[conf.subKey] }}">
+                                {{ result[conf.sub] | truncate(80) }}
+                            </a>
+                            {% endif %}
+
+                            {% if caller %}
+                            <div class="searchResults__list__custom">
+                                <span>{{ caller() }}</span><span>{{ result[conf.chip] }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if result[conf.description] %}
+                            <p>
+                                {{ result[conf.description] | striptags() | truncate(200) | safe}}
+                            </p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="SearchResults__section__more">
+                    <a href="#">View All</a>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
+{% endmacro %}
+
+
+
+
+
+
+{% macro simpleCard(title, subtitle, link) %}
+
+    <div class="card card-simple">
+
+        {% if link %}
+            <a href="{{ link }}">
+        {% endif %}
+        <div class="card__content">
+
+            <h3>{{ title }}</h3>
+
+            {% if subtitle %}
+            <p>{{ subtitle }}</p>
+            {% endif %}
+
+        </div>
+        {% if link %}
+            </a>
+        {% endif %}
+
+    </div>
+
+{% endmacro %}
