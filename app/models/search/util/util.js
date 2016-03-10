@@ -37,7 +37,6 @@ function getApiData(path, callback) {
         callback(new Error('Timeout: ' + path));
     }, 3000);
 
-
     request(path, function(err, response, body) {
         //if timeout already have been triggered then do nothing
         if (!timeoutProtect) {

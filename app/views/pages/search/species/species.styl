@@ -1,3 +1,8 @@
++isBelow($laptop) {
+	.SearchResults-species {
+		display none
+	}
+}
 .species__map {
 	width 256px
 	max-width 100%
@@ -46,4 +51,43 @@
 .img {
 	// width 200px
 	display inline-block
+}
+
+.SearchResults-species {
+	.media {
+		border-bottom 1px solid #ddd
+	}
+	.media>div:first-of-type {
+		background #7CBB58
+	}
+	.SearchResults-species-info {
+		margin 0
+		tr {
+			border-bottom 1px solid #eee
+			td:first-of-type {
+				min-width  128px
+				padding vr-block(0.5)
+				font-weight bold
+				background #efefef
+			}
+		}
+	}
+	
+}
+.media {
+	display flex
+	overflow hidden
+	>div:first-of-type {
+		flex 0 0 auto
+		width 128px
+	}
+	>div:nth-of-type(2) {
+		height 128px
+		flex 1 1 auto
+		padding vr-block(0.5)
+		>div {
+			vertically-align()
+			text-align center
+		}
+	}
 }

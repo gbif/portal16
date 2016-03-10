@@ -12,9 +12,7 @@
  *
  * @type {exports|module.exports}
  */
-var queryString = require('queryString'),
-    request = require('request'),
-    helper = require('./util/util'),
+var helper = require('./util/util'),
     async = require('async');
 
 function augmentSpeciesData(speciesMatches, cb) {
@@ -98,7 +96,7 @@ function getData(q, cb) {
                     if ( results.speciesMatches.length > 0 || results.catalogNumberOccurrences.results.length > 0 ) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
+                        helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
             ],
@@ -126,9 +124,9 @@ function getData(q, cb) {
             publishers: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
             },
-            articles: function(callback){
-                 helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
-            },
+            // articles: function(callback){
+            //      helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
+            // },
             country: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/node?limit=1&q=' + q, function(err, data) {
                     if (err) {

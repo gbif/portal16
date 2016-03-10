@@ -7,20 +7,35 @@
 	padding vr-block(1)
 }
 
+.SearchResults__highlighted {
+	max-width 800px
+	margin 0 auto
+}
+
 +isAbove($laptop) {
 	.SearchResults {
 		display flex
 	}
 	.SearchResults__highlighted {
-		width 400px
 		order 2
+		flex 1 1 auto
+		width 400px
+		max-width 800px
+		margin 0 auto
 	}
 }
 
 
+.Search__content {
+	max-width 1200px
+	margin auto
+}
+
 .SearchResults__other {
 	max-width 800px
+	flex 0 1 auto
 	order 1
+	margin 0 auto
 }
 .SearchResults section {
 	margin vr-block(1)
@@ -39,9 +54,6 @@
 	}
 }
 
-.SearchResults .card__content {
-	max-width 800px
-}
 .searchResults__list >div {
 	margin-bottom vr-block(1)
 	&:last-of-type {

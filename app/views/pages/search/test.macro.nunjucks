@@ -15,6 +15,7 @@
 <div class="img">
 	<div class="responsiveImg">
 		<img src="http://api.gbif.org/v1/image?url={{url}}&size=S" >
+		<!-- <object class="avatar" data="http://api.gbif.org/v1/image?url={{url}}&size=S" type="image/jpg"></object> -->
 	</div>
 </div>
 {% endmacro %}

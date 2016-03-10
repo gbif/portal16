@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node app.js",
+    "forever": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=production node node_modules/forever/bin/forever start app.js;",
     "install": "node_modules/bower/bin/bower install",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
   },
@@ -90,6 +91,7 @@
     "karma-coverage": "^0.5.3",
     "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "^0.2.2",
+    "karma-spec-reporter": "0.0.24",
     "lost": "^6.6.3",
     "node-notifier": "^4.5.0",
     "phantomjs": "^1.9.19",

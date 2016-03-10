@@ -1,7 +1,7 @@
 {% if results.speciesMatches.length > 0 %}
 {% for species in results.speciesMatches | limit(2) %}
 
-<section class="SearchResults__section SearchResults-occurrences SearchResults-species">
+<section class="SearchResults__section SearchResults-occurrences SearchResults-occurrences-species">
     <div class="card">
         <div class="overview">
             <div class="species__map">
