@@ -24,7 +24,7 @@
 
 				{% if species._custom.images and species._custom.images.count > 0 %}
 					{% for image in species._custom.images.results %}
-						<img src="http://api.gbif.org/v1/image?url={{image.media[0].identifier}}&size=S" onerror="this.style.display='none'">
+						<img src="http://api.gbif.org/v1/image?url={{image.media[0].identifier}}&size=S" class="hideOnFailure" onerror="this.style.display='none'">
 					{% endfor %}
 		    	{% endif %}
 	    	</div>

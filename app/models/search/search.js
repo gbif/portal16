@@ -92,8 +92,8 @@ function getData(q, cb) {
                 }
             ],
             occurrences: [
-                'speciesMatches', 'catalogNumberOccurrences', function(callback, results) {
-                    if ( results.speciesMatches.length > 0 || results.catalogNumberOccurrences.results.length > 0 ) {
+                'speciesMatches', function(callback, results) {
+                    if ( results.speciesMatches.length > 0 ) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);

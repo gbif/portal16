@@ -2,6 +2,8 @@
 {% for species in results.speciesMatches | limit(2) %}
 
 <section class="SearchResults__section SearchResults-occurrences SearchResults-occurrences-species">
+    <h2>Occurrences</h2>
+
     <div class="card">
         <div class="overview">
             <div class="species__map">
