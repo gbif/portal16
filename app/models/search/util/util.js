@@ -46,6 +46,7 @@ function getApiData(path, callback) {
         clearTimeout(timeoutProtect);
         if(err) {
             //TODO log error
+            console.log('ERROR PATH ' + path);
             console.log('ERROR ' + err.message);
             callback(new Error('Unable to get data from API : ' + err.message));
             return;
