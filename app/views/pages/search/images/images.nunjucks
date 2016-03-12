@@ -16,14 +16,14 @@
 					<img src="http://api.gbif.org/v1/image?url={{species._custom.media.results[0].identifier}}&size=S" onerror="this.style.display='none'">
 		    	{% endif %}
 
-	    		{% for type in species._custom.holotypes.results | limit(3) %}
+	    		{% for type in species._custom.holotypes.results | limit(5) %}
 			    	{% if type.media and type.media.length > 0 and type.media[0].identifier%}
 			    	<img src="http://api.gbif.org/v1/image?url={{type.media[0].identifier}}&size=S" onerror="this.style.display='none'">
 			    	{% endif %}
 		    	{% endfor %}
 
 				{% if species._custom.images and species._custom.images.count > 0 %}
-					{% for image in species._custom.images.results  | limit(3) %}
+					{% for image in species._custom.images.results  | limit(5) %}
 						<img src="http://api.gbif.org/v1/image?url={{image.media[0].identifier}}&size=S" onerror="this.style.display='none'">
 					{% endfor %}
 		    	{% endif %}
