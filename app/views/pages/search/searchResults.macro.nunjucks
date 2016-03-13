@@ -52,24 +52,20 @@
 
 
 
-{% macro simpleCard(title, subtitle, link) %}
+{% macro simpleCard(link, classes) %}
 
-    <div class="card card-simple">
+    <div class="card card-simple {{ classes }}">
 
         {% if link %}
-            <a href="{{ link }}">
+        <a href="{{ link }}">
         {% endif %}
         <div class="card__content">
-
-            <h3>{{ title }}</h3>
-
-            {% if subtitle %}
-            <p>{{ subtitle }}</p>
+            {% if caller %}
+            {{ caller() }}
             {% endif %}
-
         </div>
         {% if link %}
-            </a>
+        </a>
         {% endif %}
 
     </div>

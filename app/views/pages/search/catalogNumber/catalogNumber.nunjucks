@@ -3,10 +3,14 @@
 
     <section class="SearchResults__section SearchResults-catalogNumber">
         <h2>Catalog number</h2>
-        {{ searchMacro.simpleCard(
-        results.catalogNumberOccurrences.results[0].catalogNumber,
-        'Catalog number',
-        'http://www.gbif.org/occurrence/' + results.catalogNumberOccurrences.results[0].key)
-        }}
+
+        {% call searchMacro.simpleCard('http://www.gbif.org/occurrence/' + results.catalogNumberOccurrences.results[0].key) -%}
+        <h3>No. {{ results.catalogNumberOccurrences.results[0].catalogNumber }}</h3>
+        <p>Catalog number</p>
+        {% if results.catalogNumberOccurrences.count > 1 %}
+        <p>{{ results.catalogNumberOccurrences.count }} matches</p>
+        {% endif %}
+        {%- endcall %}
+
     </section>
 {% endif %}

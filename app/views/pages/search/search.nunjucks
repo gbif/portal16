@@ -18,13 +18,13 @@
             </script>
 
 
-            {% if results.speciesMatches.length>0 or results.country or results.catalogNumberOccurrences.count > 0%}
+            {#{% if results.speciesMatches.length>0 or results.country or results.catalogNumberOccurrences.count > 0%}#}
             <div class="SearchResults__highlighted">
                 {% include "./species/speciesHighlight.nunjucks" %}
                 {% include "./country/country.nunjucks" %}
                 {% include "./catalogNumber/catalogNumber.nunjucks" %}
             </div>
-            {% endif %}
+            {#{% endif %}#}
 
             <div class="SearchResults__other">
                 {% include "./occurrences/occurrences.nunjucks" %}

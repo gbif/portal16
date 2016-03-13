@@ -30,7 +30,7 @@ function augmentSpeciesData(speciesMatches, cb) {
                 },
                 images: function(callback){
                     //images
-                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&mediatype=stillimage&taxonKey=' + species.usageKey, callback);
+                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + species.usageKey, callback);
                 },
                 holotypes: function(callback){
                     //images
@@ -92,11 +92,11 @@ function getData(q, cb) {
                 }
             ],
             occurrences: [
-                'speciesMatches', 'catalogNumberOccurrences', function(callback, results) {
-                    if ( results.speciesMatches.length > 0 || results.catalogNumberOccurrences.results.length > 0 ) {
+                'speciesMatches', function(callback, results) {
+                    if ( results.speciesMatches.length > 0 ) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&q=' + q, callback);
+                        helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
             ],
@@ -124,9 +124,9 @@ function getData(q, cb) {
             publishers: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
             },
-            // articles: function(callback){
-            //      helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
-            // },
+            articles: function(callback){
+                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
+            },
             country: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/node?limit=1&q=' + q, function(err, data) {
                     if (err) {

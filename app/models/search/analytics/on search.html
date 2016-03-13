@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>on search</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="site-search">Site search</h1>
+
+<p>Some stats on how site is currently used and works.</p>
+
+<p><div class="toc">
+<ul>
+<li><a href="#site-search">Site search</a><ul>
+<li><a href="#stats">Stats</a></li>
+<li><a href="#drupal-site-search-terms">Drupal site search terms</a></li>
+<li><a href="#unmatched">Unmatched</a><ul>
+<li><a href="#bike-shed">Bike shed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<p>Our current site do not have integrated search. Meaning that users need to search different places for prose, datasets, species, publishers, occurrences and countries. Our users do not understand this distinction - and who can blame them.</p>
+
+
+
+<h2 id="stats">Stats</h2>
+
+<p>At the end of the document the last <strong>1000 most frequent queries</strong> to the site search (Drupal search) is listed.</p>
+
+<p>We immediately see that the wast majority of searches are the <strong>latin species names</strong>.</p>
+
+<p>Based on a random sample of 100 of these we get this distribution after I, with my limited knowledge, have categorized them.</p>
+
+<blockquote>
+  <p>77 latin species names <br>
+  15 vernacular names <br>
+  1 dataset (e-bird) <br>
+  3 geographical (Columbia, Peru, Hispanic) <br>
+  2 citation/grants <br>
+  2 other/noise</p>
+</blockquote>
+
+<p><img src="https://chart.googleapis.com/chart?chs=600x300&amp;chd=t:77,15,3,1,4&amp;cht=p&amp;chl=Latin%20species%20names%7CVernacular%7CGeographical%7CDataset%7COther" alt="enter image description here" title=""></p>
+
+<p>Analyzing all 1000 search terms we see that:</p>
+
+<blockquote>
+  <p>77% can be resolved as species (confidence above 80). <br>
+  1.5% of the queries is an english country name.  <br>
+  0.75% is both a country and a species <br>
+  5% of the matched results match &gt; 1 species (~3% &gt; 2)</p>
+</blockquote>
+
+<p><img src="https://chart.googleapis.com/chart?chs=600x300&amp;chd=t:23,73,2,2&amp;cht=p&amp;chl=No%20match%7C1%20match%7C2%20matches%7C3%20and%20above" alt="enter image description here" title=""></p>
+
+
+
+<h2 id="drupal-site-search-terms">Drupal site search terms</h2>
+
+<p>Pieter Baas <br>
+Caltha palustris <br>
+anatidae <br>
+passeridae <br>
+Acrobeles <br>
+puma concolor <br>
+Echinodorus macrophyllus <br>
+Gammarus locusta <br>
+panthera onca <br>
+teucrium <br>
+Ambrosia artemisiifolia L. <br>
+Anatidae <br>
+canis lupus <br>
+Bombina variegata <br>
+Crescentia cujete <br>
+panthera <br>
+Carex viridula <br>
+colombia <br>
+Impatiens gladulifer <br>
+Panthera onca <br>
+Algyroides marchi <br>
+gammarus locusta <br>
+Justicia aequilabris <br>
+lutra lutra <br>
+pinus <br>
+Asplenium fontanum <br>
+canis <br>
+Catharanthus <br>
+enterolobium cyclocarpum <br>
+lynx <br>
+Panthera tigris <br>
+schinus molle <br>
+teucrium quadrifarium <br>
+Aquila chrysaetos <br>
+bear <br>
+Caesalpinia echinata <br>
+Canis lupus <br>
+citation <br>
+Conocephalum <br>
+CRITERIA <br>
+Epidendrum <br>
+frankliniella occidentalis <br>
+fungi <br>
+mosquito <br>
+oxybelis aeneus <br>
+quercus <br>
+salix <br>
+tiger <br>
+asparagaceae <br>
+bombus <br>
+Bothriurus burmeisteri <br>
+Croton dioicus <br>
+dog <br>
+Europhium clavigerum <br>
+fish <br>
+Gubeŕnatrix çristata <br>
+homo sapiens <br>
+Leopardus braccatus <br>
+lion <br>
+macaca sylvanus <br>
+manta ray <br>
+OPILIOACARIDA <br>
+panthera leo <br>
+Passeridae <br>
+puma <br>
+Sabia yunnanensis <br>
+Sus scrofa <br>
+TRICHIA <br>
+Velia <br>
+abies <br>
+achillea millefolium <br>
+aedes <br>
+algyroides marchi <br>
+ambystoma <br>
+Apis mellifera <br>
+australia <br>
+bidens alba <br>
+brachypelma <br>
+cactaceae <br>
+calotes versicolor <br>
+carcharodon carcharias <br>
+castor fiber <br>
+Chionanthus mildbraedii <br>
+Citrus <br>
+colombia biodiversity <br>
+Cyathea delgadii <br>
+data quality <br>
+elephant <br>
+esox lucius <br>
+Galium viridiflorum <br>
+ipt <br>
+kangaroo <br>
+lamiaceae <br>
+Lantana camara <br>
+lynx lynx <br>
+Metopium brownei <br>
+micrurus distans <br>
+Momotus mexicanus <br>
+Ornithorhynchus anatinus <br>
+pato <br>
+plantago <br>
+salvia <br>
+Solanum <br>
+sole <br>
+sorbus aria <br>
+soybean <br>
+Ulex europaeus <br>
+ursus <br>
+Who cited <br>
+zorrillo <br>
+Achillea millefolium <br>
+Adelobotrys rachidotricha <br>
+aedes aegypti <br>
+Albizia <br>
+Ambystoma <br>
+Amelanchier lamarckii <br>
+andrena <br>
+apis mellifera <br>
+aquila <br>
+Archilochus <br>
+Aristotelea <br>
+Artocarpus heterophyllus <br>
+Astragalus <br>
+Astragalus illyricus <br>
+bacteria <br>
+bengal tiger <br>
+Bia actorion <br>
+canis latrans <br>
+Cassia moschata <br>
+Cephalopoda <br>
+Cetí <br>
+channeled apple snail <br>
+chapman <br>
+coffea <br>
+Coleoptera <br>
+Cottus gobio <br>
+crassula <br>
+cynomys mexicanus <br>
+Cynomys mexicanus <br>
+Dasypus novemcinctus <br>
+daubentonia madagascariensis <br>
+Diceros bicornis <br>
+Didelphis <br>
+didelphis virginiana <br>
+Didelphis virginiana <br>
+Drosophila suzukii <br>
+Drymaeus castus <br>
+duck <br>
+Duguetia <br>
+Ebird <br>
+Echinolittorina ziczac <br>
+Empidonax traillii extimus <br>
+euglandina <br>
+Euptilotis neoxenus <br>
+felis silvestris <br>
+ferns <br>
+Genus fallow deer <br>
+glomera <br>
+Gopherus polyphemus <br>
+GRANT <br>
+gyps bengalensis <br>
+Hedychium gardnerianum <br>
+Hibiscus <br>
+Hispanica <br>
+Homo sapiens <br>
+http:/ <br>
+Hypericum <br>
+ixodes <br>
+leopard <br>
+Leopardus tigrinus <br>
+lionfish <br>
+lobostemum <br>
+Lotus japonicus <br>
+lymantria <br>
+madagascar <br>
+maize <br>
+mangrove <br>
+mentha <br>
+mentha pulegium <br>
+mollusca <br>
+mono araña <br>
+muhlenbergia <br>
+oak <br>
+oenothera <br>
+Oenothera <br>
+opilioacarida <br>
+Osmunda cinnamomea <br>
+pangio <br>
+Panthera tigris tigris <br>
+Persea major <br>
+peru <br>
+piper <br>
+plants <br>
+Polypodiopsida <br>
+populus <br>
+Puccinia <br>
+quercus alba <br>
+rhinella marina <br>
+Rhinosimus ruficollis <br>
+Rhodiola <br>
+rosa <br>
+salmon <br>
+Saxifraga vandellii <br>
+sicula <br>
+Solenopsis invicta <br>
+Spilocuscus maculatus <br>
+spoladea <br>
+swan <br>
+teucrium laxum <br>
+tingidae <br>
+Tomicus piniperda <br>
+tools <br>
+Tradescantia pallida <br>
+turtle <br>
+Unio crassus <br>
+ursus americanus <br>
+Utetheisa ornatrix <br>
+vulpes vulpes <br>
+whiskered auklet <br>
+wolf <br>
+zamenis longissimus <br>
+zollernia paraensis <br>
+Abies <br>
+Acris crepitans <br>
+Acrizepa <br>
+Acropora Palmata <br>
+Actinia equina <br>
+Adelobotrys <br>
+Aedes <br>
+ailurus fulgens <br>
+Albertiniella reticulata <br>
+alder <br>
+Alepocephalus fundulus <br>
+allium drummondii <br>
+Alopecurus <br>
+Ambystomids tigrinum <br>
+Amphisphaeriaceae <br>
+Amphora <br>
+anas <br>
+Andrena <br>
+andrena angustior <br>
+andrena lepida <br>
+aphrissa <br>
+apis <br>
+Apodemus speciosus <br>
+Aquascypha hydrophora <br>
+arctic <br>
+arnica montana <br>
+Artemisia annua <br>
+Asparagus <br>
+aspergillus <br>
+autun <br>
+Azolla <br>
+bald eagle <br>
+Banksia ericifolia L.f. <br>
+barbary sylvanus <br>
+barred owl <br>
+Basis Of Record <br>
+begonia hullettii <br>
+begonia inostegioides <br>
+Bidens andicola <br>
+bike shed <br>
+biodiversity in America <br>
+biodiversity OR endangered species?page=1 <br>
+biogeography of the biodiversity <br>
+biotodoma cupido <br>
+bishop museum <br>
+boa constrictor <br>
+Botryococcus <br>
+Bradypus variegatus <br>
+Bromus tectorum <br>
+C. Jacchus <br>
+Capparidastrum frondosum <br>
+Castor fiber <br>
+catalogue of life <br>
+cedrus <br>
+cenchrus ciliaris <br>
+Cenchrus ciliaris <br>
+Centaurea solstitialis <br>
+Cestrum bracteatum <br>
+chameleon <br>
+Chionomys nivalis <br>
+Chrysodeixis chalcites <br>
+cinchona pubescens <br>
+citrus latifolia <br>
+Clytostoma pterocalyx <br>
+Coccoloba ovata <br>
+Collotheca ambigua <br>
+colutea <br>
+cordiera concolor <br>
+cotton <br>
+Croton <br>
+culicoides rageaui <br>
+daphnia pulex <br>
+darwin core <br>
+Darwin Core <br>
+Dasypodidae <br>
+Dedrobates truncatus <br>
+Dianthus <br>
+dichrostachys <br>
+dioscorea pyrenaica <br>
+DOI <br>
+downloads <br>
+Dracaena americana <br>
+drosophila <br>
+eagle <br>
+ebird <br>
+Eglisia tricarinata <br>
+elk <br>
+ENTEROLOBIUM CYCLOCARPUM <br>
+Ephedra foliata <br>
+Epitonium <br>
+escherichia coli <br>
+Esox lucius <br>
+Frankliniella occidentalis <br>
+fucus vesiculosus <br>
+Fungi <br>
+Fusion table <br>
+galium <br>
+gammarus <br>
+Gammarus lacustris <br>
+Gammarus Locusta <br>
+gb22 <br>
+gleocapsa <br>
+glycine max <br>
+goberning board <br>
+Gomphocerus armeniacus <br>
+google earth <br>
+Gopherus <br>
+GORRIÓN <br>
+great white shark <br>
+Grus americana <br>
+halictus mucidus <br>
+Harpia <br>
+helichrysum cymosum <br>
+hermetia illucens <br>
+Hoenbuehelia grisea <br>
+homo <br>
+hordeum <br>
+hornet <br>
+Hydrochoeridae <br>
+Hypoxis hemerocallidea <br>
+IPT <br>
+iran <br>
+itenez <br>
+jaguar <br>
+justicia <br>
+kelp <br>
+kenya <br>
+kinosternidae <br>
+kinosternon integrum <br>
+korea <br>
+Lampropeltis triangulum <br>
+lecanoromycete sp. <br>
+leontopodium alpinum <br>
+Leopardus colocolo <br>
+leopardus pajeros <br>
+Lepidium perfoliatum <br>
+Lepidophyma <br>
+Lepidoptera <br>
+leptodermis <br>
+Leucanthemum <br>
+license <br>
+licenses <br>
+licensing <br>
+lince <br>
+lupinus polyphyllus <br>
+lynx pardinus <br>
+lyre sponge <br>
+macaca <br>
+Macrocystis pyrifera <br>
+Maculinea teleius <br>
+madhuca oblongifolia <br>
+Malus <br>
+mekrani <br>
+melastomataceae <br>
+Mephitis <br>
+Mephitis mephitis <br>
+Meta bourneti <br>
+micranthes unalaschcensis <br>
+microcephala <br>
+Mimosa pudica <br>
+miscanthus <br>
+/Mistichthys luzonensis Smith <br>
+modestR <br>
+Montifringilla nivalis <br>
+mosquitoes french guiana <br>
+mozambique <br>
+mutisia clematis <br>
+Nerita <br>
+nymphaea <br>
+Nymphaea <br>
+oaxaca <br>
+oenothera drummondii <br>
+oenothera drumondii <br>
+olea europaea <br>
+oplegnathus punctatus <br>
+Orchidaceae <br>
+Orchis <br>
+oryx beisa <br>
+Osmundaceae <br>
+ovis aries <br>
+oxybelis <br>
+Panicum <br>
+Panicum effusum <br>
+panthiades <br>
+Parablennius <br>
+Parablennius gattorugine <br>
+parnassius <br>
+Parthenocissus tricuspidata <br>
+passiflora edulis <br>
+persea major <br>
+PGPB <br>
+Phoebis <br>
+phragmites australis <br>
+/Physalia physalis (Linnaeus <br>
+Picumnus <br>
+pika <br>
+pinus massoniana <br>
+piperaceae <br>
+Pistacia <br>
+plankton <br>
+plantago lanceolata <br>
+Platanista gangetica <br>
+prunus <br>
+Pseudobagrus fulvidraco <br>
+pseudostigmatidae <br>
+pumaconcolor <br>
+Quercus <br>
+quercus suber <br>
+raja chilensis <br>
+raja equatorialis <br>
+RANARIJAONA <br>
+red <br>
+red panda <br>
+reptiles <br>
+Ricinus communis <br>
+robinia <br>
+ruficollis <br>
+salix pulchra <br>
+sarracenia purpurea <br>
+Saxifraga oppositifolia <br>
+sceloporus <br>
+Scripta <br>
+Sea cucumber <br>
+sedum <br>
+Sedum <br>
+selaginella <br>
+Selaginellaceae <br>
+senna <br>
+sesbania <br>
+sinensis <br>
+Smilax domigensis <br>
+solanum calvescens <br>
+solanum dasyphyllum <br>
+somalia <br>
+somatochlora <br>
+Sorbus aria <br>
+Spartina <br>
+Spelaeomyia <br>
+squamata <br>
+steenbras <br>
+Stegastes <br>
+Stenocereus pruinosus <br>
+Switzerland <br>
+Synonyms <br>
+syzygium baronii <br>
+tabebuia <br>
+Taeniopygia bichenovii <br>
+task group <br>
+taxonomy <br>
+trichloris pluriflora <br>
+Trimyema koreanum <br>
+True alpine marmot <br>
+Trypoxylus dichotomus <br>
+Tyto alba <br>
+ulmus <br>
+usnea <br>
+vaccinium <br>
+Vireo atricapilla <br>
+vitis vinifera <br>
+wasp <br>
+xeronycteris vieirai <br>
+zea mays <br>
+Zea mays <br>
+/”“Polypodiopsida”“” <br>
+1089326 <br>
+2017-2021 <br>
+A. Tigrinum <br>
+Abies alba <br>
+Abies pinsapo <br>
+Aburria <br>
+aburria jacutinga <br>
+Acacia cardiophylla <br>
+Acacia gummifera Willd. <br>
+acacia nigrescens <br>
+acacia rugata <br>
+Acanthaster planci <br>
+acanthocephala <br>
+Acanthurus monroviae <br>
+/Acanthurus monroviae Steindachner <br>
+Acer campestre <br>
+Achatina <br>
+achillea miellifolium <br>
+achillea milefolium <br>
+Acinetobacter calcoaceticus <br>
+Acipenser sturio <br>
+ACOPORA DENDRUM <br>
+acremonium strictum <br>
+Acripeza <br>
+Acripeza Reticulata <br>
+Acris Crepitans <br>
+Acropora <br>
+Acropora palmata <br>
+actinidia <br>
+Actinoptychus sp. <br>
+Adansonia <br>
+Adansonia za <br>
+Adiantum argutum <br>
+adonis flammea <br>
+adonis vernalis <br>
+Aedes aegypti <br>
+Aegotheles albertisi <br>
+aegypius monachus <br>
+Aeonium ciliatum <br>
+Aeschynomene <br>
+Aeschynomene rudis <br>
+Aesculapian snake <br>
+africa <br>
+agalychnis annae <br>
+Agathis jurassica <br>
+agave <br>
+Aglaia rubiginosa <br>
+Ailuropoda melanoleuca <br>
+Aix galericulata <br>
+aix sponsa <br>
+akodon albiventer <br>
+Alaska Pollock <br>
+Albatrus pallas <br>
+Alberta Museums <br>
+Albizia lebbeck <br>
+Albizia saman <br>
+Alibertia concolor <br>
+Allium ampeloprasum <br>
+Allium polyanthum <br>
+Allotrichodorus sharmai <br>
+alysicarpus bupleurifolius <br>
+Alytes dickhilleni <br>
+Amanita <br>
+Amazona finschi <br>
+Amblyomma americanum <br>
+amblyomma americanum ticks <br>
+Amblystegium serpens <br>
+AMBYSTOMA <br>
+Ambystoma tigrinum <br>
+AMECEPHALUS <br>
+Amelanchier <br>
+america <br>
+american bullfrog <br>
+Ammonitida <br>
+amphibius hippopotamus <br>
+amphibius hippopotamus in africa <br>
+Anabaena oscillarioides <br>
+Anacolia meziensii <br>
+Anactinotrichidea <br>
+ananas bracteatus <br>
+Anas <br>
+anas discors <br>
+anas Linnaeus <br>
+Anaxyrus americanus <br>
+Anemia <br>
+Anemia wightiana <br>
+angola <br>
+animalia <br>
+anolis tropidogaster <br>
+anolis zeus <br>
+anomodon attenuatus <br>
+anomura <br>
+ANOMURA <br>
+anopheles gambiae <br>
+anser <br>
+anthemis cretica <br>
+anthoceros punctatus <br>
+Anthoxanthum <br>
+Anthurium <br>
+anymals <br>
+Aonyx cinereus <br>
+Aorolaimus banoae <br>
+Aphasmatylenchus nigeriensis <br>
+API <br>
+API R <br>
+apidae <br>
+Apocephalus borealis <br>
+apodemus <br>
+Aquila <br>
+Ara <br>
+ara macao <br>
+ara militaris <br>
+arabidopsis <br>
+Araneae <br>
+arbacia <br>
+archiacanthocephala <br>
+archidendron pauciflorum <br>
+Ardea cocoi <br>
+arenaria ciliata <br>
+arenarius <br>
+argia <br>
+argopecten <br>
+arion vulgaris <br>
+Arisarum <br>
+Aristotelia braithwaitei <br>
+Arnioceras <br>
+Arnioceras ceratides <br>
+artimisa vulgaris <br>
+asclepias <br>
+Asclepias <br>
+asclepias syriaca <br>
+Aseroe ruba <br>
+Asparagaceae <br>
+asparagus <br>
+Aspergillus <br>
+asplenium fontanum <br>
+Astragalus clarianus <br>
+Astragalus ilyricus <br>
+Asynarchus <br>
+atriplex halimus <br>
+Atriplex halimus <br>
+Atriplex nummularia Lindl. <br>
+auchenorryncha <br>
+Auricularia cornea <br>
+Autun <br>
+aves <br>
+azola <br>
+Azolla rubra <br>
+Babiana <br>
+Bacillus megaterium <br>
+bactris guineensis <br>
+balaena mysticetus <br>
+Balanophyllia scabra <br>
+Baryphyma kulczynskii <br>
+BASE DE DATOS DE Apis mellifera <br>
+basking shark <br>
+bat <br>
+bat in mexico <br>
+batfish <br>
+bathyraja violacea <br>
+Bats <br>
+BDFL <br>
+beaver <br>
+bee <br>
+bees <br>
+begonia andersonii <br>
+begonia baramensis <br>
+begonia bengohensis <br>
+begonia bintang <br>
+begonia corrugata <br>
+begonia cyanescens <br>
+begonia dimorphabegonia divergens <br>
+begonia divergens <br>
+begonia flavovirens <br>
+begonia gibbsiae <br>
+begonia gueritziana <br>
+begonia incompta <br>
+begonia inobongensis <br>
+begonia jugamensis <br>
+begonia julaihiana <br>
+begonia kiamfeei <br>
+begonia madaiensis <br>
+begonia sirukitii <br>
+bemisia tabaci <br>
+berberis aristata <br>
+bidens pilosa <br>
+bike <br>
+biodiversity OR species <br>
+biodiversity spatial analysis <br>
+biscutella didyma <br>
+Biscutella didyma <br>
+Biwamelania <br>
+Black Chinned Hummingbird <br>
+black headed gull <br>
+Black rhinoceros <br>
+black tree fern <br>
+black-fronted forktail <br>
+blue pumpkin beetle <br>
+blueberry <br>
+boehmia <br>
+Boidae <br>
+boletus edulis <br>
+Bombus occidentalis <br>
+Bombus subterraneus <br>
+Bothriurus <br>
+Botrychium lunaria <br>
+Botryococcus Braunii <br>
+Bottelnose dolphine <br>
+brachidontes <br>
+Brachistosternus angustimanus <br>
+Brachypodium distachyon <br>
+Brachypodium pinnatum <br>
+branchiostoma <br>
+brazil <br>
+brazil flora <br>
+british columbia seabird <br>
+Brittanichthys <br>
+bromeliaceae <br>
+Bromus tectorum + Europe <br>
+brown mussel <br>
+brunia <br>
+Brycinus kingsleyae <br>
+Bufo <br>
+bufo marinus <br>
+building capacity <br>
+Bulbophyllum pachyrhachis <br>
+bullfrog <br>
+burrington <br>
+buteo jamaicensis <br>
+buteo vulgaris <br>
+butterfly <br>
+buxus <br>
+caesalpinia echinata <br>
+cafe <br>
+caldesia parnassifolia <br>
+Calibasis <br>
+calicotome villosa <br>
+california <br>
+Caligo arisbe <br>
+Callibasis <br>
+Callinectes sapidus <br>
+Callistemon rigidus R.Br. <br>
+Callitris tuberculata <br>
+Callitrix <br>
+Calongea <br>
+calosoma mexico <br>
+Calospora bahiensis <br>
+calycotome villosa <br>
+Campsomeris <br>
+can <br>
+canada <br>
+canadensys <br>
+canadian lynx <br>
+canarium <br>
+canarium ovatum <br>
+canary <br>
+cane toad <br>
+canguro <br>
+Canis lupus baileyi <br>
+capsicum <br>
+caranx lugubris <br>
+Carcharhinus limbatus <br>
+Carcharias taurus <br>
+carcharodon <br>
+Caretta caretta <br>
+Carex aquatilis <br>
+carp <br>
+Carpinus <br>
+Carpinus tropicalis <br>
+carpodacus <br>
+Caryocar brasiliensis <br>
+casuarina equisetifolia var equisetifolia <br>
+cat <br>
+Caulerpa taxifolia distichophylla <br>
+cavia porcellus <br>
+Cebus <br>
+cebus libidinosus <br>
+cecropia <br>
+cecropia peltata <br>
+Cedrela odorata <br>
+cenchrus <br>
+Central American spider monkey <br>
+cepaea hortelensis <br>
+cephalotus <br>
+Cerambycidae <br>
+CERAMBYCIDAE <br>
+cerastium holosteoides <br>
+ceratophyllum <br>
+cercospora <br>
+Cereus repandus <br>
+ceroxylon <br>
+Cervus elaphus <br>
+cetaceans <br>
+chaceon <br>
+Chaetodipus <br>
+chamomile <br>
+Chara aspera <br>
+Chara corallina <br>
+charcharodon carcharias <br>
+chaya <br>
+cheetah <br>
+Chelonia mydas <br>
+Chelonoidis carbonaria <br>
+chile <br>
+chimpance <br>
+chinchona pubescens <br>
+Chinese pangolin <br>
+chionomys nivalis <br>
+Chironomidae <br>
+Chironomini <br>
+chiroptera <br>
+chital <br>
+Chlamyphorus truncates <br>
+Chlopsis dentatus <br>
+chloris pluriflora <br>
+chrysemys picta <br>
+chufa <br>
+cimex carinatus <br>
+Cinnamomum <br>
+Cinnamomum litsaefolium <br>
+Cinomys mexicanus <br>
+citizen science <br>
+Citrus microcarpa <br>
+clanga pomarina <br>
+clavaria zollingeri <br>
+Clematis vitalba <br>
+clethra scabra <br>
+clidemia hirta <br>
+Clytostoma <br>
+Coast horned lizard <br>
+Coccoloba acuminata <br>
+Cochliobolus geniculatus <br>
+Coelorrhina babaulti <br>
+coffea arabica <br>
+coleoptera <br>
+Colibri <br>
+Colocasia esculenta <br>
+Colocasia gigantean <br>
+Colombia <br>
+colophospermum mopane <br>
+Colutea arborescens <br>
+conejo <br>
+conejo cola de algodon <br>
+conent managment <br>
+conepatus semistriatus <br>
+Conepatus semistriatus <br>
+Coniothyrium tamaricis <br>
+Conocephallum <br>
+Conocephalum conicum <br>
+Coprinus plicatilis <br>
+Copris <br>
+Coral <br>
+Corbicula fluminea <br>
+Cordia dentata <br>
+Cordia tenuifolia <br>
+Cordulegaster boltonii <br>
+corethrodendron scoparium <br>
+cortinarius corrosus <br>
+country code <br>
+countrycode <br>
+coyote <br>
+Crassula <br>
+Cratoneuron <br>
+cretica <br>
+Cricetidae <br>
+Crinoidi <br>
+Crocodylus Acutus <br>
+crocus <br>
+Crotalus <br>
+crustacea <br>
+csv format <br>
+Ctenophthalmus agyrtes carnicus <br>
+culex <br>
+Cuvierichelys <br>
+Cyathea medullaris <br>
+Cyclades <br>
+cydalima perspectalis <br>
+cymbidum <br>
+Cyperus rotundus <br>
+Cypraea <br>
+Dacryodes klaineana <br>
+Dactylis <br>
+Dactylium lycopersici <br>
+dadocrinus <br>
+Dadocrinus <br>
+Dadocrinus gracilis <br>
+dalbergia <br>
+Daldinia concentrica <br>
+Dalea citridora <br>
+danaea falcata <br>
+danaea lancea <br>
+danea <br>
+Daphnusa ocellaris <br>
+Darwin Core XML <br>
+Dasypus kappleri <br>
+data hyphen <br>
+Data Rights and usage statement <br>
+dataone <br>
+DATASETS <br>
+Datura stramonium <br>
+daubentonia <br>
+Daubentonia madagascariensis <br>
+Davallia teyermannii <br>
+dencoeliopsis <br>
+Dendroaspis <br>
+dendroctonus rufipennis <br>
+denmark <br>
+Dermacentor variabilis <br>
+Desmodium <br>
+Deutzia paniculata <br>
+Dianthuss <br>
+Diaportaceae <br>
+Diaspis bromeliae <br>
+diatom <br>
+Dibturus batis <br>
+dichapetalum pallidum <br>
+Dichrostachys <br>
+Dicranum <br>
+Dicranum montanum <br>
+Dictyosiphon foeniculaceus <br>
+didelphis <br>
+didelphis marsupialis <br>
+digitalis <br>
+dinophysis <br>
+dioscorea cirrhosa <br>
+diospyros <br>
+Diploicia <br>
+diploneis <br>
+dipsacales <br>
+Disa cardinalis <br>
+dissacus <br>
+distribution quercus <br>
+distribution?page=2 <br>
+distribution?page=3 <br>
+dolphins <br>
+dormouse <br>
+download <br>
+dreissena polymorpha <br>
+drosanthemum <br>
+Drosophila busckii <br>
+Drymaeus <br>
+Drymaeus branneri <br>
+duranguensis <br>
+earthquake <br>
+earthworm community <br>
+Eastern Meadow Mouse <br>
+eastern spiny softshell <br>
+ebbe nielsen <br>
+echinacea purpurea <br>
+/Echiniscoides Plate <br>
+Echinodorus magdalenensis <br>
+echiostachys <br>
+Eisenia gordejeffi <br>
+Elasmothemis <br>
+Eleocharis vivipara <br>
+Elephas maximus <br>
+Elkhorn Coral <br>
+emmericia <br>
+Empidonax traillii <br>
+enterobacter aerogenes <br>
+enterolobium <br>
+enterolobium cyclovarpum <br>
+epiphyas <br>
+epiphyas postvittana <br>
+erectus Java Man <br>
+erectus OR Java Man <br>
+erinaceus europaeus <br>
+Eriocheir <br>
+Eryngium humile. <br>
+Euagassiceras <br>
+eucalyptus <br>
+Eucalyptus grandis W.Hill <br>
+eucandona <br>
+Eudyptula minor <br>
+Eulophia streptopetala <br>
+Eumantispa harmandi <br>
+Eupatorium <br>
+Eupatorium intermedium <br>
+Euphorbia <br>
+euthrips occidentalis <br>
+excel <br>
+Fagaceae <br>
+Fagus occurrence <br>
+fagus sylvatica <br>
+Falco <br>
+Falco peregrinus <br>
+Fallow deer <br>
+fauna de juchitán <br>
+felidae <br>
+ferns humata <br>
+Ferocactus <br>
+festuca <br>
+foraminifera <br>
+Fragilariopsis <br>
+fritillaria <br>
+Frullania <br>
+fuk <br>
+fuligo septicula <br>
+Fullica americana <br>
+fulviformes rimosus <br>
+Fungia fungites <br>
+fusarium solani <br>
+galemys pyrenaicus <br>
+galium viridiflorum <br>
+gallus gallus <br>
+Gammarus <br>
+ganoderma <br>
+Garza <br>
+Gastrina cristaria <br>
+gastropoda <br>
+Gaur <br>
+gazella gazella <br>
+gb18</p>
+
+
+
+<h2 id="unmatched">Unmatched</h2>
+
+<p>Pieter Baas <br>
+bear <br>
+citation <br>
+mosquito <br>
+tiger <br>
+dog <br>
+fish <br>
+Gubeŕnatrix çristata <br>
+lion <br>
+elephant <br>
+ipt <br>
+kangaroo <br>
+pato <br>
+sole <br>
+soybean <br>
+Who cited <br>
+zorrillo <br>
+bengal tiger <br>
+Cetí <br>
+channeled apple snail <br>
+chapman <br>
+duck <br>
+Ebird <br>
+ferns <br>
+Genus fallow deer <br>
+GRANT <br>
+Hispanica <br>
+http:/ <br>
+leopard <br>
+lionfish <br>
+lobostemum <br>
+madagascar <br>
+maize <br>
+mangrove <br>
+mono araña <br>
+oak <br>
+plants <br>
+salmon <br>
+tools <br>
+turtle <br>
+whiskered auklet <br>
+wolf <br>
+Acrizepa <br>
+alder <br>
+Ambystomids tigrinum <br>
+arctic <br>
+autun <br>
+bald eagle <br>
+barbary sylvanus <br>
+barred owl <br>
+Basis Of Record <br>
+bike shed <br>
+biodiversity in America <br>
+biodiversity OR endangered species?page=1 <br>
+biogeography of the biodiversity <br>
+bishop museum <br>
+C. Jacchus <br>
+catalogue of life <br>
+cotton <br>
+darwin core <br>
+Darwin Core <br>
+DOI <br>
+downloads <br>
+eagle <br>
+ebird <br>
+elk <br>
+Fusion table <br>
+gb22 <br>
+gleocapsa <br>
+goberning board <br>
+google earth <br>
+GORRIÓN <br>
+great white shark <br>
+hornet <br>
+IPT <br>
+iran <br>
+itenez <br>
+jaguar <br>
+kelp <br>
+kenya <br>
+korea <br>
+lecanoromycete sp. <br>
+license <br>
+licenses <br>
+licensing <br>
+lince <br>
+lyre sponge <br>
+mekrani <br>
+/Mistichthys luzonensis Smith <br>
+modestR <br>
+mosquitoes french guiana <br>
+mozambique <br>
+PGPB <br>
+/Physalia physalis (Linnaeus <br>
+plankton <br>
+pumaconcolor <br>
+RANARIJAONA <br>
+red <br>
+red panda <br>
+reptiles <br>
+ruficollis <br>
+Scripta <br>
+steenbras <br>
+Switzerland <br>
+Synonyms <br>
+task group <br>
+taxonomy <br>
+True alpine marmot <br>
+wasp <br>
+/”“Polypodiopsida”“” <br>
+2017-2021 <br>
+A. Tigrinum <br>
+/Acanthurus monroviae Steindachner <br>
+ACOPORA DENDRUM <br>
+Aesculapian snake <br>
+africa <br>
+Agathis jurassica <br>
+Alaska Pollock <br>
+american bullfrog <br>
+Ammonitida <br>
+amphibius hippopotamus <br>
+amphibius hippopotamus in africa <br>
+Anactinotrichidea <br>
+anas Linnaeus <br>
+Anemia wightiana <br>
+anomura <br>
+ANOMURA <br>
+anymals <br>
+API <br>
+API R <br>
+arion vulgaris <br>
+artimisa vulgaris <br>
+auchenorryncha <br>
+Autun <br>
+azola <br>
+BASE DE DATOS DE Apis mellifera <br>
+basking shark <br>
+bat <br>
+bat in mexico <br>
+batfish <br>
+Bats <br>
+BDFL <br>
+beaver <br>
+bee <br>
+bees <br>
+bike <br>
+biodiversity OR species <br>
+biodiversity spatial analysis <br>
+Biwamelania <br>
+Black Chinned Hummingbird <br>
+black headed gull <br>
+Black rhinoceros <br>
+black tree fern <br>
+black-fronted forktail <br>
+blue pumpkin beetle <br>
+blueberry <br>
+Bottelnose dolphine <br>
+brazil <br>
+brazil flora <br>
+british columbia seabird <br>
+brown mussel <br>
+building capacity <br>
+bullfrog <br>
+burrington <br>
+butterfly <br>
+calosoma mexico <br>
+can <br>
+canada <br>
+canadensys <br>
+canadian lynx <br>
+canary <br>
+cane toad <br>
+canguro <br>
+carp <br>
+cat <br>
+Central American spider monkey <br>
+cetaceans <br>
+chamomile <br>
+chaya <br>
+cheetah <br>
+chimpance <br>
+Chinese pangolin <br>
+Chironomini <br>
+chital <br>
+chufa <br>
+citizen science <br>
+Coast horned lizard <br>
+conejo <br>
+conejo cola de algodon <br>
+conent managment <br>
+Coral <br>
+country code <br>
+countrycode <br>
+Crinoidi <br>
+crustacea <br>
+csv format <br>
+cymbidum <br>
+danaea lancea <br>
+Darwin Core XML <br>
+dataone <br>
+DATASETS <br>
+denmark <br>
+diatom <br>
+distribution quercus <br>
+distribution?page=2 <br>
+distribution?page=3 <br>
+dolphins <br>
+dormouse <br>
+download <br>
+duranguensis <br>
+earthquake <br>
+earthworm community <br>
+Eastern Meadow Mouse <br>
+eastern spiny softshell <br>
+ebbe nielsen <br>
+/Echiniscoides Plate <br>
+Eisenia gordejeffi <br>
+Elkhorn Coral <br>
+erectus Java Man <br>
+erectus OR Java Man</p>
+
+
+
+<h3 id="bike-shed">Bike shed</h3>
+
+<p>Notice the search for <code>bike shed</code>. This is the search example that we give the users currently. 4 seemingly people took it on face value.</p></div></body>
+</html>
