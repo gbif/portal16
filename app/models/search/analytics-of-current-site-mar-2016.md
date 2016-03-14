@@ -15,6 +15,7 @@ Some stats on how site is currently used and works.
 Our current site do not have integrated search. Meaning that users need to search different places for prose, datasets, species, publishers, occurrences and countries. Our users do not understand this distinction - and who can blame them.
 
 ## Stats
+The document is based on search terms extracted from Google Analytics on the March. 13 - 2016. The most frequent 1000 search queries from Feb. 12 - Mar. 12 is used. The most frequent term being searched for 34 times. The least 2 times. And the median 2.
 
 ### Current flow
 When using the current search, Google analytics shows us that the users do not find what they are looking for. 
