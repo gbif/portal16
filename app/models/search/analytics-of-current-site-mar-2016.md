@@ -7,7 +7,7 @@ Some stats on how site is currently used and works.
 * [Stats](#stats)
 	* [Current flow](#current-flow)
 	* [ Search term breakdown](#search-term-breakdown)
-* [Improvements](improvements)
+* [Improvements](#improvements)
 * [Search terms](#search-terms)
 * [Unmatched](#unmatched)
 	* [Bike shed](#bike-shed)
