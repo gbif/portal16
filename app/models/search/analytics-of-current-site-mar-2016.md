@@ -7,6 +7,7 @@ Some stats on how site is currently used and works.
 * [Stats](#stats)
 	* [Current flow](#current-flow)
 	* [ Search term breakdown](#search-term-breakdown)
+* [Improvements](improvements)
 * [Search terms](#search-terms)
 * [Unmatched](#unmatched)
 	* [Bike shed](#bike-shed)
@@ -49,6 +50,16 @@ Analyzing all 1000 search terms we see that:
 
 ![enter image description here](https://chart.googleapis.com/chart?chs=600x300&chd=t:23,73,2,2&cht=p&chl=No%20match%7C1%20match%7C2%20matches%7C3%20and%20above)
 
+## Improvements
+The **single biggest improvement** to the search experience is to include: single confident species/occurrence match results. More than one match happens, and when it does it is often times many possible matches (e.g. 7). Showing detailed information for many matches is probably more overwhelming than useful. In these cases a condense listing of likely more useful.
+
+**Secondly vernacular names** is often searched for. Examples are: 
+* Bear, lion, lynx, fish, citrus, dog, elephant, mosquito and of course puma.
+* Basking shark, black tree fern, Coast horned lizard, Central American spider monkey, Eastern Meadow Mouse
+
+Our users search for these, but it isn't clear that we are the right place for users searching for the term 'bear'.
+
+**Geographic terms** seems mainly to be countries. It is unclear if the users are looking for occurrences, checklists, general stats or contact information for participants.
 
 ## Search terms
 
