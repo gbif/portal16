@@ -6,13 +6,14 @@ function getMatchesByConfidence(results) {
     var alternative,
         confidentMatches = [];
 
-    if (results && results.confidence > confidenceThreshold && results.matchType != 'NONE') {
+    if (results && results.confidence > confidenceThreshold && results.matchType == 'EXACT') {
         delete results.alternatives;
         confidentMatches.push(results);
     } else if(results && results.alternatives) {
         for (var i=0; i < results.alternatives.length; i++) {
             alternative = results.alternatives[i];
-            if (alternative.confidence > confidenceThreshold) {
+            if ( alternative.confidence > confidenceThreshold ) {
+                matchType = alternative.matchType;
                 confidentMatches.push(alternative);
             } else {
                 break;
@@ -20,6 +21,43 @@ function getMatchesByConfidence(results) {
         }
     }
     return confidentMatches;
+}
+
+function filterByMatchType(matches) {
+    if (matches.length < 2) {
+        return matches;
+    }
+    var requiredMatchType = matches[0].matchType;
+    return matches.filter(function(e) {
+        return e.matchType == requiredMatchType;
+    })
+}
+
+function getSynonymKey(species) {
+    if (!species.synonym) {
+        return false
+    }
+    var taxonKeyMap = {
+        KINGDOM: 'kingdomKey',
+        PHYLUM: 'phylumKey',
+        CLASS: 'classKey',
+        ORDER: 'orderKey',
+        FAMILY: 'familyKey',
+        GENUS: 'genusKey',
+        SPECIES: 'speciesKey'
+    };
+    return species[taxonKeyMap[species.rank]];
+}
+
+function getHigestRankingLowerClasses(children) {
+    if (children.results.length < 2) {
+        return children;
+    }
+    var requiredRank = children.results[0].rank;
+    children.results = children.results.filter(function(e) {
+        return e.rank == requiredRank;
+    });
+    return children;
 }
 
 function getApiData(path, callback) {
@@ -72,5 +110,8 @@ function getApiData(path, callback) {
 
 module.exports = {
     getApiData: getApiData,
-    getMatchesByConfidence: getMatchesByConfidence
+    getMatchesByConfidence: getMatchesByConfidence,
+    filterByMatchType: filterByMatchType,
+    getSynonymKey: getSynonymKey,
+    getHigestRankingLowerClasses: getHigestRankingLowerClasses
 }

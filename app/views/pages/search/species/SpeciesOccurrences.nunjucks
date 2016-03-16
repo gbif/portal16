@@ -1,64 +1,181 @@
-{% if results.speciesMatches.length > 0 %}
-{% for species in results.speciesMatches %}
+{% import "../searchResults.macro.nunjucks" as helpers %}
 
-<section class="SearchResults__section SearchResults-occurrences SearchResults-occurrences-species">
-    <h2>Occurrences</h2>
 
+{% if results.taxaMatches.length > 0 %}
+
+{% if results.taxaMatches.length > 1 %}
+<section class="SearchResults__section-comment">
     <div class="card">
-        <div class="overview">
-            <div class="species__map">
-                <div>
-                    <img src="/img/world_tile.png">
-                    <img src="http://cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{species.usageKey}}&type=TAXON&resolution=1">
-                </div>
-            </div>
-            <div class="overview__content">
-                <div>
-                    <h3>
-                        {{ species.scientificName }}
-                    </h3>
-                    <span>{{ species._custom.occurrences.count }} occurrence records</span>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>
-                        Catalog number
-                    </th>
-                    <th>
-                        Date
-                    </th>
-                    <th>
-                        Verbatim locality
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for row in species._custom.occurrences.results | limit(4) %}
-                    <tr class="table-row">
-                        <td>
-                            {{ row.catalogNumber}}
-                        </td>
-                        <td>
-                            {{ row.year }}
-                        </td>
-                        <td>
-                            {{ row.verbatimLocality }}
-                        </td>
-                    </tr>
+        <div class="card__content">
+            Multiple taxonomic matches for {{ query }}.
+            Showing results for
+            <select>
+                {% for taxon in results.taxaMatches %}
+                    <option>{{ taxon.info.scientificName }} <span>{{ taxon.info.kingdom }}</span></option>
                 {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="SearchResults__section__more">
-            <a href="#">View all</a>
+            </select>
         </div>
     </div>
 </section>
+{% endif %}
+
+{% for taxon in results.taxaMatches %}
+
+{% if taxon.synonym %}
+    <section class="SearchResults__section-comment">
+        <div class="card">
+            <div class="card__content">
+                <a href="//www.gbif.org/species/{{ taxon.synonym.usageKey }}">{{ taxon.synonym.scientificName }}</a> is a synonym. Showing results for <a href="//www.gbif.org/species/{{ taxon.info.nubKey }}">{{ taxon.info.scientificName }}</a>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+<section class="SearchResults__section SearchResults-occurrences SearchResults-occurrences-species">
+    <div class="card">
+        <div class="card__banner">
+            <div class="species__map">
+                <div>
+                    <img src="/img/world_tile.png">
+                    <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{taxon.info.nubKey}}&type=TAXON&resolution=2">
+                </div>
+            </div>
+            <div class="descr">
+                <div>
+                    <h3>
+                        {{ taxon.info.scientificName }}
+                    </h3>
+                    <span>{{ taxon.occurrences.count }} occurrence records</span>
+                </div>
+            </div>
+        </div>
+        <div class="card__actions">
+            <ul>
+                <li>
+                    <a href="//www.gbif.org/species/{{ taxon.info.nubKey }}">About</a>
+                </li>
+                {% if taxon.occurrences.count > 0 %}
+                <li>
+                    <a href="//www.gbif.org/occurrence/search?taxonkey={{ taxon.info.nubKey }}">Filter</a>
+                </li>
+                <li>
+                    <a href="//www.gbif.org/occurrence/search?taxonkey={{ taxon.info.nubKey }}">Download</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="card__definitions">
+
+            <div>
+                <span class="term">Taxonomy:</span>
+                <span class="desc taxa">{{ helpers.taxonomy(taxon.info) }}</span>
+            </div>
+
+            {% if taxon.holotypes.count > 0 %}
+            <div>
+                <span class="term">Holo types:</span>
+                <span class="desc type">
+                    {% if taxon.featuredHolotype %}
+                    <a href="//www.gbif.org/occurrence/{{ taxon.holotypes.results[0].key }}">Type specimen</a> located at <a href="//www.gbif.org/publisher/{{ taxon.featuredHolotype.key }}">{{ taxon.featuredHolotype.title }}</a>
+                    {% endif %}
+                    {% if taxon.holotypes.count > 1 %}
+                        and {{ taxon.holotypes.count - 1 }} other places
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
+
+            {% if taxon.children.results.length > 0 %}
+            <div>
+                <span class="term">Lower classifications:</span>
+                <span class="desc lower">
+                    {% for child in taxon.children.results | limit(3) %}
+                    <a href="//www.gbif.org/species/{{ child.nubKey }}">{{ child.canonicalName }}</a>
+                    {% endfor %}
+
+                    {% if taxon.children.results.length == 4 %}
+                    <a href="//www.gbif.org/species/{{ taxon.children.results[3].nubKey }}">{{ taxon.children.results[3].canonicalName }}</a>
+                    {% elif taxon.children.results.length > 4%}
+                    <a href="#somewhere that shows this">view all</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
+
+        </div>
+
+        {% if taxon.occurrences.count > 0 %}
+        <div class="card__occurrences">
+            <span>Showing 3 of {{ taxon.occurrences.count }} occurrence records</span>
+            <div>
+                <div class="table">
+                    <div class="table__content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>
+                                    Catalog number
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Verbatim locality
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in taxon.occurrences.results | limit(3) %}
+                                <tr class="table-row">
+                                    <td>
+                                        {{ row.catalogNumber}}
+                                    </td>
+                                    <td>
+                                        {{ row.year }}
+                                    </td>
+                                    <td>
+                                        {{ row.verbatimLocality }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="SearchResults__section__more">
+                        <a href="//www.gbif.org/occurrence/search?taxonkey={{ taxon.info.nubKey }}">View all occurrences</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% if taxon.images and taxon.images.count > 0 %}
+        <div class="card__images">
+            <div>
+                {% if taxon.media and taxon.media.results.length > 0 %}
+                    <img src="http://api.gbif.org/v1/image?url={{taxon.media.results[0].identifier}}&size=S" onerror="this.style.display='none'">
+                {% endif %}
+
+                {% for type in taxon.holotypes.results %}
+                    {% if type.media and type.media.length > 0 and type.media[0].identifier%}
+                        <a href="//www.gbif.org/occurrence/{{ type.key }}"><img src="http://api.gbif.org/v1/image?url={{type.media[0].identifier}}&size=S" onerror="this.style.display='none'"></a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if taxon.images and taxon.images.count > 0 %}
+                    {% for image in taxon.images.results %}
+                        <a href="//www.gbif.org/occurrence/{{ image.key }}"><img src="http://api.gbif.org/v1/image?url={{image.media[0].identifier}}&size=S" onerror="this.style.display='none'"></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
+</section>
+
 
 {% endfor %}
 {% endif %}

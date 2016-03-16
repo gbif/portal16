@@ -10,7 +10,7 @@
                 <div>
                 </div>
             </div>
-            <div class="overview__content">
+            <div class="descr">
                 <div>
                     <h3>
                         {{ species.scientificName }}

@@ -15,76 +15,110 @@
 var helper = require('./util/util'),
     async = require('async');
 
-function augmentSpeciesData(speciesMatches, cb) {
-    //for each match add additional data about the species
-    async.each(speciesMatches, function(species, cb) {
-        async.parallel(
-            {
-                media: function(callback){
-                    //media
-                    helper.getApiData('http://api.gbif.org/v1/species/' + species.usageKey + '/media', callback);
-                },
-                occurrences: function(callback){
-                    //occurrences
-                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&taxonKey=' + species.usageKey, callback);
-                },
-                images: function(callback){
-                    //images
-                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + species.usageKey, callback);
-                },
-                holotypes: function(callback){
-                    //images
-                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&typestatus=holotype&taxonKey=' + species.usageKey, callback);
+function getAdditionalDataFromMatchedTaxon(taxon, cb) {
+    var key = taxon.usageKey;
+    aggregatedData = {};
+    if (taxon.synonym) {
+        key = helper.getSynonymKey(taxon) || key;
+    }
+    async.auto(
+        {
+            info: function(callback) {
+                helper.getApiData('http://api.gbif.org/v1/species/' + key, callback);
+            },
+            media: function(callback){
+                //media attached to that taxon
+                helper.getApiData('http://api.gbif.org/v1/species/' + key + '/media', callback);
+            },
+            occurrences: function(callback){
+                helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&taxonKey=' + key, callback);
+            },
+            images: function(callback){
+                helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
+            },
+            holotypes: function(callback){
+                //Only show holotypes if it is a species
+                if (taxon.rank == 'SPECIES') {
+                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&typestatus=holotype&taxonKey=' + key, callback);
+                } else {
+                    callback(null, null);
                 }
             },
-            function(err, data) {
-                if (err) {
-                    console.log(err);//FAILED GETTING SOME OR ALL DATA
-                    cb('failed to run async.each');
-                    return;
+            children: function(callback){
+                //children
+                helper.getApiData('http://api.gbif.org/v1/species/' + key + '/children?limit=5', function(err, data) {
+                    if (err) {
+                        callback(err, data);
+                    } else {
+                        data = helper.getHigestRankingLowerClasses(data);
+                        callback(err, data);
+                    }
+                });
+            },
+            featuredHolotype: ['holotypes', function(callback, results) {
+                if (!results.holotypes || results.holotypes.count.length == 0) {
+                    callback(null, null);
                 } else {
-                    //add returned data from parallel calls to species
-                    species._custom = data;
-                    cb(err, data);
+                    var publishingOrgKey = results.holotypes.results[0].publishingOrgKey;
+                    helper.getApiData('http://api.gbif.org/v1/organization/' + publishingOrgKey, callback);
                 }
+            }]
+        },
+        function(err, data) {
+            if (err) {
+                console.log(err);//FAILED GETTING SOME OR ALL DATA
+                cb('failed to run async.each');
+                return;
+            } else {
+                aggregatedData = data;
+                if (taxon.synonym) {
+                    aggregatedData.synonym = taxon;
+                }
+                cb(err, aggregatedData);
             }
-        );
-    }, function(err){
+        }
+    );
+}
+function augmentSpeciesData(rawTaxaMatches, cb) {
+    //for each match add additional data about the species
+    async.map(rawTaxaMatches, getAdditionalDataFromMatchedTaxon, function(err, result){
         if (err) {
             console.log(err);//FAILED GETTING SOME OR ALL DATA
             cb('failed to run async.each');
             return;
         }
-        cb(null, true);
+        cb(null, result);
     });
     
 }
 
 function getData(q, cb) {
+    q = encodeURIComponent(q);
     async.auto(
         {
-            speciesMatches: function(callback) {
+            rawTaxaMatches: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/species/match?verbose=true&name=' + q, function(err, data) {
                     if (data) {
                         var confidentMatches = helper.getMatchesByConfidence(data);
+                        confidentMatches = helper.filterByMatchType(confidentMatches);
                     }
                     callback(err, confidentMatches)
                 });
             },
-            speciesMatchData: [
-                'speciesMatches', function(callback, results) {
-                    if (results.speciesMatches.length == 0) {
+            taxaMatches: [
+                'rawTaxaMatches', function(callback, results) {
+                    if (results.rawTaxaMatches.length == 0) {
                         callback(null, null);
                     } else {
-                        augmentSpeciesData(results.speciesMatches, function(err, data){
+                        augmentSpeciesData(results.rawTaxaMatches, function(err, data){
                             callback(err, data);
                         });
                     }
                 }
             ],
             catalogNumberOccurrences: [
-                'speciesMatches', function(callback, results) {
-                    if (results.speciesMatches.length > 0) {
+                'rawTaxaMatches', function(callback, results) {
+                    if (results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&catalogNumber=' + q, callback);
@@ -92,8 +126,8 @@ function getData(q, cb) {
                 }
             ],
             occurrences: [
-                'speciesMatches', function(callback, results) {
-                    if ( results.speciesMatches.length > 0 ) {
+                'rawTaxaMatches', function(callback, results) {
+                    if ( results.rawTaxaMatches.length > 0 ) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
@@ -101,8 +135,8 @@ function getData(q, cb) {
                 }
             ],
             species: [
-                'speciesMatches', function(callback, results) {
-                    if (results.speciesMatches.length > 0) {
+                'rawTaxaMatches', function(callback, results) {
+                    if (results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif.org/v1/species/search?limit=5&q=' + q, callback);
@@ -110,8 +144,8 @@ function getData(q, cb) {
                 }
             ],
             images: [
-                'speciesMatches', function(callback, results) {
-                    if (results.speciesMatches.length > 0) {
+                'rawTaxaMatches', function(callback, results) {
+                    if (results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&mediatype=stillimage&q=' + q, callback);

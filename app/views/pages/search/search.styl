@@ -1,29 +1,37 @@
 .card {
-	box-shadow 0 0 1px rgba(0,0,0,0.3)
+	box-shadow 0 1px 3px rgba(0,0,0,0.3)
 	background white
 }
 
 .card__content {
-	padding vr-block(1)
+	padding vr-block(0.5) vr-block(1)
 }
 
+.card .card__header {
+	background #efefef
+	font-size 15px
+	font-weight normal
+	padding vr-block(0.25) vr-block(1)
+	line-height 2rem
+	border-bottom 1px solid #ddd
+}
 .SearchResults__highlighted {
 	max-width 800px
 	margin 0 auto
 }
 
-+isAbove($laptop) {
-	.SearchResults {
-		display flex
-	}
-	.SearchResults__highlighted {
-		order 2
-		flex 1 1 auto
-		width 400px
-		max-width 800px
-		margin 0 auto
-	}
-}
+//+isAbove($laptop) {
+//	.SearchResults {
+//		display flex
+//	}
+//	.SearchResults__highlighted {
+//		order 2
+//		flex 1 1 auto
+//		width 400px
+//		max-width 800px
+//		margin 0 auto
+//	}
+//}
 
 
 .Search__content {
@@ -37,21 +45,20 @@
 	order 1
 	margin 0 auto
 }
-.SearchResults section {
+.SearchResults__section {
 	margin vr-block(1)
-	h2 {
-		text-transform uppercase
-		font-size 15px
-		margin-left vr-block(1)
-		line-height 2rem
-	}
 	h3 {
-		font-size 18px
+		font-size 1.2rem
 		font-weight normal
 		a {
 			color deepskyblue
 		}
 	}
+}
+
+.SearchResults__section-comment {
+	@extends .SearchResults__section
+	margin-bottom -(vr-block(0.75))
 }
 
 .searchResults__list >div {

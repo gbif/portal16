@@ -2,8 +2,6 @@
 {% if results.catalogNumberOccurrences and results.catalogNumberOccurrences.count > 0 %}
 
     <section class="SearchResults__section SearchResults-catalogNumber">
-        <h2>Catalog number</h2>
-
         {% call searchMacro.simpleCard('http://www.gbif.org/occurrence/' + results.catalogNumberOccurrences.results[0].key) -%}
         <h3>No. {{ results.catalogNumberOccurrences.results[0].catalogNumber }}</h3>
         <p>Catalog number</p>
@@ -11,6 +9,5 @@
         <p>{{ results.catalogNumberOccurrences.count }} matches</p>
         {% endif %}
         {%- endcall %}
-
     </section>
 {% endif %}
