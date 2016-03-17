@@ -7,7 +7,7 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($state, $translate) {
+function searchCtrl() {
     var vm = this;
     vm.compactTaxonResult = true;
     vm.selectedTaxonId;

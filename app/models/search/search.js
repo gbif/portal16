@@ -17,7 +17,6 @@ var helper = require('./util/util'),
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {
     var key = taxon.usageKey;
-    aggregatedData = {};
     if (taxon.synonym) {
         key = helper.getSynonymKey(taxon) || key;
     }
@@ -70,7 +69,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 cb('failed to run async.each');
                 return;
             } else {
-                aggregatedData = data;
+                var aggregatedData = data;
                 if (taxon.synonym) {
                     aggregatedData.synonym = taxon;
                 }
@@ -89,7 +88,6 @@ function augmentSpeciesData(rawTaxaMatches, cb) {
         }
         cb(null, result);
     });
-    
 }
 
 function getData(q, cb) {

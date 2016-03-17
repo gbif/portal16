@@ -1,6 +1,5 @@
-var request = require('request');
-
-var confidenceThreshold = 80;
+var request = require('request'),
+    confidenceThreshold = 80;
 
 function getMatchesByConfidence(results) {
     var alternative,
@@ -13,7 +12,6 @@ function getMatchesByConfidence(results) {
         for (var i=0; i < results.alternatives.length; i++) {
             alternative = results.alternatives[i];
             if ( alternative.confidence > confidenceThreshold ) {
-                matchType = alternative.matchType;
                 confidentMatches.push(alternative);
             } else {
                 break;
