@@ -4,7 +4,7 @@
         <ul>
             {% for publisher in results.publishers.results | limit(5) %}
                 <li>
-                    {{ publisher.title }}
+                    {$ publisher.title $}
                 </li>
             {% endfor %}
         </ul>

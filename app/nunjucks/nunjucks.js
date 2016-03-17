@@ -5,7 +5,11 @@ module.exports = function(app, config) {
     var nunjucksConfiguration = nunjucks.configure(config.root + '/app/views', {
         autoescape: true,
         express: app,
-        noCache: app.locals.ENV_DEVELOPMENT
+        noCache: app.locals.ENV_DEVELOPMENT,
+        tags: {
+            variableStart: '{$',
+            variableEnd: '$}'
+        }
     });
 
     require('./filters')(nunjucksConfiguration, config);

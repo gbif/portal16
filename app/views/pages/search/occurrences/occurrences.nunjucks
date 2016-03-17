@@ -2,47 +2,57 @@
     <section class="SearchResults__section SearchResults-occurrences">
         {#<h2>Species occurrences</h2>#}
         <div class="card">
-            <div class="overview card__content">
+            <header>
                 <h3>
-                    {{ results.occurrences.count }}
+                    {$ results.occurrences.count $}
                 </h3>
                 <span>Matching species occurrences</span>
+            </header>
+
+            <div class="occurrenceTable">
+                <div class="table">
+                    <div class="table__content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Verbatim locality
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in results.occurrences.results | limit(3) %}
+                                <tr class="table-row">
+                                    <td>
+                                        <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                    </td>
+                                    <td>
+                                        <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                    </td>
+                                    <td>
+                                        <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.verbatimLocality $}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if results.occurrences.count > 3 %}
+                    <div class="SearchResults__section__more">
+                        <a href="//www.gbif.org/occurrence/search?q={$ query $}">View all<span class="l-only"> {$ results.occurrences.count $} occurrences</span></a>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-            <div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>
-                            Species
-                        </th>
-                        <th>
-                            Date
-                        </th>
-                        <th>
-                            Catalog number
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for row in results.occurrences.results | limit(4) %}
-                    <tr class="table-row">
-                        <td>
-                            {{ row.scientificName }}
-                        </td>
-                        <td>
-                            {{ row.year }}
-                        </td>
-                        <td>
-                            {{ row.catalogNumber }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            <div class="SearchResults__section__more">
-                <a href="#">View all</a>
-            </div>
+
         </div>
+
     </section>
 {% endif %}
+

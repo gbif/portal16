@@ -3,7 +3,7 @@
 	{% if list and list.length > 0 %}
 		<ul>
 			{% for item in list | limit(5) %}
-			<li>{{item.key}}</li>
+			<li>{$item.key$}</li>
 			{% endfor%}
 		</ul>
 	{% endif %}
@@ -14,8 +14,8 @@
 {% macro image(url) %}
 <div class="img">
 	<div class="responsiveImg">
-		<img src="http://api.gbif.org/v1/image?url={{url}}&size=S" >
-		<!-- <object class="avatar" data="http://api.gbif.org/v1/image?url={{url}}&size=S" type="image/jpg"></object> -->
+		<img src="http://api.gbif.org/v1/image?url={$url$}&size=S" >
+		<!-- <object class="avatar" data="http://api.gbif.org/v1/image?url={$url$}&size=S" type="image/jpg"></object> -->
 	</div>
 </div>
 {% endmacro %}

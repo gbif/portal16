@@ -6,15 +6,15 @@
             {% for dataset in results.datasets.results | limit(5) %}
                 <div>
                     <h3>
-                        <a href="/dataset/{{ dataset.key }}">
-                            {{ dataset.title }}
+                        <a href="/dataset/{$ dataset.key $}">
+                            {$ dataset.title $}
                         </a>
                     </h3>
                     <div>
                         {% if dataset.title %}
-                        <a href="/publisher/{{ dataset.publishingOrganizationKey }}">{{ dataset.publishingOrganizationTitle }}</a>
+                        <a href="/publisher/{$ dataset.publishingOrganizationKey $}">{$ dataset.publishingOrganizationTitle $}</a>
                         <p>
-                            {{ dataset.description |truncate(200)}}
+                            {$ dataset.description |truncate(200)$}
                         </p>
                     </div>
                 </div>

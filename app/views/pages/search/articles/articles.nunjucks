@@ -4,7 +4,7 @@
         <ul>
             {% for article in results.articles.data | limit(5) %}
                 <li>
-                    {{ article.title }}
+                    {$ article.title $}
                 </li>
             {% endfor %}
         </ul>

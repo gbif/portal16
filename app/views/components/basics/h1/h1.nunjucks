@@ -197,18 +197,18 @@
 {#<p>Grids are purely css using <a href="https://github.com/peterramsing/lost">Lost grid</a></p>#}
 
 {#<p>Meaning that below will result in two rows of three columns</p>#}
-{#&#123;&#35;<pre><code class="html">{{ '<section class="dev_examples_grid">&#35;&#125;#}
+{#&#123;&#35;<pre><code class="html">{$ '<section class="dev_examples_grid">&#35;&#125;#}
     {#&#123;&#35;<div>1</div>&#35;&#125;#}
     {#&#123;&#35;<div>2</div>&#35;&#125;#}
     {#&#123;&#35;<div>3</div>&#35;&#125;#}
     {#&#123;&#35;<div>4</div>&#35;&#125;#}
     {#&#123;&#35;<div>5</div>&#35;&#125;#}
     {#&#123;&#35;<div>6</div>&#35;&#125;#}
-{#&#123;&#35;</section>' }}</code></pre>&#35;&#125;#}
+{#&#123;&#35;</section>' $}</code></pre>&#35;&#125;#}
 
 {#<p>If adding this to the stylus-css file</p>#}
-{#<pre><code class="css">{{ '.dev_examples_grid>div#}
-	{#lost-column 1/3' }}</code></pre>#}
+{#<pre><code class="css">{$ '.dev_examples_grid>div#}
+	{#lost-column 1/3' $}</code></pre>#}
 
 {#<p>Meaning that below will result in two rows of three columns</p>#}
 

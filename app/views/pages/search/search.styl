@@ -1,3 +1,9 @@
++isBelow($laptop) {
+	.l-only {
+		display none
+	}
+}
+
 .card {
 	box-shadow 0 1px 3px rgba(0,0,0,0.3)
 	background white
@@ -51,7 +57,10 @@
 		font-size 1.2rem
 		font-weight normal
 		a {
-			color deepskyblue
+			color #009FD4
+			&:hover {
+				text-decoration underline
+			}
 		}
 	}
 }
@@ -70,7 +79,7 @@
 		a {
 			color #aaa
 			&:hover {
-				border-bottom 1px solid $OrangePeel
+				text-decoration underline
 			}
 		}
 		.searchResults__list__custom {

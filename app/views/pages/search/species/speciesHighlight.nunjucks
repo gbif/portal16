@@ -13,7 +13,7 @@
             <div class="descr">
                 <div>
                     <h3>
-                        {{ species.scientificName }}
+                        {$ species.scientificName $}
                     </h3>
                 </div>
             </div>
@@ -29,25 +29,25 @@
                         <td>
                             <ul class="taxonomic_placement">
 								<li>
-									<a>{{ species.kingdom }}</a>
+									<a>{$ species.kingdom $}</a>
 								</li>
 								<li>
-									<a>{{ species.phylum }}</a>
+									<a>{$ species.phylum $}</a>
 								</li>
 								<li>
-									<a>{{ species.class }}</a>
+									<a>{$ species.class $}</a>
 								</li>
 								<li>
-									<a>{{ species.order }}</a>
+									<a>{$ species.order $}</a>
 								</li>
 								<li>
-									<a>{{ species.family }}</a>
+									<a>{$ species.family $}</a>
 								</li>
 								<li>
-									<a>{{ species.genus }}</a>
+									<a>{$ species.genus $}</a>
 								</li>
 								<li>
-									<a>{{ species.species }}</a>
+									<a>{$ species.species $}</a>
 								</li>
 							</ul>
                         </td>
@@ -58,7 +58,7 @@
 	                            Holotype
 	                        </td>
 	                        <td>
-	                            <a href="/occurrence/{{ species._custom.holotypes.results[0].key }}">{{species._custom.holotypes.results[0].institutionCode}}</a> 
+	                            <a href="/occurrence/{$ species._custom.holotypes.results[0].key $}">{$species._custom.holotypes.results[0].institutionCode$}</a>
 	                        </td>
 	                    </tr>
 					{% endif %}

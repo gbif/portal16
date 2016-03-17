@@ -1,7 +1,15 @@
-.SearchResults-occurrences-species {
+$_linkColor = #009FD4
+
+.SearchResults__section-comment {
 	a {
-		text-decoration none
-		color inherit
+		color $_linkColor
+		&:hover {
+			text-decoration underline
+		}
+	}
+}
+.SearchResults__section {
+	a {
 		&:hover {
 			text-decoration underline
 		}
@@ -10,8 +18,17 @@
 		width 128px
 		flex 0 0 auto
 	}
+	header {
+		background #02393D
+		color white
+		a {
+			color white
+		}
+	}
 	.card__banner {
 		display flex
+		text-align center
+
 		.descr {
 			height 128px
 			flex 1 1 auto
@@ -34,7 +51,7 @@
 			transition background 300ms ease
 			a {
 				text-transform uppercase
-				color deepskyblue
+				color $_linkColor
 				padding vr-block(0.25)
 				display inline-block
 				width 100%
@@ -48,6 +65,9 @@
 
 	.card__definitions {
 		padding vr-block(0.25) vr-block(1)
+		>p {
+			margin 0
+		}
 		>div {
 			margin vr-block(0.25) 0
 			.term {
@@ -56,21 +76,22 @@
 			}
 			.taxa {
 				i:after {
-					content '\2022'
-					margin vr-block(0.125)
+					font-style normal
+					//content '\2022' // •
+					content '\276f' // ❯
+					//content '\203a' // ›
+					//color #888
+					font-size 80%
 				}
 			}
 			.type {
 				a {
-					color deepskyblue
+					color $_linkColor
 				}
 			}
-			.lower {
-				a {
-					margin-right vr-block(0.25)
-					color deepskyblue
-				}
-			}
+		}
+		a.more {
+			color $_linkColor
 		}
 	}
 
@@ -82,20 +103,24 @@
 		span {
 			font-weight normal
 		}
-		>div {
+		>.occurrenceTable {
 			padding vr-block(0.25) 0
 			margin 0 (- vr-block(0.5) )
+			.table {
+				box-shadow 0 1px 3px rgba(0,0,0,0.3)
+			}
 		}
+	}
+
+	.occurrenceTable {
 		table {
 			margin 0
 		}
 		.table__content {
 			overflow auto
-			border-bottom 1px solid #ddd
 		}
 		.table {
 			background white
-			box-shadow 0 1px 3px rgba(0,0,0,0.3)
 			th {
 				color #666
 				font-weight normal
@@ -109,6 +134,12 @@
 				&:last-of-type {
 					padding-right vr-block(0.5)
 				}
+				a {
+					display block
+					width 100%
+					min-height vr-block(1)
+					text-decoration none
+				}
 			}
 			tbody {
 				tr:nth-of-type(even) {
@@ -117,9 +148,13 @@
 				tr:nth-of-type(odd) {
 					background #efefef
 				}
+				tr:hover {
+					background #ddd
+				}
 			}
 		}
 		.SearchResults__section__more {
+			border-top 1px solid #ddd
 			background white
 		}
 	}
@@ -147,4 +182,57 @@
 			}
 		}
 	}
+
+	.card__expand {
+		display none
+
+		$_buttonSize = vr-block(1.5)
+		position relative
+		background #eee
+		margin-top ( $_buttonSize/2 )
+		padding-bottom vr-block(0.25)
+		a {
+			text-decoration none
+		}
+		>a {
+			margin auto
+			display block
+			font-size $_buttonSize
+			color white
+			top - ( $_buttonSize/2 )
+			width $_buttonSize
+			height $_buttonSize
+			line-height $_buttonSize
+			text-align center
+			border-radius 50%
+			background #02393D
+			position relative
+			margin-bottom - ( $_buttonSize/2 )
+			&:before {
+				font-weight bold
+			}
+		}
+		>span {
+			display block
+			margin auto
+			text-align center
+			font-size 90%
+			a:hover {
+				text-decoration underline
+			}
+		}
+	}
 }
+
+
++isBelow($laptop) {
+	.SearchResults__section.compact {
+		.card__expand {
+			display block
+		}
+		.card__images, .card__occurrences {
+			display none
+		}
+	}
+}
+

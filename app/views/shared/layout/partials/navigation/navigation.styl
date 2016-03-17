@@ -42,7 +42,7 @@ nav {
 }
 
 +isAbove($laptop) {
-	header {
+	.SiteHeader {
 		display none
 	}
 	.SiteNav {
@@ -608,13 +608,5 @@ forceShowDrawer() {
 +isAbove($desktop) {
 	.Site__drawer {
 		forceShowDrawer()
-	}
-}
-
-
-.SiteNav, SiteHeader {
-	a {
-		text-decoration none
-		color inherit
 	}
 }

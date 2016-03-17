@@ -1,13 +1,60 @@
 {% import "../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.catalogNumberOccurrences and results.catalogNumberOccurrences.count > 0 %}
 
-    <section class="SearchResults__section SearchResults-catalogNumber">
-        {% call searchMacro.simpleCard('http://www.gbif.org/occurrence/' + results.catalogNumberOccurrences.results[0].key) -%}
-        <h3>No. {{ results.catalogNumberOccurrences.results[0].catalogNumber }}</h3>
-        <p>Catalog number</p>
-        {% if results.catalogNumberOccurrences.count > 1 %}
-        <p>{{ results.catalogNumberOccurrences.count }} matches</p>
-        {% endif %}
-        {%- endcall %}
-    </section>
+<section class="SearchResults__section SearchResults-occurrences">
+
+    <div class="card">
+        <header>
+            <h3>
+                <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">{$ results.catalogNumberOccurrences.count $}</a>
+            </h3>
+            <span>Catalog numbers</span>
+        </header>
+
+        <div class="occurrenceTable">
+            <div class="table">
+                <div class="table__content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>
+                                Catalog number
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Verbatim locality
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in results.catalogNumberOccurrences.results | limit(3) %}
+                            <tr class="table-row">
+                                <td>
+                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.catalogNumber $}</a>
+                                </td>
+                                <td>
+                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                </td>
+                                <td>
+                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.verbatimLocality $}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% if results.catalogNumberOccurrences.count > 3 %}
+                    <div class="SearchResults__section__more">
+                        <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">View all<span class="l-only"> {$ results.catalogNumberOccurrences.count $} occurrences</span></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
 {% endif %}

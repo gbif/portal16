@@ -2,12 +2,72 @@
 {% if results.country %}
 
 <section class="SearchResults__section SearchResults-catalogNumber">
-    <h2>Country</h2>
+    {#{% call searchMacro.simpleCard('/country/' + results.country.country) -%}#}
+    {#<h3>{$ results.country.title $}</h3>#}
+    {#<p>{$ results.country.title $} has been a {$ results.country.participationStatus $} member of GBIF since 2010 </p>#}
+    {#{%- endcall %}#}
 
-    {% call searchMacro.simpleCard('/country/' + results.country.country) -%}
-    <h3>{{ results.country.title }}</h3>
-    <p>{{ results.country.participationStatus }}</p>
-    {%- endcall %}
+    <div class="card--info">
+        {#<h2 class="card__header">Participants</h2>#}
+        <div>
+            <div class="searchResults__list card__content">
+                <div>
+                    <h3>
+                        <a href="http://www.gbif.org/country">
+                            {$ results.country.title $}
+                        </a>
+                    </h3>
+                    <div>
+
+                        {% if result[conf.sub] and result[conf.subKey] %}
+                            <a href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
+                                {$ result[conf.sub] | truncate(80) $}
+                            </a>
+                        {% endif %}
+
+                        <div class="card__definitions">
+                            <p>{$ results.country.title $} is a member of GBIF</p>
+                            <div>
+                                <span class="term">Status:</span>
+                                <span class="desc">{$ results.country.participationStatus $}</span>
+                            </div>
+                            <div>
+                                <span class="term">Member since:</span>
+                                <span class="desc">2010 (mock date)</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {#<div class="card--info">#}
+        {#<header>#}
+            {#<h3>#}
+                {#<a href="http://www.gbif.org/country">{$ results.country.title $}</a>#}
+            {#</h3>#}
+            {#<span>Member</span>#}
+        {#</header>#}
+        {#<div class="card__definitions">#}
+            {#<p>{$ results.country.title $} is a member of GBIF</p>#}
+            {#<div>#}
+                {#<span class="term">Status:</span>#}
+                {#<span class="desc">{$ results.country.participationStatus $}</span>#}
+            {#</div>#}
+            {#<div>#}
+                {#<span class="term">Member since:</span>#}
+                {#<span class="desc">2010 (mock date)</span>#}
+            {#</div>#}
+
+        {#</div>#}
+        {#<footer class="SearchResults__section__more">#}
+            {#<a href="http://www.gbif.org/country">Explore all countries</a>#}
+        {#</footer>#}
+    {#</div>#}
 
 </section>
 {% endif %}
