@@ -56,7 +56,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 });
             },
             featuredHolotype: ['holotypes', function(callback, results) {
-                if (!results.holotypes || results.holotypes.count.length == 0) {
+                if (!results.holotypes || results.holotypes.count == 0) {
                     callback(null, null);
                 } else {
                     var publishingOrgKey = results.holotypes.results[0].publishingOrgKey;
