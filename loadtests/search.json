@@ -1,0 +1,24 @@
+{
+  "config": {
+    "target": "http://localhost:3000",
+    "phases": [
+      {"duration": 2, "arrivalRate": 5},
+      {"duration": 4, "arrivalRate": 5, "rampTo": 20}
+    ],
+    "payload": [{
+      "path": "./terms.csv",
+      "fields": ["term"]
+    }]
+  },
+  "scenarios": [
+    {
+      "name": "Search",
+      "flow": [
+        {"get": {
+          "url": "/search?q={{ term }}"
+         }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "config": {
+    "target": "http://localhost:3000",
+    "phases": [
+      {"duration": 5, "arrivalRate": 10},
+      {"duration": 20, "arrivalRate": 100, "rampTo": 500}
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "Sine page",
+      "flow": [
+        {"get": {
+          "url": "/"
+         }
+        }
+      ]
+    }
+  ]
+}

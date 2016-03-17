@@ -66,7 +66,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
         function(err, data) {
             if (err) {
                 console.log(err);//FAILED GETTING SOME OR ALL DATA
-                cb('failed to run async.each');
+                cb('failed to run async.auto ' + err);
                 return;
             } else {
                 var aggregatedData = data;
