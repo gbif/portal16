@@ -12,7 +12,8 @@ router.get('/search', function (req, res) {
         res.render('pages/search/search', {
             __hideSearchAction: true,
             results: results,
-            query: searchString
+            query: searchString,
+            locale: req.getLocale()
         });
     });
 });

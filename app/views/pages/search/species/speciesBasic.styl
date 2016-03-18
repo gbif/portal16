@@ -1,0 +1,27 @@
+.SearchResults__section {
+	.card--speciesList {
+		margin-bottom vr-block(1)
+		.taxa {
+			display none
+		}
+	}
+}
+
++isAbove($tablet) {
+	.SearchResults__section {
+		.card--speciesList {
+			.taxa {
+				display block
+				color #ddd
+				a {
+					color #ddd
+				}
+				i:after {
+					font-style normal
+					content '\276f' // ❯
+					font-size 80%
+				}
+			}
+		}
+	}
+}

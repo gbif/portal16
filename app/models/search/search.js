@@ -48,6 +48,8 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 helper.getApiData('http://api.gbif.org/v1/species/' + key + '/children?limit=5', function(err, data) {
                     if (err) {
                         callback(err, data);
+                    } else if(typeof data.errorType !== 'undefined') {
+                        callback(null, data);
                     } else {
                         data = helper.getHigestRankingLowerClasses(data);
                         callback(err, data);
@@ -55,7 +57,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 });
             },
             featuredHolotype: ['holotypes', function(callback, results) {
-                if (!results.holotypes || results.holotypes.count == 0) {
+                if (!results.holotypes || typeof results.holotypes.errorType != 'undefined' || results.holotypes.count == 0) {
                     callback(null, null);
                 } else {
                     var publishingOrgKey = results.holotypes.results[0].publishingOrgKey;
@@ -65,15 +67,19 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
         },
         function(err, data) {
             if (err) {
-                console.log(err);//FAILED GETTING SOME OR ALL DATA
-                cb('failed to run async.auto ' + err);
-                return;
+                //FAILED GETTING SOME OR ALL DATA
+                console.log(err);
+                console.log(data);
+                //TODO log error
+            }
+            if (typeof data.info.errorType !== 'undefined') {
+                cb(new Error('failed to get species info'), null);
             } else {
                 var aggregatedData = data;
                 if (taxon.synonym) {
                     aggregatedData.synonym = taxon;
                 }
-                cb(err, aggregatedData);
+                cb(null, aggregatedData);
             }
         }
     );
@@ -83,10 +89,12 @@ function augmentSpeciesData(rawTaxaMatches, cb) {
     async.map(rawTaxaMatches, getAdditionalDataFromMatchedTaxon, function(err, result){
         if (err) {
             console.log(err);//FAILED GETTING SOME OR ALL DATA
-            cb('failed to run async.each');
+            //TODO log error ?
+            cb(null, null);
             return;
+        } else {
+            cb(null, result);
         }
-        cb(null, result);
     });
 }
 
@@ -96,16 +104,21 @@ function getData(q, cb) {
         {
             rawTaxaMatches: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/species/match?verbose=true&name=' + q, function(err, data) {
-                    if (data) {
+                    if (typeof data.errorType !== 'undefined') {
+                        callback(err, data)
+                    } else if (data) {
                         var confidentMatches = helper.getMatchesByConfidence(data);
                         confidentMatches = helper.filterByMatchType(confidentMatches);
+                        callback(err, confidentMatches)
                     }
-                    callback(err, confidentMatches)
+                    else {
+                        callback(err, null)
+                    }
                 });
             },
             taxaMatches: [
                 'rawTaxaMatches', function(callback, results) {
-                    if (results.rawTaxaMatches.length == 0) {
+                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length == 0) {
                         callback(null, null);
                     } else {
                         augmentSpeciesData(results.rawTaxaMatches, function(err, data){
@@ -116,7 +129,7 @@ function getData(q, cb) {
             ],
             catalogNumberOccurrences: [
                 'rawTaxaMatches', function(callback, results) {
-                    if (results.rawTaxaMatches.length > 0) {
+                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length == 0) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&catalogNumber=' + q, callback);
@@ -125,7 +138,7 @@ function getData(q, cb) {
             ],
             occurrences: [
                 'rawTaxaMatches', 'catalogNumberOccurrences', function(callback, results) {
-                    if ( results.rawTaxaMatches.length > 0  || results.catalogNumberOccurrences.count > 0) {
+                    if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || !results.catalogNumberOccurrences || results.catalogNumberOccurrences.count > 0) {
                         callback(null, null);
                     } else {
                         helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
@@ -134,19 +147,10 @@ function getData(q, cb) {
             ],
             species: [
                 'rawTaxaMatches', function(callback, results) {
-                    if (results.rawTaxaMatches.length > 0) {
+                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif.org/v1/species/search?limit=5&q=' + q, callback);
-                    }
-                }
-            ],
-            images: [
-                'rawTaxaMatches', function(callback, results) {
-                    if (results.rawTaxaMatches.length > 0) {
-                        callback(null, null);
-                    } else {
-                        helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&mediatype=stillimage&q=' + q, callback);
+                        helper.getApiData('http://api.gbif.org/v1/species/search?limit=5q=' + q, callback);
                     }
                 }
             ],

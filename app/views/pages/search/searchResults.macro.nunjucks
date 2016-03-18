@@ -83,37 +83,37 @@
 {% macro taxonomy(species) %}
 
     {% if species.kingdom %}
-        <a href="http://www.gbif.org/species/{$ species.kingdomKey $}" class="kingdom">{$ species.kingdom $}</a>
+        <a href="{$ locale $}/search?q={$ species.kingdom $}" class="kingdom">{$ species.kingdom $}</a>
     {% endif %}
 
     {% if species.phylum %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.phylumKey $}" class="phylum">{$ species.phylum $}</a>
+        <a href="{$ locale $}/search?q={$ species.phylum $}" class="phylum">{$ species.phylum $}</a>
     {% endif %}
 
     {% if species.class %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.classKey $}" class="class">{$ species.class $}</a>
+        <a href="{$ locale $}/search?q={$ species.class $}" class="class">{$ species.class $}</a>
     {% endif %}
 
     {% if species.order %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.orderKey $}" class="order">{$ species.order $}</a>
+        <a href="{$ locale $}/search?q={$ species.order $}" class="order">{$ species.order $}</a>
     {% endif %}
 
     {% if species.family %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.familyKey $}" class="family">{$ species.family $}</a>
+        <a href="{$ locale $}/search?q={$ species.family $}" class="family">{$ species.family $}</a>
     {% endif %}
 
     {% if species.genus %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.genusKey $}" class="genus">{$ species.genus $}</a>
+        <a href="{$ locale $}/search?q={$ species.genus $}" class="genus">{$ species.genus $}</a>
     {% endif %}
 
     {% if species.species %}
         <i></i>
-        <a href="http://www.gbif.org/species/{$ species.speciesKey $}" class="species">{$ species.species $}</a>
+        <a href="{$ locale $}/search?q={$ species.species $}" class="species">{$ species.species $}</a>
     {% endif %}
 
 {% endmacro %}

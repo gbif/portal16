@@ -1,6 +1,12 @@
 var request = require('request'),
     confidenceThreshold = 80;
 
+var ERRORS = Object.freeze({
+    API_TIMEOUT: 1,
+    API_ERROR: 2,
+    INVALID_RESPONSE: 3
+});
+
 function getMatchesByConfidence(results) {
     var alternative,
         confidentMatches = [];
@@ -58,51 +64,56 @@ function getHigestRankingLowerClasses(children) {
     return children;
 }
 
-function getApiData(path, callback) {
+function getApiErrorResponse(callback, reason, options, err, message) {
+    //TODO log error
+    console.log(reason + ' : ' + message);
+    console.log(reason + ' : ' + err);
+    if (options.failHard) {
+    } else {
+        callback(null, {
+            errorType: reason
+        });
+    }
+}
+
+function getApiData(path, callback, options) {
     var data;
+    options = options || {};
+    options.timeoutMilliSeconds = options.timeoutMilliSeconds || 4000;
+    options.failHard = options.failHard || false;
 
 
     var timeoutProtect = setTimeout(function() {
-        // if timeout already have been triggered then do nothing
-        // if (!timeoutProtect) {
-        //     return
-        // }
         // Clear the local timer variable, indicating the timeout has been triggered.
         timeoutProtect = null;
         // Execute the callback with an error argument.
-        callback(new Error('Timeout: ' + path));
-    }, 4000);
+        getApiErrorResponse(callback, ERRORS.API_TIMEOUT, options, null, path);
+    }, options.timeoutMilliSeconds);
 
     request(path, function(err, response, body) {
         //if timeout already have been triggered then do nothing
         if (!timeoutProtect) {
             return
         }
+
         // Clear the local timer variable, indicating the timeout has been triggered.
         clearTimeout(timeoutProtect);
         if(err) {
-            //TODO log error
-            console.log('ERROR PATH ' + path);
-            console.log('ERROR ' + err.message);
-            callback(new Error('Unable to get data from API : ' + err.message));
-            return;
-        }
-        if (response.statusCode != 200) {
+            getApiErrorResponse(callback, ERRORS.API_ERROR, options, err, path);
+        } else if (response.statusCode != 200) {
             console.log(response.statusCode);
-            callback(new Error('Status code : ' + response.statusCode));
+            getApiErrorResponse(callback, ERRORS.API_ERROR, options, null, path + ' - Status code: ' + response.statusCode);
             return;
-        }
-        try {
-            data = JSON.parse(body);
-        } catch(err) {
-            //TODO log that parsing went wrong
-            console.log('PARSING ERROR');
-            console.log(body);
-            callback(err);
-            return;
-        }
+        } else {
+            try {
+                data = JSON.parse(body);
+            } catch (err) {
+                getApiErrorResponse(callback, ERRORS.INVALID_RESPONSE, options, null, path);
+                return;
+            }
 
-        callback(null, data);
+            callback(null, data);
+        }
     });
 }
 

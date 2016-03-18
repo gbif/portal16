@@ -18,13 +18,13 @@
                         <thead>
                         <tr>
                             <th>
+                                Name
+                            </th>
+                            <th>
+                                Year
+                            </th>
+                            <th>
                                 Catalog number
-                            </th>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                Verbatim locality
                             </th>
                         </tr>
                         </thead>
@@ -32,13 +32,13 @@
                         {% for row in results.catalogNumberOccurrences.results | limit(3) %}
                             <tr class="table-row">
                                 <td>
-                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.catalogNumber $}</a>
+                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                 </td>
                                 <td>
                                     <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.year $}</a>
                                 </td>
                                 <td>
-                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.verbatimLocality $}</a>
+                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.catalogNumber $}</a>
                                 </td>
                             </tr>
                         {% endfor %}
