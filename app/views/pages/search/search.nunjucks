@@ -17,17 +17,11 @@
                 var res = {$ results | rawJson | safe $};
             </script>
 
-            {% if results.taxaMatches.length>0 or results.country or results.catalogNumberOccurrences.count > 0%}
-            <div class="SearchResults__highlighted">
-                {#{% include "./species/speciesHighlight.nunjucks" %}#}
-                {% include "./country/country.nunjucks" %}
-                {% include "./catalogNumber/catalogNumber.nunjucks" %}
-            </div>
-            {% endif %}
-
             <div class="SearchResults__other">
+                {% include "./catalogNumber/catalogNumber.nunjucks" %}
                 {% include "./occurrences/occurrences.nunjucks" %}
                 {% include "./species/SpeciesOccurrences.nunjucks" %}
+                {% include "./country/country.nunjucks" %}
 
                 {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
                     title: 'title',
