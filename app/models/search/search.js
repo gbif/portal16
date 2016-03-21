@@ -138,9 +138,12 @@ function getData(q, cb) {
             ],
             occurrences: [
                 'rawTaxaMatches', 'catalogNumberOccurrences', function(callback, results) {
-                    if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || !results.catalogNumberOccurrences || results.catalogNumberOccurrences.count > 0) {
+                    console.log('get occurrence data');
+                    if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
+                        console.log('do not get occurrence data');
                         callback(null, null);
                     } else {
+                        console.log('get occurrence data');
                         helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
@@ -161,7 +164,7 @@ function getData(q, cb) {
                 helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
             },
             articles: function(callback){
-                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback, 1);
+                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
             },
             country: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/node?limit=1&q=' + q, function(err, data) {

@@ -88,7 +88,7 @@ function getApiData(path, callback, options) {
         // Clear the local timer variable, indicating the timeout has been triggered.
         timeoutProtect = null;
         // Execute the callback with an error argument.
-        getApiErrorResponse(callback, ERRORS.API_TIMEOUT, options, null, path);
+        getApiErrorResponse(callback, ERRORS.API_TIMEOUT, options, null, path + ' TIMEOUT');
     }, options.timeoutMilliSeconds);
 
     request(path, function(err, response, body) {

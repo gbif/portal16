@@ -30,13 +30,13 @@
                             {% for row in results.occurrences.results | limit(3) %}
                                 <tr class="table-row">
                                     <td>
-                                        <a href="http://www.gbif-dev.org/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                     </td>
                                     <td>
-                                        <a href="http://www.gbif-dev.org/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                     </td>
                                     <td>
-                                        <a href="http://www.gbif-dev.org/occurrence/{$ row.key $}">{$ row.basisOfRecord $}</a>
+                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.basisOfRecord $}</a>
                                     </td>
                                 </tr>
                             {% endfor %}

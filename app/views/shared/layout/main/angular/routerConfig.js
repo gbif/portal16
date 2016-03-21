@@ -21,13 +21,13 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'MainController',
             controllerAs: 'main'
         })
-        .state('occurrence', {
-            parent: 'localization',
-            url: '/occurrence/:occurrenceId',
-            templateUrl: '/templates/pages/occurrence/key/occurrence.html',
-            controller: 'occurrenceCtrl',
-            controllerAs: 'occurrence'
-        })
+        //.state('occurrence', {
+        //    parent: 'localization',
+        //    url: '/occurrence/:occurrenceId',
+        //    templateUrl: '/templates/pages/occurrence/key/occurrence.html',
+        //    controller: 'occurrenceCtrl',
+        //    controllerAs: 'occurrence'
+        //})
     ;
     //if unknown route then goto server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 

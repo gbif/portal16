@@ -171,13 +171,13 @@
 
                             {% for type in taxon.holotypes.results %}
                                 {% if type.media and type.media.length > 0 and type.media[0].identifier %}
-                                    <a href="//www.gbif.org/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
+                                    <a href="{$ locale $}/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
                                 {% endif %}
                             {% endfor %}
 
                             {% if taxon.images and taxon.images.count > 0 %}
                                 {% for image in taxon.images.results %}
-                                    <a href="//www.gbif.org/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
+                                    <a href="{$ locale $}/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
                                 {% endfor %}
                             {% endif %}
                         </div>
