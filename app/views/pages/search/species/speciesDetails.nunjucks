@@ -38,13 +38,13 @@
         >
             <div class="card">
                 <header class="card__banner">
-                    <div class="species__map">
+                    <div class="tile species__map">
                         <div>
                             <img src="/img/world_tile.png">
                             <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.nubKey $}&type=TAXON&resolution=2">
                         </div>
                     </div>
-                    <div class="descr">
+                    <div class="descr descr-content">
                         <div>
                             <h3>
                                 <a href="//www.gbif.org/species/{$ taxon.info.nubKey $}">{$ taxon.info.scientificName $}</a>
@@ -138,13 +138,13 @@
                                         {% for row in taxon.occurrences.results | limit(3) %}
                                             <tr class="table-row">
                                                 <td>
-                                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.basisOfRecord $}</a>
+                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ row.basisOfRecord $}</a>
                                                 </td>
                                             </tr>
                                         {% endfor %}

@@ -161,7 +161,7 @@ function getData(q, cb) {
                 helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
             },
             articles: function(callback){
-                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
+                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback, 1);
             },
             country: function(callback) {
                 helper.getApiData('http://api.gbif.org/v1/node?limit=1&q=' + q, function(err, data) {

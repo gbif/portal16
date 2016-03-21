@@ -8,93 +8,8 @@ $_linkColor = #009FD4
 		}
 	}
 }
+
 .SearchResults__section {
-	a {
-		&:hover {
-			text-decoration underline
-		}
-	}
-	.species__map {
-		width 128px
-		flex 0 0 auto
-	}
-	header {
-		background #02393D
-		color white
-		a {
-			color white
-		}
-	}
-	.card__banner {
-		display flex
-		text-align center
-
-		.descr {
-			height 128px
-			flex 1 1 auto
-			padding vr-block(0.5)
-			>div {
-				vertically-align()
-				text-align center
-			}
-		}
-	}
-
-	.card__actions {
-		ul {
-			display flex
-		}
-		li {
-			display inline-block
-			flex 1 1 auto
-			text-align center
-			transition background 300ms ease
-			a {
-				text-transform uppercase
-				color $_linkColor
-				padding vr-block(0.25)
-				display inline-block
-				width 100%
-				&:hover {
-					background #eee
-				}
-			}
-		}
-		border-bottom 1px solid #ddd
-	}
-
-	.card__definitions {
-		padding vr-block(0.25) vr-block(1)
-		>p {
-			margin 0
-		}
-		>div {
-			margin vr-block(0.25) 0
-			.term {
-				font-weight bold
-				margin-right vr-block(0.25)
-			}
-			.taxa {
-				i:after {
-					font-style normal
-					//content '\2022' // •
-					content '\276f' // ❯
-					//content '\203a' // ›
-					//color #888
-					font-size 80%
-				}
-			}
-			.type {
-				a {
-					color $_linkColor
-				}
-			}
-		}
-		a.more {
-			color $_linkColor
-		}
-	}
-
 	.card__occurrences {
 		background #F5F5F5
 		border 1px solid #ddd
@@ -159,69 +74,7 @@ $_linkColor = #009FD4
 		}
 	}
 
-	.card__images {
-		background #F7F7F7
-		>div {
-			white-space nowrap
-			overflow hidden
-			overflow-x auto
-			overflow-x overlay
-			padding 10px
-			img {
-				height 128px
-				flex 0 0 auto
-				display inline-block
-				margin-right 5px
-				box-shadow 0 1px 3px rgba(0,0,0,0.3)
-			}
-			.more {
-				display inline-block
-				height 120px
-				background rgba(0,0,0,0.5)
-				color white
-			}
-		}
-	}
-
-	.card__expand {
-		display none
-
-		$_buttonSize = vr-block(1.5)
-		position relative
-		background #eee
-		margin-top ( $_buttonSize/2 )
-		padding-bottom vr-block(0.25)
-		a {
-			text-decoration none
-		}
-		>a {
-			margin auto
-			display block
-			font-size $_buttonSize
-			color white
-			top - ( $_buttonSize/2 )
-			width $_buttonSize
-			height $_buttonSize
-			line-height $_buttonSize
-			text-align center
-			border-radius 50%
-			background #02393D
-			position relative
-			margin-bottom - ( $_buttonSize/2 )
-			&:before {
-				font-weight bold
-			}
-		}
-		>span {
-			display block
-			margin auto
-			text-align center
-			font-size 90%
-			a:hover {
-				text-decoration underline
-			}
-		}
-	}
+	
 }
 
 
@@ -235,4 +88,6 @@ $_linkColor = #009FD4
 		}
 	}
 }
+
+
 

@@ -69,6 +69,7 @@ function getApiErrorResponse(callback, reason, options, err, message) {
     console.log(reason + ' : ' + message);
     console.log(reason + ' : ' + err);
     if (options.failHard) {
+        callback(err, null);
     } else {
         callback(null, {
             errorType: reason

@@ -1,7 +1,42 @@
 .occurrenceKey {
-	margin 0 vr-block(1)
-	iframe {
-		height 500px
-		width 100%
+	max-width 1200px
+	margin auto
+	padding vr-block(1)
+	h1 {
+		font-size 20px
+	}
+}
+
+.Occurrence__summary {
+	.card__banner {
+		// .tile {
+		// 	width 256px
+		// }
+		// .descr {
+		// 	height 256px
+		// }
+		.marker {
+			background deepskyblue
+			width 20px
+			height 20px
+			margin -10px
+			border 2px solid #007996
+			border-radius 50%
+			position absolute
+			display none
+		}
+	}
+}
+
++isAbove($tablet) {
+	.Occurrence__summary {
+		.card__banner {
+			.tile {
+				width 256px
+			}
+			.descr {
+				height 256px
+			}
+		}
 	}
 }

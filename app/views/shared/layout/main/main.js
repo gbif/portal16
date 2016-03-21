@@ -1,12 +1,15 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-translate');
+// require('leaflet');
+require('angular-leaflet-directive');
+
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate']);
+        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', require('angular-resource')]);
     
 })();
 
@@ -62,7 +65,9 @@ require('angular-translate');
 
 require('./angular/routerConfig');
 require('./angular/translate');
+require('./angular/index.ressource');
 require('../../../pages/search/search.ctrl');
+require('../../../pages/occurrence/key/occurrence.ctrl');
 
 
 

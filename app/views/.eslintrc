@@ -6,6 +6,7 @@
   },
   "globals": {
     "window": true,
-    "gb": true
+    "gb": true,
+    "L": true
   }
 }

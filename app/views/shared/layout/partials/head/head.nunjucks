@@ -29,7 +29,7 @@
 <meta name="theme-color" content="#4c9e45">
 
 
-{#<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">#}
+<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
 
 <link rel="stylesheet" type="text/css" href="/css/base/index.css">
 

@@ -4,5 +4,8 @@
   "CATS": "I have {{catCount}} cats.",
   "SEARCH": {
     "PLACEHOLDER": "placeholder text for search"
+  },
+  "BASIS_OF_RECORD": {
+    "HUMAN_OBSERVATION": "human observation"
   }
 }

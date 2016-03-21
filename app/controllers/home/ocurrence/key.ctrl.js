@@ -15,10 +15,10 @@ router.get('/occurrence/:key', function (req, res, next) {
             next()
         } else {
             body = JSON.parse(body);
-            var showMap = body.decimalLongitude && body.decimalLatitude;
+            var hasGeoData = body.decimalLongitude && body.decimalLatitude;
             res.render('pages/occurrence/key/occurrenceKey', {
                 body: body,
-                showMap: showMap
+                hasGeoData: hasGeoData
             });
         }
     });
