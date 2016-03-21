@@ -6,14 +6,29 @@
     {% if results.taxaMatches.length > 1 %}
         <section class="SearchResults__section-comment">
             <div class="card">
-                <div class="card__content">
-                    Multiple taxonomic matches for {$ query $}.
-                    Showing results for
-                    <select ng-model="search.selectedTaxonId">
+                <div class="card__tabs">
+                    <div class="card__content">
+                        Multiple likely matches.
+                        <span class="select">
+                            Show results for
+                            <select ng-model="search.selectedTaxonId">
+                                {% for taxon in results.taxaMatches %}
+                                    <option value="{$ taxon.info.key $}" selected>{$ taxon.info.scientificName $} ({$ taxon.info.kingdom $})</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+                    <div class="tabs">
                         {% for taxon in results.taxaMatches %}
-                            <option value="{$ taxon.info.key $}" selected>{$ taxon.info.scientificName $} <span>{$ taxon.info.kingdom $}</span></option>
+                            <a class="tab"
+                               href="" ng-class="{isActive: search.selectedTaxonId == '{$ taxon.info.key $}'}"
+                               ng-click="search.selectedTaxonId = '{$ taxon.info.key $}'">
+                                <span class="gb-icon-animalia"></span>
+                                {$ taxon.info.scientificName $}
+                                <span class="sr-only">({$ taxon.info.kingdom $})</span>
+                            </a>
                         {% endfor %}
-                    </select>
+                    </div>
                 </div>
             </div>
         </section>

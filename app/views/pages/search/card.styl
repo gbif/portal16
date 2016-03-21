@@ -141,6 +141,53 @@ $_linkColor = #009FD4
 	}
 }
 
+.card__tabs {
+	display inline
+	.tabs {
+		display none
+		overflow auto
+		>a {
+			cursor pointer
+			flex 1 0 auto
+			display inline-block
+			border-bottom 2px solid transparent
+			float left
+			padding vr-block(.25) vr-block(.5)
+			color inherit
+			text-decoration none
+			text-align center
+			&:hover {
+				text-decoration none
+			}
+			&.isActive {
+				border-color deepskyblue
+			}
+			span {
+				color #aaa
+				margin vr-block(0.25)
+			}
+			>[class^="gb-icon-"] {
+				font-size 2rem
+				position relative
+				top 0.25rem
+			}
+		}
+	}
+}
++isAbove($laptop) {
+	.card__tabs {
+		.select {
+			display none
+		}
+		.tabs {
+			display flex
+		}
+	}
+	.card__content+.tabs {
+		border-top 1px solid #ddd
+	}
+}
+
 .card__expand {
 	display none
 

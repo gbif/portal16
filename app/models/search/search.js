@@ -138,12 +138,9 @@ function getData(q, cb) {
             ],
             occurrences: [
                 'rawTaxaMatches', 'catalogNumberOccurrences', function(callback, results) {
-                    console.log('get occurrence data');
                     if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
-                        console.log('do not get occurrence data');
                         callback(null, null);
                     } else {
-                        console.log('get occurrence data');
                         helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
