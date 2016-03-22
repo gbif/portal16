@@ -25,8 +25,18 @@ function use(app, locales, defaultLocale) {
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);
             req.setLocale(locale);
+            res.locals.gb = {};
+            res.locals.gb.locales = {
+                urlPrefix: locale,
+                current: locale
+            };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference
+            res.locals.gb = {};
+            res.locals.gb.locales = {
+                urlPrefix: '',
+                current: defaultLocale
+            };
         }
         next();
     });
@@ -37,5 +47,5 @@ module.exports = {
     use: use,
     getLocaleFromUrl: getLocaleFromUrl,
     removeLocaleFromUrl: removeLocaleFromUrl
-}
+};
 

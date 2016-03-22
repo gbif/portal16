@@ -2,12 +2,15 @@
     <section class="SearchResults__section SearchResults-occurrences">
         {#<h2>Species occurrences</h2>#}
         <div class="card">
-            <header>
-                <h3>
-                    {$ results.occurrences.count $}
-                </h3>
-                <span>Matching species occurrences</span>
-            </header>
+            <div class="card__banner">
+                <div class="descr-content">
+                    {% if results.occurrences.count > 3 %}
+                        <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">{$ results.occurrences.count $}<span> Occurrences</span></a>
+                    {% else %}
+                        <span>Occurrences</span>
+                    {% endif %}
+                </div>
+            </div>
 
             <div class="occurrenceTable">
                 <div class="table">
@@ -35,8 +38,8 @@
                                     <td>
                                         <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                     </td>
-                                    <td>
-                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.basisOfRecord $}</a>
+                                    <td class="u-capitalize">
+                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
                                     </td>
                                 </tr>
                             {% endfor %}

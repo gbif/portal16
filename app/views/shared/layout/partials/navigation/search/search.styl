@@ -27,9 +27,12 @@
 
 //content
 .Search__content{
-	>.Search__form {
-		width 90%
-		margin vr-block(1) auto
+	.Search__form {
+		width 100%
+		max-width 800px
+		margin auto
+		margin vr-block(0.25) auto
+		padding 0 vr-block(1)
 		position relative
 		input {
 			width 100%
@@ -47,12 +50,12 @@
 				outline none
 			}
 		}
-		&:after {
-			content ' '
-			display block
-			width 100%
-			border-bottom 1px solid #ccc
-		}
+		//&:after {
+		//	content ' '
+		//	display block
+		//	width 100%
+		//	border-bottom 1px solid #ccc
+		//}
 		button {
 			outline none
 			width vr-block(1)
@@ -75,10 +78,5 @@
 	.Search {
 		overflow initial
 		height auto
-	}
-	.Search__content {
-		.Search__form {
-			width 60%
-		}
 	}
 }

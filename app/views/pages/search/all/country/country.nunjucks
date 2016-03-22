@@ -1,4 +1,4 @@
-{% import "../searchResults.macro.nunjucks" as searchMacro %}
+{% import "../../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.country %}
 
 <section class="SearchResults__section SearchResults-catalogNumber">
@@ -7,33 +7,27 @@
     {#<p>{$ results.country.title $} has been a {$ results.country.participationStatus $} member of GBIF since 2010 </p>#}
     {#{%- endcall %}#}
 
-    <div class="card--info">
+    <div class="card card--info">
         {#<h2 class="card__header">Participants</h2>#}
+        <div class="card__title card__banner">
+            <h2>
+                <a href="//www.gbif.org/country/{$ results.country.countryCode $}">
+                    {$ results.country.name $}
+                </a>
+            </h2>
+        </div>
         <div>
             <div class="searchResults__list card__content">
                 <div>
-                    <h3>
-                        <a href="http://www.gbif.org/country">
-                            {$ results.country.title $}
-                        </a>
-                    </h3>
                     <div>
-
-                        {% if result[conf.sub] and result[conf.subKey] %}
-                            <a href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
-                                {$ result[conf.sub] | truncate(80) $}
-                            </a>
-                        {% endif %}
-
                         <div class="card__definitions">
-                            <p>{$ results.country.title $} is a member of GBIF</p>
                             <div>
-                                <span class="term">Status:</span>
-                                <span class="desc">{$ results.country.participationStatus $}</span>
+                                <span class="term">Membership status:</span>
+                                <span class="desc u-capitalize">{$ __(results.country.participationStatus) $}</span>
                             </div>
                             <div>
                                 <span class="term">Member since:</span>
-                                <span class="desc">2010 (mock date)</span>
+                                <span class="desc">{$ results.country.membershipStart $}</span>
                             </div>
 
                         </div>

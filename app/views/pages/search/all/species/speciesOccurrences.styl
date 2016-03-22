@@ -15,8 +15,14 @@ $_linkColor = #009FD4
 		border 1px solid #ddd
 		border-width 1px 0 1px 0
 		padding vr-block(0.25) vr-block(1)
-		span {
-			font-weight normal
+		>span {
+			//font-weight normal
+			a {
+				color $_linkColor
+				&:hover {
+					text-decoration underline
+				}
+			}
 		}
 		>.occurrenceTable {
 			padding vr-block(0.25) 0
@@ -83,7 +89,7 @@ $_linkColor = #009FD4
 		.card__expand {
 			display block
 		}
-		.card__images, .card__occurrences {
+		.card .isCollapsable {
 			display none
 		}
 	}

@@ -1,15 +1,15 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-translate');
-// require('leaflet');
 require('angular-leaflet-directive');
+require('angular-hotkeys');
 
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', require('angular-resource')]);
+        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'cfp.hotkeys', require('angular-resource')]);
     
 })();
 

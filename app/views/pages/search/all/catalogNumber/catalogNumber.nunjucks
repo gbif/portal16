@@ -1,15 +1,23 @@
-{% import "../searchResults.macro.nunjucks" as searchMacro %}
+{% import "../../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.catalogNumberOccurrences and results.catalogNumberOccurrences.count > 0 %}
 
 <section class="SearchResults__section SearchResults-occurrences">
 
     <div class="card">
-        <header>
-            <h3>
-                <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">{$ results.catalogNumberOccurrences.count $}</a>
-            </h3>
-            <span>Catalog numbers</span>
-        </header>
+        <div class="card__banner">
+            <div class="descr-content">
+                <span>Catalog number: {$ query $}</span>
+
+                {% if results.catalogNumberOccurrences.count > 3 %}
+                <p>
+                    <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">
+                        {$ results.catalogNumberOccurrences.count $} results
+                    </a>
+                </p>
+                {% endif %}
+
+            </div>
+        </div>
 
         <div class="occurrenceTable">
             <div class="table">
@@ -55,6 +63,5 @@
     </div>
 
 </section>
-
 
 {% endif %}

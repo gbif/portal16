@@ -31,16 +31,20 @@ module.exports = function (app, config) {
 
     var locales = ['en', 'da'];
     var defaultLocale = 'en';
+
     i18n.configure({
         locales: locales,
         defaultLocale: defaultLocale,
-        directory: './locales/server/'
+        directory: './locales/server/',
+        objectNotation: true
     });
     app.use(i18n.init);
 
     //Middleware to remove locale from url and set i18n.locale based on url
     require(config.root + '/app/helpers/middleware/i18n/localeFromQuery.js').use(app, locales, defaultLocale);
 
+    // Node doesn't include other locales than english per default. Include these to use Intl.
+    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(locales);
 
     app.use(bodyparser.json());
     app.use(bodyparser.urlencoded({

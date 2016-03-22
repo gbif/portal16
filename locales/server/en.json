@@ -2,5 +2,12 @@
 	"Hello": "Hello",
 	"Search results": "Search results",
 	"search.placeholder": "search.placeholder",
-	"search": "search"
+	"search": "search",
+	"VOTING": "voting",
+	"ASSOCIATE": "associate",
+	"bor": {
+		"PRESERVED_SPECIMEN": "preserved specimen",
+		"HUMAN_OBSERVATION": "human observation",
+		"FOSSIL_SPECIMEN": "bor.FOSSIL_SPECIMEN"
+	}
 }

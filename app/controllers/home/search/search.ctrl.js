@@ -1,6 +1,5 @@
 var express = require('express'),
     search = require('../../../models/search/search'),
-    i18n = require("i18n"),
     router = express.Router();
 
 module.exports = function (app) {
@@ -13,10 +12,8 @@ router.get('/search', function (req, res) {
         res.render('pages/search/search', {
             __hideSearchAction: true,
             results: results,
-            query: searchString,
-            locale: req.getLocale() == 'en' ? '' : req.getLocale()
+            query: searchString
         });
     });
 });
-
 

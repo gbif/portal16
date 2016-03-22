@@ -10,7 +10,7 @@
                         <div>
                             <h3>
                                 <a href="{$ conf.baseUrl $}{$ result[conf.key] $}">
-                                    {$ result[conf.title] | truncate(80) $}
+                                    {$ result[conf.title] | striptags | truncate(80) $}
                                 </a>
                             </h3>
                             <div>
@@ -29,7 +29,7 @@
 
                                 {% if result[conf.description] %}
                                 <p>
-                                    {$ result[conf.description] | striptags() | truncate(200) | safe $}
+                                    {$ result[conf.description] | striptags | truncate(200) | safe $}
                                 </p>
                                 {% endif %}
 

@@ -18,6 +18,16 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
 
+
+    (function() {
+        nunjucksConfiguration.addFilter('locInt', function(number, locale) {
+            if (typeof locale === 'undefined') return number;
+            if (typeof number === 'undefined') return '';
+            return new Intl.NumberFormat(locale).format(number);
+        });
+
+    })();
+
     /**
     DEPRECATED
     Moved away from this and use source maps instead

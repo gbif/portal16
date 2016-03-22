@@ -1,11 +1,11 @@
-{% import "../searchResults.macro.nunjucks" as helpers %}
+{% import "../../searchResults.macro.nunjucks" as helpers %}
 
 {% if results.rawTaxaMatches.length > 0 %}
 <section class="SearchResults__section">
 
     {% for taxon in results.rawTaxaMatches %}
     <div class="card card--speciesList">
-        <header class="card__banner">
+        <div class="card__banner">
             <div class="species__map">
                 <div>
                     <img src="/img/world_tile.png">
@@ -20,7 +20,7 @@
                     <span class="desc taxa">{$ helpers.taxonomy(taxon) $}</span>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
     {% endfor %}
 

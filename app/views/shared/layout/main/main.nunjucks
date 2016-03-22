@@ -8,7 +8,6 @@
 <![endif]-->
 
 <head>
-    <base href="/" />
     {% include "../partials/head/head.nunjucks" %}
     <title>GBIF</title>
 </head>

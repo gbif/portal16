@@ -33,13 +33,32 @@ $_linkColor = #009FD4
 	}
 }
 
-.card header {
+.card__title {
+	background #efefef
+	border-bottom 1px solid #ddd
+	h2 {
+		font-size 15px
+		font-weight 400
+		padding .375rem 1.5rem
+		line-height 2rem
+	}
+}
+
+.card__banner {
 	background #02393D
+	color white
+	h2 {
+		font-size 1rem
+	}
+	a {
+		&:hover {
+			text-decoration underline
+		}
+	}
 }
 .card__banner {
+	background #02393D
 	display flex
-	text-align center
-
 	.tile {
 		width 128px
 		flex 0 0 auto
@@ -58,6 +77,9 @@ $_linkColor = #009FD4
 		color white
 		a {
 			color white
+		}
+		p {
+			margin 0
 		}
 	}
 }
@@ -142,7 +164,10 @@ $_linkColor = #009FD4
 }
 
 .card__tabs {
-	display inline
+	background #efefef
+	.card__content {
+		background #fbfbfb
+	}
 	.tabs {
 		display none
 		overflow auto
@@ -161,6 +186,10 @@ $_linkColor = #009FD4
 			}
 			&.isActive {
 				border-color deepskyblue
+				background #fbfbfb
+				>[class^="gb-icon-"] {
+					color #02393D
+				}
 			}
 			span {
 				color #aaa
@@ -170,6 +199,9 @@ $_linkColor = #009FD4
 				font-size 2rem
 				position relative
 				top 0.25rem
+				display inline-block
+				margin 0
+				margin-top -5px
 			}
 		}
 	}
@@ -182,9 +214,9 @@ $_linkColor = #009FD4
 		.tabs {
 			display flex
 		}
-	}
-	.card__content+.tabs {
-		border-top 1px solid #ddd
+		.card__content {
+			display none
+		}
 	}
 }
 

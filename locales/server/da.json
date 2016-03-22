@@ -1,5 +1,8 @@
 {
 	"Hello": "HAllo på dansk",
 	"Search results": "Søgeresultater",
-	"search": "search"
+	"search": "search",
+	"bor": {
+		"HUMAN_OBSERVATION": "bor.HUMAN_OBSERVATION"
+	}
 }
