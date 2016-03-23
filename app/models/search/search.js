@@ -99,7 +99,7 @@ function augmentSpeciesData(rawTaxaMatches, cb) {
 }
 
 function getData(query, cb) {
-    q = encodeURIComponent(query);
+    var q = encodeURIComponent(query);
     async.auto(
         {
             rawTaxaMatches: function(callback) {
