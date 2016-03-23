@@ -23,7 +23,7 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('locInt', function(number, locale) {
             if (typeof locale === 'undefined') return number;
             if (typeof number === 'undefined') return '';
-            return new Intl.NumberFormat(locale).format(number);
+            return new global.Intl.NumberFormat(locale).format(number);
         });
 
     })();
