@@ -6,7 +6,7 @@
     {#{% if results.taxaMatches.length > 1 %}#}
         {#<section class="SearchResults__section-comment">#}
             {#<div class="card">#}
-                {#<div class="card__tabs">#}
+                {#<div class="card__tabsX">#}
                     {#<div class="card__content">#}
                         {#Multiple likely matches.#}
                         {#<span class="select">#}
@@ -46,20 +46,25 @@
             </section>
         {% endif %}
 
-        <section class="SearchResults__section"
-                 ng-class="{compact: search.compactTaxonResult}"
-                {% if loop.first %} ng-init="search.selectedTaxonId = '{$ taxon.info.key $}'" {% endif %}
-                 ng-show="{$ taxon.info.key $} == search.selectedTaxonId"
+        <section
+                 ng-class="{compact: search.compactTaxonResult, 'u-hide': '{$ taxon.info.key $}' != search.selectedTaxonId }"
+                {% if loop.first %}
+                    ng-init="search.selectedTaxonId = '{$ taxon.info.key $}'"
+                    class="SearchResults__section"
+                {% else %}
+                    class="SearchResults__section u-hide"
+                {% endif %}
+                 {#ng-show="{$ taxon.info.key $} == search.selectedTaxonId"#}
         >
             <div class="card">
 
                 {% if results.taxaMatches.length > 1 %}
-                <header class="card__title">
-                    <h2>Species</h2>
-                </header>
+                {#<header class="card__title">#}
+                    {#<h2>Species</h2>#}
+                {#</header>#}
                 <div class="card__tabs">
                     <div class="card__content">
-                        Multiple likely matches.
+                        Multiple likely taxa.
                         <span class="select">
                             Show results for
                             <select ng-model="search.selectedTaxonId">
@@ -95,7 +100,7 @@
                             <h3>
                                 <a href="//www.gbif.org/species/{$ taxon.info.nubKey $}">{$ taxon.info.scientificName $}</a>
                             </h3>
-                            {% if taxon.occurrences.count %}
+                            {% if taxon.occurrences.count >= 0 %}
                             <span>
                                 <a href="//www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">
                                     {$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrence records
@@ -146,11 +151,11 @@
                             <span class="term">Lower classifications:</span>
                 <span class="desc lower">
                     {% for child in taxon.children.results | limit(3) %}
-                        <a href="{$ locale $}/search?q={$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
+                        <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
                     {% endfor %}
 
                     {% if taxon.children.results.length == 4 %}
-                        <a href="{$ locale $}/search?q={$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
                     {% elif taxon.children.results.length > 4 %}
                         <a href="/search/#somewhere that shows this" class="more">view all</a>
                     {% endif %}
@@ -188,13 +193,13 @@
                                         {% for row in taxon.occurrences.results | limit(3) %}
                                             <tr class="table-row">
                                                 <td>
-                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                                 </td>
                                                 <td>
-                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                                 </td>
                                                 <td class="u-capitalize">
-                                                    <a href="{$ locale $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
+                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -221,13 +226,13 @@
 
                             {% for type in taxon.holotypes.results %}
                                 {% if type.media and type.media.length > 0 and type.media[0].identifier %}
-                                    <a href="{$ locale $}/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
                                 {% endif %}
                             {% endfor %}
 
                             {% if taxon.images and taxon.images.count > 0 %}
                                 {% for image in taxon.images.results %}
-                                    <a href="{$ locale $}/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
+                                    <a href="/$ gb.locales.urlPrefix $}/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
                                 {% endfor %}
                             {% endif %}
                         </div>

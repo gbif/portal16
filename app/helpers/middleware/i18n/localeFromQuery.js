@@ -27,7 +27,7 @@ function use(app, locales, defaultLocale) {
             req.setLocale(locale);
             res.locals.gb = {};
             res.locals.gb.locales = {
-                urlPrefix: locale,
+                urlPrefix: '/' + locale,
                 current: locale
             };
         } else {

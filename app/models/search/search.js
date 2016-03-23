@@ -98,8 +98,8 @@ function augmentSpeciesData(rawTaxaMatches, cb) {
     });
 }
 
-function getData(q, cb) {
-    q = encodeURIComponent(q);
+function getData(query, cb) {
+    q = encodeURIComponent(query);
     async.auto(
         {
             rawTaxaMatches: function(callback) {
@@ -109,6 +109,7 @@ function getData(q, cb) {
                     } else if (data) {
                         var confidentMatches = helper.getMatchesByConfidence(data);
                         confidentMatches = helper.filterByMatchType(confidentMatches);
+                        confidentMatches = helper.filterByExactQuery(confidentMatches, query); //necessary since the current species match api doesn't not account for author
                         callback(err, confidentMatches)
                     }
                     else {

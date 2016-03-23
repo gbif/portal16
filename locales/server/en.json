@@ -8,6 +8,8 @@
 	"bor": {
 		"PRESERVED_SPECIMEN": "preserved specimen",
 		"HUMAN_OBSERVATION": "human observation",
-		"FOSSIL_SPECIMEN": "bor.FOSSIL_SPECIMEN"
+		"FOSSIL_SPECIMEN": "fossil specimen",
+		"LIVING_SPECIMEN": "living specimen",
+		"UNKNOWN": "unknown"
 	}
 }

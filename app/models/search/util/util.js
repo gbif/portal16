@@ -28,13 +28,25 @@ function getMatchesByConfidence(results) {
 }
 
 function filterByMatchType(matches) {
+    var requiredMatchType;
     if (matches.length < 2) {
         return matches;
     }
-    var requiredMatchType = matches[0].matchType;
+    requiredMatchType = matches[0].matchType;
     return matches.filter(function(e) {
         return e.matchType == requiredMatchType;
     })
+}
+
+function filterByExactQuery(matches, query) {
+    var match, i, len = matches.length;
+    for (i = 0; i < len; i++) {
+        match = matches[i];
+        if (match.scientificName !== match.canonicalName && match.scientificName === query) {
+            return [match]
+        }
+    }
+    return matches;
 }
 
 function getSynonymKey(species) {
@@ -123,5 +135,6 @@ module.exports = {
     getMatchesByConfidence: getMatchesByConfidence,
     filterByMatchType: filterByMatchType,
     getSynonymKey: getSynonymKey,
-    getHigestRankingLowerClasses: getHigestRankingLowerClasses
+    getHigestRankingLowerClasses: getHigestRankingLowerClasses,
+    filterByExactQuery: filterByExactQuery
 }

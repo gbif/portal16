@@ -3,6 +3,7 @@
 	"Search results": "Søgeresultater",
 	"search": "search",
 	"bor": {
-		"HUMAN_OBSERVATION": "bor.HUMAN_OBSERVATION"
+		"HUMAN_OBSERVATION": "bor.HUMAN_OBSERVATION",
+		"PRESERVED_SPECIMEN": "bor.PRESERVED_SPECIMEN"
 	}
 }

@@ -6,7 +6,7 @@
 
         <div class="searchBar">
             <form action="/search" class="Search__form">
-                <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" autocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
+                <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
                 <button type="submit" class="gb-icon-search">
                     <span class="sr-only">{$ __('search') $}</span>
                 </button>
