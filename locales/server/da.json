@@ -1,9 +1,9 @@
 {
-	"Hello": "HAllo på dansk",
+	"Hello": "Hej",
 	"Search results": "Søgeresultater",
 	"search": "search",
 	"bor": {
-		"HUMAN_OBSERVATION": "bor.HUMAN_OBSERVATION",
-		"PRESERVED_SPECIMEN": "bor.PRESERVED_SPECIMEN"
+		"HUMAN_OBSERVATION": "menneskelig observation",
+		"PRESERVED_SPECIMEN": "preserveret eksemplar"
 	}
 }

@@ -10,6 +10,7 @@
 		"HUMAN_OBSERVATION": "human observation",
 		"FOSSIL_SPECIMEN": "fossil specimen",
 		"LIVING_SPECIMEN": "living specimen",
-		"UNKNOWN": "unknown"
+		"UNKNOWN": "unknown",
+		"OBSERVATION": "observation"
 	}
 }

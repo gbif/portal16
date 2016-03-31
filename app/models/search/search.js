@@ -142,7 +142,7 @@ function getData(query, cb) {
                     if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif-dev.org/v1/occurrence/search?limit=5&q=' + q, callback);
+                        helper.getApiData('http://api.gbif-uat.org/v1/occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
             ],
