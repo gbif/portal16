@@ -1,4 +1,4 @@
-{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 
 {% block drawer %}
@@ -30,7 +30,7 @@
 
 
 
-{% block body %}
+{% block page %}
 <div class="Ocurrences" id="occurrence">
     <h1>Ocurrences</h1>
     <div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div><div>Cards with content</div>

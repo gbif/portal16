@@ -1,6 +1,7 @@
-{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
-{% block body %}
+{# home page, or front page #}
+{% block page %}
 <div class="home hero">
     <h1>GBIF</h1>
     <h4>Explore and share biodiversity data</h4>

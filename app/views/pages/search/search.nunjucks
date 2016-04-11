@@ -1,7 +1,7 @@
-{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 {% import "./searchResults.macro.nunjucks" as searchMacro %}
 
-{% block body %}
+{% block page %}
     <div class="Search__content" ng-controller="searchCtrl as search">
 
         <div class="searchBar">

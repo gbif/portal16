@@ -1,0 +1,7 @@
+<footer class="footer">
+    <div class="wrapper">
+        <div class="wrapper-container">
+            <span class="text-muted">2016 &copy; GBIF</span>
+        </div>
+    </div>
+</footer>

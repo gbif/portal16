@@ -4,7 +4,7 @@ angular
     .module('portal')
     .config(routerConfig);
     
-// The annotation is neccessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
+// The annotation is necessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
 /** @ngInject */
 function routerConfig($stateProvider, $locationProvider) {
     //TODO We need a way to handle routes when refreshing. Server needs to know about these routes.

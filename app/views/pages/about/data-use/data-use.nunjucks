@@ -1,0 +1,30 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% block page %}
+    {% import "../cms.macros.nunjucks" as macros %}
+    <!-- Begin page (data use) content -->
+    <article class="wrapper">
+        <div class="wrapper-container">
+            <header class="header">
+                {$ macros.newsImage(image.filename, image.image_styles.masthead__wide, image.image_field_caption.value) $}
+                <nav>
+                    ABOUT | FEATURE DATA USE
+                </nav>
+                <h1>{$ data.title $}</h1>
+            </header>
+            <section class="body-text">
+                {$ data.body | safe $}
+            </section>
+            <div class="sidebar">
+                {$ macros.sidebarFields(data) $}
+            </div>
+            <section>
+                <h1>Citation information</h1>
+                {$ data.citationInformation $}
+            </section>
+            <section>
+                <h1>GBIF resource involved</h1>
+                {$ data.citationInformation $}
+            </section>
+        </div>
+    </article>
+{% endblock %}

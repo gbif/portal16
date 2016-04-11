@@ -1,0 +1,56 @@
+<!-- masthead image -->
+{% macro newsImage(filename = '', src = '', image_caption = '') %}
+    <figure class="masthead-image">
+        <img src="{$ src $}" alt="{$ filename $}">
+        <figcaption>{$ image_caption | safe $}</figcaption>
+    </figure>
+{% endmacro %}
+
+{% macro sidebarFields(data) %}
+    {% if data.researcherLocation %}
+        <section>
+            <h3>LOCATION OF RESEARCHERS</h3>
+            <p>[pending macro]</p>
+        </section>
+    {% endif %}
+    {% if data.studyArea %}
+        <section>
+            <h3>STUDY AREA</h3>
+            <p>[pending macro]</p>
+        </section>
+    {% endif %}
+    {% if data.dataSource %}
+        <section>
+            <h3>DATA SOURCE</h3>
+            <p><a href="{$ data.dataSource[0].url $}">{$ data.dataSource[0].title | safe $}</a></p>
+        </section>
+    {% endif %}
+    {% call sidebarFields2(data, 'DATA SOURCE') -%}
+    <a href="{$ data.dataSource[0].url $}">{$ data.dataSource[0].title | safe $}</a>
+    {%- endcall %}
+    {% if data.linkToResearch %}
+        <section>
+            <h3>LINK TO RESEARCH</h3>
+            <p><a href="{$ data.linkToResearch[0].url $}">{$ data.linkToResearch[0].title | safe $}</a></p>
+        </section>
+    {% endif %}
+    {% if data.relatedGbifResources %}
+        <section>
+            <h3>Related GBIF resources</h3>
+            <p>[pending macro]</p>
+        </section>
+    {% endif %}
+    {% if data.numResourceUsed %}
+        <section>
+            <h3>NUMBER OF RESOURCES USED</h3>
+            <p>{$ data.numResourceUsed $}</a></p>
+        </section>
+    {% endif %}
+{% endmacro %}
+
+{% macro sidebarFields2(data, title) %}
+    <section>
+        <h3>{$ title $}</h3>
+        <p>{$ caller()$}</p>
+    </section>
+{% endmacro %}

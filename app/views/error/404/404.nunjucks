@@ -1,6 +1,6 @@
-{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
-{% block body %}
+{% block page %}
 <section class="404 errorPage">
     <h1 class="giant gb-icon-dodo">404</h1>
     <p>This page might have existed once, but we can no longer find it.</p>

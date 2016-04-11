@@ -108,7 +108,7 @@ config.js = {
         paths: [loc('gulpfile.js'), loc('gulp/tasks/**/*.js')]
     },
     browserify: {
-        path: loc('app/views/shared/layout/main/main.js')
+        path: loc('app/views/shared/layout/html/html.js')
     }
 };
 

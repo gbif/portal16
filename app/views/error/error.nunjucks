@@ -1,3 +1,4 @@
+{# Root HTML template for all error pages #}
 <!doctype html>
 <html lang="en">
 <head>

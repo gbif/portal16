@@ -1,6 +1,6 @@
-{% extends ".nunjucks ./../shared/layout/main/main.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
-{% block body %}
+{% block page %}
 
 
 {% endblock %}
