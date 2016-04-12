@@ -1,104 +1,88 @@
-
-
-
 // Inspired by https://github.com/corysimmons/typographic
 // not done - edit as the site needs base styling.
 // Currently we do not know what we want the look to be and which libraries that might style elemets for us
-
-
+// @todo line-height should change according to the font-size.
+// @see http://gregrickaby.com/using-the-golden-ratio-and-rems/
 
 // Sans-serif
-//we use $helvetica
+// we use $helvetica
 
-$calibri       = 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$candara       = 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
-$courier       = 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
-$franklin      = 'Franklin Gothic Medium', 'Arial', 'sans-serif'
-$futura        = 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
-$geneva        = 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
-$gill-sans     = 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
-$helvetica     = 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
+$calibri = 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$candara = 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
+$courier = 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
+$franklin = 'Franklin Gothic Medium', 'Arial', 'sans-serif'
+$futura = 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
+$geneva = 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
+$gill-sans = 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
+$helvetica = 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
 $lucida-grande = 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
-$optima        = 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
-$segoe         = 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
-$tahoma        = 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
-$trebuchet     = 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
-$verdana       = 'Verdana', 'Geneva', 'sans-serif'
-
+$optima = 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
+$segoe = 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
+$tahoma = 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
+$trebuchet = 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif'
+$verdana = 'Verdana', 'Geneva', 'sans-serif'
 
 // Serif
 
-$antiqua       = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$baskerville   = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$bodoni        = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$cambria       = 'Cambria', 'Georgia', 'serif'
-$caslon        = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
-$constantia    = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
-$didot         = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
-$garamond      = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
-$goudy         = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
-$hoefler       = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
+$antiqua = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$baskerville = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$bodoni = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$cambria = 'Cambria', 'Georgia', 'serif'
+$caslon = 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif'
+$constantia = 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
+$didot = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
+$garamond = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
+$goudy = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
+$hoefler = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
 $lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
-$palatino      = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
-
-
-
+$palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
 
 // Settings
 
-$line-height-ratio  = 1.5
-$header-ratio       = $golden
-$body-font          = $helvetica
-$body-font-weight   = 300
-$body-color         = #666
-$header-font        = $helvetica
+$line-height-ratio = 1.5
+$header-ratio = $golden
+$body-font = $helvetica
+$body-font-weight = 300
+$body-color = #666
+$header-font = $helvetica
 $header-font-weight = 300
-$header-color       = #111
-$html-font-size         = 14px
-$base-line-height = ($line-height-ratio)rem
+$header-color = #111
+$html-font-size = 14px
+$base-line-height = ($line-height-ratio) rem
 
 // Ratios
 // https://24ways.org/2011/composing-the-new-canon
-$minor-second   = 1.067
-$major-second   = 1.125
-$minor-third    = 1.2
-$major-third    = 1.25
+$minor-second = 1.067
+$major-second = 1.125
+$minor-third = 1.2
+$major-third = 1.25
 $perfect-fourth = 1.333
-$aug-fourth     = 1.414
-$perfect-fifth  = 1.5
-$minor-sixth    = 1.6
-$golden         = 1.618
-$major-sixth    = 1.667
-$minor-seventh  = 1.778
-$major-seventh  = 1.875
-$octave         = 2
-$major-tenth    = 2.5
+$aug-fourth = 1.414
+$perfect-fifth = 1.5
+$minor-sixth = 1.6
+$golden = 1.618
+$major-sixth = 1.667
+$minor-seventh = 1.778
+$major-seventh = 1.875
+$octave = 2
+$major-tenth = 2.5
 $major-eleventh = 2.667
-$major-twelfth  = 3
-$double-octave  = 4
-
-
-
-
-
-
+$major-twelfth = 3
+$double-octave = 4
 
 $type-base-ratio = $perfect-fourth
 //small text, body text,large text, main heading, hero heading
 $type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
 type-scale($level)
-	return $type-scale[$level+1]
+    return $type-scale[$level+ 1]
 
 $line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
 type-line-height($level)
-	return $line-heights[$level+1]
+    return $line-heights[$level+ 1]
 
 set-type($level = 0)
-	font-size (type-scale($level))rem
-	line-height 1.5
-
-
-
+    font-size (type-scale($level)) rem
+    line-height 1.5
 
 // Helpers
 
@@ -114,11 +98,10 @@ set-type($level = 0)
  */
 
 grid-overlay($color = black, $px-offset = false)
-	background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
-	background-size: 100% ($line-height-ratio)em//$base-line-height
-	if $px-offset
-		background-position: 0 unit($px-offset, 'px')
-
+    background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
+    background-size: 100% ($line-height-ratio) em //$base-line-height
+    if $px-offset
+        background-position: 0 unit($px-offset, 'px')
 
 /**
  * Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
@@ -132,11 +115,10 @@ grid-overlay($color = black, $px-offset = false)
  */
 
 vr-block($units = 1, $px-offset = false)
-	if $px-offset
-		return $units*$base-line-height + $px-offset
-	else
-		return $units*$base-line-height
-
+    if $px-offset
+        return $units*$base-line-height + $px-offset
+    else
+        return $units*$base-line-height
 
 /**
  * The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
@@ -147,169 +129,170 @@ vr-block($units = 1, $px-offset = false)
 
 typographic() {
 
-	html {
-		height 100%
-		width 100%
-		font-family: $body-font
-		font-weight: $body-font-weight
-		color: $body-color
+    html {
+        height 100%
+        width 100%
+        font-family: $body-font
+        font-weight: $body-font-weight
+        color: $body-color
 
-		font-size: $html-font-size
-		line-height: $line-height-ratio
-	}
-	body {
-		// min-height 100%
-		text-rendering optimizeLegibility
-	}
+        font-size: $html-font-size
+        line-height: $line-height-ratio
+    }
+    body {
+        // min-height 100%
+        text-rendering optimizeLegibility
+    }
 
-	//This meyer-like reset strikes me as too much. Clutters dev tools
-	// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-	// a, abbr, acronym, address, big, cite, code,
-	// del, dfn, em, img, ins, kbd, q, s, samp,
-	// small, strike, strong, sub, sup, tt, var,
-	// b, u, i, center,
-	// dl, dt, dd, ol, ul, li,
-	// fieldset, form, label, legend,
-	// table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
-	//      t-reset()
-	// }
-	h1, h2, h3, h4, h5, h6, p, ul, ol {
-		margin 0
-	}
+    //This meyer-like reset strikes me as too much. Clutters dev tools
+    // h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    // a, abbr, acronym, address, big, cite, code,
+    // del, dfn, em, img, ins, kbd, q, s, samp,
+    // small, strike, strong, sub, sup, tt, var,
+    // b, u, i, center,
+    // dl, dt, dd, ol, ul, li,
+    // fieldset, form, label, legend,
+    // table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
+    //      t-reset()
+    // }
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        margin 0
+    }
 
-	//since we use links everywhere as buttons it is easier to only set it to standard link styling when needed (e.g. article content)
-	a {
-		text-decoration none
-		color inherit
-	}
+    //since we use links everywhere as buttons it is easier to only set it to standard link styling when needed (e.g. article content)
+    a {
+        text-decoration none
+        color inherit
+    }
 
-	p, blockquote, pre,
-	address,
-	dl, ol, ul,
-	table {
-		margin-bottom $base-line-height
-	}
+    p, blockquote, pre,
+    address,
+    dl, ol, ul,
+    table {
+        margin-bottom $base-line-height
+    }
 
-	p {
-		set-type()
-	}
+    p {
+        set-type()
+        font-family $helvetica
+    }
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: $header-font
-		font-weight: $header-font-weight
-		clear: both
-	}
-	h1 {
-		set-type(4)
-	}
-	h2 {
-		set-type(3)
-	}
-	h3 {
-		set-type(2)
-	}
-	h4 {
-		set-type(1)
-	}
-	h5 {
-		set-type(0)
-	}
-	h6 {
-		set-type(-1)
-		font-weight 500
-	}
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $header-font
+        font-weight: $header-font-weight
+        clear: both
+    }
+    h1 {
+        set-type(4)
+    }
+    h2 {
+        set-type(3)
+    }
+    h3 {
+        set-type(2)
+    }
+    h4 {
+        set-type(1)
+    }
+    h5 {
+        set-type(0)
+    }
+    h6 {
+        set-type(-1)
+        font-weight 500
+    }
 
-	blockquote {
-		font-style: italic
-		cite {
-			display: block
-			font-style: normal
-		}
-	}
+    blockquote {
+        font-style: italic
+        cite {
+            display: block
+            font-style: normal
+        }
+    }
 
-	pre {
-		padding: vr-block(.5)
-		margin-bottom: vr-block(1)
-		code {
-			padding: 0
-		}
-	}
+    pre {
+        padding: vr-block(.5)
+        margin-bottom: vr-block(1)
+        code {
+            padding: 0
+        }
+    }
 
-	code {
-		font-family: $courier
-		padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
-		margin-bottom 0
-	}
+    code {
+        font-family: $courier
+        padding: ($line-height-ratio * .05) em ($line-height-ratio * .15) em
+        margin-bottom 0
+    }
 
-	// big, small, sub, sup {
-	//      line-height: 0
-	// }
+    // big, small, sub, sup {
+    //      line-height: 0
+    // }
 
-	abbr[title] {
-		// border-bottom: 1px dotted currentColor // should be inherited from normalize
-		cursor: help
-	}
+    abbr[title] {
+        // border-bottom: 1px dotted currentColor // should be inherited from normalize
+        cursor: help
+    }
 
-	// address {
-	//      font-style: normal
-	// }
+    // address {
+    //      font-style: normal
+    // }
 
-	// dt {
-	//      color: $header-color
-	//      font-weight: bold
-	// }
+    // dt {
+    //      color: $header-color
+    //      font-weight: bold
+    // }
 
-	ul,ol {
-		padding 0
-	}
+    ul, ol {
+        padding 0
+    }
 
-	// fieldset {
-	//      padding: vr-block(.5) vr-block() vr-block()
-	//      border-width: 1px
-	//      border-style: solid
-	//      max-width: 100%
-	//      margin-bottom: vr-block(1, 1)
-	//      button, input[type="submit"] {
-	//              margin-bottom: 0
-	//      }
-	// }
+    // fieldset {
+    //      padding: vr-block(.5) vr-block() vr-block()
+    //      border-width: 1px
+    //      border-style: solid
+    //      max-width: 100%
+    //      margin-bottom: vr-block(1, 1)
+    //      button, input[type="submit"] {
+    //              margin-bottom: 0
+    //      }
+    // }
 
-	// legend {
-	//      color: $header-color
-	//      font-weight: bold
-	// }
+    // legend {
+    //      color: $header-color
+    //      font-weight: bold
+    // }
 
-	// label {
-	//      display: block
-	// }
+    // label {
+    //      display: block
+    // }
 
-	select {
-		max-width 100%
-	}
+    select {
+        max-width 100%
+    }
 
-	input[type="text"], input[type="email"], input[type="password"], textarea {
-		display: block
-		max-width: 100%
-	}
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+        display: block
+        max-width: 100%
+    }
 
-	input[type="submit"], button {
-		display: block
-		cursor: pointer
-	}
+    input[type="submit"], button {
+        display: block
+        cursor: pointer
+    }
 
-	table {
-		width: 100%
-		border-spacing: 0
-		border-collapse: collapse
-		margin-bottom: vr-block(1)
-	}
+    table {
+        width: 100%
+        border-spacing: 0
+        border-collapse: collapse
+        margin-bottom: vr-block(1)
+    }
 
-	th {
-		text-align: left
-		color: $header-color
-	}
+    th {
+        text-align: left
+        color: $header-color
+    }
 
-	td {
-		padding: vr-block(.125) vr-block(.5)
-	}
+    td {
+        padding: vr-block(.125) vr-block(.5)
+    }
 }

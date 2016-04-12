@@ -6,7 +6,7 @@
         <div class="wrapper-container">
             <header class="header">
                 {$ macros.newsImage(image.filename, image.image_styles.masthead__wide, image.image_field_caption.value) $}
-                <nav>
+                <nav class="PageNav">
                     ABOUT | FEATURE DATA USE
                 </nav>
                 <h1>{$ data.title $}</h1>

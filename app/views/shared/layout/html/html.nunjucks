@@ -56,7 +56,9 @@
                         <div ui-view>
                             {% block page %}{% endblock %}
                         </div>
-                        <footer>[pending footer implementation]</footer>
+
+                        {# Footer #}
+                        {% include "../partials/footer/footer.nunjucks" %}
                     </div>
                 </div>
             </main>

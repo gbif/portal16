@@ -43,7 +43,7 @@
     {% if data.numResourceUsed %}
         <section>
             <h3>NUMBER OF RESOURCES USED</h3>
-            <p>{$ data.numResourceUsed $}</a></p>
+            <p>{$ data.numResourceUsed $}</p>
         </section>
     {% endif %}
 {% endmacro %}
@@ -51,6 +51,6 @@
 {% macro sidebarFields2(data, title) %}
     <section>
         <h3>{$ title $}</h3>
-        <p>{$ caller()$}</p>
+        <p>{$ caller() $}</p>
     </section>
 {% endmacro %}

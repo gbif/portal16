@@ -1,3 +1,4 @@
+{% block footer %}
 <footer class="footer">
     <div class="wrapper">
         <div class="wrapper-container">
@@ -5,3 +6,4 @@
         </div>
     </div>
 </footer>
+{% endblock %}
