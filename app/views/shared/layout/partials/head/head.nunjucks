@@ -28,7 +28,9 @@
 <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=M44RdwqkEg_v2">
 <meta name="theme-color" content="#4c9e45">
 
-<title>{% block title %}{% endblock %} | GBIF.org</title>
+{% if hasTitle %}
+{% block title %}{% endblock %}
+{% endif %}
 
 <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
 <link rel="stylesheet" type="text/css" href="/css/base/index.css">

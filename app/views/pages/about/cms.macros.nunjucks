@@ -20,10 +20,7 @@
         </section>
     {% endif %}
     {% if data.dataSource %}
-        <section>
-            <h3>DATA SOURCE</h3>
-            <p><a href="{$ data.dataSource[0].url $}">{$ data.dataSource[0].title | safe $}</a></p>
-        </section>
+        {% call linkField("DATA SOURCE", data.dataSource) -%}
     {% endif %}
     {% call sidebarFields2(data, 'DATA SOURCE') -%}
     <a href="{$ data.dataSource[0].url $}">{$ data.dataSource[0].title | safe $}</a>
@@ -52,5 +49,18 @@
     <section>
         <h3>{$ title $}</h3>
         <p>{$ caller() $}</p>
+    </section>
+{% endmacro %}
+
+{% macro linkField(label, values) %}
+    <section>
+        <h3>{$ label $}</h3>
+        <ul>
+            {% for value in values %}
+                <li><a href="{$ value.url $}">{$ value.title | safe $}</a></li>
+            {% endfor %}
+        </ul>
+
+
     </section>
 {% endmacro %}

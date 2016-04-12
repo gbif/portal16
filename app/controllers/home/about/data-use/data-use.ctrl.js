@@ -16,7 +16,8 @@ router.get('/data-use/:key', function(req, res) {
             res.render('pages/about/data-use/data-use.nunjucks', {
                 data: body.data[0],
                 image: body.data[0].images[0],
-                self: body.self
+                self: body.self,
+                hasTitle: true
             });
         }
     });

@@ -74,15 +74,15 @@ $type-base-ratio = $perfect-fourth
 //small text, body text,large text, main heading, hero heading
 $type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
 type-scale($level)
-    return $type-scale[$level+ 1]
+    return $type-scale[$level + 1]
 
 $line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
 type-line-height($level)
-    return $line-heights[$level+ 1]
+    return $line-heights[$level + 1]
 
 set-type($level = 0)
     font-size (type-scale($level)) rem
-    line-height 1.5
+    line-height (type-line-height($level)) rem
 
 // Helpers
 
