@@ -34,17 +34,12 @@
         color: #09c;
     }
 
+    .row {
+        lost-utility: clearfix;
+    }
 }
 
 .wrapper-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
 
     > section {
         margin-left: 6%;
@@ -56,16 +51,14 @@
 
 .wrapper-data-use > * {
     padding: 10px;
-    flex: 1 auto;
 }
 
 +isAbove($tablet) {
-    .sidebar { flex: 1 auto; lost-column: 1/3; }
-    .body-text { }
+    .sidebar { lost-column: 1/3; }
+    .body-text { lost-column: 2/3; }
     .footer  { }
 }
 
 @media all and (min-width: 800px) {
-    .body-text    { flex: 3 0px; }
-    .sidebar { lost-column: 1/3; }
+    .body-text    { }
 }

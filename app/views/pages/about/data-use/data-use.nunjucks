@@ -17,12 +17,13 @@
                 <h1>{$ data.title $}</h1>
             </header>
 
-            <section class="body-text">
-                {$ data.body | safe $}
-            </section>
-
-            <div class="sidebar">
-                {$ macros.sidebarFields(data) $}
+            <div class="row">
+                <section class="body-text">
+                    {$ data.body | safe $}
+                </section>
+                <div class="sidebar">
+                    {$ macros.sidebarFields(data) $}
+                </div>
             </div>
 
             {% if data.citationInformation %}
