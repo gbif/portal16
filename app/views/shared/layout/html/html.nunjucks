@@ -1,4 +1,4 @@
-{# Root HTML template for all non-error pages #}
+{# Root HTML template for all pages #}
 <!DOCTYPE html>
 
 <!--[if !IE]> -->

@@ -1,7 +1,61 @@
-{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
+<article class="occurrenceKey" ng-controller="occurrenceCtrl as occurrence">
+    <div>
+        <header class="header">
+            <h1>{$ occurrence.scientificName $}</h1>
+            <p>{$ occurrence.basisOfRecord $}</p>
+        </header>
 
+        <section class="Occurrence__summary" ng-init="occurrence.setData('{$ occurrence | rawJson $}')">
+            <div class="card">
+                <header class="card__banner">
+                    <div class="tile species__map">
+                        <div>
+                            <img src="/img/world_tile.png">
+                            <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$ occurrence.speciesKey $}&type=TAXON&resolution=1">
+                            <div class="marker" ng-style="occurrence.tilePosStyle"></div>
+                        </div>
+                    </div>
+                    <div class="descr">
+                        <leaflet
+                        id="occurrenceMap"
+                        defaults="occurrence.mapDefaults"
+                        markers="occurrence.markers"
+                        paths="occurrence.paths"
+                        height="100%"
+                        width="100%"
+                        tiles="occurrence.tiles"
+                        lf-center="occurrence.center"
+                        event-broadcast="occurrence.mapEvents"
+                        ></leaflet>
+                    </div>
+                </header>
+                <div class="summary">
 
+                    <div class="card__definitions">
+                        <div>
+                            <span class="term">Scientific name:</span>
+                            <span class="desc taxa">{$ occurrence.scientificName $}</span>
+                        </div>
+                        <div>
+                            <span class="term">Year:</span>
+                            <span class="desc taxa">{$ occurrence.year $}</span>
+                        </div>
+                        <div>
+                            <span class="term">License:</span>
+                            <span class="desc taxa">{$ occurrence.license $}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="occurrenceKey__raw">
+
+        </section>
+    </div>
+</article>
 {% endblock %}
 

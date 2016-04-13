@@ -8,7 +8,6 @@ module.exports = function (app) {
 router.get('/occurrence/:key', function (req, res, next) {
     var occurrenceKey = req.params.key;
     var url = "http://api.gbif.org/v1/occurrence/" + occurrenceKey;
-
     require('request')(url, function (err, resp, body) {
         if (resp.statusCode != 200 || err) {
             res.status(404);
@@ -17,7 +16,7 @@ router.get('/occurrence/:key', function (req, res, next) {
             body = JSON.parse(body);
             var hasGeoData = body.decimalLongitude && body.decimalLatitude;
             res.render('pages/occurrence/key/occurrenceKey', {
-                body: body,
+                occurrence: body,
                 hasGeoData: hasGeoData
             });
         }

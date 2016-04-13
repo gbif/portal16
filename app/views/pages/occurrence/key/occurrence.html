@@ -1,7 +1,7 @@
 <div class="occurrenceKey">
 	<header>
-	    <h1>{{occurrence.data.scientificName}}</h1>
-	    <p>{{occurrence.subtitle}}</p>
+	    <h1>{$ occurrence.data.scientificName $}</h1>
+	    <p>{$ occurrence.subtitle $}</p>
 	</header>
 
 	<section class="Occurrence__summary">
@@ -39,5 +39,16 @@
 			</div>
 		</div>
 	</section>
+    <section class="Occurrence__table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Record</th>
+                    <th>Verbatim</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
 	<p ng-click="occurrence.go()">go to specific occurrence with router</p>
 </div>
