@@ -26,17 +26,11 @@
             </div>
 
             {% if data.citationInformation %}
-            <section>
-                <h1>Citation information</h1>
-                {$ data.citationInformation $}
-            </section>
+                {$ macros.textAreaField("Citation information", data.citationInformation) $}
             {% endif %}
 
             {% if data.relatedGbifResources %}
-            <section>
-                <h1>GBIF resource involved</h1>
-                {$ data.relatedGbifResources $}
-            </section>
+                {$ macros.linkField("GBIF resource involved", data.relatedGbifResources) $}
             {% endif %}
         </div>
     </article>

@@ -8,48 +8,29 @@
 
 {% macro sidebarFields(data) %}
     {% if data.researcherLocation %}
-        <section>
-            <h3>LOCATION OF RESEARCHERS</h3>
-            <p>[pending macro]</p>
-        </section>
+        {% call termRefField("LOCATION OF RESEARCHERS", data.researcherLocation) -%}{%- endcall %}
     {% endif %}
+
     {% if data.studyArea %}
-        <section>
-            <h3>STUDY AREA</h3>
-            <p>[pending macro]</p>
-        </section>
+        {% call linkField("STUDY AREA", data.studyArea) -%}{%- endcall %}
     {% endif %}
+
     {% if data.dataSource %}
-        {% call linkField("DATA SOURCE", data.dataSource) -%}
+        {% call linkField("DATA SOURCE", data.dataSource) -%}{%- endcall %}
     {% endif %}
-    {% call sidebarFields2(data, 'DATA SOURCE') -%}
-    <a href="{$ data.dataSource[0].url $}">{$ data.dataSource[0].title | safe $}</a>
-    {%- endcall %}
+
     {% if data.linkToResearch %}
-        <section>
-            <h3>LINK TO RESEARCH</h3>
-            <p><a href="{$ data.linkToResearch[0].url $}">{$ data.linkToResearch[0].title | safe $}</a></p>
-        </section>
+        {% call linkField("LINK TO RESEARCH", data.linkToResearch) -%}{%- endcall %}
     {% endif %}
-    {% if data.relatedGbifResources %}
-        <section>
-            <h3>Related GBIF resources</h3>
-            <p>[pending macro]</p>
-        </section>
-    {% endif %}
+
     {% if data.numResourceUsed %}
         <section>
             <h3>NUMBER OF RESOURCES USED</h3>
-            <p>{$ data.numResourceUsed $}</p>
+            <ul>
+                <li>{$ data.numResourceUsed $}</li>
+            </ul>
         </section>
     {% endif %}
-{% endmacro %}
-
-{% macro sidebarFields2(data, title) %}
-    <section>
-        <h3>{$ title $}</h3>
-        <p>{$ caller() $}</p>
-    </section>
 {% endmacro %}
 
 {% macro linkField(label, values) %}
@@ -60,7 +41,36 @@
                 <li><a href="{$ value.url $}">{$ value.title | safe $}</a></li>
             {% endfor %}
         </ul>
+    </section>
+{% endmacro %}
 
+{% macro textField(label, values) %}
+    <section>
+        <h3>{$ label $}</h3>
+        <ul>
+            {% for value in values %}
+                <li>{$ value.value | safe $}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endmacro %}
 
+{% macro textAreaField(label, values) %}
+    <section>
+        <h3>{$ label $}</h3>
+            {% for value in values %}
+                {$ value | safe $}
+            {% endfor %}
+    </section>
+{% endmacro %}
+
+{% macro termRefField(label, values) %}
+    <section>
+        <h3>{$ label $}</h3>
+        <ul>
+            {% for value in values %}
+                <li>{$ value.name | safe $}</li>
+            {% endfor %}
+        </ul>
     </section>
 {% endmacro %}
