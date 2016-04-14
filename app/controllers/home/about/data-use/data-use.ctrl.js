@@ -7,7 +7,7 @@ module.exports = function (app) {
 };
 
 router.get('/data-use/:key', function(req, res) {
-    request('http://bko.gbif.org/api/v0.1/data_use/' + req.params.key, function(error, response, body) {
+    request('http://drupaledit.gbif-dev.org/api/v0.1/data_use/' + req.params.key, function(error, response, body) {
         if (response.statusCode !== 200) {
             res.send('Something went wrong from the Content API.');
         }

@@ -7,7 +7,7 @@ module.exports = function (app) {
 };
 
 router.get('/news/:key', function(req, res) {
-    request('http://bko.gbif.org/api/v0.1/news/' + req.params.key, function(error, response, body) {
+    request('http://drupaledit.gbif-dev.org/api/v0.1/news/' + req.params.key, function(error, response, body) {
         if (response.statusCode !== 200) {
             res.send('Something went wrong from the Content API.');
         }
