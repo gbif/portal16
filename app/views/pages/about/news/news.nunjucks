@@ -10,7 +10,7 @@
     <article class="wrapper-data-use">
         <div class="wrapper-container">
             <header class="header">
-                {$ macros.newsImage(image.filename, image.image_styles.masthead__wide, image.image_field_caption.value) $}
+                {$ macros.newsImages(images) $}
                 <nav class="PageNav">
                     ABOUT | NEWS
                 </nav>

@@ -1,9 +1,15 @@
 <!-- masthead image -->
-{% macro newsImage(filename = '', src = '', image_caption = '') %}
-    <figure class="masthead-image">
-        <img src="{$ src $}" alt="{$ filename $}">
-        <figcaption>{$ image_caption | safe $}</figcaption>
-    </figure>
+{% macro newsImages(images) %}
+    {% if images %}
+        {% for image in images %}
+            {% if loop.first %}
+                <figure class="masthead-image">
+                    <img src="{$ image.image_styles.masthead__wide $}" alt="{$ image.filename $}">
+                    <figcaption>{$ image.image_field_caption.value | safe $}</figcaption>
+                </figure>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 {% endmacro %}
 
 {% macro sidebarFields(data) %}
