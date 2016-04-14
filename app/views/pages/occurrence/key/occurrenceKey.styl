@@ -1,3 +1,4 @@
+$floatActionSize = vr-block(2.5)
 .occurrenceKey {
 	max-width 1200px
 	margin auto
@@ -9,21 +10,37 @@
 
 .Occurrence__summary {
 	.card__banner {
-		// .tile {
-		// 	width 256px
-		// }
-		// .descr {
-		// 	height 256px
-		// }
+		color #333
+		background #dedede
+		display block
 		.marker {
-			background deepskyblue
+			background white
 			width 20px
 			height 20px
 			margin -10px
-			border 2px solid #007996
+			border 6px solid #3B8CCF
 			border-radius 50%
 			position absolute
 			display none
+		}
+		.occurrence__locationOverview {
+			display flex
+			background white
+			.occurrence__locationOverview__descr {
+				max-height 128px
+				overflow auto
+			}
+		}
+		.Occurrence__summary__map {
+			height 350px
+		}
+	}
+}
++isBelow($tablet) {
+	.occurrence__locationOverview {
+		border-bottom 1px solid #eee
+		.occurrence__locationOverview__descr {
+			order 2
 		}
 	}
 }
@@ -31,12 +48,53 @@
 +isAbove($tablet) {
 	.Occurrence__summary {
 		.card__banner {
-			.tile {
-				width 256px
-			}
-			.descr {
-				height 256px
+			position relative
+			.occurrence__locationOverview{
+				position absolute
+				z-index 100
+				top 10px
+				right 10px
+				box-shadow 0 0 2px rgba(0,0,0,0.3)
+
+				>div {
+					float left
+				}
+				.occurrence__locationOverview__descr {
+					padding 10px
+					max-width 350px
+				}
+				.tile {
+					width 128px
+				}
 			}
 		}
 	}
+}
+
+
+.floatAction {
+	position absolute
+	bottom 25px
+	right 25px
+	color white
+	border-radius 50%
+	width $floatActionSize
+	height $floatActionSize
+	line-height $floatActionSize
+	text-align center
+	font-size vr-block(1)
+	display block
+	background $Plum
+	box-shadow 1px 1px 2px 1px rgba(0,0,0,0.3)
+}
+.overlay {
+	display none
+	position fixed
+	overflow auto
+	top 0
+	bottom 0
+	left 0
+	right 0
+	background rgba(255,255,255,0.8)
+	z-index 10000
 }

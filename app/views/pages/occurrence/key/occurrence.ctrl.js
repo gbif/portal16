@@ -18,7 +18,8 @@ function occurrenceCtrl(Occurrence, leafletData) {
         }
     };
     vm.mapDefaults = {
-       zoomControlPosition: 'topright'
+       zoomControlPosition: 'topleft',
+        scrollWheelZoom: false
    };
    vm.mapEvents = {
         map: {
@@ -43,17 +44,25 @@ function occurrenceCtrl(Occurrence, leafletData) {
         setMap(vm.data);
     };
 
+    vm.toggleMapOnMobile  =function() {
+        vm.expandMap = !vm.expandMap;
+    };
+
     function setMap(data) {
         if (typeof data.decimalLatitude === 'undefined' || typeof data.decimalLongitude === 'undefined') {
             return
         }
         vm.markers.taxon = {
             lat: data.decimalLatitude,
-            lng: data.decimalLongitude
+            lng: data.decimalLongitude,
+            focus: false
         };
+        if (data.verbatimLocality) {
+            vm.markers.taxon.message = '<p>'+data.verbatimLocality+'</p>';
+        }
         vm.center = {
-            zoom: 6,
-            lat: data.decimalLatitude,
+            zoom: 8,
+            lat: data.decimalLatitude+0.4,
             lng: data.decimalLongitude
         };
         if (data.coordinateAccuracyInMeters > 50) {
@@ -65,8 +74,7 @@ function occurrenceCtrl(Occurrence, leafletData) {
                     lng: data.decimalLongitude
                 },
                 radius: data.coordinateAccuracyInMeters,
-                type: 'circle',
-                message: 'Coordinate accuracy in meters: ' + data.coordinateAccuracyInMeters
+                type: 'circle'
             };
         }
 
@@ -79,6 +87,7 @@ function occurrenceCtrl(Occurrence, leafletData) {
                 top: projPos.y/2.56 + '%',
                 display: 'block'
             };
+            map.once('focus', function() { map.scrollWheelZoom.enable(); });
         });
     }
 }

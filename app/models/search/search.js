@@ -12,7 +12,7 @@
  *
  * @type {exports|module.exports}
  */
-var helper = require('./util/util'),
+var helper = require('../util/util'),
     async = require('async');
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {
@@ -37,7 +37,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
             },
             holotypes: function(callback){
                 //Only show holotypes if it is a species
-                if (taxon.rank == 'SPECIES') {
+                if (taxon.rank == 'SPECIES' || taxon.rank == 'FAMILY' || taxon.rank == 'GENUS') {
                     helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&typestatus=holotype&taxonKey=' + key, callback);
                 } else {
                     callback(null, null);

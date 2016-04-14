@@ -1,10 +1,19 @@
-var glob = require('glob');
-var path = require('path');
+var glob = require('glob'),
+    //moment = require('moment'),
+    path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
 
     (function() {
         nunjucksConfiguration.addFilter('rawJson', function(data) {
+            return JSON.stringify(data);
+        });
+
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('formatDate', function(data, locale) {
+            var day = moment("1995-12-25");
             return JSON.stringify(data);
         });
 

@@ -25,12 +25,7 @@
 
 
         <div class="SearchResults">
-            <script>
-                var res = {$ results | rawJson | safe $};
-            </script>
-
             {% include "./all/all.nunjucks" %}
-
         </div>
 
     </div>
