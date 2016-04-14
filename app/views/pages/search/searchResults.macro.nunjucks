@@ -9,7 +9,7 @@
                         {% for result in results | limit(3) %}
                         <div>
                             <h3>
-                                <a href="{$ conf.baseUrl $}{$ result[conf.key] $}">
+                                <a href="{$ conf.baseUrl $}{% if conf.content_type %}{$ result[conf.content_type] | wordBreakToHyphen $}/{% endif %}{$ result[conf.key] $}">
                                     {$ result[conf.title] | striptags | truncate(80) $}
                                 </a>
                             </h3>

@@ -17,13 +17,19 @@ module.exports = function(nunjucksConfiguration, config) {
 
     })();
 
-
-
     (function() {
         nunjucksConfiguration.addFilter('locInt', function(number, locale) {
             if (typeof locale === 'undefined') return number;
             if (typeof number === 'undefined') return '';
             return new global.Intl.NumberFormat(locale).format(number);
+        });
+
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('wordBreakToHyphen', function(data) {
+            var newstr = data.replace('_', '-');
+            return newstr;
         });
 
     })();
