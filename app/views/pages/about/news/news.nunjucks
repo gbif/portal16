@@ -1,0 +1,37 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block title %}
+    <title>{$ data.title $} | GBIF.org</title>
+{% endblock %}
+
+{% block page %}
+    {% import "../cms.macros.nunjucks" as macros %}
+    <!-- Begin page (data use) content -->
+    <article class="wrapper-data-use">
+        <div class="wrapper-container">
+            <header class="header">
+                {$ macros.newsImage(image.filename, image.image_styles.masthead__wide, image.image_field_caption.value) $}
+                <nav class="PageNav">
+                    ABOUT | NEWS
+                </nav>
+                <h1>{$ data.title $}</h1>
+            </header>
+
+            <section class="body-text">
+                {$ data.body | safe $}
+            </section>
+
+            <div class="sidebar">
+                {$ macros.sidebarFields(data) $}
+            </div>
+
+            {% if data.citationInformation %}
+                {$ macros.textAreaField("Citation information", data.citationInformation) $}
+            {% endif %}
+
+            {% if data.relatedGbifResources %}
+                {$ macros.linkField("GBIF resource involved", data.relatedGbifResources) $}
+            {% endif %}
+        </div>
+    </article>
+{% endblock %}

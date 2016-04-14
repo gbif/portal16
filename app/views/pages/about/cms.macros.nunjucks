@@ -59,7 +59,7 @@
     <section>
         <h3>{$ label $}</h3>
             {% for value in values %}
-                {$ value | safe $}
+                {$ value.value | safe $}
             {% endfor %}
     </section>
 {% endmacro %}
