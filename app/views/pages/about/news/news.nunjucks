@@ -7,7 +7,7 @@
 {% block page %}
     {% import "../cms.macros.nunjucks" as macros %}
     <!-- Begin page (data use) content -->
-    <article class="wrapper-data-use">
+    <article class="wrapper-pre-style-discussion">
         <div class="wrapper-container">
             <header class="header">
                 {$ macros.newsImages(images) $}

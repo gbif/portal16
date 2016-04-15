@@ -1,0 +1,45 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block title %}
+    <title>{$ datasetDetails.title $} | GBIF.org</title>
+{% endblock %}
+
+{% block page %}
+    {% import "./dataset.macros.nunjucks" as macros %}
+    <!-- Begin page (data use) content -->
+    <article class="wrapper-horizontal-stripes">
+        <section id="spatial-coverage">
+            <iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>
+            <div id="mapframe-overlap" class="container">
+                <header>
+                    <h4>{$ datasetDetails.type $} DATASET</h4>
+                    <h1>{$ datasetDetails.title $}</h1>
+                </header>
+                <div class="row">
+                    <ul>
+                        <li>Published by: {$ publisher.title $}</li>
+                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+                        <li>Metadata language: {$ datasetDetails.language $}</li>
+                        <li>Data language: {$ datasetDetails.dataLanguage $}</li>
+                        <li>Main contact: {$ $}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="primary-coverage">
+            <div class="container">
+                {$ datasetDetails.description | safe $}
+            </div>
+        </section>
+        <section id="metrics">
+            <div class="container">
+                <h1>Metrics</h1>
+            </div>
+        </section>
+        <section id="metadata-explorer">
+            <div class="container">
+                <h1>Metadata</h1>
+            </div>
+        </section>
+    </article>
+{% endblock %}

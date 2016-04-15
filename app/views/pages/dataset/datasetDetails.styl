@@ -1,0 +1,39 @@
+.wrapper-horizontal-stripes {
+    section {
+        lost-utility: clearfix;
+        header {
+            padding-top: 40px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.3em;
+        }
+    }
+    section:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    section:nth-child(odd) {
+        background-color: #ffffff;
+    }
+    .container {
+        max-width: 980px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #mapframe {
+        z-index: 0;
+        height: 800px;
+    }
+    #mapframe-overlap {
+        position: relative;
+        z-index: 1;
+        top: -800px;
+        overflow: visible;
+        height: 0px;
+        color: white;
+        .row {
+            lost-utility: clearfix;
+        }
+    }
+}

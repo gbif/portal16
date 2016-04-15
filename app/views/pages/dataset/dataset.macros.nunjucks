@@ -1,0 +1,10 @@
+{% macro contacts(label, contacts) %}
+    <address>
+        <h3>{$ label $}</h3>
+        <ul>
+            {% for value in values %}
+                <li><a href="{$ value.url $}">{$ value.title | safe $}</a></li>
+            {% endfor %}
+        </ul>
+    </address>
+{% endmacro %}
