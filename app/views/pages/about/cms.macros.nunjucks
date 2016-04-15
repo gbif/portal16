@@ -12,7 +12,7 @@
     {% endif %}
 {% endmacro %}
 
-{% macro sidebarFields(data) %}
+{% macro sidebarFields(data, locale) %}
     {% if data.researcherLocation %}
         {% call termRefField("LOCATION OF RESEARCHERS", data.researcherLocation) -%}{%- endcall %}
     {% endif %}
@@ -42,7 +42,7 @@
         <section>
             <h3>PUBLICATION DATE</h3>
             <ul>
-                <li>{$ gb.locales.current $}</li>
+                <li>{$ data.created | formatDate(locale) $}</li>
             </ul>
         </section>
     {% endif %}

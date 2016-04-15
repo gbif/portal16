@@ -22,7 +22,7 @@
                     {$ data.body | safe $}
                 </section>
                 <div class="sidebar">
-                    {$ macros.sidebarFields(data) $}
+                    {$ macros.sidebarFields(data, gb.locales.current) $}
                 </div>
             </div>
 

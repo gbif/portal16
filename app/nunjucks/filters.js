@@ -15,16 +15,8 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('formatDate', function(date, locale, format) {
             format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
             var day = moment(date).locale(locale);
-            if (!isNaN(Number(date))) day = moment(parseInt(date, 10)).locale(locale);
+            if (!isNaN(Number(date))) day = moment.unix(date).locale(locale);
             return day.format(format);
-        });
-    })();
-
-    // @todo bko: To merge with "formatDate".
-    (function() {
-        nunjucksConfiguration.addFilter('timestampToDate', function(data, locale) {
-            var day = moment.unix(data).locale(locale);
-            return day.format("LL");
         });
     })();
 
@@ -32,7 +24,6 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('limit', function(data, limit) {
             return data && data.constructor === Array ? data.slice(0, limit) : undefined;
         });
-
     })();
 
     (function() {
@@ -41,7 +32,6 @@ module.exports = function(nunjucksConfiguration, config) {
             if (typeof number === 'undefined') return '';
             return new global.Intl.NumberFormat(locale).format(number);
         });
-
     })();
 
     (function() {
@@ -49,7 +39,6 @@ module.exports = function(nunjucksConfiguration, config) {
             var newstr = data.replace('_', '-');
             return newstr;
         });
-
     })();
 
     /**
