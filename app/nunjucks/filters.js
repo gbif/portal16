@@ -15,12 +15,11 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('formatDate', function(date, locale, format) {
             format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
             var day = moment(date).locale(locale);
-            if (date === parseInt(date, 10)) day = moment.unix(date).locale(locale);
             return day.format(format);
         });
     })();
 
-    // @todo bko: To merge with "formatDate".
+    // @todo bko: To merge with "formatDate" when we figure out why built-in Javascript functions like isInt() is not available here.
     (function() {
         nunjucksConfiguration.addFilter('timestampToDate', function(data, locale) {
             var day = moment.unix(data).locale(locale);
@@ -41,7 +40,6 @@ module.exports = function(nunjucksConfiguration, config) {
             if (typeof number === 'undefined') return '';
             return new global.Intl.NumberFormat(locale).format(number);
         });
-
     })();
 
     (function() {
