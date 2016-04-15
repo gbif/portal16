@@ -37,6 +37,15 @@
             </ul>
         </section>
     {% endif %}
+
+    {% if data.created %}
+        <section>
+            <h3>PUBLICATION DATE</h3>
+            <ul>
+                <li>{$ gb.locales.current $}</li>
+            </ul>
+        </section>
+    {% endif %}
 {% endmacro %}
 
 {% macro linkField(label, values) %}
