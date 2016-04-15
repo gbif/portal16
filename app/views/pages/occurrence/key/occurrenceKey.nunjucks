@@ -21,10 +21,10 @@
         <header class="header">
             <p>Occurrence record</p>
             <h1>{$ occurrence.scientificName $}</h1>
-            <p>{$ occurrence.basisOfRecord $}</p>
-            <p>From {$ occurrence.datasetName $} dataset</p>
-            <p>Published by {$ occurrence.datasetName $}</p>
-            <p>Updated on {$ occurrence.datasetName $}</p>
+            <p>{$ __('bor.' + occurrence.basisOfRecord) $}</p>
+            <p>From <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.datasetKey $}">{$ occurrence.datasetName $}</a> dataset</p>
+            <p>Published by <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.publishingOrgKey $}">{$ publisher.title $}</a></p>
+            <p>Updated on {$ occurrence.lastParsed | formatDate(gb.locales.current) $}</p>
         </header>
 
         <section class="Occurrence__summary" ng-init="occurrence.setData('{$ occurrence | rawJson $}')">

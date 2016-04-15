@@ -17,21 +17,5 @@ router.get('/occurrence/:key', function (req, res, next) {
             hasTools: true
         });
     });
-
-    //var url = "http://api.gbif.org/v1/occurrence/" + occurrenceKey;
-    //require('request')(url, function (err, resp, body) {
-    //    if (resp.statusCode != 200 || err) {
-    //        res.status(404);
-    //        next()
-    //    } else {
-    //        body = JSON.parse(body);
-    //        var hasGeoData = body.decimalLongitude && body.decimalLatitude;
-    //        res.render('pages/occurrence/key/occurrenceKey', {
-    //            occurrence: body,
-    //            hasGeoData: hasGeoData,
-    //            hasTools: true
-    //        });
-    //    }
-    //});
-
 });
+

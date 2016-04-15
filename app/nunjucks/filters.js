@@ -1,5 +1,5 @@
 var glob = require('glob'),
-    //moment = require('moment'),
+    moment = require('moment'),
     path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
@@ -12,9 +12,10 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
-        nunjucksConfiguration.addFilter('formatDate', function(data, locale) {
-            var day = moment("1995-12-25");
-            return JSON.stringify(data);
+        nunjucksConfiguration.addFilter('formatDate', function(date, locale, format) {
+            format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
+            var day = moment(date).locale(locale);
+            return day.format(format);
         });
 
     })();

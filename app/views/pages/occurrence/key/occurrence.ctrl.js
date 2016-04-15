@@ -7,8 +7,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl(Occurrence, leafletData) {
+function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence) {
     var vm = this;
+    vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
     vm.center = {zoom: 7, lat: 0, lng: 0};
     vm.markers = {};
     vm.tiles = {
@@ -80,6 +81,14 @@ function occurrenceCtrl(Occurrence, leafletData) {
 
         //set static marker
         leafletData.getMap('occurrenceMap').then(function(map) {
+            //vm.SimilarOccurrence.getSimilar(
+            //    {
+            //        geometry: vm.SimilarOccurrence.leafletBoundsToWkt(map.getBounds()),
+            //        taxonkey: data.speciesKey, //TODO isn't always a species key
+            //        //eventdate:
+            //    }
+            //);
+
             var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
             var projPos = map.project(a, 0);
             vm.tilePosStyle = {

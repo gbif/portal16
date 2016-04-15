@@ -65,7 +65,9 @@ require('angular-hotkeys');
 
 require('./angular/routerConfig');
 require('./angular/translate');
-require('./angular/index.ressource');
+require('./angular/occurrence.resource');
+require('./angular/similarOccurrence.service');
+
 require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrence.ctrl');
 
