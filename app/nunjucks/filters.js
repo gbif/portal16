@@ -15,7 +15,7 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('formatDate', function(date, locale, format) {
             format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
             var day = moment(date).locale(locale);
-            if (date === parseInt(date, 10)) day = moment.unix(date).locale(locale);
+            if (!isNaN(Number(date))) day = moment(parseInt(date, 10)).locale(locale);
             return day.format(format);
         });
     })();

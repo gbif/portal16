@@ -16,6 +16,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('OccurrenceFragment', function($resource) {
+            return $resource('http://api.gbif.org/v1/occurrence/:id/fragment', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('OccurrenceSearch', function($resource) {
             return $resource('http://api.gbif.org/v1/occurrence/search', null, {
                     'query': {

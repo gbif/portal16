@@ -27,7 +27,7 @@
             <p>Updated on {$ occurrence.lastParsed | formatDate(gb.locales.current) $}</p>
         </header>
 
-        <section class="Occurrence__summary" ng-init="occurrence.setData('{$ occurrence | rawJson $}')">
+        <section class="occurrenceKey__summary" ng-init="occurrence.setData('{$ occurrence | rawJson $}')">
             <div class="card">
                 <header class="card__banner">
 
@@ -97,6 +97,67 @@
                 </div>
             </div>
         </section>
+
+        <section class="occurrenceKey__similar" >
+            <div class="card">
+                <header class="card__banner">
+                    Similar records
+                </header>
+                <div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>basisOfRecord</th>
+                            <th>Event date</th>
+                            <th>catalog number</th>
+                            <th>collectionCode</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="similar in occurrence.similarities.similarRecords">
+                                <td>{{ similar.key }}</td>
+                                <td>{{ similar.basisOfRecord }}</td>
+                                <td>{{ occurrence.parseDate(similar.eventDate) }}</td>
+                                <td>{{ similar.catalogNumber }}</td>
+                                <td>{{ similar.collectionCode }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="occurrenceKey__raw >
+            <div class="card">
+                <header class="card__banner">
+                    Record data
+                    <span ng-click="occurrence.compare = !occurrence.compare">Compare to original</span>
+                </header>
+                <div>
+                    <table ng-class="{compareLayout: occurrence.compare}">
+                        <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Interpreted</th>
+                            <th ng-if="occurrence.compare">Original</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="field in occurrence.fieldNames"
+                            ng-class="{isDifferent: occurrence.data[field.gbif]!==occurrence.fragment[field.verbatim], isMissing: occurrence.isOneMissing(field) }">
+                            <td>{{ field.gbif }}</td>
+                            <td>{{ occurrence.data[field.gbif] }}</td>
+                            <td ng-if="occurrence.compare">{{ occurrence.fragment[field.verbatim] }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
         <section class="occurrenceKey__raw">
             <table>
                 <thead>

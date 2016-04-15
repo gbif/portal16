@@ -9,7 +9,7 @@ require('angular-hotkeys');
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'cfp.hotkeys', require('angular-resource')]);
+        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', require('angular-resource')]);
     
 })();
 
@@ -21,8 +21,9 @@ require('angular-hotkeys');
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock() { //$log
+    function runBlock(amMoment) { //$log
         //$log.debug('runBlock end');
+        amMoment.changeLocale('en');
     }
 
 })();

@@ -8,7 +8,7 @@ $floatActionSize = vr-block(2.5)
 	}
 }
 
-.Occurrence__summary {
+.occurrenceKey__summary {
 	.card__banner {
 		color #333
 		background #dedede
@@ -46,7 +46,7 @@ $floatActionSize = vr-block(2.5)
 }
 
 +isAbove($tablet) {
-	.Occurrence__summary {
+	.occurrenceKey__summary {
 		.card__banner {
 			position relative
 			.occurrence__locationOverview{
@@ -67,6 +67,20 @@ $floatActionSize = vr-block(2.5)
 					width 128px
 				}
 			}
+		}
+	}
+}
+
+.occurrenceKey__raw {
+	header > span {
+		background red
+	}
+	.compareLayout {
+		.isDifferent {
+			background pink
+		}
+		.isMissing {
+			background yellow
 		}
 	}
 }
