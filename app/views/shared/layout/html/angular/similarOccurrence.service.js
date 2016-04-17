@@ -37,7 +37,7 @@ var angular = require('angular');
             };
 
             this.leafletBoundsToWkt = function (bounds) {
-                var bTemplate = 'w n, e n, e s, w s, w n';
+                var bTemplate = 'w n,e n,e s,w s,w n';
                 var b = bTemplate
                     .replace(/n/g, Math.min(bounds.getNorth(), 90))
                     .replace(/s/g, Math.max(bounds.getSouth(), -90))
