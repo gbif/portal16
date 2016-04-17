@@ -160,7 +160,7 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFr
                     lat: data.decimalLatitude,
                     lng: data.decimalLongitude
                 },
-                radius: data.coordinateAccuracyInMeters,
+                radius: data.coordinateAccuracyInMeters/2,
                 type: 'circle'
             };
         }
