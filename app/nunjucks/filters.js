@@ -1,5 +1,5 @@
 var glob = require('glob'),
-    moment = require('moment'),
+    format = require('../helpers/format'),
     path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
@@ -12,12 +12,7 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
-        nunjucksConfiguration.addFilter('formatDate', function(date, locale, format) {
-            format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
-            var day = moment(date).locale(locale);
-            if (!isNaN(Number(date))) day = moment.unix(date).locale(locale);
-            return day.format(format);
-        });
+        nunjucksConfiguration.addFilter('formatDate', format.date);
     })();
 
     (function() {
@@ -27,11 +22,7 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
-        nunjucksConfiguration.addFilter('locInt', function(number, locale) {
-            if (typeof locale === 'undefined') return number;
-            if (typeof number === 'undefined') return '';
-            return new global.Intl.NumberFormat(locale).format(number);
-        });
+        nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 
     (function() {
