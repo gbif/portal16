@@ -15,6 +15,9 @@ var apiConfig = {
 	},
 	publisher: {
 		url: baseUrl + 'organization/'
+	},
+	installation: {
+		url: baseUrl + 'installation/'
 	}
 };
 

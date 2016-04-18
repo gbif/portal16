@@ -10,7 +10,7 @@
 
                 {% if results.catalogNumberOccurrences.count > 3 %}
                 <p>
-                    <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">
+                    <a href="{$ gb.locales.urlPrefix $}/occurrence/search?catalog_number={$ query $}">
                         {$ results.catalogNumberOccurrences.count $} results
                     </a>
                 </p>
@@ -40,13 +40,13 @@
                         {% for row in results.catalogNumberOccurrences.results | limit(3) %}
                             <tr class="table-row">
                                 <td>
-                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                 </td>
                                 <td>
-                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                 </td>
                                 <td>
-                                    <a href="http://gbif.org/occurrence/{$ row.key $}">{$ row.catalogNumber $}</a>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.catalogNumber $}</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -55,7 +55,7 @@
                 </div>
                 {% if results.catalogNumberOccurrences.count > 3 %}
                     <div class="SearchResults__section__more">
-                        <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">View all<span class="l-only"> {$ results.catalogNumberOccurrences.count $} occurrences</span></a>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/search?catalog_number={$ query $}">View all<span class="l-only"> {$ results.catalogNumberOccurrences.count $} occurrences</span></a>
                     </div>
                 {% endif %}
             </div>

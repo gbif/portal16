@@ -5,7 +5,7 @@ var	resource = require('../resource'),
 
 var Occurrence = function (record) {  
 	    this.record = record;
-	}
+	};
 
 	Occurrence.prototype.record = {};
 
