@@ -43,7 +43,7 @@ var Occurrence = function (record) {
 		};
 		fieldNames.forEach(function(e) {
 			if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
-		})
+		});
 		return resource.extend(this).with(resources);
 	};
 

@@ -12,6 +12,7 @@
 
     <script>
         var occurrence = {$ occurrence | rawJson | safe $};
+        var occurrenceRecord = {$ occurrence.record | rawJson | safe $};
     </script>
 
 <article class="occurrenceKey" ng-controller="occurrenceCtrl as occurrence">
@@ -31,7 +32,7 @@
             </div>
         </header>
 
-        <section class="occurrenceKey__summary" ng-init="occurrence.setData('{$ occurrence.record | rawJson $}')">
+        <section class="occurrenceKey__summary" ng-init="occurrence.setData()">
             <div class="card">
                 <header class="card__banner">
 

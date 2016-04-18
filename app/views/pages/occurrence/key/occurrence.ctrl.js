@@ -115,8 +115,8 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFr
     vm.tilePosStyle = {};
     vm.data;
 
-    vm.setData = function(data) {
-        vm.data = JSON.parse(data);
+    vm.setData = function() {
+        vm.data = occurrenceRecord; //TODO find a better way to parse required data to controller from server without seperate calls
         setMap(vm.data);
     };
 
