@@ -1,5 +1,16 @@
 'use strict';
 
+/*
+HEADLINE with batch infos
+MAP LOCATION
+SUMMARY + FREE?
+FREE? COMPOSED? e.g. last seen in area OR estimated temperature OR species traits OR suspicious data
+MEDIA
+SIMILAR
+DETAILS
+GBIF SPECIFIC INFO
+*/
+
 var angular = require('angular');
 
 angular
@@ -7,8 +18,19 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFragment, moment) {
+function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFragment, moment, $http, $firebaseObject, $firebaseArray) {
     var vm = this;
+
+    // var ref = new Firebase("https://glowing-heat-751.firebaseio.com/test");
+    // //download the data into a local object
+    // vm.syncObj = $firebaseObject(ref); //this will ensure your binding will work
+    // // synchronize the object with a three-way data binding
+    // // click on `index.html` above to see it used in the DOM!
+
+    vm.comments;
+    
+
+
     vm.similarities = {
         similarRecords: []
     };
@@ -112,12 +134,30 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFr
 
     };
 
+
     vm.tilePosStyle = {};
     vm.data;
 
+vm.deleteComment = function(index) {
+    vm.comments.$remove(index).then(function(){});
+}
+
+vm.addComment = function() {
+    vm.comments.$add({ comment: vm.newComment }).then(function(){
+        vm.newComment = '';
+    });
+}
     vm.setData = function() {
         vm.data = occurrenceRecord; //TODO find a better way to parse required data to controller from server without seperate calls
         setMap(vm.data);
+        getWeather(occurrenceRecord.decimalLatitude, occurrenceRecord.decimalLongitude, occurrenceRecord.eventDate);
+
+        //https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray
+        var comments = $firebaseArray(new Firebase('https://glowing-heat-751.firebaseio.com/occurrence/' + occurrenceRecord.key));
+
+        // make the list available in the DOM
+        vm.comments = comments;
+
     };
 
     vm.parseDate = function(date) {
@@ -133,6 +173,23 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFr
         }
         return false;
     };
+
+    vm.weather = {};
+    function getWeather(lat, lng, date) {
+        if (lat && lng && date) {
+            date = moment(date).unix();
+            var weatherUrl = '/api/weather/' + lat + '/' + lng + '/' + date;
+            $http.get(weatherUrl).then(
+                function(response){
+                    vm.weather = response.data;
+                },
+                function(error){
+                    message('Couldn\'t get role types', 'error');
+                }
+            );
+        }
+    }
+
 
     function setMap(data) {
         if (typeof data.decimalLatitude === 'undefined' || typeof data.decimalLongitude === 'undefined') {

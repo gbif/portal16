@@ -50,6 +50,14 @@
                                 event-broadcast="occurrence.mapEvents"
                         ></leaflet>
                     </div>
+<!-- <h1>{{occurrence.comments}}</h1> -->
+<!-- <input type="text" ng-model="occurrence.syncObj.hvad"> -->
+<ul>
+    <li ng-repeat="item in occurrence.comments">{{ item.comment }} <button ng-click="occurrence.deleteComment($index)">slet</button> </li>
+</ul>
+<textarea ng-model="occurrence.newComment"></textarea>
+<button ng-click="occurrence.addComment()">add</button>
+
 
                     <div class="occurrence__locationOverview">
                         <div class="occurrence__locationOverview__descr card__definitions">
@@ -96,6 +104,14 @@
                         <div>
                             <span class="term">License:</span>
                             <span class="desc taxa">{$ occurrence.record.license $}</span>
+                        </div>
+                        <div>
+                            <span class="term">Estimated maximum temperature:</span>
+                            <span class="desc taxa">{{ occurrence.weather.daily.data[0].temperatureMax }}</span>
+                        </div>
+                        <div>
+                            <span class="term">Estimated minimum temperature:</span>
+                            <span class="desc taxa">{{ occurrence.weather.daily.data[0].temperatureMin }}</span>
                         </div>
                     </div>
 

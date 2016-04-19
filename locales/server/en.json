@@ -12,6 +12,7 @@
 		"LIVING_SPECIMEN": "living specimen",
 		"UNKNOWN": "unknown",
 		"OBSERVATION": "observation",
-		"undefined": "bor.undefined"
+		"undefined": "bor.undefined",
+		"MATERIAL_SAMPLE": "bor.MATERIAL_SAMPLE"
 	}
 }

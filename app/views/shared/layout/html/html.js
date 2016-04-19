@@ -3,13 +3,15 @@ require('angular-ui-router');
 require('angular-translate');
 require('angular-leaflet-directive');
 require('angular-hotkeys');
+require('firebase'); 
+require('angularfire'); 
 
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', require('angular-resource')]);
+        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', require('angular-resource')]);
     
 })();
 
