@@ -11,7 +11,7 @@
     {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
     title: 'title',
     key: 'key',
-    baseUrl: 'http://www.gbif.org/dataset/',
+    baseUrl: gb.locales.urlPrefix + '/dataset/',
     description: 'description',
     sub: 'publishingOrganizationTitle',
     subKey: 'publishingOrganizationKey',
@@ -35,7 +35,7 @@
     title: 'title',
     key: 'entity_id',
     content_type: 'type',
-    baseUrl: '/',
+    baseUrl: gb.locales.urlPrefix + '/',
     description: 'body'
     }) $}
 

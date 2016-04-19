@@ -40,8 +40,8 @@ module.exports = function (app, config) {
     });
     app.use(i18n.init);
 
-    //Middleware to remove locale from url and set i18n.locale based on url
-    require(config.root + '/app/helpers/middleware/i18n/localeFromQuery.js').use(app, locales, defaultLocale);
+    //Middleware to remove locale from url and set i18n.locale based on url. This allows one route to match different locales
+    require(config.root + '/app/middleware/i18n/localeFromQuery.js').use(app, locales, defaultLocale);
 
     // Node doesn't include other locales than english per default. Include these to use Intl.
     require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(locales);

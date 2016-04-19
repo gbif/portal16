@@ -11,6 +11,8 @@
 		"FOSSIL_SPECIMEN": "fossil specimen",
 		"LIVING_SPECIMEN": "living specimen",
 		"UNKNOWN": "unknown",
-		"OBSERVATION": "observation"
+		"OBSERVATION": "observation",
+		"undefined": "bor.undefined",
+		"MATERIAL_SAMPLE": "bor.MATERIAL_SAMPLE"
 	}
 }

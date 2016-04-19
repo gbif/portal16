@@ -1,5 +1,5 @@
 var express = require('express'),
-    search = require('../../../models/search/search'),
+    search = require('../../models/search/search'),
     router = express.Router();
 
 module.exports = function (app) {

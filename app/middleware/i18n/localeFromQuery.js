@@ -1,3 +1,12 @@
+/**
+Express middleware
+Extracts the language from url and attaches it on the response so it is available in templates and elsewhere down stream.
+It also sets the locale of the i18n framework for handling translations.
+*/
+
+//Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
+//e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'
+//e.g. getLocaleFromUrl('/da/blogposts/123', ['es', 'en']) -> undefined
 function getLocaleFromUrl(url, locales) {
     if (url == '') {
         return false;
@@ -10,6 +19,7 @@ function getLocaleFromUrl(url, locales) {
     return undefined;
 }
 
+//remove locale from url. e.g. removeLocaleFromUrl('/en/blogpost/123', 'en') -> '/blogpost/123'
 function removeLocaleFromUrl(url, locale) {
     var expr = '(^' + locale + '\/)|(^' + locale + '$)';
     var regex = new RegExp(expr);
@@ -17,6 +27,7 @@ function removeLocaleFromUrl(url, locale) {
     return strippedUrl;
 }
 
+//remove locale from url so that different locales use the same routes. attach locale to response.
 function use(app, locales, defaultLocale) {
 
     //Use middleware to set current language based on url
