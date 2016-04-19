@@ -21,7 +21,18 @@ router.get('/dataset/:key', function (req, res) {
 });
 
 function renderPage(res, dataset) {
-    res.render('pages/dataset/key/datasetKey', {
-        dataset: dataset
+    dataset.record.doiUrl = doiToUrl(dataset.record.doi);
+    res.render('pages/dataset/datasetDetails', {
+        datasetDetails: dataset.record,
+        publisher: dataset.publisher,
+        installation: dataset.installation,
+        hasTitle: true
     });
+}
+
+function doiToUrl(doi) {
+    if (doi) {
+        var url = doi.replace('doi:', 'http://dx.doi.org/');
+        return url;
+    }
 }

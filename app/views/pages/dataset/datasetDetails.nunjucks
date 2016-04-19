@@ -6,6 +6,8 @@
 
 {% block page %}
     {% import "./dataset.macros.nunjucks" as macros %}
+    {% import "../../components/common.macros.nunjucks" as commonMacros %}
+
     <!-- Begin page (data use) content -->
     <article class="wrapper-horizontal-stripes">
         <section id="spatial-coverage">
@@ -16,13 +18,26 @@
                     <h1>{$ datasetDetails.title $}</h1>
                 </header>
                 <div class="row">
-                    <ul>
-                        <li>Published by: {$ publisher.title $}</li>
-                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-                        <li>Metadata language: {$ datasetDetails.language $}</li>
-                        <li>Data language: {$ datasetDetails.dataLanguage $}</li>
-                        <li>Main contact: {$ $}</li>
-                    </ul>
+                    <div class="two-third">
+                        <ul>
+                            <li>Published by: {$ publisher.title $}</li>
+                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+                            <li>Metadata language: {$ datasetDetails.language $}</li>
+                            <li>Data language: {$ datasetDetails.dataLanguage $}</li>
+                            <li>Main contact: {$ datasetDetails.contacts[0].firstName $} {$ datasetDetails.contacts[0].lastName $}</li>
+                        </ul>
+                    </div>
+                    <div class="one-third">
+                        <ul>
+                            <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
+                            <li>
+                                <span class="gb-icon-cclogo3"></span>
+                                <span class="gb-icon-ccby"></span>
+                                <span class="gb-icon-ccnc"></span>
+                            </li>
+                            <li><a href="{$ datasetDetails.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

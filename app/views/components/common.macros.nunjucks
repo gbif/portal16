@@ -1,0 +1,3 @@
+{% macro doi(label, URL) %}
+    <span class="doi">DOI<a href="{$ URL $}">{$ label $}</a></span>
+{% endmacro %}
