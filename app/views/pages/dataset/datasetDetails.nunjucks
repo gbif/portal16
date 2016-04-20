@@ -11,9 +11,9 @@
     <!-- Begin page (dataset) content -->
     <article class="wrapper-horizontal-stripes">
         <section id="key-information">
-            <div class="container">
+            <div class="centerContent">
                 <header>
-                    <h4>{$ datasetDetails.type $} DATASET</h4>
+                    <h4 class="contentTypelabel">{$ datasetDetails.type $} dataset</h4>
                     <h1>{$ datasetDetails.title $}</h1>
                 </header>
                 <div class="two-third">
@@ -25,7 +25,7 @@
                         <li>Main contact: {$ datasetDetails.contacts[0].firstName $} {$ datasetDetails.contacts[0].lastName $}</li>
                     </ul>
                 </div>
-                <div class="push-to-right one-third">
+                <div class="one-third licences">
                     <ul>
                         <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
                         <li>
@@ -33,7 +33,7 @@
                             <span class="gb-icon-ccby"></span>
                             <span class="gb-icon-ccnc"></span>
                         </li>
-                        <li><a href="{$ datasetDetails.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
+                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>
         </section>
         <section id="primary-coverages">
-            <div class="container">
+            <div class="centerContent">
                 <section class="one-third">
                     <h4>5,289 occurrence records</h4>
                 </section>
@@ -51,33 +51,76 @@
                     <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
                 </section>
                 <section class="one-third">
-                    <h4>Temporal coverage</h4>
+                    {$ commonMacros.temporalCoverages(datasetDetails.temporalCoverages) $}
                 </section>
             </div>
         </section>
         <section id="background-information">
-            <div class="container">
-                <section class="two-third">
-                    <h4>Description</h4>
-                    <p>{$ datasetDetails.description | safe $}</p>
-                    <h4>Purpose</h4>
-                    <P>{$ datasetDetails.purpose | safe $}</P>
-                </section>
-                <section class="one-third">
-                    <h4>Data source</h4>
-                    <h4>Additional information</h4>
-                    <p>{$ datasetDetails.additionalInfo | safe $}</p>
-                </section>
+            <div class="centerContent">
+                <div class="two-third">
+                    <section>
+                        <h4>Description</h4>
+                        <p>{$ datasetDetails.description | safe $}</p>
+                    </section>
+                    <section>
+                        <h4>Purpose</h4>
+                        <P>{$ datasetDetails.purpose | safe $}</P>
+                    </section>
+                </div>
+                <div class="one-third">
+                    <section>
+                        {% if datasetDetails.homepage %}
+                            <h4>Data source</h4>
+                            <ul>
+                                <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
+                            </ul>
+                        {% endif %}
+                    </section>
+                    <section>
+                        <h4>Additional information</h4>
+                        <p>{$ datasetDetails.additionalInfo | safe $}</p>
+                    </section>
+                </div>
             </div>
         </section>
         <section id="metrics">
-            <div class="container">
-                <h1>Metrics</h1>
+            <div class="centerContent">
+                <h3>Statistics</h3>
             </div>
         </section>
         <section id="metadata-explorer">
-            <div class="container">
-                <h1>Metadata</h1>
+            <div class="centerContent">
+                <h3>Metadata</h3>
+                <div class="grid">
+                    <div class="one-third">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="two-third">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="related-news">
+            <div class="centerContent">
+                <h3>Related news</h3>
+            </div>
+        </section>
+        <section id="metadata-explorer">
+            <div class="centerContent">
+                <h3>GBIF Registration Information</h3>
             </div>
         </section>
     </article>
