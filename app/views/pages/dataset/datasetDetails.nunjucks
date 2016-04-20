@@ -8,42 +8,66 @@
     {% import "./dataset.macros.nunjucks" as macros %}
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
 
-    <!-- Begin page (data use) content -->
+    <!-- Begin page (dataset) content -->
     <article class="wrapper-horizontal-stripes">
-        <section id="spatial-coverage">
-            <iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>
-            <div id="mapframe-overlap" class="container">
+        <section id="key-information">
+            <div class="container">
                 <header>
                     <h4>{$ datasetDetails.type $} DATASET</h4>
                     <h1>{$ datasetDetails.title $}</h1>
                 </header>
-                <div class="row">
-                    <div class="two-third">
-                        <ul>
-                            <li>Published by: {$ publisher.title $}</li>
-                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-                            <li>Metadata language: {$ datasetDetails.language $}</li>
-                            <li>Data language: {$ datasetDetails.dataLanguage $}</li>
-                            <li>Main contact: {$ datasetDetails.contacts[0].firstName $} {$ datasetDetails.contacts[0].lastName $}</li>
-                        </ul>
-                    </div>
-                    <div class="one-third">
-                        <ul>
-                            <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
-                            <li>
-                                <span class="gb-icon-cclogo3"></span>
-                                <span class="gb-icon-ccby"></span>
-                                <span class="gb-icon-ccnc"></span>
-                            </li>
-                            <li><a href="{$ datasetDetails.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
-                        </ul>
-                    </div>
+                <div class="two-third">
+                    <ul>
+                        <li>Published by: {$ publisher.title $}</li>
+                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+                        <li>Metadata language: {$ datasetDetails.language $}</li>
+                        <li>Data language: {$ datasetDetails.dataLanguage $}</li>
+                        <li>Main contact: {$ datasetDetails.contacts[0].firstName $} {$ datasetDetails.contacts[0].lastName $}</li>
+                    </ul>
+                </div>
+                <div class="push-to-right one-third">
+                    <ul>
+                        <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
+                        <li>
+                            <span class="gb-icon-cclogo3"></span>
+                            <span class="gb-icon-ccby"></span>
+                            <span class="gb-icon-ccnc"></span>
+                        </li>
+                        <li><a href="{$ datasetDetails.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
+                    </ul>
                 </div>
             </div>
         </section>
-        <section id="primary-coverage">
+        <section id="map">
+            <iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>
+        </section>
+        <section id="primary-coverages">
             <div class="container">
-                {$ datasetDetails.description | safe $}
+                <section class="one-third">
+                    <h4>5,289 occurrence records</h4>
+                </section>
+                <section class="one-third">
+                    <h4>Geographic coverage</h4>
+                    <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
+                </section>
+                <section class="one-third">
+                    <h4>Temporal coverage</h4>
+                </section>
+            </div>
+        </section>
+        <section id="background-information">
+            <div class="container">
+                <section class="two-third">
+                    <h4>Description</h4>
+                    <p>{$ datasetDetails.description | safe $}</p>
+                    <h4>Purpose</h4>
+                    <P>{$ datasetDetails.purpose | safe $}</P>
+                </section>
+                <section class="one-third">
+                    <h4>Data source</h4>
+                    <h4>Additional information</h4>
+                    <p>{$ datasetDetails.additionalInfo | safe $}</p>
+                </section>
             </div>
         </section>
         <section id="metrics">

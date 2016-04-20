@@ -1,49 +1,49 @@
 .wrapper-horizontal-stripes {
-    section {
+    color: black;
+    > section {
         lost-utility: clearfix;
+        padding: 20px 0;
+
         header {
-            padding-top: 40px;
             margin-bottom: 10px;
         }
         h1 {
             font-size: 2.5em;
             line-height: 1.3em;
+            font-style: normal;
         }
     }
-    section:nth-child(even) {
+    > section:nth-child(even) {
         background-color: #f9f9f9;
     }
-    section:nth-child(odd) {
+    > section:nth-child(odd) {
         background-color: #ffffff;
     }
     .container {
         max-width: 980px;
         margin-right: auto;
         margin-left: auto;
-    }
-    #mapframe {
-        z-index: 0;
-        height: 800px;
-    }
-    #mapframe-overlap {
-        position: relative;
-        z-index: 1;
-        top: -800px;
-        overflow: visible;
-        height: 0px;
-        color: white;
-        .row {
-            lost-utility clearfix
-        }
         .two-third {
-            lost-column 2/3
+            lost-column: 2/3;
         }
         .one-third {
-            text-align right
-            lost-column 1/3
+            lost-column: 1/3;
         }
-        img {
-            float right
-        }
+    }
+    h4 {
+        margin-bottom: 8px;
+    }
+    img {
+        float right
+    }
+    #map {
+        height: vr-block(30)
+        padding: 0 0;
+    }
+    #mapframe {
+        height: 100%;
+    }
+    .push-to-right {
+        text-align: right;
     }
 }
