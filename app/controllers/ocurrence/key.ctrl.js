@@ -1,28 +1,32 @@
 var express = require('express'),
-    Occurrence = require('../../models/gbifdata/gbifdata').Occurrence,
+    occurrenceDetails = require('./occurrenceDetails'),
     router = express.Router();
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/occurrence/:key', function (req, res) {
+router.get('/occurrence/:key\.:ext?', function (req, res) {
     var occurrenceKey = req.params.key;
 
-var getOptions = {
-    expand: ['publisher', 'dataset', 'fragment']
-};
-Occurrence.get(occurrenceKey, getOptions).then(function(occurrence) {
-        renderPage(res, occurrence);
+    occurrenceDetails.getOccurrenceModel(occurrenceKey).then(function(occurrence) {
+        renderPage(req, res, occurrence);
     }, function(err){
         console.log('error from expand: ' + err); //TODO
-        renderPage(res, err);
+        renderPage(req, res, err);
     });
 });
 
-function renderPage(res, occurrence) {
-    res.render('pages/occurrence/key/occurrenceKey', {
-        occurrence: occurrence,
-        hasTools: true
-    });
+function renderPage(req, res, occurrence) {
+    if (req.params.ext == 'json') {
+     res.json(occurrence);
+    } else {
+        var angularInitData = occurrence.record;//occurrenceDetails.getAngularInitData(occurrence);
+        res.render('pages/occurrence/key/occurrenceKey', {
+            occurrence: occurrence,
+            occurrenceFields: occurrenceDetails.occurrenceFields,
+            angularInitData: angularInitData,
+            hasTools: true
+        });
+    }
 }

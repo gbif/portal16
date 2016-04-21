@@ -1,23 +1,23 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-translate');
+require('angular-moment');
 require('angular-leaflet-directive');
 require('angular-hotkeys');
-require('firebase'); 
-require('angularfire'); 
-
+require('firebase');
+require('angularfire');
+require('angular-resource');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', require('angular-resource')]);
-    
+        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
+
 })();
 
 (function () {
     'use strict';
-
     angular
         .module('portal')
         .run(runBlock);
@@ -27,13 +27,11 @@ require('angularfire');
         //$log.debug('runBlock end');
         amMoment.changeLocale('en');
     }
-
 })();
 
 
 (function () {
     'use strict';
-
     angular
         .module('portal')
         .controller('WelcomeCtrl', WelcomeCtrl);
@@ -53,7 +51,6 @@ require('angularfire');
 
 (function () {
     'use strict';
-
     angular
         .module('portal')
         .controller('MainController', MainController);
@@ -70,14 +67,10 @@ require('./angular/routerConfig');
 require('./angular/translate');
 require('./angular/occurrence.resource');
 require('./angular/similarOccurrence.service');
+require('./angular/occurrenceFields.constants');
 
 require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrence.ctrl');
-
-
-
-
-
 
 
 
@@ -179,7 +172,7 @@ module.exports = {
 
 //Create a global GBIF Object
 (function (global) {
-    var gb = gb || {},
+    var gb = global.gb || {},
         util = {VERSION: '0.0.1'};
 
 

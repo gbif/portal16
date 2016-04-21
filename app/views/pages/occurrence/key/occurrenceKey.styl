@@ -1,20 +1,22 @@
 $floatActionSize = vr-block(2.5)
-.occurrenceKey {
-	max-width 1200px
-	margin auto
+.occurrenceDetails {
 	padding vr-block(1)
-	h1 {
-		font-size 20px
-	}
-	.license {
-		span {
-			font-size 30px
+	header {
+		h1 {
+			font-size 25px
+		}
+		.license {
+			span {
+				font-size 30px
+			}
 		}
 	}
 }
 
-.occurrenceKey__summary {
+.occurrenceDetails__summary {
 	.card__banner {
+		z-index 0
+		position relative
 		color #333
 		background #dedede
 		display block
@@ -51,7 +53,7 @@ $floatActionSize = vr-block(2.5)
 }
 
 +isAbove($tablet) {
-	.occurrenceKey__summary {
+	.occurrenceDetails__summary {
 		.card__banner {
 			position relative
 			.occurrence__locationOverview{
@@ -72,20 +74,6 @@ $floatActionSize = vr-block(2.5)
 					width 128px
 				}
 			}
-		}
-	}
-}
-
-.occurrenceKey__raw {
-	header > span {
-		background red
-	}
-	.compareLayout {
-		.isDifferent {
-			background pink
-		}
-		.isMissing {
-			background yellow
 		}
 	}
 }
@@ -116,4 +104,65 @@ $floatActionSize = vr-block(2.5)
 	right 0
 	background rgba(255,255,255,0.8)
 	z-index 10000
+}
+
+
+.occurrenceDetails__details {
+	background white
+	.occurrenceDetails__details__table {
+		padding 0 vr-block(2)
+		.category {
+			margin-top vr-block(1.5)
+		}
+		tr {
+			border-bottom 1px solid #aaa
+			td {
+				padding vr-block(0.25)
+			}
+		}
+		.field {
+			width 150px
+			margin-right vr-block(3)
+		}
+		&.compare {
+			.row.isDifferent {
+				background pink
+			}
+		}
+		&.diffOnly {
+			background red
+		}
+	}
+}
+
+.occurrenceDetails {
+	&.showDrawer {
+		.comments {
+			right 0
+		}
+	}
+	>.container {
+		margin auto
+		max-width 1200px
+	}
+}
+
++isAbove($laptop) {
+	.occurrenceDetails {
+		&.showDrawer {
+			margin-right 200px
+		}
+	}
+}
+
+.comments {
+	z-index 50
+	width 200px
+	max-width 100%
+	height 100%
+	position fixed
+	background pink
+	top $navbar_height
+	right -200px
+	transition right 300ms ease
 }

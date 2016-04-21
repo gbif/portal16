@@ -1,7 +1,5 @@
-var config = require('../../../config/config'),
-	Occurrence = require('./occurrence/occurrence'),
-	Dataset = require('./dataset/dataset'),
-	resource = require('./resource');
+var Occurrence = require('./occurrence/occurrence'),
+	Dataset = require('./dataset/dataset');
 
 module.exports = {
 	Occurrence: Occurrence,

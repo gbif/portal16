@@ -10,7 +10,7 @@ var Dataset = function (record) {
 Dataset.prototype.record = {};
 
 Dataset.get = function (key, options) {
-    var options = options || {};
+    options = options || {};
     var promise = resource.get(api.dataset.url + key).as(Dataset);
     if (typeof options.expand === 'undefined') {
         return promise

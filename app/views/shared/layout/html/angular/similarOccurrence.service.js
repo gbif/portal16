@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .service('SimilarOccurrence', function (OccurrenceSearch, moment, $translate) {
+        .service('SimilarOccurrence', function (OccurrenceSearch, moment) {
             var that = this;
             that.dateBufferInDays = 0;
             that.limit = 50;

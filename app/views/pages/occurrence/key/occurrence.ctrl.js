@@ -18,93 +18,18 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFragment, moment, $http, $firebaseObject, $firebaseArray) {
+function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, moment, $http, $firebaseArray) {
     var vm = this;
-
-    // var ref = new Firebase("https://glowing-heat-751.firebaseio.com/test");
-    // //download the data into a local object
-    // vm.syncObj = $firebaseObject(ref); //this will ensure your binding will work
-    // // synchronize the object with a three-way data binding
-    // // click on `index.html` above to see it used in the DOM!
-
     vm.comments;
-    
-
-
+    vm.detailsStates = {
+        INTERPRETED: 0,
+        COMPARE: 1,
+        DIFF: 2
+    };
+    vm.compare = true;
     vm.similarities = {
         similarRecords: []
     };
-    vm.fragment;
-    vm.fieldNames = [
-        {
-            gbif: 'key',
-            verbatim: 'key'
-        },
-        {
-            gbif: 'datasetKey',
-            verbatim: 'datasetKey'
-        },
-        {
-            gbif: 'publishingOrgKey',
-            verbatim: 'publishingOrgKey'
-        },
-        {
-            gbif: 'publishingCountry',
-            verbatim: 'publishingCountry'
-        },
-        {
-            gbif: 'protocol',
-            verbatim: 'protocol'
-        },
-        {
-            gbif: 'lastCrawled',
-            verbatim: 'lastCrawled'
-        },
-        {
-            gbif: 'lastParsed',
-            verbatim: 'lastParsed'
-        },
-        {
-            gbif: 'basisOfRecord',
-            verbatim: 'basisOfRecord'
-        },
-        {
-            gbif: 'taxonKey',
-            verbatim: 'taxonKey'
-        },
-        {
-            gbif: 'kingdomKey',
-            verbatim: 'kingdomKey'
-        },
-        {
-            gbif: 'phylumKey',
-            verbatim: 'phylumKey'
-        },
-        {
-            gbif: 'classKey',
-            verbatim: 'classKey'
-        },
-        {
-            gbif: 'orderKey',
-            verbatim: 'orderKey'
-        },
-        {
-            gbif: 'familyKey',
-            verbatim: 'familyKey'
-        },
-        {
-            gbif: 'genusKey',
-            verbatim: 'genusKey'
-        },
-        {
-            gbif: 'speciesKey',
-            verbatim: 'speciesKey'
-        },
-        {
-            gbif: 'kingdom',
-            verbatim: 'kingdom'
-        }
-    ];
     vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
     vm.center = {zoom: 7, lat: 0, lng: 0};
     vm.markers = {};
@@ -138,22 +63,24 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceFr
     vm.tilePosStyle = {};
     vm.data;
 
-vm.deleteComment = function(index) {
-    vm.comments.$remove(index).then(function(){});
-}
+    vm.deleteComment = function(index) {
+        vm.comments.$remove(index).then(function(){});
+    };
 
-vm.addComment = function() {
-    vm.comments.$add({ comment: vm.newComment }).then(function(){
-        vm.newComment = '';
-    });
-}
+    vm.addComment = function() {
+        vm.comments.$add({ comment: vm.newComment }).then(function(){
+            vm.newComment = '';
+        });
+    };
+
+
     vm.setData = function() {
-        vm.data = occurrenceRecord; //TODO find a better way to parse required data to controller from server without seperate calls
+        vm.data = gb.occurrenceRecord; //TODO find a better way to parse required data to controller from server without seperate calls
         setMap(vm.data);
-        getWeather(occurrenceRecord.decimalLatitude, occurrenceRecord.decimalLongitude, occurrenceRecord.eventDate);
+        getWeather(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.data.eventDate);
 
         //https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray
-        var comments = $firebaseArray(new Firebase('https://glowing-heat-751.firebaseio.com/occurrence/' + occurrenceRecord.key));
+        var comments = $firebaseArray(new Firebase('https://glowing-heat-751.firebaseio.com/occurrence/' + vm.data.key));
 
         // make the list available in the DOM
         vm.comments = comments;
@@ -162,16 +89,6 @@ vm.addComment = function() {
 
     vm.parseDate = function(date) {
         return moment(date).format('MMMM DD, YYYY');
-    };
-
-    vm.isOneMissing = function(field) {
-        var typeGbif = typeof vm.data === 'undefined' || typeof vm.data[field.gbif] === 'undefined';
-        var typeFragment = typeof vm.fragment === 'undefined' || typeof vm.fragment[field.verbatim] === 'undefined';
-        if ( (typeGbif || typeFragment) && (!typeGbif || !typeFragment)) {
-            //xor is undefined
-            return true;
-        }
-        return false;
     };
 
     vm.weather = {};
@@ -183,8 +100,9 @@ vm.addComment = function() {
                 function(response){
                     vm.weather = response.data;
                 },
-                function(error){
-                    message('Couldn\'t get role types', 'error');
+                function(){
+                    //console.log("error " + error);
+                    //TODO handler errors from api
                 }
             );
         }
@@ -229,7 +147,7 @@ vm.addComment = function() {
             vm.SimilarOccurrence.getSimilar(
                 {
                     geometry: map.getBounds(),
-                    taxonkey: data.taxonKey, //TODO isn't always a species key
+                    taxonkey: data.taxonKey,
                     eventdate: data.eventDate
                 },
                 data.key,
@@ -255,12 +173,6 @@ vm.addComment = function() {
                 display: 'block'
             };
             map.once('focus', function() { map.scrollWheelZoom.enable(); });
-        });
-
-        OccurrenceFragment.get({id: data.key}, function (data) {
-            vm.fragment = data;
-        }, function (error) {
-            debugger;
         });
     }
 }
