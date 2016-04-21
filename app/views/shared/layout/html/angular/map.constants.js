@@ -41,30 +41,42 @@ var baseLayers = {
                 saturation: true
             }
         },
-        //'ocean': {
-        //    "name": "Terrain",
-        //    "url": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{Z}/{Y}/{X}.png",
-        //    "attribution": "Esri, DeLorme, FAO, USGS, NOAA, GEBCO, IHO-IOC GEBCO, NGS, NIWA",
-        //    "png-render-style": "palette=yellows_reds",
-        //    "subdomains": [],
-        //    "enabled": false
-        //},
-        //'satellite': {
-        //    "name": "Satellite",
-        //    "url": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{Z}/{Y}/{X}.png",
-        //    "attribution": "Esri, DeLorme, FAO, NOAA, DigitalGlobe, GeoEye, i-cubed, USDA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community",
-        //    "png-render-style": "palette=yellows_reds",
-        //    "subdomains": [],
-        //    "enabled": false
-        //},
-        //'light': {
-        //    "name": "High contrast",
-        //    "url": "http://{S}tiles.mapbox.com/v4/gbif.e8bcd045/{Z}/{X}/{Y}.png?access_token=" + accessToken,
-        //    "attribution": "<a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>",
-        //    "png-render-style": "colors=%2C%2C%23CC0000FF",
-        //    "subdomains": ['a.', 'b.', 'c.'],
-        //    "enabled": false
-        //},
+        'ocean': {
+            "name": "Terrain",
+            "url": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
+            options: {
+                attribution: "&copy; Esri, DeLorme, FAO, NOAA, DigitalGlobe, GeoEye, i-cubed, USDA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community"
+            },
+            type: 'xyz',
+            layerOptions: {
+                "showOnSelector": false,
+                palette: "yellows_reds"
+            }
+        },
+        'satellite': {
+            "name": "Satellite",
+            "url": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png",
+            options: {
+                attribution: "&copy; Esri, DeLorme, FAO, NOAA, DigitalGlobe, GeoEye, i-cubed, USDA, USGS, AEX, Getmapping, Aerogrid, IGN, IGP, swisstopo, and the GIS User Community"
+            },
+            type: 'xyz',
+            layerOptions: {
+                "showOnSelector": false,
+                palette: "yellows_reds"
+            }
+        },
+        'light': {
+            "name": "High contrast",
+            "url": "https://{s}.tiles.mapbox.com/v4/gbif.e8bcd045/{z}/{x}/{y}.png?access_token=" + accessToken,
+            options: {
+                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+            },
+            type: 'xyz',
+            layerOptions: {
+                "showOnSelector": false,
+                "colors": "%2C%2C%23CC0000FF"
+            }
+        },
         'grey-blue': {
             name: 'Roads',
             url: "http://2.maps.nlp.nokia.com/maptile/2.1/maptile/newest/normal.day.grey/{z}/{x}/{y}/256/png8?app_id=_peU-uCkp-j8ovkzFGNU&app_code=gBoUkAMoxoqIWfxWA5DuMQ",
@@ -73,7 +85,7 @@ var baseLayers = {
             },
             type: 'xyz',
             layerOptions: {
-                colors: '%2C%2C%23CC0000FF',
+                "colors": '%2C%2C%23CC0000FF',
                 "showOnSelector": false
             }
         }
