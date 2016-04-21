@@ -1,20 +1,7 @@
 var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
-    router = express.Router();
-
-var emlElements = [
-    { title: "Taxonomic coverage", key: "taxonomicCoverages" },
-    { title: "Project", key: "project" },
-    { title: "Sampling description", key: "samplingDescription" },
-    { title: "Data description", key: "dataDescriptions" },
-    { title: "Curatorial units", key: "curatorialUnits" },
-    { title: "Collections", key: "collections" },
-    { title: "Keyword collections", key: "keywordCollections" },
-    { title: "Bibliographic citations", key: "bibliographicCitations" },
-    { title: "Citation", key: "citation" },
-    { title: "Rights", key: "rights" },
-    { title: "Contacts", key: "contacts" }
-];
+    router = express.Router(),
+    _ = require('lodash/core');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -40,7 +27,7 @@ function renderPage(res, dataset) {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
-        emlElements: emlElements,
+        emlElements: emlElements(dataset.record),
         hasTitle: true
     });
 }
@@ -50,4 +37,34 @@ function doiToUrl(doi) {
         var url = doi.replace('doi:', 'http://dx.doi.org/');
         return url;
     }
+}
+
+/**
+ * Process available EML elements for the template.
+ * @todo Decide whether this should be in model or controller.
+ */
+function emlElements(datasetDetails) {
+    var emlElements = [
+        { title: "Taxonomic coverage", property: "taxonomicCoverages" },
+        { title: "Project", property: "project" },
+        { title: "Sampling description", property: "samplingDescription" },
+        { title: "Data description", property: "dataDescriptions" },
+        { title: "Curatorial units", property: "curatorialUnits" },
+        { title: "Collections", property: "collections" },
+        { title: "Keyword collections", property: "keywordCollections" },
+        { title: "Bibliographic citations", property: "bibliographicCitations" },
+        { title: "Citation", property: "citation" },
+        { title: "Rights", property: "rights" },
+        { title: "Contacts", property: "contacts" }
+    ];
+    var results = [];
+
+    for (var i = 0; i < emlElements.length ; i++) {
+        if (typeof datasetDetails[emlElements[i].property] !== 'undefined' && datasetDetails[emlElements[i].property].length !== 0) {
+            emlElements[i].values = datasetDetails[emlElements[i].property];
+            results.push(emlElements[i]);
+        }
+    }
+
+    return results;
 }

@@ -1,10 +1,14 @@
 {# We only do EML fields for the metadata explorer here. #}
 
-{% macro emlListItems(datasetDetails, emlElements) %}
+{% macro emlListItems(emlElements) %}
     {% for element in emlElements %}
-        {% if datasetDetails[element.key][0] %}
         <li>{$ element.title $}</li>
-        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro emlContents(emlElements) %}
+    {% for element in emlElements %}
+        <li>{$ element.values $}</li>
     {% endfor %}
 {% endmacro %}
 

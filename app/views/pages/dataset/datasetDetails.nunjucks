@@ -95,16 +95,12 @@
                 <div class="grid">
                     <div class="one-third">
                         <ul class="emlList">
-                            {$ emlMacros.emlListItems(datasetDetails, emlElements) $}
+                            {$ emlMacros.emlListItems(emlElements) $}
                         </ul>
                     </div>
                     <div class="two-third">
                         <ul class="emlContents">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            {$ emlMacros.emlContents(emlElements) $}
                         </ul>
                     </div>
                 </div>
