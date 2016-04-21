@@ -1,0 +1,40 @@
+{# We only do EML fields for the metadata explorer here. #}
+
+{% macro emlListItems(emlElements) %}
+    {% for element in emlElements %}
+        <section ng-click="dataset.emlSectionToggle({$ loop.index0 $})" ng-class="{ isActive: dataset.isLatestActiveSection({$ loop.index0 $}), isExpanded: dataset.emlIsActiveSection({$ loop.index0 $}) }">
+            <h4>{$ element.title $}</h4>
+            <div>{$ project(element.values) $}</div>
+        </section>
+        <li></li>
+    {% endfor %}
+{% endmacro %}
+
+{% macro taxonomicCoverages(label, values) %}
+{% endmacro %}
+
+{% macro project(value) %}
+    <h4>{$ value.title $}</h4>
+    <ul>
+        {% if value.contacts[0] %}
+            {% for contact in value.contacts %}
+                <li>{$ contact.firstName $} {$ contact.lastName $}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    {% if value.funding %}
+        <h5>Funding</h5>
+        <p>{$ value.funding $}</p>
+    {% endif %}
+    {% if value.studyAreaDescription %}
+        <h5>Study area description</h5>
+        <p>{$ value.studyAreaDescription $}</p>
+    {% endif %}
+    {% if value.designDescription %}
+        <h5>Design description</h5>
+        <p>{$ value.designDescription $}</p>
+    {% endif %}
+{% endmacro %}
+
+
+

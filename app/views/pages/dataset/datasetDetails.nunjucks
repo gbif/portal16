@@ -7,10 +7,10 @@
 {% block page %}
     {% import "./dataset.macros.nunjucks" as macros %}
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
-    {% import "../../components/eml.macros.nunjucks" as emlMacros %}
+    {% import "./eml.macros.nunjucks" as emlMacros %}
 
     <!-- Begin page (dataset) content -->
-    <article class="wrapper-horizontal-stripes" ng-controller="datasetDetailsCtrl as dataset">
+    <article class="wrapperHorizontalStripes" ng-controller="datasetDetailsCtrl as dataset">
         <section id="key-information">
             <div class="centerContent">
                 <header>
@@ -30,18 +30,17 @@
                     <ul>
                         <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
                         <li>
-                            <span class="gb-icon-cclogo3"></span>
-                            <span class="gb-icon-ccby"></span>
-                            <span class="gb-icon-ccnc"></span>
+                            <span class="gb-icon-cclogo3 cc"></span>
+                            <span class="gb-icon-ccby cc"></span>
+                            <span class="gb-icon-ccnc cc"></span>
                         </li>
                         <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
                     </ul>
                 </div>
             </div>
         </section>
-        <section id="map">
-            <gbmap id="mapframe" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
-            {#<iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>#}
+        <section id="map" class="mapSection">
+            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
         </section>
         <section id="primary-coverages">
             <div class="centerContent">
@@ -95,41 +94,8 @@
             <div class="centerContent">
                 <h3>Metadata</h3>
                 <div>
-                    <section ng-click="dataset.emlSectionToggle(0)" ng-class="{ isActive: dataset.isLatestActiveSection(0), isExpanded: dataset.emlIsActiveSection(0) }">
-                        <h4>Title 1</h4>
-                        <div>
-                            <p>Lorem ipsum dolor sit amet, mutat fugit consul mel an, eam praesent convenire suscipiantur ne. Alia voluptatibus mei at, no cum quis prompta principes, ne est fugit tritani. Mea possim mollis in. Duo munere audire sensibus an. Mel paulo numquam eruditi ei, ea ius adipisci molestiae concludaturque, lorem veniam facilis ei sit. Adolescens efficiendi an est.</p>
-                            <p>   Eu vix integre splendide mnesarchum, mea ut nisl fastidii inciderint. Legere suscipiantur vis at. Fugit consequat mea cu, illud dicta veniam has id, has ne quod ludus option. Cum eu quot abhorreant, velit inermis volutpat sit ei, mel impedit suscipiantur ex. Id nec consetetur intellegam, nam no fierent assentior, ne error fierent nam.</p>
-                            <p>   Vim ei integre philosophia, latine fierent mel ei. Eius ignota graecis no qui. Probo intellegat forensibus te vim, an falli civibus consetetur vel, copiosae vituperatoribus no pri. Per et lorem labore definiebas. Usu dolor deleniti senserit te, te vel illud affert equidem.</p>
-                            <p>  In dico utamur his, cu has saperet docendi. At eos detracto adipisci, sit an quod corrumpit. Dolorum definiebas nec ei, pro meis debet eirmod ei, vel omnes scribentur in. Ea equidem epicuri eos, in quem choro sensibus est. Enim salutandi pertinacia eu est. Ne vis detracto torquatos.</p>
-                            <p>   Sumo ludus tamquam ex vel, ad nam latine dissentiet efficiantur, ut vel mazim movet oportere. Id blandit efficiantur sit, commune argumentum ius ne, commune copiosae has an. Sit at elit epicuri vulputate, facer veniam voluptatum cu mel. Esse prima iracundia ne vis. Te qui unum dolore splendide, cu cum justo pertinacia assueverit.</p>
-                        </div>
-                    </section>
-                    <section ng-click="dataset.emlSectionToggle(1)" ng-class="{ isActive: dataset.isLatestActiveSection(1), isExpanded: dataset.emlIsActiveSection(1) }">
-                        <h4>Title 2</h4>
-                        <div>
-                            <p>Content of title 2</p>
-                        </div>
-                    </section>
-                    <section ng-click="dataset.emlSectionToggle(2)" ng-class="{ isActive: dataset.isLatestActiveSection(2), isExpanded: dataset.emlIsActiveSection(2) }">
-                        <h4>Title 3</h4>
-                        <div>
-                            <p>Content of title 3</p>
-                        </div>
-                    </section>
+                    {$ emlMacros.emlListItems(emlElements) $}
                 </div>
-                {#<div class="grid">#}
-                    {#<div class="one-third">#}
-                        {#<ul class="emlList">#}
-                            {#{$ emlMacros.emlListItems(emlElements) $}#}
-                        {#</ul>#}
-                    {#</div>#}
-                    {#<div class="two-third">#}
-                        {#<ul class="emlContents">#}
-                            {#{$ emlMacros.emlContents(emlElements) $}#}
-                        {#</ul>#}
-                    {#</div>#}
-                {#</div>#}
             </div>
         </section>
         <section id="related-news">

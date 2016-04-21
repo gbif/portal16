@@ -1,7 +1,6 @@
 var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
-    router = express.Router(),
-    _ = require('lodash/core');
+    router = express.Router();
 
 module.exports = function (app) {
     app.use('/', router);
