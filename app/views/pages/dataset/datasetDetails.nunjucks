@@ -7,6 +7,7 @@
 {% block page %}
     {% import "./dataset.macros.nunjucks" as macros %}
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
+    {% import "../../components/eml.macros.nunjucks" as emlMacros %}
 
     <!-- Begin page (dataset) content -->
     <article class="wrapper-horizontal-stripes">
@@ -93,16 +94,12 @@
                 <h3>Metadata</h3>
                 <div class="grid">
                     <div class="one-third">
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                        <ul class="emlList">
+                            {$ emlMacros.emlListItems(datasetDetails, emlElements) $}
                         </ul>
                     </div>
                     <div class="two-third">
-                        <ul>
+                        <ul class="emlContents">
                             <li></li>
                             <li></li>
                             <li></li>

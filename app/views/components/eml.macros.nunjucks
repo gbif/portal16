@@ -1,0 +1,25 @@
+{# We only do EML fields for the metadata explorer here. #}
+
+{% macro emlListItems(datasetDetails, emlElements) %}
+    {% for element in emlElements %}
+        {% if datasetDetails[element.key][0] %}
+        <li>{$ element.title $}</li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro taxonomicCoverages(label, values) %}
+    <span class="doi">DOI<a href="{$ URL $}">{$ label $}</a></span>
+{% endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,20 @@ var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
     router = express.Router();
 
+var emlElements = [
+    { title: "Taxonomic coverage", key: "taxonomicCoverages" },
+    { title: "Project", key: "project" },
+    { title: "Sampling description", key: "samplingDescription" },
+    { title: "Data description", key: "dataDescriptions" },
+    { title: "Curatorial units", key: "curatorialUnits" },
+    { title: "Collections", key: "collections" },
+    { title: "Keyword collections", key: "keywordCollections" },
+    { title: "Bibliographic citations", key: "bibliographicCitations" },
+    { title: "Citation", key: "citation" },
+    { title: "Rights", key: "rights" },
+    { title: "Contacts", key: "contacts" }
+];
+
 module.exports = function (app) {
     app.use('/', router);
 };
@@ -26,6 +40,7 @@ function renderPage(res, dataset) {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
+        emlElements: emlElements,
         hasTitle: true
     });
 }
