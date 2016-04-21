@@ -70,6 +70,7 @@ require('./angular/occurrence.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFields.constants');
+require('./angular/map.constants');
 
 require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrence.ctrl');

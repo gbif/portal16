@@ -40,7 +40,7 @@
             </div>
         </section>
         <section id="map">
-            <gbmap id="mapframe" style="height: 300px"></gbmap>
+            <gbmap id="mapframe" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'dark'"></gbmap>
             {#<iframe id="mapframe" name="mapframe" src="http://api.gbif.org/v1/map/index.html?type=DATASET&key={$ datasetDetails.key $}&resolution=16" allowfullscreen height="100%" width="100%" frameborder="0"/></iframe>#}
         </section>
         <section id="primary-coverages">
