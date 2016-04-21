@@ -24,6 +24,7 @@
         <button ng-click="occurrence.addComment()">add</button>
     </div>
     <div class="container">
+
         <header class="header">
             <p>Occurrence record</p>
             <h1>{$ occurrence.record.scientificName $}</h1>

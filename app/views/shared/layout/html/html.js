@@ -7,12 +7,13 @@ require('angular-hotkeys');
 require('firebase');
 require('angularfire');
 require('angular-resource');
+require('angular-aria');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
 
 })();
 
@@ -66,11 +67,14 @@ require('angular-resource');
 require('./angular/routerConfig');
 require('./angular/translate');
 require('./angular/occurrence.resource');
+require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFields.constants');
 
 require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrence.ctrl');
+require('../../../pages/dataset/datasetDetails.ctrl');
+require('../../../components/map/basic/gbmap.directive');
 
 
 
