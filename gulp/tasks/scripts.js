@@ -28,7 +28,7 @@ gulp.task('vendor-scripts', function() {
         .pipe(g.plumber())
         .pipe(g.sourcemaps.init())
         .pipe(g.concat('vendor.js'))
-        .pipe(g.uglify())
+        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .pipe(g.sourcemaps.write('./'))
         .pipe(gulp.dest(path.join(config.paths.dist, 'js/vendor')));
 });

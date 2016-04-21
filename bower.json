@@ -8,7 +8,6 @@
   ],
   "dependencies": {
     "leaflet": "^0.7.7",
-    "angular-moment": "~0.10.3",
     "leaflet.markercluster": "~0.5.0"
   }
 }
