@@ -144,26 +144,26 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVe
         leafletData.getMap('occurrenceMap').then(function(map) {
             //find similar records (same species, same time, same area). This gives context and can tell us whether there are possible duplicates or several people reporting the same individual
             // Useful examples as of april 2016: 195092389
-            vm.SimilarOccurrence.getSimilar(
-                {
-                    geometry: map.getBounds(),
-                    taxonkey: data.taxonKey,
-                    eventdate: data.eventDate
-                },
-                data.key,
-                function(data) {
-                    vm.similarities.similarRecords = data.results;
-                    var markers = vm.SimilarOccurrence.getMarkers(data, {
-                        key: vm.data.key,
-                        eventDate: vm.data.eventDate,
-                        decimalLatitude: vm.data.decimalLatitude,
-                        decimalLongitude: vm.data.decimalLongitude
-                    });
-                    markers.forEach(function(e, i) {
-                        vm.markers['marker_' + i] = e;
-                    });
-                }
-            );
+            // vm.SimilarOccurrence.getSimilar(
+            //     {
+            //         geometry: map.getBounds(),
+            //         taxonkey: data.taxonKey,
+            //         eventdate: data.eventDate
+            //     },
+            //     data.key,
+            //     function(data) {
+            //         vm.similarities.similarRecords = data.results;
+            //         var markers = vm.SimilarOccurrence.getMarkers(data, {
+            //             key: vm.data.key,
+            //             eventDate: vm.data.eventDate,
+            //             decimalLatitude: vm.data.decimalLatitude,
+            //             decimalLongitude: vm.data.decimalLongitude
+            //         });
+            //         markers.forEach(function(e, i) {
+            //             vm.markers['marker_' + i] = e;
+            //         });
+            //     }
+            // );
 
             var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
             var projPos = map.project(a, 0);

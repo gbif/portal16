@@ -1,86 +1,79 @@
 var record = [
     {
-        gbif: 'key',
-        verbatim: 'key'
-    },
-    {
         gbif: 'basisOfRecord',
         verbatim: 'http://rs.tdwg.org/dwc/terms/basisOfRecord'
     },
     {
-        gbif: 'publishingOrgKey',
-        verbatim: 'publishingOrgKey'
+        gbif: 'collectionCode',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/collectionCode'
     },
     {
-        gbif: 'kingdom',
-        verbatim: 'kingdom'
+        gbif: 'identifier',
+        verbatim: 'http://purl.org/dc/terms/identifier'
     },
     {
-        gbif: 'protocol',
-        verbatim: 'protocol'
+        gbif: 'institutionCode',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/institutionCode'
     },
     {
-        gbif: 'lastCrawled',
-        verbatim: 'lastCrawled'
+        gbif: 'modified',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/modified'
     }
 ];
 
 var occurrence = [
     {
-        gbif: 'key',
-        verbatim: 'key'
+        gbif: 'catalogNumber',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/catalogNumber'
     },
     {
-        gbif: 'datasetKey',
-        verbatim: 'datasetKey'
+        gbif: 'individualCount',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/individualCount'
     },
     {
-        gbif: 'publishingOrgKey',
-        verbatim: 'publishingOrgKey'
+        gbif: 'occurrenceID',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/occurrenceID'
     },
     {
-        gbif: 'publishingCountry',
-        verbatim: 'publishingCountry'
-    },
-    {
-        gbif: 'protocol',
-        verbatim: 'protocol'
-    },
-    {
-        gbif: 'lastCrawled',
-        verbatim: 'lastCrawled'
+        gbif: 'recordedBy',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/recordedBy'
     }
 ];
 
 var event = [
     {
-        gbif: 'key',
-        verbatim: 'key'
+        gbif: 'day',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/day'
     },
     {
-        gbif: 'datasetKey',
-        verbatim: 'datasetKey'
+        gbif: 'month',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/month'
     },
     {
-        gbif: 'lastCrawled',
-        verbatim: 'lastCrawled'
+        gbif: 'year',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/year'
+    },
+    {
+        gbif: 'habitat',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/habitat'
     }
 ];
 
 var location = [
     {
-        gbif: 'key',
-        verbatim: 'key'
+        gbif: 'coordinateUncertaintyInMeters',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters'
     },
     {
-        gbif: 'datasetKey',
-        verbatim: 'datasetKey'
+        gbif: 'country',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/country'
     },
     {
-        gbif: 'lastCrawled',
-        verbatim: 'lastCrawled'
+        gbif: 'county',
+        verbatim: 'http://rs.tdwg.org/dwc/terms/county'
     }
 ];
+
 var occurrenceFields = [
     {
         name: 'record',

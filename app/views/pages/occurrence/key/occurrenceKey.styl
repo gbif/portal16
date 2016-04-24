@@ -35,7 +35,7 @@ $floatActionSize = vr-block(2.5)
             }
         }
         &.diffOnly {
-            background red
+            //background red
         }
     }
 }
@@ -107,7 +107,7 @@ $floatActionSize = vr-block(2.5)
 }
 
 .floatAction {
-    position absolute
+    position fixed
     bottom 25px
     right 25px
     color white
@@ -120,6 +120,11 @@ $floatActionSize = vr-block(2.5)
     display block
     background $Plum
     box-shadow 1px 1px 2px 1px rgba(0, 0, 0, 0.3)
+    z-index 10010
+    transition right 300ms ease
+    &:focus {
+        outline none
+    }
 }
 
 .overlay {
@@ -138,11 +143,15 @@ $floatActionSize = vr-block(2.5)
     .occurrenceDetails {
         &.showDrawer {
             margin-right 200px
+            .floatAction {
+                right 175px
+            }
         }
     }
 }
 
 .comments {
+    padding vr-block(1) vr-block(0.5)
     z-index 50
     width 200px
     max-width 100%
@@ -152,4 +161,7 @@ $floatActionSize = vr-block(2.5)
     top $navbar_height
     right -200px
     transition right 300ms ease
+    textarea {
+        width 100%
+    }
 }

@@ -1,9 +1,6 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
-{% block tools %}
-<div class="floatAction floatAction-edit gb-icon-pen"></div>
-<div class="overlay"></div>
-{% endblock %}
+
 
 {% block page %}
 <script>
@@ -12,14 +9,19 @@
 </script>
 
     <!-- Begin page (occurrence) content -->
-<article class="occurrenceDetails showDrawer" ng-controller="occurrenceCtrl as occurrence">
+<article class="occurrenceDetails" ng-controller="occurrenceCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
+    <div class="overlay"></div>
+    
+    <!-- <div class="floatAction floatAction-edit gb-icon-pen" ng-click="occurrence.showDrawer = !occurrence.showDrawer"></div>
     <div id="comments" class="comments">
         <ul>
             <li ng-repeat="item in occurrence.comments">{{ item.comment }} <button ng-click="occurrence.deleteComment($index)">slet</button> </li>
         </ul>
         <textarea ng-model="occurrence.newComment"></textarea>
         <button ng-click="occurrence.addComment()">add</button>
-    </div>
+    </div> -->
+    
+
     <div class="wrapperHorizontalStripes">
         <section id="key-information">
             <div class="centerContent">
@@ -110,7 +112,7 @@
             </div>
         </section>
 
-        <section class="occurrenceDetails__similar" >
+        <!-- <section class="occurrenceDetails__similar" >
             <div class="card">
                 <h2 class="card__header">Similar records</h2>
                 <div>
@@ -136,7 +138,7 @@
                     </table>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section class="occurrenceDetails__details">
             <div>
