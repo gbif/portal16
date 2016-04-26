@@ -40,10 +40,12 @@ function buildScripts() {
         }).bundle()
         .on('error', function (err) {
             console.log(err.toString());
-            notifier.notify({
-                'title': 'Browserify',
-                'message': err.toString()
-            });
+            if (!config.isProd) {
+                notifier.notify({
+                    'title': 'Browserify',
+                    'message': err.toString()
+                });
+            }
             this.emit("end");
         })
         .pipe(source('custom.js'))
