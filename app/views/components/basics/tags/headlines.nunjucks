@@ -1,0 +1,33 @@
+{% extends "../../example.nunjucks" %}
+
+{% block exampleHead %}
+    Headlines
+{% endblock %}
+
+{% block exampleLive %}
+    <h1>Headline 1</h1>
+    <h2>Headline 2</h2>
+    <h3>Headline 3</h3>
+    <h4>Headline 4</h4>
+    <h5>Headline 5</h5>
+    <h6>Headline 6</h6>
+{% endblock %}
+
+{% block exampleCode %}
+    {% markdown %}
+    ```
+    <h1>Headline 1</h1>
+    <h2>Headline 2</h2>
+    <h3>Headline 3</h3>
+    <h4>Headline 4</h4>
+    <h5>Headline 5</h5>
+    <h6>Headline 6</h6>
+    ```
+    {% endmarkdown %}
+{% endblock %}
+
+{% block exampleUsage %}
+    {% markdown %}
+    This is just the base styling of the headlines. Document outline - and not look - should define what header type you use. Style it to fit your vision. For that there are stylus functions.
+    {% endmarkdown %}
+{% endblock %}

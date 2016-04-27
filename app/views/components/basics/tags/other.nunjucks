@@ -1,0 +1,36 @@
+{% extends "../../example.nunjucks" %}
+
+{% block exampleHead %}
+    Text
+{% endblock %}
+
+{% block exampleLive %}
+    <p>A paragraph of text could look like this. Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam.</p>
+
+    <p><strong>Strong text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</strong></p>
+    <p><em>Italics text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</em></p>
+    <p class="text--secondary">Secondary text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+    <p class="text--tertiary">Tertiary text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+
+    <p>See the <a href="typography">typography example page</a> for text in context</p>
+{% endblock %}
+
+{% block exampleCode %}
+    {% markdown %}
+    ```
+    <p>A paragraph of text could look like this. Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam.</p>
+    <p>And <a href="/link/to/somewhere">links like</a> this</p>
+
+    <p><strong>Strong text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</strong></p>
+    <p><em>Italics text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</em></p>
+    <p class="text--secondary">Secondary text. Used for less important text. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+    <p class="text--tertiary">Tertiary text. For text of less importance or that needs to be discreet.</p>
+    ```
+    {% endmarkdown %}
+{% endblock %}
+
+{% block exampleUsage %}
+    {% markdown %}
+    This is just the base styling of the headlines. Document outline - and not look - should define what header type you use. Style it to fit your vision. For that there are stylus functions.
+    {% endmarkdown %}
+{% endblock %}

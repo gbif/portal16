@@ -97,8 +97,8 @@ function gbmapDirective() {
             //});
 
 
-        }, function(error) {
-            debugger;
+        }, function() {
+            //TODO
         });
     }
 }

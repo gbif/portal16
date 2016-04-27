@@ -1,0 +1,23 @@
+{% extends "../example.nunjucks" %}
+{% import "../common.macros.nunjucks" as commonMacros %}
+
+{% block exampleHead %}
+    DOI
+{% endblock %}
+
+{% block exampleLive %}
+    {$ commonMacros.doi('your-doi-identifier', 'http://your-doi-identifier') $}
+{% endblock %}
+
+{% block exampleCode %}
+    {% markdown %}
+    ```
+    commonMacros.doi('your-doi-identifier', 'http://your-doi-identifier')
+    ```
+    {% endmarkdown %}
+{% endblock %}
+
+{% block exampleUsage %}
+    {% markdown %}
+    {% endmarkdown %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<section class="example">
+    <header>
+        <h1 onclick="angular.element(this).parent().parent().toggleClass('isExpanded')">
+            {% block exampleHead %}{% endblock %}
+            <span>&lt; /&gt;</span>
+        </h1>
+        <div class="example__comments">
+            <div class="example__code">
+                {% block exampleCode %}{% endblock %}
+            </div>
+            <div class="example__usage">
+                <h3>Usage</h3>
+                <div>
+                    {% block exampleUsage %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="example__live">
+        {% block exampleLive %}{% endblock %}
+    </div>
+
+
+</section>

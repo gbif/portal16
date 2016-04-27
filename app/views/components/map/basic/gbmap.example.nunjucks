@@ -1,0 +1,27 @@
+{% extends "../../example.nunjucks" %}
+
+{% block exampleHead %}
+    Map directive
+{% endblock %}
+
+{% block exampleLive %}
+    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'" style="height:300px"></gbmap>
+{% endblock %}
+
+{% block exampleCode %}
+    {% markdown %}
+    ```
+    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'" style="height:300px"></gbmap>
+    ```
+    {% endmarkdown %}
+{% endblock %}
+
+{% block exampleUsage %}
+    {% markdown %}
+    There is already a basic map that you can use and configure. For more complex maps, you might want to create a custom map.
+
+    The basic map is an angular directive.
+
+    This is the basic map that will be used throughout the site. If you need a custom map, the navigation should be in line with this map.
+    {% endmarkdown %}
+{% endblock %}
