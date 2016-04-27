@@ -9,21 +9,9 @@ var gulp = require('gulp'),
     serverConfig = rootRequire('config/config'),
     config = rootRequire('config/build'),
     browserSync = require('browser-sync'),
+    yargs = require('yargs').argv,
     g = require('gulp-load-plugins')();
-
-// gulp.task('server-lint', ['client-lint'], function() {
-//     return gulp.src(config.js.server.paths)
-//         .pipe(g.eslint())
-//         .pipe(g.eslint.format())
-//         .pipe(g.size())
-// });
-
-// gulp.task('client-lint', function() {
-//     return gulp.src(config.js.client.paths)
-//         .pipe(g.eslint())
-//         .pipe(g.eslint.format())
-//         .pipe(g.size())
-// });
+console.log(yargs.loglevel);
 
 gulp.task('browser-sync', ['server'], function() {
     console.log('Starting browser-synced site at http://localhost:' + config.browsersync.port);
@@ -39,9 +27,14 @@ gulp.task('browser-sync', ['server'], function() {
 gulp.task('server', ['server-lint'], function(cb) {
 
     var started = false;
+    var args = [];
+    if (yargs.loglevel) {
+        args.push('--loglevel=' + yargs.loglevel);
+    }
 
     return g.nodemon({
             script: 'app.js',
+            args: args,
             ext: 'js nunjucks',
             ignore: ['app/views/'],
             tasks: ['server-lint'],
