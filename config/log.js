@@ -1,7 +1,19 @@
 var bunyan = require('bunyan'),
     fs = require('fs'),
+    yargs = require('yargs').argv,
     PrettyStream = require('bunyan-prettystream'),
-    dir = './log';
+    dir = './log',
+    loglevel = yargs.loglevel || 'info';
+
+var loglevels = Object.freeze({
+    terminal: 0,
+    debug: 1,
+    info: 2,
+    warn: 3,
+    error: 4
+});
+
+loglevel = typeof loglevels[loglevel] !== 'undefined' ? loglevels[loglevel] : loglevels.info;
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
@@ -18,33 +30,73 @@ function reqSerializer(req) {
     }
 }
 
-var log = bunyan.createLogger({
-    name: 'Portal',
-    serializers: {req: reqSerializer},
-    streams: [
+var logStreams = [];
+
+if (loglevel <= loglevels.terminal) {
+    logStreams.push(
         {
             level: 'debug',
             type: 'raw',
-            stream: prettyStdOut//process.stdout
-        },
-        {
-            //type: 'rotating-file',
-            path: './log/portal_info.log',
-            //period: '1h',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
-            //count: 7,        // keep n back copies
-            level: 'info'
+            stream: prettyStdOut // process.stdout
         }
-        //,{
-        //    type: 'rotating-file',
-        //    path: './log/portal_error.log',
-        //    period: '3h',
-        //    count: 1,
-        //    level: 'error'
-        //}
-    ]
+    );
+}
+
+if (loglevel <= loglevels.debug) {
+    logStreams.push(
+        {
+            level: 'debug',
+            path: './log/debug.log'
+        }
+    );
+}
+
+if (loglevel <= loglevels.info) {
+    logStreams.push(
+        {
+            level: 'info',
+            type: 'rotating-file',
+            path: './log/info.log',
+            period: '10000ms',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
+            count: 7        // keep n back copies
+        }
+    );
+}
+
+if (loglevel <= loglevels.warn) {
+    logStreams.push(
+        {
+            level: 'warn',
+            type: 'rotating-file',
+            path: './log/warn.log',
+            period: '10000ms',
+            count: 7
+        }
+    );
+}
+
+if (loglevel <= loglevels.error) {
+    logStreams.push(
+        {
+            level: 'error',
+            type: 'rotating-file',
+            path: './log/error.log',
+            period: '10000ms',
+            count: 7
+        }
+    );
+}
+
+var log = bunyan.createLogger({
+    name: 'portal',
+    serializers: {req: reqSerializer},
+    streams: logStreams
 });
 
-//log.warn({randomAtt: 'is test', nested: [{hej: 5, med: 3, dig: 1}]}, 'My messagr grom the home controller');
+
+log.info({state: 'initialising log'}, 'initialising log');
+
+
 
 module.exports = log;
 

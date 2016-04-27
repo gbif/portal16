@@ -145,26 +145,34 @@ this.Element && function(ElementPrototype) {
 }
  */
 
-//function stackTrace() {
-//    var err = new Error();
-//    return err.stack;
-//}
+function stackTrace() {
+    var err = new Error();
+    return err.stack;
+}
 
-//window.onerror = function(msg, file, line, col, error) {
-//    $.post('/api/log/error', {
-//        msg: msg,
-//        file: file,
-//        line: line,
-//        col: col,
-//        error: error,
-//        stack: stackTrace()
-//    });
-//    return false; //still write error to console
-//};
+window.onerror = function(msg, file, line, col, error) {
+    var errorData = {
+        msg: msg,
+        file: file,
+        line: line,
+        col: col,
+        error: error,
+        stack: stackTrace()
+    };
+
+    var request = new XMLHttpRequest();
+    request.open('POST', '/api/log/error', true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify(errorData));
+
+    //$.post('/api/log/error', errorData);
+    return false; //still write error to console
+};
 
 // console.log('test');
 // window.mytest = $('.navbar');
 // menu.tester();
+//throw new Error();
 
 function increaseNumber(num) {
     return num + menu.myvar;
