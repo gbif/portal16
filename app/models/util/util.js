@@ -1,11 +1,5 @@
-var request = require('request'),
+var apirequest = require('./api-request'),
     confidenceThreshold = 80;
-
-var ERRORS = Object.freeze({
-    API_TIMEOUT: 1,
-    API_ERROR: 2,
-    INVALID_RESPONSE: 3
-});
 
 function getMatchesByConfidence(results) {
     var alternative,
@@ -76,62 +70,8 @@ function getHigestRankingLowerClasses(children) {
     return children;
 }
 
-function getApiErrorResponse(callback, reason, options, err, message) {
-    //TODO log error
-    console.log(reason + ' : ' + message);
-    console.log(reason + ' : ' + err);
-    if (options.failHard) {
-        callback(err, null);
-    } else {
-        callback(null, {
-            errorType: reason
-        });
-    }
-}
-
-function getApiData(path, callback, options) {
-    var data;
-    options = options || {};
-    options.timeoutMilliSeconds = options.timeoutMilliSeconds || 4000;
-    options.failHard = options.failHard || false;
-
-
-    var timeoutProtect = setTimeout(function() {
-        // Clear the local timer variable, indicating the timeout has been triggered.
-        timeoutProtect = null;
-        // Execute the callback with an error argument.
-        getApiErrorResponse(callback, ERRORS.API_TIMEOUT, options, null, path + ' TIMEOUT');
-    }, options.timeoutMilliSeconds);
-
-    request(path, function(err, response, body) {
-        //if timeout already have been triggered then do nothing
-        if (!timeoutProtect) {
-            return
-        }
-
-        // Clear the local timer variable, indicating the timeout has been triggered.
-        clearTimeout(timeoutProtect);
-        if(err) {
-            getApiErrorResponse(callback, ERRORS.API_ERROR, options, err, path);
-        } else if (response.statusCode != 200) {
-            console.log(response.statusCode);
-            getApiErrorResponse(callback, ERRORS.API_ERROR, options, null, path + ' - Status code: ' + response.statusCode);
-            return;
-        } else {
-            try {
-                data = JSON.parse(body);
-            } catch (err) {
-                getApiErrorResponse(callback, ERRORS.INVALID_RESPONSE, options, null, path);
-                return;
-            }
-
-            callback(null, data);
-        }
-    });
-}
-
 module.exports = {
-    getApiData: getApiData,
+    getApiData: apirequest.getApiData,
     getMatchesByConfidence: getMatchesByConfidence,
     filterByMatchType: filterByMatchType,
     getSynonymKey: getSynonymKey,
