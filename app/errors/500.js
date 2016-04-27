@@ -1,3 +1,5 @@
+var log = require('../../config/log');
+
 module.exports = function (app) {
     /**
      * In development render full error page with content of error
@@ -20,6 +22,15 @@ module.exports = function (app) {
      */
     app.use(function(err, req, res, next) { //eslint-disable-line no-unused-vars
         // TODO needs implementation
+        log.error(
+            {
+                err: {
+                    type: err.type,
+                    message: err.message,
+                    stack: err.stack
+                }
+            }, '505'
+        );
         res.status(err.status || 500);
         res.render('error/500/500', {
             message: 'no server info here. just an excuse',
