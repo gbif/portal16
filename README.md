@@ -43,7 +43,6 @@ Logs end up in `user/.forever/` if nothing else is specified
 
 
 
-
 ##Development
 During development it can be useful that the server restarts if files are changed and the browser refresh. To run in development mode
 ```
@@ -64,6 +63,33 @@ gulp --test
 Initiating debugging is very slow. Unclear what the best approach is. Currently I start gulp in dev mode with `gulp --tdd` and then in another process starts node inspector with `node-debug app.js --port=3002`
 
 
+## Logging
+Logging via [https://github.com/trentm/node-bunyan](https://github.com/trentm/node-bunyan)
+
+run either gulp or node with --loglevel=[terminal,debug,info,warn,error].
+```
+# debug to console
+gulp --loglevel=terminal
+
+# log only info, warnings and errors.
+node app.js --loglevel=info
+```
+
+###  Read log files
+Pretty print log files
+
+ ```
+node_modules/bunyan/bin/bunyan log/warn.log.0
+```
+ 
+Filter file
+ 
+ ```
+node_modules/bunyan/bin/bunyan log/warn.log.0 -c 'this.randomAtt == "is is a warning"'
+```
+
+
+More options at [http://trentm.com/node-bunyan/bunyan.1.html](http://trentm.com/node-bunyan/bunyan.1.html)
 
 
 ##Technologies
