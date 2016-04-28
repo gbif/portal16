@@ -8,8 +8,8 @@
     gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
 </script>
 
-    <!-- Begin page (occurrence) content -->
-<article class="occurrenceDetails" ng-controller="occurrenceCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
+    {# Begin page content #}
+    <article class="occurrenceDetails" ng-controller="occurrenceCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
     <div class="overlay"></div>
     
     <!-- <div class="floatAction floatAction-edit gb-icon-pen" ng-click="occurrence.showDrawer = !occurrence.showDrawer"></div>

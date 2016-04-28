@@ -1,3 +1,19 @@
+{# Generic tabular view renderer with tabs vertically stacking on the left column #}
+{% macro verticalTabularRenderer(elements) %}
+    {% for element in elements %}
+        <section ng-click="verticalTabularRenderer.sectionToggle({$ loop.index0 $})" ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
+            <h4>{$ element.title $}</h4>
+            <div>
+            {% if element.property == 'project' %}
+                {% include "./includes/project.nunjucks" %}
+            {% elif element.property == 'taxonomicCoverages' %}
+                {% include "./includes/taxonomicCoverages.nunjucks" %}
+            {% endif %}
+            </div>
+        </section>
+    {% endfor %}
+{% endmacro %}
+
 {% macro contacts(label, contacts) %}
     <address>
         <h3>{$ label $}</h3>

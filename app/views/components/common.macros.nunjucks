@@ -3,7 +3,7 @@
     <span class="doi">DOI<a href="{$ URL $}">{$ label $}</a></span>
 {% endmacro %}
 
-{## Temporal coverage formatter #}
+{# Temporal coverage formatter #}
 {% macro temporalCoverages(values) %}
     <h4>Temporal coverage</h4>
     <ul>
@@ -14,3 +14,4 @@
         {% endfor %}
     </ul>
 {% endmacro %}
+

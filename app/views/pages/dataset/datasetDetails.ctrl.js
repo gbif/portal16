@@ -4,28 +4,28 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('datasetDetailsCtrl', datasetDetailsCtrl);
+    .controller('verticalTabularRendererCtrl', verticalTabularRendererCtrl);
 
 /** @ngInject */
-function datasetDetailsCtrl() {
+function verticalTabularRendererCtrl() {
     var vm = this;
-    vm.eml = {
+    vm.elements = {
         activeDict: [],
         latestActive: 0
     };
 
-    vm.emlSectionToggle = function(index) {
-        vm.eml.activeDict['list' + index] = !vm.eml.activeDict['list' + index];
-        vm.eml.latestActive = index;
+    vm.sectionToggle = function(index) {
+        vm.elements.activeDict['list' + index] = !vm.elements.activeDict['list' + index];
+        vm.elements.latestActive = index;
     };
 
-    vm.emlIsActiveSection = function(index) {
-        return vm.eml.activeDict['list' + index];
+    vm.isActiveSection = function(index) {
+        return vm.elements.activeDict['list' + index];
     };
 
     vm.isLatestActiveSection = function(index) {
-      return vm.eml.latestActive == index;
+      return vm.elements.latestActive == index;
     };
 }
 
-module.exports = datasetDetailsCtrl;
+module.exports = verticalTabularRendererCtrl;

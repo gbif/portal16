@@ -5,12 +5,11 @@
 {% endblock %}
 
 {% block page %}
-    {% import "./dataset.macros.nunjucks" as macros %}
+    {% import "./dataset.macros.nunjucks" as datasetMacros %}
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
-    {% import "./eml.macros.nunjucks" as emlMacros %}
 
-    <!-- Begin page (dataset) content -->
-    <article class="wrapperHorizontalStripes" ng-controller="datasetDetailsCtrl as dataset">
+    {# Begin page content #}
+    <article class="wrapperHorizontalStripes">
         <section id="key-information">
             <div class="centerContent">
                 <header>
@@ -90,11 +89,15 @@
             </div>
         </section>
         {# TODO make dependent on model from route controller @Burke #}
-        <section id="metadata-explorer" class="tabbedContent">
+        <section id="metadata-explorer" class="tabbedContent" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
             <div class="centerContent">
-                <h3>Metadata</h3>
+                <h3>[pending suitable title]</h3>
                 <div>
-                    {$ emlMacros.emlListItems(emlElements) $}
+                    {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
+                    {#
+                        To remove once the macro above works.
+                        {% include "./includes/foldedMetadata.nunjucks" %}
+                    #}
                 </div>
             </div>
         </section>

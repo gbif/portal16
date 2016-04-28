@@ -26,7 +26,7 @@ function renderPage(res, dataset) {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
-        emlElements: emlElements(dataset.record),
+        metadataElementsToFold: metadataElementsToFold(dataset.record),
         hasTitle: true
     });
 }
@@ -39,11 +39,11 @@ function doiToUrl(doi) {
 }
 
 /**
- * Process available EML elements for the template.
+ * Process available metadata elements for the template.
  * @todo Decide whether this should be in model or controller.
  */
-function emlElements(datasetDetails) {
-    var emlElements = [
+function metadataElementsToFold(datasetDetails) {
+    var metadataElementsToFold = [
         { title: "Taxonomic coverage", property: "taxonomicCoverages" },
         { title: "Project", property: "project" },
         { title: "Sampling description", property: "samplingDescription" },
@@ -58,10 +58,15 @@ function emlElements(datasetDetails) {
     ];
     var results = [];
 
-    for (var i = 0; i < emlElements.length ; i++) {
-        if (typeof datasetDetails[emlElements[i].property] !== 'undefined' && datasetDetails[emlElements[i].property].length !== 0) {
-            emlElements[i].values = datasetDetails[emlElements[i].property];
-            results.push(emlElements[i]);
+    for (var i = 0; i < metadataElementsToFold.length ; i++) {
+        if (typeof datasetDetails[metadataElementsToFold[i].property] !== 'undefined' && datasetDetails[metadataElementsToFold[i].property].length !== 0) {
+            metadataElementsToFold[i].values = datasetDetails[metadataElementsToFold[i].property];
+
+            // TODO Further process taxonomicCoverages for HTML output.
+            if (metadataElementsToFold[i] == 'taxonomicCoverages') {
+            }
+
+            results.push(metadataElementsToFold[i]);
         }
     }
 

@@ -1,0 +1,4 @@
+{# The coverages have been processed in the model #}
+{% for value in element.values %}
+    <p>{$ value.description $}</p>
+{% endfor %}

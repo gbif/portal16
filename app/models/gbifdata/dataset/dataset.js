@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var	resource = require('../resource'),
     api = require('../apiConfig');
@@ -38,7 +38,5 @@ Dataset.prototype.expand = function (fieldNames) {
     });
     return resource.extend(this).with(resources);
 };
-
-
 
 module.exports = Dataset;
