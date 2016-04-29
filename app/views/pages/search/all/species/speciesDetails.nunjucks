@@ -92,7 +92,7 @@
                     <div class="tile species__map">
                         <div>
                             <img src="/img/world_tile.png">
-                            <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.nubKey $}&type=TAXON&resolution=2">
+                            <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=2">
                         </div>
                     </div>
                     <div class="descr descr-content">
@@ -102,7 +102,7 @@
                             </h3>
                             {% if taxon.occurrences.count >= 0 %}
                             <span>
-                                <a href="http://gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
                                     {$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrence records
                                 </a>
                             </span>
@@ -113,14 +113,14 @@
                 <div class="card__actions">
                     <ul>
                         <li>
-                            <a href="//www.gbif.org/species/{$ taxon.info.nubKey $}">About</a>
+                            <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}">About</a>
                         </li>
                         {% if taxon.occurrences.count > 0 %}
                             <li>
-                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxonkey={$ taxon.info.nubKey $}">Filter</a>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">Filter</a>
                             </li>
                             <li>
-                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxonkey={$ taxon.info.nubKey $}">Download</a>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/download?taxonkey={$ taxon.info.key $}">Download</a>
                             </li>
                         {% endif %}
                     </ul>
@@ -132,112 +132,112 @@
                         <span class="desc taxa">{$ helpers.taxonomy(taxon.info) $}</span>
                     </div>
 
-                    {% if taxon.holotypes.count > 0 %}
-                        <div>
-                            <span class="term">Holo types:</span>
-                <span class="desc type">
-                    {% if taxon.featuredHolotype %}
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="//www.gbif.org/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>
-                    {% endif %}
-                    {% if taxon.holotypes.count > 1 %}
-                        and {$ taxon.holotypes.count - 1 $} other places
-                    {% endif %}
-                </span>
-                        </div>
-                    {% endif %}
+                    {#{% if taxon.holotypes.count > 0 %}#}
+                        {#<div>#}
+                            {#<span class="term">Holo types:</span>#}
+                            {#<span class="desc type">#}
+                                {#{% if taxon.featuredHolotype %}#}
+                                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="//www.gbif.org/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>#}
+                                {#{% endif %}#}
+                                {#{% if taxon.holotypes.count > 1 %}#}
+                                    {#and {$ taxon.holotypes.count - 1 $} other places#}
+                                {#{% endif %}#}
+                            {#</span>#}
+                        {#</div>#}
+                    {#{% endif %}#}
 
                     {% if taxon.children.results.length > 0 %}
                         <div>
                             <span class="term">Lower classifications:</span>
-                <span class="desc lower">
-                    {% for child in taxon.children.results | limit(3) %}
-                        <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
-                    {% endfor %}
+                            <span class="desc lower">
+                                {% for child in taxon.children.results | limit(3) %}
+                                    <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
+                                {% endfor %}
 
-                    {% if taxon.children.results.length == 4 %}
-                        <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
-                    {% elif taxon.children.results.length > 4 %}
-                        <a href="/search/#somewhere that shows this" class="more">view all</a>
-                    {% endif %}
-                </span>
+                                {% if taxon.children.results.length == 4 %}
+                                    <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
+                                {% elif taxon.children.results.length > 4 %}
+                                    <a href="/search/#somewhere that shows this" class="more">view all</a>
+                                {% endif %}
+                            </span>
                         </div>
                     {% endif %}
 
                 </div>
 
-                {% if taxon.occurrences.count > 0 %}
-                    <div class="card__occurrences isCollapsable">
+                {#{% if taxon.occurrences.count > 0 %}#}
+                    {#<div class="card__occurrences isCollapsable">#}
 
-                        {% if taxon.occurrences.count > 3 %}
-                        <span>Showing 3 of <a href="//www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">{$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrences</a></span>
-                        {% endif %}
+                        {#{% if taxon.occurrences.count > 3 %}#}
+                        {#<span>Showing 3 of <a href="//www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">{$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrences</a></span>#}
+                        {#{% endif %}#}
 
-                        <div class="occurrenceTable">
-                            <div class="table">
-                                <div class="table__content">
-                                    <table>
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                Name
-                                            </th>
-                                            <th>
-                                                Year
-                                            </th>
-                                            <th>
-                                                Basis of record
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for row in taxon.occurrences.results | limit(3) %}
-                                            <tr class="table-row">
-                                                <td>
-                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
-                                                </td>
-                                                <td>
-                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>
-                                                </td>
-                                                <td class="u-capitalize">
-                                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
+                        {#<div class="occurrenceTable">#}
+                            {#<div class="table">#}
+                                {#<div class="table__content">#}
+                                    {#<table>#}
+                                        {#<thead>#}
+                                        {#<tr>#}
+                                            {#<th>#}
+                                                {#Name#}
+                                            {#</th>#}
+                                            {#<th>#}
+                                                {#Year#}
+                                            {#</th>#}
+                                            {#<th>#}
+                                                {#Basis of record#}
+                                            {#</th>#}
+                                        {#</tr>#}
+                                        {#</thead>#}
+                                        {#<tbody>#}
+                                        {#{% for row in taxon.occurrences.results | limit(3) %}#}
+                                            {#<tr class="table-row">#}
+                                                {#<td>#}
+                                                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>#}
+                                                {#</td>#}
+                                                {#<td>#}
+                                                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>#}
+                                                {#</td>#}
+                                                {#<td class="u-capitalize">#}
+                                                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>#}
+                                                {#</td>#}
+                                            {#</tr>#}
+                                        {#{% endfor %}#}
+                                        {#</tbody>#}
+                                    {#</table>#}
+                                {#</div>#}
                                 {#{% if taxon.occurrences.count > 3 %}#}
                                     {#<div class="SearchResults__section__more">#}
                                         {#<a href="http://www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">View all<span class="l-only"> {$ taxon.occurrences.count $} occurrences</span></a>#}
                                     {#</div>#}
                                 {#{% endif %}#}
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#{% endif %}#}
 
 
-                {% if taxon.images and taxon.images.count > 0 %}
-                    <div class="card__images isCollapsable">
-                        <div>
-                            {% if taxon.media and taxon.media.results.length > 0 %}
-                                <img src="http://api.gbif.org/v1/image?url={$taxon.media.results[0].identifier $}&size=S" onerror="this.style.display='none'">
-                            {% endif %}
+                {#{% if taxon.images and taxon.images.count > 0 %}#}
+                    {#<div class="card__images isCollapsable">#}
+                        {#<div>#}
+                            {#{% if taxon.media and taxon.media.results.length > 0 %}#}
+                                {#<img src="http://api.gbif.org/v1/image?url={$taxon.media.results[0].identifier $}&size=S" onerror="this.style.display='none'">#}
+                            {#{% endif %}#}
 
-                            {% for type in taxon.holotypes.results %}
-                                {% if type.media and type.media.length > 0 and type.media[0].identifier %}
-                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
-                                {% endif %}
-                            {% endfor %}
+                            {#{% for type in taxon.holotypes.results %}#}
+                                {#{% if type.media and type.media.length > 0 and type.media[0].identifier %}#}
+                                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/{$ type.key $}"><img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>#}
+                                {#{% endif %}#}
+                            {#{% endfor %}#}
 
-                            {% if taxon.images and taxon.images.count > 0 %}
-                                {% for image in taxon.images.results %}
-                                    <a href="/$ gb.locales.urlPrefix $}/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endif %}
+                            {#{% if taxon.images and taxon.images.count > 0 %}#}
+                                {#{% for image in taxon.images.results %}#}
+                                    {#<a href="/$ gb.locales.urlPrefix $}/occurrence/{$ image.key $}"><img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'"></a>#}
+                                {#{% endfor %}#}
+                            {#{% endif %}#}
+                        {#</div>#}
+                    {#</div>#}
+                {#{% endif %}#}
 
                 <div class="SearchResults__section__more isCollapsable">
                     <a href="{$ gb.locales.urlPrefix $}/search?type=species&q={$ query $}">Search all<span class="l-only"> species</span></a>

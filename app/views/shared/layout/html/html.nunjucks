@@ -24,7 +24,7 @@
 
             {# Main layout cont #}
             {# http://html5doctor.com/the-main-element/ #}
-            <main class="main" role="main" id="main">
+            <main class="main" role="main" id="main" ui-view>
 
                 {# Drawer block is contextual, therefore is a part of the <main> #}
                 {% if hasDrawer %}
@@ -43,9 +43,9 @@
 
                     <div class="Site__contentArea__main">
 
-                        <div ui-view>
+
                             {% block page %}{% endblock %}
-                        </div>
+
 
                         {# Footer #}
                         {% include "../partials/footer/footer.nunjucks" %}

@@ -15,10 +15,10 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('occurrenceCtrl', occurrenceCtrl);
+    .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, moment, $http, $firebaseArray) {
+function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, moment, $http, $firebaseArray) {
     var vm = this;
     vm.comments;
     vm.detailsStates = {
@@ -177,4 +177,4 @@ function occurrenceCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVe
     }
 }
 
-module.exports = occurrenceCtrl;
+module.exports = occurrenceKeyCtrl;

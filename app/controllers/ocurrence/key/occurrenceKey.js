@@ -1,7 +1,7 @@
 "use strict";
 var Q = require('q'),
-    occurrenceFields = require('../../models/gbifdata/occurrence/occurrenceFields'),
-    Occurrence = require('../../models/gbifdata/gbifdata').Occurrence;
+    occurrenceFields = require('../../../models/gbifdata/occurrence/occurrenceFields'),
+    Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
     var keys = [
@@ -25,7 +25,7 @@ function getLastNormalCrawled(datasetProcess) {
     if (datasetProcess.count) {
         for (var i = 0; i < datasetProcess.count; i++) {
             var job = datasetProcess.results[i];
-            if (job.finishReason == 'NORMAL' || job.finishReason == 'NOT_MODIFIED') {
+            if (job.finishReason == 'NORMAL' || job.finishReason == 'NOT_MODIFIED') { //TODO what is the possible values here?
                 return job.finishedCrawling;
             }
         }

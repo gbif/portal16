@@ -73,7 +73,12 @@ require('./angular/occurrenceFields.constants');
 require('./angular/map.constants');
 
 require('../../../pages/search/search.ctrl');
-require('../../../pages/occurrence/key/occurrence.ctrl');
+require('../../../pages/occurrence/key/occurrencekey.ctrl');
+require('../../../pages/occurrence/occurrence.ctrl');
+require('../../../pages/occurrence/table/occurrenceTable.ctrl');
+require('../../../pages/occurrence/map/occurrenceMap.ctrl');
+require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
+
 require('../../../pages/dataset/datasetDetails.ctrl');
 require('../../../components/map/basic/gbmap.directive');
 

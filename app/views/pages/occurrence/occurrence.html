@@ -1,0 +1,24 @@
+<aside class="isLockedX Site__drawer" id="filter">
+    <div>
+        taxonkey {{occurrence.query.taxonKey}}
+        <div>
+            <input ng-model="occurrence.query.taxonKey">
+            <button ng-click="occurrence.goto()">Search</button>
+        </div>
+    </div>
+</aside>
+
+<div class="Site__contentArea">
+    <div class="Site__contentArea__main">
+        <div class="occurrenceSearchResults">
+            <a ui-sref="occurrenceSearch()">root</a>
+            <a ui-sref="occurrenceSearchTable()">table</a>
+            <a ui-sref="occurrenceSearchMap()">map</a>
+            <a ui-sref="occurrenceSearchGallery()">gallery</a>
+
+            <div ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

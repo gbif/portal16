@@ -1,19 +1,19 @@
 var express = require('express'),
-    occurrenceDetails = require('./occurrenceDetails'),
+    occurrenceDetails = require('./occurrenceKey'),
     router = express.Router();
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/occurrence/:key\.:ext?', function (req, res) {
+router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     var occurrenceKey = req.params.key;
 
     occurrenceDetails.getOccurrenceModel(occurrenceKey).then(function(occurrence) {
         renderPage(req, res, occurrence);
-    }, function(err){
-        console.log('error from expand: ' + err); //TODO
-        renderPage(req, res, err);
+    }, function(){
+        //TODO should this be logged here or in model/controller/api?
+        next();
     });
 });
 
