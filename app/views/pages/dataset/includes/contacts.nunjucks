@@ -1,1 +1,14 @@
-{$ element.values | json $}
+<address>
+    <ul>
+        {% for contact in element.values %}
+            <li>
+                <span>{$ contact.type $}</span>
+                {% if contact.email[0] %}
+                    <a href="mailto:{$ contact.email[0] $}">{$ contact.firstName $} {$ contact.lastName $}</a>
+                {% else %}
+                    {$ contact.firstName $} {$ contact.lastName $}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</address>

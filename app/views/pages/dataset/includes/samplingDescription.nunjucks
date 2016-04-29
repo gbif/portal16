@@ -1,1 +1,25 @@
-{$ element.values | json $}
+{% if element.values.studyExtent %}
+    <h5>Study extent</h5>
+    <p>{$ element.values.studyExtent | safe $}</p>
+{% endif %}
+
+{% if element.values.sampling %}
+    <h5>Sampling</h5>
+    <p>{$ element.values.sampling | safe $}</p>
+{% endif %}
+
+{% if element.values.qualityControl %}
+    <h5>Quality control</h5>
+    <p>{$ element.values.qualityControl | safe $}</p>
+{% endif %}
+
+{% if element.values.methodSteps %}
+    <h5>Method steps</h5>
+    <ul>
+        {% if element.values.methodSteps[0] %}
+            {% for step in element.values.methodSteps %}
+                <li>{$ step | safe $}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+{% endif %}

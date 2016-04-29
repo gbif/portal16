@@ -52,8 +52,6 @@ function metadataElementsToFold(datasetDetails) {
         { title: "Collections", property: "collections" },
         { title: "Keyword collections", property: "keywordCollections" },
         { title: "Bibliographic citations", property: "bibliographicCitations" },
-        { title: "Citation", property: "citation" },
-        { title: "Rights", property: "rights" },
         { title: "Contacts", property: "contacts" }
     ];
     var results = [];
@@ -65,6 +63,8 @@ function metadataElementsToFold(datasetDetails) {
             // TODO Further process taxonomicCoverages for HTML output.
             if (metadataElementsToFold[i] == 'taxonomicCoverages') {
             }
+
+            // TODO Process contacts according to refined role weights.
 
             results.push(metadataElementsToFold[i]);
         }

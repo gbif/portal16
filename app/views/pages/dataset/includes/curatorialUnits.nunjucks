@@ -1,1 +1,3 @@
-{$ element.values | json $}
+{# Currently the Struts web app doesn't render root curatorialUnits, but only those contained in collections. #}
+{# Need a real example to template this field. #}
+{# See: https://github.com/gbif/portal-web/blob/master/src/main/webapp/WEB-INF/pages/dataset/detail.ftl#L499 #}

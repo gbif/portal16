@@ -3,3 +3,83 @@ h4.contentTypelabel {
     text-transform uppercase
     font-size 1.4rem
 }
+
+.verticalTabs {
+    section {
+        .tabTitle {
+            margin 0
+        }
+        .tabContent {
+            display none
+        }
+    }
+}
++isBelow($laptop) {
+    .verticalTabs {
+        section {
+            &.isExpanded {
+                .tabContent {
+                    display block
+                }
+            }
+        }
+    }
+}
+
++isAbove($laptop) {
+    .verticalTabsWrapper {
+        padding 10px
+    }
+    .verticalTabs {
+        >div>div {
+            position relative
+            height 500px
+            max-height 80vh
+        }
+        section {
+            .tabContent {
+                position absolute
+                height 100%
+                left 33%
+                top 0
+                width 66%
+                display none
+                overflow auto
+                border 1px solid lightgrey
+                padding 10px 12px 10px 12px
+                border-radius 5px
+            }
+            .tabTitle {
+                width 30%
+                left 0
+                border-bottom 1px solid lightgrey
+                position relative
+                h4 {
+                    margin 0
+                    line-height 2.5em
+                    vertical-align baseline
+                    font-weight 300
+                    color lightgrey
+                }
+            }
+
+            &.isActive {
+                .tabTitle {
+                    border-bottom 1px solid grey
+                    h4 {
+                        color black
+                        font-weight 300
+                    }
+                    h4::after {
+                        position relative
+                        content "\276f"
+                        float right
+                    }
+                }
+                .tabContent {
+                    display block
+                }
+            }
+        }
+    }
+}

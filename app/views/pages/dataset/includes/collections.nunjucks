@@ -1,1 +1,36 @@
-{$ element.values | json $}
+{% for collection in element.values %}
+    {% if collection.name %}
+        <h5>Collection name</h5>
+        <p>{$ collection.name $}</p>
+    {% endif %}
+    {% if collection.identifier %}
+        <h5>Collection identifier</h5>
+        <p>{$ collection.identifier $}</p>
+    {% endif %}
+    {% if collection.parentIdentifier %}
+        <h5>Parent collection identifier</h5>
+        <p>{$ collection.parentIdentifier $}</p>
+    {% endif %}
+    {% if collection.specimenPreservationMethod %}
+        <h5>Specimen preservation method</h5>
+        <p>{$ collection.specimenPreservationMethod $}</p>
+    {% endif %}
+    {% if collection.curatorialUnits[0] %}
+        <h5>Curatorial units</h5>
+        <ul>
+            {% for unit in collection.curatorialUnits %}
+                <li>
+                    {% if unit.count %}
+                        {$ unit.count $}
+                        {% if unit.deviation %}
+                            ± {$ unit.deviation $}
+                        {% endif %}
+                    {% else %}
+                        {$ unit.lower $} - {$ unit.upper $}
+                    {% endif %}
+                    {$ unit.typeVerbatim $}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %}

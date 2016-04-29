@@ -1,17 +1,17 @@
 {# Generic tabular view renderer with tabs vertically stacking on the left column #}
 {% macro verticalTabularRenderer(elements) %}
-    {% for element in elements %}
-        <section ng-click="verticalTabularRenderer.sectionToggle({$ loop.index0 $})" ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
-            <h4>{$ element.title $}</h4>
-            <div>
-            {% if element.property == 'project' %}
-                {% include "./includes/project.nunjucks" %}
-            {% elif element.property == 'taxonomicCoverages' %}
-                {% include "./includes/taxonomicCoverages.nunjucks" %}
-            {% endif %}
-            </div>
-        </section>
-    {% endfor %}
+    <div class="verticalTabsWrapper">
+        {% for element in elements %}
+            <section ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
+                <div class="tabTitle">
+                    <h4 ng-click="verticalTabularRenderer.sectionToggle({$ loop.index0 $})">{$ element.title $}</h4>
+                </div>
+                <div class="tabContent">
+                    {% include "./includes/" + element.property + ".nunjucks" %}
+                </div>
+            </section>
+        {% endfor %}
+    </div>
 {% endmacro %}
 
 {% macro contacts(label, contacts) %}
@@ -23,4 +23,16 @@
             {% endfor %}
         </ul>
     </address>
+{% endmacro %}
+
+{# Temporal coverage formatter #}
+{% macro temporalCoverages(values) %}
+<h4>Temporal coverage</h4>
+<ul>
+    {% for value in values %}
+    {% if value.@type == "range" %}
+    <li>Date range: {$ value.start | formatDate() $} - {$ value.end | formatDate() $}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
 {% endmacro %}

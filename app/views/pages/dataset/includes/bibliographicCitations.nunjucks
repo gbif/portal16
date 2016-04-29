@@ -1,1 +1,5 @@
-{$ element.values | json $}
+<ul class="bibliographicCitation">
+    {% for citation in element.values %}
+        <li>{$ citation.text | safe $}</li>
+    {% endfor %}
+</ul>

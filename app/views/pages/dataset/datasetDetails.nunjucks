@@ -18,7 +18,13 @@
                 </header>
                 <div class="two-third">
                     <ul>
-                        <li>Published by: {$ publisher.title $}</li>
+                        <li>Published by:
+                        {% if publisher.homepage %}
+                            <a href="{$ publisher.homepage $}">{$ publisher.title $}</a>
+                        {% else %}
+                            {$ publisher.title $}
+                        {% endif %}
+                        </li>
                         <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
                         <li>Metadata language: {$ datasetDetails.language $}</li>
                         <li>Data language: {$ datasetDetails.dataLanguage $}</li>
@@ -33,7 +39,9 @@
                             <span class="gb-icon-ccby cc"></span>
                             <span class="gb-icon-ccnc cc"></span>
                         </li>
-                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
+                        {% if datasetDetails.logoUrl %}
+                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}""></a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -51,7 +59,7 @@
                     <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
                 </section>
                 <section class="one-third">
-                    {$ commonMacros.temporalCoverages(datasetDetails.temporalCoverages) $}
+                    {$ datasetMacros.temporalCoverages(datasetDetails.temporalCoverages) $}
                 </section>
             </div>
         </section>
@@ -76,10 +84,12 @@
                             </ul>
                         {% endif %}
                     </section>
+                    {% if datasetDetails.additionalInfo %}
                     <section>
                         <h4>Additional information</h4>
                         <p>{$ datasetDetails.additionalInfo | safe $}</p>
                     </section>
+                    {% endif %}
                 </div>
             </div>
         </section>
@@ -89,18 +99,33 @@
             </div>
         </section>
         {# TODO make dependent on model from route controller @Burke #}
-        <section id="metadata-explorer" class="tabbedContent" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
+        <section id="metadata-explorer" class="verticalTabs" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
             <div class="centerContent">
-                <h3>[pending suitable title]</h3>
-                <div>
-                    {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
+                <h3>Further information</h3>
+                {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
                     {#
                         To remove once the macro above works.
                         {% include "./includes/foldedMetadata.nunjucks" %}
                     #}
-                </div>
             </div>
         </section>
+        {# TODO Final citation format to be decided. #}
+        {% if datasetDetails.citation or datasetDetails.rights %}
+        <section id="citation">
+            <div class="centerContent">
+                <h3>Citation and licensing</h3>
+                {% if datasetDetails.citation %}
+                    <h5>Provided by the data publisher</h5>
+                    <p>{$ datasetDetails.citation.text $}</p>
+                    <p><a href="{$ datasetDetails.citation.identifier $}">{$ datasetDetails.citation.identifier $}</a></p>
+                {% endif %}
+                {% if datasetDetails.rights %}
+                    <h5>Rights</h5>
+                    <p>{$ datasetDetails.rights | safe $}</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
         <section id="related-news">
             <div class="centerContent">
                 <h3>Related news</h3>
