@@ -24,7 +24,7 @@ function gbmapDirective() {
     return directive;
 
     /** @ngInject */
-    function gbmap(leafletData, OccurrenceBbox, mapConstants) {
+    function gbmap(leafletData, OccurrenceBbox, mapConstants, env) {
         var vm = this;
         vm.id = 'gbifMap';//TODO how to handle mutiple ids? Random is ugly
         //vm.center = {zoom: 0, lat: 0, lng: 0};
@@ -37,7 +37,7 @@ function gbmapDirective() {
             overlays: {
                 occurrences: {
                     name: 'gb',
-                    url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=4",
+                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=4',
                     type: 'xyz',
                     visible: true,
                     layerParams: {

@@ -13,6 +13,7 @@
  * @type {exports|module.exports}
  */
 var helper = require('../util/util'),
+    baseConfig = require('../../../config/config');
     async = require('async');
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {
@@ -23,29 +24,29 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
     async.auto(
         {
             info: function(callback) {
-                helper.getApiData('http://api.gbif.org/v1/species/' + key, callback);
+                helper.getApiData(baseConfig.dataApi + 'species/' + key, callback);
             },
             media: function(callback){
                 //media attached to that taxon
-                helper.getApiData('http://api.gbif.org/v1/species/' + key + '/media', callback);
+                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/media', callback);
             },
             occurrences: function(callback){
-                helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&taxonKey=' + key, callback);
+                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&taxonKey=' + key, callback);
             },
             images: function(callback){
-                helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
+                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
             },
             holotypes: function(callback){
                 //Only show holotypes if it is a species
                 if (taxon.rank == 'SPECIES' || taxon.rank == 'FAMILY' || taxon.rank == 'GENUS') {
-                    helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&typestatus=holotype&taxonKey=' + key, callback);
+                    helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&typestatus=holotype&taxonKey=' + key, callback);
                 } else {
                     callback(null, null);
                 }
             },
             children: function(callback){
                 //children
-                helper.getApiData('http://api.gbif.org/v1/species/' + key + '/children?limit=5', function(err, data) {
+                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/children?limit=5', function(err, data) {
                     if (err) {
                         callback(err, data);
                     } else if(typeof data.errorType !== 'undefined') {
@@ -61,7 +62,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                     callback(null, null);
                 } else {
                     var publishingOrgKey = results.holotypes.results[0].publishingOrgKey;
-                    helper.getApiData('http://api.gbif.org/v1/organization/' + publishingOrgKey, callback);
+                    helper.getApiData(baseConfig.dataApi + 'organization/' + publishingOrgKey, callback);
                 }
             }]
         },
@@ -103,7 +104,7 @@ function getData(query, cb) {
     async.auto(
         {
             rawTaxaMatches: function(callback) {
-                helper.getApiData('http://api.gbif.org/v1/species/match?verbose=true&name=' + q, function(err, data) {
+                helper.getApiData(baseConfig.dataApi + 'species/match?verbose=true&name=' + q, function(err, data) {
                     if (typeof data.errorType !== 'undefined') {
                         callback(err, data)
                     } else if (data) {
@@ -133,7 +134,7 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length != 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif.org/v1/occurrence/search?limit=5&catalogNumber=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&catalogNumber=' + q, callback);
                     }
                 }
             ],
@@ -142,7 +143,7 @@ function getData(query, cb) {
                     if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif-uat.org/v1/occurrence/search?limit=5&q=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&q=' + q, callback);
                     }
                 }
             ],
@@ -151,21 +152,21 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData('http://api.gbif.org/v1/species/search?limit=5q=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5q=' + q, callback);
                     }
                 }
             ],
             datasets: function(callback) {
-                helper.getApiData('http://api.gbif.org/v1/dataset/search?limit=5&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&q=' + q, callback);
             },
             publishers: function(callback) {
-                helper.getApiData('http://api.gbif.org/v1/organization?limit=5&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);
             },
             articles: function(callback){
-                helper.getApiData('http://www.gbif-dev.org/api/search/' + q, callback);
+                helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
             },
             country: function(callback) {
-                helper.getApiData('http://api.gbif.org/v1/directory/participant?q=' + q, function(err, data) {
+                helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {
                     if (err) {
                         callback(err, data);
                         return;

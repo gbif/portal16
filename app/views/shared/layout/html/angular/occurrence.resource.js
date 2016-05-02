@@ -7,8 +7,8 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('Occurrence', function($resource) {
-            return $resource('http://api.gbif.org/v1/occurrence/:id', null, {
+        .factory('Occurrence', function($resource, env) {
+            return $resource(env.dataApi + 'occurrence/:id', null, {
                     'query': {
                         method: 'GET',
                         isArray: false
@@ -16,8 +16,8 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceVerbatim', function($resource) {
-            return $resource('http://api.gbif.org/v1/occurrence/:id/verbatim', null, {
+        .factory('OccurrenceVerbatim', function($resource, env) {
+            return $resource(env.dataApi + 'occurrence/:id/verbatim', null, {
                     'query': {
                         method: 'GET',
                         isArray: false
@@ -25,8 +25,8 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource) {
-            return $resource('http://api.gbif.org/v1/occurrence/search', null, {
+        .factory('OccurrenceSearch', function($resource, env) {
+            return $resource(env.dataApi + 'occurrence/search', null, {
                     'query': {
                         method: 'GET',
                         isArray: false

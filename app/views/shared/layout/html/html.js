@@ -63,7 +63,7 @@ require('angular-aria');
     }
 })();
 
-
+require('./angular/env.constants');
 require('./angular/routerConfig');
 require('./angular/translate');
 require('./angular/occurrence.resource');

@@ -112,6 +112,14 @@ config.js = {
     }
 };
 
+ /**
+ *  front end environment constants for api calls. These are generated from command line arguments and defaults to prod
+ */
+config.envConstants = {
+    path: loc('app/views/shared/**/*.jsTemplate'),
+    dest: loc('app/views/shared/')
+};
+
 
 /**
  * Static assets that are to be copied as is. Fonts, favicons, logos etc.
@@ -133,7 +141,7 @@ config.iconfont = {
 
 
  /**
- *  The main paths of your project handle these with care
+ *  Delete everyting in this folder before building
  */
 config.clean = {
     all: config.paths.dist

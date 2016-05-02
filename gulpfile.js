@@ -35,7 +35,7 @@ requireDir('./gulp/tasks', {
 
 gulp.task('production', function(callback) {
     runSequence(
-        ['clean-all'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates'], ['ieStyle'],
+        ['clean-all'], ['env-constants'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates'], ['ieStyle'],
         callback);
 });
 
@@ -63,7 +63,7 @@ gulp.task('watch', ['browser-sync'], function() {
 
 gulp.task('development', [], function(callback) {
     runSequence(
-        ['clean-all'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates'],
+        ['clean-all'], ['env-constants'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates'],
         ['ieStyle'],
         ['watch'],
         callback);

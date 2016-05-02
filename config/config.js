@@ -4,7 +4,8 @@ var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'development',
     defaultPort = yargs.port || 3000,
-    dataApi = yargs.dataapi;
+    dataApi = yargs.dataapi,
+    cmsApi = yargs.cmsapi;
 
 var config = {
     development: {
@@ -14,7 +15,8 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif.org/v1/'
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     uat: {
         root: rootPath,
@@ -23,7 +25,8 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif-uat.org/v1/'
+        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
+        cmsApi: cmsApi || 'http://www.gbif-uat.org/api/'
     },
     production: {
         root: rootPath,
@@ -32,7 +35,8 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif.org/v1/'
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        cmsApi: cmsApi || 'http://www.gbif.org/api/'
     },
     test: {
         root: rootPath,
@@ -41,7 +45,8 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif.org/v1/'
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     }
 };
 

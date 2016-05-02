@@ -11,7 +11,6 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     yargs = require('yargs').argv,
     g = require('gulp-load-plugins')();
-console.log(yargs.loglevel);
 
 gulp.task('browser-sync', ['server'], function() {
     console.log('Starting browser-synced site at http://localhost:' + config.browsersync.port);
@@ -28,9 +27,11 @@ gulp.task('server', ['server-lint'], function(cb) {
 
     var started = false;
     var args = [];
-    if (yargs.loglevel) {
-        args.push('--loglevel=' + yargs.loglevel);
-    }
+    ['loglevel', 'dataapi', 'cmsapi'].forEach(function(e){
+        if (yargs[e]) {
+            args.push('--'+e+'=' + yargs[e]);
+        }
+    });
 
     return g.nodemon({
             script: 'app.js',

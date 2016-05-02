@@ -12,7 +12,7 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
             url: '/{locale:(?:en|da)}',
             abstract: true,
-            template: '<div ui-view="main"></div>',
+            template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale : { squash : true, value: 'en' }}
         })
         .state('testerpage', {

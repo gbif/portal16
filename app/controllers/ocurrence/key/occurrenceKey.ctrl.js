@@ -13,6 +13,7 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
         renderPage(req, res, occurrence);
     }, function(){
         //TODO should this be logged here or in model/controller/api?
+        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         next();
     });
 });

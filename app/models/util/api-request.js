@@ -58,8 +58,8 @@ function getData(cb, path, options) {
 
 function getApiData(path, callback, options) {
     options = options || {};
-    options.timeoutMilliSeconds = options.timeoutMilliSeconds || 4000;
-    options.retries = options.retries || 2;
+    options.timeoutMilliSeconds = options.timeoutMilliSeconds || 3000;
+    options.retries = options.retries || 1;
     options.failHard = options.failHard || false;
 
     async.retry(
