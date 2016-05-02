@@ -2,7 +2,7 @@
 {% macro verticalTabularRenderer(elements) %}
     <div class="verticalTabsWrapper">
         {% for element in elements %}
-            <section ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
+            <section id="{$ element.property $}" ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
                 <div class="tabTitle">
                     <h4 ng-click="verticalTabularRenderer.sectionToggle({$ loop.index0 $})">{$ element.title $}</h4>
                 </div>

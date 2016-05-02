@@ -63,7 +63,6 @@
     "karma-browserify": "^4.4.2",
     "karma-jasmine": "^0.3.7",
     "karma-junit-reporter": "^0.3.8",
-    "lodash": "^4.11.1",
     "method-override": "^2.3.0",
     "moment": "^2.13.0",
     "nunjucks": "^2.0.0",
