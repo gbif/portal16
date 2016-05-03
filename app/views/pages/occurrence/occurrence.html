@@ -1,11 +1,30 @@
 <aside class="isLockedX Site__drawer" id="filter">
     <div>
-        taxonkey {{occurrence.query.taxonKey}}
-        <div>
-            <input ng-model="occurrence.query.taxonKey">
-            <button ng-click="occurrence.goto()">Search</button>
+        <h2>Filter</h2>
+        <div class="form-group">
+            <input ng-model="occurrence.query.q">
+            <button ng-click="occurrence.updateSearch()">Search</button>
+        </div>
+        <div class="form-group">
+            <label>
+                <span>Scientific name</span>
+
+                <div class="chip" ng-repeat="test in occurrence.suggest.selected" ng-click="occurrence.suggest.remove($index)">
+                    {{test.canonicalName}}
+                </div>
+
+                <div class="Site__drawer__sub" ng-if="!occurrence.hide">
+                    <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
+                    <div ng-repeat="test in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{isActive: $index==occurrence.suggest.activeIndex}">
+                        {{test.canonicalName}}
+                    </div>
+                </div>
+            </label>
+
+
         </div>
     </div>
+
 </aside>
 
 <div class="Site__contentArea">
