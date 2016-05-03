@@ -8,12 +8,13 @@ require('firebase');
 require('angularfire');
 require('angular-resource');
 require('angular-aria');
+require('ng-tags-input');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ngTagsInput']);
 
 })();
 
@@ -67,6 +68,7 @@ require('./angular/env.constants');
 require('./angular/routerConfig');
 require('./angular/translate');
 require('./angular/occurrence.resource');
+require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFields.constants');
@@ -81,6 +83,7 @@ require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
 require('../../../pages/dataset/datasetDetails.ctrl');
 require('../../../components/map/basic/gbmap.directive');
+require('../../../components/suggest/suggest.directive');
 
 
 
