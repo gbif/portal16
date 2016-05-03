@@ -25,6 +25,7 @@ function renderPage(req, res, dataset) {
         publisher: dataset.publisher,
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
+        headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
         hasTitle: true
     };
 
@@ -64,7 +65,6 @@ function metadataElementsToFold(datasetDetails) {
     metadataElementsToFold.forEach(function (elementToFold) {
         if (typeof datasetDetails[elementToFold.property] !== 'undefined' && datasetDetails[elementToFold.property].length !== 0) {
 
-            // TODO Process contacts according to refined role weights.
             switch (elementToFold.property) {
                 case 'taxonomicCoverages':
                     // TODO Introduce lodash to simplify and enhance the readability of the code.
@@ -159,6 +159,9 @@ function metadataElementsToFold(datasetDetails) {
                     });
                     elementToFold.values = taxonomicCoveragesProcessed;
                     break;
+                case 'contacts':
+                    elementToFold.values = organizeContacts(datasetDetails[elementToFold.property], 'OTHER');
+                    break;
                 default:
                     elementToFold.values = datasetDetails[elementToFold.property];
                     break;
@@ -169,4 +172,107 @@ function metadataElementsToFold(datasetDetails) {
     });
 
     return results;
+}
+
+/**
+ * Reorganize contacts according to roles ordered in the roles variable.
+ * @param sourceContacts
+ * @param mode
+ */
+function organizeContacts(sourceContacts, mode) {
+    var roles = [];
+
+    // The order of roles here matters as weighting.
+    switch (mode) {
+        case 'HEADER':
+            roles = [
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
+                {'type': 'ORIGINATOR', 'label': 'Originator'}
+            ];
+            break;
+        case 'OTHER':
+            roles = [
+                {'type': 'ADMINISTRATIVE_POINT_OF_CONTACT', 'label': 'Administrative contact'},
+                {'type': 'TECHNICAL_POINT_OF_CONTACT', 'label': 'Technical contact'},
+                {'type': 'POINT_OF_CONTACT', 'label': 'Contact'},
+                {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
+                {'type': 'AUTHOR', 'label': 'Author'},
+                {'type': 'EDITOR', 'label': 'Editor'},
+                {'type': 'CONTENT_PROVIDER', 'label': 'Content provider'},
+                {'type': 'CUSTODIAN_STEWARD', 'label': 'Custodian steward'},
+                {'type': 'DISTRIBUTOR', 'label': 'Distributor'},
+                {'type': 'OWNER', 'label': 'Owner'},
+                {'type': 'PUBLISHER', 'label': 'Publisher'},
+                {'type': 'USER', 'label': 'User'},
+                {'type': 'DATA_ADMINISTRATOR', 'label': 'Data administrator'},
+                {'type': 'SYSTEM_ADMINISTRATOR', 'label': 'System administrator'},
+                {'type': 'PROGRAMMER', 'label': 'Programmer'},
+                {'type': 'PROCESSOR', 'label': 'Processor'}
+            ];
+            break;
+        default:
+            roles = [
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
+                {'type': 'ORIGINATOR', 'label': 'Originator'},
+                {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
+                {'type': 'AUTHOR', 'label': 'Author'},
+                {'type': 'EDITOR', 'label': 'Editor'},
+                {'type': 'CONTENT_PROVIDER', 'label': 'Content provider'},
+                {'type': 'CUSTODIAN_STEWARD', 'label': 'Custodian steward'},
+                {'type': 'DISTRIBUTOR', 'label': 'Distributor'},
+                {'type': 'OWNER', 'label': 'Owner'},
+                {'type': 'PUBLISHER', 'label': 'Publisher'},
+                {'type': 'USER', 'label': 'User'},
+                {'type': 'DATA_ADMINISTRATOR', 'label': 'Data administrator'},
+                {'type': 'SYSTEM_ADMINISTRATOR', 'label': 'System administrator'},
+                {'type': 'PROGRAMMER', 'label': 'Programmer'},
+                {'type': 'PROCESSOR', 'label': 'Processor'},
+                {'type': 'HEAD_OF_DELEGATION', 'label': 'Head of Delegation'},
+                {'type': 'TEMPORARY_HEAD_OF_DELEGATION', 'label': 'Temporary Head of Delegation'},
+                {'type': 'ADDITIONAL_DELEGATE', 'label': 'Additional delegate'},
+                {'type': 'TEMPORARY_DELEGATE', 'label': 'Temporary delegate'},
+                {'type': 'REGIONAL_NODE_REPRESENTATIVE', 'label': 'Regional node representative'},
+                {'type': 'NODE_MANAGER', 'label': 'Node manager'},
+                {'type': 'NODE_STAFF', 'label': 'Node staff'},
+                {'type': 'ADMINISTRATIVE_POINT_OF_CONTACT', 'label': 'Administrative contact'},
+                {'type': 'TECHNICAL_POINT_OF_CONTACT', 'label': 'Technical contact'},
+                {'type': 'POINT_OF_CONTACT', 'label': 'Contact'}
+            ];
+            break;
+    }
+
+    roles.forEach(function (role) {
+        role.contacts = [];
+        sourceContacts.forEach(function(sourceContact){
+            if (sourceContact.type == role.type) {
+
+                // Process firstName, lastName and email here so the template is cleaner.
+                // Make click-to-email name if email exists.
+                var name = '';
+                if (sourceContact.email) {
+                    name = '<a href="mailto:' + sourceContact.email + '">' + sourceContact.firstName + ' ' + sourceContact.lastName + '</a>';
+                }
+                else {
+                    name = sourceContact.firstName + ' ' + sourceContact.lastName;
+                }
+                sourceContact.name = name;
+
+                var exists = false;
+                if (role.contacts[0]) {
+                    role.contacts.forEach(function(c){
+                        if (c.key == sourceContact.key) {
+                            exists = true;
+                        }
+
+                    });
+                }
+
+                if (!exists) {
+                    role.contacts.push(sourceContact);
+                }
+            }
+        });
+    });
+
+    return roles;
 }

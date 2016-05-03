@@ -28,7 +28,8 @@
                         <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
                         <li>Metadata language: {$ datasetDetails.language $}</li>
                         <li>Data language: {$ datasetDetails.dataLanguage $}</li>
-                        <li>Main contact: {$ datasetDetails.contacts[0].firstName $} {$ datasetDetails.contacts[0].lastName $}</li>
+                        {# sub-template for determining the best list of primary contacts #}
+                        {% include "./includes/headerContacts.nunjucks" %}
                     </ul>
                 </div>
                 <div class="one-third licences">

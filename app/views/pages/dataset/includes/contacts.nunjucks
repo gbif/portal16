@@ -1,14 +1,17 @@
 <address>
-    <ul>
-        {% for contact in element.values %}
-            <li>
-                <span>{$ contact.type $}</span>
-                {% if contact.email[0] %}
-                    <a href="mailto:{$ contact.email[0] $}">{$ contact.firstName $} {$ contact.lastName $}</a>
-                {% else %}
-                    {$ contact.firstName $} {$ contact.lastName $}
+    <dl>
+        {% for role in element.values %}
+            {% if role.type != 'METADATA_AUTHOR' or role.type != 'ORIGINATOR' %}
+                {% if role.contacts[0] %}
+                <dt>{$ role.label $}</dt>
+                <dd>
+                    {% set comma = joiner() %}
+                    {% for contact in role.contacts -%}
+                        {$ comma() $} {$ contact.name | safe $}
+                    {%- endfor %}
+                </dd>
                 {% endif %}
-            </li>
+            {% endif %}
         {% endfor %}
-    </ul>
+    </dl>
 </address>
