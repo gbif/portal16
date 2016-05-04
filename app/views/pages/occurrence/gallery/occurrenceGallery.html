@@ -1,6 +1,6 @@
 <div class="imageGallery">
     <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-        <img ng-src="http://api.gbif.org/v1/image?url={{image.media[0].identifier }}&size=S" responsive-image>
+        <img ng-src="http://api.gbif.org/v1/image?url={{image.media[0].identifier }}&size=S" gallery-image>
     </a>
-    <div class="imageGallery__more" ng-click="occGallery.search()"><span>more</span></div>
+    <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
 </div>

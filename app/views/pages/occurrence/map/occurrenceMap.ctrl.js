@@ -13,10 +13,8 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl($stateParams, leafletData, mapConstants, $httpParamSerializer) {
+function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter) {
     var vm = this;
-    vm.query = angular.copy($stateParams);
-    vm.query.key = vm.query.taxonKey;
 
     var getOverlay = function(query) {
         var overlay = {
@@ -36,13 +34,27 @@ function occurrenceMapCtrl($stateParams, leafletData, mapConstants, $httpParamSe
             base: mapConstants.baseLayers.options.classic
         },
         overlays: {
-            occurrences: getOverlay(vm.query)
+            //occurrences: getOverlay(vm.query)
         }
     };
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
     };
+
+    var setOverlay = function() {
+        console.log('set overlay');
+        vm.query = angular.copy(OccurrenceFilter.query);
+        vm.query.key = vm.query.taxonKey;
+        if (vm.query.taxonKey.length > 0) vm.query.key = vm.query.taxonKey[0];
+        //vm.query.key = 212;
+        vm.layers.overlays.occurrences = getOverlay(vm.query);
+    };
+
+
+    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
+        setOverlay();
+    });
 }
 
 module.exports = occurrenceMapCtrl;

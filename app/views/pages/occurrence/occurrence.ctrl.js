@@ -13,9 +13,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($stateParams, $state, SpeciesSuggest, Species) {
+function occurrenceCtrl($stateParams, $state, SpeciesSuggest, Species, OccurrenceFilter) {
     var vm = this;
-    vm.query = angular.copy($stateParams);
+    vm.query = OccurrenceFilter.query;//angular.copy($stateParams);
 
     vm.scientificName = 'abies';
     vm.suggestions = [];
@@ -31,7 +31,8 @@ function occurrenceCtrl($stateParams, $state, SpeciesSuggest, Species) {
         onChange: function(selected){
             var taxonKeys = selected.map(function(e){return e.key;});
             vm.query.taxonKey = taxonKeys;
-            $state.transitionTo($state.current, vm.query, { location: true, inherit: true, relative: $state.$current, notify: false })
+            OccurrenceFilter.query = vm.query;
+            $state.transitionTo($state.current, vm.query, {location: true, notify: false})
         },
         onCancel: function(){
             vm.hide = true;

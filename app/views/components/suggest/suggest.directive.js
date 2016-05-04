@@ -45,6 +45,7 @@ function suggestDirective() {
             if (i < 0 || i > vm.suggest.selected.length) return;
 
             vm.suggest.selected.splice(i, 1);
+            vm.suggest.selectedKeys.splice(i, 1);
             if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
         };
 
