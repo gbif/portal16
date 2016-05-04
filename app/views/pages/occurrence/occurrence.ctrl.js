@@ -13,10 +13,10 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($stateParams, $state, SpeciesSuggest, Species, OccurrenceFilter) {
+function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
     var vm = this;
-    vm.query = OccurrenceFilter.query;//angular.copy($stateParams);
-
+    vm.query = OccurrenceFilter.query;
+    vm.hide = true;
     vm.scientificName = 'abies';
     vm.suggestions = [];
     vm.activeSuggestion = 0;
@@ -26,7 +26,7 @@ function occurrenceCtrl($stateParams, $state, SpeciesSuggest, Species, Occurrenc
         baseQuery: {datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'},
         queryField: 'q',
         matchField: 'canonicalName',
-        multiSelect: true,
+        multiSelect: false,
         key: 'key',
         onChange: function(selected){
             var taxonKeys = selected.map(function(e){return e.key;});

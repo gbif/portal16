@@ -23,7 +23,7 @@ function suggestDirective() {
     return directive;
 
     /** @ngInject */
-    function suggest($scope) {
+    function suggest() {
         var vm = this;
         var timer;
         vm.suggest.selected = vm.suggest.selected || [];
@@ -33,6 +33,10 @@ function suggestDirective() {
         vm.suggest.add = function(index) {
             vm.setActive(index);
             if (vm.suggest.selectedKeys.indexOf(vm.suggest.active[vm.config.key]) < 0) {
+                if (!vm.config.multiSelect) {
+                    vm.suggest.selected = [];
+                    vm.suggest.selectedKeys = [];
+                }
                 vm.suggest.selected.push(vm.suggest.active);
                 vm.suggest.selectedKeys.push(vm.suggest.active[vm.config.key]);
                 if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
@@ -106,22 +110,16 @@ function suggestDirective() {
         vm.browse = function(event) {
             if (timer) window.clearTimeout(timer);
             if (event.keyCode == 40) {//DOWN ARROW
-                //if (vm.suggest.activeIndex !== parseInt(vm.suggest.activeIndex, 10)) vm.suggest.activeIndex = 0;
                 vm.suggest.activeIndex = vm.suggest.activeIndex+1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();
             }
             if (event.keyCode == 38) {//UP ARROW
-                //if (vm.suggest.activeIndex !== parseInt(vm.suggest.activeIndex, 10)) vm.suggest.activeIndex = 0;
-                //vm.suggest.activeIndex--;
                 vm.suggest.activeIndex = vm.suggest.activeIndex-1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();
             }
         };
-
-        //$scope.$watch('vm.suggest.activeIndex', function() {
-        //});
     }
 }
 

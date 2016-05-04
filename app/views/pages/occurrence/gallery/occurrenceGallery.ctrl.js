@@ -7,12 +7,13 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter) {
+function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) {
     var vm = this,
         limit = 50,
         offset = 0;
     vm.count = 0;
     vm.results = [];
+    vm.dataApi = env.dataApi;
 
     var search = function(query) {
         query.mediaType = 'stillImage';

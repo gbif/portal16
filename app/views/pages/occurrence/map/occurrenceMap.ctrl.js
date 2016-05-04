@@ -33,54 +33,31 @@ function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializ
         baselayers: {
             base: mapConstants.baseLayers.options.classic
         },
-        overlays: {
-            occurrences: getOverlay({key: 797})//getOverlay(vm.query)
-        }
+        overlays: {}
     };
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
     };
+    leafletData.getMap('occurrenceMap').then(function(map) {
+        map.fitWorld().zoomIn();
+    });
 
-    //vm.changeOverlay = function(){
-    //    delete vm.layers.overlays.occurrences;
-    //    vm.layers.overlays.layer = {
-    //        name: 'gb',
-    //        url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&type=TAXON&resolution=4&key=2888195",
-    //        type: 'xyz',
-    //        visible: true,
-    //        layerParams: {
-    //            "showOnSelector": true
-    //        }
-    //    };
-    //};
+    var setOverlay = function() {
+        //TODO this should be changed to match the new tile/heatmap api
+        vm.query = angular.copy(OccurrenceFilter.query);
+        vm.query.key = vm.query.taxonKey;
+        if (angular.isArray(vm.query.taxonKey)) vm.query.key = vm.query.taxonKey[0];
+        if (Object.keys(vm.layers.overlays).length > 0) {
+            vm.layers.overlays = {};
+        }
+        vm.layers.overlays['occurrences' + vm.query.key] =  getOverlay(vm.query);
+    };
 
-    //var setOverlay = function() {
-    //    console.log('set overlay');
-    //    vm.query = angular.copy(OccurrenceFilter.query);
-    //    vm.query.key = vm.query.taxonKey;
-    //    if (angular.isArray(vm.query.taxonKey)) vm.query.key = vm.query.taxonKey[0];
-    //
-    //    vm.layers.overlays;
-    //    var overlayName = 'occurrences';
-    //    if (vm.layers.overlays.hasOwnProperty(overlayName)) {
-    //        delete vm.layers.overlays[overlayName];
-    //    }
-    //    vm.layers.overlays[overlayName] = {
-    //        name: 'gb',
-    //        url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&type=TAXON&resolution=4&key=212",
-    //        type: 'xyz',
-    //        visible: true,
-    //        layerParams: {
-    //            "showOnSelector": false
-    //        }
-    //    };//getOverlay(vm.query);
-    //};
-    //
-    //
-    //$scope.$watchCollection(OccurrenceFilter.getQuery, function() {
-    //    setOverlay();
-    //});
+    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
+        setOverlay();
+    });
+    setOverlay();
 }
 
 module.exports = occurrenceMapCtrl;

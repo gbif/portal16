@@ -29,7 +29,7 @@
 	margin auto
 }
 
-.Search__content .searchBar {
+.Search__content .searchBar, .tabBar {
 	margin-bottom vr-block(1)
 	overflow hidden
 	background #fbfbfb
@@ -37,18 +37,19 @@
 	.card__tabs {
 		background #fbfbfb
 		border-top 1px solid #ddd
-	}
-	.tabs {
-		max-width 800px
-		margin auto
-	}
-	.tab {
-		flex 0 0 auto
-		&:first-of-type {
-			margin-left vr-block(1)
-			border-bottom 2px solid deepskyblue
+		.tabs {
+			max-width 800px
+			margin auto
+		}
+		.tab {
+			flex 0 0 auto
+			&:first-of-type {
+				margin-left vr-block(1)
+				border-bottom 2px solid deepskyblue
+			}
 		}
 	}
+
 }
 
 .SearchResults__other {
