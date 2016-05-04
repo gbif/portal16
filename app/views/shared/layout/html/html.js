@@ -8,13 +8,12 @@ require('firebase');
 require('angularfire');
 require('angular-resource');
 require('angular-aria');
-require('ng-tags-input');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ngTagsInput']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
 
 })();
 
