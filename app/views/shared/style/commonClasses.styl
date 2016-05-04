@@ -2,7 +2,7 @@
     color: black;
     > section {
         lost-utility: clearfix;
-        padding 20px 0
+        padding 20px 0 0 0
 
         header {
             margin-bottom 10px
@@ -18,10 +18,13 @@
         }
     }
     > section:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color #f9f9f9
     }
     > section:nth-child(odd) {
-        background-color: #ffffff;
+        background-color #ffffff
+    }
+    > section.technical-information {
+        background-color #ffffdf
     }
     .centerContent {
         max-width: 980px;
@@ -33,6 +36,9 @@
         .one-third {
             lost-column: 1/3;
         }
+    }
+    .row {
+        lost-utility clearfix
     }
     .mapSection {
         height vr-block(25)

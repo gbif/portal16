@@ -1,5 +1,6 @@
 var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
+    api = require('../../models/gbifdata/apiConfig'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -10,7 +11,7 @@ router.get('/dataset/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
 
     var getOptions = {
-        expand: ['publisher', 'installation']
+        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process']
     };
     Dataset.get(datasetKey, getOptions).then(function(dataset) {
         renderPage(req, res, dataset);
@@ -26,6 +27,10 @@ function renderPage(req, res, dataset) {
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
         headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
+        occurrenceCount: dataset.occurrenceCount,
+        occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
+        process: dataset.process.results,
+        api: api,
         hasTitle: true
     };
 
@@ -176,6 +181,7 @@ function metadataElementsToFold(datasetDetails) {
 
 /**
  * Reorganize contacts according to roles ordered in the roles variable.
+ * Todo pluralize the role label w/ https://github.com/mashpie/i18n-node
  * @param sourceContacts
  * @param mode
  */
@@ -275,4 +281,18 @@ function organizeContacts(sourceContacts, mode) {
     });
 
     return roles;
+}
+
+/**
+ * To process identifiers so the template only get those meaningful to show.
+ * There are multiple identifiers coming together in the API response. We want to show only
+ * 1) DOI that resolves to the original dataset page;
+ * 2) URLs that are provided by the data publisher;
+ * 3) UUID that are provided by the data publisher and are NOT resolving to GBIF dataset page;
+ * 4) Other identifiers that are provided by the data publisher.
+ * 
+ * @param identifiers
+ */
+function processIdentifiers(identifiers) {
+
 }

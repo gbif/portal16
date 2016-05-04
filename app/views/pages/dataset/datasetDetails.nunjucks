@@ -52,14 +52,12 @@
         </section>
         <section id="primary-coverages">
             <div class="centerContent">
-                <section class="one-third">
-                    <h4>5,289 occurrence records</h4>
-                </section>
-                <section class="one-third">
+                <section class="two-third">
                     <h4>Geographic coverage</h4>
                     <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
                 </section>
                 <section class="one-third">
+                    {% include "./includes/recordCounts.nunjucks" %}
                     {$ datasetMacros.temporalCoverages(datasetDetails.temporalCoverages) $}
                 </section>
             </div>
@@ -104,13 +102,10 @@
             <div class="centerContent">
                 <h3>Further information</h3>
                 {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
-                    {#
-                        To remove once the macro above works.
-                        {% include "./includes/foldedMetadata.nunjucks" %}
-                    #}
             </div>
         </section>
         {# TODO Final citation format to be decided. #}
+        {# TODO Publisher-provided format should have linkable identifier if mentioned. #}
         {% if datasetDetails.citation or datasetDetails.rights %}
         <section id="citation">
             <div class="centerContent">
@@ -132,9 +127,10 @@
                 <h3>Related news</h3>
             </div>
         </section>
-        <section id="metadata-explorer">
+        <section id="gbif-registration-info" class="technical-information">
             <div class="centerContent">
-                <h3>GBIF Registration Information</h3>
+                <h3>GBIF Registration Information (Nerds' zone, to be folded)</h3>
+                {% include "./includes/registrationInfo.nunjucks" %}
             </div>
         </section>
     </article>
