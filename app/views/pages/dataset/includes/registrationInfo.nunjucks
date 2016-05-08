@@ -66,9 +66,12 @@
 </div>
 <div class="row">
     <div class="two-third">
-        {% if datasetDetails.identifiers[0] %}
+        {% if identifiers[0] %}
         <h5>Alternative identifiers</h5>
             <ul>
+                {% for id in identifiers %}
+                    <li>{$ id.formattedString | safe $}</li>
+                {% endfor %}
             </ul>
         {% endif %}
     </div>

@@ -69,10 +69,12 @@
                         <h4>Description</h4>
                         <p>{$ datasetDetails.description | safe $}</p>
                     </section>
+                    {% if datasetDetails.purpose %}
                     <section>
                         <h4>Purpose</h4>
                         <P>{$ datasetDetails.purpose | safe $}</P>
                     </section>
+                    {% endif %}
                 </div>
                 <div class="one-third">
                     <section>
@@ -110,6 +112,7 @@
         <section id="citation">
             <div class="centerContent">
                 <h3>Citation and licensing</h3>
+                <p style="color: orange;">[To follow the suggested citation practice by AH]</p>
                 {% if datasetDetails.citation %}
                     <h5>Provided by the data publisher</h5>
                     <p>{$ datasetDetails.citation.text $}</p>
@@ -129,7 +132,8 @@
         </section>
         <section id="gbif-registration-info" class="technical-information">
             <div class="centerContent">
-                <h3>GBIF Registration Information (Nerds' zone, to be folded)</h3>
+                <h3>GBIF Registration Information</h3>
+                <p style="color: orange;">[Nerd's zone. To be folded.]</p>
                 {% include "./includes/registrationInfo.nunjucks" %}
             </div>
         </section>

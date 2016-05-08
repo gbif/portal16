@@ -31,6 +31,7 @@ function renderPage(req, res, dataset) {
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         process: dataset.process.results,
         api: api,
+        identifiers: processIdentifiers(dataset.record.identifiers),
         hasTitle: true
     };
 
@@ -100,17 +101,8 @@ function metadataElementsToFold(datasetDetails) {
                                 }
                             });
                             // Sort ranks with arbitrary order
-                            var sortedRanks = [];
-                            ranks.forEach(function(value) {
-                                var found = false;
-                                availableRanks = availableRanks.filter(function(rank) {
-                                    if(!found && rank == value) {
-                                        sortedRanks.push(rank);
-                                        found = true;
-                                        return false;
-                                    } else
-                                        return true;
-                                })
+                            var sortedRanks = availableRanks.sort(function(a, b){
+                                return ranks.indexOf(a) - ranks.indexOf(b);
                             });
 
                             // Fill in taxa to accompany the rank
@@ -136,11 +128,7 @@ function metadataElementsToFold(datasetDetails) {
                                             }
 
                                             // Preliminary calculation for italicizing latin names.
-                                            if (ranksToItalicize.indexOf(coverage.rank.interpreted) != -1) {
-                                                taxon.italicized = true;
-                                            } else {
-                                                taxon.italicized = false;
-                                            }
+                                            taxon.italicized = (ranksToItalicize.indexOf(coverage.rank.interpreted) != -1);
 
                                             newCoverage.taxa.push(taxon);
                                         }
@@ -290,9 +278,31 @@ function organizeContacts(sourceContacts, mode) {
  * 2) URLs that are provided by the data publisher;
  * 3) UUID that are provided by the data publisher and are NOT resolving to GBIF dataset page;
  * 4) Other identifiers that are provided by the data publisher.
- * 
+ *
+ * TODO As of 8 May 16 We print out all ids except 'GBIF_PORTAL', despite the goal above.
  * @param identifiers
  */
 function processIdentifiers(identifiers) {
+    var processedIdentifiers = [];
+    var typeToDisplay = ['DOI', 'URL', 'UUID', 'LSID', 'FTP', 'UNKNOWN'];
+    identifiers = identifiers.sort(function(a, b){
+        return typeToDisplay.indexOf(a.type) - typeToDisplay.indexOf(b.type);
+    });
+    identifiers.forEach(function(id){
+        if (typeToDisplay.indexOf(id.type) != -1) {
+            var idObj = {};
+            idObj.formattedString = id.type + ' ' + setAnchor(id.identifier);
+            processedIdentifiers.push(idObj);
+        }
 
+        function setAnchor(str) {
+            if (str.match('^(http|https|ftp)://')) {
+                return '<a href="' + str + '">' + str + '</a>';
+            }
+            else {
+                return str;
+            }
+        }
+    });
+    return processedIdentifiers;
 }
