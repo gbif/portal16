@@ -1,3 +1,4 @@
+{# This template is included in datasetDetails.nunjucks. #}
 <div class="row">
     <div class="one-third">
         {# TODO Show the status of both crawling and indexing here. #}

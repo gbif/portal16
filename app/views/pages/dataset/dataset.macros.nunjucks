@@ -24,15 +24,3 @@
         </ul>
     </address>
 {% endmacro %}
-
-{# Temporal coverage formatter #}
-{% macro temporalCoverages(values) %}
-<h4>Temporal coverage</h4>
-<ul>
-    {% for value in values %}
-    {% if value.@type == "range" %}
-    <li>Date range: {$ value.start | formatDate() $} - {$ value.end | formatDate() $}</li>
-    {% endif %}
-    {% endfor %}
-</ul>
-{% endmacro %}

@@ -41,7 +41,7 @@
                             <span class="gb-icon-ccnc cc"></span>
                         </li>
                         {% if datasetDetails.logoUrl %}
-                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}""></a></li>
+                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
                 </section>
                 <section class="one-third">
                     {% include "./includes/recordCounts.nunjucks" %}
-                    {$ datasetMacros.temporalCoverages(datasetDetails.temporalCoverages) $}
+                    {% include "./includes/temporalCoverage.nunjucks" %}
                 </section>
             </div>
         </section>
