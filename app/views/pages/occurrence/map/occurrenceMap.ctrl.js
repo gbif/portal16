@@ -13,10 +13,8 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl($stateParams, leafletData, mapConstants, $httpParamSerializer) {
+function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter) {
     var vm = this;
-    vm.query = angular.copy($stateParams);
-    vm.query.key = vm.query.taxonKey;
 
     var getOverlay = function(query) {
         var overlay = {
@@ -35,14 +33,31 @@ function occurrenceMapCtrl($stateParams, leafletData, mapConstants, $httpParamSe
         baselayers: {
             base: mapConstants.baseLayers.options.classic
         },
-        overlays: {
-            occurrences: getOverlay(vm.query)
-        }
+        overlays: {}
     };
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
     };
+    leafletData.getMap('occurrenceMap').then(function(map) {
+        map.fitWorld().zoomIn();
+    });
+
+    var setOverlay = function() {
+        //TODO this should be changed to match the new tile/heatmap api
+        vm.query = angular.copy(OccurrenceFilter.query);
+        vm.query.key = vm.query.taxonKey;
+        if (angular.isArray(vm.query.taxonKey)) vm.query.key = vm.query.taxonKey[0];
+        if (Object.keys(vm.layers.overlays).length > 0) {
+            vm.layers.overlays = {};
+        }
+        vm.layers.overlays['occurrences' + vm.query.key] =  getOverlay(vm.query);
+    };
+
+    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
+        setOverlay();
+    });
+    setOverlay();
 }
 
 module.exports = occurrenceMapCtrl;

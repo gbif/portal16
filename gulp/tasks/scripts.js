@@ -39,12 +39,14 @@ function buildScripts() {
             debug: true
         }).bundle()
         .on('error', function (err) {
-            console.log(err.toString());
             if (!config.isProd) {
+                console.log(err.toString());
                 notifier.notify({
                     'title': 'Browserify',
                     'message': err.toString()
                 });
+            } else {
+                throw err;
             }
             this.emit("end");
         })

@@ -13,13 +13,13 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl(OccurrenceSearch, $stateParams) {
+function occurrenceTableCtrl($scope, OccurrenceSearch, OccurrenceFilter) {
     var vm = this;
     vm.count = 0;
     vm.results = {};
-    vm.query = angular.copy($stateParams);
 
     vm.search = function() {
+        vm.query = angular.copy(OccurrenceFilter.query);
         OccurrenceSearch.query(vm.query, function (data) {
             vm.count = data.count;
             vm.results = data.results;
@@ -27,7 +27,11 @@ function occurrenceTableCtrl(OccurrenceSearch, $stateParams) {
         });
     };
 
-    vm.search();
+    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
+        vm.search();
+    });
+
+
 }
 
 module.exports = occurrenceTableCtrl;

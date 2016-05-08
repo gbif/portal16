@@ -542,14 +542,12 @@ main {
 
 .Site__drawer {
 	right 0
-	width $drawer-width
+	width $filterDrawerWidth
 	position absolute
 	top 0px
 	transition: right 500ms ease;
 	height 100%//"calc(100vh - %s)" % $navbar_height
 	right 0
-
-	background pink
 	overflow hidden
 	> div {
 		height 100%
@@ -560,7 +558,7 @@ main {
 	}
 	&:target {
 		~ .Site__contentArea {
-			right $drawer-width
+			right $filterDrawerWidth
 			overflow hidden
 		}
 	}
@@ -568,13 +566,12 @@ main {
 
 
 
-
-
 forceShowDrawer() {
 	transition initial
 	left 0
+	overflow visible
 	~ .Site__contentArea {
-		padding-left $drawer-width
+		padding-left $filterDrawerWidth
 	}
 	&:target ~ .Site__contentArea {
 		left 0
@@ -584,7 +581,7 @@ forceShowDrawer() {
 	.Site__drawer {
 		z-index 20
 		right initial
-		left -($drawer-width)
+		left -($filterDrawerWidth)
 		transition: left 500ms ease;
 		position fixed
 		top $navbar_height
