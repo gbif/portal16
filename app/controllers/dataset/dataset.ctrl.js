@@ -243,11 +243,14 @@ function organizeContacts(sourceContacts, mode) {
                 // Process firstName, lastName and email here so the template is cleaner.
                 // Make click-to-email name if email exists.
                 var name = '';
-                if (sourceContact.email) {
+                if (sourceContact.email[0]) {
                     name = '<a href="mailto:' + sourceContact.email + '">' + sourceContact.firstName + ' ' + sourceContact.lastName + '</a>';
                 }
-                else {
+                else if (sourceContact.firstName && sourceContact.lastName) {
                     name = sourceContact.firstName + ' ' + sourceContact.lastName;
+                }
+                else {
+                    name = sourceContact.organization;
                 }
                 sourceContact.name = name;
 
