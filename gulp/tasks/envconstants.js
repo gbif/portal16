@@ -7,8 +7,8 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 gulp.task('env-constants', [], function() {
-    var DATA_URL = yargs.dataapi || 'http://api.gbif.org/v1/',
-        TILE_URL = yargs.tileapi || 'cdn.gbif.org/v1/map/density/tile.png';
+    var DATA_URL = yargs.dataapi || '//api.gbif.org/v1/',
+        TILE_URL = yargs.tileapi || '//cdn.gbif.org/v1/map/density/tile.png';
 
     return gulp.src(config.envConstants.path)
         .pipe(g.replace('{{DATA_URL}}', DATA_URL))

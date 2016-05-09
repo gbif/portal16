@@ -30,39 +30,6 @@ require('angular-aria');
     }
 })();
 
-
-(function () {
-    'use strict';
-    angular
-        .module('portal')
-        .controller('WelcomeCtrl', WelcomeCtrl);
-
-    /** @ngInject */
-    function WelcomeCtrl($scope, $state, $translate) {
-        $scope.test = 'hej med dig også';
-        $translate('CATS', { catCount: '10' }).then(function (cats) {
-            $scope.translatedText = cats;
-        });
-        $scope.gototester = function(){
-            $translate.use('da');
-            $state.go('testerpage', {}, {reload: true});
-        };
-    }
-})();
-
-(function () {
-    'use strict';
-    angular
-        .module('portal')
-        .controller('MainController', MainController);
-
-    /** @ngInject */
-    function MainController() {
-        var vm = this;
-        vm.test = 'value from main controller and the attached template';
-    }
-})();
-
 require('./angular/env.constants');
 require('./angular/routerConfig');
 require('./angular/translate');
@@ -90,9 +57,6 @@ require('../../../components/suggest/suggest.directive');
 
 
 var menu = require('../partials/navigation/navigation.js');
-//$ = require('jquery');
-//var angular = require('angular');
-
 
 
 //https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js
