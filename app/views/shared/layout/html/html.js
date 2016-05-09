@@ -13,7 +13,7 @@ require('angular-aria');
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ngTable']);
 
 })();
 
@@ -48,7 +48,9 @@ require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
-require('../../../pages/dataset/datasetDetails.ctrl');
+require('../../../pages/dataset/datasetDetailsVerticalTabularRenderer.ctrl');
+require('../../../pages/dataset/datasetDetailsDownloadEventsTable.ctrl');
+
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
 
