@@ -27,7 +27,7 @@ gulp.task('server', ['server-lint'], function(cb) {
 
     var started = false;
     var args = [];
-    ['loglevel', 'dataapi', 'cmsapi'].forEach(function(e){
+    ['loglevel', 'dataapi', 'cmsapi', 'port'].forEach(function(e){
         if (yargs[e]) {
             args.push('--'+e+'=' + yargs[e]);
         }

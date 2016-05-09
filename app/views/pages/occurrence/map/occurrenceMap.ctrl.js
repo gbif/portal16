@@ -15,11 +15,11 @@ angular
 /** @ngInject */
 function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter) {
     var vm = this;
-
+    OccurrenceFilter.setCurrentTab();
     var getOverlay = function(query) {
         var overlay = {
             name: 'gb',
-            url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&type=TAXON&resolution=4&" + $httpParamSerializer(query),
+            url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&type=TAXON&resolution=1&" + $httpParamSerializer(query),
             type: 'xyz',
             visible: true,
             layerParams: {

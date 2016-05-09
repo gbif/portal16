@@ -9,9 +9,11 @@
 
 var path = require('path'),
     wiredep,
+    yargs = require('yargs').argv,
     gutil = require('gulp-util'),
     rootPath = path.normalize(__dirname + '/..'),
-    env = 'development';
+    env = 'development',
+    defaultPort = yargs.port || 3000;
 
 if (gutil.env.prod) {
     env = 'production'
@@ -79,7 +81,7 @@ config.bower = {
  */
 config.browsersync = {
     autoOpenBrowsers: false,
-    port: 7000
+    port: defaultPort + 4000
 };
 
 

@@ -17,7 +17,7 @@ function occurrenceTableCtrl($scope, OccurrenceSearch, OccurrenceFilter) {
     var vm = this;
     vm.count = 0;
     vm.results = {};
-
+    OccurrenceFilter.setCurrentTab();
     vm.search = function() {
         vm.query = angular.copy(OccurrenceFilter.query);
         OccurrenceSearch.query(vm.query, function (data) {
