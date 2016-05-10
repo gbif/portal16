@@ -9,12 +9,13 @@ require('angularfire');
 require('angular-resource');
 require('angular-aria');
 require('angular-ui-bootstrap');
+require('ng-infinite-scroll');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ngTable', 'ui.bootstrap']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap', 'infinite-scroll']);
 
 })();
 

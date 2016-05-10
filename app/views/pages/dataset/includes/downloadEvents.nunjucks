@@ -1,0 +1,32 @@
+<h3>Download events</h3>
+<div class="downloadEvents" ng-controller="downloadEventsTableCtrl as dCtrl">
+    <table class="table table-striped" infinite-scroll="dCtrl.getMoreData()">
+        <thead>
+            <tr>
+                <td>Event</td>
+                <td>Records involved</td>
+                <td>Query</td>
+                <td>Query latest data</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="event in dCtrl.events">
+                <td>
+                    {{event.download.created}} <a href="http://www.gbif.org/occurrence/download/{{ event.downloadKey }}">{{event.download.doi}}</a><br>
+                    {{event.download.totalRecords}} records from {{event.download.numberDatasets}} datasets.
+                </td>
+                <td>
+                    {{event.numberRecords}}
+                </td>
+                <td>
+                    <ul ng-if="event.download.request.predicate">
+                        <li ng-if="event.download.request.predicate"></li>
+                    </ul>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

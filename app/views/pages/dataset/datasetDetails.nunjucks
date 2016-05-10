@@ -134,25 +134,7 @@
         <section id="download-events">
             <div class="centerContent">
                 <div class="row">
-                <h3>Download events</h3>
-                    <div ng-controller="downloadEventsTableCtrl as downloadEvents">
-                        <table ng-table="usersTable" class="table table-striped">
-                            <tr ng-repeat="user in downloadEvents.data">
-                                <td data-title="'Event'" >
-                                    {{user.id}}
-                                </td>
-                                <td data-title="'Records involved'" >
-                                    {{user.first_name}}
-                                </td>
-                                <td data-title="'Query'" >
-                                    {{user.last_name}}
-                                </td>
-                                <td data-title="'Query latest data'" >
-                                    {{user.email}}
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    {% include "./includes/downloadEvents.nunjucks" %}
                 </div>
             </div>
         </section>
