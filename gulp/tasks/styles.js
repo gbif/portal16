@@ -19,13 +19,19 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('stylus-reload', [], function() {
+gulp.task('stylus-reload', ['bootstrap-style'], function() {
     return buildStylus()
         .pipe(browserSync.stream());
 });
 
-gulp.task('stylus', [], function() {
+gulp.task('stylus', ['bootstrap-style'], function() {
     return buildStylus();
+});
+
+gulp.task('bootstrap-style', function() {
+    return gulp.src(config.bootstrap.root)
+        .pipe(g.less())
+        .pipe(gulp.dest(config.bootstrap.dest));
 });
 
 gulp.task('vendor-styles', function() {

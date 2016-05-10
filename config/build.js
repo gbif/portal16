@@ -9,9 +9,11 @@
 
 var path = require('path'),
     wiredep,
+    yargs = require('yargs').argv,
     gutil = require('gulp-util'),
     rootPath = path.normalize(__dirname + '/..'),
-    env = 'development';
+    env = 'development',
+    defaultPort = yargs.port || 3000;
 
 if (gutil.env.prod) {
     env = 'production'
@@ -79,7 +81,7 @@ config.bower = {
  */
 config.browsersync = {
     autoOpenBrowsers: false,
-    port: 7000
+    port: defaultPort + 4000
 };
 
 
@@ -88,6 +90,15 @@ config.browsersync = {
  */
 config.stylus = {
     root: loc('app/views/shared/style/index.styl')
+};
+
+
+/**
+ *  The entry point for building the css from stylus. Bower stylus dependencies will be injected into this file.
+ */
+config.bootstrap = {
+    root: loc('./app/views/shared/style/bootstrap/bootstrap.less'),
+    dest: loc('./app/views/shared/style/bootstrap/.build')
 };
 
 

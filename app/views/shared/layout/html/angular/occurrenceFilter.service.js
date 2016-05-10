@@ -12,21 +12,26 @@ angular
             MAP: 'MAP',
             GALLERY: 'GALLERY'
         });
-        that.currentTab = that.tabStates.TABLE;
-        switch ($state.current.name) {
-            case 'occurrenceSearchMap':
-                that.currentTab = that.tabStates.MAP;
-                break;
-            case 'occurrenceSearchGallery':
-                that.currentTab = that.tabStates.GALLERY;
-                break;
-            default:
-                that.currentTab = that.tabStates.TABLE;
-        }
+
+        that.activeTab;
+        that.setCurrentTab = function() {
+            switch ($state.current.name) {
+                case 'occurrenceSearchMap':
+                    that.activeTab = that.tabStates.MAP;
+                    break;
+                case 'occurrenceSearchGallery':
+                    that.activeTab = that.tabStates.GALLERY;
+                    break;
+                default:
+                    that.activeTab = that.tabStates.TABLE;
+            }
+        };
+        that.setCurrentTab();
+
         return {
             getQuery: function(){return that.query;},
             query: that.query,
-            tabStates: that.tabStates,
-            currentTab: that.currentTab
+            setCurrentTab: that.setCurrentTab,
+            activeTab: that.activeTab
         };
     });

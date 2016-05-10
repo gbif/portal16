@@ -39,3 +39,19 @@
 	background pink
 	color white
 }
+
+.tabBar {
+	background #fbfbfb
+	border-bottom 1px solid #ddd
+	.tabs {
+		group()
+		a {
+			float left
+			display inline-block
+			padding .375rem .75rem
+			&.isActive {
+				border-bottom 2px solid deepskyblue
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+@import "../../../../../node_modules/bootstrap/less/bootstrap.less";
+
+// overwrite core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+
+/*
+  Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs etc.).
+  But in AngularJS adding empty href attributes to link tags will cause unwanted route changes.
+  This is why we need to remove empty href attributes from directive templates and as a result styling is not applied correctly.
+  See: https://angular-ui.github.io/bootstrap/
+  The remedy is simple, just add the following styling to your application:
+*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

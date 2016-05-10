@@ -47,6 +47,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) 
     $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
         vm.filter();
     });
+
 }
 
 module.exports = occurrenceGalleryCtrl;

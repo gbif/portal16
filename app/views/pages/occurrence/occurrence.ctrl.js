@@ -7,6 +7,7 @@
  */
 'use strict';
 var angular = require('angular');
+//require('./components/taxon/taxonExplore.directive');
 
 angular
     .module('portal')
@@ -21,6 +22,8 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
     vm.suggestions = [];
     vm.activeSuggestion = 0;
     vm.suggest = {selected: [], selectedKeys: []};
+    vm.state = $state;
+
     vm.config = {
         resource: SpeciesSuggest,
         baseQuery: {datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'},
