@@ -8,12 +8,13 @@ require('firebase');
 require('angularfire');
 require('angular-resource');
 require('angular-aria');
+require('angular-ui-bootstrap');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap']);
 
 })();
 

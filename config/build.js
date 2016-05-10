@@ -94,6 +94,15 @@ config.stylus = {
 
 
 /**
+ *  The entry point for building the css from stylus. Bower stylus dependencies will be injected into this file.
+ */
+config.bootstrap = {
+    root: loc('./app/views/shared/style/bootstrap/bootstrap.less'),
+    dest: loc('./app/views/shared/style/bootstrap/.build')
+};
+
+
+/**
  *  Javascript main files
  *  Only one browserify file is supported so far. Later on we might want to expand it if we need multiple bundles (e.g. large file only used on one page)
  */
