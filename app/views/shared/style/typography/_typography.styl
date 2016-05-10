@@ -144,158 +144,158 @@ typographic() {
         // min-height 100%
         text-rendering optimizeLegibility
     }
-
-    //This meyer-like reset strikes me as too much. Clutters dev tools
-    // h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    // a, abbr, acronym, address, big, cite, code,
-    // del, dfn, em, img, ins, kbd, q, s, samp,
-    // small, strike, strong, sub, sup, tt, var,
-    // b, u, i, center,
-    // dl, dt, dd, ol, ul, li,
-    // fieldset, form, label, legend,
-    // table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
-    //      t-reset()
-    // }
-    h1, h2, h3, h4, h5, h6, p, ul, ol {
-        margin 0
-    }
-
-    //since we use links everywhere as buttons it is easier to only set it to standard link styling when needed (e.g. article content)
-    a {
-        text-decoration none
-        color inherit
-    }
-
-    p, blockquote, pre,
-    address,
-    dl, ol, ul,
-    table {
-        margin-bottom $base-line-height
-    }
-
-    p {
-        set-type()
-        font-family $helvetica
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-family: $header-font
-        font-weight: $header-font-weight
-        clear: both
-    }
-    h1 {
-        set-type(4)
-    }
-    h2 {
-        set-type(3)
-    }
-    h3 {
-        set-type(2)
-    }
-    h4 {
-        set-type(1)
-        margin-bottom 8px
-
-    }
-    h5 {
-        set-type(0)
-    }
-    h6 {
-        set-type(-1)
-        font-weight 500
-    }
-
-    blockquote {
-        font-style: italic
-        cite {
-            display: block
-            font-style: normal
-        }
-    }
-
-    pre {
-        padding: vr-block(.5)
-        margin-bottom: vr-block(1)
-        code {
-            padding: 0
-        }
-    }
-
-    code {
-        font-family: $courier
-        padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
-        margin-bottom 0
-    }
-
-    // big, small, sub, sup {
-    //      line-height: 0
-    // }
-
-    abbr[title] {
-        // border-bottom: 1px dotted currentColor // should be inherited from normalize
-        cursor: help
-    }
-
-    // address {
-    //      font-style: normal
-    // }
-
-    // dt {
-    //      color: $header-color
-    //      font-weight: bold
-    // }
-
-    ul, ol {
-        padding 0
-    }
-
-    // fieldset {
-    //      padding: vr-block(.5) vr-block() vr-block()
-    //      border-width: 1px
-    //      border-style: solid
-    //      max-width: 100%
-    //      margin-bottom: vr-block(1, 1)
-    //      button, input[type="submit"] {
-    //              margin-bottom: 0
-    //      }
-    // }
-
-    // legend {
-    //      color: $header-color
-    //      font-weight: bold
-    // }
-
-    // label {
-    //      display: block
-    // }
-
-    select {
-        max-width 100%
-    }
-
-    input[type="text"], input[type="email"], input[type="password"], textarea {
-        display: block
-        max-width: 100%
-    }
-
-    input[type="submit"], button {
-        display: block
-        cursor: pointer
-    }
-
-    table {
-        width: 100%
-        border-spacing: 0
-        border-collapse: collapse
-        margin-bottom: vr-block(1)
-    }
-
-    th {
-        text-align: left
-        color: $header-color
-    }
-
-    td {
-        padding: vr-block(.125) vr-block(.5)
-    }
+	//
+    ////This meyer-like reset strikes me as too much. Clutters dev tools
+    //// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    //// a, abbr, acronym, address, big, cite, code,
+    //// del, dfn, em, img, ins, kbd, q, s, samp,
+    //// small, strike, strong, sub, sup, tt, var,
+    //// b, u, i, center,
+    //// dl, dt, dd, ol, ul, li,
+    //// fieldset, form, label, legend,
+    //// table, caption, tbody, tfoot, thead, tr, th, td, div, span, p {
+    ////      t-reset()
+    //// }
+    //h1, h2, h3, h4, h5, h6, p, ul, ol {
+    //    margin 0
+    //}
+	//
+    ////since we use links everywhere as buttons it is easier to only set it to standard link styling when needed (e.g. article content)
+    //a {
+    //    text-decoration none
+    //    color inherit
+    //}
+	//
+    //p, blockquote, pre,
+    //address,
+    //dl, ol, ul,
+    //table {
+    //    margin-bottom $base-line-height
+    //}
+	//
+    //p {
+    //    set-type()
+    //    font-family $helvetica
+    //}
+	//
+    //h1, h2, h3, h4, h5, h6 {
+    //    font-family: $header-font
+    //    font-weight: $header-font-weight
+    //    clear: both
+    //}
+    //h1 {
+    //    set-type(4)
+    //}
+    //h2 {
+    //    set-type(3)
+    //}
+    //h3 {
+    //    set-type(2)
+    //}
+    //h4 {
+    //    set-type(1)
+    //    margin-bottom 8px
+	//
+    //}
+    //h5 {
+    //    set-type(0)
+    //}
+    //h6 {
+    //    set-type(-1)
+    //    font-weight 500
+    //}
+	//
+    //blockquote {
+    //    font-style: italic
+    //    cite {
+    //        display: block
+    //        font-style: normal
+    //    }
+    //}
+	//
+    //pre {
+    //    padding: vr-block(.5)
+    //    margin-bottom: vr-block(1)
+    //    code {
+    //        padding: 0
+    //    }
+    //}
+	//
+    //code {
+    //    font-family: $courier
+    //    padding: ($line-height-ratio * .05)em ($line-height-ratio * .15)em
+    //    margin-bottom 0
+    //}
+	//
+    //// big, small, sub, sup {
+    ////      line-height: 0
+    //// }
+	//
+    //abbr[title] {
+    //    // border-bottom: 1px dotted currentColor // should be inherited from normalize
+    //    cursor: help
+    //}
+	//
+    //// address {
+    ////      font-style: normal
+    //// }
+	//
+    //// dt {
+    ////      color: $header-color
+    ////      font-weight: bold
+    //// }
+	//
+    //ul, ol {
+    //    padding 0
+    //}
+	//
+    //// fieldset {
+    ////      padding: vr-block(.5) vr-block() vr-block()
+    ////      border-width: 1px
+    ////      border-style: solid
+    ////      max-width: 100%
+    ////      margin-bottom: vr-block(1, 1)
+    ////      button, input[type="submit"] {
+    ////              margin-bottom: 0
+    ////      }
+    //// }
+	//
+    //// legend {
+    ////      color: $header-color
+    ////      font-weight: bold
+    //// }
+	//
+    //// label {
+    ////      display: block
+    //// }
+	//
+    //select {
+    //    max-width 100%
+    //}
+	//
+    //input[type="text"], input[type="email"], input[type="password"], textarea {
+    //    display: block
+    //    max-width: 100%
+    //}
+	//
+    //input[type="submit"], button {
+    //    display: block
+    //    cursor: pointer
+    //}
+	//
+    //table {
+    //    width: 100%
+    //    border-spacing: 0
+    //    border-collapse: collapse
+    //    margin-bottom: vr-block(1)
+    //}
+	//
+    //th {
+    //    text-align: left
+    //    color: $header-color
+    //}
+	//
+    //td {
+    //    padding: vr-block(.125) vr-block(.5)
+    //}
 }
