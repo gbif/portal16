@@ -1,7 +1,8 @@
 var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
     api = require('../../models/gbifdata/apiConfig'),
-    router = express.Router();
+    router = express.Router(),
+    request = require('request');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -17,6 +18,18 @@ router.get('/dataset/:key\.:ext?', function (req, res, next) {
         renderPage(req, res, dataset);
     }, function(err){
         next();
+    });
+});
+
+router.get('/occurrence-download-dataset/:key', function (req, res) {
+    var datasetKey = req.params.key,
+        offset = req.query.offset,
+        limit = req.query.limit;
+
+    request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.json(reconstructQueryFromPredicates(JSON.parse(body)));
+        }
     });
 });
 
@@ -44,10 +57,7 @@ function renderPage(req, res, dataset) {
 }
 
 function doiToUrl(doi) {
-    if (doi) {
-        var url = doi.replace('doi:', 'http://dx.doi.org/');
-        return url;
-    }
+    if (doi) { return doi.replace('doi:', 'http://dx.doi.org/'); }
 }
 
 /**
@@ -308,4 +318,150 @@ function processIdentifiers(identifiers) {
         }
     });
     return processedIdentifiers;
+}
+
+function reconstructQueryFromPredicates(body) {
+    var reconstructedResults = [];
+    var searchParameters = [
+        { type: 'DATASET_KEY', label: 'Dataset Key'},
+        { type: 'YEAR', label: 'Year'},
+        { type: 'MONTH', label: 'Month'},
+        { type: 'EVENT_DATE', label: 'Event date'},
+        { type: 'LAST_INTERPRETED', label: 'Last interpreted'},
+        { type: 'DECIMAL_LATITUDE', label: 'Decimal latitude'},
+        { type: 'DECIMAL_LONGITUDE', label: 'Decimal longitude'},
+        { type: 'COUNTRY', label: 'Country'},
+        { type: 'CONTINENT', label: 'Continent'},
+        { type: 'PUBLISHING_COUNTRY', label: 'Publishing country'},
+        { type: 'ELEVATION', label: 'Elevation'},
+        { type: 'DEPTH', label: 'Depth'},
+        { type: 'INSTITUTION_CODE', label: 'Institution code'},
+        { type: 'COLLECTION_CODE', label: 'Collection code'},
+        { type: 'CATALOG_NUMBER', label: 'Catalog number'},
+        { type: 'RECORDED_BY', label: 'Recorded by'},
+        { type: 'RECORD_NUMBER', label: 'Record number'},
+        { type: 'BASIS_OF_RECORD', label: 'Basis of record'},
+        { type: 'TAXON_KEY', label: 'Taxon'},
+        { type: 'KINGDOM_KEY', label: 'Kingdom'},
+        { type: 'PHYLUM_KEY', label: 'Phylum'},
+        { type: 'CLASS_KEY', label: 'Class'},
+        { type: 'ORDER_KEY', label: 'Order'},
+        { type: 'FAMILY_KEY', label: 'Family'},
+        { type: 'GENUS_KEY', label: 'Genus'},
+        { type: 'SUBGENUS_KEY', label: 'Subgenus'},
+        { type: 'SPECIES_KEY', label: 'Species'},
+        { type: 'SCIENTIFIC_NAME', label: 'Scientific name'},
+        { type: 'HAS_COORDINATE', label: 'Has coordinate'},
+        { type: 'GEOMETRY', label: 'Geometry'},
+        { type: 'HAS_GEOSPATIAL_ISSUE', label: 'Has geospatial issue'},
+        { type: 'ISSUE', label: 'Issue'},
+        { type: 'TYPE_STATUS', label: 'Type status'},
+        { type: 'MEDIA_TYPE', label: 'Media type'},
+        { type: 'OCCURRENCE_ID', label: 'Occurrence ID'},
+        { type: 'ESTABLISHMENT_MEANS', label: 'Establishment Means'}
+    ];
+
+     function parsePredicates(p, cGroup) {
+        if (p.key) {
+            var typeGroup = {label: '', type: '', values: []};
+            searchParameters.forEach(function(sp){
+                if (sp.type == p.key) {
+                    typeGroup.label = sp.label;
+
+                    var exists = false;
+                    cGroup.forEach(function(tg, i){
+                        if (tg.label == typeGroup.label) {
+                            exists = true;
+                            cGroup[i].values.push({comparison: p.type, value: p.value});
+                            cGroup[i].type = p.key;
+                        }
+                    });
+
+                    if (exists == false) {
+                        typeGroup.values.push({comparison: p.type, value: p.value});
+                        typeGroup.type = p.key;
+                        cGroup.push(typeGroup);
+                    }
+                }
+            });
+        }
+        else if (p.predicates){
+            p.predicates.forEach(function(pp) {
+                parsePredicates(pp, cGroup);
+            });
+        }
+    }
+
+    // http://www.gbif.org/occurrence/search?TAXON_KEY=9432&TAXON_KEY=5498&TAXON_KEY=9369&TAXON_KEY=6160&TAXON_KEY=2439923&TAXON_KEY=3240591&TAXON_KEY=2439920&TAXON_KEY=795&TAXON_KEY=2439881&TAXON_KEY=785&TAXON_KEY=731&TAXON_KEY=732&TAXON_KEY=798&TAXON_KEY=9418&TAXON_KEY=5489&TAXON_KEY=5219955&TAXON_KEY=5506&TAXON_KEY=5219946&TAXON_KEY=9619&COUNTRY=PA&COUNTRY=CO&COUNTRY=EC&COUNTRY=CR&COUNTRY=VE&HAS_COORDINATE=true&YEAR=2000%2C*
+    function constructQueryUrl(cGroup) {
+        var url = 'http://www.gbif.org/occurrence/search?';
+        cGroup.forEach(function(cg, cgi){
+
+            // First to check whether there is any comparison that is not "equal"
+            // If yes, those need to be considered as a group.
+            var multipleComparison = false;
+            cg.values.forEach(function(v, vi){
+                if (v.comparison != 'equal') multipleComparison = true;
+            });
+
+            if (multipleComparison == true && cg.values.length == 2) {
+                var lower, upper, processedValue;
+                cg.values.forEach(function(v, vi){
+                    switch (v.comparison) {
+                        case 'greaterThanOrEquals':
+                            lower = v.value;
+                            break;
+                        case 'lessThanOrEquals':
+                            upper = v.value;
+                            break;
+                    }
+                });
+                if (lower && upper == 'undefined') {
+                    processedValue = lower + '%2C*';
+                }
+                else if (lower == 'undefined' && upper) {
+                    processedValue = '*%2C' + upper;
+                }
+                else if (lower && upper) {
+                    processedValue = lower + '%2C' + upper;
+                }
+                if (cgi != 0) url += '&';
+                url += cg.type + '=' + processedValue;
+            }
+            else {
+                cg.values.forEach(function(v, vi) {
+                    if (cgi != 0 || vi != 0) url += '&';
+                    url += cg.type + '=' + v.value;
+                });
+            }
+        });
+        return url;
+    }
+
+    body.results.forEach(function(result) {
+        var criteriaGroup = [];
+        if (result.download.request.predicate) {
+            parsePredicates(result.download.request.predicate, criteriaGroup);
+        }
+
+        var resultObj = {
+            downloadKey: result.downloadKey,
+            downloadDoi: result.download.doi,
+            recordInvolved: result.numberRecords,
+            datasetInvolved: result.download.numberDatasets,
+            totalRecords: result.download.totalRecords,
+            downloadLink: result.download.downloadLink,
+            size: result.download.size,
+            created: result.download.created,
+            modified: result.download.modified,
+            status: result.download.status,
+            criteria: criteriaGroup,
+            queryUrl: constructQueryUrl(criteriaGroup)
+        };
+
+        reconstructedResults.push(resultObj);
+    });
+
+
+    return reconstructedResults;
 }

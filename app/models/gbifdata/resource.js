@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //TODO error handling and tests missing
 
