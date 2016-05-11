@@ -1,18 +1,25 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block tools %}
-    <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle"><i class="gb-icon-share"></i></a>
-    <div class="contentArea__tabs">
-        <ol>
-            <li><a href="#">...</a></li>
-            <li><a href="#">Table</a></li>
-            <li><a href="#">Map</a></li>
-            <li><a href="#">Media</a></li>
-            <li><a href="#">Species</a></li>
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Licenses</a></li>
-        </ol>
-    </div>
+<div class="fab">
+    <ul class="fab__options">
+        <li class="fab__trigger">
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="share"><i class="gb-icon-share"></i></a>
+        </li>
+        <li>
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="facebook"><i class="gb-icon-facebook"></i></a>
+        </li>
+        <li>
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="twitter"><i class="gb-icon-twitter"></i></a>
+        </li>
+        <li>
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="linkedin"><i class="gb-icon-linkedin"></i></a>
+        </li>
+        <li>
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="google+"><i class="gb-icon-google"></i></a>
+        </li>
+    </ul>
+</div>
 {% endblock %}
 
 {% block page %}

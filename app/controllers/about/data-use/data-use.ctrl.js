@@ -1,5 +1,6 @@
 var express = require('express'),
     router = express.Router(),
+    baseConfig = require('../../../../config/config');
     request = require('request');
 
 module.exports = function (app) {
@@ -7,7 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/data-use/:key', function(req, res) {
-    request('http://drupaledit.gbif-dev.org/api/v0.1/data_use/' + req.params.key, function(error, response, body) {
+    request(baseConfig.cmsApi + 'datause/' + req.params.key, function(error, response, body) {
         if (response.statusCode !== 200) {
             res.send('Something went wrong from the Content API.');
         }
