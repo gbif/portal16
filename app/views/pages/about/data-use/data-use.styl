@@ -1,0 +1,149 @@
+.stripes {
+	.stripes__content {
+		background #f7f9fa
+		max-width 1300px
+		margin 0 auto
+	}
+
+	section {
+		background white
+		&.bare {
+			background none
+			border 1px solid #dbe3e7
+			border-width 1px 0
+		}
+		.blockContent {
+			color #4E565F
+			margin vr-block(1) auto
+			max-width 1000px
+		}
+	}
+	.coverImg {
+		height 0
+		padding-bottom 30%
+		background #f7f9fa
+		overflow hidden
+		background-size cover
+		background-position center
+		img {
+			display none
+		}
+	}
+
+	figcaption {
+		//TODO what to do with license on full width images. overlay?
+		display none
+		border-bottom 1px solid #ddd
+		padding .5rem
+		max-width 700px
+		margin auto
+		color #aaa
+		font-size 12px
+		font-weight 300
+	}
+
+	$articleCategorySeperatorSpacing = 5px
+	.article__category {
+		margin vr-block(0.5) auto -(vr-block(0.5)) auto
+		text-align center
+		text-transform: uppercase
+		font-weight bold
+		>span:last-of-type {
+			font-weight normal
+		}
+		.article__category__lower {
+			border-left 2px solid $OrangePeel
+			margin-left $articleCategorySeperatorSpacing
+			padding-left $articleCategorySeperatorSpacing
+		}
+		&.article__category-deep {
+			text-align left
+			.article__category__upper {
+				display inline-block
+				width s('calc(50% - %s)', $articleCategorySeperatorSpacing)
+				text-align right
+			}
+		}
+	}
+}
+
+
+.article__header {
+	h1 {
+		margin-bottom vr-block(1)
+	}
+	.intro {
+		font-size 1.2rem
+		font-style italic
+		font-family $caslon
+		max-width 700px
+		margin 0 auto vr-block(0.5)
+	}
+	.meta {
+		font-weight bold
+	}
+}
+.article {
+	.textContent {
+		//margin-top vr-block(1)
+	}
+}
+
+.prose {
+	font-size 16px
+}
+.textContent {
+	margin 0 auto
+	max-width 700px
+	//font-weight 300
+}
+.aux {
+	margin vr-block(2) auto 0
+	padding vr-block(1) 0
+	//max-width 800px
+	border-top 1px solid #ddd
+	.chips {
+		a {
+			padding vr-block(0.125) vr-block(0.5)
+			background #f1f1f1
+			border 1px solid #ddd
+			color inherit
+			text-decoration none
+			margin 0 .5px
+			//border-radius 2px
+		}
+	}
+}
+
+
+
+img {
+	max-width 100%
+}
+
+.btn-highlight {
+	color white
+	background $Plum
+	border-color darken($Plum, 10)
+	box-shadow 0 2px 2px rgba(0,0,0,0.3)
+	&:hover {
+		background darken($Plum, 5)
+		border-color darken($Plum, 10)
+		color white
+	}
+}
+.btn-circle {
+	width 50px
+	height 50px
+	padding 0
+	text-align center
+	font-size 25px
+	line-height 2
+	border-radius 25px
+}
+
+.action-flow {
+	position fixed
+	bottom vr-block(1)
+	right vr-block(1)
+}

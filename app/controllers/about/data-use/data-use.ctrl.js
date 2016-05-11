@@ -13,11 +13,15 @@ router.get('/data-use/:key', function(req, res) {
         }
         else {
             body = JSON.parse(body);
-            res.render('pages/about/data-use/data-use.nunjucks', {
+            res.render('pages/about/data-use/data-use2.nunjucks', {
                 data: body.data[0],
                 images: body.data[0].images,
                 self: body.self,
-                hasTitle: true
+                hasTitle: true,
+                meta: {
+                    title: body.data[0].title
+                },
+                hasTools: true
             });
         }
     });
