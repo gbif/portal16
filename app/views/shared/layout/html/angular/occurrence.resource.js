@@ -33,7 +33,12 @@ var angular = require('angular');
                     }
                 }
             );
-        });
+        })
+        // This service connects to a proxy which returns processed result from /occurrence/download/dataset/:id.
+        .factory('DownloadEventsService', function($resource) {
+            return $resource('/occurrence-download-dataset/:id');
+        })
+    ;
 
 })();
 

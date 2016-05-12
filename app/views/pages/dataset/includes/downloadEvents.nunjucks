@@ -5,26 +5,27 @@
             <tr>
                 <td>Event</td>
                 <td>Records involved</td>
-                <td>Query</td>
+                <td>Filter</td>
                 <td>Query latest data</td>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="event in dCtrl.events">
                 <td>
-                    {{event.download.created}} <a href="http://www.gbif.org/occurrence/download/{{ event.downloadKey }}">{{event.download.doi}}</a><br>
-                    {{event.download.totalRecords}} records from {{event.download.numberDatasets}} datasets.
+                    {{event.created}} <a href="{{ event.downloadKey }}">{{event.downloadDoi}}</a><br>
+                    {{event.totalRecords}} records from {{event.datasetInvolved}} datasets. (size: {{ event.size }})
                 </td>
                 <td>
-                    {{event.numberRecords}}
+                    {{event.recordInvolved}}
                 </td>
                 <td>
-                    <ul ng-if="event.download.request.predicate">
-                        <li ng-if="event.download.request.predicate"></li>
-                    </ul>
+                    <div ng-repeat="filter in event.queryTable">
+                        <span class="tableCellLabel">{{ filter.filterType }}</span>
+                        <span>{{ filter.valueProcessed }}</span>
+                    </div>
                 </td>
                 <td>
-
+                    <a href="{{ event.queryUrl }}">Query</a>
                 </td>
             </tr>
         </tbody>

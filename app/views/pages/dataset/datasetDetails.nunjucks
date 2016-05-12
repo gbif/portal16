@@ -9,6 +9,7 @@
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
 
     {# Begin page content #}
+    <script type="text/javascript">var datasetKey = "{$ datasetDetails.key $}";</script>
     <article class="wrapperHorizontalStripes">
         <section id="key-information">
             <div class="centerContent">

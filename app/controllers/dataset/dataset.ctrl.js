@@ -1,8 +1,11 @@
+'use strict';
 var express = require('express'),
     Dataset = require('../../models/gbifdata/gbifdata').Dataset,
     api = require('../../models/gbifdata/apiConfig'),
     router = express.Router(),
-    request = require('request');
+    request = require('request'),
+    async = require('async'),
+    Q = require('q');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -28,7 +31,14 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 
     request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function(error, response, body) {
         if (!error && response.statusCode == 200) {
-            res.json(reconstructQueryFromPredicates(JSON.parse(body)));
+            var processedBody = reconstructQueryFromPredicates(JSON.parse(body));
+            processQueryTable(processedBody).then(
+                function(data) {
+                    res.json(data);
+                }, function (err) {
+                    console.log(err);
+                }
+            );
         }
     });
 });
@@ -321,7 +331,13 @@ function processIdentifiers(identifiers) {
 }
 
 function reconstructQueryFromPredicates(body) {
-    var reconstructedResults = [];
+    var reconstructedResults = {
+        offset: body.offset,
+        limit: body.limit,
+        endOfRecords: body.endOfRecords,
+        count: body.count,
+        results: []
+    };
     var searchParameters = [
         { type: 'DATASET_KEY', label: 'Dataset Key'},
         { type: 'YEAR', label: 'Year'},
@@ -361,7 +377,7 @@ function reconstructQueryFromPredicates(body) {
         { type: 'ESTABLISHMENT_MEANS', label: 'Establishment Means'}
     ];
 
-     function parsePredicates(p, cGroup) {
+    var parsePredicates = (function f(p, cGroup){
         if (p.key) {
             var typeGroup = {label: '', type: '', values: []};
             searchParameters.forEach(function(sp){
@@ -387,10 +403,10 @@ function reconstructQueryFromPredicates(body) {
         }
         else if (p.predicates){
             p.predicates.forEach(function(pp) {
-                parsePredicates(pp, cGroup);
+                f(pp, cGroup);
             });
         }
-    }
+    });
 
     // http://www.gbif.org/occurrence/search?TAXON_KEY=9432&TAXON_KEY=5498&TAXON_KEY=9369&TAXON_KEY=6160&TAXON_KEY=2439923&TAXON_KEY=3240591&TAXON_KEY=2439920&TAXON_KEY=795&TAXON_KEY=2439881&TAXON_KEY=785&TAXON_KEY=731&TAXON_KEY=732&TAXON_KEY=798&TAXON_KEY=9418&TAXON_KEY=5489&TAXON_KEY=5219955&TAXON_KEY=5506&TAXON_KEY=5219946&TAXON_KEY=9619&COUNTRY=PA&COUNTRY=CO&COUNTRY=EC&COUNTRY=CR&COUNTRY=VE&HAS_COORDINATE=true&YEAR=2000%2C*
     function constructQueryUrl(cGroup) {
@@ -400,13 +416,13 @@ function reconstructQueryFromPredicates(body) {
             // First to check whether there is any comparison that is not "equal"
             // If yes, those need to be considered as a group.
             var multipleComparison = false;
-            cg.values.forEach(function(v, vi){
+            cg.values.forEach(function(v){
                 if (v.comparison != 'equal') multipleComparison = true;
             });
 
             if (multipleComparison == true && cg.values.length == 2) {
                 var lower, upper, processedValue;
-                cg.values.forEach(function(v, vi){
+                cg.values.forEach(function(v){
                     switch (v.comparison) {
                         case 'greaterThanOrEquals':
                             lower = v.value;
@@ -417,16 +433,16 @@ function reconstructQueryFromPredicates(body) {
                     }
                 });
                 if (lower && upper == 'undefined') {
-                    processedValue = lower + '%2C*';
+                    processedValue = lower + ',*';
                 }
                 else if (lower == 'undefined' && upper) {
-                    processedValue = '*%2C' + upper;
+                    processedValue = '*,' + upper;
                 }
                 else if (lower && upper) {
-                    processedValue = lower + '%2C' + upper;
+                    processedValue = lower + ',' + upper;
                 }
                 if (cgi != 0) url += '&';
-                url += cg.type + '=' + processedValue;
+                url += cg.type + '=' + encodeURIComponent(processedValue);
             }
             else {
                 cg.values.forEach(function(v, vi) {
@@ -436,6 +452,59 @@ function reconstructQueryFromPredicates(body) {
             }
         });
         return url;
+    }
+
+    /**
+     * Use the same logic of constructQueryUrl() but for preparing the HTML for the client side.
+     * @param cGroup
+     * @returns {string}
+     */
+    function humanReadableQuery(cGroup) {
+        var table = [];
+        cGroup.forEach(function(cg){
+            var tableObj = {
+                filterType: cg.label,
+                filterValues: [],
+                processedValue: ''
+            };
+
+            // First to check whether there is any comparison that is not "equal"
+            // If yes, those need to be considered as a group.
+            var multipleComparison = false;
+            cg.values.forEach(function(v){
+                if (v.comparison != 'equals') multipleComparison = true;
+            });
+
+            if (multipleComparison == true) {
+                var lower, upper, processedValue;
+                cg.values.forEach(function(v){
+                    switch (v.comparison) {
+                        case 'greaterThanOrEquals':
+                            lower = v.value;
+                            break;
+                        case 'lessThanOrEquals':
+                            upper = v.value;
+                            break;
+                    }
+                });
+                if (lower && upper == undefined) {
+                    processedValue = '>=' + lower;
+                }
+                else if (lower == undefined && upper) {
+                    processedValue = '<=' + upper;
+                }
+                else if (lower && upper) {
+                    processedValue = lower + '-' + upper;
+                }
+                tableObj.filterValues.push(processedValue);
+            }
+            else {
+                tableObj.filterValues = cg.values;
+            }
+            table.push(tableObj);
+        });
+
+        return table;
     }
 
     body.results.forEach(function(result) {
@@ -456,12 +525,75 @@ function reconstructQueryFromPredicates(body) {
             modified: result.download.modified,
             status: result.download.status,
             criteria: criteriaGroup,
-            queryUrl: constructQueryUrl(criteriaGroup)
+            queryUrl: constructQueryUrl(criteriaGroup),
+            queryTable: humanReadableQuery(criteriaGroup)
         };
 
-        reconstructedResults.push(resultObj);
+        reconstructedResults.results.push(resultObj);
     });
 
-
     return reconstructedResults;
+}
+
+function processQueryTable(body) {
+    var defer = Q.defer();
+    var tasks = [];
+    body.results.forEach(function(result, ri){
+        result.queryTable.forEach(function(row){
+            var requestUrls = [];
+            if (row.filterType == 'Taxon') {
+                row.filterValues.forEach(function(v){
+                    requestUrls.push(api.speciesParsedName.url + v.value);
+                });
+            }
+            tasks[ri] = requestUrls;
+        });
+    });
+
+    var processedTaxonValuePromises = [];
+    tasks.forEach(function(lists, i){
+        processedTaxonValuePromises[i] = getTaxonName(lists);
+    });
+
+    Q.all(processedTaxonValuePromises).then(function(values){
+        // add processed names to body
+        values.forEach(function(v, vi){
+            if (body.results[vi].queryTable && v.length != 0) {
+                body.results[vi].queryTable.forEach(function(row, roi){
+                    if (row.filterType == 'Taxon') {
+                        body.results[vi].queryTable[roi].processedValue = v;
+                    }
+                });
+            }
+        });
+        defer.resolve(body);
+    }, function(err){
+        defer.reject(new Error(err));
+    });
+    return defer.promise;
+}
+
+function getTaxonName(lists) {
+    var deferred = Q.defer();
+    var processedTaxonValue = '';
+    async.map(lists, function(url, callback){
+        request(url, function (error, response, body){
+            if (!error && response.statusCode == 200) {
+                var result = JSON.parse(body).canonicalName;
+                callback(null, result);
+            }
+            else {
+                callback(error || response.statusCode);
+            }
+        });
+    }, function(err, results) {
+        if (!err) {
+            processedTaxonValue = results.join(', ');
+            deferred.resolve(processedTaxonValue);
+        }
+        else {
+            deferred.reject(err);
+        }
+    });
+    return deferred.promise;
 }

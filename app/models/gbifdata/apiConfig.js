@@ -23,6 +23,9 @@ var apiConfig = {
     },
     installation: {
         url: baseUrl + 'installation/'
+    },
+    speciesParsedName: {
+        url: baseUrl + 'species/'
     }
 };
 

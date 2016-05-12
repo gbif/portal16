@@ -1,7 +1,8 @@
 'use strict';
 
 // The downloadEventsTableCtrl controller needs occurrence download as a service.
-require('../../shared/layout/html/angular/occurrenceDownload.factory.js');
+require('../../shared/layout/html/angular/occurrence.resource.js');
+require('../../shared/layout/html/angular/species.resource.js');
 
 var angular = require('angular');
 
@@ -16,8 +17,27 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     vm.events = [];
     var limit = 5;
     var offset = 0;
-    var uuid = 'a4555281-5046-424f-9cd1-e7c103234416';
-    DownloadEventsService.get({uuid: uuid, limit: limit}).$promise.then(
+    var uuid = datasetKey; // This key is passed through the template.
+
+    var concatenateValues = function(events) {
+        // Use the "processedValue" if it's provided by the server side.
+        events.forEach(function(event){
+            event.queryTable.forEach(function(query){
+                query.valueProcessed = '';
+                if (query.processedValue.length != 0) {
+                    query.valueProcessed = query.processedValue;
+                }
+                else {
+                    query.filterValues.forEach(function(v, vi){
+                        if (vi != 0) query.valueProcessed += ', ';
+                        query.valueProcessed += v.value;
+                    });
+                }
+            });
+        });
+    };
+
+    DownloadEventsService.get({id: uuid, limit: limit}).$promise.then(
         function (res) {
             vm.events = res.results;
         }, function (errRes) {
@@ -26,15 +46,15 @@ function downloadEventsTableCtrl(DownloadEventsService) {
 
     vm.getMoreData = function () {
         offset = offset + limit;
-        DownloadEventsService.get({uuid: uuid, limit: limit, offset: offset}).$promise.then(
+        DownloadEventsService.get({id: uuid, limit: limit, offset: offset}).$promise.then(
             function (res) {
                 vm.events = vm.events.concat(res.results);
+                concatenateValues(vm.events);
             }, function (errRes) {
             }
 
         );
-    }
-
+    };
 }
 
 module.exports = downloadEventsTableCtrl;
