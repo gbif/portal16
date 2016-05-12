@@ -2,10 +2,10 @@
 
 {% block tools %}
 <div class="fab">
+    <div class="fab__trigger">
+        <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="share"><i class="gb-icon-share"></i></a>
+    </div>
     <ul class="fab__options">
-        <li class="fab__trigger">
-            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="share"><i class="gb-icon-share"></i></a>
-        </li>
         <li>
             <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="facebook"><i class="gb-icon-facebook"></i></a>
         </li>
@@ -22,20 +22,21 @@
 </div>
 {% endblock %}
 
-{% block page %}
-<article class="stripes article">
-    <div class="container-fluid stripes__content">
-        <section class="row block block-first">
 
-            <div class="blockContent">
-                <header class="article__header">
+{% block page %}
+<div class="stripes">
+    <div class="container-fluid stripes__content">
+        <article class="article row block block-first">
+
+            <div class="blockContent row">
+                <header class="col-xs-12 article__header">
                     <nav class="article__category article__category-deep">
                         <span class="article__category__upper">About</span>
                         <span class="article__category__lower">Data Use</span>
                     </nav>
                     <h1 class="text-center">{$ data.title $}</h1>
-                    <p class="intro text-center">Understanding how the most abundant bird in North America went extinct</p>
-                    <p class="text-center meta">Using 12.429 GBIF mediated records</p>
+                    <p class="intro text-center">Do we have content to put here? The summary could do, but might be a bit too long.</p>
+                    <p class="text-center meta">{$ data.numResourceUsed $}</p>
                 </header>
 
             </div>
@@ -43,78 +44,117 @@
             <div class="headerImage">
                 <figure>
                     <div class="coverImg">
+                        {#<img ng-src="{$ images[0].image_styles.masthead__normal $}" gallery-image alt="{$ images[0].filename $}">#}
                         <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">
                     </div>
                     <figcaption>license lskdjhf lkjhsd flkjh </figcaption>
                 </figure>
             </div>
-            <div class="blockContent container">
-                <div class="row textContent prose">
+            <div class="blockContent container-fluid">
+                <div class="textContent prose">
                     {$ data.body | safe $}
                 </div>
             </div>
-            <div class="blockContent">
+            <footer class="blockContent container-fluid">
                 <div class="aux textContent">
-                    <p>
-                        <strong>Research article: </strong>
-                        <span>Alter SE, Meyer M, Post K et al. (2015) Climate impacts on transocean dispersal and habitat in gray whales from the Pleistocene to 2100. Molecular Ecology 24(7): 1510-1522. <a href="#">doi:10.1111/mec.13121</a></span>
-                    </p>
-                    <p>
-                        <strong>Related gbif resource: </strong>
-                        <span><a href="#">Eschrichtius robustus</a></span>
-                    </p>
-                    <p>
-                        <strong>Location of researchers: </strong>
-                        <span class="chips">
-                            <a href="#">United States</a>
-                            <a href="#">Belgium</a>
-                            <a href="#">Australia</a>
-                        </span>
-                    </p>
-                    <p>
-                        <strong>Subject: </strong>
-                        <span class="chips">
-                            <a href="#">Science use</a>
-                            <a href="#">Occurrence Data</a>
-                            <a href="#">Climate change</a>
-                            <a href="#">Ecology</a>
-                        </span>
-                    </p>
+                    {% if data.relatedGbifResources %}
+                    <section class="associated noBreak">
+                        <h5>Related GBIF resources</h5>
+                        <ul class="list-links">
+                            {% for resource in data.relatedGbifResources %}
+                                <li><a href="{$ resource.url $}">{$ resource.title $}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                    {% endif %}
+
+                    {% if data.citationInformation %}
+                        <section class="associated {% if data.citationInformation.length == 1 %} noBreak {% endif %}">
+                            <h5>Citations</h5>
+                            <ul class="list-citations">
+                                {% for loc in data.citationInformation %}
+                                    <li class="noBreak">{$ loc.value | safe $}</li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endif %}
+
+                    {% if data.researcherLocation %}
+                        <section class="associated noBreak">
+                            <h5>Location of researchers</h5>
+                            <ul class="list-chips">
+                                {% for loc in data.researcherLocation %}
+                                    <li><a href="#">{$ loc.name $}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endif %}
+
+                    {#This assumes that there is always tags to show. TODO hide if no available tags#}
+                    <section class="associated noBreak">
+                        <h5>Subject</h5>
+                        <ul class="list-chips">
+                            {% for tag in data.tagsAudience %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.tagsDataUse %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.tagsDataType %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.tagsCapacityEnhancement %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.tagsPurpose %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.tagsTopic %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                            {% for tag in data.gbifArea %}
+                                <li><a href="#">{$ tag.name $}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+
+
+
                 </div>
-            </div>
-        </section>
-        <section class="bare row">
+            </footer>
+        </article>
+        <section class="bare block row">
             <div class="blockContent container-fluid">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
+                    <div class="col-xs-12 col-sm-6">
+                        <article class="card container-fluid">
                             <div class="row">
-                                <div class="col-sm-6 coverImg">
+                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
                                 </div>
-                                <div class="col-sm-6 card__content">
+                                <div class="col-xs-12 col-md-6 card__content">
                                     <span>Previous Story</span>
                                     <h2 class="h4">
-                                        Leviathan impacts: the once—and future?— presence of the Atlantic gray whale
+                                        {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
                                     </h2>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card">
+                    <div class="col-xs-12 col-sm-6">
+                        <article class="card container-fluid">
                             <div class="row">
-                                <div class="col-sm-6 coverImg">
+                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
                                 </div>
-                                <div class="col-sm-6 card__content">
+                                <div class="col-xs-12 col-md-6 card__content">
                                     <span>Next Story</span>
                                     <h2 class="h4">
                                         Modelling key bird areas in Mexico and Central America
                                     </h2>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -161,5 +201,5 @@
         {#{% endif %}#}
     {#</section>#}
 
-</article>
+</div>
 {% endblock %}

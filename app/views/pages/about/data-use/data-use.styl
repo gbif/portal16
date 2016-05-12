@@ -5,7 +5,7 @@
 		margin 0 auto
 	}
 
-	section {
+	.block {
 		background white
 		&.bare {
 			background none
@@ -92,31 +92,117 @@
 .prose {
 	font-size 16px
 }
-.textContent {
-	margin 0 auto
-	max-width 700px
-	//font-weight 300
++isAbove($laptop){
+	.textContent {
+		columns 2 30px
+		text-align justify
+		.noBreak {
+			break-inside avoid-column
+		}
+	}
 }
-.aux {
-	margin vr-block(2) auto 0
-	padding vr-block(1) 0
-	//max-width 800px
-	border-top 1px solid #ddd
-	.chips {
++isBelow($laptop){
+	.textContent {
+		margin 0 auto
+		max-width 700px
+	}
+}
+//.textContent {
+//	margin 0 auto
+//	//max-width 700px
+//	columns 2 30px
+//	text-align justify
+//	//font-weight 300
+//}
+.associated {
+	border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+	h5 {
+		font-weight bold
+		display inline
+		&:after {
+			content: ":"
+		}
+		margin-right 0.5em
+	}
+}
+.list-links {
+	display inline
+	padding 0
+	li {
+		display inline
+		padding 0
+		&:after {
+			content: ","
+		}
+		&:last-of-type:after {
+			content none
+		}
+	}
+}
+.list-chips {
+	display inline
+	padding 0
+	li {
+		padding 0
+		display inline
 		a {
 			display inline-block
-			padding vr-block(0.125) vr-block(0.5)
+			padding 0 vr-block(0.125)
 			background #f1f1f1
 			border 1px solid #ddd
 			color inherit
 			text-decoration none
-			margin 0.5px .5px
-			//border-radius 2px
+			font-size 12px
+			&:hover {
+				background darken(#f1f1f1, 10)
+			}
 		}
 	}
 }
 
+.list-citations {
+	display inline
+	padding 0
+	li {
+		padding-top 5px
+		&:first-of-type{
+			display inline
+		}
+		>* {
+			margin 0 !important //TODO Burke will clean up the api so there is no inline styling. If not we should strip it server side
+			padding 0 !important
+			&:first-of-type{
+				display inline
+			}
+		}
+	}
+}
 
+.aux {
+	margin vr-block(1) auto 0
+	padding vr-block(1) 0
+	//max-width 800px
+	border-top 1px solid #ddd
+	text-align left
+	.chips {
+		a {
+			display inline-block
+			padding 0 vr-block(0.125)
+			background #f1f1f1
+			border 1px solid #ddd
+			color inherit
+			text-decoration none
+			font-size 12px
+			&:hover {
+				background darken(#f1f1f1, 10)
+			}
+		}
+	}
+}
+
+.card {
+	margin-bottom vr-block(1)
+}
 
 img {
 	max-width 100%
