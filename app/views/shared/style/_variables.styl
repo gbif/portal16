@@ -24,14 +24,19 @@ $c_main := $Mist//#67A05D
 $c_sec := #F5CC27
 $_accent := $purple
 $content_bg := #e2e7ea//$Mist
+$Olivine := #9BBB7F;
 
 
 /* Navigation-bar variables */
 $navbar_height := vr-block(3)
 $navbar_borderWidth := vr-block(0.25)
-$navbar_bg := #9BBB7F //#6FAF5C //$Mist
+$navbar_bg := linear-gradient( lighten($Olivine, 5), $Olivine) //#9BBB7F //#6FAF5C //$Mist
 $navbar_BorderColor := #f5cc27
 $navbar_textColor := #fafafa //$Green//$Mist
+menuTextShadow() {
+	text-shadow 0px 1px 1px darken($Olivine, 10)
+}
+
 $navbar_dropdown_bg := white
 $navbar_dropdown_color := #333
 $navbar_horizontal_color := $c_main

@@ -41,18 +41,30 @@
 
             </div>
 
+            {% if images[0].image_dimensions.width > 1000 %}
             <div class="headerImage">
                 <figure>
                     <div class="coverImg">
-                        {#<img ng-src="{$ images[0].image_styles.masthead__normal $}" gallery-image alt="{$ images[0].filename $}">#}
-                        <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">
+                        <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
+                        {#<img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">#}
                     </div>
-                    <figcaption>license lskdjhf lkjhsd flkjh </figcaption>
+                    <figcaption class="container-fluid"><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
                 </figure>
             </div>
+            {% endif %}
+
             <div class="blockContent container-fluid">
                 <div class="textContent prose">
                     {$ data.body | safe $}
+
+                    {% if images[0].image_dimensions.width <= 1000 %}
+                        <figure class="noBreak">
+                            <div class="coverImg articleImg">
+                                <img ng-src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
+                            </div>
+                            <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
+                        </figure>
+                    {% endif %}
                 </div>
             </div>
             <footer class="blockContent container-fluid">
@@ -62,7 +74,7 @@
                         <h5>Related GBIF resources</h5>
                         <ul class="list-links">
                             {% for resource in data.relatedGbifResources %}
-                                <li><a href="{$ resource.url $}">{$ resource.title $}</a></li>
+                                <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
                             {% endfor %}
                         </ul>
                     </section>
@@ -127,30 +139,34 @@
             <div class="blockContent container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <article class="card container-fluid">
+                        <article class="card card-nav container-fluid">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 coverImg hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span>Previous Story</span>
+                                    <span><a href="/data-use/82555">Previous Story</a></span>
                                     <h2 class="h4">
-                                        {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
+                                        <a href="/data-use/82555">
+                                            {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
+                                        </a>
                                     </h2>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <article class="card container-fluid">
+                        <article class="card card-nav container-fluid">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 coverImg hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span>Next Story</span>
+                                    <span><a href="/data-use/82507">Next Story</a></span>
                                     <h2 class="h4">
-                                        Modelling key bird areas in Mexico and Central America
+                                        <a href="/data-use/82507">
+                                            Modelling key bird areas in Mexico and Central America
+                                        </a>
                                     </h2>
                                 </div>
                             </div>
@@ -160,46 +176,6 @@
             </div>
         </section>
     </div>
-
-
-    {#<section>#}
-        {#<div class="content">#}
-            {#<figure class="coverImg">#}
-                {#<img ng-src="{$ images[0].image_styles.masthead__normal $}" gallery-image alt="{$ images[0].filename $}">#}
-                {#<figcaption>{$ image.image_field_caption.value | safe $}</figcaption>#}
-            {#</figure>#}
-            {#<header>#}
-                {#<nav>About | Data use</nav>#}
-                {#<h1>{$ data.title $}</h1>#}
-            {#</header>#}
-        {#</div>#}
-        {#<div>#}
-            {#{$ data.body | safe $}#}
-        {#</div>#}
-    {#</section>#}
-    {#<section id="map" class="mapSection">#}
-        {#<gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'8925498e-f762-11e1-a439-00145eb45e9a'" mapstyle="'classic'"></gbmap>#}
-    {#</section>#}
-
-
-    {#<section>#}
-        {#<div>#}
-            {#<section class="body-text">#}
-                {#{$ data.body | safe $}#}
-            {#</section>#}
-            {#<div class="sidebar">#}
-                {#{$ macros.sidebarFields(data, gb.locales.current) $}#}
-            {#</div>#}
-        {#</div>#}
-
-        {#{% if data.citationInformation %}#}
-            {#{$ macros.textAreaField("Citation information", data.citationInformation) $}#}
-        {#{% endif %}#}
-
-        {#{% if data.relatedGbifResources %}#}
-            {#{$ macros.linkField("GBIF resource involved", data.relatedGbifResources) $}#}
-        {#{% endif %}#}
-    {#</section>#}
 
 </div>
 {% endblock %}
