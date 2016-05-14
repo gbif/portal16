@@ -29,6 +29,18 @@ var baseLayers = {
                 palette: 'yellows_reds'
             }
         },
+        'outdoor': {
+            "name": "Outdoor",
+            "url": "https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=" + accessToken,
+            options: {
+                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+            },
+            type: 'xyz',
+            layerOptions: {
+                "showOnSelector": false,
+                palette: 'yellows_reds'
+            }
+        },
         'dark': {
             "name": "Night",
             "url": "https://{s}.tiles.mapbox.com/v4/gbif.dec5e9ae/{z}/{x}/{y}.png?access_token=" + accessToken,

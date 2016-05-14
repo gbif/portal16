@@ -31,13 +31,20 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         similarRecords: []
     };
     vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
-    vm.center = {zoom: 7, lat: 0, lng: 0};
+    vm.center = {zoom: 9, lat: 0, lng: 0};
     vm.markers = {};
+    var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
     vm.tiles = {
-        url: "http://2.maps.nlp.nokia.com/maptile/2.1/maptile/newest/normal.day.grey/{z}/{x}/{y}/256/png8?app_id=_peU-uCkp-j8ovkzFGNU&app_code=gBoUkAMoxoqIWfxWA5DuMQ",
+        "name": "Outdoor",
+        "url": "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,
         options: {
-            attribution: '&copy; <a href="https://legal.here.com/en/terms/serviceterms/us/">Nokia</a>'
+            attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+        },
+        type: 'xyz',
+        layerOptions: {
+            "showOnSelector": false,
+            palette: 'yellows_reds'
         }
     };
     vm.mapDefaults = {
@@ -123,8 +130,8 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             vm.markers.taxon.message = '<p>'+data.verbatimLocality+'</p>';
         }
         vm.center = {
-            zoom: 6,
-            lat: data.decimalLatitude+0.4,
+            zoom: 9,
+            lat: data.decimalLatitude,
             lng: data.decimalLongitude
         };
         if (data.coordinateAccuracyInMeters > 50) {
