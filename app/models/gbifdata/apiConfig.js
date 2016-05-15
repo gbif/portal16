@@ -15,6 +15,9 @@ var apiConfig = {
     occurrence: {
         url: baseUrl + 'occurrence/'
     },
+    species: {
+        url: baseUrl + 'species/'
+    },
     publisher: {
         url: baseUrl + 'organization/'
     },

@@ -1,15 +1,40 @@
+
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
-
+{% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
     <script>
         var gb = gb || {};
         gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
+        gb.rm = {$ occurrence | rawJson | safe $}
     </script>
-    <div class="stripes" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
-        <div class="container-fluid stripes__content">
+    <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
+        <div class="overlay"></div>
+
+        <!-- <div class="floatAction floatAction-edit gb-icon-pen" ng-click="occurrence.showDrawer = !occurrence.showDrawer"></div>
+        <div id="comments" class="comments">
+            <ul>
+                <li ng-repeat="item in occurrence.comments">{{ item.comment }} <button ng-click="occurrence.deleteComment($index)">slet</button> </li>
+            </ul>
+            <textarea ng-model="occurrence.newComment"></textarea>
+            <button ng-click="occurrence.addComment()">add</button>
+        </div> -->
+
+        <div class="container-fluid">
             <article class="article row block block-first">
+                
+                <div class="blockComment">
+                    <div>
+                        Synced <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>
+                    </div>
+                    {% if occurrence.record.modified %}
+                    <div>
+                        Updated {$ occurrence.record.modified | formatDate(gb.locales.current) $}
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- <chartist class="ct-chart" chartist-data="occurrence.barData" chartist-chart-type="Line"></chartist> -->
 
                 <div class="blockContent row">
                     <header class="col-xs-12 article__header">
@@ -17,28 +42,62 @@
                             <span class="article__category__upper">Occurrence</span>
                             <span class="article__category__lower">{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</span>
                         </nav>
-                        <h1 class="text-center">A {$ __('bor.' + occurrence.record.basisOfRecord) $} of {$ occurrence.record.scientificName $}</h1>
-                        <ul style="border-top: 1px solid #ddd; padding-top: 1.5rem;">
-                            <li>From <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title $}</a> dataset</li>
-                            <li>Published by: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title $}</a></li>
-                            <li>Recorded on {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</li>
-                            <li>Last synced <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time></li>
-                            <li>Updated {$ occurrence.record.modified | formatDate(gb.locales.current) $}</li>
-                            <li>Main contact: [the collector or the main contact for the containing dataset]</li>
-                        </ul>
-                        <ul>
-                            <li>{$ occurrence.record.license $}</li>
-                            <li>
-                                <span class="gb-icon-cclogo3 cc"></span>
-                                <span class="gb-icon-ccby cc"></span>
-                                <span class="gb-icon-ccnc cc"></span>
-                                <span class="gb-icon-ccsa cc"></span>
-                            </li>
-                        </ul>
+
+                        <h1 class="h2 text-center">
+                            {% if occurrence.record.individualCount > 1 %}
+                            <span class="badge">{$ occurrence.record.individualCount $}</span> 
+                            {% endif %}
+
+                            {% if occurrence.record.species %}
+                            {$ occurrence.record.species $}
+                            {% else %}
+                            {$ occurrence.record.scientificName $}
+                            {% endif %}
+                            recorded in {$ occurrence.record.country $}</h1>
+                        <div class="text-center sub">
+                            <span class="desc taxa">{$ helpers.taxonomy(occurrence.record) $}</span>
+                        </div>
                     </header>
+                </div>
+            </article>
+            <section class="block row bare">
+                <div class="blockContent">
+
+                    <div class="container-fluidx test">
+                        <div class="rowx">
+                            <div class="col-sm-6x">
+                                <ul class="propertyPairs">
+                                    <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
+                                    <li>
+                                        <span>Location</span>: 
+                                        <span>
+                                            {% if occurrence.record.country %}{$ occurrence.record.country $} {% endif %}
+                                            {% if occurrence.record.stateProvince %}{$ occurrence.record.stateProvince $} {% endif %}
+                                            {% if occurrence.record.county %}{$ occurrence.record.county $} {% endif %}
+                                            {% if occurrence.record.municipality %}{$ occurrence.record.municipality $} {% endif %}
+                                        </span>
+                                    </li>
+                                    <li><span>Basis of record</span>: <span>{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
+                                    {% if occurrence.record.typeStatus %}
+                                    <li><span>Specimen type</span>: <span>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="col-sm-6x">
+                                <ul class="propertyPairs">
+                                    <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
+                                    <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
+                                    {% if occurrence.record.issues.length > 0 %}
+                                    <li><span>Issues</span>: <span class="badge {% if occurrence.record.issues.length > 1 %} issues-high {% endif %}">{$ occurrence.record.issues.length $}</span></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
+                {% if occurrence.record.decimalLatitude and occurrence.record.decimalLongitude %}
                 <div class="headerImage" style="height: 350px" ng-init="occurrence.setData()">
                     <leaflet
                             leafletMap="leafletMap"
@@ -53,13 +112,14 @@
                             event-broadcast="occurrence.mapEvents"
                     ></leaflet>
                 </div>
+                {% endif %}
 
                 <div class="blockContent container-fluid">
-                    <div class="textContent prose">
-                        <p>sdlkfjh muligt indohld</p>
-                    </div>
+                    <p>
+                        {$ occurrence.dataset.description $}
+                    </p>
                 </div>
-                <footer class="blockContent container-fluid">
+                <!-- <footer class="blockContent container-fluid">
                     <div class="aux textContent">
                         <section class="associated noBreak">
                             <h5>Related GBIF resources</h5>
@@ -70,57 +130,8 @@
                                 <li>abs lkjhs fhj</li>
                             </ul>
                         </section>
-
-
-
-                    </div>
-                </footer>
-            </article>
-            <section class="bare block row">
-                <div class="blockContent container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            sædlf lkjhs dflkjh sdf
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-    </div>
-
-    {# Begin page content #}
-    <article class="occurrenceDetails" >
-        <div class="overlay"></div>
-
-        <!-- <div class="floatAction floatAction-edit gb-icon-pen" ng-click="occurrence.showDrawer = !occurrence.showDrawer"></div>
-    <div id="comments" class="comments">
-        <ul>
-            <li ng-repeat="item in occurrence.comments">{{ item.comment }} <button ng-click="occurrence.deleteComment($index)">slet</button> </li>
-        </ul>
-        <textarea ng-model="occurrence.newComment"></textarea>
-        <button ng-click="occurrence.addComment()">add</button>
-    </div> -->
-
-
-        <div class="wrapperHorizontalStripes">
-            <section id="key-information">
-                <div class="centerContent">
-                    <header class="header">
-                        <h4 class="contentTypelabel">Occurrence record</h4>
-                        <h1>A {$ __('bor.' + occurrence.record.basisOfRecord) $} of {$ occurrence.record.scientificName $}</h1>
-                    </header>
-                    <div class="two-third">
-                        <ul>
-                            <li>From <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title $}</a> dataset</li>
-                            <li>Published by: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title $}</a></li>
-                            <li>Recorded on {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</li>
-                            <li>Last synced <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time></li>
-                            <li>Updated {$ occurrence.record.modified | formatDate(gb.locales.current) $}</li>
-                            <li>Main contact: [the collector or the main contact for the containing dataset]</li>
-                        </ul>
-                    </div>
-                    <div class="one-third licences">
+Main contact: [the collector or the main contact for the containing dataset]
+                        
                         <ul>
                             <li>{$ occurrence.record.license $}</li>
                             <li>
@@ -130,123 +141,162 @@
                                 <span class="gb-icon-ccsa cc"></span>
                             </li>
                         </ul>
+
+                    </div>
+                </footer> -->
+            </section>
+
+            <section class="block row">
+                <div class="blockContent container-fluid">
+                    <div class="row">
+                        <section class="termBlock col-md-4">
+                            <span class="termBlock__icon blue">
+                                <span class="gb-icon-search"></span>
+                            </span>
+                            <h3 class="h4">Geological context</h3>
+                            <div>
+                                <dl>
+                                    <dt>Stratigraphic Classification</dt>
+                                    <dd>
+                                        <dl>
+                                            <dt>Period</dt>
+                                            <dd>Neogene</dd>
+                                            <dt>Epoch</dt>
+                                            <dd>Miocene, Late</dd>
+                                        </dl>
+                                    </dd>
+                                    <dt>Biostratigraphic Zone</dt>
+                                    <dd>Hemphillian</dd>
+                                </dl>
+                            </div>
+                        </section>
+                        <section class="termBlock col-md-4">
+                            <span class="termBlock__icon green">
+                                <span class="gb-icon-search"></span>
+                            </span>
+                            <h3 class="h4">Event</h3>
+                            <div>
+                                <dl>
+                                    <dt>Event date</dt>
+                                    <dd>{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</dd>
+                                    <dt>Event Trademarks</dt>
+                                    <dd>
+                                        The material sample was collected, and either preserved or destructively processed.
+                                    </dd>
+                                    <dt>Sampling effort</dt>
+                                    <dd>25 trap day(s)</dd>
+                                    <dt>Sampling protocol</dt>
+                                    <dd>Modified Robinson light trap</dd>
+                                </dl>
+                            </div>
+                        </section>
+                        <section class="termBlock col-md-4">
+                            <span class="termBlock__icon pink">
+                                <span class="gb-icon-search"></span>
+                            </span>
+                            <h3 class="h4">Geological context</h3>
+                            <div>
+                                <dl>
+                                    <dt>Stratigraphic Classification</dt>
+                                    <dd>
+                                        <dl>
+                                            <dt>Period</dt>
+                                            <dd>Neogene</dd>
+                                            <dt>Epoch</dt>
+                                            <dd>Miocene, Late</dd>
+                                        </dl>
+                                    </dd>
+                                    <dt>Biostratigraphic Zone</dt>
+                                    <dd>Hemphillian</dd>
+                                </dl>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </section>
 
-            <section id="map" class="occurrenceDetails__summary mapSection" >
-                <div class="card__banner mapBlock">
-
-                    <div class="occurrence__locationOverview">
-                        <div class="occurrence__locationOverview__descr card__definitions">
-                            <div>
-                                <span class="term">Country:</span>
-                                <span class="desc taxa">{$ occurrence.record.country $}</span>
-                            </div>
-                            <div>
-                                <span class="term">Location:</span>
-                                <span class="desc taxa">{$ occurrence.record.decimalLatitude + 'N, ' + occurrence.record.decimalLongitude + 'W' $}</span>
-                            </div>
-                            {% if occurrence.record.coordinateAccuracyInMeters %}
-                                <div>
-                                    <span class="term">Accuracy:</span>
-                                    <span class="desc taxa">{$ occurrence.record.coordinateAccuracyInMeters $} m</span>
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="tile species__map" ng-click="occurrence.expandMap = !occurrence.expandMap">
-                            <div>
-                                {#Examples of different base maps. TODO find one that works well with the final laytou#}
-                                {#<img src="http://2.maps.nlp.nokia.com/maptile/2.1/maptile/newest/normal.day.grey/0/0/0/256/png8?app_id=_peU-uCkp-j8ovkzFGNU&app_code=gBoUkAMoxoqIWfxWA5DuMQ">#}
-                                <img src="http://a.tiles.mapbox.com/v4/gbif.e8bcd045/0/0/0.png?access_token=pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ">
-                                <!-- <img src="http://a.tiles.mapbox.com/v4/gbif.dec5e9ae/0/0/0.png?access_token=pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ"> -->
-
-                                <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&colors=%2C%2C%23BBff00FF&key={$ occurrence.record.speciesKey $}&type=TAXON&resolution=4">
-                                <!-- <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=reds&key={$ occurrence.record.speciesKey $}&type=TAXON&resolution=1"> -->
-                                <div class="marker" ng-style="occurrence.tilePosStyle"></div>
-                            </div>
+<!--             <section class="bare block row">
+                <div class="blockContent container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            sædlf lkjhs dflkjh sdf
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="secondary-information">
-                <div class="centerContent">
-                    <h4>Taxonomy</h4>
-                    <ul>
-                        <li>{$ occurrence.record.kingdom $}</li>
-                        <li>{$ occurrence.record.phylum $}</li>
-                    </ul>
-                </div>
-            </section>
+            </section> -->
 
             <!-- <section class="occurrenceDetails__similar" >
-            <div class="card">
-                <h2 class="card__header">Similar records</h2>
-                <div>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>basisOfRecord</th>
-                            <th>Event date</th>
-                            <th>catalog number</th>
-                            <th>collectionCode</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="similar in occurrence.similarities.similarRecords">
-                                <td>{{ similar.key }}</td>
-                                <td>{{ similar.basisOfRecord }}</td>
-                                <td>{{ occurrence.parseDate(similar.eventDate) }}</td>
-                                <td>{{ similar.catalogNumber }}</td>
-                                <td>{{ similar.collectionCode }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section> -->
-
-            <section class="occurrenceDetails__details">
-                <div>
+                <div class="card">
+                    <h2 class="card__header">Similar records</h2>
                     <div>
-                        <div role="button" ng-click="occurrence.detailsState = occurrence.detailsStates.INTERPRETED">Interpreted</div>
-                        <div role="button" ng-click="occurrence.detailsState = occurrence.detailsStates.COMPARE">Compare</div>
-                        <div role="button" ng-click="occurrence.detailsState = occurrence.detailsStates.DIFF">Differences</div>
-                    </div>
-                </div>
-                <div class="occurrenceDetails__details__table"
-                     ng-class="{compare: occurrence.detailsState != occurrence.detailsStates.INTERPRETED,
-                            diffOnly: occurrence.detailsState == occurrence.detailsStates.DIFF}">
-                    {% for category in occurrenceFields %}
-                        <h4 class="category">{$ category.name $}</h4>
-
-
                         <table>
-                            <thead ng-hide="true">
+                            <thead>
                             <tr>
-                                <th>Field</th>
-                                <th>Interpreted</th>
-                                <th ng-if="occurrence.compare">Original</th>
+                                <th>Key</th>
+                                <th>basisOfRecord</th>
+                                <th>Event date</th>
+                                <th>catalog number</th>
+                                <th>collectionCode</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for field in category.fields %}
-                                <tr {% if occurrence.record[field.gbif]==occurrence.verbatim[field.verbatim] %} ng-if="occurrence.detailsState != occurrence.detailsStates.DIFF"  {% endif %}
-                                        class=" {% if occurrence.record[field.gbif]!=occurrence.verbatim[field.verbatim] %} isDifferent {% endif %}">
-                                    <td class="field">{$ field.gbif $}</td>
-                                    <td>{$ occurrence.record[field.gbif] $}</td>
-                                    <td ng-if="occurrence.detailsState != occurrence.detailsStates.INTERPRETED">{$ occurrence.verbatim[field.verbatim] $}</td>
+                                <tr ng-repeat="similar in occurrence.similarities.similarRecords">
+                                    <td>{{ similar.key }}</td>
+                                    <td>{{ similar.basisOfRecord }}</td>
+                                    <td>{{ occurrence.parseDate(similar.eventDate) }}</td>
+                                    <td>{{ similar.catalogNumber }}</td>
+                                    <td>{{ similar.collectionCode }}</td>
                                 </tr>
-                            {% endfor %}
                             </tbody>
                         </table>
-                    {% endfor %}
+                    </div>
+                </div>
+            </section> -->
+            
+            <section class="bare block row">
+                <div class="blockContent container-fluid">
+                    <div>
+                        <div class="multiToggle">
+                            <div type="button" aria-label="Interpreted" class="isActive"
+                                    ng-click="occurrence.detailsState = occurrence.detailsStates.INTERPRETED" 
+                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.INTERPRETED}">Interpreted</div>
+                            <div type="button" aria-label="Compare"
+                                    ng-click="occurrence.detailsState = occurrence.detailsStates.COMPARE" 
+                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.COMPARE}">Compare to original</div>
+                            <div type="button" aria-label="Differences" 
+                                    ng-click="occurrence.detailsState = occurrence.detailsStates.DIFF" 
+                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.DIFF}">Issues</div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-xs-12">
+                            <div class="allData" ng-class="{compare: occurrence.detailsState != occurrence.detailsStates.INTERPRETED,
+                            diffOnly: occurrence.detailsState == occurrence.detailsStates.DIFF}">
+                                {% for category in occurrenceFields %}
+                                <section>
+                                    <h2 class="h4">{$ category.name $}</h2>
+                                    <dl>
+                                        {% for field in category.fields %}
+                                        <div {% if occurrence.record[field.gbif]==occurrence.verbatim[field.verbatim] %} ng-if="occurrence.detailsState != occurrence.detailsStates.DIFF"  {% else %} class="isDifferent" {% endif %}>
+                                            <dt>{$ field.gbif $}</dt>    
+                                            <dd>{$ occurrence.record[field.gbif] $}</dd>
+                                            <div class="discreet">
+                                                <dt ng-show="occurrence.detailsState != occurrence.detailsStates.INTERPRETED">{$ field.verbatim $}</dt>
+                                                <dd ng-show="occurrence.detailsState != occurrence.detailsStates.INTERPRETED">{$ occurrence.verbatim[field.verbatim] $}</dd>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </dl>
+                                </section>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+
         </div>
 
-
-
-    </article>
+    </div>
 {% endblock %}
