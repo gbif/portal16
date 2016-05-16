@@ -6,7 +6,8 @@ var express = require('express'),
     request = require('request'),
     async = require('async'),
     Q = require('q'),
-    basisOfRecord = require('../../models/vocabularies/basisOfRecord');
+    basisOfRecord = require('../../models/vocabularies/basisOfRecord'),
+    isoCountry = require('../../models/vocabularies/iso3166-1Alpha2');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -542,15 +543,22 @@ function processQueryTable(body) {
     body.results.forEach(function(result, ri){
         var requestUrls = [];
         result.queryTable.forEach(function(row){
-            if (row.filterType == 'Taxon') {
-                row.filterValues.forEach(function(v, vi){
-                    requestUrls[vi] = api.speciesParsedName.url + v.value;
-                });
-            }
-            if (row.filterType == 'Basis of record') {
-                row.filterValues.forEach(function(v, vi){
-                    v.value = basisOfRecord.getHumanString(v.value);
-                });
+            switch (row.filterType) {
+                case 'Taxon':
+                    row.filterValues.forEach(function(v, vi){
+                        requestUrls[vi] = api.speciesParsedName.url + v.value;
+                    });
+                    break;
+                case 'Basis of record':
+                    row.filterValues.forEach(function(v){
+                        v.value = basisOfRecord.getHumanString(v.value);
+                    });
+                    break;
+                case 'Country':
+                    row.filterValues.forEach(function(v){
+                        v.value = isoCountry.getHumanString(v.value);
+                    });
+                    break;
             }
         });
         tasks[ri] = requestUrls;
