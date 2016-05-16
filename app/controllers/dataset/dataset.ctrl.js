@@ -5,7 +5,8 @@ var express = require('express'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
-    Q = require('q');
+    Q = require('q'),
+    basisOfRecord = require('../../models/vocabularies/basisOfRecord');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -544,6 +545,11 @@ function processQueryTable(body) {
             if (row.filterType == 'Taxon') {
                 row.filterValues.forEach(function(v, vi){
                     requestUrls[vi] = api.speciesParsedName.url + v.value;
+                });
+            }
+            if (row.filterType == 'Basis of record') {
+                row.filterValues.forEach(function(v, vi){
+                    v.value = basisOfRecord.getHumanString(v.value);
                 });
             }
         });
