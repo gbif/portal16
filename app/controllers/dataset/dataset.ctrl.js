@@ -539,15 +539,15 @@ function processQueryTable(body) {
     var defer = Q.defer();
     var tasks = [];
     body.results.forEach(function(result, ri){
+        var requestUrls = [];
         result.queryTable.forEach(function(row){
-            var requestUrls = [];
             if (row.filterType == 'Taxon') {
-                row.filterValues.forEach(function(v){
-                    requestUrls.push(api.speciesParsedName.url + v.value);
+                row.filterValues.forEach(function(v, vi){
+                    requestUrls[vi] = api.speciesParsedName.url + v.value;
                 });
             }
-            tasks[ri] = requestUrls;
         });
+        tasks[ri] = requestUrls;
     });
 
     var processedTaxonValuePromises = [];

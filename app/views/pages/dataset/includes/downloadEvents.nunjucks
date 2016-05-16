@@ -19,6 +19,7 @@
                     {{event.recordInvolved}}
                 </td>
                 <td>
+                    <div ng-show="!event.queryTable.length">No filter applied.</div>
                     <div ng-repeat="filter in event.queryTable">
                         <span class="tableCellLabel">{{ filter.filterType }}</span>
                         <span>{{ filter.valueProcessed }}</span>
