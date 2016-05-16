@@ -23,7 +23,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key',
+            url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key&kingdomKey.facetLimit',
             views: {
                 main: {
                     templateUrl: '/templates/pages/occurrence/occurrence.html',

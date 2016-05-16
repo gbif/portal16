@@ -71,6 +71,9 @@ siteHeaderbar() {
 		overflow visible
 		position fixed
 		>div>ul>li {
+			>a {
+				menuTextShadow()
+			}
 			display inline-block
 			&.isCategory {
 				> ul {
@@ -78,7 +81,7 @@ siteHeaderbar() {
 					background $navbar_dropdown_bg
 					position absolute
 					padding vr-block(0.25) 0
-					box-shadow 2px 3px 3px rgba(0,0,0,0.2)
+					box-shadow 0px 2px 3px rgba(0,0,0,0.2)
 					li {
 						display block
 						a {

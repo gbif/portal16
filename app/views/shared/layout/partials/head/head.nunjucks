@@ -1,60 +1,61 @@
 <head>
-<meta charset="UTF-8">
 
-<!-- If IE use the latest rendering engine -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$ meta.title $}</title>
+    <meta charset="UTF-8">
 
-<!-- Set the page to the width of the device and set the zoom level -->
-<meta name="viewport" content="width = device-width, initial-scale = 1">
+    <!-- If IE use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=M44RdwqkEg_v2">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=M44RdwqkEg_v2">
-<link rel="icon" type="image/png" href="/favicon-32x32.png?v=M44RdwqkEg_v2" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-194x194.png?v=M44RdwqkEg_v2" sizes="194x194">
-<link rel="icon" type="image/png" href="/favicon-96x96.png?v=M44RdwqkEg_v2" sizes="96x96">
-<link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=M44RdwqkEg_v2" sizes="192x192">
-<link rel="icon" type="image/png" href="/favicon-16x16.png?v=M44RdwqkEg_v2" sizes="16x16">
-<link rel="manifest" href="/manifest.json?v=M44RdwqkEg_v2">
-<link rel="mask-icon" href="/safari-pinned-tab.svg?v=M44RdwqkEg_v2" color="#4c9e45">
-<link rel="shortcut icon" href="/favicon.ico?v=M44RdwqkEg_v2">
-<meta name="msapplication-TileColor" content="#00a300">
-<meta name="msapplication-TileImage" content="/mstile-144x144.png?v=M44RdwqkEg_v2">
-<meta name="theme-color" content="#4c9e45">
+    <!-- Set the page to the width of the device and set the zoom level -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=M44RdwqkEg_v2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=M44RdwqkEg_v2">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=M44RdwqkEg_v2" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png?v=M44RdwqkEg_v2" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=M44RdwqkEg_v2" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=M44RdwqkEg_v2" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=M44RdwqkEg_v2" sizes="16x16">
+    <link rel="manifest" href="/manifest.json?v=M44RdwqkEg_v2">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=M44RdwqkEg_v2" color="#4c9e45">
+    <link rel="shortcut icon" href="/favicon.ico?v=M44RdwqkEg_v2">
+    <meta name="msapplication-TileColor" content="#00a300">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=M44RdwqkEg_v2">
+    <meta name="theme-color" content="#4c9e45">
+
+    <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/index.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!--[if !IE]> -->
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+
+    <![endif]-->
+    {#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
 
 
-
-<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
-<link rel="stylesheet" type="text/css" href="/css/base/index.css">
-
-<!--[if !IE]> -->
-<!-- <![endif]-->
-
-<!--[if IE]>
-
-<![endif]-->
-{#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
+    <!--[if lt IE 9]>
+    {#
+    <script src="https://cdn.jsdelivr.net/css3-mediaqueries/0.1/css3-mediaqueries.min.js"></script>
+    <script src="https://rawgit.com/closingtag/calc-polyfill/master/calc.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
 
-<!--[if lt IE 9]>
-{#
-<script src="https://cdn.jsdelivr.net/css3-mediaqueries/0.1/css3-mediaqueries.min.js"></script>
-<script src="https://rawgit.com/closingtag/calc-polyfill/master/calc.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-#}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aight/1.2.2/aight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
-
-<![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aight/1.2.2/aight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    #}
+    <![endif]-->
 
 </head>

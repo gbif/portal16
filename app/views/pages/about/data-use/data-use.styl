@@ -1,0 +1,222 @@
+.stripes {
+	.stripes__content {
+		background #f7f9fa
+		max-width 1300px
+		margin 0 auto
+	}
+
+	.block {
+		background white
+		&.bare {
+			background none
+			border 1px solid #dbe3e7
+			border-width 1px 0
+		}
+		.blockContent {
+			color #4E565F
+			margin vr-block(1) auto
+			max-width 1000px
+		}
+	}
+	.coverImg {
+		height 0
+		padding-bottom 30%
+		background #f7f9fa
+		overflow hidden
+		background-size cover
+		background-position center
+		img {
+			display none
+		}
+	}
+	.prose figure {
+		margin auto
+		max-width 500px
+		.articleImg {
+			padding-bottom 60%
+		}
+	}
+
+	figcaption {
+		max-width 1000px
+		margin auto
+		color #aaa
+		font-size 12px
+		font-weight 300
+		>div, >div>p {
+			display inline
+		}
+	}
+
+	$articleCategorySeperatorSpacing = 5px
+	.article__category {
+		margin vr-block(0.5) auto -(vr-block(0.5)) auto
+		text-align center
+		text-transform: uppercase
+		font-weight bold
+		>span:last-of-type {
+			font-weight normal
+		}
+		.article__category__lower {
+			border-left 2px solid $OrangePeel
+			margin-left $articleCategorySeperatorSpacing
+			padding-left $articleCategorySeperatorSpacing
+		}
+		&.article__category-deep {
+			text-align left
+			.article__category__upper {
+				display inline-block
+				width s('calc(50% - %s)', $articleCategorySeperatorSpacing)
+				text-align right
+			}
+		}
+	}
+}
+
+
+.article__header {
+	h1 {
+		margin-bottom vr-block(1)
+	}
+	.intro {
+		font-size 1.2rem
+		font-style italic
+		font-family $caslon
+		max-width 700px
+		margin 0 auto vr-block(0.5)
+	}
+	.meta {
+		font-weight bold
+	}
+}
+.article {
+	.textContent {
+		//margin-top vr-block(1)
+	}
+}
+
+.prose {
+	font-size 16px
+}
++isAbove($laptop){
+	.textContent {
+		columns 2 30px
+		text-align justify
+		.noBreak {
+			break-inside avoid-column
+		}
+	}
+}
++isBelow($laptop){
+	.textContent {
+		margin 0 auto
+		max-width 700px
+	}
+}
+//.textContent {
+//	margin 0 auto
+//	//max-width 700px
+//	columns 2 30px
+//	text-align justify
+//	//font-weight 300
+//}
+.associated {
+	border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+	h5 {
+		font-weight bold
+		display inline
+		&:after {
+			content: ":"
+		}
+		margin-right 0.5em
+	}
+}
+.list-links {
+	display inline
+	padding 0
+	li {
+		display inline
+		padding 0
+		&:after {
+			content: ","
+		}
+		&:last-of-type:after {
+			content none
+		}
+	}
+}
+.list-chips {
+	display inline
+	padding 0
+	li {
+		padding 0
+		display inline
+		a {
+			display inline-block
+			padding 0 vr-block(0.125)
+			background #f1f1f1
+			border 1px solid #ddd
+			color inherit
+			text-decoration none
+			font-size 12px
+			&:hover {
+				background darken(#f1f1f1, 10)
+			}
+		}
+	}
+}
+
+.list-citations {
+	display inline
+	padding 0
+	li {
+		padding-top 5px
+		&:first-of-type{
+			display inline
+		}
+		>* {
+			margin 0 !important //TODO Burke will clean up the api so there is no inline styling. If not we should strip it server side
+			padding 0 !important
+			&:first-of-type{
+				display inline
+			}
+		}
+	}
+}
+
+.aux {
+	margin vr-block(1) auto 0
+	padding vr-block(1) 0
+	//max-width 800px
+	border-top 1px solid #ddd
+	text-align left
+	.chips {
+		a {
+			display inline-block
+			padding 0 vr-block(0.125)
+			background #f1f1f1
+			border 1px solid #ddd
+			color inherit
+			text-decoration none
+			font-size 12px
+			&:hover {
+				background darken(#f1f1f1, 10)
+			}
+		}
+	}
+}
+
+.card {
+	margin-bottom vr-block(1)
+}
+
+.card-nav {
+	a {
+		color inherit
+	}
+}
+
+img {
+	max-width 100%
+}
+

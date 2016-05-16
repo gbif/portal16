@@ -15,7 +15,7 @@ require('ng-infinite-scroll');
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap', 'infinite-scroll']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'angular-chartist']);
 
 })();
 
@@ -135,7 +135,7 @@ window.onerror = function(msg, file, line, col, error) {
         error: error,
         stack: stackTrace()
     };
-
+console.log('error happened');
     var request = new XMLHttpRequest();
     request.open('POST', '/api/log/error', true);
     request.setRequestHeader('Content-Type', 'application/json');

@@ -23,7 +23,7 @@ function renderPage(req, res, occurrence) {
      res.json(occurrence);
     } else {
         var angularInitData = occurrence.record;//occurrenceDetails.getAngularInitData(occurrence);
-        res.render('pages/occurrence/key/occurrenceKey', {
+        res.render('pages/occurrence/key/occurrenceKey2', {
             occurrence: occurrence,
             occurrenceFields: occurrenceDetails.occurrenceFields,
             angularInitData: angularInitData,
