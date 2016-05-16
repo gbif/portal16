@@ -88,6 +88,9 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
 
     vm.tilePosStyle = {};
     vm.data;
+    vm.table = {
+        filter: undefined
+    };
 
     vm.deleteComment = function(index) {
         vm.comments.$remove(index).then(function(){});
@@ -101,7 +104,10 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
 
 
     vm.setData = function() {
-        vm.data = gb.occurrenceRecord; //TODO find a better way to parse required data to controller from server without seperate calls
+        //TODO find a better way to parse required data to controller from server without seperate calls
+        vm.occurrenceFields = gb.occurrenceFields;
+        vm.verbatim = gb.occurrenceRecordVerbatim;
+        vm.data = gb.occurrenceRecord;
         setMap(vm.data);
         getWeather(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.data.eventDate);
 

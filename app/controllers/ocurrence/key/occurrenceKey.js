@@ -1,6 +1,7 @@
 "use strict";
 var Q = require('q'),
     occurrenceFields = require('../../../models/gbifdata/occurrence/occurrenceFields'),
+    getTitle = require('./title'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
@@ -53,21 +54,24 @@ function highlight(occurrence) {
     return highlights;
 }
 
-function getOccurrenceModel(occurrenceKey) {
+function getOccurrenceModel(occurrenceKey, __) {
     var deferred = Q.defer();
     var getOptions = {
         expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim']
     };
     Occurrence.get(occurrenceKey, getOptions).then(function(occurrence) {
         occurrence.highlights = highlight(occurrence);
+        occurrence.computedFields = {
+            title: getTitle(occurrence, __)
+        };
         deferred.resolve(occurrence);
     }, function(err){
-        console.log('error from expand: ' + err); //TODO
         deferred.reject(new Error(err));
-    });
+    }).fail(function (err) {
+        deferred.reject(new Error(err));
+    }).done();
     return deferred.promise;
 }
-
 
 
 module.exports = {

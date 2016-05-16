@@ -7,6 +7,8 @@
     <script>
         var gb = gb || {};
         gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
+        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
+        gb.occurrenceFields = {$ occurrenceFields | rawJson | safe $};
         gb.rm = {$ occurrence | rawJson | safe $}
     </script>
     <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
@@ -26,34 +28,30 @@
                 
                 <div class="blockComment">
                     <div>
-                        Synced <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>
+                        {$ __('date.synced') $}
+                        {% if gb.locales.current == 'en' %}
+                            <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>
+                        {% else %}
+                            {$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}
+                        {% endif %}
                     </div>
                     {% if occurrence.record.modified %}
                     <div>
-                        Updated {$ occurrence.record.modified | formatDate(gb.locales.current) $}
+                        {$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
                     </div>
                     {% endif %}
                 </div>
-                <!-- <chartist class="ct-chart" chartist-data="occurrence.barData" chartist-chart-type="Line"></chartist> -->
+                {#<chartist class="ct-chart" chartist-data="occurrence.barData" chartist-chart-type="Line"></chartist>#}
 
                 <div class="blockContent row">
                     <header class="col-xs-12 article__header">
                         <nav class="article__category article__category-deep">
-                            <span class="article__category__upper">Occurrence</span>
+                            <span class="article__category__upper">{$ __('occurrence.occurrence') $}</span>
                             <span class="article__category__lower">{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</span>
                         </nav>
 
-                        <h1 class="h2 text-center">
-                            {% if occurrence.record.individualCount > 1 %}
-                            <span class="badge">{$ occurrence.record.individualCount $}</span> 
-                            {% endif %}
+                        {% include('./headline.nunjucks') %}
 
-                            {% if occurrence.record.species %}
-                            {$ occurrence.record.species $}
-                            {% else %}
-                            {$ occurrence.record.scientificName $}
-                            {% endif %}
-                            recorded in {$ occurrence.record.country $}</h1>
                         <div class="text-center sub">
                             <span class="desc taxa">{$ helpers.taxonomy(occurrence.record) $}</span>
                         </div>
@@ -252,49 +250,11 @@ Main contact: [the collector or the main contact for the containing dataset]
                     </div>
                 </div>
             </section> -->
-            
             <section class="bare block row">
-                <div class="blockContent container-fluid">
-                    <div>
-                        <div class="multiToggle">
-                            <div type="button" aria-label="Interpreted" class="isActive"
-                                    ng-click="occurrence.detailsState = occurrence.detailsStates.INTERPRETED" 
-                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.INTERPRETED}">Interpreted</div>
-                            <div type="button" aria-label="Compare"
-                                    ng-click="occurrence.detailsState = occurrence.detailsStates.COMPARE" 
-                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.COMPARE}">Compare to original</div>
-                            <div type="button" aria-label="Differences" 
-                                    ng-click="occurrence.detailsState = occurrence.detailsStates.DIFF" 
-                                    ng-class="{isActive: occurrence.detailsState == occurrence.detailsStates.DIFF}">Issues</div>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class="col-xs-12">
-                            <div class="allData" ng-class="{compare: occurrence.detailsState != occurrence.detailsStates.INTERPRETED,
-                            diffOnly: occurrence.detailsState == occurrence.detailsStates.DIFF}">
-                                {% for category in occurrenceFields %}
-                                <section>
-                                    <h2 class="h4">{$ category.name $}</h2>
-                                    <dl>
-                                        {% for field in category.fields %}
-                                        <div {% if occurrence.record[field.gbif]==occurrence.verbatim[field.verbatim] %} ng-if="occurrence.detailsState != occurrence.detailsStates.DIFF"  {% else %} class="isDifferent" {% endif %}>
-                                            <dt>{$ field.gbif $}</dt>    
-                                            <dd>{$ occurrence.record[field.gbif] $}</dd>
-                                            <div class="discreet">
-                                                <dt ng-show="occurrence.detailsState != occurrence.detailsStates.INTERPRETED">{$ field.verbatim $}</dt>
-                                                <dd ng-show="occurrence.detailsState != occurrence.detailsStates.INTERPRETED">{$ occurrence.verbatim[field.verbatim] $}</dd>
-                                            </div>
-                                        </div>
-                                        {% endfor %}
-                                    </dl>
-                                </section>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
+                <div class="">
+                    {% include('./table.nunjucks') %}
                 </div>
             </section>
-
 
         </div>
 

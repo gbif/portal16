@@ -11,6 +11,14 @@
 			}
 			color #bbb
 		}
+		h1 {
+			.error {
+				color tomato
+			}
+			.small {
+				margin-top vr-block(0.5)
+			}
+		}
 	}
 	.block-first {
 		.blockContent {
@@ -30,6 +38,17 @@
 			font-style normal
 			content '\276f' // ❯
 			font-size 80%
+		}
+	}
+	.card-table {
+		overflow auto
+		tbody {
+			tr:nth-of-type(even) {
+				background #f5f5f5
+			}
+		}
+		td {
+			min-width 250px
 		}
 	}
 }
@@ -130,38 +149,38 @@
 
 
 .multiToggle {
-    text-align: center;
+    text-align: center
+	margin vr-block(1) 0
 	>div {
+		margin 2px
 		padding 10px
 		display inline-block
 		position relative
 		background-color #ECECEC
 		transition background-color 200ms ease
 		&:focus {
-			outline:none;
+			outline none
 		}
 		&.isActive {
 			background-color #53657B// #39adcc
 			color white
 			&:after {
-				top: 100%;
-				left: 50%;
-				border: solid transparent;
-				content: " ";
-				height: 0;
-				width: 0;
-				position: absolute;
-				pointer-events: none;
-				border-color: rgba(57, 173, 204, 0);
-				border-top-color: #53657B;
-				border-width: 7px;
-				margin-left: -8px;
+				top 100%
+				left 50%
+				border solid transparent
+				content " "
+				height 0
+				width 0
+				position absolute
+				pointer-events none
+				border-color rgba(57, 173, 204, 0)
+				border-top-color #53657B
+				border-width 7px
+				margin-left -8px
 			}
 		}
 	}
 }
-
-
 
 
 .termBlock {
