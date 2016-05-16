@@ -7,7 +7,8 @@ var express = require('express'),
     async = require('async'),
     Q = require('q'),
     basisOfRecord = require('../../models/vocabularies/basisOfRecord'),
-    isoCountry = require('../../models/vocabularies/iso3166-1Alpha2');
+    isoCountry = require('../../models/vocabularies/iso3166-1Alpha2'),
+    isoLanguage = require('../../models/vocabularies/iso639-2');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -46,6 +47,11 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
+
+    // convert 3-digits language code.
+    dataset.record.language = isoLanguage.getHumanString(dataset.record.language);
+    dataset.record.dataLanguage = isoLanguage.getHumanString(dataset.record.dataLanguage);
+
     var datasetContent = {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
