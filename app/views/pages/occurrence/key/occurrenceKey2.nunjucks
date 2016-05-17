@@ -58,7 +58,7 @@
                     </header>
                 </div>
             </article>
-            <section class="block row bare">
+            <section class="block row discreet">
                 <div class="blockContent">
 
                     <div class="container-fluidx test">
@@ -251,9 +251,24 @@ Main contact: [the collector or the main contact for the containing dataset]
                 </div>
             </section> -->
             <section class="bare block row">
+                <div class="expand" style="text-align: center;">
+                    <a href="" class="gb-icon-angle-down" style="
+                    display: block;
+                    background: #ccc;
+                    width: 30px;
+                    height: 30px;
+                    margin: 0.25rem auto;
+                    line-height: 30px;
+                    border-radius: 15px;
+                    color: white;
+                    font-size: 30px;
+                "></a>
+                    <span class="small"><a href="#">See details and issues</a></span>
+                </div>
                 <div class="">
                     {% include('./table.nunjucks') %}
                 </div>
+                
             </section>
 
         </div>
