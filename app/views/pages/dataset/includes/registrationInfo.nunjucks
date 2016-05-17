@@ -1,26 +1,26 @@
 {# This template is included in datasetDetails.nunjucks. #}
 <div class="row">
-    <div class="one-third">
+    <div class="col-xs-6 col-md-4">
         {# TODO Show the status of both crawling and indexing here. #}
         <h5>Processing history</h5>
-        <ul>
+        <ul class="noIndent">
             <li>Registered on: {$ datasetDetails.created | formatDate() $}</li>
             <li>Last updated on: {$ datasetDetails.modified | formatDate() $}</li>
             {% if process[0] %}
                 <li>Latest process: {$ process[0].finishReason $} {# TODO check available enumerations and format them. #}
-                    <ul>
+                    <ul class="noIndent">
                         <li>Crawling:
                             {% if process[0].finishedCrawling %}
                                 finished on {$ process[0].finishedCrawling | formatDate() $}
                             {% else %}
-                                unfinished
+                                status unknown
                             {% endif %}
                         </li>
                         <li>Indexing:
                             {% if process[0].processStateOccurrence == 'FINISHED' and process[0].processStateChecklist == 'FINISHED' %}
                                 finished
                             {% else %}
-                                unfinished
+                                status unknown
                             {% endif %}
                         </li>
                     </ul>
@@ -28,15 +28,15 @@
             {% endif %}
         </ul>
     </div>
-    <div class="one-third">
+    <div class="col-xs-6 col-md-4">
         {% if installation.key %}
         <h5>Technically served by</h5>
-        <ul>
+        <ul class="noIndent">
             {# TODO Suggest datasets served by the same installation. #}
             <li><a href="#">{$ installation.title $}</a></li>
             {% if installation.contacts[0] %}
                 <li>
-                    <ul>
+                    <ul class="noIndent">
                         {% for contact in installation.contacts %}
                             {% if contact.type == 'TECHNICAL_POINT_OF_CONTACT' %}
                                 <li>Technical contact: {% if contact.email[0] %}<a href="mailto:{$ contact.email[0] $}">{% endif %}{$ contact.firstName $} {$ contact.lastName $}{% if contact.email[0] %}</a>{% endif %}</li>
@@ -48,9 +48,9 @@
         </ul>
         {% endif %}
     </div>
-    <div class="one-third">
+    <div class="col-xs-6 col-md-4">
         <h5>Source data</h5>
-        <ul>
+        <ul class="noIndent">
             <li><a href="{$ api.dataset.url $}{$ datasetDetails.key $}/document">Metadata (EML)</a></li>
             {% if datasetDetails.endpoints[0] %}
                 {% for endpoint in datasetDetails.endpoints %}
@@ -65,10 +65,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="two-third">
+    <div class="col-xs-12 col-md-8">
         {% if identifiers[0] %}
         <h5>Alternative identifiers</h5>
-            <ul>
+            <ul class="noIndent">
                 {% for id in identifiers %}
                     <li>{$ id.formattedString | safe $}</li>
                 {% endfor %}

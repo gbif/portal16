@@ -2,7 +2,7 @@
 {# TODO More @type to be considered. #}
 {% if datasetDetails.temporalCoverages[0] %}
     <h4>Temporal coverage</h4>
-    <ul>
+    <ul class="noIndent">
     {% for coverage in datasetDetails.temporalCoverages %}
         {% if coverage.@type == 'range' %}
         <li>Date range: {$ value.start | formatDate() $} - {$ value.end | formatDate() $}</li>

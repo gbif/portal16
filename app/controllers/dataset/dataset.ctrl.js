@@ -31,6 +31,7 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
     var datasetKey = req.params.key,
         offset = req.query.offset,
         limit = req.query.limit;
+    res.__('fldkjfghldkfjgh'); // @todo To get it work as expected.
 
     request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function(error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -181,14 +182,22 @@ function metadataElementsToFold(datasetDetails) {
                     elementToFold.values = taxonomicCoveragesProcessed;
                     break;
                 case 'contacts':
-                    elementToFold.values = organizeContacts(datasetDetails[elementToFold.property], 'OTHER');
+                    // check valid contacts exist before returning
+                    var organizedContacts = organizeContacts(datasetDetails[elementToFold.property], 'OTHER');
+                    var valid = false;
+                    organizedContacts.forEach(function(c){
+                        if (c.contacts.length >= 1) {
+                            valid = true;
+                        }
+                    });
+                    if (valid == true) elementToFold.values = organizedContacts;
                     break;
                 default:
                     elementToFold.values = datasetDetails[elementToFold.property];
                     break;
             }
 
-            results.push(elementToFold);
+            if (elementToFold.values) results.push(elementToFold);
         }
     });
 

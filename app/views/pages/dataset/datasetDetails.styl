@@ -1,7 +1,7 @@
-h4.contentTypelabel {
+h4.contentTypeLabel {
     font-weight 400
     text-transform uppercase
-    font-size 1.4rem
+    font-size 1.3rem
 }
 
 .verticalTabsWrapper {
@@ -45,6 +45,7 @@ h4.contentTypelabel {
         tr {
             td:nth-child(3) {
                 max-width 400px
+                font-weight 300
             }
         }
     }
@@ -52,6 +53,10 @@ h4.contentTypelabel {
         margin-right 20px
         font-weight 500
     }
+}
+
+.noIndent {
+    padding-left 0
 }
 
 +isBelow($laptop) {
@@ -68,7 +73,7 @@ h4.contentTypelabel {
 
 +isAbove($laptop) {
     .verticalTabs {
-        >div>div {
+        >div>div>div>div {
             position relative
             height 500px
             max-height 80vh
@@ -89,7 +94,7 @@ h4.contentTypelabel {
             .tabTitle {
                 width 30%
                 left 0
-                border-bottom 1px solid lightgrey
+                border-bottom 1px solid $gray-lighter
                 position relative
                 h4 {
                     margin 0
@@ -102,10 +107,10 @@ h4.contentTypelabel {
 
             &.isActive {
                 .tabTitle {
-                    border-bottom 1px solid grey
+                    border-bottom 1px solid $gray-light
                     h4 {
                         color black
-                        font-weight 300
+                        font-weight 400
                     }
                     h4::after {
                         position relative

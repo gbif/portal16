@@ -2,6 +2,7 @@
 {% if headerContacts %}
     {% for role in headerContacts %}
         {# metadata author and originator #}
+        {% if role.contacts[0] %}
         {% if role.type == 'METADATA_AUTHOR' or role.type == 'ORIGINATOR' %}
             <li>{$ role.label $}:
             {% set comma = joiner() %}
@@ -9,6 +10,7 @@
                 {$ comma() $} {$ contact.name | safe $}
             {%- endfor %}
             </li>
+        {% endif %}
         {% endif %}
     {% endfor %}
 {% endif %}
