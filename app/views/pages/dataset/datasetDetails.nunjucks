@@ -12,39 +12,47 @@
     <script type="text/javascript">var datasetKey = "{$ datasetDetails.key $}";</script>
     <article class="wrapperHorizontalStripes">
         <section id="key-information">
-            <div class="centerContent">
-                <header>
-                    <h4 class="contentTypelabel">{$ datasetDetails.type $} dataset</h4>
-                    <h1>{$ datasetDetails.title $}</h1>
-                </header>
-                <div class="two-third">
-                    <ul>
-                        <li>Published by:
-                        {% if publisher.homepage %}
-                            <a href="{$ publisher.homepage $}">{$ publisher.title $}</a>
-                        {% else %}
-                            {$ publisher.title $}
-                        {% endif %}
-                        </li>
-                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-                        <li>Metadata language: {$ datasetDetails.language $}</li>
-                        <li>Data language: {$ datasetDetails.dataLanguage $}</li>
-                        {# sub-template for determining the best list of primary contacts #}
-                        {% include "./includes/headerContacts.nunjucks" %}
-                    </ul>
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12">
+                        <h4 class="contentTypeLabel">{$ datasetDetails.type $} dataset</h4>
+                        <h1>{$ datasetDetails.title $}</h1>
+                    </header>
                 </div>
-                <div class="one-third licences">
-                    <ul>
-                        <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
-                        <li>
-                            <span class="gb-icon-cclogo3 cc"></span>
-                            <span class="gb-icon-ccby cc"></span>
-                            <span class="gb-icon-ccnc cc"></span>
-                        </li>
-                        {% if datasetDetails.logoUrl %}
-                        <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
-                        {% endif %}
-                    </ul>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <ul class="noIndent">
+                            <li>Published by:
+                                {% if publisher.homepage %}
+                                    <a href="{$ publisher.homepage $}">{$ publisher.title $}</a>
+                                {% else %}
+                                    {$ publisher.title $}
+                                {% endif %}
+                            </li>
+                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+                            {% if datasetDetails.language %}
+                            <li>Metadata language: {$ datasetDetails.language $}</li>
+                            {% endif %}
+                            {% if datasetDetails.dataLanguage %}
+                            <li>Data language: {$ datasetDetails.dataLanguage $}</li>
+                            {% endif %}
+                            {# sub-template for determining the best list of primary contacts #}
+                            {% include "./includes/headerContacts.nunjucks" %}
+                        </ul>
+                    </div>
+                    <div class="col-xs-6 col-md-4 licences">
+                        <ul class="noIndent">
+                            <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
+                            <li>
+                                <span class="gb-icon-cclogo3 cc"></span>
+                                <span class="gb-icon-ccby cc"></span>
+                                <span class="gb-icon-ccnc cc"></span>
+                            </li>
+                            {% if datasetDetails.logoUrl %}
+                                <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -52,97 +60,134 @@
             <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
         </section>
         <section id="primary-coverages">
-            <div class="centerContent">
-                <section class="two-third">
-                    <h4>Geographic coverage</h4>
-                    <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
-                </section>
-                <section class="one-third">
-                    {% include "./includes/recordCounts.nunjucks" %}
-                    {% include "./includes/temporalCoverage.nunjucks" %}
-                </section>
+            <div class="container">
+                <div class="row">
+                    {% if datasetDetails.geographicCoverages[0].description %}
+                    <section class="col-xs-12 col-md-8">
+                        <h4>Geographic coverage</h4>
+                        <p>{$ datasetDetails.geographicCoverages[0].description | safe $}</p>
+                    </section>
+                    {% endif %}
+                    <section class="col-xs-6 col-md-4">
+                        {% include "./includes/recordCounts.nunjucks" %}
+                        {% include "./includes/temporalCoverage.nunjucks" %}
+                    </section>
+                </div>
             </div>
         </section>
         <section id="background-information">
-            <div class="centerContent">
-                <div class="two-third">
-                    <section>
-                        <h4>Description</h4>
-                        <p>{$ datasetDetails.description | safe $}</p>
-                    </section>
-                    {% if datasetDetails.purpose %}
-                    <section>
-                        <h4>Purpose</h4>
-                        <P>{$ datasetDetails.purpose | safe $}</P>
-                    </section>
-                    {% endif %}
-                </div>
-                <div class="one-third">
-                    <section>
-                        {% if datasetDetails.homepage %}
-                            <h4>Data source</h4>
-                            <ul>
-                                <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
-                            </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        {% if datasetDetails.description %}
+                            <section id="description">
+                                <h4>Description</h4>
+                                <p>{$ datasetDetails.description | safe $}</p>
+                            </section>
                         {% endif %}
-                    </section>
-                    {% if datasetDetails.additionalInfo %}
-                    <section>
-                        <h4>Additional information</h4>
-                        <p>{$ datasetDetails.additionalInfo | safe $}</p>
-                    </section>
-                    {% endif %}
+                        {% if datasetDetails.purpose %}
+                            <section id="purpose">
+                                <h4>Purpose</h4>
+                                <P>{$ datasetDetails.purpose | safe $}</P>
+                            </section>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        {% if datasetDetails.homepage %}
+                            <section id="data-source">
+                                <h4>Data source</h4>
+                                <ul class="noIndent">
+                                    <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
+                                </ul>
+                            </section>
+                        {% endif %}
+                        {% if datasetDetails.additionalInfo %}
+                            <section id="additional-information">
+                                <h4>Additional information</h4>
+                                <p>{$ datasetDetails.additionalInfo | safe $}</p>
+                            </section>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </section>
         <section id="metrics">
-            <div class="centerContent">
-                <h3>Statistics</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Statistics</h3>
+                    </div>
+                </div>
             </div>
         </section>
         {# TODO make dependent on model from route controller @Burke #}
+        {% if metadataElementsToFold[0] %}
         <section id="metadata-explorer" class="verticalTabs" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
-            <div class="centerContent">
-                <h3>Further information</h3>
-                {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Further information</h3>
+                        {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
+                    </div>
+                </div>
             </div>
         </section>
+        {% endif %}
         {# TODO Final citation format to be decided. #}
         {# TODO Publisher-provided format should have linkable identifier if mentioned. #}
         {% if datasetDetails.citation or datasetDetails.rights %}
         <section id="citation">
-            <div class="centerContent">
-                <h3>Citation and licensing</h3>
-                <p style="color: orange;">[To follow the suggested citation practice by AH]</p>
-                {% if datasetDetails.citation %}
-                    <h5>Provided by the data publisher</h5>
-                    <p>{$ datasetDetails.citation.text $}</p>
-                    <p><a href="{$ datasetDetails.citation.identifier $}">{$ datasetDetails.citation.identifier $}</a></p>
-                {% endif %}
-                {% if datasetDetails.rights %}
-                    <h5>Rights</h5>
-                    <p>{$ datasetDetails.rights | safe $}</p>
-                {% endif %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Citation and licensing</h3>
+                        <p style="color: orange;">[To follow the suggested citation practice by AH]</p>
+                        {% if datasetDetails.citation %}
+                            <h5>Provided by the data publisher</h5>
+                            <p>{$ datasetDetails.citation.text $}</p>
+                            <p><a href="{$ datasetDetails.citation.identifier $}">{$ datasetDetails.citation.identifier $}</a></p>
+                        {% endif %}
+                        {% if datasetDetails.rights %}
+                            <h5>Rights</h5>
+                            <p>{$ datasetDetails.rights | safe $}</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </section>
         {% endif %}
-        <section id="related-news">
-            <div class="centerContent">
-                <h3>Related news</h3>
+        <section id="related-news" class="relatedNews">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <h4 class="contentTypeLabel">Data use</h4>
+                        <h3>Building national watch lists for invasive alien species</h3>
+                        <p>A research team from GBIF's partners in the South African National Biodiversity Institute (SANBI) developed a simple methodology for drawing up a 'watch list' that countries can use to identify those alien species most likely to pose a substantial threat of invasion.</p>
+                    </div>
+                </div>
             </div>
         </section>
         {# Download events for the dataset in view. (Former "activity" tab.) #}
         <section id="download-events">
-            <div class="centerContent">
+            <div class="container">
                 <div class="row">
-                    {% include "./includes/downloadEvents.nunjucks" %}
+                    <div class="col-xs-12">
+                        {% include "./includes/downloadEvents.nunjucks" %}
+                    </div>
                 </div>
             </div>
         </section>
         <section id="gbif-registration-info" class="technical-information">
-            <div class="centerContent">
-                <h3>GBIF Registration Information</h3>
-                <p style="color: orange;">[Nerd's zone. To be folded.]</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>GBIF Registration Information</h3>
+                        <p style="color: orange;">[Nerd's zone. To be folded.]</p>
+                    </div>
+                </div>
                 {% include "./includes/registrationInfo.nunjucks" %}
             </div>
         </section>
