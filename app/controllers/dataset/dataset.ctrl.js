@@ -28,12 +28,11 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
     var datasetKey = req.params.key,
         offset = req.query.offset,
         limit = req.query.limit;
-    res.__('fldkjfghldkfjgh'); // @todo To get it work as expected.
 
     request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var processedBody = reconstructQueryFromPredicates(JSON.parse(body));
-            processQueryTable(processedBody).then(
+            processQueryTable(processedBody, res.__).then(
                 function(data) {
                     res.json(data);
                 }, function (err) {
@@ -545,7 +544,7 @@ function reconstructQueryFromPredicates(body) {
     return reconstructedResults;
 }
 
-function processQueryTable(body) {
+function processQueryTable(body, __) {
     var defer = Q.defer();
     var tasks = [];
     body.results.forEach(function(result, ri){
@@ -555,6 +554,16 @@ function processQueryTable(body) {
                 case 'Taxon':
                     row.filterValues.forEach(function(v, vi){
                         requestUrls[vi] = api.speciesParsedName.url + v.value;
+                    });
+                    break;
+                case 'Country':
+                    row.filterValues.forEach(function(v){
+                        v.value = __('country.' + v.value);
+                    });
+                    break;
+                case 'Basis of record':
+                    row.filterValues.forEach(function(v){
+                        v.value = __('bor.' + v.value);
                     });
                     break;
             }

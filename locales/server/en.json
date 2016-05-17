@@ -14,6 +14,7 @@
 		"MATERIAL_SAMPLE": "material sample",
 		"OCCURRENCE": "occurrence",
 		"OBSERVATION": "observation",
+		"LITERATURE": 
 		"UNKNOWN": "unknown"
 	},
 	"typeStatus": {
@@ -34,7 +35,7 @@
 		"synced": "Synced",
 		"modified": "Modified"
 	},
-	language: {
+	"language": {
 		"aar":"Afar",
 		"abk":"Abkhazian",
 		"ace":"Achinese",

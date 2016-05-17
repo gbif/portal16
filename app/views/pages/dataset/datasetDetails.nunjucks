@@ -31,10 +31,10 @@
                             </li>
                             <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
                             {% if datasetDetails.language %}
-                            <li>Metadata language: {$ datasetDetails.language $}</li>
+                            <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
                             {% endif %}
                             {% if datasetDetails.dataLanguage %}
-                            <li>Data language: {$ datasetDetails.dataLanguage $}</li>
+                            <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
                             {% endif %}
                             {# sub-template for determining the best list of primary contacts #}
                             {% include "./includes/headerContacts.nunjucks" %}
