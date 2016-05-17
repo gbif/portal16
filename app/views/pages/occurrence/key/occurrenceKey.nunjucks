@@ -31,8 +31,8 @@
                 </header>
                 <div class="two-third">
                     <ul>
-                        <li>From <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title $}</a> dataset</li>
-                        <li>Published by: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title $}</a></li>
+                        <li>From <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title $}</a> dataset</li>
+                        <li>Published by: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title $}</a></li>
                         <li>Recorded on {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</li>
                         <li>Last synced <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time></li>
                         <li>Updated {$ occurrence.record.modified | formatDate(gb.locales.current) $}</li>
