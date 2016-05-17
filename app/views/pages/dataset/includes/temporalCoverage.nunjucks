@@ -1,6 +1,5 @@
 {# Temporal coverage formatter #}
 {# TODO More @type to be considered. #}
-{% if datasetDetails.temporalCoverages[0] %}
     <h4>Temporal coverage</h4>
     <ul class="noIndent">
     {% for coverage in datasetDetails.temporalCoverages %}
@@ -12,4 +11,3 @@
         {% endif %}
     {% endfor %}
     </ul>
-{% endif %}
