@@ -62,46 +62,50 @@
         <section id="primary-coverages">
             <div class="container">
                 <div class="row">
-                    <section class="col-xs-12 col-md-4">
-                        {% include "./includes/recordCounts.nunjucks" %}
-                        {% if datasetDetails.homepage %}
+                    <div class="col-xs-12 col-md-12 three-col">
+                        <section class="recordCount">
+                            {% include "./includes/recordCounts.nunjucks" %}
+                        </section>
+                        <section class="dataSource">
+                            {% if datasetDetails.homepage %}
                                 <h4>Data source</h4>
                                 <ul class="noIndent">
                                     <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
                                 </ul>
-                        {% endif %}
-                    </section>
-                    {% if datasetDetails.description %}
-                        <section id="description" class="col-xs-12 col-md-4">
-                            <h4>Description</h4>
-                            <p>{$ datasetDetails.description | safe $}</p>
+                            {% endif %}
                         </section>
-                    {% endif %}
-                    <section class="col-xs-12 col-md-4">
+                        {% if datasetDetails.description %}
+                            <section id="description">
+                                <h4>Description</h4>
+                                <p>{$ datasetDetails.description | safe $}</p>
+                            </section>
+                        {% endif %}
                         {% if datasetDetails.geographicCoverages[0].description %}
-                        <h4>Geographic coverage</h4>
-                        {% for c in datasetDetails.geographicCoverages %}
-                        <p>{$ c.description | safe $}</p>
-                        {% endfor %}
+                            <section>
+                                <h4>Geographic coverage</h4>
+                                {% for c in datasetDetails.geographicCoverages %}
+                                    <p>{$ c.description | safe $}</p>
+                                {% endfor %}
+                            </section>
                         {% endif %}
-                    </section>
-                    {% if datasetDetails.temporalCoverages[0] %}
-                    <section class="col-xs-12 col-md-4">
-                        {% include "./includes/temporalCoverage.nunjucks" %}
-                    </section>
-                    {% endif %}
-                    {% if datasetDetails.purpose %}
-                        <section id="purpose" class="col-xs-12 col-md-4">
-                            <h4>Purpose</h4>
-                            <P>{$ datasetDetails.purpose | safe $}</P>
-                        </section>
-                    {% endif %}
-                    {% if datasetDetails.additionalInfo %}
-                        <section id="additional-information" class="col-xs-12 col-md-4">
-                            <h4>Additional information</h4>
-                            <p>{$ datasetDetails.additionalInfo | safe $}</p>
-                        </section>
-                    {% endif %}
+                        {% if datasetDetails.temporalCoverages[0] %}
+                            <section>
+                                {% include "./includes/temporalCoverage.nunjucks" %}
+                            </section>
+                        {% endif %}
+                        {% if datasetDetails.purpose %}
+                            <section id="purpose">
+                                <h4>Purpose</h4>
+                                <P>{$ datasetDetails.purpose | safe $}</P>
+                            </section>
+                        {% endif %}
+                        {% if datasetDetails.additionalInfo %}
+                            <section id="additional-information">
+                                <h4>Additional information</h4>
+                                <p>{$ datasetDetails.additionalInfo | safe $}</p>
+                            </section>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </section>
