@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div>
         <div class="multiToggle">
-            <div type="button" aria-label="All" class="isActive"
+            <div type="button" aria-label="All" class="isActive" focus="0"
                  ng-click="occurrence.table.filter = undefined"
                  ng-class="{isActive: occurrence.table.filter == undefined}">All</div>
             <div type="button" aria-label="Event"
@@ -46,5 +46,7 @@
             </div>
         </div>
     </div>
-
+    <div class="small pull-right">
+        <a href="{$ 'http://www.gbif.org/occurrence/' + occurrence.record.key + '/fragment' $}">Raw fragment</a>
+    </div>
 </div>

@@ -31,6 +31,9 @@
 	.issues-high {
 		background-color tomato
 	}
+	.block{
+		position relative
+	}
 	.taxa {
 		display inline
 		color #ddd
@@ -45,6 +48,7 @@
 	}
 	.card-table {
 		overflow auto
+		margin-bottom 0
 		tbody {
 			tr:nth-of-type(even) {
 				background #f5f5f5
@@ -159,7 +163,7 @@
 		padding 10px
 		display inline-block
 		position relative
-		background-color #ECECEC
+		background-color #D2D8DC
 		transition background-color 200ms ease
 		&:focus {
 			outline none
@@ -188,26 +192,26 @@
 
 .termBlock {
 	.blue {
-		background: #63c5ee;
+		background #63c5ee
 	}
 	.green {
-		background: #D6E5BB;
+		background #D6E5BB
 	}
 	.pink {
-		background: pink;
+		background pink
 		
 	}
 	.termBlock__icon {
-	    border-radius: 3px;
-	    vertical-align: middle;
-	    font-size: 16px;
-	    width: 30px;
-	    height: 30px;
-	    display: inline-block;
-	    text-align: center;
-	    line-height: 30px;
-	    vertical-align: middle;
-	    color: #F7F9FA;
+	    border-radius 3px
+	    vertical-align middle
+	    font-size 16px
+	    width 30px
+	    height 30px
+	    display inline-block
+	    text-align center
+	    line-height 30px
+	    vertical-align middle
+	    color #F7F9FA
 	}
 	h3 {
 		font-weight bold
@@ -217,5 +221,59 @@
 		dt {
 			display inline
 		}
+	}
+}
+
+.buttonExpand {
+	display block
+	text-align center
+	color #aaa
+	input[type=checkbox] {
+		visibility hidden
+		position absolute
+	}
+	label {
+		text-align center
+		font-weight normal
+		cursor pointer
+	}
+	label:first-of-type {
+		display block
+		background #D2D8DC
+		width 30px
+		height 30px
+		margin 0.25rem auto
+		line-height 30px
+		border-radius 15px
+		font-size 30px
+		transisition background-color 300ms ease
+		&:hover {
+			background-color #aaa
+			color white
+		}
+	}
+}
+
+.occurrenceMedia {
+	columns 3 30px
+	text-align justify
+	img {
+		width 100%
+	}
+	.card {
+		break-inside avoid-column
+		max-width 400px
+		padding 1rem
+		margin-top 10px
+		display inline-block
+	}
+	dl {
+		margin 0
+	}
+	dd, dt {
+		display inline
+	}
+	dt:after {
+		content ':'
 	}
 }
