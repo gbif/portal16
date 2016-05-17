@@ -83,8 +83,8 @@
                             </div>
                             <div class="col-sm-6x">
                                 <ul class="propertyPairs">
-                                    <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
-                                    <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
+                                    <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
+                                    <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
                                     {% if occurrence.record.issues.length > 0 %}
                                     <li><span>Issues</span>: <span class="badge {% if occurrence.record.issues.length > 1 %} issues-high {% endif %}">{$ occurrence.record.issues.length $}</span></li>
                                     {% endif %}
@@ -213,62 +213,51 @@ Main contact: [the collector or the main contact for the containing dataset]
                 </div>
             </section>
 
-<!--             <section class="bare block row">
+            <section class="block row discreet">
                 <div class="blockContent container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            sædlf lkjhs dflkjh sdf
+                    <div class="occurrenceMedia">
+                        <div class="card" ng-repeat="image in occurrence.data.media">
+                            <img ng-src="{{occurrence.dataApi}}image?url={{image.identifier }}&size=M">
+                            <div>
+                                <dl>
+                                    <div>
+                                        <dt>Photographer</dt>
+                                        <dd>{{ image.creator }}</dd>
+                                    </div>
+                                    <div>
+                                        <dt>License</dt>
+                                        <dd>
+                                            <span class="gb-icon-cclogo3 cc"></span>
+                                            <span class="gb-icon-ccby cc"></span>
+                                            <span class="gb-icon-ccnc cc"></span>
+                                            <span class="gb-icon-ccsa cc"></span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>Source</dt>
+                                        <dd><a href="#">{{ image.publisher | limitTo:50 }}</a></dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
 
-            <!-- <section class="occurrenceDetails__similar" >
-                <div class="card">
-                    <h2 class="card__header">Similar records</h2>
-                    <div>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Key</th>
-                                <th>basisOfRecord</th>
-                                <th>Event date</th>
-                                <th>catalog number</th>
-                                <th>collectionCode</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="similar in occurrence.similarities.similarRecords">
-                                    <td>{{ similar.key }}</td>
-                                    <td>{{ similar.basisOfRecord }}</td>
-                                    <td>{{ occurrence.parseDate(similar.eventDate) }}</td>
-                                    <td>{{ similar.catalogNumber }}</td>
-                                    <td>{{ similar.collectionCode }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section> -->
             <section class="bare block row">
-                <div class="expand" style="text-align: center;">
-                    <a href="" class="gb-icon-angle-down" style="
-                    display: block;
-                    background: #ccc;
-                    width: 30px;
-                    height: 30px;
-                    margin: 0.25rem auto;
-                    line-height: 30px;
-                    border-radius: 15px;
-                    color: white;
-                    font-size: 30px;
-                "></a>
-                    <span class="small"><a href="#">See details and issues</a></span>
-                </div>
-                <div class="">
+                <div ng-hide="occurrence.hideDetails">
                     {% include('./table.nunjucks') %}
                 </div>
-                
+
+                <div class="buttonExpand">
+                    <input type="checkbox" ng-model="occurrence.hideDetails" value="None" id="toggleDetails" name="check" checked />
+                    <label for="toggleDetails"
+                        class="gb-icon-angle-down"
+                        ng-class="{'gb-icon-angle-up': !occurrence.hideDetails}"
+                    ></label>
+                    <label class="small" for="toggleDetails" ng-show="occurrence.hideDetails">Show details and issues</label>
+                    <label class="small" for="toggleDetails" ng-hide="occurrence.hideDetails">Hide details and issues</label>
+                </div>
             </section>
 
         </div>

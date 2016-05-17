@@ -5,10 +5,7 @@ var express = require('express'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
-    Q = require('q'),
-    basisOfRecord = require('../../models/vocabularies/basisOfRecord'),
-    isoCountry = require('../../models/vocabularies/iso3166-1Alpha2'),
-    isoLanguage = require('../../models/vocabularies/iso639-2');
+    Q = require('q');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -48,10 +45,6 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
-
-    // convert 3-digits language code.
-    dataset.record.language = isoLanguage.getHumanString(dataset.record.language);
-    dataset.record.dataLanguage = isoLanguage.getHumanString(dataset.record.dataLanguage);
 
     var datasetContent = {
         datasetDetails: dataset.record,
@@ -562,16 +555,6 @@ function processQueryTable(body) {
                 case 'Taxon':
                     row.filterValues.forEach(function(v, vi){
                         requestUrls[vi] = api.speciesParsedName.url + v.value;
-                    });
-                    break;
-                case 'Basis of record':
-                    row.filterValues.forEach(function(v){
-                        v.value = basisOfRecord.getHumanString(v.value);
-                    });
-                    break;
-                case 'Country':
-                    row.filterValues.forEach(function(v){
-                        v.value = isoCountry.getHumanString(v.value);
                     });
                     break;
             }
