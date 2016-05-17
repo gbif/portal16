@@ -5,5 +5,22 @@
 	"bor": {
 		"HUMAN_OBSERVATION": "menneskelig observation",
 		"PRESERVED_SPECIMEN": "preserveret eksemplar"
+	},
+	"occurrence": {
+		"title": {
+			"unknownLocation": "på ukendt lokation",
+			"verb": {
+				"PRESERVED_SPECIMEN": "indsamlet",
+				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION"
+			},
+			"inCountry": "i %s"
+		},
+		"occurrence": "Forekomst"
+	},
+	"date": {
+		"synced": "Synkroniseret",
+		"modified": "Ændret"
+	},
+	"country": {
 	}
 }

@@ -36,7 +36,9 @@ module.exports = function (app, config) {
         locales: locales,
         defaultLocale: defaultLocale,
         directory: './locales/server/',
-        objectNotation: true
+        objectNotation: true,
+        fallbacks:{'da': 'en'},
+        updateFiles: false
     });
     app.use(i18n.init);
 

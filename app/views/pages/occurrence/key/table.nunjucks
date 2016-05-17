@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div>
+        <div class="multiToggle">
+            <div type="button" aria-label="All" class="isActive"
+                 ng-click="occurrence.table.filter = undefined"
+                 ng-class="{isActive: occurrence.table.filter == undefined}">All</div>
+            <div type="button" aria-label="Event"
+                 ng-repeat="category in occurrence.occurrenceFields.categories"
+                 ng-click="occurrence.table.filter = category"
+                 ng-class="{isActive: occurrence.table.filter == category}">
+                {{ category }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card card-table">
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Interpreted</th>
+                        <th>Original</th>
+                        <th>Issues</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in occurrence.occurrenceFields.terms | filter: {category: occurrence.table.filter}">
+                            <td>
+                                {{ row.gbif }}
+                            </td>
+                            <td>
+                                {{ occurrence.data[row.gbif] }}
+                            </td>
+                            <td>
+                                {{ occurrence.verbatim[row.verbatim] }}
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

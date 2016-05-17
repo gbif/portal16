@@ -1,0 +1,221 @@
+.occurrenceKey {
+	font-weight 300
+	
+	.block.discreet {
+		background #f7f9fa
+	}
+	.article {
+		position relative
+	}
+	.article__header {
+		.sub {
+			&:first-of-type {
+				margin-top -1rem
+			}
+			color #bbb
+		}
+		h1 {
+			.error {
+				color tomato
+			}
+			.small {
+				margin-top vr-block(0.5)
+			}
+		}
+	}
+	.block-first {
+		.blockContent {
+			// max-width none
+		}
+	}
+	.issues-high {
+		background-color tomato
+	}
+	.taxa {
+		display inline
+		color #ddd
+		a {
+			color #bbb
+		}
+		i:after {
+			font-style normal
+			content '\276f' // ❯
+			font-size 80%
+		}
+	}
+	.card-table {
+		overflow auto
+		tbody {
+			tr:nth-of-type(even) {
+				background #f5f5f5
+			}
+		}
+		td {
+			min-width 250px
+		}
+	}
+}
+
+
+.blockComment {
+	position absolute
+	top 0
+	right 0
+	margin 0.5rem 1rem
+	color #ccc
+	text-align right
+	font-size 0.85rem
+}
+
+.propertyPairs {
+	padding 0
+	li {
+		>span:first-of-type {
+			font-weight bold
+		}
+	}
+}
+
+
+.rowx {
+	display flex
+	justify-content space-around
+	.col-sm-6x {
+		flex 0 1 auto
+	}
+}
+
+
+.allData {
+	h2 {
+		margin-top 2rem
+		border-bottom 1px solid #ddd
+	}
+	dl>div {
+		div>dt {
+			display none
+		}
+	}
+	dd {
+		padding-left 1rem
+	}
+	dt {
+		width 300px
+	}
+	
+	.discreet {
+		color #ccc
+	}
+}
++isAbove($tablet) {
+	.allData {
+		dl>div {
+			padding 0.25rem 1.5rem
+			&:hover {
+				background #ECECEC
+			}
+			dd {
+				padding-left 0
+			}
+			dt {
+				font-weight normal
+			}
+			dt, dd{
+				display inline-block
+			}
+			div>dt {
+				display inline-block
+				visibility hidden
+			}
+		}
+		&.compare .isDifferent {
+			position relative
+			&:before {
+				content ' '
+				display block
+				position absolute
+				background yellow
+				width 10px
+				height 10px
+				left 5px
+				border-radius 50%
+				line-height 1rem
+				text-align center
+				top 9px
+			}
+		}
+	}
+}
+
+
+
+
+
+.multiToggle {
+    text-align: center
+	margin vr-block(1) 0
+	>div {
+		margin 2px
+		padding 10px
+		display inline-block
+		position relative
+		background-color #ECECEC
+		transition background-color 200ms ease
+		&:focus {
+			outline none
+		}
+		&.isActive {
+			background-color #53657B// #39adcc
+			color white
+			&:after {
+				top 100%
+				left 50%
+				border solid transparent
+				content " "
+				height 0
+				width 0
+				position absolute
+				pointer-events none
+				border-color rgba(57, 173, 204, 0)
+				border-top-color #53657B
+				border-width 7px
+				margin-left -8px
+			}
+		}
+	}
+}
+
+
+.termBlock {
+	.blue {
+		background: #63c5ee;
+	}
+	.green {
+		background: #D6E5BB;
+	}
+	.pink {
+		background: pink;
+		
+	}
+	.termBlock__icon {
+	    border-radius: 3px;
+	    vertical-align: middle;
+	    font-size: 16px;
+	    width: 30px;
+	    height: 30px;
+	    display: inline-block;
+	    text-align: center;
+	    line-height: 30px;
+	    vertical-align: middle;
+	    color: #F7F9FA;
+	}
+	h3 {
+		font-weight bold
+	}
+	dl dl {
+		padding-left 1rem
+		dt {
+			display inline
+		}
+	}
+}

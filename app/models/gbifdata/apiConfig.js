@@ -18,6 +18,9 @@ var apiConfig = {
     occurrenceDownloadDataset: {
         url: baseUrl + 'occurrence/download/dataset/'
     },
+    species: {
+        url: baseUrl + 'species/'
+    },
     publisher: {
         url: baseUrl + 'organization/'
     },

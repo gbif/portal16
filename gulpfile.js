@@ -50,6 +50,7 @@ gulp.task('test', ['test-client', 'test-server']);
 gulp.task('watch', ['browser-sync'], function() {
     gulp.watch([
         path.join(config.paths.src, '/**/*.styl'),
+        path.join(config.paths.src, '/**/*.less'),
         path.join(config.paths.src, '/**/*.css')
     ], ['styles-reload']);
 
