@@ -1,5 +1,5 @@
 <h4>{$ element.values.title $}</h4>
-<ul>
+<ul class="noIndent">
     {% if element.values.contacts[0] %}
         {% for contact in element.values.contacts %}
             <li>{$ contact.firstName $} {$ contact.lastName $}</li>

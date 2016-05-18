@@ -56,9 +56,11 @@
                 </div>
             </div>
         </section>
+        {% if occurrenceCount %}
         <section id="map" class="mapSection">
             <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
         </section>
+        {% endif %}
         <section id="primary-coverages">
             <div class="container">
                 <div class="row">
@@ -166,7 +168,7 @@
                         <h4 class="contentTypeLabel">Data use</h4>
                         <h3>Building national watch lists for invasive alien species</h3>
                         <p>A research team from GBIF's partners in the South African National Biodiversity Institute (SANBI) developed a simple methodology for drawing up a 'watch list' that countries can use to identify those alien species most likely to pose a substantial threat of invasion.</p>
-                        <p>[This section is yet wired to the Content API]</p>
+                        <p style="color: orange;">[This section is yet wired to the Content API]</p>
                     </div>
                 </div>
             </div>
