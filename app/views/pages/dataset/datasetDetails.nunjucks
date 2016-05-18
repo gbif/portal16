@@ -174,7 +174,6 @@
             </div>
         </section>
         {# Download events for the dataset in view. (Former "activity" tab.) #}
-        {% if dCtrl.events %}
         <section id="download-events">
             <div class="container">
                 <div class="row">
@@ -184,7 +183,6 @@
                 </div>
             </div>
         </section>
-        {% endif %}
         <section id="gbif-registration-info" class="technical-information">
             <div class="container">
                 <div class="row">
