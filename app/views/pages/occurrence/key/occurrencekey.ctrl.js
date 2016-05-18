@@ -26,6 +26,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         COMPARE: 1,
         DIFF: 2
     };
+    vm.mediaItems = {};
     vm.dataApi = env.dataApi;
     vm.detailsState = vm.detailsStates.INTERPRETED;
     vm.compare = true;
