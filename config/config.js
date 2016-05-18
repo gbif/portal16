@@ -26,7 +26,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
-        cmsApi: cmsApi || 'http://www.gbif-uat.org/api/'
+        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     production: {
         root: rootPath,
@@ -36,7 +36,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
-        cmsApi: cmsApi || 'http://www.gbif.org/api/'
+        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     test: {
         root: rootPath,
