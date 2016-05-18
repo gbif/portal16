@@ -1,0 +1,32 @@
+.occurrenceMedia {
+	columns 3 30px
+	img {
+		width 100%
+	}
+	.card {
+		break-inside avoid-column
+		margin-top 10px
+		display inline-block
+		width 100%
+	}
+	.card__content {
+		padding vr-block(0.5)
+		overflow hidden
+	}
+	dl {
+		margin 0
+	}
+	dd, dt {
+		display inline
+		word-wrap break-word
+	}
+	dt:after {
+		content ':'
+	}
+	figcaption {
+		color inherit
+		p {
+			max-width 100%
+		}
+	}
+}

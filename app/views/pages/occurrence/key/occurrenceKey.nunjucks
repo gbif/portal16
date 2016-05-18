@@ -213,36 +213,7 @@ Main contact: [the collector or the main contact for the containing dataset]
                 </div>
             </section>
 
-            <section class="block row discreet">
-                <div class="blockContent container-fluid">
-                    <div class="occurrenceMedia">
-                        <div class="card" ng-repeat="image in occurrence.data.media">
-                            <img ng-src="{{occurrence.dataApi}}image?url={{image.identifier }}&size=M">
-                            <div>
-                                <dl>
-                                    <div>
-                                        <dt>Photographer</dt>
-                                        <dd>{{ image.creator }}</dd>
-                                    </div>
-                                    <div>
-                                        <dt>License</dt>
-                                        <dd>
-                                            <span class="gb-icon-cclogo3 cc"></span>
-                                            <span class="gb-icon-ccby cc"></span>
-                                            <span class="gb-icon-ccnc cc"></span>
-                                            <span class="gb-icon-ccsa cc"></span>
-                                        </dd>
-                                    </div>
-                                    <div>
-                                        <dt>Source</dt>
-                                        <dd><a href="#">{{ image.publisher | limitTo:50 }}</a></dd>
-                                    </div>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {% include('./media.nunjucks') %}
 
             <section class="bare block row">
                 <div ng-hide="occurrence.hideDetails">

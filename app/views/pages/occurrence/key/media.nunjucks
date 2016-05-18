@@ -1,0 +1,49 @@
+<section class="block row discreet">
+    <div class="blockContent container-fluid">
+        <div class="occurrenceMedia">
+
+            {% for media in occurrence.record.media %}
+                <div class="card">
+                    <figure class="card__content">
+                        <img ng-src="{{occurrence.dataApi}}image?url={$ media.identifier $}&size=M">
+                        <figcaption>
+                            <div class="summary">
+                                <p>Photo by Tony Wills</p>
+                                <p>
+                                    My length description goes here and continues forever and ever and ever.
+                                </p>
+                            </div>
+                            <div class="details">
+                                <dl>
+                                    <div>
+                                        <dt>Photographer</dt>
+                                        <dd>{$ media.creator $}</dd>
+                                    </div>
+                                    <div>
+                                        <dt>License</dt>
+                                        <dd>
+                                            <span class="gb-icon-cclogo3 cc"></span>
+                                            <span class="gb-icon-ccby cc"></span>
+                                            <span class="gb-icon-ccnc cc"></span>
+                                            <span class="gb-icon-ccsa cc"></span>
+                                        </dd>
+                                    </div>
+                                    {% for field in ['type', 'format', 'identifier', 'references', 'title', 'description'] %}
+                                    <div>
+                                        <dt>{$ field $}</dt>
+                                        <dd>{$ media[field] $}</dd>
+                                    </div>
+                                    {% endfor %}
+                                </dl>
+                                <dl>
+
+                                </dl>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
