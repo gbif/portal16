@@ -24,22 +24,25 @@
 
 
 {% block page %}
-<div class="stripes">
-    <div class="container-fluid stripes__content">
-        <article class="article row block block-first">
-
-            <div class="blockContent row">
-                <header class="col-xs-12 article__header">
-                    <nav class="article__category article__category-deep">
-                        <span class="article__category__upper">About</span>
-                        <span class="article__category__lower">Data Use</span>
-                    </nav>
-                    <h1 class="text-center">{$ data.title $}</h1>
-                    <p class="intro text-center">Do we have content to put here? The summary could do, but might be a bit too long.</p>
-                    <p class="text-center meta">{$ data.numResourceUsed $}</p>
-                </header>
-
+    <article class="wrapperHorizontalStripes">
+        <section id="keyInformation" class="horizontalStripe">
+            <div class="container article__header">
+                <div class="row">
+                    <header class="col-xs-12">
+                        <nav class="article__category article__category--deep">
+                            <span class="article__category__upper">About</span>
+                            <span class="article__category__lower">Data Use</span>
+                        </nav>
+                        <h1 class="centeredText">{$ data.title $}</h1>
+                        <p class="intro centeredText">Do we have content to put here? The summary could do, but might be a bit too long.</p>
+                        <p class="centeredText meta">{$ data.numResourceUsed $}</p>
+                    </header>
+                </div>
             </div>
+        </section>
+
+        <div class="horizontalStripe">
+            <div class="container">
 
             {% if images[0].image_dimensions.width > 1000 %}
             <div class="headerImage">
@@ -52,8 +55,11 @@
                 </figure>
             </div>
             {% endif %}
+            </div>
+        </div>
 
-            <div class="blockContent container-fluid">
+        <div class="horizontalStripe">
+            <div class="blockContent container">
                 <div class="textContent prose">
                     {$ data.body | safe $}
 
@@ -67,17 +73,17 @@
                     {% endif %}
                 </div>
             </div>
-            <footer class="blockContent container-fluid">
+            <footer class="blockContent container">
                 <div class="aux textContent">
                     {% if data.relatedGbifResources %}
-                    <section class="associated noBreak">
-                        <h5>Related GBIF resources</h5>
-                        <ul class="list-links">
-                            {% for resource in data.relatedGbifResources %}
-                                <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </section>
+                        <section class="associated noBreak">
+                            <h5>Related GBIF resources</h5>
+                            <ul class="list-links">
+                                {% for resource in data.relatedGbifResources %}
+                                    <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </section>
                     {% endif %}
 
                     {% if data.citationInformation %}
@@ -129,14 +135,12 @@
                             {% endfor %}
                         </ul>
                     </section>
-
-
-
                 </div>
             </footer>
-        </article>
+        </div>
+
         <section class="bare block row">
-            <div class="blockContent container-fluid">
+            <div class="blockContent container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <article class="card card-nav container-fluid">
@@ -175,7 +179,5 @@
                 </div>
             </div>
         </section>
-    </div>
-
-</div>
+    </article>
 {% endblock %}

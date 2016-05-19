@@ -1,5 +1,4 @@
-
-html, body, .page-wrapper {
+.siteWrapper {
     height 100%
     width 100%
     overflow-x hidden
@@ -7,7 +6,7 @@ html, body, .page-wrapper {
 }
 
 +isAbove($laptop) {
-    html, body, .page-wrapper {
+    .siteWrapper {
         min-height 100%
         height auto
     }
@@ -45,6 +44,11 @@ ul, ol {
         top 95px
         right initial
     }
+}
+
+.page--fixedWidth {
+    max-width 1300px
+    margin 0 auto
 }
 
 .contentArea__tabs {
@@ -113,7 +117,7 @@ ul, ol {
     }
 }
 
-.page-wrapper * {
+.siteWrapper * {
     &::-webkit-scrollbar {
         width: 8px; /* for vertical scrollbars */
         height: 8px; /* for horizontal scrollbars */
@@ -133,7 +137,7 @@ ul, ol {
 }
 
 //SIMILUATE IE11 SCROLLBARS
-//.page-wrapper * {
+//.siteWraper * {
 //	&::-webkit-scrollbar
 //	{
 //		width: 18px;  /* for vertical scrollbars */
@@ -179,11 +183,8 @@ ul, ol {
 //    border 0
 //}
 
-.footer {
+.siteFooter {
     padding 10px
     color white
     background-color grey
-    .wrapper {
-        background-color grey
-    }
 }

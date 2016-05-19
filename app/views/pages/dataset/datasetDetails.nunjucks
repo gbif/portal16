@@ -11,66 +11,68 @@
     {# Begin page content #}
     <script type="text/javascript">var datasetKey = "{$ datasetDetails.key $}";</script>
     <article class="wrapperHorizontalStripes">
-        <section id="key-information">
-            <div class="container">
+        <div id="keyInformation" class="horizontalStripe">
+            <div class="container article__header">
                 <div class="row">
-                    <header class="col-xs-12">
-                        <h4 class="contentTypeLabel">{$ datasetDetails.type $} dataset</h4>
-                        <h1>{$ datasetDetails.title $}</h1>
-                    </header>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-8">
-                        <ul class="noIndent">
-                            <li>Published by:
+                    <div class="col-xs-12 col-md-12 centeredText">
+                        <nav class="article__category article__category-deep">
+                            <span class="article__category__upper">dataset</span>
+                            <span class="article__category__lower">{$ datasetDetails.type $}</span>
+                        </nav>
+                        <h1 class="centeredText">{$ datasetDetails.title $}</h1>
+                        <p>
+                            {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
+                        </p>
+                        <div class="article-header__inline-block publisher">
+                            {% if datasetDetails.logoUrl %}<a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>{% endif %}
+                            <p>
+                            Published by<br>
                                 {% if publisher.homepage %}
-                                    <a href="{$ publisher.homepage $}">{$ publisher.title $}</a>
+                                    <a href="{$ publisher.homepage $}" class="publisher">{$ publisher.title $}</a>
                                 {% else %}
                                     {$ publisher.title $}
                                 {% endif %}
-                            </li>
-                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-                            {% if datasetDetails.language %}
-                            <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
+                            </p>
+                        </div>
+                        <div class="article-header__inline-block">
+                            {% if occurrenceCount %}
+                                <div class="drop-cap">{$ occurrenceCount $}</div>
+                                <div><p class="count">occurrence records<br>{$ occurrenceGeoRefCount $} (100%) geo-referenced</p></div>
                             {% endif %}
-                            {% if datasetDetails.dataLanguage %}
-                            <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
+                        </div>
+                        <div class="article-header__inline-block">
+                            {% if occurrenceCount %}
+                                <div>
+                                    <p>Download<br> <a>CSV</a> or <a>DwC-A</a>.</p>
+                                </div>
                             {% endif %}
-                            {# sub-template for determining the best list of primary contacts #}
-                            {% include "./includes/headerContacts.nunjucks" %}
-                        </ul>
-                    </div>
-                    <div class="col-xs-6 col-md-4 licences">
-                        <ul class="noIndent">
-                            <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
-                            <li>
-                                <span class="gb-icon-cclogo3 cc"></span>
-                                <span class="gb-icon-ccby cc"></span>
-                                <span class="gb-icon-ccnc cc"></span>
-                            </li>
-                            {% if datasetDetails.logoUrl %}
-                                <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
-                            {% endif %}
-                        </ul>
+                        </div>
+                        {% include "./includes/headerContacts.nunjucks" %}
+                        <p>
+                            {$ datasetDetails.citation.text $}
+                        </p>
+                        <p>
+                            <span class="gb-icon-cclogo3 cc"></span>
+                            <span class="gb-icon-ccby cc"></span>
+                            <span class="gb-icon-ccnc cc"></span>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
         {% if occurrenceCount %}
-        <section id="map" class="mapSection">
-            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
+        <section id="map" class="mapSection horizontalStripe">
+            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
-        <section id="primary-coverages">
+
+        <div id="primary-coverages" class="horizontalStripe">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 three-col">
-                        {% if occurrenceCount %}
-                        <section class="recordCount">
-                            {% include "./includes/recordCounts.nunjucks" %}
-                        </section>
-                        {% endif %}
                         <section class="dataSource">
+                            View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
                             {% if datasetDetails.homepage %}
                                 <h4>Data source</h4>
                                 <ul class="noIndent">
@@ -78,6 +80,16 @@
                                 </ul>
                             {% endif %}
                         </section>
+                        <ul class="noIndent">
+                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+
+                            {% if datasetDetails.language %}
+                                <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
+                            {% endif %}
+                            {% if datasetDetails.dataLanguage %}
+                                <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
+                            {% endif %}
+                        </ul>
                         {% if datasetDetails.description %}
                             <section id="description">
                                 <h4>Description</h4>
@@ -112,7 +124,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <section id="metrics">
             <div class="container">
                 <div class="row">

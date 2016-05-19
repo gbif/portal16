@@ -1,4 +1,4 @@
-<aside class="isLockedX Site__drawer" id="filter">
+<aside class="isLockedX siteDrawer" id="filter">
     <div>
         <h2>Filter</h2>
         <div class="form-group">
@@ -15,7 +15,7 @@
 
                 <!--<taxon-explore></taxon-explore>-->
 
-                <div class="Site__drawer__sub" ng-show="!occurrence.hide">
+                <div class="siteDrawer__sub" ng-show="!occurrence.hide">
                     <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
                     <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{isActive: $index==occurrence.suggest.activeIndex}">
                         {{suggestion.canonicalName}}
@@ -29,8 +29,8 @@
 
 </aside>
 
-<div class="Site__contentArea">
-    <div class="Site__contentArea__main">
+<div class="siteContent">
+    <div class="page">
         <div class="occurrenceSearchResults">
             <div class="tabBar">
                 <div class="tabs">

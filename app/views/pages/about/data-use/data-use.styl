@@ -1,10 +1,4 @@
 .stripes {
-	.stripes__content {
-		background #f7f9fa
-		max-width 1300px
-		margin 0 auto
-	}
-
 	.block {
 		border 1px solid #dbe3e7
 		border-width 0 0 1px 0
@@ -13,7 +7,6 @@
 			background none
 		}
 		.blockContent {
-			color #4E565F
 			margin vr-block(1) auto
 			max-width 1000px
 		}
@@ -50,52 +43,8 @@
 		}
 	}
 
-	$articleCategorySeperatorSpacing = 5px
-	.article__category {
-		margin vr-block(0.5) auto -(vr-block(0.5)) auto
-		text-align center
-		text-transform: uppercase
-		font-weight bold
-		>span:last-of-type {
-			font-weight normal
-		}
-		.article__category__lower {
-			border-left 2px solid $OrangePeel
-			margin-left $articleCategorySeperatorSpacing
-			padding-left $articleCategorySeperatorSpacing
-		}
-		&.article__category-deep {
-			text-align left
-			.article__category__upper {
-				display inline-block
-				width s('calc(50% - %s)', $articleCategorySeperatorSpacing)
-				text-align right
-			}
-		}
-	}
 }
 
-
-.article__header {
-	h1 {
-		margin-bottom vr-block(1)
-	}
-	.intro {
-		font-size 1.2rem
-		font-style italic
-		font-family $caslon
-		max-width 700px
-		margin 0 auto vr-block(0.5)
-	}
-	.meta {
-		font-weight bold
-	}
-}
-.article {
-	.textContent {
-		//margin-top vr-block(1)
-	}
-}
 
 .prose {
 	font-size 16px

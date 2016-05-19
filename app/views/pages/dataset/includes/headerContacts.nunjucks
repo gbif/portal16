@@ -4,12 +4,14 @@
         {# metadata author and originator #}
         {% if role.contacts[0] %}
         {% if role.type == 'METADATA_AUTHOR' or role.type == 'ORIGINATOR' %}
-            <li>{$ role.label $}:
+            <div class="article-header__inline-block article-header__inline-block--condensed">
+            <p>{$ role.label $}<br>
             {% set comma = joiner() %}
             {% for contact in role.contacts -%}
                 {$ comma() $} {$ contact.name | safe $}
             {%- endfor %}
-            </li>
+            </p>
+            </div>
         {% endif %}
         {% endif %}
     {% endfor %}

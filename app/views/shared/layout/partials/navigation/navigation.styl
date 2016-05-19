@@ -507,18 +507,18 @@ main {
 	}
 }
 
-.Site__contentArea {
+.siteContent {
 	background $content_bg
 	position relative //to be pushable by the filter drawer
 	overflow hidden
 	transition: right 500ms ease;
 }
 +isBelow($laptop) {
-	.Site__contentArea {
+	.siteContent {
 		height: 100%
 		right 0 //to make the transitition smooth we need a starting position
 		
-		.Site__contentArea__main {
+		.page {
 			-webkit-overflow-scrolling touch
 			overflow-y auto
 			//overflow-x hidden
@@ -528,7 +528,7 @@ main {
 
 }
 /*+isAbove($laptop) {*/
-	/*.Site__contentArea__main {*/
+	/*.page {*/
 		/*padding-left 85px*/
 	/*}*/
 /*}*/
@@ -548,7 +548,7 @@ main {
 
 //use sibling elements
 
-.Site__drawer {
+.siteDrawer {
 	right 0
 	width $filterDrawerWidth
 	position absolute
@@ -565,7 +565,7 @@ main {
 		-webkit-overflow-scrolling touch
 	}
 	&:target {
-		~ .Site__contentArea {
+		~ .siteContent {
 			right $filterDrawerWidth
 			overflow hidden
 		}
@@ -578,15 +578,15 @@ forceShowDrawer() {
 	transition initial
 	left 0
 	overflow visible
-	~ .Site__contentArea {
+	~ .siteContent {
 		padding-left $filterDrawerWidth
 	}
-	&:target ~ .Site__contentArea {
+	&:target ~ .siteContent {
 		left 0
 	}
 }
 +isAbove($laptop) {
-	.Site__drawer {
+	.siteDrawer {
 		z-index 20
 		right initial
 		left -($filterDrawerWidth)
@@ -596,7 +596,7 @@ forceShowDrawer() {
 		&:target {
 			right initial
 			left 0
-			/*~ .Site__contentArea {*/
+			/*~ .siteContent {*/
 				/*right initial*/
 				/*left $drawer-width*/
 			/*}*/
@@ -605,13 +605,13 @@ forceShowDrawer() {
 			forceShowDrawer()
 		}
 	}
-	.Site__contentArea {
+	.siteContent {
 		transition: left 500ms ease;
 		left 0
 	}
 }
 +isAbove($desktop) {
-	.Site__drawer {
+	.siteDrawer {
 		forceShowDrawer()
 	}
 }

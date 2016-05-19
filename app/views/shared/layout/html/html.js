@@ -52,6 +52,7 @@ require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
 require('../../../pages/dataset/datasetDetailsVerticalTabularRenderer.ctrl');
 require('../../../pages/dataset/datasetDetailsDownloadEventsTable.ctrl');
+require('../../../pages/dataset/datasetDetailsContactPopup.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
