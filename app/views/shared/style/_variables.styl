@@ -18,14 +18,24 @@ $Plum = rgb(126,70,106);  		// plum
 $Terracotta = rgb(214,111,39);  // Terracotta
 $Mist = rgb(232, 232, 232) 		// mist
 
-/* Bootstrap color gradient */
-$gray-base =             #000;
-$gray-darker =           #222;
-$gray-dark =             #333;
-$gray =                  #555;
-$gray-light =            #777;
-$gray-lighter =          #eee;
-$white =                 #fff;
+
+/* Gray color shades */
+// @see http://www.december.com/html/spec/color0compact.html
+$gray-base = #000000; // black
+$gray-90 = lighten($gray-base, 10%);
+$gray-80 = lighten($gray-base, 20%); // #333333 safe
+$gray-75 = lighten($gray-base, 25%);
+$gray-70 = lighten($gray-base, 30%);
+$gray-695 = lighten($gray-base, 30.5%); // #4e4e4e, close to #4e565f
+$gray-60 = lighten($gray-base, 40%); // #666666 safe
+$gray-50 = lighten($gray-base, 50%);
+$gray = gray;
+$gray-40 = lighten($gray-base, 60%);
+$gray-30 = lighten($gray-base, 70%);
+$gray-20 = lighten($gray-base, 80%);
+$gray-10 = lighten($gray-base, 90%);
+$white = #fff;
+
 
 /* SITE SPECIFIC COLORS */
 $c_main := $Mist//#67A05D
@@ -41,13 +51,12 @@ $navbar_borderWidth := vr-block(0.25)
 $navbar_bg := linear-gradient( lighten($Olivine, 2), $Olivine) //#9BBB7F //#6FAF5C //$Mist
 $navbar_BorderColor := #f5cc27
 $navbar_textColor := #fafafa //$Green//$Mist
-menuTextShadow() {
-	text-shadow 0px 1px 1px darken($Olivine, 10)
-}
-
 $navbar_dropdown_bg := white
 $navbar_dropdown_color := #333
 $navbar_horizontal_color := $c_main
+menuTextShadow() {
+    text-shadow 0px 1px 1px darken($Olivine, 10)
+}
 
 
 /* DRAWERS */
@@ -55,6 +64,7 @@ $drawer-width := 20em
 $filterDrawerWidth := 15em
 $nav_drawer_bg := #444
 $nav_drawer_color := #ddd
+
 
 /* Grey shades */
 $horizantalStripeGrey = #f9f9f9
