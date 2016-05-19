@@ -5,38 +5,43 @@
             {% for media in occurrence.record.media %}
                 <div class="card">
                     <figure class="card__content">
-                        <img ng-src="{{occurrence.dataApi}}image?url={$ media.identifier $}&size=M">
+                        <div class="imgContainer">
+                            <img src="//api.gbif.org/v1/image?url={$ media.identifier $}&size=M" onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
+                        </div>
                         <figcaption>
                             <div class="summary">
-                                <p>Photo by Tony Wills</p>
-                                <p>
-                                    My length description goes here and continues forever and ever and ever.
-                                </p>
+                                {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
+                                    {% if media[field] %}
+                                        <div>
+                                            <dt>{$ field $}</dt>
+                                            <dd>{$ media[field] $}</dd>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if media.references %}
+                                    <div>
+                                        <dt>reference</dt>
+                                        <dd><a href="{$ media.references $}">{$ media.references | truncate(30) $}</a></dd>
+                                    </div>
+                                {% endif %}
+                                <div>
+                                    <dt>license</dt>
+                                    <dd>
+                                        <a href="link-to-license">CC-BY</a>
+                                    </dd>
+                                </div>
                             </div>
-                            <div class="details">
+                            <a href="" ng-click="occurrence.mediaItems.m{$ loop.index $} = true" ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
+                            <div class="details" ng-class="{show: occurrence.mediaItems.m{$ loop.index $} }">
                                 <dl>
-                                    <div>
-                                        <dt>Photographer</dt>
-                                        <dd>{$ media.creator $}</dd>
-                                    </div>
-                                    <div>
-                                        <dt>License</dt>
-                                        <dd>
-                                            <span class="gb-icon-cclogo3 cc"></span>
-                                            <span class="gb-icon-ccby cc"></span>
-                                            <span class="gb-icon-ccnc cc"></span>
-                                            <span class="gb-icon-ccsa cc"></span>
-                                        </dd>
-                                    </div>
-                                    {% for field in ['type', 'format', 'identifier', 'references', 'title', 'description'] %}
-                                    <div>
-                                        <dt>{$ field $}</dt>
-                                        <dd>{$ media[field] $}</dd>
-                                    </div>
+                                    {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
+                                        {% if media[field] %}
+                                        <div>
+                                            <dt>{$ field $}</dt>
+                                            <dd>{$ media[field] $}</dd>
+                                        </div>
+                                        {% endif %}
                                     {% endfor %}
-                                </dl>
-                                <dl>
-
                                 </dl>
                             </div>
                         </figcaption>

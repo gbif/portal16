@@ -44,7 +44,7 @@ require('./angular/occurrenceFields.constants');
 require('./angular/map.constants');
 
 require('../../../pages/search/search.ctrl');
-require('../../../pages/occurrence/key/occurrencekey.ctrl');
+require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/occurrence.ctrl');
 require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
@@ -135,7 +135,6 @@ window.onerror = function(msg, file, line, col, error) {
         error: error,
         stack: stackTrace()
     };
-console.log('error happened');
     var request = new XMLHttpRequest();
     request.open('POST', '/api/log/error', true);
     request.setRequestHeader('Content-Type', 'application/json');
