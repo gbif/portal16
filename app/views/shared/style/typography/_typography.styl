@@ -5,6 +5,7 @@
 // @see http://gregrickaby.com/using-the-golden-ratio-and-rems/
 
 // Sans-serif
+// we use $helvetica
 $roboto = 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
 $calibri = 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
 $candara = 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
@@ -22,6 +23,7 @@ $trebuchet = 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida San
 $verdana = 'Verdana', 'Geneva', 'sans-serif'
 
 // Serif
+
 $antiqua = 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif'
 $baskerville = 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
 $bodoni = 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif'
@@ -36,6 +38,7 @@ $lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
 $palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
 
 // Settings
+
 $line-height-ratio = 1.42857143
 $header-ratio = $golden
 $body-font = $roboto
@@ -82,9 +85,7 @@ set-type($level = 0)
     font-size (type-scale($level))rem
     line-height (type-line-height($level))rem
 
-//
 // Helpers
-//
 
 /**
  * Creates a baseline grid based off your $line-height-ratio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
@@ -96,11 +97,12 @@ set-type($level = 0)
  *   .page-wrapper
  *       grid-overlay(blue, 2)
  */
+
 grid-overlay($color = black, $px-offset = false)
-    background linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
-    background-size 100% ($line-height-ratio)em //$base-line-height
+    background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
+    background-size: 100% ($line-height-ratio)em //$base-line-height
     if $px-offset
-        background-position 0 unit($px-offset, 'px')
+        background-position: 0 unit($px-offset, 'px')
 
 /**
  * Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
@@ -112,6 +114,7 @@ grid-overlay($color = black, $px-offset = false)
  *   img
  *     vr-block(5.25, .5)
  */
+
 vr-block($units = 1, $px-offset = false)
     if $px-offset
         return $units*$base-line-height + $px-offset
@@ -124,14 +127,18 @@ vr-block($units = 1, $px-offset = false)
  * @example
  *   typographic()
  */
+
 typographic() {
 
-	body {
+    html {
+        font-size $html-font-size
+    }
+    body {
         font-family $body-font
         font-weight $body-font-weight
-        color $body-color
+        text-rendering optimizeLegibility
         line-height $line-height-ratio
-		text-rendering optimizeLegibility
-	}
+        color $body-color
+    }
 
 }
