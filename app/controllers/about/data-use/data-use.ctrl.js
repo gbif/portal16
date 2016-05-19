@@ -16,7 +16,7 @@ router.get('/data-use/:key', function(req, res) {
         }
         else {
             body = JSON.parse(body);
-            res.render('pages/about/data-use/data-use2.nunjucks', {
+            res.render('pages/about/data-use/data-use.nunjucks', {
                 data: body.data[0],
                 images: body.data[0].images,
                 self: body.self,
