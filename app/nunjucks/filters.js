@@ -22,6 +22,12 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
+        nunjucksConfiguration.addFilter('slice', function(data, start, amount) {
+            return data && data.constructor === Array ? data.slice(start, amount) : undefined;
+        });
+    })();
+
+    (function() {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 

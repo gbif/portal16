@@ -112,36 +112,39 @@
                 </div>
                 {% endif %}
 
-                <div class="blockContent container-fluid">
-                    <p>
-                        {$ occurrence.dataset.description $}
-                    </p>
-                </div>
-                <!-- <footer class="blockContent container-fluid">
-                    <div class="aux textContent">
-                        <section class="associated noBreak">
-                            <h5>Related GBIF resources</h5>
-                            <ul class="list-links">
-                                <li>abs lkjhs fhj</li>
-                                <li>abs lkjhs fhj</li>
-                                <li>abs lkjhs fhj</li>
-                                <li>abs lkjhs fhj</li>
-                            </ul>
-                        </section>
-Main contact: [the collector or the main contact for the containing dataset]
-                        
-                        <ul>
-                            <li>{$ occurrence.record.license $}</li>
-                            <li>
-                                <span class="gb-icon-cclogo3 cc"></span>
-                                <span class="gb-icon-ccby cc"></span>
-                                <span class="gb-icon-ccnc cc"></span>
-                                <span class="gb-icon-ccsa cc"></span>
-                            </li>
-                        </ul>
-
+                {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
+                <div class="blockContent container-fluid description">
+                    <h2 class="h4">About the dataset</h2>
+                    <div class="textContent {% if occurrence.dataset.description.length < 500 %} singleCol {% endif %}">
+                        {$ occurrence.dataset.description | safe $}
                     </div>
-                </footer> -->
+                </div>
+                {% endif %}
+                {#<footer class="blockContent container-fluid">#}
+                    {#<div class="aux textContent">#}
+                        {#<section class="associated noBreak">#}
+                            {#<h5>Related GBIF resources</h5>#}
+                            {#<ul class="list-links">#}
+                                {#<li>abs lkjhs fhj</li>#}
+                                {#<li>abs lkjhs fhj</li>#}
+                                {#<li>abs lkjhs fhj</li>#}
+                                {#<li>abs lkjhs fhj</li>#}
+                            {#</ul>#}
+                        {#</section>#}
+{#Main contact: [the collector or the main contact for the containing dataset]#}
+
+                        {#<ul>#}
+                            {#<li>{$ occurrence.record.license $}</li>#}
+                            {#<li>#}
+                                {#<span class="gb-icon-cclogo3 cc"></span>#}
+                                {#<span class="gb-icon-ccby cc"></span>#}
+                                {#<span class="gb-icon-ccnc cc"></span>#}
+                                {#<span class="gb-icon-ccsa cc"></span>#}
+                            {#</li>#}
+                        {#</ul>#}
+
+                    {#</div>#}
+                {#</footer>#}
             </section>
 
             <section class="block row">
@@ -215,19 +218,20 @@ Main contact: [the collector or the main contact for the containing dataset]
 
             {% include('./media.nunjucks') %}
 
-            <section class="bare block row">
-                <div ng-hide="occurrence.hideDetails">
-                    {% include('./table.nunjucks') %}
-                </div>
-
+            <section class="bare block row occurrenceKey__table toggleStripe" ng-class="{ isExpanded: !occurrence.hideDetails }">
                 <div class="buttonExpand">
                     <input type="checkbox" ng-model="occurrence.hideDetails" value="None" id="toggleDetails" name="check" checked />
                     <label for="toggleDetails"
-                        class="gb-icon-angle-down"
-                        ng-class="{'gb-icon-angle-up': !occurrence.hideDetails}"
+                           class="gb-icon-angle-down"
+                           ng-class="{'gb-icon-angle-up': !occurrence.hideDetails}"
                     ></label>
-                    <label class="small" for="toggleDetails" ng-show="occurrence.hideDetails">Show details and issues</label>
-                    <label class="small" for="toggleDetails" ng-hide="occurrence.hideDetails">Hide details and issues</label>
+                    <label for="toggleDetails">
+                        <span class="small">Show details and issues</span>
+                        <span class="h4">Details and issues</span>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    {% include('./table.nunjucks') %}
                 </div>
             </section>
 

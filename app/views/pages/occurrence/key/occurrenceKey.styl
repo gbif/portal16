@@ -46,18 +46,6 @@
 			font-size 80%
 		}
 	}
-	.card-table {
-		overflow auto
-		margin-bottom 0
-		tbody {
-			tr:nth-of-type(even) {
-				background #f5f5f5
-			}
-		}
-		td {
-			min-width 250px
-		}
-	}
 }
 
 
@@ -155,39 +143,6 @@
 
 
 
-.multiToggle {
-    text-align: center
-	margin vr-block(1) 0
-	>div {
-		margin 2px
-		padding 10px
-		display inline-block
-		position relative
-		background-color #D2D8DC
-		transition background-color 200ms ease
-		&:focus {
-			outline none
-		}
-		&.isActive {
-			background-color #53657B// #39adcc
-			color white
-			&:after {
-				top 100%
-				left 50%
-				border solid transparent
-				content " "
-				height 0
-				width 0
-				position absolute
-				pointer-events none
-				border-color rgba(57, 173, 204, 0)
-				border-top-color #53657B
-				border-width 7px
-				margin-left -8px
-			}
-		}
-	}
-}
 
 
 .termBlock {
@@ -220,36 +175,6 @@
 		padding-left 1rem
 		dt {
 			display inline
-		}
-	}
-}
-
-.buttonExpand {
-	display block
-	text-align center
-	color #aaa
-	input[type=checkbox] {
-		visibility hidden
-		position absolute
-	}
-	label {
-		text-align center
-		font-weight normal
-		cursor pointer
-	}
-	label:first-of-type {
-		display block
-		background #D2D8DC
-		width 30px
-		height 30px
-		margin 0.25rem auto
-		line-height 30px
-		border-radius 15px
-		font-size 30px
-		transisition background-color 300ms ease
-		&:hover {
-			background-color #aaa
-			color white
 		}
 	}
 }

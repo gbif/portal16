@@ -34,8 +34,17 @@ gulp.task('vendor-scripts', function() {
 });
 
 function buildScripts() {
+    return build(config.js.browserify.main.path, config.js.browserify.main.dest);
+};
+
+//gulp.task('buildOccurrenceKey', function() {
+//    return build(config.js.browserify.occurrenceKey.path, config.js.browserify.occurrenceKey.dest)
+//        .pipe(browserSync.stream());
+//});
+
+function build(entry, name) {
     return browserify({
-            entries: config.js.browserify.path,
+            entries: entry,
             debug: true
         }).bundle()
         .on('error', function (err) {
@@ -50,7 +59,7 @@ function buildScripts() {
             }
             this.emit("end");
         })
-        .pipe(source('custom.js'))
+        .pipe(source(name))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({
             loadMaps: true

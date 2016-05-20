@@ -58,7 +58,7 @@
         </section>
         {% if occurrenceCount %}
         <section id="map" class="mapSection">
-            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'classic'"></gbmap>
+            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
         <section id="primary-coverages">

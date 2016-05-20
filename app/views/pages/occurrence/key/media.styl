@@ -1,3 +1,4 @@
+
 .occurrenceMedia {
 	columns 1 30px
 	color #555
@@ -49,6 +50,14 @@
 			&.show {
 				display block
 			}
+		}
+	}
+}
+.occurrenceMedia__dynamic {
+	>.card {
+		display none
+		&.isShown {
+			display inline-block
 		}
 	}
 }
