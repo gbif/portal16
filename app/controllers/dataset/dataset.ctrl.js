@@ -45,6 +45,7 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 
 function renderPage(req, res, dataset) {
     var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
+    var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var datasetContent = {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
@@ -54,6 +55,7 @@ function renderPage(req, res, dataset) {
         headerContactsString: JSON.stringify(headerContacts),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
+        georeferencedPercentage: georeferencedPercentage,
         process: dataset.process.results,
         api: api,
         identifiers: processIdentifiers(dataset.record.identifiers),

@@ -40,7 +40,7 @@
                         <div class="article-header__inline-block">
                             {% if occurrenceCount %}
                                 <div class="drop-cap">{$ occurrenceCount $}</div>
-                                <div><p class="count">occurrence records<br>{$ occurrenceGeoRefCount $} (100%) geo-referenced</p></div>
+                                <div><p class="count">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) geo-referenced</p></div>
                             {% endif %}
                         </div>
                         <div class="article-header__inline-block">
