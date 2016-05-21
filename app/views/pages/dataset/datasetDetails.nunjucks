@@ -9,10 +9,13 @@
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
 
     {# Begin page content #}
-    <script type="text/javascript">var datasetKey = "{$ datasetDetails.key $}";</script>
+    <script type="text/javascript">
+        var datasetKey = '{$ datasetDetails.key $}';
+        var headerContactsString = '{$ headerContactsString | safe $}';
+    </script>
     <article class="wrapperHorizontalStripes">
         <div id="keyInformation" class="horizontalStripe">
-            <div class="container article__header">
+            <div class="container article__header" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 centeredText">
                         <nav class="article__category article__category-deep">

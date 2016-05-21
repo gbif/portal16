@@ -44,13 +44,14 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
-
+    var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var datasetContent = {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
-        headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
+        headerContacts: headerContacts,
+        headerContactsString: JSON.stringify(headerContacts),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         process: dataset.process.results,
@@ -273,7 +274,7 @@ function organizeContacts(sourceContacts, mode) {
                 // Make click-to-email name if email exists.
                 var name = '';
                 if (sourceContact.email[0]) {
-                    name = '<a href="mailto:' + sourceContact.email + '">' + sourceContact.firstName + ' ' + sourceContact.lastName + '</a>';
+                    name = sourceContact.firstName + ' ' + sourceContact.lastName;
                 }
                 else if (sourceContact.firstName && sourceContact.lastName) {
                     name = sourceContact.firstName + ' ' + sourceContact.lastName;
