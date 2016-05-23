@@ -24,7 +24,6 @@
                         </nav>
                         <h1 class="centeredText">{$ datasetDetails.title $}</h1>
                         <p>
-                            {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
                         </p>
                         <div class="article-header__inline-block publisher">
                             {% if datasetDetails.logoUrl %}
@@ -47,7 +46,7 @@
                         <div class="article-header__inline-block">
                         {# @todo Consider counts for checklist dataset #}
                             <div class="record-count">{$ occurrenceCount $}</div>
-                            <div><p class="count-text">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) geo-referenced</p></div>
+                            <div><p class="count-text">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) georeferenced</p></div>
                         </div>
                         {% endif %}
 
@@ -63,8 +62,8 @@
                         <div class="clearfix"></div>
 
                         {% include "./includes/headerContacts.nunjucks" %}
-                        <p>
-                            {$ datasetDetails.citation.text $}
+                        <p>Citation:<br>
+                            {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
                         </p>
                         <p>
                             <span class="gb-icon-cclogo3 cc"></span>
