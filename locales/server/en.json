@@ -780,5 +780,7 @@
 		"YE": "Yemen",
 		"ZM": "Zambia",
 		"ZW": "Zimbabwe"
-	}
+	},
+	"georeferenced": "georeferenced",
+	"records": "records"
 }

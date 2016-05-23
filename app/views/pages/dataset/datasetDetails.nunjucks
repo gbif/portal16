@@ -46,7 +46,7 @@
                         <div class="article-header__inline-block">
                         {# @todo Consider counts for checklist dataset #}
                             <div class="record-count">{$ occurrenceCount $}</div>
-                            <div><p class="count-text">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) georeferenced</p></div>
+                            <div><p class="count-text">occurrence records<br>{$ georeferencedString $}</p></div>
                         </div>
                         {% endif %}
 
