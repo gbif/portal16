@@ -14,7 +14,7 @@
         var headerContactsString = '{$ headerContactsString | safe $}';
     </script>
     <article class="wrapperHorizontalStripes">
-        <div id="keyInformation" class="horizontalStripe">
+        <header class="horizontalStripe">
             <div class="container article__header" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 centeredText">
@@ -27,29 +27,41 @@
                             {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
                         </p>
                         <div class="article-header__inline-block publisher">
-                            {% if datasetDetails.logoUrl %}<a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>{% endif %}
-                            <p>
-                            Published by<br>
-                                {% if publisher.homepage %}
-                                    <a href="{$ publisher.homepage $}" class="publisher">{$ publisher.title $}</a>
-                                {% else %}
-                                    {$ publisher.title $}
-                                {% endif %}
-                            </p>
-                        </div>
-                        <div class="article-header__inline-block">
-                            {% if occurrenceCount %}
-                                <div class="drop-cap">{$ occurrenceCount $}</div>
-                                <div><p class="count">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) geo-referenced</p></div>
+                            {% if datasetDetails.logoUrl %}
+                            <div>
+                                <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
+                            </div>
                             {% endif %}
+                            <div>
+                                <p>Published by<br>
+                                    {% if publisher.homepage %}
+                                        <a href="{$ publisher.homepage $}" class="publisher">{$ publisher.title $}</a>
+                                    {% else %}
+                                        {$ publisher.title $}
+                                    {% endif %}
+                                </p>
+                            </div>
                         </div>
+
+                        {% if occurrenceCount %}
                         <div class="article-header__inline-block">
-                            {% if occurrenceCount %}
-                                <div>
-                                    <p>Download<br> <a>CSV</a> or <a>DwC-A</a>.</p>
-                                </div>
-                            {% endif %}
+                        {# @todo Consider counts for checklist dataset #}
+                            <div class="record-count">{$ occurrenceCount $}</div>
+                            <div><p class="count-text">occurrence records<br>{$ occurrenceGeoRefCount $} ({$ georeferencedPercentage $}%) geo-referenced</p></div>
                         </div>
+                        {% endif %}
+
+                        {% if occurrenceCount %}
+                        <div class="article-header__inline-block">
+                        {# @todo ui widget for download. Modal? #}
+                            <div>
+                                <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="clearfix"></div>
+
                         {% include "./includes/headerContacts.nunjucks" %}
                         <p>
                             {$ datasetDetails.citation.text $}
@@ -62,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
 
         {% if occurrenceCount %}
         <section id="map" class="mapSection horizontalStripe">

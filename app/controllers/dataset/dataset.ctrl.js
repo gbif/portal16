@@ -212,8 +212,11 @@ function organizeContacts(sourceContacts, mode) {
     switch (mode) {
         case 'HEADER':
             roles = [
+                {'type': 'ORIGINATOR', 'label': 'Originator'},
                 {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
-                {'type': 'ORIGINATOR', 'label': 'Originator'}
+                {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
+                {'type': 'AUTHOR', 'label': 'Author'},
+                {'type': 'EDITOR', 'label': 'Editor'}
             ];
             break;
         case 'OTHER':
@@ -238,8 +241,8 @@ function organizeContacts(sourceContacts, mode) {
             break;
         default:
             roles = [
-                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
                 {'type': 'ORIGINATOR', 'label': 'Originator'},
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
                 {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
                 {'type': 'AUTHOR', 'label': 'Author'},
                 {'type': 'EDITOR', 'label': 'Editor'},

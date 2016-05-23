@@ -25,7 +25,7 @@
 
 {% block page %}
     <article class="wrapperHorizontalStripes">
-        <section id="keyInformation" class="horizontalStripe">
+        <header class="horizontalStripe">
             <div class="container article__header">
                 <div class="row">
                     <header class="col-xs-12">
@@ -39,7 +39,7 @@
                     </header>
                 </div>
             </div>
-        </section>
+        </header>
 
         <div class="horizontalStripe">
             <div class="container">

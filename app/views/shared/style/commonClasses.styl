@@ -1,11 +1,4 @@
 .wrapperHorizontalStripes {
-    .centeredText {
-        text-align center
-    }
-    .cc {
-        font-size 30px
-        vertical-align middle
-    }
     .horizontalStripe {
         padding 20px 0
     }
@@ -17,6 +10,14 @@
     }
     .technical-information {
         background-color #ffffdf
+    }
+
+    .centeredText {
+        text-align center
+    }
+    .cc {
+        font-size 30px
+        vertical-align middle
     }
 
     .article__header {
@@ -41,33 +42,23 @@
         padding 10px 20px
         text-align center
         font-size 1.3rem
-        max-height 80px
-        height 80px
         margin 10px 0
         vertical-align middle
-        p {
-            vertical-align middle
-        }
         div {
             display inline-block
-            position relative
-            top 50%
-            transform translateY(-50%)
-        }
-        .count {
-            text-align left
+            vertical-align middle
         }
         img {
             height 60px
             margin-right 8px
-            float left
         }
-    }
-    .article-header__inline-block.article-header__inline-block--condensed {
-        max-height 60px
-        padding 0 20px
-    }
-    .publisher {
+        .record-count {
+            font-size 4rem
+            line-height 60px
+            font-weight 300
+            padding-right 8px
+            padding-left 3px
+        }
     }
 
     .header-contacts {
@@ -78,24 +69,8 @@
             margin-bottom 0
         }
     }
-    .article-header__inline-block:nth-of-type(2),
-    .article-header__inline-block:nth-of-type(3),
-    .article-header__inline-block:nth-of-type(5) {
+    .article-header__inline-block:not(:nth-of-type(1)) {
         border-left 1px solid $OrangePeel
-    }
-
-    .vertical-align-center {
-    }
-
-    .drop-cap {
-        float left
-        font-size 4rem
-        font-weight 300
-        padding-right 8px
-        padding-left 3px
-        vertical-align middle
-    }
-    .record-count {
     }
 
     $articleCategorySeparatorSpacing = 6px
@@ -120,14 +95,6 @@
                 width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
                 text-align right
             }
-        }
-    }
-
-    header {
-        margin-bottom 10px
-        h1 {
-            font-size: 2.6em;
-            line-height: 1.2em;
         }
     }
 
@@ -180,11 +147,17 @@
     }
 }
 
-+isBelow($laptop) {
++isBelow($tablet) {
     .publisher {
         overflow-wrap break-word
     }
-    .article-header__inline-block:nth-of-type(4) {
-        border-left 1px solid $OrangePeel
+    .count-text {
+        text-align center
+    }
+}
+
++isAbove($tablet) {
+    .count-text {
+        text-align left
     }
 }
