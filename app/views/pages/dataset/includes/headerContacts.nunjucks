@@ -8,7 +8,7 @@
                     <p>{$ role.label $}<br>
                         {% set comma = joiner() %}
                         {% for contact in role.contacts -%}
-                            {% set contactIndex = loop.index0 %}{$ comma() $} <a uib-popover-html="contactPopup.htmlPopover[{$ roleIndex $}][{$ contactIndex $}]" popover-placement="auto bottom">{$ contact.name $}</a>
+                            {% set contactIndex = loop.index0 %}{$ comma() $} <a>{$ contact.name $}</a>
                         {%- endfor %}
                     </p>
                 </div>
