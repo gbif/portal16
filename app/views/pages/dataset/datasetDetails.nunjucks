@@ -15,7 +15,7 @@
     </script>
     <article class="wrapperHorizontalStripes">
         <header class="horizontalStripe">
-            <div class="container article__header" ng-controller="contactPopupCtrl as contactPopup">
+            <div class="container article__header {$ publisherStyle $}" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 centeredText">
                         <nav class="article__category article__category-deep">
@@ -23,15 +23,13 @@
                             <span class="article__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
                         <h1 class="centeredText">{$ datasetDetails.title $}</h1>
-                        <p>
-                        </p>
-                        <div class="article-header__inline-block publisher">
+                        <div class="article-header__inline-block">
                             {% if datasetDetails.logoUrl %}
                             <div>
                                 <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
                             </div>
                             {% endif %}
-                            <div>
+                            <div class="published-by">
                                 <p>Published by<br>
                                     {% if publisher.homepage %}
                                         <a href="{$ publisher.homepage $}" class="publisher">{$ publisher.title $}</a>
@@ -51,7 +49,7 @@
                         {% endif %}
 
                         {% if occurrenceCount %}
-                        <div class="article-header__inline-block">
+                        <div class="article-header__inline-block download-block">
                         {# @todo ui widget for download. Modal? #}
                             <div>
                                 <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
@@ -59,17 +57,18 @@
                         </div>
                         {% endif %}
 
-                        <div class="clearfix"></div>
-
                         {% include "./includes/headerContacts.nunjucks" %}
-                        <p><span class="paragraph-label">Citation</span>:<br>
-                            {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
-                        </p>
-                        <p>
-                            <span class="gb-icon-cclogo3 cc"></span>
-                            <span class="gb-icon-ccby cc"></span>
-                            <span class="gb-icon-ccnc cc"></span>
-                        </p>
+
+                        <div class="header-citation">
+                            <p><span class="paragraph-label">Citation</span>:<br>
+                                {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
+                            </p>
+                            <p>
+                                <span class="gb-icon-cclogo3 cc"></span>
+                                <span class="gb-icon-ccby cc"></span>
+                                <span class="gb-icon-ccnc cc"></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

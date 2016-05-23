@@ -47,6 +47,7 @@ function renderPage(req, res, dataset) {
     var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('records') + ')';
+    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-block--long-title' : '';
 
     var datasetContent = {
         datasetDetails: dataset.record,
@@ -58,6 +59,7 @@ function renderPage(req, res, dataset) {
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
+        publisherStyle: publisherStyle,
         process: dataset.process.results,
         api: api,
         identifiers: processIdentifiers(dataset.record.identifiers),
@@ -209,16 +211,14 @@ function metadataElementsToFold(datasetDetails) {
  */
 function organizeContacts(sourceContacts, mode) {
     var roles = [];
+    var resultRoles = [];
 
     // The order of roles here matters as weighting.
     switch (mode) {
         case 'HEADER':
             roles = [
                 {'type': 'ORIGINATOR', 'label': 'Originator'},
-                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
-                {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
-                {'type': 'AUTHOR', 'label': 'Author'},
-                {'type': 'EDITOR', 'label': 'Editor'}
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'}
             ];
             break;
         case 'OTHER':
@@ -272,7 +272,7 @@ function organizeContacts(sourceContacts, mode) {
             break;
     }
 
-    roles.forEach(function (role) {
+    roles.forEach(function (role, ri) {
         role.contacts = [];
         sourceContacts.forEach(function(sourceContact){
             if (sourceContact.type == role.type) {
@@ -306,9 +306,13 @@ function organizeContacts(sourceContacts, mode) {
                 }
             }
         });
+        // if no contacts matched then don't include this role in the result.
+        if (role.contacts.length != 0) {
+            resultRoles.push(role);
+        }
     });
 
-    return roles;
+    return resultRoles;
 }
 
 /**

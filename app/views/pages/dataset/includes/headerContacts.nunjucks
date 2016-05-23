@@ -1,10 +1,11 @@
 {# Complete the primary contacts listed in the header, as <li> items. #}
-{% if headerContacts %}
+{% if headerContacts[0] %}
+    <div class="header-contacts">
         {% for role in headerContacts %}
             {% set roleIndex = loop.index0 %}
             {# metadata author and originator #}
             {% if role.contacts[0] %}
-                <div class="header-contacts">
+                <div class="header-contact">
                     <p>{$ role.label $}<br>
                         {% set comma = joiner() %}
                         {% for contact in role.contacts -%}
@@ -14,4 +15,5 @@
                 </div>
             {% endif %}
         {% endfor %}
+    </div>
 {% endif %}
