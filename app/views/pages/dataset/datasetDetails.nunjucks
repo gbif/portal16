@@ -62,7 +62,7 @@
                         <div class="clearfix"></div>
 
                         {% include "./includes/headerContacts.nunjucks" %}
-                        <p>Citation:<br>
+                        <p><span class="paragraph-label">Citation</span>:<br>
                             {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
                         </p>
                         <p>
