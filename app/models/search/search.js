@@ -13,7 +13,7 @@
  * @type {exports|module.exports}
  */
 var helper = require('../util/util'),
-    baseConfig = require('../../../config/config');
+    baseConfig = require('../../../config/config'),
     async = require('async');
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {

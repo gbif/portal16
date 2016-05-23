@@ -10,7 +10,6 @@
 var gulp = require('gulp'),
     path = require('path'),
     config = rootRequire('config/build'),
-    //koutoSwiss = require("kouto-swiss"),
     wiredep = require('wiredep'),
     browserSync = require('browser-sync'),
     lost = require('lost'),
@@ -41,7 +40,7 @@ gulp.task('vendor-styles', function() {
         .pipe(g.plumber())
         .pipe(g.sourcemaps.init())
         .pipe(g.concat('vendor.css'))
-        .pipe(g.minifyCss())
+        .pipe(g.cleanCss())
         .pipe(g.sourcemaps.write('./'))
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/vendor')));
 });
@@ -90,10 +89,9 @@ function buildStylus() {
         })).on('error', config.errorHandler('Stylus'))
         .pipe(g.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
         .pipe(g.postcss(processors))
-        .pipe(g.minifyCss())
+        .pipe(g.cleanCss())
         .pipe(g.sourcemaps.write('./'))
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base')));
-
 }
 
 gulp.task('ieStyle', [], function() {
