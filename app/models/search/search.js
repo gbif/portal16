@@ -57,7 +57,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                     }
                 });
             },
-            featuredHolotype: ['holotypes', function(callback, results) {
+            featuredHolotype: ['holotypes', function(results, callback) {
                 if (!results.holotypes || typeof results.holotypes.errorType != 'undefined' || results.holotypes.count == 0) {
                     callback(null, null);
                 } else {
@@ -119,7 +119,7 @@ function getData(query, cb) {
                 });
             },
             taxaMatches: [
-                'rawTaxaMatches', function(callback, results) {
+                'rawTaxaMatches', function(results, callback) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length == 0) {
                         callback(null, null);
                     } else {
@@ -130,7 +130,7 @@ function getData(query, cb) {
                 }
             ],
             catalogNumberOccurrences: [
-                'rawTaxaMatches', function(callback, results) {
+                'rawTaxaMatches', function(results, callback) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length != 0) {
                         callback(null, null);
                     } else {
@@ -139,7 +139,7 @@ function getData(query, cb) {
                 }
             ],
             occurrences: [
-                'rawTaxaMatches', 'catalogNumberOccurrences', function(callback, results) {
+                'rawTaxaMatches', 'catalogNumberOccurrences', function(results, callback) {
                     if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
                         callback(null, null);
                     } else {
@@ -148,7 +148,7 @@ function getData(query, cb) {
                 }
             ],
             species: [
-                'rawTaxaMatches', function(callback, results) {
+                'rawTaxaMatches', function(results, callback) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
