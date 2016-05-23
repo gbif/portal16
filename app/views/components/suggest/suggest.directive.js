@@ -41,7 +41,7 @@ function suggestDirective() {
                 vm.suggest.selectedKeys.push(vm.suggest.active[vm.config.key]);
                 if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
             } else {
-                console.log('already in list');
+                //console.log('already in list');
             }
         };
 

@@ -30,6 +30,14 @@ function gbmapDirective() {
         //vm.center = {zoom: 0, lat: 0, lng: 0};
         vm.mapstyle = vm.mapstyle || 'classic';
 
+        var palette = 'palette=reds';
+        if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette) {
+            palette = 'palette=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette;
+        }
+        if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors) {
+            palette = 'colors=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors;
+        }
+
         vm.layers = {
             baselayers: {
                 base: mapConstants.baseLayers.options[vm.mapstyle]
@@ -37,7 +45,7 @@ function gbmapDirective() {
             overlays: {
                 occurrences: {
                     name: 'gb',
-                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=4',
+                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=4&' + palette,
                     type: 'xyz',
                     visible: true,
                     layerParams: {

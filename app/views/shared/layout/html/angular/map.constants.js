@@ -31,14 +31,15 @@ var baseLayers = {
         },
         'outdoor': {
             "name": "Outdoor",
-            "url": "https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=" + accessToken,
+            "url": "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,
             options: {
-                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>",
+                detectRetina: false //TODO can this be fixed? Currently the mapbox retina tiles have such a small text size that I'd prefer blurry maps that I can read
             },
             type: 'xyz',
             layerOptions: {
                 "showOnSelector": false,
-                palette: 'yellows_reds'
+                "colors": '%2C%2C%23555555FF'
             }
         },
         'dark': {

@@ -1,4 +1,7 @@
+
 .occurrenceMedia {
+	margin auto
+	max-width 1000px
 	columns 1 30px
 	color #555
 	font-size 12px
@@ -52,6 +55,14 @@
 		}
 	}
 }
+.occurrenceMedia__dynamic {
+	>.card {
+		display none
+		&.isShown {
+			display inline-block
+		}
+	}
+}
 
 +isAbove($tablet) {
 	.occurrenceMedia {
@@ -62,5 +73,14 @@
 +isAbove($laptop) {
 	.occurrenceMedia {
 		columns 3 30px
+	}
+}
+
+//$OccurrenceLargeGalleryLayout = (200px*5 + 4*30px )
++isAbove( 1666px ) {
+	.occurrenceMedia {
+		margin auto
+		max-width 1666px
+		columns 5 30px
 	}
 }

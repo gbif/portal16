@@ -12,7 +12,7 @@ function fabDirective() {
         transclude: true,
         templateUrl: '/templates/components/fab/fab.html',
         scope: {
-            type: '=',
+            type: '='
         },
         controller: fab,
         controllerAs: 'vm',
@@ -23,7 +23,7 @@ function fabDirective() {
 
     /** @ngInject */
     function fab() {
-        var vm = this;
+        //var vm = this;
     }
 }
 

@@ -4,14 +4,16 @@
 	"search": "search",
 	"bor": {
 		"HUMAN_OBSERVATION": "menneskelig observation",
-		"PRESERVED_SPECIMEN": "preserveret eksemplar"
+		"PRESERVED_SPECIMEN": "preserveret eksemplar",
+		"UNKNOWN": "bor.UNKNOWN"
 	},
 	"occurrence": {
 		"title": {
 			"unknownLocation": "på ukendt lokation",
 			"verb": {
 				"PRESERVED_SPECIMEN": "indsamlet",
-				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION"
+				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION",
+				"UNKNOWN": "occurrence.title.verb.UNKNOWN"
 			},
 			"inCountry": "i %s"
 		},
@@ -22,5 +24,7 @@
 		"modified": "Ændret"
 	},
 	"country": {
+		"BJ": "country.BJ",
+		"NZ": "country.NZ"
 	}
 }
