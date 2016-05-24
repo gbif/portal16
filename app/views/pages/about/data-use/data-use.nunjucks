@@ -46,143 +46,172 @@
             </div>
         </header>
 
-        <div class="horizontal-stripe">
+        {% if images[0].image_dimensions.width > 1000 %}
+        <div class="horizontal-stripe horizontal-stripe--no-padding white-background">
             <div class="container">
-
-            {% if images[0].image_dimensions.width > 1000 %}
-            <div class="headerImage">
-                <figure>
-                    <div class="coverImg">
-                        <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
-                        {#<img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">#}
+                <div class="row">
+                    <div class="col-xs-12 full-width-image">
+                        <figure>
+                            <div>
+                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
+                                {#<img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">#}
+                            </div>
+                            <figcaption>
+                                <div>{$ images[0].image_field_caption.value | safe $}</div>
+                            </figcaption>
+                        </figure>
                     </div>
-                    <figcaption class="container-fluid"><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
-                </figure>
-            </div>
-            {% endif %}
+                </div>
             </div>
         </div>
+        {% endif %}
 
         <div class="horizontal-stripe">
-            <div class="blockContent container">
-                <div class="textContent prose">
-                    {$ data.body | safe $}
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-centered">
+                        <div class="row">
+                            <div class="body-text--data-use">
+                                {$ data.body | safe $}
+                            </div>
+                        </div>
+                    </div>
 
                     {% if images[0].image_dimensions.width <= 1000 %}
-                        <figure class="noBreak">
-                            <div class="coverImg articleImg">
-                                <img ng-src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
+                        <figure class="no-break">
+                            <div>
+                                <img src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}">
                             </div>
                             <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
                         </figure>
                     {% endif %}
                 </div>
-            </div>
-            <footer class="blockContent container">
-                <div class="aux textContent">
-                    {% if data.relatedGbifResources %}
-                        <section class="associated noBreak">
-                            <h5>Related GBIF resources</h5>
-                            <ul class="list-links">
-                                {% for resource in data.relatedGbifResources %}
-                                    <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </section>
-                    {% endif %}
-
-                    {% if data.citationInformation %}
-                        <section class="associated {% if data.citationInformation.length == 1 %} noBreak {% endif %}">
-                            <h5>Citations</h5>
-                            <ul class="list-citations">
-                                {% for loc in data.citationInformation %}
-                                    <li class="noBreak">{$ loc.value | safe $}</li>
-                                {% endfor %}
-                            </ul>
-                        </section>
-                    {% endif %}
-
-                    {% if data.researcherLocation %}
-                        <section class="associated noBreak">
-                            <h5>Location of researchers</h5>
-                            <ul class="list-chips">
-                                {% for loc in data.researcherLocation %}
-                                    <li><a href="#">{$ loc.name $}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </section>
-                    {% endif %}
-
-                    {#This assumes that there is always tags to show. TODO hide if no available tags#}
-                    <section class="associated noBreak">
-                        <h5>Subject</h5>
-                        <ul class="list-chips">
-                            {% for tag in data.tagsAudience %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsDataUse %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsDataType %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsCapacityEnhancement %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsPurpose %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsTopic %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.gbifArea %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                </div>
-            </footer>
-        </div>
-
-        <section class="bare block row">
-            <div class="blockContent container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <article class="card card-nav container-fluid">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
-                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
+                    <div class="col-xs-10 col-centered article-auxiliary body-text--data-use">
+                        <div class=""> {# placeholder for the bootstrap row class, which breaks column here #}
+                            {% if data.citationInformation %}
+                                <section class="{% if data.citationInformation.length == 1 %}no-break{% endif %}">
+                                    <h5>Citations</h5>
+                                    <ul class="list-citations">
+                                        {% for loc in data.citationInformation %}
+                                            <li class="no-break">{$ loc.value | safe $}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {% if data.relatedGbifResources %}
+                                <section class="no-break">
+                                    <h5>Related GBIF resources</h5>
+                                    <ul class="list-links">
+                                        {% for resource in data.relatedGbifResources %}
+                                            <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {% if data.researcherLocation %}
+                                <section class="no-break">
+                                    <h5>Location of researchers</h5>
+                                    <ul class="list-chips">
+                                        {% for loc in data.researcherLocation %}
+                                            <li><a href="#">{$ loc.name $}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {#This assumes that there is always tags to show. TODO hide if no available tags#}
+                            <section class="no-break">
+                                <h5>Subject</h5>
+                                <ul class="list-chips">
+                                    {% for tag in data.tagsAudience %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.tagsDataUse %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.tagsDataType %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.tagsCapacityEnhancement %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.tagsPurpose %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.tagsTopic %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                    {% for tag in data.gbifArea %}
+                                        <li><a href="#">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="horizontal-stripe related-stories">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>More data use stories</h4>
+                        <div class="row">
+                            <article class="col-xs-12 col-sm-6 col-md-3">
+                                <div>
+                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" alt="{$ images[0].filename $}">
                                 </div>
-                                <div class="col-xs-12 col-md-6 card__content">
-                                    <span><a href="/data-use/82555">Previous Story</a></span>
+                                <div>
                                     <h2 class="h4">
                                         <a href="/data-use/82555">
                                             {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
                                         </a>
                                     </h2>
                                 </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <article class="card card-nav container-fluid">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
-                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
+                            </article>
+                            <article class="col-xs-12 col-sm-6 col-md-3">
+                                <div>
+                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" alt="{$ images[0].filename $}">
                                 </div>
-                                <div class="col-xs-12 col-md-6 card__content">
-                                    <span><a href="/data-use/82507">Next Story</a></span>
+                                <div>
                                     <h2 class="h4">
                                         <a href="/data-use/82507">
                                             Modelling key bird areas in Mexico and Central America
                                         </a>
                                     </h2>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                            <article class="col-xs-12 col-sm-6 col-md-3">
+                                <div>
+                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82563/garcia-rosello-map.jpg?itok=Y8LJJ7PT" alt="{$ images[0].filename $}">
+                                </div>
+                                <div>
+                                    <h2 class="h4">
+                                        <a href="/data-use/82555">
+                                            {$ 'Refining a niche model for Asiatic black bear with nighttime lighting imagery' | truncate(80) $}
+                                        </a>
+                                    </h2>
+                                </div>
+                            </article>
+                            <article class="col-xs-12 col-sm-6 col-md-3">
+                                <div>
+                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2016-February/82600/_devastazyon-Malpolon-monspessulanus-original.jpg?itok=nKDpcZWm" alt="{$ images[0].filename $}">
+                                </div>
+                                <div>
+                                    <h2 class="h4">
+                                        <a href="/data-use/82555">
+                                            {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
+                                        </a>
+                                    </h2>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
     </article>
 {% endblock %}

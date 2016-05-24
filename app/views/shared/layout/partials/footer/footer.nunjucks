@@ -1,7 +1,7 @@
 {% block footer %}
 <footer class="siteFooter">
     <div class="container">
-        <span class="text-muted">2016 &copy; GBIF</span>
+        <span>2016 &copy; GBIF</span>
     </div>
 </footer>
 {% endblock %}

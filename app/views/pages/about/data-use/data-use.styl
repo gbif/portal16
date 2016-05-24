@@ -53,9 +53,6 @@
 	.textContent {
 		columns 2 30px
 		text-align justify
-		.noBreak {
-			break-inside avoid-column
-		}
 		&.singleCol {
 			orphans 100
 		}
@@ -67,24 +64,7 @@
 		max-width 700px
 	}
 }
-//.textContent {
-//	margin 0 auto
-//	//max-width 700px
-//	columns 2 30px
-//	text-align justify
-//	//font-weight 300
-//}
-.associated {
-	border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
-	h5 {
-		font-weight bold
-		display inline
-		&:after {
-			content: ":"
-		}
-		margin-right 0.5em
-	}
-}
+
 .list-links {
 	display inline
 	padding 0

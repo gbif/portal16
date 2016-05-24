@@ -19,6 +19,12 @@
     .horizontal-stripe:nth-child(odd) {
         background-color #ffffff
     }
+    .horizontal-stripe--no-padding {
+        padding 0 0
+    }
+    .horizontal-stripe.white-background {
+        background-color $white
+    }
     .technical-information {
         background-color #ffffdf
     }
@@ -43,6 +49,9 @@
         margin 0 auto vr-block(0.5)
     }
     .article-header__meta {
+        p {
+            margin-bottom 0
+        }
     }
 
 
@@ -91,13 +100,6 @@
         p {
             margin-bottom 0
         }
-        .record-count {
-            font-size 4rem
-            line-height 60px
-            font-weight 300
-            padding-right 8px
-            padding-left 3px
-        }
     }
     .publisher-block--long-title {
         .container {
@@ -112,6 +114,13 @@
     }
     .published-by {
         max-width 400px
+    }
+    .record-count {
+        font-size 4rem
+        line-height 60px
+        font-weight 300
+        padding-right 8px
+        padding-left 3px
     }
     .download-block {
         border 2px solid $OrangePeelLight
@@ -154,6 +163,7 @@
             color @gray-base
         }
     }
+
     .block-map {
         height 100%
         >div:last-child:after {
@@ -195,12 +205,94 @@
     }
 }
 
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.body-text--data-use {
+    font-size 1.2rem
+    overflow-wrap break-word
+    word-wrap break-word
+    -ms-hyphens auto
+    -moz-hyphens auto
+    -webkit-hyphens auto
+    hyphens auto
+    margin-bottom 20px
+
+    p:first-child:first-letter {
+        float left
+        color $gray-70
+        font-size 75px
+        line-height 60px
+        padding-top 4px
+        padding-right 8px
+        padding-left 3px
+        font-family Georgia
+    }
+}
+
+.article-auxiliary {
+    padding 20px 0 0 0
+    margin-bottom 20px
+    border-top 1px solid #ddd
+    font-size 1rem
+
+    section {
+        border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+    }
+
+    h5 {
+        font-weight bold
+        display inline
+        &:after {
+            content: ":"
+        }
+        margin-right 0.5em
+    }
+
+    .no-break {
+        break-inside avoid-column
+    }
+}
+
+.related-stories {
+    h2 {
+        line-height 1.7rem
+    }
+}
+
++isAbove($laptop) {
+    .body-text--data-use {
+        columns 2 30px
+    }
+}
+
 +isBelow($tablet) {
     .publisher {
         overflow-wrap break-word
     }
     .count-text {
         text-align center
+    }
+    .related-stories {
+        article {
+            display inline-block
+            vertical-align middle
+            img {
+                width 100px
+                margin-right 8px
+            }
+            div {
+                display inline-block
+                vertical-align middle
+                max-width 69%
+            }
+            h2 {
+                font-size 1.1rem
+                line-height 1.4rem
+            }
+        }
     }
 }
 
