@@ -1,25 +1,32 @@
-.wrapperHorizontalStripes {
-    .horizontalStripe {
+.wrapper-horizontal-stripes {
+    /*
+     * Page level modifiers
+     */
+    .centered-text {
+        text-align center
+    }
+
+
+    /*
+     * Section level styles
+     */
+    .horizontal-stripe {
         padding 20px 0
     }
-    .horizontalStripe:nth-child(even) {
+    .horizontal-stripe:nth-child(even) {
         background-color #f9f9f9
     }
-    .horizontalStripe:nth-child(odd) {
+    .horizontal-stripe:nth-child(odd) {
         background-color #ffffff
     }
     .technical-information {
         background-color #ffffdf
     }
 
-    .centeredText {
-        text-align center
-    }
-    .cc {
-        font-size 30px
-        vertical-align middle
-    }
 
+    /*
+     * Header area styles
+     */
     .article-header {
         .container {
             max-width 1000px
@@ -27,20 +34,42 @@
         h1 {
             margin-bottom vr-block(1)
         }
-        .intro {
-            font-size 1.2rem
-            font-style italic
-            font-family $caslon
-            max-width 700px
-            margin 0 auto vr-block(0.5)
-        }
-        .meta {
-            font-weight bold
-        }
     }
-    .publisher-block--long-title {
-        .container {
-            max-width none
+    .article-header__intro {
+        font-size 1.2rem
+        font-style italic
+        font-family $didot
+        max-width 700px
+        margin 0 auto vr-block(0.5)
+    }
+    .article-header__meta {
+    }
+
+
+    /*
+     * Header - page level navigation
+     */
+    $articleCategorySeparatorSpacing = 6px
+    .article-header__category {
+        margin vr-block(0.5) auto -(vr-block(0.5)) auto
+        text-align center
+        text-transform uppercase
+        font-weight bold
+        >span:last-of-type {
+            font-weight normal
+        }
+        .article-header__category__lower {
+            border-left 2px solid $OrangePeel
+            margin-left $articleCategorySeparatorSpacing
+            padding-left ($articleCategorySeparatorSpacing + 1)
+        }
+        &.article-header__category--deep {
+            text-align left
+            .article-header__category__upper {
+                display inline-block
+                width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
+                text-align right
+            }
         }
     }
 
@@ -70,26 +99,29 @@
             padding-left 3px
         }
     }
-    .download-block {
-        border 2px solid $OrangePeelLight
-        border-radius 10px
+    .publisher-block--long-title {
+        .container {
+            max-width none
+        }
     }
-
     .publisher-modifier {
         margin 0 0
         .published-by {
             max-width none
         }
     }
-
     .published-by {
         max-width 400px
     }
+    .download-block {
+        border 2px solid $OrangePeelLight
+        border-radius 10px
+    }
+
 
     .header-contacts {
         margin-bottom 20px
     }
-
     .header-contact {
         display inline-block
         font-size 1.2rem
@@ -109,31 +141,12 @@
         color $gray-60
     }
 
-    $articleCategorySeparatorSpacing = 6px
-    .article__category {
-        margin vr-block(0.5) auto -(vr-block(0.5)) auto
-        text-align center
-        text-transform uppercase
-        font-weight bold
-        >span:last-of-type {
-            font-weight normal
-        }
-        .article__category__lower {
-            border-left 2px solid $OrangePeel
-            margin-left $articleCategorySeparatorSpacing
-            padding-left ($articleCategorySeparatorSpacing + 1)
-        }
-        &.article__category--deep {
-            text-align left
-            .article__category__upper {
-                display inline-block
-                width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
-                text-align right
-            }
-        }
+    .cc {
+        font-size 30px
+        vertical-align middle
     }
 
-    .mapSection {
+    .section-map {
         z-index 1000
         height 350px
         padding 0 0
@@ -141,7 +154,7 @@
             color @gray-base
         }
     }
-    .mapBlock {
+    .block-map {
         height 100%
         >div:last-child:after {
             content: '';
@@ -156,7 +169,7 @@
         }
     }
 
-    > section.relatedNews {
+    > section.related-news {
         background-color #2D3C44
         color $gray-lighter
         padding-top 0px

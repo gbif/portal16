@@ -24,24 +24,29 @@
 
 
 {% block page %}
-    <article class="wrapperHorizontalStripes">
-        <header class="horizontalStripe">
-            <div class="container article__header">
+    <article class="wrapper-horizontal-stripes">
+        <header class="horizontal-stripe article-header">
+            <div class="container">
                 <div class="row">
-                    <header class="col-xs-12">
-                        <nav class="article__category article__category--deep">
-                            <span class="article__category__upper">About</span>
-                            <span class="article__category__lower">Data Use</span>
+                    <header class="col-xs-12 centered-text">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">About</span>
+                            <span class="article-header__category__lower">Data Use</span>
                         </nav>
-                        <h1 class="centeredText">{$ data.title $}</h1>
-                        <p class="intro centeredText">Do we have content to put here? The summary could do, but might be a bit too long.</p>
-                        <p class="centeredText meta">{$ data.numResourceUsed $}</p>
+                        <h1>{$ data.title $}</h1>
+                        <div class="article-header__intro">
+                            {# fulltext html already wrapped by <p> from Content API #}
+                            {$ data.summary | safe $}
+                        </div>
+                        <div class="article-header__meta">
+                            <p><span>Using: </span>{$ data.numResourceUsed $}</p>
+                        </div>
                     </header>
                 </div>
             </div>
         </header>
 
-        <div class="horizontalStripe">
+        <div class="horizontal-stripe">
             <div class="container">
 
             {% if images[0].image_dimensions.width > 1000 %}
@@ -58,7 +63,7 @@
             </div>
         </div>
 
-        <div class="horizontalStripe">
+        <div class="horizontal-stripe">
             <div class="blockContent container">
                 <div class="textContent prose">
                     {$ data.body | safe $}

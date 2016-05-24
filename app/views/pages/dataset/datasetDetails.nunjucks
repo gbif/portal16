@@ -13,16 +13,16 @@
         var datasetKey = '{$ datasetDetails.key $}';
         var headerContactsString = '{$ headerContactsString | safe $}';
     </script>
-    <article class="wrapperHorizontalStripes">
-        <header class="horizontalStripe article-header {$ publisherStyle $}">
+    <article class="wrapper-horizontal-stripes">
+        <header class="horizontal-stripe article-header {$ publisherStyle $}">
             <div class="container" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12 centeredText">
-                        <nav class="article__category article__category-deep">
-                            <span class="article__category__upper">dataset</span>
-                            <span class="article__category__lower">{$ datasetDetails.type $}</span>
+                    <div class="col-xs-12 col-md-12 centered-text">
+                        <nav class="article-header__category article__category-deep">
+                            <span class="article-header__category__upper">dataset</span>
+                            <span class="article-header__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
-                        <h1 class="centeredText">{$ datasetDetails.title $}</h1>
+                        <h1 class="centered-text">{$ datasetDetails.title $}</h1>
                         <div class="article-header__inline-block {$ publisherModifier $}">
                             {% if datasetDetails.logoUrl %}
                             <div>
@@ -77,12 +77,12 @@
         </header>
 
         {% if occurrenceCount %}
-        <section id="map" class="mapSection horizontalStripe">
-            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
+        <section id="map" class="section-map horizontal-stripe">
+            <gbmap id="datasetMap" class="block-map" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
 
-        <div id="primary-coverages" class="horizontalStripe">
+        <div id="primary-coverages" class="horizontal-stripe">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 three-col">
@@ -186,14 +186,14 @@
             </div>
         </section>
         {% endif %}
-        <section id="related-news" class="relatedNews">
+        <section id="related-news" class="related-news">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
                         <img src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2014-October/82526/Acridotheres%20tristis.jpg?itok=30C4sgB-">
                     </div>
                     <div class="col-xs-6 col-md-6">
-                        <h4 class="contentTypeLabel">Data use</h4>
+                        <h4 class="content-type-label">Data use</h4>
                         <h3>Building national watch lists for invasive alien species</h3>
                         <p>A research team from GBIF's partners in the South African National Biodiversity Institute (SANBI) developed a simple methodology for drawing up a 'watch list' that countries can use to identify those alien species most likely to pose a substantial threat of invasion.</p>
                         <p style="color: orange;">[This section is yet wired to the Content API]</p>
