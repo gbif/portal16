@@ -20,8 +20,10 @@
         vertical-align middle
     }
 
-    .article__header {
-        max-width 1000px
+    .article-header {
+        .container {
+            max-width 1000px
+        }
         h1 {
             margin-bottom vr-block(1)
         }
@@ -34,6 +36,11 @@
         }
         .meta {
             font-weight bold
+        }
+    }
+    .publisher-block--long-title {
+        .container {
+            max-width none
         }
     }
 
@@ -67,8 +74,12 @@
         border 2px solid $OrangePeelLight
         border-radius 10px
     }
-    .publisher-block--long-title {
-        max-width none
+
+    .publisher-modifier {
+        margin 0 0
+        .published-by {
+            max-width none
+        }
     }
 
     .published-by {

@@ -48,6 +48,8 @@ function renderPage(req, res, dataset) {
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('records') + ')';
     var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-block--long-title' : '';
+    var countBreaking = (dataset.occurrenceCount >= 10000) ? '<br>' : '';
+    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-modifier' : '';
 
     var datasetContent = {
         datasetDetails: dataset.record,
@@ -60,6 +62,8 @@ function renderPage(req, res, dataset) {
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
         publisherStyle: publisherStyle,
+        countBreaking: countBreaking,
+        publisherModifier: publisherModifier,
         process: dataset.process.results,
         api: api,
         identifiers: processIdentifiers(dataset.record.identifiers),

@@ -14,8 +14,8 @@
         var headerContactsString = '{$ headerContactsString | safe $}';
     </script>
     <article class="wrapperHorizontalStripes">
-        <header class="horizontalStripe">
-            <div class="container article__header {$ publisherStyle $}" ng-controller="contactPopupCtrl as contactPopup">
+        <header class="horizontalStripe article-header {$ publisherStyle $}">
+            <div class="container" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 centeredText">
                         <nav class="article__category article__category-deep">
@@ -23,7 +23,7 @@
                             <span class="article__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
                         <h1 class="centeredText">{$ datasetDetails.title $}</h1>
-                        <div class="article-header__inline-block">
+                        <div class="article-header__inline-block {$ publisherModifier $}">
                             {% if datasetDetails.logoUrl %}
                             <div>
                                 <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
@@ -39,6 +39,8 @@
                                 </p>
                             </div>
                         </div>
+
+                        {$ countBreaking | safe $}
 
                         {% if occurrenceCount %}
                         <div class="article-header__inline-block">
