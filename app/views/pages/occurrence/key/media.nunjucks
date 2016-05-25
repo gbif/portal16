@@ -2,7 +2,7 @@
 <section class="block row discreet">
     <div class="container-fluid">
 
-        <div class="occurrenceMedia">
+        <div class="occurrenceMedia {% if occurrence.record.media.length > 5 %} occurrenceMedia-wide {% endif %}">
             {% for media in occurrence.record.media | limit(5) %}
                 <div class="card">
                     <figure class="card__content">
@@ -55,7 +55,7 @@
         {% if occurrence.record.media.length > 5 %}
         <p class="small text-center" ng-if="!occurrence.showAllImages"><a class="action discreet" href="" ng-click="occurrence.showAllImages=true">Show all {$ occurrence.record.media.length $} images</a></p>
 
-        <div class="occurrenceMedia">
+        <div class="occurrenceMedia occurrenceMedia-wide">
             {% for media in occurrence.record.media | slice(5) %}
                 <div class="card" ng-if="occurrence.showAllImages" ng-class="{isShown:occurrence.showAllImages}">
                     <figure class="card__content">

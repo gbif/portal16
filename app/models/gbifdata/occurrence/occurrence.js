@@ -1,7 +1,6 @@
 "use strict";
 
 var resource = require('../resource'),
-    fields = require('./occurrenceFields'),
     api = require('../apiConfig');
 
 var Occurrence = function (record) {
@@ -9,7 +8,6 @@ var Occurrence = function (record) {
 };
 
 Occurrence.prototype.record = {};
-Occurrence.prototype.fields = fields;
 
 Occurrence.get = function (key, options) {
     options = options || {};

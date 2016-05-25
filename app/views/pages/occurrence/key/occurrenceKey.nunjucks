@@ -8,7 +8,7 @@
         var gb = gb || {};
         gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
         gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
-        gb.occurrenceFields = {$ occurrenceFields | rawJson | safe $};
+//        gb.occurrenceRemarks = {$ occurrenceRemarks | rawJson | safe $};
         gb.rm = {$ occurrence | rawJson | safe $}
     </script>
     <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
@@ -68,8 +68,8 @@
                 <div class="blockContent">
 
                     <div class="container-fluidx test">
-                        <div class="rowx">
-                            <div class="col-sm-6x">
+                        <div class="row">
+                            <div class="col-sm-6">
                                 <ul class="propertyPairs">
                                     <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
                                     <li>

@@ -40,7 +40,6 @@ require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFilter.service');
-require('./angular/occurrenceFields.constants');
 require('./angular/map.constants');
 
 require('../../../pages/search/search.ctrl');
