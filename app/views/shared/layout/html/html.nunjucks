@@ -14,8 +14,8 @@
 <body>
 
     {# Main layout #}
-    <div id="siteWrapper" class="siteWrapper">
-        <div id="siteCanvas" class="siteCanvas">
+    <div id="site-wrapper" class="site-wrapper">
+        <div id="site-canvas" class="site-canvas">
 
             {# Navigation #}
             {% include "../partials/navigation/navigation.nunjucks" %}
@@ -28,28 +28,26 @@
 
                 {# Drawer block is contextual, therefore is a part of the <main> #}
                 {% if hasDrawer %}
-                <aside id="filter" class="siteDrawer isLockedX">
+                <aside id="filter" class="site-drawer isLockedX">
                     <div>
                         {% block drawer %}{% endblock %}
                     </div>
                 </aside>
                 {% endif %}
 
-                <div class="siteContent">
+                <div class="site-content">
 
                     {% if hasTools %}
                         {% block tools %}{% endblock %}
                     {% endif %}
 
-                    {# use page--fixedWidth to restrict main column width #}
-                    <div class="page">
+                    {# use page--fixed-width to restrict main column width #}
+                    <div class="page--fixed-width">
 
                         {% block page %}{% endblock %}
-
-                        {# Footer #}
-                        {% include "../partials/footer/footer.nunjucks" %}
-
                     </div>
+                    {# Footer #}
+                    {% include "../partials/footer/footer.nunjucks" %}
                 </div>
             </main>
 

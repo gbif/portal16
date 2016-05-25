@@ -1,6 +1,6 @@
 {% block footer %}
-<footer class="siteFooter">
-    <div class="container">
+<footer class="site-footer">
+    <div class="container-fluid">
         <span>2016 &copy; GBIF</span>
     </div>
 </footer>

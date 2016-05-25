@@ -1,68 +1,5 @@
-.stripes {
-	.block {
-		border 1px solid #dbe3e7
-		border-width 0 0 1px 0
-		background white
-		&.bare {
-			background none
-		}
-		.blockContent {
-			margin vr-block(1) auto
-			max-width 1000px
-		}
-	}
-	.coverImg {
-		height 0
-		padding-bottom 30%
-		background #f7f9fa
-		overflow hidden
-		background-size cover
-		background-position center
-		img {
-			display none
-		}
-	}
-	.prose figure {
-		margin auto
-		max-width 500px
-		.articleImg {
-			padding-bottom 60%
-		}
-	}
-
-	.headerImage, .prose {
-		figcaption {
-			max-width 1000px
-			margin auto
-			color #aaa
-			font-size 12px
-			font-weight 300
-			> div, > div > p {
-				display inline
-			}
-		}
-	}
-
-}
-
-
-.prose {
-	font-size 16px
-}
-+isAbove($laptop){
-	.textContent {
-		columns 2 30px
-		text-align justify
-		&.singleCol {
-			orphans 100
-		}
-	}
-}
-+isBelow($laptop){
-	.textContent {
-		margin 0 auto
-		max-width 700px
-	}
+img {
+    max-width 100%
 }
 
 .list-links {
@@ -118,39 +55,11 @@
 	}
 }
 
-.aux {
-	margin vr-block(1) auto 0
-	padding vr-block(1) 0
-	//max-width 800px
-	border-top 1px solid #ddd
-	text-align left
-	.chips {
-		a {
-			display inline-block
-			padding 0 vr-block(0.125)
-			background #f1f1f1
-			border 1px solid #ddd
-			color inherit
-			text-decoration none
-			font-size 12px
-			&:hover {
-				background darken(#f1f1f1, 10)
-			}
-		}
-	}
-}
-
-.card {
-	margin-bottom vr-block(1)
-}
-
 .card-nav {
 	a {
 		color inherit
 	}
+	span {
+		font-weight normal
+	}
 }
-
-img {
-	max-width 100%
-}
-

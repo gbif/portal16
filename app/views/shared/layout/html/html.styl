@@ -1,4 +1,4 @@
-.siteWrapper {
+.site-wrapper {
     height 100%
     width 100%
     overflow-x hidden
@@ -6,13 +6,13 @@
 }
 
 +isAbove($laptop) {
-    .siteWrapper {
+    .site-wrapper {
         min-height 100%
         height auto
     }
 }
 
-.siteCanvas {
+.site-canvas {
     height 100%
     width 100%
 }
@@ -23,7 +23,7 @@ ul, ol {
 }
 
 //fixed toggle
-.toggleDrawer {
+.toggle-drawer {
     z-index 10
     width 50px
     height 50px
@@ -31,7 +31,7 @@ ul, ol {
 }
 
 +isBelow($laptop) {
-    .toggleDrawer {
+    .toggle-drawer {
         position absolute
         bottom 20px
         right 20px
@@ -39,14 +39,14 @@ ul, ol {
 }
 
 +isAbove($laptop) {
-    .toggleDrawer {
+    .toggle-drawer {
         position fixed
         top 95px
         right initial
     }
 }
 
-.page--fixedWidth {
+.page--fixed-width {
     max-width 1300px
     margin 0 auto
 }
@@ -117,7 +117,7 @@ ul, ol {
     }
 }
 
-.siteWrapper * {
+.site-wrapper * {
     &::-webkit-scrollbar {
         width: 8px; /* for vertical scrollbars */
         height: 8px; /* for horizontal scrollbars */
@@ -183,7 +183,7 @@ ul, ol {
 //    border 0
 //}
 
-.siteFooter {
+.site-footer {
     padding 10px
     color white
     background-color grey

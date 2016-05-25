@@ -10,23 +10,23 @@
     /*
      * Section level styles
      */
-    .horizontal-stripe {
-        padding 20px 0
-    }
     .horizontal-stripe:nth-child(even) {
         background-color #f9f9f9
     }
     .horizontal-stripe:nth-child(odd) {
         background-color #ffffff
     }
-    .horizontal-stripe--no-padding {
+    .horizontal-stripe--paddingless {
         padding 0 0
-    }
-    .horizontal-stripe.white-background {
-        background-color $white
     }
     .technical-information {
         background-color #ffffdf
+    }
+    .horizontal-stripe {
+        padding 20px 0
+    }
+    .horizontal-stripe--card {
+        border-top 1px solid #dbe3e7
     }
 
 
@@ -44,13 +44,15 @@
     .article-header__intro {
         font-size 1.2rem
         font-style italic
-        font-family $didot
+        font-family $caslon
         max-width 700px
         margin 0 auto vr-block(0.5)
+        color $gray-60
     }
     .article-header__meta {
         p {
             margin-bottom 0
+            font-weight bold
         }
     }
 
@@ -205,38 +207,44 @@
     }
 }
 
+.white-background {
+    background-color $white
+}
+
+.bare-background {
+    background-color none
+}
+
 .col-centered {
     float: none;
     margin: 0 auto;
 }
 
+.main-column--data-use {
+    margin 0 auto
+    max-width 1000px
+}
+
+.body-text {
+    font-size 16px
+    font-weight normal
+    padding-bottom 20px
+}
+
 .body-text--data-use {
-    font-size 1.2rem
+    @extend .body-text
+    text-align justify
     overflow-wrap break-word
     word-wrap break-word
-    -ms-hyphens auto
-    -moz-hyphens auto
-    -webkit-hyphens auto
     hyphens auto
     margin-bottom 20px
-
-    p:first-child:first-letter {
-        float left
-        color $gray-70
-        font-size 75px
-        line-height 60px
-        padding-top 4px
-        padding-right 8px
-        padding-left 3px
-        font-family Georgia
-    }
 }
 
 .article-auxiliary {
-    padding 20px 0 0 0
-    margin-bottom 20px
+    padding-top 20px
     border-top 1px solid #ddd
     font-size 1rem
+    color $gray-63
 
     section {
         border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
@@ -256,15 +264,40 @@
     }
 }
 
-.related-stories {
-    h2 {
-        line-height 1.7rem
+.heading-image {
+    figcaption {
+        max-width 1000px
+        margin 0 auto
+        color $gray-30
+        font-size 0.9rem
+    }
+}
+
+.cover-img {
+    height 0
+    padding-bottom 30%
+    background #f7f9fa
+    overflow hidden
+    background-size cover
+    background-position center
+    img {
+        display none
     }
 }
 
 +isAbove($laptop) {
+    .body-text,
     .body-text--data-use {
         columns 2 30px
+    }
+}
+
++isAbove($tablet) {
+    .count-text {
+        text-align left
+    }
+    .card {
+        margin 0 0
     }
 }
 
@@ -275,29 +308,7 @@
     .count-text {
         text-align center
     }
-    .related-stories {
-        article {
-            display inline-block
-            vertical-align middle
-            img {
-                width 100px
-                margin-right 8px
-            }
-            div {
-                display inline-block
-                vertical-align middle
-                max-width 69%
-            }
-            h2 {
-                font-size 1.1rem
-                line-height 1.4rem
-            }
-        }
-    }
-}
-
-+isAbove($tablet) {
-    .count-text {
-        text-align left
+    .card {
+        margin-bottom vr-block(0.5)
     }
 }
