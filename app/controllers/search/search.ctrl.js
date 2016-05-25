@@ -1,4 +1,5 @@
 var express = require('express'),
+    _ = require('lodash'),
     search = require('../../models/search/search'),
     router = express.Router();
 
@@ -17,9 +18,24 @@ function renderPage(req, res, results, searchString) {
     if (req.params.ext == 'json') {
         res.json(results);
     } else {
+
+        //did it everything go well? if not flag it for display on the page so that the user know that this result is partial. but still show what we have.
+        var hasInvalidResponses = Object.keys(results).reduce( function(prev, curr) {
+            return _.get(results, curr + '.errorType') === 'INVALID_RESPONSE' || prev
+        }, false);
+
+        //TODO sloppy test. Should check if there is any errors and probably get them from the model in a better way.
+        //Test if there are errors on nested calls
+        if (results.taxaMatches && results.taxaMatches[0]) {
+            hasInvalidResponses = Object.keys(results.taxaMatches[0]).reduce(function (prev, curr) {
+                return _.get(results.taxaMatches[0], curr + '.errorType') === 'INVALID_RESPONSE' || prev
+            }, hasInvalidResponses);
+        }
+
         res.render('pages/search/search', {
             __hideSearchAction: true,
             results: results,
+            hasInvalidResponses: hasInvalidResponses,
             query: searchString
         });
     }

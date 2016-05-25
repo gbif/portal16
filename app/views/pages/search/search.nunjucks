@@ -2,8 +2,8 @@
 {% import "./searchResults.macro.nunjucks" as searchMacro %}
 
 {% block page %}
-    <div class="Search__content" ng-controller="searchCtrl as search">
 
+    <div class="Search__content" ng-controller="searchCtrl as search">
         <div class="searchBar">
             <form action="/search" class="Search__form">
                 <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
@@ -25,6 +25,11 @@
 
 
         <div class="SearchResults">
+
+            {#{% if hasInvalidResponses %}#}
+                {#{% include "./partialResponse.nunjucks" %}#}
+            {#{% endif %}#}
+
             {% include "./all/all.nunjucks" %}
         </div>
 
