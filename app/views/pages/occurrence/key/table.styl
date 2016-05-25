@@ -105,6 +105,7 @@
 	.card-table {
 		overflow auto
 		.table {
+			table-layout fixed
 			margin-bottom 0
 		}
 		th {
@@ -121,29 +122,66 @@
 					color #888
 				}
 			}
+			tr.isDifferent {
+				background #FFF3C5
+			}
 		}
 		td {
-			//min-width 250px
 			width 25%
+			word-wrap break-word
 		}
 	}
 }
 
 .issue {
-
+	border-radius 0
+	font-weight inherit
 }
 
-.issue-error {
-	@extend .issue
+.badge--error {
 	background tomato
+	color white
 }
 
-.issue-warning {
-	@extend .issue
-	background yellow
+.badge--warning {
+	background #F5CC27
+	color inherit //darken(#756216, 50)
 }
 
-.issue-info {
+.badge--info {
+	//background #ccc
+	//color #555
+}
+
+//.badge--error {
+//	background lighten(tomato, 20)
+//	color darken(tomato, 40)
+//}
+//
+//.badge--warning {
+//	background lighten(#F5CC27, 20)
+//	color darken(#756216, 50)
+//}
+//
+//.badge--info {
+//	background #ccc
+//	color #555
+//}
+
+.issue--error {
 	@extend .issue
-	background deepskyblue
+	background lighten(tomato, 20)
+	color darken(tomato, 40)
+}
+
+.issue--warning {
+	@extend .issue
+	background lighten(#F5CC27, 20)
+	color darken(#756216, 10)
+}
+
+.issue--info {
+	@extend .issue
+	background #ccc
+	color #555
 }

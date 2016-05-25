@@ -92,7 +92,7 @@
                                     <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
                                     <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
                                     {% if occurrence.record.issues.length > 0 %}
-                                    <li><span>Issues</span>: <span class="badge {% if occurrence.record.issues.length > 1 %} issues-high {% endif %}">{$ occurrence.record.issues.length $}</span></li>
+                                    <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}">{$ occurrence.record.issues.length $}</span></li>
                                     {% endif %}
                                 </ul>
                             </div>

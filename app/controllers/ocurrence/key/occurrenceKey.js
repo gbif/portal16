@@ -75,7 +75,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
 }
 
 function getFieldsWithIssues(occurrenceIssues, remarks) {
-    var fieldsWithRemarks = {};
+    let fieldsWithRemarks = {};
     occurrenceIssues.forEach(function(issue) {
         remarks[issue].relatedSimpleTerms.forEach(function(term){
             fieldsWithRemarks[term] = fieldsWithRemarks[term] || [];
@@ -87,6 +87,38 @@ function getFieldsWithIssues(occurrenceIssues, remarks) {
     });
 
     return fieldsWithRemarks;
+}
+
+function getFieldsWithDifferences(interpreted, verbatim, terms) {
+    let fieldsWithDifferences = {};
+    terms.forEach(function(term) {
+        let i = '' + interpreted[term.simpleName] || '',
+            v = '' + verbatim[term.qualifiedName] || '';
+        if (i.toLowerCase().replace(/_/g, '') != v.toLowerCase().replace(/_/g, '')) {
+            fieldsWithDifferences[term.simpleName] = true;
+        }
+    });
+
+    return fieldsWithDifferences;
+}
+
+function getMostSevereType(occurrenceIssues, remarks) {
+    occurrenceIssues = occurrenceIssues || [];
+    var worstIssue = {};
+    var REMARK_SEVERITY = Object.freeze({
+        INFO: 0,
+        WARNING: 1,
+        ERROR: 2
+    });
+    for (var i = 0; i < occurrenceIssues.length; i++) {
+        let remark = remarks[occurrenceIssues[i]];
+        let severity = REMARK_SEVERITY[remark.severity];
+        if (typeof worstIssue.severity === 'undefined' || (remark && severity > REMARK_SEVERITY[worstIssue.severity]) ) {
+            worstIssue = remark;
+        }
+    }
+
+    return worstIssue.severity;
 }
 
 
@@ -108,6 +140,8 @@ function getOccurrenceModel(occurrenceKey, __) {
         };
         occurrence.terms = getUsedOccurrenceCoreTerms(occurrence, occurrenceMeta.terms);
         occurrence.issues = getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);
+        occurrence.mostSeveryType = getMostSevereType(occurrence.record.issues, occurrenceMeta.remarks);
+        occurrence.fieldsWithDifferences = getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
         deferred.resolve(occurrence);
     }, function(err){
         deferred.reject(new Error(err));

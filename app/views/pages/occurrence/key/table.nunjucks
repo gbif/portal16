@@ -30,30 +30,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {#
-
-                        list with used groups. > list of used terms with both keys. seperate list of simple field and corresponding list of issue types
-
-                        To get the list of used terms.
-                        list of all terms
-                        iterate and ask verbatim and interpreted if they have content
-                        if yes then add term to group.
-
-                        list of field->issue
-                        take list of issues
-                        create map issueTypeKey -> issueSeverity + fields
-                        create map simpleFieldName -> list of issues
-
-
-                        * given list of issues get fields with issues
-                        transform to map of fields with their issues {fields} -> [ {issues} ]
-                        that would be easy if
-                        list of issues AND issues to fields array
-                        go through issues. for each issue get influenced fields. add to map of fields with the issue in case (we have the issueName -> issueObj)
-
-                        #}
                             {% for term in occurrence.terms.groups[group] %}
-                                <tr ng-if="occurrence.isVisibleInTable('{$ term.group $}')">
+                                <tr ng-if="occurrence.isVisibleInTable('{$ term.group $}')" {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                                     <td>
                                         {$ term.simpleName $}
                                     </td>
@@ -66,9 +44,7 @@
                                     <td>
                                         {% if occurrence.issues[term.simpleName] %}
                                             {% for issue in occurrence.issues[term.simpleName] %}
-                                            <span class="badge issue-{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
-                                            {#<span class="badge" style="background: orange">TAXON_MATCH_NONE</span>#}
-                                            {#<span class="badge">TAXON_MATCH_NONE</span>#}
+                                            <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                             {% endfor %}
                                         {% endif %}
                                     </td>
