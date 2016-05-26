@@ -8,7 +8,6 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('rawJson', function(data) {
             return JSON.stringify(data);
         });
-
     })();
 
     (function() {
@@ -35,6 +34,18 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('wordBreakToHyphen', function(data) {
             var newstr = data.replace('_', '-');
             return newstr;
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isUndefined', function(data) {
+            return typeof data === 'undefined';
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isDefined', function(data) {
+            return typeof data !== 'undefined';
         });
     })();
 

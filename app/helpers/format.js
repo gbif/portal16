@@ -16,7 +16,15 @@ function localizeInteger(number, locale) {
     return new global.Intl.NumberFormat(locale).format(number);
 }
 
+function prettifyEnum(text) {
+    if (typeof text === 'undefined' || text === null) {
+        return '';
+    }
+    return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
+}
+
 module.exports = {
     date: date,
-    localizeInteger: localizeInteger
+    localizeInteger: localizeInteger,
+    prettifyEnum: prettifyEnum
 }

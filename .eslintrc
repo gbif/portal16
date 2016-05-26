@@ -8,6 +8,9 @@
       "module": true,
       "rootRequire": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
   "rules": {
       "no-console": 0
   } 

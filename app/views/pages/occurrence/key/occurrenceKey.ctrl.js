@@ -89,10 +89,14 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         });
     };
 
+    vm.isVisibleInTable = function(groupName) {
+        if (!vm.table.filter || groupName == vm.table.filter) return true;
+        return false;
+    };
 
     vm.setData = function() {
         //TODO find a better way to parse required data to controller from server without seperate calls
-        vm.occurrenceFields = gb.occurrenceFields;
+        vm.occurrenceCoreTerms = gb.occurrenceCoreTerms;
         vm.verbatim = gb.occurrenceRecordVerbatim;
         vm.data = gb.occurrenceRecord;
         setMap(vm.data);

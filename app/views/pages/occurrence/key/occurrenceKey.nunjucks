@@ -8,7 +8,7 @@
         var gb = gb || {};
         gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
         gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
-        gb.occurrenceFields = {$ occurrenceFields | rawJson | safe $};
+//        gb.occurrenceRemarks = {$ occurrenceRemarks | rawJson | safe $};
         gb.rm = {$ occurrence | rawJson | safe $}
     </script>
     <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
@@ -68,8 +68,8 @@
                 <div class="blockContent">
 
                     <div class="container-fluidx test">
-                        <div class="rowx">
-                            <div class="col-sm-6x">
+                        <div class="row">
+                            <div class="col-sm-6">
                                 <ul class="propertyPairs">
                                     <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
                                     <li>
@@ -92,7 +92,7 @@
                                     <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
                                     <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
                                     {% if occurrence.record.issues.length > 0 %}
-                                    <li><span>Issues</span>: <span class="badge {% if occurrence.record.issues.length > 1 %} issues-high {% endif %}">{$ occurrence.record.issues.length $}</span></li>
+                                    <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}">{$ occurrence.record.issues.length $}</span></li>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -177,26 +177,9 @@
                                 </dl>
                             </div>
                         </section>
-                        <section class="termBlock col-md-4">
-                            <span class="termBlock__icon green">
-                                <span class="gb-icon-search"></span>
-                            </span>
-                            <h3 class="h4">Event</h3>
-                            <div>
-                                <dl>
-                                    <dt>Event date</dt>
-                                    <dd>{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</dd>
-                                    <dt>Event Trademarks</dt>
-                                    <dd>
-                                        The material sample was collected, and either preserved or destructively processed.
-                                    </dd>
-                                    <dt>Sampling effort</dt>
-                                    <dd>25 trap day(s)</dd>
-                                    <dt>Sampling protocol</dt>
-                                    <dd>Modified Robinson light trap</dd>
-                                </dl>
-                            </div>
-                        </section>
+
+                        {% include('./groups/event.nunjucks') %}
+
                         <section class="termBlock col-md-4">
                             <span class="termBlock__icon pink">
                                 <span class="gb-icon-search"></span>
