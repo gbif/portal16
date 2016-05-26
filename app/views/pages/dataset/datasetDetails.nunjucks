@@ -61,6 +61,9 @@
 
                         {% include "./includes/headerContacts.nunjucks" %}
 
+                        {# @todo Final citation format to be decided. #}
+                        {# @todo Publisher-provided format should have linkable identifier if mentioned. #}
+                        {% if datasetDetails.citation %}
                         <div class="header-citation">
                             <p><span class="paragraph-label">Citation</span>:<br>
                                 {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
@@ -71,6 +74,7 @@
                                 <span class="gb-icon-ccnc cc"></span>
                             </p>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -81,30 +85,38 @@
             <gbmap id="datasetMap" class="block-map" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
+        <div class="horizontal-stripe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
 
+                    <section class="dataSource">
+                        View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
+                        {% if datasetDetails.homepage %}
+                            <h4>Data source</h4>
+                            <ul class="noIndent">
+                                <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
+                            </ul>
+                        {% endif %}
+                    </section>
+                    <ul class="noIndent">
+                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+
+                        {% if datasetDetails.language %}
+                            <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
+                        {% endif %}
+                        {% if datasetDetails.dataLanguage %}
+                            <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
+                        {% endif %}
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="primary-coverages" class="horizontal-stripe">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12 three-col">
-                        <section class="dataSource">
-                            View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
-                            {% if datasetDetails.homepage %}
-                                <h4>Data source</h4>
-                                <ul class="noIndent">
-                                    <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
-                                </ul>
-                            {% endif %}
-                        </section>
-                        <ul class="noIndent">
-                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-
-                            {% if datasetDetails.language %}
-                                <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
-                            {% endif %}
-                            {% if datasetDetails.dataLanguage %}
-                                <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
-                            {% endif %}
-                        </ul>
+                    <div class="col-xs-12 col-md-12">
                         {% if datasetDetails.description %}
                             <section id="description">
                                 <h4>Description</h4>
@@ -140,19 +152,9 @@
                 </div>
             </div>
         </div>
-        <section id="metrics" class="light-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Statistics</h3>
-                        <p style="color: orange;">[Specs to be discussed.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
         {# TODO make dependent on model from route controller @Burke #}
         {% if metadataElementsToFold[0] %}
-        <section id="metadata-explorer" class="verticalTabs white-background" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
+        <section id="metadata-explorer" class="horizontal-stripe verticalTabs white-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -163,30 +165,28 @@
             </div>
         </section>
         {% endif %}
-        {# TODO Final citation format to be decided. #}
-        {# TODO Publisher-provided format should have linkable identifier if mentioned. #}
         {% if datasetDetails.citation or datasetDetails.rights %}
-        <section id="citation" class="light-background">
+        <section id="contacts" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3>Citation and licensing</h3>
-                        <p style="color: orange;">[To follow the suggested citation practice by AH]</p>
-                        {% if datasetDetails.citation %}
-                            <h5>Provided by the data publisher</h5>
-                            <p>{$ datasetDetails.citation.text $}</p>
-                            <p><a href="{$ datasetDetails.citation.identifier $}">{$ datasetDetails.citation.identifier $}</a></p>
-                        {% endif %}
-                        {% if datasetDetails.rights %}
-                            <h5>Rights</h5>
-                            <p>{$ datasetDetails.rights | safe $}</p>
-                        {% endif %}
+                        <h3>Contacts</h3>
                     </div>
                 </div>
             </div>
         </section>
         {% endif %}
-        <section id="related-news" class="related-news">
+        <section id="metrics" class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Statistics</h3>
+                        <p style="color: orange;">[Specs to be discussed.]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="related-news" class="horizontal-stripe--paddingless related-news">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
@@ -202,7 +202,7 @@
             </div>
         </section>
         {# Download events for the dataset in view. (Former "activity" tab.) #}
-        <section id="download-events" class="light-background">
+        <section id="download-events" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -211,7 +211,7 @@
                 </div>
             </div>
         </section>
-        <section id="gbif-registration-info" class="technical-information">
+        <section id="gbif-registration-info" class="horizontal-stripe technical-information">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
