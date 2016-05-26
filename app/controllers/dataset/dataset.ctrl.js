@@ -95,8 +95,7 @@ function metadataElementsToFold(datasetDetails) {
         { title: "Curatorial units", property: "curatorialUnits" },
         { title: "Collections", property: "collections" },
         { title: "Keyword collections", property: "keywordCollections" },
-        { title: "Bibliographic citations", property: "bibliographicCitations" },
-        { title: "Contacts", property: "contacts" }
+        { title: "Bibliographic citations", property: "bibliographicCitations" }
     ];
     var results = [];
 

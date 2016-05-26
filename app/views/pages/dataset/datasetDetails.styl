@@ -4,37 +4,65 @@ h4.content-type-label {
     font-size 1.3rem
 }
 
-.verticalTabsWrapper {
-    padding 10px
-    margin-bottom 20px
+.metadata {
+    section {
+        margin-bottom vr-block(2)
+    }
 }
 
-.verticalTabs {
-    section {
-        .tabTitle {
-            margin 0
-        }
-        .tabContent {
-            display none
+.metadata-section__content {
+    margin-left 20px
+
+    h5 {
+        margin-top vr-block(1)
+        margin-bottom vr-block(0.3)
+    }
+
+    ul {
+        padding-left 20px
+    }
+
+    ul.bibliographic-citation {
+        padding-left 0px
+        li {
+            padding-left 2rem
+            text-indent -2rem
+            margin-bottom 5px
+            &:last-child {
+                margin-bottom 0
+            }
         }
     }
+
+    .keyword-collection {
+        li {
+            display inline
+        }
+        li::after {
+               content ', '
+        }
+        li:last-child::after {
+           content ''
+        }
+    }
+
 }
 
 .taxonomicCoverage {
     border-top 1px solid lightgrey
     padding-top 20px
-    &:first-child {
+
+    &:first-of-type {
         border-top none
         padding-top 0px
     }
-}
 
-.bibliographicCitation li {
-    padding-left 2em
-    text-indent -2em
-    margin-bottom 5px
-    &:last-child {
-        margin-bottom 0
+    dt {
+        font-weight normal
+    }
+    dd {
+        margin-left 20px
+        margin-bottom vr-block(0.5)
     }
 }
 
@@ -55,9 +83,10 @@ h4.content-type-label {
     }
 }
 
-.noIndent {
+ul.no-indent {
     padding-left 0
 }
+
 .recordCount {
     display inline-block
 }
@@ -67,68 +96,7 @@ h4.content-type-label {
 }
 
 +isBelow($laptop) {
-    .verticalTabs {
-        section {
-            &.isExpanded {
-                .tabContent {
-                    display block
-                }
-            }
-        }
-    }
 }
 
 +isAbove($laptop) {
-    .verticalTabs {
-        >div>div>div>div {
-            position relative
-            height 500px
-            max-height 80vh
-        }
-        section {
-            .tabContent {
-                position absolute
-                height 100%
-                left 33%
-                top 0
-                width 66%
-                display none
-                overflow auto
-                border 1px solid lightgrey
-                padding 20px 22px 20px 22px
-                border-radius 5px
-            }
-            .tabTitle {
-                width 30%
-                left 0
-                border-bottom 1px solid $gray-lighter
-                position relative
-                h4 {
-                    margin 0
-                    line-height 2.5em
-                    vertical-align baseline
-                    font-weight 300
-                    color lightgrey
-                }
-            }
-
-            &.isActive {
-                .tabTitle {
-                    border-bottom 1px solid $gray-light
-                    h4 {
-                        color black
-                        font-weight 400
-                    }
-                    h4::after {
-                        position relative
-                        content "\276f"
-                        float right
-                    }
-                }
-                .tabContent {
-                    display block
-                }
-            }
-        }
-    }
 }

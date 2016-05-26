@@ -1,7 +1,8 @@
 {
 	"search": "search",
 	"language": {
-		"spa": "language.spa"
+		"spa": "language.spa",
+		"eng": "language.eng"
 	},
 	"georeferenced": "georeferenced",
 	"country": {
@@ -126,7 +127,12 @@
 		"RU": "country.RU",
 		"SA": "country.SA",
 		"CC": "country.CC",
-		"BS": "country.BS"
+		"BS": "country.BS",
+		"LA": "country.LA",
+		"VN": "country.VN",
+		"GN": "country.GN",
+		"GL": "country.GL",
+		"CI": "country.CI"
 	},
 	"bor": {
 		"HUMAN_OBSERVATION": "bor.HUMAN_OBSERVATION",
@@ -138,5 +144,6 @@
 		"PRESERVED_SPECIMEN": "bor.PRESERVED_SPECIMEN",
 		"UNKNOWN": "bor.UNKNOWN",
 		"FOSSIL_SPECIMEN": "bor.FOSSIL_SPECIMEN"
-	}
+	},
+	"records": "records"
 }

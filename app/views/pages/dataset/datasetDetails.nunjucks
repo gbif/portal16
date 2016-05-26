@@ -113,14 +113,30 @@
                 </div>
             </div>
         </div>
-        <div id="primary-coverages" class="horizontal-stripe">
+        {# TODO make dependent on model from route controller @Burke #}
+        {% if metadataElementsToFold[0] %}
+        <section id="metadata" class="horizontal-stripe metadata white-background">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-xs-12 col-md-8">
                         {% if datasetDetails.description %}
                             <section id="description">
                                 <h4>Description</h4>
                                 <p>{$ datasetDetails.description | safe $}</p>
+                            </section>
+                        {% endif %}
+                        {% if datasetDetails.purpose %}
+                            <section id="purpose">
+                                <h4>Purpose</h4>
+                                <P>{$ datasetDetails.purpose | safe $}</P>
+                            </section>
+                        {% endif %}
+                        {% if datasetDetails.temporalCoverages[0] %}
+                            <section>
+                                {% include "./includes/temporalCoverage.nunjucks" %}
                             </section>
                         {% endif %}
                         {% if datasetDetails.geographicCoverages[0].description %}
@@ -131,35 +147,13 @@
                                 {% endfor %}
                             </section>
                         {% endif %}
-                        {% if datasetDetails.temporalCoverages[0] %}
-                            <section>
-                                {% include "./includes/temporalCoverage.nunjucks" %}
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.purpose %}
-                            <section id="purpose">
-                                <h4>Purpose</h4>
-                                <P>{$ datasetDetails.purpose | safe $}</P>
-                            </section>
-                        {% endif %}
+                        {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
                         {% if datasetDetails.additionalInfo %}
                             <section id="additional-information">
                                 <h4>Additional information</h4>
                                 <p>{$ datasetDetails.additionalInfo | safe $}</p>
                             </section>
                         {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {# TODO make dependent on model from route controller @Burke #}
-        {% if metadataElementsToFold[0] %}
-        <section id="metadata-explorer" class="horizontal-stripe verticalTabs white-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Further information</h3>
-                        {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
                     </div>
                 </div>
             </div>

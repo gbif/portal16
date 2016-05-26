@@ -1,17 +1,11 @@
 {# Generic tabular view renderer with tabs vertically stacking on the left column #}
-{% macro verticalTabularRenderer(elements) %}
-    <div class="verticalTabsWrapper">
-        {% for element in elements %}
-            <section id="{$ element.property $}" ng-class="{ isActive: verticalTabularRenderer.isLatestActiveSection({$ loop.index0 $}), isExpanded: verticalTabularRenderer.isActiveSection({$ loop.index0 $}) }">
-                <div class="tabTitle">
-                    <h4 ng-click="verticalTabularRenderer.sectionToggle({$ loop.index0 $})">{$ element.title $}</h4>
-                </div>
-                <div class="tabContent">
-                    {% include "./includes/" + element.property + ".nunjucks" %}
-                </div>
-            </section>
-        {% endfor %}
-    </div>
+{% macro metadataRenderer(elements) %}
+    {% for element in elements %}
+        <section id="{$ element.property $}">
+            <h4>{$ element.title $}</h4>
+            {% include "./includes/" + element.property + ".nunjucks" %}
+        </section>
+    {% endfor %}
 {% endmacro %}
 
 {% macro contacts(label, contacts) %}

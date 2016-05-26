@@ -1,10 +1,12 @@
-{% for collection in element.values %}
-    <h5>{$ collection.thesaurus $}</h5>
-    <ul>
-        {% if collection.keywords[0] %}
-            {% for keyword in collection.keywords %}
-                <li>{$ keyword $}</li>
-            {% endfor %}
-        {% endif %}
-    </ul>
-{% endfor %}
+<div class="metadata-section__content">
+    {% for collection in element.values %}
+        <h5>{$ collection.thesaurus $}</h5>
+        <ul class="keyword-collection">
+            {% if collection.keywords[0] %}
+                {% for keyword in collection.keywords %}
+                    <li>{$ keyword $}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    {% endfor %}
+</div>
