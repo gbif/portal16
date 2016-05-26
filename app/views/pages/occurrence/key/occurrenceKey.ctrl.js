@@ -33,7 +33,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     vm.similarities = {
         similarRecords: []
     };
-    vm.hideDetails = false;
+    vm.hideDetails = true;
 
     vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
     vm.center = {zoom: 9, lat: 0, lng: 0};

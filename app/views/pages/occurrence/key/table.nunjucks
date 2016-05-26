@@ -33,7 +33,7 @@
                             {% for term in occurrence.terms.groups[group] %}
                                 <tr ng-if="occurrence.isVisibleInTable('{$ term.group $}')" {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                                     <td>
-                                        {$ term.simpleName $}
+                                        {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                                     </td>
                                     <td>
                                         {$ occurrence.record[term.simpleName] $}
@@ -46,6 +46,8 @@
                                             {% for issue in occurrence.issues[term.simpleName] %}
                                             <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                             {% endfor %}
+                                        {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
+                                            <span class="small">Not identical</span>
                                         {% endif %}
                                     </td>
                                 </tr>

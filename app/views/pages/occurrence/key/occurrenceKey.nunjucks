@@ -177,26 +177,9 @@
                                 </dl>
                             </div>
                         </section>
-                        <section class="termBlock col-md-4">
-                            <span class="termBlock__icon green">
-                                <span class="gb-icon-search"></span>
-                            </span>
-                            <h3 class="h4">Event</h3>
-                            <div>
-                                <dl>
-                                    <dt>Event date</dt>
-                                    <dd>{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</dd>
-                                    <dt>Event Trademarks</dt>
-                                    <dd>
-                                        The material sample was collected, and either preserved or destructively processed.
-                                    </dd>
-                                    <dt>Sampling effort</dt>
-                                    <dd>25 trap day(s)</dd>
-                                    <dt>Sampling protocol</dt>
-                                    <dd>Modified Robinson light trap</dd>
-                                </dl>
-                            </div>
-                        </section>
+
+                        {% include('./groups/event.nunjucks') %}
+
                         <section class="termBlock col-md-4">
                             <span class="termBlock__icon pink">
                                 <span class="gb-icon-search"></span>
