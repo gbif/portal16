@@ -140,7 +140,7 @@
                 </div>
             </div>
         </div>
-        <section id="metrics">
+        <section id="metrics" class="light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -152,7 +152,7 @@
         </section>
         {# TODO make dependent on model from route controller @Burke #}
         {% if metadataElementsToFold[0] %}
-        <section id="metadata-explorer" class="verticalTabs" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
+        <section id="metadata-explorer" class="verticalTabs white-background" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -166,7 +166,7 @@
         {# TODO Final citation format to be decided. #}
         {# TODO Publisher-provided format should have linkable identifier if mentioned. #}
         {% if datasetDetails.citation or datasetDetails.rights %}
-        <section id="citation">
+        <section id="citation" class="light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -202,7 +202,7 @@
             </div>
         </section>
         {# Download events for the dataset in view. (Former "activity" tab.) #}
-        <section id="download-events">
+        <section id="download-events" class="light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">

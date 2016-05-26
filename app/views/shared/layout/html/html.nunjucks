@@ -42,7 +42,7 @@
                     {% endif %}
 
                     {# use page--fixed-width to restrict main column width #}
-                    <div class="page--fixed-width">
+                    <div class="page">
 
                         {% block page %}{% endblock %}
                     </div>
