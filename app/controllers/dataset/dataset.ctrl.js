@@ -88,6 +88,10 @@ function doiToUrl(doi) {
  */
 function metadataElementsToFold(datasetDetails) {
     var metadataElementsToFold = [
+        { title: "Description", property: "description" },
+        { title: "Purpose", property: "purpose" },
+        { title: "Temporal coverage", property: "temporalCoverages" },
+        { title: "Geographic coverage", property: "geographicCoverages" },
         { title: "Taxonomic coverage", property: "taxonomicCoverages" },
         { title: "Project", property: "project" },
         { title: "Sampling description", property: "samplingDescription" },
@@ -95,6 +99,7 @@ function metadataElementsToFold(datasetDetails) {
         { title: "Curatorial units", property: "curatorialUnits" },
         { title: "Collections", property: "collections" },
         { title: "Keyword collections", property: "keywordCollections" },
+        { title: "Additional information", property: "additionalInfo"},
         { title: "Bibliographic citations", property: "bibliographicCitations" }
     ];
     var results = [];

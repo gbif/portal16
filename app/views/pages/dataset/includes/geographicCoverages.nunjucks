@@ -1,0 +1,3 @@
+{% for coverage in element.values %}
+    <p>{$ coverage.description | safe $}</p>
+{% endfor %}

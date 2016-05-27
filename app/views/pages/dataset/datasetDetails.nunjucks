@@ -118,42 +118,33 @@
         <section id="metadata" class="horizontal-stripe metadata white-background">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-
-                    </div>
+                    <nav class="col-md-4 bs-docs-sidebar">
+                        <ul id="sidebar" class="nav nav-stacked fixed">
+                            <li>
+                                <a href="#GroupA">Group A</a>
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#GroupASub1">Sub-Group 1</a></li>
+                                    <li><a href="#GroupASub2">Sub-Group 2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#GroupB">Group B</a>
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#GroupBSub1">Sub-Group 1</a></li>
+                                    <li><a href="#GroupBSub2">Sub-Group 2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#GroupC">Group C</a>
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#GroupCSub1">Sub-Group 1</a></li>
+                                    <li><a href="#GroupCSub2">Sub-Group 2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                     <div class="col-xs-12 col-md-8">
-                        {% if datasetDetails.description %}
-                            <section id="description">
-                                <h4>Description</h4>
-                                <p>{$ datasetDetails.description | safe $}</p>
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.purpose %}
-                            <section id="purpose">
-                                <h4>Purpose</h4>
-                                <P>{$ datasetDetails.purpose | safe $}</P>
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.temporalCoverages[0] %}
-                            <section>
-                                {% include "./includes/temporalCoverage.nunjucks" %}
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.geographicCoverages[0].description %}
-                            <section>
-                                <h4>Geographic coverage</h4>
-                                {% for c in datasetDetails.geographicCoverages %}
-                                    <p>{$ c.description | safe $}</p>
-                                {% endfor %}
-                            </section>
-                        {% endif %}
                         {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
-                        {% if datasetDetails.additionalInfo %}
-                            <section id="additional-information">
-                                <h4>Additional information</h4>
-                                <p>{$ datasetDetails.additionalInfo | safe $}</p>
-                            </section>
-                        {% endif %}
                     </div>
                 </div>
             </div>
