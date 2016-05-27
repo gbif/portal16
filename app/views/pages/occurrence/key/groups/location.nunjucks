@@ -1,0 +1,32 @@
+<section class="term-block noBreak">
+    <div class="term-block__header">
+        <h3 class="h4">Location</h3>
+        <span class="term-block__icon blue">
+            <span class="gb-icon-search"></span>
+        </span>
+    </div>
+    <div class="term-block__terms">
+        <table class="table">
+            <thead class="hidden">
+            <tr>
+                <th>Term</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for term in ["locationID", "higherGeographyID", "higherGeography", "continent", "waterBody", "islandGroup", "island", "countryCode", "stateProvince", "county", "municipality", "locality", "verbatimLocality", "verbatimElevation", "verbatimDepth", "minimumDistanceAboveSurfaceInMeters", "maximumDistanceAboveSurfaceInMeters", "locationAccordingTo", "locationRemarks", "decimalLatitude", "decimalLongitude", "coordinateUncertaintyInMeters", "coordinatePrecision", "pointRadiusSpatialFit", "verbatimCoordinateSystem", "verbatimSRS", "footprintWKT", "footprintSRS", "footprintSpatialFit", "georeferencedBy", "georeferencedDate", "georeferenceProtocol", "georeferenceSources", "georeferenceVerificationStatus", "georeferenceRemarks"] %}
+                {% if occurrence.record[term] | isDefined %}
+                    <tr>
+                        <td>
+                            {$ __('ocurrenceFieldNames.' + term) $}
+                        </td>
+                        <td>
+                            {$ occurrence.record[term] $}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>

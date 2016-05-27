@@ -1071,6 +1071,7 @@
 		"verbatimCoordinates": "verbatim coordinates",
 		"verbatimLatitude": "verbatim latitude",
 		"verbatimLongitude": "verbatim longitude",
-		"scientificNameAuthorship": "scientific name authorship"
+		"scientificNameAuthorship": "scientific name authorship",
+		"undefined": "unknown field"
 	}
 }

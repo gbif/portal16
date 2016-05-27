@@ -1,7 +1,26 @@
-
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% import "../../search/searchResults.macro.nunjucks" as helpers %}
+
+{% block tools %}
+    <div class="fab">
+        <div class="fab__trigger">
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Feedback on data"><i class="gb-icon-comment"></i></a>
+        </div>
+        <ul class="fab__options">
+            {% if occurrence.dataset.contacts[0].email[0] %}
+                <li>
+                    <a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"
+                       class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Send publisher a mail"><i class="gb-icon-mail"></i></a>
+                </li>
+            {% endif %}
+
+            <li>
+                <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Annotate">a</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
 
 {% block page %}
     <script>
@@ -14,16 +33,10 @@
     <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence" ng-class="{showDrawer: occurrence.showDrawer}">
         <div class="overlay"></div>
 
-        <!-- <div class="floatAction floatAction-edit gb-icon-pen" ng-click="occurrence.showDrawer = !occurrence.showDrawer"></div>
-        <div id="comments" class="comments">
-            <ul>
-                <li ng-repeat="item in occurrence.comments">{{ item.comment }} <button ng-click="occurrence.deleteComment($index)">slet</button> </li>
-            </ul>
-            <textarea ng-model="occurrence.newComment"></textarea>
-            <button ng-click="occurrence.addComment()">add</button>
-        </div> -->
-
         <div class="container-fluid">
+            {#<div class="block row" style="background: tomato; text-align: center; padding: 1rem 0; color: white;">#}
+                {#Insufficient record#}
+            {#</div>#}
             <article class="article row block block-first">
                 
                 <div class="blockComment">
@@ -68,8 +81,8 @@
                 <div class="blockContent">
 
                     <div class="container-fluidx test">
-                        <div class="row">
-                            <div class="col-sm-6">
+                        <div class="rowx">
+                            <div class="col-sm-6-x">
                                 <ul class="propertyPairs">
                                     <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
                                     <li>
@@ -92,7 +105,7 @@
                                     <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
                                     <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
                                     {% if occurrence.record.issues.length > 0 %}
-                                    <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}">{$ occurrence.record.issues.length $}</span></li>
+                                    <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}" ng-click="occurrence.gotoCoreDetails()">{$ occurrence.record.issues.length $}</span></li>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -156,58 +169,19 @@
             <section class="block row">
                 <div class="blockContent container-fluid">
                     <div class="row">
-                        <section class="termBlock col-md-4">
-                            <span class="termBlock__icon blue">
-                                <span class="gb-icon-search"></span>
-                            </span>
-                            <h3 class="h4">Geological context</h3>
-                            <div>
-                                <dl>
-                                    <dt>Stratigraphic Classification</dt>
-                                    <dd>
-                                        <dl>
-                                            <dt>Period</dt>
-                                            <dd>Neogene</dd>
-                                            <dt>Epoch</dt>
-                                            <dd>Miocene, Late</dd>
-                                        </dl>
-                                    </dd>
-                                    <dt>Biostratigraphic Zone</dt>
-                                    <dd>Hemphillian</dd>
-                                </dl>
-                            </div>
-                        </section>
-
-                        {% include('./groups/event.nunjucks') %}
-
-                        <section class="termBlock col-md-4">
-                            <span class="termBlock__icon pink">
-                                <span class="gb-icon-search"></span>
-                            </span>
-                            <h3 class="h4">Geological context</h3>
-                            <div>
-                                <dl>
-                                    <dt>Stratigraphic Classification</dt>
-                                    <dd>
-                                        <dl>
-                                            <dt>Period</dt>
-                                            <dd>Neogene</dd>
-                                            <dt>Epoch</dt>
-                                            <dd>Miocene, Late</dd>
-                                        </dl>
-                                    </dd>
-                                    <dt>Biostratigraphic Zone</dt>
-                                    <dd>Hemphillian</dd>
-                                </dl>
-                            </div>
-                        </section>
+                        <div class="occurrence-key__term-groups">
+                            {% include('./groups/event.nunjucks') %}
+                            {% include('./groups/taxon.nunjucks') %}
+                            {% include('./groups/location.nunjucks') %}
+                            {% include('./groups/geologicalContext.nunjucks') %}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {% include('./media.nunjucks') %}
 
-            <section class="bare block row occurrenceKey__table toggleStripe" ng-class="{ isExpanded: !occurrence.hideDetails }">
+            <section class="bare block row occurrenceKey__table toggleStripe" ng-class="{ isExpanded: !occurrence.hideDetails }" id="occurrence-core-details">
                 <div class="buttonExpand">
                     <input type="checkbox" ng-model="occurrence.hideDetails" value="None" id="toggleDetails" name="check" checked />
                     <label for="toggleDetails"

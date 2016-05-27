@@ -1,0 +1,34 @@
+{% if occurrence.terms.groups.GeologicalContext | isDefined %}
+<section class="term-block noBreak">
+    <div class="term-block__header">
+        <h3 class="h4">Geological context</h3>
+        <span class="term-block__icon green">
+            <span class="gb-icon-search"></span>
+        </span>
+    </div>
+    <div class="term-block__terms">
+        <table class="table">
+            <thead class="hidden">
+            <tr>
+                <th>Term</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for term in ["geologicalContextID", "earliestEonOrLowestEonothem", "latestEonOrHighestEonothem", "earliestEraOrLowestErathem", "latestEraOrHighestErathem", "earliestPeriodOrLowestSystem", "latestPeriodOrHighestSystem", "earliestEpochOrLowestSeries", "latestEpochOrHighestSeries", "earliestAgeOrLowestStage", "latestAgeOrHighestStage", "lowestBiostratigraphicZone", "highestBiostratigraphicZone", "lithostratigraphicTerms", "group", "formation", "member", "bed"] %}
+                {% if occurrence.record[term] | isDefined %}
+                    <tr>
+                        <td>
+                            {$ __('ocurrenceFieldNames.' + term) $}
+                        </td>
+                        <td>
+                            {$ occurrence.record[term] $}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endif %}

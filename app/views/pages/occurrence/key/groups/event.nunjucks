@@ -1,46 +1,61 @@
-<section class="termBlock col-md-4">
-    <span class="termBlock__icon green">
-        <span class="gb-icon-search"></span>
-    </span>
-    <h3 class="h4">Event</h3>
-    <div>
-        <dl class="inline">
-            <dt>Event date</dt>
-            <dd>{$ occurrence.record.eventDate | formatDate(gb.locales.current) $}</dd>
-            <dt>Event Trademarks</dt>
-            <dd>
-                The material sample was collected, and either preserved or destructively processed.
-            </dd>
-            <dt>Sampling effort</dt>
-            <dd>25 trap day(s)</dd>
+<section class="term-block noBreak">
+    <div class="term-block__header">
+        <h3 class="h4">Event</h3>
+        <span class="term-block__icon green">
+            <span class="gb-icon-search"></span>
+        </span>
+    </div>
+    <div class="term-block__terms">
+        <table class="table">
+            <thead class="hidden">
+            <tr>
+                <th>Term</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    {$ __('ocurrenceFieldNames.eventDate') $}
+                </td>
+                <td>
+                    {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
+                </td>
+            </tr>
 
-            {% for term in ['samplingProtocol', 'samplingEffort', 'sampleSizeValue', 'sampleSizeUnit', 'fieldNotes', 'eventRemarks', 'habitat', 'eventID', 'parentEventID', 'fieldNumber'] %}
-                {% if occurrence.record[term] | isDefined %}
-                    <dt>{$ term $}</dt>
-                    <dd>{$ occurrence.record[term] $}</dd>
-                {% endif %}
+            {% for term in ['startDayOfYear', 'endDayOfYear', 'habitat', 'samplingProtocol', 'samplingEffort', 'sampleSizeValue', 'sampleSizeUnit', 'fieldNotes', 'eventRemarks', 'fieldNumber'] %}
+            {% if occurrence.record[term] | isDefined %}
+                <tr>
+                    <td>
+                        {$ __('ocurrenceFieldNames.' + term) $}
+                    </td>
+                    <td>
+                        {$ occurrence.record[term] $}
+                    </td>
+                </tr>
+            {% endif %}
             {% endfor %}
-        </dl>
+            </tbody>
+        </table>
     </div>
 </section>
 
-{#eventID#}
-{#parentEventID#}
-{#fieldNumber#}
-{#eventDate#}
-{#eventTime#}
-{#startDayOfYear#}
-{#endDayOfYear#}
-{#year#}
-{#month#}
-{#day#}
-{#verbatimEventDate#}
 
-
-{#habitat#}
-{#samplingProtocol#}
-{#samplingEffort#}
-{#sampleSizeValue#}
-{#sampleSizeUnit#}
-{#fieldNotes#}
-{#eventRemarks#}
+{#'eventID',#}
+{#'parentEventID',#}
+{#'fieldNumber',#}
+{#'eventDate',#}
+{#'eventTime',#}
+{#'startDayOfYear',#}
+{#'endDayOfYear',#}
+{#'year',#}
+{#'month',#}
+{#'day',#}
+{#'verbatimEventDate',#}
+{#'habitat',#}
+{#'samplingProtocol',#}
+{#'samplingEffort',#}
+{#'sampleSizeValue',#}
+{#'sampleSizeUnit',#}
+{#'fieldNotes',#}
+{#'eventRemarks'#}

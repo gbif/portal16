@@ -1,0 +1,34 @@
+{% if occurrence.terms.groups.Taxon | isDefined %}
+<section class="term-block noBreak">
+    <div class="term-block__header">
+        <h3 class="h4">Taxon</h3>
+        <span class="term-block__icon pink">
+            <span class="gb-icon-search"></span>
+        </span>
+    </div>
+    <div class="term-block__terms">
+        <table class="table">
+            <thead class="hidden">
+            <tr>
+                <th>Term</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for term in ["taxonID", "scientificNameID", "acceptedNameUsageID", "parentNameUsageID", "originalNameUsageID", "nameAccordingToID", "namePublishedInID", "taxonConceptID", "scientificName", "acceptedNameUsage", "parentNameUsage", "originalNameUsage", "nameAccordingTo", "namePublishedIn", "namePublishedInYear", "higherClassification", "kingdom", "phylum", "class", "order", "family", "genus", "subgenus", "specificEpithet", "infraspecificEpithet", "taxonRank", "verbatimTaxonRank", "vernacularName", "nomenclaturalCode", "taxonomicStatus", "nomenclaturalStatus", "taxonRemarks"] %}
+                {% if occurrence.record[term] | isDefined %}
+                    <tr>
+                        <td>
+                            {$ __('ocurrenceFieldNames.' + term) $}
+                        </td>
+                        <td>
+                            {$ occurrence.record[term] $}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endif %}

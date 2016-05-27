@@ -1,14 +1,108 @@
-.termBlock {
-	dl.inline {
-		dt, dd {
-			float left
+.occurrence-key__term-groups {
+	columns 3 30px
+	.noBreak {
+		break-inside avoid-column
+		display inline-block
+		width 100%
+	}
+}
+.term-block {
+	.blue {
+		background #63c5ee
+	}
+	.green {
+		background #D6E5BB
+	}
+	.pink {
+		background pink
+
+	}
+	.term-block__icon {
+		border-radius 3px
+		vertical-align middle
+		font-size 16px
+		width 30px
+		height 30px
+		display inline-block
+		text-align center
+		line-height 30px
+		vertical-align middle
+		color #F7F9FA
+	}
+	.term-block__header {
+		border-bottom 2px solid #888
+		margin-bottom vr-block(0.25)
+		position relative
+	}
+	.term-block__icon {
+		//display none
+		position absolute
+		top -5px
+		right 0
+	}
+	.table {
+		table-layout fixed
+		tr,td {
+			border none
+			padding 2px 2px 0 2px
+			overflow hidden
+			word-break break-all
 		}
+		td:first-of-type {
+			font-weight bold
+			text-transform capitalize
+			width 150px
+		}
+		tr:nth-of-type(even) {
+			background #F7F9FA
+		}
+		tr:hover {
+			background darken(#F7F9FA, 10)
+		}
+		tr.table__groupHeader {
+			background #DEE2E4
+		}
+	}
+	h3 {
+		font-weight bold
+	}
+	dl dl {
+		padding-left 1rem
 		dt {
-			clear both
-			margin-right 0.25em
-			&:after {
-				content ':'
-			}
+			display inline
 		}
 	}
 }
+//
+//.termBlock {
+//	dl.inline {
+//		div {
+//			margin-top 1px
+//		}
+//		dt, dd {
+//			//float left
+//			display inline
+//			display block
+//		}
+//		dd {
+//			//color: pink
+//			//text-transform: lowercase;
+//			//font-weight: 300;
+//			//font-size: 12.1px;
+//		}
+//		dt {
+//			text-transform capitalize
+//			//clear both
+//			margin-right 0.25em
+//			//color: #6D6D6D;
+//			//text-transform: uppercase;
+//			//font-weight: 200;
+//			//font-size: 12px;
+//			//font-variant: small-caps;
+//
+//			&:after {
+//				content ':'
+//			}
+//		}
+//	}
+//}

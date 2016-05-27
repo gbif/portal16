@@ -2,7 +2,7 @@
 <section class="block row discreet">
     <div class="container-fluid">
 
-        <div class="occurrenceMedia {% if occurrence.record.media.length > 5 %} occurrenceMedia-wide {% endif %}">
+        <div class="occurrenceMedia {% if occurrence.record.media.length >= 5 %} occurrenceMedia-wide {% endif %}">
             {% for media in occurrence.record.media | limit(5) %}
                 <div class="card">
                     <figure class="card__content">
