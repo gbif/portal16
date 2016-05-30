@@ -1,3 +1,4 @@
+"use strict";
 //TODO make environment dependent to allow for test annotations?
 var config = {
     publisher: {
