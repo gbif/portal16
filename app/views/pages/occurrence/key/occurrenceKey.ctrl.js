@@ -150,35 +150,36 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     //function getElevation(lat, lng) {
     //    var n, s, e, w, dist = 0.05;
     //    if (lat && lng) {
-    //        //n = lat + dist;
-    //        //s = lat - dist;
-    //        //e = lat + dist;
-    //        //w = lat - dist;
-    //        //var query = {
-    //        //    shape: [
-    //        //        {
-    //        //            lat: n, lon: lng
-    //        //        },
-    //        //        {
-    //        //            lat: s, lon: lng
-    //        //        }
-    //        //    ],
-    //        //    range: true,
-    //        //    resample_distance: 50
-    //        //};
+    //        n = lat + dist;
+    //        s = lat - dist;
+    //        e = lat + dist;
+    //        w = lat - dist;
+    //        var query = {
+    //            shape: [
+    //                {
+    //                    lat: n, lon: lng
+    //                },
+    //                {
+    //                    lat: s, lon: lng
+    //                }
+    //            ],
+    //            range: true,
+    //            resample_distance: 50
+    //        };
     //
-    //        // var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
-    //        // $http.get(elevationApi).then(
-    //        //     function(response){
-    //        //         vm.barData.series[0] = response.data.range_height.map(function(e){
-    //        //             return e[1];
-    //        //         });
-    //        //     },
-    //        //     function(){
-    //        //         //console.log("error " + error);
-    //        //         //TODO handler errors from api
-    //        //     }
-    //        // );
+    //         var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
+    //         $http.get(elevationApi).then(
+    //             function(response){
+    //                 console.log(response.data);
+    //                 //vm.barData.series[0] = response.data.range_height.map(function(e){
+    //                 //    return e[1];
+    //                 //});
+    //             },
+    //             function(){
+    //                 //console.log("error " + error);
+    //                 //TODO handler errors from api
+    //             }
+    //         );
     //    }
     //}
 

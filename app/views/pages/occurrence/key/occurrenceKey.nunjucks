@@ -15,9 +15,11 @@
                 </li>
             {% endif %}
 
+            {% if occurrence.annotation %}
             <li>
-                <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Annotate">a</a>
+                <a href="{$ occurrence.annotation.url $}" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>
             </li>
+            {% endif %}
         </ul>
     </div>
 {% endblock %}

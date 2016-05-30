@@ -1,6 +1,7 @@
 "use strict";
 var Q = require('q'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
+    getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
@@ -139,6 +140,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.computedFields = {
             title: getTitle(occurrence, __)
         };
+        occurrence.annotation = getAnnotation(occurrence.record);
         occurrence.terms = getUsedOccurrenceCoreTerms(occurrence, occurrenceMeta.terms);
         occurrence.issues = getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);
         occurrence.mostSeveryType = getMostSevereType(occurrence.record.issues, occurrenceMeta.remarks);
