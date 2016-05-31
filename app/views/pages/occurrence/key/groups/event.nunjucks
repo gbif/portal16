@@ -15,12 +15,14 @@
             </thead>
             <tbody>
             <tr>
-                <td>
-                    {$ __('ocurrenceFieldNames.eventDate') $}
-                </td>
-                <td>
-                    {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
-                </td>
+                {% if occurrence.record.eventDate | isDefined %}
+                    <td>
+                        {$ __('ocurrenceFieldNames.eventDate') $}
+                    </td>
+                    <td>
+                        {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
+                    </td>
+                {% endif %}
             </tr>
 
             {% for term in ['startDayOfYear', 'endDayOfYear', 'habitat', 'samplingProtocol', 'samplingEffort', 'sampleSizeValue', 'sampleSizeUnit', 'fieldNotes', 'eventRemarks', 'fieldNumber'] %}

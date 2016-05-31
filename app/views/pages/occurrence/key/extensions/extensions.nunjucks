@@ -1,0 +1,55 @@
+{% if occurrence.verbatim.extensions | isNotEmpty %}
+<section class="block row extensions bare">
+    <div class="blockContent container-fluid">
+        <div class="row">
+            {#<div>#}
+            {#<div class="multiToggle">#}
+            {#<div type="button" aria-label="All" class="isActive" focus="0"#}
+            {#ng-click="occurrence.table.filter = undefined"#}
+            {#ng-class="{isActive: occurrence.table.filter == undefined}">All</div>#}
+            {#<div type="button" aria-label="Event"#}
+            {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
+            {#ng-click="occurrence.table.filter = category"#}
+            {#ng-class="{isActive: occurrence.table.filter == category}">#}
+            {#{{ category }}#}
+            {#</div>#}
+            {#</div>#}
+            {#</div>#}
+            <div class="col-xs-12">
+                <h2 class="h4">
+                    Extensions
+                </h2>
+            </div>
+            <div class="col-xs-12">
+                {% for name, extensions in occurrence.verbatim.extensions %}
+                    {% if extensions.length > 0 %}
+                    <h4 class="h5">{$ name | prettifyEnum $}</h4>
+                    <div class="card card-table">
+                        <table class="table table-extensions">
+                            <thead>
+                            <tr>
+                                {% for term, value in extensions[0] %}
+                                    <th>{$ term | prettifyEnum $}</th>
+                                {% endfor %}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for extension in extensions %}
+                                <tr>
+                                    {% for term, value in extension %}
+                                    <td>
+                                        {$ value $}
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

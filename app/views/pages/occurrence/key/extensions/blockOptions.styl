@@ -1,0 +1,57 @@
+.block-options {
+	display block
+	position absolute
+	right 0
+	top 0
+	margin vr-block(1)
+	.block-options__menu {
+		color #888
+		border-radius 50%
+		width vr-block(1)
+		height vr-block(1)
+		display inline-block
+		text-align center
+		font-size 12px
+		line-height vr-block(1)
+	}
+	.block-options__dropdown {
+		position absolute
+		display none
+		right 1rem
+		top 1rem
+		width 180px
+		background white
+		box-shadow 0 1px 2px rgba(0,0,0,0.3)
+		ul {
+			padding 0.5rem 0
+			li {
+				padding 2px 5px
+				&:hover {
+					background #eee
+					cursor pointer
+				}
+				a {
+					display block
+				}
+			}
+		}
+	}
+	&.isExpanded {
+		.block-options__menu {
+			background #eee
+		}
+		.block-options__dropdown {
+			display block
+		}
+	}
+}
+a[href=""] {
+	color inherit
+	text-decoration none
+}
+.block:hover {
+	.block-options__menu {
+		background #4e565f
+		color white
+	}
+}

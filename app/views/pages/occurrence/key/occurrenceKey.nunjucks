@@ -63,7 +63,7 @@
                         <nav class="article__category article__category-deep">
                             <span class="article__category__upper">{$ __('occurrence.occurrence') $}</span>
                             <span class="article__category__lower">
-                                {% if occurrence.record.eventDate %}
+                                {% if occurrence.record.eventDate | isDefined %}
                                     {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
                                 {% else %}
                                     {$ __('date.unknown') $}
@@ -168,14 +168,32 @@
                 {#</footer>#}
             </section>
 
+
+
             <section class="block row">
                 <div class="blockContent container-fluid">
                     <div class="row">
+                        <div class="block-options" ng-class="{isExpanded: occurrence.expandMore}">
+                            <a href="" class="gb-icon-more2 block-options__menu" ng-click="occurrence.expandMore = !occurrence.expandMore"></a>
+                            <div class="block-options__dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
+                                            <span ng-show="occurrence.hideDetails">Show details (Alt+d)</span>
+                                            <span ng-show="!occurrence.hideDetails">Hide details (Alt+d)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">Raw</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="occurrence-key__term-groups">
-                            {% include('./groups/event.nunjucks') %}
-                            {% include('./groups/taxon.nunjucks') %}
-                            {% include('./groups/location.nunjucks') %}
-                            {% include('./groups/geologicalContext.nunjucks') %}
+                            {% include('./groups/groups.nunjucks') %}
+                            {#{% include('./groups/taxon.nunjucks') %}#}
+                            {#{% include('./groups/location.nunjucks') %}#}
+                            {#{% include('./groups/geologicalContext.nunjucks') %}#}
                         </div>
                     </div>
                 </div>
@@ -183,22 +201,9 @@
 
             {% include('./media.nunjucks') %}
 
-            <section class="bare block row occurrenceKey__table toggleStripe" ng-class="{ isExpanded: !occurrence.hideDetails }" id="occurrence-core-details">
-                <div class="buttonExpand">
-                    <input type="checkbox" ng-model="occurrence.hideDetails" value="None" id="toggleDetails" name="check" checked />
-                    <label for="toggleDetails"
-                           class="gb-icon-angle-down"
-                           ng-class="{'gb-icon-angle-up': !occurrence.hideDetails}"
-                    ></label>
-                    <label for="toggleDetails">
-                        <span class="small">Show details and issues</span>
-                        <span class="h4">Details and issues</span>
-                    </label>
-                </div>
-                <div class="wrapper">
-                    {% include('./table.nunjucks') %}
-                </div>
-            </section>
+            {% include('./extensions/extensions.nunjucks') %}
+
+            {#{% include('./table.nunjucks') %}#}
 
         </div>
 

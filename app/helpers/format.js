@@ -20,7 +20,8 @@ function prettifyEnum(text) {
     if (typeof text === 'undefined' || text === null) {
         return '';
     }
-    return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
+    text = text.substr(text.lastIndexOf('/')+1);
+    return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ');
 }
 
 module.exports = {

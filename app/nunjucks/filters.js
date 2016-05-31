@@ -1,5 +1,6 @@
 var glob = require('glob'),
     format = require('../helpers/format'),
+    _ = require('lodash'),
     path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
@@ -48,6 +49,18 @@ module.exports = function(nunjucksConfiguration, config) {
             return typeof data !== 'undefined';
         });
     })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isNotEmpty', function(data) {
+            return !_.isEmpty(data);
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
+    })();
+
+
 
     /**
     DEPRECATED

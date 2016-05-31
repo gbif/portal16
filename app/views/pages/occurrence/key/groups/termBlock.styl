@@ -1,9 +1,21 @@
 .occurrence-key__term-groups {
-	columns 3 30px
-	.noBreak {
-		break-inside avoid-column
-		display inline-block
-		width 100%
+	//columns 3 30px
+	//.noBreak {
+	//	break-inside avoid-column
+	//	display inline-block
+	//	width 100%
+	//}
+	display flex
+	flex-wrap wrap
+	>section {
+		flex 0 1 auto
+		margin 0 15px
+		max-width 470px
+		//transition max-width 300ms ease
+	}
+	>section.isExpanded {
+		flex 0 1 auto
+		max-width 1000px
 	}
 }
 .term-block {
@@ -30,8 +42,6 @@
 		color #F7F9FA
 	}
 	.term-block__header {
-		border-bottom 2px solid #888
-		margin-bottom vr-block(0.25)
 		position relative
 	}
 	.term-block__icon {
@@ -42,16 +52,27 @@
 	}
 	.table {
 		table-layout fixed
-		tr,td {
+		thead {
+			border-bottom 2px solid #888
+			th {
+				border none
+				//display none
+			}
+		}
+		tr,td, th {
 			border none
 			padding 2px 2px 0 2px
 			overflow hidden
 			word-break break-all
+			word-break break-word
+			hyphens auto
+			width 25%
 		}
 		td:first-of-type {
 			font-weight bold
 			text-transform capitalize
 			width 150px
+			word-break normal
 		}
 		tr:nth-of-type(even) {
 			background #F7F9FA
@@ -72,7 +93,18 @@
 			display inline
 		}
 	}
+
+	&.isCollapsed {
+		.table {
+			thead {
+				th {
+					display none
+				}
+			}
+		}
+	}
 }
+
 //
 //.termBlock {
 //	dl.inline {

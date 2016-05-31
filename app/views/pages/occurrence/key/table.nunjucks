@@ -1,62 +1,80 @@
-<div class="container-fluid">
-    {#<div>#}
-        {#<div class="multiToggle">#}
-            {#<div type="button" aria-label="All" class="isActive" focus="0"#}
-                 {#ng-click="occurrence.table.filter = undefined"#}
-                 {#ng-class="{isActive: occurrence.table.filter == undefined}">All</div>#}
-            {#<div type="button" aria-label="Event"#}
-                 {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
-                 {#ng-click="occurrence.table.filter = category"#}
-                 {#ng-class="{isActive: occurrence.table.filter == category}">#}
-                {#{{ category }}#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-    <div class="small pull-right">
-        <a href="{$ 'http://www.gbif.org/occurrence/' + occurrence.record.key + '/fragment' $}">See raw fragment</a>
+<section class="bare block row occurrenceKey__table toggleStripe" ng-class="{ isExpanded: !occurrence.hideDetails }" id="occurrence-core-details">
+    <div class="buttonExpand">
+        <input type="checkbox" ng-model="occurrence.hideDetails" value="None" id="toggleDetails" name="check" checked />
+        <label for="toggleDetails"
+               class="gb-icon-angle-down"
+               ng-class="{'gb-icon-angle-up': !occurrence.hideDetails}"
+        ></label>
+        <label for="toggleDetails">
+            <span class="small">Show details and issues</span>
+            <span class="h4">Details and issues</span>
+        </label>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            {% for group in occurrence.terms.usedGroups %}
-                <h4 class="h5">{$ group $}</h4>
-                <div class="card card-table">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Term</th>
-                            <th>Interpreted</th>
-                            <th>Original</th>
-                            <th>Issues</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {% for term in occurrence.terms.groups[group] %}
-                                <tr ng-if="occurrence.isVisibleInTable('{$ term.group $}')" {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
-                                    <td>
-                                        {$ __('ocurrenceFieldNames.' + term.simpleName) $}
-                                    </td>
-                                    <td>
-                                        {$ occurrence.record[term.simpleName] $}
-                                    </td>
-                                    <td>
-                                        {$ occurrence.verbatim[term.qualifiedName] $}
-                                    </td>
-                                    <td>
-                                        {% if occurrence.issues[term.simpleName] %}
-                                            {% for issue in occurrence.issues[term.simpleName] %}
-                                            <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
-                                            {% endfor %}
-                                        {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
-                                            <span class="small">Not identical</span>
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+    <div class="wrapper">
 
-</div>
+        <div class="container-fluid">
+            {#<div>#}
+            {#<div class="multiToggle">#}
+            {#<div type="button" aria-label="All" class="isActive" focus="0"#}
+            {#ng-click="occurrence.table.filter = undefined"#}
+            {#ng-class="{isActive: occurrence.table.filter == undefined}">All</div>#}
+            {#<div type="button" aria-label="Event"#}
+            {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
+            {#ng-click="occurrence.table.filter = category"#}
+            {#ng-class="{isActive: occurrence.table.filter == category}">#}
+            {#{{ category }}#}
+            {#</div>#}
+            {#</div>#}
+            {#</div>#}
+            <div class="small pull-right">
+                <a href="{$ 'http://www.gbif.org/occurrence/' + occurrence.record.key + '/fragment' $}">See raw fragment</a>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    {% for group in occurrence.terms.usedGroups %}
+                        <h4 class="h5">{$ group $}</h4>
+                        <div class="card card-table">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Term</th>
+                                    <th>Interpreted</th>
+                                    <th class="table__detail">Original</th>
+                                    <th class="table__detail">Issues</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for term in occurrence.terms.groups[group] %}
+                                    <tr ng-if="occurrence.isVisibleInTable('{$ term.group $}')" {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
+                                        <td>
+                                            {$ __('ocurrenceFieldNames.' + term.simpleName) $}
+                                        </td>
+                                        <td>
+                                            {$ occurrence.record[term.simpleName] $}
+                                        </td>
+                                        <td class="table__detail">
+                                            {$ occurrence.verbatim[term.qualifiedName] $}
+                                        </td>
+                                        <td class="table__detail">
+                                            {% if occurrence.issues[term.simpleName] %}
+                                                {% for issue in occurrence.issues[term.simpleName] %}
+                                                    <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                                {% endfor %}
+                                                {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
+                                                <span class="small">Not identical</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
