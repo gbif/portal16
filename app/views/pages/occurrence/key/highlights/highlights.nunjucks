@@ -1,0 +1,37 @@
+<section class="block row discreet">
+    <div class="blockContent">
+
+        <div class="container-fluidx test">
+            <div class="rowx">
+                <div class="col-sm-6x">
+                    <ul class="propertyPairs">
+                        <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
+                        <li>
+                            <span>Location</span>:
+                                        <span>
+                                            {% if occurrence.record.country %}{$ occurrence.record.country $} {% endif %}
+                                            {% if occurrence.record.stateProvince %}{$ occurrence.record.stateProvince $} {% endif %}
+                                            {% if occurrence.record.county %}{$ occurrence.record.county $} {% endif %}
+                                            {% if occurrence.record.municipality %}{$ occurrence.record.municipality $} {% endif %}
+                                        </span>
+                        </li>
+                        <li><span>Basis of record</span>: <span>{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
+                        {% if occurrence.record.typeStatus %}
+                            <li><span>Specimen type</span>: <span>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-sm-6x">
+                    <ul class="propertyPairs">
+                        <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
+                        <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
+                        {% if occurrence.record.issues.length > 0 %}
+                            <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}" ng-click="occurrence.gotoCoreDetails()">{$ occurrence.record.issues.length $}</span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

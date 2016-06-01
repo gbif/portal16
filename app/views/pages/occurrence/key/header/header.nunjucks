@@ -1,0 +1,41 @@
+{% import "../../../search/searchResults.macro.nunjucks" as helpers %}
+
+<section class="article row block block-first">
+
+    <div class="blockComment">
+        <div>
+            {$ __('date.synced') $}
+            {% if gb.locales.current == 'en' %}
+                <time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>
+            {% else %}
+                {$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}
+            {% endif %}
+        </div>
+        {% if occurrence.record.modified %}
+            <div>
+                {$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="blockContent row">
+        <header class="col-xs-12 article__header">
+            <nav class="article__category article__category-deep">
+                <span class="article__category__upper">{$ __('occurrence.occurrence') $}</span>
+                <span class="article__category__lower">
+                    {% if occurrence.record.eventDate | isDefined %}
+                        {$ occurrence.record.eventDate | formatDate(gb.locales.current) $}
+                    {% else %}
+                        {$ __('date.unknown') $}
+                    {% endif %}
+                </span>
+            </nav>
+
+            {% include('./headline.nunjucks') %}
+
+            <div class="text-center sub">
+                <span class="desc taxa">{$ helpers.taxonomy(occurrence.record) $}</span>
+            </div>
+        </header>
+    </div>
+</section>

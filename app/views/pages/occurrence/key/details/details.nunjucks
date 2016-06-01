@@ -1,0 +1,28 @@
+<section class="block row">
+    <div class="blockContent container-fluid">
+        <div class="row">
+            <div class="block-options" ng-class="{isExpanded: occurrence.expandMore}">
+                <a href="" class="gb-icon-more2 block-options__menu" ng-click="occurrence.expandMore = !occurrence.expandMore"></a>
+                <div class="block-options__dropdown">
+                    <ul>
+                        <li>
+                            <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
+                                <span ng-show="occurrence.hideDetails">Show diagnotics (Alt+d)</span>
+                                <span ng-show="!occurrence.hideDetails">Hide diagnotics (Alt+d)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">Raw</a>
+                        </li>
+                        <li class="seperator">
+                            <a href="http://rs.tdwg.org/dwc/terms/">About Darwin Core</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="occurrence-key__term-groups">
+                {% include('./groups.nunjucks') %}
+            </div>
+        </div>
+    </div>
+</section>

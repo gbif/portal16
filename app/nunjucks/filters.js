@@ -60,6 +60,28 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
     })();
 
+    (function() {
+        nunjucksConfiguration.addFilter('isLink', function(data) {
+            if (!data) {
+                return false;
+            }
+            var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+            var regex = new RegExp(expression);
+            return !!data.toString().match(regex);
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('minTableWidth', function(data, div, max) {
+            var div = div || 1,
+                max = max || 200;
+            if (!data) {
+                return 0;
+            }
+            return Math.round(Math.min(max, data.toString().length / div));
+        });
+    })();
+
 
 
     /**

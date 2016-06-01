@@ -25,10 +25,18 @@
                             {#{% endif %}#}
                         </td>
                         <td>
-                            {$ occurrence.record[term.simpleName] $}
+                            {% if occurrence.record[term.simpleName] | isLink %}
+                                <a href="{$ occurrence.record[term.simpleName] $}">{$ occurrence.record[term.simpleName] $}</a>
+                            {% else %}
+                                {$ occurrence.record[term.simpleName] $}
+                            {% endif %}
                         </td>
                         <td ng-show="!occurrence.hideDetails">
-                            {$ occurrence.verbatim[term.qualifiedName] $}
+                            {% if occurrence.verbatim[term.qualifiedName] | isLink %}
+                                <a href="{$ occurrence.verbatim[term.qualifiedName] $}">{$ occurrence.verbatim[term.qualifiedName] $}</a>
+                            {% else %}
+                                {$ occurrence.verbatim[term.qualifiedName] $}
+                            {% endif %}
                         </td>
                         <td ng-show="!occurrence.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}

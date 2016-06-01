@@ -19,37 +19,6 @@
 	}
 }
 .term-block {
-	.blue {
-		background #63c5ee
-	}
-	.green {
-		background #D6E5BB
-	}
-	.pink {
-		background pink
-
-	}
-	.term-block__icon {
-		border-radius 3px
-		vertical-align middle
-		font-size 16px
-		width 30px
-		height 30px
-		display inline-block
-		text-align center
-		line-height 30px
-		vertical-align middle
-		color #F7F9FA
-	}
-	.term-block__header {
-		position relative
-	}
-	.term-block__icon {
-		//display none
-		position absolute
-		top -5px
-		right 0
-	}
 	.table {
 		table-layout fixed
 		thead {
@@ -69,7 +38,6 @@
 			width 25%
 		}
 		td:first-of-type {
-			font-weight bold
 			text-transform capitalize
 			width 150px
 			word-break normal
@@ -77,15 +45,12 @@
 		tr:nth-of-type(even) {
 			background #F7F9FA
 		}
-		tr:hover {
+		tbody tr:hover {
 			background darken(#F7F9FA, 10)
 		}
 		tr.table__groupHeader {
 			background #DEE2E4
 		}
-	}
-	h3 {
-		font-weight bold
 	}
 	dl dl {
 		padding-left 1rem

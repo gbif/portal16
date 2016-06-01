@@ -18,13 +18,16 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $firebaseArray, $anchorScroll, $location) {
+function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $firebaseArray, $anchorScroll, $location, hotkeys) {
     var vm = this;
     vm.comments;
     vm.detailsStates = {
         INTERPRETED: 0,
         COMPARE: 1,
         DIFF: 2
+    };
+    vm.mediaExpand = {
+        isExpanded: false
     };
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
@@ -109,6 +112,15 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     if ($location.hash() == 'occurrence-core-details') {
         vm.gotoCoreDetails();
     }
+
+    hotkeys.add({
+        combo: 'alt+d',
+        description: 'Show record details',
+        callback: function() {
+            vm.hideDetails = !vm.hideDetails;
+            vm.expandMore = false;
+        }
+    });
 
     vm.setData = function() {
         //TODO find a better way to parse required data to controller from server without seperate calls
