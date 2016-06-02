@@ -23,7 +23,7 @@ module.exports = function(nunjucksConfiguration, config) {
 
     (function() {
         nunjucksConfiguration.addFilter('slice', function(data, start, amount) {
-            return data && data.constructor === Array ? data.slice(start, amount) : undefined;
+            return data && (data.constructor === Array || typeof(data) === 'string') ? data.slice(start, amount) : undefined;
         });
     })();
 
@@ -72,8 +72,21 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
+        nunjucksConfiguration.addFilter('truncateMiddle', function(data, len) {
+            if (!data) {
+                return false;
+            }
+            data = data.toString();
+            if (data.length < len) {
+                return data;
+            }
+            return data.slice(0,10) + '...' + data.slice(data.length-10)
+        });
+    })();
+
+    (function() {
         nunjucksConfiguration.addFilter('minTableWidth', function(data, div, max) {
-            var div = div || 1,
+            div = div || 1,
                 max = max || 200;
             if (!data) {
                 return 0;

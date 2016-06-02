@@ -1,6 +1,7 @@
 
 .occurrenceMedia {
 	margin auto
+	padding 0 15px
 	max-width 1000px
 	columns 1 30px
 	color #555
@@ -37,7 +38,11 @@
 	}
 	dd, dt {
 		display inline
+		word-break break-all
 		word-wrap break-word
+	}
+	dt {
+		text-transform capitalize
 	}
 	dt:after {
 		content ':'

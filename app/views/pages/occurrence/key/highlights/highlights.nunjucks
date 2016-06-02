@@ -25,9 +25,37 @@
                     <ul class="propertyPairs">
                         <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
                         <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
-                        {% if occurrence.record.issues.length > 0 %}
-                            <li><span>Issues</span>: <span class="badge badge--{$ occurrence.mostSeveryType | lower $}" ng-click="occurrence.gotoCoreDetails()">{$ occurrence.record.issues.length $}</span></li>
+
+                        {% if occurrence.record.references | isDefined %}
+                        <li><span>Reference</span>:
+                            <span>
+                                {% if occurrence.record.references | isLink %}
+                                    <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
+                                {% else %}
+                                    {$ occurrence.record.references | truncate(50) $}
+                                {% endif %}
+                            </span>
+                        </li>
                         {% endif %}
+
+                        {% if occurrence.issueSummary | isDefined %}
+                            <li class="issue-summary">
+                                <span>Issues</span>:
+                                <span class="issue-summary__comapct" ng-class="{hide: occurrence.highlights.issues.expanded }" ng-click="occurrence.highlights.issues.expanded = true" title="Show description">
+                                    {% for type in ['ERROR', 'WARNING', 'INFO'] %}
+                                        <span class="badge badge--{$ type | lower $}">{$ occurrence.issueSummary[type].length $}</span>
+                                    {% endfor %}
+                                </span>
+                                <span class="issue-summary__list hide" ng-class="{hide: !occurrence.highlights.issues.expanded }">
+                                    {% for type in ['ERROR', 'WARNING', 'INFO'] %}
+                                        {% for issue in occurrence.issueSummary[type] %}
+                                            <span class="badge badge--{$ type | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </span>
+                            </li>
+                        {% endif %}
+
                     </ul>
                 </div>
             </div>

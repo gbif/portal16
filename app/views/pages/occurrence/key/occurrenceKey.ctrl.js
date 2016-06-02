@@ -43,6 +43,11 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     vm.markers = {};
     var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
+    vm.highlights = {
+        issues: {
+            expanded: false
+        }
+    };
     vm.tiles = {
         "name": "Outdoor",
         "url": "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,
@@ -69,6 +74,9 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             enable: [],
             logic: 'broadcast'
         }
+    };
+    vm.controls = {
+        scale: true
     };
 
     vm.paths =  {

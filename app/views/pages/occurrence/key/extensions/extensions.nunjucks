@@ -15,64 +15,64 @@
             {#</div>#}
             {#</div>#}
             {#</div>#}
+
+            {#<div class="col-xs-12">#}
+                {#<h2 class="h4">#}
+                    {#Extensions#}
+                {#</h2>#}
+            {#</div>#}
             <div class="col-xs-12">
-                <h2 class="h4">
-                    Extensions
-                </h2>
-            </div>
-            <div class="col-xs-12">
-                {% for name, extensions in occurrence.verbatim.extensions %}
-                    {% if extensions.length > 0 %}
-                    <h4 class="h5">{$ name | prettifyEnum $}</h4>
-                    <div {% if extensions.length >= 6 %}expand{% endif %} class="card card-table" expand-text="'Show all {$ extensions.length $}'" collapse-text="'Collapse'">
+                {% for name, fields in occurrence.usedExtensionFields %}
+                    <h3 class="h5">{$ name | prettifyEnum $}</h3>
+                    <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %} class="card card-table" expand-text="'Show all {$ extensions.length $}'" collapse-text="'Collapse'">
                         <div class="scrollable">
                             <table class="table table-extensions">
                                 <thead>
                                 <tr>
-                                    {% for term, value in extensions[0] %}
+                                    {% for term, value in occurrence.usedExtensionFields[name] %}
                                         <th>{$ term | prettifyEnum $}</th>
                                     {% endfor %}
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                {% if extensions.length < 6 %}
-                                    {% for extension in extensions %}
+                                {% if occurrence.verbatim.extensions[name].length < 6 %}
+                                    {% for extension in occurrence.verbatim.extensions[name] %}
                                         <tr>
-                                            {% for term, value in extension %}
-                                                <td style="min-width:{$ value | minTableWidth(1.4, 20) $}em">
-                                                    {% if value | isLink %}
-                                                        <a href="{$ value $}">{$ value $}</a>
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
                                                     {% else %}
-                                                        {$ value $}
+                                                       {$ extension[term] $}
                                                     {% endif %}
                                                 </td>
                                             {% endfor %}
                                         </tr>
                                     {% endfor %}
                                 {% else %}
-                                    {% for extension in extensions | limit(3) %}
+                                    {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
                                         <tr>
-                                            {% for term, value in extension %}
-                                                <td style="min-width:{$ value | minTableWidth(1.4, 20) $}em">
-                                                    {% if value | isLink %}
-                                                    <a href="{$ value $}">{$ value $}</a>
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                    <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
                                                     {% else %}
-                                                        {$ value $}
+                                                        {$ extension[term] $}
                                                     {% endif %}
                                                 </td>
                                             {% endfor %}
                                         </tr>
                                     {% endfor %}
 
-                                    {% for extension in extensions | slice(3) %}
-                                        <tr class="isCollapsable">
-                                            {% for term, value in extension %}
-                                                <td style="min-width:{$ value | minTableWidth(1.4, 20) $}em">
-                                                    {% if value | isLink %}
-                                                        <a href="{$ value $}">{$ value $}</a>
+                                    {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
+                                        <tr class="isCollapsable ng-cloak">
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
                                                     {% else %}
-                                                        {$ value $}
+                                                        {$ extension[term] $}
                                                     {% endif %}
                                                 </td>
                                             {% endfor %}
@@ -85,7 +85,7 @@
                             </table>
                         </div>
                     </div>
-                    {% endif %}
+
                 {% endfor %}
             </div>
         </div>

@@ -13,6 +13,7 @@
                     tiles="occurrence.tiles"
                     lf-center="occurrence.center"
                     event-broadcast="occurrence.mapEvents"
+                    controls="occurrence.controls"
             ></leaflet>
         </div>
     </section>
