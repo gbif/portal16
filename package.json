@@ -14,6 +14,7 @@
   "dependencies": {
     "angular": "^1.5.0",
     "angular-aria": "^1.5.5",
+    "angular-click-outside": "^1.1.1",
     "angular-hotkeys": "^1.7.0",
     "angular-leaflet-directive": "^0.10.0",
     "angular-moment": "^1.0.0-beta.6",
