@@ -204,7 +204,7 @@ var toggleMenu = function () {
         el.classList.remove('is-active');
     });
 
-    var searchAreaEl = document.getElementById('site_search');
+    var searchAreaEl = document.getElementById('site-search');
     searchAreaEl.classList.remove('is-active');
 };
 gb.util.addEventListenerAll(navToggleSelector, 'click', toggleMenu);
@@ -254,7 +254,7 @@ gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
         el.classList.toggle('is-active');
     });
 
-    var searchAreaEl = document.getElementById('site_search');
+    var searchAreaEl = document.getElementById('site-search');
     searchAreaEl.classList.toggle('is-active');
     searchAreaEl.querySelector('input').focus();
     closeMenus();
