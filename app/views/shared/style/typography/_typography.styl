@@ -42,7 +42,7 @@ $palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 
 $line-height-ratio = 1.42857143
 $header-ratio = $golden
 $body-font = $roboto
-$body-font-weight = 300
+$body-font-weight = normal
 $body-color = $gray-695
 $header-font = $roboto
 $header-font-weight = 300
@@ -117,9 +117,9 @@ grid-overlay($color = black, $px-offset = false)
 
 vr-block($units = 1, $px-offset = false)
     if $px-offset
-        return $units*$base-line-height + $px-offset
+        return $units * $base-line-height + $px-offset
     else
-        return $units*$base-line-height
+        return $units * $base-line-height
 
 /**
  * The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
