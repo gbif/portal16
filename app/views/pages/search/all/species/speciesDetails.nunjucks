@@ -166,7 +166,7 @@
                 </div>
 
                 {#{% if taxon.occurrences.count > 0 %}#}
-                    {#<div class="card__occurrences isCollapsable">#}
+                    {#<div class="card__occurrences is-collapsable">#}
 
                         {#{% if taxon.occurrences.count > 3 %}#}
                         {#<span>Showing 3 of <a href="//www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">{$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrences</a></span>#}
@@ -218,7 +218,7 @@
 
 
                 {#{% if taxon.images and taxon.images.count > 0 %}#}
-                    {#<div class="card__images isCollapsable">#}
+                    {#<div class="card__images is-collapsable">#}
                         {#<div>#}
                             {#{% if taxon.media and taxon.media.results.length > 0 %}#}
                                 {#<img src="http://api.gbif.org/v1/image?url={$taxon.media.results[0].identifier $}&size=S" onerror="this.style.display='none'">#}
@@ -239,7 +239,7 @@
                     {#</div>#}
                 {#{% endif %}#}
 
-                <div class="SearchResults__section__more isCollapsable">
+                <div class="SearchResults__section__more is-collapsable">
                     <a href="{$ gb.locales.urlPrefix $}/search?type=species&q={$ query $}">Search all<span class="l-only"> species</span></a>
                 </div>
 
