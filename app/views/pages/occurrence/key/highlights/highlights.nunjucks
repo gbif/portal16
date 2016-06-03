@@ -1,0 +1,65 @@
+<section class="block row discreet">
+    <div class="blockContent">
+
+        <div class="container-fluidx test">
+            <div class="rowx">
+                <div class="col-sm-6x">
+                    <ul class="propertyPairs">
+                        <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
+                        <li>
+                            <span>Location</span>:
+                                        <span>
+                                            {% if occurrence.record.country %}{$ occurrence.record.country $} {% endif %}
+                                            {% if occurrence.record.stateProvince %}{$ occurrence.record.stateProvince $} {% endif %}
+                                            {% if occurrence.record.county %}{$ occurrence.record.county $} {% endif %}
+                                            {% if occurrence.record.municipality %}{$ occurrence.record.municipality $} {% endif %}
+                                        </span>
+                        </li>
+                        <li><span>Basis of record</span>: <span>{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
+                        {% if occurrence.record.typeStatus %}
+                            <li><span>Specimen type</span>: <span>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-sm-6x">
+                    <ul class="propertyPairs">
+                        <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
+                        <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
+
+                        {% if occurrence.record.references | isDefined %}
+                        <li><span>Reference</span>:
+                            <span>
+                                {% if occurrence.record.references | isLink %}
+                                    <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
+                                {% else %}
+                                    {$ occurrence.record.references | truncate(50) $}
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+
+                        {% if occurrence.issueSummary | isDefined %}
+                            <li class="issue-summary">
+                                <span>Issues</span>:
+                                <span class="issue-summary__comapct" ng-class="{hide: occurrence.highlights.issues.expanded }" ng-click="occurrence.highlights.issues.expanded = true" title="Show description">
+                                    {% for type in ['ERROR', 'WARNING', 'INFO'] %}
+                                        <span class="badge badge--{$ type | lower $}">{$ occurrence.issueSummary[type].length $}</span>
+                                    {% endfor %}
+                                </span>
+                                <span class="issue-summary__list hide" ng-class="{hide: !occurrence.highlights.issues.expanded }">
+                                    {% for type in ['ERROR', 'WARNING', 'INFO'] %}
+                                        {% for issue in occurrence.issueSummary[type] %}
+                                            <span class="badge badge--{$ type | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </span>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

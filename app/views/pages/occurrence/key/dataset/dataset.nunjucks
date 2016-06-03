@@ -1,0 +1,35 @@
+<section class="block row discreet">
+    {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
+        <div class="blockContent container-fluid description">
+            <h2 class="h4">About the dataset</h2>
+            <div class="textContent {% if occurrence.dataset.description.length < 500 %} singleCol {% endif %}">
+                {$ occurrence.dataset.description | safe $}
+            </div>
+        </div>
+    {% endif %}
+    {#<footer class="blockContent container-fluid">#}
+    {#<div class="aux textContent">#}
+    {#<section class="associated noBreak">#}
+    {#<h5>Related GBIF resources</h5>#}
+    {#<ul class="list-links">#}
+    {#<li>abs lkjhs fhj</li>#}
+    {#<li>abs lkjhs fhj</li>#}
+    {#<li>abs lkjhs fhj</li>#}
+    {#<li>abs lkjhs fhj</li>#}
+    {#</ul>#}
+    {#</section>#}
+    {#Main contact: [the collector or the main contact for the containing dataset]#}
+
+    {#<ul>#}
+    {#<li>{$ occurrence.record.license $}</li>#}
+    {#<li>#}
+    {#<span class="gb-icon-cclogo3 cc"></span>#}
+    {#<span class="gb-icon-ccby cc"></span>#}
+    {#<span class="gb-icon-ccnc cc"></span>#}
+    {#<span class="gb-icon-ccsa cc"></span>#}
+    {#</li>#}
+    {#</ul>#}
+
+    {#</div>#}
+    {#</footer>#}
+</section>

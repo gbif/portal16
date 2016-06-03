@@ -1,7 +1,9 @@
 "use strict";
 var Q = require('q'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
+    getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
+    occurrencIssues = require('./issues'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
@@ -75,51 +77,21 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
     };
 }
 
-function getFieldsWithIssues(occurrenceIssues, remarks) {
-    let fieldsWithRemarks = {};
-    occurrenceIssues.forEach(function(issue) {
-        remarks[issue].relatedSimpleTerms.forEach(function(term){
-            fieldsWithRemarks[term] = fieldsWithRemarks[term] || [];
-            fieldsWithRemarks[term].push({
-                type: issue,
-                severity: remarks[issue].severity
-            });
+function getUsedExtensionTerms(verbatim) {
+    var used = {};
+    if (verbatim.extensions) {
+        Object.keys(verbatim.extensions).forEach(function(extensionType){
+            if (verbatim.extensions[extensionType].length > 0) {
+                used[extensionType] = {};
+                verbatim.extensions[extensionType].forEach(function(extension){
+                    Object.keys(extension).forEach(function(field) {
+                        used[extensionType][field] = true;
+                    });
+                });
+            }
         });
-    });
-
-    return fieldsWithRemarks;
-}
-
-function getFieldsWithDifferences(interpreted, verbatim, terms) {
-    let fieldsWithDifferences = {};
-    terms.forEach(function(term) {
-        let i = '' + interpreted[term.simpleName] || '',
-            v = '' + verbatim[term.qualifiedName] || '';
-        if (i.toLowerCase().replace(/_/g, '') != v.toLowerCase().replace(/_/g, '')) {
-            fieldsWithDifferences[term.simpleName] = true;
-        }
-    });
-
-    return fieldsWithDifferences;
-}
-
-function getMostSevereType(occurrenceIssues, remarks) {
-    occurrenceIssues = occurrenceIssues || [];
-    var worstIssue = {};
-    var REMARK_SEVERITY = Object.freeze({
-        INFO: 0,
-        WARNING: 1,
-        ERROR: 2
-    });
-    for (var i = 0; i < occurrenceIssues.length; i++) {
-        let remark = remarks[occurrenceIssues[i]];
-        let severity = REMARK_SEVERITY[remark.severity];
-        if (typeof worstIssue.severity === 'undefined' || (remark && severity > REMARK_SEVERITY[worstIssue.severity]) ) {
-            worstIssue = remark;
-        }
     }
-
-    return worstIssue.severity;
+    return used;
 }
 
 
@@ -139,10 +111,12 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.computedFields = {
             title: getTitle(occurrence, __)
         };
+        occurrence.annotation = getAnnotation(occurrence.record);
         occurrence.terms = getUsedOccurrenceCoreTerms(occurrence, occurrenceMeta.terms);
-        occurrence.issues = getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);
-        occurrence.mostSeveryType = getMostSevereType(occurrence.record.issues, occurrenceMeta.remarks);
-        occurrence.fieldsWithDifferences = getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
+        occurrence.issues = occurrencIssues.getFieldsWithIssues(occurrence.record.issues, occurrenceMeta.remarks);
+        occurrence.issueSummary = occurrencIssues.getSummary(occurrence.record.issues, occurrenceMeta.remarks);
+        occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
+        occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
         deferred.resolve(occurrence);
     }, function(err){
         deferred.reject(new Error(err));

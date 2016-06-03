@@ -1,5 +1,6 @@
 var glob = require('glob'),
     format = require('../helpers/format'),
+    _ = require('lodash'),
     path = require('path');
 
 module.exports = function(nunjucksConfiguration, config) {
@@ -22,7 +23,7 @@ module.exports = function(nunjucksConfiguration, config) {
 
     (function() {
         nunjucksConfiguration.addFilter('slice', function(data, start, amount) {
-            return data && data.constructor === Array ? data.slice(start, amount) : undefined;
+            return data && (data.constructor === Array || typeof(data) === 'string') ? data.slice(start, amount) : undefined;
         });
     })();
 
@@ -48,6 +49,53 @@ module.exports = function(nunjucksConfiguration, config) {
             return typeof data !== 'undefined';
         });
     })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isNotEmpty', function(data) {
+            return !_.isEmpty(data);
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('isLink', function(data) {
+            if (!data) {
+                return false;
+            }
+            var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+            var regex = new RegExp(expression);
+            return !!data.toString().match(regex);
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('truncateMiddle', function(data, len) {
+            if (!data) {
+                return false;
+            }
+            data = data.toString();
+            if (data.length < len) {
+                return data;
+            }
+            return data.slice(0,10) + '...' + data.slice(data.length-10)
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('minTableWidth', function(data, div, max) {
+            div = div || 1,
+                max = max || 200;
+            if (!data) {
+                return 0;
+            }
+            return Math.round(Math.min(max, data.toString().length / div));
+        });
+    })();
+
+
 
     /**
     DEPRECATED

@@ -1,0 +1,94 @@
+{% if occurrence.verbatim.extensions | isNotEmpty %}
+<section class="block row extensions bare">
+    <div class="blockContent container-fluid">
+        <div class="row">
+            {#<div>#}
+            {#<div class="multiToggle">#}
+            {#<div type="button" aria-label="All" class="isActive" focus="0"#}
+            {#ng-click="occurrence.table.filter = undefined"#}
+            {#ng-class="{isActive: occurrence.table.filter == undefined}">All</div>#}
+            {#<div type="button" aria-label="Event"#}
+            {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
+            {#ng-click="occurrence.table.filter = category"#}
+            {#ng-class="{isActive: occurrence.table.filter == category}">#}
+            {#{{ category }}#}
+            {#</div>#}
+            {#</div>#}
+            {#</div>#}
+
+            {#<div class="col-xs-12">#}
+                {#<h2 class="h4">#}
+                    {#Extensions#}
+                {#</h2>#}
+            {#</div>#}
+            <div class="col-xs-12">
+                {% for name, fields in occurrence.usedExtensionFields %}
+                    <h3 class="h5">{$ name | prettifyEnum $}</h3>
+                    <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %} class="card card-table" expand-text="'Show all {$ extensions.length $}'" collapse-text="'Collapse'">
+                        <div class="scrollable">
+                            <table class="table table-extensions">
+                                <thead>
+                                <tr>
+                                    {% for term, value in occurrence.usedExtensionFields[name] %}
+                                        <th>{$ term | prettifyEnum $}</th>
+                                    {% endfor %}
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% if occurrence.verbatim.extensions[name].length < 6 %}
+                                    {% for extension in occurrence.verbatim.extensions[name] %}
+                                        <tr>
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                    {% else %}
+                                                       {$ extension[term] $}
+                                                    {% endif %}
+                                                </td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
+                                        <tr>
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                    <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                    {% else %}
+                                                        {$ extension[term] $}
+                                                    {% endif %}
+                                                </td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+
+                                    {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
+                                        <tr class="isCollapsable ng-cloak">
+                                            {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
+                                                    {% if extension[term] | isLink %}
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                    {% else %}
+                                                        {$ extension[term] $}
+                                                    {% endif %}
+                                                </td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

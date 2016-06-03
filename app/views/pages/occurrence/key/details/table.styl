@@ -34,6 +34,9 @@
 	}
 }
 .occurrenceKey__table {
+	.table__detail {
+		display none
+	}
 	&.isExpanded {
 		.buttonExpand {
 			.buttonExpand__headline {
@@ -53,6 +56,9 @@
 				display block
 				margin-bottom -1rem
 			}
+		}
+		.table__detail {
+			display table-cell
 		}
 	}
 
@@ -94,11 +100,14 @@
 
 .occurrenceKey__table {
 	.wrapper {
-		display none
+		//display none
+		max-width 400px
+		transition max-width 300ms ease
 	}
 	&.isExpanded {
 		.wrapper {
 			display block
+			max-width 1000px
 		}
 	}
 
@@ -186,4 +195,14 @@
 	@extend .issue
 	background #ccc
 	color #555
+}
+
+
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+.ng-cloak, [data-ng-cloak] {
+	display: none !important;
 }

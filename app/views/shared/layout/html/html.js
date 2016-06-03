@@ -54,6 +54,8 @@ require('../../../pages/dataset/datasetDetailsContactPopup.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
+require('../../../components/expand/expand.directive');
+require('../../../components/shorten/shorten.directive');
 
 
 

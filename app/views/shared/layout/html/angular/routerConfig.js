@@ -23,7 +23,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key&kingdomKey.facetLimit',
+            url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key&datasetKey&kingdomKey.facetLimit',
             views: {
                 main: {
                     templateUrl: '/templates/pages/occurrence/occurrence.html',
@@ -63,6 +63,7 @@ function routerConfig($stateProvider, $locationProvider) {
         rewriteLinks: false
     });
 }
+
 
 module.exports = routerConfig;
 

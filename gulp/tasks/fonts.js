@@ -31,7 +31,7 @@ function buildFont() {
     return gulp.src(config.iconfont.paths)
         .pipe(g.iconfont({
             fontName: 'gbificons', // required 
-            appendUnicode: true, // recommended option - adds unicode to the filename
+            prependUnicode: true, // recommended option - adds unicode to the filename
             formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available 
             timestamp: runTimestamp, // recommended to get consistent builds when watching files 
             normalize: true,

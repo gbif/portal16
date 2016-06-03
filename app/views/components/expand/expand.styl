@@ -1,0 +1,57 @@
+.expandable-area {
+	.card__expand {
+		$_buttonSize = vr-block(1.5)
+		position relative
+		background rgba(0,0,0,0.02)
+		padding-bottom vr-block(0.25)
+		a {
+			text-decoration none
+		}
+		> a {
+			margin auto
+			display block
+			font-size $_buttonSize
+			color white
+			top - ( $_buttonSize/ 2 )
+			width $_buttonSize
+			height $_buttonSize
+			line-height $_buttonSize
+			text-align center
+			border-radius 50%
+			background #9EA4A5
+			position relative
+			margin-bottom - ( $_buttonSize/ 2 )
+			&:before {
+				font-weight bold
+			}
+		}
+		> span {
+			display block
+			margin auto
+			text-align center
+			font-size 12px
+			color #999
+			a:hover {
+				text-decoration underline
+			}
+		}
+	}
+}
+
+.expandable-area {
+	.isExpandable {
+		display none
+	}
+	&.isCollapsed {
+		.isCollapsable {
+			display none
+		}
+		.isExpandable {
+			display block
+		}
+	}
+}
+
+.scrollable {
+	overflow auto
+}

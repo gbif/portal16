@@ -1,0 +1,64 @@
+{% for group in occurrence.terms.usedGroups %}
+    <section class="term-block noBreak isCollapsed" ng-class="{ isExpanded: !occurrence.hideDetails, isCollapsed: occurrence.hideDetails }">
+        <div class="term-block__header">
+            <h3 class="h4">{$ group $}</h3>
+        </div>
+        <div class="term-block__terms">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Interpreted</th>
+                        <th ng-show="!occurrence.hideDetails">Original</th>
+                        <th ng-show="!occurrence.hideDetails">Issues</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% for term in occurrence.terms.groups[group] %}
+                    {# only show if the interpreted version has data. #}
+                    <tr {% if occurrence.record[term.simpleName] | isUndefined %}ng-if="!occurrence.hideDetails" data-ng-cloak="true" {% endif %} {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
+                        <td>
+                            {$ __('ocurrenceFieldNames.' + term.simpleName) $}
+                            {#{% if occurrence.issues[term.simpleName] %}#}
+                                {#<span class="badge issue--error">!</span>#}
+                            {#{% endif %}#}
+                        </td>
+                        <td>
+                            <div>
+                            {% if occurrence.record[term.simpleName] | isLink %}
+                                <a href="{$ occurrence.record[term.simpleName] $}">{$ occurrence.record[term.simpleName] | truncate(80) $}</a>
+                            {% else %}
+                                {$ occurrence.record[term.simpleName] $}
+                            {% endif %}
+                            </div>
+                        </td>
+                        <td class="ng-cloak" ng-show="!occurrence.hideDetails">
+
+                            {% if occurrence.verbatim[term.qualifiedName] | isLink %}
+                                <a href="{$ occurrence.verbatim[term.qualifiedName] $}">{$ occurrence.verbatim[term.qualifiedName] | truncate(80) $}</a>
+                            {% elif occurrence.verbatim[term.qualifiedName].length > 300 %}
+                            <div shorten class="shorten">
+                                <span>{$ occurrence.verbatim[term.qualifiedName] | slice(0,200) $}</span><span class="shorten__collapsable">{$ occurrence.verbatim[term.qualifiedName] | slice(200) $}</span>
+                            </div>
+                            {% else %}
+                                {$ occurrence.verbatim[term.qualifiedName] $}
+                            {% endif %}
+                        </td>
+                        <td class="ng-cloak" ng-show="!occurrence.hideDetails">
+                            {% if occurrence.issues[term.simpleName] %}
+                                {% for issue in occurrence.issues[term.simpleName] %}
+                                    <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                {% endfor %}
+                            {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
+                                <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endfor %}

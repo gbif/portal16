@@ -185,7 +185,6 @@ function getData(query, cb) {
 
 
 function search(q, cb) {
-    console.log('SEARCH STRING ' + q);
     getData(q, function(err, results){
 
         //console.log('RESULTS');

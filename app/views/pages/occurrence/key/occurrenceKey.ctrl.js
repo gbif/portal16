@@ -18,13 +18,16 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $firebaseArray) {
+function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $firebaseArray, $anchorScroll, $location, hotkeys) {
     var vm = this;
     vm.comments;
     vm.detailsStates = {
         INTERPRETED: 0,
         COMPARE: 1,
         DIFF: 2
+    };
+    vm.mediaExpand = {
+        isExpanded: false
     };
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
@@ -40,6 +43,11 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     vm.markers = {};
     var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
+    vm.highlights = {
+        issues: {
+            expanded: false
+        }
+    };
     vm.tiles = {
         "name": "Outdoor",
         "url": "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,
@@ -67,6 +75,9 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             logic: 'broadcast'
         }
     };
+    vm.controls = {
+        scale: true
+    };
 
     vm.paths =  {
 
@@ -93,6 +104,31 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         if (!vm.table.filter || groupName == vm.table.filter) return true;
         return false;
     };
+
+    vm.gotoCoreDetails = function() {
+        document.getElementById('occurrence-core-details').classList.add('isExpanded');
+        vm.hideDetails = false;
+        vm.scrollTo('occurrence-core-details');
+
+    };
+
+    vm.scrollTo = function(id) {
+        $location.hash(id);
+        $anchorScroll();
+    };
+
+    if ($location.hash() == 'occurrence-core-details') {
+        vm.gotoCoreDetails();
+    }
+
+    hotkeys.add({
+        combo: 'alt+d',
+        description: 'Show record details',
+        callback: function() {
+            vm.hideDetails = !vm.hideDetails;
+            vm.expandMore = false;
+        }
+    });
 
     vm.setData = function() {
         //TODO find a better way to parse required data to controller from server without seperate calls
@@ -134,35 +170,36 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     //function getElevation(lat, lng) {
     //    var n, s, e, w, dist = 0.05;
     //    if (lat && lng) {
-    //        //n = lat + dist;
-    //        //s = lat - dist;
-    //        //e = lat + dist;
-    //        //w = lat - dist;
-    //        //var query = {
-    //        //    shape: [
-    //        //        {
-    //        //            lat: n, lon: lng
-    //        //        },
-    //        //        {
-    //        //            lat: s, lon: lng
-    //        //        }
-    //        //    ],
-    //        //    range: true,
-    //        //    resample_distance: 50
-    //        //};
+    //        n = lat + dist;
+    //        s = lat - dist;
+    //        e = lat + dist;
+    //        w = lat - dist;
+    //        var query = {
+    //            shape: [
+    //                {
+    //                    lat: n, lon: lng
+    //                },
+    //                {
+    //                    lat: s, lon: lng
+    //                }
+    //            ],
+    //            range: true,
+    //            resample_distance: 50
+    //        };
     //
-    //        // var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
-    //        // $http.get(elevationApi).then(
-    //        //     function(response){
-    //        //         vm.barData.series[0] = response.data.range_height.map(function(e){
-    //        //             return e[1];
-    //        //         });
-    //        //     },
-    //        //     function(){
-    //        //         //console.log("error " + error);
-    //        //         //TODO handler errors from api
-    //        //     }
-    //        // );
+    //         var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
+    //         $http.get(elevationApi).then(
+    //             function(response){
+    //                 console.log(response.data);
+    //                 //vm.barData.series[0] = response.data.range_height.map(function(e){
+    //                 //    return e[1];
+    //                 //});
+    //             },
+    //             function(){
+    //                 //console.log("error " + error);
+    //                 //TODO handler errors from api
+    //             }
+    //         );
     //    }
     //}
 
@@ -186,7 +223,8 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             lat: data.decimalLatitude,
             lng: data.decimalLongitude
         };
-        if (data.coordinateAccuracyInMeters > 50) {
+
+        if (data.coordinateUncertaintyInMeters > 50) {
             vm.paths.c1 = {
                 weight: 2,
                 color: '#ff612f',
@@ -194,11 +232,10 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
                     lat: data.decimalLatitude,
                     lng: data.decimalLongitude
                 },
-                radius: data.coordinateAccuracyInMeters/2,
+                radius: data.coordinateUncertaintyInMeters/2,
                 type: 'circle'
             };
         }
-
         //set static marker
         leafletData.getMap('occurrenceMap').then(function(map) {
             //find similar records (same species, same time, same area). This gives context and can tell us whether there are possible duplicates or several people reporting the same individual

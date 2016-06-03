@@ -1,0 +1,73 @@
+.block-options {
+	z-index 20
+	display block
+	position absolute
+	right 0
+	top 0
+	margin -.5rem 1rem 0 0
+	.block-options__menu {
+		color #888
+		border-radius 50%
+		width 1.7rem
+		height 1.7rem
+		display inline-block
+		text-align center
+		font-size 14px
+		line-height 1.7rem
+	}
+	.block-options__dropdown {
+		position absolute
+		display none
+		right 1rem
+		top 1rem
+		width 180px
+		background white
+		box-shadow 0 1px 2px rgba(0,0,0,0.3)
+		ul {
+			padding 0.5rem 0
+			li {
+				padding 2px 5px
+				&:hover {
+					background #eee
+					cursor pointer
+				}
+				a {
+					display block
+				}
+				&.seperator {
+					border-top 1px solid #eee
+				}
+			}
+		}
+	}
+	&.isExpanded {
+		.block-options__menu {
+			background #eee
+		}
+		.block-options__dropdown {
+			display block
+		}
+	}
+	.block-options__help {
+		display none
+		color #ccc
+	}
+	&:hover {
+		.block-options__help {
+			display inline
+		}
+	}
+}
+a[href=""] {
+	color inherit
+	text-decoration none
+}
+.blockContent {
+	position relative
+}
+//.block:hover {
+	.block-options__menu:hover {
+		background #eee//#4e565f
+		//color white
+	}
+//}

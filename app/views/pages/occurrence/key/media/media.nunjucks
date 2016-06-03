@@ -1,8 +1,11 @@
 {% if occurrence.record.media.length > 0 %}
-<section class="block row discreet">
-    <div class="container-fluid">
-
-        <div class="occurrenceMedia {% if occurrence.record.media.length > 5 %} occurrenceMedia-wide {% endif %}">
+<section class="block row discreet"
+    {% if occurrence.record.media.length > 5 %}
+        expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrence.mediaExpand"
+        {% endif %}
+>
+    <div>
+        <div class="occurrenceMedia {% if occurrence.record.media.length >= 5 %} occurrenceMedia-wide {% endif %}">
             {% for media in occurrence.record.media | limit(5) %}
                 <div class="card">
                     <figure class="card__content">
@@ -11,35 +14,31 @@
                         </div>
                         <figcaption>
                             <div class="summary">
-                                {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
+                                {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
                                     {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
-                                            <dd>{$ media[field] $}</dd>
+                                            {% if media[field] | isLink %}
+                                                <dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>
+                                            {% else %}
+                                                <dd>{$ media[field] $}</dd>
+                                            {% endif %}
                                         </div>
                                     {% endif %}
                                 {% endfor %}
-                                {% if media.references %}
-                                    <div>
-                                        <dt>reference</dt>
-                                        <dd><a href="{$ media.references $}">{$ media.references | truncate(30) $}</a></dd>
-                                    </div>
-                                {% endif %}
-                                <div>
-                                    <dt>license</dt>
-                                    <dd>
-                                        <a href="link-to-license">CC-BY</a>
-                                    </dd>
-                                </div>
                             </div>
                             <a href="" ng-click="occurrence.mediaItems.m{$ loop.index $} = true" ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
                             <div class="details" ng-class="{show: occurrence.mediaItems.m{$ loop.index $} }">
                                 <dl>
-                                    {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
+                                    {% for field in ['identifier', 'created', 'contributor', 'rightsHolder', 'datasetID'] %}
                                         {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
-                                            <dd>{$ media[field] $}</dd>
+                                            {% if media[field] | isLink %}
+                                                <dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>
+                                            {% else %}
+                                                <dd>{$ media[field] $}</dd>
+                                            {% endif %}
                                         </div>
                                         {% endif %}
                                     {% endfor %}
@@ -53,11 +52,11 @@
         </div>
 
         {% if occurrence.record.media.length > 5 %}
-        <p class="small text-center" ng-if="!occurrence.showAllImages"><a class="action discreet" href="" ng-click="occurrence.showAllImages=true">Show all {$ occurrence.record.media.length $} images</a></p>
+        {#<p class="small text-center" ng-if="!occurrence.mediaExpand.isExpanded"><a class="action discreet" href="" ng-click="occurrence.showAllImages=true">Show all {$ occurrence.record.media.length $} images</a></p>#}
 
-        <div class="occurrenceMedia occurrenceMedia-wide">
+        <div class="occurrenceMedia occurrenceMedia-wide ng-cloak">
             {% for media in occurrence.record.media | slice(5) %}
-                <div class="card" ng-if="occurrence.showAllImages" ng-class="{isShown:occurrence.showAllImages}">
+                <div class="card" ng-if="occurrence.mediaExpand.isExpanded" ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
                     <figure class="card__content">
                         <div class="imgContainer">
                             <img ng-src="//api.gbif.org/v1/image?url={$ media.identifier $}&size=M" onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
