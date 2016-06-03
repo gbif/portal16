@@ -1,4 +1,4 @@
-<aside class="isLockedX siteDrawer" id="filter">
+<aside class="site-drawer is-locked-x" id="filter">
     <div>
         <h2>Filter</h2>
         <div class="form-group">
@@ -15,9 +15,9 @@
 
                 <!--<taxon-explore></taxon-explore>-->
 
-                <div class="siteDrawer__sub" ng-show="!occurrence.hide">
+                <div class="site-drawer__sub" ng-show="!occurrence.hide">
                     <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
-                    <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{isActive: $index==occurrence.suggest.activeIndex}">
+                    <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{is-active: $index==occurrence.suggest.activeIndex}">
                         {{suggestion.canonicalName}}
                     </div>
                 </div>
@@ -29,14 +29,14 @@
 
 </aside>
 
-<div class="siteContent">
+<div class="site-content">
     <div class="page">
-        <div class="occurrenceSearchResults">
+        <div class="occurrence-search-results">
             <div class="tabBar">
                 <div class="tabs">
-                    <a ui-sref="occurrenceSearchTable()" ng-class="{isActive: occurrence.state.current.name=='occurrenceSearchTable'}">Table</a>
-                    <a ui-sref="occurrenceSearchMap()" ng-class="{isActive: occurrence.state.current.name=='occurrenceSearchMap'}">Map</a>
-                    <a ui-sref="occurrenceSearchGallery()" ng-class="{isActive: occurrence.state.current.name=='occurrenceSearchGallery'}">Gallery</a>
+                    <a ui-sref="occurrenceSearchTable()" ng-class="{is-active: occurrence.state.current.name=='occurrenceSearchTable'}">Table</a>
+                    <a ui-sref="occurrenceSearchMap()" ng-class="{is-active: occurrence.state.current.name=='occurrenceSearchMap'}">Map</a>
+                    <a ui-sref="occurrenceSearchGallery()" ng-class="{is-active: occurrence.state.current.name=='occurrenceSearchGallery'}">Gallery</a>
                 </div>
             </div>
 

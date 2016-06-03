@@ -442,5 +442,20 @@
 		"verbatimLongitude": "verbatim longitude",
 		"scientificNameAuthorship": "scientific name authorship",
 		"undefined": "unknown field"
+	},
+	"occurrence": {
+		"title": {
+			"unknownLocation": "occurrence.title.unknownLocation",
+			"inCountry": "occurrence.title.inCountry",
+			"verb": {
+				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION",
+				"PRESERVED_SPECIMEN": "occurrence.title.verb.PRESERVED_SPECIMEN"
+			}
+		},
+		"occurrence": "occurrence.occurrence"
+	},
+	"date": {
+		"synced": "date.synced",
+		"modified": "date.modified"
 	}
 }

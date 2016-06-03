@@ -10,7 +10,7 @@ siteHeaderbar() {
 
 
 //navigation layout
-.SiteNav {
+.site-nav {
 	position absolute
 	top 0
 	overflow-y auto
@@ -28,7 +28,7 @@ siteHeaderbar() {
 		left -($drawer-width)
 	}
 
-	.siteCanvas {
+	.site-canvas {
 		transition: left 500ms ease;
 		position relative
 		width 100%
@@ -46,12 +46,12 @@ siteHeaderbar() {
 }
 
 +isAbove($laptop) {
-	.SiteHeader {
+	.site-header {
 		display none
 	}
-	.SiteNav {
-		&.isExpanded {
-			>div>ul>li.isCategory.isExpanded>a {
+	.site-nav {
+		&.is-expanded {
+			>div>ul>li.is-category.is-expanded>a {
 				position relative
 				&:after {
 					position absolute
@@ -75,7 +75,7 @@ siteHeaderbar() {
 				menuTextShadow()
 			}
 			display inline-block
-			&.isCategory {
+			&.is-category {
 				> ul {
 					top $navbar_height
 					background $navbar_dropdown_bg
@@ -94,7 +94,7 @@ siteHeaderbar() {
 						}
 					}
 				}
-				/*&.isExpanded {*/
+				/*&.is-expanded {*/
 					/*>a {*/
 						/*position relative*/
 						/*&:after {*/
@@ -109,7 +109,7 @@ siteHeaderbar() {
 				/*}*/
 
 
-				&.isMega {
+				&.is-mega {
 					> ul {
 						left 0
 						right 0
@@ -128,7 +128,7 @@ siteHeaderbar() {
 				}
 			}
 		}
-		.ServiceMenu {
+		.service-menu {
 			>ul>li {
 				position relative
 				>ul {
@@ -136,7 +136,7 @@ siteHeaderbar() {
 				}
 			}
 		}
-		.MainMenu {
+		.main-menu {
 			display relative
 			>ul, >a {
 				float left
@@ -176,13 +176,13 @@ siteHeaderbar() {
 
 //mobile navigation content
 +isBelow($laptop) {
-	.SiteNav{
+	.site-nav{
 		//set base colors
 		background $nav_drawer_bg
 		color $nav_drawer_color
 		
 		//all list items should have the same padding
-		li>a, .MainMenu>a {
+		li>a, .main-menu>a {
 			display block
 			padding vr-block(0.5) vr-block(1) vr-block(0.5) vr-block(2)
 			line-height vr-block(1)
@@ -204,7 +204,7 @@ siteHeaderbar() {
 				}
 				
 				//add an overlay instead of dark color since background changes
-				&:hover, &.isActive {
+				&:hover, &.is-active {
 					background-color rgba(0,0,0,0.15)
 					/*color lighten($nav_drawer_color, 50%)*/
 				}
@@ -225,7 +225,7 @@ siteHeaderbar() {
 				
 			}
 			li {
-				&.isCategory {
+				&.is-category {
 					>a {
 						&:after {
 							content '+'
@@ -240,7 +240,7 @@ siteHeaderbar() {
 						max-height 0
 						overflow hidden
 					}
-					&.isExpanded {
+					&.is-expanded {
 						>a {
 							&:after {
 								content '–'
@@ -258,7 +258,7 @@ siteHeaderbar() {
 }
 //nav content continues
 +isAbove($laptop) {
-	.SiteNav {
+	.site-nav {
 		siteHeaderbar()
 	}
 }
@@ -268,13 +268,13 @@ siteHeaderbar() {
 //navigation interaction
 
 +isBelow($laptop) {
-	.SiteNav .isCategory > ul {
+	.site-nav .is-category > ul {
 		max-height 0
 		overflow hidden
 		margin 0
 	}
 
-	.SiteNav .isCategory.isExpanded {
+	.site-nav .is-category.is-expanded {
 		> ul {
 			transition: max-height 500ms ease;
 			max-height 500px
@@ -283,19 +283,19 @@ siteHeaderbar() {
 }
 
 +isAbove($laptop) {
-	.SiteNav .isCategory > ul {
+	.site-nav .is-category > ul {
 		display none
 	}
-	.SiteNav>.ServiceMenu> ul {
+	.site-nav>.service-menu> ul {
 		display block
 	}
 
-	.SiteNav.isExpanded .isCategory.isExpanded {
+	.site-nav.is-expanded .is-category.is-expanded {
 		> ul {
 			display block
 		}
 	}
-	/*.SiteNav--collapseMenu .isCategory.isExpanded {*/
+	/*.site-nav--collapseMenu .is-category.is-expanded {*/
 		/*> ul {*/
 			/*display none*/
 		/*}*/
@@ -320,7 +320,7 @@ actionIcon(){
 		margin-top vr-block(1)
 	}
 }
-a.actionIcon {
+a.action-icon {
 	actionIcon()
 }
 
@@ -331,8 +331,8 @@ a.actionIcon {
 
 //service menu
 +isBelow($laptop) {
-	.ServiceMenu {
-		.ServiceMenu__teaser {
+	.service-menu {
+		.service-menu__teaser {
 			>a {
 				display block
 				height 100%
@@ -343,7 +343,7 @@ a.actionIcon {
 			background url("/img/moth_pattern1.jpg")
 			background-size cover
 			position relative
-			.ServiceMenu__teaser__message {
+			.service-menu__teaser-message {
 				line-height vr-block(1.5)
 				padding 0 vr-block(0.5)
 				font-size (100 /$major-second) %
@@ -361,8 +361,8 @@ a.actionIcon {
 			}
 		}
 		//interaction
-		&.isExpanded {
-			.ServiceMenu__teaser__message:after {
+		&.is-expanded {
+			.service-menu__teaser-message:after {
 				content '-'
 			}
 		}
@@ -370,11 +370,11 @@ a.actionIcon {
 }
 
 //only beacuse ther isn't a js service to load user and such yet.
-$ServiceMenu_teaser_pos_r = vr-block(0.5);
+$service-menu_teaser_pos_r = vr-block(0.5);
 @keyframes fadeInOut {
 	0% {
 		opacity: 0;
-		right $ServiceMenu_teaser_pos_r
+		right $service-menu_teaser_pos_r
 	}
 	20% {
 		opacity: 0;
@@ -386,7 +386,7 @@ $ServiceMenu_teaser_pos_r = vr-block(0.5);
 		opacity: 1;
 	}
 	90% {
-		right $ServiceMenu_teaser_pos_r
+		right $service-menu_teaser_pos_r
 	}
 	100% {
 		opacity: 0;
@@ -395,13 +395,13 @@ $ServiceMenu_teaser_pos_r = vr-block(0.5);
 }
 
 +isAbove($laptop) {
-	.ServiceMenu {
+	.service-menu {
 		position absolute
 		right 0
 		li {
 			display inline-block
 		}
-		.ServiceMenu__teaser {
+		.service-menu__teaser {
 			display none //TODO what to do with this if anything at all
 			position absolute
 			top vr-block(3.5)
@@ -422,8 +422,8 @@ $ServiceMenu_teaser_pos_r = vr-block(0.5);
 
 //can there be multilayer menu and push on desktop
 +isBelow($laptop) {
-	.ServiceMenu{
-		.ServiceMenu__search {
+	.service-menu{
+		.service-menu__search {
 			display none
 		}
 	}
@@ -442,7 +442,7 @@ $ServiceMenu_teaser_pos_r = vr-block(0.5);
 				content 'back '
 			}
 		}
-		&.isActive {
+		&.is-active {
 			left 0%
 		}
 	}
@@ -466,7 +466,7 @@ $ServiceMenu_teaser_pos_r = vr-block(0.5);
 				}
 			}
 		}
-		&.isActive > ul {
+		&.is-active > ul {
 			right 0px
 		}
 	}
@@ -507,14 +507,15 @@ main {
 	}
 }
 
-.siteContent {
+.site-content {
 	background $content_bg
 	position relative //to be pushable by the filter drawer
 	overflow hidden
 	transition: right 500ms ease;
 }
+
 +isBelow($laptop) {
-	.siteContent {
+	.site-content {
 		height: 100%
 		right 0 //to make the transitition smooth we need a starting position
 		
@@ -548,7 +549,7 @@ main {
 
 //use sibling elements
 
-.siteDrawer {
+.site-drawer {
 	right 0
 	width $filterDrawerWidth
 	position absolute
@@ -565,7 +566,7 @@ main {
 		-webkit-overflow-scrolling touch
 	}
 	&:target {
-		~ .siteContent {
+		~ .site-content {
 			right $filterDrawerWidth
 			overflow hidden
 		}
@@ -578,15 +579,15 @@ forceShowDrawer() {
 	transition initial
 	left 0
 	overflow visible
-	~ .siteContent {
+	~ .site-content {
 		padding-left $filterDrawerWidth
 	}
-	&:target ~ .siteContent {
+	&:target ~ .site-content {
 		left 0
 	}
 }
 +isAbove($laptop) {
-	.siteDrawer {
+	.site-drawer {
 		z-index 20
 		right initial
 		left -($filterDrawerWidth)
@@ -596,7 +597,7 @@ forceShowDrawer() {
 		&:target {
 			right initial
 			left 0
-			/*~ .siteContent {*/
+			/*~ .site-content {*/
 				/*right initial*/
 				/*left $drawer-width*/
 			/*}*/
@@ -605,13 +606,13 @@ forceShowDrawer() {
 			forceShowDrawer()
 		}
 	}
-	.siteContent {
+	.site-content {
 		transition: left 500ms ease;
 		left 0
 	}
 }
 +isAbove($desktop) {
-	.siteDrawer {
+	.site-drawer {
 		forceShowDrawer()
 	}
 }

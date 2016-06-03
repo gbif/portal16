@@ -21,7 +21,7 @@
                     {#<div class="tabs">#}
                         {#{% for taxon in results.taxaMatches %}#}
                             {#<a class="tab"#}
-                               {#href="" ng-class="{isActive: search.selectedTaxonId == '{$ taxon.info.key $}'}"#}
+                               {#href="" ng-class="{is-active: search.selectedTaxonId == '{$ taxon.info.key $}'}"#}
                                {#ng-click="search.selectedTaxonId = '{$ taxon.info.key $}'">#}
                                 {#<span class="gb-icon-animalia"></span>#}
                                 {#{$ taxon.info.scientificName $}#}
@@ -77,7 +77,7 @@
                     <div class="tabs">
                         {% for taxon in results.taxaMatches %}
                             <a class="tab"
-                               href="" ng-class="{isActive: search.selectedTaxonId == '{$ taxon.info.key $}'}"
+                               href="" ng-class="{is-active: search.selectedTaxonId == '{$ taxon.info.key $}'}"
                                ng-click="search.selectedTaxonId = '{$ taxon.info.key $}'">
                                 <span class="gb-icon-{$ taxon.info.kingdom | lower() $}"></span>
                                 {$ taxon.info.scientificName $}

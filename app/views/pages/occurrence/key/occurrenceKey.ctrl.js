@@ -106,7 +106,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     };
 
     vm.gotoCoreDetails = function() {
-        document.getElementById('occurrence-core-details').classList.add('isExpanded');
+        document.getElementById('occurrence-core-details').classList.add('is-expanded');
         vm.hideDetails = false;
         vm.scrollTo('occurrence-core-details');
 

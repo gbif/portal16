@@ -1,7 +1,7 @@
 <section class="block row">
     <div class="blockContent container-fluid">
         <div class="row">
-            <div class="block-options" ng-class="{isExpanded: occurrence.expandMore}">
+            <div class="block-options" ng-class="{is-expanded: occurrence.expandMore}">
                 <a class="block-options__help small" href="" ng-click="occurrence.expandMore = !occurrence.expandMore">more</a>
                 <a href="" class="gb-icon-more2 block-options__menu" ng-click="occurrence.expandMore = !occurrence.expandMore"></a>
                 <div class="block-options__dropdown">

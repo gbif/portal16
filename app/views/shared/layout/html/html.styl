@@ -1,4 +1,4 @@
-.site-wrapper {
+html, body, .site-wrapper {
     height 100%
     width 100%
     overflow-x hidden
@@ -6,7 +6,7 @@
 }
 
 +isAbove($laptop) {
-    .site-wrapper {
+    html, body, .site-wrapper {
         min-height 100%
         height auto
     }
@@ -137,7 +137,7 @@ ul, ol {
 }
 
 //SIMILUATE IE11 SCROLLBARS
-//.siteWraper * {
+//.site-wrapper * {
 //	&::-webkit-scrollbar
 //	{
 //		width: 18px;  /* for vertical scrollbars */

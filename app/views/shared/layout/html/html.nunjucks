@@ -28,7 +28,7 @@
 
                 {# Drawer block is contextual, therefore is a part of the <main> #}
                 {% if hasDrawer %}
-                <aside id="filter" class="site-drawer isLockedX">
+                <aside id="filter" class="site-drawer is-locked-x">
                     <div>
                         {% block drawer %}{% endblock %}
                     </div>
