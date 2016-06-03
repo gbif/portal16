@@ -1,9 +1,9 @@
-<section class="block row discreet">
+<section class="block row discreet occurrenceKey__highlights">
     <div class="blockContent">
 
-        <div class="container-fluidx test">
-            <div class="rowx">
-                <div class="col-sm-6x">
+        <div class="container-fluid">
+            <div class="balanced-row">
+                <div>
                     <ul class="propertyPairs">
                         <li><span>Species</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
                         <li>
@@ -21,7 +21,7 @@
                         {% endif %}
                     </ul>
                 </div>
-                <div class="col-sm-6x">
+                <div>
                     <ul class="propertyPairs">
                         <li><span>Dataset</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
                         <li><span>Publisher</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>

@@ -1,6 +1,6 @@
 <section class="block row occurrenceKey__details">
     <div class="blockContent container-fluid">
-        <div class="row">
+        <div class="row scrollable">
             <div class="block-options" ng-class="{isExpanded: occurrence.expandMore}">
                 <a href=""
                    class="gb-icon-compare-fat block-options__option"

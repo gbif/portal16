@@ -50,36 +50,22 @@
 
 
 .blockComment {
-	position absolute
-	top 0
-	right 0
-	margin 0.5rem 1rem
-	color #ccc
-	text-align right
-	font-size 0.85rem
-	z-index 20
-	//&:hover {
-	//	color #777
-	//}
+	display none
 }
-
-.propertyPairs {
-	padding 0
-	li {
-		>span:first-of-type {
-			font-weight bold
-		}
++isAbove($tablet) {
+	.blockComment {
+		display block
+		position absolute
+		top 0
+		right 0
+		margin 0.5rem 1rem
+		color #ccc
+		text-align right
+		font-size 0.85rem
+		z-index 20
 	}
 }
 
-
-.rowx {
-	display flex
-	justify-content space-around
-	.col-sm-6x {
-		flex 0 1 auto
-	}
-}
 
 
 .allData {

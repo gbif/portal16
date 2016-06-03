@@ -52,7 +52,7 @@
 
 	$articleCategorySeperatorSpacing = 5px
 	.article__category {
-		margin vr-block(0.5) auto -(vr-block(0.5)) auto
+		margin 0 auto -(vr-block(0.5)) auto
 		text-align center
 		text-transform: uppercase
 		font-weight bold
@@ -91,10 +91,10 @@
 		font-weight bold
 	}
 }
-.article {
-	.textContent {
-		//margin-top vr-block(1)
-	}
+.textContent {
+	word-break break-all
+	word-break break-word
+	hyphens auto
 }
 
 .prose {
@@ -104,6 +104,9 @@
 	.textContent {
 		columns 2 30px
 		text-align justify
+		word-break break-all
+		word-break break-word
+		hyphens auto
 		.noBreak {
 			break-inside avoid-column
 		}
