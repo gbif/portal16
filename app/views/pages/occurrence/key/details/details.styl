@@ -1,3 +1,37 @@
+//.occurrenceKey__details {
+//	.blockContent {
+//		max-width 1000px
+//	}
+//}
++isAbove(700px) {
+	.occurrenceKey__details {
+		.blockContent {
+			max-width 100%
+			section {
+				max-width calc(50% - 30px)
+			}
+		}
+	}
+}
+
++isAbove(1000px) {
+	.occurrenceKey__details {
+		.blockContent {
+			max-width 1000px
+			section {
+				max-width 470px
+			}
+		}
+	}
+}
+///*3 column layout if enough estate*/
+//+isAbove(1500px) {
+//	.occurrenceKey__details {
+//		.blockContent {
+//			max-width 1500px
+//		}
+//	}
+//}
 .occurrence-key__term-groups {
 	//columns 3 30px
 	//.noBreak {
@@ -10,12 +44,11 @@
 	>section {
 		flex 0 1 auto
 		margin 0 15px
-		max-width 470px
 		//transition max-width 300ms ease
 	}
 	>section.isExpanded {
 		flex 0 1 auto
-		max-width 1000px
+		max-width 100%
 	}
 }
 .term-block {

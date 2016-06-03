@@ -1,7 +1,7 @@
 {% for group in occurrence.terms.usedGroups %}
     <section class="term-block noBreak isCollapsed" ng-class="{ isExpanded: !occurrence.hideDetails, isCollapsed: occurrence.hideDetails }">
         <div class="term-block__header">
-            <h3 class="h4">{$ group $}</h3>
+            <h3 class="h5">{$ group $}</h3>
         </div>
         <div class="term-block__terms">
             <table class="table">
@@ -21,7 +21,7 @@
                         <td>
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                             {#{% if occurrence.issues[term.simpleName] %}#}
-                                {#<span class="badge issue--error">!</span>#}
+                                {#<span class="badge badge--warning"> </span>#}
                             {#{% endif %}#}
                         </td>
                         <td>

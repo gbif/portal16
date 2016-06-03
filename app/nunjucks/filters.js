@@ -80,14 +80,18 @@ module.exports = function(nunjucksConfiguration, config) {
             if (data.length < len) {
                 return data;
             }
-            return data.slice(0,10) + '...' + data.slice(data.length-10)
+            if (len < 20) {
+                return data.slice(0,len-3) + '...';
+            }
+            var splitLength = (len/2)-3;
+            return data.slice(0,splitLength) + '...' + data.slice(data.length-splitLength)
         });
     })();
 
     (function() {
         nunjucksConfiguration.addFilter('minTableWidth', function(data, div, max) {
-            div = div || 1,
-                max = max || 200;
+            div = div || 1;
+            max = max || 200;
             if (!data) {
                 return 0;
             }

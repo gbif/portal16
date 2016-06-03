@@ -62,7 +62,9 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
     var groups = {};
     terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
     terms.forEach(function(e){
-        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm') return;
+        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm') {
+            return;
+        }
         if (typeof occurrence.record[e.simpleName] !== 'undefined' || typeof occurrence.verbatim[e.qualifiedName] !== 'undefined') {
             usedTerms.push(e);
             groups[e.group] = groups[e.group] || [];
