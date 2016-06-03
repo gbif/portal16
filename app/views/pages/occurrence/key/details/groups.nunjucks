@@ -1,5 +1,5 @@
 {% for group in occurrence.terms.usedGroups %}
-    <section class="term-block noBreak isCollapsed" ng-class="{ is-expanded: !occurrence.hideDetails, isCollapsed: occurrence.hideDetails }">
+    <section class="term-block noBreak is-collapsed" ng-class="{ is-expanded: !occurrence.hideDetails, isCollapsed: occurrence.hideDetails }">
         <div class="term-block__header">
             <h3 class="h4">{$ group $}</h3>
         </div>
