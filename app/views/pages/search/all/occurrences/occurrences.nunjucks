@@ -1,5 +1,5 @@
 {% if results.occurrences and results.occurrences.count > 0 %}
-    <section class="SearchResults__section SearchResults-occurrences">
+    <section class="search-results__section search-results-occurrences">
         {#<h2>Species occurrences</h2>#}
         <div class="card">
             <div class="card__banner">
@@ -47,7 +47,7 @@
                         </table>
                     </div>
                     {% if results.occurrences.count > 3 %}
-                    <div class="SearchResults__section__more">
+                    <div class="search-results__section__more">
                         <a href="//www.gbif.org/occurrence/search?q={$ query $}">View all<span class="l-only"> {$ results.occurrences.count $} occurrences</span></a>
                     </div>
                     {% endif %}

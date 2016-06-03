@@ -4,7 +4,7 @@
 {% if results.taxaMatches.length > 0 %}
 
     {#{% if results.taxaMatches.length > 1 %}#}
-        {#<section class="SearchResults__section-comment">#}
+        {#<section class="search-results__section-comment">#}
             {#<div class="card">#}
                 {#<div class="card__tabsX">#}
                     {#<div class="card__content">#}
@@ -37,7 +37,7 @@
     {% for taxon in results.taxaMatches %}
 
         {% if taxon.synonym %}
-            <section class="SearchResults__section-comment" ng-if="{$ taxon.info.key $} == search.selectedTaxonId">
+            <section class="search-results__section-comment" ng-if="{$ taxon.info.key $} == search.selectedTaxonId">
                 <div class="card">
                     <div class="card__content">
                         <a href="//www.gbif.org/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a> is a synonym. Showing results for <a href="//www.gbif.org/species/{$ taxon.info.nubKey $}">{$ taxon.info.scientificName $}</a>
@@ -50,9 +50,9 @@
                  ng-class="{compact: search.compactTaxonResult, 'u-hide': '{$ taxon.info.key $}' != search.selectedTaxonId }"
                 {% if loop.first %}
                     ng-init="search.selectedTaxonId = '{$ taxon.info.key $}'"
-                    class="SearchResults__section"
+                    class="search-results__section"
                 {% else %}
-                    class="SearchResults__section u-hide"
+                    class="search-results__section u-hide"
                 {% endif %}
                  {#ng-show="{$ taxon.info.key $} == search.selectedTaxonId"#}
         >
@@ -207,7 +207,7 @@
                                     {#</table>#}
                                 {#</div>#}
                                 {#{% if taxon.occurrences.count > 3 %}#}
-                                    {#<div class="SearchResults__section__more">#}
+                                    {#<div class="search-results__section__more">#}
                                         {#<a href="http://www.gbif.org/occurrence/search?taxonkey={$ taxon.info.nubKey $}">View all<span class="l-only"> {$ taxon.occurrences.count $} occurrences</span></a>#}
                                     {#</div>#}
                                 {#{% endif %}#}
@@ -239,7 +239,7 @@
                     {#</div>#}
                 {#{% endif %}#}
 
-                <div class="SearchResults__section__more is-collapsable">
+                <div class="search-results__section__more is-collapsable">
                     <a href="{$ gb.locales.urlPrefix $}/search?type=species&q={$ query $}">Search all<span class="l-only"> species</span></a>
                 </div>
 

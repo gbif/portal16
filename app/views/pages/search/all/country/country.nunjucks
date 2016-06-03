@@ -1,7 +1,7 @@
 {% import "../../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.country %}
 
-<section class="SearchResults__section SearchResults-catalogNumber">
+<section class="search-results__section search-results-catalogNumber">
     {#{% call searchMacro.simpleCard('/country/' + results.country.country) -%}#}
     {#<h3>{$ results.country.title $}</h3>#}
     {#<p>{$ results.country.title $} has been a {$ results.country.participationStatus $} member of GBIF since 2010 </p>#}
@@ -58,7 +58,7 @@
             {#</div>#}
 
         {#</div>#}
-        {#<footer class="SearchResults__section__more">#}
+        {#<footer class="search-results__section__more">#}
             {#<a href="http://www.gbif.org/country">Explore all countries</a>#}
         {#</footer>#}
     {#</div>#}

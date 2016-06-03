@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="SearchResults">
+        <div class="search-results">
 
             {#{% if hasInvalidResponses %}#}
                 {#{% include "./partialResponse.nunjucks" %}#}

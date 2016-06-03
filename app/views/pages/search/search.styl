@@ -5,16 +5,16 @@
 }
 
 
-.SearchResults__highlighted {
+.search-results__highlighted {
 	max-width 800px
 	margin 0 auto
 }
 
 //+isAbove($laptop) {
-//	.SearchResults {
+//	.search-results {
 //		display flex
 //	}
-//	.SearchResults__highlighted {
+//	.search-results__highlighted {
 //		order 2
 //		flex 1 1 auto
 //		width 400px
@@ -52,16 +52,16 @@
 
 }
 
-.SearchResults__other {
+.search-results__other {
 	max-width 800px
 	flex 0 1 auto
 	order 1
 	margin 0 auto
 }
-.SearchResults__section {
+.search-results__section {
 	margin vr-block(1)
 	margin-top 0
-	.searchResults__list {
+	.search-results__list {
 		h3 {
 			a {
 				color #009FD4
@@ -73,12 +73,12 @@
 	}
 }
 
-.SearchResults__section-comment {
-	@extends .SearchResults__section
+.search-results__section-comment {
+	@extends .search-results__section
 	// margin-bottom -(vr-block(0.75))
 }
 
-.searchResults__list >div {
+.search-results__list >div {
 	margin-bottom vr-block(1)
 	&:last-of-type {
 		margin 0
@@ -90,7 +90,7 @@
 				text-decoration underline
 			}
 		}
-		.searchResults__list__custom {
+		.search-results__list__custom {
 			color #aaa
 			span {
 				padding-right 5px
@@ -102,7 +102,7 @@
 	}
 }
 
-.SearchResults__section__more {
+.search-results__section__more {
 	border-top 1px solid #eee
 	text-align center
 	color #aaa
