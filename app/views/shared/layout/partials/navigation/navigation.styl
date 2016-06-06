@@ -1,5 +1,5 @@
 //shared between elements and media queries
-siteHeaderbar() {
+siteHeaderBar() {
 	background $navbar_bg
 	height $navbar_height
 	border-bottom $navbar_borderWidth solid $navbar_BorderColor
@@ -259,7 +259,7 @@ siteHeaderbar() {
 //nav content continues
 +isAbove($laptop) {
 	.site-nav {
-		siteHeaderbar()
+		siteHeaderBar()
 	}
 }
 
@@ -315,7 +315,7 @@ actionIcon(){
 		width 100%
 		text-align center
 		absolute(top left)
-		set-type(2)
+		setType(2)
 		line-height vrBlock(0)
 		margin-top vrBlock(1)
 	}

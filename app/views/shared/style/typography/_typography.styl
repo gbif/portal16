@@ -74,16 +74,16 @@ $double-octave = 4
 $type-base-ratio = $perfect-fourth
 //small text, body text,large text, main heading, hero heading
 $type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
-type-scale($level)
+typeScale($level)
     return $type-scale[$level + 1]
 
 $line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
-type-line-height($level)
+typeLineHeight($level)
     return $line-heights[$level + 1]
 
-set-type($level = 0)
-    font-size (type-scale($level))rem
-    line-height (type-line-height($level))rem
+setType($level = 0)
+    font-size (typeScale($level))rem
+    line-height (typeLineHeight($level))rem
 
 // Helpers
 
@@ -95,10 +95,10 @@ set-type($level = 0)
  *
  * @example
  *   .site-wrapper
- *       grid-overlay(blue, 2)
+ *       gridOverlay(blue, 2)
  */
 
-grid-overlay($color = black, $px-offset = false)
+gridOverlay($color = black, $px-offset = false)
     background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
     background-size: 100% ($line-height-ratio)em //$base-line-height
     if $px-offset
