@@ -46,7 +46,7 @@ img {
 			display inline
 		}
 		>* {
-			margin 0 !important //TODO Burke will clean up the api so there is no inline styling. If not we should strip it server side
+			margin 0 !important // @todo Burke will clean up the api so there is no inline styling. If not we should strip it server side
 			padding 0 !important
 			&:first-of-type{
 				display inline
@@ -61,5 +61,11 @@ img {
 	}
 	span {
 		font-weight normal
+	}
+}
+
++isAbove($laptop) {
+	.body-text--data-use {
+		columns 2 30px
 	}
 }
