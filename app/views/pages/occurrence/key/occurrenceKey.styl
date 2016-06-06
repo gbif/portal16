@@ -34,16 +34,19 @@
 	.block{
 		position relative
 	}
-	.taxa {
+	.classification {
 		display inline
-		color #ddd
-		a {
-			color #bbb
-		}
+
 		i:after {
 			font-style normal
 			content '\276f' // ❯
 			font-size 80%
+		}
+		&.discreet {
+			color #ddd
+			a {
+				color #bbb
+			}
 		}
 	}
 }

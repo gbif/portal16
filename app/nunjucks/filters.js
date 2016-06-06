@@ -65,7 +65,8 @@ module.exports = function(nunjucksConfiguration, config) {
             if (!data) {
                 return false;
             }
-            var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+            //var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+            var expression = /^(http)(s)?(:\/\/)[^ ]*$/gi;
             var regex = new RegExp(expression);
             return !!data.toString().match(regex);
         });

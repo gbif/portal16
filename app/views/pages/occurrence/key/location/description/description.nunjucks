@@ -1,0 +1,101 @@
+<section class="block row occurrenceKey__locationDescription bare">
+    <div class="blockContent container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="h4">Coordinates missing</h2>
+
+                {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
+                <p>
+                    This record isn't published with coordinates, but with a textual description of its location.
+                    <dl>
+                        <div>
+                            <dt>Location</dt>
+                            <dd class="classificationList">
+
+                                {% if occurrence.record.continent | isNotEmpty %}
+                                    <span>{$ __('continent.' + occurrence.record.continent) $}</span>
+                                {% endif %}
+
+                                {% for loc in ['country', 'waterBody', 'islandGroup', 'island', 'stateProvince', 'county', 'municipality'] %}
+                                    {% if occurrence.record[loc] | isNotEmpty %}
+                                        <span>{$ occurrence.record[loc] $}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </dd>
+                        </div>
+
+                    {% if occurrence.record.locality | isNotEmpty %}
+                        <div>
+                            <dt>locality</dt>
+                            <dd>{$ occurrence.record.locality $}</dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.record.locationRemarks | isNotEmpty %}
+                        <div>
+                            <dt>locationRemarks</dt>
+                            <dd>{$ occurrence.record.locationRemarks $}</dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.record.elevation | isNotEmpty %}
+                        <div>
+                            <dt>elevation</dt>
+                            <dd>{$ occurrence.record.elevation $} +- {$ occurrence.record.elevationAccuracy $}</dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.record.depth | isNotEmpty %}
+                        <div>
+                            <dt>depth</dt>
+                            <dd>{$ occurrence.record.depth $} +- {$ occurrence.record.depthAccuracy $}</dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.record.distanceAboveSurface | isNotEmpty %}
+                        <div>
+                            <dt>distanceAboveSurface</dt>
+                            <dd>{$ occurrence.record.distanceAboveSurface $} +- {$ occurrence.record.distanceAboveSurfaceAccuracy $}</dd>
+                        </div>
+                    {% endif %}
+                    {% if occurrence.record.informationWithheld | isNotEmpty %}
+                        <div>
+                            <dt>informationWithheld</dt>
+                            <dd>{$ occurrence.record.informationWithheld $}</dd>
+                        </div>
+                    {% endif %}
+                    </dl>
+                </p>
+                {% else %}
+                    <p>
+                        There is no location information published for this record
+                        <dl>
+                        {% if occurrence.record.informationWithheld | isNotEmpty %}
+                            <div>
+                                <dt>informationWithheld</dt>
+                                <dd>{$ occurrence.record.informationWithheld $}</dd>
+                            </div>
+                        {% endif %}
+                        </dl>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{#continent#}
+{#waterBody#}
+{#islandGroup#}
+{#island#}
+{#countryCode#}
+{#stateProvince#}
+{#county#}
+{#municipality#}
+{#locality#}
+
+{#locationRemarks#}
+
+{#elevation#}
+{#elevationAccuracy#}
+{#depth#}
+{#depthAccuracy#}
+{#distanceAboveSurface#}
+{#distanceAboveSurfaceAccuracy#}

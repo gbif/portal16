@@ -1,9 +1,4 @@
-//.occurrenceKey__details {
-//	.blockContent {
-//		max-width 1000px
-//	}
-//}
-+isAbove(700px) {
++isAbove(800px) {
 	.occurrenceKey__details {
 		.blockContent {
 			max-width 100%
@@ -24,28 +19,14 @@
 		}
 	}
 }
-///*3 column layout if enough estate*/
-//+isAbove(1500px) {
-//	.occurrenceKey__details {
-//		.blockContent {
-//			max-width 1500px
-//		}
-//	}
-//}
+
 .occurrence-key__term-groups {
-	//columns 3 30px
-	//.noBreak {
-	//	break-inside avoid-column
-	//	display inline-block
-	//	width 100%
-	//}
-	min-width 700px
+	min-width 800px
 	display flex
 	flex-wrap wrap
 	>section {
 		flex 0 1 auto
 		margin 0 15px
-		//transition max-width 300ms ease
 	}
 	>section.isExpanded {
 		flex 0 1 auto
@@ -59,12 +40,11 @@
 			border-bottom 2px solid #888
 			th {
 				border none
-				//display none
 			}
 		}
 		tr,td, th {
 			border none
-			padding 2px// 2px 0 2px
+			padding 2px
 			overflow hidden
 			word-break break-all
 			word-break break-word
@@ -103,37 +83,3 @@
 		}
 	}
 }
-
-//
-//.termBlock {
-//	dl.inline {
-//		div {
-//			margin-top 1px
-//		}
-//		dt, dd {
-//			//float left
-//			display inline
-//			display block
-//		}
-//		dd {
-//			//color: pink
-//			//text-transform: lowercase;
-//			//font-weight: 300;
-//			//font-size: 12.1px;
-//		}
-//		dt {
-//			text-transform capitalize
-//			//clear both
-//			margin-right 0.25em
-//			//color: #6D6D6D;
-//			//text-transform: uppercase;
-//			//font-weight: 200;
-//			//font-size: 12px;
-//			//font-variant: small-caps;
-//
-//			&:after {
-//				content ':'
-//			}
-//		}
-//	}
-//}

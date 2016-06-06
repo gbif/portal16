@@ -5,7 +5,8 @@
 	"bor": {
 		"HUMAN_OBSERVATION": "menneskelig observation",
 		"PRESERVED_SPECIMEN": "preserveret eksemplar",
-		"UNKNOWN": "bor.UNKNOWN"
+		"UNKNOWN": "bor.UNKNOWN",
+		"FOSSIL_SPECIMEN": "bor.FOSSIL_SPECIMEN"
 	},
 	"occurrence": {
 		"title": {
@@ -13,18 +14,131 @@
 			"verb": {
 				"PRESERVED_SPECIMEN": "indsamlet",
 				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION",
-				"UNKNOWN": "occurrence.title.verb.UNKNOWN"
+				"UNKNOWN": "occurrence.title.verb.UNKNOWN",
+				"FOSSIL_SPECIMEN": "occurrence.title.verb.FOSSIL_SPECIMEN"
 			},
-			"inCountry": "i %s"
+			"inCountry": "i %s",
+			"unknownSpecies": "occurrence.title.unknownSpecies"
 		},
 		"occurrence": "Forekomst"
 	},
 	"date": {
 		"synced": "Synkroniseret",
-		"modified": "Ændret"
+		"modified": "Ændret",
+		"unknown": "date.unknown"
 	},
 	"country": {
 		"BJ": "country.BJ",
-		"NZ": "country.NZ"
+		"NZ": "country.NZ",
+		"DK": "country.DK",
+		"US": "country.US"
+	},
+	"taxonRank": {
+		"undefined": "taxonRank.undefined",
+		"FAMILY": "taxonRank.FAMILY",
+		"SPECIES": "taxonRank.SPECIES"
+	},
+	"stdTerms": {
+		"location": "stdTerms.location",
+		"basisOfRecord": "stdTerms.basisOfRecord",
+		"dataset": "stdTerms.dataset",
+		"publisher": "stdTerms.publisher",
+		"issues": "stdTerms.issues",
+		"Occurrence": "stdTerms.Occurrence",
+		"term": "stdTerms.term",
+		"interpreted": "stdTerms.interpreted",
+		"original": "stdTerms.original",
+		"Record": "stdTerms.Record",
+		"Location": "stdTerms.Location",
+		"Event": "stdTerms.Event",
+		"Taxon": "stdTerms.Taxon",
+		"Identification": "stdTerms.Identification",
+		"other": "stdTerms.other",
+		"diagnostics": "stdTerms.diagnostics",
+		"menu": "stdTerms.menu",
+		"showDiagnostics": "stdTerms.showDiagnostics",
+		"hideDiagnostics": "stdTerms.hideDiagnostics",
+		"aboutDarwinCore": "stdTerms.aboutDarwinCore",
+		"raw": "stdTerms.raw",
+		"feedbackOnData": "stdTerms.feedbackOnData",
+		"sendPublisherMail": "stdTerms.sendPublisherMail",
+		"GeologicalContext": "stdTerms.GeologicalContext",
+		"aboutTheDataset": "stdTerms.aboutTheDataset",
+		"reference": "stdTerms.reference"
+	},
+	"interpretationRemarks": {
+		"TAXON_MATCH_NONE": "interpretationRemarks.TAXON_MATCH_NONE",
+		"comments": {
+			"INFERED": "interpretationRemarks.comments.INFERED",
+			"AUTHORED": "interpretationRemarks.comments.AUTHORED",
+			"EXCLUDED": "interpretationRemarks.comments.EXCLUDED"
+		},
+		"COORDINATE_ROUNDED": "interpretationRemarks.COORDINATE_ROUNDED",
+		"TAXON_MATCH_HIGHERRANK": "interpretationRemarks.TAXON_MATCH_HIGHERRANK"
+	},
+	"ocurrenceFieldNames": {
+		"associatedTaxa": "ocurrenceFieldNames.associatedTaxa",
+		"catalogNumber": "ocurrenceFieldNames.catalogNumber",
+		"occurrenceID": "ocurrenceFieldNames.occurrenceID",
+		"recordedBy": "ocurrenceFieldNames.recordedBy",
+		"basisOfRecord": "ocurrenceFieldNames.basisOfRecord",
+		"collectionCode": "ocurrenceFieldNames.collectionCode",
+		"datasetID": "ocurrenceFieldNames.datasetID",
+		"dynamicProperties": "ocurrenceFieldNames.dynamicProperties",
+		"institutionCode": "ocurrenceFieldNames.institutionCode",
+		"continent": "ocurrenceFieldNames.continent",
+		"coordinateUncertaintyInMeters": "ocurrenceFieldNames.coordinateUncertaintyInMeters",
+		"country": "ocurrenceFieldNames.country",
+		"countryCode": "ocurrenceFieldNames.countryCode",
+		"decimalLatitude": "ocurrenceFieldNames.decimalLatitude",
+		"decimalLongitude": "ocurrenceFieldNames.decimalLongitude",
+		"geodeticDatum": "ocurrenceFieldNames.geodeticDatum",
+		"locality": "ocurrenceFieldNames.locality",
+		"locationID": "ocurrenceFieldNames.locationID",
+		"day": "ocurrenceFieldNames.day",
+		"eventDate": "ocurrenceFieldNames.eventDate",
+		"habitat": "ocurrenceFieldNames.habitat",
+		"month": "ocurrenceFieldNames.month",
+		"year": "ocurrenceFieldNames.year",
+		"genus": "ocurrenceFieldNames.genus",
+		"scientificName": "ocurrenceFieldNames.scientificName",
+		"scientificNameID": "ocurrenceFieldNames.scientificNameID",
+		"vernacularName": "ocurrenceFieldNames.vernacularName",
+		"identifiedBy": "ocurrenceFieldNames.identifiedBy",
+		"bibliographicCitation": "ocurrenceFieldNames.bibliographicCitation",
+		"identifier": "ocurrenceFieldNames.identifier",
+		"language": "ocurrenceFieldNames.language",
+		"license": "ocurrenceFieldNames.license",
+		"individualCount": "ocurrenceFieldNames.individualCount",
+		"county": "ocurrenceFieldNames.county",
+		"stateProvince": "ocurrenceFieldNames.stateProvince",
+		"class": "ocurrenceFieldNames.class",
+		"family": "ocurrenceFieldNames.family",
+		"kingdom": "ocurrenceFieldNames.kingdom",
+		"order": "ocurrenceFieldNames.order",
+		"phylum": "ocurrenceFieldNames.phylum",
+		"taxonRank": "ocurrenceFieldNames.taxonRank",
+		"earliestEpochOrLowestSeries": "ocurrenceFieldNames.earliestEpochOrLowestSeries",
+		"earliestPeriodOrLowestSystem": "ocurrenceFieldNames.earliestPeriodOrLowestSystem",
+		"lowestBiostratigraphicZone": "ocurrenceFieldNames.lowestBiostratigraphicZone",
+		"preparations": "ocurrenceFieldNames.preparations",
+		"informationWithheld": "ocurrenceFieldNames.informationWithheld",
+		"nomenclaturalCode": "ocurrenceFieldNames.nomenclaturalCode",
+		"specificEpithet": "ocurrenceFieldNames.specificEpithet",
+		"earliestEonOrLowestEonothem": "ocurrenceFieldNames.earliestEonOrLowestEonothem",
+		"earliestEraOrLowestErathem": "ocurrenceFieldNames.earliestEraOrLowestErathem",
+		"formation": "ocurrenceFieldNames.formation",
+		"geologicalContextID": "ocurrenceFieldNames.geologicalContextID",
+		"highestBiostratigraphicZone": "ocurrenceFieldNames.highestBiostratigraphicZone",
+		"latestEonOrHighestEonothem": "ocurrenceFieldNames.latestEonOrHighestEonothem",
+		"latestEpochOrHighestSeries": "ocurrenceFieldNames.latestEpochOrHighestSeries",
+		"latestEraOrHighestErathem": "ocurrenceFieldNames.latestEraOrHighestErathem",
+		"latestPeriodOrHighestSystem": "ocurrenceFieldNames.latestPeriodOrHighestSystem",
+		"modified": "ocurrenceFieldNames.modified",
+		"references": "ocurrenceFieldNames.references",
+		"rights": "ocurrenceFieldNames.rights"
+	},
+	"continent": {
+		"NORTH_AMERICA": "continent.NORTH_AMERICA"
 	}
 }

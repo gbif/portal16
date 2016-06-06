@@ -1,0 +1,17 @@
+<section class="block row bare">
+    <div class="headerImage" style="height: 350px" ng-init="occurrence.setData()">
+        <leaflet
+                leafletMap="leafletMap"
+                id="occurrenceMap"
+                defaults="occurrence.mapDefaults"
+                markers="occurrence.markers"
+                paths="occurrence.paths"
+                height="100%"
+                width="100%"
+                tiles="occurrence.tiles"
+                lf-center="occurrence.center"
+                event-broadcast="occurrence.mapEvents"
+                controls="occurrence.controls"
+        ></leaflet>
+    </div>
+</section>

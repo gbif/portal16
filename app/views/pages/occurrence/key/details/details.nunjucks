@@ -6,25 +6,27 @@
                    class="gb-icon-compare-fat block-options__option"
                    ng-click="occurrence.hideDetails = !occurrence.hideDetails;"
                    ng-class="{'gb-icon-compare-fat-reverse': !occurrence.hideDetails}"
-                   title="Diagnostics"></a>
+                   title="{$ __('stdTerms.diagnostics') $}"></a>
                 <a href="" class="gb-icon-more2 block-options__menu block-options__option"
                    ng-click="occurrence.expandMore = !occurrence.expandMore"
-                   title="Menu"></a>
+                   title="{$ __('stdTerms.menu') $}"></a>
                 <div class="block-options__dropdown"
                      tw-click-outside="occurrence.expandMore = false"
                      ignore-if="!occurrence.expandMore">
                     <ul>
                         <li>
                             <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
-                                <span ng-show="occurrence.hideDetails">Show diagnotics (Alt+d)</span>
-                                <span ng-show="!occurrence.hideDetails">Hide diagnotics (Alt+d)</span>
+                                <span ng-show="occurrence.hideDetails">{$ __('stdTerms.showDiagnostics') $} (Alt+d)</span>
+                                <span ng-show="!occurrence.hideDetails">{$ __('stdTerms.hideDiagnostics') $} (Alt+d)</span>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">Raw</a>
+                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
+                                {$ __('stdTerms.raw') $}
+                            </a>
                         </li>
                         <li class="seperator">
-                            <a href="http://rs.tdwg.org/dwc/terms/">About Darwin Core</a>
+                            <a href="http://rs.tdwg.org/dwc/terms/">{$ __('stdTerms.aboutDarwinCore') $}</a>
                         </li>
                     </ul>
                 </div>
