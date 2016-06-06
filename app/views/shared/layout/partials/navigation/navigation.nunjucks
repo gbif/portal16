@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </li>
-            {#<li class="service-menu__notifications isOwnMenu is-active-x">#}
+            {#<li class="service-menu__notifications is-own-menu is-active-x">#}
                 {#<a href="#" class="gb-icon-search">Search</a>#}
                 {#<ul>#}
                     {#<li>#}

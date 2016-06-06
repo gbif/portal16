@@ -1,10 +1,10 @@
 //shared between elements and media queries
 siteHeaderBar() {
-	background $navbar_background
-	height $navbar_height
-	border-bottom $navbar_borderWidth solid $navbar_borderColor
+	background $navBar_background
+	height $navBar_height
+	border-bottom $navBar_borderWidth solid $navBar_borderColor
 	z-index 200
-	color $navbar_textColor
+	color $navBar_textColor
 }
 
 
@@ -16,7 +16,7 @@ siteHeaderBar() {
 	overflow-y auto
 	-webkit-overflow-scrolling touch
 	height 100%
-	width $drawer-width
+	width $drawerWidth
 	a {
 		text-decoration none
 		color inherit
@@ -25,7 +25,7 @@ siteHeaderBar() {
 
 +isBelow($laptop) {
 	nav {
-		left -($drawer-width)
+		left -($drawerWidth)
 	}
 
 	.site-canvas {
@@ -34,7 +34,7 @@ siteHeaderBar() {
 		width 100%
 		left 0
 		&.hasActiveMenu {
-			left $drawer-width
+			left $drawerWidth
 			.menu-link {
 				display none
 			}
@@ -59,14 +59,14 @@ siteHeaderBar() {
 					left 50%
 					margin-left -(vrBlock(0.25) * 2)
 					content ''
-					triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropDown_background
+					triangle: 'up'(vrBlock(0.25) * 2) $navBar_dropDownBackground
 				}
 			}
 		}
 		top 0
 		left 0
 		z-index 200
-		height $navbar_height
+		height $navBar_height
 		width 100%
 		overflow visible
 		position fixed
@@ -77,19 +77,19 @@ siteHeaderBar() {
 			display inline-block
 			&.is-category {
 				> ul {
-					top $navbar_height
-					background $navbar_dropDown_background
+					top $navBar_height
+					background $navBar_dropDownBackground
 					position absolute
 					padding vrBlock(0.25) 0
 					box-shadow 0px 2px 3px rgba(0,0,0,0.2)
 					li {
 						display block
 						a {
-							color $navbar_dropDown_color
+							color $navBar_dropDownColor
 							display block
 							padding vrBlock(0.25) vrBlock(1)
 							&:hover {
-								background darken($navbar_dropDown_background, 7%)
+								background darken($navBar_dropDownBackground, 7%)
 							}
 						}
 					}
@@ -103,7 +103,7 @@ siteHeaderBar() {
 							/*left 50%*/
 							/*margin-left -vrBlock(0.25) * 2*/
 							/*content ''*/
-							/*triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropDown_background*/
+							/*triangle: 'up'(vrBlock(0.25) * 2) $navBar_dropDownBackground*/
 						/*}*/
 					/*}*/
 				/*}*/
@@ -118,7 +118,7 @@ siteHeaderBar() {
 						> li {
 							lost-column: 1 / 4
 							> a {
-								color $navbar_textColor
+								color $navBar_textColor
 							}
 							>ul {
 								display block
@@ -148,8 +148,8 @@ siteHeaderBar() {
 			>ul>li>a, >a {
 				white-space nowrap
 				display inline-block
-				line-height ($navbar_height - $navbar_borderWidth)
-				height ($navbar_height - $navbar_borderWidth)
+				line-height ($navBar_height - $navBar_borderWidth)
+				height ($navBar_height - $navBar_borderWidth)
 				padding 0 vrBlock(0.75)
 			}
 			>a {
@@ -308,7 +308,7 @@ actionIcon(){
 	padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
 	relative()
 	height vrBlock(2.75)
-	font-size (100/$majorThird) %
+	font-size (100/$majorThird)%
 	line-height vrBlock(1)
 	&:before {
 		display block
@@ -427,7 +427,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 			display none
 		}
 	}
-	.isOwnMenu {
+	.is-own-menu {
 		left -100%
 		transition: left 500ms ease;
 		position absolute
@@ -449,15 +449,15 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 }
 
 +isAbove($laptop) {
-	.isOwnMenu {
+	.is-own-menu {
 		> ul {
-			top $navbar_height
+			top $navBar_height
 			right -300px
 			transition: right 500ms ease;
 			position absolute
 			background pink
 			width 300px
-			height "calc(100vh - %s)" % $navbar_height
+			height "calc(100vh - %s)" % $navBar_height
 			> a {
 				background #333
 				display block //visual
@@ -495,15 +495,15 @@ main {
 	//position 0 simply to avoid reflows that could be expensive
 	/*position absolute*/
 	padding-top 0
-	/*top $navbar_height*/
+	/*top $navBar_height*/
 	width 100%
-	/*height "calc(100vh - %s)" % $navbar_height*/
-	height "calc(100% - %s)" % $navbar_height
+	/*height "calc(100vh - %s)" % $navBar_height*/
+	height "calc(100% - %s)" % $navBar_height
 	// overflow hidden
 }
 +isAbove($laptop) {
 	main {
-		padding-top $navbar_height
+		padding-top $navBar_height
 	}
 }
 
@@ -555,7 +555,7 @@ main {
 	position absolute
 	top 0px
 	transition: right 500ms ease;
-	height 100%//"calc(100vh - %s)" % $navbar_height
+	height 100%//"calc(100vh - %s)" % $navBar_height
 	right 0
 	overflow hidden
 	> div {
@@ -590,16 +590,16 @@ forceShowDrawer() {
 	.site-drawer {
 		z-index 20
 		right initial
-		left -($filterDrawerWidth)
+		left -$filterDrawerWidth
 		transition: left 500ms ease;
 		position fixed
-		top $navbar_height
+		top $navBar_height
 		&:target {
 			right initial
 			left 0
 			/*~ .site-content {*/
 				/*right initial*/
-				/*left $drawer-width*/
+				/*left $drawerWidth*/
 			/*}*/
 		}
 		&.isLocked {

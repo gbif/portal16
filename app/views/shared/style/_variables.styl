@@ -54,14 +54,14 @@ $content_background := #e2e7ea
 $olivine := #9BBB7F
 
 /* Navigation-bar variables */
-$navbar_height := vrBlock(3)
-$navbar_borderWidth := vrBlock(0.25)
-$navbar_background := linear-gradient(lighten($olivine, 2), $olivine)
-$navbar_borderColor := #f5cc27
-$navbar_textColor := #fafafa
-$navbar_dropDown_background := white
-$navbar_dropDown_color := #333
-$navbar_horizontal_color := $color_main
+$navBar_height := vrBlock(3)
+$navBar_borderWidth := vrBlock(0.25)
+$navBar_background := linear-gradient(lighten($olivine, 2), $olivine)
+$navBar_borderColor := #f5cc27
+$navBar_textColor := #fafafa
+$navBar_dropDownBackground := white
+$navBar_dropDownColor := #333
+$navBar_horizontal_color := $color_main // @todo better naming for "horizontal"
 menuTextShadow() {
 	text-shadow 0px 1px 1px darken($olivine, 10)
 }
@@ -70,9 +70,7 @@ menuTextShadow() {
 $searchInputColor = $plum
 
 /* DRAWERS */
-$drawer-width := 20em
+$drawerWidth := 20em
 $filterDrawerWidth := 15em
 $navDrawer_background := #444
 $navDrawer_color := #ddd
-
-/* Grey shades */
