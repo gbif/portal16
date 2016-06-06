@@ -18,7 +18,10 @@ module.exports = function (app) {
         res.status(404);
         res.render('error/404/404', {
             title: '404',
-            message: 'Page missing and some content for navigation. everything is expected to work'
+            message: 'Page missing and some content for navigation. everything is expected to work',
+            meta: {
+                title: 'Page Not Found'
+            }
         });
     });
 };

@@ -20,7 +20,6 @@ router.get('/data-use/:key', function(req, res) {
                 data: body.data[0],
                 images: body.data[0].images,
                 self: body.self,
-                hasTitle: true,
                 meta: {
                     title: body.data[0].title
                 },

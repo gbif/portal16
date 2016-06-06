@@ -29,7 +29,7 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
         baseQuery: {datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'},
         queryField: 'q',
         matchField: 'canonicalName',
-        multiSelect: false,
+        multiSelect: true,
         key: 'key',
         onChange: function(selected){
             var taxonKeys = selected.map(function(e){return e.key;});

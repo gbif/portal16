@@ -48,7 +48,7 @@
                         <td class="ng-cloak" ng-show="!occurrence.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}
                                 {% for issue in occurrence.issues[term.simpleName] %}
-                                    <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                    <span class="badge badge--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                 {% endfor %}
                             {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
                                 <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>

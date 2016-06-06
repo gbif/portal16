@@ -29,7 +29,10 @@ function renderPage(req, res, occurrence) {
             occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
             angularInitData: angularInitData,
             occurrenceRemarks: occurrenceKey.occurrenceRemarks,
-            hasTools: true
+            hasTools: true,
+            meta: {
+                title: 'Occurrence Detail ' + req.params.key
+            }
         });
     }
 }

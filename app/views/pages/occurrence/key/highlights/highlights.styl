@@ -11,11 +11,6 @@
 		}
 	}
 
-	.balanced-row {
-		display flex
-		justify-content space-around
-	}
-
 	.issue-summary {
 		max-width 500px
 		.badge {
@@ -24,11 +19,9 @@
 	}
 }
 
-+isBelow($tablet) {
++isAbove($tablet) {
 	.balanced-row {
-		lost-utility clearfix
-		>div {
-			lost-column 1/2
-		}
+		display flex
+		justify-content space-around
 	}
 }
