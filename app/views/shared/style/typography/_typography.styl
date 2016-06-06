@@ -13,9 +13,9 @@ $courier = 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace'
 $franklin = 'Franklin Gothic Medium', 'Arial', 'sans-serif'
 $futura = 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'
 $geneva = 'Geneva', 'Tahoma', 'Verdana', 'sans-serif'
-$gill-sans = 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
+$gillSans = 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif'
 $helvetica = 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
-$lucida-grande = 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
+$lucidaGrande = 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif'
 $optima = 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif'
 $segoe = 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'
 $tahoma = 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'
@@ -34,52 +34,52 @@ $didot = 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman',
 $garamond = 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif'
 $goudy = 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif'
 $hoefler = 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif'
-$lucida-bright = 'Lucida Bright', 'Georgia', 'serif'
+$lucidaBright = 'Lucida Bright', 'Georgia', 'serif'
 $palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif'
 
 // Settings
 
-$line-height-ratio = 1.42857143
-$header-ratio = $golden
-$body-font = $roboto
-$body-font-weight = normal
-$body-color = $gray-695
-$header-font = $roboto
-$header-font-weight = 300
-$header-color = #333333
-$html-font-size = 14px
-$base-line-height = ($line-height-ratio)rem
-$link-color = #0099cc
+$lineHeightRatio = 1.42857143
+$headerRatio = $golden
+$bodyFont = $roboto
+$bodyFontWeight = normal
+$bodyTextColor = $gray-695
+$headerFont = $roboto
+$headerFontWeight = 300
+$headerColor = #333333
+$htmlFontSize = 14px
+$baseLineHeight = ($lineHeightRatio)rem
+$linkColor = #0099cc
 
 // Ratios
 // https://24ways.org/2011/composing-the-new-canon
-$minor-second = 1.067
-$major-second = 1.125
-$minor-third = 1.2
-$major-third = 1.25
-$perfect-fourth = 1.333
-$aug-fourth = 1.414
-$perfect-fifth = 1.5
-$minor-sixth = 1.6
+$minorSecond = 1.067
+$majorSecond = 1.125
+$minorThird = 1.2
+$majorThird = 1.25
+$perfectFourth = 1.333
+$augFourth = 1.414
+$perfectFifth = 1.5
+$minorSixth = 1.6
 $golden = 1.618
-$major-sixth = 1.667
-$minor-seventh = 1.778
-$major-seventh = 1.875
+$majorSixth = 1.667
+$minorSeventh = 1.778
+$majorSeventh = 1.875
 $octave = 2
-$major-tenth = 2.5
-$major-eleventh = 2.667
-$major-twelfth = 3
-$double-octave = 4
+$majorTenth = 2.5
+$majorEleventh = 2.667
+$majorTwelfth = 3
+$doubleOctave = 4
 
-$type-base-ratio = $perfect-fourth
+$typeBaseRatio = $perfectFourth
 //small text, body text,large text, main heading, hero heading
-$type-scale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
+$typeScale = 0.707, 1, 1.414, 1.999, 2.827, 3.998, 4.209, 5.610
 typeScale($level)
-    return $type-scale[$level + 1]
+    return $typeScale[$level + 1]
 
-$line-heights = $base-line-height, $base-line-height, $base-line-height, $base-line-height * 2, $base-line-height * 2, $base-line-height * 3, $base-line-height * 3, $base-line-height * 6
+$lineHeights = $baseLineHeight, $baseLineHeight, $baseLineHeight, $baseLineHeight * 2, $baseLineHeight * 2, $baseLineHeight * 3, $baseLineHeight * 3, $baseLineHeight * 6
 typeLineHeight($level)
-    return $line-heights[$level + 1]
+    return $lineHeights[$level + 1]
 
 setType($level = 0)
     font-size (typeScale($level))rem
@@ -88,38 +88,36 @@ setType($level = 0)
 // Helpers
 
 /**
- * Creates a baseline grid based off your $line-height-ratio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
+ * Creates a baseline grid based off your $lineHeightRatio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
  *
  * @param {color} [$color=black] - A color to be lightened and used as the color for the grid.
- * @param {number} [$px-offset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
+ * @param {number} [$pxOffset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
  *
  * @example
  *   .site-wrapper
  *       gridOverlay(blue, 2)
  */
-
-gridOverlay($color = black, $px-offset = false)
+gridOverlay($color = black, $pxOffset = false)
     background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
-    background-size: 100% ($line-height-ratio)em //$base-line-height
-    if $px-offset
-        background-position: 0 unit($px-offset, 'px')
+    background-size: 100% ($lineHeightRatio)em //$baseLineHeight
+    if $pxOffset
+        background-position: 0 unit($pxOffset, 'px')
 
 /**
  * Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
  *
  * @param {number} [$units=1] - Number of units. Accepts floated numbers as well.
- * @param {number} [$px-offset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
+ * @param {number} [$pxOffset=false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
  *
  * @example
  *   img
  *     vrBlock(5.25, .5)
  */
-
-vrBlock($units = 1, $px-offset = false)
-    if $px-offset
-        return $units * $base-line-height + $px-offset
+vrBlock($units = 1, $pxOffset = false)
+    if $pxOffset
+        return $units * $baseLineHeight + $pxOffset
     else
-        return $units * $base-line-height
+        return $units * $baseLineHeight
 
 /**
  * The Typographic Reset. This is where Typographic goes through every markup element and styles it to adhere to a vertical rhythm. After you set your variables in a settings file fire this mixin.
@@ -127,18 +125,17 @@ vrBlock($units = 1, $px-offset = false)
  * @example
  *   typographic()
  */
-
 typographic() {
 
     html {
-        font-size $html-font-size
+        font-size $htmlFontSize
     }
     body {
-        font-family $body-font
-        font-weight $body-font-weight
+        font-family $bodyFont
+        font-weight $bodyFontWeight
         text-rendering optimizeLegibility
-        line-height $line-height-ratio
-        color $body-color
+        line-height $lineHeightRatio
+        color $bodyTextColor
     }
 
 }
