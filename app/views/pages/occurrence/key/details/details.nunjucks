@@ -4,7 +4,7 @@
             <div class="block-options" ng-class="{is-expanded: occurrence.expandMore}">
                 <a class="block-options__help small" href="" ng-click="occurrence.expandMore = !occurrence.expandMore">more</a>
                 <a href="" class="gb-icon-more2 block-options__menu" ng-click="occurrence.expandMore = !occurrence.expandMore"></a>
-                <div class="block-options__dropdown">
+                <div class="block-options__drop-down">
                     <ul>
                         <li>
                             <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">

@@ -156,11 +156,11 @@ ul, ol {
 //ANCHOR FOX OFFSET FOR FIXED HEADER HEIGHT
 +isAbove($laptop) {
     .anchor:before { //compensate for the fixed header on desktop
-        display: block;
-        content: " ";
-        height: $navBar_height;
-        margin-top: -($navBar_height);
-        visibility: hidden;
+        display: block
+        content: " "
+        height: $navBar_height
+        margin-top: -$navBar_height
+        visibility: hidden
     }
 }
 
