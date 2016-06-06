@@ -1,5 +1,5 @@
 <h3>Download events</h3>
-<div class="downloadEvents" ng-controller="downloadEventsTableCtrl as dCtrl">
+<div class="download-events" ng-controller="downloadEventsTableCtrl as dCtrl">
     <table class="table table-striped" infinite-scroll="dCtrl.getMoreData()">
         <thead>
             <tr>
@@ -21,7 +21,7 @@
                 <td>
                     <div ng-show="!event.queryTable.length">No filter applied.</div>
                     <div ng-repeat="filter in event.queryTable">
-                        <span class="tableCellLabel">{{ filter.filterType }}</span>
+                        <span class="table-cell-label">{{ filter.filterType }}</span>
                         <span>{{ filter.valueProcessed }}</span>
                     </div>
                 </td>

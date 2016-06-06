@@ -1,7 +1,7 @@
 {# The coverages have been processed in the model #}
 <div class="metadata-section__content">
     {% for value in element.values %}
-        <div class="taxonomicCoverage">
+        <div class="taxonomic-coverage">
             <p>{$ value.description | safe $}</p>
             {% if value.coverages %}
                 <dl>

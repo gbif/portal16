@@ -14,7 +14,7 @@
         var headerContactsString = '{$ headerContactsString | safe $}';
     </script>
     <article class="wrapper-horizontal-stripes">
-        <header class="horizontal-stripe article-header {$ publisherStyle $}">
+        <header class="horizontal-stripe article-header {$ publisherStyle $} white-background">
             <div class="container" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 centered-text">
@@ -85,12 +85,12 @@
             <gbmap id="datasetMap" class="block-map" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
-        <div class="horizontal-stripe">
+        <div class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
 
-                    <section class="dataSource">
+                    <section class="data-source">
                         View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
                         {% if datasetDetails.homepage %}
                             <h4>Data source</h4>
@@ -161,16 +161,19 @@
             </div>
         </section>
         {% endif %}
+
+        {#
         <section id="metrics" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>Statistics</h3>
-                        <p style="color: orange;">[Specs to be discussed.]</p>
                     </div>
                 </div>
             </div>
         </section>
+        #}
+                
         <section id="related-news" class="horizontal-stripe--paddingless related-news">
             <div class="container">
                 <div class="row">
@@ -187,7 +190,7 @@
             </div>
         </section>
         {# Download events for the dataset in view. (Former "activity" tab.) #}
-        <section id="download-events" class="horizontal-stripe light-background">
+        <section id="download-events" class="horizontal-stripe white-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -196,12 +199,11 @@
                 </div>
             </div>
         </section>
-        <section id="gbif-registration-info" class="horizontal-stripe technical-information">
+        <section id="gbif-registration-info" class="horizontal-stripe alert-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>GBIF Registration Information</h3>
-                        <p style="color: orange;">[Nerd's zone. To be folded.]</p>
                     </div>
                 </div>
                 {% include "./includes/registrationInfo.nunjucks" %}
