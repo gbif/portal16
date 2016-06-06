@@ -112,10 +112,10 @@ grid-overlay($color = black, $px-offset = false)
  *
  * @example
  *   img
- *     vr-block(5.25, .5)
+ *     vrBlock(5.25, .5)
  */
 
-vr-block($units = 1, $px-offset = false)
+vrBlock($units = 1, $px-offset = false)
     if $px-offset
         return $units * $base-line-height + $px-offset
     else

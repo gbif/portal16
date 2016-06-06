@@ -55,11 +55,11 @@ siteHeaderbar() {
 				position relative
 				&:after {
 					position absolute
-					top vr-block(2.5)
+					top vrBlock(2.5)
 					left 50%
-					margin-left -(vr-block(0.25) * 2)
+					margin-left -(vrBlock(0.25) * 2)
 					content ''
-					triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg
+					triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropdown_bg
 				}
 			}
 		}
@@ -80,14 +80,14 @@ siteHeaderbar() {
 					top $navbar_height
 					background $navbar_dropdown_bg
 					position absolute
-					padding vr-block(0.25) 0
+					padding vrBlock(0.25) 0
 					box-shadow 0px 2px 3px rgba(0,0,0,0.2)
 					li {
 						display block
 						a {
 							color $navbar_dropdown_color
 							display block
-							padding vr-block(0.25) vr-block(1)
+							padding vrBlock(0.25) vrBlock(1)
 							&:hover {
 								background darken($navbar_dropdown_bg, 7%)
 							}
@@ -99,11 +99,11 @@ siteHeaderbar() {
 						/*position relative*/
 						/*&:after {*/
 							/*position absolute*/
-							/*top vr-block(2.75)*/
+							/*top vrBlock(2.75)*/
 							/*left 50%*/
-							/*margin-left -(vr-block(0.25) * 2)*/
+							/*margin-left -vrBlock(0.25) * 2*/
 							/*content ''*/
-							/*triangle: 'up'(vr-block(0.25) * 2) $navbar_dropdown_bg*/
+							/*triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropdown_bg*/
 						/*}*/
 					/*}*/
 				/*}*/
@@ -114,7 +114,7 @@ siteHeaderbar() {
 						left 0
 						right 0
 						width 100% //500px
-						padding vr-block(0.25) vr-block(3)
+						padding vrBlock(0.25) vrBlock(3)
 						> li {
 							lost-column: 1 / 4
 							> a {
@@ -150,10 +150,10 @@ siteHeaderbar() {
 				display inline-block
 				line-height ($navbar_height - $navbar_borderWidth)
 				height ($navbar_height - $navbar_borderWidth)
-				padding 0 vr-block(0.75)
+				padding 0 vrBlock(0.75)
 			}
 			>a {
-				width vr-block(3)
+				width vrBlock(3)
 				position relative
 				span {
 					position absolute
@@ -161,9 +161,9 @@ siteHeaderbar() {
 				}
 				&:before {
 					content $icon-string-logo
-					font-size vr-block(2)
+					font-size vrBlock(2)
 					position absolute
-					bottom vr-block(0.5)
+					bottom vrBlock(0.5)
 				}
 			}
 		}
@@ -184,8 +184,8 @@ siteHeaderbar() {
 		//all list items should have the same padding
 		li>a, .main-menu>a {
 			display block
-			padding vr-block(0.5) vr-block(1) vr-block(0.5) vr-block(2)
-			line-height vr-block(1)
+			padding vrBlock(0.5) vrBlock(1) vrBlock(0.5) vrBlock(2)
+			line-height vrBlock(1)
 		}
 		>div {
 			//draw a thin line between sections
@@ -197,10 +197,10 @@ siteHeaderbar() {
 			a {
 				position relative
 				&:before {
-					font-size vr-block(1)
+					font-size vrBlock(1)
 					position absolute
 					left 10px
-					top vr-block(0.5)
+					top vrBlock(0.5)
 				}
 				
 				//add an overlay instead of dark color since background changes
@@ -212,15 +212,15 @@ siteHeaderbar() {
 			>ul>li>ul>li {
 				>a {
 					color darken($nav_drawer_color, 20%)
-					/*padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(3)*/
+					/*padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)*/
 				}
 				>ul>li>a {
 					background darken($nav_drawer_bg, 8%)
-					padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(3)
+					padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)
 				}
 				>ul>li>ul>li>a {
 					background darken($nav_drawer_bg, 16%)
-					padding vr-block(0.25) vr-block(1) vr-block(0.25) vr-block(4)
+					padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(4)
 				}
 				
 			}
@@ -229,7 +229,7 @@ siteHeaderbar() {
 					>a {
 						&:after {
 							content '+'
-							font-size (vr-block(1) / $perfect-fifth)
+							font-size (vrBlock(1) / $perfect-fifth)
 							font-family 'Helvetica'//gbificons
 							position absolute
 							right 10px
@@ -305,19 +305,19 @@ siteHeaderbar() {
 
 actionIcon(){
 	display inline-block
-	padding vr-block(1.5) vr-block(1) vr-block(0.25) vr-block(1)
+	padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
 	relative()
-	height vr-block(2.75)
+	height vrBlock(2.75)
 	font-size (100 /$major-third) %
-	line-height vr-block(1)
+	line-height vrBlock(1)
 	&:before {
 		display block
 		width 100%
 		text-align center
 		absolute(top left)
 		set-type(2)
-		line-height vr-block(0)
-		margin-top vr-block(1)
+		line-height vrBlock(0)
+		margin-top vrBlock(1)
 	}
 }
 a.action-icon {
@@ -338,14 +338,14 @@ a.action-icon {
 				height 100%
 				width 100%
 			}
-			height vr-block(6)
+			height vrBlock(6)
 			width 100%
 			background url("/img/moth_pattern1.jpg")
 			background-size cover
 			position relative
 			.service-menu__teaser-message {
-				line-height vr-block(1.5)
-				padding 0 vr-block(0.5)
+				line-height vrBlock(1.5)
+				padding 0 vrBlock(0.5)
 				font-size (100 /$major-second) %
 				position absolute
 				bottom 0
@@ -355,7 +355,7 @@ a.action-icon {
 					display block
 					content '+'
 					position absolute
-					right vr-block(0.5)
+					right vrBlock(0.5)
 					top 0
 				}
 			}
@@ -370,7 +370,7 @@ a.action-icon {
 }
 
 //only beacuse ther isn't a js service to load user and such yet.
-$service-menu_teaser_pos_r = vr-block(0.5);
+$service-menu_teaser_pos_r = vrBlock(0.5);
 @keyframes fadeInOut {
 	0% {
 		opacity: 0;
@@ -404,10 +404,10 @@ $service-menu_teaser_pos_r = vr-block(0.5);
 		.service-menu__teaser {
 			display none //TODO what to do with this if anything at all
 			position absolute
-			top vr-block(3.5)
+			top vrBlock(3.5)
 			width auto
 			white-space nowrap
-			padding vr-block(0.25) vr-block(1)
+			padding vrBlock(0.25) vrBlock(1)
 			opacity 0
 			right -9999px;
 			animation fadeInOut 5s
