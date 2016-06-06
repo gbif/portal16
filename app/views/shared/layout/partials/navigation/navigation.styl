@@ -1,8 +1,8 @@
 //shared between elements and media queries
 siteHeaderBar() {
-	background $navbar_bg
+	background $navbar_background
 	height $navbar_height
-	border-bottom $navbar_borderWidth solid $navbar_BorderColor
+	border-bottom $navbar_borderWidth solid $navbar_borderColor
 	z-index 200
 	color $navbar_textColor
 }
@@ -59,7 +59,7 @@ siteHeaderBar() {
 					left 50%
 					margin-left -(vrBlock(0.25) * 2)
 					content ''
-					triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropdown_bg
+					triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropDown_background
 				}
 			}
 		}
@@ -78,18 +78,18 @@ siteHeaderBar() {
 			&.is-category {
 				> ul {
 					top $navbar_height
-					background $navbar_dropdown_bg
+					background $navbar_dropDown_background
 					position absolute
 					padding vrBlock(0.25) 0
 					box-shadow 0px 2px 3px rgba(0,0,0,0.2)
 					li {
 						display block
 						a {
-							color $navbar_dropdown_color
+							color $navbar_dropDown_color
 							display block
 							padding vrBlock(0.25) vrBlock(1)
 							&:hover {
-								background darken($navbar_dropdown_bg, 7%)
+								background darken($navbar_dropDown_background, 7%)
 							}
 						}
 					}
@@ -103,7 +103,7 @@ siteHeaderBar() {
 							/*left 50%*/
 							/*margin-left -vrBlock(0.25) * 2*/
 							/*content ''*/
-							/*triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropdown_bg*/
+							/*triangle: 'up'(vrBlock(0.25) * 2) $navbar_dropDown_background*/
 						/*}*/
 					/*}*/
 				/*}*/
@@ -178,8 +178,8 @@ siteHeaderBar() {
 +isBelow($laptop) {
 	.site-nav{
 		//set base colors
-		background $nav_drawer_bg
-		color $nav_drawer_color
+		background $navDrawer_background
+		color $navDrawer_color
 		
 		//all list items should have the same padding
 		li>a, .main-menu>a {
@@ -190,7 +190,7 @@ siteHeaderBar() {
 		>div {
 			//draw a thin line between sections
 			> * {
-				box-shadow 0 1px 0 lighten($nav_drawer_bg, 5%) //used instead of border to keep the height
+				box-shadow 0 1px 0 lighten($navDrawer_background, 5%) //used instead of border to keep the height
 			}
 			
 			//items with icons need additional styling
@@ -206,20 +206,20 @@ siteHeaderBar() {
 				//add an overlay instead of dark color since background changes
 				&:hover, &.is-active {
 					background-color rgba(0,0,0,0.15)
-					/*color lighten($nav_drawer_color, 50%)*/
+					/*color lighten($navDrawer_color, 50%)*/
 				}
 			}
 			>ul>li>ul>li {
 				>a {
-					color darken($nav_drawer_color, 20%)
+					color darken($navDrawer_color, 20%)
 					/*padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)*/
 				}
 				>ul>li>a {
-					background darken($nav_drawer_bg, 8%)
+					background darken($navDrawer_background, 8%)
 					padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)
 				}
 				>ul>li>ul>li>a {
-					background darken($nav_drawer_bg, 16%)
+					background darken($navDrawer_background, 16%)
 					padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(4)
 				}
 				
@@ -411,8 +411,8 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 			opacity 0
 			right -9999px;
 			animation fadeInOut 5s
-			background $Plum
-			color $Mist
+			background $plum
+			color $mist
 		}
 		>ul>li>a {
 			actionIcon()
@@ -508,7 +508,7 @@ main {
 }
 
 .site-content {
-	background $content_bg
+	background $content_background
 	position relative //to be pushable by the filter drawer
 	overflow hidden
 	transition: right 500ms ease;
