@@ -1083,7 +1083,7 @@
 		"SPECIES": "species",
 		"undefined": "unknown taxon",
 		"FAMILY": "family",
-		"GENUS": "taxonRank.GENUS"
+		"GENUS": "genus"
 	},
 	"stdTerms": {
 		"location": "location",
