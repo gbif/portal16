@@ -52,10 +52,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <figure class="heading-image">
-                            <div>
-                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
-                                {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
-                            </div>
+                            <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
+                            {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
                             <figcaption class="container-fluid">
                                 <div class="row">{$ images[0].image_field_caption.value | safe $}</div>
                             </figcaption>
@@ -69,16 +67,15 @@
             <div class="container-fluid main-column__data-use">
                 <div class="body-text__data-use">
                     {$ data.body | safe $}
+
+                    {% if images[0].image_dimensions.width <= 1000 %}
+                        <figure>
+                            <img src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}">
+                            <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
+                        </figure>
+                    {% endif %}
                 </div>
 
-                {% if images[0].image_dimensions.width <= 1000 %}
-                    <figure class="no-break">
-                        <div>
-                            <img src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}">
-                        </div>
-                        <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
-                    </figure>
-                {% endif %}
                 <div class="article-auxiliary body-text">
                     <div class=""> {# placeholder for the bootstrap row class, which breaks column here #}
                         {% if data.citationInformation %}
@@ -146,7 +143,7 @@
             </div>
         </div>
         <aside class="horizontal-stripe horizontal-stripe--card related-stories light-background">
-            <div class="container-fluid">
+            <div class="container-fluid card__column">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card-nav">
