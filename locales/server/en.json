@@ -1,5 +1,4 @@
 {
-	"Hello": "Hello",
 	"Search results": "Search results",
 	"search.placeholder": "search.placeholder",
 	"search": "search",
@@ -1112,14 +1111,16 @@
 		"raw": "raw",
 		"feedbackOnData": "Feedback on data",
 		"sendPublisherMail": "Send publisher a mail",
-		"aboutTheDataset": "About the dataset"
+		"aboutTheDataset": "About the dataset",
+		"Dataset": "dataset",
+		"Crawling": "crawling"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
 		"OCEANIA": "Oceania",
 		"EUROPE": "Europe",
-		"ANTARCTICA": "continent.ANTARCTICA",
-		"SOUTH_AMERICA": "continent.SOUTH_AMERICA"
+		"ANTARCTICA": "Antarctica",
+		"SOUTH_AMERICA": "South America"
 	},
 	"georeferenced": "georeferenced",
 	"records": "records"
