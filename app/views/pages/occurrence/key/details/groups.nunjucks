@@ -1,16 +1,16 @@
 {% for group in occurrence.terms.usedGroups %}
     <section class="term-block noBreak is-collapsed" ng-class="{ is-expanded: !occurrence.hideDetails, isCollapsed: occurrence.hideDetails }">
         <div class="term-block__header">
-            <h3 class="h4">{$ group $}</h3>
+            <h3 class="h5 text-capitalize">{$ __('stdTerms.' + group) $}</h3>
         </div>
         <div class="term-block__terms">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Term</th>
-                        <th>Interpreted</th>
-                        <th ng-show="!occurrence.hideDetails">Original</th>
-                        <th ng-show="!occurrence.hideDetails">Issues</th>
+                        <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
+                        <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
+                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.original') $}</th>
+                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.issues') $}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +21,7 @@
                         <td>
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                             {#{% if occurrence.issues[term.simpleName] %}#}
-                                {#<span class="badge issue--error">!</span>#}
+                                {#<span class="badge badge--warning"> </span>#}
                             {#{% endif %}#}
                         </td>
                         <td>
@@ -48,7 +48,7 @@
                         <td class="ng-cloak" ng-show="!occurrence.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}
                                 {% for issue in occurrence.issues[term.simpleName] %}
-                                    <span class="badge issue--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                    <span class="badge badge--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                 {% endfor %}
                             {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
                                 <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>

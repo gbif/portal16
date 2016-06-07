@@ -17,7 +17,7 @@
             {#</div>#}
             {% include('./header/header.nunjucks') %}
             {% include('./highlights/highlights.nunjucks') %}
-            {% include('./map/map.nunjucks') %}
+            {% include('./location/location.nunjucks') %}
             {% include('./dataset/dataset.nunjucks') %}
             {% include('./details/details.nunjucks') %}
             {% include('./media/media.nunjucks') %}
@@ -34,13 +34,13 @@
 {% block tools %}
     <div class="fab">
         <div class="fab__trigger">
-            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Feedback on data"><i class="gb-icon-comment"></i></a>
+            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>
         </div>
         <ul class="fab__options">
             {% if occurrence.dataset.contacts[0].email[0] %}
                 <li>
                     <a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"
-                       class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Send publisher a mail"><i class="gb-icon-mail"></i></a>
+                       class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.sendPublisherMail') $}"><i class="gb-icon-mail"></i></a>
                 </li>
             {% endif %}
 

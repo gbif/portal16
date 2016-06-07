@@ -42,7 +42,7 @@
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
                                                 <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
                                                     {% if extension[term] | isLink %}
-                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
                                                     {% else %}
                                                        {$ extension[term] $}
                                                     {% endif %}
@@ -56,7 +56,7 @@
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
                                                 <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
                                                     {% if extension[term] | isLink %}
-                                                    <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                    <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
                                                     {% else %}
                                                         {$ extension[term] $}
                                                     {% endif %}
@@ -70,7 +70,7 @@
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
                                                 <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
                                                     {% if extension[term] | isLink %}
-                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(30) $}</a>
+                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
                                                     {% else %}
                                                         {$ extension[term] $}
                                                     {% endif %}

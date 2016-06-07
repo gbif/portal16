@@ -1,5 +1,6 @@
 "use strict";
 var Q = require('q'),
+    _ = require('underscore'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
@@ -57,18 +58,36 @@ function highlight(occurrence) {
 }
 
 function getUsedOccurrenceCoreTerms(occurrence, terms) {
-    var usedTerms = [];
-    var usedGroups = new Set();
-    var groups = {};
+    let usedTerms = [],
+        usedGroups = new Set(),
+        groups = {},
+        groupsOrder = {
+            'Occurrence': 1,
+            'Record': 2,
+            'Location': 3,
+            'Event': 4,
+            'Taxon': 5,
+            'Identification': 6,
+            'Organism': 7,
+            'MaterialSample': 8,
+            'GeologicalContext': 9
+        };
     terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
     terms.forEach(function(e){
-        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm') return;
-        if (typeof occurrence.record[e.simpleName] !== 'undefined' || typeof occurrence.verbatim[e.qualifiedName] !== 'undefined') {
-            usedTerms.push(e);
-            groups[e.group] = groups[e.group] || [];
-            groups[e.group].push(e);
-            if (typeof e.group !== 'undefined') usedGroups.add(e.group);
+        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm') {
+            return;
         }
+        if ( !_.isEmpty(occurrence.record[e.simpleName]) || !_.isEmpty(occurrence.verbatim[e.qualifiedName]) ) {
+            usedTerms.push(e);
+            let group = e.group || 'other';
+            groups[group] = groups[group] || [];
+            groups[group].push(e);
+            usedGroups.add(group);
+        }
+    });
+
+    usedGroups = Array.from(usedGroups).sort(function(a,b) {
+        return (groupsOrder[a] || 100) - (groupsOrder[b] || 100);
     });
     return {
         terms: usedTerms,

@@ -1,8 +1,11 @@
 <h1 class="h2 text-center">
-    {% if occurrence.record.individualCount > 1 %}
-        <span class="badge">{$ occurrence.record.individualCount $}</span>
-    {% endif %}
+
 
     <span {% if not occurrence.record.scientificName %} class="error" {% endif %}>{$ occurrence.computedFields.title.name $}</span>
-    <div class="small">{$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}</div>
+    <div class="small">
+        {% if occurrence.record.individualCount > 1 %}
+            <span class="badge">{$ occurrence.record.individualCount $}</span>
+        {% endif %}
+        {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
+    </div>
 </h1>

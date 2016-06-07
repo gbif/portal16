@@ -152,32 +152,20 @@
 .badge--error {
 	background tomato
 	color white
+	font-weight inherit
 }
 
 .badge--warning {
 	background #F5CC27
 	color inherit //darken(#756216, 50)
+	font-weight inherit
 }
 
 .badge--info {
-	//background #ccc
-	//color #555
+	background #ccc
+	color inherit //darken(#756216, 50)
+	font-weight inherit
 }
-
-//.badge--error {
-//	background lighten(tomato, 20)
-//	color darken(tomato, 40)
-//}
-//
-//.badge--warning {
-//	background lighten(#F5CC27, 20)
-//	color darken(#756216, 50)
-//}
-//
-//.badge--info {
-//	background #ccc
-//	color #555
-//}
 
 .issue--error {
 	@extend .issue
@@ -205,4 +193,10 @@
  */
 .ng-cloak, [data-ng-cloak] {
 	display: none !important;
+}
+
+.table {
+	th {
+		font-weight normal
+	}
 }

@@ -149,7 +149,7 @@
 	"interpretationRemarks": {
 		"BASIS_OF_RECORD_INVALID": "Basis of record invalid",
 		"COORDINATE_OUT_OF_RANGE": "Coordinate out of range",
-		"TAXON_MATCH_NONE": "Taxon match none",
+		"TAXON_MATCH_NONE": "No taxon match",
 		"INTERPRETATION_ERROR": "Interpretation error",
 		"ZERO_COORDINATE": "Zero coordinate",
 		"PRESUMED_SWAPPED_COORDINATE": "Presumed swapped coordinate",
@@ -443,19 +443,43 @@
 		"scientificNameAuthorship": "scientific name authorship",
 		"undefined": "unknown field"
 	},
-	"occurrence": {
-		"title": {
-			"unknownLocation": "occurrence.title.unknownLocation",
-			"inCountry": "occurrence.title.inCountry",
-			"verb": {
-				"HUMAN_OBSERVATION": "occurrence.title.verb.HUMAN_OBSERVATION",
-				"PRESERVED_SPECIMEN": "occurrence.title.verb.PRESERVED_SPECIMEN"
-			}
-		},
-		"occurrence": "occurrence.occurrence"
+	"taxonRank": {
+		"SPECIES": "species",
+		"undefined": "unknown taxon",
+		"FAMILY": "family"
 	},
-	"date": {
-		"synced": "date.synced",
-		"modified": "date.modified"
+	"stdTerms": {
+		"location": "location",
+		"basisOfRecord": "basis of record",
+		"dataset": "dataset",
+		"publisher": "publisher",
+		"issues": "issues",
+		"reference": "reference",
+		"Occurrence": "occurrence",
+		"undefined": "undefined",
+		"Record": "record",
+		"other": "other",
+		"Location": "location",
+		"Event": "event",
+		"Taxon": "taxon",
+		"Identification": "identification",
+		"term": "term",
+		"interpreted": "interpreted",
+		"original": "original",
+		"GeologicalContext": "geological context",
+		"diagnostics": "diagnostics",
+		"menu": "menu",
+		"showDiagnostics": "show diagnostics",
+		"hideDiagnostics": "hide diagnostics",
+		"aboutDarwinCore": "about Darwin Core",
+		"raw": "raw",
+		"feedbackOnData": "Feedback on data",
+		"sendPublisherMail": "Send publisher a mail",
+		"aboutTheDataset": "About the dataset"
+	},
+	"continent": {
+		"NORTH_AMERICA": "North America",
+		"OCEANIA": "Oceania",
+		"EUROPE": "Europe"
 	}
 }

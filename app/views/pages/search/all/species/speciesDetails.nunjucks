@@ -129,7 +129,7 @@
 
                     <div>
                         <span class="term">Taxonomy:</span>
-                        <span class="desc taxa">{$ helpers.taxonomy(taxon.info) $}</span>
+                        <span class="desc classification">{$ helpers.taxonomy(taxon.info) $}</span>
                     </div>
 
                     {#{% if taxon.holotypes.count > 0 %}#}

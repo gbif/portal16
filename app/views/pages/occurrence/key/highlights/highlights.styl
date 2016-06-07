@@ -1,0 +1,27 @@
+.occurrenceKey__highlights {
+	.propertyPairs {
+		padding 0
+		li {
+			word-break break-all
+			word-break break-word
+			hyphens auto
+			> span:first-of-type {
+				font-weight bold
+			}
+		}
+	}
+
+	.issue-summary {
+		max-width 500px
+		.badge {
+			font-weight 300
+		}
+	}
+}
+
++isAbove($tablet) {
+	.balanced-row {
+		display flex
+		justify-content space-around
+	}
+}
