@@ -1,5 +1,5 @@
 <section class="block row bare">
-    <div class="headerImage" style="height: 350px" ng-init="occurrence.setData()">
+    <div class="occurrenceKey__map"  ng-init="occurrence.setData()">
         <leaflet
                 leafletMap="leafletMap"
                 id="occurrenceMap"

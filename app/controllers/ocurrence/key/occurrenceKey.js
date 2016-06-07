@@ -64,10 +64,10 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         groupsOrder = {
             'Occurrence': 1,
             'Record': 2,
-            'Location': 3,
-            'Event': 4,
-            'Taxon': 5,
-            'Identification': 6,
+            'Event': 3,
+            'Identification': 4,
+            'Location': 5,
+            'Taxon': 6,
             'Organism': 7,
             'MaterialSample': 8,
             'GeologicalContext': 9
