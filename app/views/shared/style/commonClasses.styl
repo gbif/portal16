@@ -198,7 +198,7 @@
     margin: 0 auto;
 }
 
-.main-column--data-use {
+.main-column__data-use {
     margin 0 auto
     max-width 1000px
 }
@@ -209,7 +209,7 @@
     padding-bottom 20px
 }
 
-.body-text--data-use {
+.body-text__data-use {
     @extend .body-text
     text-align justify
     overflow-wrap break-word
@@ -247,6 +247,8 @@
         max-width 1000px
         margin 0 auto
         font-size 0.9rem
+        font-weight 300
+        color $citationTextColor
     }
 }
 
@@ -262,18 +264,24 @@
     }
 }
 
-+isAbove($laptop) {
-    .body-text {
-        columns 2 30px
-    }
-}
-
 +isAbove($tablet) {
+    .main-column__data-use {
+        max-width 700px
+    }
     .count-text {
         text-align left
     }
     .card {
         margin 0 0
+    }
+}
+
++isAbove($laptop) {
+    .main-column__data-use {
+        max-width 1024px
+    }
+    .body-text {
+        columns 2 30px
     }
 }
 

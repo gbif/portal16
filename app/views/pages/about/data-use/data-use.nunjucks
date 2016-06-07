@@ -24,8 +24,9 @@
 
 
 {% block page %}
+<div class="page__fixed-width">
     <article class="wrapper-horizontal-stripes">
-        <header class="horizontal-stripe article-header">
+        <header class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 centered-text">
@@ -47,27 +48,26 @@
         </header>
 
         {% if images[0].image_dimensions.width > 1000 %}
-        <div class="horizontal-stripe--paddingless white-background">
-            <div class="container-fluid">
-                <div class="row">
-                    <figure class="heading-image">
-                        <div>
-                            <img src="http://drupaledit.gbif-dev.org/sites/default/files/styles/masthead__wide/public/gbif_scaled_contents/data_use/2015-November/82565/Moon_Bear_on_a_Ledge_22211982079.jpg?itok=h8TKXe2N&focal_point=64,43" alt="{$ images[0].filename $}">
-                            {# <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}"> #}
-                            {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
-                        </div>
-                        <figcaption class="container-fluid">
-                            <div>{$ images[0].image_field_caption.value | safe $}</div>
-                        </figcaption>
-                    </figure>
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="container-fluid">
+                    <div class="row">
+                        <figure class="heading-image">
+                            <div>
+                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
+                                {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
+                            </div>
+                            <figcaption class="container-fluid">
+                                <div class="row">{$ images[0].image_field_caption.value | safe $}</div>
+                            </figcaption>
+                        </figure>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
 
-        <div class="horizontal-stripe">
-            <div class="container-fluid main-column--data-use">
-                <div class="body-text--data-use">
+        <div class="horizontal-stripe white-background">
+            <div class="container-fluid main-column__data-use">
+                <div class="body-text__data-use">
                     {$ data.body | safe $}
                 </div>
 
@@ -145,8 +145,8 @@
                 </div>
             </div>
         </div>
-        <aside class="horizontal-stripe bare-background horizontal-stripe--card related-stories">
-            <div class="container-fluid main-column--data-use">
+        <aside class="horizontal-stripe horizontal-stripe--card related-stories light-background">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card-nav">
@@ -186,4 +186,5 @@
             </div>
         </aside>
     </article>
+</div>
 {% endblock %}
