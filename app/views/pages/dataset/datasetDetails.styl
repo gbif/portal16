@@ -4,18 +4,56 @@ h4.content-type-label {
     font-size 1.3rem
 }
 
+.publisher-field--long-title {
+    .container {
+        max-width none
+    }
+}
+.publisher-field--large-count {
+    margin 0 0
+    .published-by {
+        max-width none
+    }
+}
+.published-by {
+    max-width 400px
+}
+.record-count {
+    font-size 4rem
+    line-height 60px
+    font-weight 300
+    padding-right 8px
+    padding-left 3px
+}
+.download-block {
+    border 2px solid $orangePeelLight
+    border-radius 10px
+}
+
+.header-contacts {
+    margin-bottom 20px
+}
+.header-contact {
+    display inline-block
+    font-size 1.2rem
+    padding 0 20px
+    address {
+        margin-bottom 0
+    }
+}
+
 .metadata {
     section {
         margin-bottom vrBlock(2)
     }
 }
 
-.metadata-section__content {
+.metadata-section {
     margin-left 20px
 
     h5 {
-        margin-top vrBlock(1)
-        margin-bottom vrBlock(0.3)
+        margin-top vrBlock(1.5)
+        margin-bottom vrBlock(0.5)
     }
 
     ul {
@@ -28,9 +66,6 @@ h4.content-type-label {
             padding-left 2rem
             text-indent -2rem
             margin-bottom 5px
-            &:last-child {
-                margin-bottom 0
-            }
         }
     }
 
@@ -45,7 +80,6 @@ h4.content-type-label {
            content ''
         }
     }
-
 }
 
 .taxonomic-coverage {
@@ -69,6 +103,7 @@ h4.content-type-label {
 .download-events {
     max-height 400px
     overflow scroll
+    margin-bottom 20px;
     table {
         tr {
             td:nth-child(3) {
@@ -87,7 +122,7 @@ ul.no-indent {
     padding-left 0
 }
 
-.recordCount {
+.record-count {
     display inline-block
 }
 

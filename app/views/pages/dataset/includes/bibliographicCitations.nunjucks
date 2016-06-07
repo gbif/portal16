@@ -1,4 +1,4 @@
-<div class="metadata-section__content">
+<div class="metadata-section">
     <ul class="bibliographic-citation">
         {% for citation in element.values %}
             <li>{$ citation.text | safe $}</li>

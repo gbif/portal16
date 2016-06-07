@@ -55,7 +55,7 @@ img {
 	}
 }
 
-.card-nav {
+.card--nav {
 	a {
 		color inherit
 	}
@@ -65,19 +65,10 @@ img {
 }
 
 +isAbove($tablet) {
-	.main-column__data-use {
-		max-width 700px
-	}
+    .container--related-stories {
+        max-width 1024px
+    }
 }
 
 +isAbove($laptop) {
-	.main-column__data-use {
-		max-width 1024px
-	}
-	.card__column {
-        max-width 1024px
-    }
-	.body-text__data-use {
-		columns 2 30px
-	}
 }

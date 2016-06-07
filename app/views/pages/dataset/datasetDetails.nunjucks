@@ -23,7 +23,7 @@
                             <span class="article-header__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
                         <h1 class="centered-text">{$ datasetDetails.title $}</h1>
-                        <div class="article-header__inline-block {$ publisherModifier $}">
+                        <div class="article-header__field {$ publisherModifier $}">
                             {% if datasetDetails.logoUrl %}
                             <div>
                                 <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
@@ -43,7 +43,7 @@
                         {$ countBreaking | safe $}
 
                         {% if occurrenceCount %}
-                        <div class="article-header__inline-block">
+                        <div class="article-header__field">
                         {# @todo Consider counts for checklist dataset #}
                             <div class="record-count">{$ occurrenceCount $}</div>
                             <div><p class="count-text">occurrence records<br>{$ georeferencedString $}</p></div>
@@ -51,7 +51,7 @@
                         {% endif %}
 
                         {% if occurrenceCount %}
-                        <div class="article-header__inline-block download-block">
+                        <div class="article-header__field download-block">
                         {# @todo ui widget for download. Modal? #}
                             <div>
                                 <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
@@ -64,7 +64,7 @@
                         {# @todo Final citation format to be decided. #}
                         {# @todo Publisher-provided format should have linkable identifier if mentioned. #}
                         {% if datasetDetails.citation %}
-                        <div class="header-citation">
+                        <div class="header-short-text">
                             <p><span class="paragraph-label">Citation</span>:<br>
                                 {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
                             </p>
@@ -94,12 +94,12 @@
                         View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
                         {% if datasetDetails.homepage %}
                             <h4>Data source</h4>
-                            <ul class="noIndent">
+                            <ul class="no-indent">
                                 <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
                             </ul>
                         {% endif %}
                     </section>
-                    <ul class="noIndent">
+                    <ul class="no-indent">
                         <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
 
                         {% if datasetDetails.language %}

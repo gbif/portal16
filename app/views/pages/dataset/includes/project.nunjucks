@@ -1,4 +1,4 @@
-<div class="metadata-section__content">
+<div class="metadata-section">
     <h4>{$ element.values.title $}</h4>
     <ul class="no-indent">
         {% if element.values.contacts[0] %}

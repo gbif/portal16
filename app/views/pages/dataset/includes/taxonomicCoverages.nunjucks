@@ -1,5 +1,5 @@
 {# The coverages have been processed in the model #}
-<div class="metadata-section__content">
+<div class="metadata-section">
     {% for value in element.values %}
         <div class="taxonomic-coverage">
             <p>{$ value.description | safe $}</p>

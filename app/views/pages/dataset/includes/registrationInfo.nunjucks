@@ -3,12 +3,12 @@
     <div class="col-xs-6 col-md-4">
         {# TODO Show the status of both crawling and indexing here. #}
         <h5>Processing history</h5>
-        <ul class="noIndent">
+        <ul class="no-indent">
             <li>Registered on: {$ datasetDetails.created | formatDate() $}</li>
             <li>Last updated on: {$ datasetDetails.modified | formatDate() $}</li>
             {% if process[0] %}
                 <li>Latest process: {$ process[0].finishReason $} {# TODO check available enumerations and format them. #}
-                    <ul class="noIndent">
+                    <ul class="no-indent">
                         <li>Crawling:
                             {% if process[0].finishedCrawling %}
                                 finished on {$ process[0].finishedCrawling | formatDate() $}
@@ -31,12 +31,12 @@
     <div class="col-xs-6 col-md-4">
         {% if installation.key %}
         <h5>Technically served by</h5>
-        <ul class="noIndent">
+        <ul class="no-indent">
             {# TODO Suggest datasets served by the same installation. #}
             <li><a href="#">{$ installation.title $}</a></li>
             {% if installation.contacts[0] %}
                 <li>
-                    <ul class="noIndent">
+                    <ul class="no-indent">
                         {% for contact in installation.contacts %}
                             {% if contact.type == 'TECHNICAL_POINT_OF_CONTACT' %}
                                 <li>Technical contact: {% if contact.email[0] %}<a href="mailto:{$ contact.email[0] $}">{% endif %}{$ contact.firstName $} {$ contact.lastName $}{% if contact.email[0] %}</a>{% endif %}</li>
@@ -50,7 +50,7 @@
     </div>
     <div class="col-xs-6 col-md-4">
         <h5>Source data</h5>
-        <ul class="noIndent">
+        <ul class="no-indent">
             <li><a href="{$ api.dataset.url $}{$ datasetDetails.key $}/document">Metadata (EML)</a></li>
             {% if datasetDetails.endpoints[0] %}
                 {% for endpoint in datasetDetails.endpoints %}
@@ -68,7 +68,7 @@
     <div class="col-xs-12 col-md-8">
         {% if identifiers[0] %}
         <h5>Alternative identifiers</h5>
-            <ul class="noIndent">
+            <ul class="no-indent">
                 {% for id in identifiers %}
                     <li>{$ id.formattedString | safe $}</li>
                 {% endfor %}

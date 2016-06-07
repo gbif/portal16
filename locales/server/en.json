@@ -1121,5 +1121,6 @@
 		"ANTARCTICA": "continent.ANTARCTICA",
 		"SOUTH_AMERICA": "continent.SOUTH_AMERICA"
 	},
-	"georeferenced": "georeferenced"
+	"georeferenced": "georeferenced",
+	"records": "records"
 }

@@ -66,8 +66,8 @@
         {% endif %}
 
         <div class="horizontal-stripe white-background">
-            <div class="container-fluid main-column__data-use">
-                <div class="body-text__data-use">
+            <div class="container-fluid container--prose">
+                <div class="body-text--prose">
                     {$ data.body | safe $}
 
                     {% if images[0].image_dimensions.width <= 1000 %}
@@ -146,11 +146,11 @@
                 </div>
             </div>
         </div>
-        <aside class="horizontal-stripe horizontal-stripe--card related-stories light-background">
-            <div class="container-fluid card__column">
+        <aside class="horizontal-stripe horizontal-stripe--card light-background">
+            <div class="container-fluid container--related-stories">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <article class="container-fluid card card-nav">
+                        <article class="container-fluid card card--nav">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
@@ -167,7 +167,7 @@
                         </article>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <article class="container-fluid card card-nav">
+                        <article class="container-fluid card card--nav">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">

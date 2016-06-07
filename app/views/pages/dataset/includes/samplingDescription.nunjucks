@@ -1,4 +1,4 @@
-<div class="metadata-section__content">
+<div class="metadata-section">
     {% if element.values.studyExtent %}
         <h5>Study extent</h5>
         <p>{$ element.values.studyExtent | safe $}</p>

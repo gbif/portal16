@@ -47,9 +47,9 @@ function renderPage(req, res, dataset) {
     var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('records') + ')';
-    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-block--long-title' : '';
+    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : '';
     var countBreaking = (dataset.occurrenceCount >= 10000) ? '<br>' : '';
-    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-modifier' : '';
+    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : '';
 
     var datasetContent = {
         datasetDetails: dataset.record,

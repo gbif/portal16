@@ -1,4 +1,4 @@
-<div class="metadata-section__content">
+<div class="metadata-section">
     {% for collection in element.values %}
         <h5>{$ collection.thesaurus $}</h5>
         <ul class="keyword-collection">
