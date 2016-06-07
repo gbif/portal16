@@ -1120,5 +1120,7 @@
 		"EUROPE": "Europe",
 		"ANTARCTICA": "continent.ANTARCTICA",
 		"SOUTH_AMERICA": "continent.SOUTH_AMERICA"
-	}
+	},
+	"georeferenced": "georeferenced",
+	"records": "records"
 }
