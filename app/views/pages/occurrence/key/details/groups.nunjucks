@@ -20,9 +20,6 @@
                     <tr {% if occurrence.record[term.simpleName] | isUndefined %}ng-if="!occurrence.hideDetails" data-ng-cloak="true" {% endif %} {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                         <td>
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
-                            {#{% if occurrence.issues[term.simpleName] %}#}
-                                {#<span class="badge badge--warning"> </span>#}
-                            {#{% endif %}#}
                         </td>
                         <td>
                             <div>

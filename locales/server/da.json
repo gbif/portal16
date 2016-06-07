@@ -74,7 +74,8 @@
 			"EXCLUDED": "interpretationRemarks.comments.EXCLUDED"
 		},
 		"COORDINATE_ROUNDED": "interpretationRemarks.COORDINATE_ROUNDED",
-		"TAXON_MATCH_HIGHERRANK": "interpretationRemarks.TAXON_MATCH_HIGHERRANK"
+		"TAXON_MATCH_HIGHERRANK": "interpretationRemarks.TAXON_MATCH_HIGHERRANK",
+		"GEODETIC_DATUM_ASSUMED_WGS84": "interpretationRemarks.GEODETIC_DATUM_ASSUMED_WGS84"
 	},
 	"ocurrenceFieldNames": {
 		"associatedTaxa": "ocurrenceFieldNames.associatedTaxa",
@@ -136,7 +137,16 @@
 		"latestPeriodOrHighestSystem": "ocurrenceFieldNames.latestPeriodOrHighestSystem",
 		"modified": "ocurrenceFieldNames.modified",
 		"references": "ocurrenceFieldNames.references",
-		"rights": "ocurrenceFieldNames.rights"
+		"rights": "ocurrenceFieldNames.rights",
+		"establishmentMeans": "ocurrenceFieldNames.establishmentMeans",
+		"occurrenceRemarks": "ocurrenceFieldNames.occurrenceRemarks",
+		"datasetName": "ocurrenceFieldNames.datasetName",
+		"verbatimLocality": "ocurrenceFieldNames.verbatimLocality",
+		"verbatimEventDate": "ocurrenceFieldNames.verbatimEventDate",
+		"taxonID": "ocurrenceFieldNames.taxonID",
+		"dateIdentified": "ocurrenceFieldNames.dateIdentified",
+		"identificationID": "ocurrenceFieldNames.identificationID",
+		"rightsHolder": "ocurrenceFieldNames.rightsHolder"
 	},
 	"continent": {
 		"NORTH_AMERICA": "continent.NORTH_AMERICA"

@@ -1,3 +1,4 @@
+
 'use strict';
 
 /*
@@ -18,21 +19,13 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $firebaseArray, $anchorScroll, $location, hotkeys) {
+function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $anchorScroll, $location, hotkeys) {
     var vm = this;
-    vm.comments;
-    vm.detailsStates = {
-        INTERPRETED: 0,
-        COMPARE: 1,
-        DIFF: 2
-    };
     vm.mediaExpand = {
         isExpanded: false
     };
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
-    vm.detailsState = vm.detailsStates.INTERPRETED;
-    vm.compare = true;
     vm.similarities = {
         similarRecords: []
     };
@@ -83,43 +76,45 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
 
     };
 
+    vm.markerMessage = {
+        template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}{{weather}}</dl>',
+        coordinateUncertaintyTemplate: '<dt>Coordinate uncertainty</dt><dd>{{coordinateUncertainty}}m</dd>',
+        weatherTemplate: '<dt>Temperature<span>from Forecast.io</span></dt><dd>{{temperatureMin}}&deg;c to {{temperatureMax}}&deg;c</dd>',
+        elevationTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}}</dd>',
+        weather: undefined,
+        elevation: undefined
+    };
+    vm.updateMarkerMessage = function() {
+        var message, weather = '', elevation = '', coordinateUncertainty = '';
+
+        if (vm.data.coordinateUncertaintyInMeters) {
+            coordinateUncertainty = vm.markerMessage.coordinateUncertaintyTemplate.replace('{{coordinateUncertainty}}', vm.data.coordinateUncertaintyInMeters);
+        }
+
+        if (vm.markerMessage.weather) {
+            var dayWeather = vm.markerMessage.weather.daily.data[0];
+            var temperatureMin = dayWeather.temperatureMin;
+            var temperatureMax = dayWeather.temperatureMax;
+            weather = vm.markerMessage.weatherTemplate.replace('{{temperatureMin}}', temperatureMin).replace('{{temperatureMax}}', temperatureMax);
+        }
+
+        if (vm.markerMessage.elevation) {
+            var e = vm.markerMessage.elevation.elevation + 'm';
+            var source = vm.markerMessage.elevation.source || '';
+            elevation = vm.markerMessage.elevationTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source);
+        }
+
+        if (weather || elevation || coordinateUncertainty) {
+            message = vm.markerMessage.template.replace('{{weather}}', weather).replace('{{elevation}}', elevation).replace('{{coordinateUncertainty}}', coordinateUncertainty);
+            vm.markers.taxon.message = message;
+        }
+    };
 
     vm.tilePosStyle = {};
     vm.data;
     vm.table = {
         filter: undefined
     };
-
-    vm.deleteComment = function(index) {
-        vm.comments.$remove(index).then(function(){});
-    };
-
-    vm.addComment = function() {
-        vm.comments.$add({ comment: vm.newComment }).then(function(){
-            vm.newComment = '';
-        });
-    };
-
-    vm.isVisibleInTable = function(groupName) {
-        if (!vm.table.filter || groupName == vm.table.filter) return true;
-        return false;
-    };
-
-    vm.gotoCoreDetails = function() {
-        document.getElementById('occurrence-core-details').classList.add('is-expanded');
-        vm.hideDetails = false;
-        vm.scrollTo('occurrence-core-details');
-
-    };
-
-    vm.scrollTo = function(id) {
-        $location.hash(id);
-        $anchorScroll();
-    };
-
-    if ($location.hash() == 'occurrence-core-details') {
-        vm.gotoCoreDetails();
-    }
 
     hotkeys.add({
         combo: 'alt+d',
@@ -136,18 +131,16 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         vm.verbatim = gb.occurrenceRecordVerbatim;
         vm.data = gb.occurrenceRecord;
         setMap(vm.data);
+        if (typeof vm.data.elevation !== 'undefined') {
+            vm.markerMessage.elevation = {
+                elevation: vm.data.elevation,
+                elevationAccuracy: vm.data.elevationAccuracy
+            };
+            vm.updateMarkerMessage();
+        } else {
+            getElevation(vm.data.decimalLatitude, vm.data.decimalLongitude);
+        }
         getWeather(vm.data.decimalLatitude, vm.data.decimalLongitude, vm.data.eventDate);
-
-        //https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray
-        var comments = $firebaseArray(new Firebase('https://glowing-heat-751.firebaseio.com/occurrence/' + vm.data.key));
-
-        // make the list available in the DOM
-        vm.comments = comments;
-
-    };
-
-    vm.parseDate = function(date) {
-        return moment(date).format('MMMM DD, YYYY');
     };
 
     vm.weather = {};
@@ -157,57 +150,47 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             var weatherUrl = '/api/weather/' + lat + '/' + lng + '/' + date;
             $http.get(weatherUrl).then(
                 function(response){
-                    vm.weather = response.data;
+                    vm.markerMessage.weather = response.data;
+                    vm.updateMarkerMessage();
                 },
                 function(){
-                    //console.log("error " + error);
-                    //TODO handler errors from api
+                    //ignore api errors as this is supplemental data. fail silently
                 }
             );
         }
     }
 
-    //function getElevation(lat, lng) {
-    //    var n, s, e, w, dist = 0.05;
-    //    if (lat && lng) {
-    //        n = lat + dist;
-    //        s = lat - dist;
-    //        e = lat + dist;
-    //        w = lat - dist;
-    //        var query = {
-    //            shape: [
-    //                {
-    //                    lat: n, lon: lng
-    //                },
-    //                {
-    //                    lat: s, lon: lng
-    //                }
-    //            ],
-    //            range: true,
-    //            resample_distance: 50
-    //        };
-    //
-    //         var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
-    //         $http.get(elevationApi).then(
-    //             function(response){
-    //                 console.log(response.data);
-    //                 //vm.barData.series[0] = response.data.range_height.map(function(e){
-    //                 //    return e[1];
-    //                 //});
-    //             },
-    //             function(){
-    //                 //console.log("error " + error);
-    //                 //TODO handler errors from api
-    //             }
-    //         );
-    //    }
-    //}
+    function getElevation(lat, lng) {
+        if (lat && lng) {
+            var query = {
+                shape: [
+                    {
+                        lat: lat, lon: lng
+                    }
+                ],
+                range: false
+            };
+
+             var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
+             $http.get(elevationApi).then(
+                 function(response){
+                     vm.markerMessage.elevation = {
+                         elevation: response.data.height[0],
+                         source: 'from Mapzen.com'
+                     };
+                     vm.updateMarkerMessage();
+                 },
+                 function(){
+                     //ignore api errors as this is supplemental data. fail silently
+                 }
+             );
+        }
+    }
 
     function setMap(data) {
         if (typeof data.decimalLatitude === 'undefined' || typeof data.decimalLongitude === 'undefined') {
             return
         }
-        //getElevation(data.decimalLatitude, data.decimalLongitude);
 
         vm.markers.taxon = {
             //group: 'similar',
@@ -215,9 +198,9 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             lng: data.decimalLongitude,
             focus: false
         };
-        if (data.verbatimLocality) {
-            vm.markers.taxon.message = '<p>'+data.verbatimLocality+'</p>';
-        }
+        //if (data.verbatimLocality) {
+        //    vm.markers.taxon.message = '<p>'+data.verbatimLocality+'</p>';
+        //}
         vm.center = {
             zoom: 10,
             lat: data.decimalLatitude,
