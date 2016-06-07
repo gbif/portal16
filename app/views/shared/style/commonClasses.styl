@@ -250,11 +250,10 @@
 
 .heading-image {
     figcaption {
-        max-width 1000px
-        margin 0 auto
         font-size 0.9rem
         font-weight 300
         color $citationTextColor
+        padding 0 15px
     }
 }
 
@@ -281,11 +280,23 @@
     .card {
         margin 0 0
     }
+    .heading-image {
+        figcaption {
+            max-width 700px
+            margin 0 auto
+        }
+    }
 }
 
 +isAbove($laptop) {
     .body-text {
         columns 2 30px
+    }
+    .heading-image {
+        figcaption {
+            max-width 1000px
+            padding 0
+        }
     }
 }
 

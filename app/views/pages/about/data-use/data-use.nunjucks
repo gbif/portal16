@@ -54,8 +54,10 @@
                         <figure class="heading-image">
                             <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
                             {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
-                            <figcaption class="container-fluid">
-                                <div class="row">{$ images[0].image_field_caption.value | safe $}</div>
+                            <figcaption>
+                                <div>
+                                    {$ images[0].image_field_caption.value | safe $}
+                                </div>
                             </figcaption>
                         </figure>
                     </div>
