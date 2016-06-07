@@ -52,12 +52,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <figure class="heading-image">
-                            <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}">
-                            {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
+                            <div class="cover-image">
+                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
+                                {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
+                            </div>
                             <figcaption>
-                                <div>
-                                    {$ images[0].image_field_caption.value | safe $}
-                                </div>
+                                <div>{$ images[0].image_field_caption.value | safe $}</div>
                             </figcaption>
                         </figure>
                     </div>
@@ -72,7 +72,9 @@
 
                     {% if images[0].image_dimensions.width <= 1000 %}
                         <figure>
-                            <img src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}">
+                            <div class="cover-image article-image">
+                                <img ng-src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
+                            </div>
                             <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
                         </figure>
                     {% endif %}
@@ -150,7 +152,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card-nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 cover-img hidden-xs">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
@@ -167,7 +169,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card-nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 cover-img hidden-xs">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
