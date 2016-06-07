@@ -118,34 +118,7 @@
         <section id="metadata" class="horizontal-stripe metadata white-background">
             <div class="container">
                 <div class="row">
-                    <nav class="col-md-4 bs-docs-sidebar">
-                        <ul id="sidebar" class="nav nav-stacked fixed">
-                            <li>
-                                <a href="#GroupA">Group A</a>
-                                <ul class="nav nav-stacked">
-                                    <li><a href="#GroupASub1">Sub-Group 1</a></li>
-                                    <li><a href="#GroupASub2">Sub-Group 2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#GroupB">Group B</a>
-                                <ul class="nav nav-stacked">
-                                    <li><a href="#GroupBSub1">Sub-Group 1</a></li>
-                                    <li><a href="#GroupBSub2">Sub-Group 2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#GroupC">Group C</a>
-                                <ul class="nav nav-stacked">
-                                    <li><a href="#GroupCSub1">Sub-Group 1</a></li>
-                                    <li><a href="#GroupCSub2">Sub-Group 2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="col-xs-12 col-md-8">
-                        {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
-                    </div>
+                    {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
                 </div>
             </div>
         </section>

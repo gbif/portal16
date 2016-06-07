@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function contactPopupCtrl($sce) {
     var vm = this,
-        headerContacts = JSON.parse(headerContactsString); // Passed through the template.
+    headerContacts = JSON.parse(headerContactsString); // Passed through the template.
     vm.htmlPopover = [];
     headerContacts.forEach(function(r, ri){
         var role = [];

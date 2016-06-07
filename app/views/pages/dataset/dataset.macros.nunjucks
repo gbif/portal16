@@ -1,11 +1,22 @@
 {# Generic tabular view renderer with tabs vertically stacking on the left column #}
 {% macro metadataRenderer(elements) %}
-    {% for element in elements %}
-        <section id="{$ element.property $}">
-            <h4>{$ element.title $}</h4>
-            {% include "./includes/" + element.property + ".nunjucks" %}
-        </section>
-    {% endfor %}
+    <nav class="col-md-4 bs-docs-sidebar">
+        <ul id="sidebar" class="nav nav-stacked fixed">
+            {% for element in elements %}
+                <li><a href="#{$ element.property $}">{$ element.title $}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <div class="col-xs-12 col-md-8">
+        {% for element in elements %}
+            <section id="{$ element.property $}">
+                <h4>{$ element.title $}</h4>
+                {% include "./includes/" + element.property + ".nunjucks" %}
+            </section>
+        {% endfor %}
+    </div>
+
 {% endmacro %}
 
 {% macro contacts(label, contacts) %}
