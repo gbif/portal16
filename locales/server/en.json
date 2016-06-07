@@ -1082,7 +1082,8 @@
 	"taxonRank": {
 		"SPECIES": "species",
 		"undefined": "unknown taxon",
-		"FAMILY": "family"
+		"FAMILY": "family",
+		"GENUS": "taxonRank.GENUS"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1116,6 +1117,8 @@
 	"continent": {
 		"NORTH_AMERICA": "North America",
 		"OCEANIA": "Oceania",
-		"EUROPE": "Europe"
+		"EUROPE": "Europe",
+		"ANTARCTICA": "continent.ANTARCTICA",
+		"SOUTH_AMERICA": "continent.SOUTH_AMERICA"
 	}
 }
