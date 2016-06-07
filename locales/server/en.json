@@ -827,7 +827,7 @@
 		"comments": {
 			"EXCLUDED": "Excluded",
 			"AUTHORED": "Authored",
-			"INFERED": "Infered"
+			"INFERED": "Inferred"
 		}
 	},
 	"ocurrenceFieldNames": {
@@ -969,9 +969,9 @@
 		"coordinatePrecision": "coordinate precision",
 		"pointRadiusSpatialFit": "point radius spatial fit",
 		"verbatimCoordinateSystem": "verbatim coordinate system",
-		"verbatimSRS": "verbatim s r s",
-		"footprintWKT": "footprint w k t",
-		"footprintSRS": "footprint s r s",
+		"verbatimSRS": "verbatim SRS",
+		"footprintWKT": "footprint WKT",
+		"footprintSRS": "footprint SRS",
 		"footprintSpatialFit": "footprint spatial fit",
 		"georeferencedBy": "georeferenced by",
 		"georeferencedDate": "georeferenced date",
