@@ -1,19 +1,19 @@
-<header class="SiteHeader" id="SiteHeader">
+<header class="site-header" id="site-header">
     <div>
-        <div class="SiteHeader__mobileOptions">
-            <div class="navbar_action">
-                <a href="#" class="actionIcon gb-icon-menu site__menuToggle">
+        <div class="site-header__mobile-options">
+            <div class="navbar-action">
+                <a href="#" class="action-icon gb-icon-menu site-header__menu-toggle">
                     <span>Menu</span>
                 </a>
             </div>
-            <div class="navbar_action">
-                <a href="/#" class="actionIcon gb-icon-logo">
+            <div class="navbar-action">
+                <a href="/#" class="action-icon gb-icon-logo">
                     <span>GBIF</span>
                 </a>
             </div>
             {% if not __hideSearchAction %}
-            <div class="navbar_action">
-                <a href="#" class="actionIcon gb-icon-search site__searchToggle">
+            <div class="navbar-action">
+                <a href="#" class="action-icon gb-icon-search site-header__search-toggle">
                     <span>Search</span>
                 </a>
             </div>

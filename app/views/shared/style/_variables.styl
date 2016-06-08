@@ -1,3 +1,11 @@
+/**
+ * Note on variable naming.
+ * 1) The identifier always starts with a dollar sign.
+ * 2) We use camel case for multiple words, and avoid using acronyms or abbreviations.
+ * 3) Camel case for mixins.
+ * 4) In cases that namespaced block/element helps, we use single underscore to connect words.
+ */
+
 /* BREAK POINTS */
 // mobile : 0px; //mobile first, no support for wearables
 $tablet := 768px
@@ -5,57 +13,64 @@ $tablet := 768px
 $laptop := 1024px //1024px
 $desktop := 1200px
 
-
 /* BRAND COLORS */
-$Green = rgb(80,158,47);  		// Green
-$Black = rgb(35, 31, 32) 		// Black
-$Azure = rgb(23,92,161);  		// Azure
-$Aqua = rgb(64,191,255); 		// Aqua
-$purple = rgb(99,111,180);   	// purple
-$SkyBlue = rgb(229, 255, 255)	// sky blue
-$OrangePeel = rgb(253, 176, 2)	// orange peel
-$Plum = rgb(126,70,106);  		// plum
-$Terracotta = rgb(214,111,39);  // Terracotta
-$Mist = rgb(232, 232, 232) 		// mist
+$green = rgb(80,158,47)  		// Green
+$black = rgb(35, 31, 32) 		// Black
+$azure = rgb(23,92,161)  		// Azure
+$aqua = rgb(64,191,255) 		// Aqua
+$purple = rgb(99,111,180)   	// purple
+$skyBlue = rgb(229, 255, 255)	// sky blue
+$orangePeel = rgb(253, 176, 2)	// orange peel
+$plum = rgb(126,70,106)  		// plum
+$terracotta = rgb(214,111,39)	// Terracotta
+$mist = rgb(232, 232, 232) 		// mist
+$orangePeelLight = rgb(255, 224, 156)
+$blueTintedBlack = #4e565f
 
-/* Bootstrap color gradient */
-$gray-base =             #000;
-$gray-darker =           #222;
-$gray-dark =             #333;
-$gray =                  #555;
-$gray-light =            #777;
-$gray-lighter =          #eee;
-$white =                 #fff;
+/* Gray color shades */
+// @see http://www.december.com/html/spec/color0compact.html
+$grayBase = #000000; // black
+$gray90 = lighten($grayBase, 10%)
+$gray80 = lighten($grayBase, 20%) // #333333 safe
+$gray75 = lighten($grayBase, 25%)
+$gray70 = lighten($grayBase, 30%)
+$sgilightGray = #aaa
+$gray65 = lighten($grayBase, 35%) // #666666 safe
+$gray63 = lighten($grayBase, 37%) //
+$gray60 = lighten($grayBase, 40%) //
+$gray50 = lighten($grayBase, 50%)
+$gray = gray
+$gray40 = lighten($grayBase, 60%)
+$gray30 = lighten($grayBase, 70%)
+$gray20 = lighten($grayBase, 80%)
+$gray10 = lighten($grayBase, 90%)
+$white = #fff;
 
 /* SITE SPECIFIC COLORS */
-$c_main := $Mist//#67A05D
-$c_sec := #F5CC27
-$_accent := $purple
-$content_bg := #e2e7ea//$Mist
-$Olivine := #9BBB7F;
-
+$color_main := $mist
+$color_secondary := #F5CC27
+$color_accent := $purple
+$content_background := #e2e7ea
+$olivine := #9BBB7F
 
 /* Navigation-bar variables */
-$navbar_height := vr-block(3)
-$navbar_borderWidth := vr-block(0.25)
-$navbar_bg := linear-gradient( lighten($Olivine, 2), $Olivine) //#9BBB7F //#6FAF5C //$Mist
-$navbar_BorderColor := #f5cc27
-$navbar_textColor := #fafafa //$Green//$Mist
+$navBar_height := vrBlock(3)
+$navBar_borderWidth := vrBlock(0.25)
+$navBar_background := linear-gradient(lighten($olivine, 2), $olivine)
+$navBar_borderColor := #f5cc27
+$navBar_textColor := #fafafa
+$navBar_dropDownBackground := white
+$navBar_dropDownColor := #333
+$navBar_horizontal_color := $color_main // @todo better naming for "horizontal"
 menuTextShadow() {
-	text-shadow 0px 1px 1px darken($Olivine, 10)
+	text-shadow 0px 1px 1px darken($olivine, 10)
 }
 
-$navbar_dropdown_bg := white
-$navbar_dropdown_color := #333
-$navbar_horizontal_color := $c_main
-
+/* SEARCH */
+$searchInputColor = $plum
 
 /* DRAWERS */
-$drawer-width := 20em
+$drawerWidth := 20em
 $filterDrawerWidth := 15em
-$nav_drawer_bg := #444
-$nav_drawer_color := #ddd
-
-/* Grey shades */
-$horizantalStripeGrey = #f9f9f9
-$headerGrey = #333333
+$navDrawer_background := #444
+$navDrawer_color := #ddd

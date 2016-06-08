@@ -1,7 +1,7 @@
 {% import "../../searchResults.macro.nunjucks" as helpers %}
 
 {% if results.rawTaxaMatches.length > 0 %}
-<section class="SearchResults__section">
+<section class="search-results__section">
 
     {% for taxon in results.rawTaxaMatches %}
     <div class="card card--speciesList">

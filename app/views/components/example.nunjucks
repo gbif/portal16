@@ -1,6 +1,6 @@
 <section class="example">
     <header>
-        <h1 onclick="angular.element(this).parent().parent().toggleClass('isExpanded')">
+        <h1 onclick="angular.element(this).parent().parent().toggleClass('is-expanded')">
             {% block exampleHead %}{% endblock %}
             <span>&lt; /&gt;</span>
         </h1>

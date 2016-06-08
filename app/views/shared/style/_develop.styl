@@ -4,7 +4,7 @@ $develop_pink ?= false
 
 if ($develop_vertical_rythm)
 	body
-		grid-overlay(blue)//in development this can be nice to have to help you keep the vertical rhythm
+		gridOverlay(blue)//in development this can be nice to have to help you keep the vertical rhythm
 		/*&:after //we can also add the rhythm as an overlay*/
 			/*content ' '*/
 			/*display block*/
@@ -13,12 +13,12 @@ if ($develop_vertical_rythm)
 			/*left 0*/
 			/*bottom 0*/
 			/*width 100%*/
-			/*grid-overlay(blue)*/
+			/*gridOverlay(blue)*/
 
 // make everything transparent pink to better see vertical rythm and element outlines
 // Simple class boosting to overwrite all other styles
 if ($develop_pink)
-	.page-wrapper.page-wrapper.page-wrapper.page-wrapper.page-wrapper.page-wrapper
+	.site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper
 		background transparent
 		*
 			background rgba(255, 100, 100, 0.05)

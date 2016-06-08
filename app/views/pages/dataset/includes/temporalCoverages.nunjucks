@@ -1,8 +1,8 @@
+{# The coverages have been processed in the model #}
 {# Temporal coverage formatter #}
 {# TODO More @type to be considered. #}
-    <h4>Temporal coverage</h4>
-    <ul class="noIndent">
-    {% for coverage in datasetDetails.temporalCoverages %}
+    <ul class="no-indent">
+    {% for coverage in element.values %}
         {% if coverage.@type == 'range' %}
         <li>Date range: {$ value.start | formatDate() $} - {$ value.end | formatDate() $}</li>
         {% endif %}

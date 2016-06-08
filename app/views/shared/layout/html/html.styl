@@ -1,19 +1,18 @@
-
-html, body, .page-wrapper {
+html, body, .site-wrapper {
     height 100%
     width 100%
     overflow-x hidden
-    background $content_bg
+    background $content_background
 }
 
 +isAbove($laptop) {
-    html, body, .page-wrapper {
+    html, body, .site-wrapper {
         min-height 100%
         height auto
     }
 }
 
-.siteCanvas {
+.site-canvas {
     height 100%
     width 100%
 }
@@ -24,7 +23,7 @@ ul, ol {
 }
 
 //fixed toggle
-.toggleDrawer {
+.toggle-drawer {
     z-index 10
     width 50px
     height 50px
@@ -32,7 +31,7 @@ ul, ol {
 }
 
 +isBelow($laptop) {
-    .toggleDrawer {
+    .toggle-drawer {
         position absolute
         bottom 20px
         right 20px
@@ -40,14 +39,19 @@ ul, ol {
 }
 
 +isAbove($laptop) {
-    .toggleDrawer {
+    .toggle-drawer {
         position fixed
         top 95px
         right initial
     }
 }
 
-.contentArea__tabs {
+.page__fixed-width {
+    max-width 1300px
+    margin 0 auto
+}
+
+.page__tabs {
     width 100%
     background rgba(255, 255, 255, 0.5)
     position absolute
@@ -77,7 +81,7 @@ ul, ol {
 
 //TABS
 /*+isBelow($laptop) {*/
-/*.contentArea__tabs {*/
+/*.page__tabs {*/
 /*width 100%*/
 /*background rgba(255,255,255,0.5)*/
 /*position absolute*/
@@ -107,13 +111,13 @@ ul, ol {
 /*}*/
 
 +isAbove($laptop) {
-    .contentArea__tabs {
+    .page__tabs {
         position fixed
         top 150px
     }
 }
 
-.page-wrapper * {
+.site-wrapper * {
     &::-webkit-scrollbar {
         width: 8px; /* for vertical scrollbars */
         height: 8px; /* for horizontal scrollbars */
@@ -133,7 +137,7 @@ ul, ol {
 }
 
 //SIMILUATE IE11 SCROLLBARS
-//.page-wrapper * {
+//.site-wrapper * {
 //	&::-webkit-scrollbar
 //	{
 //		width: 18px;  /* for vertical scrollbars */
@@ -152,11 +156,11 @@ ul, ol {
 //ANCHOR FOX OFFSET FOR FIXED HEADER HEIGHT
 +isAbove($laptop) {
     .anchor:before { //compensate for the fixed header on desktop
-        display: block;
-        content: " ";
-        height: $navbar_height;
-        margin-top: -($navbar_height);
-        visibility: hidden;
+        display: block
+        content: " "
+        height: $navBar_height
+        margin-top: -$navBar_height
+        visibility: hidden
     }
 }
 
@@ -179,11 +183,8 @@ ul, ol {
 //    border 0
 //}
 
-.footer {
+.site-footer {
     padding 10px
     color white
     background-color grey
-    .wrapper {
-        background-color grey
-    }
 }

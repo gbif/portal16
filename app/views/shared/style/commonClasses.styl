@@ -1,53 +1,133 @@
-.wrapperHorizontalStripes {
-    h5 {
-        font-weight bold
+.wrapper-horizontal-stripes {
+    /*
+     * Page level modifiers
+     */
+    .centered-text {
+        text-align center
     }
-    > section {
-        lost-utility: clearfix;
-        padding 20px 0
 
-        header {
-            margin-bottom 10px
-            h1 {
-                font-size: 2.6em;
-                line-height: 1.2em;
+    /*
+     * Section level styles
+     */
+    .horizontal-stripe--paddingless {
+        padding 0 0
+    }
+    .horizontal-stripe {
+        padding 20px 0 0 0
+    }
+    .horizontal-stripe--card {
+        border-top 1px solid #dbe3e7
+    }
+
+
+    /*
+     * Header area styles
+     */
+    .article-header {
+        .container {
+            max-width 1000px
+        }
+        h1 {
+            margin-top vrBlock(0.4)
+            margin-bottom vrBlock(1)
+        }
+    }
+    .article-header__intro {
+        font-size 1.2rem
+        font-style italic
+        font-family $caslon
+        max-width 700px
+        margin 0 auto vrBlock(0.5)
+        color $gray60
+    }
+    .article-header__meta {
+        p {
+            margin-bottom 0
+            font-weight bold
+        }
+    }
+
+
+    /*
+     * Header - page level navigation
+     */
+    $articleCategorySeparatorSpacing = 6px
+    .article-header__category {
+        margin vrBlock(0.5) auto -vrBlock(0.5) auto
+        text-align center
+        text-transform uppercase
+        font-weight bold
+        >span:last-of-type {
+            font-weight normal
+        }
+        .article-header__category__lower {
+            border-left 2px solid $orangePeel
+            margin-left $articleCategorySeparatorSpacing
+            padding-left ($articleCategorySeparatorSpacing + 1)
+        }
+        &.article-header__category--deep {
+            text-align left
+            .article-header__category__upper {
+                display inline-block
+                width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
+                text-align right
             }
         }
-        .licences {
-            .cc {
-                font-size 30px
-            }
+    }
+
+    .article-header__field {
+        display inline-block
+        padding 10px 20px
+        text-align center
+        font-size 1.3rem
+        margin 10px 0
+        vertical-align middle
+        div {
+            display inline-block
+            vertical-align middle
+        }
+        img {
+            height 60px
+            margin-right 8px
         }
     }
-    > section:nth-child(even) {
-        background-color #f9f9f9
+
+    .header-short-text {
+        max-width 800px
+        margin 0 auto
     }
-    > section:nth-child(odd) {
-        background-color #ffffff
+
+    .paragraph-label {
+        font-weight bold
+        color $gray60
     }
-    > section.technical-information {
-        background-color #ffffdf
+
+    .cc {
+        font-size 30px
+        vertical-align middle
     }
-    .mapSection {
-        height vr-block(25)
+
+    .section-map {
+        z-index 1000
+        height 350px
         padding 0 0
         a {
             color @gray-base
         }
     }
-    .mapBlock {
+
+    .block-map {
         height 100%
-    }
-
-    > section.relatedNews {
-        background-color #2D3C44
-        color $gray-lighter
-        padding-top 0px
-        padding-bottom 0px
-
-        >div>div>div:nth-child(2) {
-            padding-top 20px
-            padding-bottom 20px
+        >div:last-child:after {
+            content: '';
+            position: absolute;
+            -webkit-box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3);
+            width:100%;
+            height:100%;
+            display:block;
+            pointer-events:none;
         }
     }
 
@@ -56,15 +136,157 @@
     }
     .licences {
         text-align right
-        img {
-            float right
-            width 50px
+    }
+}
+
+.white-background {
+    background-color $white
+}
+.bare-background {
+    background-color none
+}
+.light-background {
+    background-color #f9f9f9
+}
+.alert-background {
+    background-color #ffffdf
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.container--prose {
+    margin 0 auto
+    max-width 1000px
+}
++isAbove($tablet) {
+    .container--prose {
+        max-width 700px
+    }
+}
++isAbove($desktop) {
+    .container--prose {
+        max-width 1024px
+    }
+}
+
+.body-text {
+    font-size 16px
+    font-weight normal
+    padding-bottom 20px
+}
+
+.body-text--prose {
+    @extend .body-text
+    text-align justify
+    overflow-wrap break-word
+    word-wrap break-word
+    hyphens auto
+    margin-bottom 20px
+
+    figure {
+        overflow hidden
+        break-inside avoid-column
+        figcaption {
+            font-size 0.9rem
+            font-weight 300
+            color $citationTextColor
         }
     }
-    .three-col {
-        -moz-column-count 3
-        -moz-column-gap 30px
-        -webkit-column-count 3
-        -webkit-column-gap 30px
+}
+
++isAbove($desktop) {
+    .body-text--prose {
+        columns 2 30px
+    }
+}
+
+.article-auxiliary {
+    padding-top 20px
+    border-top 1px solid #ddd
+    font-size 1rem
+    color $gray63
+
+    section {
+        border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+    }
+
+    h5 {
+        font-weight bold
+        display inline
+        &:after {
+            content: ":"
+        }
+        margin-right 0.5em
+    }
+}
+
+.heading-image {
+    figcaption {
+        font-size 0.9rem
+        font-weight 300
+        color $citationTextColor
+        padding 0 15px
+    }
+}
+
+.cover-image {
+    height 0
+    padding-bottom 30%
+    background #f7f9fa
+    overflow hidden
+    background-size cover
+    background-position center
+    img {
+        display none
+    }
+}
+
+.article-image {
+    padding-bottom 60%
+}
+
+.no-break {
+    break-inside avoid-column
+}
+
++isAbove($tablet) {
+    .count-text {
+        text-align left
+    }
+    .card {
+        margin 0 0
+    }
+    .heading-image {
+        figcaption {
+            max-width 700px
+            margin 0 auto
+        }
+    }
+}
+
++isAbove($desktop) {
+    .body-text {
+        columns 2 30px
+    }
+    .heading-image {
+        figcaption {
+            max-width 1000px
+            padding 0
+        }
+    }
+}
+
++isBelow($tablet) {
+    .publisher {
+        overflow-wrap break-word
+    }
+    .count-text {
+        text-align center
+    }
+    .card {
+        margin-bottom vrBlock(0.5)
     }
 }

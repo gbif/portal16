@@ -50,8 +50,8 @@ require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
-require('../../../pages/dataset/datasetDetailsVerticalTabularRenderer.ctrl');
 require('../../../pages/dataset/datasetDetailsDownloadEventsTable.ctrl');
+require('../../../pages/dataset/datasetDetailsContactPopup.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
@@ -195,18 +195,18 @@ module.exports = {
 })(window);
 
 
-var searchToggleSelector = '.site__searchToggle',
-    navToggleSelector = '.site__menuToggle';
+var searchToggleSelector = '.site-header__search-toggle',
+    navToggleSelector = '.site-header__menu-toggle';
 var toggleMenu = function () {
-    document.getElementById('SiteHeader').classList.toggle('isActive');
-    document.getElementById('siteCanvas').classList.toggle('hasActiveMenu');
+    document.getElementById('site-header').classList.toggle('is-active');
+    document.getElementById('site-canvas').classList.toggle('hasActiveMenu');
 
     gb.util.forEachElement(searchToggleSelector, function (el) {
-        el.classList.remove('isActive');
+        el.classList.remove('is-active');
     });
 
-    var searchAreaEl = document.getElementById('site_search');
-    searchAreaEl.classList.remove('isActive');
+    var searchAreaEl = document.getElementById('site-search');
+    searchAreaEl.classList.remove('is-active');
 };
 gb.util.addEventListenerAll(navToggleSelector, 'click', toggleMenu);
 
@@ -219,8 +219,8 @@ function getAncestors(el, stopEl) {
 
 //collapse and expand menu items
 var siteNav = document.getElementById('nav');
-var SiteNavCategoryItems = siteNav.querySelectorAll('.isCategory');
-gb.util.addEventListenerAll('.isCategory>a', 'click', function (event) {
+var SiteNavCategoryItems = siteNav.querySelectorAll('.is-category');
+gb.util.addEventListenerAll('.is-category>a', 'click', function (event) {
     var ancestors = getAncestors(this, siteNav),
         child, i;
 
@@ -228,35 +228,35 @@ gb.util.addEventListenerAll('.isCategory>a', 'click', function (event) {
     for (i = 0; i < SiteNavCategoryItems.length; i++) {
         child = SiteNavCategoryItems[i];
         if (ancestors.indexOf(child) == -1) {
-            child.classList.remove('isExpanded');
+            child.classList.remove('is-expanded');
         }
     }
 
-    if (!siteNav.classList.contains('isExpanded')) {
+    if (!siteNav.classList.contains('is-expanded')) {
         //for horizontal layout. When changing from laptop to mobile this means that the first menu click is ignored
-        this.parentNode.classList.add('isExpanded');
+        this.parentNode.classList.add('is-expanded');
     }
     else {
-        this.parentNode.classList.toggle('isExpanded');
+        this.parentNode.classList.toggle('is-expanded');
     }
-    siteNav.classList.add('isExpanded');//use for horizontal layout
+    siteNav.classList.add('is-expanded');//use for horizontal layout
     event.preventDefault(); //do not scroll to top
 });
 
 //collapse expand service menu
-gb.util.addEventListenerAll('.ServiceMenu__teaser>a', 'click', function () {
-    this.parentNode.parentNode.classList.toggle('isExpanded');
+gb.util.addEventListenerAll('.service-menu__teaser>a', 'click', function () {
+    this.parentNode.parentNode.classList.toggle('is-expanded');
 });
 
 
 //Search toggling
 gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
     gb.util.forEachElement(searchToggleSelector, function (el) {
-        el.classList.toggle('isActive');
+        el.classList.toggle('is-active');
     });
 
-    var searchAreaEl = document.getElementById('site_search');
-    searchAreaEl.classList.toggle('isActive');
+    var searchAreaEl = document.getElementById('site-search');
+    searchAreaEl.classList.toggle('is-active');
     searchAreaEl.querySelector('input').focus();
     closeMenus();
     event.preventDefault();
@@ -268,8 +268,8 @@ gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
 
 //close menu when clicking outside
 function closeMenus() {
-    siteNav.classList.remove('isExpanded');
-    if (document.getElementById('siteCanvas').classList.contains('hasActiveMenu')) {
+    siteNav.classList.remove('is-expanded');
+    if (document.getElementById('site-canvas').classList.contains('hasActiveMenu')) {
         toggleMenu();
     }
 }

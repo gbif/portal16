@@ -4,13 +4,13 @@
         <div class="row">
             {#<div>#}
             {#<div class="multiToggle">#}
-            {#<div type="button" aria-label="All" class="isActive" focus="0"#}
+            {#<div type="button" aria-label="All" class="is-active" focus="0"#}
             {#ng-click="occurrence.table.filter = undefined"#}
-            {#ng-class="{isActive: occurrence.table.filter == undefined}">All</div>#}
+            {#ng-class="{is-active: occurrence.table.filter == undefined}">All</div>#}
             {#<div type="button" aria-label="Event"#}
             {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
             {#ng-click="occurrence.table.filter = category"#}
-            {#ng-class="{isActive: occurrence.table.filter == category}">#}
+            {#ng-class="{is-active: occurrence.table.filter == category}">#}
             {#{{ category }}#}
             {#</div>#}
             {#</div>#}
@@ -66,7 +66,7 @@
                                     {% endfor %}
 
                                     {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
-                                        <tr class="isCollapsable ng-cloak">
+                                        <tr class="is-collapsable ng-cloak">
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
                                                 <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
                                                     {% if extension[term] | isLink %}

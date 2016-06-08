@@ -9,164 +9,152 @@
     {% import "../../components/common.macros.nunjucks" as commonMacros %}
 
     {# Begin page content #}
-    <script type="text/javascript">var datasetKey = "{$ datasetDetails.key $}";</script>
-    <article class="wrapperHorizontalStripes">
-        <section id="key-information">
-            <div class="container">
+    <script type="text/javascript">
+        var datasetKey = '{$ datasetDetails.key $}';
+        var headerContactsString = '{$ headerContactsString | safe $}';
+    </script>
+    <article class="wrapper-horizontal-stripes">
+        <header class="horizontal-stripe article-header {$ publisherStyle $} white-background">
+            <div class="container" ng-controller="contactPopupCtrl as contactPopup">
                 <div class="row">
-                    <header class="col-xs-12">
-                        <h4 class="contentTypeLabel">{$ datasetDetails.type $} dataset</h4>
-                        <h1>{$ datasetDetails.title $}</h1>
-                    </header>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-8">
-                        <ul class="noIndent">
-                            <li>Published by:
-                                {% if publisher.homepage %}
-                                    <a href="{$ publisher.homepage $}">{$ publisher.title $}</a>
-                                {% else %}
-                                    {$ publisher.title $}
-                                {% endif %}
-                            </li>
-                            <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
-                            {% if datasetDetails.language %}
-                            <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
+                    <div class="col-xs-12 col-md-12 centered-text">
+                        <nav class="article-header__category article__category-deep">
+                            <span class="article-header__category__upper">dataset</span>
+                            <span class="article-header__category__lower">{$ datasetDetails.type $}</span>
+                        </nav>
+                        <h1 class="centered-text">{$ datasetDetails.title $}</h1>
+                        <div class="article-header__field {$ publisherModifier $}">
+                            {% if datasetDetails.logoUrl %}
+                            <div>
+                                <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
+                            </div>
                             {% endif %}
-                            {% if datasetDetails.dataLanguage %}
-                            <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
-                            {% endif %}
-                            {# sub-template for determining the best list of primary contacts #}
-                            {% include "./includes/headerContacts.nunjucks" %}
-                        </ul>
-                    </div>
-                    <div class="col-xs-6 col-md-4 licences">
-                        <ul class="noIndent">
-                            <li>{$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}</li>
-                            <li>
+                            <div class="published-by">
+                                <p>Published by<br>
+                                    {% if publisher.homepage %}
+                                        <a href="{$ publisher.homepage $}" class="publisher">{$ publisher.title $}</a>
+                                    {% else %}
+                                        {$ publisher.title $}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        {$ countBreaking | safe $}
+
+                        {% if occurrenceCount %}
+                        <div class="article-header__field">
+                        {# @todo Consider counts for checklist dataset #}
+                            <div class="record-count">{$ occurrenceCount $}</div>
+                            <div><p class="count-text">occurrence records<br>{$ georeferencedString $}</p></div>
+                        </div>
+                        {% endif %}
+
+                        {% if occurrenceCount %}
+                        <div class="article-header__field download-block">
+                        {# @todo ui widget for download. Modal? #}
+                            <div>
+                                <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% include "./includes/headerContacts.nunjucks" %}
+
+                        {# @todo Final citation format to be decided. #}
+                        {# @todo Publisher-provided format should have linkable identifier if mentioned. #}
+                        {% if datasetDetails.citation %}
+                        <div class="header-short-text">
+                            <p><span class="paragraph-label">Citation</span>:<br>
+                                {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
+                            </p>
+                            <p>
                                 <span class="gb-icon-cclogo3 cc"></span>
                                 <span class="gb-icon-ccby cc"></span>
                                 <span class="gb-icon-ccnc cc"></span>
-                            </li>
-                            {% if datasetDetails.logoUrl %}
-                                <li><a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a></li>
-                            {% endif %}
-                        </ul>
+                            </p>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
+
         {% if occurrenceCount %}
-        <section id="map" class="mapSection">
-            <gbmap id="datasetMap" class="mapBlock" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
+        <section id="map" class="section-map horizontal-stripe">
+            <gbmap id="datasetMap" class="block-map" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>
         </section>
         {% endif %}
-        <section id="primary-coverages">
+        <div class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12 three-col">
-                        {% if occurrenceCount %}
-                        <section class="recordCount">
-                            {% include "./includes/recordCounts.nunjucks" %}
-                        </section>
+                    <div class="col-xs-12 col-md-12">
+
+                    <section class="data-source">
+                        View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area.
+                        {% if datasetDetails.homepage %}
+                            <h4>Data source</h4>
+                            <ul class="no-indent">
+                                <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
+                            </ul>
                         {% endif %}
-                        <section class="dataSource">
-                            {% if datasetDetails.homepage %}
-                                <h4>Data source</h4>
-                                <ul class="noIndent">
-                                    <li><a href="{$ datasetDetails.homepage $}">Dataset homepage</a></li>
-                                </ul>
-                            {% endif %}
-                        </section>
-                        {% if datasetDetails.description %}
-                            <section id="description">
-                                <h4>Description</h4>
-                                <p>{$ datasetDetails.description | safe $}</p>
-                            </section>
+                    </section>
+                    <ul class="no-indent">
+                        <li>Published on: {$ datasetDetails.pubDate | formatDate(gb.locales.current) $}</li>
+
+                        {% if datasetDetails.language %}
+                            <li>Metadata language: {$ __('language.' + datasetDetails.language) $}</li>
                         {% endif %}
-                        {% if datasetDetails.geographicCoverages[0].description %}
-                            <section>
-                                <h4>Geographic coverage</h4>
-                                {% for c in datasetDetails.geographicCoverages %}
-                                    <p>{$ c.description | safe $}</p>
-                                {% endfor %}
-                            </section>
+                        {% if datasetDetails.dataLanguage %}
+                            <li>Data language: {$ __('language.' + datasetDetails.dataLanguage) $}</li>
                         {% endif %}
-                        {% if datasetDetails.temporalCoverages[0] %}
-                            <section>
-                                {% include "./includes/temporalCoverage.nunjucks" %}
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.purpose %}
-                            <section id="purpose">
-                                <h4>Purpose</h4>
-                                <P>{$ datasetDetails.purpose | safe $}</P>
-                            </section>
-                        {% endif %}
-                        {% if datasetDetails.additionalInfo %}
-                            <section id="additional-information">
-                                <h4>Additional information</h4>
-                                <p>{$ datasetDetails.additionalInfo | safe $}</p>
-                            </section>
-                        {% endif %}
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# TODO make dependent on model from route controller @Burke #}
+        {% if metadataElementsToFold[0] %}
+        <section id="metadata" class="horizontal-stripe metadata white-background">
+            <div class="container">
+                <div class="row">
+                    {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        {% if datasetDetails.citation or datasetDetails.rights %}
+        <section id="contacts" class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Contacts</h3>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="metrics">
+        {% endif %}
+
+        {#
+        <section id="metrics" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>Statistics</h3>
-                        <p style="color: orange;">[Specs to be discussed.]</p>
                     </div>
                 </div>
             </div>
         </section>
-        {# TODO make dependent on model from route controller @Burke #}
-        {% if metadataElementsToFold[0] %}
-        <section id="metadata-explorer" class="verticalTabs" ng-controller="verticalTabularRendererCtrl as verticalTabularRenderer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Further information</h3>
-                        {$ datasetMacros.verticalTabularRenderer(metadataElementsToFold) $}
-                    </div>
-                </div>
-            </div>
-        </section>
-        {% endif %}
-        {# TODO Final citation format to be decided. #}
-        {# TODO Publisher-provided format should have linkable identifier if mentioned. #}
-        {% if datasetDetails.citation or datasetDetails.rights %}
-        <section id="citation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Citation and licensing</h3>
-                        <p style="color: orange;">[To follow the suggested citation practice by AH]</p>
-                        {% if datasetDetails.citation %}
-                            <h5>Provided by the data publisher</h5>
-                            <p>{$ datasetDetails.citation.text $}</p>
-                            <p><a href="{$ datasetDetails.citation.identifier $}">{$ datasetDetails.citation.identifier $}</a></p>
-                        {% endif %}
-                        {% if datasetDetails.rights %}
-                            <h5>Rights</h5>
-                            <p>{$ datasetDetails.rights | safe $}</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </section>
-        {% endif %}
-        <section id="related-news" class="relatedNews">
+        #}
+                
+        <section id="related-news" class="horizontal-stripe--paddingless related-news">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
                         <img src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2014-October/82526/Acridotheres%20tristis.jpg?itok=30C4sgB-">
                     </div>
                     <div class="col-xs-6 col-md-6">
-                        <h4 class="contentTypeLabel">Data use</h4>
+                        <h4 class="content-type-label">Data use</h4>
                         <h3>Building national watch lists for invasive alien species</h3>
                         <p>A research team from GBIF's partners in the South African National Biodiversity Institute (SANBI) developed a simple methodology for drawing up a 'watch list' that countries can use to identify those alien species most likely to pose a substantial threat of invasion.</p>
                         <p style="color: orange;">[This section is yet wired to the Content API]</p>
@@ -174,8 +162,9 @@
                 </div>
             </div>
         </section>
+
         {# Download events for the dataset in view. (Former "activity" tab.) #}
-        <section id="download-events">
+        <section id="download-events" class="horizontal-stripe white-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -184,12 +173,11 @@
                 </div>
             </div>
         </section>
-        <section id="gbif-registration-info" class="technical-information">
+        <section id="gbif-registration-info" class="horizontal-stripe alert-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>GBIF Registration Information</h3>
-                        <p style="color: orange;">[Nerd's zone. To be folded.]</p>
                     </div>
                 </div>
                 {% include "./includes/registrationInfo.nunjucks" %}

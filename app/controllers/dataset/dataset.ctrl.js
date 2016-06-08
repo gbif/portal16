@@ -44,15 +44,26 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
+    var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
+    var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
+    var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('records') + ')';
+    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : '';
+    var countBreaking = (dataset.occurrenceCount >= 10000) ? '<br>' : '';
+    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : '';
 
     var datasetContent = {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
-        headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
+        headerContacts: headerContacts,
+        headerContactsString: JSON.stringify(headerContacts),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
+        georeferencedString: georeferencedString,
+        publisherStyle: publisherStyle,
+        countBreaking: countBreaking,
+        publisherModifier: publisherModifier,
         process: dataset.process.results,
         api: api,
         identifiers: processIdentifiers(dataset.record.identifiers),
@@ -77,6 +88,10 @@ function doiToUrl(doi) {
  */
 function metadataElementsToFold(datasetDetails) {
     var metadataElementsToFold = [
+        { title: "Description", property: "description" },
+        { title: "Purpose", property: "purpose" },
+        { title: "Temporal coverage", property: "temporalCoverages" },
+        { title: "Geographic coverage", property: "geographicCoverages" },
         { title: "Taxonomic coverage", property: "taxonomicCoverages" },
         { title: "Project", property: "project" },
         { title: "Sampling description", property: "samplingDescription" },
@@ -84,8 +99,8 @@ function metadataElementsToFold(datasetDetails) {
         { title: "Curatorial units", property: "curatorialUnits" },
         { title: "Collections", property: "collections" },
         { title: "Keyword collections", property: "keywordCollections" },
-        { title: "Bibliographic citations", property: "bibliographicCitations" },
-        { title: "Contacts", property: "contacts" }
+        { title: "Additional information", property: "additionalInfo"},
+        { title: "Bibliographic citations", property: "bibliographicCitations" }
     ];
     var results = [];
 
@@ -204,13 +219,14 @@ function metadataElementsToFold(datasetDetails) {
  */
 function organizeContacts(sourceContacts, mode) {
     var roles = [];
+    var resultRoles = [];
 
     // The order of roles here matters as weighting.
     switch (mode) {
         case 'HEADER':
             roles = [
-                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
-                {'type': 'ORIGINATOR', 'label': 'Originator'}
+                {'type': 'ORIGINATOR', 'label': 'Originator'},
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'}
             ];
             break;
         case 'OTHER':
@@ -235,8 +251,8 @@ function organizeContacts(sourceContacts, mode) {
             break;
         default:
             roles = [
-                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
                 {'type': 'ORIGINATOR', 'label': 'Originator'},
+                {'type': 'METADATA_AUTHOR', 'label': 'Metadata author'},
                 {'type': 'PRINCIPAL_INVESTIGATOR', 'label': 'Principal investigator'},
                 {'type': 'AUTHOR', 'label': 'Author'},
                 {'type': 'EDITOR', 'label': 'Editor'},
@@ -264,7 +280,7 @@ function organizeContacts(sourceContacts, mode) {
             break;
     }
 
-    roles.forEach(function (role) {
+    roles.forEach(function (role, ri) {
         role.contacts = [];
         sourceContacts.forEach(function(sourceContact){
             if (sourceContact.type == role.type) {
@@ -273,7 +289,7 @@ function organizeContacts(sourceContacts, mode) {
                 // Make click-to-email name if email exists.
                 var name = '';
                 if (sourceContact.email[0]) {
-                    name = '<a href="mailto:' + sourceContact.email + '">' + sourceContact.firstName + ' ' + sourceContact.lastName + '</a>';
+                    name = sourceContact.firstName + ' ' + sourceContact.lastName;
                 }
                 else if (sourceContact.firstName && sourceContact.lastName) {
                     name = sourceContact.firstName + ' ' + sourceContact.lastName;
@@ -298,9 +314,13 @@ function organizeContacts(sourceContacts, mode) {
                 }
             }
         });
+        // if no contacts matched then don't include this role in the result.
+        if (role.contacts.length != 0) {
+            resultRoles.push(role);
+        }
     });
 
-    return roles;
+    return resultRoles;
 }
 
 /**

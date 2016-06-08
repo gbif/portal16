@@ -1,6 +1,3 @@
 {% if occurrenceCount %}
-<h4>{$ occurrenceCount $} occurrence records</h4>
-<p>{$ occurrenceGeoRefCount $} referenced.<br>
-View: <a href="/occurrence/search?datasetKey={$ datasetDetails.key $}&HAS_COORDINATE=true&HAS_GEOSPATIAL_ISSUE=false">All records</a>, or in viewable area<br>
-Download: <a>Simple CSV</a> or <a>DwC-A</a></p>
+<p class="record-count"><span class="drop-cap">{$ occurrenceCount $}</span>occurrence records<br>{$ occurrenceGeoRefCount $} georeferenced.</p>
 {% endif %}

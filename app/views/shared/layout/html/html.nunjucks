@@ -14,8 +14,8 @@
 <body>
 
     {# Main layout #}
-    <div id="page-wrapper" class="page-wrapper">
-        <div class="siteCanvas" id="siteCanvas">
+    <div id="site-wrapper" class="site-wrapper">
+        <div id="site-canvas" class="site-canvas">
 
             {# Navigation #}
             {% include "../partials/navigation/navigation.nunjucks" %}
@@ -24,32 +24,30 @@
 
             {# Main layout cont #}
             {# http://html5doctor.com/the-main-element/ #}
-            <main class="main" role="main" id="main" ui-view>
+            <main id="main" class="main" role="main" ui-view>
 
                 {# Drawer block is contextual, therefore is a part of the <main> #}
                 {% if hasDrawer %}
-                <aside class="isLockedX Site__drawer" id="filter">
+                <aside id="filter" class="site-drawer is-locked-x">
                     <div>
                         {% block drawer %}{% endblock %}
                     </div>
                 </aside>
                 {% endif %}
 
-                <div class="Site__contentArea">
+                <div class="site-content">
 
                     {% if hasTools %}
                         {% block tools %}{% endblock %}
                     {% endif %}
 
-                    <div class="Site__contentArea__main">
+                    {# use page--fixed-width to restrict main column width #}
+                    <div class="page">
 
-
-                            {% block page %}{% endblock %}
-
-
-                        {# Footer #}
-                        {% include "../partials/footer/footer.nunjucks" %}
+                        {% block page %}{% endblock %}
                     </div>
+                    {# Footer #}
+                    {% include "../partials/footer/footer.nunjucks" %}
                 </div>
             </main>
 

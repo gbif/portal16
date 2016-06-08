@@ -1,14 +1,14 @@
-<div class="Search" id="site_search">
+<div class="search" id="site-search">
 
-    <div class="Search__content">
+    <div class="search-content">
 
-        <div class="searchBar">
-            <form action="/search" class="Search__form">
+        <div class="search-bar">
+            <form action="/search" class="search-form">
                 <input type="text" placeholder="{$ __('search') $}" name="q" value="{$ query $}" autocomplete="off">
                 <button type="submit" class="gb-icon-search">
                     <span class="sr-only">{$ __('search') $}</span>
                 </button>
-                <input type="submit" class="Search__form__submit sr-only" value="{$ __('search') $}">
+                <input type="submit" class="search-form__submit sr-only" value="{$ __('search') $}">
             </form>
         </div>
 

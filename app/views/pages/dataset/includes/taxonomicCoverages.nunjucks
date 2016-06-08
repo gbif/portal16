@@ -1,23 +1,25 @@
 {# The coverages have been processed in the model #}
-{% for value in element.values %}
-    <div class="taxonomicCoverage">
-        <p>{$ value.description | safe $}</p>
-        {% if value.coverages %}
-            <dl>
-                {% for coverage in value.coverages %}
-                    {% if coverage.rank %}
-                        <dt>{$ coverage.rank $}</dt>
-                    {% endif %}
-                    {% if coverage.taxa %}
-                        <dd>
-                            {% set comma = joiner() %}
-                            {% for taxon in coverage.taxa -%}
-                                {% if taxon.italicized %}<em>{% endif %}{$ comma() $} <a href="{$ taxon.searchUrl $}">{$ taxon.scientificName $}</a>{% if taxon.italicized %}</em>{% endif %}{% if taxon.commonName %}({$ taxon.commonName $}){% endif %}
-                            {%- endfor %}
-                        </dd>
-                    {% endif %}
-                {% endfor %}
-            </dl>
-        {% endif %}
-    </div>
-{% endfor %}
+<div class="metadata-section">
+    {% for value in element.values %}
+        <div class="taxonomic-coverage">
+            <p>{$ value.description | safe $}</p>
+            {% if value.coverages %}
+                <dl>
+                    {% for coverage in value.coverages %}
+                        {% if coverage.rank %}
+                            <dt>{$ coverage.rank $}</dt>
+                        {% endif %}
+                        {% if coverage.taxa %}
+                            <dd>
+                                {% set comma = joiner() %}
+                                {% for taxon in coverage.taxa -%}
+                                    {% if taxon.italicized %}<em>{% endif %}{$ comma() $} <a href="{$ taxon.searchUrl $}">{$ taxon.scientificName $}</a>{% if taxon.italicized %}</em>{% endif %}{% if taxon.commonName %}({$ taxon.commonName $}){% endif %}
+                                {%- endfor %}
+                            </dd>
+                        {% endif %}
+                    {% endfor %}
+                </dl>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

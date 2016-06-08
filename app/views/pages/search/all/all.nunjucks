@@ -1,6 +1,6 @@
 {% import "../searchResults.macro.nunjucks" as searchMacro %}
 
-<div class="SearchResults__other">
+<div class="search-results__other">
 
     {% include "./country/country.nunjucks" %}
     {% include "./catalogNumber/catalogNumber.nunjucks" %}

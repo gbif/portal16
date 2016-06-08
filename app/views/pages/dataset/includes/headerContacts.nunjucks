@@ -1,16 +1,19 @@
 {# Complete the primary contacts listed in the header, as <li> items. #}
-{% if headerContacts %}
-    {% for role in headerContacts %}
-        {# metadata author and originator #}
-        {% if role.contacts[0] %}
-        {% if role.type == 'METADATA_AUTHOR' or role.type == 'ORIGINATOR' %}
-            <li>{$ role.label $}:
-            {% set comma = joiner() %}
-            {% for contact in role.contacts -%}
-                {$ comma() $} {$ contact.name | safe $}
-            {%- endfor %}
-            </li>
-        {% endif %}
-        {% endif %}
-    {% endfor %}
+{% if headerContacts[0] %}
+    <div class="header-contacts">
+        {% for role in headerContacts %}
+            {% set roleIndex = loop.index0 %}
+            {# metadata author and originator #}
+            {% if role.contacts[0] %}
+                <div class="header-contact">
+                    <p>{$ role.label $}<br>
+                        {% set comma = joiner() %}
+                        {% for contact in role.contacts -%}
+                            {% set contactIndex = loop.index0 %}{$ comma() $} <a>{$ contact.name $}</a>
+                        {%- endfor %}
+                    </p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endif %}

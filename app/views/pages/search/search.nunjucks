@@ -3,14 +3,14 @@
 
 {% block page %}
 
-    <div class="Search__content" ng-controller="searchCtrl as search">
-        <div class="searchBar">
-            <form action="/search" class="Search__form">
+    <div class="search-content" ng-controller="searchCtrl as search">
+        <div class="search-bar">
+            <form action="/search" class="search-form">
                 <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
                 <button type="submit" class="gb-icon-search">
                     <span class="sr-only">{$ __('search') $}</span>
                 </button>
-                <input type="submit" class="Search__form__submit sr-only" value="{$ __('search') $}">
+                <input type="submit" class="search-form__submit sr-only" value="{$ __('search') $}">
             </form>
             <div class="card__tabs">
                 <div class="tabs">
@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="SearchResults">
+        <div class="search-results">
 
             {#{% if hasInvalidResponses %}#}
                 {#{% include "./partialResponse.nunjucks" %}#}

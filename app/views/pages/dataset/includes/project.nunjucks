@@ -1,20 +1,22 @@
-<h4>{$ element.values.title $}</h4>
-<ul class="noIndent">
-    {% if element.values.contacts[0] %}
-        {% for contact in element.values.contacts %}
-            <li>{$ contact.firstName $} {$ contact.lastName $}</li>
-        {% endfor %}
+<div class="metadata-section">
+    <h4>{$ element.values.title $}</h4>
+    <ul class="no-indent">
+        {% if element.values.contacts[0] %}
+            {% for contact in element.values.contacts %}
+                <li>{$ contact.firstName $} {$ contact.lastName $}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    {% if element.values.funding %}
+        <h5>Funding</h5>
+        <p>{$ element.values.funding $}</p>
     {% endif %}
-</ul>
-{% if element.values.funding %}
-    <h5>Funding</h5>
-    <p>{$ element.values.funding $}</p>
-{% endif %}
-{% if element.values.studyAreaDescription %}
-    <h5>Study area description</h5>
-    <p>{$ element.values.studyAreaDescription $}</p>
-{% endif %}
-{% if element.values.designDescription %}
-    <h5>Design description</h5>
-    <p>{$ element.values.designDescription $}</p>
-{% endif %}
+    {% if element.values.studyAreaDescription %}
+        <h5>Study area description</h5>
+        <p>{$ element.values.studyAreaDescription $}</p>
+    {% endif %}
+    {% if element.values.designDescription %}
+        <h5>Design description</h5>
+        <p>{$ element.values.designDescription $}</p>
+    {% endif %}
+</div>

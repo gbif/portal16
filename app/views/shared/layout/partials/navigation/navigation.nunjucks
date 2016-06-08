@@ -1,26 +1,26 @@
 {% include "./mobileheader/mobileheader.nunjucks" %}
 
-<nav id="nav" class="SiteNav" role="navigation">
-    <div class="ServiceMenu isCategory">
-        <div class="ServiceMenu__teaser">
+<nav id="nav" class="site-nav" role="navigation">
+    <div class="service-menu is-category">
+        <div class="service-menu__teaser">
             <a href="#">
-                <div class="ServiceMenu__teaser__message">
+                <div class="service-menu__teaser-message">
                     <span>Welcome back</span>
                     <span>Doctor J. Lamiales</span>
                 </div>
             </a>
         </div>
         <ul>
-            <!-- <li class="ServiceMenu__search isCategory">
+            <!-- <li class="service-menu__search is-category">
                 <a href="#search">Search</a>
             </li> -->
             {% if not __hideSearchAction %}
-                <li class="ServiceMenu__search">
-                    <a href="#" class="gb-icon-search site__searchToggle">Search</a>
+                <li class="service-menu__search">
+                    <a href="#" class="gb-icon-search site-header__search-toggle">Search</a>
                 </li>
             {% endif %}
 
-            <li class="ServiceMenu__profile isCategory">
+            <li class="service-menu__profile is-category">
                 <a href="#" class="gb-icon-user-female">Profile</a>
                 <ul>
                     <li>
@@ -37,7 +37,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="ServiceMenu__language isCategory">
+            <li class="service-menu__language is-category">
                 <a href="#" class="gb-icon-global">Language</a>
                 <ul>
                     <li>
@@ -54,7 +54,7 @@
                     </li>
                 </ul>
             </li>
-            {#<li class="ServiceMenu__notifications isOwnMenu isActiveX">#}
+            {#<li class="service-menu__notifications is-own-menu is-active-x">#}
                 {#<a href="#" class="gb-icon-search">Search</a>#}
                 {#<ul>#}
                     {#<li>#}
@@ -75,10 +75,10 @@
     </div>
 
 
-    <div class="MainMenu">
+    <div class="main-menu">
         <a href="/" class="gb-icon-home"><span>Home</span></a>
         <ul>
-            <li class="isCategory MainMenu__item">
+            <li class="main-menu__item is-category">
                 <a href="#" class="gb-icon-map">
                     Get data
                 </a>
@@ -97,7 +97,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="isCategory MainMenu__item">
+            <li class="main-menu__item is-category">
                 <a href="#" class="gb-icon-cloud-upload">
                     Share
                 </a>
@@ -113,13 +113,13 @@
                     </li>
                 </ul>
             </li>
-            <li class="isCategory isMega">
+            <li class="is-category is-mega">
                 <a href="#" class="gb-icon-info">
                     About
                 </a>
                 <!-- <div> -->
                     <ul>
-                        <li class="isCategory">
+                        <li class="is-category">
                             <a href="#">Inside</a>
                             <ul>
                                 <li>
@@ -142,7 +142,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="isCategory">
+                        <li class="is-category">
                             <a href="#">Pressroom</a>
                             <ul>
                                 <li>
@@ -153,7 +153,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="isCategory">
+                        <li class="is-category">
                             <a href="#">Community</a>
                             <ul>
                                 <li>
@@ -164,7 +164,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="isCategory">
+                        <li class="is-category">
                             <a href="#">Development</a>
                             <ul>
                                 <li>

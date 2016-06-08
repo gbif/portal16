@@ -1,23 +1,23 @@
 //SEARCH
 
 //layout
-.Search {
+.search {
 	position absolute
-	top $navbar_height
+	top $navBar_height
 	z-index 50
 	width 100%
-	height "calc(100% - %s)" % $navbar_height
+	height "calc(100% - %s)" % $navBar_height
 	display none
 	background $searchBg
 	overflow hidden
-	&.isActive {
+	&.is-active {
 		display block
 		+ .main {
 			visibility hidden
 		}
 	}
 }
-//.Search__content {
+//.search-content {
 //	overflow hidden
 //	height 100%
 //	-webkit-overflow-scrolling touch
@@ -26,26 +26,26 @@
 
 
 //content
-.Search__content{
-	.Search__form {
+.search-content {
+	.search-form {
 		width 100%
 		max-width 800px
 		margin auto
-		margin vr-block(0.25) auto
-		padding 0 vr-block(1)
+		margin vrBlock(0.25) auto
+		padding 0 vrBlock(1)
 		position relative
 		input {
 			width 100%
-			height vr-block(2)
+			height vrBlock(2)
 			border none
 			box-sizing border-box
-			padding-right vr-block(2)
+			padding-right vrBlock(2)
 			white-space nowrap
 			overflow hidden
 			text-overflow ellipsis
 			background none
-			color $Plum//$searchInputColor
-			font-size vr-block(1)
+			color $searchInputColor
+			font-size vrBlock(1)
 			&:focus {
 				outline none
 			}
@@ -58,12 +58,12 @@
 		//}
 		button {
 			outline none
-			width vr-block(1)
+			width vrBlock(1)
 			height 100%
 			background none
 			position absolute
-			font-size vr-block(1.5)
-			right vr-block(1)
+			font-size vrBlock(1.5)
+			right vrBlock(1)
 			top 0%
 			float right
 			border none
@@ -75,7 +75,7 @@
 }
 
 +isAbove($laptop) {
-	.Search {
+	.search {
 		overflow initial
 		height auto
 	}

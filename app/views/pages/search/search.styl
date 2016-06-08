@@ -5,16 +5,16 @@
 }
 
 
-.SearchResults__highlighted {
+.search-results__highlighted {
 	max-width 800px
 	margin 0 auto
 }
 
 //+isAbove($laptop) {
-//	.SearchResults {
+//	.search-results {
 //		display flex
 //	}
-//	.SearchResults__highlighted {
+//	.search-results__highlighted {
 //		order 2
 //		flex 1 1 auto
 //		width 400px
@@ -24,13 +24,13 @@
 //}
 
 
-.Search__content {
+.search-content {
 	//max-width 1200px
 	margin auto
 }
 
-.Search__content .searchBar {
-	margin-bottom vr-block(1)
+.search-content .search-bar {
+	margin-bottom vrBlock(1)
 	overflow hidden
 	background #fbfbfb
 	border-bottom 1px solid #ddd
@@ -44,7 +44,7 @@
 		.tab {
 			flex 0 0 auto
 			&:first-of-type {
-				margin-left vr-block(1)
+				margin-left vrBlock(1)
 				border-bottom 2px solid deepskyblue
 			}
 		}
@@ -52,16 +52,16 @@
 
 }
 
-.SearchResults__other {
+.search-results__other {
 	max-width 800px
 	flex 0 1 auto
 	order 1
 	margin 0 auto
 }
-.SearchResults__section {
-	margin vr-block(1)
+.search-results__section {
+	margin vrBlock(1)
 	margin-top 0
-	.searchResults__list {
+	.search-results__list {
 		h3 {
 			a {
 				color #009FD4
@@ -73,13 +73,13 @@
 	}
 }
 
-.SearchResults__section-comment {
-	@extends .SearchResults__section
-	// margin-bottom -(vr-block(0.75))
+.search-results__section-comment {
+	@extends .search-results__section
+	// margin-bottom -vrBlock(0.75)
 }
 
-.searchResults__list >div {
-	margin-bottom vr-block(1)
+.search-results__list >div {
+	margin-bottom vrBlock(1)
 	&:last-of-type {
 		margin 0
 	}
@@ -90,7 +90,7 @@
 				text-decoration underline
 			}
 		}
-		.searchResults__list__custom {
+		.search-results__list__custom {
 			color #aaa
 			span {
 				padding-right 5px
@@ -102,14 +102,14 @@
 	}
 }
 
-.SearchResults__section__more {
+.search-results__section__more {
 	border-top 1px solid #eee
 	text-align center
 	color #aaa
-	padding vr-block(0.25)
+	padding vrBlock(0.25)
 	font-size 90%
 	a {
-		margin 0 vr-block(1)
+		margin 0 vrBlock(1)
 		text-transform uppercase
 	}
 }

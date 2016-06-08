@@ -24,124 +24,135 @@
 
 
 {% block page %}
-<div class="stripes">
-    <div class="container-fluid stripes__content">
-        <article class="article row block block-first">
-
-            <div class="blockContent row">
-                <header class="col-xs-12 article__header">
-                    <nav class="article__category article__category-deep">
-                        <span class="article__category__upper">About</span>
-                        <span class="article__category__lower">Data Use</span>
-                    </nav>
-                    <h1 class="text-center">{$ data.title $}</h1>
-                    <p class="intro text-center">Do we have content to put here? The summary could do, but might be a bit too long.</p>
-                    <p class="text-center meta">{$ data.numResourceUsed $}</p>
-                </header>
-
+<div class="page__fixed-width">
+    <article class="wrapper-horizontal-stripes">
+        <header class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 centered-text">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">About</span>
+                            <span class="article-header__category__lower">Data Use</span>
+                        </nav>
+                        <h1>{$ data.title $}</h1>
+                        <div class="article-header__intro">
+                            {# fulltext html already wrapped by <p> from Content API #}
+                            {$ data.summary | safe $}
+                        </div>
+                        <div class="article-header__meta">
+                            <p>{$ data.numResourceUsed $}</p>
+                        </div>
+                    </header>
+                </div>
             </div>
+        </header>
 
-            {% if images[0].image_dimensions.width > 1000 %}
-            <div class="headerImage">
-                <figure>
-                    <div class="coverImg">
-                        <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
-                        {#<img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}">#}
+        {% if images[0].image_dimensions.width > 1000 %}
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="container-fluid">
+                    <div class="row">
+                        <figure class="heading-image">
+                            <div class="cover-image">
+                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
+                                {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
+                            </div>
+                            <figcaption>
+                                <div>{$ images[0].image_field_caption.value | safe $}</div>
+                            </figcaption>
+                        </figure>
                     </div>
-                    <figcaption class="container-fluid"><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
-                </figure>
+                </div>
             </div>
-            {% endif %}
+        {% endif %}
 
-            <div class="blockContent container-fluid">
-                <div class="textContent prose">
+        <div class="horizontal-stripe white-background">
+            <div class="container-fluid container--prose">
+                <div class="body-text--prose">
                     {$ data.body | safe $}
 
                     {% if images[0].image_dimensions.width <= 1000 %}
-                        <figure class="noBreak">
-                            <div class="coverImg articleImg">
+                        <figure>
+                            <div class="cover-image article-image">
                                 <img ng-src="{$ images[0].image_styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
                             </div>
                             <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
                         </figure>
                     {% endif %}
                 </div>
-            </div>
-            <footer class="blockContent container-fluid">
-                <div class="aux textContent">
-                    {% if data.relatedGbifResources %}
-                    <section class="associated noBreak">
-                        <h5>Related GBIF resources</h5>
-                        <ul class="list-links">
-                            {% for resource in data.relatedGbifResources %}
-                                <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                    {% endif %}
 
-                    {% if data.citationInformation %}
-                        <section class="associated {% if data.citationInformation.length == 1 %} noBreak {% endif %}">
-                            <h5>Citations</h5>
-                            <ul class="list-citations">
-                                {% for loc in data.citationInformation %}
-                                    <li class="noBreak">{$ loc.value | safe $}</li>
-                                {% endfor %}
-                            </ul>
-                        </section>
-                    {% endif %}
+                <div class="article-auxiliary body-text">
+                    <div class=""> {# placeholder for the bootstrap row class, which breaks column here #}
+                        {% if data.citationInformation %}
+                            <section class="{% if data.citationInformation.length == 1 %}no-break{% endif %}">
+                                <h5>Citations</h5>
+                                <ul class="list-citations">
+                                    {% for loc in data.citationInformation %}
+                                        <li class="no-break">{$ loc.value | safe $}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
 
-                    {% if data.researcherLocation %}
-                        <section class="associated noBreak">
-                            <h5>Location of researchers</h5>
+                        {% if data.relatedGbifResources %}
+                            <section class="no-break">
+                                <h5>Related GBIF resources</h5>
+                                <ul class="list-links">
+                                    {% for resource in data.relatedGbifResources %}
+                                        <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
+
+                        {% if data.researcherLocation %}
+                            <section class="no-break">
+                                <h5>Location of researchers</h5>
+                                <ul class="list-chips">
+                                    {% for loc in data.researcherLocation %}
+                                        <li><a href="#">{$ loc.name $}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
+
+                        {#This assumes that there is always tags to show. TODO hide if no available tags#}
+                        <section class="no-break">
+                            <h5>Subject</h5>
                             <ul class="list-chips">
-                                {% for loc in data.researcherLocation %}
-                                    <li><a href="#">{$ loc.name $}</a></li>
+                                {% for tag in data.tagsAudience %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.tagsDataUse %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.tagsDataType %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.tagsCapacityEnhancement %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.tagsPurpose %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.tagsTopic %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
+                                {% endfor %}
+                                {% for tag in data.gbifArea %}
+                                    <li><a href="#">{$ tag.name $}</a></li>
                                 {% endfor %}
                             </ul>
                         </section>
-                    {% endif %}
-
-                    {#This assumes that there is always tags to show. TODO hide if no available tags#}
-                    <section class="associated noBreak">
-                        <h5>Subject</h5>
-                        <ul class="list-chips">
-                            {% for tag in data.tagsAudience %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsDataUse %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsDataType %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsCapacityEnhancement %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsPurpose %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.tagsTopic %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                            {% for tag in data.gbifArea %}
-                                <li><a href="#">{$ tag.name $}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </section>
-
-
-
+                    </div>
                 </div>
-            </footer>
-        </article>
-        <section class="bare block row">
-            <div class="blockContent container-fluid">
+            </div>
+        </div>
+        <aside class="horizontal-stripe horizontal-stripe--card light-background">
+            <div class="container-fluid container--related-stories">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <article class="card card-nav container-fluid">
+                        <article class="container-fluid card card--nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
@@ -156,9 +167,9 @@
                         </article>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <article class="card card-nav container-fluid">
+                        <article class="container-fluid card card--nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 coverImg hidden-xs">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
                                     <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
@@ -174,8 +185,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-
+        </aside>
+    </article>
 </div>
 {% endblock %}

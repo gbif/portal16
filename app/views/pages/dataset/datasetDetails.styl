@@ -1,46 +1,109 @@
-h4.contentTypeLabel {
+h4.content-type-label {
     font-weight 400
     text-transform uppercase
     font-size 1.3rem
 }
 
-.verticalTabsWrapper {
-    padding 10px
+.publisher-field--long-title {
+    .container {
+        max-width none
+    }
+}
+.publisher-field--large-count {
+    margin 0 0
+    .published-by {
+        max-width none
+    }
+}
+.published-by {
+    max-width 400px
+}
+.record-count {
+    font-size 4rem
+    line-height 60px
+    font-weight 300
+    padding-right 8px
+    padding-left 3px
+}
+.download-block {
+    border 2px solid $orangePeelLight
+    border-radius 10px
+}
+
+.header-contacts {
     margin-bottom 20px
 }
-
-.verticalTabs {
-    section {
-        .tabTitle {
-            margin 0
-        }
-        .tabContent {
-            display none
-        }
-    }
-}
-
-.taxonomicCoverage {
-    border-top 1px solid lightgrey
-    padding-top 20px
-    &:first-child {
-        border-top none
-        padding-top 0px
-    }
-}
-
-.bibliographicCitation li {
-    padding-left 2em
-    text-indent -2em
-    margin-bottom 5px
-    &:last-child {
+.header-contact {
+    display inline-block
+    font-size 1.2rem
+    padding 0 20px
+    address {
         margin-bottom 0
     }
 }
 
-.downloadEvents {
+.metadata {
+    section {
+        margin-bottom vrBlock(2)
+    }
+}
+
+.metadata-section {
+    margin-left 20px
+
+    h5 {
+        margin-top vrBlock(1.5)
+        margin-bottom vrBlock(0.5)
+    }
+
+    ul {
+        padding-left 20px
+    }
+
+    ul.bibliographic-citation {
+        padding-left 0px
+        li {
+            padding-left 2rem
+            text-indent -2rem
+            margin-bottom 5px
+        }
+    }
+
+    .keyword-collection {
+        li {
+            display inline
+        }
+        li::after {
+               content ', '
+        }
+        li:last-child::after {
+           content ''
+        }
+    }
+}
+
+.taxonomic-coverage {
+    border-top 1px solid lightgrey
+    padding-top 20px
+
+    &:first-of-type {
+        border-top none
+        padding-top 0px
+    }
+
+    dt {
+        font-weight normal
+    }
+    dd {
+        margin-left 20px
+        margin-bottom vrBlock(0.5)
+    }
+}
+
+.download-events {
     max-height 400px
     overflow scroll
+    margin-bottom 20px;
     table {
         tr {
             td:nth-child(3) {
@@ -49,86 +112,32 @@ h4.contentTypeLabel {
             }
         }
     }
-    .tableCellLabel {
+    .table-cell-label {
         margin-right 20px
         font-weight 500
     }
 }
 
-.noIndent {
+ul.no-indent {
     padding-left 0
 }
-.recordCount {
+
+.record-count {
     display inline-block
 }
 
-.dataSourc {
+.data-source {
     display inline-block
 }
 
-+isBelow($laptop) {
-    .verticalTabs {
-        section {
-            &.isExpanded {
-                .tabContent {
-                    display block
-                }
-            }
-        }
-    }
-}
+.related-news {
+    background-color #2D3C44
+    color $gray10
+    padding-top 0px
+    padding-bottom 0px
 
-+isAbove($laptop) {
-    .verticalTabs {
-        >div>div>div>div {
-            position relative
-            height 500px
-            max-height 80vh
-        }
-        section {
-            .tabContent {
-                position absolute
-                height 100%
-                left 33%
-                top 0
-                width 66%
-                display none
-                overflow auto
-                border 1px solid lightgrey
-                padding 20px 22px 20px 22px
-                border-radius 5px
-            }
-            .tabTitle {
-                width 30%
-                left 0
-                border-bottom 1px solid $gray-lighter
-                position relative
-                h4 {
-                    margin 0
-                    line-height 2.5em
-                    vertical-align baseline
-                    font-weight 300
-                    color lightgrey
-                }
-            }
-
-            &.isActive {
-                .tabTitle {
-                    border-bottom 1px solid $gray-light
-                    h4 {
-                        color black
-                        font-weight 400
-                    }
-                    h4::after {
-                        position relative
-                        content "\276f"
-                        float right
-                    }
-                }
-                .tabContent {
-                    display block
-                }
-            }
-        }
+    >div>div>div:nth-child(2) {
+        padding-top 20px
+        padding-bottom 20px
     }
 }

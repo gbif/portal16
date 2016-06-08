@@ -1,5 +1,7 @@
-<ul class="bibliographicCitation noIndent">
-    {% for citation in element.values %}
-        <li>{$ citation.text | safe $}</li>
-    {% endfor %}
-</ul>
+<div class="metadata-section">
+    <ul class="bibliographic-citation">
+        {% for citation in element.values %}
+            <li>{$ citation.text | safe $}</li>
+        {% endfor %}
+    </ul>
+</div>

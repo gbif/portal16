@@ -1,25 +1,25 @@
-$home_overlay_opacity = 0.3
-$home_overlay_color = rgba(0,0,0, $home_overlay_opacity)
+homeOverlay_opacity = 0.3
+$homeOverlay_color = rgba(0,0,0, homeOverlay_opacity)
 
 .hero
-	background-color $c_main
+	background-color $color_main
 	text-align center
-	padding 0 vr-block(1)
-	background-image linear-gradient(to right, $home_overlay_color,  $home_overlay_color), url('/img/mountain.jpeg')
+	padding 0 vrBlock(1)
+	background-image linear-gradient(to right, $homeOverlay_color,  $homeOverlay_color), url('/img/mountain.jpeg')
 	background-size cover
 	width 100%
 	height 0px
 	padding-bottom (100/$golden)%
 	color white
 	h1
-		padding vr-block(1.5) 0 vr-block(0.5) 0
-		set-type(3)
-		line-height vr-block(3)
+		padding vrBlock(1.5) 0 vrBlock(0.5) 0
+		setType(3)
+		line-height vrBlock(3)
 		font-weight bold
 	h4
-		set-type(1)
+		setType(1)
 	input
-		margin vr-block(1) auto
+		margin vrBlock(1) auto
 		width 50%
 		background none//rgba(255,255,255,0.1)
 		border 1px solid rgba(255, 255, 255, 0.5)
@@ -34,7 +34,7 @@ $home_overlay_color = rgba(0,0,0, $home_overlay_opacity)
 //LAPTOPS
 +isAbove($laptop)
 	.hero
-		padding-bottom (100/$major-twelfth)%
+		padding-bottom (100/$majorTwelfth)%
 		h1
-			set-type(6)
+			setType(6)
 			font-weight bold
