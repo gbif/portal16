@@ -10,6 +10,8 @@
 
     <div class="col-xs-12 col-md-8">
         {% for element in elements %}
+            <input class="toggle-collapse" id="{$ element.property $}" type="checkbox" >
+            <label for="{$ element.property $}">{$ element.title $}</label>
             <section id="{$ element.property $}">
                 <h4>{$ element.title $}</h4>
                 {% include "./includes/" + element.property + ".nunjucks" %}

@@ -44,7 +44,6 @@ h4.content-type-label {
 
 .metadata {
     section {
-        margin-bottom vrBlock(2)
     }
 }
 
@@ -54,6 +53,10 @@ h4.content-type-label {
     h5 {
         margin-top vrBlock(1.5)
         margin-bottom vrBlock(0.5)
+    }
+
+    h5:first-of-type {
+        margin-top vrBlock(0.5)
     }
 
     ul {
@@ -140,4 +143,92 @@ ul.no-indent {
         padding-top 20px
         padding-bottom 20px
     }
+}
+
+/* experimental below */
+nav.bs-docs-sidebar {
+    display none
+}
++isAbove($tablet) {
+    nav.bs-docs-sidebar {
+        display block
+    }
+}
+
+.toggle-collapse {
+    display none
+}
+
+.toggle-collapse + label {
+    cursor pointer
+    display block
+    position relative
+    margin-left 12px
+    font-weight normal
+    font-size vrBlock(1)
+    line-height vrBlock(1)
+}
+
+.toggle-collapse + label + section {
+    max-height 0
+    transition max-height 0.15s ease-out
+    margin-left 12px
+    overflow hidden
+}
+
+.toggle-collapse + label + section {
+    > h4 {
+        display none
+    }
+}
+
+.toggle-collapse:checked + label + section {
+    max-height 30000px
+    transition max-height 0.15s ease-in
+    margin-bottom vrBlock(1)
+}
+
+.toggle-collapse + label:before {
+    position absolute
+    width 12px
+    left -12px
+    top 3px
+    content "\A"
+    border-top 6px solid transparent
+    border-bottom 6px solid transparent
+    border-left 8px solid gray
+    transform rotate(0deg)
+    transition transform 0.15s ease-out
+}
+
+.toggle-collapse:checked + label:before {
+    /*
+    position absolute
+    content "\A"
+    border-left 7px solid transparent
+    border-right 7px solid transparent
+    border-top 7px solid gray
+    */
+    width 15px
+    left -17px
+    top 8px
+    transform rotate(90deg)
+    transition transform 0.15s ease-out
+}
+
++isAbove($tablet) {
+    .toggle-collapse + label {
+        display none
+    }
+    .toggle-collapse + label + section {
+        display block
+        max-height 100%
+        margin-left 0
+    }
+    .toggle-collapse + label + section {
+        > h4 {
+            display block
+        }
+    }
+
 }
