@@ -165,10 +165,8 @@ nav.metadata-nav {
 }
 
 .toggle-collapse + label + section {
-    max-height 0
-    transition max-height 0.15s ease-out
+    display none
     margin-left 12px
-    overflow hidden
 }
 
 .toggle-collapse + label + section {
@@ -178,8 +176,7 @@ nav.metadata-nav {
 }
 
 .toggle-collapse:checked + label + section {
-    max-height 30000px
-    transition max-height 0.15s ease-in
+    display block
     margin-bottom vrBlock(1)
 }
 
@@ -192,23 +189,17 @@ nav.metadata-nav {
     border-top 6px solid transparent
     border-bottom 6px solid transparent
     border-left 8px solid gray
-    transform rotate(0deg)
-    transition transform 0.15s ease-out
 }
 
 .toggle-collapse:checked + label:before {
-    /*
     position absolute
     content "\A"
-    border-left 7px solid transparent
-    border-right 7px solid transparent
-    border-top 7px solid gray
-    */
-    width 15px
-    left -17px
+    border-left 6px solid transparent
+    border-right 6px solid transparent
+    border-top 8px solid gray
+    width 12px
+    left -14px
     top 8px
-    transform rotate(90deg)
-    transition transform 0.15s ease-out
 }
 
 +isAbove($tablet) {
