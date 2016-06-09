@@ -2,8 +2,11 @@
 	dd, dt {
 		display inline
 	}
-	dt:after {
-		content ':'
+	dt {
+		text-transform capitalize
+		&:after {
+			content ':'
+		}
 	}
 }
 .classificationList {
@@ -11,6 +14,7 @@
 		font-style normal
 		content ' \276f ' // ❯
 		font-size 80%
+		color #ccc
 	}
 	span:last-of-type:after {
 		display none

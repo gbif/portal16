@@ -102,6 +102,12 @@
 				opacity 1
 			}
 		}
+		.fab__trigger {
+			[tooltip]:before,
+			[tooltip]:after {
+				visibility hidden
+			}
+		}
 	}
 }
 +isBelow($laptop) {
@@ -111,6 +117,12 @@
 			[tooltip]:after {
 				visibility visible
 				opacity 1
+			}
+		}
+		.fab__trigger {
+			[tooltip]:before,
+			[tooltip]:after {
+				visibility hidden
 			}
 		}
 	}

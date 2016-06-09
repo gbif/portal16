@@ -1121,7 +1121,8 @@
 		"OCEANIA": "Oceania",
 		"EUROPE": "Europe",
 		"ANTARCTICA": "Antarctica",
-		"SOUTH_AMERICA": "South America"
+		"SOUTH_AMERICA": "South America",
+		"AFRICA": "continent.AFRICA"
 	},
 	"georeferenced": "georeferenced",
 	"records": "records"

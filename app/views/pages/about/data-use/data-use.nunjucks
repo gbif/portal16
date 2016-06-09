@@ -66,7 +66,7 @@
 
         <div class="horizontal-stripe white-background">
             <div class="container-fluid container--prose">
-                <div class="body-text prose-columns">
+                <div class="body-text prose-columns prose-columns--justified">
                     {$ data.body | safe $}
 
                     {% if images[0].image_dimensions.width <= 1000 %}

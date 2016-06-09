@@ -7,23 +7,35 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/data-use/:key', function(req, res) {
+router.get('/data-use/:key', function(req, res, next) {
     var datauseUrl = 'http://www.gbif-dev.org/api/v0.1/data_use/' + req.params.key; // baseConfig.cmsApi + 'datause/'
     //var datauseUrl = baseConfig.cmsApi + 'datause/' + req.params.key;
     request(datauseUrl, function(error, response, body) {
-        if (response.statusCode !== 200) {
-            res.send('Something went wrong from the Content API.');
+        if (error) {
+            next(error);
         }
-        else {
-            body = JSON.parse(body);
-            res.render('pages/about/data-use/data-use.nunjucks', {
-                data: body.data[0],
-                images: body.data[0].images,
-                self: body.self,
-                meta: {
-                    title: body.data[0].title
-                },
-                hasTools: true
+        else if (response.statusCode == 200){
+            try {
+                body = JSON.parse(body);
+                res.render('pages/about/data-use/data-use.nunjucks', {
+                    data: body.data[0],
+                    images: body.data[0].images,
+                    self: body.self,
+                    meta: {
+                        title: body.data[0].title
+                    },
+                    hasTools: true
+                });
+            } catch(e) {
+                next(e);
+            }
+        }
+        else if (400 <= response.statusCode && response.statusCode < 500) {
+            next();
+        } else {
+            next({
+                status: response.statusCode,
+                message: 'Something went wrong while trying to display data use item: ' + req.params.key
             });
         }
     });

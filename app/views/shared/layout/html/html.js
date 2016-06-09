@@ -4,18 +4,17 @@ require('angular-translate');
 require('angular-moment');
 require('angular-leaflet-directive');
 require('angular-hotkeys');
-require('firebase');
 require('angular-resource');
 require('angular-aria');
 require('angular-ui-bootstrap');
-require('angular-click-outside');
 require('ng-infinite-scroll');
 require('angular-scroll');
+require('../../../components/clickoutside/clickoutside.directive');
 
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'tw.directives.clickOutside', 'duScroll']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll']);
 })();
 
 (function () {
@@ -57,6 +56,7 @@ require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
+
 
 
 

@@ -1,5 +1,6 @@
-<section class="block row occurrenceKey__locationDescription bare">
-    <div class="blockContent container-fluid">
+<section class="horizontal-stripe occurrenceKey__locationDescription">
+{#<section class="block row occurrenceKey__locationDescription bare">#}
+    <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="h4">Coordinates missing</h2>
@@ -9,7 +10,7 @@
                     This record isn't published with coordinates, but with a textual description of its location.
                     <dl>
                         <div>
-                            <dt>Location</dt>
+                            <dt>{$ __('stdTerms.location') $}</dt>
                             <dd class="classificationList">
 
                                 {% if occurrence.record.continent | isNotEmpty %}
@@ -26,37 +27,37 @@
 
                     {% if occurrence.record.locality | isNotEmpty %}
                         <div>
-                            <dt>locality</dt>
+                            <dt>{$ __('ocurrenceFieldNames.locality') $}</dt>
                             <dd>{$ occurrence.record.locality $}</dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.locationRemarks | isNotEmpty %}
                         <div>
-                            <dt>locationRemarks</dt>
+                            <dt>{$ __('ocurrenceFieldNames.locationRemarks') $}</dt>
                             <dd>{$ occurrence.record.locationRemarks $}</dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.elevation | isNotEmpty %}
                         <div>
-                            <dt>elevation</dt>
+                            <dt>{$ __('ocurrenceFieldNames.elevation') $}</dt>
                             <dd>{$ occurrence.record.elevation $} +- {$ occurrence.record.elevationAccuracy $}</dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.depth | isNotEmpty %}
                         <div>
-                            <dt>depth</dt>
+                            <dt>{$ __('ocurrenceFieldNames.depth') $}</dt>
                             <dd>{$ occurrence.record.depth $} +- {$ occurrence.record.depthAccuracy $}</dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.distanceAboveSurface | isNotEmpty %}
                         <div>
-                            <dt>distanceAboveSurface</dt>
+                            <dt>{$ __('ocurrenceFieldNames.distanceAboveSurface') $}</dt>
                             <dd>{$ occurrence.record.distanceAboveSurface $} +- {$ occurrence.record.distanceAboveSurfaceAccuracy $}</dd>
                         </div>
                     {% endif %}
                     {% if occurrence.record.informationWithheld | isNotEmpty %}
                         <div>
-                            <dt>informationWithheld</dt>
+                            <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
                             <dd>{$ occurrence.record.informationWithheld $}</dd>
                         </div>
                     {% endif %}
@@ -68,7 +69,7 @@
                         <dl>
                         {% if occurrence.record.informationWithheld | isNotEmpty %}
                             <div>
-                                <dt>informationWithheld</dt>
+                                <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
                                 <dd>{$ occurrence.record.informationWithheld $}</dd>
                             </div>
                         {% endif %}
@@ -79,23 +80,3 @@
         </div>
     </div>
 </section>
-
-
-{#continent#}
-{#waterBody#}
-{#islandGroup#}
-{#island#}
-{#countryCode#}
-{#stateProvince#}
-{#county#}
-{#municipality#}
-{#locality#}
-
-{#locationRemarks#}
-
-{#elevation#}
-{#elevationAccuracy#}
-{#depth#}
-{#depthAccuracy#}
-{#distanceAboveSurface#}
-{#distanceAboveSurfaceAccuracy#}

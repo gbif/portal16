@@ -12,8 +12,8 @@
                ng-click="occurrence.expandMore = !occurrence.expandMore"
                title="{$ __('stdTerms.menu') $}"></a>
             <div class="block-options__drop-down"
-                 tw-click-outside="occurrence.expandMore = false"
-                 ignore-if="!occurrence.expandMore">
+                 click-outside="occurrence.expandMore = false"
+                 click-outside-unless="!occurrence.expandMore">
                 <ul>
                     <li>
                         <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">

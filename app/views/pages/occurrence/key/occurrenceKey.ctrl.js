@@ -215,7 +215,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
                     lat: data.decimalLatitude,
                     lng: data.decimalLongitude
                 },
-                radius: data.coordinateUncertaintyInMeters/2,
+                radius: data.coordinateUncertaintyInMeters,
                 type: 'circle'
             };
         }

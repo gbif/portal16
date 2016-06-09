@@ -27,7 +27,6 @@
     }
 }
 
-
 /*
  * Header area styles
  */
@@ -175,7 +174,12 @@ $articleCategorySeparatorSpacing = 6px
         max-width $contentWidth--normal
         .prose-columns {
             columns 2 30px
-            text-align justify
+            &.body-text {
+                //text-align justify
+            }
+            &--justified {
+                text-align justify
+            }
         }
     }
 }

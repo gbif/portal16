@@ -9,9 +9,8 @@ module.exports = function (app) {
             // TODO needs implementation
             res.status(err.status || 500);
             res.render('error/error', {
-                message: err.message,
                 error: err,
-                title: 'error'
+                title: 'Error'
             });
         });
     }
