@@ -1,3 +1,5 @@
+{% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
+
 {% for group in occurrence.terms.usedGroups %}
     <section class="term-block noBreak is-collapsed" ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
         <div class="term-block__header">
@@ -22,25 +24,10 @@
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                         </td>
                         <td>
-                            <div>
-                            {% if occurrence.record[term.simpleName] | isLink %}
-                                <a href="{$ occurrence.record[term.simpleName] $}">{$ occurrence.record[term.simpleName] | truncate(80) $}</a>
-                            {% else %}
-                                {$ occurrence.record[term.simpleName] $}
-                            {% endif %}
-                            </div>
+                            {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                         </td>
                         <td class="ng-cloak" ng-show="!occurrence.hideDetails">
-
-                            {% if occurrence.verbatim[term.qualifiedName] | isLink %}
-                                <a href="{$ occurrence.verbatim[term.qualifiedName] $}">{$ occurrence.verbatim[term.qualifiedName] | truncate(80) $}</a>
-                            {% elif occurrence.verbatim[term.qualifiedName].length > 300 %}
-                            <div shorten class="shorten">
-                                <span>{$ occurrence.verbatim[term.qualifiedName] | slice(0,200) $}</span><span class="shorten__collapsable">{$ occurrence.verbatim[term.qualifiedName] | slice(200) $}</span>
-                            </div>
-                            {% else %}
-                                {$ occurrence.verbatim[term.qualifiedName] $}
-                            {% endif %}
+                            {$ shorten.shorten(occurrence.verbatim[term.qualifiedName]) $}
                         </td>
                         <td class="ng-cloak" ng-show="!occurrence.hideDetails">
                             {% if occurrence.issues[term.simpleName] %}
