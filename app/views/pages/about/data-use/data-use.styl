@@ -1,5 +1,5 @@
 img {
-    max-width 100%
+	max-width 100%
 }
 
 .list-links {
@@ -16,6 +16,7 @@ img {
 		}
 	}
 }
+
 .list-chips {
 	display inline
 	padding 0
@@ -42,13 +43,13 @@ img {
 	padding 0
 	li {
 		padding-top 5px
-		&:first-of-type{
+		&:first-of-type {
 			display inline
 		}
-		>* {
+		> * {
 			margin 0 !important // @todo Burke will clean up the api so there is no inline styling. If not we should strip it server side
 			padding 0 !important
-			&:first-of-type{
+			&:first-of-type {
 				display inline
 			}
 		}
@@ -65,9 +66,9 @@ img {
 }
 
 +isAbove($tablet) {
-    .container--related-stories {
-        max-width 1024px
-    }
+	.container--related-stories {
+		max-width 1024px
+	}
 }
 
 +isAbove($laptop) {

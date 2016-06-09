@@ -1,12 +1,14 @@
-<section class="block row discreet">
+<section class="horizontal-stripe light-background">
+    <div class="container--normal">
     {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
-        <div class="blockContent container-fluid description">
+        <div class="blockContent container--prose description">
             <h2 class="h4">{$ __('stdTerms.aboutTheDataset') $}</h2>
-            <div class="textContent {% if occurrence.dataset.description.length < 500 %} singleCol {% endif %}">
+            <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} singleCol {% endif %}">
                 {$ occurrence.dataset.description | safe $}
             </div>
         </div>
     {% endif %}
+    </div>
     {#<footer class="blockContent container-fluid">#}
     {#<div class="aux textContent">#}
     {#<section class="associated noBreak">#}

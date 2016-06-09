@@ -1082,7 +1082,8 @@
 		"SPECIES": "species",
 		"undefined": "unknown taxon",
 		"FAMILY": "family",
-		"GENUS": "genus"
+		"GENUS": "genus",
+		"SUBSPECIES": "subspecies"
 	},
 	"stdTerms": {
 		"location": "location",

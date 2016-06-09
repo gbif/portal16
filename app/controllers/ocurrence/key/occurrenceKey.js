@@ -1,6 +1,6 @@
 "use strict";
 var Q = require('q'),
-    _ = require('underscore'),
+    util = require('../../../helpers/util'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
@@ -71,13 +71,21 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             'Organism': 7,
             'MaterialSample': 8,
             'GeologicalContext': 9
+        },
+        whiteList = {
+            elevation: true,
+            elevationAccuracy: true,
+            depth: true,
+            depthAccuracy: true,
+            distanceAboveSurface: true,
+            distanceAboveSurfaceAccuracy: true
         };
     terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
     terms.forEach(function(e){
-        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm') {
+        if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
         }
-        if ( !_.isEmpty(occurrence.record[e.simpleName]) || !_.isEmpty(occurrence.verbatim[e.qualifiedName]) ) {
+        if ( !util.isEmpty(occurrence.record[e.simpleName]) || !util.isEmpty(occurrence.verbatim[e.qualifiedName]) ) {
             usedTerms.push(e);
             let group = e.group || 'other';
             groups[group] = groups[group] || [];

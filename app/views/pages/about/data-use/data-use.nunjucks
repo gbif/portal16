@@ -1,9 +1,9 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block tools %}
-<div class="fab">
+<div class="fab" fab>
     <div class="fab__trigger">
-        <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="share"><i class="gb-icon-share"></i></a>
+        <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="share"><i class="gb-icon-share"></i></a>
     </div>
     <ul class="fab__options">
         <li>
@@ -22,14 +22,13 @@
 </div>
 {% endblock %}
 
-
 {% block page %}
 <div class="page__fixed-width">
     <article class="wrapper-horizontal-stripes">
-        <header class="horizontal-stripe article-header white-background">
+        <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
-                    <header class="col-xs-12 centered-text">
+                    <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">About</span>
                             <span class="article-header__category__lower">Data Use</span>
@@ -45,7 +44,7 @@
                     </header>
                 </div>
             </div>
-        </header>
+        </div>
 
         {% if images[0].image_dimensions.width > 1000 %}
             <div class="horizontal-stripe--paddingless white-background">
@@ -56,8 +55,8 @@
                                 <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
                                 {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
                             </div>
-                            <figcaption>
-                                <div>{$ images[0].image_field_caption.value | safe $}</div>
+                            <figcaption class="container-fluid container--prose">
+                                {$ images[0].image_field_caption.value | safe $}
                             </figcaption>
                         </figure>
                     </div>
@@ -67,7 +66,7 @@
 
         <div class="horizontal-stripe white-background">
             <div class="container-fluid container--prose">
-                <div class="body-text--prose">
+                <div class="body-text prose-columns">
                     {$ data.body | safe $}
 
                     {% if images[0].image_dimensions.width <= 1000 %}
@@ -80,8 +79,8 @@
                     {% endif %}
                 </div>
 
-                <div class="article-auxiliary body-text">
-                    <div class=""> {# placeholder for the bootstrap row class, which breaks column here #}
+                <div class="article-auxiliary prose-columns">
+                    <div> {# placeholder for the bootstrap row class, which breaks column here #}
                         {% if data.citationInformation %}
                             <section class="{% if data.citationInformation.length == 1 %}no-break{% endif %}">
                                 <h5>Citations</h5>
