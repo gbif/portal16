@@ -15,7 +15,7 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     uat: {
@@ -45,7 +45,7 @@ var config = {
         },
         port: defaultPort,
         log: log,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     }
 };

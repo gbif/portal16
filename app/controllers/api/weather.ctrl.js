@@ -26,3 +26,4 @@ router.get('/weather/:lat/:lng/:unix', function (req, res) {
         }
     });
 });
+

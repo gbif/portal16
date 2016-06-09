@@ -31,7 +31,8 @@
 		"BJ": "country.BJ",
 		"NZ": "country.NZ",
 		"DK": "country.DK",
-		"US": "country.US"
+		"US": "country.US",
+		"MX": "country.MX"
 	},
 	"taxonRank": {
 		"undefined": "taxonRank.undefined",

@@ -10,7 +10,7 @@
                         <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
                         <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
                         <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.original') $}</th>
-                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.issues') $}</th>
+                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.remarks') $}</th>
                     </tr>
                 </thead>
                 <tbody>

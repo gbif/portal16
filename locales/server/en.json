@@ -826,7 +826,7 @@
 		"COORDINATE_REPROJECTED": "Coordinate reprojected",
 		"comments": {
 			"EXCLUDED": "Excluded",
-			"AUTHORED": "Authored",
+			"AUTHORED": "Altered",
 			"INFERED": "Inferred"
 		}
 	},
@@ -1083,7 +1083,9 @@
 		"undefined": "unknown taxon",
 		"FAMILY": "family",
 		"GENUS": "genus",
-		"SUBSPECIES": "subspecies"
+		"SUBSPECIES": "subspecies",
+		"PHYLUM": "taxonRank.PHYLUM",
+		"KINGDOM": "taxonRank.KINGDOM"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1114,7 +1116,8 @@
 		"sendPublisherMail": "Send publisher a mail",
 		"aboutTheDataset": "About the dataset",
 		"Dataset": "dataset",
-		"Crawling": "crawling"
+		"Crawling": "crawling",
+		"remarks": "remarks"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

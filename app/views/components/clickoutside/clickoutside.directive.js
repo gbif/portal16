@@ -40,7 +40,7 @@ module.exports = (function() {
                     $window.addEventListener('touchstart', handler, true);
                 }
 
-                scope.$on('$destroy', function(e) {
+                scope.$on('$destroy', function() {
                     $document.off('click', handler);
                     $document.off('touchstart', handler);
                 });
