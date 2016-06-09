@@ -1,37 +1,39 @@
-<section class="block row occurrenceKey__details">
-    <div class="blockContent container-fluid">
-        <div class="row">
-            <div class="block-options" ng-class="{'is-expanded': occurrence.expandMore}">
-                <a href=""
-                   class="gb-icon-compare-fat block-options__option"
-                   ng-click="occurrence.hideDetails = !occurrence.hideDetails;"
-                   ng-class="{'gb-icon-compare-fat-reverse': !occurrence.hideDetails}"
-                   title="{$ __('stdTerms.diagnostics') $}"></a>
-                <a href="" class="gb-icon-more2 block-options__menu block-options__option"
-                   ng-click="occurrence.expandMore = !occurrence.expandMore"
-                   title="{$ __('stdTerms.menu') $}"></a>
-                <div class="block-options__drop-down"
-                     tw-click-outside="occurrence.expandMore = false"
-                     ignore-if="!occurrence.expandMore">
-                    <ul>
-                        <li>
-                            <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
-                                <span ng-show="occurrence.hideDetails">{$ __('stdTerms.showDiagnostics') $} (Alt+d)</span>
-                                <span ng-show="!occurrence.hideDetails">{$ __('stdTerms.hideDiagnostics') $} (Alt+d)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                {$ __('stdTerms.raw') $}
-                            </a>
-                        </li>
-                        <li class="seperator">
-                            <a href="http://rs.tdwg.org/dwc/terms/">{$ __('stdTerms.aboutDarwinCore') $}</a>
-                        </li>
-                    </ul>
-                </div>
+<section class="horizontal-stripe white-background occurrenceKey__details">
+    <div class="container--normal">
+{#<section class="block row occurrenceKey__details">#}
+    {#<div class="blockContent container-fluid">#}
+        <div class="block-options" ng-class="{'is-expanded': occurrence.expandMore}">
+            <a href=""
+               class="gb-icon-compare-fat block-options__option"
+               ng-click="occurrence.hideDetails = !occurrence.hideDetails;"
+               ng-class="{'gb-icon-compare-fat-reverse': !occurrence.hideDetails}"
+               title="{$ __('stdTerms.diagnostics') $}"></a>
+            <a href="" class="gb-icon-more2 block-options__menu block-options__option"
+               ng-click="occurrence.expandMore = !occurrence.expandMore"
+               title="{$ __('stdTerms.menu') $}"></a>
+            <div class="block-options__drop-down"
+                 tw-click-outside="occurrence.expandMore = false"
+                 ignore-if="!occurrence.expandMore">
+                <ul>
+                    <li>
+                        <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
+                            <span ng-show="occurrence.hideDetails">{$ __('stdTerms.showDiagnostics') $} (Alt+d)</span>
+                            <span ng-show="!occurrence.hideDetails">{$ __('stdTerms.hideDiagnostics') $} (Alt+d)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
+                            {$ __('stdTerms.raw') $}
+                        </a>
+                    </li>
+                    <li class="seperator">
+                        <a href="http://rs.tdwg.org/dwc/terms/">{$ __('stdTerms.aboutDarwinCore') $}</a>
+                    </li>
+                </ul>
             </div>
-            <div class="occurrence-key__term-groups scrollable" ng-class="{'is-expanded': !occurrence.hideDetails}">
+        </div>
+        <div class="row scrollable">
+            <div class="occurrence-key__term-groups" ng-class="{'is-expanded': !occurrence.hideDetails}">
                 {% include('./groups.nunjucks') %}
             </div>
         </div>

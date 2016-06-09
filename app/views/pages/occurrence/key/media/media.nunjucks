@@ -1,5 +1,5 @@
 {% if occurrence.record.media.length > 0 %}
-<section class="block row discreet"
+<section class="horizontal-stripe light-background"
     {% if occurrence.record.media.length > 5 %}
         expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrence.mediaExpand"
         {% endif %}

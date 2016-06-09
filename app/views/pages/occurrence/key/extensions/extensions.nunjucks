@@ -1,6 +1,6 @@
 {% if occurrence.verbatim.extensions | isNotEmpty %}
-<section class="block row extensions bare">
-    <div class="blockContent container-fluid">
+<section class="horizontal-stripe bare-background extensions">
+    <div class="container--normal">
         <div class="row">
             {#<div>#}
             {#<div class="multiToggle">#}

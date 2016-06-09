@@ -62,8 +62,8 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         usedGroups = new Set(),
         groups = {},
         groupsOrder = {
-            'Occurrence': 1,
-            'Record': 2,
+            'Record': 1,
+            'Occurrence': 2,
             'Event': 3,
             'Identification': 4,
             'Location': 5,
