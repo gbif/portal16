@@ -1,142 +1,146 @@
-.wrapper-horizontal-stripes {
-    /*
-     * Page level modifiers
-     */
-    .centered-text {
-        text-align center
-    }
+.container--normal {
+    padding-left 15px
+    padding-right 15px
+    margin-right auto
+    margin-left auto
+    max-width $contentWidth--normal
+}
+.container--wide {
+    @extend .container--normal
+    width $contentWidth--wide
+}
 
-    /*
-     * Section level styles
-     */
-    .horizontal-stripe--paddingless {
-        padding 0 0
+.container--narrow {
+    @extend .container--normal
+    width $contentWidth--narrow
+}
+
+.horizontal-stripe {
+    padding vrBlock(1) 0
+    border 1px solid #dbe3e7
+    border-width 0 0 1px
+    >*:last-child {
+        margin-bottom 0
     }
-    .horizontal-stripe {
-        padding 20px 0 0 0
+    &--paddingless {
+        padding 0
     }
-    .horizontal-stripe--card {
-        border-top 1px solid #dbe3e7
-    }
+}
 
 
-    /*
-     * Header area styles
-     */
-    .article-header {
-        .container {
-            max-width 1000px
-        }
-        h1 {
-            margin-top vrBlock(0.4)
-            margin-bottom vrBlock(1)
-        }
+/*
+ * Header area styles
+ */
+.article-header {
+    h1 {
+        margin-top vrBlock(0.4)
     }
-    .article-header__intro {
+    &__intro {
         font-size 1.2rem
         font-style italic
         font-family $caslon
         max-width 700px
         margin 0 auto vrBlock(0.5)
-        color $gray60
     }
-    .article-header__meta {
-        p {
-            margin-bottom 0
-            font-weight bold
-        }
-    }
-
-
-    /*
-     * Header - page level navigation
-     */
-    $articleCategorySeparatorSpacing = 6px
-    .article-header__category {
-        margin vrBlock(0.5) auto -vrBlock(0.5) auto
-        text-align center
-        text-transform uppercase
+    &__meta {
         font-weight bold
-        >span:last-of-type {
-            font-weight normal
-        }
-        .article-header__category__lower {
-            border-left 2px solid $orangePeel
-            margin-left $articleCategorySeparatorSpacing
-            padding-left ($articleCategorySeparatorSpacing + 1)
-        }
-        &.article-header__category--deep {
-            text-align left
-            .article-header__category__upper {
-                display inline-block
-                width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
-                text-align right
-            }
+        >* {
+            margin 0 //necessary because the drupal api sometimes returns a paragraph tag
         }
     }
-
-    .article-header__field {
-        display inline-block
-        padding 10px 20px
-        text-align center
-        font-size 1.3rem
-        margin 10px 0
-        vertical-align middle
-        div {
-            display inline-block
-            vertical-align middle
-        }
-        img {
-            height 60px
-            margin-right 8px
-        }
-    }
-
-    .header-short-text {
-        max-width 800px
-        margin 0 auto
-    }
-
-    .paragraph-label {
-        font-weight bold
-        color $gray60
-    }
-
-    .cc {
-        font-size 30px
-        vertical-align middle
-    }
-
-    .section-map {
-        position relative
-        z-index 10
-        height 350px
-        padding 0 0
-        a {
-            color @gray-base
-        }
-    }
-
-    .block-map {
-        height 100%
-        >div:last-child:after {
-            content: '';
-            position: absolute;
-            box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3);
-            width:100%;
-            height:100%;
-            display:block;
-            pointer-events:none;
-        }
-    }
-
-    ul, ol {
-        margin-bottom 1.5rem
-    }
-    .licences {
-        text-align right
+    &__sub {
+        margin-top vrBlock(0.5)
     }
 }
+
+
+
+/*
+ * Header - page level navigation
+ */
+$articleCategorySeparatorSpacing = 6px
+.article-header__category {
+    margin vrBlock(0.5) auto -vrBlock(0.5) auto
+    text-align center
+    text-transform uppercase
+    font-weight bold
+    >span:last-of-type {
+        font-weight normal
+    }
+    .article-header__category__lower {
+        border-left 2px solid $orangePeel
+        margin-left $articleCategorySeparatorSpacing
+        padding-left ($articleCategorySeparatorSpacing + 1)
+    }
+    &.article-header__category--deep {
+        text-align left
+        .article-header__category__upper {
+            display inline-block
+            width s('calc(50% - %s)', $articleCategorySeparatorSpacing)
+            text-align right
+        }
+    }
+}
+
+.article-header__field {
+    display inline-block
+    padding 10px 20px
+    text-align center
+    font-size 1.3rem
+    margin 10px 0
+    vertical-align middle
+    div {
+        display inline-block
+        vertical-align middle
+    }
+    img {
+        height 60px
+        margin-right 8px
+    }
+}
+
+.header-short-text {
+    max-width 800px
+    margin 0 auto
+}
+
+.paragraph-label {
+    font-weight bold
+    color $gray60
+}
+
+.section-map {
+    position relative
+    z-index 10
+    height 350px
+    padding 0 0
+    a {
+        color @gray-base
+    }
+}
+
+.block-map {
+    height 100%
+    >div:last-child:after {
+        content ''
+        position absolute
+        box-shadow inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3)
+        width 100%
+        height 100%
+        display block
+        pointer-events none
+    }
+}
+
+//BURKE why is this different from other text elements. paragraphs for example stil lhave the bootstrap defaul of 10px
+//ul, ol {
+//    margin-bottom 20px
+//}
+
+//BURKE this isn't used anywhere - delete?
+//.licences {
+//    text-align right
+//}
 
 .white-background {
     background-color $white
@@ -145,65 +149,56 @@
     background-color none
 }
 .light-background {
-    background-color #f9f9f9
+    background-color #f7f9fa //todo bring to variable. BURKE stop changing colors ;)
 }
 .alert-background {
     background-color #ffffdf
 }
 
 .col-centered {
-    float: none;
-    margin: 0 auto;
+    float none
+    margin 0 auto
 }
 
 .container--prose {
-    margin 0 auto
-    max-width 1000px
-}
-+isAbove($tablet) {
-    .container--prose {
-        max-width 700px
+    max-width $contentWidth--narrow
+    margin-left auto
+    margin-right auto
+    .prose-columns {
+        overflow-wrap break-word
+        word-wrap break-word
+        hyphens auto
+        figure {
+            overflow hidden
+            break-inside avoid-column
+            figcaption {
+                font-size 0.9rem
+                font-weight 300
+                color $citationTextColor
+            }
+        }
     }
 }
-+isAbove($desktop) {
+
++isAbove($contentWidth--normal) {
     .container--prose {
-        max-width 1024px
+        max-width $contentWidth--normal
+        .prose-columns {
+            columns 2 30px
+            text-align justify
+        }
     }
 }
 
 .body-text {
     font-size 16px
     font-weight normal
-    padding-bottom 20px
-}
-
-.body-text--prose {
-    @extend .body-text
-    text-align justify
-    overflow-wrap break-word
-    word-wrap break-word
-    hyphens auto
-    margin-bottom 20px
-
-    figure {
-        overflow hidden
-        break-inside avoid-column
-        figcaption {
-            font-size 0.9rem
-            font-weight 300
-            color $citationTextColor
-        }
-    }
-}
-
-+isAbove($desktop) {
-    .body-text--prose {
-        columns 2 30px
-    }
 }
 
 .article-auxiliary {
-    padding-top 20px
+    padding-top vrBlock(1)
+    margin-top vrBlock(2)
+    margin-bottom -10px //to compensate for the bottom border on the sections.
     border-top 1px solid #ddd
     font-size 1rem
     color $gray63
@@ -227,19 +222,26 @@
         font-size 0.9rem
         font-weight 300
         color $citationTextColor
-        padding 0 15px
+        >* {
+            margin 0
+        }
     }
 }
 
 .cover-image {
     height 0
-    padding-bottom 30%
+    padding-bottom 50%
     background #f7f9fa
     overflow hidden
     background-size cover
     background-position center
     img {
         display none
+    }
+}
++isAbove($tablet){
+    .cover-image {
+        padding-bottom 30%
     }
 }
 
@@ -257,24 +259,6 @@
     }
     .card {
         margin 0 0
-    }
-    .heading-image {
-        figcaption {
-            max-width 700px
-            margin 0 auto
-        }
-    }
-}
-
-+isAbove($desktop) {
-    .body-text {
-        columns 2 30px
-    }
-    .heading-image {
-        figcaption {
-            max-width 1000px
-            padding 0
-        }
     }
 }
 

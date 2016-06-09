@@ -1,5 +1,5 @@
 {% if occurrence.record.media.length > 0 %}
-<section class="block row discreet"
+<section class="horizontal-stripe light-background"
     {% if occurrence.record.media.length > 5 %}
         expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrence.mediaExpand"
         {% endif %}
@@ -52,7 +52,6 @@
         </div>
 
         {% if occurrence.record.media.length > 5 %}
-        {#<p class="small text-center" ng-if="!occurrence.mediaExpand.isExpanded"><a class="action discreet" href="" ng-click="occurrence.showAllImages=true">Show all {$ occurrence.record.media.length $} images</a></p>#}
 
         <div class="occurrenceMedia occurrenceMedia-wide ng-cloak">
             {% for media in occurrence.record.media | slice(5) %}

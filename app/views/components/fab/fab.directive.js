@@ -8,11 +8,10 @@ angular
 /** @ngInject */
 function fabDirective() {
     var directive = {
-        restrict: 'E',
+        restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/fab/fab.html',
         scope: {
-            type: '='
         },
         controller: fab,
         controllerAs: 'vm',
@@ -23,7 +22,8 @@ function fabDirective() {
 
     /** @ngInject */
     function fab() {
-        //var vm = this;
+        var vm = this;
+        vm.isExpanded = false;
     }
 }
 

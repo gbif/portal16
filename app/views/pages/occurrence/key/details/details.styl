@@ -1,6 +1,11 @@
+.occurrenceKey__details {
+	>div {
+		position relative
+	}
+}
 +isAbove(800px) {
 	.occurrenceKey__details {
-		.blockContent {
+		>div {
 			max-width 100%
 			section {
 				max-width calc(50% - 30px)
@@ -11,7 +16,7 @@
 
 +isAbove(1000px) {
 	.occurrenceKey__details {
-		.blockContent {
+		>div {
 			max-width 1000px
 			section {
 				max-width 470px
@@ -21,8 +26,8 @@
 }
 
 .occurrence-key__term-groups {
-	min-width 400px
-	&.isExpanded {
+	min-width 350px
+	&.is-expanded {
 		min-width 800px
 	}
 	display flex

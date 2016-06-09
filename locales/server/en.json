@@ -1,5 +1,4 @@
 {
-	"Hello": "Hello",
 	"Search results": "Search results",
 	"search.placeholder": "search.placeholder",
 	"search": "search",
@@ -1083,7 +1082,8 @@
 		"SPECIES": "species",
 		"undefined": "unknown taxon",
 		"FAMILY": "family",
-		"GENUS": "genus"
+		"GENUS": "genus",
+		"SUBSPECIES": "subspecies"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1112,7 +1112,9 @@
 		"raw": "raw",
 		"feedbackOnData": "Feedback on data",
 		"sendPublisherMail": "Send publisher a mail",
-		"aboutTheDataset": "About the dataset"
+		"aboutTheDataset": "About the dataset",
+		"Dataset": "dataset",
+		"Crawling": "crawling"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

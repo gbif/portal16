@@ -8,21 +8,15 @@
 //        gb.occurrenceRemarks = {$ occurrenceRemarks | rawJson | safe $};
         gb.rm = {$ occurrence | rawJson | safe $}
     </script>
-    <div class="stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence">
+    <article class="wrapper-horizontal-stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence">
         <div class="overlay"></div>
-
-        <div class="container-fluid">
-            {#<div class="block row" style="background: tomato; text-align: center; padding: 1rem 0; color: white;">#}
-                {#Insufficient record#}
-            {#</div>#}
-            {% include('./header/header.nunjucks') %}
-            {% include('./highlights/highlights.nunjucks') %}
-            {% include('./location/location.nunjucks') %}
-            {% include('./dataset/dataset.nunjucks') %}
-            {% include('./details/details.nunjucks') %}
-            {% include('./media/media.nunjucks') %}
-            {% include('./extensions/extensions.nunjucks') %}
-        </div>
+        {% include('./header/header.nunjucks') %}
+        {% include('./highlights/highlights.nunjucks') %}
+        {% include('./location/location.nunjucks') %}
+        {% include('./dataset/dataset.nunjucks') %}
+        {% include('./details/details.nunjucks') %}
+        {% include('./media/media.nunjucks') %}
+        {% include('./extensions/extensions.nunjucks') %}
 
     </div>
 {% endblock %}
@@ -32,23 +26,24 @@
 {# Annotation buttons #}
 {# TODO find correct email is more complicated than just choosing the first on i suppose #}
 {% block tools %}
-    <div class="fab">
+    {% if occurrence.dataset.contacts[0].email[0] or occurrence.annotation %}
+    <div class="fab" fab>
         <div class="fab__trigger">
-            <a href="#" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>
+            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>
         </div>
         <ul class="fab__options">
+            {% if occurrence.annotation %}
+                <li class="fab__options__primary">
+                    <a href="{$ occurrence.annotation.url $}" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>
+                </li>
+            {% endif %}
             {% if occurrence.dataset.contacts[0].email[0] %}
                 <li>
                     <a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"
                        class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.sendPublisherMail') $}"><i class="gb-icon-mail"></i></a>
                 </li>
             {% endif %}
-
-            {% if occurrence.annotation %}
-                <li>
-                    <a href="{$ occurrence.annotation.url $}" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>
-                </li>
-            {% endif %}
         </ul>
     </div>
+    {% endif %}
 {% endblock %}

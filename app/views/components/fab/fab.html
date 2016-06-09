@@ -1,0 +1,7 @@
+<div
+    ng-class="{'fab-is-expanded': vm.isExpanded}"
+    ng-click="vm.isExpanded = !vm.isExpanded"
+    tw-click-outside="vm.isExpanded = false"
+    ignore-if="!vm.isExpanded">
+    <ng-transclude class="fab__content"></ng-transclude>
+</div>

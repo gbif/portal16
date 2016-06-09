@@ -1,5 +1,5 @@
 {% if results.occurrences and results.occurrences.count > 0 %}
-    <section class="search-results__section search-results-occurrences">
+    <section class="search-results__section search-results--occurrences">
         {#<h2>Species occurrences</h2>#}
         <div class="card">
             <div class="card__banner">

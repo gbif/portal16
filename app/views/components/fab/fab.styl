@@ -26,8 +26,10 @@
 	position fixed
 	bottom vrBlock(1)
 	right vrBlock(1)
-	display flex
-	flex-direction column-reverse
+	&__content {
+		display flex
+		flex-direction column-reverse
+	}
 	.fab__options {
 		height 0
 		overflow hidden
@@ -48,15 +50,6 @@
 			}
 		}
 	}
-	&:hover {
-		.fab__options {
-			height auto
-			overflow visible
-			li {
-				opacity 1
-			}
-		}
-	}
 
 	.fab__trigger {
 		padding vrBlock(0.25)
@@ -65,37 +58,60 @@
 			color white
 		}
 	}
+	li.fab__options__primary>a {
+		background lighten($plum, 20)
+		color white
+	}
 	.fab__options li:nth-child(2) {
-		transition-delay: 20ms;
+		transition-delay 20ms
 	}
 	.fab__options li:nth-child(3) {
-		transition-delay: 40ms;
+		transition-delay 40ms
 	}
 	.fab__options li:nth-child(4) {
-		transition-delay: 60ms;
+		transition-delay 60ms
 	}
 	.fab__options li:nth-child(5) {
-		transition-delay: 80ms;
+		transition-delay 80ms
 	}
 	[tooltip]:before {
-		border-radius: 2px;
-		background-color: #585858;
-		color: #fff;
-		content: attr(tooltip);
-		font-size: 12px;
-		visibility: hidden;
-		opacity: 0;
-		padding: 5px 7px;
-		margin: 7px;
-		position: absolute;
-		right: 100%;
-		white-space: nowrap;
+		border-radius 2px
+		background-color #585858
+		color #fff
+		content attr(tooltip)
+		font-size 12px
+		visibility hidden
+		opacity 0
+		padding 5px 7px
+		margin 7px
+		position absolute
+		right 100%
+		white-space nowrap
 		z-index 1000
 	}
-
 	[tooltip]:hover:before,
 	[tooltip]:hover:after {
-		visibility: visible;
-		opacity: 1;
+		visibility visible
+		opacity 1
+	}
+	.fab-is-expanded {
+		.fab__options {
+			height auto
+			overflow visible
+			li {
+				opacity 1
+			}
+		}
+	}
+}
++isBelow($laptop) {
+	.fab {
+		.fab-is-expanded {
+			[tooltip]:before,
+			[tooltip]:after {
+				visibility visible
+				opacity 1
+			}
+		}
 	}
 }
