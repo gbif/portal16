@@ -1,0 +1,17 @@
+{% macro shorten(text) %}
+    {% if text | isLink %}
+        <a href="{$ text $}">{$ text | truncateMiddle(40) $}</a>
+        {% elif text.length > 300 %}
+        <div shorten class="shorten">
+            <span>{$ text | slice(0,200) $}</span><span class="shorten__collapsable">{$ text | slice(200) $}</span>
+        </div>
+    {% else %}
+        {$ text $}
+    {% endif %}
+{% endmacro %}
+
+{% macro compactTableCell(text) %}
+    <td style="min-width:{$ text | minTableWidth(1.4, 20) $}em">
+        {$ shorten(text) $}
+    </td>
+{% endmacro %}

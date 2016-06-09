@@ -7,12 +7,26 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
+router.get('/', function (req, res) {
+    console.log('asdlflkjhasdlfkhj');
+    if (typeof req.query.q !== 'undefined') {
+        searchHandler(req, res);
+    } else {
+        next();
+    }
+});
+
 router.get('/search\.:ext?', function (req, res) {
+    searchHandler(req, res);
+});
+
+function searchHandler(req, res) {
+    "use strict";
     var searchString = req.query.q;
     search.search(searchString, function(results){
         renderPage(req, res, results, searchString);
     });
-});
+}
 
 function renderPage(req, res, results, searchString) {
     if (req.params.ext == 'json') {

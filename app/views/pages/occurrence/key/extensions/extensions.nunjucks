@@ -1,3 +1,5 @@
+{% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
+
 {% if occurrence.verbatim.extensions | isNotEmpty %}
 <section class="horizontal-stripe bare-background extensions">
     <div class="container--normal">
@@ -40,13 +42,7 @@
                                     {% for extension in occurrence.verbatim.extensions[name] %}
                                         <tr>
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
-                                                    {% if extension[term] | isLink %}
-                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
-                                                    {% else %}
-                                                       {$ extension[term] $}
-                                                    {% endif %}
-                                                </td>
+                                                {$ shorten.compactTableCell(extension[term]) $}
                                             {% endfor %}
                                         </tr>
                                     {% endfor %}
@@ -54,13 +50,7 @@
                                     {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
                                         <tr>
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
-                                                    {% if extension[term] | isLink %}
-                                                    <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
-                                                    {% else %}
-                                                        {$ extension[term] $}
-                                                    {% endif %}
-                                                </td>
+                                                {$ shorten.compactTableCell(extension[term]) $}
                                             {% endfor %}
                                         </tr>
                                     {% endfor %}
@@ -68,13 +58,7 @@
                                     {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
                                         <tr class="is-collapsable ng-cloak">
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                <td style="min-width:{$ extension[term] | minTableWidth(1.4, 20) $}em">
-                                                    {% if extension[term] | isLink %}
-                                                        <a href="{$ extension[term] $}">{$ extension[term] | truncateMiddle(40) $}</a>
-                                                    {% else %}
-                                                        {$ extension[term] $}
-                                                    {% endif %}
-                                                </td>
+                                                {$ shorten.compactTableCell(extension[term]) $}
                                             {% endfor %}
                                         </tr>
                                     {% endfor %}
