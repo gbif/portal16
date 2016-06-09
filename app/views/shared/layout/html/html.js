@@ -11,12 +11,13 @@ require('angular-aria');
 require('angular-ui-bootstrap');
 require('angular-click-outside');
 require('ng-infinite-scroll');
+require('angular-scroll');
 
 (function () {
     'use strict';
 
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'tw.directives.clickOutside']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'firebase', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'tw.directives.clickOutside', 'duScroll']);
 
 })();
 
@@ -52,6 +53,7 @@ require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
 require('../../../pages/dataset/datasetDetailsDownloadEventsTable.ctrl');
 require('../../../pages/dataset/datasetDetailsContactPopup.ctrl');
+require('../../../pages/dataset/datasetDetailsScrollSpy.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
