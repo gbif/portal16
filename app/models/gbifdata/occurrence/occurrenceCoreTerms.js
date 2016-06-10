@@ -2,14 +2,15 @@
 
 var Q = require('q'),
     async = require('async'),
+    api = require('../apiConfig'),
     helper = require('../../util/util');
 
 function getTerms(callback) {
-    helper.getApiData('http://api.gbif-uat.org/v1/occurrence/term', callback, {timeoutMilliSeconds: 10000, retries: 5, failHard: true});
+    helper.getApiData(api.occurrenceTerm.url, callback, {timeoutMilliSeconds: 10000, retries: 5, failHard: true});
 }
 
 function getRemarkTypes(callback) {
-    helper.getApiData('http://api.gbif-uat.org/v1/occurrence/interpretation', callback, {timeoutMilliSeconds: 10000, retries: 5, failHard: true});
+    helper.getApiData(api.occurrenceInterpretation.url, callback, {timeoutMilliSeconds: 10000, retries: 5, failHard: true});
 }
 
 function getQualifiedToSimple(terms) {

@@ -15,6 +15,12 @@ var apiConfig = {
     occurrence: {
         url: baseUrl + 'occurrence/'
     },
+    occurrenceTerm: {
+        url: baseUrl + 'occurrence/term/', 
+    },
+    occurrenceInterpretation: {
+        url: baseUrl + 'occurrence/interpretation'
+    },
     occurrenceDownloadDataset: {
         url: baseUrl + 'occurrence/download/dataset/'
     },
