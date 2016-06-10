@@ -33,13 +33,13 @@
                             {% for row in results.occurrences.results | limit(3) %}
                                 <tr class="table-row">
                                     <td>
-                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
                                     </td>
                                     <td>
-                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ row.year $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>
                                     </td>
                                     <td class="u-capitalize">
-                                        <a href="/{$ locale $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
                                     </td>
                                 </tr>
                             {% endfor %}

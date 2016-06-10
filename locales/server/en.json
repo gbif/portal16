@@ -1131,9 +1131,9 @@
 		"SOUTH_AMERICA": "South America",
 		"AFRICA": "Africa"
 	},
-	"georeferenced": "georeferenced",
-	"records": "records",
 	"taxonomicStatus": {
 		"ACCEPTED": "Accepted"
-	}
+	},
+	"georeferenced": "georeferenced",
+	"records": "records"
 }

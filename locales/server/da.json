@@ -32,7 +32,8 @@
 		"NZ": "country.NZ",
 		"DK": "country.DK",
 		"US": "country.US",
-		"MX": "country.MX"
+		"MX": "country.MX",
+		"SE": "country.SE"
 	},
 	"taxonRank": {
 		"undefined": "taxonRank.undefined",
@@ -65,7 +66,8 @@
 		"sendPublisherMail": "stdTerms.sendPublisherMail",
 		"GeologicalContext": "stdTerms.GeologicalContext",
 		"aboutTheDataset": "stdTerms.aboutTheDataset",
-		"reference": "stdTerms.reference"
+		"reference": "stdTerms.reference",
+		"remarks": "stdTerms.remarks"
 	},
 	"interpretationRemarks": {
 		"TAXON_MATCH_NONE": "interpretationRemarks.TAXON_MATCH_NONE",
@@ -147,7 +149,10 @@
 		"taxonID": "ocurrenceFieldNames.taxonID",
 		"dateIdentified": "ocurrenceFieldNames.dateIdentified",
 		"identificationID": "ocurrenceFieldNames.identificationID",
-		"rightsHolder": "ocurrenceFieldNames.rightsHolder"
+		"rightsHolder": "ocurrenceFieldNames.rightsHolder",
+		"sex": "ocurrenceFieldNames.sex",
+		"fieldNumber": "ocurrenceFieldNames.fieldNumber",
+		"eventTime": "ocurrenceFieldNames.eventTime"
 	},
 	"continent": {
 		"NORTH_AMERICA": "continent.NORTH_AMERICA"

@@ -32,12 +32,31 @@ function transformRemarks(remarks, terms) {
     return remarksMap;
 }
 
+function sortTerms(terms) {
+    terms = terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
+    var termOrder = {};
+    //sort order of terms in a set order followed by alphabetically
+    [
+        'day', 'month', 'year',
+        'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'specificEpithet'
+    ].forEach(function(e, i) {
+        termOrder[e] = i - 1000;
+    });
+    terms.sort(function(a, b) {
+        var indexA = termOrder[a.simpleName] || 0;
+        var indexB = termOrder[b.simpleName] || 0;
+        return indexA - indexB;
+    });
+    return terms;
+}
+
 function getOccurrenceMetaData() {
     var deferred = Q.defer();
     async.parallel({terms: getTerms, remarks: getRemarkTypes}, function(err, data){
         if (err !== null) {
             deferred.reject(new Error(err));
         } else if (data) {
+            data.terms = sortTerms(data.terms);
             data.remarks = transformRemarks(data.remarks, data.terms);
             deferred.resolve(data);
         }

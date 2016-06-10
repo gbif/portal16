@@ -72,6 +72,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             'MaterialSample': 8,
             'GeologicalContext': 9
         },
+    //field terms that are to be included independent of their source. that is included these gbif specific terms
         whiteList = {
             elevation: true,
             elevationAccuracy: true,
@@ -80,20 +81,6 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             distanceAboveSurface: true,
             distanceAboveSurfaceAccuracy: true
         };
-    terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
-    var termOrder = {};
-    [
-        'day',
-        'month',
-        'year'
-    ].forEach(function(e, i) {
-        termOrder[e] = i;
-    });
-    terms.sort(function(a, b) {
-        var indexA = termOrder[a.simpleName] || 0;
-        var indexB = termOrder[b.simpleName] || 0;
-        return indexA - indexB;
-    });
     terms.forEach(function(e){
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
