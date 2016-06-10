@@ -18,7 +18,7 @@ var apiConfig = {
     occurrenceDownloadDataset: {
         url: baseUrl + 'occurrence/download/dataset/'
     },
-    species: {
+    taxon: {
         url: baseUrl + 'species/'
     },
     publisher: {

@@ -15,24 +15,24 @@
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">{$ __('stdTerms.species') $}</span>
                             <span class="article-header__category__lower">
-                                {$ __('taxonomicStatus.' + species.taxonomicStatus) $}
+                                {$ __('taxonomicStatus.' + species.record.taxonomicStatus) $}
                             </span>
                         </nav>
 
                         <h1 class="h2 text-center">
-                            <span>{$ species.scientificName $}</span>
+                            <span>{$ species.record.scientificName $}</span>
                         </h1>
 
                         <div class="text-center">
                             <span class="taxon-classification taxon-classification--discreet">
-                                {% if species.kingdom %}
-                                    <a href="{$ gb.locales.urlPrefix $}/species/{$ species.kingdomKey $}" class="kingdom">{$ species.kingdom $}</a>
+                                {% if species.record.kingdom %}
+                                    <a href="{$ gb.locales.urlPrefix $}/species/{$ species.kingdomKey $}" class="kingdom">{$ species.record.kingdom $}</a>
                                 {% endif %}
 
                                 {% for taxon in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
-                                    {% if species[taxon] %}
+                                    {% if species.record[taxon] %}
                                         <i></i>
-                                        <a href="{$ gb.locales.urlPrefix $}/species/{$ species[taxon + 'Key'] $}" class="{$ taxon $}">{$ species[taxon] $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/species/{$ species[taxon + 'Key'] $}" class="{$ taxon $}">{$ species.record[taxon] $}</a>
                                     {% endif %}
                                 {% endfor %}
                             </span>
@@ -42,7 +42,6 @@
             </div>
         </div>
 
-        <iframe id="map" name="map" src="//cdn.gbif.org/v1/map/index.html?type=TAXON&amp;key={$ species.key $}&amp;resolution=1" allowfullscreen=""frameborder="0"></iframe>
     </article>
 
 

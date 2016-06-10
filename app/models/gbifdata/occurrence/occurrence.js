@@ -45,11 +45,11 @@ Occurrence.prototype.expand = function (fieldNames) {
                 extendToField: 'verbatim'
             },
             species: {
-                resource: api.species.url + this.record.taxonKey,
+                resource: api.taxon.url + this.record.taxonKey,
                 extendToField: 'species'
             },
             vernacular: {
-                resource: api.species.url + this.record.taxonKey + '/vernacularNames',
+                resource: api.taxon.url + this.record.taxonKey + '/vernacularNames',
                 extendToField: 'vernacular'
             }
         };
