@@ -1142,13 +1142,15 @@
 		"VOTING": "voting",
 		"ASSOCIATE": "associate"
 	},
-	"georeferenced": "georeferenced",
-	"records": "records",
 	"installation": {
 		"type": {
 			"IPT_INSTALLATION": "IPT",
 			"HTTP_INSTALLATION": "HTTP",
 			"BIOCASE_INSTALLATION": "BIOCASE"
 		}
+	},
+	"datasetDetails": {
+		"georeferenced": "georeferenced",
+		"records": "records"
 	}
 }
