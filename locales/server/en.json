@@ -1085,9 +1085,10 @@
 		"FAMILY": "family",
 		"GENUS": "genus",
 		"SUBSPECIES": "subspecies",
-		"PHYLUM": "taxonRank.PHYLUM",
-		"KINGDOM": "taxonRank.KINGDOM",
-		"CLASS": "taxonRank.CLASS"
+		"PHYLUM": "phylum",
+		"KINGDOM": "kingdom",
+		"ORDER": "order",
+		"CLASS": "class"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1121,7 +1122,8 @@
 		"Crawling": "crawling",
 		"remarks": "remarks",
 		"specimenType": "type",
-		"species": "species"
+		"species": "species",
+		"country": "country"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
@@ -1133,7 +1135,11 @@
 	},
 	"taxonomicStatus": {
 		"ACCEPTED": "Accepted",
-		"undefined": "taxonomicStatus.undefined"
+		"undefined": "Unknown"
+	},
+	"participationStatus": {
+		"VOTING": "voting",
+		"ASSOCIATE": "associate"
 	},
 	"georeferenced": "georeferenced",
 	"records": "records"

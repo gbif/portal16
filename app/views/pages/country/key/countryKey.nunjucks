@@ -8,12 +8,14 @@
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center">
-                        <nav class="article-header__category">
-                            <span class="article-header__category__upper">{$ __('stdTerms.publisher') $}</span>
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
+                            <span class="article-header__category__lower">
+                                {$ __('participationStatus.' + country.record.participationStatus) $}
+                            </span>
                         </nav>
-
                         <h1 class="h2 text-center">
-                            <span>{$ publisher.record.title $}</span>
+                            <span>{$ country.record.participantTitle $}</span>
                         </h1>
                     </header>
                 </div>
@@ -30,7 +32,7 @@
             <p>
                 <em>This page shouldn't look like this at all!</em>
             </p>
-            <p>Nope, you're completely right. It is empty, but if you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Publisher detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant for the new site - either new or existing that you want to draw attention to.</p>
+            <p>Nope, you're completely right. It is empty, but if you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Country detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant for the new site - either new or existing that you want to draw attention to.</p>
         </div>
     </div>
 
