@@ -5,6 +5,7 @@ var path = require('path'),
     env = process.env.NODE_ENV || 'development',
     defaultPort = yargs.port || 3000,
     dataApi = yargs.dataapi,
+    tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi;
 
 var config = {
@@ -16,6 +17,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     uat: {
@@ -26,6 +28,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     production: {
@@ -36,6 +39,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
+        tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
     },
     test: {

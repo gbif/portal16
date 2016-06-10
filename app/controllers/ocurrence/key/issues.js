@@ -40,7 +40,7 @@ function getSummary(occurrenceIssues, remarks) {
     if (occurrenceIssues.length == 0) {
         return undefined;
     }
-    var summary;
+    var summary = undefined;
     occurrenceIssues.forEach(function(e){
         let remark = remarks[e];
         if (remark.severity == 'INFO') return;

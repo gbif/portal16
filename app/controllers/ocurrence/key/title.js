@@ -1,3 +1,6 @@
+/**
+ * create a human readable title to display on the occurrence detail page a la "Puma Concolor observed in Italy"
+ */
 var _ = require('lodash');
 
 module.exports = function(occurrence, __){

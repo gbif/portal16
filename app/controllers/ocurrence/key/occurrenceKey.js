@@ -51,8 +51,8 @@ function getLastSync(occurrence) {
 function highlight(occurrence) {
     var highlights = {};
 
-    highlights.lastSynced = getLastSync(occurrence);
     //get last successful crawl date
+    highlights.lastSynced = getLastSync(occurrence);
 
     return highlights;
 }
@@ -81,6 +81,19 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             distanceAboveSurfaceAccuracy: true
         };
     terms.sort((a, b) => a.simpleName < b.simpleName ? -1 : 1);
+    var termOrder = {};
+    [
+        'day',
+        'month',
+        'year'
+    ].forEach(function(e, i) {
+        termOrder[e] = i;
+    });
+    terms.sort(function(a, b) {
+        var indexA = termOrder[a.simpleName] || 0;
+        var indexB = termOrder[b.simpleName] || 0;
+        return indexA - indexB;
+    });
     terms.forEach(function(e){
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;

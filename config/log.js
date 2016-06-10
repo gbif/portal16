@@ -57,7 +57,7 @@ if (loglevel <= loglevels.info) {
             level: 'info',
             type: 'rotating-file',
             path: './log/info.log',
-            period: '10000ms',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
+            period: '1d',   // rotate per n type e.g. 1d = daily logs, https://github.com/trentm/node-bunyan#stream-type-rotating-file
             count: 7        // keep n back copies
         }
     );
