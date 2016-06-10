@@ -12,6 +12,12 @@ var apiConfig = {
     dataset: {
         url: baseUrl + 'dataset/'
     },
+    installation: {
+        url: baseUrl + 'installation/'
+    },
+    node: {
+        url: baseUrl + 'node/'
+    },
     occurrence: {
         url: baseUrl + 'occurrence/'
     },
@@ -24,14 +30,11 @@ var apiConfig = {
     occurrenceDownloadDataset: {
         url: baseUrl + 'occurrence/download/dataset/'
     },
-    taxon: {
-        url: baseUrl + 'species/'
-    },
     publisher: {
         url: baseUrl + 'organization/'
     },
-    installation: {
-        url: baseUrl + 'installation/'
+    taxon: {
+        url: baseUrl + 'species/'
     },
     speciesParsedName: {
         url: baseUrl + 'species/'
