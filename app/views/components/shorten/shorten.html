@@ -1,6 +1,6 @@
-<div ng-class="{'is-expanded': vm.isExpanded}">
+<span ng-class="{'is-expanded': vm.isExpanded}">
     <ng-transclude></ng-transclude>
-    <div class="text-right small shorten__more" ng-show="!vm.isExpanded" ng-click="vm.isExpanded = true">
+    <span class="text-right small shorten__more" ng-show="!vm.isExpanded" ng-click="vm.isExpanded = true">
         <span><a href="">{{vm.more}}</a></span>
-    </div>
-</div>
+    </span>
+</span>

@@ -7,15 +7,6 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/', function (req, res) {
-    console.log('asdlflkjhasdlfkhj');
-    if (typeof req.query.q !== 'undefined') {
-        searchHandler(req, res);
-    } else {
-        next();
-    }
-});
-
 router.get('/search\.:ext?', function (req, res) {
     searchHandler(req, res);
 });

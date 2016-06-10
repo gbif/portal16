@@ -42,9 +42,11 @@
                     {% endif %}
 
                     {# use page--fixed-width to restrict main column width #}
-                    <div class="page">
+                    <div class="page" hej>
 
-                        {% block page %}{% endblock %}
+                        <div>
+                            {% block page %}{% endblock %}
+                        </div>
                         {# Footer #}
                         {% include "../partials/footer/footer.nunjucks" %}
                     </div>

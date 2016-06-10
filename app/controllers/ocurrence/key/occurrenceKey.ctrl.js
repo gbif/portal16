@@ -9,7 +9,7 @@ module.exports = function (app) {
 router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     var key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
-        renderPage(req, res, occurrence);
+        renderPage(req, res, next, occurrence);
     }, function(err){
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
@@ -18,21 +18,25 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     });
 });
 
-function renderPage(req, res, occurrence) {
-    if (req.params.ext == 'json') {
-     res.json(occurrence);
-    } else {
-        var angularInitData = occurrence.record;//occurrenceDetails.getAngularInitData(occurrence);
-        occurrence.record.classKey = 0;
-        res.render('pages/occurrence/key/occurrenceKey', {
-            occurrence: occurrence,
-            occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
-            angularInitData: angularInitData,
-            occurrenceRemarks: occurrenceKey.occurrenceRemarks,
-            hasTools: true,
-            meta: {
-                title: 'Occurrence Detail ' + req.params.key
-            }
-        });
+function renderPage(req, res, next, occurrence) {
+    try {
+        if (req.params.ext == 'json') {
+            res.json(occurrence);
+        } else {
+            var angularInitData = occurrenceKey.getAngularInitData(occurrence);
+            occurrence.record.classKey = 0;
+            res.render('pages/occurrence/key/occurrenceKey', {
+                occurrence: occurrence,
+                occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
+                angularInitData: angularInitData,
+                occurrenceRemarks: occurrenceKey.occurrenceRemarks,
+                hasTools: true,
+                meta: {
+                    title: 'Occurrence Detail ' + req.params.key
+                }
+            });
+        }
+    } catch(e) {
+        next(e);
     }
 }

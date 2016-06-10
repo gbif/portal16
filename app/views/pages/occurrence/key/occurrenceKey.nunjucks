@@ -7,7 +7,7 @@
 //        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
 //        gb.rm = {$ occurrence | rawJson | safe $}
     </script>
-    <article class="wrapper-horizontal-stripes occurrenceKey" ng-controller="occurrenceKeyCtrl as occurrence">
+    <article class="wrapper-horizontal-stripes occurrenceKey page--data" ng-controller="occurrenceKeyCtrl as occurrence">
         <div class="overlay"></div>
         {% include('./header/header.nunjucks') %}
         {% include('./highlights/highlights.nunjucks') %}
@@ -17,9 +17,10 @@
         {% include('./media/media.nunjucks') %}
         {% include('./extensions/extensions.nunjucks') %}
 
-    </div>
+    </article>
 {% endblock %}
 
+{#{% include "../../../shared/layout/partials/footer/footer.nunjucks" %}#}
 
 
 {# Annotation buttons #}

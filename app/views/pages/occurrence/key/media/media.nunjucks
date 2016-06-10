@@ -1,3 +1,5 @@
+{% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
+
 {% if occurrence.record.media.length > 0 %}
 <section class="horizontal-stripe light-background"
     {% if occurrence.record.media.length > 5 %}
@@ -18,11 +20,12 @@
                                     {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
-                                            {% if media[field] | isLink %}
-                                                <dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>
-                                            {% else %}
-                                                <dd>{$ media[field] $}</dd>
-                                            {% endif %}
+                                            <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
+                                            {#{% if media[field] | isLink %}#}
+                                                {#<dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>#}
+                                            {#{% else %}#}
+                                                {#<dd>{$ media[field] $}</dd>#}
+                                            {#{% endif %}#}
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -34,11 +37,12 @@
                                         {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
-                                            {% if media[field] | isLink %}
-                                                <dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>
-                                            {% else %}
-                                                <dd>{$ media[field] $}</dd>
-                                            {% endif %}
+                                            <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
+                                            {#{% if media[field] | isLink %}#}
+                                                {#<dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>#}
+                                            {#{% else %}#}
+                                                {#<dd>{$ media[field] $}</dd>#}
+                                            {#{% endif %}#}
                                         </div>
                                         {% endif %}
                                     {% endfor %}

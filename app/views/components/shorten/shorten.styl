@@ -2,9 +2,15 @@
 	.shorten__collapsable {
 		display none
 	}
+	ng-transclude>span:after {
+		content $ellipsis
+	}
 	.is-expanded {
 		.shorten__collapsable {
 			display inline
+		}
+		ng-transclude>span:after {
+			content none
 		}
 	}
 	.shorten__more {

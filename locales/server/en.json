@@ -19,7 +19,8 @@
 	"typeStatus": {
 		"EXEPITYPE": "Exepitype",
 		"HOLOTYPE": "typeStatus.HOLOTYPE",
-		"SYNTYPE": "typeStatus.SYNTYPE"
+		"SYNTYPE": "typeStatus.SYNTYPE",
+		"ISONEOTYPE": "typeStatus.ISONEOTYPE"
 	},
 	"occurrence": {
 		"title": {
@@ -1085,7 +1086,8 @@
 		"GENUS": "genus",
 		"SUBSPECIES": "subspecies",
 		"PHYLUM": "taxonRank.PHYLUM",
-		"KINGDOM": "taxonRank.KINGDOM"
+		"KINGDOM": "taxonRank.KINGDOM",
+		"CLASS": "taxonRank.CLASS"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1117,7 +1119,9 @@
 		"aboutTheDataset": "About the dataset",
 		"Dataset": "dataset",
 		"Crawling": "crawling",
-		"remarks": "remarks"
+		"remarks": "remarks",
+		"specimenType": "type",
+		"species": "species"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
@@ -1125,8 +1129,11 @@
 		"EUROPE": "Europe",
 		"ANTARCTICA": "Antarctica",
 		"SOUTH_AMERICA": "South America",
-		"AFRICA": "continent.AFRICA"
+		"AFRICA": "Africa"
 	},
 	"georeferenced": "georeferenced",
-	"records": "records"
+	"records": "records",
+	"taxonomicStatus": {
+		"ACCEPTED": "Accepted"
+	}
 }

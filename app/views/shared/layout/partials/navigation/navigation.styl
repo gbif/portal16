@@ -512,6 +512,17 @@ main {
 	position relative //to be pushable by the filter drawer
 	overflow hidden
 	transition: right 500ms ease;
+	.page {
+		min-height "calc(100% - %s)" % $navBar_height
+		display flex
+		flex-direction column
+		>div {
+			flex 1 0 auto
+		}
+		>footer {
+			flex 0 0 auto
+		}
+	}
 }
 
 +isBelow($laptop) {

@@ -19,8 +19,7 @@ router.get('/species/:key', function (req, res, next) {
 			// process response if neccessary
 			// pass back the results to client side
 			res.render('pages/species/key/speciesKey', {
-				title: body.scientificName || 'Unknown',
-				speciesKey: speciesKey
+				species: body
 			});
 		}
 	});

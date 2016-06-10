@@ -18,8 +18,8 @@
 
                 {% include('./headline.nunjucks') %}
 
-                <div class="text-center sub">
-                    <span class="desc classification discreet">{$ helpers.taxonomy(occurrence.record) $}</span>
+                <div class="text-center">
+                    <span class="taxon-classification taxon-classification--discreet">{$ helpers.taxonomy(occurrence.record) $}</span>
                 </div>
             </header>
         </div>
