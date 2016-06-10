@@ -511,9 +511,10 @@ main {
 	background $content_background
 	position relative //to be pushable by the filter drawer
 	overflow hidden
+	min-height "calc(100vh - %s)" % $navBar_height
 	transition: right 500ms ease;
 	.page {
-		min-height "calc(100% - %s)" % $navBar_height
+		min-height "calc(100vh - %s)" % $navBar_height
 		display flex
 		flex-direction column
 		>div {
@@ -531,6 +532,7 @@ main {
 		right 0 //to make the transitition smooth we need a starting position
 		
 		.page {
+			min-height 100%
 			-webkit-overflow-scrolling touch
 			overflow-y auto
 			//overflow-x hidden

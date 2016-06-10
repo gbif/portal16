@@ -5,7 +5,7 @@
     angular
         .module('portal')
         .constant('env', {
-            dataApi: 'http://api.gbif.org/v1/', //e.g //api.gbif.org/v1/
-            tileApi: 'http://api.gbif-dev.org/v1/map/density/tile.png' //e.g. //cdn.gbif.org/v1/map/density/tile.png
+            dataApi: 'http://api.gbif-uat.org/v1/', //e.g //api.gbif.org/v1/
+            tileApi: 'http://api.gbif-uat.org/v1/map/density/tile.png' //e.g. //cdn.gbif.org/v1/map/density/tile.png
         })
 })();
