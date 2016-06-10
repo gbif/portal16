@@ -1,8 +1,12 @@
+# IDE and OS dependent
+.idea
+.DS_Store
+
+# Application specific
 node_modules/
 bower_components/
 public/
-.idea
-.DS_Store
 log/
 reports/
 coverage/
+app/views/shared/layout/html/angular/env.constants.js
