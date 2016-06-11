@@ -26,12 +26,12 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
     };
     vm.mediaItems = {};
     vm.dataApi = env.dataApi;
-    vm.similarities = {
-        similarRecords: []
-    };
+    //vm.similarities = {
+    //    similarRecords: []
+    //};
     vm.hideDetails = true;
 
-    vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
+    //vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
     vm.center = {zoom: 9, lat: 0, lng: 0};
     vm.markers = {};
     var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
@@ -72,9 +72,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         scale: true
     };
 
-    vm.paths =  {
-
-    };
+    vm.paths =  {};
 
     vm.markerMessage = {
         template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}{{weather}}</dl>',
@@ -91,7 +89,7 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
             coordinateUncertainty = vm.markerMessage.coordinateUncertaintyTemplate.replace('{{coordinateUncertainty}}', vm.data.coordinateUncertaintyInMeters);
         }
 
-        if (vm.markerMessage.weather) {
+        if (vm.markerMessage.weather && vm.markerMessage.weather.daily && vm.markerMessage.weather.daily.data) {
             var dayWeather = vm.markerMessage.weather.daily.data[0];
             var temperatureMin = dayWeather.temperatureMin;
             var temperatureMax = dayWeather.temperatureMax;
@@ -110,11 +108,11 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         }
     };
 
-    vm.tilePosStyle = {};
+    //vm.tilePosStyle = {};
     vm.data;
-    vm.table = {
-        filter: undefined
-    };
+    //vm.table = {
+    //    filter: undefined
+    //};
 
     hotkeys.add({
         combo: 'alt+d',
@@ -193,14 +191,10 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         }
 
         vm.markers.taxon = {
-            //group: 'similar',
             lat: data.decimalLatitude,
             lng: data.decimalLongitude,
             focus: false
         };
-        //if (data.verbatimLocality) {
-        //    vm.markers.taxon.message = '<p>'+data.verbatimLocality+'</p>';
-        //}
         vm.center = {
             zoom: 10,
             lat: data.decimalLatitude,
@@ -221,36 +215,13 @@ function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, Occurrenc
         }
         //set static marker
         leafletData.getMap('occurrenceMap').then(function(map) {
-            //find similar records (same species, same time, same area). This gives context and can tell us whether there are possible duplicates or several people reporting the same individual
-            // Useful examples as of april 2016: 195092389
-            // vm.SimilarOccurrence.getSimilar(
-            //     {
-            //         geometry: map.getBounds(),
-            //         taxonkey: data.taxonKey,
-            //         eventdate: data.eventDate
-            //     },
-            //     data.key,
-            //     function(data) {
-            //         vm.similarities.similarRecords = data.results;
-            //         var markers = vm.SimilarOccurrence.getMarkers(data, {
-            //             key: vm.data.key,
-            //             eventDate: vm.data.eventDate,
-            //             decimalLatitude: vm.data.decimalLatitude,
-            //             decimalLongitude: vm.data.decimalLongitude
-            //         });
-            //         markers.forEach(function(e, i) {
-            //             vm.markers['marker_' + i] = e;
-            //         });
-            //     }
-            // );
-
-            var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
-            var projPos = map.project(a, 0);
-            vm.tilePosStyle = {
-                left: projPos.x/2.56 + '%',
-                top: projPos.y/2.56 + '%',
-                display: 'block'
-            };
+            //var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
+            //var projPos = map.project(a, 0);
+            //vm.tilePosStyle = {
+            //    left: projPos.x/2.56 + '%',
+            //    top: projPos.y/2.56 + '%',
+            //    display: 'block'
+            //};
             map.once('focus', function() { map.scrollWheelZoom.enable(); });
         });
     }

@@ -17,10 +17,10 @@
 		"UNKNOWN": "unknown"
 	},
 	"typeStatus": {
-		"EXEPITYPE": "Exepitype",
-		"HOLOTYPE": "typeStatus.HOLOTYPE",
-		"SYNTYPE": "typeStatus.SYNTYPE",
-		"ISONEOTYPE": "typeStatus.ISONEOTYPE"
+		"EXEPITYPE": "exepitype",
+		"HOLOTYPE": "holotype",
+		"SYNTYPE": "syntype",
+		"ISONEOTYPE": "isoneotype"
 	},
 	"occurrence": {
 		"title": {
@@ -780,7 +780,11 @@
 		"EH": "Western Sahara",
 		"YE": "Yemen",
 		"ZM": "Zambia",
-		"ZW": "Zimbabwe"
+		"ZW": "Zimbabwe",
+		"BL": "country.BL",
+		"MF": "country.MF",
+		"SX": "country.SX",
+		"CW": "country.CW"
 	},
 	"interpretationRemarks": {
 		"BASIS_OF_RECORD_INVALID": "Basis of record invalid",
@@ -1088,7 +1092,8 @@
 		"PHYLUM": "phylum",
 		"KINGDOM": "kingdom",
 		"ORDER": "order",
-		"CLASS": "class"
+		"CLASS": "class",
+		"VARIETY": "taxonRank.VARIETY"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1142,13 +1147,15 @@
 		"VOTING": "voting",
 		"ASSOCIATE": "associate"
 	},
-	"georeferenced": "georeferenced",
-	"records": "records",
 	"installation": {
 		"type": {
 			"IPT_INSTALLATION": "IPT",
 			"HTTP_INSTALLATION": "HTTP",
 			"BIOCASE_INSTALLATION": "BIOCASE"
 		}
+	},
+	"datasetDetails": {
+		"georeferenced": "georeferenced",
+		"records": "records"
 	}
 }

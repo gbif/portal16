@@ -16,7 +16,8 @@ function getAngularInitData(occurrence) {
         'coordinateAccuracyInMeters',
         'eventDate',
         'taxonKey',
-        'lastParsed'
+        'lastParsed',
+        'coordinateUncertaintyInMeters'
     ];
     var selectedData = {};
     keys.forEach(function(e){
@@ -66,8 +67,8 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             'Occurrence': 2,
             'Event': 3,
             'Identification': 4,
-            'Location': 5,
-            'Taxon': 6,
+            'Taxon': 5,
+            'Location': 6,
             'Organism': 7,
             'MaterialSample': 8,
             'GeologicalContext': 9
