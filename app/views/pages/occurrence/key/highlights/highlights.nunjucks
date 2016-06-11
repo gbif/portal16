@@ -19,9 +19,9 @@
                     </li>
                     {% endif %}
 
-                    <li><span class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</span>: <span>{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
+                    <li><span class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</span>: <span class="text-capitalize">{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
                     {% if occurrence.record.typeStatus | isNotEmpty %}
-                        <li><span>{$ __('stdTerms.specimenType') $}</span>: <span>{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
+                        <li><span class="text-capitalize">{$ __('stdTerms.specimenType') $}</span>: <span class="text-capitalize">{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
                     {% endif %}
                 </ul>
             </div>
