@@ -20,7 +20,8 @@
 		"EXEPITYPE": "exepitype",
 		"HOLOTYPE": "holotype",
 		"SYNTYPE": "syntype",
-		"ISONEOTYPE": "isoneotype"
+		"ISONEOTYPE": "isoneotype",
+		"ISOTYPE": "isotype"
 	},
 	"occurrence": {
 		"title": {
@@ -1093,7 +1094,7 @@
 		"KINGDOM": "kingdom",
 		"ORDER": "order",
 		"CLASS": "class",
-		"VARIETY": "taxonRank.VARIETY"
+		"VARIETY": "variety"
 	},
 	"stdTerms": {
 		"location": "location",
@@ -1137,11 +1138,13 @@
 		"EUROPE": "Europe",
 		"ANTARCTICA": "Antarctica",
 		"SOUTH_AMERICA": "South America",
-		"AFRICA": "Africa"
+		"AFRICA": "Africa",
+		"ASIA": "continent.ASIA"
 	},
 	"taxonomicStatus": {
 		"ACCEPTED": "Accepted",
-		"undefined": "Unknown"
+		"undefined": "Unknown",
+		"DOUBTFUL": "Doubtful"
 	},
 	"participationStatus": {
 		"VOTING": "voting",
