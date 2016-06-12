@@ -1,6 +1,6 @@
 {# Generic tabular view renderer with tabs vertically stacking on the left column #}
 {% macro metadataRenderer(elements) %}
-    <nav class="col-md-4 metadata-nav">
+    <nav id="metadata-nav" class="col-md-4 metadata-nav">
         <ul class="nav">
             {% for element in elements %}
                 <li du-scrollspy="{$ element.property $}"><a href="#{$ element.property $}">{$ element.title $}</a></li>
@@ -8,7 +8,7 @@
         </ul>
     </nav>
 
-    <div class="col-xs-12 col-md-8">
+    <div id="metadata-content" class="col-xs-12 col-md-8 ">
         {% for element in elements %}
             <input class="toggle-collapse" id="input_{$ element.property $}" type="checkbox" >
             <label for="input_{$ element.property $}">{$ element.title $}</label>

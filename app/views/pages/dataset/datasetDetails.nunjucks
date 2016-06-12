@@ -115,7 +115,7 @@
         </div>
         {# TODO make dependent on model from route controller @Burke #}
         {% if metadataElementsToFold[0] %}
-        <section id="metadata" class="horizontal-stripe metadata white-background" ng-controller="scrollSpyCtrl">
+        <section id="metadata" class="horizontal-stripe metadata white-background" ng-controller="scrollSpyCtrl as scrollSpy">
             <div class="container">
                 <div class="row">
                     {$ datasetMacros.metadataRenderer(metadataElementsToFold) $}
