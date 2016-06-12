@@ -1,14 +1,15 @@
 {% macro resultList(results, type, conf) %}
 
     {%  if results.length > 0 %}
-        <section class="search-results__section">
-            <div class="card">
-                <h2 class="card__header">{$ type $}</h2>
-                <div>
-                    <div class="searchResults__list card__content">
+        <section class="container--normal">
+            <!-- <div class="card"><!--  -->
+                <!-- <h2 class="card__header">{$ type $}</h2>
+                <div> -->
+                    <!-- <div class="searchResults__list card__content"> -->
+                    <h2 class="h5">{$ type $}</h2>
                         {% for result in results | limit(3) %}
                         <div>
-                            <h3>
+                            <h3 class="h4">
                                 <a href="{$ conf.baseUrl $}{% if conf.content_type %}{$ result[conf.content_type] | wordBreakToHyphen $}/{% endif %}{$ result[conf.key] $}">
                                     {$ result[conf.title] | striptags | truncate(80) $}
                                 </a>
@@ -36,12 +37,12 @@
                             </div>
                         </div>
                         {% endfor %}
-                    </div>
-                    <div class="search-results__section__more">
+                    <!-- </div> -->
+                  <!--   <div class="search-results__section__more">
                         <a href="#">View All</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
     {% endif %}
 

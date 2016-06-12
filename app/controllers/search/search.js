@@ -2,17 +2,9 @@
  * version 1.
  * Locked order. Occurrence list independent of species.
  * no country detection
- *
- *
- * version 2.
- * prioritize results based on likelihood. Species should not always be on top.
- *
- * TODO: Retry on error. Do not fail hard. Log errors. Return whatever we have within n seconds
- *
- *
  * @type {exports|module.exports}
  */
-var helper = require('../util/util'),
+var helper = require('../../models/util/util'),
     baseConfig = require('../../../config/config'),
     async = require('async');
 
@@ -162,9 +154,9 @@ function getData(query, cb) {
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);
             },
-            articles: function(callback){
-                helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
-            },
+            // articles: function(callback){
+            //     helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
+            // },
             country: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {
                     if (err) {
@@ -186,8 +178,6 @@ function getData(query, cb) {
 
 function search(q, cb) {
     getData(q, function(err, results){
-
-        //console.log('RESULTS');
 
         //var expectedKeys = ['speciesMatches',
         //    'catalogNumberOccurrences',

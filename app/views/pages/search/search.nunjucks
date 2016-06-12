@@ -2,36 +2,74 @@
 {% import "./searchResults.macro.nunjucks" as searchMacro %}
 
 {% block page %}
+    <article class="wrapper-horizontal-stripes omniSearch page--data search-content" ng-controller="searchCtrl as search">
 
-    <div class="search-content" ng-controller="searchCtrl as search">
-        <div class="search-bar">
-            <form action="/search" class="search-form">
-                <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
-                <button type="submit" class="gb-icon-search">
-                    <span class="sr-only">{$ __('search') $}</span>
-                </button>
-                <input type="submit" class="search-form__submit sr-only" value="{$ __('search') $}">
-            </form>
-            <div class="card__tabs">
-                <div class="tabs">
-                    {% for type in ['All', 'Species', 'Occurrences', 'Datasets', 'Images', 'Checklists', 'Other'] %}
-                        <a class="tab" href="#">
-                            {$ type $}
-                        </a>
-                    {% endfor %}
+        <div class="horizontal-stripe--paddingless article-header white-background">
+            <div class="search-bar">
+                <form action="/search" class="search-form">
+                    <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
+                    <button type="submit" class="gb-icon-search">
+                        <span class="sr-only">{$ __('search') $}</span>
+                    </button>
+                    <input type="submit" class="search-form__submit sr-only" value="{$ __('search') $}">
+                </form>
+                <div class="card__tabs">
+                    <div class="tabs">
+                        {% for type in ['All', 'Species', 'Occurrences', 'Datasets', 'Images', 'Checklists', 'Other'] %}
+                            <a class="tab" href="#">
+                                {$ type $}
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-
-
+        </div>        
         <div class="search-results">
 
             {#{% if hasInvalidResponses %}#}
                 {#{% include "./partialResponse.nunjucks" %}#}
             {#{% endif %}#}
 
-            {% include "./all/all.nunjucks" %}
+            {% include "./curated/curated.nunjucks" %}
+
+            <div class="horizontal-stripe article-header light-background">   
+                 {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
+                title: 'title',
+                key: 'key',
+                baseUrl: gb.locales.urlPrefix + '/dataset/',
+                description: 'description',
+                sub: 'publishingOrganizationTitle',
+                subKey: 'publishingOrganizationKey',
+                subBaseUrl: 'http://www.gbif.org/publisher/'
+                }) $}
+            </div>
+
+            <div class="horizontal-stripe article-header white-background">   
+                {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
+                title: 'title',
+                key: 'key',
+                baseUrl: 'http://www.gbif.org/publisher/',
+                description: 'description',
+                chip: 'numPublishedDatasets'
+                })
+                -%}
+                Datasets
+                {%- endcall %}
+            </div>
+
+            <div class="horizontal-stripe article-header light-background">   
+                {$ searchMacro.resultList(results.articles.data, 'Articles', {
+                title: 'title',
+                key: 'entity_id',
+                content_type: 'type',
+                baseUrl: gb.locales.urlPrefix + '/',
+                description: 'body'
+                }) $}
+            </div>
+           
+
         </div>
 
-    </div>
+    </article>
+
 {% endblock %}

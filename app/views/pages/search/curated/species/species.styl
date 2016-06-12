@@ -1,0 +1,74 @@
+.card-columns {
+	margin-left auto
+	margin-right auto
+	padding vrBlock(1)
+	max-width 1000px
+	columns 2 30px
+	.card {
+		display inline-block
+		break-inside avoid-column
+		margin-top 10px
+		display inline-block
+		width 100%
+		.card__content, .card__stribe {
+			overflow hidden
+		}
+	}
+}
+
+.species-card__details {
+	.card__stribe__content {
+		>div {
+			dl {
+				margin-left 10px
+			}
+		}
+		.tile>div {
+			margin auto
+		}
+	}
+}
++isAbove($tablet) {
+	.species-card__details {
+		.card__stribe__content {
+			display flex
+			.tile {
+				flex 0 0 auto
+			}
+			.species-card__details__dl {
+				flex 1 1 auto
+			}
+		}
+	}
+}
+.species-overview-map {
+	width 128px
+	height 128px
+	position relative
+	overflow hidden
+	img {
+		position absolute
+		top 0
+		width 100%
+		padding 0
+		margin 0
+	}
+}
+
+dl.inline {
+	>div {
+		dl {
+		margin 0
+		}
+		dd, dt {
+			display inline
+			word-wrap break-word
+		}
+		dt {
+			text-transform capitalize
+		}
+		dt:after {
+			content ':'
+		}
+	}
+}

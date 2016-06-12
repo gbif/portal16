@@ -1,5 +1,5 @@
 var express = require('express'),
-	Installation = require('../../../models/gbifdata/gbifdata').Installation
+	Installation = require('../../../models/gbifdata/gbifdata').Installation,
     router = express.Router();
 
 module.exports = function (app) {
