@@ -1,6 +1,6 @@
 var express = require('express'),
     _ = require('lodash'),
-    search = require('../../models/search/search'),
+    search = require('./search'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -45,3 +45,4 @@ function renderPage(req, res, results, searchString) {
         });
     }
 }
+

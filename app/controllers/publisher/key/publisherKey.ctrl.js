@@ -1,5 +1,5 @@
 var express = require('express'),
-	Publisher = require('../../../models/gbifdata/gbifdata').Publisher
+	Publisher = require('../../../models/gbifdata/gbifdata').Publisher,
     router = express.Router();
 
 module.exports = function (app) {

@@ -1,5 +1,5 @@
 var express = require('express'),
-	Country = require('../../../models/gbifdata/gbifdata').Country
+	Country = require('../../../models/gbifdata/gbifdata').Country,
     router = express.Router();
 
 module.exports = function (app) {

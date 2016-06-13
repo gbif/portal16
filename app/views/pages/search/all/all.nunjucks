@@ -2,41 +2,9 @@
 
 <div class="search-results__other">
 
-    {% include "./country/country.nunjucks" %}
-    {% include "./catalogNumber/catalogNumber.nunjucks" %}
-    {% include "./occurrences/occurrences.nunjucks" %}
-    {% include "./species/SpeciesOccurrences.nunjucks" %}
+    
 
 
-    {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
-    title: 'title',
-    key: 'key',
-    baseUrl: gb.locales.urlPrefix + '/dataset/',
-    description: 'description',
-    sub: 'publishingOrganizationTitle',
-    subKey: 'publishingOrganizationKey',
-    subBaseUrl: 'http://www.gbif.org/publisher/'
-    }) $}
-
-
-    {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
-    title: 'title',
-    key: 'key',
-    baseUrl: 'http://www.gbif.org/publisher/',
-    description: 'description',
-    chip: 'numPublishedDatasets'
-    })
-    -%}
-    Datasets
-    {%- endcall %}
-
-
-    {$ searchMacro.resultList(results.articles.data, 'Articles', {
-    title: 'title',
-    key: 'entity_id',
-    content_type: 'type',
-    baseUrl: gb.locales.urlPrefix + '/',
-    description: 'body'
-    }) $}
+    
 
 </div>

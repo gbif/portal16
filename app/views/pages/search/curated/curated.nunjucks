@@ -1,0 +1,10 @@
+<div class="horizontal-stripe article-header bare-background">
+	<div class="row">
+		<div class="card-columns">
+			{% include "./country/country.nunjucks" %}
+			{% include "./catalogNumber/catalogNumber.nunjucks" %}
+			{% include "./occurrences/occurrences.nunjucks" %}
+			{% include "./species/SpeciesOccurrences.nunjucks" %}
+		</div>
+	</div>
+</div>

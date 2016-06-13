@@ -1,14 +1,15 @@
 {% macro resultList(results, type, conf) %}
 
     {%  if results.length > 0 %}
-        <section class="search-results__section">
-            <div class="card">
-                <h2 class="card__header">{$ type $}</h2>
-                <div>
-                    <div class="searchResults__list card__content">
+        <section class="container--normal">
+            <!-- <div class="card"><!--  -->
+                <!-- <h2 class="card__header">{$ type $}</h2>
+                <div> -->
+                    <!-- <div class="searchResults__list card__content"> -->
+                    <h2 class="h5">{$ type $}</h2>
                         {% for result in results | limit(3) %}
                         <div>
-                            <h3>
+                            <h3 class="h4">
                                 <a href="{$ conf.baseUrl $}{% if conf.content_type %}{$ result[conf.content_type] | wordBreakToHyphen $}/{% endif %}{$ result[conf.key] $}">
                                     {$ result[conf.title] | striptags | truncate(80) $}
                                 </a>
@@ -16,7 +17,7 @@
                             <div>
 
                                 {% if result[conf.sub] and result[conf.subKey] %}
-                                <a href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
+                                <a class="sub" href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
                                     {$ result[conf.sub] | truncate(80) $}
                                 </a>
                                 {% endif %}
@@ -36,12 +37,12 @@
                             </div>
                         </div>
                         {% endfor %}
-                    </div>
-                    <div class="search-results__section__more">
+                    <!-- </div> -->
+                  <!--   <div class="search-results__section__more">
                         <a href="#">View All</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
     {% endif %}
 
@@ -122,18 +123,18 @@
 {% macro images(species) %}
 
     {% if species._custom.media and species._custom.media.results.length > 0 %}
-        <img src="http://api.gbif.org/v1/image?url={$species._custom.media.results[0].identifier $}&size=S" onerror="this.style.display='none'">
+        <img src="http://api.gbif.org/v1/image?url={$species._custom.media.results[0].identifier | encodeURI $}&size=S" onerror="this.style.display='none'">
     {% endif %}
 
     {% for type in species._custom.holotypes.results %}
         {% if type.media and type.media.length > 0 and type.media[0].identifier %}
-            <img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'">
+            <img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier | encodeURI  $}&size=S" onerror="this.style.display='none'">
         {% endif %}
     {% endfor %}
 
     {% if species._custom.images and species._custom.images.count > 0 %}
         {% for image in species._custom.images.results %}
-            <img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'">
+            <img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier | encodeURI  $}&size=S" onerror="this.style.display='none'">
         {% endfor %}
     {% endif %}
 

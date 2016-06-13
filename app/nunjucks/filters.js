@@ -100,6 +100,15 @@ module.exports = function(nunjucksConfiguration, config) {
         });
     })();
 
+    (function() {
+        nunjucksConfiguration.addFilter('encodeURI', function(data) {
+            if (!data) {
+                return ''
+            }
+            return encodeURIComponent(data);
+        });
+    })();
+
 
 
     /**

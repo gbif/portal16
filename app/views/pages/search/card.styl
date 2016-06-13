@@ -5,7 +5,7 @@ $_linkColor = #009FD4
 }
 
 .card__content {
-	padding vrBlock(0.5) vrBlock(1)
+	padding 10px//vrBlock(0.5) vrBlock(1)
 }
 
 .card .card__header {
@@ -139,6 +139,14 @@ $_linkColor = #009FD4
 	}
 }
 
+.card__stribe {
+	background #F7F7F7
+	.card__stribe__content {
+		padding 10px
+		overflow hidden
+	}
+}
+
 .card__images {
 	background #F7F7F7
 	>div {
@@ -147,12 +155,17 @@ $_linkColor = #009FD4
 		overflow-x auto
 		overflow-x overlay
 		padding 10px
-		img {
-			height 128px
-			flex 0 0 auto
-			display inline-block
-			margin-right 5px
-			box-shadow 0 1px 3px rgba(0,0,0,0.3)
+		.gallery-list {
+			a {
+				display inline-block
+			}
+			img{
+				height 128px
+				// flex 0 0 auto
+				display inline-block
+				margin-right 5px
+				box-shadow 0 1px 3px rgba(0,0,0,0.3)
+			}
 		}
 		.more {
 			display inline-block

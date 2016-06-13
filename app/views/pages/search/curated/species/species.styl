@@ -1,0 +1,90 @@
+.card-columns {
+	margin-left auto
+	margin-right auto
+	max-width 1000px
+	display flex
+	flex-wrap wrap
+	>div {
+		flex 1 1 auto
+		padding 0 15px
+		width 100%
+		//max-width 300px
+	}
+	.card {
+		overflow hidden
+		display inline-block
+		break-inside avoid-column
+		margin-top 10px
+		display inline-block
+		width 100%
+		.card__content, .card__stribe {
+			overflow hidden
+		}
+	}
+}
+
+.card--species {
+	>div {
+		border-bottom 1px solid $stripeBorderColor
+		&:last-of-type {
+			border none
+		}
+	}
+	dl {
+		margin 0
+	}
+	.tile>div {
+		margin 10px auto
+	}
+}
+
+.species-overview-map {
+	width 128px
+	height 128px
+	position relative
+	overflow hidden
+	img {
+		position absolute
+		top 0
+		width 100%
+		padding 0
+		margin 0
+	}
+}
+
+dl.inline {
+	>div {
+		dl {
+		margin 0
+		}
+		dd, dt {
+			display inline
+			word-wrap break-word
+		}
+		dt {
+			font-weight normal
+			text-transform capitalize
+		}
+		dt:after {
+			content ':'
+		}
+	}
+}
+
+a.inherit {
+	color inherit
+}
+
+
+.omni-search__result-group {
+	h2 {
+		margin-top vrBlock(2)
+	}
+	h3 {
+		margin-bottom 0
+		margin-top vrBlock(1)
+	}
+	.sub {
+		color #aaa
+	}
+}
