@@ -10,3 +10,4 @@ log/
 reports/
 coverage/
 app/views/shared/layout/html/angular/env.constants.js
+npm-debug.log
