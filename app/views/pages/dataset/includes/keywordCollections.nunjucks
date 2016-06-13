@@ -1,7 +1,7 @@
 <div class="metadata-section">
     {% for collection in element.values %}
         <h5>{$ collection.thesaurus $}</h5>
-        <ul class="keyword-collection">
+        <ul class="list--keyword-collection">
             {% if collection.keywords[0] %}
                 {% for keyword in collection.keywords %}
                     <li>{$ keyword $}</li>

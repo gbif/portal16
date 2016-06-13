@@ -16,12 +16,12 @@
 
     {% if element.values.methodSteps %}
         <h5>Method steps</h5>
-        <ul>
+        <ol class="list--method-steps">
             {% if element.values.methodSteps[0] %}
                 {% for step in element.values.methodSteps %}
                     <li>{$ step | safe $}</li>
                 {% endfor %}
             {% endif %}
-        </ul>
+        </ol>
     {% endif %}
 </div>

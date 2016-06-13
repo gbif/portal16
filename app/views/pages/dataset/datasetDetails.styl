@@ -42,10 +42,17 @@ h4.content-type-label {
     }
 }
 
+.metadata {
+    section {
+        border-top 1px solid gray
+        padding-top vrBlock(0.5)
+    }
+}
+
 .metadata-section {
 
     h5 {
-        margin-top vrBlock(1.5)
+        margin-top vrBlock(1)
         margin-bottom vrBlock(0.5)
     }
 
@@ -57,16 +64,16 @@ h4.content-type-label {
         padding-left 20px
     }
 
-    ul.bibliographic-citation {
-        padding-left 0px
+    .list--bibliographic-citation {
+        padding-left 0
         li {
-            padding-left 2rem
-            text-indent -2rem
+            padding-left 1rem
+            text-indent -1rem
             margin-bottom 5px
         }
     }
 
-    .keyword-collection {
+    .list--keyword-collection {
         li {
             display inline
         }
@@ -75,6 +82,14 @@ h4.content-type-label {
         }
         li:last-child::after {
            content ''
+        }
+    }
+
+    .list--method-steps {
+        list-style-type decimal
+        padding-left 20px
+        li {
+            margin-bottom vrBlock(1)
         }
     }
 }
@@ -148,6 +163,10 @@ nav.metadata-nav {
         .row {
             position relative
         }
+        section {
+            border-top none
+            padding-top 0
+        }
     }
     nav.metadata-nav {
         display block
@@ -209,7 +228,7 @@ nav.metadata-nav {
     border-right 6px solid transparent
     border-top 8px solid gray
     width 12px
-    left -14px
+    left -16px
     top 8px
 }
 

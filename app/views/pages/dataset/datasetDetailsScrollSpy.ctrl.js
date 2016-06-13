@@ -4,6 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
+    .value('duScrollOffset', 80)
     .controller('scrollSpyCtrl', scrollSpyCtrl);
 
 /** @ngInject */
@@ -44,20 +45,21 @@ function scrollSpyCtrl($document) {
             } else if (rectMetadataStrip.top < -offsetTopMetadataStripHighest) {
                 metaNav.style.position = 'absolute';
                 metaNav.style.top = '';
-                metaNav.style.bottom = metaNavBottomSpacing + 'px';
+                metaNav.style.bottom = (metaNavBottomSpacing - 80) + 'px';
             } else {
                 metaNav.style.position = '';
                 metaNav.style.top = '';
                 metaNav.style.bottom = '';
             }
 
-
             if (rectMetadataStrip.top < 80) {
                 metaContent.classList.add('col-md-offset-4');
             } else {
                 metaContent.classList.remove('col-md-offset-4');
             }
-            console.log(rectMetadataStrip.top + ', ' + rectMetadataStrip.bottom + ', ' + offsetHeightMetaNavOccupied + ', ' + offsetTopMetadataStrip + ', ' + offsetTopMetadataStripHighest);
+
+            // For debugging the positioning of the nav
+            // console.log(rectMetadataStrip.top + ', ' + rectMetadataStrip.bottom + ', ' + offsetHeightMetaNavOccupied + ', ' + offsetTopMetadataStrip + ', ' + offsetTopMetadataStripHighest);
         }
     });
 }
