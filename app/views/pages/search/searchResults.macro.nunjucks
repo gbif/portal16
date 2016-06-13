@@ -17,7 +17,7 @@
                             <div>
 
                                 {% if result[conf.sub] and result[conf.subKey] %}
-                                <a href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
+                                <a class="sub" href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
                                     {$ result[conf.sub] | truncate(80) $}
                                 </a>
                                 {% endif %}
@@ -123,18 +123,18 @@
 {% macro images(species) %}
 
     {% if species._custom.media and species._custom.media.results.length > 0 %}
-        <img src="http://api.gbif.org/v1/image?url={$species._custom.media.results[0].identifier $}&size=S" onerror="this.style.display='none'">
+        <img src="http://api.gbif.org/v1/image?url={$species._custom.media.results[0].identifier | encodeURI $}&size=S" onerror="this.style.display='none'">
     {% endif %}
 
     {% for type in species._custom.holotypes.results %}
         {% if type.media and type.media.length > 0 and type.media[0].identifier %}
-            <img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier $}&size=S" onerror="this.style.display='none'">
+            <img src="http://api.gbif.org/v1/image?url={$type.media[0].identifier | encodeURI  $}&size=S" onerror="this.style.display='none'">
         {% endif %}
     {% endfor %}
 
     {% if species._custom.images and species._custom.images.count > 0 %}
         {% for image in species._custom.images.results %}
-            <img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier $}&size=S" onerror="this.style.display='none'">
+            <img src="http://api.gbif.org/v1/image?url={$image.media[0].identifier | encodeURI  $}&size=S" onerror="this.style.display='none'">
         {% endfor %}
     {% endif %}
 

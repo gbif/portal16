@@ -1,10 +1,9 @@
 {% import "../../searchResults.macro.nunjucks" as helpers %}
 
 {% if results.taxaMatches.length > 0 %}
-
     {% for taxon in results.taxaMatches | limit(10) %}
 <div>
-        <article class="card">
+        <article class="card card--species">
             <div class="card__content">
             	<nav class="article-header__category article-header__category--deep small">
                             <span class="article-header__category__upper">{$ __('stdTerms.species') $}</span>
@@ -39,50 +38,50 @@
 		            </div>
 		        </div>
 	            {% endif %}
-				<div class="card__stribe__content">
-		            <div class="species-card__details__dl">
-		            	<dl class="inline">
+			</div>
+			<div class="card__content">
+				<div class="species-card__details__dl">
+					<dl class="inline">
 
-		            		{% if taxon.occurrences.count > 0 %}
-		            		<div>
-			            		<dt>Occurrences</dt>
-			            		<dd>
-			            			<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
-	                                    {$ taxon.occurrences.count | locInt(gb.locales.current) $}
-	                                </a>
-			            		</dd>
-			            	</div>
-			            	{% endif %}
+						{% if taxon.occurrences.count > 0 %}
+							<div>
+								<dt>Occurrences</dt>
+								<dd>
+									<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
+										{$ taxon.occurrences.count | locInt(gb.locales.current) $}
+									</a>
+								</dd>
+							</div>
+						{% endif %}
 
-			            	{% if taxon.synonym %}
-			            	<div>
-			            		<dt>Synonym</dt>
-			            		<dd>
-			            			<a href="//www.gbif.org/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
-			            		</dd>
-			            	</div>
-			            	{% endif %}
+						{% if taxon.synonym %}
+							<div>
+								<dt>Synonym</dt>
+								<dd>
+									<a href="//www.gbif.org/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
+								</dd>
+							</div>
+						{% endif %}
 
-			            	{% if taxon.children.results.length > 0 %}
-	                        <div>
-	                            <dt>Lower classifications</dt>
-	                            <dd>
-	                                {% for child in taxon.children.results | limit(3) %}
-	                                    <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
-	                                {% endfor %}
+						{% if taxon.children.results.length > 0 %}
+							<div>
+								<dt>Lower classifications</dt>
+								<dd>
+									{% for child in taxon.children.results | limit(3) %}
+										<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
+									{% endfor %}
 
-	                                {% if taxon.children.results.length == 4 %}
-	                                    <a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
-	                                {% elif taxon.children.results.length > 4 %}
-	                                    <a href="/search/#somewhere that shows this" class="more">view all</a>
-	                                {% endif %}
-	                            </dd>
-	                        </div>
-	                    	{% endif %}
-		            	</dl>
-		            </div>
+									{% if taxon.children.results.length == 4 %}
+										<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
+										{% elif taxon.children.results.length > 4 %}
+										<a href="/search/#somewhere that shows this" class="more">view all</a>
+									{% endif %}
+								</dd>
+							</div>
+						{% endif %}
+					</dl>
+				</div>
 
-		        </div>
 			</div>
 			{% endif %}
 

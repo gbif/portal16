@@ -154,9 +154,9 @@ function getData(query, cb) {
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);
             },
-            // articles: function(callback){
-            //     helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
-            // },
+             articles: function(callback){
+                 helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
+             },
             country: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {
                     if (err) {
