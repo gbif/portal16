@@ -1,67 +1,48 @@
 {% import "../../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.country %}
 
-<section class="search-results__section">
-    {#{% call searchMacro.simpleCard('/country/' + results.country.country) -%}#}
-    {#<h3>{$ results.country.title $}</h3>#}
-    {#<p>{$ results.country.title $} has been a {$ results.country.participationStatus $} member of GBIF since 2010 </p>#}
-    {#{%- endcall %}#}
+<div>
+<article class="card">
+    <div class="card__content">
+        <nav class="article-header__category article-header__category--deep small">
+                    <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
+                    <span class="article-header__category__lower">
+                        {$ __('participationStatus.' + results.country.participationStatus) $}
+                    </span>
+                </nav>
+        <h2 class="h4 text-center">{$ results.country.name $}</h2>
+    </div>
 
-    <div class="card card--info">
-        {#<h2 class="card__header">Participants</h2>#}
-        <div class="card__title card__banner">
-            <h2>
-                <a href="//www.gbif.org/country/{$ results.country.countryCode $}">
-                    {$ results.country.name $}
-                </a>
-            </h2>
-        </div>
-        <div>
-            <div class="searchResults__list card__content">
-                <div>
-                    <div>
-                        <div class="card__definitions">
-                            <div>
-                                <span class="term">Membership status:</span>
-                                <span class="desc u-capitalize">{$ __(results.country.participationStatus) $}</span>
-                            </div>
-                            <div>
-                                <span class="term">Member since:</span>
-                                <span class="desc">{$ results.country.membershipStart $}</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
+    <div class="card__stribe species-card__details">
+        <div class="card__stribe__content">
+            
+            <div class="flag" style="width: 128px; float: right;">
+                <img src="/img/flags/{$ results.country.countryCode $}.png">
             </div>
+
+            <div class="species-card__details__dl">
+                <p>{$ results.country.name $} is a {$ __('participationStatus.' + results.country.participationStatus) $} participant of GBIF. Since membership start in {$ results.country.membershipStart $} {$ results.country.name $} has publisher xxx.xxx occurrence records.
+                </p>
+                <dl class="inline">
+                    <div>
+                        <dt>Occurrences about</dt>
+                        <dd>
+                            nnn.nnn
+                        </dd>
+                    </div>
+                    <div>
+                        <dt>Member since</dt>
+                        <dd>
+                            {$ results.country.membershipStart $}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+
+            
         </div>
     </div>
 
-
-    {#<div class="card--info">#}
-        {#<header>#}
-            {#<h3>#}
-                {#<a href="http://www.gbif.org/country">{$ results.country.title $}</a>#}
-            {#</h3>#}
-            {#<span>Member</span>#}
-        {#</header>#}
-        {#<div class="card__definitions">#}
-            {#<p>{$ results.country.title $} is a member of GBIF</p>#}
-            {#<div>#}
-                {#<span class="term">Status:</span>#}
-                {#<span class="desc">{$ results.country.participationStatus $}</span>#}
-            {#</div>#}
-            {#<div>#}
-                {#<span class="term">Member since:</span>#}
-                {#<span class="desc">2010 (mock date)</span>#}
-            {#</div>#}
-
-        {#</div>#}
-        {#<footer class="search-results__section__more">#}
-            {#<a href="http://www.gbif.org/country">Explore all countries</a>#}
-        {#</footer>#}
-    {#</div>#}
-
-</section>
+</article>
+</div>
 {% endif %}

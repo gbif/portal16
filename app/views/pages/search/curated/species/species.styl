@@ -2,9 +2,17 @@
 	margin-left auto
 	margin-right auto
 	padding vrBlock(1)
-	max-width 1000px
-	columns 2 30px
+	max-width 1666px
+	//columns 2 30px
+	display flex
+	flex-wrap wrap
+	>div {
+		flex 0 0 auto
+		padding 0 15px
+		width 470px
+	}
 	.card {
+		overflow hidden
 		display inline-block
 		break-inside avoid-column
 		margin-top 10px
@@ -20,24 +28,22 @@
 	.card__stribe__content {
 		>div {
 			dl {
-				margin-left 10px
+				margin 0
 			}
 		}
-		.tile>div {
-			margin auto
-		}
+	}
+	.tile>div {
+		margin auto
 	}
 }
 +isAbove($tablet) {
 	.species-card__details {
+		display flex
+		.tile, .flag {
+			flex 0 0 auto
+		}
 		.card__stribe__content {
-			display flex
-			.tile {
-				flex 0 0 auto
-			}
-			.species-card__details__dl {
-				flex 1 1 auto
-			}
+			flex 1 1 auto
 		}
 	}
 }
@@ -65,10 +71,15 @@ dl.inline {
 			word-wrap break-word
 		}
 		dt {
+			font-weight normal
 			text-transform capitalize
 		}
 		dt:after {
 			content ':'
 		}
 	}
+}
+
+a.inherit {
+	color inherit
 }
