@@ -14,16 +14,16 @@
         var headerContactsString = '{$ headerContactsString | safe $}';
     </script>
     <article class="wrapper-horizontal-stripes">
-        <header class="horizontal-stripe article-header {$ publisherStyle $} white-background">
+        <div class="horizontal-stripe article-header white-background">
             <div class="container" ng-controller="contactPopupCtrl as contactPopup">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12 centered-text">
+                <header class="row">
+                    <div class="col-xs-12 col-md-12 text-center">
                         <nav class="article-header__category article__category-deep">
                             <span class="article-header__category__upper">dataset</span>
                             <span class="article-header__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
-                        <h1 class="centered-text">{$ datasetDetails.title $}</h1>
-                        <div class="article-header__field {$ publisherModifier $}">
+                        <h1>{$ datasetDetails.title $}</h1>
+                        <div class="article-header__field">
                             {% if datasetDetails.logoUrl %}
                             <div>
                                 <a href="{$ publisher.homepage $}"><img src="{$ datasetDetails.logoUrl $}" alt="Logo of {$ publisher.title $}"></a>
@@ -40,46 +40,52 @@
                             </div>
                         </div>
 
-                        {$ countBreaking | safe $}
-
-                        {% if occurrenceCount %}
-                        <div class="article-header__field">
-                        {# @todo Consider counts for checklist dataset #}
-                            <div class="record-count">{$ occurrenceCount $}</div>
-                            <div><p class="count-text">occurrence records<br>{$ georeferencedString $}</p></div>
-                        </div>
-                        {% endif %}
-
-                        {% if occurrenceCount %}
-                        <div class="article-header__field download-block">
-                        {# @todo ui widget for download. Modal? #}
-                            <div>
-                                <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
-                            </div>
-                        </div>
-                        {% endif %}
-
                         {% include "./includes/headerContacts.nunjucks" %}
 
                         {# @todo Final citation format to be decided. #}
                         {# @todo Publisher-provided format should have linkable identifier if mentioned. #}
                         {% if datasetDetails.citation %}
-                        <div class="header-short-text">
-                            <p><span class="paragraph-label">Citation</span>:<br>
-                                {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
-                            </p>
-                            <p>
-                                <span class="gb-icon-cclogo3"></span>
-                                <span class="gb-icon-ccby"></span>
-                                <span class="gb-icon-ccnc"></span>
-                            </p>
-                        </div>
+                            <div class="header-short-text">
+                                <p><span class="paragraph-label">Citation</span>:<br>
+                                    {$ datasetDetails.citation.text $} {$ commonMacros.doi(datasetDetails.doi, datasetDetails.doiUrl) $}
+                                </p>
+                                <p>
+                                    <span class="gb-icon-cclogo3"></span>
+                                    <span class="gb-icon-ccby"></span>
+                                    <span class="gb-icon-ccnc"></span>
+                                </p>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-xs-12 col-md-6">
+                        {% if occurrenceCount %}
+                            <div class="article-header__field">
+                                {# @todo Consider counts for checklist dataset #}
+                                <div class="record-count">{$ occurrenceCount $}</div>
+                                <div><p class="count-text">occurrence records<br>{$ georeferencedString $}</p></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        {% if occurrenceCount %}
+                            <div class="article-header__field">
+                                {# @todo ui widget for download. Modal? #}
+                                <div>
+                                    <p>Download<br> <a>CSV</a> or <a>DwC-A</a></p>
+                                </div>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
             </div>
-        </header>
-
+        </div>
         {% if occurrenceCount %}
         <section id="map" class="section-map horizontal-stripe">
             <gbmap id="datasetMap" class="block-map" type="'dataset'" key="'{$ datasetDetails.key $}'" mapstyle="'outdoor'"></gbmap>

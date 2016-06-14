@@ -47,9 +47,8 @@ function renderPage(req, res, dataset) {
     var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('datasetDetails.' + 'georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('datasetDetails.' + 'georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('datasetDetails.' + 'records') + ')';
-    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : '';
-    var countBreaking = (dataset.occurrenceCount >= 10000) ? '<br>' : '';
-    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : '';
+    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : ''; //@todo clean up
+    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : ''; //@todo clean up
 
     var datasetContent = {
         datasetDetails: dataset.record,
@@ -62,7 +61,6 @@ function renderPage(req, res, dataset) {
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
         publisherStyle: publisherStyle,
-        countBreaking: countBreaking,
         publisherModifier: publisherModifier,
         process: dataset.process.results,
         api: api,
