@@ -5,7 +5,8 @@ var express = require('express'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
-    Q = require('q');
+    Q = require('q'),
+    _ = require('lodash');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -44,7 +45,6 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
-    var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('datasetDetails.' + 'georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('datasetDetails.' + 'georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('datasetDetails.' + 'records') + ')';
     var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : ''; //@todo clean up
@@ -55,8 +55,9 @@ function renderPage(req, res, dataset) {
         publisher: dataset.publisher,
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
-        headerContacts: headerContacts,
-        headerContactsString: JSON.stringify(headerContacts),
+        //headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
+        //headerContactsString: JSON.stringify(headerContacts),
+        contactsByName: organizeContactsByName(dataset.record.contacts),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
@@ -319,6 +320,40 @@ function organizeContacts(sourceContacts, mode) {
     });
 
     return resultRoles;
+}
+
+/**
+ * Organize contacts by name.
+ */
+function organizeContactsByName(sourceContacts) {
+    // Clone the array.
+    var contacts = _.cloneDeep(sourceContacts);
+    // First change the type property to array.
+    contacts.forEach(function(contact){
+        var roles = [];
+        roles.push(contact.type);
+        contact.type = roles;
+    });
+    var results = [];
+    contacts.forEach(function(contact){
+        // check if a contact with the same name already exists in the result
+        var exists = false;
+        results.forEach(function(result, ri){
+            if (result.firstName == contact.firstName && result.lastName == contact.lastName) {
+                // double check if email is the same
+                var sharedEmails = _.intersection(result.email, contact.email);
+                if (sharedEmails.length > 0) {
+                    // if the contact already exists, retrieve it and add role
+                    exists = true;
+                    results[ri].type = Array.prototype.concat(result.type, contact.type);
+                }
+            }
+        });
+        if (exists == false) {
+            results.push(contact);
+        }
+    });
+    return results;
 }
 
 /**
