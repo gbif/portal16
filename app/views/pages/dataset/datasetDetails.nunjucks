@@ -15,7 +15,7 @@
     </script>
     <article class="wrapper-horizontal-stripes">
         <div class="horizontal-stripe article-header white-background">
-            <div class="container" ng-controller="contactPopupCtrl as contactPopup">
+            <div class="container">
                 <header class="row">
                     <div class="col-xs-12 col-md-12 text-center">
                         <nav class="article-header__category article__category-deep">
@@ -129,12 +129,16 @@
             </div>
         </section>
         {% endif %}
-        {% if datasetDetails.citation or datasetDetails.rights %}
+
+        {% if contactsByName[0] %}
         <section id="contacts" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <h3>Contacts</h3>
+                        <div class="contacts">
+                            {% include "./includes/contacts.nunjucks" %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -93,6 +93,20 @@ h4.content-type-label {
         }
     }
 }
++isAbove($tablet) {
+    .metadata {
+        section {
+            h4 {
+                a.anchor--chapter {
+                    display block
+                    position relative
+                    top -60px
+                    visibility hidden
+                }
+            }
+        }
+    }
+}
 
 .taxonomic-coverage {
     border-top 1px solid lightgrey
@@ -112,6 +126,26 @@ h4.content-type-label {
     }
 }
 
+.contacts {
+    display flex
+    flex-wrap wrap
+    justify-content left
+    margin 0 auto
+}
+
+.address {
+    padding-right 15px
+    flex 1 0 250px
+}
+
++isAbove($tablet) {
+    .contacts {
+        margin 0 auto
+    }
+    .address {
+        width 250px
+    }
+}
 .download-events {
     max-height 400px
     overflow scroll
@@ -175,6 +209,11 @@ nav.metadata-nav {
             visibility hidden
         }
     }
+    nav.metadata-nav {
+        display none
+    }
+}
++isAbove($laptop) {
     nav.metadata-nav {
         display block
         li {
@@ -240,19 +279,6 @@ nav.metadata-nav {
 }
 
 +isAbove($tablet) {
-    .metadata {
-        section {
-            h4 {
-                a.anchor--chapter {
-                    display block
-                    position relative
-                    top -60px
-                    visibility hidden
-                }
-            }
-        }
-    }
-
     .toggle-collapse + label {
         display none
     }

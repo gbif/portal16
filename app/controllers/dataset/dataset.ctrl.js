@@ -57,7 +57,7 @@ function renderPage(req, res, dataset) {
         metadataElementsToFold: metadataElementsToFold(dataset.record),
         //headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
         //headerContactsString: JSON.stringify(headerContacts),
-        contactsByName: organizeContactsByName(dataset.record.contacts),
+        contactsByName: organizeContactsByName(dataset.record.contacts, res.__),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
@@ -325,21 +325,39 @@ function organizeContacts(sourceContacts, mode) {
 /**
  * Organize contacts by name.
  */
-function organizeContactsByName(sourceContacts) {
+function organizeContactsByName(sourceContacts, __) {
     // Clone the array.
     var contacts = _.cloneDeep(sourceContacts);
     // First change the type property to array.
     contacts.forEach(function(contact){
         var roles = [];
+        var addressFields = ['address', 'city', 'province', 'postalCode'];
+        var addressLine = '';
         roles.push(contact.type);
         contact.type = roles;
+        contact.name = contact.firstName + ' ' + contact.lastName;
+        addressFields.forEach(function(field, i){
+            if (contact[field]) {
+                if (i != 0) addressLine += ', ';
+                if (field == 'address') {
+                    contact[field].forEach(function(add, ai){
+                        if (ai != 0) addressLine += ', ';
+                        addressLine += add;
+                    });
+                } else {
+                    addressLine += contact[field];
+                }
+            }
+        });
+        contact.country = __('country.' + contact.country);
+        contact.addressLine = addressLine;
     });
     var results = [];
     contacts.forEach(function(contact){
         // check if a contact with the same name already exists in the result
         var exists = false;
         results.forEach(function(result, ri){
-            if (result.firstName == contact.firstName && result.lastName == contact.lastName) {
+            if (result.name == contact.name) {
                 // double check if email is the same
                 var sharedEmails = _.intersection(result.email, contact.email);
                 if (sharedEmails.length > 0) {

@@ -39,20 +39,20 @@ function scrollSpyCtrl($document) {
             rectMetadataStrip = metadataStrip.getBoundingClientRect();
             rectMetaNav = metaNav.getBoundingClientRect();
 
-            if (rectMetadataStrip.top < 80 && rectMetadataStrip.top > -offsetTopMetadataStripHighest) {
+            if (rectMetadataStrip.top < 70 && rectMetadataStrip.top > -offsetTopMetadataStripHighest) {
                 metaNav.style.position = 'fixed';
                 metaNav.style.top = '80px';
             } else if (rectMetadataStrip.top < -offsetTopMetadataStripHighest) {
                 metaNav.style.position = 'absolute';
                 metaNav.style.top = '';
-                metaNav.style.bottom = (metaNavBottomSpacing - 80) + 'px';
+                metaNav.style.bottom = (metaNavBottomSpacing) + 'px';
             } else {
                 metaNav.style.position = '';
                 metaNav.style.top = '';
                 metaNav.style.bottom = '';
             }
 
-            if (rectMetadataStrip.top < 80) {
+            if (rectMetadataStrip.top < 70) {
                 metaContent.classList.add('col-md-offset-4');
             } else {
                 metaContent.classList.remove('col-md-offset-4');
