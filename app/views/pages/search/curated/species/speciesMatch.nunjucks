@@ -1,12 +1,12 @@
 {% import "../../searchResults.macro.nunjucks" as helpers %}
 
 {% if results.taxaMatches.length > 0 %}
-    {% for taxon in results.taxaMatches | limit(10) %}
-<div>
-        <article class="card card--species">
+	{% for taxon in results.taxaMatches | limit(10) %}
+	<div>
+        <article class="card card--species {% if taxon.occurrences.count == 0 %} card--species--small {% endif %}">
             <div class="card__content">
             	<nav class="article-header__category article-header__category--deep small">
-                            <span class="article-header__category__upper">{$ __('stdTerms.species') $}</span>
+                            <span class="article-header__category__upper">{$ __('taxonRank.' + taxon.info.rank) $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('taxonomicStatus.' + taxon.info.taxonomicStatus) $}
                             </span>
@@ -34,7 +34,7 @@
 				<div class="tile">
 		            <div class="species-overview-map">
 		                <img src="/img/tile000/basemap-grey-light2.png">
-		                <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=2">
+		                <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
 		            </div>
 		        </div>
 	            {% endif %}
@@ -62,8 +62,8 @@
 								</dd>
 							</div>
 						{% endif %}
-
-						{% if taxon.children.results.length > 0 %}
+						
+						{# {% if taxon.children.results.length > 0 %}
 							<div>
 								<dt>Lower classifications</dt>
 								<dd>
@@ -78,7 +78,7 @@
 									{% endif %}
 								</dd>
 							</div>
-						{% endif %}
+						{% endif %} #}
 					</dl>
 				</div>
 
@@ -86,6 +86,6 @@
 			{% endif %}
 
         </article>
-</div>
-    {% endfor %}
+	</div>
+	{% endfor %}
 {% endif %}

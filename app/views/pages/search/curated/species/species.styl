@@ -8,22 +8,26 @@
 		flex 1 1 auto
 		padding 0 15px
 		width 100%
-		//max-width 300px
+		max-width 333px
+		display none
+		&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+			display block
+		}
 	}
 	.card {
+		height 100%
 		overflow hidden
-		display inline-block
-		break-inside avoid-column
-		margin-top 10px
-		display inline-block
 		width 100%
 		.card__content, .card__stribe {
 			overflow hidden
 		}
+		&.card--species--small {
+			height auto
+		}
 	}
 }
 
-.card--species {
+.card {
 	>div {
 		border-bottom 1px solid $stripeBorderColor
 		&:last-of-type {
@@ -37,15 +41,15 @@
 		margin 10px auto
 	}
 }
-
 .species-overview-map {
-	width 128px
+	width 256px
 	height 128px
+	border-radius 64px
 	position relative
 	overflow hidden
 	img {
 		position absolute
-		top 0
+		top -48px
 		width 100%
 		padding 0
 		margin 0

@@ -1,6 +1,7 @@
 var express = require('express'),
     _ = require('lodash'),
     search = require('./search'),
+    //highlights = require('./highlights'),
     router = express.Router();
 
 module.exports = function (app) {

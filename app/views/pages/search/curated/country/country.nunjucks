@@ -13,10 +13,10 @@
         <h2 class="h4 text-center">{$ results.country.name $}</h2>
     </div>
 
-    <div class="card__stribe species-card__details">
+    <div class="card__content">
         <div class="card__stribe__content">
             
-            <div class="flag" style="width: 128px; float: right;">
+            <div class="flag">
                 <img src="/img/flags/{$ results.country.countryCode $}.png">
             </div>
 

@@ -59,6 +59,9 @@
  */
 $articleCategorySeparatorSpacing = 6px
 .article-header__category {
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
     margin vrBlock(0.5) auto -vrBlock(0.5) auto
     text-align center
     text-transform uppercase
@@ -69,7 +72,7 @@ $articleCategorySeparatorSpacing = 6px
     .article-header__category__lower {
         border-left 2px solid $orangePeel
         margin-left $articleCategorySeparatorSpacing
-        padding-left ($articleCategorySeparatorSpacing + 1)
+        padding-left ($articleCategorySeparatorSpacing + 2)
     }
     &.article-header__category--deep {
         text-align left
@@ -135,7 +138,7 @@ $articleCategorySeparatorSpacing = 6px
     background-color $white
 }
 .bare-background {
-    background-color none
+    background-color $content_background
 }
 .light-background {
     background-color $lightBackground
