@@ -149,7 +149,7 @@ function getData(query, cb) {
                 }
             ],
             datasets: function(callback) {
-                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&hl=true&q=' + q, callback);
             },
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);

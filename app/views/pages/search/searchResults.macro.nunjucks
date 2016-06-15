@@ -7,18 +7,19 @@
                 <div> -->
                     <!-- <div class="searchResults__list card__content"> -->
                     <h5>{$ type $}</h5>
+                    <div class="row">
                         {% for result in results | limit(3) %}
-                        <div>
+                        <div class="col-xs-12 col-md-8">
                             <h3 class="h4">
                                 <a href="{$ conf.baseUrl $}{% if conf.content_type %}{$ result[conf.content_type] | wordBreakToHyphen $}/{% endif %}{$ result[conf.key] $}">
-                                    {$ result[conf.title] | striptags | truncate(80) $}
+                                    {$ result[conf.title] | highlighted(200, false) | safe $}
                                 </a>
                             </h3>
                             <div>
 
                                 {% if result[conf.sub] and result[conf.subKey] %}
                                 <a class="sub" href="{% if conf.subBaseUrl %}{$ conf.subBaseUrl $}{% endif %}{$ result[conf.subKey] $}">
-                                    {$ result[conf.sub] | truncate(80) $}
+                                    {$ result[conf.sub] | highlighted(150, false) | safe $}
                                 </a>
                                 {% endif %}
 
@@ -30,13 +31,14 @@
 
                                 {% if result[conf.description] %}
                                 <p>
-                                    {$ result[conf.description] | striptags | truncate(200) | safe $}
+                                    {$ result[conf.description] | highlighted(300, true) | safe $}
                                 </p>
                                 {% endif %}
 
                             </div>
                         </div>
                         {% endfor %}
+                    </div>
                     <!-- </div> -->
                   <!--   <div class="search-results__section__more">
                         <a href="#">View All</a>

@@ -3,7 +3,7 @@
 {% if results.taxaMatches.length > 0 %}
 	{% for taxon in results.taxaMatches | limit(5) %}
 	<div>
-        <article class="card species-card {% if taxon.occurrences.count > 0 %} card--flexible {% endif %}">
+        <article class="card species-card {% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %} card--flexible {% endif %}">
 			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe">
 				<div class="card__content">
 					<nav class="article-header__category article-header__category--deep small">
