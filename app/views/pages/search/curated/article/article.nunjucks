@@ -1,0 +1,21 @@
+{% macro articleHighlight(article, __) %}
+{% if article | isNotEmpty %}
+    <div>
+        <article class="card article-card card--flexible">
+            <div class="card__stripe">
+                <div class="card__content">
+                    <nav class="article-header__category article-header__category--deep small">
+                        <span class="article-header__category__upper">about</span>
+                            <span class="article-header__category__lower">
+                                {$ __('stdTerms.' + article.type) $}
+                            </span>
+                    </nav>
+                    <h2 class="h4 text-center">{$ article.title $}</h2>
+                </div>
+            </div>
+            <div class="card__stripe" style="background-image: url('http://www.gbif-dev.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82565/Moon_Bear_on_a_Ledge_22211982079.jpg?itok=vbgGvUUe')">
+            </div>
+        </article>
+    </div>
+{% endif %}
+{% endmacro %}

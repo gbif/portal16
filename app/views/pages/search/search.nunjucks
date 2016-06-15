@@ -23,11 +23,9 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
 
-        <div class="horizontal-stripe bare-background">
-            {% include "./curated/curated.nunjucks" %}
-        </div>   
+        {% include "./curated/curated.nunjucks" %}
         <div class="search-results horizontal-stripe light-background">
 
             {#{% if hasInvalidResponses %}#}

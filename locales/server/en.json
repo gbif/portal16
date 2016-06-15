@@ -21,7 +21,8 @@
 		"HOLOTYPE": "holotype",
 		"SYNTYPE": "syntype",
 		"ISONEOTYPE": "isoneotype",
-		"ISOTYPE": "isotype"
+		"ISOTYPE": "isotype",
+		"TYPE": "typeStatus.TYPE"
 	},
 	"occurrence": {
 		"title": {
@@ -1130,7 +1131,10 @@
 		"specimenType": "type",
 		"species": "species",
 		"country": "country",
-		"installation": "installation"
+		"installation": "installation",
+		"occurrence": "occurrence",
+		"catalogNr": "catalog nr",
+		"data_use": "data use"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
@@ -1139,16 +1143,18 @@
 		"ANTARCTICA": "Antarctica",
 		"SOUTH_AMERICA": "South America",
 		"AFRICA": "Africa",
-		"ASIA": "continent.ASIA"
+		"ASIA": "Asia"
 	},
 	"taxonomicStatus": {
 		"ACCEPTED": "Accepted",
 		"undefined": "Unknown",
-		"DOUBTFUL": "Doubtful"
+		"DOUBTFUL": "Doubtful",
+		"SYNONYM": "Synonym"
 	},
 	"participationStatus": {
 		"VOTING": "voting",
-		"ASSOCIATE": "associate"
+		"ASSOCIATE": "associate",
+		"undefined": "unknown"
 	},
 	"installation": {
 		"type": {

@@ -1,10 +1,33 @@
+{#{% if results.highlights | isNotEmpty %}#}
+
 <div class="horizontal-stripe article-header bare-background">
 	<div class="row">
 		<div class="card-columns">
-			{% include "./country/country.nunjucks" %}
-			{% include "./catalogNumber/catalogNumber.nunjucks" %}
-			{% include "./occurrences/occurrences.nunjucks" %}
-			{% include "./species/SpeciesOccurrences.nunjucks" %}
+			{% for highlight in results.highlights %}
+
+				{% if highlight.type == 'COUNTRY' %}
+					{% include "./country/country.nunjucks" %}
+				{% endif %}
+
+				{% if highlight.type == 'ARTICLE' %}
+					{% import "./article/article.nunjucks" as article %}
+					{$ article.articleHighlight(highlight.highlight, __) $}
+				{% endif %}
+
+				{% if highlight.type == 'SPECIES' %}
+					{% include "./species/SpeciesOccurrences.nunjucks" %}
+				{% endif %}
+
+				{% if highlight.type == 'CATALOGNR' %}
+					{% include "./catalogNumber/catalogNumber.nunjucks" %}
+				{% endif %}
+
+
+				{#{% include "./occurrences/occurrences.nunjucks" %}#}
+
+			{% endfor %}
 		</div>
 	</div>
 </div>
+
+{#{% endif %}#}

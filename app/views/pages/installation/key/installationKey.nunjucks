@@ -27,13 +27,9 @@
 
 
     <div class="card text-center this-is-a-stub">
-        <div class="gb-icon-wood"></div>
         <div class="card__content">
-            <h2>What?!</h2>
-            <p>
-                <em>There should be at least twice as much information on this page!</em>
-            </p>
-            <p>Nope, you're completely right. It is empty, but if you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Installation detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant for the new site - either new or existing that you want to draw attention to.</p>
+            <h2>This is a stub</h2>
+            <p>This page is not implemented yet. If you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Installation detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant to the new site  - either existing issues that needs special attention or new ones you have created.</p>
         </div>
     </div>
 

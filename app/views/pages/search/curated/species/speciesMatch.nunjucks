@@ -1,91 +1,91 @@
-{% import "../../searchResults.macro.nunjucks" as helpers %}
+{% import "../occurrences/taxonInfo.macro.nunjucks" as taxonInfo %}
 
 {% if results.taxaMatches.length > 0 %}
-	{% for taxon in results.taxaMatches | limit(10) %}
+	{% for taxon in results.taxaMatches | limit(5) %}
 	<div>
-        <article class="card card--species {% if taxon.occurrences.count == 0 %} card--species--small {% endif %}">
-            <div class="card__content">
-            	<nav class="article-header__category article-header__category--deep small">
-                            <span class="article-header__category__upper">{$ __('taxonRank.' + taxon.info.rank) $}</span>
-                            <span class="article-header__category__lower">
-                                {$ __('taxonomicStatus.' + taxon.info.taxonomicStatus) $}
-                            </span>
-                        </nav>
-                <h2 class="h4 text-center"><a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="inherit">{$ taxon.info.scientificName $}</a></h2>
-                <div class="text-center">
-                    <span class="taxon-classification taxon-classification--discreet">
-                        {% if taxon.info.kingdom %}
-                            <a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info.kingdom $}" class="kingdom">{$ taxon.info.kingdom $}</a>
-                        {% endif %}
-
-                        {% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
-                            {% if taxon.info[taxa] %}
-                                <i></i>
-                                <a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info[taxa] $}" class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
-                            {% endif %}
-                        {% endfor %}
-                    </span>
-                </div>
-            </div>
-
-			{% if taxon.occurrences.count > 0 or taxon.synonym or taxon.children.results.length > 0 %}
-			<div class="card__stribe species-card__details">
-				{% if taxon.occurrences.count > 0 %}
+        <article class="card species-card {% if taxon.occurrences.count > 0 %} card--flexible {% endif %}">
+			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe">
+				<div class="card__content">
+					<nav class="article-header__category article-header__category--deep small">
+								<span class="article-header__category__upper">{$ __('taxonRank.' + taxon.info.rank) $}</span>
+								<span class="article-header__category__lower">
+									{$ __('taxonomicStatus.' + taxon.info.taxonomicStatus) $}
+								</span>
+							</nav>
+					<h2 class="h4 text-center">{$ taxon.info.scientificName $}</h2>
+				</div>
+			</a>
+			{% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %}
+			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe card__stripe--light species-card__details">
 				<div class="tile">
 		            <div class="species-overview-map">
 		                <img src="/img/tile000/basemap-grey-light2.png">
 		                <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
 		            </div>
 		        </div>
-	            {% endif %}
-			</div>
-			<div class="card__content">
-				<div class="species-card__details__dl">
-					<dl class="inline">
+			</a>
+			{% endif %}
+			<div class="card__stripe">
+				<div class="card__content">
+					<div class="text-center">
+						<span class="taxon-classification taxon-classification--discreet">
+							{% if taxon.info.kingdom %}
+								<a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info.kingdom $}" class="kingdom">{$ taxon.info.kingdom $}</a>
+							{% endif %}
 
-						{% if taxon.occurrences.count > 0 %}
-							<div>
-								<dt>Occurrences</dt>
-								<dd>
-									<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
-										{$ taxon.occurrences.count | locInt(gb.locales.current) $}
-									</a>
-								</dd>
-							</div>
-						{% endif %}
-
-						{% if taxon.synonym %}
-							<div>
-								<dt>Synonym</dt>
-								<dd>
-									<a href="//www.gbif.org/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
-								</dd>
-							</div>
-						{% endif %}
-						
-						{# {% if taxon.children.results.length > 0 %}
-							<div>
-								<dt>Lower classifications</dt>
-								<dd>
-									{% for child in taxon.children.results | limit(3) %}
-										<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.canonicalName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}
-									{% endfor %}
-
-									{% if taxon.children.results.length == 4 %}
-										<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].canonicalName $}</a>
-										{% elif taxon.children.results.length > 4 %}
-										<a href="/search/#somewhere that shows this" class="more">view all</a>
-									{% endif %}
-								</dd>
-							</div>
-						{% endif %} #}
-					</dl>
+							{% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
+								{% if taxon.info[taxa] %}
+									<i></i>
+									<a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info[taxa] $}" class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
+								{% endif %}
+							{% endfor %}
+						</span>
+					</div>
 				</div>
+			</div>
+			{% if taxon.occurrences.count > 0 or taxon.synonym %}
+			<div class="card__stripe">
+				<div class="card__content">
+					<div class="species-card__details__dl">
+						<dl class="inline">
+							{% if taxon.occurrences.count > 0 %}
+								<div>
+									<dt>Occurrences</dt>
+									<dd>
+										<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
+											{$ taxon.occurrences.count | locInt(gb.locales.current) $}
+										</a>
+									</dd>
+								</div>
+							{% endif %}
 
+							{% if taxon.synonym %}
+								<div>
+									<dt>Synonym</dt>
+									<dd>
+										<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
+									</dd>
+								</div>
+							{% endif %}
+						</dl>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+			{% if results.taxaMatches.length == 1 %}
+			<div class="card__stripe card__stripe--actions">
+				<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
+					FILTER
+				</a>
 			</div>
 			{% endif %}
 
         </article>
 	</div>
 	{% endfor %}
+
+	{% if results.highlights.length == 1 %}
+		{$ taxonInfo.taxonInfo(results.taxaMatches[0], __) $}
+	{% endif %}
 {% endif %}
