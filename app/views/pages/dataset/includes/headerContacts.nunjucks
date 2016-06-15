@@ -2,10 +2,24 @@
 {% if contactsByName[0] %}
     <div class="header-contacts">
         <p>
+            <input class="contacts-collapse" id="contacts-affiliation-role" type="checkbox" >
+            <label for="contacts-affiliation-role"> </label>
             {% set comma = joiner() %}
             {% for contact in contactsByName -%}
-                {$ comma() $} <a>{$ contact.name $}</a>
+                {$ comma() $} <a href="#{$ contact.key $}">{$ contact.name $}<sup>{$ loop.index $}</sup></a>
             {%- endfor %}
         </p>
+        <ol class="list--ordered text-left">
+            {% for contact in contactsByName %}
+            <li>
+                {$ contact.organization $}{% if contact.type[0] %}. Roles:
+                {% set roleComma = joiner() %}
+                {% for role in contact.type -%}
+                    {$ roleComma() $} {$ role $}
+                {%- endfor %}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
     </div>
 {% endif %}

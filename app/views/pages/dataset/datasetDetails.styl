@@ -32,6 +32,8 @@ h4.content-type-label {
 
 .header-contacts {
     margin-bottom 20px
+    max-width 750px
+    margin 0 auto
 }
 .header-contact {
     display inline-block
@@ -85,14 +87,18 @@ h4.content-type-label {
         }
     }
 
-    .list--method-steps {
-        list-style-type decimal
-        padding-left 20px
+    .list--ordered {
         li {
             margin-bottom vrBlock(1)
         }
     }
 }
+
+.list--ordered {
+    list-style-type decimal
+    padding-left 20px
+}
+
 +isAbove($tablet) {
     .metadata {
         section {
@@ -300,4 +306,12 @@ nav.metadata-nav {
             padding-top 0
         }
     }
+}
+
+.contacts-collapse + label:after {
+    position absolute
+    width 12px
+    left -12px
+    top 3px
+    content $icon-string-angle-right
 }
