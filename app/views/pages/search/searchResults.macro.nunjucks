@@ -6,7 +6,7 @@
                 <!-- <h2 class="card__header">{$ type $}</h2>
                 <div> -->
                     <!-- <div class="searchResults__list card__content"> -->
-                    <h2 class="h5">{$ type $}</h2>
+                    <h5>{$ type $}</h5>
                         {% for result in results | limit(3) %}
                         <div>
                             <h3 class="h4">

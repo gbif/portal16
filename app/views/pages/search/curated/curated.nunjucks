@@ -1,4 +1,4 @@
-{#{% if results.highlights | isNotEmpty %}#}
+{% if results.highlights | isNotEmpty %}
 
 <div class="horizontal-stripe article-header bare-background">
 	<div class="row">
@@ -30,4 +30,4 @@
 	</div>
 </div>
 
-{#{% endif %}#}
+{% endif %}

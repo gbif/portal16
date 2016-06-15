@@ -25,14 +25,15 @@
             </div>
         </div>
 
+        {#{% if hasInvalidResponses %}#}
+        {#{% include "./partialResponse.nunjucks" %}#}
+        {#{% endif %}#}
+
         {% include "./curated/curated.nunjucks" %}
-        <div class="search-results horizontal-stripe light-background">
 
-            {#{% if hasInvalidResponses %}#}
-                {#{% include "./partialResponse.nunjucks" %}#}
-            {#{% endif %}#}
-
-            <div class="omni-search__result-group">
+        {% if results.datasets.count > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
+                <div class="omni-search__result-group">
                     {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
                     title: 'title',
                     key: 'key',
@@ -43,7 +44,11 @@
                     subBaseUrl: 'http://www.gbif.org/publisher/'
                     }) $}
                 </div>
+            </div>
+        {% endif %}
 
+        {% if results.publishers.count > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
                 <div class="omni-search__result-group">
                     {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
                     title: 'title',
@@ -56,7 +61,11 @@
                     Datasets
                     {%- endcall %}
                 </div>
+            </div>
+        {% endif %}
 
+        {% if results.articles.data.length > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
                 <div class="omni-search__result-group">
                     {$ searchMacro.resultList(results.articles.data, 'Articles', {
                     title: 'title',
@@ -67,8 +76,7 @@
                     }) $}
                 </div>
             </div>
-
-        </div>
+        {% endif %}
 
     </article>
 

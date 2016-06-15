@@ -144,7 +144,7 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5q=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5&dataset_key=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=' + q, callback);//TODO move backbone datasetkey to variable
                     }
                 }
             ],

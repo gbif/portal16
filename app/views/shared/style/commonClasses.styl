@@ -146,6 +146,13 @@ $articleCategorySeparatorSpacing = 6px
 .alert-background {
     background-color $alertBackground
 }
+.horizontal-stripe--alternating-background {
+    background-color $lightBackground
+    &:nth-of-type(even) {
+        background-color $paper
+    }
+
+}
 
 .col-centered {
     float none

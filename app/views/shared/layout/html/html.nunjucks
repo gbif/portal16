@@ -11,7 +11,7 @@
 {# <head> #}
 {% include "../partials/head/head.nunjucks" %}
 
-<body>
+<body {% if meta.bodyClass | isNotEmpty %}class="{$ meta.bodyClass $}"{% endif %}>
 
     {# Main layout #}
     <div id="site-wrapper" class="site-wrapper">

@@ -43,7 +43,10 @@ function renderPage(req, res, results, searchString) {
             __hideSearchAction: true,
             results: results,
             hasInvalidResponses: hasInvalidResponses,
-            query: searchString
+            query: searchString,
+            meta: {
+                bodyClass: 'omnisearch'
+            }
         });
     }
 }
