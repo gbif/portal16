@@ -9,9 +9,10 @@
 /* BREAK POINTS */
 $mobile := 480px //mobile first, no support for wearables
 $tablet := 768px
-$tabletLandscape := 992px
-$laptop := 1024px //1024px
+//$tabletLandscape := 992px
+$laptop := 992px
 $desktop := 1200px
+$XL := 1653px
 
 /* BRAND COLORS */
 $green = rgb(80,158,47)  		// Green
@@ -69,9 +70,9 @@ menuTextShadow() {
 	text-shadow 0px 1px 1px darken($olivine, 10)
 }
 
-$contentWidth--wide := 1666px
-$contentWidth--normal := 1000px
-$contentWidth--narrow := 768px
+$contentWidth--wide := 1653px
+$contentWidth--normal := $laptop
+$contentWidth--narrow := $tablet
 
 /* SEARCH */
 $searchInputColor = $bodyTextColor

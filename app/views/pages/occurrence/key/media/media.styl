@@ -2,7 +2,7 @@
 .occurrenceMedia {
 	margin auto
 	padding 0 15px
-	max-width 1000px
+	max-width $laptop
 	columns 1 30px
 	color #555
 	font-size 12px
@@ -82,10 +82,10 @@
 }
 
 //$OccurrenceLargeGalleryLayout = (200px*5 + 4*30px )
-+isAbove( 1666px ) {
++isAbove( $XL ) {
 	.occurrenceMedia-wide {
 		margin auto
-		max-width 1666px
+		max-width $XL
 		columns 5 30px
 	}
 }

@@ -3,7 +3,7 @@
 		position relative
 	}
 }
-+isAbove(800px) {
++isAbove($tablet) {
 	.occurrenceKey__details {
 		>div {
 			max-width 100%
@@ -14,10 +14,10 @@
 	}
 }
 
-+isAbove(1000px) {
++isAbove($laptop) {
 	.occurrenceKey__details {
 		>div {
-			max-width 1000px
+			max-width $laptop
 		}
 	}
 }

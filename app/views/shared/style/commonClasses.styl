@@ -221,7 +221,10 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
+$headerImageMaxFullWidth = 1400px
 .heading-image {
+    max-width $headerImageMaxFullWidth
+    margin 20px auto
     figcaption {
         font-size 0.9rem
         font-weight 300
@@ -232,6 +235,14 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
++isAbove($headerImageMaxFullWidth) {
+    .heading-image {
+        max-width $laptop
+        .cover-image {
+            padding-bottom 40%
+        }
+    }
+}
 .cover-image {
     height 0
     padding-bottom 50%
@@ -248,8 +259,6 @@ $articleCategorySeparatorSpacing = 6px
         padding-bottom 30%
     }
 }
-
-
 .taxon-classification {
     i:after {
         font-style normal

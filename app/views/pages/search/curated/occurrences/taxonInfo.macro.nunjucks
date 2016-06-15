@@ -1,7 +1,7 @@
 {% macro taxonInfo(taxon, __) %}
 
 {% if taxon.occurrences.count > 0 %}
-<div style="max-width:666px">
+<div style="max-width:660px">
     <div>
         <h3 class="h5">Occurrences <span class="discreet small">5 of {$ taxon.occurrences.count $}</span></h3>
         <table class="table table--compact">
