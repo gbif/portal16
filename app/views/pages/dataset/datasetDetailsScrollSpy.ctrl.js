@@ -4,7 +4,6 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .value('duScrollOffset', 80)
     .controller('scrollSpyCtrl', scrollSpyCtrl);
 
 /** @ngInject */

@@ -1,5 +1,6 @@
 {% for contact in contactsByName %}
-<address id="{$ contact.key $}" class="address">
+<address class="address">
+    <a name="{$ contact.key $}"></a>
     <strong>{$ contact.name $}</strong><br>
     {% if contact.organization %}{$ contact.organization $}<br>{% endif %}
     {$ contact.addressLine $}<br>

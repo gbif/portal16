@@ -98,21 +98,6 @@ h4.content-type-label {
     padding-left 20px
 }
 
-+isAbove($tablet) {
-    .metadata {
-        section {
-            h4 {
-                a.anchor--chapter {
-                    display block
-                    position relative
-                    top -60px
-                    visibility hidden
-                }
-            }
-        }
-    }
-}
-
 .taxonomic-coverage {
     border-top 1px solid lightgrey
     padding-top 20px
@@ -141,6 +126,13 @@ h4.content-type-label {
 .address {
     padding-right 15px
     flex 1 0 250px
+    a:before {
+        display block
+        content " "
+        height 80px
+        margin-top -80px
+        visibility hidden
+    }
 }
 
 +isAbove($tablet) {
@@ -151,6 +143,7 @@ h4.content-type-label {
         width 250px
     }
 }
+
 .download-events {
     max-height 400px
     overflow scroll
