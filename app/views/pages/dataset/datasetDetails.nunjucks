@@ -187,10 +187,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3>GBIF Registration Information</h3>
+                        <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox" >
+                        <label for="gbif-registration-info-toggle">GBIF Registration Information</label>
+                        <div>
+                            {% include "./includes/registrationInfo.nunjucks" %}
+                        </div>
                     </div>
                 </div>
-                {% include "./includes/registrationInfo.nunjucks" %}
             </div>
         </section>
     </article>
