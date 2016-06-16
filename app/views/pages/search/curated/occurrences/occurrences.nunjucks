@@ -1,61 +1,43 @@
-{% if results.occurrences and results.occurrences.count > 0 %}
-    <section class="search-results__section search-results--occurrences">
-        {#<h2>Species occurrences</h2>#}
-        <div class="card">
-            <div class="card__banner">
-                <div class="descr-content">
-                    {% if results.occurrences.count > 3 %}
-                        <a href="http://www.gbif.org/occurrence/search?catalog_number={$ query $}">{$ results.occurrences.count $}<span> Occurrences</span></a>
-                    {% else %}
-                        <span>Occurrences</span>
-                    {% endif %}
-                </div>
+{% if results.occurrences.count > 0 %}
+<div style="max-width:900px">
+    <div>
+        <h3 class="h5">Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span></h3>
+        <table class="table table--compact">
+            <thead>
+            <tr>
+                {% for term in ['scientificName', 'year', 'basisOfRecord', 'country'] %}
+                    <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for row in results.occurrences.results | limit(10) %}
+                <tr class="table__tr--linked">
+                    <td>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
+                    </td>
+                    <td>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
+                    </td>
+                    <td>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ __('bor.' + row.basisOfRecord) $}</a>
+                    </td>
+                    <td>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+        {% if results.occurrences.count > 10 %}
+            <div class="search-results__section__more">
+                <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}">View all<span class="l-only"> {$ results.occurrences.count $} occurrences</span></a>
             </div>
+        {% endif %}
 
-            <div class="occurrenceTable">
-                <div class="table">
-                    <div class="table__content">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Year
-                                </th>
-                                <th>
-                                    Basis of record
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for row in results.occurrences.results | limit(3) %}
-                                <tr class="table-row">
-                                    <td>
-                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.scientificName $}</a>
-                                    </td>
-                                    <td>
-                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ row.year $}</a>
-                                    </td>
-                                    <td class="u-capitalize">
-                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}">{$ __('bor.' + row.basisOfRecord) $}</a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    {% if results.occurrences.count > 3 %}
-                    <div class="search-results__section__more">
-                        <a href="//www.gbif.org/occurrence/search?q={$ query $}">View all<span class="l-only"> {$ results.occurrences.count $} occurrences</span></a>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-
-        </div>
-
-    </section>
+    </div>
+</div>
 {% endif %}
-

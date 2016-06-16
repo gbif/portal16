@@ -1,7 +1,7 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% for group in occurrence.terms.usedGroups %}
-    <section class="term-block noBreak is-collapsed" ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
+    <section class="term-block is-collapsed" ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
         <div class="term-block__header">
             <h3 class="h5 text-capitalize">{$ __('stdTerms.' + group) $}</h3>
         </div>

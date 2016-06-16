@@ -1,4 +1,4 @@
-{% if results.highlights | isNotEmpty %}
+{% if results.highlights | isNotEmpty or results.occurrences.count > 0 %}
 
 <div class="horizontal-stripe article-header bare-background">
 	<div class="container-fluid">
@@ -23,10 +23,8 @@
 						{% include "./catalogNumber/catalogNumber.nunjucks" %}
 					{% endif %}
 
-
-					{#{% include "./occurrences/occurrences.nunjucks" %}#}
-
 				{% endfor %}
+				{% include "./occurrences/occurrences.nunjucks" %}
 			</div>
 		</div>
 	</div>

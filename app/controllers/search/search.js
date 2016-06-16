@@ -135,7 +135,7 @@ function getData(query, cb) {
                     if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&q=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&q=' + q, callback);
                     }
                 }
             ],

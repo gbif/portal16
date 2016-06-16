@@ -3,7 +3,7 @@
     {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
         <div class="blockContent container--prose description">
             <h2 class="h4">{$ __('stdTerms.aboutTheDataset') $}</h2>
-            <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} singleCol {% endif %}">
+            <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} prose-columns--single-col {% endif %}">
                 {$ occurrence.dataset.description | safe $}
             </div>
         </div>
@@ -11,7 +11,7 @@
     </div>
     {#<footer class="blockContent container-fluid">#}
     {#<div class="aux textContent">#}
-    {#<section class="associated noBreak">#}
+    {#<section class="associated no-break">#}
     {#<h5>Related GBIF resources</h5>#}
     {#<ul class="list-links">#}
     {#<li>abs lkjhs fhj</li>#}

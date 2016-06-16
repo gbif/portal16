@@ -32,9 +32,9 @@
         <section class="horizontal-stripe light-background">
             <div class="container--normal">
 
-                    <div class="blockContent container--prose description">
-                        <h2 class="h4">Dataset description</h2>
-                        <div class="prose-columns {% if publisher.record.description.length < 500 %} singleCol {% endif %}">
+                    <div class="container--prose description">
+                        <h2 class="h4">Publisher description</h2>
+                        <div class="prose-columns {% if publisher.record.description.length < 500 %} prose-columns--single-col {% endif %}">
                             {$ publisher.record.description | safe $}
                         </div>
                     </div>

@@ -7,7 +7,7 @@
         <table class="table table--compact">
             <thead>
             <tr>
-                {% for term in ['scientificName', 'basisOfRecord', 'country'] %}
+                {% for term in ['scientificName', 'year', 'country'] %}
                 <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
                 {% endfor %}
             </tr>
@@ -20,7 +20,7 @@
                         <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
                     </td>
                     <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ __('bor.' + row.basisOfRecord) $}</a>
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
                     </td>
                     <td>
                         <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
