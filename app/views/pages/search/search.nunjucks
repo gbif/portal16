@@ -53,7 +53,7 @@
                     {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
                     title: 'title',
                     key: 'key',
-                    baseUrl: 'http://www.gbif.org/publisher/',
+                    baseUrl: gb.locales.urlPrefix + '/publisher/',
                     description: 'description',
                     chip: 'numPublishedDatasets'
                     })

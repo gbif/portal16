@@ -19,15 +19,50 @@
                 </div>
             </div>
         </div>
+        <section class="horizontal-stripe bare-background">
+            <div class="card text-center this-is-a-stub">
+                <div class="card__content">
+                    <h2>This is a stub</h2>
+                    <p>This page is not implemented yet. If you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Publisher detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant to the new site  - either existing issues that needs special attention or new ones you have created.</p>
+                </div>
+            </div>
+        </section>
+
+        {% if publisher.record.description | isNotEmpty %}
+        <section class="horizontal-stripe light-background">
+            <div class="container--normal">
+
+                    <div class="blockContent container--prose description">
+                        <h2 class="h4">Dataset description</h2>
+                        <div class="prose-columns {% if publisher.record.description.length < 500 %} singleCol {% endif %}">
+                            {$ publisher.record.description | safe $}
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="horizontal-stripe white-background">
+            <div class="container--normal tmpDataSetResults">
+                {% if publisher.datasets.count > 0 %}
+                    {% for dataset in publisher.datasets.results %}
+                        <div>
+                            <h3 class="h4"><a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.key $}">{$ dataset.title $}</a></h3>
+                            <p>
+                                {$ dataset.description | striptags | truncate(150) $}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    No published datasets
+                {% endif %}
+            </div>
+        </section>
 
     </article>
 
 
-    <div class="card text-center this-is-a-stub">
-        <div class="card__content">
-            <h2>This is a stub</h2>
-            <p>This page is not implemented yet. If you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Publisher detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant to the new site  - either existing issues that needs special attention or new ones you have created.</p>
-        </div>
-    </div>
+
 
 {% endblock %}

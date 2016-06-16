@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 router.get('/publisher/:key\.:ext?', function(req, res, next) {
 	var key = req.params.key;
-    Publisher.get(key, {expand: ['endorsingNode']}).then(function(publisher) {
+    Publisher.get(key, {expand: ['endorsingNode', 'datasets']}).then(function(publisher) {
         renderPage(req, res, next, publisher);
     }, function(err){
         //TODO should this be logged here or in model/controller/api?
