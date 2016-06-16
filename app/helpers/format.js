@@ -24,8 +24,53 @@ function prettifyEnum(text) {
     return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ');
 }
 
+function getHighlightedText(text, desiredLength, isExtract) {
+    isExtract = isExtract || false;
+    var startTag = '<span class="gbifHl">',
+        endTag = '<\/span>',
+        replacedText = '',
+        strippedText = '';
+    if (typeof text === 'undefined' || text === null) {
+        return strippedText;
+    }
+    replacedText = text.replace(/<em class="gbifHl">/, startTag).replace(/<\/em>/, endTag).replace(/<em class="gbifHl">/g, '').replace('</em>', '');
+    strippedText = replacedText.replace(/<span class="gbifHl">/g, '').replace(/<\/span>/g, '');
+    var start = Math.max(replacedText.indexOf(startTag), 0);
+    var end = Math.min(replacedText.indexOf(endTag));
+
+    if (strippedText.length < desiredLength) {
+        return replacedText;
+    }
+
+    if (end < 0) {
+        return strippedText.substr(0, desiredLength) + '...';
+    }
+
+    //if desired length above stripped length the return the replaced version
+
+
+    //if not extract, then make sure the last tag is inside lenght before cropping
+    if (!isExtract) {
+        if (end - startTag.length > desiredLength) {
+            //remove tags
+            return strippedText.substr(0, desiredLength) + '...';
+        }
+        return replacedText.substr(0, desiredLength + startTag.length + endTag.length) + '...';
+    }
+    //if extract then crop across highlight. if not possible because highlight is too long, then remove highlight altogether
+    if (end - start - startTag.length > desiredLength) {
+        return '...' + strippedText.substr(start, desiredLength) + '...';
+    }
+
+    var croppedText = replacedText.substr(start-20, desiredLength+20 + startTag.length + endTag.length);
+    if (start-20 > 0) croppedText = '...' + croppedText;
+    if (start-20+desiredLength+20 + startTag.length + endTag.length<replacedText.length) croppedText += '...';
+    return croppedText;
+}
+
 module.exports = {
     date: date,
     localizeInteger: localizeInteger,
-    prettifyEnum: prettifyEnum
+    prettifyEnum: prettifyEnum,
+    getHighlightedText: getHighlightedText
 }

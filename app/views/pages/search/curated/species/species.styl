@@ -1,51 +1,34 @@
 .card-columns {
 	margin-left auto
 	margin-right auto
-	max-width 1000px
+	max-width $laptop
 	display flex
 	flex-wrap wrap
 	>div {
 		flex 1 1 auto
 		padding 0 15px
 		width 100%
-		//max-width 300px
+		max-width 330px
+		display none
+		&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+			display block
+		}
 	}
 	.card {
 		overflow hidden
-		display inline-block
-		break-inside avoid-column
-		margin-top 10px
-		display inline-block
 		width 100%
-		.card__content, .card__stribe {
-			overflow hidden
-		}
-	}
-}
-
-.card--species {
-	>div {
-		border-bottom 1px solid $stripeBorderColor
-		&:last-of-type {
-			border none
-		}
-	}
-	dl {
-		margin 0
-	}
-	.tile>div {
-		margin 10px auto
 	}
 }
 
 .species-overview-map {
-	width 128px
+	width 256px
 	height 128px
+	border-radius 64px
 	position relative
 	overflow hidden
 	img {
 		position absolute
-		top 0
+		top -48px
 		width 100%
 		padding 0
 		margin 0
@@ -83,8 +66,13 @@ a.inherit {
 	h3 {
 		margin-bottom 0
 		margin-top vrBlock(1)
+		font-size 16px
 	}
 	.sub {
 		color #aaa
+	}
+	.gbifHl {
+		font-style inherit
+		font-weight bold
 	}
 }

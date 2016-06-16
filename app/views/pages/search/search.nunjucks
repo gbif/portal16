@@ -23,62 +23,60 @@
                     </div>
                 </div>
             </div>
-        </div>        
-        <div class="search-results horizontal-stripe light-background">
+        </div>
 
-            {#{% if hasInvalidResponses %}#}
-                {#{% include "./partialResponse.nunjucks" %}#}
-            {#{% endif %}#}
+        {#{% if hasInvalidResponses %}#}
+        {#{% include "./partialResponse.nunjucks" %}#}
+        {#{% endif %}#}
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="omni-search__result-group">
-                            {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
-                            title: 'title',
-                            key: 'key',
-                            baseUrl: gb.locales.urlPrefix + '/dataset/',
-                            description: 'description',
-                            sub: 'publishingOrganizationTitle',
-                            subKey: 'publishingOrganizationKey',
-                            subBaseUrl: 'http://www.gbif.org/publisher/'
-                            }) $}
-                        </div>
+        {% include "./curated/curated.nunjucks" %}
 
-                        <div class="omni-search__result-group">
-                            {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
-                            title: 'title',
-                            key: 'key',
-                            baseUrl: 'http://www.gbif.org/publisher/',
-                            description: 'description',
-                            chip: 'numPublishedDatasets'
-                            })
-                            -%}
-                            Datasets
-                            {%- endcall %}
-                        </div>
-
-                        <div class="omni-search__result-group">
-                            {$ searchMacro.resultList(results.articles.data, 'Articles', {
-                            title: 'title',
-                            key: 'entity_id',
-                            content_type: 'type',
-                            baseUrl: gb.locales.urlPrefix + '/',
-                            description: 'body'
-                            }) $}
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        {% include "./curated/curated.nunjucks" %}
-                    </div>
+        {% if results.datasets.count > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
+                <div class="omni-search__result-group">
+                    {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
+                    title: 'title',
+                    key: 'key',
+                    baseUrl: gb.locales.urlPrefix + '/dataset/',
+                    description: 'description',
+                    sub: 'publishingOrganizationTitle',
+                    subKey: 'publishingOrganizationKey',
+                    subBaseUrl: 'http://www.gbif.org/publisher/'
+                    }) $}
                 </div>
             </div>
+        {% endif %}
 
+        {% if results.publishers.count > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
+                <div class="omni-search__result-group">
+                    {% call searchMacro.resultList(results.publishers.results, 'Publishers', {
+                    title: 'title',
+                    key: 'key',
+                    baseUrl: gb.locales.urlPrefix + '/publisher/',
+                    description: 'description',
+                    chip: 'numPublishedDatasets'
+                    })
+                    -%}
+                    Datasets
+                    {%- endcall %}
+                </div>
+            </div>
+        {% endif %}
 
-
-           
-
-        </div>
+        {% if results.articles.data.length > 0 %}
+            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
+                <div class="omni-search__result-group">
+                    {$ searchMacro.resultList(results.articles.data, 'Articles', {
+                    title: 'title',
+                    key: 'entity_id',
+                    content_type: 'type',
+                    baseUrl: gb.locales.urlPrefix + '/',
+                    description: 'body'
+                    }) $}
+                </div>
+            </div>
+        {% endif %}
 
     </article>
 

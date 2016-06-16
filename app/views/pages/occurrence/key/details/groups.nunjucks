@@ -6,7 +6,7 @@
             <h3 class="h5 text-capitalize">{$ __('stdTerms.' + group) $}</h3>
         </div>
         <div class="term-block__terms">
-            <table class="table">
+            <table class="table table--compact">
                 <thead>
                     <tr>
                         <th class="text-capitalize">{$ __('stdTerms.term') $}</th>

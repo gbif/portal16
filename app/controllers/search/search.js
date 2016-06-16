@@ -23,7 +23,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 helper.getApiData(baseConfig.dataApi + 'species/' + key + '/media', callback);
             },
             occurrences: function(callback){
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&taxonKey=' + key, callback);
+                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&taxonKey=' + key, callback);
             },
             images: function(callback){
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
@@ -38,7 +38,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
             },
             children: function(callback){
                 //children
-                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/children?limit=5', function(err, data) {
+                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/children?limit=10', function(err, data) {
                     if (err) {
                         callback(err, data);
                     } else if(typeof data.errorType !== 'undefined') {
@@ -144,12 +144,12 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5q=' + q, callback);
+                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5&dataset_key=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=' + q, callback);//TODO move backbone datasetkey to variable
                     }
                 }
             ],
             datasets: function(callback) {
-                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&hl=true&q=' + q, callback);
             },
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);

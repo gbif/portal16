@@ -1,6 +1,7 @@
 var express = require('express'),
     _ = require('lodash'),
     search = require('./search'),
+    highlights = require('./highlights'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -15,6 +16,7 @@ function searchHandler(req, res) {
     "use strict";
     var searchString = req.query.q;
     search.search(searchString, function(results){
+        results.highlights = highlights.getHighlights(searchString, results);
         renderPage(req, res, results, searchString);
     });
 }
@@ -41,7 +43,10 @@ function renderPage(req, res, results, searchString) {
             __hideSearchAction: true,
             results: results,
             hasInvalidResponses: hasInvalidResponses,
-            query: searchString
+            query: searchString,
+            meta: {
+                bodyClass: 'omnisearch'
+            }
         });
     }
 }

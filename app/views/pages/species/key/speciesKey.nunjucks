@@ -13,7 +13,7 @@
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('stdTerms.species') $}</span>
+                            <span class="article-header__category__upper">{$ __('taxonRank.' + species.record.rank) $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('taxonomicStatus.' + species.record.taxonomicStatus) $}
                             </span>
@@ -45,14 +45,11 @@
     </article>
 
 
+
     <div class="card text-center this-is-a-stub">
-        <div class="gb-icon-wood"></div>
         <div class="card__content">
-            <h2>What?!</h2>
-            <p>
-                <em>There isn't even any cute pictures of animals here? Surely this isn't completed.</em>
-            </p>
-            <p>You're completely right. It is empty, but if you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Species detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant for the new site - either new or existing that you want to draw attention to.</p>
+            <h2>This is a stub</h2>
+            <p>This page is not implemented yet. If you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Species detail page ideas">send a mail</a> with reference to JIRA issues you believe are relevant to the new site  - either existing issues that need priotised attention or new ones you have created.</p>
         </div>
     </div>
 

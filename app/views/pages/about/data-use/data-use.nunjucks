@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block page %}
-<div class="page__fixed-width">
+<div>
     <article class="wrapper-horizontal-stripes">
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
@@ -44,27 +44,18 @@
                     </header>
                 </div>
             </div>
-        </div>
 
-        {% if images[0].image_dimensions.width > 1000 %}
-            <div class="horizontal-stripe--paddingless white-background">
-                <div class="container-fluid">
-                    <div class="row">
-                        <figure class="heading-image">
-                            <div class="cover-image">
-                                <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
-                                {# <img ng-src="http://api.gbif.org/v1/image?url=http://parisdiarybylaure.com/wp-content/uploads/2015/10/1.-Walton-Ford.jpeg&size=L" gallery-image alt="{$ images[0].filename $}"> #}
-                            </div>
-                            <figcaption class="container-fluid container--prose">
-                                {$ images[0].image_field_caption.value | safe $}
-                            </figcaption>
-                        </figure>
+            {% if images[0].image_dimensions.width > 1000 %}
+                <figure class="heading-image">
+                    <div class="cover-image">
+                        <img ng-src="{$ images[0].image_styles.masthead__wide $}" alt="{$ images[0].filename $}" gallery-image>
                     </div>
-                </div>
-            </div>
-        {% endif %}
+                    <figcaption class="container-fluid container--prose">
+                        {$ images[0].image_field_caption.value | safe $}
+                    </figcaption>
+                </figure>
+            {% endif %}
 
-        <div class="horizontal-stripe white-background">
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns prose-columns--justified">
                     {$ data.body | safe $}

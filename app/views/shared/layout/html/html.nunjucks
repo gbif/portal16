@@ -11,7 +11,7 @@
 {# <head> #}
 {% include "../partials/head/head.nunjucks" %}
 
-<body>
+<body {% if meta.bodyClass | isNotEmpty %}class="{$ meta.bodyClass $}"{% endif %}>
 
     {# Main layout #}
     <div id="site-wrapper" class="site-wrapper">
@@ -42,7 +42,7 @@
                     {% endif %}
 
                     {# use page--fixed-width to restrict main column width #}
-                    <div class="page" hej>
+                    <div class="page">
 
                         <div>
                             {% block page %}{% endblock %}

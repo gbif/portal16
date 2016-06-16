@@ -27,6 +27,10 @@ Publisher.prototype.expand = function (fieldNames) {
             endorsingNode: {
                 resource: api.node.url + this.record.endorsingNodeKey,
                 extendToField: 'endorsingNode'
+            },
+            datasets: {
+                resource: api.dataset.url + 'search?limit=1000&publishingOrg=' + this.record.key,
+                extendToField: 'datasets'
             }
         };
     fieldNames.forEach(function (e) {

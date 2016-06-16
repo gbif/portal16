@@ -2,10 +2,51 @@ $_linkColor = #009FD4
 .card {
 	box-shadow 0 1px 3px rgba(0,0,0,0.3)
 	background white
+	&--flexible {
+		height 100%
+	}
 }
 
+.card__stripe {
+	border-bottom 1px solid $stripeBorderColor
+	overflow hidden
+	display block
+	color inherit
+	&:last-child {
+		border none
+	}
+	&--actions {
+		display flex
+		flex-wrap wrap
+		justify-content space-around
+		a {
+			display inline-block
+			text-align center
+			flex 1 0 33%
+			text-transform uppercase
+			white-space nowrap
+			padding 5px
+		}
+	}
+}
+a.card__stripe {
+	&:hover {
+		text-decoration inherit
+	}
+}
+.card {
+	dl {
+		margin 0
+	}
+	.tile>div {
+		margin 10px auto
+	}
+}
 .card__content {
-	padding 10px//vrBlock(0.5) vrBlock(1)
+	padding 10px
+	:last-child {
+		margin-bottom 0
+	}
 }
 
 .card .card__header {
@@ -23,13 +64,6 @@ $_linkColor = #009FD4
 		&:hover {
 			text-decoration underline
 		}
-	}
-}
-
-.card {
-	h3 {
-		font-size 1.2rem
-		font-weight normal
 	}
 }
 
@@ -139,12 +173,8 @@ $_linkColor = #009FD4
 	}
 }
 
-.card__stribe {
+.card__stripe--light {
 	background #F7F7F7
-	.card__stribe__content {
-		padding 10px
-		overflow hidden
-	}
 }
 
 .card__images {
@@ -182,7 +212,7 @@ $_linkColor = #009FD4
 		background #fbfbfb
 	}
 	.tabs {
-		display none
+		display flex
 		overflow auto
 		>a {
 			cursor pointer
@@ -224,9 +254,9 @@ $_linkColor = #009FD4
 		.select {
 			display none
 		}
-		.tabs {
-			display flex
-		}
+		//.tabs {
+		//	display flex
+		//}
 		.card__content {
 			display none
 		}

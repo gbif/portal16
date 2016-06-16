@@ -159,3 +159,4 @@ module.exports = {
     getOccurrenceModel: getOccurrenceModel,
     getAngularInitData: getAngularInitData
 };
+

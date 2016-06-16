@@ -7,11 +7,14 @@
  */
 
 /* BREAK POINTS */
-// mobile : 0px; //mobile first, no support for wearables
+$mobile := 480px //mobile first, no support for wearables
 $tablet := 768px
-/* $tabletLandscape := 906px */
-$laptop := 1024px //1024px
+//$tabletLandscape := 992px
+$laptop := 992px
 $desktop := 1200px
+$XL := 1653px
+$gutter := 30px
+$halfGutter := $gutter/2
 
 /* BRAND COLORS */
 $green = rgb(80,158,47)  		// Green
@@ -47,7 +50,7 @@ $gray40 = lighten($grayBase, 60%)
 $gray30 = lighten($grayBase, 70%)
 $gray20 = lighten($grayBase, 80%)
 $gray10 = lighten($grayBase, 90%)
-$white = #fff;
+$paper = #fff;
 
 /* SITE SPECIFIC COLORS */
 $color_main := $mist
@@ -69,12 +72,12 @@ menuTextShadow() {
 	text-shadow 0px 1px 1px darken($olivine, 10)
 }
 
-$contentWidth--wide := 1666px
-$contentWidth--normal := 1000px
-$contentWidth--narrow := 768px
+$contentWidth--wide := 1653px
+$contentWidth--normal := $laptop
+$contentWidth--narrow := $tablet
 
 /* SEARCH */
-$searchInputColor = $plum
+$searchInputColor = $bodyTextColor
 
 /* DRAWERS */
 $drawerWidth := 20em

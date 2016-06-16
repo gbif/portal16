@@ -59,6 +59,9 @@
  */
 $articleCategorySeparatorSpacing = 6px
 .article-header__category {
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
     margin vrBlock(0.5) auto -vrBlock(0.5) auto
     text-align center
     text-transform uppercase
@@ -69,7 +72,7 @@ $articleCategorySeparatorSpacing = 6px
     .article-header__category__lower {
         border-left 2px solid $orangePeel
         margin-left $articleCategorySeparatorSpacing
-        padding-left ($articleCategorySeparatorSpacing + 1)
+        padding-left ($articleCategorySeparatorSpacing + 2)
     }
     &.article-header__category--deep {
         text-align left
@@ -132,16 +135,23 @@ $articleCategorySeparatorSpacing = 6px
 }
 
 .white-background {
-    background-color $white
+    background-color $paper
 }
 .bare-background {
-    background-color none
+    background-color $content_background
 }
 .light-background {
     background-color $lightBackground
 }
 .alert-background {
     background-color $alertBackground
+}
+.horizontal-stripe--alternating-background {
+    background-color $lightBackground
+    &:nth-of-type(even) {
+        background-color $paper
+    }
+
 }
 
 .col-centered {
@@ -211,7 +221,10 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
+$headerImageMaxFullWidth = 1400px
 .heading-image {
+    max-width $headerImageMaxFullWidth
+    margin 20px auto
     figcaption {
         font-size 0.9rem
         font-weight 300
@@ -222,6 +235,15 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
++isAbove($headerImageMaxFullWidth) {
+    .heading-image {
+        max-width $laptop
+        .cover-image {
+            margin 0 $halfGutter
+            padding-bottom 40%
+        }
+    }
+}
 .cover-image {
     height 0
     padding-bottom 50%
@@ -238,8 +260,6 @@ $articleCategorySeparatorSpacing = 6px
         padding-bottom 30%
     }
 }
-
-
 .taxon-classification {
     i:after {
         font-style normal
@@ -249,7 +269,7 @@ $articleCategorySeparatorSpacing = 6px
     &--discreet {
         color #ddd
         a {
-            color #bbb
+            color #666
         }
     }
 }

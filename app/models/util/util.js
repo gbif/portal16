@@ -1,5 +1,5 @@
 var apirequest = require('./api-request'),
-    confidenceThreshold = 80;
+    confidenceThreshold = 20;
 
 function getMatchesByConfidence(results) {
     var alternative,

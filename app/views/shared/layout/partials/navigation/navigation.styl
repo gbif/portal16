@@ -21,6 +21,9 @@ siteHeaderBar() {
 		text-decoration none
 		color inherit
 	}
+	ul {
+		padding-left 0
+	}
 }
 
 +isBelow($laptop) {
@@ -248,7 +251,7 @@ siteHeaderBar() {
 						}
 						> ul, >div>ul {
 							transition max-height 1.3s
-							max-height 1000px
+							max-height 1000px//arbitraty height to support the max-height transisition
 						}
 					}
 				}

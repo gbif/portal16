@@ -24,36 +24,30 @@
                 <a href="#" class="gb-icon-user-female">Profile</a>
                 <ul>
                     <li>
-                        <a href="#1">Sign in</a>
+                        <a href="#1">Menu not implemented yet</a>
                     </li>
-                    <li>
-                        <a href="#2">Register</a>
-                    </li>
-                    <li>
-                        <a href="#3">Sign out</a>
-                    </li>
-                    <li>
-                        <a href="#4">My datasets</a>
-                    </li>
+                    {#<li>#}
+                        {#<a href="#2">Register</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#3">Sign out</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#4">My datasets</a>#}
+                    {#</li>#}
                 </ul>
             </li>
-            <li class="service-menu__language is-category">
-                <a href="#" class="gb-icon-global">Language</a>
-                <ul>
-                    <li>
-                        <a href="#1">English</a>
-                    </li>
-                    <li>
-                        <a href="#2">Swahili</a>
-                    </li>
-                    <li>
-                        <a href="#3">Spanish</a>
-                    </li>
-                    <li>
-                        <a href="#4">Russian</a>
-                    </li>
-                </ul>
-            </li>
+            {#<li class="service-menu__language is-category">#}
+                {#<a href="#" class="gb-icon-global">Language</a>#}
+                {#<ul>#}
+                    {#<li>#}
+                        {#<a href="#1">English</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#2">Other languages not implemented yet</a>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</li>#}
             {#<li class="service-menu__notifications is-own-menu is-active-x">#}
                 {#<a href="#" class="gb-icon-search">Search</a>#}
                 {#<ul>#}
@@ -84,17 +78,17 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="/occurrence">Occurrences</a>
+                        <a href="/occurrence">Menu not implemented yet</a>
                     </li>
-                    <li>
-                        <a href="/species/408">Species</a>
-                    </li>
-                    <li>
-                        <a href="#">Data sets</a>
-                    </li>
-                    <li>
-                        <a href="#">Very long menu titles will be cropped</a>
-                    </li>
+                    {#<li>#}
+                        {#<a href="/species/408">Species</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#">Data sets</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#">Very long menu titles will be cropped</a>#}
+                    {#</li>#}
                 </ul>
             </li>
             <li class="main-menu__item is-category">
@@ -103,123 +97,95 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">Licensing</a>
+                        <a href="#">Menu not implemented yet</a>
                     </li>
-                    <li>
-                        <a href="#">Why</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem</a>
-                    </li>
+                    {#<li>#}
+                        {#<a href="#">Why</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#">Lorem</a>#}
+                    {#</li>#}
                 </ul>
             </li>
-            <li class="is-category is-mega">
+            <li class="main-menu__item is-category">
                 <a href="#" class="gb-icon-info">
                     About
                 </a>
-                <!-- <div> -->
-                    <ul>
-                        <li class="is-category">
-                            <a href="#">Inside</a>
-                            <ul>
-                                <li>
-                                    <a href="#">About GBIF</a>
-                                </li>
-                                <li>
-                                    <a href="#">Facts and figures</a>
-                                </li>
-                                <li>
-                                    <a href="#">Impact</a>
-                                </li>
-                                <li>
-                                    <a href="#">Programmes and projects</a>
-                                </li>
-                                <li>
-                                    <a href="#">Knowledge base</a>
-                                </li>
-                                <li>
-                                    <a href="#">FAQ</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="is-category">
-                            <a href="#">Pressroom</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Featured data use</a>
-                                </li>
-                                <li>
-                                    <a href="#">News</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="is-category">
-                            <a href="#">Community</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Join the community</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="is-category">
-                            <a href="#">Development</a>
-                            <ul>
-                                <li>
-                                    <a href="#">API</a>
-                                </li>
-                                <li>
-                                    <a href="#">Python and R libraries</a>
-                                </li>
-                                <li>
-                                    <a href="#">Front end</a>
-                                </li>
-                                <li>
-                                    <a href="#">About development at GBIF</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                <!-- </div> -->
-                <!-- <ul id="kap2" class="kap">
+                <ul>
                     <li>
-                        <a href="#1">subtitle 1</a>
-                        <ul>
-                            <li>
-                                <a href="#1">sub menuitem1</a>
-                            </li>
-                            <li>
-                                <a href="#2">sub menuitem2</a>
-                            </li>
-                            <li>
-                                <a href="#3">sub menuitem3</a>
-                            </li>
-                            <li>
-                                <a href="#4">sub menuitem4</a>
-                            </li>
-                        </ul>
+                        <a href="#">Menu not implemented yet</a>
                     </li>
-                    <li>
-                        <a href="#1">subtitle 2</a>
-                        <ul>
-                            <li>
-                                <a href="#1">sub menuitem1</a>
-                            </li>
-                            <li>
-                                <a href="#2">sub menuitem2</a>
-                            </li>
-                            <li>
-                                <a href="#3">sub menuitem3</a>
-                            </li>
-                            <li>
-                                <a href="#4">sub menuitem4</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> -->
+                </ul>
             </li>
+            {#<li class="is-category is-mega">#}
+                {#<a href="#" class="gb-icon-info">#}
+                    {#About#}
+                {#</a>#}
+                {#<ul>#}
+                    {#<li class="is-category">#}
+                        {#<a href="#">Inside</a>#}
+                        {#<ul>#}
+                            {#<li>#}
+                                {#<a href="#">Menu not implemented yet</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Facts and figures</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Impact</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Programmes and projects</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Knowledge base</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">FAQ</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li class="is-category">#}
+                        {#<a href="#">Pressroom</a>#}
+                        {#<ul>#}
+                            {#<li>#}
+                                {#<a href="#">Featured data use</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">News</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li class="is-category">#}
+                        {#<a href="#">Community</a>#}
+                        {#<ul>#}
+                            {#<li>#}
+                                {#<a href="#">Join the community</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Contact</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<li class="is-category">#}
+                        {#<a href="#">Development</a>#}
+                        {#<ul>#}
+                            {#<li>#}
+                                {#<a href="#">API</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Python and R libraries</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">Front end</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="#">About development at GBIF</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</li>#}
         </ul>
     </div>
 </nav>

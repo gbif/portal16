@@ -4,6 +4,47 @@
 	}
 }
 
+.table.table--compact {
+	thead {
+		border-bottom 1.5px solid #888
+		th {
+			border none
+		}
+	}
+	tr, td, th {
+		border none
+		padding 2px
+		overflow hidden
+		word-break break-all
+		word-break break-word
+		hyphens auto
+		width 25%
+	}
+	tr:nth-of-type(even) {
+		background alpha(#F7F9FA, 0.5)
+	}
+	tbody tr:hover {
+		background darken(#F7F9FA, 10)
+	}
+	td:first-of-type {
+		text-transform capitalize
+		width 150px
+		word-break normal
+	}
+	.table__tr--linked {
+		a {
+			display inline-block
+			width 100%
+			padding 2px
+			&:hover {
+				text-decoration none
+			}
+		}
+		td {
+			padding 0
+		}
+	}
+}
 
 .search-results__highlighted {
 	max-width 800px
@@ -31,10 +72,10 @@
 
 .search-content .search-bar {
 	overflow hidden
-	background $lightBackground
+	background $paper
 	border-bottom 1px solid #ddd
 	.card__tabs {
-		background $lightBackground
+		background $paper
 		border-top 1px solid #ddd
 		.tabs {
 			max-width $contentWidth--normal
