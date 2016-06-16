@@ -1,19 +1,23 @@
 {# Complete the primary contacts listed in the header, as <li> items. #}
-{% if headerContacts[0] %}
+{% if contactsByName[0] %}
     <div class="header-contacts">
-        {% for role in headerContacts %}
-            {% set roleIndex = loop.index0 %}
-            {# metadata author and originator #}
-            {% if role.contacts[0] %}
-                <div class="header-contact">
-                    <p>{$ role.label $}<br>
-                        {% set comma = joiner() %}
-                        {% for contact in role.contacts -%}
-                            {% set contactIndex = loop.index0 %}{$ comma() $} <a>{$ contact.name $}</a>
+            <input class="contacts-collapse" id="contacts-affiliation-role" type="checkbox" >
+            <label for="contacts-affiliation-role"> </label>
+            {% set comma = joiner() %}
+            {% for contact in contactsByName -%}
+                {$ comma() $} <a href="#{$ contact.key $}">{$ contact.name $}<sup>{$ loop.index $}</sup></a>
+            {%- endfor %}
+            <ol class="list--ordered text-left">
+                {% for contact in contactsByName %}
+                    <li>
+                        {$ contact.organization $}{% if contact.type[0] %}. Roles:
+                        {% set roleComma = joiner() %}
+                        {% for role in contact.type -%}
+                            {$ roleComma() $} {$ role $}
                         {%- endfor %}
-                    </p>
-                </div>
-            {% endif %}
-        {% endfor %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
     </div>
 {% endif %}

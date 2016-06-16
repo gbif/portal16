@@ -1166,5 +1166,11 @@
 	"datasetDetails": {
 		"georeferenced": "georeferenced",
 		"records": "records"
+	},
+	"role": {
+		"ADMINISTRATIVE_POINT_OF_CONTACT": "Administrative contact",
+		"PRINCIPAL_INVESTIGATOR": "Principal investigator",
+		"METADATA_AUTHOR": "Metadata author",
+		"ORIGINATOR": "Originator"
 	}
 }

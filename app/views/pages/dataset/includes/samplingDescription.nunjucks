@@ -16,7 +16,7 @@
 
     {% if element.values.methodSteps %}
         <h5>Method steps</h5>
-        <ol class="list--method-steps">
+        <ol class="list--ordered">
             {% if element.values.methodSteps[0] %}
                 {% for step in element.values.methodSteps %}
                     <li>{$ step | safe $}</li>

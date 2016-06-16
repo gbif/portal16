@@ -5,7 +5,8 @@ var express = require('express'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
-    Q = require('q');
+    Q = require('q'),
+    _ = require('lodash');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -44,25 +45,23 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
 });
 
 function renderPage(req, res, dataset) {
-    var headerContacts = organizeContacts(dataset.record.contacts, 'HEADER');
     var georeferencedPercentage = dataset.occurrenceGeoRefCount / dataset.occurrenceCount * 100;
     var georeferencedString = (georeferencedPercentage == 100) ? georeferencedPercentage + '% ' + res.__('datasetDetails.' + 'georeferenced') : Math.round(georeferencedPercentage * 100) / 100 + '% ' + res.__('datasetDetails.' + 'georeferenced') + ' (' + dataset.occurrenceGeoRefCount + ' ' + res.__('datasetDetails.' + 'records') + ')';
-    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : '';
-    var countBreaking = (dataset.occurrenceCount >= 10000) ? '<br>' : '';
-    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : '';
+    var publisherStyle = (dataset.publisher.title.length > 52) ? 'publisher-field--long-title' : ''; //@todo clean up
+    var publisherModifier = (dataset.occurrenceCount >= 10000) ? 'publisher-field--large-count' : ''; //@todo clean up
 
     var datasetContent = {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
-        headerContacts: headerContacts,
-        headerContactsString: JSON.stringify(headerContacts),
+        //headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
+        //headerContactsString: JSON.stringify(headerContacts),
+        contactsByName: organizeContactsByName(dataset.record.contacts, res.__),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
         publisherStyle: publisherStyle,
-        countBreaking: countBreaking,
         publisherModifier: publisherModifier,
         process: dataset.process.results,
         api: api,
@@ -321,6 +320,58 @@ function organizeContacts(sourceContacts, mode) {
     });
 
     return resultRoles;
+}
+
+/**
+ * Organize contacts by name.
+ */
+function organizeContactsByName(sourceContacts, __) {
+    // Clone the array.
+    var contacts = _.cloneDeep(sourceContacts);
+    // First change the type property to array.
+    contacts.forEach(function(contact){
+        var roles = [];
+        var addressFields = ['address', 'city', 'province', 'postalCode'];
+        var addressLine = '';
+        roles.push(__('role.' + contact.type));
+        contact.type = roles;
+        contact.name = contact.firstName + ' ' + contact.lastName;
+        addressFields.forEach(function(field, i){
+            if (contact[field]) {
+                if (i != 0) addressLine += ', ';
+                if (field == 'address') {
+                    contact[field].forEach(function(add, ai){
+                        if (ai != 0) addressLine += ', ';
+                        addressLine += add;
+                    });
+                } else {
+                    addressLine += contact[field];
+                }
+            }
+        });
+        contact.country = __('country.' + contact.country);
+        contact.addressLine = addressLine;
+    });
+    var results = [];
+    contacts.forEach(function(contact){
+        // check if a contact with the same name already exists in the result
+        var exists = false;
+        results.forEach(function(result, ri){
+            if (result.name == contact.name) {
+                // double check if email is the same
+                var sharedEmails = _.intersection(result.email, contact.email);
+                if (sharedEmails.length > 0) {
+                    // if the contact already exists, retrieve it and add role
+                    exists = true;
+                    results[ri].type = Array.prototype.concat(result.type, contact.type);
+                }
+            }
+        });
+        if (exists == false) {
+            results.push(contact);
+        }
+    });
+    return results;
 }
 
 /**
