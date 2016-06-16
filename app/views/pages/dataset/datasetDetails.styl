@@ -31,9 +31,8 @@ h4.content-type-label {
 }
 
 .header-contacts {
-    margin-bottom 20px
     max-width 750px
-    margin 0 auto
+    margin 0 auto vrBlock(1) auto
 }
 .header-contact {
     display inline-block
@@ -308,10 +307,49 @@ nav.metadata-nav {
     }
 }
 
-.contacts-collapse + label:after {
+.contacts-collapse {
+    display none
+}
+
+.contacts-collapse + label {
+    cursor pointer
+    display inline
+    position relative
+    margin-left 12px
+    margin-bottom vrBlock(0.5)
+    font-weight normal
+    font-size vrBlock(1)
+    line-height vrBlock(1)
+}
+
+.contacts-collapse + label:before {
+    content "\A"
     position absolute
     width 12px
-    left -12px
-    top 3px
-    content $icon-string-angle-right
+    left -18px
+    top 8px
+    border-top 6px solid transparent
+    border-bottom 6px solid transparent
+    border-left 8px solid gray
+}
+
+.contacts-collapse:checked + label:before {
+    content "\A"
+    position absolute
+    width 12px
+    left -20px
+    top 10px
+    border-left 6px solid transparent
+    border-right 6px solid transparent
+    border-top 8px solid gray
+}
+
+.contacts-collapse + label ~ ol {
+    display none
+    margin-left 12px
+}
+
+.contacts-collapse:checked + label ~ ol {
+    display block
+    margin-bottom vrBlock(1)
 }
