@@ -45,6 +45,7 @@
 
         <section class="horizontal-stripe white-background">
             <div class="container--normal tmpDataSetResults">
+                <h2 class="h4">Published datasets</h2>
                 {% if publisher.datasets.count > 0 %}
                     {% for dataset in publisher.datasets.results %}
                         <div>
