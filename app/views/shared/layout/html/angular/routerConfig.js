@@ -15,12 +15,6 @@ function routerConfig($stateProvider, $locationProvider) {
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale : { squash : true, value: 'en' }}
         })
-        .state('testerpage', {
-            url: '/tester',
-            templateUrl: '/templates/shared/layout/main/main.html',
-            controller: 'MainController',
-            controllerAs: 'main'
-        })
         .state('occurrenceSearch', {
             parent: 'localization',
             url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key&datasetKey&kingdomKey.facetLimit',
@@ -52,6 +46,17 @@ function routerConfig($stateProvider, $locationProvider) {
             templateUrl: '/templates/pages/occurrence/gallery/occurrenceGallery.html',
             controller: 'occurrenceGalleryCtrl',
             controllerAs: 'occGallery'
+        })
+        .state('datasetSearch', {
+            parent: 'localization',
+            url: '/dataset?offset&q',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/dataset/search/dataset.html',
+                    controller: 'datasetCtrl',
+                    controllerAs: 'dataset'
+                }
+            }
         })
     ;
     //if unknown route then goto server instead of redirecting to home: $urlRouterProvider.otherwise('/');

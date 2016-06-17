@@ -34,6 +34,7 @@ require('./angular/env.constants');
 require('./angular/routerConfig');
 require('./angular/translate');
 require('./angular/occurrence.resource');
+require('./angular/dataset.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
@@ -46,6 +47,8 @@ require('../../../pages/occurrence/occurrence.ctrl');
 require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
+
+require('../../../pages/dataset/search/dataset.ctrl');
 
 require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsContactPopup.ctrl');
