@@ -6,7 +6,7 @@
 
 {% block page %}
     {% import "./dataset.macros.nunjucks" as datasetMacros %}
-    {% import "../../components/common.macros.nunjucks" as commonMacros %}
+    {% import "../../../components/common.macros.nunjucks" as commonMacros %}
 
     {# Begin page content #}
     <script type="text/javascript">

@@ -5,10 +5,10 @@
             <h5>{$ type $}</h5>
             <div class="row">
                 {% for result in results | limit(3) %}
-                <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12 col-sm-8">
                     <h3 class="h4">
                         <a href="{$ conf.baseUrl $}{% if conf.content_type %}{$ result[conf.content_type] | wordBreakToHyphen $}/{% endif %}{$ result[conf.key] $}">
-                            {$ result[conf.title] | striptags | truncate(200) | safe $}
+                            {$ result[conf.title] | striptags | truncate(150) | safe $}
                         </a>
                     </h3>
                     <div>
@@ -34,6 +34,24 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+
+            {% if results.datasets.count > results.datasets.results.length %}
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="pull-right omni-search__result-group__more">
+                            <span style="vertical-align:middle;">{$ results.datasets.count - results.datasets.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="pull-right discreet">
+                        <span>152 more</span> <span class="gb-icon-right-arrow h2"></span>
+                    </a>
+                </div>
             </div>
         </section>
     {% endif %}

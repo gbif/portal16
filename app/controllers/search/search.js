@@ -139,6 +139,15 @@ function getData(query, cb) {
                     }
                 }
             ],
+            occurrencesImagesLocation: [
+                'rawTaxaMatches', 'catalogNumberOccurrences', function(results, callback) {
+                    if ( typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0  || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0) ) {
+                        callback(null, null);
+                    } else {
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?HAS_COORDINATE=true&MEDIA_TYPE=StillImage&limit=10&q=' + q, callback);
+                    }
+                }
+            ],
             species: [
                 'rawTaxaMatches', function(results, callback) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
@@ -149,7 +158,7 @@ function getData(query, cb) {
                 }
             ],
             datasets: function(callback) {
-                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=5&hl=true&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=3&hl=true&q=' + q, callback);
             },
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);
@@ -193,6 +202,9 @@ function search(q, cb) {
         //        console.log('ERROR : KEY MISSING  ' + e);
         //    }
         //});
+        if (results.occurrencesImagesLocation && results.occurrences && results.occurrencesImagesLocation.count >= 10) {
+            results.occurrences.results = results.occurrencesImagesLocation.results;
+        }
 
         if (err) {
             console.log(err);

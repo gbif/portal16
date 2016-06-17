@@ -15,11 +15,15 @@
                 </form>
                 <div class="card__tabs">
                     <div class="tabs">
-                        {% for type in ['All', 'Species', 'Occurrences', 'Datasets', 'Images', 'Checklists', 'Other'] %}
-                            <a class="tab" href="#">
-                                {$ type $}
-                            </a>
-                        {% endfor %}
+                        <a class="tab" href="">
+                            All
+                        </a>
+                        <a class="tab" href="/dataset?q={$ query $}">
+                            Datasets
+                        </a>
+                        <a class="tab" href="/occurrence/gallery?q={$ query $}">
+                            Images
+                        </a>
                     </div>
                 </div>
             </div>
@@ -31,6 +35,7 @@
 
         {% include "./curated/curated.nunjucks" %}
 
+        {% include "./datasets/datasets.nunjucks" %}
         {% if results.datasets.count > 0 %}
             <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
                 <div class="omni-search__result-group">

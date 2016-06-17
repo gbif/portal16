@@ -47,9 +47,9 @@ require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
-require('../../../pages/dataset/datasetDetailsDownloadEventsTable.ctrl');
-require('../../../pages/dataset/datasetDetailsContactPopup.ctrl');
-require('../../../pages/dataset/datasetDetailsScrollSpy.ctrl');
+require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
+require('../../../pages/dataset/details/datasetDetailsContactPopup.ctrl');
+require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');

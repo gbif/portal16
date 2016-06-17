@@ -1,5 +1,5 @@
 {% if results.occurrences.count > 0 %}
-<div style="max-width:900px">
+<div style="max-width:1000px">
     <div>
         <h3 class="h5">Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span></h3>
         <table class="table table--compact">
@@ -32,12 +32,15 @@
             </tbody>
         </table>
 
-        {% if results.occurrences.count > 10 %}
-            <div class="search-results__section__more">
-                <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}">View all<span class="l-only"> {$ results.occurrences.count $} occurrences</span></a>
-            </div>
+        {% if results.occurrences.count > results.occurrences.results.length %}
+            <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="pull-right omni-search__result-group__more">
+                <span style="vertical-align:middle;">{$ results.occurrences.count - results.occurrences.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
+            </a>
         {% endif %}
 
     </div>
 </div>
+
+
+
 {% endif %}

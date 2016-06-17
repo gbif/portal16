@@ -1,0 +1,56 @@
+{% if results.datasets.count > 0 %}
+
+<div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
+    <div class="omni-search__result-group">
+
+        <section class="container--normal">
+            <h5>Datasets <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="small" style="font-weight: 300; padding-left: 1em">3 of {$ results.datasets.count $}</a></h5>
+            <div class="row">
+                {% for result in results.datasets.results %}
+                    <div class="col-xs-12 col-sm-8">
+
+                        <h3 class="h4">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ result.key $}">
+                                {$ result.title | striptags | truncate(150) | safe $}
+                            </a>
+                        </h3>
+                        <div>
+                            {% if caller %}
+                                <div class="searchResults__list__custom">
+                                    <span>{$ caller() $}</span><span>{$ result[conf.chip] $}</span>
+                                </div>
+                            {% endif %}
+
+                            {% if result.description %}
+                            <div>
+                                {$ result.description | striptags | truncate(150) $}
+                            </div>
+                            {% endif %}
+                            <div>
+                                <a class="" href="{$ gb.locales.urlPrefix $}/publisher/{$ result.publishingOrganizationKey $}">
+                                    {$ result.publishingOrganizationTitle | striptags | truncate(80) $}
+                                </a>
+                            </div>
+                            <ul class="list-chips">
+                                <li><a href="{$ gb.locales.urlPrefix $}/dataset?type={$ result.type $}">{$ __('dataset.longType.' + result.type) $}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if results.datasets.count > results.datasets.results.length %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="pull-right omni-search__result-group__more">
+                        <span style="vertical-align:middle;">{$ results.datasets.count - results.datasets.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+        </section>
+
+    </div>
+</div>
+{% endif %}

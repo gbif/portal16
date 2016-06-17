@@ -35,7 +35,7 @@ gulp.task('vendor-scripts', function() {
 
 function buildScripts() {
     return build(config.js.browserify.main.path, config.js.browserify.main.dest);
-};
+}
 
 //gulp.task('buildOccurrenceKey', function() {
 //    return build(config.js.browserify.occurrenceKey.path, config.js.browserify.occurrenceKey.dest)

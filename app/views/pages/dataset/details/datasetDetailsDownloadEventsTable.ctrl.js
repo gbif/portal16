@@ -1,8 +1,8 @@
 'use strict';
 
 // The downloadEventsTableCtrl controller needs occurrence download as a service.
-require('../../shared/layout/html/angular/occurrence.resource.js');
-require('../../shared/layout/html/angular/species.resource.js');
+require('../../../shared/layout/html/angular/occurrence.resource.js');
+require('../../../shared/layout/html/angular/species.resource.js');
 
 var angular = require('angular');
 

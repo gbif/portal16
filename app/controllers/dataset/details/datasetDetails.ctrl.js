@@ -1,7 +1,7 @@
 'use strict';
 var express = require('express'),
-    Dataset = require('../../models/gbifdata/gbifdata').Dataset,
-    api = require('../../models/gbifdata/apiConfig'),
+    Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
+    api = require('../../../models/gbifdata/apiConfig'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
@@ -73,7 +73,7 @@ function renderPage(req, res, dataset) {
         res.json(datasetContent);
     } else {
         dataset.record.doiUrl = doiToUrl(dataset.record.doi);
-        res.render('pages/dataset/datasetDetails', datasetContent);
+        res.render('pages/dataset/details/datasetDetails', datasetContent);
     }
 }
 

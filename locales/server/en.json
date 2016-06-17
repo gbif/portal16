@@ -22,7 +22,9 @@
 		"SYNTYPE": "syntype",
 		"ISONEOTYPE": "isoneotype",
 		"ISOTYPE": "isotype",
-		"TYPE": "typeStatus.TYPE"
+		"TYPE": "typeStatus.TYPE",
+		"PARALECTOTYPE": "typeStatus.PARALECTOTYPE",
+		"PARATYPE": "typeStatus.PARATYPE"
 	},
 	"occurrence": {
 		"title": {
@@ -787,7 +789,8 @@
 		"MF": "country.MF",
 		"SX": "country.SX",
 		"CW": "country.CW",
-		"undefined": "country.undefined"
+		"undefined": "country.undefined",
+		"ZZ": "country.ZZ"
 	},
 	"interpretationRemarks": {
 		"BASIS_OF_RECORD_INVALID": "Basis of record invalid",
@@ -1135,7 +1138,8 @@
 		"installation": "installation",
 		"occurrence": "occurrence",
 		"catalogNr": "catalog nr",
-		"data_use": "data use"
+		"data_use": "data use",
+		"Organism": "stdTerms.Organism"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
@@ -1173,6 +1177,13 @@
 		"PRINCIPAL_INVESTIGATOR": "Principal investigator",
 		"METADATA_AUTHOR": "Metadata author",
 		"ORIGINATOR": "Originator",
-		"TECHNICAL_POINT_OF_CONTACT": "role.TECHNICAL_POINT_OF_CONTACT"
+		"TECHNICAL_POINT_OF_CONTACT": "role.TECHNICAL_POINT_OF_CONTACT",
+		"CONTENT_PROVIDER": "role.CONTENT_PROVIDER"
+	},
+	"dataset": {
+		"longType": {
+			"OCCURRENCE": "occurrence dataset",
+			"CHECKLIST": "checklist dataset"
+		}
 	}
 }

@@ -71,8 +71,13 @@ a.inherit {
 	.sub {
 		color #aaa
 	}
-	.gbifHl {
-		font-style inherit
-		font-weight bold
+	&__more {
+		color #666
+		&:hover {
+			text-decoration none
+		}
+		span {
+			vertical-align middle
+		}
 	}
 }
