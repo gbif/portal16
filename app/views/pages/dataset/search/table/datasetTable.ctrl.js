@@ -10,17 +10,19 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('datasetCtrl', datasetCtrl);
+    .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetCtrl($scope, DatasetFilter) {
+function datasetTableCtrl($scope, DatasetFilter) {
     var vm = this;
+    vm.count = 0;
+    vm.results = {};
+    DatasetFilter.setCurrentTab();
 
     vm.search = function() {
         DatasetFilter.search(function(data){
             vm.results = data.results;
             vm.count = data.count;
-            vm.facets = data.facets;
         });
     };
 
@@ -29,4 +31,4 @@ function datasetCtrl($scope, DatasetFilter) {
     });
 }
 
-module.exports = datasetCtrl;
+module.exports = datasetTableCtrl;

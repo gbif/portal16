@@ -15,19 +15,21 @@
 .site-drawer {
 	.site-drawer__sub {
 		color black
-		background #aaa
-		width $filterDrawerWidth
+		background #fff
+		width ($filterDrawerWidth - 2em)
 		height 100%
 		position absolute
 		top 0
-		left 0
-		transition: right 500ms ease;
+		right ($filterDrawerWidth - 2em)
+		transition right 500ms ease;
 	}
 }
 +isAbove($tablet) {
 	.site-drawer {
 		.site-drawer__sub {
-			left $filterDrawerWidth
+			box-shadow -1px 0 2px rgba(0,0,0,0.3)
+			right 0
+			//right $filterDrawerWidth
 			.is-active {
 				background pink
 			}

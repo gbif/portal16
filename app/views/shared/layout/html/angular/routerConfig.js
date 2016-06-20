@@ -49,7 +49,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('datasetSearch', {
             parent: 'localization',
-            url: '/dataset?offset&q',
+            url: '/dataset?offset&q&type&keyword&publishing_org&hosting_org&publishing_country&decade',
             views: {
                 main: {
                     templateUrl: '/templates/pages/dataset/search/dataset.html',
@@ -57,6 +57,13 @@ function routerConfig($stateProvider, $locationProvider) {
                     controllerAs: 'dataset'
                 }
             }
+        })
+        .state('datasetSearchTable', {
+            parent: 'datasetSearch',
+            url: '/table',
+            templateUrl: '/templates/pages/dataset/search/table/datasetTable.html',
+            controller: 'datasetTableCtrl',
+            controllerAs: 'datasetTable'
         })
     ;
     //if unknown route then goto server instead of redirecting to home: $urlRouterProvider.otherwise('/');

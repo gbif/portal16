@@ -16,8 +16,11 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource, env) {
-            return $resource(env.dataApi + 'dataset/search', null, {
+        .factory('DatasetSearch', function($resource, env) {
+            var facets = {
+                facet: ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country', 'decade']
+            };
+            return $resource(env.dataApi + 'dataset/search', facets, {
                     'query': {
                         method: 'GET',
                         isArray: false

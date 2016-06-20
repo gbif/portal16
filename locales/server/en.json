@@ -1178,7 +1178,8 @@
 		"METADATA_AUTHOR": "Metadata author",
 		"ORIGINATOR": "Originator",
 		"TECHNICAL_POINT_OF_CONTACT": "role.TECHNICAL_POINT_OF_CONTACT",
-		"CONTENT_PROVIDER": "role.CONTENT_PROVIDER"
+		"CONTENT_PROVIDER": "role.CONTENT_PROVIDER",
+		"undefined": "role.undefined"
 	},
 	"dataset": {
 		"longType": {

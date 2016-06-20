@@ -9,6 +9,10 @@ router.get('/dataset', function (req, res) {
     searchHandler(req, res);
 });
 
+router.get('/dataset/table', function (req, res) {
+    searchHandler(req, res);
+});
+
 function searchHandler(req, res) {
     "use strict";
     var searchString = req.query.q;

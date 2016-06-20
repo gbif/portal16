@@ -36,21 +36,21 @@
         {% include "./curated/curated.nunjucks" %}
 
         {% include "./datasets/datasets.nunjucks" %}
-        {% if results.datasets.count > 0 %}
-            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
-                <div class="omni-search__result-group">
-                    {$ searchMacro.resultList(results.datasets.results, 'Datasets', {
-                    title: 'title',
-                    key: 'key',
-                    baseUrl: gb.locales.urlPrefix + '/dataset/',
-                    description: 'description',
-                    sub: 'publishingOrganizationTitle',
-                    subKey: 'publishingOrganizationKey',
-                    subBaseUrl: 'http://www.gbif.org/publisher/'
-                    }) $}
-                </div>
-            </div>
-        {% endif %}
+        {#{% if results.datasets.count > 0 %}#}
+            {#<div class="search-results horizontal-stripe horizontal-stripe--alternating-background">#}
+                {#<div class="omni-search__result-group">#}
+                    {#{$ searchMacro.resultList(results.datasets.results, 'Datasets', {#}
+                    {#title: 'title',#}
+                    {#key: 'key',#}
+                    {#baseUrl: gb.locales.urlPrefix + '/dataset/',#}
+                    {#description: 'description',#}
+                    {#sub: 'publishingOrganizationTitle',#}
+                    {#subKey: 'publishingOrganizationKey',#}
+                    {#subBaseUrl: 'http://www.gbif.org/publisher/'#}
+                    {#}) $}#}
+                {#</div>#}
+            {#</div>#}
+        {#{% endif %}#}
 
         {% if results.publishers.count > 0 %}
             <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">

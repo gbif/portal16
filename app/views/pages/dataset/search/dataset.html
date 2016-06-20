@@ -1,8 +1,17 @@
 <aside class="site-drawer" id="filter">
-    <div>
-        <h2>Datasets</h2>
-        Search datasets
-        {{dataset.test}}
+    <div class="site-drawer__section">
+        <div class="site-drawer__section__content">
+            <h3 class="h3">Datasets</h3>
+            Search datasets
+        </div>
+        <div ng-repeat="facet in dataset.facets">
+            <div>
+                <h3>{{facet.field}}</h3>
+                <div ng-repeat="row in facet.counts">
+                    <a href="">{{row.name}}: {{row.count}}</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </aside>
@@ -12,7 +21,7 @@
         <div class="dataset-search-results">
             <div class="tabBar">
                 <div class="tabs">
-                    <a>Table</a>
+                    <a ui-sref="datasetSearchTable()">Table</a>
                 </div>
             </div>
 
