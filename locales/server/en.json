@@ -1179,7 +1179,9 @@
 		"ORIGINATOR": "Originator",
 		"TECHNICAL_POINT_OF_CONTACT": "role.TECHNICAL_POINT_OF_CONTACT",
 		"CONTENT_PROVIDER": "role.CONTENT_PROVIDER",
-		"undefined": "role.undefined"
+		"undefined": "role.undefined",
+		"CUSTODIAN_STEWARD": "role.CUSTODIAN_STEWARD",
+		"AUTHOR": "role.AUTHOR"
 	},
 	"dataset": {
 		"longType": {
