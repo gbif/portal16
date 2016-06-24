@@ -1179,12 +1179,27 @@
 		"ORIGINATOR": "Originator",
 		"TECHNICAL_POINT_OF_CONTACT": "role.TECHNICAL_POINT_OF_CONTACT",
 		"CONTENT_PROVIDER": "role.CONTENT_PROVIDER",
-		"undefined": "role.undefined"
+		"undefined": "role.undefined",
+		"DISTRIBUTOR": "role.DISTRIBUTOR",
+		"PUBLISHER": "role.PUBLISHER",
+		"PROGRAMMER": "role.PROGRAMMER",
+		"USER": "role.USER",
+		"PROCESSOR": "role.PROCESSOR",
+		"AUTHOR": "role.AUTHOR",
+		"CUSTODIAN_STEWARD": "role.CUSTODIAN_STEWARD"
 	},
 	"dataset": {
 		"longType": {
 			"OCCURRENCE": "occurrence dataset",
-			"CHECKLIST": "checklist dataset"
+			"CHECKLIST": "checklist dataset",
+			"SAMPLING_EVENT": "Sampling event",
+			"METADATA": "Metadata dataset"
+		},
+		"type": {
+			"OCCURRENCE": "occurrence",
+			"CHECKLIST": "checklist",
+			"SAMPLING_EVENT": "Sampling event",
+			"METADATA": "Metadata"
 		}
 	}
 }
