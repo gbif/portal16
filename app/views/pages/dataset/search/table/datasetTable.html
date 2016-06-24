@@ -1,5 +1,20 @@
-<article class="wrapper-horizontal-stripes search-content">
-    <div class="horizontal-stripe article-header white-background">
+<article class="wrapper-horizontal-stripes">
+
+    <div class="horizontal-stripe bare-background">
+        <div class="card" ng-repeat="featured in datasetTable.featuredDataSets.nodes | limitTo:3">
+            <a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">
+                <img ng-src="{{featured.node.field_uni_images.src}}">
+                <div  class="card__content">
+                    <h2 class="h3">{{featured.node.title}}</h2>
+                    <p>
+                        {{featured.node.body}}
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="horizontal-stripe white-background">
         <div class="container--normal" style="position:relative">
             <div class="block-options" ng-class="{'is-expanded': datasetTable.expandMore}">
                 <a href=""
@@ -8,6 +23,12 @@
                    ng-class="{'gb-icon-compare-fat-reverse': !datasetTable.hideDetails}"
                    tooltip-placement="left"
                    uib-tooltip="List"></a>
+                <a href=""
+                   class="gb-icon-compare-fat block-options__option"
+                   ng-click="datasetTable.hideDetails = !datasetTable.hideDetails;"
+                   ng-class="{'gb-icon-compare-fat-reverse': !datasetTable.hideDetails}"
+                   tooltip-placement="left"
+                   uib-tooltip="Detail view"></a>
             </div>
 
 
