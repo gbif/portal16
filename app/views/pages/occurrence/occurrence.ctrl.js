@@ -17,6 +17,7 @@ angular
 function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
     var vm = this;
     vm.query = OccurrenceFilter.query;
+    vm.freeTextQuery = vm.query.q;
     vm.hide = true;
     vm.scientificName = 'abies';
     vm.suggestions = [];
@@ -35,7 +36,7 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
             var taxonKeys = selected.map(function(e){return e.key;});
             vm.query.taxonKey = taxonKeys;
             OccurrenceFilter.query = vm.query;
-            $state.transitionTo($state.current, vm.query, {location: true, notify: false})
+            $state.transitionTo($state.current, vm.query);//, {location: true, notify: false});
         },
         onCancel: function(){
             vm.hide = true;
@@ -57,6 +58,7 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
     }
 
     vm.updateSearch = function() {
+        vm.query.q = vm.freeTextQuery;
         $state.go($state.current, vm.query);
     };
 }

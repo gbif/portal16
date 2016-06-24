@@ -33,7 +33,9 @@
 		"DK": "country.DK",
 		"US": "country.US",
 		"MX": "country.MX",
-		"SE": "country.SE"
+		"SE": "country.SE",
+		"undefined": "country.undefined",
+		"CH": "country.CH"
 	},
 	"taxonRank": {
 		"undefined": "taxonRank.undefined",
@@ -156,5 +158,20 @@
 	},
 	"continent": {
 		"NORTH_AMERICA": "continent.NORTH_AMERICA"
+	},
+	"datasetDetails": {
+		"georeferenced": "datasetDetails.georeferenced",
+		"records": "datasetDetails.records"
+	},
+	"role": {
+		"undefined": "role.undefined",
+		"METADATA_AUTHOR": "role.METADATA_AUTHOR",
+		"DISTRIBUTOR": "role.DISTRIBUTOR",
+		"PUBLISHER": "role.PUBLISHER",
+		"ADMINISTRATIVE_POINT_OF_CONTACT": "role.ADMINISTRATIVE_POINT_OF_CONTACT",
+		"ORIGINATOR": "role.ORIGINATOR"
+	},
+	"language": {
+		"eng": "language.eng"
 	}
 }

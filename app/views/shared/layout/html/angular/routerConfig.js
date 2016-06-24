@@ -49,12 +49,25 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('datasetSearch', {
             parent: 'localization',
-            url: '/dataset?offset&q&type&keyword&publishing_org&hosting_org&publishing_country&decade',
+            url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade',
             views: {
                 main: {
                     templateUrl: '/templates/pages/dataset/search/dataset.html',
                     controller: 'datasetCtrl',
                     controllerAs: 'dataset'
+                }
+            },
+            resolve: {
+                results:  function($stateParams, DatasetSearch){
+                    var query = angular.copy($stateParams);
+                    var availableFacets = ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country'];
+                    availableFacets.forEach(function(facet){
+                        if (angular.isUndefined(query[facet])) {
+                            query.facet = query.facet || [];
+                            query.facet.push(facet);
+                        }
+                    });
+                    return DatasetSearch.query(query).$promise;
                 }
             }
         })
@@ -66,9 +79,9 @@ function routerConfig($stateProvider, $locationProvider) {
             controllerAs: 'datasetTable'
         })
     ;
-    //if unknown route then goto server instead of redirecting to home: $urlRouterProvider.otherwise('/');
+    //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 
-    //TODO how does this work with ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
+    //We do not support ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false,

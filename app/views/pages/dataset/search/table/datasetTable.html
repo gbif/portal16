@@ -1,6 +1,62 @@
-<div>count: {{datasetTable.count}}</div>
-<div>
-    <div ng-repeat="row in datasetTable.results">
-        {{row.title}}
+<article class="wrapper-horizontal-stripes search-content">
+    <div class="horizontal-stripe article-header white-background">
+        <div class="container--normal" style="position:relative">
+            <div class="block-options" ng-class="{'is-expanded': datasetTable.expandMore}">
+                <a href=""
+                   class="gb-icon-compare-fat block-options__option"
+                   ng-click="datasetTable.hideDetails = !datasetTable.hideDetails;"
+                   ng-class="{'gb-icon-compare-fat-reverse': !datasetTable.hideDetails}"
+                   tooltip-placement="left"
+                   uib-tooltip="List"></a>
+            </div>
+
+
+            <div>count: {{datasetTable.count}}</div>
+
+            <div>
+                <div ng-repeat="row in datasetTable.results">
+
+                    <a href="../dataset/{{row.key}}" class="tile">
+                        <div class="species-overview-map">
+                            <img src="/img/tile000/basemap-grey-light2.png">
+                            <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=8">
+                        </div>
+                    </a>
+
+                    <h3 class="h4">
+                        <a href="../dataset/{{row.key}}">
+                            {{row.title}}
+                        </a>
+                    </h3>
+
+                    <div>
+                        <div>
+                            {{ row.description | limitTo:50 }}
+                        </div>
+                        <div>
+                            <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">
+                                {{row.publishingOrganizationTitle | limitTo:50 }}
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <uib-pagination
+                    total-items="datasetTable.totalItems"
+                    ng-model="datasetTable.currentPage"
+                    max-size="datasetTable.maxSize"
+                    items-per-page="datasetTable.limit"
+                    class="pagination-sm"
+                    boundary-link-numbers="false"
+                    rotate="false"
+                    ng-change="datasetTable.pageChanged()"
+                    ng-show="datasetTable.count > datasetTable.limit">
+            </uib-pagination>
+        <div>
     </div>
-</div>
+</article>

@@ -33,7 +33,7 @@
         </table>
 
         {% if results.occurrences.count > results.occurrences.results.length %}
-            <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="pull-right omni-search__result-group__more">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="pull-right omni-search__result-group__more">
                 <span style="vertical-align:middle;">{$ results.occurrences.count - results.occurrences.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
             </a>
         {% endif %}

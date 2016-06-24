@@ -134,6 +134,7 @@ function stackTrace() {
 }
 
 window.onerror = function(msg, file, line, col, error) {
+    //return;//TODO find better way that won't spam server in case of a looping error
     var errorData = {
         msg: msg,
         file: file,

@@ -7,7 +7,7 @@
         <div class="horizontal-stripe--paddingless article-header white-background">
             <div class="search-bar">
                 <form action="/search" class="search-form">
-                    <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-value="search.searchQuery" value="{$ query $}">
+                    <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-model="search.searchQuery" ng-value="search.searchQuery" value="{$ query $}">
                     <button type="submit" class="gb-icon-search">
                         <span class="sr-only">{$ __('search') $}</span>
                     </button>
@@ -18,9 +18,12 @@
                         <a class="tab" href="">
                             All
                         </a>
-                        <a class="tab" href="/dataset?q={$ query $}">
+                        <a class="tab" href="/dataset/table?q={$ query $}">
                             Datasets
                         </a>
+                        {#<a class="tab" ui-sref="datasetSearchTable({q:search.searchQuery})">#}
+                            {#Datasets#}
+                        {#</a>#}
                         <a class="tab" href="/occurrence/gallery?q={$ query $}">
                             Images
                         </a>

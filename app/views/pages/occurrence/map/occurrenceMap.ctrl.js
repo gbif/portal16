@@ -13,13 +13,13 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter) {
+function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter, $stateParams) {
     var vm = this;
     OccurrenceFilter.setCurrentTab();
     var getOverlay = function(query) {
         var overlay = {
             name: 'gb',
-            url: "//cdn.gbif.org/v1/map/density/tile.png?x={x}&y={y}&z={z}&type=TAXON&resolution=1&" + $httpParamSerializer(query),
+            url: "http://api.gbif-uat.org/v1/map/occurrence/occurrence.png?x={x}&y={y}&z={z}&resolution=1&" + $httpParamSerializer(query),
             type: 'xyz',
             visible: true,
             layerParams: {
@@ -43,20 +43,29 @@ function occurrenceMapCtrl($scope, leafletData, mapConstants, $httpParamSerializ
         map.fitWorld().zoomIn();
     });
 
+    var hashString = function(str) {
+        var hash = 0, i, chr, len;
+        if (str.length === 0) return hash;
+        for (i = 0, len = str.length; i < len; i++) {
+            chr   = str.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+    var hashObject = function(obj) {
+      return hashString(JSON.stringify(obj));
+    };
     var setOverlay = function() {
+        console.log(234);
         //TODO this should be changed to match the new tile/heatmap api
-        vm.query = angular.copy(OccurrenceFilter.query);
-        vm.query.key = vm.query.taxonKey;
-        if (angular.isArray(vm.query.taxonKey)) vm.query.key = vm.query.taxonKey[0];
+        vm.query = angular.copy($stateParams);
         if (Object.keys(vm.layers.overlays).length > 0) {
             vm.layers.overlays = {};
         }
-        vm.layers.overlays['occurrences' + vm.query.key] =  getOverlay(vm.query);
+        vm.layers.overlays['occurrences' + hashObject(vm.query)] =  getOverlay(vm.query);
     };
 
-    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
-        setOverlay();
-    });
     setOverlay();
 }
 

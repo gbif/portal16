@@ -2,7 +2,7 @@
     <div>
         <h2>Filter</h2>
         <div class="form-group">
-            <input ng-model="occurrence.query.q">
+            <input ng-model="occurrence.freeTextQuery">
             <button ng-click="occurrence.updateSearch()">Search</button>
         </div>
         <div class="form-group">
@@ -17,7 +17,7 @@
 
                 <div class="site-drawer__sub" ng-show="!occurrence.hide">
                     <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
-                    <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{is-active: $index==occurrence.suggest.activeIndex}">
+                    <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{'is-active': $index==occurrence.suggest.activeIndex}">
                         {{suggestion.canonicalName}}
                     </div>
                 </div>

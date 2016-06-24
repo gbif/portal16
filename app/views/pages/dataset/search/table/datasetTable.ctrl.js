@@ -13,22 +13,24 @@ angular
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl($scope, DatasetFilter) {
-    var vm = this;
-    vm.count = 0;
-    vm.results = {};
-    DatasetFilter.setCurrentTab();
+function datasetTableCtrl(results, $stateParams, $state) {
+    var vm = this,
+        offset = parseInt($stateParams.offset) || 0;
 
-    vm.search = function() {
-        DatasetFilter.search(function(data){
-            vm.results = data.results;
-            vm.count = data.count;
-        });
+    vm.count = results.count;
+    vm.results = results.results;
+
+    //pagination
+    vm.maxSize = 5;
+    vm.limit = parseInt($stateParams.limit) || 20;
+    vm.totalItems = results.count;
+    vm.currentPage = Math.floor(offset / vm.limit) + 1;
+
+    vm.pageChanged = function() {
+        $stateParams.offset =  (vm.currentPage-1) * vm.limit;
+        $state.go($state.current, $stateParams, {reload: true});
     };
-
-    $scope.$watchCollection(DatasetFilter.getQuery, function() {
-        vm.search();
-    });
 }
 
 module.exports = datasetTableCtrl;
+

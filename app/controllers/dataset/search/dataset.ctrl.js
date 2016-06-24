@@ -20,17 +20,13 @@ function searchHandler(req, res) {
 }
 
 function renderPage(req, res, searchString) {
-    if (req.params.ext == 'json') {
-        res.json(results);
-    } else {
-        res.render('pages/dataset/search/datasetSearch', {
-            query: searchString,
-            hasDrawer: true,
-            hasTools: true,
-            meta: {
-                bodyClass: 'dataset'
-            }
-        });
-    }
+    res.render('pages/dataset/search/datasetSearch', {
+        query: searchString,
+        hasDrawer: true,
+        hasTools: true,
+        meta: {
+            bodyClass: 'dataset'
+        }
+    });
 }
 
