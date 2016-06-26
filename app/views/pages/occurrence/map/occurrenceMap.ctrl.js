@@ -13,8 +13,11 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter, $stateParams) {
+function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter, $stateParams, OccurrenceSearch) {
     var vm = this;
+    vm.mapMenu = {
+        occurrences: {}
+    }
     OccurrenceFilter.setCurrentTab();
     var getOverlay = function(query) {
         var overlay = {
@@ -39,8 +42,19 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
     };
+    function onMapClick(event) {
+        vm.query = angular.copy($stateParams);
+        vm.query.decimalLatitude = (event.latlng.lat - (2/event.target._zoom) ) + ',' + (event.latlng.lat + (2/event.target._zoom));
+        vm.query.decimalLongitude = (event.latlng.lng - (2/event.target._zoom)) + ',' + (event.latlng.lng + (2/event.target._zoom));
+        OccurrenceSearch.query(vm.query, function (data) {
+            vm.mapMenu.occurrences = data;
+        }, function () {
+            debugger;
+        });
+    }
     leafletData.getMap('occurrenceMap').then(function(map) {
         map.fitWorld().zoomIn();
+        map.on('click', onMapClick);
     });
 
     var hashString = function(str) {

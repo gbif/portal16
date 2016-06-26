@@ -8,3 +8,9 @@
             layers="occMap.layers"
     ></leaflet>
 </div>
+<div>
+	Map menu
+	<ul>
+		<li ng-repeat="occurrence in occMap.mapMenu.occurrences.results"><a ng-href="/occurrence/{{occurrence.key}}">{{occurrence.scientificName}}</a></li>
+	</ul>
+</div>
