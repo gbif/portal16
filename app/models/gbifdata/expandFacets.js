@@ -1,3 +1,4 @@
+"use strict";
 var helper = require('../util/util'),
     apiConfig = require('./apiConfig'),
     async = require('async');
