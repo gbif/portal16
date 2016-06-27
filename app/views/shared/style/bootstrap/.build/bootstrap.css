@@ -6737,3 +6737,10 @@ button.close {
 .panel-title a {
   cursor: pointer;
 }
+/*
+Bootstrap prefers to set internet explorer viewport width to 100% leading to a transparent overlaying scrollbar.
+That is very annoying and ie does so in a way that doesn't work well. This removes it.
+*/
+@-ms-viewport {
+  width: auto !important;
+}
