@@ -7,7 +7,7 @@ var express = require('express'),
     router = express.Router(),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
-    apiConfig = require('../../../../models/gbifData/apiConfig'),
+    apiConfig = require('../../../../models/gbifdata/apiConfig'),
     gbifData = require('../../../../models/gbifdata/gbifdata');
 
 const querystring = require('querystring');
