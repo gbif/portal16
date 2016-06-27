@@ -1186,7 +1186,8 @@
 		"USER": "role.USER",
 		"PROCESSOR": "role.PROCESSOR",
 		"AUTHOR": "role.AUTHOR",
-		"CUSTODIAN_STEWARD": "role.CUSTODIAN_STEWARD"
+		"CUSTODIAN_STEWARD": "role.CUSTODIAN_STEWARD",
+		"POINT_OF_CONTACT": "role.POINT_OF_CONTACT"
 	},
 	"dataset": {
 		"longType": {

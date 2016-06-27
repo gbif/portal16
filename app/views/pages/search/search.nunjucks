@@ -2,7 +2,7 @@
 {% import "./searchResults.macro.nunjucks" as searchMacro %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes omniSearch page--data search-content" ng-controller="searchCtrl as search">
+    <article class="wrapper-horizontal-stripes omniSearch search-content" ng-controller="searchCtrl as search">
 
         <div class="horizontal-stripe--paddingless article-header white-background">
             <div class="search-bar">
