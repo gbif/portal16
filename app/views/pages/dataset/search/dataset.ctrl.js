@@ -19,6 +19,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
     vm.freeTextQuery = $stateParams.q;
     vm.facets = results.facets;
     vm.state = DatasetFilter.state;
+    vm.count = results.count;
 
     vm.updateSearch = function() {
         $stateParams.q =  vm.freeTextQuery;
@@ -60,7 +61,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
         });
     };
 
-    vm.typeaheadSelect = function(item, model, label, event){
+    vm.typeaheadSelect = function(item){ //  model, label, event
         window.location.href = "../dataset/" + item.key;
     };
 

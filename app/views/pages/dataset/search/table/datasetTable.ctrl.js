@@ -41,12 +41,12 @@ function datasetTableCtrl(results, $stateParams, $state, $http) {
             url: 'http://www.gbif.org/featured-datasets/json'
         }).then(function successCallback(response) {
             vm.featuredDataSets.nodes = response.data.nodes;
-        }, function errorCallback(response) {
+        }, function errorCallback() {
             //ignore any errors and just do not show feeatured datasets
         });
     };
     var keys = Object.keys($stateParams).reduce(function(prev, curr){
-        var v = !!$stateParams[curr]? 1 : 0;
+        var v = $stateParams[curr]? 1 : 0;
         return prev + v;
     }, 0);
 

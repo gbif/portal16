@@ -113,6 +113,7 @@ config.js = {
     },
     client: {
         paths: [loc('app/views/**/*.js'), '!' + loc('app/views/**/*.spec.js')],
+        watch: [loc('app/views/**/*.js'), loc('app/views/**/*.json'), '!' + loc('app/views/**/*.spec.js')],
         testPaths: [loc('app/views/**/*.spec.js')]
     },
     gulp: {

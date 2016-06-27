@@ -55,7 +55,7 @@ gulp.task('watch', ['browser-sync'], function() {
     ], ['styles-reload']);
 
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
-    gulp.watch([config.js.client.paths], ['scripts-reload', 'client-lint']);
+    gulp.watch([config.js.client.watch], ['scripts-reload', 'client-lint']);
 
     gulp.watch(['app/views/**/*.html'], ['templates']).on('change', browserSync.reload);
 

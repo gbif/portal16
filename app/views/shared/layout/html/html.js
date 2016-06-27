@@ -33,6 +33,7 @@ require('../../../components/clickoutside/clickoutside.directive');
 require('./angular/env.constants');
 require('./angular/routerConfig');
 require('./angular/translate');
+require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
 require('./angular/species.resource');

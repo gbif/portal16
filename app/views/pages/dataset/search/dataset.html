@@ -4,16 +4,21 @@
     </a>
 </script>
 
-<aside class="site-drawer" id="filter">
+<aside class="site-drawer" id="filter" ng-class="{'is-active': dataset.showDrawer}">
+
     <header class="site-drawer__header">
-        <nav></nav>
-    </header>
-    <div class="site-drawer__section" style="position:relative;">
-        <div class="site-drawer__section__content">
-            <h3 class="h3">Datasets</h3>
-            Search datasets
+        <a href="../search?q={{dataset.freeTextQuery}}"
+           class="h5 site-drawer__header__action gb-icon-angle-left"></a>
+        <div class="">
+            <h4 class="">Datasets</h4>
+            <span>{{dataset.count}} results</span>
         </div>
-        <div class="form-group">
+        <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>
+    </header>
+
+    <div class="site-drawer__section">
+
+        <div class="site-drawer__search-bar">
             <input type="text"
                    ng-model="dataset.freeTextQuery"
                    placeholder="Search for datasets"
@@ -22,25 +27,39 @@
                    typeahead-focus-first="false"
                    typeahead-template-url="customTemplate.html"
                    ng-keypress="dataset.searchOnEnter($event)">
-            <button ng-click="dataset.updateSearch()">Search</button>
+            <button ng-click="dataset.updateSearch()"
+                    class="gb-icon-search">
+                <span class="sr-only">search</span>
+            </button>
         </div>
 
-
-        <a ui-sref="datasetSearchTable()" ui-sref-opts="{inherit: false}">Clear</a><br/>
+        <a ui-sref="datasetSearchTable()" ui-sref-opts="{inherit: false}" class="block-comment">Clear</a><br/>
 
         <div ng-repeat="facet in dataset.facets">
-            <div>
-                <h3>{{facet.field}}</h3>
+            <div class="site-drawer__facet-group">
+                <h5 translate>{{facet.field | prettifyEnum}}</h5>
                 <div ng-repeat="row in facet.counts">
-                    <a href="" ng-click="dataset.facetSelected(facet.field, row.name)">{{row.title}}: {{row.count}}</a>
+                    <a href="" ng-click="dataset.facetSelected(facet.field, row.name)">
+                        <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                        <span class="site-drawer__facet-group__count">{{row.count}}</span>
+                    </a>
                 </div>
             </div>
         </div>
+
     </div>
 
 </aside>
 
 <div class="site-content">
+
+
+    <div class="fab" fab>
+        <div class="fab__trigger">
+            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="dataset.showDrawer = true"><i class="gb-icon-filter"></i></a>
+        </div>
+    </div>
+
     <div class="page">
         <div class="dataset-search-results">
             <!--<div class="tabBar">-->

@@ -3,7 +3,6 @@
  * An endpoint to serve historic weather reports. Used by the occurrence page as supplemental information and not crucial.
  */
 var express = require('express'),
-    request = require('request'),
     router = express.Router(),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
@@ -16,7 +15,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/search', function (req, res) {
+router.get('/dataset/search', function (req, res, next) {
     datasetSearch(req.query).then(function(data) {
         gbifData.expandFacets(data.facets, res.__, function(err){
             if (err) {

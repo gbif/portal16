@@ -49,7 +49,6 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
         OccurrenceSearch.query(vm.query, function (data) {
             vm.mapMenu.occurrences = data;
         }, function () {
-            debugger;
         });
     }
     leafletData.getMap('occurrenceMap').then(function(map) {
@@ -71,7 +70,6 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
       return hashString(JSON.stringify(obj));
     };
     var setOverlay = function() {
-        console.log(234);
         //TODO this should be changed to match the new tile/heatmap api
         vm.query = angular.copy($stateParams);
         if (Object.keys(vm.layers.overlays).length > 0) {

@@ -35,12 +35,14 @@
 		"MX": "country.MX",
 		"SE": "country.SE",
 		"undefined": "country.undefined",
-		"CH": "country.CH"
+		"CH": "country.CH",
+		"BO": "country.BO"
 	},
 	"taxonRank": {
 		"undefined": "taxonRank.undefined",
 		"FAMILY": "taxonRank.FAMILY",
-		"SPECIES": "taxonRank.SPECIES"
+		"SPECIES": "taxonRank.SPECIES",
+		"GENUS": "taxonRank.GENUS"
 	},
 	"stdTerms": {
 		"location": "stdTerms.location",
@@ -173,5 +175,13 @@
 	},
 	"language": {
 		"eng": "language.eng"
+	},
+	"taxonomicStatus": {
+		"ACCEPTED": "taxonomicStatus.ACCEPTED"
+	},
+	"dataset": {
+		"longType": {
+			"OCCURRENCE": "dataset.longType.OCCURRENCE"
+		}
 	}
 }

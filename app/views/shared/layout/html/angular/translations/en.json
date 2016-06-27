@@ -7,5 +7,10 @@
   },
   "BASIS_OF_RECORD": {
     "HUMAN_OBSERVATION": "human observation"
-  }
+  },
+  "Type": "Type",
+  "Publishing country": "Publishing country",
+  "Keyword": "Keyword",
+  "Publishing org": "Publishing organisation",
+  "Hosting org": "Hosting organisation"
 }

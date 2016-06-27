@@ -566,28 +566,27 @@ main {
 //use sibling elements
 
 .site-drawer {
+	z-index 3000
 	width $filterDrawerWidth
 	max-width 100%
 	position absolute
 	top 0px
 	transition right 500ms ease;
 	height 100%//"calc(100vh - %s)" % $navBar_height
-	right 0
+	right -($filterDrawerWidth + 10)
 	overflow hidden
-	box-shadow -2px 0 2px rgba(0,0,0,0.3)
-	> div {
-		height 100%
+	box-shadow -2px 1px 2px rgba(0,0,0,0.3)
+	background $drawerBackgroundColor
+	> .site-drawer__section {
+		height calc(100% - 50px)
 		background $drawerBackgroundColor
 		color $drawerTextColor
 		overflow-y auto
 		-webkit-overflow-scrolling touch
 	}
-	//&:target {
-	//	~ .site-content {
-	//		right $filterDrawerWidth
-	//		overflow hidden
-	//	}
-	//}
+	&.is-active {
+		right 0
+	}
 }
 
 
@@ -605,20 +604,12 @@ forceShowDrawer() {
 }
 +isAbove($laptop) {
 	.site-drawer {
-		z-index 20
 		//right initial
 		//right -($filterDrawerWidth)
 		transition right 500ms ease;
 		position fixed
 		top $navBar_height
-		&:target {
-			right initial
-			right 0
-			/*~ .site-content {*/
-				/*right initial*/
-				/*left $drawerWidth*/
-			/*}*/
-		}
+		height "calc(100vh - %s)" % $navBar_height
 		&.isLocked {
 			forceShowDrawer()
 		}

@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('DatasetSearch', function($resource, env) {
+        .factory('DatasetSearch', function($resource) {
             //var facets = {
             //    facet: ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country', 'decade']
             //};
