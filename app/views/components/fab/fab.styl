@@ -1,11 +1,12 @@
+$fabButtonColor = #3a5563 //$plum
 .btn-highlight {
 	color white
-	background $plum
-	border-color darken($plum, 10)
+	background $fabButtonColor
+	border-color darken($fabButtonColor, 10)
 	box-shadow 0 2px 2px rgba(0,0,0,0.3)
 	&:hover {
-		background darken($plum, 5)
-		border-color darken($plum, 10)
+		background darken($fabButtonColor, 5)
+		border-color darken($fabButtonColor, 10)
 		color white
 	}
 }
@@ -54,12 +55,12 @@
 	.fab__trigger {
 		padding vrBlock(0.25)
 		a {
-			background $plum
+			background $fabButtonColor
 			color white
 		}
 	}
 	li.fab__options__primary>a {
-		background lighten($plum, 20)
+		background lighten($fabButtonColor, 20)
 		color white
 	}
 	.fab__options li:nth-child(2) {

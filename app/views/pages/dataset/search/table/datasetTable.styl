@@ -1,0 +1,104 @@
+.search-results__list{
+	max-width 650px
+	margin 0 auto
+	&__item {
+		border-bottom solid 1px #d9d9d9
+		padding: 20px 0
+		&:first-of-type {
+			padding-top 0
+		}
+		&:last-of-type {
+			border none
+		}
+		&__tag {
+			text-transform uppercase
+			font-size 11px
+			margin 0
+			letter-spacing 0.05em
+			>span {
+				font-weight bold
+
+			}
+		}
+		&__title {
+			margin 2px 0 0 0
+			display inline-block
+			line-height 1.3em
+			overflow hidden
+			text-overflow ellipsis
+			white-space nowrap
+			max-width 100%
+			a {
+				font-size 20px
+				color inherit
+				&:hover {
+					color #337ab7
+					text-decoration none
+				}
+			}
+		}
+		&__title--occurrence {
+			max-width calc(100% - 138px)
+		}
+		&__subtitle {
+			font-size 14px
+			margin 0 0 4px
+			//font-style italic
+			font-weight normal
+			//font-family $caslon
+			color #63616d
+		}
+		&__meta {
+			margin 0
+			color #9a9aa0 //inherit
+			font-size 14px
+			font-weight 300
+			font-family $caslon
+			font-style italic
+			a {
+				text-decoration underline
+				color inherit
+			}
+		}
+		>div {
+			group()
+			>a {
+				margin-left 10px
+				float right
+			}
+		}
+		&__details {
+			display none
+		}
+	}
+
+}
+.showDetails.search-results__list {
+	.search-results__list__item {
+		border-bottom solid 1px #d9d9d9
+		padding 35px 0
+		&__title {
+			margin 0 0 4px
+			a {
+				font-size 20px
+				color inherit
+				&:hover {
+					color #337ab7
+				}
+			}
+		}
+		&__subtitle {
+			margin-bottom 10px
+		}
+		>div {
+			group()
+			>a {
+				margin-left 0
+				float none
+			}
+		}
+		&__details {
+			display block
+		}
+	}
+}

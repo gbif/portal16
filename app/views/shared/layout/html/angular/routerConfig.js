@@ -62,10 +62,10 @@ function routerConfig($stateProvider, $locationProvider) {
                     var query = angular.copy($stateParams);
                     var availableFacets = ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country'];
                     availableFacets.forEach(function(facet){
-                        if (angular.isUndefined(query[facet])) {
+                        //if (angular.isUndefined(query[facet])) {
                             query.facet = query.facet || [];
                             query.facet.push(facet);
-                        }
+                        //}
                     });
                     return DatasetSearch.query(query).$promise;
                 }

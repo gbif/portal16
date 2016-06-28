@@ -1,83 +1,66 @@
 <article class="wrapper-horizontal-stripes">
 
-    <div class="horizontal-stripe bare-background" ng-show="datasetTable.featuredDataSets.nodes.length > 0">
-        <div class="card" ng-repeat="featured in datasetTable.featuredDataSets.nodes | limitTo:3">
-            <a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">
-                <img ng-src="{{featured.node.field_uni_images.src}}">
-                <div  class="card__content">
-                    <h2 class="h3">{{featured.node.title}}</h2>
-                    <p>
-                        {{featured.node.body}}
-                    </p>
-                </div>
-            </a>
-        </div>
-    </div>
+    <!--<div class="horizontal-stripe bare-background" ng-show="datasetTable.featuredDataSets.nodes.length > 0">-->
+        <!--<div class="card" ng-repeat="featured in datasetTable.featuredDataSets.nodes | limitTo:3">-->
+            <!--<a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">-->
+                <!--<img ng-src="{{featured.node.field_uni_images.src}}">-->
+                <!--<div  class="card__content">-->
+                    <!--<h2 class="h3">{{featured.node.title}}</h2>-->
+                    <!--<p>-->
+                        <!--{{featured.node.body}}-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="horizontal-stripe white-background">
-        <div class="container--normal" style="position:relative">
-            <div class="block-options" ng-class="{'is-expanded': datasetTable.expandMore}">
-                <a href=""
-                   class="gb-icon-compare-fat block-options__option"
-                   ng-click="datasetTable.hideDetails = !datasetTable.hideDetails;"
-                   ng-class="{'gb-icon-compare-fat-reverse': !datasetTable.hideDetails}"
-                   tooltip-placement="left"
-                   uib-tooltip="List"></a>
-                <a href=""
-                   class="gb-icon-compare-fat block-options__option"
-                   ng-click="datasetTable.hideDetails = !datasetTable.hideDetails;"
-                   ng-class="{'gb-icon-compare-fat-reverse': !datasetTable.hideDetails}"
-                   tooltip-placement="left"
-                   uib-tooltip="Detail view"></a>
-            </div>
+        <div>
+            <div class="search-results__list showDetailsx">
 
-            <div class="container search-list__group">
-
-
-                <div ng-repeat="row in datasetTable.results">
-                    <div class="col-xs-12 col-sm-8">
-
-                        <!--<a href="../dataset/{{row.key}}" class="tile">-->
-                            <!--<div class="species-overview-map">-->
-                                <!--<img src="/img/tile000/basemap-grey-light2.png">-->
-                                <!--<img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=8">-->
-                            <!--</div>-->
-                        <!--</a>-->
-                        <h3 class="h4">
-                            <a href="../dataset/{{row.key}}">
-                                {{row.title}}
-                            </a>
-                        </h3>
+                <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
+                    <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
+                    <div>
+                        <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
+                            <div class="species-overview-map--small">
+                                <img src="/img/tile000/basemap-grey-light2.png">
+                                <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
+                            </div>
+                        </a>
                         <div>
-                            <div>
-                                {{ row.description | limitTo:50 }}
-                            </div>
-                            <div>
-                                <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">
-                                    {{row.publishingOrganizationTitle | limitTo:50 }}
-                                </a>
-                            </div>
-                            <ul class="list-chips">
-                                <li><a ng-href="/dataset?type={{ row.type }}">{{ row.type | prettifyEnum }}</a></li>
-                            </ul>
+                            <h4 class="search-results__list__item__title" ng-class="{'search-results__list__item__title--occurrence': row.type == 'OCCURRENCE'}">
+                                <a href="../dataset/{{row.key}}">{{row.title | limitTo:80}}</a>
+                            </h4>
+                            <p class="search-results__list__item__meta">Published by
+                                <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">{{row.publishingOrganizationTitle | limitTo:50 }}</a>
+                            </p>
+                            <h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>
                         </div>
                     </div>
-                </div>
+                    <div class="search-results__list__item__details">
+                        <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
+                            <div class="species-overview-map--small">
+                                <img src="/img/tile000/basemap-grey-light2.png">
+                                <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
+                            </div>
+                        </a>
+                    </div>
+                </article>
+
+                <uib-pagination
+                        total-items="datasetTable.totalItems"
+                        ng-model="datasetTable.currentPage"
+                        max-size="datasetTable.maxSize"
+                        items-per-page="datasetTable.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="false"
+                        rotate="false"
+                        ng-change="datasetTable.pageChanged()"
+                        ng-show="datasetTable.count > datasetTable.limit">
+                </uib-pagination>
             </div>
 
 
-
-            <uib-pagination
-                    total-items="datasetTable.totalItems"
-                    ng-model="datasetTable.currentPage"
-                    max-size="datasetTable.maxSize"
-                    items-per-page="datasetTable.limit"
-                    class="pagination-sm"
-                    boundary-link-numbers="false"
-                    rotate="false"
-                    ng-change="datasetTable.pageChanged()"
-                    ng-show="datasetTable.count > datasetTable.limit">
-            </uib-pagination>
         <div>
     </div>
 </article>
