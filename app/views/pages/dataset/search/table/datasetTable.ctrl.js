@@ -17,6 +17,19 @@ function datasetTableCtrl(results, $stateParams, $state, $http) {
     var vm = this,
         offset = parseInt($stateParams.offset) || 0;
 
+    //search chips
+    vm.chips = [];
+    //go through facets. if lowercase version exists as a state param then add as chip using the human readable name from the facets
+    //vm.possibleChips = ['q', 'type', 'publishing_org', 'hosting_org', 'keyword', 'publishing_country'];
+    //results.facets.forEach(function(e){
+    //    if (typeof $stateParams[e.field.toLowerCase()] !== 'undefined') {
+    //        vm.chips.push({
+    //            type: e.field,
+    //            value: $stateParams[key]
+    //        });
+    //    }
+    //});
+
     vm.count = results.count;
     vm.results = results.results;
     vm.featuredDataSets = {

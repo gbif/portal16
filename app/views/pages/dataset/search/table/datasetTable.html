@@ -16,7 +16,22 @@
 
     <div class="horizontal-stripe white-background">
         <div>
-            <div class="search-results__list showDetailsx">
+            <div class="search-results__list">
+                <div class="search-results__list__overview">
+                    <span>{{datasetTable.totalItems}} results</span>
+                    <div>
+                        <div class="chip--double">
+                            <div>type</div>
+                            <div>occurrence</div>
+                            <a href="" class="gb-icon-close_L"></a>
+                        </div>
+                        <div class="chip--double">
+                            <div>publisher</div>
+                            <div>Comisión nacional para el conocimiento y uso de la</div>
+                            <a href="" class="gb-icon-close_L"></a>
+                        </div>
+                    </div>
+                </div>
 
                 <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
                     <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>

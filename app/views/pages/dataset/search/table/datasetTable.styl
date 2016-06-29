@@ -71,34 +71,65 @@
 			display none
 		}
 	}
-
-}
-.showDetails.search-results__list {
-	.search-results__list__item {
+	&__overview {
 		border-bottom solid 1px #d9d9d9
-		padding 35px 0
-		&__title {
-			margin 0 0 4px
-			a {
-				font-size 20px
-				color inherit
-				&:hover {
-					color #337ab7
-				}
-			}
+	}
+}
+//.showDetails.search-results__list {
+//	.search-results__list__item {
+//		border-bottom solid 1px #d9d9d9
+//		padding 35px 0
+//		&__title {
+//			margin 0 0 4px
+//			a {
+//				font-size 20px
+//				color inherit
+//				&:hover {
+//					color #337ab7
+//				}
+//			}
+//		}
+//		&__subtitle {
+//			margin-bottom 10px
+//		}
+//		>div {
+//			group()
+//			>a {
+//				margin-left 0
+//				float none
+//			}
+//		}
+//		&__details {
+//			display block
+//		}
+//	}
+//}
+
+.chip--double {
+	color white
+	display inline-block
+	overflow hidden
+	height: 24px;
+	margin 0 7px 0 0
+	background-color #628292
+	padding 0 5px
+	border-radius 4px
+	line-height 24px
+	font-weight 300
+	div {
+		float left
+		margin 0 2px
+	}
+	div:first-of-type {
+		text-transform capitalize
+		&:after {
+			content ':'
 		}
-		&__subtitle {
-			margin-bottom 10px
-		}
-		>div {
-			group()
-			>a {
-				margin-left 0
-				float none
-			}
-		}
-		&__details {
-			display block
-		}
+	}
+	div:last-of-type {
+		max-width 200px
+		overflow hidden
+		text-overflow ellipsis
+		white-space nowrap
 	}
 }

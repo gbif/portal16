@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) {
     var vm = this,
-        limit = 50,
+        limit = 100,
         offset = 0;
     vm.count = 0;
     vm.results = [];
