@@ -1,0 +1,36 @@
+.multiToggle {
+	padding 0
+	>li {
+		float left
+		display inline-block
+		margin 0 2px
+		position relative
+		a {
+			display block
+			padding 6px 12px
+			text-transform capitalize
+			color inherit
+			&:hover {
+				text-decoration none
+			}
+		}
+		&.is-active {
+			background #3a5563
+			color white
+			&:after {
+				top: 100%;
+			    left: 50%;
+			    border: solid transparent;
+			    content: " ";
+			    height: 0;
+			    width: 0;
+			    position: absolute;
+			    pointer-events: none;
+			    border-color rgba(58, 85, 99, 0);
+			    border-top-color: #3a5563
+			    border-width: 7px;
+			    margin-left: -8px;
+			}
+		}
+	}
+}

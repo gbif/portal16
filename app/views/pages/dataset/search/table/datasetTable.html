@@ -15,64 +15,66 @@
     <!--</div>-->
 
     <div class="horizontal-stripe white-background">
-        <div>
-            <div class="search-results__list">
-                <div class="search-results__list__overview">
-                    <span>{{datasetTable.totalItems}} results</span>
-                    <div>
-                        <div class="chip--double">
-                            <div>type</div>
-                            <div>occurrence</div>
-                            <a href="" class="gb-icon-close_L"></a>
-                        </div>
-                        <div class="chip--double">
-                            <div>publisher</div>
-                            <div>Comisión nacional para el conocimiento y uso de la</div>
-                            <a href="" class="gb-icon-close_L"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
-                    <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
-                    <div>
-                        <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
-                            <div class="species-overview-map--small">
-                                <img src="/img/tile000/basemap-grey-light2.png">
-                                <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
-                            </div>
-                        </a>
+        <div class="container--narrow">
+            <div class="search-results__list row">
+                <div class="col-xs-12">
+                    <div class="search-results__list__overview">
+                        <span>{{datasetTable.totalItems}} results</span>
                         <div>
-                            <h4 class="search-results__list__item__title" ng-class="{'search-results__list__item__title--occurrence': row.type == 'OCCURRENCE'}">
-                                <a href="../dataset/{{row.key}}">{{row.title | limitTo:80}}</a>
-                            </h4>
-                            <p class="search-results__list__item__meta">Published by
-                                <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">{{row.publishingOrganizationTitle | limitTo:50 }}</a>
-                            </p>
-                            <h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>
+                            <div class="chip--double">
+                                <div>type</div>
+                                <div>occurrence</div>
+                                <a href="" class="gb-icon-close_L"></a>
+                            </div>
+                            <div class="chip--double">
+                                <div>publisher</div>
+                                <div>Comisión nacional para el conocimiento y uso de la</div>
+                                <a href="" class="gb-icon-close_L"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="search-results__list__item__details">
-                        <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
-                            <div class="species-overview-map--small">
-                                <img src="/img/tile000/basemap-grey-light2.png">
-                                <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
-                            </div>
-                        </a>
-                    </div>
-                </article>
 
-                <uib-pagination
-                        total-items="datasetTable.totalItems"
-                        ng-model="datasetTable.currentPage"
-                        max-size="datasetTable.maxSize"
-                        items-per-page="datasetTable.limit"
-                        class="pagination-sm"
-                        boundary-link-numbers="false"
-                        rotate="false"
-                        ng-change="datasetTable.pageChanged()"
-                        ng-show="datasetTable.count > datasetTable.limit">
-                </uib-pagination>
+                    <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
+                        <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
+                        <div>
+                            <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
+                                <div class="species-overview-map--small">
+                                    <img src="/img/tile000/basemap-grey-light2.png">
+                                    <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
+                                </div>
+                            </a>
+                            <div>
+                                <h4 class="search-results__list__item__title" ng-class="{'search-results__list__item__title--occurrence': row.type == 'OCCURRENCE'}">
+                                    <a href="../dataset/{{row.key}}">{{row.title | limitTo:80}}</a>
+                                </h4>
+                                <p class="search-results__list__item__meta">Published by
+                                    <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">{{row.publishingOrganizationTitle | limitTo:50 }}</a>
+                                </p>
+                                <h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>
+                            </div>
+                        </div>
+                        <div class="search-results__list__item__details">
+                            <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
+                                <div class="species-overview-map--small">
+                                    <img src="/img/tile000/basemap-grey-light2.png">
+                                    <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
+                                </div>
+                            </a>
+                        </div>
+                    </article>
+
+                    <uib-pagination
+                            total-items="datasetTable.totalItems"
+                            ng-model="datasetTable.currentPage"
+                            max-size="datasetTable.maxSize"
+                            items-per-page="datasetTable.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="datasetTable.pageChanged()"
+                            ng-show="datasetTable.count > datasetTable.limit">
+                    </uib-pagination>
+                </div>
             </div>
 
 

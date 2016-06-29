@@ -16,6 +16,9 @@ curatedArticles.hard.forEach(function(e){
 });
 
 function getCuratedArticle(q, data) {
+	if (typeof q === 'undefined' || typeof data === 'undefined') {
+		return;
+	}
 	let cmsContentId = keywordToResource[q.toString().toLocaleLowerCase()];
 	if (typeof cmsContentId !== 'undefined' && data.articles && data.articles.data && data.articles.data.length > 0) {
 		for (let i = 0; i < data.articles.data.length; i++) {

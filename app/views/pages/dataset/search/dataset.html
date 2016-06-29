@@ -7,10 +7,8 @@
 <aside class="site-drawer" id="filter" ng-class="{'is-active': dataset.showDrawer}">
 
     <header class="site-drawer__header">
-        <a href="../search?q={{dataset.freeTextQuery}}"
-           class="h5 site-drawer__header__action gb-icon-angle-left"></a>
-        <div class="">
-            <h4 class="">Datasets</h4>
+        <div>
+            <h4 class="">Filter datasets</h4>
             <span>{{dataset.count}} results</span>
         </div>
         <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>
@@ -18,7 +16,7 @@
 
     <div class="site-drawer__section">
 
-        <div class="site-drawer__search-bar">
+        <!-- <div class="site-drawer__search-bar">
             <input type="text"
                    ng-model="dataset.freeTextQuery"
                    placeholder="Search for datasets"
@@ -31,7 +29,7 @@
                     class="gb-icon-search">
                 <span class="sr-only">search</span>
             </button>
-        </div>
+        </div> -->
 
         <a ui-sref="datasetSearchTable()" ui-sref-opts="{inherit: false}" class="block-comment">Clear</a><br/>
 
@@ -41,7 +39,7 @@
                 <div ng-repeat="row in facet.counts">
                     <a href="" ng-click="dataset.facetSelected(facet.field, row.name)">
                         <span class="site-drawer__facet-group__facet">{{row.title}}</span>
-                        <span class="site-drawer__facet-group__count">{{row.count}}</span>
+                        <span class="site-drawer__facet-group__count">({{row.count}})</span>
                     </a>
                 </div>
             </div>
@@ -62,19 +60,45 @@
 
     <div class="page">
         <div class="dataset-search-results">
-            <!--<div class="tabBar">-->
-                <!--<div class="tabs">-->
-                    <!--<a ui-sref="datasetSearchTable()">Table</a>-->
-                <!--</div>-->
-            <!--</div>-->
+            <div class="horizontal-stripe white-background search-bar">
+                <div class="search-bar__form">
+                    <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                        <input type="text"
+                           ng-model="dataset.freeTextQuery"
+                           placeholder="Search for datasets"
+                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="false"
+                           typeahead-template-url="customTemplate.html"
+                           ng-keypress="dataset.searchOnEnter($event)">
+                        <button type="submit" class="gb-icon-search">
+                            <span class="sr-only">{$ __('search') $}</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-            <!--<nav class="article-header__category article-header__category&#45;&#45;deep" style="-->
-    <!--background: white;-->
-    <!--padding: 10px;-->
-<!--">-->
-                <!--<span class="article-header__category__upper">Search</span>-->
-                <!--<span class="article-header__category__lower">Datasets</span>-->
-            <!--</nav>-->
+
+
+            <nav class="horizontal-stripe--paddingless light-background search-tabs">
+                <div class="container--narrow">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="multiToggle">
+                                <li>
+                                    <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
+                                </li>
+                                <li class="is-active">
+                                    <a href="" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
 
             <div ui-view>
 
