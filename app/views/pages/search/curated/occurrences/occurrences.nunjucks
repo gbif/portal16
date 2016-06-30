@@ -1,6 +1,6 @@
 {% if results.occurrences.count > 0 %}
 <div style="max-width:1000px">
-    <div>
+    <div class="card" style="background: pink">
         <h3 class="h5">Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span></h3>
         <table class="table table--compact">
             <thead>

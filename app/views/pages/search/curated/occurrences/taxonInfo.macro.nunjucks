@@ -2,7 +2,7 @@
 
 {% if taxon.occurrences.count > 0 %}
 <div style="max-width:660px">
-    <div>
+    <div class="card" style="background: pink">
         <h3 class="h5">Occurrences <span class="discreet small">5 of {$ taxon.occurrences.count $}</span></h3>
         <table class="table table--compact">
             <thead>

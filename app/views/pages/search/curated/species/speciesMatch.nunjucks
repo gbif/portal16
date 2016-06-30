@@ -86,6 +86,6 @@
 	{% endfor %}
 
 	{% if results.highlights.length == 1 %}
-		{$ taxonInfo.taxonInfo(results.taxaMatches[0], __) $}
+		{# {$ taxonInfo.taxonInfo(results.taxaMatches[0], __) $} #}
 	{% endif %}
 {% endif %}

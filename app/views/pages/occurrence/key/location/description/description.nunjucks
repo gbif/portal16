@@ -37,6 +37,12 @@
                             <dd>{$ occurrence.record.locationRemarks $}</dd>
                         </div>
                     {% endif %}
+                    {% if occurrence.record.verbatimLocality | isNotEmpty %}
+                        <div>
+                            <dt>{$ __('ocurrenceFieldNames.verbatimLocality') $}</dt>
+                            <dd>{$ occurrence.record.verbatimLocality $}</dd>
+                        </div>
+                    {% endif %}
                     {% if occurrence.record.elevation | isNotEmpty %}
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.elevation') $}</dt>

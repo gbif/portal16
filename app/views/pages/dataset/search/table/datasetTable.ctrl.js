@@ -13,22 +13,9 @@ angular
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl(results, $stateParams, $state, $http) {
+function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys) {
     var vm = this,
         offset = parseInt($stateParams.offset) || 0;
-
-    //search chips
-    vm.chips = [];
-    //go through facets. if lowercase version exists as a state param then add as chip using the human readable name from the facets
-    //vm.possibleChips = ['q', 'type', 'publishing_org', 'hosting_org', 'keyword', 'publishing_country'];
-    //results.facets.forEach(function(e){
-    //    if (typeof $stateParams[e.field.toLowerCase()] !== 'undefined') {
-    //        vm.chips.push({
-    //            type: e.field,
-    //            value: $stateParams[key]
-    //        });
-    //    }
-    //});
 
     vm.count = results.count;
     vm.results = results.results;
@@ -45,27 +32,50 @@ function datasetTableCtrl(results, $stateParams, $state, $http) {
     vm.pageChanged = function() {
         $stateParams.offset =  (vm.currentPage-1) * vm.limit;
         $state.go($state.current, $stateParams, {reload: true});
+        window.scrollTo(0,0);
     };
+
+    hotkeys.add({
+        combo: 'alt+right',
+        description: 'Next',
+        callback: function() {
+            if (offset + vm.limit < vm.totalItems) {
+                vm.currentPage += 1;
+                vm.pageChanged();
+            }
+        }
+    });
+    hotkeys.add({
+        combo: 'alt+left',
+        description: 'Previous',
+        callback: function() {
+            if (offset > 0) {
+                vm.currentPage -= 1;
+                vm.pageChanged();
+            }
+        }
+    });
 
     vm.getFeatured = function() {
-        //http://www.gbif.org/featured-datasets/json
-        $http({
-            method: 'GET',
-            url: 'http://www.gbif.org/featured-datasets/json'
-        }).then(function successCallback(response) {
-            vm.featuredDataSets.nodes = response.data.nodes;
-        }, function errorCallback() {
-            //ignore any errors and just do not show feeatured datasets
-        });
-    };
-    var keys = Object.keys($stateParams).reduce(function(prev, curr){
-        var v = $stateParams[curr]? 1 : 0;
-        return prev + v;
-    }, 0);
+        var keys = Object.keys($stateParams).reduce(function(prev, curr){
+            var v = $stateParams[curr]? 1 : 0;
+            return prev + v;
+        }, 0);
 
-    if (keys == 1) {//lang key
-        vm.getFeatured();
-    }
+        if (keys == 1) {//lang key
+            //http://www.gbif.org/featured-datasets/json
+            $http({
+                method: 'GET',
+                url: 'http://www.gbif.org/featured-datasets/json'
+            }).then(function successCallback(response) {
+                vm.featuredDataSets.nodes = response.data.nodes;
+            }, function errorCallback() {
+                //ignore any errors and just do not show feeatured datasets
+            });
+        }
+    };
+    vm.getFeatured();
+    
 }
 
 module.exports = datasetTableCtrl;

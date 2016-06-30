@@ -1,4 +1,6 @@
 .multiToggle {
+	position relative
+	z-index 10
 	padding 0
 	>li {
 		float left
@@ -15,7 +17,7 @@
 			}
 		}
 		&.is-active {
-			background #3a5563
+			background #5a7888//3a5563
 			color white
 			&:after {
 				top: 100%;
@@ -27,7 +29,7 @@
 			    position: absolute;
 			    pointer-events: none;
 			    border-color rgba(58, 85, 99, 0);
-			    border-top-color: #3a5563
+			    border-top-color: #5a7888;
 			    border-width: 7px;
 			    margin-left: -8px;
 			}

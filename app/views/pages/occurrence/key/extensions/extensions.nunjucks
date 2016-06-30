@@ -4,25 +4,6 @@
 <section class="horizontal-stripe bare-background extensions">
     <div class="container--normal">
         <div class="row">
-            {#<div>#}
-            {#<div class="multiToggle">#}
-            {#<div type="button" aria-label="All" class="is-active" focus="0"#}
-            {#ng-click="occurrence.table.filter = undefined"#}
-            {#ng-class="{is-active: occurrence.table.filter == undefined}">All</div>#}
-            {#<div type="button" aria-label="Event"#}
-            {#ng-repeat="category in ['Record','Occurrence','Taxon','Location','Dataset','Identification','Event','Crawling']"#}
-            {#ng-click="occurrence.table.filter = category"#}
-            {#ng-class="{is-active: occurrence.table.filter == category}">#}
-            {#{{ category }}#}
-            {#</div>#}
-            {#</div>#}
-            {#</div>#}
-
-            {#<div class="col-xs-12">#}
-                {#<h2 class="h4">#}
-                    {#Extensions#}
-                {#</h2>#}
-            {#</div>#}
             <div class="col-xs-12">
                 {% for name, fields in occurrence.usedExtensionFields %}
                     <h3 class="h5">{$ name | prettifyEnum $}</h3>

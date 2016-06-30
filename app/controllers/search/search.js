@@ -161,7 +161,7 @@ function getData(query, cb) {
                 helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=3&hl=true&q=' + q, callback);
             },
             publishers: function(callback) {
-                helper.getApiData(baseConfig.dataApi + 'organization?limit=5&q=' + q, callback);
+                helper.getApiData(baseConfig.dataApi + 'organization?limit=3&q=' + q, callback);
             },
              articles: function(callback){
                  helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);

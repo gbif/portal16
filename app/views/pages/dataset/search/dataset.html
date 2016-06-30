@@ -15,32 +15,27 @@
     </header>
 
     <div class="site-drawer__section">
+        <div class="site-drawer__actions">
+            <a ui-sref="datasetSearchTable({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters"></a>
+        </div>
+        
 
-        <!-- <div class="site-drawer__search-bar">
-            <input type="text"
-                   ng-model="dataset.freeTextQuery"
-                   placeholder="Search for datasets"
-                   uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                   typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                   typeahead-focus-first="false"
-                   typeahead-template-url="customTemplate.html"
-                   ng-keypress="dataset.searchOnEnter($event)">
-            <button ng-click="dataset.updateSearch()"
-                    class="gb-icon-search">
-                <span class="sr-only">search</span>
-            </button>
-        </div> -->
-
-        <a ui-sref="datasetSearchTable()" ui-sref-opts="{inherit: false}" class="block-comment">Clear</a><br/>
-
-        <div ng-repeat="facet in dataset.facets">
-            <div class="site-drawer__facet-group">
+        <div ng-repeat="facet in dataset.facets | orderBy: dataset.sortFacets">
+            <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
                 <h5 translate>{{facet.field | prettifyEnum}}</h5>
                 <div ng-repeat="row in facet.counts">
-                    <a href="" ng-click="dataset.facetSelected(facet.field, row.name)">
-                        <span class="site-drawer__facet-group__facet">{{row.title}}</span>
-                        <span class="site-drawer__facet-group__count">({{row.count}})</span>
+                    <a href="" ng-click="dataset.addFilter(facet.field, row.name)" ng-if="!dataset.isFacetInQuery(facet.field, row.name)">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="site-drawer__facet-group__count">({{row.count}})</span>
+                        </span>
                     </a>
+                    <span ng-if="dataset.isFacetInQuery(facet.field, row.name)" class="chip">
+                        <a href="" ng-click="dataset.removeFilter(facet.field, row.name)" class="chip__content">
+                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="close"></span>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -60,21 +55,28 @@
 
     <div class="page">
         <div class="dataset-search-results">
-            <div class="horizontal-stripe white-background search-bar">
-                <div class="search-bar__form">
-                    <form class="search-bar__term" ng-submit="dataset.updateSearch()">
-                        <input type="text"
-                           ng-model="dataset.freeTextQuery"
-                           placeholder="Search for datasets"
-                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                           typeahead-focus-first="false"
-                           typeahead-template-url="customTemplate.html"
-                           ng-keypress="dataset.searchOnEnter($event)">
-                        <button type="submit" class="gb-icon-search">
-                            <span class="sr-only">{$ __('search') $}</span>
-                        </button>
-                    </form>
+            <div class="horizontal-stripe--paddingless white-background search-bar">
+                <div class="container--narrow">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="search-bar__form">
+                                <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                                    <input type="text"
+                                    class="fit-suggestions"
+                                       ng-model="dataset.freeTextQuery"
+                                       placeholder="Search for datasets"
+                                       uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                                       typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                                       typeahead-focus-first="false"
+                                       typeahead-template-url="customTemplate.html"
+                                       ng-keypress="dataset.searchOnEnter($event)">
+                                    <button type="submit" class="gb-icon-search">
+                                        <span class="sr-only">{$ __('search') $}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

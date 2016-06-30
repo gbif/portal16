@@ -1,4 +1,45 @@
 <aside class="site-drawer is-locked-x" id="filter">
+
+    <header class="site-drawer__header">
+        <div>
+            <h4 class="">Filter occurrences</h4>
+            <span>{{occurrence.count}} results</span>
+        </div>
+        <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>
+    </header>
+
+    <div class="site-drawer__section">
+        <div class="site-drawer__actions">
+            <a ui-sref="occurrenceSearchTable()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-menu inherit discreet" tooltip-placement="left" uib-tooltip="List"></a>
+            <a ui-sref="occurrenceSearchMap()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-map inherit discreet" tooltip-placement="left" uib-tooltip="Map"></a>
+            <a ui-sref="occurrenceSearchGallery()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-photo inherit discreet" tooltip-placement="left" uib-tooltip="Gallery"></a>
+            <a class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters"></a>
+        </div>
+        
+
+        <div ng-repeat="facet in dataset.facets | orderBy: dataset.sortFacets">
+            <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
+                <h5 translate>{{facet.field | prettifyEnum}}</h5>
+                <div ng-repeat="row in facet.counts">
+                    <a href="" ng-click="dataset.addFilter(facet.field, row.name)" ng-if="!dataset.isFacetInQuery(facet.field, row.name)">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="site-drawer__facet-group__count">({{row.count}})</span>
+                        </span>
+                    </a>
+                    <span ng-if="dataset.isFacetInQuery(facet.field, row.name)" class="chip">
+                        <a href="" ng-click="dataset.removeFilter(facet.field, row.name)" class="chip__content">
+                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="close"></span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
     <div>
         <h2>Filter</h2>
         <div class="form-group">
@@ -30,16 +71,60 @@
 </aside>
 
 <div class="site-content">
+
+    <div class="fab" fab>
+        <div class="fab__trigger">
+            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="dataset.showDrawer = true"><i class="gb-icon-filter"></i></a>
+        </div>
+    </div>
+
     <div class="page">
-        <div class="occurrence-search-results">
-            <div class="tabBar">
-                <div class="tabs">
-                    <a ui-sref="occurrenceSearchTable()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchTable'}">Table</a>
-                    <a ui-sref="occurrenceSearchMap()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchMap'}">Map</a>
-                    <a ui-sref="occurrenceSearchGallery()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}">Gallery</a>
+        <div class="dataset-search-results">
+            <div class="horizontal-stripe--paddingless white-background search-bar">
+                <div class="container--narrow">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="search-bar__form">
+                                <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                                    <input type="text"
+                                       ng-model="dataset.freeTextQuery"
+                                       placeholder="Search for datasets"
+                                       uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                                       typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                                       typeahead-focus-first="false"
+                                       typeahead-template-url="customTemplate.html"
+                                       ng-keypress="dataset.searchOnEnter($event)">
+                                    <button type="submit" class="gb-icon-search">
+                                        <span class="sr-only">{$ __('search') $}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+
+
+            <nav class="horizontal-stripe--paddingless light-background search-tabs">
+                <div class="container--narrow">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="multiToggle">
+                                <li>
+                                    <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="datasetSearchTable()"ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                                </li>
+                                <li class="is-active">
+                                    <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
 
             <div ui-view>
 

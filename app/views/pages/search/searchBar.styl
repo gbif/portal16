@@ -1,56 +1,46 @@
 .search-bar {
-	height 4.28571429rem
-	&__form {
-		display flex
-		justify-content center
-	}
-	// >div {
-	// 	display flex
-	// }
-	&__title {
-		font-weight bold
-		text-transform uppercase
-		border-right 2px solid $orangePeel
-		margin-right 5px
-		padding-right 5px
-		flex 0 0 auto
-	}
+	height vrBlock(3)
+	padding 0
 	&__term {
+		margin-top 9px
 		display inline-block
-		border-bottom 1px dotted #bbb
 		position relative
-		width 90%
-		max-width 350px
+		width 100%
+		// max-width 500px
 		>input {
-			border none
+			background $lightBackground
+			padding 10px 15px
+			border 1px solid $stripeBorderColor
 			outline none
 			width 100%
-			border none
 			box-sizing border-box
-			padding-right vrBlock(1.2)
+			padding-right vrBlock(65px)
 			white-space nowrap
 			overflow hidden
 			text-overflow ellipsis
 			background none
 			font-size 16px
-			font-weight bold
+			line-height 1em
 			&:focus {
 				outline none
 			}
 		}
 		>button {
-			outline none
-			width vrBlock(1)
 			height 100%
-			background none
 			position absolute
 			font-size vrBlock(1.2)
-			right vrBlock(0.5)
-			top -5px
-			float right
+			text-align center
+			display inline-block
+			right 0
+			top 0
+			width 50px
+			background #5a7888
+			color white
 			border none
 			&:before {
 				display block
+				width 100%
+				text-align center
 			}
 		}
 	}

@@ -11,6 +11,6 @@
   "Type": "Type",
   "Publishing country": "Publishing country",
   "Keyword": "Keyword",
-  "Publishing org": "Publishing organisation",
-  "Hosting org": "Hosting organisation"
+  "Publishing org": "Publisher",
+  "Hosting org": "Host"
 }

@@ -19,9 +19,7 @@ router.get('/dataset/search', function (req, res, next) {
     datasetSearch(req.query).then(function(data) {
         gbifData.expandFacets(data.facets, res.__, function(err){
             if (err) {
-                // One of the iterations produced an error.
-                // All processing will now stop.
-                console.log('A file failed to process');
+                //TODO handle expansion errors
                 res.json(data);
             } else {
                 res.json(data);

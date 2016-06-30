@@ -21,19 +21,43 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
     vm.state = DatasetFilter.state;
     vm.count = results.count;
 
+    //fixed order for facets
+    var facetOrder = {
+        TYPE: 1,
+        PUBLISHING_ORG: 2,
+        PUBLISHING_COUNTRY: 3,
+        HOSTING_ORG: 4,
+        KEYWORD: 5
+    };
+    vm.sortFacets = function(a) {
+        return facetOrder[a.field] || 100;
+    };
+
     vm.updateSearch = function() {
         $stateParams.q =  vm.freeTextQuery;
         $stateParams.offset =  undefined;
         $stateParams.limit =  undefined;
         $state.go($state.current, $stateParams);
+        window.scrollTo(0,0);
     };
 
-    vm.facetSelected = function(field, value) {
+    vm.isFacetInQuery = function(field, value) {
+        var param = vm.query[field.toLowerCase()];
+        if (param === value) {
+            return true;
+        } else if ( angular.isArray(param) ) {
+            if (param.indexOf(value) > -1) {
+                return true
+            }
+        }
+        return false;
+    };
+
+    vm.addFilter = function(field, value) {
         var param = vm.query[field.toLowerCase()];
         if (angular.isUndefined(param)) {
             vm.query[field.toLowerCase()] = value;
-        }
-         else if ( angular.isArray(param) ) {
+        } else if ( angular.isArray(param) ) {
             if (param.indexOf(value) < 0) {
                 param.push(value);
             }
@@ -42,10 +66,22 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
                 vm.query[field.toLowerCase()] = [vm.query[field.toLowerCase()], value];
             }
         }
-        $stateParams.offset =  undefined;
-        $stateParams.limit =  undefined;
-        $state.go($state.current, vm.query);
+        vm.updateSearch();
     };
+    vm.removeFilter = function(field, value) {
+        var param = vm.query[field.toLowerCase()];
+        if (param == value) {
+            vm.query[field.toLowerCase()] = undefined;
+        } else if ( angular.isArray(param) ) {
+            vm.query[field.toLowerCase()] = param.filter(function(e){
+                if (e==value) {
+                    return false;
+                }
+                return true;
+            });
+        }
+        vm.updateSearch();
+    }
 
     vm.getSuggestions = function(val) {
         return $http.get('//api.gbif.org/v1/dataset/suggest', {
@@ -55,9 +91,6 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
             }
         }).then(function(response){
             return response.data;
-            //return response.data.map(function(item){
-            //    return item.title;
-            //});
         });
     };
 

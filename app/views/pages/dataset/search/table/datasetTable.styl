@@ -1,4 +1,4 @@
-.search-results__list{
+.search-results__list {
 	&__item {
 		border-bottom solid 1px #d9d9d9
 		padding: 20px 0
@@ -18,13 +18,12 @@
 		&__title {
 			margin 2px 0 0 0
 			display inline-block
-			line-height 1.3em
 			overflow hidden
 			text-overflow ellipsis
 			white-space nowrap
 			max-width 100%
 			a {
-				font-size 20px
+				font-size 16px
 				color inherit
 				&:hover {
 					color #337ab7
@@ -44,7 +43,7 @@
 			color #63616d
 		}
 		&__meta {
-			margin 0
+			margin-bottom 0//5px
 			color #9a9aa0 //inherit
 			font-size 14px
 			font-weight 300
@@ -70,61 +69,145 @@
 		border-bottom solid 1px #d9d9d9
 	}
 }
-//.showDetails.search-results__list {
-//	.search-results__list__item {
-//		border-bottom solid 1px #d9d9d9
-//		padding 35px 0
-//		&__title {
-//			margin 0 0 4px
-//			a {
-//				font-size 20px
-//				color inherit
-//				&:hover {
-//					color #337ab7
-//				}
-//			}
-//		}
-//		&__subtitle {
-//			margin-bottom 10px
-//		}
-//		>div {
-//			group()
-//			>a {
-//				margin-left 0
-//				float none
-//			}
-//		}
-//		&__details {
-//			display block
-//		}
-//	}
-//}
 
-.chip--double {
-	color white
+.search-results__list--short-list {
+	.search-results__list__item {
+		border none
+	}
+	&__header {
+		text-align center
+		h5 {
+			display inline
+		}
+		span {
+			padding-left 10px
+		}
+	}
+	&__more {
+		&:hover {
+			text-decoration none
+		}
+		span {
+			vertical-align middle
+		}
+	}
+}
++isAbove($mobile) {
+	.search-results__list--short-list {
+		&__more {
+			display none
+		}
+	}
+	.search-results__list {
+		&__item {
+			&__title {
+				a {
+					font-size 18px
+				}
+			}
+		}
+	}
+}
++isAbove($desktop+200px) {
+	.search-results__list--short-list {
+		.search-results__list__item:first-of-type {
+			padding-top 0
+		}
+		&__header {
+			width 200px
+			position absolute
+			left -200px
+			top 5px
+			text-align right
+			padding-right 30px
+			h5 {
+				display block
+				margin 0
+			}
+			span {
+				padding-left 10px
+			}
+		}
+	}
+}
++isBelow($mobile) {
+	.search-results__list {
+		&__item {
+			.tile .species-overview-map--small {
+				width 64px
+				height 32px
+				>img {
+					top -12px
+				}
+			}
+			&__title{
+				overflow visible
+				white-space normal
+				&--occurrence {
+					    max-width calc(100% - 74px)
+				}
+			}
+		}
+	}
+}
+
+.chip {
+	.chip__content{
+		color white
+	}
 	display inline-block
-	overflow hidden
-	height: 24px;
-	margin 0 7px 0 0
-	background-color #628292
-	padding 0 5px
-	border-radius 4px
-	line-height 24px
-	font-weight 300
-	div {
+	height 23px
+	max-width 300px
+	>a {
+		display inline-block
+		background-color #5a7888//#628292
+		padding 3px 10px
+		font-size 12px
+		position relative
+		max-width 100%
+		color white
+		overflow hidden
+		text-overflow ellipsis
+		white-space nowrap
+		padding-right 25px
+	}
+	&__term {
+		text-transform capitalize
+		&:after {
+			content ' : '
+		}
+	}
+	.close {
+		icon-x(12px, white, 1.2px)
+		opacity 1
+		top 5px
+		right 5px
+		position absolute
+	}
+}
+.chip--double {
+	@extends .chip
+	>* {
+		display inline-block
 		float left
 		margin 0 2px
 	}
-	div:first-of-type {
+	>*:first-of-type {
 		text-transform capitalize
 		&:after {
 			content ':'
 		}
 	}
-	div:last-of-type {
+	>*:nth-of-type(2) {
 		max-width 200px
+	}
+}
+
+.fit-suggestions + ul.dropdown-menu {
+	max-width 100%
+	border-radius 0
+	a{
 		overflow hidden
 		text-overflow ellipsis
-		white-space nowrap
 	}
 }
