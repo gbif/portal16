@@ -2,74 +2,84 @@
 
 {% if taxon.occurrences.count > 0 %}
 <div style="max-width:660px">
-    <div class="card" style="background: pink">
-        <h3 class="h5">Occurrences <span class="discreet small">5 of {$ taxon.occurrences.count $}</span></h3>
-        <table class="table table--compact">
-            <thead>
-            <tr>
-                {% for term in ['scientificName', 'year', 'country'] %}
-                <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
-                {% endfor %}
-            </tr>
-            </thead>
-            <tbody>
-
-            {% for row in taxon.occurrences.results | limit(5) %}
-                <tr class="table__tr--linked">
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
-                    </td>
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
-                    </td>
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
-                    </td>
-                </tr>
-            {% endfor %}
-
-            </tbody>
-        </table>
-    </div>
-
-    <dl class="inline">
-
-        {#{% if taxon.children.results.length > 0 %}#}
-        {#<div>#}
-            {#<dt>Lower classifications</dt>#}
-            {#<dd>#}
-                {#{% for child in taxon.children.results | limit(5) %}#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.scientificName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}#}
-                {#{% endfor %}#}
-
-                {#{% if taxon.children.results.length == 6 %}#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].scientificName $}</a>#}
-                    {#{% elif taxon.children.results.length > 6 %}#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/species/search#somewhere that shows this" class="more">view all</a>#}
-                {#{% endif %}#}
-            {#</dd>#}
-        {#</div>#}
-        {#{% endif %}#}
-
-        {% if taxon.holotypes.count > 0 %}
-            <div>
-                <dt>Holo type</dt>
-                <dd>
-                    {% if taxon.featuredHolotype %}
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="{$ gb.locales.urlPrefix $}/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>
-                    {% endif %}
-                    {% if taxon.holotypes.count > 1 %}
-                        and {$ taxon.holotypes.count - 1 $} other places
-                    {% endif %}
-                </dd>
+    <div class="card card--flexible">
+        <div class="card__stripe">
+            <div class="card__content">
+                Occurrences <span class="discreet small">5 of {$ taxon.occurrences.count $}</span>
             </div>
-        {% endif %}
+        </div>
+        <div class="card__stripe card__stripe--light">
+            <div class="card__content">
+                <table class="table table--compact">
+                    <thead>
+                    <tr>
+                        {% for term in ['scientificName', 'year', 'country'] %}
+                            <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
 
-    </dl>
-    {#<div class="pull-right text-uppercase">#}
-        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">filter occurrences</a>#}
-    {#</div>#}
+                    {% for row in taxon.occurrences.results | limit(10) %}
+                        <tr class="table__tr--linked">
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
+                            </td>
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
+                            </td>
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card__stripe">
+            <div class="card__content">
+                <dl class="inline">
+
+                    {#{% if taxon.children.results.length > 0 %}#}
+                    {#<div>#}
+                        {#<dt>Lower classifications</dt>#}
+                        {#<dd>#}
+                            {#{% for child in taxon.children.results | limit(5) %}#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.scientificName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}#}
+                            {#{% endfor %}#}
+
+                            {#{% if taxon.children.results.length == 6 %}#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].scientificName $}</a>#}
+                                {#{% elif taxon.children.results.length > 6 %}#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/species/search#somewhere that shows this" class="more">view all</a>#}
+                            {#{% endif %}#}
+                        {#</dd>#}
+                    {#</div>#}
+                    {#{% endif %}#}
+
+                    {% if taxon.holotypes.count > 0 %}
+                        <div>
+                            <dt>Holo type</dt>
+                            <dd>
+                                {% if taxon.featuredHolotype %}
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="{$ gb.locales.urlPrefix $}/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>
+                                {% endif %}
+                                {% if taxon.holotypes.count > 1 %}
+                                    and {$ taxon.holotypes.count - 1 $} other places
+                                {% endif %}
+                            </dd>
+                        </div>
+                    {% endif %}
+
+                </dl>
+                {#<div class="pull-right text-uppercase">#}
+                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">filter occurrences</a>#}
+                {#</div>#}
+            </div>
+        </div>
+    </div>
 </div>
 {% endif %}
 

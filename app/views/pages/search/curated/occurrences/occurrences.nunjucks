@@ -1,43 +1,53 @@
 {% if results.occurrences.count > 0 %}
 <div style="max-width:1000px">
-    <div class="card" style="background: pink">
-        <h3 class="h5">Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span></h3>
-        <table class="table table--compact">
-            <thead>
-            <tr>
-                {% for term in ['scientificName', 'year', 'basisOfRecord', 'country'] %}
-                    <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
-                {% endfor %}
-            </tr>
-            </thead>
-            <tbody>
+    <div class="card card--flexible">
+        <div class="card__stripe">
+            <div class="card__content">
+                Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span>
+            </div>
+        </div>
+        <div class="card__stripe card__stripe--light">
+            <div class="card__content">
+                <table class="table table--compact">
+                    <thead>
+                    <tr>
+                        {% for term in ['scientificName', 'year', 'basisOfRecord', 'country'] %}
+                            <th class="text-capitalize">{$ __('ocurrenceFieldNames.' + term) $}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
 
-            {% for row in results.occurrences.results | limit(10) %}
-                <tr class="table__tr--linked">
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
-                    </td>
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
-                    </td>
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ __('bor.' + row.basisOfRecord) $}</a>
-                    </td>
-                    <td>
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
-                    </td>
-                </tr>
-            {% endfor %}
+                    {% for row in results.occurrences.results | limit(10) %}
+                        <tr class="table__tr--linked">
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>
+                            </td>
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ row.year $}</a>
+                            </td>
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit text-capitalize">{$ __('bor.' + row.basisOfRecord) $}</a>
+                            </td>
+                            <td>
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{% if row.countryCode | isNotEmpty %}{$ __('country.' + row.countryCode) $}{% endif %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
 
-            </tbody>
-        </table>
-
-        {% if results.occurrences.count > results.occurrences.results.length %}
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="pull-right omni-search__result-group__more">
-                <span style="vertical-align:middle;">{$ results.occurrences.count - results.occurrences.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
-            </a>
-        {% endif %}
-
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card__stripe">
+            <div class="card__content">
+                {% if results.occurrences.count > results.occurrences.results.length %}
+                    <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="pull-right omni-search__result-group__more">
+                        <span style="vertical-align:middle;">{$ results.occurrences.count - results.occurrences.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 

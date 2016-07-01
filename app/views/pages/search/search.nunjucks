@@ -5,18 +5,16 @@
     <article class="wrapper-horizontal-stripes omniSearch search-content" ng-controller="searchCtrl as search">
 
         <div class="horizontal-stripe--paddingless white-background search-bar">
-            <div class="drawer-padding">
-                 <div class="container--narrow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="search-bar__form">
-                                <form action="/search" class="search-bar__term">
-                                    <input id="siteSearch" type="text" placeholder="Search - e.g. bike shed" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-model="search.searchQuery" ng-value="search.searchQuery" value="{$ query $}">
-                                    <button type="submit" class="gb-icon-search">
-                                        <span class="sr-only">{$ __('search') $}</span>
-                                    </button>
-                                </form>
-                            </div>
+             <div class="container--narrow">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="search-bar__form">
+                            <form action="/search" class="search-bar__term">
+                                <input id="siteSearch" type="text" placeholder="Search - e.g. bike shed" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-model="search.searchQuery" ng-value="search.searchQuery" value="{$ query $}">
+                                <button type="submit" class="gb-icon-search">
+                                    <span class="sr-only">{$ __('search') $}</span>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -24,22 +22,20 @@
         </div>
 
         <nav class="horizontal-stripe--paddingless light-background search-tabs">
-            <div class="drawer-padding">
-                <div class="container--narrow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="multiToggle">
-                                <li class="is-active">
-                                    <a href="" ng-click="occurrence.table.filter = undefined">All</a>
-                                </li>
-                                <li>
-                                    <a href="/dataset/table?q={$ query $}" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
-                                </li>
-                                <li>
-                                    <a href="/occurrence/table?q={$ query $}" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="container--narrow">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="multiToggle">
+                            <li class="is-active">
+                                <a href="" ng-click="occurrence.table.filter = undefined">All</a>
+                            </li>
+                            <li>
+                                <a href="/dataset/table?q={$ query $}" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                            </li>
+                            <li>
+                                <a href="/occurrence/table?q={$ query $}" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -56,19 +52,7 @@
 
         {% include "./publishers/publishers.nunjucks" %}
 
-        {% if results.articles.data.length > 0 %}
-            <div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
-                <div class="omni-search__result-group">
-                    {$ searchMacro.resultList(results.articles.data, 'Articles', {
-                    title: 'title',
-                    key: 'entity_id',
-                    content_type: 'type',
-                    baseUrl: gb.locales.urlPrefix + '/',
-                    description: 'body'
-                    }) $}
-                </div>
-            </div>
-        {% endif %}
+        {% include "./cms/articles.nunjucks" %}
 
     </article>
 

@@ -575,7 +575,7 @@ main {
 	height 100%//"calc(100vh - %s)" % $navBar_height
 	right -($filterDrawerWidth + 10)
 	overflow hidden
-	box-shadow -2px 1px 2px rgba(0,0,0,0.3)
+	box-shadow 2px 1px 2px rgba(0,0,0,0.2)
 	background $drawerBackgroundColor
 	> .site-drawer__section {
 		height calc(100% - 50px)
@@ -593,19 +593,19 @@ main {
 
 forceShowDrawer() {
 	transition initial
-	right 0
+	left 0
 	overflow visible
 	~ .site-content {
-		padding-right $filterDrawerWidth
+		padding-left $filterDrawerWidth
 	}
 	&:target ~ .site-content {
-		right 0
+		left 0
 	}
 }
 +isAbove($laptop) {
 	.site-drawer {
-		//right initial
-		//right -($filterDrawerWidth)
+		right initial
+		left -($filterDrawerWidth)
 		transition right 500ms ease;
 		position fixed
 		top $navBar_height
@@ -615,8 +615,8 @@ forceShowDrawer() {
 		}
 	}
 	.site-content {
-		transition: right 500ms ease;
-		right 0
+		transition: left 500ms ease;
+		left 0
 	}
 }
 +isAbove($desktop) {

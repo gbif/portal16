@@ -43,49 +43,44 @@
 					</div>
 				</div>
 			</div>
-			{% if taxon.occurrences.count > 0 or taxon.synonym %}
+			{% if taxon.synonym %}
 			<div class="card__stripe">
 				<div class="card__content">
 					<div class="species-card__details__dl">
 						<dl class="inline">
-							{% if taxon.occurrences.count > 0 %}
-								<div>
-									<dt>Occurrences</dt>
-									<dd>
-										<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
-											{$ taxon.occurrences.count | locInt(gb.locales.current) $}
-										</a>
-									</dd>
-								</div>
-							{% endif %}
-
-							{% if taxon.synonym %}
-								<div>
-									<dt>Synonym</dt>
-									<dd>
-										<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
-									</dd>
-								</div>
-							{% endif %}
+							<div>
+								<dt>Synonym</dt>
+								<dd>
+									<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.synonym.usageKey $}">{$ taxon.synonym.scientificName $}</a>
+								</dd>
+							</div>
 						</dl>
 					</div>
 				</div>
 			</div>
 			{% endif %}
 
-			{% if results.taxaMatches.length == 1 %}
-			<div class="card__stripe card__stripe--actions">
-				<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
-					FILTER
+			{% if taxon.occurrences.count > 0 %}
+				<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.synonym.usageKey $}" class="card__stripe">
+					<div class="card__content">
+						Explore <span>{$ taxon.occurrences.count | locInt(gb.locales.current) $}</span> occurrences
+					</div>
 				</a>
-			</div>
 			{% endif %}
+
+			{#{% if results.taxaMatches.length == 1 %}#}
+			{#<div class="card__stripe card__stripe--actions">#}
+				{#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">#}
+					{#FILTER#}
+				{#</a>#}
+			{#</div>#}
+			{#{% endif %}#}
 
         </article>
 	</div>
 	{% endfor %}
 
 	{% if results.highlights.length == 1 %}
-		{# {$ taxonInfo.taxonInfo(results.taxaMatches[0], __) $} #}
+		 {$ taxonInfo.taxonInfo(results.taxaMatches[0], __) $}
 	{% endif %}
 {% endif %}

@@ -2,15 +2,43 @@
 
 {# home page, or front page #}
 {% block page %}
-<div class="home hero">
-    <h1>GBIF</h1>
-    <h4>Explore and share biodiversity data</h4>
-</div>
-    <h2>Records</h2>
-    <p>Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam. Elitr eloquentiam et sed, option feugait eu per, vis cu unum rebum. Sed nobis elaboraret ei, vel sumo error eripuit an. Meis splendide at sea, fierent argumentum appellantur ut nam, persecuti appellantur has an. Has recusabo adversarium et. Ex eam oratio eirmod omittam. Ea nec fuisset accumsan, mea brute animal viderer te. Pri utroque constituam ne, quem nulla necessitatibus id nec, dolor prompta suscipiantur sed et. Vel dolores oportere referrentur ex. Vis cu diam impetus, summo epicurei adversarium eu pro, mea at paulo graeci definiebas. In pro oratio habemus deseruisse, doctus detracto pro at, cu choro putent complectitur vix. Mei ex alii maiestatis interpretaris. Eu eam graeco offendit tractatos, ad qui vocent sapientem. Sea congue interesset adversarium et. No tantas antiopam vis. In pro dolor impedit. Eu animal copiosae sea, altera accusam pertinacia vel et. Falli mollis definitionem mea et, tantas convenire sit at. Doctus omittantur et sed. Purto intellegam et eam. Ius in quas constituto efficiendi. At melius perpetua eum.</p>
-    <p>Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam. Elitr eloquentiam et sed, option feugait eu per, vis cu unum rebum. Sed nobis elaboraret ei, vel sumo error eripuit an. Meis splendide at sea, fierent argumentum appellantur ut nam, persecuti appellantur has an. Has recusabo adversarium et. Ex eam oratio eirmod omittam. Ea nec fuisset accumsan, mea brute animal viderer te. Pri utroque constituam ne, quem nulla necessitatibus id nec, dolor prompta suscipiantur sed et. Vel dolores oportere referrentur ex. Vis cu diam impetus, summo epicurei adversarium eu pro, mea at paulo graeci definiebas. In pro oratio habemus deseruisse, doctus detracto pro at, cu choro putent complectitur vix. Mei ex alii maiestatis interpretaris. Eu eam graeco offendit tractatos, ad qui vocent sapientem. Sea congue interesset adversarium et. No tantas antiopam vis. In pro dolor impedit. Eu animal copiosae sea, altera accusam pertinacia vel et. Falli mollis definitionem mea et, tantas convenire sit at. Doctus omittantur et sed. Purto intellegam et eam. Ius in quas constituto efficiendi. At melius perpetua eum.</p>
-    <p>Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam. Elitr eloquentiam et sed, option feugait eu per, vis cu unum rebum. Sed nobis elaboraret ei, vel sumo error eripuit an. Meis splendide at sea, fierent argumentum appellantur ut nam, persecuti appellantur has an. Has recusabo adversarium et. Ex eam oratio eirmod omittam. Ea nec fuisset accumsan, mea brute animal viderer te. Pri utroque constituam ne, quem nulla necessitatibus id nec, dolor prompta suscipiantur sed et. Vel dolores oportere referrentur ex. Vis cu diam impetus, summo epicurei adversarium eu pro, mea at paulo graeci definiebas. In pro oratio habemus deseruisse, doctus detracto pro at, cu choro putent complectitur vix. Mei ex alii maiestatis interpretaris. Eu eam graeco offendit tractatos, ad qui vocent sapientem. Sea congue interesset adversarium et. No tantas antiopam vis. In pro dolor impedit. Eu animal copiosae sea, altera accusam pertinacia vel et. Falli mollis definitionem mea et, tantas convenire sit at. Doctus omittantur et sed. Purto intellegam et eam. Ius in quas constituto efficiendi. At melius perpetua eum.</p>
-    <p>Lorem ipsum dolor sit amet, prompta laoreet urbanitas at quo. Vix nostro option copiosae at, vide habeo eos et, est sumo modus atomorum no. Discere fuisset albucius ex cum. Ea usu propriae quaerendum signiferumque, inermis blandit molestiae mel at, consul referrentur ea eum. Vis te urbanitas conceptam democritum. Et mea movet sanctus omittam. Elitr eloquentiam et sed, option feugait eu per, vis cu unum rebum. Sed nobis elaboraret ei, vel sumo error eripuit an. Meis splendide at sea, fierent argumentum appellantur ut nam, persecuti appellantur has an. Has recusabo adversarium et. Ex eam oratio eirmod omittam. Ea nec fuisset accumsan, mea brute animal viderer te. Pri utroque constituam ne, quem nulla necessitatibus id nec, dolor prompta suscipiantur sed et. Vel dolores oportere referrentur ex. Vis cu diam impetus, summo epicurei adversarium eu pro, mea at paulo graeci definiebas. In pro oratio habemus deseruisse, doctus detracto pro at, cu choro putent complectitur vix. Mei ex alii maiestatis interpretaris. Eu eam graeco offendit tractatos, ad qui vocent sapientem. Sea congue interesset adversarium et. No tantas antiopam vis. In pro dolor impedit. Eu animal copiosae sea, altera accusam pertinacia vel et. Falli mollis definitionem mea et, tantas convenire sit at. Doctus omittantur et sed. Purto intellegam et eam. Ius in quas constituto efficiendi. At melius perpetua eum.</p>
-    <h2><a name="test">test</a></h2>
-    <input type="text" placeholder="text her">
+    <div class="horizontal-stripe--paddingless white-background search-bar">
+        <div class="container--narrow">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="search-bar__form">
+                        <form action="/search" class="search-bar__term">
+                            <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" autocomplete="off">
+                            <button type="submit" class="gb-icon-search">
+                                <span class="sr-only">{$ __('search') $}</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="horizontal-stripe--paddingless light-background" style="overflow: hidden; text-align: center;">
+        <h1>
+            {#<span href="/" class="gb-icon-logo"></span>#}
+            Global Biodiversity Information Facility
+        </h1>
+        <p>Free and Open Access to Biodiversity Data</p>
+        <div style="height: 500px; display: flex; justify-content: center">
+            {#<div style="text-align: center; flex: 0 0 auto; position: relative">#}
+                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+                {#<p>Explore 600+ million occurrences</p>#}
+            {#</div>#}
+            {#<div style="text-align: center; flex: 0 0 auto;  position: relative;">#}
+                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+                {#<p>Explore 600+ million occurrences</p>#}
+            {#</div>#}
+            {#<div style="text-align: center; flex: 0 0 auto; position: relative;">#}
+                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+                {#<p>Explore 600+ million occurrences</p>#}
+            {#</div>#}
+        </div>
+    </div>
+
 {% endblock %}

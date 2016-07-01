@@ -1,19 +1,23 @@
+{% if not __hideSearchAction %}
 <div class="search" id="site-search">
-
     <div class="search-content">
-
-        <div class="search-bar">
-            <form action="/search" class="search-form">
-                <input type="text" placeholder="{$ __('search') $}" name="q" value="{$ query $}" autocomplete="off">
-                <button type="submit" class="gb-icon-search">
-                    <span class="sr-only">{$ __('search') $}</span>
-                </button>
-                <input type="submit" class="search-form__submit sr-only" value="{$ __('search') $}">
-            </form>
+        <div class="horizontal-stripe--paddingless white-background search-bar">
+            <div class="container--narrow">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="search-bar__form">
+                            <form action="/search" class="search-bar__term">
+                                <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" autocomplete="off" value="{$ query $}">
+                                <button type="submit" class="gb-icon-search">
+                                    <span class="sr-only">{$ __('search') $}</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-
-
-
 </div>
+
+{% endif %}

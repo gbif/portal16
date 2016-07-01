@@ -21,6 +21,7 @@ function searchHandler(req, res) {
 
 function renderPage(req, res, searchString) {
     res.render('pages/dataset/search/datasetSearch', {
+        __hideSearchAction: true,
         query: searchString,
         hasDrawer: true,
         hasTools: true,

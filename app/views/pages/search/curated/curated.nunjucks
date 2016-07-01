@@ -1,35 +1,33 @@
 {% if results.highlights | isNotEmpty or results.occurrences.count > 0 %}
 
-<div class="horizontal-stripe article-header bare-background">
-	<div class="drawer-padding">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="row">
-						<div class="card-columns">
-							{% for highlight in results.highlights %}
+<div class="horizontal-stripe--paddingless article-header bare-background">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="card-columns">
+						{% for highlight in results.highlights %}
 
-								{% if highlight.type == 'COUNTRY' %}
-									{% include "./country/country.nunjucks" %}
-								{% endif %}
+							{% if highlight.type == 'COUNTRY' %}
+								{% include "./country/country.nunjucks" %}
+							{% endif %}
 
-								{% if highlight.type == 'ARTICLE' %}
-									{% import "./article/article.nunjucks" as article %}
-									{$ article.articleHighlight(highlight.highlight, __) $}
-								{% endif %}
+							{% if highlight.type == 'ARTICLE' %}
+								{% import "./article/article.nunjucks" as article %}
+								{$ article.articleHighlight(highlight.highlight, __) $}
+							{% endif %}
 
-								{% if highlight.type == 'SPECIES' %}
-									{% include "./species/SpeciesOccurrences.nunjucks" %}
-								{% endif %}
+							{% if highlight.type == 'SPECIES' %}
+								{% include "./species/SpeciesOccurrences.nunjucks" %}
+							{% endif %}
 
-								{% if highlight.type == 'CATALOGNR' %}
-									{% include "./catalogNumber/catalogNumber.nunjucks" %}
-								{% endif %}
+							{% if highlight.type == 'CATALOGNR' %}
+								{% include "./catalogNumber/catalogNumber.nunjucks" %}
+							{% endif %}
 
-							{% endfor %}
-							{# {% include "./occurrences/occurrences.nunjucks" %} #}
-							TODO print occurrences and position currated content 
-						</div>
+						{% endfor %}
+						 {% include "./occurrences/occurrences.nunjucks" %}
+						{#TODO print occurrences and position currated content#}
 					</div>
 				</div>
 			</div>

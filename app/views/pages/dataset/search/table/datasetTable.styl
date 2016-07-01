@@ -16,8 +16,7 @@
 			}
 		}
 		&__title {
-			margin 2px 0 0 0
-			display inline-block
+			margin 4px 0
 			overflow hidden
 			text-overflow ellipsis
 			white-space nowrap
@@ -31,9 +30,6 @@
 				}
 			}
 		}
-		&__title--occurrence {
-			max-width calc(100% - 138px)
-		}
 		&__subtitle {
 			font-size 14px
 			margin 0 0 4px
@@ -43,15 +39,22 @@
 			color #63616d
 		}
 		&__meta {
-			margin-bottom 0//5px
+			margin-bottom 5px
 			color #9a9aa0 //inherit
 			font-size 14px
-			font-weight 300
-			font-family $caslon
+			//font-weight 300
+			//font-family $caslon
 			font-style italic
 			a {
 				text-decoration underline
 				color inherit
+			}
+		}
+		&__logo {
+			float right
+			img {
+				max-width 150px
+				max-height 60px
 			}
 		}
 		>div {
@@ -75,7 +78,6 @@
 		border none
 	}
 	&__header {
-		text-align center
 		h5 {
 			display inline
 		}

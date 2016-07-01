@@ -56,24 +56,26 @@
     <div class="page">
         <div class="dataset-search-results">
             <div class="horizontal-stripe--paddingless white-background search-bar">
-                <div class="container--narrow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="search-bar__form">
-                                <form class="search-bar__term" ng-submit="dataset.updateSearch()">
-                                    <input type="text"
-                                    class="fit-suggestions"
-                                       ng-model="dataset.freeTextQuery"
-                                       placeholder="Search for datasets"
-                                       uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                                       typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                                       typeahead-focus-first="false"
-                                       typeahead-template-url="customTemplate.html"
-                                       ng-keypress="dataset.searchOnEnter($event)">
-                                    <button type="submit" class="gb-icon-search">
-                                        <span class="sr-only">{$ __('search') $}</span>
-                                    </button>
-                                </form>
+                <div class="drawer-padding">
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="search-bar__form">
+                                    <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                                        <input type="text"
+                                        class="fit-suggestions"
+                                           ng-model="dataset.freeTextQuery"
+                                           placeholder="Search for datasets"
+                                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                                           typeahead-focus-first="false"
+                                           typeahead-template-url="customTemplate.html"
+                                           ng-keypress="dataset.searchOnEnter($event)">
+                                        <button type="submit" class="gb-icon-search">
+                                            <span class="sr-only">{$ __('search') $}</span>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -83,20 +85,22 @@
 
 
             <nav class="horizontal-stripe--paddingless light-background search-tabs">
-                <div class="container--narrow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="multiToggle">
-                                <li>
-                                    <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
-                                </li>
-                                <li class="is-active">
-                                    <a href="" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
-                                </li>
-                            </ul>
+                <div class="drawer-padding">
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="multiToggle">
+                                    <li>
+                                        <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
+                                    </li>
+                                    <li class="is-active">
+                                        <a href="" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

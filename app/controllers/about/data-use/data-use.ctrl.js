@@ -8,7 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/data-use/:key', function(req, res, next) {
-    var datauseUrl = 'http://www.gbif-dev.org/api/v0.1/data_use/' + req.params.key; // baseConfig.cmsApi + 'datause/'
+    var datauseUrl = 'http://cms.gbif-dev.org/api/v1/data_use/' + req.params.key; // baseConfig.cmsApi + 'datause/'
     //var datauseUrl = baseConfig.cmsApi + 'datause/' + req.params.key;
     request(datauseUrl, function(error, response, body) {
         if (error) {

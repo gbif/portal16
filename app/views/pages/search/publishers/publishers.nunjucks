@@ -1,58 +1,55 @@
 {% if results.publishers.count > 0 %}
 
-<div class="search-results horizontal-stripe horizontal-stripe--alternating-background">
-    <div class="drawer-padding">
-         <section class="container--narrow">
-            <div class="search-results__list search-results__list--short-list row">
-                <div class="col-xs-12">
+<div class="search-results horizontal-stripe white-background">
+     <section class="container--narrow">
+        <div class="search-results__list search-results__list--short-list row">
+            <div class="col-xs-12">
 
-                    <div class="search-results__list--short-list__header">
-                        <h5><a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}">Publishers</a></h5>
-                        {% if results.publishers.count > results.publishers.results.length %}
-                        <span class="small">
-                            {$ results.publishers.results.length $} of <a href="{$ gb.locales.urlPrefix $}/dataset?q={$ query $}" class="inherit">{$ results.publishers.count $}</a>
-                        </span>
-                        {% endif %}
-                    </div>
-                    
-                    {% for result in results.publishers.results %}
-                    <article class="search-results__list__item">
-                        <div>
-                            {% if result.type == 'OCCURRENCE' %}
-                            <a href="../publisher/{$ result.key $}" class="tile">
-                                <div class="species-overview-map--small">
-                                    <img src="/img/tile000/basemap-grey-light2.png">
-                                    <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$ result.key $}&type=DATASET&resolution=4">
-                                </div>
-                            </a>
-                            {% endif %}
-                            <div>
-                                <h4 class="search-results__list__item__title {% if result.type == 'OCCURRENCE' %} search-results__list__item__title--occurrence {% endif %}">
-                                    <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.key $}">{$ result.title | striptags | truncate(80) | safe $}</a>
-                                </h4>
-                                <p class="search-results__list__item__meta">
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/table?publishing_org={$ result.key $}">{$ result.numPublishedDatasets $} published datasets</a>
-                                </p>
-                                {% if result.description %}
-                                <h4 class="search-results__list__item__subtitle">{$ result.title | striptags | truncate(150) | safe $}</h4>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </article>
-                    {% endfor %}
-
+                <div class="search-results__list--short-list__header">
+                    <h5><a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}">Publishers</a></h5>
                     {% if results.publishers.count > results.publishers.results.length %}
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
-                                <span style="vertical-align:middle;">{$ results.publishers.count - results.publishers.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
-                            </a>
-                        </div>
-                    </div>
+                    <span class="small">
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}" class="inherit">{$ results.publishers.count - results.publishers.results.length $} more</a>
+                    </span>
                     {% endif %}
                 </div>
+
+                {% for result in results.publishers.results %}
+                <article class="search-results__list__item">
+                    <div>
+                        <div>
+                            {% if result.logoUrl %}
+                                <a href="../publisher/{$ result.key $}" class="search-results__list__item__logo">
+                                    <div class="">
+                                        <img src="{$ result.logoUrl $}">
+                                    </div>
+                                </a>
+                            {% endif %}
+                            <h4 class="search-results__list__item__title {% if result.type == 'OCCURRENCE' %} search-results__list__item__title--occurrence {% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.key $}">{$ result.title | striptags | truncate(80) | safe $}</a>
+                            </h4>
+                            <p class="search-results__list__item__meta">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/table?publishing_org={$ result.key $}">{$ result.numPublishedDatasets $} published datasets</a>
+                            </p>
+                            {% if result.description %}
+                            <h4 class="search-results__list__item__subtitle">{$ result.title | striptags | truncate(150) | safe $}</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+
+                {% if results.publishers.count > results.publishers.results.length %}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
+                            <span>{$ results.publishers.count - results.publishers.results.length $} more</span> <span class="gb-icon-right-arrow h2"></span>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </div>
 {% endif %}

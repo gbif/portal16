@@ -15,6 +15,7 @@ router.get('/', function (req, res) {
     } else {
         var articles = [new Article(), new Article()];
         res.render('pages/home/home', {
+            __hideSearchAction: true,
             title: 'Portal',
             articles: articles,
             message: 'shouldn\'t be here'

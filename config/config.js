@@ -18,7 +18,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     uat: {
         root: rootPath,
@@ -29,7 +29,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
         tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     production: {
         root: rootPath,
@@ -40,7 +40,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     test: {
         root: rootPath,
@@ -50,7 +50,7 @@ var config = {
         port: defaultPort,
         log: log,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
-        cmsApi: cmsApi || 'http://www.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     }
 };
 

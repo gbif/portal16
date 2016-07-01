@@ -19,6 +19,9 @@
     padding vrBlock(1) 0
     border 1px solid $stripeBorderColor
     border-width 0 0 1px
+    &:last-child.white-background {
+        border none
+    }
     >*:last-child {
         margin-bottom 0
     }
@@ -139,7 +142,7 @@ $articleCategorySeparatorSpacing = 6px
     background-color $paper
 }
 .bare-background {
-    background-color $content_background
+    background-color $greyBackground
 }
 .light-background {
     background-color $lightBackground
