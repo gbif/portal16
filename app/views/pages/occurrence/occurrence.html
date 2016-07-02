@@ -1,14 +1,14 @@
-<aside class="site-drawer is-locked-x" id="filter">
+<aside class="site-drawer" id="filter" ng-class="{'is-active': occurrence.showDrawer}">
 
     <header class="site-drawer__header">
         <div>
             <h4 class="">Filter occurrences</h4>
             <span>{{occurrence.count}} results</span>
         </div>
-        <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>
+        <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="occurrence.showDrawer = false"></a>
     </header>
 
-    <div class="site-drawer__section">
+    <div class="site-drawer__section site-drawer__section--bottom-panel">
         <div class="site-drawer__actions">
             <a ui-sref="occurrenceSearchTable()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-menu inherit discreet" tooltip-placement="right" uib-tooltip="List"></a>
             <a ui-sref="occurrenceSearchMap()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-map inherit discreet" tooltip-placement="right" uib-tooltip="Map"></a>
@@ -37,15 +37,6 @@
             </div>
         </div>
 
-    </div>
-
-
-    <div>
-        <h2>Filter</h2>
-        <div class="form-group">
-            <input ng-model="occurrence.freeTextQuery">
-            <button ng-click="occurrence.updateSearch()">Search</button>
-        </div>
         <div class="form-group">
             <label>
                 <span ng-click="occurrence.hide = !occurrence.hide">Scientific name</span>
@@ -63,9 +54,29 @@
                     </div>
                 </div>
             </label>
-
-
         </div>
+
+        <div class="filter-group filter-group--multiselect">
+            <div class="filter-group__header">Basis Of Record</div>
+            <div class="filter-group__filter">
+                <!-- <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="occurrence.filters.basisOfRecord.HUMAN_OBSERVATION"> Human observation {{occurrence.filters.bor.HUMAN_OBSERVATION}}
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="occurrence.filters.basisOfRecord.MACHINE_OBSERVATION"> Machine observation
+                    </label>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="site-drawer__footer">
+        <a href="" ng-click="occurrence.updateSearch()">APPLY FILTERS</a>
     </div>
 
 </aside>
@@ -74,7 +85,7 @@
 
     <div class="fab" fab>
         <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="dataset.showDrawer = true"><i class="gb-icon-filter"></i></a>
+            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="occurrence.showDrawer = true"><i class="gb-icon-filter"></i></a>
         </div>
     </div>
 
@@ -86,15 +97,11 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="search-bar__form">
-                                    <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                                    <form class="search-bar__term" ng-submit="occurrence.updateSearch()">
                                         <input type="text"
-                                           ng-model="dataset.freeTextQuery"
+                                           ng-model="occurrence.freeTextQuery"
                                            placeholder="Search for occurrences"
-                                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                                           typeahead-focus-first="false"
-                                           typeahead-template-url="customTemplate.html"
-                                           ng-keypress="dataset.searchOnEnter($event)">
+                                           ng-keypress="occurrence.searchOnEnter($event)">
                                         <button type="submit" class="gb-icon-search">
                                             <span class="sr-only">{$ __('search') $}</span>
                                         </button>
@@ -115,13 +122,13 @@
                             <div class="col-xs-12">
                                 <ul class="multiToggle">
                                     <li>
-                                        <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
+                                        <a ng-href="../../?q={{occurrence.query.q}}">All</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="datasetSearchTable()"ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                                        <a ui-sref="datasetSearchTable({q:occurrence.query.q})">datasets</a>
                                     </li>
                                     <li class="is-active">
-                                        <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                                        <a href="">occurrences</a>
                                     </li>
                                 </ul>
                             </div>

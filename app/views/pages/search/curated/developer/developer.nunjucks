@@ -1,0 +1,20 @@
+{# TODO copyrights . too silly? translation? what text? #}
+<div>
+    <article class="card curated-card-developer card--flexible">
+        <div class="card__stripe card__stripe--expandable">
+            <div style="background-image: url('http://api.gbif.org/v1/image?url=http%3A%2F%2Fstatic.inaturalist.org%2Fphotos%2F472912%2Foriginal.jpg%3F1377525673&size=M')"></div>
+            <div class="card__content">
+                <nav class="article-header__category article-header__category--deep small">
+                    <span class="article-header__category__upper">confused</span>
+                        <span class="article-header__category__lower">
+                            developer
+                        </span>
+                </nav>
+                <h2 class="h4 text-center">Looking for the API?</h2>
+                <p>
+                    The GBIF API and all our code is free to use and Open Source. Get started.
+                </p>
+            </div>
+        </div>
+    </article>
+</div>

@@ -60,6 +60,12 @@ function getHighlights(q, data) {
 			highlight: data.taxaMatches
 		});
 	}
+
+	if (q.toString().toLowerCase() == 'puma concolor') {
+		highlights.push({
+			type: 'DEVELOPER'
+		});
+	}
 	return highlights;
 }
 

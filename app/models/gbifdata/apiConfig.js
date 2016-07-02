@@ -28,12 +28,10 @@ var apiConfig = {
         url: baseUrl + 'occurrence/'
     },
     occurrenceTerm: {
-        //url: baseUrl + 'occurrence/term/',
-        url: 'http://api.gbif-uat.org/v1/occurrence/term/'
+        url: baseUrl + 'occurrence/term/',
     },
     occurrenceInterpretation: {
-        //url: baseUrl + 'occurrence/interpretation/'
-        url: 'http://api.gbif-uat.org/v1/occurrence/interpretation/'
+        url: baseUrl + 'occurrence/interpretation/'
     },
     occurrenceDownloadDataset: {
         url: baseUrl + 'occurrence/download/dataset/'

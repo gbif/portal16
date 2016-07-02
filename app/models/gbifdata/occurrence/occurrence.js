@@ -33,7 +33,7 @@ Occurrence.prototype.expand = function (fieldNames) {
                 extendToField: 'dataset'
             },
             datasetProcess: {
-                resource: api.dataset.url + this.record.datasetKey + '/process',
+                resource: api.dataset.url + this.record.datasetKey + '/process?limit=50',
                 extendToField: 'datasetProcess'
             },
             fragment: {

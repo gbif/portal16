@@ -1,7 +1,7 @@
 {% import "../occurrences/taxonInfo.macro.nunjucks" as taxonInfo %}
 
 {% if results.taxaMatches.length > 0 %}
-	{% for taxon in results.taxaMatches | limit(5) %}
+	{% for taxon in results.taxaMatches | limit(3) %}
 	<div>
         <article class="card species-card {% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %} card--flexible {% endif %}">
 			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe">
@@ -25,7 +25,7 @@
 		        </div>
 			</a>
 			{% endif %}
-			<div class="card__stripe">
+			<div class="card__stripe card__stripe--expandable">
 				<div class="card__content">
 					<div class="text-center">
 						<span class="taxon-classification taxon-classification--discreet">
@@ -60,8 +60,8 @@
 			</div>
 			{% endif %}
 
-			{% if taxon.occurrences.count > 0 %}
-				<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.synonym.usageKey $}" class="card__stripe">
+			{% if taxon.occurrences.count > 0 and results.taxaMatches.length > 1 %}
+				<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe">
 					<div class="card__content">
 						Explore <span>{$ taxon.occurrences.count | locInt(gb.locales.current) $}</span> occurrences
 					</div>

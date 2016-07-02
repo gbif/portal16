@@ -5,6 +5,7 @@ var Q = require('q'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
     occurrencIssues = require('./issues'),
+    _ = require('underscore'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
@@ -28,7 +29,7 @@ function getAngularInitData(occurrence) {
 
 function getLastNormalCrawled(datasetProcess) {
     if (datasetProcess.count) {
-        for (var i = 0; i < datasetProcess.count; i++) {
+        for (var i = 0; i < datasetProcess.results.length; i++) {
             var job = datasetProcess.results[i];
             if (job.finishReason == 'NORMAL' || job.finishReason == 'NOT_MODIFIED') { //TODO what is the possible values here?
                 return job.finishedCrawling;

@@ -4,6 +4,18 @@ $_linkColor = #009FD4
 	background white
 	&--flexible {
 		height 100%
+		display flex
+		flex-direction column
+		.card__stripe {
+			flex 0 0 auto
+			&--flexible {
+				flex 1 1 auto
+				height 155px
+			}
+			&--expandable {
+				flex 1 0 auto
+			}
+		}
 	}
 }
 

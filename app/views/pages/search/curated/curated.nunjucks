@@ -25,9 +25,12 @@
 								{% include "./catalogNumber/catalogNumber.nunjucks" %}
 							{% endif %}
 
+							{% if highlight.type == 'DEVELOPER' %}
+								{% include "./developer/developer.nunjucks" %}
+							{% endif %}
+
 						{% endfor %}
 						 {% include "./occurrences/occurrences.nunjucks" %}
-						{#TODO print occurrences and position currated content#}
 					</div>
 				</div>
 			</div>

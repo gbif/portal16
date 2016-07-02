@@ -20,7 +20,7 @@
 		hyphens auto
 	}
 	tr:nth-of-type(even) {
-		background alpha(#F7F9FA, 0.5)
+		background alpha(#F7F9FA, 1)
 	}
 	tbody tr:hover {
 		background darken(#F7F9FA, 10)
@@ -41,8 +41,12 @@
 }
 .card {
 	.table.table--compact {
-		tr:nth-of-type(even) {
-			background alpha(darken(#F7F9FA, 10), 0.4)
+		td {
+			a {
+				text-overflow ellipsis
+				white-space nowrap
+				padding-right 1em
+			}
 		}
 	}
 }
