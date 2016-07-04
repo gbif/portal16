@@ -15,6 +15,17 @@ function routerConfig($stateProvider, $locationProvider) {
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale : { squash : true, value: 'en' }}
         })
+        .state('omniSearch', {
+            parent: 'localization',
+            url: '/search?q',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/search/search.html',
+                    controller: 'searchCtrl',
+                    controllerAs: 'omniSearch'
+                }
+            }
+        })
         .state('occurrenceSearch', {
             parent: 'localization',
             url: '/occurrence?offset&basisOfRecord&eventDate&taxonKey&q&key&datasetKey&mediaType&country&kingdomKey.facetLimit',

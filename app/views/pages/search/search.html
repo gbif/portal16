@@ -1,0 +1,54 @@
+<div class="site-content">
+
+    <div class="page">
+        <div class="dataset-search-results">
+            <div class="horizontal-stripe--paddingless white-background search-bar">
+                <div>
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="search-bar__form">
+                                    <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
+                                        <input id="siteSearch" type="text"
+                                               ng-model="omniSearch.freeTextQuery"
+                                               placeholder="Search"
+                                               ng-keypress="omniSearch.searchOnEnter($event)">
+                                        <button type="submit" class="gb-icon-search">
+                                            <span class="sr-only">{$ __('search') $}</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="horizontal-stripe--paddingless light-background search-tabs">
+                <div>
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="tabs">
+                                    <li class="is-active">
+                                        <a ng-href="">All</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="datasetSearchTable({q: omniSearch.query.q})">datasets</a>
+                                    </li>
+                                    <li>
+                                        <a href="">occurrences</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div ui-view>
+                <ng-include src="'/search.partial?q=' + omniSearch.query.q"> </ng-include>
+            </div>
+        </div>
+    </div>
+</div>

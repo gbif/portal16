@@ -30,6 +30,9 @@ function getCuratedArticle(q, data) {
 }
 
 function getHighlights(q, data) {
+	if (typeof q === 'undefined' || typeof data === 'undefined') {
+		return [];
+	}
 	let highlights = [],
 		curatedArticle = getCuratedArticle(q, data);
 

@@ -1,23 +1,12 @@
-//.overlay {
-//	z-index 10000
-//	content ''
-//	display block
-//	position fixed
-//	top 0
-//	bottom 0
-//	left 0
-//	right 0
-//	background rgba(0,0,0,0.2)
-//}
-.block-options {
+.stripe-menu {
 	z-index 20
 	display block
 	position absolute
 	right 0
 	top 0
 	margin -.5rem 1rem 0 0
-	.block-options__option {
-		color #888
+	.stripe-menu__option {
+		color #666
 		border-radius 50%
 		width 1.7rem
 		height 1.7rem
@@ -26,7 +15,7 @@
 		font-size 14px
 		line-height 1.7rem
 	}
-	.block-options__drop-down {
+	.stripe-menu__drop-down {
 		position absolute
 		display none
 		right 1rem
@@ -52,32 +41,26 @@
 		}
 	}
 	&.is-expanded {
-		.block-options__menu {
+		.stripe-menu__menu {
 			background #eee
 		}
-		.block-options__drop-down {
+		.stripe-menu__drop-down {
 			display block
 		}
 	}
-	.block-options__help {
+	.stripe-menu__help {
 		display none
 		color #ccc
 	}
 	&:hover {
-		.block-options__help {
+		.stripe-menu__help {
 			display inline
 		}
 	}
 }
-a[href=""] {
-	color inherit
-	text-decoration none
-}
-.blockContent {
-	position relative
-}
+
 //.block:hover {
-	.block-options__option:hover {
+	.stripe-menu__option:hover {
 		background #eee//#4e565f
 		//color white
 	}
