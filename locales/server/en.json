@@ -790,7 +790,8 @@
 		"SX": "country.SX",
 		"CW": "country.CW",
 		"undefined": "country.undefined",
-		"ZZ": "country.ZZ"
+		"ZZ": "country.ZZ",
+		"BQ": "country.BQ"
 	},
 	"interpretationRemarks": {
 		"BASIS_OF_RECORD_INVALID": "Basis of record invalid",

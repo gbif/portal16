@@ -14,9 +14,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
+function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, OccurrenceFilter) {
     var vm = this;
-    vm.query = OccurrenceFilter.query;
+    vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
     vm.hide = true;
     vm.scientificName = 'abies';
@@ -24,6 +24,11 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
     vm.activeSuggestion = 0;
     vm.suggest = {selected: [], selectedKeys: []};
     vm.state = $state;
+    vm.filters = {
+        basisOfRecord: {
+
+        }
+    };
 
     vm.config = {
         resource: SpeciesSuggest,
@@ -59,7 +64,15 @@ function occurrenceCtrl($state, SpeciesSuggest, Species, OccurrenceFilter) {
 
     vm.updateSearch = function() {
         vm.query.q = vm.freeTextQuery;
+        vm.query.offset =  undefined;
+        vm.query.limit =  undefined;
         $state.go($state.current, vm.query);
+        window.scrollTo(0,0);
+    };
+    vm.searchOnEnter = function(event) {
+        if(event.which === 13) {
+            vm.updateSearch();
+        }
     };
 }
 

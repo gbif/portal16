@@ -21,7 +21,7 @@
                             {% if result.logoUrl %}
                                 <a href="../publisher/{$ result.key $}" class="search-results__list__item__logo">
                                     <div class="">
-                                        <img src="{$ result.logoUrl $}">
+                                        <img src="{$ result.logoUrl $}" onError="this.style.display = 'none'">
                                     </div>
                                 </a>
                             {% endif %}

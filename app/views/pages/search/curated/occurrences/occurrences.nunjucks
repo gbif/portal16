@@ -1,12 +1,12 @@
 {% if results.occurrences.count > 0 %}
 <div style="max-width:1000px">
     <div class="card card--flexible">
-        <div class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe">
             <div class="card__content">
-                Occurrences <span class="discreet small">10 of {$ results.occurrences.count $}</span>
+                {$ results.occurrences.count $} occurrences
             </div>
-        </div>
-        <div class="card__stripe card__stripe--light">
+        </a>
+        <div class="card__stripe card__stripe--flexible">
             <div class="card__content">
                 <table class="table table--compact">
                     <thead>
@@ -39,15 +39,11 @@
                 </table>
             </div>
         </div>
-        <div class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe card__stripe--actions">
             <div class="card__content">
-                {% if results.occurrences.count > results.occurrences.results.length %}
-                    <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="pull-right omni-search__result-group__more">
-                        <span style="vertical-align:middle;">{$ results.occurrences.count - results.occurrences.results.length $} more</span> <span style="vertical-align:middle;" class="gb-icon-right-arrow h2"></span>
-                    </a>
-                {% endif %}
+                FILTER OCCURRENCES
             </div>
-        </div>
+        </a>
     </div>
 </div>
 

@@ -3,13 +3,13 @@
 {% if taxon.occurrences.count > 0 %}
 <div style="max-width:660px">
     <div class="card card--flexible">
-        <div class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe">
             <div class="card__content">
-                Occurrences <span class="discreet small">5 of {$ taxon.occurrences.count $}</span>
+                {$ taxon.occurrences.count $} occurrences
             </div>
-        </div>
-        <div class="card__stripe card__stripe--light">
-            <div class="card__content">
+        </a>
+        <div class="card__stripe card__stripe--flexible">
+            <div class="card__content scrollable-y">
                 <table class="table table--compact">
                     <thead>
                     <tr>
@@ -38,6 +38,7 @@
                 </table>
             </div>
         </div>
+        {% if taxon.holotypes.count > 0 %}
         <div class="card__stripe">
             <div class="card__content">
                 <dl class="inline">
@@ -79,6 +80,12 @@
                 {#</div>#}
             </div>
         </div>
+        {% endif %}
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe card__stripe--actions">
+            <div class="card__content">
+                FILTER OCCURRENCES
+            </div>
+        </a>
     </div>
 </div>
 {% endif %}
