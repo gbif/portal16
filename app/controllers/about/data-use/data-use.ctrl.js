@@ -1,41 +1,66 @@
 var express = require('express'),
     router = express.Router(),
-    baseConfig = require('../../../../config/config'),
+    cmsApi = require('../../../models/cmsdata/apiConfig'),
     request = require('request');
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/data-use/:key', function(req, res, next) {
-    var datauseUrl = baseConfig.cmsApi + 'data_use/' + req.params.key;
-    request(datauseUrl, function(error, response, body) {
-        if (error) {
-            next(error);
+router.get('/data-use/:requestedPath(*)', function(req, res, next) {
+    // Start by looking up URL Alias
+    request(cmsApi.urlLookup.url + req.params.requestedPath, function(e, r, b) {
+        b = JSON.parse(b);
+
+        // Only proceed to rendering if there is a valid result returned from URL lookup.
+        if (r.statusCode !== 200) {
+            res.send('URL lookup failed.');
         }
-        else if (response.statusCode == 200){
-            try {
-                body = JSON.parse(body);
-                res.render('pages/about/data-use/data-use.nunjucks', {
-                    data: body.data[0],
-                    images: body.data[0].images,
-                    self: body.self,
-                    meta: {
-                        title: body.data[0].title
-                    },
-                    hasTools: true
+        else if (Object.prototype.toString.call(b.data[0]) === '[object Object]') {
+
+            // Only proceed to rendering if the requested path is identical to the target URL.
+            // Otherwise send a 301 redirection.
+            if (req.params.requestedPath == b.data[0].targetUrl) {
+                var proseUrl = cmsApi.dataUse.url + b.data[0].id;
+                request(proseUrl, function(error, response, body) {
+                    if (error) {
+                        next(error);
+                    }
+                    else if (response.statusCode == 200){
+                        try {
+                            body = JSON.parse(body);
+                            res.render('pages/about/data-use/data-use.nunjucks', {
+                                data: body.data[0],
+                                images: body.data[0].images,
+                                self: body.self,
+                                meta: {
+                                    title: body.data[0].title
+                                },
+                                hasTools: true
+                            });
+                        } catch(e) {
+                            next(e);
+                        }
+                    }
+                    else if (400 <= response.statusCode && response.statusCode < 500) {
+                        next();
+                    } else {
+                        next({
+                            status: response.statusCode,
+                            message: 'Something went wrong while trying to display data use item: ' + req.params.key
+                        });
+                    }
                 });
-            } catch(e) {
-                next(e);
+            }
+            else if (req.params.requestedPath !== b.data[0].targetUrl) {
+                var redirectedUrl = '/data-use/' + b.data[0].targetUrl;
+                res.redirect(301, redirectedUrl);
             }
         }
-        else if (400 <= response.statusCode && response.statusCode < 500) {
+        else {
             next();
-        } else {
-            next({
-                status: response.statusCode,
-                message: 'Something went wrong while trying to display data use item: ' + req.params.key
-            });
         }
+
     });
+
 });

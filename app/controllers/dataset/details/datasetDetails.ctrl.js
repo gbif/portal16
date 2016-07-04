@@ -2,6 +2,7 @@
 var express = require('express'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
     api = require('../../../models/gbifdata/apiConfig'),
+    cmsApi = require('../../../models/cmsdata/apiConfig'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),

@@ -28,7 +28,7 @@ var apiConfig = {
         url: baseUrl + 'occurrence/'
     },
     occurrenceTerm: {
-        url: baseUrl + 'occurrence/term/',
+        url: baseUrl + 'occurrence/term/'
     },
     occurrenceInterpretation: {
         url: baseUrl + 'occurrence/interpretation/'
