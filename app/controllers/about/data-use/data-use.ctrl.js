@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    //baseConfig = require('../../../../config/config'),
+    baseConfig = require('../../../../config/config'),
     request = require('request');
 
 module.exports = function (app) {
@@ -8,8 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/data-use/:key', function(req, res, next) {
-    var datauseUrl = 'http://cms.gbif-dev.org/api/v1/data_use/' + req.params.key; // baseConfig.cmsApi + 'datause/'
-    //var datauseUrl = baseConfig.cmsApi + 'datause/' + req.params.key;
+    var datauseUrl = baseConfig.cmsApi + 'data_use/' + req.params.key;
     request(datauseUrl, function(error, response, body) {
         if (error) {
             next(error);
