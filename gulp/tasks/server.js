@@ -19,7 +19,8 @@ gulp.task('browser-sync', ['server'], function() {
         files: ['public/**/*.*'],
         browser: ['google chrome'],
         open: config.browsersync.autoOpenBrowsers,
-        port: config.browsersync.port
+        port: config.browsersync.port,
+        ui: config.browsersync.ui
     });
 });
 

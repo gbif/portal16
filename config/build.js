@@ -81,7 +81,8 @@ config.bower = {
  */
 config.browsersync = {
     autoOpenBrowsers: false,
-    port: defaultPort + 4000
+    port: defaultPort + 4000,
+    ui: false
 };
 
 
