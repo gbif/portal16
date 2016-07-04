@@ -1,0 +1,27 @@
+.scrollable-y {
+	overflow-y auto
+}
+
+.no-break {
+	break-inside avoid-column
+}
+
+//Hardly utilities, but created as such instead of modifiers - @Burke wouldn't it make better sense as modifiers?
+.white-background {
+	background-color $paper
+}
+.bare-background {
+	background-color $greyBackground
+}
+.light-background {
+	background-color $lightBackground
+}
+.alert-background {
+	background-color $alertBackground
+}
+.horizontal-stripe--alternating-background {
+	background-color $lightBackground
+	&:nth-of-type(even) {
+		background-color $paper
+	}
+}

@@ -1,0 +1,28 @@
+//Print definition inline with colon between term and definition. dt and dd should be wrapped in a div
+dl.inline, dl.inline--discreet {
+	margin 0
+	>div {
+		dd, dt {
+			display inline
+			word-break break-all
+			word-break break-word
+			hyphens auto
+		}
+		dt {
+			text-transform capitalize
+		}
+		dt:after {
+			content ':'
+		}
+	}
+}
+dl.inline--discreet {
+	dt {
+		font-weight normal
+	}
+}
+
+/*for discreet links on buttons and in*/
+a.inherit {
+	color inherit
+}

@@ -36,9 +36,9 @@
                             <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
                             <div>
                                 <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
-                                    <div class="species-overview-map--small">
+                                    <div class="teaser-map--small">
                                         <img src="/img/tile000/basemap-grey-light2.png">
-                                        <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
+                                        <img ng-src="{{datasetTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
                                     </div>
                                 </a>
                                 <div>

@@ -15,7 +15,7 @@
             </a>
             <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
                 <div class="card__content">
-                    <div class="species-card__details__dl">
+                    <div>
                         <dl class="inline">
                             {% for field in ['institutionCode', 'collectionCode', 'scientificName'] %}
                                 {% if catalogCard[field] | isNotEmpty %}

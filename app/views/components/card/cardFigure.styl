@@ -1,0 +1,32 @@
+.card-figure {
+	@extends .card
+	break-inside avoid-column
+	display inline-block
+	.imgContainer {
+		background $lightBackground
+		img {
+			width 100%
+			height 0//initial height is estimated and then overridden once image is loaded
+			padding-bottom 70%
+			visibility hidden
+			&.loaded { // show actual height
+				height auto
+				padding-bottom 0
+				visibility visible
+			}
+			&.failed { // hide if image couldn't be loaded. Consider showing a place holder saying that the image couldndt be loaded
+				display none
+			}
+		}
+	}
+	figcaption {
+		color $discreetInk
+		font-size 12px
+		.details {
+			display none
+			&.show {
+				display block
+			}
+		}
+	}
+}

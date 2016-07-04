@@ -2,60 +2,83 @@
     <div class="container--normal">
         <div class="balanced-row">
             <div>
-                <ul class="propertyPairs">
+                <dl class="inline">
                     {% if occurrence.record.taxonRank | isNotEmpty %}
-                        <li><span class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</span>: <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></li>
+                        <div>
+                            <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
+                            <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$ occurrence.record.scientificName $}</a></dd>
+                        </div>
                     {% else %}
-                        <li><span class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</span>: <span>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</span></li>
+                        <div>
+                            <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
+                            <dd>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
+                        </div>
                     {% endif %}
 
                     {% if occurrence.record.country | isNotEmpty or occurrence.record.continent | isNotEmpty %}
-                    <li>
-                        <span class="text-capitalize">{$ __('stdTerms.location') $}</span>:
-                        <span class="classificationList">
+                    <div>
+                        <dt class="text-capitalize">{$ __('stdTerms.location') $}</dt>
+                        <dd class="classification-list">
                             {% if occurrence.record.continent %}<span>{$ __('continent.' + occurrence.record.continent) $}</span>{% endif %}
                             {% if occurrence.record.country %}<span>{$ occurrence.record.country $}</span>{% endif %}
-                        </span>
-                    </li>
+                        </dd>
+                    </div>
                     {% endif %}
 
-                    <li><span class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</span>: <span class="text-capitalize">{$ __('bor.' + occurrence.record.basisOfRecord) $}</span></li>
+                    <div>
+                        <dt class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</dt>
+                        <dd class="text-capitalize">{$ __('bor.' + occurrence.record.basisOfRecord) $}</dd>
+                    </div>
                     {% if occurrence.record.typeStatus | isNotEmpty %}
-                        <li><span class="text-capitalize">{$ __('stdTerms.specimenType') $}</span>: <span class="text-capitalize">{$ __('typeStatus.' + occurrence.record.typeStatus) $}</span></li>
+                        <div>
+                            <dt class="text-capitalize">{$ __('stdTerms.specimenType') $}</dt>
+                            <dd class="text-capitalize">{$ __('typeStatus.' + occurrence.record.typeStatus) $}</dd>
+                        </div>
                     {% endif %}
-                </ul>
+                </dl>
             </div>
             <div>
-                <ul class="propertyPairs">
-                    <li><span class="text-capitalize">{$ __('stdTerms.dataset') $}</span>: <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a></li>
-                    <li><span class="text-capitalize">{$ __('stdTerms.publisher') $}</span>: <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a></li>
+                <dl class="inline">
+                    <div>
+                        <dt class="text-capitalize">{$ __('stdTerms.dataset') $}</dt>
+                        <dd>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ occurrence.record.datasetKey $}">{$ occurrence.dataset.title | truncate(80) $}</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="text-capitalize">{$ __('stdTerms.publisher') $}</dt>
+                        <dd>
+                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ occurrence.record.publishingOrgKey $}">{$ occurrence.publisher.title | truncate(80) $}</a>
+                        </dd>
+                    </div>
 
                     {% if occurrence.record.references | isNotEmpty %}
-                    <li><span class="text-capitalize">{$ __('stdTerms.reference') $}</span>:
-                        <span>
+                    <div>
+                        <dt class="text-capitalize">{$ __('stdTerms.reference') $}</dt>
+                        <dd>
                             {% if occurrence.record.references | isLink %}
                                 <a href="{$ occurrence.record.references $}">{$ occurrence.record.references | truncate(50) $}</a>
                             {% else %}
                                 {$ occurrence.record.references | truncate(50) $}
                             {% endif %}
-                        </span>
-                    </li>
+                        </dd>
+                    </div>
                     {% endif %}
 
                     {% if occurrence.issueSummary | isNotEmpty %}
-                        <li class="issue-summary">
-                            <span class="text-capitalize">{$ __('stdTerms.issues') $}</span>:
-                            <span class="issue-summary__list">
+                        <div class="issue-summary">
+                            <dt class="text-capitalize">{$ __('stdTerms.issues') $}</dt>
+                            <dd class="issue-summary__list">
                                 {% for type in ['ERROR', 'WARNING', 'INFO'] %}
                                     {% for issue in occurrence.issueSummary[type] %}
                                         <span class="badge badge--{$ type | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                     {% endfor %}
                                 {% endfor %}
-                            </span>
-                        </li>
+                            </dd>
+                        </div>
                     {% endif %}
 
-                </ul>
+                </dl>
             </div>
         </div>
     </div>

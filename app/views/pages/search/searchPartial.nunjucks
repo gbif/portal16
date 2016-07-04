@@ -1,0 +1,9 @@
+{% import "./searchResults.macro.nunjucks" as searchMacro %}
+
+{% include "./curated/curated.nunjucks" %}
+
+{% include "./datasets/datasets.nunjucks" %}
+
+{% include "./publishers/publishers.nunjucks" %}
+
+{% include "./cms/articles.nunjucks" %}

@@ -1,5 +1,7 @@
 $_linkColor = #009FD4
 .card {
+	overflow hidden
+	width 100%
 	box-shadow 0 1px 3px rgba(0,0,0,0.3)
 	background white
 	&--flexible {
@@ -31,7 +33,7 @@ $_linkColor = #009FD4
 		display flex
 		flex-wrap wrap
 		justify-content space-around
-		a {
+		>a {
 			display inline-block
 			text-align center
 			flex 1 0 33%
@@ -46,11 +48,6 @@ a.card__stripe {
 		text-decoration inherit
 	}
 }
-.card {
-	dl {
-		margin 0
-	}
-}
 .card__content {
 	padding vrBlock(0.5)
 	overflow hidden
@@ -59,217 +56,8 @@ a.card__stripe {
 	}
 }
 
-.card .card__header {
-	background #efefef
-	font-size 15px
-	font-weight normal
-	padding vrBlock(0.25) vrBlock(1)
-	line-height 2rem
-	border-bottom 1px solid #ddd
-}
-
-.descr-content, .card__actions, .card__definitions {
-	a {
-		color inherit
-		&:hover {
-			text-decoration underline
-		}
-	}
-}
-
-.card__title {
-	background #efefef
-	border-bottom 1px solid #ddd
-	h2 {
-		font-size 15px
-		font-weight 400
-		padding .375rem 1.5rem
-		line-height 2rem
-	}
-}
-
-.card__banner {
-	background #02393D
-	color white
-	h2 {
-		font-size 1rem
-	}
-	a {
-		&:hover {
-			text-decoration underline
-		}
-	}
-}
-.card__banner {
-	background #02393D
-	display flex
-	.tile {
-		width 128px
-		flex 0 0 auto
-	}
-	
-	.descr {
-		height 128px
-		flex 1 1 auto
-	}
-	.descr-content {
-		padding vrBlock(0.5)
-		>div {
-			vertically-align()
-			text-align center
-		}
-		color white
-		a {
-			color white
-		}
-		p {
-			margin 0
-		}
-	}
-}
-
-.card__actions {
-	ul {
-		display flex
-	}
-	li {
-		display inline-block
-		flex 1 1 auto
-		text-align center
-		transition background 300ms ease
-		a {
-			text-transform uppercase
-			color $_linkColor
-			padding vrBlock(0.25)
-			display inline-block
-			width 100%
-			&:hover {
-				background #eee
-			}
-		}
-	}
-	border-bottom 1px solid #ddd
-}
-
-.card__definitions {
-	padding vrBlock(0.25) vrBlock(1)
-	>p {
-		margin 0
-	}
-	>div {
-		margin vrBlock(0.25) 0
-		.term {
-			font-weight bold
-			margin-right vrBlock(0.25)
-		}
-		.classification {
-			i:after {
-				font-style normal
-				//content '\2022' // •
-				content '\276f' // ❯
-				//content '\203a' // ›
-				//color #888
-				font-size 80%
-			}
-		}
-		.type {
-			a {
-				color $_linkColor
-			}
-		}
-	}
-	a.more {
-		color $_linkColor
-	}
-}
-
 .card__stripe--light {
-	background #F7F7F7
+	background lighten($lightBackground, 2)
 }
 
-.card__images {
-	background #F7F7F7
-	>div {
-		white-space nowrap
-		overflow hidden
-		overflow-x auto
-		overflow-x overlay
-		padding 10px
-		.gallery-list {
-			a {
-				display inline-block
-			}
-			img{
-				height 128px
-				// flex 0 0 auto
-				display inline-block
-				margin-right 5px
-				box-shadow 0 1px 3px rgba(0,0,0,0.3)
-			}
-		}
-		.more {
-			display inline-block
-			height 120px
-			background rgba(0,0,0,0.5)
-			color white
-		}
-	}
-}
-
-.card__tabs {
-	background #efefef
-	.card__content {
-		background #fbfbfb
-	}
-	.tabs {
-		display flex
-		overflow auto
-		>a {
-			cursor pointer
-			flex 1 0 auto
-			display inline-block
-			border-bottom 2px solid transparent
-			float left
-			padding vrBlock(.25) vrBlock(.5)
-			color inherit
-			text-decoration none
-			text-align center
-			&:hover {
-				text-decoration none
-			}
-			&.is-active {
-				border-color deepskyblue
-				background #fbfbfb
-				>[class^="gb-icon-"] {
-					color #02393D
-				}
-			}
-			span {
-				color #aaa
-				margin vrBlock(0.25)
-			}
-			>[class^="gb-icon-"] {
-				font-size 2rem
-				position relative
-				top 0.25rem
-				display inline-block
-				margin 0
-				margin-top -5px
-			}
-		}
-	}
-}
-+isAbove($laptop) {
-	.card__tabs {
-		.select {
-			display none
-		}
-		//.tabs {
-		//	display flex
-		//}
-		.card__content {
-			display none
-		}
-	}
-}
-
+@import "cardFigure"

@@ -1,7 +1,7 @@
 <section class="horizontal-stripe light-background">
     <div class="container--normal">
     {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
-        <div class="blockContent container--prose description">
+        <div class="container--prose description">
             <h2 class="h4">{$ __('stdTerms.aboutTheDataset') $}</h2>
             <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} prose-columns--single-col {% endif %}">
                 {$ occurrence.dataset.description | safe $}
@@ -9,29 +9,4 @@
         </div>
     {% endif %}
     </div>
-    {#<footer class="blockContent container-fluid">#}
-    {#<div class="aux textContent">#}
-    {#<section class="associated no-break">#}
-    {#<h5>Related GBIF resources</h5>#}
-    {#<ul class="list-links">#}
-    {#<li>abs lkjhs fhj</li>#}
-    {#<li>abs lkjhs fhj</li>#}
-    {#<li>abs lkjhs fhj</li>#}
-    {#<li>abs lkjhs fhj</li>#}
-    {#</ul>#}
-    {#</section>#}
-    {#Main contact: [the collector or the main contact for the containing dataset]#}
-
-    {#<ul>#}
-    {#<li>{$ occurrence.record.license $}</li>#}
-    {#<li>#}
-    {#<span class="gb-icon-cclogo3 cc"></span>#}
-    {#<span class="gb-icon-ccby cc"></span>#}
-    {#<span class="gb-icon-ccnc cc"></span>#}
-    {#<span class="gb-icon-ccsa cc"></span>#}
-    {#</li>#}
-    {#</ul>#}
-
-    {#</div>#}
-    {#</footer>#}
 </section>

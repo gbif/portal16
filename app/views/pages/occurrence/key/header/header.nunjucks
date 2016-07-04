@@ -32,7 +32,7 @@
             </header>
         </div>
 
-        <div class="blockComment">
+        <div class="stripe-comment">
             <div>
                 {$ __('date.synced') $}
                 {% if gb.locales.current == 'en' %}

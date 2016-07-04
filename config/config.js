@@ -10,6 +10,7 @@ var path = require('path'),
 
 var config = {
     development: {
+        env: env,
         root: rootPath,
         app: {
             name: 'portal - dev'
@@ -21,6 +22,7 @@ var config = {
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     uat: {
+        env: env,
         root: rootPath,
         app: {
             name: 'portal - uat'
@@ -32,6 +34,7 @@ var config = {
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     production: {
+        env: env,
         root: rootPath,
         app: {
             name: 'portal - prod'
@@ -43,6 +46,7 @@ var config = {
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     test: {
+        env: env,
         root: rootPath,
         app: {
             name: 'portal - test'

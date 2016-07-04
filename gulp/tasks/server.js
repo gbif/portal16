@@ -28,7 +28,7 @@ gulp.task('server', ['server-lint'], function(cb) {
 
     var started = false;
     var args = [];
-    ['loglevel', 'dataapi', 'cmsapi', 'port'].forEach(function(e){
+    ['loglevel', 'dataapi', 'tileapi', 'cmsapi', 'port'].forEach(function(e){
         if (yargs[e]) {
             args.push('--'+e+'=' + yargs[e]);
         }
@@ -42,7 +42,7 @@ gulp.task('server', ['server-lint'], function(cb) {
             tasks: ['server-lint'],
             watch: ['app.js', 'config/', 'app/'], //, 'app/views/**/*.nunjucks'
             env: {
-                'NODE_ENV': 'development'
+                'NODE_ENV': config.env
             },
             stdout: false
         })

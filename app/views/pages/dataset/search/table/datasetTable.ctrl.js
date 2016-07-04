@@ -13,10 +13,11 @@ angular
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys) {
+function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     var vm = this,
         offset = parseInt($stateParams.offset) || 0;
 
+    vm.tileApi = env.tileApi;
     vm.count = results.count;
     vm.results = results.results;
     vm.featuredDataSets = {

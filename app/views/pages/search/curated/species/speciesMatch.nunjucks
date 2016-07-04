@@ -18,9 +18,9 @@
 			{% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %}
 			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe card__stripe--light species-card__details">
 				<div class="tile">
-		            <div class="species-overview-map">
+		            <div class="teaser-map">
 		                <img src="/img/tile000/basemap-grey-light2.png">
-		                <img src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
+		                <img src="{$ meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
 		            </div>
 		        </div>
 			</a>
@@ -46,8 +46,8 @@
 			{% if taxon.synonym %}
 			<div class="card__stripe">
 				<div class="card__content">
-					<div class="species-card__details__dl">
-						<dl class="inline">
+					<div>
+						<dl class="inline--discreet">
 							<div>
 								<dt>Synonym</dt>
 								<dd>
@@ -68,13 +68,13 @@
 				</a>
 			{% endif %}
 
-			{#{% if results.taxaMatches.length == 1 %}#}
+			{% if results.taxaMatches.length == 1 %}
 			{#<div class="card__stripe card__stripe--actions">#}
 				{#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">#}
 					{#FILTER#}
 				{#</a>#}
 			{#</div>#}
-			{#{% endif %}#}
+			{% endif %}
 
         </article>
 	</div>

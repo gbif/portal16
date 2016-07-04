@@ -89,9 +89,9 @@
                     <div class="container--narrow">
                         <div class="row">
                             <div class="col-xs-12">
-                                <ul class="multiToggle">
+                                <ul class="tabs">
                                     <li>
-                                        <a ng-href="../../?q={{dataset.freeTextQuery}}" ng-click="occurrence.table.filter = undefined">All</a>
+                                        <a ui-sref="omniSearch({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = undefined">All</a>
                                     </li>
                                     <li class="is-active">
                                         <a href="" ng-click="occurrence.table.filter = 'datasets'">datasets</a>

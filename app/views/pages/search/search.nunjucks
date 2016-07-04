@@ -1,59 +1,59 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
-{% import "./searchResults.macro.nunjucks" as searchMacro %}
+{#{% import "./searchResults.macro.nunjucks" as searchMacro %}#}
 
-{% block page %}
-    <article class="wrapper-horizontal-stripes omniSearch search-content" ng-controller="searchCtrl as search">
+{#{% block page %}#}
+    {#<article class="wrapper-horizontal-stripes omniSearch" ng-controller="searchCtrl as search">#}
 
-        <div class="horizontal-stripe--paddingless white-background search-bar">
-             <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="search-bar__form">
-                            <form action="/search" class="search-bar__term">
-                                <input id="siteSearch" type="text" placeholder="Search - e.g. bike shed" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-model="search.searchQuery" ng-value="search.searchQuery" value="{$ query $}">
-                                <button type="submit" class="gb-icon-search">
-                                    <span class="sr-only">{$ __('search') $}</span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {#<div class="horizontal-stripe--paddingless white-background search-bar">#}
+             {#<div class="container--narrow">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12">#}
+                        {#<div class="search-bar__form">#}
+                            {#<form action="/search" class="search-bar__term">#}
+                                {#<input id="siteSearch" type="text" placeholder="Search - e.g. bike shed" name="q" Xautocomplete="off" ng-init="search.searchQuery = '{$ query $}'" ng-model="search.searchQuery" ng-value="search.searchQuery" value="{$ query $}">#}
+                                {#<button type="submit" class="gb-icon-search">#}
+                                    {#<span class="sr-only">{$ __('search') $}</span>#}
+                                {#</button>#}
+                            {#</form>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
 
-        <nav class="horizontal-stripe--paddingless light-background search-tabs">
-            <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="multiToggle">
-                            <li class="is-active">
-                                <a href="" ng-click="occurrence.table.filter = undefined">All</a>
-                            </li>
-                            <li>
-                                <a href="/dataset/table?q={$ query $}" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
-                            </li>
-                            <li>
-                                <a href="/occurrence/table?q={$ query $}" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        {#<nav class="horizontal-stripe--paddingless light-background search-tabs">#}
+            {#<div class="container--narrow">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12">#}
+                        {#<ul class="tabs">#}
+                            {#<li class="is-active">#}
+                                {#<a href="" ng-click="occurrence.table.filter = undefined">All</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="/dataset/table?q={$ query $}" ng-click="occurrence.table.filter = 'datasets'">datasets</a>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<a href="/occurrence/table?q={$ query $}" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</nav>#}
 
 
         {#{% if hasInvalidResponses %}#}
         {#{% include "./partialResponse.nunjucks" %}#}
         {#{% endif %}#}
 
-        {% include "./curated/curated.nunjucks" %}
+        {#{% include "./curated/curated.nunjucks" %}#}
 
-        {% include "./datasets/datasets.nunjucks" %}
+        {#{% include "./datasets/datasets.nunjucks" %}#}
 
-        {% include "./publishers/publishers.nunjucks" %}
+        {#{% include "./publishers/publishers.nunjucks" %}#}
 
-        {% include "./cms/articles.nunjucks" %}
+        {#{% include "./cms/articles.nunjucks" %}#}
 
-    </article>
+    {#</article>#}
 
-{% endblock %}
+{#{% endblock %}#}

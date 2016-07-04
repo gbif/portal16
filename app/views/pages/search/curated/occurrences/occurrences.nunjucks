@@ -1,5 +1,5 @@
 {% if results.occurrences.count > 0 %}
-<div style="max-width:1000px">
+<div class="card-flex-columns__block-aligned">
     <div class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe">
             <div class="card__content">
@@ -39,11 +39,12 @@
                 </table>
             </div>
         </div>
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe card__stripe--actions">
-            <div class="card__content">
-                FILTER OCCURRENCES
-            </div>
-        </a>
+
+        <div class="card__stripe card__stripe--actions">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}">
+                FILTER
+            </a>
+        </div>
     </div>
 </div>
 

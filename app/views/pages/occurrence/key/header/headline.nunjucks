@@ -1,6 +1,4 @@
 <h1 class="h2 text-center">
-
-
     <span {% if not occurrence.record.scientificName %} class="error" {% endif %}>{$ occurrence.computedFields.title.name $}</span>
     <div class="h3 article-header__sub">
         {% if occurrence.record.individualCount > 1 %}

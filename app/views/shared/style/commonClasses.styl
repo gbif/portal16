@@ -37,6 +37,9 @@
 .article-header {
     h1 {
         margin-top vrBlock(0.4)
+        .error {
+            color tomato
+        }
     }
     &__intro {
         font-size 1.2rem
@@ -136,31 +139,6 @@ $articleCategorySeparatorSpacing = 6px
         display block
         pointer-events none
     }
-}
-
-.white-background {
-    background-color $paper
-}
-.bare-background {
-    background-color $greyBackground
-}
-.light-background {
-    background-color $lightBackground
-}
-.alert-background {
-    background-color $alertBackground
-}
-.horizontal-stripe--alternating-background {
-    background-color $lightBackground
-    &:nth-of-type(even) {
-        background-color $paper
-    }
-
-}
-
-.col-centered {
-    float none
-    margin 0 auto
 }
 
 .container--prose {
@@ -286,9 +264,6 @@ $headerImageMaxFullWidth = 1400px
     padding-bottom 60%
 }
 
-.no-break {
-    break-inside avoid-column
-}
 
 +isAbove($tablet) {
     .count-text {
@@ -319,8 +294,4 @@ sup, sub {
 }
 sub {
     top 0.4rem
-}
-
-.scrollable-y {
-    overflow-y auto
 }

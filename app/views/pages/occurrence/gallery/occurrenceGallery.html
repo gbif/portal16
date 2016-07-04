@@ -1,6 +1,25 @@
-<div class="imageGallery">
-    <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-        <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier }}&size=S" gallery-image>
-    </a>
-    <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
-</div>
+<section class="horizontal-stripe light-background" style="position: relative;">
+    <div class="container-fluid">
+        <div class="imageGallery">
+            <div class="block-options" style="width:auto; margin: 0.5rem">
+                <a href=""
+                   class="gb-icon-menu block-options__option"
+                   style="font-size:24px"
+                   tooltip-placement="top"
+                   uib-tooltip="list"></a>
+                <a href="" class="gb-icon-map block-options__menu block-options__option"
+                   style="font-size:24px"
+                   tooltip-placement="top"
+                   uib-tooltip="map"></a>
+                <a href="" class="gb-icon-photo block-options__menu block-options__option"
+                   style="font-size:24px"
+                   tooltip-placement="top"
+                   uib-tooltip="gallery"></a>
+            </div>
+            <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
+                <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier }}&size=S" gallery-image>
+            </a>
+            <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+        </div>
+    </div>
+</section>

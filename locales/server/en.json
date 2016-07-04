@@ -1140,7 +1140,8 @@
 		"occurrence": "occurrence",
 		"catalogNr": "catalog nr",
 		"data_use": "data use",
-		"Organism": "stdTerms.Organism"
+		"Organism": "organism",
+		"seeAll": "see all"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",
@@ -1160,7 +1161,8 @@
 	"participationStatus": {
 		"VOTING": "voting",
 		"ASSOCIATE": "associate",
-		"undefined": "unknown"
+		"undefined": "unknown",
+		"FORMER": "participationStatus.FORMER"
 	},
 	"installation": {
 		"type": {

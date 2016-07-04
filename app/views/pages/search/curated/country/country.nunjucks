@@ -18,7 +18,7 @@
                 <div class="flag">
                     <img src="/img/flags/{$ results.country.countryCode $}.png">
                 </div>
-                <div class="species-card__details__dl">
+                <div>
                     <p>{$ results.country.name $} is a {$ __('participationStatus.' + results.country.participationStatus) $} participant of GBIF. Since membership start in {$ results.country.membershipStart $} {$ results.country.name $} has publisher xxx.xxx occurrence records.
                     </p>
                     <dl class="inline">

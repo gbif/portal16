@@ -1,7 +1,7 @@
 {% macro taxonInfo(taxon, __) %}
 
 {% if taxon.occurrences.count > 0 %}
-<div style="max-width:660px">
+<div class="card-flex-columns__block-double">
     <div class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe">
             <div class="card__content">
@@ -81,11 +81,17 @@
             </div>
         </div>
         {% endif %}
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe card__stripe--actions">
-            <div class="card__content">
-                FILTER OCCURRENCES
-            </div>
-        </a>
+
+        <div class="card__stripe card__stripe--actions">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
+                {$ __('stdTerms.seeAll') $}
+            </a>
+        </div>
+        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe card__stripe--actions">#}
+            {#<div class="card__content">#}
+                {#FILTER OCCURRENCES#}
+            {#</div>#}
+        {#</a>#}
     </div>
 </div>
 {% endif %}

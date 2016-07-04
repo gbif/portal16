@@ -1,5 +1,4 @@
 <section class="horizontal-stripe bare-background occurrenceKey__locationDescription">
-{#<section class="block row occurrenceKey__locationDescription bare">#}
     <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">
@@ -8,10 +7,10 @@
                 {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
                 <p>
                     This record isn't published with coordinates, but with a textual description of its location.
-                    <dl>
+                    <dl class="inline">
                         <div>
                             <dt>{$ __('stdTerms.location') $}</dt>
-                            <dd class="classificationList">
+                            <dd class="classification-list">
 
                                 {% if occurrence.record.continent | isNotEmpty %}
                                     <span>{$ __('continent.' + occurrence.record.continent) $}</span>

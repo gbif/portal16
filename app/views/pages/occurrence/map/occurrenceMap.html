@@ -1,16 +1,38 @@
-<div class="occurrence-search-map">
-    <leaflet
-            leafletMap="leafletMap"
-            id="occurrenceMap"
-            defaults="occMap.mapDefaults"
-            height="100%"
-            width="100%"
-            layers="occMap.layers"
-    ></leaflet>
-</div>
-<div>
-	Map menu
-	<ul>
-		<li ng-repeat="occurrence in occMap.mapMenu.occurrences.results"><a ng-href="/occurrence/{{occurrence.key}}">{{occurrence.scientificName}}</a></li>
-	</ul>
-</div>
+<section class="horizontal-stripe--paddingless light-background" style="position: relative;">
+	<div>
+		<div class="block-options" style="width:auto; margin: 0.5rem">
+			<a href=""
+			   class="gb-icon-menu block-options__option"
+			   style="font-size:24px"
+			   tooltip-placement="top"
+			   uib-tooltip="list"></a>
+			<a href="" class="gb-icon-map block-options__menu block-options__option"
+			   style="font-size:24px"
+			   tooltip-placement="top"
+			   uib-tooltip="map"></a>
+			<a href="" class="gb-icon-photo block-options__menu block-options__option"
+			   style="font-size:24px"
+			   tooltip-placement="top"
+			   uib-tooltip="gallery"></a>
+		</div>
+		<div class="occurrence-search-map">
+			<div class="search-results__list" style="padding: 5px 10px;">
+				<span>Georeferenced results</span>
+			</div>
+			<leaflet
+					leafletMap="leafletMap"
+					id="occurrenceMap"
+					defaults="occMap.mapDefaults"
+					height="100%"
+					width="100%"
+					layers="occMap.layers"
+			></leaflet>
+		</div>
+		<div>
+			Map menu
+			<ul>
+				<li ng-repeat="occurrence in occMap.mapMenu.occurrences.results"><a ng-href="/occurrence/{{occurrence.key}}">{{occurrence.scientificName}}</a></li>
+			</ul>
+		</div>
+	</div>
+</section>

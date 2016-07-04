@@ -17,21 +17,21 @@ ul.tabs {
 			}
 		}
 		&.is-active {
-			background #5a7888//3a5563
+			background $actionColor
 			color white
-			&:after {
-				top: 100%;
-			    left: 50%;
-			    border: solid transparent;
-			    content: " ";
-			    height: 0;
-			    width: 0;
-			    position: absolute;
-			    pointer-events: none;
-			    border-color rgba(58, 85, 99, 0);
-			    border-top-color: #5a7888;
-			    border-width: 7px;
-			    margin-left: -8px;
+			&:after { //arrow below
+				top 100%
+			    left 50%
+			    border solid transparent
+			    content " "
+			    height 0
+			    width 0
+			    position absolute
+			    pointer-events none
+			    border-color rgba(58, 85, 99, 0)
+			    border-top-color $actionColor
+			    border-width 7px
+			    margin-left -8px
 			}
 		}
 	}

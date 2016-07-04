@@ -6,7 +6,7 @@
 	top 0
 	margin -.5rem 1rem 0 0
 	.stripe-menu__option {
-		color #666
+		color $discreetInk
 		border-radius 50%
 		width 1.7rem
 		height 1.7rem
@@ -28,40 +28,27 @@
 			li {
 				padding 2px 5px
 				&:hover {
-					background #eee
+					background $lightBackground
 					cursor pointer
 				}
 				a {
 					display block
 				}
 				&.seperator {
-					border-top 1px solid #eee
+					border-top 1px solid $lightBackground
 				}
 			}
 		}
 	}
 	&.is-expanded {
 		.stripe-menu__menu {
-			background #eee
+			background rgba(0,0,0,0.1)
 		}
 		.stripe-menu__drop-down {
 			display block
 		}
 	}
-	.stripe-menu__help {
-		display none
-		color #ccc
-	}
-	&:hover {
-		.stripe-menu__help {
-			display inline
-		}
-	}
 }
-
-//.block:hover {
-	.stripe-menu__option:hover {
-		background #eee//#4e565f
-		//color white
-	}
-//}
+.stripe-menu__option:hover {
+	background rgba(0,0,0,0.1)
+}

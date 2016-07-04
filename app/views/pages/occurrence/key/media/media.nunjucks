@@ -4,45 +4,34 @@
 <section class="horizontal-stripe light-background"
     {% if occurrence.record.media.length > 5 %}
         expand expand-text="'Show all'" collapse-text="'Collapse'" expand-model="occurrence.mediaExpand"
-        {% endif %}
->
+    {% endif %}>
     <div>
-        <div class="occurrenceMedia {% if occurrence.record.media.length >= 5 %} occurrenceMedia-wide {% endif %}">
+        <div class="card-columns{% if occurrence.record.media.length >= 5 %}-wide{% endif %}">
             {% for media in occurrence.record.media | limit(5) %}
-                <div class="card">
+                <div class="card-figure">
                     <figure>
                         <div class="imgContainer">
                             <img src="//api.gbif.org/v1/image?url={$ media.identifier | encodeURI $}&size=M" onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                         </div>
                         <figcaption class="card__content">
-                            <div class="summary">
+                            <dl class="inline">
                                 {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source', 'license', 'references'] %}
                                     {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
                                             <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
-                                            {#{% if media[field] | isLink %}#}
-                                                {#<dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>#}
-                                            {#{% else %}#}
-                                                {#<dd>{$ media[field] $}</dd>#}
-                                            {#{% endif %}#}
                                         </div>
                                     {% endif %}
                                 {% endfor %}
-                            </div>
-                            <a href="" ng-click="occurrence.mediaItems.m{$ loop.index $} = true" ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
+                            </dl>
+                            <a href="" class="pull-right" ng-click="occurrence.mediaItems.m{$ loop.index $} = true" ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
                             <div class="details" ng-class="{show: occurrence.mediaItems.m{$ loop.index $} }">
-                                <dl>
+                                <dl class="inline">
                                     {% for field in ['identifier', 'created', 'contributor', 'rightsHolder', 'datasetID'] %}
                                         {% if media[field] %}
                                         <div>
                                             <dt>{$ field $}</dt>
                                             <dd>{$ shorten.compactTableCell(media[field]) $}</dd>
-                                            {#{% if media[field] | isLink %}#}
-                                                {#<dd><a href="{$ media[field] $}">{$ media[field] | truncateMiddle(30) $}</a></dd>#}
-                                            {#{% else %}#}
-                                                {#<dd>{$ media[field] $}</dd>#}
-                                            {#{% endif %}#}
                                         </div>
                                         {% endif %}
                                     {% endfor %}
@@ -52,20 +41,19 @@
                     </figure>
                 </div>
             {% endfor %}
-
         </div>
 
         {% if occurrence.record.media.length > 5 %}
 
-        <div class="occurrenceMedia occurrenceMedia-wide ng-cloak">
+        <div class="card-columns-wide ng-cloak">
             {% for media in occurrence.record.media | slice(5) %}
-                <div class="card" ng-if="occurrence.mediaExpand.isExpanded" ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
+                <div class="card-figure" ng-if="occurrence.mediaExpand.isExpanded" ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
                     <figure>
                         <div class="imgContainer">
                             <img ng-src="//api.gbif.org/v1/image?url={$ media.identifier | encodeURI $}&size=M" onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                         </div>
                         <figcaption class="card__content">
-                            <div class="summary">
+                            <dl class="inline">
                                 {% for field in ['title', 'description', 'audience', 'creator', 'publisher', 'source'] %}
                                     {% if media[field] %}
                                         <div>
@@ -86,20 +74,15 @@
                                         <a href="link-to-license">CC-BY</a>
                                     </dd>
                                 </div>
-                            </div>
-                            <a href="" ng-click="occurrence.mediaItems.m{$ loop.index $} = true" ng-if="!occurrence.mediaItems.m{$ loop.index $}">more</a>
-                            <div class="details" ng-class="{show: occurrence.mediaItems.m{$ loop.index $} }">
-                                <dl>
-                                    {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
-                                        {% if media[field] %}
-                                            <div>
-                                                <dt>{$ field $}</dt>
-                                                <dd>{$ media[field] $}</dd>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                </dl>
-                            </div>
+                                {% for field in ['identifier', 'created', 'contributor', 'license', 'rightsHolder', 'datasetID'] %}
+                                    {% if media[field] %}
+                                        <div>
+                                            <dt>{$ field $}</dt>
+                                            <dd>{$ media[field] $}</dd>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </dl>
                         </figcaption>
                     </figure>
                 </div>

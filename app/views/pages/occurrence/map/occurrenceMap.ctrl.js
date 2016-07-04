@@ -17,7 +17,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
     var vm = this;
     vm.mapMenu = {
         occurrences: {}
-    }
+    };
     OccurrenceFilter.setCurrentTab();
     var getOverlay = function(query) {
         var overlay = {
