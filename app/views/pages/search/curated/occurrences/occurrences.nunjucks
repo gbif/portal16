@@ -42,7 +42,7 @@
 
         <div class="card__stripe card__stripe--actions">
             <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}">
-                FILTER
+                {$ __('stdTerms.seeAll') $}
             </a>
         </div>
     </div>

@@ -13,9 +13,10 @@
                                                ng-model="omniSearch.freeTextQuery"
                                                placeholder="Search"
                                                ng-keypress="omniSearch.searchOnEnter($event)">
-                                        <button type="submit" class="gb-icon-search">
+                                        <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="omniSearch.freeTextQuery" ng-click="omniSearch.clearFreetextAndSetFocus()"></a>
+                                        <a type="submit" class="gb-icon-search search-bar__search">
                                             <span class="sr-only">{$ __('search') $}</span>
-                                        </button>
+                                        </a>
                                     </form>
                                 </div>
                             </div>
@@ -37,7 +38,7 @@
                                         <a ui-sref="datasetSearchTable({q: omniSearch.query.q})">datasets</a>
                                     </li>
                                     <li>
-                                        <a href="">occurrences</a>
+                                        <a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})">occurrences</a>
                                     </li>
                                 </ul>
                             </div>

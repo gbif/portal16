@@ -63,17 +63,19 @@
                                 <div class="search-bar__form">
                                     <form class="search-bar__term" ng-submit="dataset.updateSearch()">
                                         <input type="text"
-                                        class="fit-suggestions"
-                                           ng-model="dataset.freeTextQuery"
-                                           placeholder="Search for datasets"
-                                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                                           typeahead-focus-first="false"
-                                           typeahead-template-url="customTemplate.html"
-                                           ng-keypress="dataset.searchOnEnter($event)">
-                                        <button type="submit" class="gb-icon-search">
+                                               id="siteSearch"
+                                               class="fit-suggestions"
+                                               ng-model="dataset.freeTextQuery"
+                                               placeholder="Search for datasets"
+                                               uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                                               typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                                               typeahead-focus-first="false"
+                                               typeahead-template-url="customTemplate.html"
+                                               ng-keypress="dataset.searchOnEnter($event)">
+                                        <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
+                                        <a type="submit" class="gb-icon-search search-bar__search">
                                             <span class="sr-only">{$ __('search') $}</span>
-                                        </button>
+                                        </a>
                                     </form>
                                 </div>
                             </div>

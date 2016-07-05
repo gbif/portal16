@@ -2,46 +2,49 @@
 	height vrBlock(3)
 	padding 0
 	&__term {
-		margin-top 9px
+		margin-top vrBlock(0.5)
 		display inline-block
 		position relative
 		width 100%
-		// max-width 500px
 		>input {
+			height vrBlock(2)
 			background $lightBackground
-			padding 10px 15px
+			padding vrBlock(0.5) 15px
 			border 1px solid $stripeBorderColor
 			outline none
 			width 100%
 			box-sizing border-box
-			padding-right vrBlock(65px)
+			padding-right vrBlock(4)
 			white-space nowrap
 			overflow hidden
 			text-overflow ellipsis
 			background none
 			font-size 16px
-			line-height 1em
+			line-height vrBlock(1)
 			&:focus {
 				outline none
 			}
 		}
-		>button {
-			height 100%
-			position absolute
-			font-size vrBlock(1.2)
-			text-align center
-			display inline-block
-			right 0
-			top 0
-			width 50px
-			background $actionColor
-			color white
-			border none
-			&:before {
-				display block
-				width 100%
-				text-align center
-			}
-		}
+	}
+	&__search, &__clear, button {
+		display block
+		height vrBlock(2)
+		width vrBlock(2)
+		text-align center
+		line-height vrBlock(2)
+		position absolute
+		right 0
+		top 0px
+		font-size 20px
+		color inherit
+		border none
+	}
+	&__search, &__search:hover {
+		background $actionColor
+		color white
+		text-decoration none
+	}
+	&__clear {
+		right vrBlock(2)
 	}
 }

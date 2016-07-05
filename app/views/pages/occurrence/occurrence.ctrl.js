@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, OccurrenceFilter) {
+function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, OccurrenceFilter, hotkeys) {
     var vm = this;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
@@ -74,6 +74,20 @@ function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, Occurrenc
             vm.updateSearch();
         }
     };
+
+    vm.clearFreetextAndSetFocus = function() {
+        document.getElementById('siteSearch').focus();
+        vm.freeTextQuery = '';
+    };
+    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    hotkeys.add({
+        combo: 'alt+f',
+        description: 'Site search',
+        callback: function(event) {
+            vm.clearFreetextAndSetFocus();
+            event.preventDefault();
+        }
+    });
 }
 
 module.exports = occurrenceCtrl;

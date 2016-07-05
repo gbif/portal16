@@ -12,13 +12,16 @@ function searchCtrl($state, $stateParams, hotkeys) {
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
 
+    vm.clearFreetextAndSetFocus = function() {
+        document.getElementById('siteSearch').focus();
+        vm.freeTextQuery = '';
+    };
     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
         callback: function(event) {
-            document.getElementById('siteSearch').focus();
-            vm.freeTextQuery = '';
+            vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
     });

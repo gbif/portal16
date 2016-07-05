@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
+function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkeys) {
     var vm = this;
     vm.query = $stateParams;
     vm.freeTextQuery = $stateParams.q;
@@ -103,6 +103,20 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http) {
             vm.updateSearch();
         }
     };
+
+    vm.clearFreetextAndSetFocus = function() {
+        document.getElementById('siteSearch').focus();
+        vm.freeTextQuery = '';
+    };
+    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    hotkeys.add({
+        combo: 'alt+f',
+        description: 'Site search',
+        callback: function(event) {
+            vm.clearFreetextAndSetFocus();
+            event.preventDefault();
+        }
+    });
 }
 
 module.exports = datasetCtrl;

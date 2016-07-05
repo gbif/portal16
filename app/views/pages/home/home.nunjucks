@@ -9,9 +9,9 @@
                     <div class="search-bar__form">
                         <form action="/search" class="search-bar__term">
                             <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" autocomplete="off">
-                            <button type="submit" class="gb-icon-search">
+                            <a type="submit" class="gb-icon-search search-bar__search">
                                 <span class="sr-only">{$ __('search') $}</span>
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div>
