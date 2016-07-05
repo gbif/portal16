@@ -1,8 +1,8 @@
 {
 	"Search results": "Search results",
-	"search.placeholder": "search.placeholder",
 	"search": {
-		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what we could find."
+		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what we could find.",
+		"placeholder": "search"
 	},
 	"VOTING": "voting",
 	"ASSOCIATE": "associate",
@@ -1143,7 +1143,8 @@
 		"catalogNr": "catalog nr",
 		"data_use": "data use",
 		"Organism": "organism",
-		"seeAll": "see all"
+		"seeAll": "see all",
+		"search": "search"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

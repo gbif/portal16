@@ -8,9 +8,9 @@
                 <div class="col-xs-12">
                     <div class="search-bar__form">
                         <form action="/search" class="search-bar__term">
-                            <input id="siteSearch" type="text" placeholder="{$ __('search') $}" name="q" autocomplete="off">
-                            <a type="submit" class="gb-icon-search search-bar__search">
-                                <span class="sr-only">{$ __('search') $}</span>
+                            <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q" autocomplete="off" value="" ng-model="omniSearchTerm">
+                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit" class="gb-icon-search search-bar__search">
+                                <span class="sr-only">{$ __('stdTerms.search') $}</span>
                             </a>
                         </form>
                     </div>
