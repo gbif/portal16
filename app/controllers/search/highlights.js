@@ -1,5 +1,7 @@
 "use strict";
 
+var _ = require('underscore');
+
 const curatedArticles = {
 	hard: [
 		{
@@ -57,7 +59,23 @@ function getHighlights(q, data) {
 		});
 	}
 
-	if (data.taxaMatches) {
+	//in case the api call for getting extended species info fails, then map the initial data to the array so we can show the user what we have
+	//the api call for a more detailed species description failed. Just show the default info returned from the match api
+	if (_.isArray(data.taxaMatches)) {
+		data.taxaMatches = data.taxaMatches.map(function (e, i) {
+			if (typeof e.errorType !== 'undefined') {
+				data.rawTaxaMatches[i].key = data.rawTaxaMatches[i].usageKey;
+				return {
+					info: data.rawTaxaMatches[i],
+					errorType: e.errorType
+				}
+			} else {
+				return e;
+			}
+		});
+	}
+
+	if (_.isArray(data.taxaMatches)) {
 		highlights.push({
 			type: 'SPECIES',
 			highlight: data.taxaMatches

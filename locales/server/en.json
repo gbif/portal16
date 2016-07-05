@@ -1,7 +1,9 @@
 {
 	"Search results": "Search results",
 	"search.placeholder": "search.placeholder",
-	"search": "search",
+	"search": {
+		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what we could find."
+	},
 	"VOTING": "voting",
 	"ASSOCIATE": "associate",
 	"bor": {

@@ -1,2 +1,9 @@
-Error or timeout in the API response
-//TODO find a nice way to display this
+{% if results.isPartialResponse %}
+
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        {$ __('search.partialResultExplanation') $}
+    </div>
+</div>
+
+{% endif %}

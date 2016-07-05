@@ -1,5 +1,7 @@
 {% import "./searchResults.macro.nunjucks" as searchMacro %}
 
+{% include "./partialResponse.nunjucks" %}
+
 {% include "./curated/curated.nunjucks" %}
 
 {% include "./datasets/datasets.nunjucks" %}

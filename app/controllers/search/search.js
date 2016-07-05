@@ -6,21 +6,18 @@
  */
 var helper = require('../../models/util/util'),
     baseConfig = require('../../../config/config'),
+    _ = require('underscore'),
     async = require('async');
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {
     var key = taxon.usageKey;
-    if (taxon.synonym) {
+    if (typeof taxon.synonym !== 'undefined') {
         key = helper.getSynonymKey(taxon) || key;
     }
     async.auto(
         {
             info: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'species/' + key, callback);
-            },
-            media: function(callback){
-                //media attached to that taxon
-                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/media', callback);
             },
             occurrences: function(callback){
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&taxonKey=' + key, callback);
@@ -35,19 +32,6 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 } else {
                     callback(null, null);
                 }
-            },
-            children: function(callback){
-                //children
-                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/children?limit=10', function(err, data) {
-                    if (err) {
-                        callback(err, data);
-                    } else if(typeof data.errorType !== 'undefined') {
-                        callback(null, data);
-                    } else {
-                        data = helper.getHigestRankingLowerClasses(data);
-                        callback(err, data);
-                    }
-                });
             },
             featuredHolotype: ['holotypes', function(results, callback) {
                 if (!results.holotypes || typeof results.holotypes.errorType != 'undefined' || results.holotypes.count == 0) {
@@ -66,11 +50,16 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 //TODO log error
             }
             if (typeof data.info.errorType !== 'undefined') {
-                cb(new Error('failed to get species info'), null);
+                //cb(new Error('failed to get species info'), null);
+                cb(null, data.info);
             } else {
                 var aggregatedData = data;
                 if (taxon.synonym) {
                     aggregatedData.synonym = taxon;
+                }
+                //show occurrences if images if there is enough - else simply show what ever occurrences we have
+                if (aggregatedData.images && aggregatedData.images.count > 10) {
+                    aggregatedData.occurrences = aggregatedData.images;
                 }
                 cb(null, aggregatedData);
             }
@@ -148,27 +137,30 @@ function getData(query, cb) {
                     }
                 }
             ],
-            species: [
-                'rawTaxaMatches', function(results, callback) {
-                    if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
-                        callback(null, null);
-                    } else {
-                        helper.getApiData(baseConfig.dataApi + 'species/search?limit=5&dataset_key=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=' + q, callback);//TODO move backbone datasetkey to variable
-                    }
-                }
-            ],
+            //species: [
+            //    'rawTaxaMatches', function(results, callback) {
+            //        if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0) {
+            //            callback(null, null);
+            //        } else {
+            //            helper.getApiData(baseConfig.dataApi + 'species/search?limit=5&dataset_key=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=' + q, callback);//TODO move backbone datasetkey to variable
+            //        }
+            //    }
+            //],
             datasets: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=3&hl=true&q=' + q, callback);
             },
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=3&q=' + q, callback);
             },
-             articles: function(callback){
-                 helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
-             },
+            articles: function(callback){
+                helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
+            },
             country: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {
                     if (err) {
+                        callback(err, data);
+                        return;
+                    } else if (!_.isUndefined(data.errorType)) {
                         callback(err, data);
                         return;
                     } else if (data.count != 1 || data.results[0].type != 'COUNTRY') {
@@ -184,24 +176,43 @@ function getData(query, cb) {
     );
 }
 
+function isPartialResponse(results) {
+    "use strict";
+
+    let expectedKeys = [
+        'rawTaxaMatches',
+        'taxaMatches',
+        'catalogNumberOccurrences',
+        'occurrences',
+        'datasets',
+        'publishers',
+        'articles',
+        'country'
+    ];
+
+    for (var i = 0; i < expectedKeys.length; i++) {
+        let e = expectedKeys[i],
+            data = results[e];
+        if (_.isArray(data)) {
+            for (var j=0; j < data.length; j++) {
+                if (_.isObject(data[i]) && !_.isUndefined(data[i].errorType)) {
+                    return true;
+                }
+            }
+        } else if (_.isObject(data) ){
+            if (!_.isUndefined(data.errorType)) {
+                results[e] = undefined;
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 function search(q, cb) {
     getData(q, function(err, results){
 
-        //var expectedKeys = ['speciesMatches',
-        //    'catalogNumberOccurrences',
-        //    'occurrences',
-        //    'species',
-        //    'images',
-        //    'datasets',
-        //    'articles',
-        //    'publishers'];
-        //
-        //expectedKeys.forEach(function(e){
-        //    if (typeof results[e] === 'undefined') {
-        //        console.log('ERROR : KEY MISSING  ' + e);
-        //    }
-        //});
+        results.isPartialResponse = isPartialResponse(results);
         if (results.occurrencesImagesLocation && results.occurrences && results.occurrencesImagesLocation.count >= 10) {
             results.occurrences.results = results.occurrencesImagesLocation.results;
         }
