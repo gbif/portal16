@@ -46,6 +46,11 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
     };
     vm.appliedFilterCount = vm.getFilterCount();
 
+    vm.freeTextSearch = function() {
+        $state.go('.', {q: vm.freeTextQuery}, {inherit:false});
+        window.scrollTo(0,0);
+    };
+
     vm.updateSearch = function() {
         $stateParams.q =  vm.freeTextQuery;
         $stateParams.offset =  undefined;
@@ -87,14 +92,11 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
             vm.query[field.toLowerCase()] = undefined;
         } else if ( angular.isArray(param) ) {
             vm.query[field.toLowerCase()] = param.filter(function(e){
-                if (e==value) {
-                    return false;
-                }
-                return true;
+                return e!=value;
             });
         }
         vm.updateSearch();
-    }
+    };
 
     vm.getSuggestions = function(val) {
         return $http.get('//api.gbif.org/v1/dataset/suggest', {
@@ -113,13 +115,14 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
 
     vm.searchOnEnter = function(event) {
         if(event.which === 13) {
-            vm.updateSearch();
+            vm.freeTextSearch();
         }
     };
 
     vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
+        event.preventDefault();
     };
     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({

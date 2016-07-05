@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="search-bar__form">
-                                    <form class="search-bar__term" ng-submit="dataset.updateSearch()">
+                                    <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
                                         <input type="text"
                                                id="siteSearch"
                                                autocomplete="off"
@@ -73,10 +73,9 @@
                                                uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
                                                typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
                                                typeahead-focus-first="false"
-                                               typeahead-template-url="customTemplate.html"
-                                               ng-keypress="dataset.searchOnEnter($event)">
+                                               typeahead-template-url="customTemplate.html">
                                         <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
-                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.updateSearch()">
+                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
                                             <span class="sr-only">{$ __('stdTerms.search') $}</span>
                                         </a>
                                     </form>
