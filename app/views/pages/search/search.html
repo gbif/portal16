@@ -14,7 +14,7 @@
                                                placeholder="Search"
                                                ng-keypress="omniSearch.searchOnEnter($event)">
                                         <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="omniSearch.freeTextQuery" ng-click="omniSearch.clearFreetextAndSetFocus()"></a>
-                                        <a type="submit" class="gb-icon-search search-bar__search">
+                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
                                             <span class="sr-only">{$ __('search') $}</span>
                                         </a>
                                     </form>

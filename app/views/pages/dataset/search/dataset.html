@@ -73,7 +73,7 @@
                                                typeahead-template-url="customTemplate.html"
                                                ng-keypress="dataset.searchOnEnter($event)">
                                         <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
-                                        <a type="submit" class="gb-icon-search search-bar__search">
+                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.updateSearch()">
                                             <span class="sr-only">{$ __('search') $}</span>
                                         </a>
                                     </form>
