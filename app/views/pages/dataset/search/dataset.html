@@ -16,7 +16,9 @@
 
     <div class="site-drawer__section">
         <div class="site-drawer__actions">
-            <a ui-sref="datasetSearchTable({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters"></a>
+            <a ui-sref="datasetSearchTable({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters">
+                <span class="count badge" ng-show="dataset.appliedFilterCount > 0">{{dataset.appliedFilterCount}}</span>
+            </a>
         </div>
         
 
@@ -64,6 +66,7 @@
                                     <form class="search-bar__term" ng-submit="dataset.updateSearch()">
                                         <input type="text"
                                                id="siteSearch"
+                                               autocomplete="off"
                                                class="fit-suggestions"
                                                ng-model="dataset.freeTextQuery"
                                                placeholder="Search for datasets"

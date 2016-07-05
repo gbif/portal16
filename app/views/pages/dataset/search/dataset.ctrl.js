@@ -20,6 +20,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
     vm.facets = results.facets;
     vm.state = DatasetFilter.state;
     vm.count = results.count;
+    vm.appliedFilterCount = 0;
 
     //fixed order for facets
     var facetOrder = {
@@ -32,6 +33,18 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
     vm.sortFacets = function(a) {
         return facetOrder[a.field] || 100;
     };
+
+    vm.getFilterCount = function() {
+        var c = 0;
+        Object.keys($stateParams).forEach(function(e){
+            var v = $stateParams[e];
+            if (typeof v !== 'undefined' && e != 'locale' && e != 'q') {
+                c++;
+            }
+        });
+        return c;
+    };
+    vm.appliedFilterCount = vm.getFilterCount();
 
     vm.updateSearch = function() {
         $stateParams.q =  vm.freeTextQuery;
