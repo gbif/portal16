@@ -1,4 +1,4 @@
-<h3>Download events</h3>
+<h3 class="h4">Download events</h3>
 <div class="download-events" ng-controller="downloadEventsTableCtrl as dCtrl">
     <table class="table table-striped" infinite-scroll="dCtrl.getMoreData()">
         <thead>

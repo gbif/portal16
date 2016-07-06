@@ -38,6 +38,9 @@ function gbmapDirective() {
             palette = 'colors=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors;
         }
 
+        vm.controls = {
+            scale: true
+        };
         vm.layers = {
             baselayers: {
                 base: mapConstants.baseLayers.options[vm.mapstyle]

@@ -1,5 +1,4 @@
 var express = require('express'),
-    _ = require('lodash'),
     search = require('./search'),
     highlights = require('./highlights'),
     baseConfig = require('../../../config/config'),

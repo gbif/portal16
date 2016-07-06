@@ -1,11 +1,11 @@
 {# Complete the primary contacts listed in the header, as <li> items. #}
 {% if contactsByName[0] %}
-    <div class="header-contacts">
+    <div class="header-contacts text-center">
             <input class="contacts-collapse" id="contacts-affiliation-role" type="checkbox" >
             <label for="contacts-affiliation-role"> </label>
             {% set comma = joiner() %}
             {% for contact in contactsByName -%}
-                {$ comma() $} <a href="#{$ contact.key $}">{$ contact.name $}<sup>{$ loop.index $}</sup></a>
+                {$ comma() $} <a href="#{$ contact.key $}">{$ contact.name $}</a><sup>{$ loop.index $}</sup>
             {%- endfor %}
             <ol class="list--ordered text-left">
                 {% for contact in contactsByName %}

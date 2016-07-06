@@ -9,22 +9,27 @@ h4.content-type-label {
         max-width none
     }
 }
-.publisher-field--large-count {
-    margin 0 0
-    .published-by {
-        max-width none
-    }
-}
-.published-by {
-    max-width 400px
-}
-.record-count {
-    font-size 4rem
-    line-height 60px
-    font-weight 300
-    padding-right 8px
-    padding-left 3px
-}
+//@bko unused it seems
+// .publisher-field--large-count {
+//     margin 0 0
+//     .published-by {
+//         max-width none
+//     }
+// }
+
+//@bko removed by mgh
+// .published-by {
+//     max-width 400px
+// }
+
+
+// .record-count {
+//     font-size 4rem
+//     line-height 60px
+//     font-weight 300
+//     padding-right 8px
+//     padding-left 3px
+// }
 .download-block {
     border 2px solid $orangePeelLight
     border-radius 10px
@@ -166,9 +171,9 @@ ul.no-indent {
     padding-left 0
 }
 
-.record-count {
-    display inline-block
-}
+// .record-count {
+//     display inline-block
+// }
 
 .data-source {
     display inline-block
@@ -352,33 +357,33 @@ nav.metadata-nav {
 }
 
 .stripe-collapse + label {
-    cursor pointer
-    display inline
-    position relative
-    margin-left 12px
-    margin-bottom vrBlock(0.5)
-    font-weight normal
-    font-size vrBlock(1)
-    line-height vrBlock(1)
+    // cursor pointer
+    // display inline
+    // position relative
+    // margin-left 12px
+    // margin-bottom vrBlock(0.5)
+    // font-weight normal
+    // font-size vrBlock(1)
+    // line-height vrBlock(1)
 }
 
 .stripe-collapse + label:before {
-    content "\A"
+    content "\A" //@bko why this?
     position absolute
     width 12px
     left -18px
-    top 6px
+    top 12px
     border-top 6px solid transparent
     border-bottom 6px solid transparent
     border-left 8px solid gray
 }
 
 .stripe-collapse:checked + label:before {
-    content "\A"
+    content "\A" //@bko why this?
     position absolute
     width 12px
     left -20px
-    top 8px
+    top 16px
     border-left 6px solid transparent
     border-right 6px solid transparent
     border-top 8px solid gray

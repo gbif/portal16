@@ -5,7 +5,6 @@ var Q = require('q'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
     occurrencIssues = require('./issues'),
-    _ = require('underscore'),
     Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence;
 
 function getAngularInitData(occurrence) {
