@@ -17,7 +17,7 @@
 		"OBSERVATION": "observation",
 		"LITERATURE": "literature",
 		"UNKNOWN": "unknown",
-		"undefined": "bor.undefined"
+		"undefined": "unknown"
 	},
 	"typeStatus": {
 		"EXEPITYPE": "exepitype",

@@ -5,8 +5,18 @@
   "SEARCH": {
     "PLACEHOLDER": "placeholder text for search"
   },
-  "BASIS_OF_RECORD": {
-    "HUMAN_OBSERVATION": "human observation"
+  "bor": {
+    "PRESERVED_SPECIMEN": "preserved specimen",
+    "FOSSIL_SPECIMEN": "fossil specimen",
+    "LIVING_SPECIMEN": "living specimen",
+    "HUMAN_OBSERVATION": "human observation",
+    "MACHINE_OBSERVATION": "machine observation",
+    "MATERIAL_SAMPLE": "material sample",
+    "OCCURRENCE": "occurrence",
+    "OBSERVATION": "observation",
+    "LITERATURE": "literature",
+    "UNKNOWN": "unknown",
+    "undefined": "unknown"
   },
   "Type": "Type",
   "Publishing country": "Publishing country",

@@ -1,21 +1,23 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
-{% if occurrence.verbatim.extensions | isNotEmpty %}
+{% if occurrence.verbatim.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty%}
 <section class="horizontal-stripe bare-background extensions">
     <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">
                 {% for name, fields in occurrence.usedExtensionFields %}
+
+                    {% if occurrence.usedExtensionFields[name] | isNotEmpty %}
                     <h3 class="h5">{$ name | prettifyEnum $}</h3>
                     <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %} class="card card-table" expand-text="'Show all {$ extensions.length $}'" collapse-text="'Collapse'">
                         <div class="scrollable">
                             <table class="table table-extensions">
                                 <thead>
-                                <tr>
-                                    {% for term, value in occurrence.usedExtensionFields[name] %}
-                                        <th>{$ term | prettifyEnum $}</th>
-                                    {% endfor %}
-                                </tr>
+                                    <tr>
+                                        {% for term, value in occurrence.usedExtensionFields[name] %}
+                                            <th>{$ term | prettifyEnum $}</th>
+                                        {% endfor %}
+                                    </tr>
                                 </thead>
                                 <tbody>
 
@@ -50,6 +52,8 @@
                             </table>
                         </div>
                     </div>
+
+                    {% endif %}
 
                 {% endfor %}
             </div>

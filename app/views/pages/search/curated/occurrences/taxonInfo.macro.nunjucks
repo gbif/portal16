@@ -68,7 +68,7 @@
                                     <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="{$ gb.locales.urlPrefix $}/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>
                                 {% endif %}
                                 {% if taxon.holotypes.count > 1 %}
-                                    and {$ taxon.holotypes.count - 1 $} other places
+                                    and <a href="{$ gb.locales.urlPrefix $}/occurrence/table?typeStatus=holotype&taxonKey={$ taxon.info.key $}">{$ taxon.holotypes.count - 1 $} other places</a>
                                 {% endif %}
                             </dd>
                         </div>

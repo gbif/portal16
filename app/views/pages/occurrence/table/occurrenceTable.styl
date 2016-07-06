@@ -1,0 +1,54 @@
+.occurrence-search__table {
+	.occurrence-search__table__area {
+		overflow-y auto
+	}
+	.table {
+		tr, td, th {
+			overflow hidden
+			a, span {
+				color inherit
+				text-overflow ellipsis
+				white-space nowrap
+				padding-right 1em
+				display block
+				overflow hidden
+				&:hover {
+					text-decoration none
+				}
+			}
+		}
+		th {
+			font-weight bold
+		}
+		tbody {
+			tr {
+				cursor pointer
+			}
+			tr:nth-of-type(even) {
+				background lighten($lightBackground, 2)
+			}
+			tr:hover {
+				background darken($lightBackground, 5)
+			}
+		}
+	}
+}
+
+
+.table-cell {
+	&--narrow {
+		a, span {
+			width 8em
+		}
+	}
+	&--normal {
+		a, span {
+			width 12em
+		}
+	}
+	&--wide {
+		a, span {
+			width 20em
+		}
+	}
+}

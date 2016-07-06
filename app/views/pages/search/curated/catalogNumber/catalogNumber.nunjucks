@@ -33,7 +33,7 @@
             </a>
             {% if results.catalogNumberOccurrences.count > 1 %}
             <div class="card__stripe card__stripe--actions">
-                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?catalog_number={$ query $}">
+                <a href="{$ gb.locales.urlPrefix $}/occurrence/table?catalogNumber={$ query $}">
                     {$ results.catalogNumberOccurrences.count - 1 $} more
                 </a>
             </div>

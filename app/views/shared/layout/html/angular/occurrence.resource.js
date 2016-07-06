@@ -26,7 +26,8 @@ var angular = require('angular');
             );
         })
         .factory('OccurrenceSearch', function($resource, env) {
-            return $resource(env.dataApi + 'occurrence/search', null, {
+            //return $resource(env.dataApi + 'occurrence/search', null, {
+            return $resource('/api/occurrence/search', null, {
                     'query': {
                         method: 'GET',
                         isArray: false

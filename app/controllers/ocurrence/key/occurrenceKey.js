@@ -1,5 +1,6 @@
 "use strict";
 var Q = require('q'),
+    _ = require('underscore'),
     util = require('../../../helpers/util'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
@@ -116,6 +117,9 @@ function getUsedExtensionTerms(verbatim) {
                         used[extensionType][field] = true;
                     });
                 });
+                if (_.isEmpty(used[extensionType])) {
+                    delete used[extensionType];
+                }
             }
         });
     }
