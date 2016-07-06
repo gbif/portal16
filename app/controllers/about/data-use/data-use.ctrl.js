@@ -16,7 +16,7 @@ router.get('/data-use/:requestedPath(*)', function(req, res, next) {
         if (r.statusCode !== 200) {
             res.send('URL lookup failed.');
         }
-        else if (Object.prototype.toString.call(b.data[0]) === '[object Object]') {
+        else if (Object.prototype.toString.call(b.data[0]) === '[object Object]' && b.data.length == 1) {
 
             // Only proceed to rendering if the requested path is identical to the target URL.
             // Otherwise send a 301 redirection.
@@ -52,9 +52,8 @@ router.get('/data-use/:requestedPath(*)', function(req, res, next) {
                     }
                 });
             }
-            else if (req.params.requestedPath !== b.data[0].targetUrl) {
-                var redirectedUrl = '/data-use/' + b.data[0].targetUrl;
-                res.redirect(301, redirectedUrl);
+            else {
+                next();
             }
         }
         else {
