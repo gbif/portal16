@@ -19,7 +19,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl(Occurrence, leafletData, SimilarOccurrence, OccurrenceVerbatim, env, moment, $http, $anchorScroll, $location, hotkeys) {
+function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     var vm = this;
     vm.mediaExpand = {
         isExpanded: false
