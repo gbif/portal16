@@ -25,7 +25,7 @@ function renderPage(req, res, next, country) {
         } else {
             res.render('pages/country/key/countryKey', {
 				country: country,
-				meta: {
+				_meta: {
                     title: 'Country Detail ' + req.params.key
                 }
 			});

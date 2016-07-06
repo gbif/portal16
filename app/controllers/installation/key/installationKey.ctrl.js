@@ -25,7 +25,7 @@ function renderPage(req, res, next, installation) {
         } else {
             res.render('pages/installation/key/installationKey', {
 				installation: installation,
-				meta: {
+				_meta: {
                     title: 'Installation: ' + req.params.key
                 }
 			});

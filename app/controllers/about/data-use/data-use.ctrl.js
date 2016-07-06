@@ -33,10 +33,10 @@ router.get('/data-use/:requestedPath(*)', function(req, res, next) {
                                 data: body.data[0],
                                 images: body.data[0].images,
                                 self: body.self,
-                                meta: {
-                                    title: body.data[0].title
-                                },
-                                hasTools: true
+                                _meta: {
+                                    title: body.data[0].title,
+                                    hasTools: true
+                                }
                             });
                         } catch(e) {
                             next(e);

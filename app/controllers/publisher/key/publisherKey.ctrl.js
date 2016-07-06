@@ -25,7 +25,7 @@ function renderPage(req, res, next, publisher) {
         } else {
             res.render('pages/publisher/key/publisherKey', {
 				publisher: publisher,
-				meta: {
+				_meta: {
                     title: 'Publisher Detail ' + req.params.key
                 }
 			});

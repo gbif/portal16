@@ -1,4 +1,4 @@
-{% if not __hideSearchAction %}
+{% if not _meta.hideSearchAction %}
 <div class="search" id="site-search">
     <div class="search-content">
         <div class="horizontal-stripe--paddingless white-background search-bar">

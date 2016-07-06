@@ -29,9 +29,9 @@ function renderPage(req, res, next, occurrence) {
                 occurrenceCoreTerms: occurrenceKey.occurrenceCoreTerms,
                 angularInitData: angularInitData,
                 occurrenceRemarks: occurrenceKey.occurrenceRemarks,
-                hasTools: true,
-                meta: {
-                    title: 'Occurrence Detail ' + req.params.key
+                _meta: {
+                    title: 'Occurrence Detail ' + req.params.key,
+                    hasTools: true
                 }
             });
         }

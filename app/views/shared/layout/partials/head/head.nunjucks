@@ -1,6 +1,6 @@
 <head>
 
-    <title>{$ meta.title $}</title>
+    <title>{$ _meta.title $}</title>
     <meta charset="UTF-8">
 
     <!-- If IE use the latest rendering engine -->

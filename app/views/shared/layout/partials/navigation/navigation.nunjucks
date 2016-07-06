@@ -14,7 +14,7 @@
             <!-- <li class="service-menu__search is-category">
                 <a href="#search">Search</a>
             </li> -->
-            {% if not __hideSearchAction %}
+            {% if not _meta.hideSearchAction %}
                 <li class="service-menu__search">
                     <a href="#" class="gb-icon-search site-header__search-toggle">Search</a>
                 </li>

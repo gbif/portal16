@@ -11,7 +11,7 @@
 {# <head> #}
 {% include "../partials/head/head.nunjucks" %}
 
-<body {% if meta.bodyClass | isNotEmpty %}class="{$ meta.bodyClass $}"{% endif %}>
+<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
 
     {# Main layout #}
     <div id="site-wrapper" class="site-wrapper">
@@ -27,7 +27,7 @@
             <main id="main" class="main" role="main" ui-view>
 
                 {# Drawer block is contextual, therefore is a part of the <main> #}
-                {% if hasDrawer %}
+                {% if _meta.hasDrawer %}
                 <aside id="filter" class="site-drawer is-locked-x">
                     <div>
                         {% block drawer %}{% endblock %}
@@ -37,7 +37,7 @@
 
                 <div class="site-content">
 
-                    {% if hasTools %}
+                    {% if _meta.hasTools %}
                         {% block tools %}{% endblock %}
                     {% endif %}
 

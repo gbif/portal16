@@ -1,4 +1,4 @@
-{% block footer %}
+{% if not _meta.hideFooter %}
 <footer class="site-footer wrapper-horizontal-stripes">
     <div class="horizontal-stripe light-background site-footer__upper">
         <div class="container--normal">
@@ -60,4 +60,4 @@
         </div>
     </div>
 </footer>
-{% endblock %}
+{% endif %}

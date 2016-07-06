@@ -21,12 +21,13 @@ function searchHandler(req, res) {
 
 function renderPage(req, res, searchString) {
     res.render('pages/dataset/search/datasetSearch', {
-        __hideSearchAction: true,
         query: searchString,
-        hasDrawer: true,
-        hasTools: true,
-        meta: {
-            bodyClass: 'dataset'
+        _meta: {
+            bodyClass: 'dataset',
+            hideSearchAction: true,
+            hideFooter: true,
+            hasDrawer: true,
+            hasTools: true
         }
     });
 }

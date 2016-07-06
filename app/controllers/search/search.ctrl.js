@@ -8,7 +8,21 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/search\.:ext?', function (req, res) {
+router.get('/search', function (req, res) {
+    var searchString = req.query.q,
+        context = {
+            query: searchString,
+            _meta: {
+                bodyClass: 'omnisearch',
+                tileApi: baseConfig.tileApi,
+                hideFooter: true,
+                hideSearchAction: true
+            }
+        };
+    res.render('pages/search/search', context);
+});
+
+router.get('/search/partial\.:ext?', function (req, res) {
     searchHandler(req, res);
 });
 
@@ -19,11 +33,12 @@ function searchHandler(req, res) {
         results.highlights = highlights.getHighlights(searchString, results);
 
         var context = {
-            __hideSearchAction: true,
             results: results,
             query: searchString,
-            meta: {
+            _meta: {
                 bodyClass: 'omnisearch',
+                hideSearchAction: true,
+                hideFooter: true,
                 tileApi: baseConfig.tileApi
             }
         };
@@ -35,9 +50,7 @@ function searchHandler(req, res) {
 function renderPage(req, res, context) {
     if (req.params.ext == 'json') {
         res.json(context);
-    } else if (req.params.ext == 'partial') {
-        res.render('pages/search/searchPartial', context);
     } else {
-        res.render('pages/search/search', context);
+        res.render('pages/search/searchPartial', context);
     }
 }

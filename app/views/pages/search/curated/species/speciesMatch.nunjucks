@@ -22,7 +22,7 @@
 						{#<div class="tile">#}
 							{#<div class="teaser-map">#}
 								{#<img src="/img/tile000/basemap-grey-light2.png">#}
-								{#<img src="{$ meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">#}
+								{#<img src="{$ _meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">#}
 							{#</div>#}
 						{#</div>#}
 					{#</a>#}
@@ -111,7 +111,7 @@
 				<div class="tile">
 		            <div class="teaser-map">
 		                <img src="/img/tile000/basemap-grey-light2.png">
-		                <img src="{$ meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
+		                <img src="{$ _meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$taxon.info.key $}&type=TAXON&resolution=1">
 		            </div>
 		        </div>
 			</a>

@@ -28,7 +28,7 @@ function renderPage(req, res, next, taxon) {
         } else {
             res.render('pages/species/key/speciesKey', {
 				species: taxon,
-				meta: {
+				_meta: {
                     title: 'Taxon Detail ' + req.params.key
                 }
 			});

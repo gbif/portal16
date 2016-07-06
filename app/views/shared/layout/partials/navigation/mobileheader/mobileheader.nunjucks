@@ -11,7 +11,7 @@
                     <span>GBIF</span>
                 </a>
             </div>
-            {% if not __hideSearchAction %}
+            {% if not _meta.hideSearchAction %}
             <div class="navbar-action">
                 <a href="#" class="action-icon gb-icon-search site-header__search-toggle">
                     <span>Search</span>
