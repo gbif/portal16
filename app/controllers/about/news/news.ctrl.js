@@ -9,7 +9,17 @@ module.exports = function (app) {
 
 router.get('/news/:requestedPath(*)', function(req, res, next) {
     // Start by looking up URL Alias
-    request(cmsApi.urlLookup.url + req.params.requestedPath, function(e, r, b) {
+    var requestedPath,
+        jsonOutput = false;
+    if (req.params.requestedPath.search(/\.json/) != -1) {
+        requestedPath = req.params.requestedPath.replace('.json', '');
+        jsonOutput = true;
+    }
+    else {
+        requestedPath = req.params.requestedPath;
+    }
+
+    request(cmsApi.urlLookup.url + requestedPath, function(e, r, b) {
         b = JSON.parse(b);
 
         // Only proceed to rendering if there is a valid result returned from URL lookup.
@@ -20,24 +30,30 @@ router.get('/news/:requestedPath(*)', function(req, res, next) {
 
             // Only proceed to rendering if the requested path is identical to the target URL.
             // Otherwise send a 301 redirection.
-            if (req.params.requestedPath == b.data[0].targetUrl) {
+            if (requestedPath == b.data[0].targetUrl) {
                 var proseUrl = cmsApi.news.url + b.data[0].id;
                 request(proseUrl, function(error, response, body) {
+                    body = JSON.parse(body);
+                    var proseContent = {
+                        data: body.data[0],
+                        images: body.data[0].images,
+                        self: body.self,
+                        _meta: {
+                            title: body.data[0].title,
+                            hasTools: true
+                        }
+                    };
                     if (error) {
                         next(error);
                     }
                     else if (response.statusCode == 200){
                         try {
-                            body = JSON.parse(body);
-                            res.render('pages/about/news/news.nunjucks', {
-                                data: body.data[0],
-                                images: body.data[0].images,
-                                self: body.self,
-                                _meta: {
-                                    title: body.data[0].title,
-                                    hasTools: true
-                                }
-                            });
+                            if (jsonOutput == true) {
+                                res.json(proseContent);
+                            } else {
+                                res.render('pages/about/news/news.nunjucks', proseContent);
+                            }
+
                         } catch(e) {
                             next(e);
                         }
