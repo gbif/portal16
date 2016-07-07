@@ -29,7 +29,9 @@ angular
         that.setCurrentTab();
 
         return {
-            getQuery: function(){return that.query;},
+            getQuery: function() {
+                return angular.copy($stateParams);
+            },
             query: that.query,
             setCurrentTab: that.setCurrentTab,
             activeTab: that.activeTab

@@ -59,7 +59,9 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                 }
                 //show occurrences if images if there is enough - else simply show what ever occurrences we have
                 if (aggregatedData.images && aggregatedData.images.count > 10) {
-                    aggregatedData.occurrences = aggregatedData.images;
+                    aggregatedData.displayedOccurrences = aggregatedData.images;
+                } else {
+                    aggregatedData.displayedOccurrences = aggregatedData.occurrences;
                 }
                 cb(null, aggregatedData);
             }
@@ -214,7 +216,9 @@ function search(q, cb) {
 
         results.isPartialResponse = isPartialResponse(results);
         if (results.occurrencesImagesLocation && results.occurrences && results.occurrencesImagesLocation.count >= 10) {
-            results.occurrences.results = results.occurrencesImagesLocation.results;
+            results.displayedOccurrences = results.occurrencesImagesLocation;
+        } else {
+            results.displayedOccurrences = results.occurrences;
         }
 
         if (err) {

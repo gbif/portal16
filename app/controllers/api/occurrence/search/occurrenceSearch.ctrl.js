@@ -39,7 +39,7 @@ function occurrenceSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    });
+    }, {retries: 3});
     return deferred.promise;
 }
 

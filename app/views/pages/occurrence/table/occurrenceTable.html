@@ -1,53 +1,84 @@
-<div class="occurrence-search__table">
-    <div>count: {{occTable.count}}</div>
-    <div class="occurrence-search__table__area">
+<div class="wrapper-horizontal-stripes occurrence-search__table">
+    <div class="horizontal-stripe light-background">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{occTable.count | number}} results
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="horizontal-stripe white-background">
+        <div class="occurrence-search__table__area">
+            <div class="scrollable-y">
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'issues', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="result in occTable.results" ng-click="occTable.openOccurrence(result.key)">
+                            <td class="table-cell--wide">
+                                <span>{{result.scientificName}}</span>
+                            </td>
+                            <td class="table-cell--normal">
+                                <span>{{result.country}}</span>
+                            </td>
+                            <td class="table-cell--normal">
+                                <span>
+                                    <span>
+                                        {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
+                                    <span>
+                                </span>
+                            </td>
+                            <td class="table-cell--normal">
+                                <span ng-href="/occurrence/{{result.key}}" translate="bor.{{result.basisOfRecord}}"></span>
+                            </td>
+                            <td class="table-cell--narrow">
+                                <span>
+                                    {{result.eventDate | amDateFormat:'MMMM YYYY'}}
+                                </span>
+                            </td>
+                            <td class="table-cell--wide">
+                                <span>{{result._dataset.title}}</span>
+                            </td>
+                            <td class="table-cell--narrow">
+                                <span>{{result.issues.length}}</span>
+                            </td>
 
-        <table class="table" style="font-size:12px">
-            <thead>
-            <tr>
-                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'event date', 'dataset', 'issues', 'taxonomicStatus', 'taxonRank']">{{field}}</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="result in occTable.results">
-                    <td class="table-cell--wide">
-                        <a ng-href="/occurrence/{{result.key}}">{{result.scientificName}}</a>
-                    </td>
-                    <td class="table-cell--normal">
-                        <span ng-href="/occurrence/{{result.key}}">{{result.country}}</span>
-                    </td>
-                    <td class="table-cell--normal">
-                        <span ng-href="/occurrence/{{result.key}}"><span ng-if="result.hasCoordinate">{{result.decimalLatitude}}, {{result.decimalLongitude}}<span></span>
-                    </td>
-                    <td class="table-cell--normal">
-                        <span ng-href="/occurrence/{{result.key}}" translate="bor.{{result.basisOfRecord}}"></span>
-                    </td>
-                    <td class="table-cell--narrow">
-                        <span ng-href="/occurrence/{{result.key}}">
-                            {{result.eventDate | amDateFormat:'MMMM YYYY'}}
-                        </span>
-                    </td>
-                    <td class="table-cell--wide">
-                        <span ng-href="/occurrence/{{result.key}}">{{result._dataset.title}}</span>
-                    </td>
-                    <td class="table-cell--narrow">
-                        <span ng-href="/occurrence/{{result.key}}">{{result.issues.length}}</span>
-                    </td>
+                            <td class="table-cell--narrow" ng-repeat="t in ['taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                                <span>{{result[t]}}</span>
+                            </td>
 
-                    <td class="table-cell--narrow">
-                        <span ng-href="/occurrence/{{result.key}}">{{result.taxonRank | lowercase }}</span>
-                    </td>
+                            <td class="table-cell--wide">
+                                <span>{{result.species}}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <td class="table-cell--narrow">
-                        <span ng-href="/occurrence/{{result.key}}">{{result.taxonomicStatus}}</span>
-                    </td>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <uib-pagination
+                                total-items="occTable.totalItems"
+                                ng-model="occTable.currentPage"
+                                max-size="occTable.maxSize"
+                                items-per-page="occTable.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="occTable.pageChanged()"
+                                ng-show="occTable.count > occTable.limit">
+                        </uib-pagination>
+                    </div>
+                </div>
+            </div>
 
-                    <!--<td ng-repeat="field in ['taxonomicStatus', 'taxonRank']" class="table-cell&#45;&#45;normal">-->
-                        <!--<span ng-href="/occurrence/{{result.key}}">{{result[field]}}</span>-->
-                    <!--</td>-->
-                </tr>
-            </tbody>
-        </table>
-
+        </div>
     </div>
 </div>

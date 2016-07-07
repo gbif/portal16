@@ -3,7 +3,7 @@
     <div class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe">
             <div class="card__content">
-                {$ results.occurrences.count $} occurrences
+                {$ results.occurrences.count | locInt(gb.locales.current) $} occurrences
             </div>
         </a>
         <div class="card__stripe card__stripe--flexible">
@@ -18,7 +18,7 @@
                     </thead>
                     <tbody>
 
-                    {% for row in results.occurrences.results | limit(10) %}
+                    {% for row in results.displayedOccurrences.results | limit(10) %}
                         <tr class="table__tr--linked">
                             <td>
                                 <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ row.key $}" class="inherit">{$ row.scientificName $}</a>

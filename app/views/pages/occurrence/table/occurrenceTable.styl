@@ -1,8 +1,11 @@
 .occurrence-search__table {
 	.occurrence-search__table__area {
-		overflow-y auto
+		position relative
+		overflow hidden
+		width 100%
 	}
 	.table {
+		font-size 12px
 		tr, td, th {
 			overflow hidden
 			a, span {
@@ -35,20 +38,37 @@
 }
 
 
+.table-container {
+	padding 0 15px
+	display table
+}
 .table-cell {
 	&--narrow {
+		width 8em
 		a, span {
 			width 8em
 		}
 	}
 	&--normal {
+		width 12em
 		a, span {
 			width 12em
 		}
 	}
 	&--wide {
+		width 20em
 		a, span {
 			width 20em
 		}
 	}
 }
+
+//.gradient--right {
+//	z-index 10
+//	position absolute
+//	right 0
+//	top 0
+//	bottom 0
+//	width 20px
+//	background linear-gradient(90deg, rgba(255,255,255,0), white)
+//}
