@@ -74,7 +74,11 @@
 		"reference": "stdTerms.reference",
 		"remarks": "stdTerms.remarks",
 		"country": "stdTerms.country",
-		"seeAll": "stdTerms.seeAll"
+		"seeAll": "Se alle",
+		"occurrences": "stdTerms.occurrences",
+		"datasets": "stdTerms.datasets",
+		"nMore": "stdTerms.nMore",
+		"publishedBy": "stdTerms.publishedBy"
 	},
 	"interpretationRemarks": {
 		"TAXON_MATCH_NONE": "interpretationRemarks.TAXON_MATCH_NONE",
@@ -190,5 +194,13 @@
 	},
 	"participationStatus": {
 		"ASSOCIATE": "participationStatus.ASSOCIATE"
+	},
+	"countryPage": {
+		"countryDescription": {
+			"ASSOCIATE": "countryPage.countryDescription.ASSOCIATE"
+		},
+		"occurrencesAbout": "countryPage.occurrencesAbout",
+		"occurrencesFrom": "countryPage.occurrencesFrom",
+		"MemberSince": "countryPage.MemberSince"
 	}
 }

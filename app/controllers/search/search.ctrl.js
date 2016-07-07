@@ -29,6 +29,7 @@ router.get('/search/partial\.:ext?', function (req, res) {
 function searchHandler(req, res) {
     "use strict";
     var searchString = req.query.q;
+
     search.search(searchString, function(results){
         results.highlights = highlights.getHighlights(searchString, results);
 

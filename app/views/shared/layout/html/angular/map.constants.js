@@ -40,7 +40,7 @@ var baseLayers = {
             layerOptions: {
                 showOnSelector: false,
                 colors: '%2C%2C%23555555FF',
-                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>",
+                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
             }
         },
         'dark': {
@@ -52,7 +52,7 @@ var baseLayers = {
             layerOptions: {
                 showOnSelector: false,
                 saturation: true,
-                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>",
+                attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
             }
         },
         'ocean': {

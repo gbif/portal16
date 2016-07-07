@@ -48,7 +48,7 @@
             </nav>
 
             <div ui-view>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q"> </ng-include>
+                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"> </ng-include>
             </div>
         </div>
     </div>

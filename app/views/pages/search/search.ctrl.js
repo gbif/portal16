@@ -11,6 +11,7 @@ function searchCtrl($state, $stateParams, hotkeys) {
     var vm = this;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
+    vm.locale = $stateParams.locale;
 
     vm.clearFreetextAndSetFocus = function() {
         document.getElementById('siteSearch').focus();

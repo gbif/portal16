@@ -1142,7 +1142,11 @@
 		"data_use": "data use",
 		"Organism": "organism",
 		"seeAll": "see all",
-		"search": "search"
+		"search": "search",
+		"occurrences": "occurrences",
+		"datasets": "datasets",
+		"nMore": "%s more",
+		"publishedBy": "published by"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

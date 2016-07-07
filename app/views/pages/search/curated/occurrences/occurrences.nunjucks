@@ -3,7 +3,7 @@
     <div class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}" class="card__stripe">
             <div class="card__content">
-                {$ results.occurrences.count | locInt(gb.locales.current) $} occurrences
+                {$ results.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </div>
         </a>
         <div class="card__stripe card__stripe--flexible">

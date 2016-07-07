@@ -33,6 +33,8 @@ function use(app, locales, defaultLocale) {
     //Use middleware to set current language based on url
     app.use(function (req, res, next) {
         var locale = getLocaleFromUrl(req.url, locales);
+        var queryLocale = req.query.locale;
+
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);
             req.setLocale(locale);
@@ -40,6 +42,13 @@ function use(app, locales, defaultLocale) {
             res.locals.gb.locales = {
                 urlPrefix: '/' + locale,
                 current: locale
+            };
+        } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale) {
+            req.setLocale(queryLocale);
+            res.locals.gb = {};
+            res.locals.gb.locales = {
+                urlPrefix: '/' + queryLocale,
+                current: queryLocale
             };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference

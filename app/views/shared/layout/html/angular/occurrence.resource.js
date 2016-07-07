@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource, env) {
+        .factory('OccurrenceSearch', function($resource) {
             //return $resource(env.dataApi + 'occurrence/search', null, {
             return $resource('/api/occurrence/search', null, {
                     'query': {
