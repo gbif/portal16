@@ -575,7 +575,7 @@ main {
 	height 100%//"calc(100vh - %s)" % $navBar_height
 	right -($filterDrawerWidth + 10)
 	overflow hidden
-	box-shadow 2px 1px 2px rgba(0,0,0,0.2)
+	box-shadow -2px 1px 2px rgba(0,0,0,0.2)
 	background $drawerBackgroundColor
 	> .site-drawer__section {
 		height "calc(100vh - %s)" % vrBlock(6)
@@ -613,9 +613,11 @@ forceShowDrawer() {
 		position fixed
 		top $navBar_height
 		height "calc(100vh - %s)" % $navBar_height
-		&.isLocked {
-			forceShowDrawer()
-		}
+		box-shadow 2px 1px 2px rgba(0,0,0,0.2)
+		// &.is-active {
+		// 	forceShowDrawer()
+		// }
+		forceShowDrawer()
 	}
 	.site-content {
 		transition: left 500ms ease;

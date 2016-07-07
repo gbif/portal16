@@ -9,10 +9,7 @@
     </header>
 
     <div class="site-drawer__section site-drawer__section--bottom-panel">
-        <div class="site-drawer__actions">
-            <a ui-sref="occurrenceSearchTable()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-menu inherit discreet" tooltip-placement="right" uib-tooltip="List"></a>
-            <a ui-sref="occurrenceSearchMap()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-map inherit discreet" tooltip-placement="right" uib-tooltip="Map"></a>
-            <a ui-sref="occurrenceSearchGallery()" ng-class="{'is-active': occurrence.state.current.name=='occurrenceSearchGallery'}" class="gb-icon-photo inherit discreet" tooltip-placement="right" uib-tooltip="Gallery"></a>
+        <div class="site-drawer__actions clearfix">
             <a class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters"></a>
         </div>
         
@@ -40,19 +37,29 @@
         <div class="form-group">
             <label>
                 <span ng-click="occurrence.hide = !occurrence.hide">Scientific name</span>
-
-                <div class="chip" ng-repeat="chip in occurrence.suggest.selected" ng-click="occurrence.suggest.remove($index)">
-                    {{chip.canonicalName}}
-                </div>
+<!-- 
+                <input type="text"
+                                               id="siteSearch"
+                                               autocomplete="off"
+                                               class="fit-suggestions"
+                                               ng-model="occurrence.species.term"
+                                               placeholder="Search for species"
+                                               uib-typeahead="suggestion.canonicalName for suggestion in occurrence.getSuggestions($viewValue)"
+                                               typeahead-on-select="occurrence.typeaheadSelect($item, $model, $label, $event)"
+                                               typeahead-focus-first="true"> -->
+                                               
+                <!-- <div class="chip" ng-repeat="taxon in occurrence.query.taxonKey" ng-click="occurrence.suggest.remove($index)">
+                    {{taxon}}
+                </div> -->
 
                 <!--<taxon-explore></taxon-explore>-->
 
-                <div class="site-drawer__sub" ng-show="!occurrence.hide">
+                <!-- <div class="site-drawer__sub" ng-show="!occurrence.hide">
                     <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
                     <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{'is-active': $index==occurrence.suggest.activeIndex}">
                         {{suggestion.canonicalName}}
                     </div>
-                </div>
+                </div> -->
             </label>
         </div>
 
@@ -83,7 +90,7 @@
 
 <div class="site-content">
 
-    <div class="fab" fab>
+    <div class="fab fab-drawer" fab>
         <div class="fab__trigger">
             <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="occurrence.showDrawer = true"><i class="gb-icon-filter"></i></a>
         </div>

@@ -1,25 +1,38 @@
-<section class="horizontal-stripe light-background" style="position: relative;">
-    <div class="container-fluid">
-        <div class="imageGallery">
-            <div class="block-options" style="width:auto; margin: 0.5rem">
-                <a href=""
-                   class="gb-icon-menu block-options__option"
-                   style="font-size:24px"
+<div class="wrapper-horizontal-stripes occurrence-search__gallery">
+    <div class="horizontal-stripe light-background occurrence-search__summary">
+        <div class="container-fluid">
+
+
+            <div class="stripe-menu">
+                <a href="" ui-sref="occurrenceSearchTable()"
+                   class="gb-icon-menu stripe-menu__option"
                    tooltip-placement="top"
-                   uib-tooltip="list"></a>
-                <a href="" class="gb-icon-map block-options__menu block-options__option"
-                   style="font-size:24px"
+                   uib-tooltip="Table"></a>
+                <a href="" ui-sref="occurrenceSearchMap()" 
+                   class="gb-icon-map stripe-menu__menu stripe-menu__option"
                    tooltip-placement="top"
-                   uib-tooltip="map"></a>
-                <a href="" class="gb-icon-photo block-options__menu block-options__option"
-                   style="font-size:24px"
+                   uib-tooltip="Map"></a>
+               <a href="" ui-sref="occurrenceSearchGallery()" 
+                   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
                    tooltip-placement="top"
-                   uib-tooltip="gallery"></a>
+                   uib-tooltip="Gallery"></a>
             </div>
-            <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-                <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier }}&size=S" gallery-image>
-            </a>
-            <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    {{occGallery.totalCount | number}} results. {{occGallery.count | number}} with images.
+                </div>
+            </div>
         </div>
     </div>
-</section>
+  <section class="horizontal-stripe light-background">
+      <div class="container-fluid">
+          <div class="imageGallery">
+              <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
+                  <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier }}&size=S" gallery-image>
+              </a>
+              <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+          </div>
+      </div>
+  </section>
+</div>

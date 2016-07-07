@@ -7,10 +7,11 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) {
+function occurrenceGalleryCtrl($scope, $stateParams, OccurrenceSearch, OccurrenceFilter, env, results) {
     var vm = this,
         limit = 100,
         offset = 0;
+    vm.totalCount = results.count;
     vm.count = 0;
     vm.results = [];
     vm.dataApi = env.dataApi;
@@ -28,7 +29,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) 
     };
 
     vm.loadMore = function() {
-        vm.query = angular.copy(OccurrenceFilter.query);
+        vm.query = angular.copy($stateParams);
         vm.query.limit = limit;
         offset += limit;
         vm.query.offset = offset;
@@ -37,7 +38,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, OccurrenceFilter, env) 
 
 
     vm.filter = function() {
-        vm.query = angular.copy(OccurrenceFilter.query);
+        vm.query = angular.copy($stateParams);
         vm.query.limit = limit;
         vm.query.offset = 0;
         vm.results = [];

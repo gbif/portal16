@@ -1,6 +1,23 @@
 <div class="wrapper-horizontal-stripes occurrence-search__table">
-    <div class="horizontal-stripe light-background">
+    <div class="horizontal-stripe light-background occurrence-search__summary">
         <div class="container-fluid">
+
+
+            <div class="stripe-menu">
+                <a href="" ui-sref="occurrenceSearchTable()"
+                   class="gb-icon-menu stripe-menu__option"
+                   tooltip-placement="top"
+                   uib-tooltip="Table"></a>
+                <a href="" ui-sref="occurrenceSearchMap()" 
+                   class="gb-icon-map stripe-menu__menu stripe-menu__option"
+                   tooltip-placement="top"
+                   uib-tooltip="Map"></a>
+               <a href="" ui-sref="occurrenceSearchGallery()" 
+                   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+                   tooltip-placement="top"
+                   uib-tooltip="Gallery"></a>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12">
                     {{occTable.count | number}} results
@@ -14,52 +31,50 @@
                 <div class="table-container">
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'issues', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
-                        </tr>
+                            <tr>
+                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'issues', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="result in occTable.results" ng-click="occTable.openOccurrence(result.key)">
-                            <td class="table-cell--wide">
-                                <span>{{result.scientificName}}</span>
-                            </td>
-                            <td class="table-cell--normal">
-                                <span>{{result.country}}</span>
-                            </td>
-                            <td class="table-cell--normal">
-                                <span>
-                                    <span>
+                            <tr ng-repeat="result in occTable.results" >
+                                <td class="table-cell--wide">
+                                    <a ng-href="{{result.key}}">{{result.scientificName}}</a>
+                                </td>
+                                <td class="table-cell--normal">
+                                    <a ng-href="{{result.key}}">{{result.country}}</a>
+                                </td>
+                                <td class="table-cell--normal">
+                                    <a ng-href="{{result.key}}">
                                         {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
-                                    <span>
-                                </span>
-                            </td>
-                            <td class="table-cell--normal">
-                                <span ng-href="/occurrence/{{result.key}}" translate="bor.{{result.basisOfRecord}}"></span>
-                            </td>
-                            <td class="table-cell--narrow">
-                                <span>
-                                    {{result.eventDate | amDateFormat:'MMMM YYYY'}}
-                                </span>
-                            </td>
-                            <td class="table-cell--wide">
-                                <span>{{result._dataset.title}}</span>
-                            </td>
-                            <td class="table-cell--narrow">
-                                <span>{{result.issues.length}}</span>
-                            </td>
+                                    </a>
+                                </td>
+                                <td class="table-cell--normal">
+                                    <a ng-href="{{result.key}}" translate="bor.{{result.basisOfRecord}}"></a>
+                                </td>
+                                <td class="table-cell--narrow">
+                                    <a ng-href="{{result.key}}">
+                                        {{result.eventDate | amDateFormat:'MMMM YYYY'}}
+                                    </a>
+                                </td>
+                                <td class="table-cell--wide">
+                                    <a ng-href="{{result.key}}">{{result._dataset.title}}</a>
+                                </td>
+                                <td class="table-cell--narrow">
+                                    <a ng-href="{{result.key}}">{{result.issues.length}}</a>
+                                </td>
 
-                            <td class="table-cell--narrow">
-                                <span translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</span>
-                            </td>
+                                <td class="table-cell--narrow">
+                                    <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</a>
+                                </td>
 
-                            <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                <span>{{result[t]}}</span>
-                            </td>
+                                <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                                    <a ng-href="{{result.key}}">{{result[t]}}</a>
+                                </td>
 
-                            <td class="table-cell--wide">
-                                <span>{{result.species}}</span>
-                            </td>
-                        </tr>
+                                <td class="table-cell--wide">
+                                    <a ng-href="{{result.key}}">{{result.species}}</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

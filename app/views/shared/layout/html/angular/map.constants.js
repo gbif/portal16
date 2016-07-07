@@ -44,6 +44,20 @@ var baseLayers = {
                 attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
             }
         },
+        'grey-4326': {
+            name: "Retro",  // alternative suggestions very welcome
+            // TODO: This url is temporary 
+            url: "http://b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
+            options: {
+
+            },
+            type: 'xyz',
+            layerOptions: {
+                showOnSelector: false,
+                palette: 'yellows_reds',
+                attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+            }
+        },
         'outdoor': {
             name: 'Outdoor',
             url: "https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=" + accessToken,

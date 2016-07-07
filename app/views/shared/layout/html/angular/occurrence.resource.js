@@ -25,12 +25,22 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource) {
-            //return $resource(env.dataApi + 'occurrence/search', null, {
+        .factory('OccurrenceSearch', function($resource, env) {
+            return $resource(env.dataApi + 'occurrence/search', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
+        .factory('OccurrenceTableSearch', function($resource) {
             return $resource('/api/occurrence/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
+                        cancellable: true
                     }
                 }
             );

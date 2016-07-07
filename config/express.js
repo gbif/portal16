@@ -67,7 +67,7 @@ module.exports = function (app, config) {
         require(controller)(app);
     });
 
-    require(config.root + '/app/urlHandling/urlHandling.js')(app);
+    // require(config.root + '/app/urlHandling/urlHandling.js')(app);
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 };

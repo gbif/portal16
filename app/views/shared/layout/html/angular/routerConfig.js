@@ -37,9 +37,9 @@ function routerConfig($stateProvider, $locationProvider) {
                 }
             },
             resolve: {
-                results:  function($stateParams, OccurrenceSearch){
+                results:  function($stateParams, OccurrenceTableSearch){
                     var query = angular.copy($stateParams);
-                    return OccurrenceSearch.query(query).$promise;
+                    return OccurrenceTableSearch.query(query).$promise;
                 }
             }
         })

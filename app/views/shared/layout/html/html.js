@@ -24,7 +24,7 @@ require('../../../components/clickoutside/clickoutside.directive');
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock(amMoment, $translate, $state) { //$log
+    function runBlock(amMoment, $translate) { //$log
         //$log.debug('runBlock end');
         if (location.pathname.startsWith('/da/') ) {
             $translate.use('da');

@@ -13,12 +13,13 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, OccurrenceFilter, $stateParams, OccurrenceSearch) {
+function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, OccurrenceSearch, results) {
     var vm = this;
+    vm.totalCount = results.count;
     vm.mapMenu = {
         occurrences: {}
     };
-    OccurrenceFilter.setCurrentTab();
+
     var getOverlay = function(query) {
         var overlay = {
             name: 'gb',
@@ -34,7 +35,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
 
     vm.layers = {
         baselayers: {
-            base: mapConstants.baseLayers.options['classic-4326']
+            base: mapConstants.baseLayers.options['grey-4326']
         },
         overlays: {}
     };
@@ -46,10 +47,10 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
         vm.query = angular.copy($stateParams);
         vm.query.decimalLatitude = (event.latlng.lat - (2/event.target._zoom) ) + ',' + (event.latlng.lat + (2/event.target._zoom));
         vm.query.decimalLongitude = (event.latlng.lng - (2/event.target._zoom)) + ',' + (event.latlng.lng + (2/event.target._zoom));
-        OccurrenceSearch.query(vm.query, function (data) {
-            vm.mapMenu.occurrences = data;
-        }, function () {
-        });
+        // OccurrenceSearch.query(vm.query, function (data) {
+        //     vm.mapMenu.occurrences = data;
+        // }, function () {
+        // });
     }
     leafletData.getMap('occurrenceMap').then(function(map) {
         map.fitWorld().zoomIn();

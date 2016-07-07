@@ -1,8 +1,9 @@
 .occurrence-search-map {
-	height calc(100vh - 100px)
+	height "calc(100vh - %s)" % ($navBar_height + $searchTabBar-height + $searchBar-height + vrBlock(3) )
+	min-height 200px
 	position relative
 	z-index 5
 	.occurrenceMap {
-		background #7173AB
+		background #848A8E
 	}
 }

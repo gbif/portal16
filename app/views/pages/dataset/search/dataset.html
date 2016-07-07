@@ -15,7 +15,7 @@
     </header>
 
     <div class="site-drawer__section">
-        <div class="site-drawer__actions">
+        <div class="site-drawer__actions clearfix">
             <a ui-sref="datasetSearchTable({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters">
                 <span class="count badge" ng-show="dataset.appliedFilterCount > 0">{{dataset.appliedFilterCount}}</span>
             </a>
