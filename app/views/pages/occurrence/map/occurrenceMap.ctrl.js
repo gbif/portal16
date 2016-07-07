@@ -22,7 +22,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
     var getOverlay = function(query) {
         var overlay = {
             name: 'gb',
-            url: "http://api.gbif-uat.org/v1/map/occurrence/occurrence.png?x={x}&y={y}&z={z}&resolution=1&" + $httpParamSerializer(query),
+            url: "http://api.gbif-uat.org/v1/map/occurrence/tile.png?x={x}&y={y}&z={z}&srs=EPSG:4326&" + $httpParamSerializer(query),
             type: 'xyz',
             visible: true,
             layerParams: {
@@ -34,7 +34,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
 
     vm.layers = {
         baselayers: {
-            base: mapConstants.baseLayers.options.classic
+            base: mapConstants.baseLayers.options.classic-4326
         },
         overlays: {}
     };
