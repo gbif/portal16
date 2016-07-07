@@ -62,7 +62,7 @@
 			</div>
 			{% endif %}
 
-			{% if taxon.occurrences.count > 0 and results.highlights.length > 1 %}
+			{% if taxon.occurrences.count > 0 and (results.highlights.length > 1 or results.taxaMatches.length > 1) %}
 				<div class="card__stripe card__stripe--actions">
 					<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
 						{$ taxon.occurrences.count | locInt(gb.locales.current) $} occurrences

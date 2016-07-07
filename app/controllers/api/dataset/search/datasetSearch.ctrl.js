@@ -1,7 +1,4 @@
 "use strict";
-/**
- * An endpoint to serve historic weather reports. Used by the occurrence page as supplemental information and not crucial.
- */
 var express = require('express'),
     router = express.Router(),
     Q = require('q'),

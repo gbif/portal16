@@ -24,15 +24,20 @@ require('../../../components/clickoutside/clickoutside.directive');
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock(amMoment) { //$log
+    function runBlock(amMoment, $translate, $state) { //$log
         //$log.debug('runBlock end');
-        amMoment.changeLocale('en');
+        if (location.pathname.startsWith('/da/') ) {
+            $translate.use('da');
+            amMoment.changeLocale('da');
+        } else {
+            amMoment.changeLocale('en');
+        }
     }
 })();
 
 require('./angular/env.constants');
 require('./angular/routerConfig');
-require('./angular/translate');
+
 require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
@@ -63,7 +68,7 @@ require('../../../components/expand/expand.directive');
 require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 
-
+require('./angular/translate');
 
 
 

@@ -6,10 +6,14 @@
             <div class="col-xs-12">
 
                 <div class="search-results__list--short-list__header">
-                    <h5><a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}">Publishers</a></h5>
+                    <h5>
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}">
+                            {$ __('stdTerms.publishers') $}
+                        </a>
+                    </h5>
                     {% if results.publishers.count > results.publishers.results.length %}
                     <span class="small">
-                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}" class="inherit">{$ results.publishers.count - results.publishers.results.length $} more</a>
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}" class="inherit">{$ __('stdTerms.nMore', (results.publishers.count - results.publishers.results.length) | locInt(gb.locales.current) ) $}</a>
                     </span>
                     {% endif %}
                 </div>
@@ -29,7 +33,9 @@
                                 <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.key $}">{$ result.title | striptags | truncate(80) | safe $}</a>
                             </h4>
                             <p class="search-results__list__item__meta">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/table?publishing_org={$ result.key $}">{$ result.numPublishedDatasets $} published datasets</a>
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/table?publishing_org={$ result.key $}">
+                                    {$ __n('stdTerms.nPublishedDatasets', result.numPublishedDatasets) $}
+                                </a>
                             </p>
                             {% if result.description %}
                             <h4 class="search-results__list__item__subtitle">{$ result.title | striptags | truncate(150) | safe $}</h4>
@@ -43,7 +49,10 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
-                            <span>{$ results.publishers.count - results.publishers.results.length $} more</span> <span class="gb-icon-right-arrow h2"></span>
+                            <span>
+                                {$ __('stdTerms.nMore', (results.publishers.count - results.publishers.results.length) | locInt(gb.locales.current) ) $}
+                            </span>
+                            <span class="gb-icon-right-arrow h2"></span>
                         </a>
                     </div>
                 </div>

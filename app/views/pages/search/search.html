@@ -11,11 +11,11 @@
                                     <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
                                         <input id="siteSearch" type="text"
                                                ng-model="omniSearch.freeTextQuery"
-                                               placeholder="Search"
+                                               placeholder="search"
                                                ng-keypress="omniSearch.searchOnEnter($event)">
                                         <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="omniSearch.freeTextQuery" ng-click="omniSearch.clearFreetextAndSetFocus()"></a>
                                         <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
-                                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                                            <span class="sr-only" translate="search.placeholder"></span>
                                         </a>
                                     </form>
                                 </div>
@@ -32,13 +32,13 @@
                             <div class="col-xs-12">
                                 <ul class="tabs">
                                     <li class="is-active">
-                                        <a ng-href="">All</a>
+                                        <a ng-href="" translate="stdTerms.all">All</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="datasetSearchTable({q: omniSearch.query.q})">datasets</a>
+                                        <a ui-sref="datasetSearchTable({q: omniSearch.query.q})" translate="stdTerms.datasets">datasets</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})">occurrences</a>
+                                        <a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})" translate="stdTerms.occurrences">occurrences</a>
                                     </li>
                                 </ul>
                             </div>

@@ -48,7 +48,11 @@
                                 <span>{{result.issues.length}}</span>
                             </td>
 
-                            <td class="table-cell--narrow" ng-repeat="t in ['taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                            <td class="table-cell--narrow">
+                                <span translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</span>
+                            </td>
+
+                            <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
                                 <span>{{result[t]}}</span>
                             </td>
 

@@ -34,7 +34,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, Occu
 
     vm.layers = {
         baselayers: {
-            base: mapConstants.baseLayers.options.classic-4326
+            base: mapConstants.baseLayers.options['classic-4326']
         },
         overlays: {}
     };

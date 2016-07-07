@@ -95,13 +95,13 @@
                             <div class="col-xs-12">
                                 <ul class="tabs">
                                     <li>
-                                        <a ui-sref="omniSearch({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = undefined">All</a>
+                                        <a ui-sref="omniSearch({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = undefined" translate="stdTerms.all">All</a>
                                     </li>
                                     <li class="is-active">
-                                        <a href="" ng-click="occurrence.table.filter = 'datasets'">datasets</a>
+                                        <a href="" ng-click="occurrence.table.filter = 'datasets'" translate="stdTerms.datasets">datasets</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'">occurrences</a>
+                                        <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'" translate="stdTerms.occurrences">occurrences</a>
                                     </li>
                                 </ul>
                             </div>
