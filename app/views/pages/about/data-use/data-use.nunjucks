@@ -110,25 +110,25 @@
                             <h5>Subject</h5>
                             <ul class="list-chips">
                                 {% for tag in data.tagsAudience %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.tagsDataUse %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.tagsDataType %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.tagsCapacityEnhancement %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.tagsPurpose %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.tagsTopic %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                                 {% for tag in data.gbifArea %}
-                                    <li><a href="#">{$ tag.name $}</a></li>
+                                    <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
                                 {% endfor %}
                             </ul>
                         </section>
