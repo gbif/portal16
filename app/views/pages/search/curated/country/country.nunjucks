@@ -2,7 +2,7 @@
 {% if results.country %}
 <div>
     <article class="card card--flexible">
-        <div class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">
             <div class="card__content">
                 <nav class="article-header__category article-header__category--deep small">
                     <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
@@ -12,8 +12,8 @@
                 </nav>
                 <h2 class="h4 text-center">{$ results.country.name $}</h2>
             </div>
-        </div>
-        <div class="card__stripe">
+        </a>
+        <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">
             <div class="card__content">
                 <div class="flag">
                     <img src="/img/flags/{$ results.country.countryCode $}.png">
@@ -37,7 +37,7 @@
                     </dl>
                 </div>
             </div>
-        </div>
+        </a>
     </article>
 </div>
 {% endif %}

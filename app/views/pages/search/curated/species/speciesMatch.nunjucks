@@ -32,13 +32,13 @@
 					<div class="text-center">
 						<span class="taxon-classification taxon-classification--discreet">
 							{% if taxon.info.kingdom %}
-								<a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info.kingdom $}" class="kingdom">{$ taxon.info.kingdom $}</a>
+								<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.kingdomKey $}" class="kingdom">{$ taxon.info.kingdom $}</a>
 							{% endif %}
 
 							{% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
 								{% if taxon.info[taxa] %}
 									<i></i>
-									<a href="{$ gb.locales.urlPrefix $}/search?q={$ taxon.info[taxa] $}" class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
+									<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info[taxa + 'Key'] $}" class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
 								{% endif %}
 							{% endfor %}
 						</span>

@@ -36,7 +36,8 @@
 		"SE": "country.SE",
 		"undefined": "country.undefined",
 		"CH": "country.CH",
-		"BO": "country.BO"
+		"BO": "country.BO",
+		"BR": "country.BR"
 	},
 	"taxonRank": {
 		"undefined": "taxonRank.undefined",
@@ -71,7 +72,9 @@
 		"GeologicalContext": "stdTerms.GeologicalContext",
 		"aboutTheDataset": "stdTerms.aboutTheDataset",
 		"reference": "stdTerms.reference",
-		"remarks": "stdTerms.remarks"
+		"remarks": "stdTerms.remarks",
+		"country": "stdTerms.country",
+		"seeAll": "stdTerms.seeAll"
 	},
 	"interpretationRemarks": {
 		"TAXON_MATCH_NONE": "interpretationRemarks.TAXON_MATCH_NONE",
@@ -181,7 +184,11 @@
 	},
 	"dataset": {
 		"longType": {
-			"OCCURRENCE": "dataset.longType.OCCURRENCE"
+			"OCCURRENCE": "dataset.longType.OCCURRENCE",
+			"CHECKLIST": "dataset.longType.CHECKLIST"
 		}
+	},
+	"participationStatus": {
+		"ASSOCIATE": "participationStatus.ASSOCIATE"
 	}
 }
