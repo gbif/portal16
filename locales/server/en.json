@@ -1,11 +1,8 @@
 {
-	"Search results": "Search results",
 	"search": {
 		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what we could find.",
 		"placeholder": "search"
 	},
-	"VOTING": "voting",
-	"ASSOCIATE": "associate",
 	"bor": {
 		"PRESERVED_SPECIMEN": "preserved specimen",
 		"FOSSIL_SPECIMEN": "fossil specimen",
@@ -1166,7 +1163,7 @@
 		"VOTING": "voting",
 		"ASSOCIATE": "associate",
 		"undefined": "unknown",
-		"FORMER": "participationStatus.FORMER"
+		"FORMER": "former"
 	},
 	"installation": {
 		"type": {
@@ -1209,6 +1206,17 @@
 			"CHECKLIST": "checklist",
 			"SAMPLING_EVENT": "Sampling event",
 			"METADATA": "Metadata"
+		}
+	},
+	"countryPage": {
+		"occurrencesAbout": "Occurrences about",
+		"occurrencesFrom": "Occurrences from",
+		"MemberSince": "Member since",
+		"countryDescription": {
+			"VOTING": "%s is an associate participant of GBIF",
+			"ASSOCIATE": "%s is a voting participant of GBIF",
+			"undefined": "",
+			"FORMER": "%s is a former participant of GBIF"
 		}
 	}
 }

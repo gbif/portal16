@@ -7,6 +7,7 @@
 var helper = require('../../models/util/util'),
     baseConfig = require('../../../config/config'),
     _ = require('underscore'),
+    lodash = require('lodash'),
     async = require('async');
 
 function getAdditionalDataFromMatchedTaxon(taxon, cb) {
@@ -172,7 +173,27 @@ function getData(query, cb) {
                         callback(err, data.results[0]);
                     }
                 });
-            }
+            },
+            countryAbout: [
+                'country', function(results, callback) {
+                    var countryCode = lodash.get(results, 'country.countryCode');
+                    if (!countryCode) {
+                        callback(null, null);
+                    } else {
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&country=' + countryCode, callback);
+                    }
+                }
+            ],
+            countryFrom: [
+                'country', function(results, callback) {
+                    var countryCode = lodash.get(results, 'country.countryCode');
+                    if (!countryCode) {
+                        callback(null, null);
+                    } else {
+                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&publishingCountry=' + countryCode, callback);
+                    }
+                }
+            ]
         },
         cb
     );
