@@ -6,10 +6,10 @@
   "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=production node app.js",
-    "dev": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=development node node_modules/forever/bin/forever start app.js;",
+    "start": "NODE_ENV=prod node app.js",
+    "dev": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=dev node node_modules/forever/bin/forever start app.js;",
     "uat": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=uat node node_modules/forever/bin/forever start app.js;",
-    "prod": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=production node node_modules/forever/bin/forever start app.js;",
+    "prod": "node node_modules/forever/bin/forever stop app.js; NODE_ENV=prod node node_modules/forever/bin/forever start app.js;",
     "install": "node node_modules/bower/bin/bower install; mkdir -p reports;",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
   },

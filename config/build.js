@@ -12,17 +12,17 @@ var path = require('path'),
     yargs = require('yargs').argv,
     gutil = require('gulp-util'),
     rootPath = path.normalize(__dirname + '/..'),
-    env = 'development',
+    env = 'dev',
     defaultPort = yargs.port || 3000;
 
 if (gutil.env.prod) {
-    env = 'production'
+    env = 'prod'
 } else if (gutil.env.test) {
     env = 'test';
 } else if (gutil.env.tdd) {
     env = 'test-drive-development';
 } else {
-    env = 'development';
+    env = 'dev';
 }
 
 console.log(gutil.env.payload);
@@ -36,7 +36,7 @@ function loc(p) {
  */
 var config = {
     buildType: env,
-    isProd: env == 'production'
+    isProd: env == 'prod'
 };
 
 /**
