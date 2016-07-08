@@ -33,7 +33,7 @@ requireDir('./gulp/tasks', {
 //     gulp.start('build');
 // });
 
-gulp.task('production', function(callback) {
+gulp.task('prod', function(callback) {
     runSequence(
         ['clean-all'], ['env-constants'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates'], ['ieStyle'],
         callback);
