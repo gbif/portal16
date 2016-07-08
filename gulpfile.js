@@ -41,7 +41,7 @@ gulp.task('prod', function(callback) {
 
 gulp.task('test-drive-development', [], function(callback){
     runSequence(
-        ['test-server-continuously', 'test-client-continuously', 'development'],
+        ['test-server-continuously', 'test-client-continuously', 'dev'],
         callback);
 });//TODO add development task
 
