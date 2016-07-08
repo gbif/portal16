@@ -27,6 +27,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
             type: 'xyz',
             visible: true,
             layerParams: {
+                opacity: 0.75,
                 "showOnSelector": false
             }
         };
