@@ -62,7 +62,7 @@ gulp.task('watch', ['browser-sync'], function() {
     browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
 });
 
-gulp.task('development', [], function(callback) {
+gulp.task('dev', [], function(callback) {
     runSequence(
         ['clean-all'], ['env-constants'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates'],
         ['ieStyle'],

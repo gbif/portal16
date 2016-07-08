@@ -18,17 +18,19 @@ Once the project is downloaded install using
 this will install dependencies from npm and bower and run a production build
 
 ###Build for production
-The static assets (client css, fonts and js) is build with Gulp
+The static assets (client css, fonts and js) is build with Gulp. NODe_ENV sets the endpoints. --prod sets the build type
 ```
-gulp --prod
+NODE_ENV=prod gulp --prod
 //OR
-node node_modules/gulp/bin/gulp --prod
+NODE_ENV=prod node node_modules/gulp/bin/gulp.js --prod
 ```
 
 ###Run
 Now start the server
 ```
 npm start
+//OR
+NODE_ENV=prod node app.js
 ```
 this will start the server in production mode.
 
@@ -46,7 +48,7 @@ Logs end up in `user/.forever/` if nothing else is specified
 ##Development
 During development it can be useful that the server restarts if files are changed and the browser refresh. To run in development mode
 ```
-gulp
+NODE_ENV=local gulp --loglevel=terminal
 ```
 This will build static assets and start the server.
 Most files are watched though not all and when new files are created gulp will not detect changes in these.

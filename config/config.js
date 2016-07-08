@@ -10,15 +10,15 @@ var path = require('path'),
 
 var config = {
     local: {
-        env: env,
+        env: 'dev',
         root: rootPath,
         app: {
             name: 'portal - local'
         },
         port: port || 3000,
         log: log,
-        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     dev: {

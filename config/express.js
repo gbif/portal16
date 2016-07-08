@@ -9,7 +9,7 @@ var express = require('express'),
     //log = rootRequire('config/log'),
 
 module.exports = function (app, config) {
-    var env = process.env.NODE_ENV || 'dev';
+    var env = config.env || 'dev';
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
 

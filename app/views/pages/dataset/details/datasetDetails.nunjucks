@@ -76,11 +76,15 @@
                             <div>
                                 {# @todo Consider counts for checklist dataset #}
                                 <dt>occurrence records</dt>
-                                <dd>{$ occurrenceCount $}</dd>
+                                <dd>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/table?datasetKey={$ datasetDetails.key $}">{$ occurrenceCount $}</a>
+                                </dd>
                             </div>
                             <div>
                                 <dt>with coordinates</dt>
-                                <dd>{$ occurrenceGeoRefCount $}</dd>
+                                <dd>
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/table?datasetKey={$ datasetDetails.key $}&hasCoordinate=true&hasGeospatialIssue=false">{$ occurrenceGeoRefCount $}</a>
+                                </dd>
                             </div>
                             {% endif %}
 
