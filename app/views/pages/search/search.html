@@ -48,7 +48,22 @@
             </nav>
 
             <div ui-view>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"> </ng-include>
+                <ng-include ng-if="omniSearch.query.q" src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"> </ng-include>
+                <div ng-if="!omniSearch.query.q">
+                    <div style="margin: 50px auto; padding: 0 10px; font-size: 24px; text-align: center; max-width: 500px">
+                        <p>Try searching for something
+                            <ul style="padding: 0">
+                                <li><a ui-sref="omniSearch({q: 'argentina'})">argentina</a></li>
+                                <li><a ui-sref="omniSearch({q: 'flabellina'})">flabellina</a></li>
+                                <li><a ui-sref="omniSearch({q: 'demise'})">demise</a></li>
+                                <li><a ui-sref="omniSearch({q: 'hobern'})">hobern</a></li>
+                                <li><a ui-sref="omniSearch({q: 'ebird'})">ebird</a></li>
+                                <li><a ui-sref="omniSearch({q: 'nørrebro'})">nørrebro</a></li>
+                            </ul>
+                        </p>
+                        <p>When there is not results we could show links to contacts and about pages.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

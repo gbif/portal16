@@ -63,6 +63,11 @@ function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, Occurrenc
     //     vm.suggest.addKey(vm.query.taxonKey);
     // }
 
+    vm.freeTextSearch = function() {
+        $state.go('.', {q: vm.freeTextQuery}, {inherit:false});
+        window.scrollTo(0,0);
+    };
+
     vm.updateSearch = function() {
         vm.query.q = vm.freeTextQuery;
         vm.query.offset =  undefined;

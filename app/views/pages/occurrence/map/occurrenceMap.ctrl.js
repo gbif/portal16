@@ -13,7 +13,7 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, OccurrenceSearch, results) {
+function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, OccurrenceSearch, env, results) {
     var vm = this;
     vm.totalCount = results.count;
     vm.mapMenu = {
@@ -23,7 +23,7 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
     var getOverlay = function(query) {
         var overlay = {
             name: 'gb',
-            url: "http://api.gbif-uat.org/v1/map/occurrence/tile.png?x={x}&y={y}&z={z}&srs=EPSG:4326&" + $httpParamSerializer(query),
+            url: env.dataApi + "map/occurrence/tile.png?x={x}&y={y}&z={z}&srs=EPSG:4326&" + $httpParamSerializer(query),
             type: 'xyz',
             visible: true,
             layerParams: {

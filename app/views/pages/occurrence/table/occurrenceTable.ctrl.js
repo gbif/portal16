@@ -31,7 +31,7 @@ function occurrenceTableCtrl($scope, OccurrenceTableSearch, OccurrenceFilter, $f
     };
 
     // // watch state params and fetch new data if it changes
-    $scope.$watchCollection(function(){return $stateParams}, function(newValue, oldValue) {
+    $scope.$watchCollection(function(){return $stateParams}, function(newValue) {
         // console.log('update me');
         OccurrenceTableSearch.query(newValue, function(data){
             vm.count = data.count;
