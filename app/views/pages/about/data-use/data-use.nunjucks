@@ -143,13 +143,13 @@
                         <article class="container-fluid card card--nav">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2015-November/82555/eschrichtius_robustus_01.jpg?itok=ycoJ-bt8" gallery-image alt="{$ images[0].filename $}">
+                                    <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image alt="{$ data.__system.prev.imageCaption $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span><a href="/data-use/82555">Previous Story</a></span>
+                                    <span><a href="/{$ data.__system.prev.targetUrl $}">Previous Story</a></span>
                                     <h2 class="h4">
-                                        <a href="/data-use/82555">
-                                            {$ 'Leviathan impacts: the once—and future?— presence of the Atlantic gray whale. Leviathan impacts: the once—and future?— presence of the Atlantic gray whale' | truncate(80) $}
+                                        <a href="/{$ data.__system.prev.targetUrl $}">
+                                            {$ data.__system.prev.title | truncate(80) $}
                                         </a>
                                     </h2>
                                 </div>
@@ -160,13 +160,13 @@
                         <article class="container-fluid card card--nav">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                    <img ng-src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2013-February/82507/6985695210_e4006d92e2_z_1.jpg?itok=K0EsCinV" gallery-image alt="{$ images[0].filename $}">
+                                    <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image alt="{$ data.__system.next.imageCaption $}">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span><a href="/data-use/82507">Next Story</a></span>
+                                    <span><a href="/{$ data.__system.next.targetUrl $}">Next Story</a></span>
                                     <h2 class="h4">
-                                        <a href="/data-use/82507">
-                                            Modelling key bird areas in Mexico and Central America
+                                        <a href="/{$ data.__system.next.targetUrl $}">
+                                            {$ data.__system.next.title | truncate(80) $}
                                         </a>
                                     </h2>
                                 </div>
