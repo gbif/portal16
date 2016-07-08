@@ -2,23 +2,35 @@ var path = require('path'),
     log = require('./log'),
     yargs = require('yargs').argv,
     rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development',
-    defaultPort = yargs.port || 3000,
+    env = process.env.NODE_ENV || 'local',
+    port = yargs.port,
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi;
 
 var config = {
-    development: {
+    local: {
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - local'
+        },
+        port: port || 3000,
+        log: log,
+        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
+    },
+    dev: {
         env: env,
         root: rootPath,
         app: {
             name: 'portal - dev'
         },
-        port: defaultPort,
+        port: port || 80,
         log: log,
-        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
     uat: {
@@ -27,19 +39,19 @@ var config = {
         app: {
             name: 'portal - uat'
         },
-        port: defaultPort,
+        port: port || 80,
         log: log,
-        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     },
-    production: {
+    prod: {
         env: env,
         root: rootPath,
         app: {
             name: 'portal - prod'
         },
-        port: defaultPort,
+        port: port || 80,
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
@@ -51,9 +63,10 @@ var config = {
         app: {
             name: 'portal - test'
         },
-        port: defaultPort,
+        port: port || 3000,
         log: log,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
     }
 };
