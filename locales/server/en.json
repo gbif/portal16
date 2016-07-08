@@ -1223,8 +1223,8 @@
 		"occurrencesFrom": "Occurrences from",
 		"MemberSince": "Member since",
 		"countryDescription": {
-			"VOTING": "%s is an associate participant of GBIF",
-			"ASSOCIATE": "%s is a voting participant of GBIF",
+			"VOTING": "%s is a voting participant of GBIF",
+			"ASSOCIATE": "%s is an associate participant of GBIF",
 			"undefined": "",
 			"FORMER": "%s is a former participant of GBIF"
 		}
