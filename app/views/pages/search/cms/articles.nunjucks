@@ -19,7 +19,7 @@
                             <div>
                                 <div>
                                     <h4 class="search-results__list__item__title">
-                                        <a href="{$ gb.locales.urlPrefix $}/data-use/{$ result.targetUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
                                     </h4>
                                     {% if result.body %}
                                         <h4 class="search-results__list__item__subtitle">{$ result.body | striptags | truncate(150) | safe $}</h4>

@@ -31,6 +31,19 @@ function searchHandler(req, res) {
     var searchString = req.query.q;
 
     search.search(searchString, function(results){
+
+        // handling type-url conversion for CMS contents
+        // @todo use a node module to handle all possible cases once more content typs are ready.
+        if (results.articles.data.length > 0) {
+            results.articles.data.forEach(function(datum){
+                datum.forEach(function(d){
+                    if (d.type == 'data_use') {
+                        d.type = 'data-use';
+                    }
+                });
+            });
+        }
+
         results.highlights = highlights.getHighlights(searchString, results);
 
         var context = {
