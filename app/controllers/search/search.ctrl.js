@@ -34,14 +34,19 @@ function searchHandler(req, res) {
 
         // handling type-url conversion for CMS contents
         // @todo use a node module to handle all possible cases once more content typs are ready.
-        if (results.articles.data.length > 0) {
-            results.articles.data.forEach(function(datum){
-                datum.forEach(function(d){
-                    if (d.type == 'data_use') {
-                        d.type = 'data-use';
-                    }
+        try {
+            if (results.articles.data.length > 0) {
+                results.articles.data.forEach(function(datum){
+                    datum.forEach(function(d){
+                        if (d.type == 'data_use') {
+                            d.type = 'data-use';
+                        }
+                    });
                 });
-            });
+            }
+        }
+        catch (e) {
+            next(e);
         }
 
         results.highlights = highlights.getHighlights(searchString, results);
