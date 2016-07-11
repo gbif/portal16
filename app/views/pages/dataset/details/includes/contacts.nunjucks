@@ -1,10 +1,10 @@
 {% for contact in contactsByName %}
 <address class="address">
     <a name="{$ contact.key $}"></a>
-    <strong>{$ contact.name $}</strong><br>
+    {% if contact.name %}<strong>{$ contact.name $}</strong><br>{% endif %}
     {% if contact.organization %}{$ contact.organization $}<br>{% endif %}
-    {$ contact.addressLine $}<br>
-    {$ contact.country $}<br>
+    {% if contact.addressLine %}{$ contact.addressLine $}<br>{% endif %}
+    {% if contact.country %}{$ contact.country $}<br>{% endif %}
     {% if contact.phone[0] %}
         <abbr title="Phone">P:</abbr>{% for p in contact.phone -%}{% set comma = joiner() %}
         {$ comma() $} {$ p $}{%- endfor %}<br>
