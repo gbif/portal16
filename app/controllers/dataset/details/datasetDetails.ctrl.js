@@ -17,7 +17,7 @@ router.get('/dataset/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
 
     var getOptions = {
-        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process']
+        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents']
     };
     Dataset.get(datasetKey, getOptions).then(function(dataset) {
         renderPage(req, res, dataset);
@@ -55,6 +55,7 @@ function renderPage(req, res, dataset) {
         datasetDetails: dataset.record,
         publisher: dataset.publisher,
         installation: dataset.installation,
+        occurrenceDownloadEvents: dataset.occurrenceDownloadEvents,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
         //headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
         //headerContactsString: JSON.stringify(headerContacts),
@@ -62,7 +63,6 @@ function renderPage(req, res, dataset) {
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,
         georeferencedString: georeferencedString,
-        downloadEventsExist: downloadEventsExist(dataset.record.key),
         publisherStyle: publisherStyle,
         publisherModifier: publisherModifier,
         process: dataset.process.results,
@@ -81,15 +81,6 @@ function renderPage(req, res, dataset) {
 
 function doiToUrl(doi) {
     if (doi) { return doi.replace('doi:', 'http://dx.doi.org/'); }
-}
-
-function downloadEventsExist(datasetKey) {
-    request(api.occurrenceDownloadDataset.url + datasetKey, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            body = JSON.parse(body);
-            return (body.count != '0');
-        }
-    });
 }
 
 /**

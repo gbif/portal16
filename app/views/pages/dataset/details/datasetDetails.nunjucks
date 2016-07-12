@@ -233,6 +233,7 @@
         </section>#}
 
         {# Download events for the dataset in view. (Former "activity" tab.) #}
+        {% if occurrenceDownloadEvents.count != 0 %}
         <section id="download-events" class="horizontal-stripe white-background">
             <div class="container">
                 <div class="row">
@@ -242,6 +243,7 @@
                 </div>
             </div>
         </section>
+        {% endif %}
         <section id="gbif-registration-info" class="horizontal-stripe bare-background">
             <div class="container">
                 <div class="row">

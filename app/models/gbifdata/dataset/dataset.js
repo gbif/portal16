@@ -44,6 +44,10 @@ Dataset.prototype.expand = function (fieldNames) {
             process: {
                 resource: api.dataset.url + this.record.key + '/process?limit=1',
                 extendToField: 'process'
+            },
+            occurrenceDownloadEvents: {
+                resource: api.occurrenceDownloadDataset.url + this.record.key,
+                extendToField: 'occurrenceDownloadEvents'
             }
         };
     fieldNames.forEach(function(e) {
