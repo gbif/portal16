@@ -337,7 +337,8 @@ function organizeContactsByName(sourceContacts, __) {
         var addressLine = '';
         roles.push(__('role.' + contact.type));
         contact.type = roles;
-        contact.name = contact.firstName + ' ' + contact.lastName;
+        contact.name = (contact.firstName) ? contact.firstName : '';
+        contact.name += (contact.lastName) ? ' ' + contact.lastName : '';
         addressFields.forEach(function(field, i){
             if (contact[field]) {
                 if (i != 0) addressLine += ', ';
