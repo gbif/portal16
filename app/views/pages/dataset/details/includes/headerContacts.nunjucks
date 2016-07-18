@@ -2,7 +2,7 @@
 {% if contactsByName[0] %}
     <div class="header-contacts text-center">
             <input class="contacts-collapse" id="contacts-affiliation-role" type="checkbox" >
-            <label for="contacts-affiliation-role"> </label>
+            <label for="contacts-affiliation-role"></label>
             {% set comma = joiner() %}
             {% for contact in contactsByName -%}
                 {$ comma() $} <a href="#{$ contact.key $}">{$ contact.name $}</a><sup>{$ loop.index $}</sup>
