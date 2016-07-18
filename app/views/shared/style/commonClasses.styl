@@ -44,7 +44,7 @@
     &__intro {
         font-size 1.2rem
         font-style italic
-        font-family $caslon
+        font-family $didot
         max-width 700px
         margin 0 auto vrBlock(0.5)
     }
@@ -147,6 +147,15 @@ $articleCategorySeparatorSpacing = 6px
     max-width $contentWidth--narrow
     margin-left auto
     margin-right auto
+    
+    ul {
+        list-style disc
+    }
+    
+    ol {
+        list-style decimal
+    }
+    
     .prose-columns {
         overflow-wrap break-word
         word-wrap break-word
@@ -154,6 +163,7 @@ $articleCategorySeparatorSpacing = 6px
         figure {
             overflow hidden
             break-inside avoid-column
+            margin-bottom vrBlock(1)
             figcaption {
                 font-size 0.9rem
                 font-weight 300

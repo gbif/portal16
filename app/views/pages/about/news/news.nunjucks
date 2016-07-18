@@ -35,9 +35,7 @@
                 {% endif %}
 
                 <div class="container-fluid container--prose">
-                    <div class="body-text prose-columns prose-columns--justified">
-                        {$ data.body | safe $}
-
+                    <div class="body-text prose-columns">
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
@@ -46,6 +44,9 @@
                                 <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
                             </figure>
                         {% endif %}
+
+                        {$ data.body | safe $}
+
                     </div>
 
                     <div class="article-auxiliary prose-columns">
@@ -61,7 +62,7 @@
                                 </section>
                             {% endif %}
 
-                            {% if data.relatedGbifResources %}
+                            {% if data.relatedGbifResources.length > 1 %}
                                 <section class="no-break">
                                     <h5>Related GBIF resources</h5>
                                     <ul class="list-links">
