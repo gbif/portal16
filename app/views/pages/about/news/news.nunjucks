@@ -1,8 +1,4 @@
-{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
-
-{% block title %}
-    <title>{$ data.title $} | GBIF.org</title>
-{% endblock %}
+{% extends "../html-prose.nunjucks" %}
 
 {% block page %}
     {% import "../cms.macros.nunjucks" as macros %}
