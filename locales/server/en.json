@@ -22,9 +22,9 @@
 		"SYNTYPE": "syntype",
 		"ISONEOTYPE": "isoneotype",
 		"ISOTYPE": "isotype",
-		"TYPE": "typeStatus.TYPE",
-		"PARALECTOTYPE": "typeStatus.PARALECTOTYPE",
-		"PARATYPE": "typeStatus.PARATYPE"
+		"TYPE": "type",
+		"PARALECTOTYPE": "paralectotype",
+		"PARATYPE": "paratype"
 	},
 	"occurrence": {
 		"title": {
