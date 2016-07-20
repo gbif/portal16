@@ -26,6 +26,9 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 case 'data_use':
                     type = 'data-use';
                     break;
+                case 'event':
+                    type = 'event';
+                    break;
             }
             
             // Only proceed to rendering if the requested path is identical to the target URL.

@@ -16,6 +16,9 @@ var apiConfig = {
     dataUse: {
         url: baseUrl + 'data_use/'
     },
+    event: {
+        url: baseUrl + 'event/'
+    },
     search: {
         url: baseUrl + 'search/'
     },
