@@ -20,7 +20,7 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
 
 function renderPage(req, res, next, occurrence) {
     try {
-        if (req.params.ext == 'json') {
+        if (req.params.ext == 'debug') {
             res.json(occurrence);
         } else {
             var angularInitData = occurrenceKey.getAngularInitData(occurrence);

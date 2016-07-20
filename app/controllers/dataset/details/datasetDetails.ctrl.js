@@ -71,7 +71,7 @@ function renderPage(req, res, dataset) {
         hasTitle: true
     };
 
-    if (req.params.ext == 'json') {
+    if (req.params.ext == 'debug') {
         res.json(datasetContent);
     } else {
         dataset.record.doiUrl = doiToUrl(dataset.record.doi);

@@ -33,7 +33,7 @@ function searchHandler(req, res) {
     search.search(searchString, function(results){
 
         // handling type-url conversion for CMS contents
-        // @todo use a node module to handle all possible cases once more content typs are ready.
+        // @todo use a node module to handle all possible cases once more content types are ready.
         try {
             if (results.articles.data.length > 0) {
                 results.articles.data.forEach(function(datum){
@@ -67,7 +67,7 @@ function searchHandler(req, res) {
 }
 
 function renderPage(req, res, context) {
-    if (req.params.ext == 'json') {
+    if (req.params.ext == 'debug') {
         res.json(context);
     } else {
         res.render('pages/search/searchPartial', context);

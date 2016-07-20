@@ -11,8 +11,8 @@ router.get('/news/:requestedPath(*)', function(req, res, next) {
     // Start by looking up URL Alias
     var requestedPath,
         jsonOutput = false;
-    if (req.params.requestedPath.search(/\.json/) != -1) {
-        requestedPath = req.params.requestedPath.replace('.json', '');
+    if (req.params.requestedPath.search(/\.debug/) != -1) {
+        requestedPath = req.params.requestedPath.replace('.debug', '');
         jsonOutput = true;
     }
     else {

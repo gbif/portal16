@@ -23,7 +23,7 @@ function taxonRoute(req, res, next) {
 
 function renderPage(req, res, next, taxon) {
     try {
-        if (req.params.ext == 'json') {
+        if (req.params.ext == 'debug') {
             res.json(taxon);
         } else {
             res.render('pages/species/key/speciesKey', {
