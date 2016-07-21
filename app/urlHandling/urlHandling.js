@@ -29,6 +29,9 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 case 'event':
                     type = 'event';
                     break;
+                case 'resource':
+                    type = 'resource';
+                    break;
             }
             
             // Only proceed to rendering if the requested path is identical to the target URL.

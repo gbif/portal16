@@ -20,7 +20,6 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
 
-
     (function() {
         nunjucksConfiguration.addFilter('limit', function(data, limit) {
             return data && data.constructor === Array ? data.slice(0, limit) : undefined;

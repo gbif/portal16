@@ -19,6 +19,9 @@ var apiConfig = {
     event: {
         url: baseUrl + 'event/'
     },
+    resource: {
+        url: baseUrl + 'resource/'
+    },
     search: {
         url: baseUrl + 'search/'
     },
