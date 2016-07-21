@@ -7,7 +7,7 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/participant/:requestedPath(*)', function(req, res, next) {
+router.get('/page/:requestedPath(*)', function(req, res, next) {
     // Start by looking up URL Alias
     var requestedPath,
         jsonOutput = false;
@@ -31,7 +31,7 @@ router.get('/participant/:requestedPath(*)', function(req, res, next) {
             // Only proceed to rendering if the requested path is identical to the target URL.
             // Otherwise send a 301 redirection.
             if (requestedPath == b.data[0].targetUrl) {
-                var proseUrl = cmsApi.participant.url + b.data[0].id;
+                var proseUrl = cmsApi.page.url + b.data[0].id;
                 request(proseUrl, function(error, response, body) {
                     body = JSON.parse(body);
 
@@ -52,7 +52,7 @@ router.get('/participant/:requestedPath(*)', function(req, res, next) {
                             if (jsonOutput == true) {
                                 res.json(proseContent);
                             } else {
-                                res.render('pages/about/participant/participant.nunjucks', proseContent);
+                                res.render('pages/about/page/page.nunjucks', proseContent);
                             }
 
                         } catch(e) {

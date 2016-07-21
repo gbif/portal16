@@ -35,11 +35,23 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 case 'gbif_participant':
                     type = 'participant';
                     break;
+                case 'page':
+                    type = 'page';
+                    break;
+                case 'external':
+                    type = 'external';
+                    break;
             }
             
             // Only proceed to rendering if the requested path is identical to the target URL.
             // Otherwise send a 301 redirection.
-            var redirectedUrl = '/' + type + '/' + b.data[0].targetUrl;
+            var redirectedUrl;
+            if (type == 'external') {
+                redirectedUrl = b.data[0].targetUrl;
+            }
+            else {
+                redirectedUrl = '/' + type + '/' + b.data[0].targetUrl;
+            }
             res.redirect(301, redirectedUrl);
         }
         else {

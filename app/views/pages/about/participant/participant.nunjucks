@@ -82,7 +82,7 @@
                             {% if data.quickLinks[0] %}
                                 <section class="no-break">
                                     <h5>Quick links</h5>
-                                    <ul>
+                                    <ul class="list-style-none">
                                         {% for link in data.quickLinks -%}
                                             <li><a href="{$ link.url $}">{$ link.title $}</a></li>
                                         {%- endfor %}
