@@ -16,34 +16,12 @@
                                 {# fulltext html already wrapped by <p> from Content API #}
                                 {$ data.summary | safe $}
                             </div>
-                            <p class="article-header__meta">
-                                {$ data.numResourceUsed $}
-                            </p>
                         </header>
                     </div>
                 </div>
 
-                {% if images[0].width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}" gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
-
                 <div class="container-fluid container--prose">
                     <div class="body-text prose-columns">
-                        {% if images[0].width <= 1000 %}
-                            <figure>
-                                <div class="cover-image article-image">
-                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
-                                </div>
-                                <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
-                            </figure>
-                        {% endif %}
 
                         {$ data.body | safe $}
 
