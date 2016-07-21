@@ -32,7 +32,7 @@ var apiConfig = {
         url: baseUrl + 'search/'
     },
     urlLookup: {
-        url: baseUrl + 'urllookup/'
+        url: baseUrl + 'url-lookup/'
     }
 };
 
