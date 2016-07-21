@@ -32,6 +32,9 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 case 'resource':
                     type = 'resource';
                     break;
+                case 'gbif_participant':
+                    type = 'participant';
+                    break;
             }
             
             // Only proceed to rendering if the requested path is identical to the target URL.

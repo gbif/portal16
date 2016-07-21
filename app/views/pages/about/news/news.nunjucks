@@ -111,6 +111,11 @@
                                     {% endfor %}
                                 </ul>
                             </section>
+
+                            <section class="no-break">
+                                <h5>Published on</h5>
+                                {$ data.created | formatDate(gb.locales.current) $}
+                            </section>
                         </div>
                     </div>
                 </div>

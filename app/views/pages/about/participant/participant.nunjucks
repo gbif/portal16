@@ -1,0 +1,147 @@
+{% extends "../html-prose.nunjucks" %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <div class="container">
+                    <div class="row">
+                        <header class="col-xs-12 text-center">
+                            <nav class="article-header__category article-header__category--deep">
+                                <span class="article-header__category__upper">About</span>
+                                <span class="article-header__category__lower">Participant</span>
+                            </nav>
+                            <h1>{$ data.title $}</h1>
+                            <div class="article-header__intro">
+                                {# fulltext html already wrapped by <p> from Content API #}
+
+                            </div>
+                            <p class="article-header__meta">
+                            </p>
+
+                        </header>
+                    </div>
+                </div>
+
+                <div class="container-fluid container--prose">
+                    <div class="body-text prose-columns">
+                        {% if data.history %}
+                            <h4>History</h4>
+                            {$ data.history | safe $}
+                        {% endif %}
+
+                        {% if data.visionMission %}
+                            <h4>Vision and mission</h4>
+                            {$ data.visionMission | safe $}
+                        {% endif %}
+
+                        {% if data.structure %}
+                            <h4>Structure</h4>
+                            {$ data.structure | safe $}
+                        {% endif %}
+
+                        {% if data.nationalFunding %}
+                            <h4>National funding</h4>
+                            {$ data.nationalFunding | safe $}
+                        {% endif %}
+                    </div>
+
+                    <div class="article-auxiliary prose-columns">
+                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
+
+                            {% if data.socialMedia[0] %}
+                                {% set comma1 = joiner() %}
+                                <section class="no-break">
+                                    <h5>Social media</h5>
+                                        {% for link in data.socialMedia -%}
+                                        {$ comma1() $} <a href="{$ link.url $}">{$ link.title $}</a>
+                                        {%- endfor %}
+                                </section>
+                            {% endif %}
+
+                            {% if data.rssFeed[0] %}
+                                {% set comma2 = joiner() %}
+                                <section class="no-break">
+                                    <h5>RSS feed</h5>
+                                    {% for link in data.rssFeed -%}
+                                        {$ comma2() $} <a href="{$ link.url $}">{$ link.title $}</a>
+                                    {%- endfor %}
+                                </section>
+                            {% endif %}
+
+                            {% if data.newsletter[0] %}
+                                {% set comma3 = joiner() %}
+                                <section class="no-break">
+                                    <h5>Newsletter</h5>
+                                    {% for link in data.newsletter -%}
+                                        {$ comma3() $} <a href="{$ link.url $}">{$ link.title $}</a>
+                                    {%- endfor %}
+                                </section>
+                            {% endif %}
+
+                            {% if data.quickLinks[0] %}
+                                <section class="no-break">
+                                    <h5>Quick links</h5>
+                                    <ul>
+                                        {% for link in data.quickLinks -%}
+                                            <li><a href="{$ link.url $}">{$ link.title $}</a></li>
+                                        {%- endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            {% if data.__system.prev.id %}
+                                <article class="container-fluid card card--nav">
+                                    <div class="row">
+                                        {% if data.__system.prev.thumbnail %}
+                                            <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                                <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image alt="{$ data.__system.prev.imageCaption $}">
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-xs-12 col-md-6 card__content">
+                                            <span><a href="/{$ data.__system.prev.targetUrl $}">Previous Event</a></span>
+                                            <h2 class="h4">
+                                                <a href="/{$ data.__system.prev.targetUrl $}">
+                                                    {$ data.__system.prev.title | truncate(80) $}
+                                                </a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endif %}
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            {% if data.__system.next.id %}
+                                <article class="container-fluid card card--nav">
+                                    <div class="row">
+                                        {% if data.__system.next.thumbnail %}
+                                            <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                                <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image alt="{$ data.__system.next.imageCaption $}">
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-xs-12 col-md-6 card__content">
+                                            <span><a href="/{$ data.__system.next.targetUrl $}">Next Event</a></span>
+                                            <h2 class="h4">
+                                                <a href="/{$ data.__system.next.targetUrl $}">
+                                                    {$ data.__system.next.title | truncate(80) $}
+                                                </a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </article>
+    </div>
+{% endblock %}

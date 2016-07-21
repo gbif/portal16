@@ -22,6 +22,9 @@ var apiConfig = {
     resource: {
         url: baseUrl + 'resource/'
     },
+    participant: {
+        url: baseUrl + 'gbif_participant/'
+    },
     search: {
         url: baseUrl + 'search/'
     },
