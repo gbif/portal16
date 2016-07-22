@@ -14,7 +14,7 @@ var apiConfig = {
         url: baseUrl + 'dataset/'
     },
     dataUse: {
-        url: baseUrl + 'data_use/'
+        url: baseUrl + 'data-use/'
     },
     event: {
         url: baseUrl + 'event/'
