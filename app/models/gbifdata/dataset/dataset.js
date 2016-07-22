@@ -1,7 +1,8 @@
 'use strict';
 
 var	resource = require('../resource'),
-    api = require('../apiConfig');
+    api = require('../apiConfig'),
+    cmsApi = require('../../cmsdata/apiConfig');
 
 var Dataset = function (record) {
     this.record = record;
@@ -48,6 +49,10 @@ Dataset.prototype.expand = function (fieldNames) {
             occurrenceDownloadEvents: {
                 resource: api.occurrenceDownloadDataset.url + this.record.key,
                 extendToField: 'occurrenceDownloadEvents'
+            },
+            datasetRefLookup: {
+                resource: cmsApi.datasetRefLookup.url + this.record.key,
+                extendToField: 'datasetRefLookup'
             }
         };
     fieldNames.forEach(function(e) {

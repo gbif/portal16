@@ -2,7 +2,6 @@
 var express = require('express'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
     api = require('../../../models/gbifdata/apiConfig'),
-    cmsApi = require('../../../models/cmsdata/apiConfig'),
     router = express.Router(),
     request = require('request'),
     async = require('async'),
@@ -17,7 +16,7 @@ router.get('/dataset/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
 
     var getOptions = {
-        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents']
+        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents', 'datasetRefLookup']
     };
     Dataset.get(datasetKey, getOptions).then(function(dataset) {
         renderPage(req, res, dataset);
@@ -56,9 +55,8 @@ function renderPage(req, res, dataset) {
         publisher: dataset.publisher,
         installation: dataset.installation,
         occurrenceDownloadEvents: dataset.occurrenceDownloadEvents,
+        datasetRefLookup: dataset.datasetRefLookup.data,
         metadataElementsToFold: metadataElementsToFold(dataset.record),
-        //headerContacts: organizeContacts(dataset.record.contacts, 'HEADER'),
-        //headerContactsString: JSON.stringify(headerContacts),
         contactsByName: organizeContactsByName(dataset.record.contacts, res.__),
         occurrenceCount: dataset.occurrenceCount,
         occurrenceGeoRefCount: dataset.occurrenceGeoRefCount,

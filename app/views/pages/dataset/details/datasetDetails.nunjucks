@@ -216,21 +216,28 @@
         </section>
         #}
 
-        {# to be wired with supporting Content API #}
-        {#<section id="related-news" class="horizontal-stripe--paddingless related-news">
+        {% if datasetRefLookup.length > 1 %}
+        {% for ref in datasetRefLookup %}
+        {% if ref.type == 'data_use' %}
+        <section id="related-news" class="horizontal-stripe--paddingless related-news">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
-                        <img src="http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/data_use/2014-October/82526/Acridotheres%20tristis.jpg?itok=30C4sgB-">
+                        <div class="row">
+                            <img ng-src="{$ ref.images[0].styles.focal_point_for_news $}">
+                        </div>
                     </div>
-                    <div class="col-xs-6 col-md-6">
+                    <div class="col-xs-12 col-md-6 related-news__body-text">
                         <h4 class="content-type-label">Data use</h4>
-                        <h3>Building national watch lists for invasive alien species</h3>
-                        <p>A research team from GBIF's partners in the South African National Biodiversity Institute (SANBI) developed a simple methodology for drawing up a 'watch list' that countries can use to identify those alien species most likely to pose a substantial threat of invasion.</p>
+                        <h3><a href="{$ ref.targetUrl $}">{$ ref.title $}</a></h3>
+                        {$ ref.body | safe | truncate(500) $}
                     </div>
                 </div>
             </div>
-        </section>#}
+        </section>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
 
         {# Download events for the dataset in view. (Former "activity" tab.) #}
         {% if occurrenceDownloadEvents.count != 0 %}

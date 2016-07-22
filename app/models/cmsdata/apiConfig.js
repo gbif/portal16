@@ -33,6 +33,9 @@ var apiConfig = {
     },
     urlLookup: {
         url: baseUrl + 'url-lookup/'
+    },
+    datasetRefLookup: {
+        url: baseUrl + 'dataset-ref-lookup/'
     }
 };
 
