@@ -216,7 +216,7 @@
         </section>
         #}
 
-        {% if datasetRefLookup.length > 1 %}
+        {% if datasetRefLookup.length >= 1 %}
         {% for ref in datasetRefLookup %}
         {% if ref.type == 'data_use' %}
         <section id="related-news" class="horizontal-stripe--paddingless related-news">
