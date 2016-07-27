@@ -28,6 +28,12 @@ var apiConfig = {
     page: {
         url: baseUrl + 'page/'
     },
+    programme: {
+        url: baseUrl + 'programme/'
+    },
+    project: {
+        url: baseUrl + 'project/'
+    },
     search: {
         url: baseUrl + 'search/'
     },

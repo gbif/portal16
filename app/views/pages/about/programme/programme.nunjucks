@@ -1,0 +1,71 @@
+{% extends "../html-prose.nunjucks" %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <div class="container">
+                    <div class="row">
+                        <header class="col-xs-12 text-center">
+                            <nav class="article-header__category article-header__category--deep">
+                                <span class="article-header__category__upper">About</span>
+                                <span class="article-header__category__lower">Programme</span>
+                            </nav>
+                            <h1>{$ data.title $}</h1>
+                            <div class="article-header__intro">
+                                {# fulltext html already wrapped by <p> from Content API #}
+                                {$ data.summary | safe $}
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
+                {% if image.width > 1000 %}
+                    <figure class="heading-image">
+                        <div class="cover-image">
+                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
+                        </div>
+                        <figcaption class="container-fluid container--prose">
+                            {$ image.image_field_caption.value | safe $}
+                        </figcaption>
+                    </figure>
+                {% endif %}
+
+                <div class="container-fluid container--prose">
+                    <div class="body-text prose-columns">
+                        {% if image.width <= 1000 %}
+                            <figure>
+                                <div class="cover-image article-image">
+                                    <img ng-src="{$ image.styles.focal_point_for_news $}" alt="{$ image.filename $}" gallery-image>
+                                </div>
+                                <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
+                            </figure>
+                        {% endif %}
+
+                        {$ data.body | safe $}
+
+                    </div>
+
+                    <div class="article-auxiliary prose-columns">
+                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
+                            <section class="no-break">
+                                <h5>Published on</h5>
+                                {$ data.created | formatDate(gb.locales.current) $}
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </article>
+    </div>
+{% endblock %}

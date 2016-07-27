@@ -38,6 +38,12 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 case 'page':
                     type = 'page';
                     break;
+                case 'programme':
+                    type = 'programme';
+                    break;
+                case 'project':
+                    type = 'project';
+                    break;
                 case 'external':
                     type = 'external';
                     break;

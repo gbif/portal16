@@ -1,0 +1,100 @@
+{% extends "../html-prose.nunjucks" %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <div class="container">
+                    <div class="row">
+                        <header class="col-xs-12 text-center">
+                            <nav class="article-header__category article-header__category--deep">
+                                <span class="article-header__category__upper">About</span>
+                                <span class="article-header__category__lower">Project</span>
+                            </nav>
+                            <h1>{$ data.title $}</h1>
+                            <div class="article-header__intro">
+                                {# fulltext html already wrapped by <p> from Content API #}
+                                {$ data.summary | safe $}
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
+                {% if data.image.width > 1000 %}
+                    <figure class="heading-image">
+                        <div class="cover-image">
+                            <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
+                        </div>
+                        <figcaption class="container-fluid container--prose">
+                            {$ images[0].image_field_caption.value | safe $}
+                        </figcaption>
+                    </figure>
+                {% endif %}
+
+                <div class="container-fluid container--prose">
+                    <div class="body-text prose-columns">
+                        {% if data.image.width <= 1000 %}
+                            <figure>
+                                <div class="cover-image article-image">
+                                    <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
+                                </div>
+                                <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
+                            </figure>
+                        {% endif %}
+
+                        {$ data.description | safe $}
+
+                    </div>
+
+                    <div class="article-auxiliary prose-columns">
+                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
+                            {% if data.funder.length >= 1 %}
+                                <section class="">
+                                    <h5>Funder</h5>
+                                    <ul class="list-style-none">
+                                        {% for name in data.funder %}
+                                            <li class="no-break">{$ name.title $}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {#This assumes that there is always tags to show. TODO hide if no available tags#}
+                            <section class="no-break">
+                                <h5>Subject</h5>
+                                <ul class="list-chips">
+                                    {% for tag in data.tagsPurpose %}
+                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+
+                            <section class="no-break">
+                                <h5>Published on</h5>
+                                {$ data.created | formatDate(gb.locales.current) $}
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </article>
+    </div>
+{% endblock %}

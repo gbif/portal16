@@ -38,8 +38,34 @@ function searchHandler(req, res) {
             if (results.articles.data.length > 0) {
                 results.articles.data.forEach(function(datum){
                     datum.forEach(function(d){
-                        if (d.type == 'data_use') {
-                            d.type = 'data-use';
+                        switch (d.type) {
+                            case 'news':
+                                d.type = 'news';
+                                break;
+                            case 'data_use':
+                                d.type = 'data-use';
+                                break;
+                            case 'event':
+                                d.type = 'event';
+                                break;
+                            case 'resource':
+                                d.type = 'resource';
+                                break;
+                            case 'gbif_participant':
+                                d.type = 'participant';
+                                break;
+                            case 'page':
+                                d.type = 'page';
+                                break;
+                            case 'programme':
+                                d.type = 'programme';
+                                break;
+                            case 'project':
+                                d.type = 'project';
+                                break;
+                            case 'external':
+                                d.type = 'external';
+                                break;
                         }
                     });
                 });
