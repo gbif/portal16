@@ -95,6 +95,39 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
         })
+        .state('cmsSearch', {
+            parent: 'localization',
+            url: '/cms?q&filter&sort&page',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/about/search/cmsSearch.html',
+                    controller: 'cmsSearchCtrl',
+                    controllerAs: 'cms'
+                }
+            },
+            resolve: {
+                results:  function($stateParams, CmsSearch){
+                    var query = angular.copy($stateParams);
+                    /*
+                    var availableFacets = ['type', 'language', 'category_informatics', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_resource_type', 'category_country', 'category_topic', 'category_tags'];
+                    availableFacets.forEach(function(facet){
+                        //if (angular.isUndefined(query[facet])) {
+                        query.facet = query.facet || [];
+                        query.facet.push(facet);
+                        //}
+                    });
+                    */
+                    return CmsSearch.query(query).$promise;
+                }
+            }
+        })
+        .state('cmsSearchTable', {
+            parent: 'cmsSearch',
+            url: '/table',
+            templateUrl: '/templates/pages/about/search/table/cmsTable.html',
+            controller: 'cmsTableCtrl',
+            controllerAs: 'cmsTable'
+        })
     ;
     //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 

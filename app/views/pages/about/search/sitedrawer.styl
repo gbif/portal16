@@ -1,0 +1,174 @@
+.site-drawer {
+	font-size 12px
+	position relative
+	&__header {
+		position relative
+		>div {
+			vertically-align()
+		}
+		background white
+		position relative
+		width 100%
+		z-index 20
+		overflow hidden
+		height vrBlock(3)
+		border-bottom 1px solid $stripeBorderColor
+		&__action {
+			display block
+			// line-height 50px
+			font-size 30px
+			margin 0 10px
+			float left
+			position relative
+			z-index 25
+			text-decoration none
+			&:hover {
+				text-decoration none
+			}
+		}
+		&__close {
+			position absolute
+			line-height vrBlock(3)
+			top 0
+			right 0
+		}
+		>div {
+			text-align center
+			width 100%
+			h4 {
+				margin 0
+				font-size 16px
+			}
+			span {
+				font-size 12px
+				color lighten($blueTintedBlack, 30)
+			}
+		}
+		.site-drawer__header__action {
+			color lighten($blueTintedBlack, 30)
+		}
+	}
+	
+	&__footer {
+		position relative
+		>div {
+			vertically-align()
+		}
+		background white
+		position relative
+		width 100%
+		z-index 20
+		overflow hidden
+		height vrBlock(2)
+		border-top 1px solid $stripeBorderColor
+	}
+
+	&__search-bar {
+		background white
+		position relative
+		border-bottom 1px solid $stripeBorderColor
+		input {
+			width calc(100% - 30px)
+			background none
+			border none
+			margin 10px 0
+			outline none
+			padding 0 20px
+		}
+		button {
+			position absolute
+			right 0
+			background none
+			border none
+			font-size 20px
+			margin 5px 10px
+		}
+		.dropdown-menu {
+			width 100%
+			overflow hidden
+			border-radius 0
+			a {
+				text-overflow ellipsis
+				overflow hidden
+			}
+		}
+	}
+
+
+	&__section {
+		padding-bottom 50px
+		&__content {
+			padding 10px 20px
+		}
+	}
+	
+	&__actions {
+		border-bottom 1px solid $stripeBorderColor
+		font-size 24px
+		padding 0 5px
+		// height $searchTabBar-height
+		// line-height $searchTabBar-height
+		>a {
+			height $searchTabBar-height
+			line-height $searchTabBar-height
+			text-align center
+			display inline-block
+			position relative
+			&:hover {
+				text-decoration none
+				background $greyBackground
+			}
+			.count {
+				position absolute
+				bottom 2px
+				right 15px
+			}
+		}
+	}
+
+	&__facet-group {
+		padding 10px 0
+		border-bottom 1px solid $stripeBorderColor
+		h5 {
+			font-weight bold
+			padding 0 20px
+		}
+		>div {
+			margin 1px 0
+			>* {
+				padding 0 20px
+				display block
+			}
+			>a {
+				&:hover {
+					background $greyBackground
+				}
+				>* {
+					// margin-left 10px
+					display inline-block
+					padding-top 3px
+					padding-bottom 3px
+				}
+			}
+		}
+		&__facet {
+			padding-right 5px
+		}
+		&__count {
+			color #c3c3c3
+		}
+	}
+}
+
++isAbove($desktop) {
+	.drawer-padding {
+		padding-right $filterDrawerWidth
+	}
+	.site-drawer {
+		&__header {
+			&__close {
+				display none
+			}
+		}
+	}
+}

@@ -24,6 +24,7 @@ const facetTypeConfig = {
     }
 };
 
+// @todo expandFacets for CMSAPI?
 function expandFacets(facets, __, cb) {
     var tasks = [];
     facets.forEach(function(facetType){
@@ -31,9 +32,9 @@ function expandFacets(facets, __, cb) {
         facetType.counts.forEach(function(e){
             if (typeof ftc === 'undefined' || typeof ftc.type === 'undefined' || ftc.type == 'VALUE') {
                 e.title = e.name;
-            }else if (ftc.type == 'ENUM') {
+            } else if (ftc.type == 'ENUM') {
                 e.title = __(ftc.translationPath + e.name)
-            } else if(ftc.type == 'KEY') {
+            } else if (ftc.type == 'KEY') {
                 var task = {
                     facet: e,
                     endpoint: ftc.endpoint + e.name,

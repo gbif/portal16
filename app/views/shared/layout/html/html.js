@@ -9,12 +9,13 @@ require('angular-aria');
 require('angular-ui-bootstrap');
 require('ng-infinite-scroll');
 require('angular-scroll');
+require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
 
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize']);
 })();
 
 (function () {
@@ -41,6 +42,7 @@ require('./angular/routerConfig');
 require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
+require('./angular/cms.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
@@ -62,6 +64,9 @@ require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl')
 require('../../../pages/dataset/details/datasetDetailsContactPopup.ctrl');
 require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
+require('../../../pages/about/search/cmsSearch.ctrl');
+require('../../../pages/about/search/table/cmsTable.ctrl');
+
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
 require('../../../components/expand/expand.directive');
@@ -69,9 +74,6 @@ require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 
 require('./angular/translate');
-
-
-
 
 var menu = require('../partials/navigation/navigation.js');
 

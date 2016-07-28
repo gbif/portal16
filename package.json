@@ -20,6 +20,7 @@
     "angular-leaflet-directive": "^0.10.0",
     "angular-moment": "^1.0.0-beta.6",
     "angular-resource": "^1.5.2",
+    "angular-sanitize": "^1.5.8",
     "angular-scroll": "^1.0.0",
     "angular-translate": "^2.10.0",
     "angular-translate-loader-url": "^2.11.0",
