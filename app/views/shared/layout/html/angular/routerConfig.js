@@ -97,7 +97,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('cmsSearch', {
             parent: 'localization',
-            url: '/cms?q&filter&sort&page',
+            url: '/cms?q&filter&sort&page&range',
             views: {
                 main: {
                     templateUrl: '/templates/pages/about/search/cmsSearch.html',
@@ -117,6 +117,9 @@ function routerConfig($stateProvider, $locationProvider) {
                         //}
                     });
                     */
+                    if (query.range == undefined) {
+                        query.range = 10;
+                    }
                     return CmsSearch.query(query).$promise;
                 }
             }

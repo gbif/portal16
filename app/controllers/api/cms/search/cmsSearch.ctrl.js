@@ -32,7 +32,7 @@ function cmsSearch(query) {
     'use strict';
     var deferred = Q.defer();
 
-    helper.getApiData(cmsData.search.url + query.q, function (err, data) {
+    helper.getApiData(cmsData.search.url + query.q + '?range=' + query.range, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {
