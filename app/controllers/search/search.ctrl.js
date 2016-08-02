@@ -34,47 +34,38 @@ function searchHandler(req, res) {
 
         // handling type-url conversion for CMS contents
         // @todo use a node module to handle all possible cases once more content types are ready.
-        try {
-            if (results.articles.data.length > 0) {
-                results.articles.data.forEach(function(datum){
-                    datum.forEach(function(d){
-                        switch (d.type) {
-                            case 'news':
-                                d.type = 'news';
-                                break;
-                            case 'data_use':
-                                d.type = 'data-use';
-                                break;
-                            case 'event':
-                                d.type = 'event';
-                                break;
-                            case 'resource':
-                                d.type = 'resource';
-                                break;
-                            case 'gbif_participant':
-                                d.type = 'participant';
-                                break;
-                            case 'page':
-                                d.type = 'page';
-                                break;
-                            case 'programme':
-                                d.type = 'programme';
-                                break;
-                            case 'project':
-                                d.type = 'project';
-                                break;
-                            case 'external':
-                                d.type = 'external';
-                                break;
-                        }
-                    });
-                });
-            }
+        if (results.articles.results.length > 0) {
+            results.articles.results.forEach(function(result){
+                switch (result.type) {
+                    case 'news':
+                        result.type = 'news';
+                        break;
+                    case 'data_use':
+                        result.type = 'data-use';
+                        break;
+                    case 'event':
+                        result.type = 'event';
+                        break;
+                    case 'resource':
+                        result.type = 'resource';
+                        break;
+                    case 'gbif_participant':
+                        result.type = 'participant';
+                        break;
+                    case 'page':
+                        result.type = 'page';
+                        break;
+                    case 'programme':
+                        result.type = 'programme';
+                        break;
+                    case 'project':
+                        result.type = 'project';
+                        break;
+                    case 'external':
+                        result.type = 'external';
+                        break;
+                }});
         }
-        catch (e) {
-            next(e);
-        }
-
         results.highlights = highlights.getHighlights(searchString, results);
 
         var context = {

@@ -14,7 +14,7 @@
                         {% endif %}
                     </div>
 
-                    {% for result in results.articles.data[0] | limit(3) %}
+                    {% for result in results.articles.results | limit(3) %}
                         <article class="search-results__list__item">
                             <div>
                                 <div>

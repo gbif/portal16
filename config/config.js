@@ -19,7 +19,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v2/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
     },
     dev: {
         env: env,
@@ -31,7 +31,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
         tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v2/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
     },
     uat: {
         env: env,

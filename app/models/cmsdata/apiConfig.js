@@ -8,40 +8,40 @@ var apiConfig = {
         url: baseUrl
     },
     news: {
-        url: baseUrl + 'news/'
+        url: baseUrl + 'v1/news/'
     },
     dataset: {
-        url: baseUrl + 'dataset/'
+        url: baseUrl + 'v1/dataset/'
     },
     dataUse: {
-        url: baseUrl + 'data-use/'
+        url: baseUrl + 'v1/data-use/'
     },
     event: {
-        url: baseUrl + 'event/'
+        url: baseUrl + 'v1/event/'
     },
     resource: {
-        url: baseUrl + 'resource/'
+        url: baseUrl + 'v1/resource/'
     },
     participant: {
-        url: baseUrl + 'gbif_participant/'
+        url: baseUrl + 'v1/gbif_participant/'
     },
     page: {
-        url: baseUrl + 'page/'
+        url: baseUrl + 'v1/page/'
     },
     programme: {
-        url: baseUrl + 'programme/'
+        url: baseUrl + 'v1/programme/'
     },
     project: {
-        url: baseUrl + 'project/'
+        url: baseUrl + 'v1/project/'
     },
     search: {
-        url: baseUrl + 'search/'
+        url: baseUrl + 'v2/search/'
     },
     urlLookup: {
-        url: baseUrl + 'url-lookup/'
+        url: baseUrl + 'v1/url-lookup/'
     },
     datasetRefLookup: {
-        url: baseUrl + 'dataset-ref-lookup/'
+        url: baseUrl + 'v1/dataset-ref-lookup/'
     }
 };
 
