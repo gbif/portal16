@@ -31,7 +31,7 @@ function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     vm.currentPage = Math.floor(offset / vm.limit) + 1;
 
     vm.pageChanged = function() {
-        $stateParams.offset =  (vm.currentPage-1) * vm.limit;
+        $stateParams.offset =  (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, $stateParams, {reload: true});
         window.scrollTo(0,0);
     };
@@ -71,7 +71,7 @@ function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
             }).then(function successCallback(response) {
                 vm.featuredDataSets.nodes = response.data.nodes;
             }, function errorCallback() {
-                //ignore any errors and just do not show feeatured datasets
+                //ignore any errors and just do not show featured datasets
             });
         }
     };

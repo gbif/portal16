@@ -60,9 +60,9 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
     };
 
     vm.updateSearch = function() {
-        $stateParams.q =  vm.freeTextQuery;
-        $stateParams.offset =  undefined;
-        $stateParams.limit =  undefined;
+        $stateParams.q = vm.freeTextQuery;
+        $stateParams.offset = undefined;
+        $stateParams.limit = undefined;
         $state.go($state.current, $stateParams);
         window.scrollTo(0,0);
     };

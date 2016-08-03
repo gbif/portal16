@@ -31,7 +31,8 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env, $sanit
     vm.currentPage = Math.floor(offset / vm.limit) + 1;
 
     vm.pageChanged = function() {
-        $stateParams.offset =  (vm.currentPage-1) * vm.limit;
+        $stateParams.currentPage = vm.currentPage;
+        $stateParams.offset = (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, $stateParams, {reload: true});
         window.scrollTo(0,0);
     };

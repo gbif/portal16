@@ -31,8 +31,15 @@ router.get('/cms/search', function (req, res, next) {
 function cmsSearch(query) {
     'use strict';
     var deferred = Q.defer();
+    var limit = parseInt(query.limit) || 20,
+    queryUrl = cmsData.search.url + query.q + '?page[size]=' + limit;
 
-    helper.getApiData(cmsData.search.url + query.q + '?range=' + query.range, function (err, data) {
+    if (query.offset) {
+        queryUrl += '&';
+        var currentPage = query.offset / limit + 1;
+        queryUrl += 'page[number]=' + currentPage;
+    }
+    helper.getApiData(queryUrl, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {
