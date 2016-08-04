@@ -3,9 +3,8 @@ var express = require('express'),
     router = express.Router(),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
-    apiConfig = require('../../../../models/gbifdata/apiConfig'),
-    gbifData = require('../../../../models/gbifdata/gbifdata'),
-    cmsData = require('../../../../models/cmsdata/apiConfig');
+    apiConfig = require('../../../../models/cmsData/apiConfig'),
+    cmsData = require('../../../../models/cmsData/cmsData');
 
 const querystring = require('querystring');
 
@@ -15,9 +14,14 @@ module.exports = function (app) {
 
 router.get('/cms/search', function (req, res, next) {
     cmsSearch(req.query).then(function(data) {
-        //@todo massage facets from CMSAPI for the same expansion.
-        res.json(data);
-        //gbifData.expandFacets(data.facets, res.__, function(err){});
+        cmsData.expandFacets(data.facets, res.__, function(err){
+            if (err) {
+                //TODO handle expansion errors
+                res.json(data);
+            } else {
+                res.json(data);
+            }
+        });
 
     }, function(err){
         //TODO should this be logged here or in model/controller/api?
@@ -32,7 +36,7 @@ function cmsSearch(query) {
     'use strict';
     var deferred = Q.defer();
     var limit = parseInt(query.limit) || 20,
-    queryUrl = cmsData.search.url + query.q + '?page[size]=' + limit;
+    queryUrl = apiConfig.search.url + query.q + '?page[size]=' + limit;
 
     if (query.offset) {
         queryUrl += '&';

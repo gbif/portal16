@@ -2,7 +2,7 @@
 
 var	resource = require('../resource'),
     api = require('../apiConfig'),
-    cmsApi = require('../../cmsdata/apiConfig');
+    cmsApi = require('.././apiConfig');
 
 var Dataset = function (record) {
     this.record = record;

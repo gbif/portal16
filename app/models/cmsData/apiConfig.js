@@ -37,6 +37,9 @@ var apiConfig = {
     search: {
         url: baseUrl + 'v2/search/'
     },
+    tag: {
+        url: baseUrl + 'v1/tag/'
+    },
     urlLookup: {
         url: baseUrl + 'v1/url-lookup/'
     },

@@ -24,7 +24,6 @@ const facetTypeConfig = {
     }
 };
 
-// @todo expandFacets for CMSAPI?
 function expandFacets(facets, __, cb) {
     var tasks = [];
     facets.forEach(function(facetType){

@@ -537,7 +537,10 @@
 		"zul": "Zulu",
 		"zun": "Zuni",
 		"zxx": "Not applicable",
-		"zza": "Zazaki"
+		"zza": "Zazaki",
+		"en": "English",
+		"fr": "French",
+		"pt": "Portuguese"
 	},
 	"country": {
 		"AF": "Afghanistan",
@@ -1228,6 +1231,17 @@
 			"ASSOCIATE": "%s is an associate participant of GBIF",
 			"undefined": "",
 			"FORMER": "%s is a former participant of GBIF"
+		}
+	},
+	"cms": {
+		"type": {
+			"event": "Event",
+			"news": "News",
+			"resource": "Resource",
+			"data_use": "Data use",
+			"project": "Project",
+			"gbif_participant": "Participant",
+			"programme": "Programme"
 		}
 	}
 }

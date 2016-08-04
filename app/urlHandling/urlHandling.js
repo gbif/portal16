@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    cmsApi = require('../models/cmsdata/apiConfig'),
+    cmsApi = require('../models/cmsData/apiConfig'),
     request = require('request');
 
 module.exports = function (app) {
