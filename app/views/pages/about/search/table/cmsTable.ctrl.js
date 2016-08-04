@@ -29,6 +29,8 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env, $sanit
     vm.limit = parseInt($stateParams.limit) || 20;
     vm.totalItems = results.count;
     vm.currentPage = Math.floor(offset / vm.limit) + 1;
+    vm.resultStart = offset + 1;
+    vm.resultEnd = (offset + vm.limit > vm.totalItems ) ? vm.totalItems : offset + vm.limit;
 
     vm.pageChanged = function() {
         $stateParams.currentPage = vm.currentPage;
