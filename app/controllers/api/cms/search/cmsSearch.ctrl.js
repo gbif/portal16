@@ -19,8 +19,10 @@ router.get('/cms/search', function (req, res, next) {
                 //TODO handle expansion errors
                 res.json(data);
             } else {
+                // Duplicate the machine name so the sorting of facet groups can happen in the front end.
+
                 data.facets.forEach(function(facet){
-                    facet.field = res.__('cms.facet.' + facet.field);
+                    facet.fieldLabel = res.__('cms.facet.' + facet.field);
                 });
                 res.json(data);
             }

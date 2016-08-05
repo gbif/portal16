@@ -24,7 +24,7 @@
 
         <div ng-repeat="facet in cms.facets | orderBy: cms.sortFacets">
             <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
-                <h5 translate>{{facet.field | prettifyEnum}}</h5>
+                <h5 translate>{{facet.fieldLabel | prettifyEnum}}</h5>
                 <div ng-repeat="row in facet.counts">
                     <a href="" ng-click="cms.addFilter(facet.field, row.key)" ng-if="!cms.isFacetInQuery(facet.field, row.key)">
                         <span>

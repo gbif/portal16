@@ -94,7 +94,7 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
         }
         vm.updateSearch();
     };
-    
+
     vm.removeFilter = function(field, value) {
         var param = vm.query[field.toLowerCase()];
         if (param == value) {
