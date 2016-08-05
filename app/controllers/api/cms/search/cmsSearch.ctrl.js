@@ -43,6 +43,15 @@ function cmsSearch(query) {
         var currentPage = query.offset / limit + 1;
         queryUrl += 'page[number]=' + currentPage;
     }
+
+    // Converting facets in the array notation that the CMS API consumes.
+    var availableFacets = ['type', 'language', 'category_informatics', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_resource_type', 'category_country', 'category_topic', 'category_tags'];
+    availableFacets.forEach(function(facet){
+        if (typeof query[facet] !== 'undefined') {
+            queryUrl += '&' + 'filter[' + facet + ']=' + query[facet];
+        }
+    });
+
     helper.getApiData(queryUrl, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));

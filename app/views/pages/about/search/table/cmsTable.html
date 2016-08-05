@@ -39,7 +39,8 @@
                                     <h4 class="search-results__list__item__title">
                                         <a href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
                                     </h4>
-                                    <h4 class="search-results__list__item__subtitle" ng-bind-html="row.body.summary"></h4>
+                                    <h4 class="search-results__list__item__subtitle" ng-show="row.summary.value !== undefined" ng-bind-html="row.summary.value"></h4>
+                                    <h4 class="search-results__list__item__subtitle" ng-show="row.summary.value == undefined" ng-bind-html="row.summary"></h4>
                                 </div>
                                 <!-- <ul class="list-chips">
                                     <li><a href="../dataset/table?type={{ row.type }}">{{row.type | lowercase }}</a></li>

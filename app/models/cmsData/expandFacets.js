@@ -76,10 +76,13 @@ function expandFacets(facets, __, cb) {
         facetType.counts.forEach(function(e){
             if (typeof ftc === 'undefined' || typeof ftc.type === 'undefined') {
                 e.title = e.enum;
+                e.key = e.enum;
             } else if (ftc.type == 'enum') {
                 e.title = __(ftc.translationPath + e.enum);
+                e.key = e.enum;
             } else if (ftc.type == 'id') {
                 e.title = e.label;
+                e.key = e.id;
             }
         });
     });
