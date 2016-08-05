@@ -86,7 +86,6 @@ function getApiData(path, callback, options) {
         }
     );
 
-
 }
 
 module.exports = {
