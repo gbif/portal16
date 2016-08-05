@@ -33,8 +33,8 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
         category_audience: 7,
         category_purpose: 8,
         category_data_type: 9,
-        category_resource_type: 10,
-        category_country: 11,
+        category_country: 10,
+        category_resource_type: 11,
         category_topic: 12,
         category_tags: 13
     };
@@ -69,7 +69,7 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
 
     vm.isFacetInQuery = function(field, value) {
         var param = vm.query[field.toLowerCase()];
-        if (param === value) {
+        if (param == value) {
             return true;
         } else if ( angular.isArray(param) ) {
             if (param.indexOf(value) > -1) {
@@ -94,6 +94,7 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
         }
         vm.updateSearch();
     };
+    
     vm.removeFilter = function(field, value) {
         var param = vm.query[field.toLowerCase()];
         if (param == value) {

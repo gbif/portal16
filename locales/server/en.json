@@ -1242,6 +1242,21 @@
 			"project": "Project",
 			"gbif_participant": "Participant",
 			"programme": "Programme"
+		},
+		"facet": {
+			"language": "Language",
+			"type": "Type",
+			"category_informatics": "Informatics",
+			"category_tags": "Tags",
+			"category_topic": "Topic",
+			"category_data_use": "Data use",
+			"category_capacity_enhancement": "Capacity enhancement",
+			"category_about_gbif": "About GBIF",
+			"category_audience": "Audience",
+			"category_purpose": "Purpose",
+			"category_data_type": "Data type",
+			"category_country": "Country",
+			"category_resource_type": "Resource type"
 		}
 	}
 }

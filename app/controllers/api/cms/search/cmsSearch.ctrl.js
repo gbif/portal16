@@ -19,6 +19,9 @@ router.get('/cms/search', function (req, res, next) {
                 //TODO handle expansion errors
                 res.json(data);
             } else {
+                data.facets.forEach(function(facet){
+                    facet.field = res.__('cms.facet.' + facet.field);
+                });
                 res.json(data);
             }
         });
