@@ -38,9 +38,17 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
         category_topic: 12,
         category_tags: 13
     };
+
     vm.sortFacets = function(a) {
         return facetOrder[a.field] || 100;
     };
+
+    // Order country tags by name, regardless the count.
+    vm.facets.forEach(function(f){
+        if (f.field == 'category_country' && f.counts !== undefined) {
+            f.counts.sort(function(a, b){ return (a.label > b.label) ? 1 : ((b.label > a.label) ? -1 : 0);});
+        }
+    });
 
     vm.getFilterCount = function() {
         var c = 0;
