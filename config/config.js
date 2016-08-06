@@ -43,7 +43,7 @@ var config = {
         log: log,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/v1/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
     },
     prod: {
         env: env,
