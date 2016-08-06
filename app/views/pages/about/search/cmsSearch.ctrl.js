@@ -21,7 +21,7 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
     vm.state = DatasetFilter.state;
     vm.count = results.count;
     vm.appliedFilterCount = 0;
-    vm.actionMessage = '';
+    vm.actionMessageClass = 'action-notice--hidden';
 
     //fixed order for facets
     var facetOrder = {
@@ -69,7 +69,7 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
     };
 
     vm.updateSearch = function() {
-        vm.actionMessage = 'Loading...';
+        vm.actionMessageClass = 'action-notice--visible';
         $stateParams.q = vm.freeTextQuery;
         $stateParams.offset = undefined;
         $stateParams.limit = undefined;

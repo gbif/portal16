@@ -317,10 +317,19 @@ sub {
     top 0.4rem
 }
 
-.action-notice {
+.action-notice--visible {
     display block
     position fixed
+    padding 1px 6px 1px 8px
     right 0
     background-color $orangePeel
     color white
+    opacity 1
+    transition opacity 0.5s linear
+}
+
+.action-notice--hidden {
+    visibility hidden
+    opacity 0
+    transition opacity 0.5s linear
 }
