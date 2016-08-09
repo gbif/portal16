@@ -12,5 +12,8 @@
                 return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
             }
         })
+        .filter('encodeURIComponent', function() {
+            return window.encodeURIComponent;
+        })
 
 })();
