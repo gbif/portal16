@@ -20,8 +20,29 @@
                 <span class="count badge" ng-show="dataset.appliedFilterCount > 0">{{dataset.appliedFilterCount}}</span>
             </a>
         </div>
-        
 
+
+        <div class="site-drawer__facet-group">
+            <h5 translate>Free text</h5>
+            <div class="search-bar__form">
+                <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
+                    <input type="text"
+                           id="siteSearch"
+                           autocomplete="off"
+                           class="fit-suggestions"
+                           ng-model="dataset.freeTextQuery"
+                           placeholder="Search for datasets"
+                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="false"
+                           typeahead-template-url="customTemplate.html">
+                    <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
+                    <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
+        </div>
         <div ng-repeat="facet in dataset.facets | orderBy: dataset.sortFacets">
             <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
                 <h5 translate>{{facet.field | prettifyEnum}}</h5>
@@ -57,34 +78,34 @@
 
     <div class="page">
         <div class="dataset-search-results">
-            <div class="horizontal-stripe--paddingless white-background search-bar">
-                <div class="drawer-padding">
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="search-bar__form">
-                                    <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
-                                        <input type="text"
-                                               id="siteSearch"
-                                               autocomplete="off"
-                                               class="fit-suggestions"
-                                               ng-model="dataset.freeTextQuery"
-                                               placeholder="Search for datasets"
-                                               uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                                               typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                                               typeahead-focus-first="false"
-                                               typeahead-template-url="customTemplate.html">
-                                        <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
-                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
-                                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                                        </a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-bar">-->
+                <!--<div class="drawer-padding">-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12">-->
+                                <!--<div class="search-bar__form">-->
+                                    <!--<form class="search-bar__term" ng-submit="dataset.freeTextSearch()">-->
+                                        <!--<input type="text"-->
+                                               <!--id="siteSearch"-->
+                                               <!--autocomplete="off"-->
+                                               <!--class="fit-suggestions"-->
+                                               <!--ng-model="dataset.freeTextQuery"-->
+                                               <!--placeholder="Search for datasets"-->
+                                               <!--uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"-->
+                                               <!--typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"-->
+                                               <!--typeahead-focus-first="false"-->
+                                               <!--typeahead-template-url="customTemplate.html">-->
+                                        <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
+                                        <!--<a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">-->
+                                            <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
+                                        <!--</a>-->
+                                    <!--</form>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
 
 

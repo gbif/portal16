@@ -19,7 +19,7 @@
 
             {# Navigation #}
             {% include "../partials/navigation/navigation.nunjucks" %}
-            {% include "../partials/navigation/search/search.nunjucks" %}
+            {#{% include "../partials/navigation/search/search.nunjucks" %}#}
             {# Navigation end #}
 
             {# Main layout cont #}
@@ -30,10 +30,13 @@
                 {% if _meta.hasDrawer %}
                 <aside id="filter" class="site-drawer is-locked-x">
                     <div>
+
                         {% block drawer %}{% endblock %}
                     </div>
                 </aside>
                 {% endif %}
+
+                {% include "../partials/navigation/search/search.nunjucks" %}
 
                 <div class="site-content">
 

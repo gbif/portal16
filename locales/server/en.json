@@ -1241,7 +1241,8 @@
 			"data_use": "Data use",
 			"project": "Project",
 			"gbif_participant": "Participant",
-			"programme": "Programme"
+			"programme": "Programme",
+			"dataset": "cms.type.dataset"
 		},
 		"facet": {
 			"language": "Language",

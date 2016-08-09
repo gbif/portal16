@@ -7,19 +7,19 @@
 		position relative
 		width 100%
 		>input {
-			height vrBlock(2)
+			height vrBlock(1.5)
 			background $lightBackground
-			padding vrBlock(0.5) 15px
+			padding vrBlock(0.25)
 			border 1px solid $stripeBorderColor
 			outline none
 			width 100%
 			box-sizing border-box
-			padding-right vrBlock(4)
+			padding-right vrBlock(1.5)
 			white-space nowrap
 			overflow hidden
 			text-overflow ellipsis
-			background none
-			font-size 16px
+			background $paper
+			font-size 14px
 			line-height vrBlock(1)
 			&:focus {
 				outline none
@@ -28,10 +28,10 @@
 	}
 	&__search, &__clear, button {
 		display block
-		height vrBlock(2)
-		width vrBlock(2)
+		height vrBlock(1.5)
+		width vrBlock(1.5)
 		text-align center
-		line-height vrBlock(2)
+		line-height vrBlock(1.5)
 		position absolute
 		right 0
 		top 0px
@@ -40,11 +40,12 @@
 		border none
 	}
 	&__search, &__search:hover {
-		background $actionColor
-		color white
+		//background $actionColor
+		//color white
 		text-decoration none
+		right vrBlock(1)
 	}
 	&__clear {
-		right vrBlock(2)
+		right vrBlock(1.5)
 	}
 }
