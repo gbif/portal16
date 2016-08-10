@@ -131,7 +131,9 @@ function metadataElementsToFold(datasetDetails) {
                                         }
                                     }
                                     else {
-                                        availableRanks.push('RANK_NOT_SPECIFIED');
+                                        if (availableRanks.indexOf('RANK_NOT_SPECIFIED') == -1) {
+                                            availableRanks.push('RANK_NOT_SPECIFIED');
+                                        }
                                     }
                                 }
                             });
