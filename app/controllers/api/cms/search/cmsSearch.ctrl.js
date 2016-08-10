@@ -21,6 +21,12 @@ router.get('/cms/search', function (req, res, next) {
             } else {
                 // Duplicate the machine name so the sorting of facet groups can happen in the front end.
 
+                data.facets = data.facets.filter(function(e){
+                    if (e.field == 'category_informatics') return false;
+                    if (e.field == 'category_tags') return false;
+                    if (e.field == 'category_data_type') return false;
+                    return true;
+                });
                 data.facets.forEach(function(facet){
                     facet.fieldLabel = res.__('cms.facet.' + facet.field);
                 });
@@ -36,7 +42,6 @@ router.get('/cms/search', function (req, res, next) {
     });
 });
 
-
 function cmsSearch(query) {
     'use strict';
     var deferred = Q.defer();
@@ -50,7 +55,7 @@ function cmsSearch(query) {
     }
 
     // Converting facets in the array notation that the CMS API consumes.
-    var availableFacets = ['type', 'language', 'category_informatics', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_resource_type', 'category_country', 'category_topic', 'category_tags'];
+    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_resource_type', 'category_country', 'category_topic', 'category_tags'];
     availableFacets.forEach(function(facet){
         if (typeof query[facet] !== 'undefined') {
             queryUrl += '&' + 'filter[' + facet + ']=' + query[facet];
