@@ -50,6 +50,7 @@ require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
 require('./angular/map.constants');
 
+
 require('../../../pages/search/search.ctrl');
 require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/occurrence.ctrl');
@@ -264,15 +265,24 @@ gb.util.addEventListenerAll('.service-menu__teaser>a', 'click', function () {
 
 
 //Search toggling
-gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
+function toggleSearchDrawer() {
+    "use strict";
     gb.util.forEachElement(searchToggleSelector, function (el) {
         el.classList.toggle('is-active');
     });
 
     var searchAreaEl = document.getElementById('site-search');
     searchAreaEl.classList.toggle('is-active');
-    searchAreaEl.querySelector('input').focus();
+    if (searchAreaEl.classList.contains('is-active')) {
+        //searchAreaEl.querySelector('input').focus();
+        window.setTimeout(function(){
+            searchAreaEl.querySelector('input').focus();
+        }, 150);
+    }
     closeMenus();
+}
+gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
+    toggleSearchDrawer();
     event.preventDefault();
 });
 

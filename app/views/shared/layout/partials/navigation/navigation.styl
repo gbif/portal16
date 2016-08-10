@@ -571,7 +571,7 @@ main {
 	max-width 100%
 	position absolute
 	top 0px
-	transition right 500ms ease;
+	transition right 200ms ease;
 	height 100%//"calc(100vh - %s)" % $navBar_height
 	right -($filterDrawerWidth + 10)
 	overflow hidden
@@ -601,24 +601,23 @@ forceShowDrawer() {
 	~ .site-content {
 		padding-right $filterDrawerWidth
 	}
-	&:target ~ .site-content {
-		right 0
-	}
+	//&:target ~ .site-content {
+	//	right 0
+	//}
 }
 +isAbove($laptop) {
 	.site-drawer {
 		right -($filterDrawerWidth)
-		transition right 500ms ease;
 		position fixed
 		top $navBar_height
 		height "calc(100vh - %s)" % $navBar_height
-		// &.is-active {
-		// 	forceShowDrawer()
-		// }
-		forceShowDrawer()
+		 &.is-locked {
+		 	forceShowDrawer()
+		 }
+		//forceShowDrawer()
 	}
 	.site-content {
-		transition: right 500ms ease;
+		transition none
 		right 0
 	}
 }

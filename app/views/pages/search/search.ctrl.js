@@ -29,7 +29,11 @@ function searchCtrl($state, $stateParams, hotkeys) {
 
     vm.updateSearch = function() {
         vm.query.q = vm.freeTextQuery;
-        $state.go($state.current, vm.query);
+        if ($state.current.abstract) {
+            location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery);
+        } else {
+            $state.go($state.current, vm.query);
+        }
         window.scrollTo(0,0);
     };
     vm.searchOnEnter = function(event) {

@@ -2,6 +2,7 @@ var express = require('express'),
     search = require('./search'),
     highlights = require('./highlights'),
     baseConfig = require('../../../config/config'),
+    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -34,7 +35,7 @@ function searchHandler(req, res) {
 
         // handling type-url conversion for CMS contents
         // @todo use a node module to handle all possible cases once more content types are ready.
-        if (results.articles.results.length > 0) {
+        if (_.has(results, 'articles.results.length')) {
             results.articles.results.forEach(function(result){
                 switch (result.type) {
                     case 'news':

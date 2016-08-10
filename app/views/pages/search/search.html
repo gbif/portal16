@@ -1,54 +1,92 @@
+<aside class="site-drawer is-locked" id="filter">
+
+    <header class="site-drawer__header">
+        <div class="search-bar">
+            <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
+                <input type="text"
+                       autocomplete="off"
+                       id="siteSearch"
+                       ng-model="omniSearch.freeTextQuery"
+                       placeholder="Search">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
+    </header>
+
+    <div class="site-drawer__section">
+        <div>
+            <div class="site-drawer__facet-group">
+                <h5>Content type</h5>
+                <div>
+                    <a ui-sref="omniSearch({q:omniSearch.freeTextQuery})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Occurrences</span>
+                        </span>
+                    </a>
+                    <a ui-sref="datasetSearchTable({q: omniSearch.query.q})" >
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="stdTerms.datasets">Datasets</span>
+                        </span>
+                    </a>
+                    <a href="/species/table">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Species</span>
+                        </span>
+                    </a>
+                    <a href="/news/table">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">News</span>
+                        </span>
+                    </a>
+                    <a href="/news/table">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Documents</span>
+                        </span>
+                    </a>
+                    <a href="/news/table">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Resources</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</aside>
+
 <div class="site-content">
 
     <div class="page">
         <div class="dataset-search-results">
-            <div class="horizontal-stripe--paddingless white-background search-bar">
-                <div>
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="search-bar__form">
-                                    <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
-                                        <input id="siteSearch" type="text"
-                                               ng-model="omniSearch.freeTextQuery"
-                                               placeholder="search"
-                                               ng-keypress="omniSearch.searchOnEnter($event)">
-                                        <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="omniSearch.freeTextQuery" ng-click="omniSearch.clearFreetextAndSetFocus()"></a>
-                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
-                                            <span class="sr-only" translate="search.placeholder"></span>
-                                        </a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <nav class="horizontal-stripe--paddingless light-background search-tabs">
-                <div>
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="tabs">
-                                    <li class="is-active">
-                                        <a ng-href="" translate="stdTerms.all">All</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="datasetSearchTable({q: omniSearch.query.q})" translate="stdTerms.datasets">datasets</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})" translate="stdTerms.occurrences">occurrences</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="cmsSearchTable({q: omniSearch.query.q})" translate="stdTerms.cms">information</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <!--<nav class="horizontal-stripe&#45;&#45;paddingless light-background search-tabs">-->
+                <!--<div>-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12">-->
+                                <!--<ul class="tabs">-->
+                                    <!--<li class="is-active">-->
+                                        <!--<a ng-href="" translate="stdTerms.all">All</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="datasetSearchTable({q: omniSearch.query.q})" translate="stdTerms.datasets">datasets</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})" translate="stdTerms.occurrences">occurrences</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="cmsSearchTable({q: omniSearch.query.q})" translate="stdTerms.cms">information</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</nav>-->
 
             <div ui-view>
                 <ng-include ng-if="omniSearch.query.q" src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"> </ng-include>
