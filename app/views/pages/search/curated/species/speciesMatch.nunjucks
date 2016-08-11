@@ -6,7 +6,7 @@
         <article class="card species-card {% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %} card--flexible {% endif %}">
 			<a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe">
 				<div class="card__content">
-					<nav class="article-header__category {% if taxon.info.taxonomicStatus %} article-header__category--deep{% endif %}small">
+					<nav class="article-header__category {% if taxon.info.taxonomicStatus %} article-header__category--deep{% endif %} small">
 						<span class="article-header__category__upper">{$ __('taxonRank.' + taxon.info.rank) $}</span>
 						{% if taxon.info.taxonomicStatus %}
 							<span class="article-header__category__lower">

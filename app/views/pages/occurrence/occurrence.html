@@ -1,4 +1,4 @@
-<aside class="site-drawer" id="filter" ng-class="{'is-active': occurrence.showDrawer}">
+<aside class="site-drawer is-locked" id="filter" ng-class="{'is-active': occurrence.showDrawer}">
 
     <header class="site-drawer__header">
         <div>
@@ -97,64 +97,64 @@
 
 <div class="site-content">
 
-    <div class="fab fab-drawer" fab>
-        <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="occurrence.showDrawer = true"><i class="gb-icon-filter"></i></a>
-        </div>
-    </div>
+    <!--<div class="fab fab-drawer" fab>-->
+        <!--<div class="fab__trigger">-->
+            <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="occurrence.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="page">
         <div class="dataset-search-results">
-            <div class="horizontal-stripe--paddingless white-background search-bar">
-                <div class="drawer-padding">
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="search-bar__form">
-                                    <form class="search-bar__term" ng-submit="occurrence.freeTextSearch()">
-                                        <input type="text"
-                                           id="siteSearch"
-                                           ng-model="occurrence.freeTextQuery"
-                                           placeholder="Search for occurrences"
-                                           ng-keypress="occurrence.searchOnEnter($event)">
-                                        <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="occurrence.freeTextQuery" ng-click="occurrence.clearFreetextAndSetFocus()"></a>
-                                        <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.freeTextSearch()">
-                                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                                        </a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-bar">-->
+                <!--<div class="drawer-padding">-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12">-->
+                                <!--<div class="search-bar__form">-->
+                                    <!--<form class="search-bar__term" ng-submit="occurrence.freeTextSearch()">-->
+                                        <!--<input type="text"-->
+                                           <!--id="siteSearch"-->
+                                           <!--ng-model="occurrence.freeTextQuery"-->
+                                           <!--placeholder="Search for occurrences"-->
+                                           <!--ng-keypress="occurrence.searchOnEnter($event)">-->
+                                        <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="occurrence.freeTextQuery" ng-click="occurrence.clearFreetextAndSetFocus()"></a>-->
+                                        <!--<a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.freeTextSearch()">-->
+                                            <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
+                                        <!--</a>-->
+                                    <!--</form>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
 
 
-            <nav class="horizontal-stripe--paddingless light-background search-tabs">
-                <div class="drawer-padding">
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="tabs">
-                                    <li>
-                                        <a ui-sref="omniSearch({q:occurrence.query.q})" translate="stdTerms.all">All</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="datasetSearchTable({q:occurrence.query.q})" translate="stdTerms.datasets">datasets</a>
-                                    </li>
-                                    <li class="is-active">
-                                        <a href="" translate="stdTerms.occurrences">occurrences</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="cmsSearchTable({q:occurrence.query.q})" translate="stdTerms.cms">information</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <!--<nav class="horizontal-stripe&#45;&#45;paddingless light-background search-tabs">-->
+                <!--<div class="drawer-padding">-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12">-->
+                                <!--<ul class="tabs">-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="omniSearch({q:occurrence.query.q})" translate="stdTerms.all">All</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="datasetSearchTable({q:occurrence.query.q})" translate="stdTerms.datasets">datasets</a>-->
+                                    <!--</li>-->
+                                    <!--<li class="is-active">-->
+                                        <!--<a href="" translate="stdTerms.occurrences">occurrences</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="cmsSearchTable({q:occurrence.query.q})" translate="stdTerms.cms">information</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</nav>-->
 
             <div ui-view>
 

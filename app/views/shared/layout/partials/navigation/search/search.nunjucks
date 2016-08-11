@@ -25,20 +25,18 @@
 
 <aside class="site-drawer" id="site-search">
 
-    <header class="site-drawer__header">
-        <div class="search-bar">
-            <form class="search-bar__term" ng-submit="omniSearch.updateSearch()" ng-controller="searchCtrl as omniSearch">
-                <input type="text"
-                       id="siteSearch"
-                       autocomplete="off"
-                       ng-model="omniSearch.freeTextQuery"
-                       placeholder="Search">
-                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                </a>
-            </form>
-        </div>
-    </header>
+    <div class="search-bar">
+        <form class="search-bar__term" ng-submit="omniSearch.updateSearch()" ng-controller="searchCtrl as omniSearch">
+            <input type="text"
+                   id="siteSearch"
+                   autocomplete="off"
+                   ng-model="omniSearch.freeTextQuery"
+                   placeholder="Search">
+            <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                <span class="sr-only">{$ __('stdTerms.search') $}</span>
+            </a>
+        </form>
+    </div>
 
     <div class="site-drawer__section">
         <div>

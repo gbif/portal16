@@ -17,7 +17,7 @@ router.get('/search', function (req, res) {
                 bodyClass: 'omnisearch',
                 tileApi: baseConfig.tileApi,
                 hideFooter: true,
-                hideSearchAction: true
+                hideSearchAction: false
             }
         };
     res.render('pages/search/search', context);
@@ -74,7 +74,7 @@ function searchHandler(req, res) {
             query: searchString,
             _meta: {
                 bodyClass: 'omnisearch',
-                hideSearchAction: true,
+                hideSearchAction: false,
                 hideFooter: true,
                 tileApi: baseConfig.tileApi
             }

@@ -573,7 +573,7 @@ main {
 	top 0px
 	transition right 200ms ease;
 	height 100%//"calc(100vh - %s)" % $navBar_height
-	right -($filterDrawerWidth + 10)
+	right -($filterDrawerWidth + 3)
 	overflow hidden
 	box-shadow -2px 1px 2px rgba(0,0,0,0.2)
 	background $drawerBackgroundColor
@@ -607,7 +607,7 @@ forceShowDrawer() {
 }
 +isAbove($laptop) {
 	.site-drawer {
-		right -($filterDrawerWidth)
+		right -($filterDrawerWidth + 3)
 		position fixed
 		top $navBar_height
 		height "calc(100vh - %s)" % $navBar_height
@@ -621,8 +621,8 @@ forceShowDrawer() {
 		right 0
 	}
 }
-+isAbove($desktop) {
-	.site-drawer {
-		forceShowDrawer()
-	}
-}
+//+isAbove($desktop) {
+//	.site-drawer {
+//		forceShowDrawer()
+//	}
+//}

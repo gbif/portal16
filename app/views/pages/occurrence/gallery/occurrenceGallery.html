@@ -1,38 +1,39 @@
 <div class="wrapper-horizontal-stripes occurrence-search__gallery">
-    <div class="horizontal-stripe light-background occurrence-search__summary">
-        <div class="container-fluid">
 
-
-            <div class="stripe-menu">
-                <a href="" ui-sref="occurrenceSearchTable()"
-                   class="gb-icon-menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Table"></a>
-                <a href="" ui-sref="occurrenceSearchMap()" 
-                   class="gb-icon-map stripe-menu__menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Map"></a>
-               <a href="" ui-sref="occurrenceSearchGallery()" 
-                   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Gallery"></a>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    {{occGallery.totalCount | number}} results. {{occGallery.count | number}} with images.
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Occurrences</span>
+                </nav>
+                <div class="small text-muted text-center" style="height:30px">{{occGallery.totalCount | number}} results. {{occGallery.count | number}} with images.</div>
+                <div class="stripe-menu">
+                    <a href="" ui-sref="occurrenceSearchTable()"
+                       class="gb-icon-menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Table"></a>
+                    <a href="" ui-sref="occurrenceSearchMap()"
+                       class="gb-icon-map stripe-menu__menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Map"></a>
+                    <a href="" ui-sref="occurrenceSearchGallery()"
+                       class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Gallery"></a>
                 </div>
             </div>
         </div>
     </div>
-  <section class="horizontal-stripe light-background">
-      <div class="container-fluid">
-          <div class="imageGallery">
-              <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-                  <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S" gallery-image>
-              </a>
-              <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
-          </div>
-      </div>
-  </section>
+
+    <section class="horizontal-stripe light-background">
+        <div class="container-fluid">
+            <div class="imageGallery">
+                <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
+                    <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S" gallery-image>
+                </a>
+                <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+            </div>
+        </div>
+    </section>
 </div>

@@ -1,30 +1,57 @@
 <div class="wrapper-horizontal-stripes occurrence-search__map">
-    <div class="horizontal-stripe light-background occurrence-search__summary">
-        <div class="container-fluid">
+
+	<div class="container-fluid white-background search-header">
+		<div class="row">
+			<div class="col-xs-12">
+				<nav class="article-header__category article-header__category--deep">
+					<span class="article-header__category__upper">Search</span>
+					<span class="article-header__category__lower">Occurrences</span>
+				</nav>
+				<div class="small text-muted text-center" style="height:30px">{{occMap.totalCount | number}} results</div>
+				<div class="stripe-menu">
+					<a href="" ui-sref="occurrenceSearchTable()"
+					   class="gb-icon-menu stripe-menu__option"
+					   tooltip-placement="bottom"
+					   uib-tooltip="Table"></a>
+					<a href="" ui-sref="occurrenceSearchMap()"
+					   class="gb-icon-map stripe-menu__menu stripe-menu__option"
+					   tooltip-placement="bottom"
+					   uib-tooltip="Map"></a>
+					<a href="" ui-sref="occurrenceSearchGallery()"
+					   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+					   tooltip-placement="bottom"
+					   uib-tooltip="Gallery"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!--<div class="horizontal-stripe light-background occurrence-search__summary">-->
+        <!--<div class="container-fluid">-->
 
 
-            <div class="stripe-menu">
-                <a href="" ui-sref="occurrenceSearchTable()"
-                   class="gb-icon-menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Table"></a>
-                <a href="" ui-sref="occurrenceSearchMap()" 
-                   class="gb-icon-map stripe-menu__menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Map"></a>
-               <a href="" ui-sref="occurrenceSearchGallery()" 
-                   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
-                   tooltip-placement="top"
-                   uib-tooltip="Gallery"></a>
-            </div>
+            <!--<div class="stripe-menu">-->
+                <!--<a href="" ui-sref="occurrenceSearchTable()"-->
+                   <!--class="gb-icon-menu stripe-menu__option"-->
+                   <!--tooltip-placement="top"-->
+                   <!--uib-tooltip="Table"></a>-->
+                <!--<a href="" ui-sref="occurrenceSearchMap()" -->
+                   <!--class="gb-icon-map stripe-menu__menu stripe-menu__option"-->
+                   <!--tooltip-placement="top"-->
+                   <!--uib-tooltip="Map"></a>-->
+               <!--<a href="" ui-sref="occurrenceSearchGallery()" -->
+                   <!--class="gb-icon-photo stripe-menu__menu stripe-menu__option"-->
+                   <!--tooltip-placement="top"-->
+                   <!--uib-tooltip="Gallery"></a>-->
+            <!--</div>-->
 
-            <div class="row">
-                <div class="col-xs-12">
-                    {{occMap.totalCount | number}} results
-                </div>
-            </div>
-        </div>
-    </div>
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                    <!--{{occMap.totalCount | number}} results-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 	<section class="horizontal-stripe--paddingless light-background" >
 		<div>
 			<div class="occurrence-search-map">

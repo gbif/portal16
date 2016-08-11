@@ -14,23 +14,79 @@
         <!--</div>-->
     <!--</div>-->
 
+
+
+
+
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Datasets</span>
+                </nav>
+                <div class="small text-muted text-center" style="height:30px">{{datasetTable.totalItems}} results</div>
+                <div class="stripe-menu">
+                    <a href="" ui-sref="occurrenceSearchTable()"
+                       class="gb-icon-menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Table"></a>
+                    <a href="" ui-sref="occurrenceSearchMap()"
+                       class="gb-icon-map stripe-menu__menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Map"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div>-->
+        <!--<div class="horizontal-stripe white-background occurrence-search__summary">-->
+            <!--<div class="container-fluid">-->
+
+
+
+
+                <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="col-xs-12">&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{datasetTable.count | number}} results&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
+                    <!--<span class="article-header__category__upper">Search</span>-->
+                    <!--<span class="article-header__category__lower">Datasets-->
+                    <!--</span>-->
+                <!--</nav>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="small text-muted text-center" style="height:30px">{{datasetTable.totalItems}} results</div>-->
+
+
+
+
+
+
     <div class="horizontal-stripe white-background">
-        <div class="drawer-padding">
+        <div class="">
             <div class="container--narrow">
                 <div class="search-results__list row">
                     <div class="col-xs-12">
-                        <div class="search-results__list__overview">
-                            <span>{{datasetTable.totalItems}} results</span>
-                            <!-- <div class="hidden-lg">
-                                <span class="chip">
-                                    <a href="" class="chip__content">
-                                        <span class="chip__term">publisher</span>
-                                        <span>Comisión nacional para el conocimiento y uso de la</span>
-                                        <span class="close"></span>
-                                    </a>
-                                </span>
-                            </div> -->
-                        </div>
+                        <!--<div class="search-results__list__overview">-->
+                            <!--<span>{{datasetTable.totalItems}} results</span>-->
+                            <!--&lt;!&ndash; <div class="hidden-lg">-->
+                                <!--<span class="chip">-->
+                                    <!--<a href="" class="chip__content">-->
+                                        <!--<span class="chip__term">publisher</span>-->
+                                        <!--<span>Comisión nacional para el conocimiento y uso de la</span>-->
+                                        <!--<span class="close"></span>-->
+                                    <!--</a>-->
+                                <!--</span>-->
+                            <!--</div> &ndash;&gt;-->
+                        <!--</div>-->
 
                         <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
                             <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>

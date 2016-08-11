@@ -4,17 +4,39 @@
     </a>
 </script>
 
-<aside class="site-drawer" id="filter" ng-class="{'is-active': dataset.showDrawer}">
+<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': dataset.showDrawer}">
 
-    <header class="site-drawer__header">
-        <div>
-            <h4 class="">Filter datasets</h4>
-            <span>{{dataset.count}} results</span>
-        </div>
-        <a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>
-    </header>
+    <!--<header class="site-drawer__header">-->
+        <!--<div>-->
+            <!--<h4 class="">Search > Datasets</h4>-->
+            <!--<span>{{dataset.count}} results</span>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>&ndash;&gt;-->
+    <!--</header>-->
+
+
+
+
 
     <div class="site-drawer__section">
+        <div class="search-bar">
+            <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       class="fit-suggestions"
+                       ng-model="dataset.freeTextQuery"
+                       placeholder="Search for datasets"
+                       uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
+                       typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
+                       typeahead-focus-first="false"
+                       typeahead-template-url="customTemplate.html">
+                <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
         <div class="site-drawer__actions clearfix">
             <a ui-sref="datasetSearchTable({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right" tooltip-placement="left" uib-tooltip="Clear filters">
                 <span class="count badge" ng-show="dataset.appliedFilterCount > 0">{{dataset.appliedFilterCount}}</span>
@@ -22,27 +44,27 @@
         </div>
 
 
-        <div class="site-drawer__facet-group">
-            <h5 translate>Free text</h5>
-            <div class="search-bar__form">
-                <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
-                    <input type="text"
-                           id="siteSearch"
-                           autocomplete="off"
-                           class="fit-suggestions"
-                           ng-model="dataset.freeTextQuery"
-                           placeholder="Search for datasets"
-                           uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
-                           typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                           typeahead-focus-first="false"
-                           typeahead-template-url="customTemplate.html">
-                    <a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>
-                    <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                    </a>
-                </form>
-            </div>
-        </div>
+        <!--<div class="site-drawer__facet-group">-->
+            <!--<h5 translate>Free text</h5>-->
+            <!--<div class="search-bar__form">-->
+                <!--<form class="search-bar__term" ng-submit="dataset.freeTextSearch()">-->
+                    <!--<input type="text"-->
+                           <!--id="siteSearch"-->
+                           <!--autocomplete="off"-->
+                           <!--class="fit-suggestions"-->
+                           <!--ng-model="dataset.freeTextQuery"-->
+                           <!--placeholder="Search for datasets"-->
+                           <!--uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"-->
+                           <!--typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"-->
+                           <!--typeahead-focus-first="false"-->
+                           <!--typeahead-template-url="customTemplate.html">-->
+                    <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
+                    <!--<a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">-->
+                        <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
+                    <!--</a>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
         <div ng-repeat="facet in dataset.facets | orderBy: dataset.sortFacets">
             <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
                 <h5 translate>{{facet.field | prettifyEnum}}</h5>
@@ -70,11 +92,11 @@
 <div class="site-content">
 
 
-    <div class="fab" fab>
-        <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="dataset.showDrawer = true"><i class="gb-icon-filter"></i></a>
-        </div>
-    </div>
+    <!--<div class="fab" fab>-->
+        <!--<div class="fab__trigger">-->
+            <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="dataset.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="page">
         <div class="dataset-search-results">
@@ -109,30 +131,30 @@
 
 
 
-            <nav class="horizontal-stripe--paddingless light-background search-tabs">
-                <div class="drawer-padding">
-                    <div class="container--narrow">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="tabs">
-                                    <li>
-                                        <a ui-sref="omniSearch({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = undefined" translate="stdTerms.all">All</a>
-                                    </li>
-                                    <li class="is-active">
-                                        <a href="" ng-click="occurrence.table.filter = 'datasets'" translate="stdTerms.datasets">datasets</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'" translate="stdTerms.occurrences">occurrences</a>
-                                    </li>
-                                    <li>
-                                        <a ui-sref="cmsSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'cms'" translate="stdTerms.cms">information</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <!--<nav class="horizontal-stripe&#45;&#45;paddingless light-background search-tabs">-->
+                <!--<div class="drawer-padding">-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12">-->
+                                <!--<ul class="tabs">-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="omniSearch({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = undefined" translate="stdTerms.all">All</a>-->
+                                    <!--</li>-->
+                                    <!--<li class="is-active">-->
+                                        <!--<a href="" ng-click="occurrence.table.filter = 'datasets'" translate="stdTerms.datasets">datasets</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="occurrenceSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'occurrences'" translate="stdTerms.occurrences">occurrences</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                        <!--<a ui-sref="cmsSearchTable({q:dataset.freeTextQuery})" ng-click="occurrence.table.filter = 'cms'" translate="stdTerms.cms">information</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</nav>-->
 
             <div ui-view>
 
