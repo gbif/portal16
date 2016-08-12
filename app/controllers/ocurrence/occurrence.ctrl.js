@@ -10,7 +10,7 @@ function renderSearch(req, res) {
         title: 'Ocurrences',
         message: 'yada yada',
         _meta: {
-            hideSearchAction: true,
+            hideSearchAction: false,
             hasDrawer: true,
             hasTools: true,
             hideFooter: true

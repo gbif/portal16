@@ -14,7 +14,7 @@ module.exports = function (app) {
 
 router.get('/dataset/search', function (req, res, next) {
     datasetSearch(req.query).then(function(data) {
-        gbifData.expandFacets(data.facets, res.__, function(err){
+        gbifData.expandFacetsAndFilters(data, req.query, res.__, function(err){
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);

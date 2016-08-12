@@ -103,16 +103,29 @@
 	
 	&__actions {
 		border-bottom 1px solid $stripeBorderColor
-		font-size 24px
-		padding 0 5px
-		// height $searchTabBar-height
-		// line-height $searchTabBar-height
+		padding 0 20px
+		 //height $searchTabBar-height
+		 //line-height $searchTabBar-height
+		position relative
+		&__title {
+			font-size 14px
+			>a {
+				font-weight 700
+				text-align center
+				display block
+				height vrBlock(1.5)
+				line-height vrBlock(1.5)
+			}
+		}
 		>a {
+			width vrBlock(1.5)
+			font-size 24px
 			height $searchTabBar-height
 			line-height $searchTabBar-height
 			text-align center
 			display inline-block
-			position relative
+			position absolute
+			top 0
 			&:hover {
 				text-decoration none
 				background $greyBackground
@@ -123,6 +136,13 @@
 				right 15px
 			}
 		}
+		&__clear {
+			right 20px
+		}
+		//&__back {
+		//	left 0
+		//}
+
 	}
 
 	&__facet-group {

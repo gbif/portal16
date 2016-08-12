@@ -4,7 +4,7 @@ var Country = require('./country/country'),
 	Publisher = require('./publisher/publisher'),
 	Taxon = require('./taxon/taxon'),
 	Dataset = require('./dataset/dataset'),
-	expandFacets = require('./expandFacets');
+	expandFacetsAndFilters = require('./expandFacets');
 
 module.exports = {
 	Country: Country,
@@ -13,5 +13,5 @@ module.exports = {
 	Publisher: Publisher,
 	Taxon: Taxon,
 	Dataset: Dataset,
-	expandFacets: expandFacets
+	expandFacetsAndFilters: expandFacetsAndFilters
 };

@@ -578,14 +578,15 @@ main {
 	box-shadow -2px 1px 2px rgba(0,0,0,0.2)
 	background $drawerBackgroundColor
 	> .site-drawer__section {
-		height "calc(100vh - %s)" % vrBlock(6)
+		//height "calc(100vh - %s)" % vrBlock(6)
+		height "calc(100vh - %s)" % vrBlock(4.5)
 		background $drawerBackgroundColor
 		color $drawerTextColor
 		overflow-y auto
 		-webkit-overflow-scrolling touch
-		&--bottom-panel {
-			height "calc(100vh - %s)" % vrBlock(8)
-		}
+		//&--bottom-panel {
+		//	height "calc(100vh - %s)" % vrBlock(8)
+		//}
 	}
 	&.is-active {
 		right 0

@@ -1,6 +1,7 @@
 "use strict";
 var helper = require('../util/util'),
     apiConfig = require('./apiConfig'),
+    _ = require('lodash'),
     async = require('async');
 
 const facetTypeConfig = {
@@ -24,20 +25,46 @@ const facetTypeConfig = {
     }
 };
 
-function expandFacets(facets, __, cb) {
+//function getTasks(list, __) {
+//    var tasks = [];
+//    list.forEach(function(facetType){
+//        let ftc = facetTypeConfig[facetType.field];
+//        facetType.counts.forEach(function(e){
+//            if (typeof ftc === 'undefined') {
+//                e.title = e.name;
+//            } else if (ftc.type == 'ENUM') {
+//                e.title = __(ftc.translationPath + e.name)
+//            } else if (ftc.type == 'KEY') {
+//                var task = {
+//                    endpoint: ftc.endpoint + e.name,
+//                    cb: function(err, data){
+//                        e.title = data[ftc.fromKey]
+//                    }
+//                };
+//                tasks.push(task);
+//            } else {
+//                e.title = e.name;
+//            }
+//        });
+//    });
+//    return tasks;
+//}
+
+function getTasks(list, __) {
     var tasks = [];
-    facets.forEach(function(facetType){
-        let ftc = facetTypeConfig[facetType.field];
-        facetType.counts.forEach(function(e){
-            if (typeof ftc === 'undefined' || typeof ftc.type === 'undefined' || ftc.type == 'VALUE') {
+    Object.keys(list).forEach(function(facetType){
+        let ftc = facetTypeConfig[facetType];
+        list[facetType].forEach(function(e){
+            if (typeof ftc === 'undefined') {
                 e.title = e.name;
             } else if (ftc.type == 'ENUM') {
                 e.title = __(ftc.translationPath + e.name)
             } else if (ftc.type == 'KEY') {
                 var task = {
-                    facet: e,
                     endpoint: ftc.endpoint + e.name,
-                    fromKey: ftc.fromKey
+                    cb: function(err, data){
+                        e.title = data[ftc.fromKey]
+                    }
                 };
                 tasks.push(task);
             } else {
@@ -45,14 +72,44 @@ function expandFacets(facets, __, cb) {
             }
         });
     });
+    return tasks;
+}
+
+function expandFacetsAndFilters(data, query, __, cb) {
+    let facets = {};
+    data.facets.forEach(function(e){
+        facets[e.field] = e.counts;
+    });
+    data.facets = facets;
+    let tasks = getTasks(data.facets, __);
+
+    data.filters = {};
+    Object.keys(query).forEach(function(key){
+        let k = key.toUpperCase();
+        if (['facet', 'locale', 'offset', 'limit'].indexOf(key) >= 0) return;
+        data.filters[k] = [];
+        if (_.isString(query[key])) {
+            data.filters[k].push({
+                name: query[key]
+            });
+        } else if (_.isArray(query[key])) {
+            query[key].forEach(function(e){
+                data.filters[k].push({
+                    name: e
+                });
+            });
+        }
+    });
+
+    tasks = tasks.concat(getTasks(data.filters, __));
     async.each(tasks, expandKey, cb);
 }
 
-function expandKey(obj, callback) {
-    helper.getApiData(obj.endpoint, function(err, data){
-        obj.facet.title = data[obj.fromKey];
-        callback(null, obj.facet);
+function expandKey(task, callback) {
+    helper.getApiData(task.endpoint, function(err, data){
+        task.cb(err, data);
+        callback(null, true);
     }, {timeoutMilliSeconds: 5000, retries: 3});
 }
 
-module.exports = expandFacets;
+module.exports = expandFacetsAndFilters;

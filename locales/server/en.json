@@ -1219,7 +1219,8 @@
 			"OCCURRENCE": "occurrence",
 			"CHECKLIST": "checklist",
 			"SAMPLING_EVENT": "Sampling event",
-			"METADATA": "Metadata"
+			"METADATA": "Metadata",
+			"undefined": "dataset.type.undefined"
 		}
 	},
 	"countryPage": {

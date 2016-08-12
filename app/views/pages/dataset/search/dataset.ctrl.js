@@ -18,18 +18,19 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
     vm.query = $stateParams;
     vm.freeTextQuery = $stateParams.q;
     vm.facets = results.facets;
+    vm.filters = results.filters;
     vm.state = DatasetFilter.state;
     vm.count = results.count;
     vm.appliedFilterCount = 0;
 
     //fixed order for facets
-    var facetOrder = {
-        TYPE: 1,
-        PUBLISHING_ORG: 2,
-        PUBLISHING_COUNTRY: 3,
-        HOSTING_ORG: 4,
-        KEYWORD: 5
-    };
+    vm.facetOrder = [
+        'TYPE',
+        'PUBLISHING_ORG',
+        'PUBLISHING_COUNTRY',
+        'HOSTING_ORG',
+        'KEYWORD'
+    ];
     vm.sortFacets = function(a) {
         return facetOrder[a.field] || 100;
     };
@@ -38,7 +39,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
         var c = 0;
         Object.keys($stateParams).forEach(function(e){
             var v = $stateParams[e];
-            if (typeof v !== 'undefined' && e != 'locale' && e != 'q') {
+            if (typeof v !== 'undefined' && e != 'locale' && e != 'offset' && e != 'limit') {
                 c++;
             }
         });
@@ -47,7 +48,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
     vm.appliedFilterCount = vm.getFilterCount();
 
     vm.freeTextSearch = function() {
-        $state.go('.', {q: vm.freeTextQuery}, {inherit:false});
+        $state.go('.', {q: vm.freeTextQuery}, {inherit:true});
         window.scrollTo(0,0);
     };
 

@@ -17,7 +17,7 @@ $maxFlexCardWidth = ($laptop/3)
 		}
 	}
 	.card-flex-columns__block-double {
-		max-width ($maxFlexCardWidth*2)
+		max-width ($maxFlexCardWidth*3)
 	}
 	.card-flex-columns__block-aligned {
 		max-width 768px
@@ -28,6 +28,9 @@ $maxFlexCardWidth = ($laptop/3)
 	.card-flex-columns {
 		>div {
 			max-width $maxFlexCardWidth
+		}
+		.card-flex-columns__block-double {
+			width $maxFlexCardWidth
 		}
 	}
 }
