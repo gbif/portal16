@@ -1,18 +1,17 @@
 <aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': omniSearch.showDrawer}">
-    <div class="search-bar">
-        <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
-            <input type="text"
-                   autocomplete="off"
-                   id="siteSearch"
-                   ng-model="omniSearch.freeTextQuery"
-                   placeholder="Search">
-            <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
-                <span class="sr-only">{$ __('stdTerms.search') $}</span>
-            </a>
-        </form>
-    </div>
-
     <div class="site-drawer__section">
+        <div class="search-bar">
+            <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
+                <input type="text"
+                       autocomplete="off"
+                       id="siteSearch"
+                       ng-model="omniSearch.freeTextQuery"
+                       placeholder="Search">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
         <div>
             <div class="site-drawer__facet-group">
                 <h5>Content type</h5>

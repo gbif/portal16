@@ -4,92 +4,8 @@
     </a>
 </script>
 
-<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': dataset.showDrawer}">
-
-    <!--<header class="site-drawer__header">-->
-        <!--<div>-->
-            <!--<h4 class="">Search > Datasets</h4>-->
-            <!--<span>{{dataset.count}} results</span>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;<a href="" class="h5 site-drawer__header__action site-drawer__header__close gb-icon-close" ng-click="dataset.showDrawer = false"></a>&ndash;&gt;-->
-    <!--</header>-->
-
-
-
-
-    <div class="site-drawer__actions clearfix">
-        <a ui-sref="omniSearch({q: dataset.freeTextQuery})" ui-sref-opts="{inherit: false}" class="gb-icon-angle-left inherit discreet site-drawer__actions__back" tooltip-placement="right" uib-tooltip="Search everything">
-        </a>
-        <div class="site-drawer__actions__title">
-            <a href="" class="inherit">
-                <span ng-click="dataset.expandContentTypeMenu = true"
-                      ng-if="!dataset.expandContentTypeMenu">
-                    Datasets
-                </span>
-            </a>
-            <div class="stripe-menu" ng-class="{'is-expanded': dataset.expandContentTypeMenu}">
-                <div class="stripe-menu__drop-down"
-                     ng-show="dataset.expandContentTypeMenu"
-                     click-outside="dataset.expandContentTypeMenu = false"
-                     click-outside-unless="!dataset.expandContentTypeMenu">
-                    <ul>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                All
-                            </a>
-                        </li>
-                        <li class="seperator">
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                Occurrences
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                Species
-                            </a>
-                        </li>
-                        <li ng-click="dataset.expandContentTypeMenu = false">
-                            <a href="" class="text-muted">
-                                <span>Datasets</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                News
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                Documents
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                Tools
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
-                                Resources
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-        <a ui-sref="datasetSearchTable()" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right site-drawer__actions__clear" tooltip-placement="left" uib-tooltip="Clear filters">
-            <span class="count badge" ng-show="dataset.appliedFilterCount > 0">{{dataset.appliedFilterCount}}</span>
-        </a>
-    </div>
-
+<div search-drawer query="{{dataset.freeTextQuery}}" filter-count="{{dataset.appliedFilterCount}}" content-type="datasets">
     <div class="site-drawer__section">
-
-
         <div class="search-bar">
             <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
                 <input type="text"
@@ -134,8 +50,7 @@
         </div>
 
     </div>
-
-</aside>
+</div>
 
 <div class="site-content">
 

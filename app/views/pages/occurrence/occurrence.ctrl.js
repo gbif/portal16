@@ -17,6 +17,11 @@ angular
 function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, OccurrenceFilter, hotkeys, $http) {
     var vm = this;
     vm.query = angular.copy($stateParams);
+    vm.query.basisOfRecord = vm.query.basisOfRecord ? [].concat(vm.query.basisOfRecord) : [];
+    vm.basisOfRecord = {};
+    vm.query.basisOfRecord.forEach(function(e){
+        vm.basisOfRecord[e] = true;
+    });
 
     vm.freeTextQuery = vm.query.q;
     vm.hide = true;
@@ -30,41 +35,50 @@ function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, Occurrenc
 
         }
     };
+    vm.occFilter = OccurrenceFilter;
 
-    // vm.config = {
-    //     resource: SpeciesSuggest,
-    //     baseQuery: {datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'},
-    //     queryField: 'q',
-    //     matchField: 'canonicalName',
-    //     multiSelect: true,
-    //     key: 'key',
-    //     onChange: function(selected){
-    //         var taxonKeys = selected.map(function(e){return e.key;});
-    //         vm.query.taxonKey = taxonKeys;
-    //         OccurrenceFilter.query = vm.query;
-    //         $state.transitionTo($state.current, vm.query);//, {location: true, notify: false});
-    //     },
-    //     onCancel: function(){
-    //         vm.hide = true;
-    //     }
-    // };
+     vm.config = {
+         resource: SpeciesSuggest,
+         baseQuery: {datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'},
+         queryField: 'q',
+         matchField: 'canonicalName',
+         multiSelect: true,
+         key: 'key',
+         onChange: function(selected){
+             var taxonKeys = selected.map(function(e){return e.key;});
+             vm.query.taxonKey = taxonKeys;
+             OccurrenceFilter.query = vm.query;
+             $state.transitionTo($state.current, vm.query);//, {location: true, notify: false});
+         },
+         onCancel: function(){
+             vm.hide = true;
+         }
+     };
 
-    // vm.suggest.addKey = function(key) {
-    //     Species.get({id: key}, function(data){
-    //         vm.suggest.selectedKeys.push(data.key);
-    //         vm.suggest.selected.push(data);
-    //     });
-    // };
-    // if (Array.isArray(vm.query.taxonKey)) {
-    //     vm.query.taxonKey.forEach(function(e){
-    //         vm.suggest.addKey(e);
-    //     });
-    // } else if(vm.query.taxonKey) {
-    //     vm.suggest.addKey(vm.query.taxonKey);
-    // }
+     vm.suggest.addKey = function(key) {
+         Species.get({id: key}, function(data){
+             vm.suggest.selectedKeys.push(data.key);
+             vm.suggest.selected.push(data);
+         });
+     };
+     if (Array.isArray(vm.query.taxonKey)) {
+         vm.query.taxonKey.forEach(function(e){
+             vm.suggest.addKey(e);
+         });
+     } else if(vm.query.taxonKey) {
+         vm.suggest.addKey(vm.query.taxonKey);
+     }
 
-    vm.freeTextSearch = function() {
-        $state.go('.', {q: vm.freeTextQuery}, {inherit:false});
+    vm.search = function() {
+        vm.query.q = vm.freeTextQuery;
+        vm.query.basisOfRecord = Object.keys(vm.basisOfRecord)
+            .filter(function(e){
+                return vm.basisOfRecord[e];
+            })
+            .map(function(e){
+                return e;
+            });
+        $state.go('.', vm.query, {inherit:false});
         window.scrollTo(0,0);
     };
 
@@ -104,27 +118,27 @@ function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, Occurrenc
 
 
 
-    // vm.getSuggestions = function(val) {
-    //     return $http.get('//api.gbif.org/v1/species/suggest', {
-    //         params: {
-    //             q: val,
-    //             limit: 10,
-    //             datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
-    //         }
-    //     }).then(function(response){
-    //         return response.data;
-    //     });
-    // };
+     vm.getSuggestions = function(val) {
+         return $http.get('//api.gbif.org/v1/species/suggest', {
+             params: {
+                 q: val,
+                 limit: 10,
+                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+             }
+         }).then(function(response){
+             return response.data;
+         });
+     };
 
-    // vm.typeaheadSelect = function(item){ //  model, label, event
-    //     if (!angular.isArray($stateParams.taxonKey)) {
-    //         $stateParams.taxonKey = $stateParams.taxonKey ? [$stateParams.taxonKey] : [];
-    //     }
-    //     if ($stateParams.taxonKey.indexOf(item.key) < 0) {
-    //         $stateParams.taxonKey.push(item.key);
-    //     }
-    //     $state.go($state.current, $stateParams, {notify: false, reload: true});
-    // };
+     vm.typeaheadSelect = function(item){ //  model, label, event
+         if (!angular.isArray($stateParams.taxonKey)) {
+             $stateParams.taxonKey = $stateParams.taxonKey ? [$stateParams.taxonKey] : [];
+         }
+         if ($stateParams.taxonKey.indexOf(item.key) < 0) {
+             $stateParams.taxonKey.push(item.key);
+         }
+         $state.go($state.current, $stateParams, {notify: false, reload: true});
+     };
 
 
 

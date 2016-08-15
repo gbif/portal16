@@ -43,6 +43,7 @@ function occurrenceGalleryCtrl($scope, $stateParams, OccurrenceSearch, Occurrenc
         vm.query.offset = 0;
         vm.results = [];
         search(vm.query);
+
     };
 
     $scope.$watchCollection(OccurrenceFilter.getQuery, function() {

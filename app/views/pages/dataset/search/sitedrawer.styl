@@ -95,6 +95,7 @@
 
 
 	&__section {
+		border-top 1px solid $stripeBorderColor
 		padding-bottom 50px
 		&__content {
 			padding 10px 20px
@@ -102,7 +103,6 @@
 	}
 	
 	&__actions {
-		border-bottom 1px solid $stripeBorderColor
 		padding 0 20px
 		 //height $searchTabBar-height
 		 //line-height $searchTabBar-height
@@ -139,6 +139,10 @@
 		&__clear {
 			right 20px
 		}
+		.stripe-menu__drop-down {
+			top 15px
+			right 35px
+		}
 		//&__back {
 		//	left 0
 		//}
@@ -147,7 +151,7 @@
 
 	&__facet-group {
 		padding 10px 0
-		border-bottom 1px solid $stripeBorderColor
+		border-top 1px solid $stripeBorderColor
 		h5 {
 			font-weight bold
 			padding 0 20px

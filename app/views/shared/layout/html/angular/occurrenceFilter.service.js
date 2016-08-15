@@ -7,7 +7,7 @@ angular
     .service('OccurrenceFilter', function ($stateParams) {
         return {
             getQuery: function() {
-                return angular.copy($stateParams);
+                return $stateParams
             }
         };
     });

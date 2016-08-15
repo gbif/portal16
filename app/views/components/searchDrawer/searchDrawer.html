@@ -1,0 +1,53 @@
+<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': dataset.showDrawer}">
+
+    <div class="site-drawer__actions clearfix">
+        <a ui-sref="omniSearch({q: vm.query})" ui-sref-opts="{inherit: false}" class="gb-icon-angle-left inherit discreet site-drawer__actions__back" tooltip-placement="right" uib-tooltip="Search everything">
+        </a>
+        <div class="site-drawer__actions__title">
+                <a href=""
+                   class="inherit text-capitalize"
+                   translate="stdTerms.{{vm.contentType}}"
+                   ng-click="vm.expandContentTypeMenu = !vm.expandContentTypeMenu">
+                    Datasets
+                </a>
+            <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
+                <div class="stripe-menu__drop-down"
+                     ng-show="vm.expandContentTypeMenu"
+                     click-outside="vm.expandContentTypeMenu = false"
+                     click-outside-unless="!vm.expandContentTypeMenu">
+                    <ul>
+                        <li class="text-capitalize text-muted">
+                            <a href=""
+                               ng-click="vm.expandContentTypeMenu = false"
+                               translate="stdTerms.{{vm.contentType}}"
+                               class="inherit text-muted">
+                            </a>
+                        </li>
+                        <li class="text-capitalize seperator">
+                            <a ui-sref="omniSearch({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
+                                All
+                            </a>
+                        </li>
+                        <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
+                            <a ui-sref="occurrenceSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
+                                Occurrences
+                            </a>
+                        </li>
+                        <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
+                            <a ui-sref="datasetSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
+                                Datasets
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a ui-sref="{}" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right site-drawer__actions__clear" tooltip-placement="left" uib-tooltip="Clear filters">
+            <span class="count badge" ng-show="vm.filterCount > 0">{{vm.filterCount}}</span>
+        </a>
+    </div>
+
+    <ng-transclude></ng-transclude>
+
+</aside>

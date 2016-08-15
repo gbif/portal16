@@ -33,7 +33,7 @@ function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     vm.pageChanged = function() {
         $stateParams.offset =  (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, $stateParams, {reload: true});
-        window.scrollTo(0,0);
+        //window.scrollTo(0,0);
     };
 
     hotkeys.add({
