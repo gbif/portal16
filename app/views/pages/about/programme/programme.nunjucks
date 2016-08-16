@@ -3,7 +3,17 @@
 {% block page %}
     <div>
         <article class="wrapper-horizontal-stripes">
-            <div class="horizontal-stripe article-header white-background">
+            <div class="horizontal-stripe--paddingless article-header white-background">
+                {% if image.width > 1000 %}
+                    <figure class="heading-image">
+                        <div class="cover-image">
+                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
+                        </div>
+                        <figcaption class="container-fluid container--prose">
+                            {$ image.image_field_caption.value | safe $}
+                        </figcaption>
+                    </figure>
+                {% endif %}
                 <div class="container">
                     <div class="row">
                         <header class="col-xs-12 text-center">
@@ -20,19 +30,9 @@
                     </div>
                 </div>
 
-                {% if image.width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ image.image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
 
                 <div class="container-fluid container--prose">
-                    <div class="body-text prose-columns">
+                    <div class="body-text col-xs-12 col-md-9">
                         {% if image.width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
@@ -44,24 +44,82 @@
 
                         {$ data.body | safe $}
 
+                        {% if data.relatedNews.length > 0 %}
+                        <div class="related-news--programme">
+                            <h3>Related news</h3>
+                            {% for i in range(0, 5) -%}
+                                <div class="entity-summary__row">
+                                    <div class="entity-summary__image">
+                                        <img ng-src="{$ data.relatedNews[i].image.styles.square_thumbnail $}">
+                                    </div>
+                                    <div class="entity-summary__text">
+                                        <h4><a href="/{$ data.relatedNews[i].targetUrl $}">{$ data.relatedNews[i].title $}</a></h4>
+                                        <div class="entity-summary__summary">{$ data.relatedNews[i].summary | safe $}</div>
+                                        {$ data.relatedNews[i].created | formatDate(gb.locales.current) $}
+                                    </div>
+                                </div>
+                            {%- endfor %}
+                            {% if data.relatedNews.length > 5 %}
+                                <p>View all related news...</p>
+                            {% endif %}
+
+                        </div>
+                        {% endif %}
+
                     </div>
 
-                    <div class="article-auxiliary prose-columns">
-                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
-                            <section class="no-break">
-                                <h5>Published on</h5>
-                                {$ data.created | formatDate(gb.locales.current) $}
-                            </section>
+                    <div class="col-xs-12 col-md-3 sidebar">
+                        {% if data.funders.length > 0 %}
+                            <div class="sidebar__item">
+                                <h3>Funder</h3>
+                            </div>
+                           {% for funder in data.funders %}
+                               <div class="sidebar__item">
+                                   <img ng-src="{$ funder.image.styles.funder_image $}">
+                                   <h5>This programme is funded by {$ funder.title $}</h5>
+                               </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if data.relatedProjects.length > 0 %}
+                        <div class="sidebar__item">
+                            <h3>Related projects</h3>
                         </div>
+
+                            {% for i in range(0, 5) -%}
+                                <div class="sidebar__item">
+                                    <img ng-src="{$ data.relatedProjects[i].image.styles.sidebar_thumbnail $}">
+                                    <h5><a href="/{$ data.relatedProjects[i].targetUrl $}">{$ data.relatedProjects[i].title $}</a></h5>
+                                </div>
+                            {%- endfor %}
+                            {% if data.relatedProjects.length > 5 %}
+                                <p>View all related projects...</p>
+                            {% endif %}
+                        {% endif %}
                     </div>
+
+                </div>
+
+                <div class="container-fluid container--prose">
                 </div>
             </div>
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
+                        <div class="article-auxiliary">
+                            <div> {# placeholder for the bootstrap row class, which breaks column here #}
+                                <section class="no-break">
+                                    <h5>Related documents and information</h5>
+                                    <ul class="list-links--programme-resources">
+                                        {% for resource in data.relatedResources %}
+                                            <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
+                                        {% endfor %}
+                                        {% for file in data.file %}
+                                            <li><a href="{$ file.original $}">{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>

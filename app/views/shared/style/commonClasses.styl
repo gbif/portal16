@@ -86,18 +86,16 @@ $articleCategorySeparatorSpacing = 6px
         text-align left
         .article-header__category__upper {
             display inline-block
-            width s('calc(50% - %s)', $articleCategorySeparatorSpacing*2)
+            width s('calc(50% - %s)', $articleCategorySeparatorSpacing * 2)
             text-align right
         }
     }
 }
 
-//@bko I see no need to introduce another font-size
 .article-header__field {
     display inline-block
     padding 10px 20px
     text-align center
-    font-size 1.3rem
     margin 10px 0
     vertical-align middle
     div {
@@ -148,12 +146,13 @@ $articleCategorySeparatorSpacing = 6px
     margin-left auto
     margin-right auto
     
-    ul {
-        list-style disc
-    }
-    
-    ol {
-        list-style decimal
+    .body-text {
+        ul {
+            list-style disc
+        }
+        ol {
+            list-style decimal
+        }
     }
     
     .prose-columns {
@@ -179,6 +178,8 @@ $articleCategorySeparatorSpacing = 6px
         .prose-columns {
             columns 2 30px
             &--single-col {
+                max-width $tablet
+                margin 0 auto 0 auto
                 orphans 100
             }
             &--justified {
@@ -197,7 +198,7 @@ $articleCategorySeparatorSpacing = 6px
     padding-top vrBlock(1)
     margin-top vrBlock(2)
     margin-bottom -10px //to compensate for the bottom border on the sections.
-    border-top 1px solid #ddd
+    border-top 1px solid $stripeBorderColor
     font-size 1rem
     color $gray63
 
@@ -215,10 +216,10 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
-$headerImageMaxFullWidth = 1400px
+$headerImageMaxFullWidth = 1200px
 .heading-image {
     max-width $headerImageMaxFullWidth
-    margin 0 auto 20px auto
+    margin 0 -20px 20px -20px
     figcaption {
         font-size 0.9rem
         font-weight 300
@@ -231,16 +232,16 @@ $headerImageMaxFullWidth = 1400px
 
 +isAbove($headerImageMaxFullWidth) {
     .heading-image {
-        max-width $laptop
+        max-width $headerImageMaxFullWidth
+        margin 0 auto 20px auto
         .cover-image {
             margin 0 $halfGutter
-            padding-bottom 40%
         }
     }
 }
 .cover-image {
     height 0
-    padding-bottom 50%
+    padding-bottom 25%
     background #f7f9fa
     overflow hidden
     background-size cover
@@ -251,9 +252,9 @@ $headerImageMaxFullWidth = 1400px
 }
 +isAbove($tablet){
     .cover-image {
-        padding-bottom 30%
     }
 }
+
 .taxon-classification {
     i:after {
         font-style normal
@@ -278,6 +279,52 @@ $headerImageMaxFullWidth = 1400px
 
 .resource-image {
     max-width 240px
+}
+
+.sidebar {
+    .sidebar__item:first-child {
+        border-top 1px solid $stripeBorderColor
+        border-bottom none
+}
+    .sidebar__item {
+        border-bottom 1px solid $stripeBorderColor
+        margin-bottom vrBlock(1)
+        img {
+            height 126.3px
+        }
+    }
+}
+
+.entity-summary {
+    &__row {
+        border-bottom 1px solid $stripeBorderColor
+        padding-bottom vrBlock(1)
+    }
+    &__image {
+        display inline-block
+        vertical-align top
+        margin 10px 10px 10px 0px
+        padding-top 5px
+        width 100px
+        height 100px
+    }
+    &__text {
+        display inline-block
+        width 65%
+    }
+    &__summary {
+        display none
+    }
+}
++isAbove($tablet) {
+    .entity-summary {
+        &__text {
+            width 82%
+        }
+        &__summary {
+            display block
+        }
+    }
 }
 
 +isAbove($tablet) {
@@ -332,4 +379,9 @@ sub {
     right 0
     opacity 0
     transition opacity 0.5s linear
+}
+
+.related-news--programme {
+    font-size 14px
+    line-height 18px
 }

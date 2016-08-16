@@ -62,10 +62,10 @@
                             </section>
                         {% endif %}
 
-                        {% if data.relatedGbifResources.length > 1 %}
+                        {% if data.relatedGbifResources.length > 0 %}
                             <section class="no-break">
                                 <h5>Related GBIF resources</h5>
-                                <ul class="list-links">
+                                <ul class="list-links--data-use-resources">
                                     {% for resource in data.relatedGbifResources %}
                                         <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
                                     {% endfor %}

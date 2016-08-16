@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     cmsApi = require('../../../models/cmsData/apiConfig'),
+    format = require('../../../helpers/format'),
     request = require('request');
 
 module.exports = function (app) {
@@ -37,7 +38,7 @@ router.get('/resource/:requestedPath(*)', function(req, res, next) {
 
                     // Preprocess file size string
                     if (body.data[0].file[0]) {
-                        body.data[0].file[0].filesize = formatBytes(body.data[0].file[0].filesize, 1);
+                        body.data[0].file[0].filesize = format.formatBytes(body.data[0].file[0].filesize, 1);
                     }
                     var proseContent = {
                         data: body.data[0],
@@ -84,18 +85,3 @@ router.get('/resource/:requestedPath(*)', function(req, res, next) {
     });
 
 });
-
-/**
- * @param bytes
- * @param decimals
- * @returns {*}
- * @see http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
- */
-function formatBytes(bytes,decimals) {
-    if(bytes == 0) return '0 Byte';
-    var k = 1000;
-    var dm = decimals + 1 || 3;
-    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    var i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-}

@@ -114,7 +114,9 @@ module.exports = function(nunjucksConfiguration, config) {
         });
     })();
 
-
+    (function() {
+        nunjucksConfiguration.addFilter('formatByte', format.formatBytes);
+    })();
 
     /**
     DEPRECATED

@@ -68,9 +68,24 @@ function getHighlightedText(text, desiredLength, isExtract) {
     return croppedText;
 }
 
+/**
+ * @param bytes
+ * @param decimals
+ * @returns {*}
+ * @see http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+ */
+function formatBytes(bytes,decimals) {
+    if(bytes == 0) return '0 Byte';
+    var k = 1000;
+    var dm = decimals + 1 || 3;
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
 module.exports = {
     date: date,
     localizeInteger: localizeInteger,
     prettifyEnum: prettifyEnum,
-    getHighlightedText: getHighlightedText
+    getHighlightedText: getHighlightedText,
+    formatBytes: formatBytes
 }
