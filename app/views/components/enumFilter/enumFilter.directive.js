@@ -13,8 +13,7 @@ function enumFilterDirective() {
         templateUrl: '/templates/components/enumFilter/enumFilter.html',
         scope: {
             values: '@',
-            filter: '=',
-            query: '='
+            filter: '='
         },
         replace: true,
         controller: enumFilter,
@@ -27,11 +26,21 @@ function enumFilterDirective() {
     /** @ngInject */
     function enumFilter() {
         var vm = this;
-        vm.filter = vm.filter ? [].concat(vm.filter) : [];
-        vm.filterMap = {};
-        vm.filter.forEach(function(e){
-            vm.filterMap[e] = true;
-        });
+
+        vm.roles = [
+            'TEST A',
+            'TEST B'
+        ];
+        vm.user = {
+            roles: ['TEST A']
+        };
+
+
+        //vm.filter = vm.filter ? [].concat(vm.filter) : [];
+        //vm.filterMap = {};
+        //vm.filter.forEach(function(e){
+        //    vm.filterMap[e] = true;
+        //});
     }
 }
 

@@ -1,4 +1,4 @@
-<div search-drawer query="{{occurrence.freeTextQuery}}" filter-count="{{occurrence.appliedFilterCount}}" content-type="occurrences">
+<div search-drawer query="{{occurrence.freeTextQuery}}" content-type="occurrences">
     <div class="site-drawer__section">
         <div class="search-bar">
             <form class="search-bar__term" ng-submit="occurrence.search()">
@@ -34,10 +34,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>
-                <span ng-click="occurrence.hide = !occurrence.hide">Scientific name</span>
-
+        <div class="site-drawer__facet-group filter-group filter-group--multiselect">
+            <h5>Scientific Name</h5>
+            <div class="filter-group__filter">
                 <input type="text"
                        autocomplete="off"
                        class="fit-suggestions"
@@ -47,51 +46,75 @@
                        typeahead-on-select="occurrence.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="true">
 
-                <div class="chip" ng-repeat="taxon in occurrence.query.taxonKey" ng-click="occurrence.suggest.remove($index)">
-                    {{taxon}}
+                <div class="checkbox" ng-repeat="taxonKey in occurrence.query.taxonKey">
+                    <label>
+                        <input type="checkbox" checklist-model="occurrence.query.taxonKey" checklist-value="taxonKey"> {{occurrence.taxonKeyMap[taxonKey].canonicalName}}
+                    </label>
                 </div>
 
-                <!--<taxon-explore></taxon-explore>-->
-
-                <div class="site-drawer__sub" ng-show="!occurrence.hide">
-                    <suggest config="occurrence.config" suggest="occurrence.suggest"></suggest>
-                    <div ng-repeat="suggestion in occurrence.suggest.suggestions" ng-click="occurrence.suggest.add($index)" ng-class="{'is-active': $index==occurrence.suggest.activeIndex}">
-                        {{suggestion.canonicalName}}
-                    </div>
-                </div>
-            </label>
+            </div>
         </div>
 
-
-        <div enum-filter>
-
-        </div>
-
-        <div class="filter-group filter-group--multiselect">
-            <div class="filter-group__header">Basis Of Record</div>
+        <div class="site-drawer__facet-group filter-group filter-group--multiselect" ng-class="{'is-collapsed': occurrence.collapsed.basisOfRecord}">
+            <h5><a href="" class="inherit" ng-click="occurrence.collapsed.basisOfRecord = !occurrence.collapsed.basisOfRecord">Basis of Record</a></h5>
             <div class="filter-group__filter">
-                <div class="checkbox">
+                <div class="checkbox" ng-repeat="bor in occurrence.enums.basisOfRecord" ng-if="!occurrence.collapsed.basisOfRecord">
                     <label>
-                        <input type="checkbox" ng-model="occurrence.basisOfRecord.HUMAN_OBSERVATION"> Human observation
+                        <input type="checkbox" checklist-model="occurrence.query.basisOfRecord" checklist-value="bor"> {{bor}}
                     </label>
                 </div>
-                <div class="checkbox">
+
+                <div class="checkbox" ng-repeat="bor in occurrence.query.basisOfRecord" ng-if="occurrence.collapsed.basisOfRecord">
                     <label>
-                        <input type="checkbox" ng-model="occurrence.basisOfRecord.MACHINE_OBSERVATION"> Machine observation
+                        <input type="checkbox" checklist-model="occurrence.query.basisOfRecord" checklist-value="bor"> {{bor}}
                     </label>
                 </div>
-                <div class="checkbox">
+
+            </div>
+        </div>
+
+        <div class="site-drawer__facet-group filter-group filter-group--multiselect">
+            <h5>Type Status</h5>
+            <div class="filter-group__filter">
+                <div class="checkbox" ng-repeat="type in occurrence.enums.typeStatus">
                     <label>
-                        <input type="checkbox" ng-model="occurrence.basisOfRecord.OBSERVATION"> Observation
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" ng-model="occurrence.basisOfRecord.LITERATURE"> LITERATURE
+                        <input type="checkbox" checklist-model="occurrence.query.typeStatus" checklist-value="type"> {{type}}
                     </label>
                 </div>
             </div>
         </div>
+
+
+
+        <!--<div enum-filter>-->
+
+        <!--</div>-->
+
+        <!--<div class="filter-group filter-group&#45;&#45;multiselect">-->
+            <!--<div class="filter-group__header">Basis Of Record</div>-->
+            <!--<div class="filter-group__filter">-->
+                <!--<div class="checkbox">-->
+                    <!--<label>-->
+                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.HUMAN_OBSERVATION"> Human observation-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="checkbox">-->
+                    <!--<label>-->
+                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.MACHINE_OBSERVATION"> Machine observation-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="checkbox">-->
+                    <!--<label>-->
+                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.OBSERVATION"> Observation-->
+                    <!--</label>-->
+                <!--</div>-->
+                <!--<div class="checkbox">-->
+                    <!--<label>-->
+                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.LITERATURE"> LITERATURE-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
 

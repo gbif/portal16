@@ -7,7 +7,7 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, $stateParams, OccurrenceSearch, OccurrenceFilter, env, results) {
+function occurrenceGalleryCtrl($scope, $stateParams, OccurrenceSearch, env, results) {
     var vm = this,
         limit = 100,
         offset = 0;
@@ -45,10 +45,7 @@ function occurrenceGalleryCtrl($scope, $stateParams, OccurrenceSearch, Occurrenc
         search(vm.query);
 
     };
-
-    $scope.$watchCollection(OccurrenceFilter.getQuery, function() {
-        vm.filter();
-    });
+    vm.filter();
 
 }
 

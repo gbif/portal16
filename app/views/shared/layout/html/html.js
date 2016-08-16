@@ -11,11 +11,12 @@ require('ng-infinite-scroll');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
+require('checklist-model');
 
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model']);
 })();
 
 (function () {
@@ -46,7 +47,7 @@ require('./angular/cms.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
-require('./angular/occurrenceFilter.service');
+//require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
 require('./angular/map.constants');
 

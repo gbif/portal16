@@ -52,7 +52,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearchMap', {
             parent: 'occurrenceSearch',
-            url: '/map',
+            url: '/map?center&zoom',
             templateUrl: '/templates/pages/occurrence/map/occurrenceMap.html',
             controller: 'occurrenceMapCtrl',
             controllerAs: 'occMap'
