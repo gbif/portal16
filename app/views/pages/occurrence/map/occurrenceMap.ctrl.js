@@ -13,12 +13,13 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, OccurrenceSearch, env, results) {
+function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, env, results) {
     var vm = this;
     vm.totalCount = results.count;
     vm.mapMenu = {
         occurrences: {}
     };
+    console.log($stateParams.center);
 
     var getOverlay = function(query) {
         var overlay = {

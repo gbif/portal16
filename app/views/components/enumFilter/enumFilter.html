@@ -2,9 +2,10 @@
     <h5>Basis of Record</h5>
     <div class="filter-group__filter">
         <div class="checkbox">
-            <label>
-                <input type="checkbox" > Human observation
+            <label ng-repeat="role in vm.roles">
+                <input type="checkbox" checklist-model="vm.user.roles" checklist-value="role"> {{role}}
             </label>
         </div>
     </div>
+    {{vm.user.roles}}
 </div>

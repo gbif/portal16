@@ -13,7 +13,6 @@ function searchDrawerDirective() {
         templateUrl: '/templates/components/searchDrawer/searchDrawer.html',
         scope: {
             query: '@',
-            filterCount: '@',
             contentType: '@'
         },
         replace: true,
@@ -25,8 +24,25 @@ function searchDrawerDirective() {
     return directive;
 
     /** @ngInject */
-    function searchDrawer() {
+    function searchDrawer($rootScope, $stateParams) {
         var vm = this;
+
+        //$rootScope.$on('$stateChangeSuccess',
+        //    function(event, toState, toParams, fromState, fromParams){
+        //        vm.setFilterCount(toParams);
+        //    });
+
+        vm.getFilterCount = function() {
+            var c = 0;
+            Object.keys($stateParams).forEach(function(e){
+                var v = $stateParams[e];
+                if (typeof v !== 'undefined' && e != 'locale' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
+                    c++;
+                }
+            });
+            return c;
+        };
+
     }
 }
 

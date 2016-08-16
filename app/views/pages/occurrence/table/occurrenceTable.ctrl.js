@@ -13,7 +13,7 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($scope, OccurrenceTableSearch, OccurrenceFilter, $filter, $state, $stateParams, hotkeys, results) {
+function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter, $state, $stateParams, hotkeys, results) {
     var vm = this, offset;
     vm.count = results.count;
     vm.results = results.results;
@@ -41,6 +41,7 @@ function occurrenceTableCtrl($scope, OccurrenceTableSearch, OccurrenceFilter, $f
             //TODO handle errors
         });
     });
+
 
     /* pagination */
     function updatePaginationCounts() {
@@ -77,7 +78,7 @@ function occurrenceTableCtrl($scope, OccurrenceTableSearch, OccurrenceFilter, $f
                 vm.pageChanged();
             }
         }
-    }); 
+    });
 
 }
 
