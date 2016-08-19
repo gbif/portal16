@@ -24,6 +24,12 @@ function routerConfig($stateProvider, $locationProvider) {
                     controller: 'searchCtrl',
                     controllerAs: 'omniSearch'
                 }
+            },
+            resolve: {
+                results:  function($stateParams, CmsSearch){
+                    var query = angular.copy($stateParams);
+                    return CmsSearch.query(query).$promise;
+                }
             }
         })
         .state('occurrenceSearch', {

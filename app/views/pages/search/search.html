@@ -31,19 +31,34 @@
                             <span class="site-drawer__facet-group__facet">Species</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})">
                         <span>
-                            <span class="site-drawer__facet-group__facet">News</span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.news">News</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Documents</span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.data_use">Data use</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Resources</span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.event">Event</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource'})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.resource">Resource</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.programme">Programme</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.project">Project</span>
                         </span>
                     </a>
                 </div>

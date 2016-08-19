@@ -13,7 +13,7 @@ angular
     .controller('cmsTableCtrl', cmsTableCtrl);
 
 /** @ngInject */
-function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env, $sanitize) {
+function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     var vm = this,
         offset = parseInt($stateParams.offset) || 0;
 

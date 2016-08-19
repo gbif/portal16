@@ -209,7 +209,7 @@ function isPartialResponse(results) {
         'occurrences',
         'datasets',
         'publishers',
-        'articles',
+        'cms',
         'country'
     ];
 

@@ -23,7 +23,7 @@ function renderPage(req, res, searchString) {
     res.render('pages/about/search/cmsSearch', {
         query: searchString,
         _meta: {
-            bodyClass: 'dataset',
+            bodyClass: 'cms',
             hideSearchAction: true,
             hideFooter: true,
             hasDrawer: true,

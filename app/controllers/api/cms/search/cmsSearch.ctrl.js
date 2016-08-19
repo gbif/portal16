@@ -6,8 +6,6 @@ var express = require('express'),
     apiConfig = require('../../../../models/cmsData/apiConfig'),
     cmsData = require('../../../../models/cmsData/cmsData');
 
-const querystring = require('querystring');
-
 module.exports = function (app) {
     app.use('/api', router);
 };
@@ -18,9 +16,10 @@ router.get('/cms/search', function (req, res, next) {
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
-            } else {
-                // Duplicate the machine name so the sorting of facet groups can happen in the front end.
 
+            } else {
+
+                // Duplicate the machine name so the sorting of facet groups can happen in the front end.
                 data.facets = data.facets.filter(function(e){
                     if (e.field == 'category_informatics') return false;
                     if (e.field == 'category_tags') return false;
