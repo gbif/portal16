@@ -10,4 +10,5 @@ log/
 reports/
 coverage/
 app/views/shared/layout/html/angular/env.constants.js
+app/views/shared/style/bootstrap/.build/bootstrap.css
 npm-debug.log
