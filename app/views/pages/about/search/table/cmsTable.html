@@ -1,4 +1,5 @@
 <article class="wrapper-horizontal-stripes">
+    <span class="{{cms.actionMessageClass}}">Loading...</span>
 
     <!--<div class="horizontal-stripe bare-background" ng-show="cmsTable.featuredDataSets.nodes.length > 0">-->
         <!--<div class="card" ng-repeat="featured in cmsTable.featuredDataSets.nodes | limitTo:3">-->
@@ -13,6 +14,20 @@
             <!--</a>-->
         <!--</div>-->
     <!--</div>-->
+
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Information</span>
+                </nav>
+                <div class="small text-muted text-center" style="height:30px">{{cms.count}} results</div>
+                <div class="stripe-menu">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="horizontal-stripe white-background">
         <div class="drawer-padding">

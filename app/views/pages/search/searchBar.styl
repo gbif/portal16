@@ -41,7 +41,7 @@
         line-height vrBlock(1.5)
         position absolute
         right 0
-        top 0px
+        top 0
         font-size 20px
         color inherit
         border none
@@ -57,3 +57,31 @@
     }
 }
 
+.search-bar--home {
+    @extend .search-bar
+    padding 0
+    &__term {
+        margin-top vrBlock(0.5)
+        > input {
+            height vrBlock(2)
+            padding vrBlock(0.5) 15px
+            padding-right vrBlock(4)
+            border 1px solid $stripeBorderColor
+            background none
+            font-size 16px
+        }
+    }
+    &__search, &__clear, button {
+        height vrBlock(2)
+        width vrBlock(2)
+        line-height vrBlock(2)
+        right 0
+    }
+    &__search, &__search:hover {
+        background $actionColor
+        color white
+    }
+    &__clear {
+        right vrBlock(2)
+    }
+}

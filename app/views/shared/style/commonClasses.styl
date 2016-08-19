@@ -282,7 +282,7 @@ $headerImageMaxFullWidth = 1200px
 }
 
 .sidebar {
-    .sidebar__item:first-child {
+    .sidebar__item:first-of-type {
         border-top 1px solid $stripeBorderColor
         border-bottom none
 }
@@ -290,8 +290,12 @@ $headerImageMaxFullWidth = 1200px
         border-bottom 1px solid $stripeBorderColor
         margin-bottom vrBlock(1)
         img {
-            height 126.3px
+            width 100%
         }
+    }
+    
+    .sidebar__item:last-of-type {
+        border-bottom none
     }
 }
 
@@ -299,6 +303,9 @@ $headerImageMaxFullWidth = 1200px
     &__row {
         border-bottom 1px solid $stripeBorderColor
         padding-bottom vrBlock(1)
+    }
+    &__row:last-of-type {
+        border-bottom none
     }
     &__image {
         display inline-block
@@ -365,9 +372,8 @@ sub {
 }
 
 .action-notice--visible {
-    position absolute
     padding 1px 6px 1px 8px
-    right 0
+    left 0
     background-color $actionColor
     color white
     opacity 1
@@ -375,8 +381,7 @@ sub {
 }
 
 .action-notice--hidden {
-    position absolute
-    right 0
+    left 0
     opacity 0
     transition opacity 0.5s linear
 }
@@ -384,4 +389,5 @@ sub {
 .related-news--programme {
     font-size 14px
     line-height 18px
+    margin-bottom vrBlock(1)
 }

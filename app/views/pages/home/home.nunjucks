@@ -2,14 +2,14 @@
 
 {# home page, or front page #}
 {% block page %}
-    <div class="horizontal-stripe--paddingless white-background search-bar">
+    <div class="horizontal-stripe--paddingless white-background search-bar--home">
         <div class="container--narrow">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="search-bar__form">
-                        <form action="/search" class="search-bar__term">
+                    <div class="search-bar--home__form">
+                        <form action="/search" class="search-bar--home__term">
                             <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q" autocomplete="off" value="" ng-model="omniSearchTerm">
-                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit" class="gb-icon-search search-bar__search">
+                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit" class="gb-icon-search search-bar--home__search">
                                 <span class="sr-only">{$ __('stdTerms.search') $}</span>
                             </a>
                         </form>
