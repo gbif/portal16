@@ -155,8 +155,8 @@ function getData(query, cb) {
             publishers: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=3&q=' + q, callback);
             },
-            articles: function(callback){
-                helper.getApiData(baseConfig.cmsApi + 'v2.0/search/' + q, callback);
+            cms: function(callback){
+                helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
             },
             country: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {
