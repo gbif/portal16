@@ -1,58 +1,59 @@
 .search-bar {
-	background white
-	position relative
-	width 100%
-	z-index 10
-	height vrBlock(3)
-	//padding 0
-	>form {
-		vertically-align()
-	}
-	&__term {
-		//margin-top vrBlock(0.5)
-		display inline-block
-		position relative
-		width 100%
-		>input {
-			height vrBlock(1.5)
-			background $lightBackground
-			padding vrBlock(0.25) 20px
-			border none//1px solid $stripeBorderColor
-			outline none
-			width 100%
-			box-sizing border-box
-			padding-right vrBlock(2.5)
-			white-space nowrap
-			overflow hidden
-			text-overflow ellipsis
-			background $paper
-			font-size 14px
-			line-height vrBlock(1)
-			&:focus {
-				outline none
-			}
-		}
-	}
-	&__search, &__clear, button {
-		display block
-		height vrBlock(1.5)
-		width vrBlock(1.5)
-		text-align center
-		line-height vrBlock(1.5)
-		position absolute
-		right 0
-		top 0px
-		font-size 20px
-		color inherit
-		border none
-	}
-	&__search, &__search:hover {
-		//background $actionColor
-		//color white
-		text-decoration none
-		right vrBlock(1)
-	}
-	&__clear {
-		right vrBlock(1.5)
-	}
+    background white
+    position relative
+    width 100%
+    z-index 10
+    height vrBlock(3)
+    //padding 0
+    > form {
+        vertically-align()
+    }
+    &__term {
+        //margin-top vrBlock(0.5)
+        display inline-block
+        position relative
+        width 100%
+        > input {
+            height vrBlock(1.5)
+            background $lightBackground
+            padding vrBlock(0.25) 20px
+            border none //1px solid $stripeBorderColor
+            outline none
+            width 100%
+            box-sizing border-box
+            padding-right vrBlock(2.5)
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+            background $paper
+            font-size 14px
+            line-height vrBlock(1)
+            &:focus {
+                outline none
+            }
+        }
+    }
+    &__search, &__clear, button {
+        display block
+        height vrBlock(1.5)
+        width vrBlock(1.5)
+        text-align center
+        line-height vrBlock(1.5)
+        position absolute
+        right 0
+        top 0px
+        font-size 20px
+        color inherit
+        border none
+    }
+    &__search, &__search:hover {
+        //background $actionColor
+        //color white
+        text-decoration none
+        right vrBlock(1)
+    }
+    &__clear {
+        right vrBlock(1.5)
+    }
 }
+
