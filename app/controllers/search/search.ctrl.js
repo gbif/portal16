@@ -33,6 +33,22 @@ function searchHandler(req, res) {
 
     search.search(searchString, function(results){
 
+        // handling type-url conversion for CMS contents
+        // @todo use a node module to handle all possible cases once more content types are ready.
+        if (_.has(results, 'cms.results.length')) {
+            results.cms.results.forEach(function(result){
+                switch (result.type) {
+                    case 'data_use':
+                        result.type = 'data-use';
+                        break;
+                    case 'gbif_participant':
+                        result.type = 'participant';
+                        break;
+                    case 'external':
+                        result.type = 'external';
+                        break;
+                }});
+        }
         results.highlights = highlights.getHighlights(searchString, results);
 
         var context = {
