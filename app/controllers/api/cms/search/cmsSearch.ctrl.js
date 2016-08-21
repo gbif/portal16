@@ -44,8 +44,10 @@ router.get('/cms/search', function (req, res, next) {
 function cmsSearch(query) {
     'use strict';
     var deferred = Q.defer();
-    var limit = parseInt(query.limit) || 20,
-    queryUrl = apiConfig.search.url + query.q + '?page[size]=' + limit;
+    var limit = parseInt(query.limit) || 20;
+    var queryUrl = apiConfig.search.url;
+    queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
+    queryUrl += '?page[size]=' + limit;
 
     if (query.offset) {
         queryUrl += '&';

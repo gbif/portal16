@@ -505,7 +505,7 @@
 		"uig": "Uyghur",
 		"ukr": "Ukrainian",
 		"umb": "Umbundu",
-		"und": "Undetermined",
+		"und": "Not specified",
 		"urd": "Urdu",
 		"uzb": "Uzbek",
 		"vai": "Vai",
@@ -1239,11 +1239,11 @@
 			"event": "Event",
 			"news": "News",
 			"resource": "Resource",
-			"data_use": "Data use",
+			"data_use": "Featured data use",
 			"project": "Project",
 			"gbif_participant": "Participant",
 			"programme": "Programme",
-			"dataset": "cms.type.dataset"
+			"dataset": "Featured dataset"
 		},
 		"facet": {
 			"language": "Language",

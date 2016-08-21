@@ -58,19 +58,34 @@
                             <span class="site-drawer__facet-group__facet">Species</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a href="/cms/table?type=news">
                         <span>
                             <span class="site-drawer__facet-group__facet">News</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a href="/cms/table?type=data_use">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Documents</span>
+                            <span class="site-drawer__facet-group__facet">Featured data use</span>
                         </span>
                     </a>
-                    <a href="/news/table">
+                    <a href="/cms/table?type=event">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Resources</span>
+                            <span class="site-drawer__facet-group__facet">Event</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=resource">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Resource</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=programme">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Programme</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=project">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Project</span>
                         </span>
                     </a>
                 </div>
