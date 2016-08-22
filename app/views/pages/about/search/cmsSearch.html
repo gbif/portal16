@@ -41,7 +41,10 @@
                     </a>
                     <span ng-show="cms.isFacetInQuery(facet.field, row.key)" class="chip">
                         <a href="" ng-click="cms.removeFilter(facet.field, row.key)" class="chip__content">
-                            <span class="site-drawer__facet-group__facet" translate="cms.facet.{{row.enum}}"></span>
+                            <span ng-if="facet.field == 'type'" class="site-drawer__facet-group__facet" translate="cms.type.{{row.enum}}"></span>
+                            <span ng-if="facet.field == 'language'" class="site-drawer__facet-group__facet" translate="language.{{row.enum}}"></span>
+                            <span ng-if="facet.field == 'category_country'" class="site-drawer__facet-group__facet" translate="country.{{row.enum}}"></span>
+                            <span ng-if="facet.field != 'type' && facet.field != 'language' && facet.field != 'category_country'" class="site-drawer__facet-group__facet" translate="cms.filter.{{row.enum}}"></span>
                             <span class="close"></span>
                         </a>
                     </span>
