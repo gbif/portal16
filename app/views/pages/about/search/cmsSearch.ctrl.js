@@ -13,11 +13,10 @@ angular
     .controller('cmsSearchCtrl', cmsSearchCtrl);
 
 /** @ngInject */
-function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotkeys) {
+function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, hotkeys) {
     var vm = this;
     vm.query = $stateParams;
     vm.freeTextQuery = $stateParams.q;
-    vm.facets = results.facets;
     vm.state = DatasetFilter.state;
     vm.count = results.count;
     vm.appliedFilterCount = 0;
@@ -40,16 +39,38 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
         category_tags: 13
     };
 
+    vm.facets = (results.hasOwnProperty('facets')) ? results.facets : facetsFromUrl(facetOrder);
+
+    function facetsFromUrl(facetOrder) {
+        var facets = [];
+        for (var property in facetOrder) {
+            if (typeof $stateParams[property] !== 'undefined') {
+                var facet = {};
+                facet.field = property;
+                facet.fieldLabel = property;
+                facet.counts = [{
+                    enum: $stateParams[property],
+                    key: $stateParams[property],
+                    title: $stateParams[property]
+                }];
+                facets.push(facet);
+            }
+        }
+        return facets;
+    }
+
     vm.sortFacets = function(a) {
         return facetOrder[a.field] || 100;
     };
 
     // Order country tags by name, regardless the count.
-    vm.facets.forEach(function(f){
-        if (f.field == 'category_country' && f.counts !== undefined) {
-            f.counts.sort(function(a, b){ return (a.label > b.label) ? 1 : ((b.label > a.label) ? -1 : 0);});
-        }
-    });
+    if (typeof vm.facets !== 'undefined') {
+        vm.facets.forEach(function(f){
+            if (f.field == 'category_country' && f.counts !== undefined) {
+                f.counts.sort(function(a, b){ return (a.label > b.label) ? 1 : ((b.label > a.label) ? -1 : 0);});
+            }
+        });
+    }
 
     vm.getFilterCount = function() {
         var c = 0;
@@ -115,20 +136,6 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, $http, hotk
             });
         }
         vm.updateSearch();
-    };
-
-    vm.getSuggestions = function(val) {
-        return $http.get('//cms.gbif-dev.org/api/v2/search/' + val, {
-            params: {
-                range: 10
-            }
-        }).then(function(response){
-            return response.data;
-        });
-    };
-
-    vm.typeaheadSelect = function(item){ //  model, label, event
-        window.location.href = "../dataset/" + item.key;
     };
 
     vm.searchOnEnter = function(event) {

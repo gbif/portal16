@@ -12,26 +12,28 @@ module.exports = function (app) {
 
 router.get('/cms/search', function (req, res, next) {
     cmsSearch(req.query).then(function(data) {
-        cmsData.expandFacets(data.facets, res.__, function(err){
-            if (err) {
-                //TODO handle expansion errors
-                res.json(data);
+        if (data.hasOwnProperty('facets')) {
+            cmsData.expandFacets(data.facets, res.__, function(err){
+                if (err) {
+                    //TODO handle expansion errors
+                    res.json(data);
 
-            } else {
+                } else {
 
-                // Duplicate the machine name so the sorting of facet groups can happen in the front end.
-                data.facets = data.facets.filter(function(e){
-                    if (e.field == 'category_informatics') return false;
-                    if (e.field == 'category_tags') return false;
-                    if (e.field == 'category_data_type') return false;
-                    return true;
-                });
-                data.facets.forEach(function(facet){
-                    facet.fieldLabel = res.__('cms.facet.' + facet.field);
-                });
-                res.json(data);
-            }
-        });
+                    // Duplicate the machine name so the sorting of facet groups can happen in the front end.
+                    data.facets = data.facets.filter(function(e){
+                        if (e.field == 'category_informatics') return false;
+                        if (e.field == 'category_tags') return false;
+                        if (e.field == 'category_data_type') return false;
+                        return true;
+                    });
+                    data.facets.forEach(function(facet){
+                        facet.fieldLabel = res.__('cms.facet.' + facet.field);
+                    });
+                }
+            });
+        }
+        res.json(data);
 
     }, function(err){
         //TODO should this be logged here or in model/controller/api?

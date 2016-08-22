@@ -28,17 +28,17 @@
 
         <div ng-repeat="facet in cms.facets | orderBy: cms.sortFacets">
             <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
-                <h5 translate>{{facet.fieldLabel | prettifyEnum}}</h5>
+                <h5 translate="cms.facet.{{facet.fieldLabel}}"></h5>
                 <div ng-repeat="row in facet.counts">
                     <a href="" ng-click="cms.addFilter(facet.field, row.key)" ng-if="!cms.isFacetInQuery(facet.field, row.key)">
                         <span>
-                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.{{row.title}}"></span>
                             <span class="site-drawer__facet-group__count">({{row.count}})</span>
                         </span>
                     </a>
-                    <span ng-if="cms.isFacetInQuery(facet.field, row.key)" class="chip">
+                    <span ng-show="cms.isFacetInQuery(facet.field, row.key)" class="chip">
                         <a href="" ng-click="cms.removeFilter(facet.field, row.key)" class="chip__content">
-                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.type.{{row.title}}"></span>
                             <span class="close"></span>
                         </a>
                     </span>

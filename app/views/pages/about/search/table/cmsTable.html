@@ -35,7 +35,7 @@
                 <div class="search-results__list row">
                     <div class="col-xs-12">
                         <div class="search-results__list__overview">
-                            <span>{{cmsTable.totalItems}} results, showing {{cmsTable.resultStart}} - {{cmsTable.resultEnd}}</span>
+                            <span>{{cmsTable.totalItems}} results</span><span ng-show="cmsTable.totalItems > 0">, showing {{cmsTable.resultStart}} - {{cmsTable.resultEnd}}</span>
                             <!-- <div class="hidden-lg">
                                 <span class="chip">
                                     <a href="" class="chip__content">
