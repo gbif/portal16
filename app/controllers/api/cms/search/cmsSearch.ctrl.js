@@ -29,6 +29,22 @@ router.get('/cms/search', function (req, res, next) {
                     });
                     data.facets.forEach(function(facet){
                         facet.fieldLabel = res.__('cms.facet.' + facet.field);
+                        facet.counts.forEach(function(count){
+                            switch (facet.field) {
+                                case 'type':
+                                    count.facetLabel = res.__('cms.type.' + count.enum);
+                                    break;
+                                case 'language':
+                                    count.facetLabel = res.__('language.' + count.enum);
+                                    break;
+                                case 'category_country':
+                                    count.facetLabel = res.__('country.' + count.enum);
+                                    break;
+                                default:
+                                    count.facetLabel = res.__('cms.filter.' + count.enum);
+                                    break;
+                            }
+                        });
                     });
                 }
             });

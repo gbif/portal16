@@ -794,7 +794,8 @@
 		"CW": "country.CW",
 		"undefined": "country.undefined",
 		"ZZ": "country.ZZ",
-		"BQ": "country.BQ"
+		"BQ": "country.BQ",
+		"null": "country.null"
 	},
 	"interpretationRemarks": {
 		"BASIS_OF_RECORD_INVALID": "Basis of record invalid",
@@ -1259,6 +1260,53 @@
 			"category_data_type": "Data type",
 			"category_country": "Country",
 			"category_resource_type": "Resource type"
+		},
+		"filter": {
+			"invasives": "Invasives",
+			"policy_use": "Policy use",
+			"science_use": "Science use",
+			"capacity_project": "Capacity project",
+			"training": "Training",
+			"mentoring": "Mentoring",
+			"gbif_partnerships": "GBIF partnership",
+			"gbif_nodes": "GBIF Nodes",
+			"gbif_regions": "GBIF regions",
+			"decision_makers": "Decision makers",
+			"data_holders": "Data holders",
+			"gbif_network": "GBIF Network",
+			"data_users": "Data users",
+			"biodiversity_knowledge_experts": "Biodiversity knowledge experts",
+			"data_publishing": "Data publishing",
+			"data_digitization": "Data digitization",
+			"data_curation_&_quality": "Data curation & quality",
+			"data_access": "Data access",
+			"document": "Document",
+			"presentation": "Presentation",
+			"conservation": "Conservation",
+			"climate_change": "Climate change",
+			"species_distributions": "Species distribution",
+			"agriculture": "Agriculture",
+			"ecology": "Ecology",
+			"human_health": "Human health",
+			"marine": "Marine",
+			"citizen_science": "Citizen science",
+			"biogeography": "Biogeography",
+			"freshwater": "Freshwater",
+			"ecosystem_services": "Ecosystem services",
+			"evolution": "Evolution",
+			"mountain_biodiversity": "Mountain biodiversity",
+			"taxonomic_research": "Taxonomic research",
+			"gbif": {
+				"org": "GBIF.org"
+			},
+			"strategic_application": "Stratigic application",
+			"gbif_governance": "GBIF governance",
+			"gbif_awards": "GBIF awards",
+			"gbif_history/overview": "GBIF history/overview",
+			"public_stakeholders": "Public stakeholders",
+			"data_analysis": "Data analysis",
+			"link": "Link",
+			"tool": "Tool"
 		}
 	}
 }
