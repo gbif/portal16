@@ -19,7 +19,6 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
     vm.mapMenu = {
         occurrences: {}
     };
-    console.log($stateParams.center);
 
     var getOverlay = function(query) {
         var overlay = {

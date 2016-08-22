@@ -20,7 +20,7 @@ router.get('/dataset/:key\.:ext?', function (req, res, next) {
     };
     Dataset.get(datasetKey, getOptions).then(function(dataset) {
         renderPage(req, res, dataset);
-    }, function(err){
+    }, function(){
         next();
     });
 });
@@ -281,7 +281,7 @@ function organizeContacts(sourceContacts, mode) {
             break;
     }
 
-    roles.forEach(function (role, ri) {
+    roles.forEach(function (role) {
         role.contacts = [];
         sourceContacts.forEach(function(sourceContact){
             if (sourceContact.type == role.type) {

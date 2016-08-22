@@ -17,7 +17,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     vm.events = [];
     var limit = 5;
     var offset = 0;
-    var uuid = datasetKey; // This key is passed through the template.
+    var uuid = (typeof datasetKey !== 'undefined') ? datasetKey : ''; // This key is passed through the template.
 
     var concatenateValues = function(events) {
         // Use the "processedValue" if it's provided by the server side.

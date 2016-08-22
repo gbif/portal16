@@ -23,7 +23,7 @@ function taxonExploreDirective() {
     return directive;
 
     /** @ngInject */
-    function taxonExplore($state, SpeciesSuggest, Species, OccurrenceFilter) {
+    function taxonExplore($state, SpeciesSuggest) {
         var vm = this;
         vm.hide = true;
         vm.scientificName = 'abies';
