@@ -47,9 +47,10 @@ require('./angular/cms.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
-//require('./angular/occurrenceFilter.service');
+require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
 require('./angular/map.constants');
+require('./angular/enums.constants');
 
 
 require('../../../pages/search/search.ctrl');
@@ -77,6 +78,9 @@ require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 require('../../../components/searchDrawer/searchDrawer.directive');
 require('../../../components/enumFilter/enumFilter.directive');
+require('../../../components/filterTaxon/filterTaxon.directive');
+require('../../../components/filterSuggest/filterSuggest.directive');
+require('../../../components/focusMe/focusMe.directive');
 
 require('./angular/translate');
 

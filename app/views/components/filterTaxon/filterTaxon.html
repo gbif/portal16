@@ -1,0 +1,43 @@
+<div class="filter-group filter-group--search">
+    <a href="" class="inherit" ng-click="vm.filterCollapsed = !vm.filterCollapsed">
+        <h5>
+            <span class="text-capitalize" translate="ocurrenceFieldNames.scientificName">scientificName</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.filterCollapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.filterCollapsed"></span>
+        </h5>
+    </a>
+
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.filterCollapsed}">
+        <div class="filter-group__filter__search" ng-if="!vm.filterCollapsed">
+            <input type="text"
+                   focus-me="!vm.filterCollapsed"
+                   autocomplete="off"
+                   class="fit-suggestions"
+                   ng-model="vm.selected"
+                   placeholder="{{ 'search.placeholder' | translate }}"
+                   uib-typeahead="suggestion.canonicalName for suggestion in vm.getSuggestions($viewValue)"
+                   typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
+                   typeahead-focus-first="true"
+                   typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html">
+        </div>
+        <div ng-if="vm.filterQuery[vm.filterTitle].length > 0" class="is-padded">
+            <div class="checkbox" ng-repeat="key in vm.filterQuery[vm.filterTitle]">
+                <label>
+                    <input type="checkbox" checklist-model="vm.filterQuery[vm.filterTitle]" checklist-value="key">
+                    <span ng-if="vm.usedKeys[key].scientificName">
+                        {{vm.usedKeys[key].scientificName}}
+                    </span>
+                    <span ng-if="!vm.usedKeys[key].scientificName">
+                        {{vm.usedKeys[key].canonicalName}}
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="site-drawer__bar seperator" ng-if="!vm.filterCollapsed">
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">No filter</a>
+        </div>
+
+    </div>
+</div>
+

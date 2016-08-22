@@ -12,8 +12,8 @@ function enumFilterDirective() {
         transclude: true,
         templateUrl: '/templates/components/enumFilter/enumFilter.html',
         scope: {
-            values: '@',
-            filter: '='
+            filterQuery: '=',
+            filterConfig: '='
         },
         replace: true,
         controller: enumFilter,
@@ -24,23 +24,38 @@ function enumFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function enumFilter() {
+    function enumFilter($state, $filter) {
         var vm = this;
+        vm.enumValues = vm.filterConfig.enumValues;
+        vm.title = vm.filterConfig.title;
+        vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
+        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate || false;
+        vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
-        vm.roles = [
-            'TEST A',
-            'TEST B'
-        ];
-        vm.user = {
-            roles: ['TEST A']
+        vm.filterQuery[vm.title] = $filter('unique')(vm.filterQuery[vm.title]);
+
+        vm.change = function(e, checked) {
+            if (vm.filterAutoUpdate) {
+                if (checked) {
+                    vm.filterQuery[vm.title].push(e);
+                } else {
+                    vm.filterQuery[vm.title].splice(vm.filterQuery[vm.title].indexOf(e), 1);
+                }
+                vm.apply();
+            }
         };
-
-
-        //vm.filter = vm.filter ? [].concat(vm.filter) : [];
-        //vm.filterMap = {};
-        //vm.filter.forEach(function(e){
-        //    vm.filterMap[e] = true;
-        //});
+        vm.reverse = function() {
+            vm.filterQuery[vm.title] =  vm.enumValues.filter(function(e){
+                return vm.filterQuery[vm.title].indexOf(e) == -1;
+            });
+        };
+        vm.uncheckAll = function() {
+            vm.filterQuery[vm.title] = [];
+        };
+        vm.apply = function() {
+            $state.go('.', vm.filterQuery, {inherit: false, notify: true, reload: true});
+        }
     }
 }
 

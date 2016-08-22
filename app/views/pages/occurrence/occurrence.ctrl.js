@@ -14,97 +14,76 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, hotkeys, $http) {
+function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter, results) {
     var vm = this;
     vm.query = angular.copy($stateParams);
     vm.query.basisOfRecord = vm.query.basisOfRecord ? [].concat(vm.query.basisOfRecord) : [];
     vm.query.typeStatus = vm.query.typeStatus ? [].concat(vm.query.typeStatus) : [];
-
-    vm.freeTextQuery = vm.query.q;
     vm.hide = true;
     vm.state = $state;
-    vm.collapsed = {
-        basisOfRecord: true,
-        typeStatus: true
+
+
+    vm.filters = {
+        basisOfRecord: {
+            enumValues: enums.basisOfRecord,
+            queryKey: 'basisOfRecord',
+            title: 'basisOfRecord',
+            translationPrefix: 'basisOfRecord'
+        }
+    };
+    vm.filters.typeStatus = {
+        enumValues: enums.typeStatus,
+        queryKey: 'typeStatus',
+        title: 'typeStatus',
+        translationPrefix: 'typeStatus'
     };
 
-    vm.enums = {
-        basisOfRecord: [
-            'OBSERVATION',
-            'LITERATURE',
-            'PRESERVED_SPECIMEN',
-            'FOSSIL_SPECIMEN',
-            'LIVING_SPECIMEN',
-            'HUMAN_OBSERVATION',
-            'MACHINE_OBSERVATION',
-            'MATERIAL_SAMPLE',
-            'UNKNOWN'
-        ],
-        typeStatus: [
-            'ALLOLECTOTYPE',
-            'ALLONEOTYPE',
-            'ALLOTYPE',
-            'COTYPE',
-            'EPITYPE',
-            'EXEPITYPE',
-            'EXHOLOTYPE',
-            'EXISOTYPE',
-            'EXLECTOTYPE',
-            'EXNEOTYPE',
-            'EXPARATYPE',
-            'EXSYNTYPE',
-            'EXTYPE',
-            'HAPANTOTYPE',
-            'HOLOTYPE',
-            'ICONOTYPE',
-            'ISOLECTOTYPE',
-            'ISONEOTYPE',
-            'ISOSYNTYPE',
-            'ISOTYPE',
-            'LECTOTYPE',
-            'NEOTYPE',
-            'NOTATYPE',
-            'ORIGINALMATERIAL',
-            'PARALECTOTYPE',
-            'PARANEOTYPE',
-            'PARATYPE',
-            'PLASTOHOLOTYPE',
-            'PLASTOISOTYPE',
-            'PLASTOLECTOTYPE',
-            'PLASTONEOTYPE',
-            'PLASTOPARATYPE',
-            'PLASTOSYNTYPE',
-            'PLASTOTYPE',
-            'SECONDARYTYPE',
-            'SUPPLEMENTARYTYPE',
-            'SYNTYPE',
-            'TOPOTYPE'
-        ]
+    vm.filters.month = {
+        enumValues: enums.month,
+        queryKey: 'month',
+        title: 'month',
+        translationPrefix: 'month'
     };
 
-
-
-    vm.addTaxonKey = function(key) {
-        Species.get({id: key}, function(data){
-            //vm.suggest.selectedKeys.push(data.key);
-            //vm.suggest.selected.push(data);
-            vm.taxonKeyMap[key] = data;
-        });
+    vm.filters.establishmentMeans = {
+        enumValues: enums.establishmentMeans,
+        queryKey: 'establishmentMeans',
+        title: 'establishmentMeans',
+        translationPrefix: 'establishmentMeans'
     };
-    vm.taxonKeyMap = {};
-    vm.query.taxonKey  = vm.query.taxonKey ? [].concat(vm.query.taxonKey) : [];
-    vm.query.taxonKey.forEach(function(e){
-        vm.addTaxonKey(e);
-    });
+
+    //suggest filters
+    vm.filters.recordedBy = {
+        title: 'recordedBy'
+    };
+
+    vm.filters.recordNumber = {
+        title: 'recordNumber'
+    };
+
+    vm.filters.occurrenceId = {
+        title: 'occurrenceId'
+    };
+
+    vm.filters.catalogNumber = {
+        title: 'catalogNumber'
+    };
+
+    vm.filters.institutionCode = {
+        title: 'institutionCode'
+    };
+
+    vm.filters.collectionCode = {
+        title: 'collectionCode'
+    };
+
 
     vm.search = function() {
-        vm.query.q = vm.freeTextQuery;
         $state.go('.', vm.query, {inherit:false, notify: true, reload: true});
-        window.scrollTo(0,0);
+        //window.scrollTo(0,0);
     };
 
     vm.updateSearch = function() {
-        vm.query.q = vm.freeTextQuery;
         vm.query.offset =  undefined;
         vm.query.limit =  undefined;
         $state.go($state.current, vm.query);
@@ -124,44 +103,27 @@ function occurrenceCtrl($state, $stateParams, SpeciesSuggest, Species, hotkeys, 
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
+        allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
         callback: function(event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
     });
 
+    hotkeys.add({
+        combo: 'alt+enter',
+        description: 'Apply',
+        allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+        callback: function(event) {
+            vm.updateSearch();
+            event.preventDefault();
+        }
+    });
 
-
-
-
-
-
-
-
-
-     vm.getSuggestions = function(val) {
-         return $http.get('//api.gbif.org/v1/species/suggest', {
-             params: {
-                 q: val,
-                 limit: 10,
-                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
-             }
-         }).then(function(response){
-             return response.data;
-         });
-     };
-
-     vm.typeaheadSelect = function(item){ //  model, label, event
-         if (vm.query.taxonKey.indexOf(item.key) < 0) {
-             vm.taxonKeyMap[item.key] = item;
-             vm.query.taxonKey.push(item.key);
-         }
-     };
-
-
-
-
-
+    OccurrenceFilter.onFilterChange($scope, function(data){
+        console.log(data);
+        console.log(results);
+    });
 
 }
 

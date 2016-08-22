@@ -641,7 +641,7 @@ function processQueryTable(body, __) {
                     break;
                 case 'Basis of record':
                     row.filterValues.forEach(function(v){
-                        v.value = __('bor.' + v.value);
+                        v.value = __('basisOfRecord.' + v.value);
                     });
                     break;
             }

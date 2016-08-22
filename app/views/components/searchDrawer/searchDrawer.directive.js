@@ -12,7 +12,7 @@ function searchDrawerDirective() {
         transclude: true,
         templateUrl: '/templates/components/searchDrawer/searchDrawer.html',
         scope: {
-            query: '@',
+            filter: '=',
             contentType: '@'
         },
         replace: true,
@@ -24,24 +24,33 @@ function searchDrawerDirective() {
     return directive;
 
     /** @ngInject */
-    function searchDrawer($rootScope, $stateParams) {
+    function searchDrawer($state, OccurrenceFilter) {
         var vm = this;
-
-        //$rootScope.$on('$stateChangeSuccess',
-        //    function(event, toState, toParams, fromState, fromParams){
-        //        vm.setFilterCount(toParams);
-        //    });
+        vm.filter = vm.filter || {};
 
         vm.getFilterCount = function() {
             var c = 0;
-            Object.keys($stateParams).forEach(function(e){
-                var v = $stateParams[e];
-                if (typeof v !== 'undefined' && e != 'locale' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
-                    c++;
+            Object.keys(vm.filter).forEach(function(e){
+                var v = vm.filter[e];
+                if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
+                    c += [].concat(v).length;
                 }
             });
             return c;
         };
+
+        vm.search = function() {
+            //$state.go('.', vm.filter, {inherit:false, notify: false, reload: false});
+            OccurrenceFilter.filterChange({'hej': 5});
+        };
+
+        //vm.fabStyle = {
+        //    top: '300px'
+        //};
+        //vm.repositionFloatAction = function($event) {
+        //    vm.fabStyle.top = $event.pageY + 'px';
+        //    console.log($event.clientY);
+        //};
 
     }
 }

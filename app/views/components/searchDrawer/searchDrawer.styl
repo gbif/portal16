@@ -1,0 +1,291 @@
+//.site-drawer {
+//	&__fab {
+//		position absolute
+//		background #3b99fc
+//		z-index -1
+//		right 200px
+//		padding 10px
+//		text-align right
+//		text-transform uppercase
+//		color white
+//		cursor pointer
+//		margin-top -(vrBlock(4))
+//		transition right 300ms ease
+//		display none
+//	}
+//	&:hover {
+//		.site-drawer__fab {
+//			right $filterDrawerWidth
+//		}
+//	}
+//}
+
+.site-drawer {
+	box-shadow -2px 1px 2px rgba(0,0,0,0.2)
+	background $drawerBackgroundColor
+	font-size 12px
+	position relative
+	background white
+	&__content {
+		background white
+	}
+	&__header {
+		background white
+		//padding 0 20px
+		position relative
+		&__title {
+			font-size 14px
+			> a, >span {
+				font-weight 700
+				text-align center
+				display block
+				height vrBlock(1.5)
+				line-height vrBlock(1.5)
+				text-transform capitalize
+				color inherit
+			}
+			.stripe-menu {
+				top vrBlock(1)
+				left 0
+				margin 0
+				.stripe-menu__drop-down {
+					width 50%
+					left 25%
+				}
+			}
+		}
+		//a.site-drawer__header__action {
+		//	width vrBlock(1.5)
+		//	font-size 24px
+		//	height $searchTabBar-height
+		//	line-height $searchTabBar-height
+		//	text-align center
+		//	display inline-block
+		//	position absolute
+		//	margin 0 20px
+		//	top 0
+		//	&:hover {
+		//		text-decoration none
+		//	}
+		//	.count {
+		//		position absolute
+		//		bottom 2px
+		//		left 15px
+		//	}
+		//}
+	}
+
+	&__section {
+		background $drawerBackgroundColor
+		color $drawerTextColor
+	}
+
+	//&__footer {
+	//	position relative
+	//	>div {
+	//		vertically-align()
+	//	}
+	//	background white
+	//	position relative
+	//	width 100%
+	//	z-index 20
+	//	overflow hidden
+	//	height vrBlock(2)
+	//	border-top 1px solid $stripeBorderColor
+	//}
+
+	&__search-bar {
+		position relative
+		border-bottom 1px solid $stripeBorderColor
+		input {
+			width calc(100% - 30px)
+			border none
+			margin 10px 0
+			outline none
+			padding 0 20px
+		}
+		button {
+			position absolute
+			right 0
+			background none
+			border none
+			font-size 20px
+			margin 5px 10px
+		}
+		.dropdown-menu {
+			width 100%
+			overflow hidden
+			border-radius 0
+			a {
+				text-overflow ellipsis
+				overflow hidden
+			}
+		}
+	}
+
+
+	&__section {
+		border-top 1px solid $stripeBorderColor
+		padding-bottom 50px
+		&__content {
+			padding 10px 20px
+		}
+	}
+
+}
+
+.site-drawer {
+	&__bar {
+		display flex
+		padding 0
+		&__action, &__title, &__icon {
+			flex 1 1 auto
+			text-transform uppercase
+			text-align center
+			height $searchTabBar-height
+			line-height $searchTabBar-height
+			position relative
+			&:hover {
+				text-decoration none
+				//	background darken($drawerSecondaryBackgroundColor, 5)
+			}
+		}
+		&__action {
+			max-width 50%
+		}
+		&__icon {
+			width vrBlock(1.5)
+			margin 0 20px
+			font-size 22px
+			text-align center
+			display block
+			flex 0 0 auto
+			border-radius 50%
+			&:hover, &:focus {
+				text-decoration none
+				//background rgba(0,0,0,0.08)
+			}
+			.count {
+				position absolute
+				bottom 2px
+				left 15px
+			}
+		}
+		&__title {
+			font-size 14px
+			> a, >span {
+				font-weight 700
+				text-align center
+				display block
+				height vrBlock(1.5)
+				line-height vrBlock(1.5)
+				text-transform capitalize
+				color inherit
+			}
+			.stripe-menu {
+				top vrBlock(1)
+				left 0
+				margin 0
+				.stripe-menu__drop-down {
+					width 50%
+					left 25%
+				}
+			}
+		}
+	}
+}
+.site-drawer__bar__action--hover-only {
+	visibility hidden
+}
+
+.seperator {
+	border-top 1px solid $stripeBorderColor
+	&--b {
+		border-bottom 1px solid rgba(0,0,0,0.08)
+	}
+}
+
+.filter-group {
+	border-bottom 1px solid $stripeBorderColor
+	&:hover {
+		.site-drawer__bar__action--hover-only {
+			visibility visible
+		}
+	}
+	&__header {
+		background white
+	}
+	h5 {
+		font-weight bold
+		padding 0 20px
+		[class^="gb-icon-"], [class*=" gb-icon-"] {
+			font-size 20px
+			position relative
+			top -3px
+		}
+	}
+	input[type=checkbox], input[type=radio] {
+		margin-top 3px
+	}
+	&__filter {
+		>.is-padded {
+			padding 0 20px
+		}
+	}
+	&__filter {
+		overflow hidden
+		background $drawerSecondaryBackgroundColor
+		border-top 1px solid $stripeBorderColor
+		&--collapsed {
+			border-color $drawerBackgroundColor
+			background $drawerBackgroundColor
+		}
+		label {
+			width 100%
+		}
+		&__search {
+			padding 0
+			input {
+				width 100%
+				background none
+				border none
+				padding 10px 20px
+				outline 0
+			}
+		}
+	}
+	&__count {
+		color #c3c3c3
+	}
+}
+
+
++isAbove($desktop) {
+	.drawer-padding {
+		padding-left $filterDrawerWidth
+	}
+	.site-drawer {
+		&__header {
+			&__close {
+				display none
+			}
+		}
+	}
+}
+
+
+//.attention {
+//	color #3b99fc !important
+//}
+//@keyframes colours {
+//	0% {color: #39f;}
+//	50% {color: #27c;}
+//}
+//
+//.attention {
+//	animation-direction normal
+//	animation-duration 2s
+//	animation-iteration-count infinite
+//	animation-name colours
+//	animation-timing-function ease
+//}

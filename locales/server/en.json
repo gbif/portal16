@@ -3,7 +3,7 @@
 		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what we could find.",
 		"placeholder": "search"
 	},
-	"bor": {
+	"basisOfRecord": {
 		"PRESERVED_SPECIMEN": "preserved specimen",
 		"FOSSIL_SPECIMEN": "fossil specimen",
 		"LIVING_SPECIMEN": "living specimen",
@@ -17,14 +17,44 @@
 		"undefined": "unknown"
 	},
 	"typeStatus": {
-		"EXEPITYPE": "exepitype",
-		"HOLOTYPE": "holotype",
-		"SYNTYPE": "syntype",
-		"ISONEOTYPE": "isoneotype",
-		"ISOTYPE": "isotype",
-		"TYPE": "type",
-		"PARALECTOTYPE": "paralectotype",
-		"PARATYPE": "paratype"
+		"ALLOLECTOTYPE" : "Allolectotype",
+		"ALLONEOTYPE" : "Alloneotype",
+		"ALLOTYPE" : "Allotype",
+		"COTYPE" : "Cotype",
+		"EPITYPE" : "Epitype",
+		"EXEPITYPE" : "Exepitype",
+		"EXHOLOTYPE" : "Exholotype",
+		"EXISOTYPE" : "Exisotype",
+		"EXLECTOTYPE" : "Exlectotype",
+		"EXNEOTYPE" : "Exneotype",
+		"EXPARATYPE" : "Exparatype",
+		"EXSYNTYPE" : "Exsyntype",
+		"EXTYPE" : "Extype",
+		"HAPANTOTYPE" : "Hapantotype",
+		"HOLOTYPE" : "Holotype",
+		"ICONOTYPE" : "Iconotype",
+		"ISOLECTOTYPE" : "Isolectotype",
+		"ISONEOTYPE" : "Isoneotype",
+		"ISOSYNTYPE" : "Isosyntype",
+		"ISOTYPE" : "Isotype",
+		"LECTOTYPE" : "Lectotype",
+		"NEOTYPE" : "Neotype",
+		"NOTATYPE" : "Notatype",
+		"ORIGINALMATERIAL" : "Originalmaterial",
+		"PARALECTOTYPE" : "Paralectotype",
+		"PARANEOTYPE" : "Paraneotype",
+		"PARATYPE" : "Paratype",
+		"PLASTOHOLOTYPE" : "Plastoholotype",
+		"PLASTOISOTYPE" : "Plastoisotype",
+		"PLASTOLECTOTYPE" : "Plastolectotype",
+		"PLASTONEOTYPE" : "Plastoneotype",
+		"PLASTOPARATYPE" : "Plastoparatype",
+		"PLASTOSYNTYPE" : "Plastosyntype",
+		"PLASTOTYPE" : "Plastotype",
+		"SECONDARYTYPE" : "Secondarytype",
+		"SUPPLEMENTARYTYPE" : "Supplementarytype",
+		"SYNTYPE" : "Syntype",
+		"TOPOTYPE" : "Topotype"
 	},
 	"occurrence": {
 		"title": {
@@ -914,6 +944,7 @@
 		"dataGeneralizations": "data generalizations",
 		"dynamicProperties": "dynamic properties",
 		"occurrenceID": "occurrence ID",
+		"occurrenceId": "occurrence ID",
 		"catalogNumber": "catalog number",
 		"recordNumber": "record number",
 		"recordedBy": "recorded by",
@@ -1233,6 +1264,28 @@
 			"undefined": "",
 			"FORMER": "%s is a former participant of GBIF"
 		}
+	},
+	"month": {
+		"1": "January",
+		"2": "February",
+		"3": "March",
+		"4": "April",
+		"5": "May",
+		"6": "June",
+		"7": "July",
+		"8": "August",
+		"9": "September",
+		"10": "October",
+		"11": "November",
+		"12": "December"
+	},
+	"establishmentMeans": {
+		"NATIVE": "native",
+		"INTRODUCED": "introduced",
+		"NATURALISED": "naturalised",
+		"INVASIVE": "invasive",
+		"MANAGED": "managed",
+		"UNCERTAIN": "uncertain"
 	},
 	"cms": {
 		"type": {

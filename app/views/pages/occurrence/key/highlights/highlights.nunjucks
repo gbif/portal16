@@ -27,7 +27,7 @@
 
                     <div>
                         <dt class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</dt>
-                        <dd class="text-capitalize">{$ __('bor.' + occurrence.record.basisOfRecord) $}</dd>
+                        <dd class="text-capitalize">{$ __('basisOfRecord.' + occurrence.record.basisOfRecord) $}</dd>
                     </div>
                     {% if occurrence.record.typeStatus | isNotEmpty %}
                         <div>

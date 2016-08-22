@@ -17,7 +17,7 @@ angular
         // note that we require $scope first
         // so that when the subscriber is destroyed you
         // don't create a closure over it, and the scope can clean up.
-        var onOccurrenceFilterChange = function($scope, handler) {
+        var onFilterChange = function($scope, handler) {
             $scope.$on(OCCURRENCE_FILTER_CHANGE, function(event, message){
                 handler(message.info);
             });
@@ -27,7 +27,7 @@ angular
 
         return {
             filterChange: filterChange,
-            onFilterChange: onOccurrenceFilterChange
+            onFilterChange: onFilterChange
         };
 
     });

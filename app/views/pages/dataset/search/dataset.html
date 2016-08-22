@@ -4,7 +4,7 @@
     </a>
 </script>
 
-<div search-drawer query="{{dataset.freeTextQuery}}" content-type="datasets">
+<div search-drawer filter="occurrence.query" content-type="datasets">
     <div class="site-drawer__section">
         <div class="search-bar">
             <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
@@ -29,20 +29,18 @@
             <div class="site-drawer__facet-group" ng-if="dataset.filters[facetField].length > 0 || dataset.facets[facetField].length > 0">
                 <h5 translate>{{facetField | prettifyEnum}}</h5>
                 <div ng-repeat="filter in dataset.filters[facetField]">
-                    <span class="chip">
-                        <a href="" ng-click="dataset.removeFilter(facetField, filter.name)" class="chip__content">
-                            <span class="site-drawer__facet-group__facet">{{filter.title}}</span>
-                            <span class="close"></span>
-                        </a>
-                    </span>
+                    <a href="" class="chip chip--selected" ng-click="dataset.removeFilter(facetField, filter.name)">
+                        <span class="chip__title">{{filter.title | truncate:80 }}</span>
+                        <span class="chip__remove"></span>
+                    </a>
                 </div>
 
                 <div ng-repeat="facet in dataset.facets[facetField]">
-                    <a href="" ng-click="dataset.addFilter(facetField, facet.name)" ng-if="!dataset.isFacetInQuery(facetField, facet.name)">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">{{facet.title}}</span>
-                            <span class="site-drawer__facet-group__count">({{facet.count}})</span>
+                    <a href="" class="chip--facet-option" ng-click="dataset.addFilter(facetField, facet.name)" ng-if="!dataset.isFacetInQuery(facetField, facet.name)" title="{{facet.title}}">
+                        <span class="chip__title">
+                            <span>{{facet.title}}</span>
                         </span>
+                        <span class="chip__count badge">{{facet.count}}</span>
                     </a>
                 </div>
 

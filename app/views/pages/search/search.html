@@ -12,56 +12,73 @@
                 </a>
             </form>
         </div>
-        <div>
-            <div class="site-drawer__facet-group">
-                <h5>Content type</h5>
-                <div>
-                    <a ui-sref="occurrenceSearchTable({q:omniSearch.freeTextQuery})">
+
+
+        <div class="filter-group filter-group--search seperator">
+            <a href="" class="inherit">
+                <h5>
+                    Content type
+                </h5>
+            </a>
+            <div class="filter-group__filter">
+                <a href="" ui-sref="occurrenceSearchTable({q:omniSearch.freeTextQuery})" class="radio inherit is-padded">
+                    <label>
+                        <input type="radio" name="contentType"> Occurrences
+                    </label>
+                </a>
+                <a href="" ui-sref="datasetSearchTable({q:omniSearch.freeTextQuery})" class="radio inherit is-padded">
+                    <label>
+                        <input type="radio" name="contentType"> Datasets
+                    </label>
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})" class="radio inherit is-padded">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Occurrences</span>
+                            <label>
+                                <input type="radio" name="contentType">
+                                <span translate="cms.type.news"></span>
+                            </label>
                         </span>
-                    </a>
-                    <a ui-sref="datasetSearchTable({q: omniSearch.query.q})" >
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})" class="radio inherit is-padded">
                         <span>
-                            <span class="site-drawer__facet-group__facet" translate="stdTerms.datasets">Datasets</span>
+                            <label>
+                                <input type="radio" name="contentType">
+                                <span translate="cms.type.data_use"></span>
+                            </label>
                         </span>
-                    </a>
-                    <a href="/species/table">
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})" class="radio inherit is-padded">
                         <span>
-                            <span class="site-drawer__facet-group__facet">Species</span>
+                            <label>
+                                <input type="radio" name="contentType" translate="cms.type.event">
+                                <span translate="cms.type.event"></span>
+                            </label>
                         </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})">
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource'})" class="radio inherit is-padded">
                         <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.news">News</span>
+                            <label>
+                                <input type="radio" name="contentType">
+                                <span translate="cms.type.resource"></span>
+                            </label>
                         </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})">
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})" class="radio inherit is-padded">
                         <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.data_use">Data use</span>
+                            <label>
+                                <input type="radio" name="contentType">
+                                <span translate="cms.type.programme"></span>
+                            </label>
                         </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})">
-                        <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.event">Event</span>
-                        </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource'})">
-                        <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.resource">Resource</span>
-                        </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})">
-                        <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.programme">Programme</span>
-                        </span>
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})">
-                        <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.project">Project</span>
-                        </span>
-                    </a>
-                </div>
+                </a>
+                <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})" class="radio inherit is-padded">
+                    <span>
+                        <label>
+                            <input type="radio" name="contentType">
+                            <span translate="cms.type.project"></span>
+                        </label>
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -79,31 +96,6 @@
 
     <div class="page">
         <div class="dataset-search-results">
-
-            <!--<nav class="horizontal-stripe&#45;&#45;paddingless light-background search-tabs">-->
-                <!--<div>-->
-                    <!--<div class="container&#45;&#45;narrow">-->
-                        <!--<div class="row">-->
-                            <!--<div class="col-xs-12">-->
-                                <!--<ul class="tabs">-->
-                                    <!--<li class="is-active">-->
-                                        <!--<a ng-href="" translate="stdTerms.all">All</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a ui-sref="datasetSearchTable({q: omniSearch.query.q})" translate="stdTerms.datasets">datasets</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a ui-sref="occurrenceSearchTable({q: omniSearch.query.q})" translate="stdTerms.occurrences">occurrences</a>-->
-                                    <!--</li>-->
-                                    <!--<li>-->
-                                        <!--<a ui-sref="cmsSearchTable({q: omniSearch.query.q})" translate="stdTerms.cms">information</a>-->
-                                    <!--</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</nav>-->
 
             <div ui-view>
 

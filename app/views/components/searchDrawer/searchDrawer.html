@@ -1,53 +1,69 @@
 <aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': dataset.showDrawer}">
-
-    <div class="site-drawer__actions clearfix">
-        <a ui-sref="omniSearch({q: vm.query})" ui-sref-opts="{inherit: false}" class="gb-icon-angle-left inherit discreet site-drawer__actions__back" tooltip-placement="right" uib-tooltip="Search everything">
-        </a>
-        <div class="site-drawer__actions__title">
+    <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
+        <!--Apply filters-->
+    <!--</div>-->
+    <div class="site-drawer__content">
+        <div class="site-drawer__header">
+            <div class="site-drawer__bar">
                 <a href=""
-                   class="inherit text-capitalize"
-                   translate="stdTerms.{{vm.contentType}}"
-                   ng-click="vm.expandContentTypeMenu = !vm.expandContentTypeMenu">
-                    Datasets
+                   ui-sref="omniSearch({q: vm.query})"
+                   ui-sref-opts="{inherit: false}"
+                   class="gb-icon-angle-left site-drawer__bar__icon inherit"
+                   tooltip-placement="right"
+                   uib-tooltip="Search everything">
                 </a>
-            <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
-                <div class="stripe-menu__drop-down"
-                     ng-show="vm.expandContentTypeMenu"
-                     click-outside="vm.expandContentTypeMenu = false"
-                     click-outside-unless="!vm.expandContentTypeMenu">
-                    <ul>
-                        <li class="text-capitalize text-muted">
-                            <a href=""
-                               ng-click="vm.expandContentTypeMenu = false"
-                               translate="stdTerms.{{vm.contentType}}"
-                               class="inherit text-muted">
-                            </a>
-                        </li>
-                        <li class="text-capitalize seperator">
-                            <a ui-sref="omniSearch({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
-                                All
-                            </a>
-                        </li>
-                        <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
-                            <a ui-sref="occurrenceSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
-                                Occurrences
-                            </a>
-                        </li>
-                        <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
-                            <a ui-sref="datasetSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
-                                Datasets
-                            </a>
-                        </li>
-                    </ul>
+                <div class="site-drawer__bar__title">
+                    <a href=""
+                       class="inherit"
+                       ng-click="vm.expandContentTypeMenu = true"
+                       ng-if="!vm.expandContentTypeMenu"
+                       translate="stdTerms.{{vm.contentType}}">
+                    </a>
+                    <span translate="stdTerms.{{vm.contentType}}"
+                          ng-if="vm.expandContentTypeMenu">
+                    </span>
+                    <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
+                        <div class="stripe-menu__drop-down"
+                             ng-show="vm.expandContentTypeMenu"
+                             click-outside="vm.expandContentTypeMenu = false"
+                             click-outside-unless="!vm.expandContentTypeMenu">
+                            <ul>
+                                <li class="text-capitalize seperator--b">
+                                    <a ui-sref="omniSearch({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
+                                        All
+                                    </a>
+                                </li>
+                                <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
+                                    <a ui-sref="occurrenceSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
+                                        Occurrences
+                                    </a>
+                                </li>
+                                <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
+                                    <a ui-sref="datasetSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
+                                        Datasets
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                <span class="site-drawer__bar__action site-drawer__bar__icon invisible"></span>
             </div>
+
+            <div class="site-drawer__bar">
+                <a ui-sref="{}" ui-sref-opts="{inherit: false}" class="gb-icon-trash discreet inherit site-drawer__bar__icon" tooltip-placement="left" uib-tooltip="Clear filters">
+                    <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
+                </a>
+                <a href="" ng-click="vm.search()" class="discreet site-drawer__bar__action">
+                    Apply
+                </a>
+                <span class="site-drawer__bar__icon invisible"></span>
+            </div>
+            {{vm.hasChanged()}}
         </div>
 
-        <a ui-sref="{}" ui-sref-opts="{inherit: false}" class="gb-icon-trash inherit discreet pull-right site-drawer__actions__clear" tooltip-placement="left" uib-tooltip="Clear filters">
-            <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
-        </a>
+
+        <!--<ng-transclude ng-mousemove="vm.repositionFloatAction($event)"></ng-transclude>-->
+        <ng-transclude></ng-transclude>
     </div>
-
-    <ng-transclude></ng-transclude>
-
 </aside>

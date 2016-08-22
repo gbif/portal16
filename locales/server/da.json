@@ -1228,5 +1228,8 @@
 			"undefined": "",
 			"FORMER": "%s is a former participant of GBIF"
 		}
+	},
+	"basisOfRecord": {
+		"HUMAN_OBSERVATION": "basisOfRecord.HUMAN_OBSERVATION"
 	}
 }

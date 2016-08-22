@@ -9,16 +9,16 @@
                 </nav>
                 <div class="small text-muted text-center" style="height:30px">{{occTable.count | number}} results</div>
                 <div class="stripe-menu">
-                    <a href="" ui-sref="occurrenceSearchTable()"
-                       class="gb-icon-menu stripe-menu__option"
+                    <span
+                       class="gb-icon-menu stripe-menu__option stripe-menu__option is-active"
                        tooltip-placement="bottom"
-                       uib-tooltip="Table"></a>
+                       uib-tooltip="Table"></span>
                     <a href="" ui-sref="occurrenceSearchGallery()"
-                       class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+                       class="gb-icon-photo stripe-menu__option"
                        tooltip-placement="bottom"
                        uib-tooltip="Gallery"></a>
                     <a href="" ui-sref="occurrenceSearchMap()"
-                       class="gb-icon-map-marker stripe-menu__menu stripe-menu__option"
+                       class="gb-icon-map-marker stripe-menu__option"
                        tooltip-placement="bottom"
                        uib-tooltip="Map"></a>
                 </div>
@@ -84,7 +84,7 @@
                                     </a>
                                 </td>
                                 <td class="table-cell--normal">
-                                    <a ng-href="{{result.key}}" translate="bor.{{result.basisOfRecord}}"></a>
+                                    <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                                 </td>
                                 <td class="table-cell--narrow">
                                     <a ng-href="{{result.key}}">
