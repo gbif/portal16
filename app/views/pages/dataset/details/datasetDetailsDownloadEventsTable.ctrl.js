@@ -40,7 +40,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     DownloadEventsService.get({id: uuid, limit: limit}).$promise.then(
         function (res) {
             vm.events = res.results;
-        }, function (errRes) {
+        }, function () {
         }
     );
 
@@ -50,7 +50,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
             function (res) {
                 vm.events = vm.events.concat(res.results);
                 concatenateValues(vm.events);
-            }, function (errRes) {
+            }, function () {
             }
 
         );

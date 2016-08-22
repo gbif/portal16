@@ -31,7 +31,7 @@ function datasetCtrl($state, DatasetFilter, $stateParams, results, $http, hotkey
         'KEYWORD'
     ];
     vm.sortFacets = function(a) {
-        return facetOrder[a.field] || 100;
+        return vm.facetOrder[a.field] || 100;
     };
 
     vm.freeTextSearch = function() {
