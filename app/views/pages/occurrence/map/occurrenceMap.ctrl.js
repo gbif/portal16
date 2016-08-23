@@ -13,13 +13,12 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, env, results) {
+function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParamSerializer, $stateParams, env, OccurrenceFilter) {
     var vm = this;
-    vm.totalCount = results.count;
+    vm.searchState = OccurrenceFilter.getOccurrenceData();
     vm.mapMenu = {
         occurrences: {}
     };
-    console.log($stateParams.center);
 
     var getOverlay = function(query) {
         var overlay = {
@@ -72,16 +71,20 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
     var hashObject = function(obj) {
       return hashString(JSON.stringify(obj));
     };
-    var setOverlay = function() {
+    var setOverlay = function(q) {
         //TODO this should be changed to match the new tile/heatmap api
-        vm.query = angular.copy($stateParams);
+        vm.query = q;
         if (Object.keys(vm.layers.overlays).length > 0) {
             vm.layers.overlays = {};
         }
         vm.layers.overlays['occurrences' + hashObject(vm.query)] =  getOverlay(vm.query);
     };
 
-    setOverlay();
+    setOverlay(angular.copy($stateParams));
+
+    $scope.$watchCollection(function(){return $state.params }, function(newValue) {
+        setOverlay(newValue);
+    });
 }
 
 module.exports = occurrenceMapCtrl;

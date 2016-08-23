@@ -4,30 +4,33 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('OccurrenceFilter', function ($rootScope) {
-        var OCCURRENCE_FILTER_CHANGE= "occurrenceFilterChange";
+    .service('OccurrenceFilter', function ($rootScope, $state, $stateParams, OccurrenceTableSearch) {
+        var occurrenceResults = {
+            data: {}
+        };
+        var availableFacets = ['basisOfRecord', 'month', 'typeStatus', 'dataset'];
+        var facets = [];
+        availableFacets.forEach(function(facet){
+            facets.push(facet);
+        });
 
-        var filterChange = function(query) {
-            $rootScope.$broadcast(OCCURRENCE_FILTER_CHANGE,
-                {
-                    info: query
-                });
+        function getOccurrenceData() {
+            return occurrenceResults;
         };
 
-        // note that we require $scope first
-        // so that when the subscriber is destroyed you
-        // don't create a closure over it, and the scope can clean up.
-        var onFilterChange = function($scope, handler) {
-            $scope.$on(OCCURRENCE_FILTER_CHANGE, function(event, message){
-                handler(message.info);
+        function update(query) {
+            $state.go('.', query, {inherit:false, notify: false, reload: false});
+            query = query || {};
+            query.facet = facets;
+            OccurrenceTableSearch.query(query, function(data){
+                occurrenceResults.data = data;
             });
         };
-
-        // other CoreReactorChannel events would go here.
+        update();
 
         return {
-            filterChange: filterChange,
-            onFilterChange: onFilterChange
+            getOccurrenceData: getOccurrenceData,
+            update: update
         };
 
     });

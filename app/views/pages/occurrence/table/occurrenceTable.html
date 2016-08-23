@@ -7,7 +7,7 @@
                     <span class="article-header__category__upper">Search</span>
                     <span class="article-header__category__lower">Occurrences</span>
                 </nav>
-                <div class="small text-muted text-center" style="height:30px">{{occTable.count | number}} results</div>
+                <div class="small text-muted text-center" style="height:30px">{{occTable.results.data.count | number}} results</div>
                 <div class="stripe-menu">
                     <span
                        class="gb-icon-menu stripe-menu__option stripe-menu__option is-active"
@@ -71,7 +71,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.results" >
+                            <tr ng-repeat="result in occTable.results.data.results" >
                                 <td class="table-cell--wide">
                                     <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                                 </td>
@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <uib-pagination
-                                total-items="occTable.totalItems"
+                                total-items="occTable.results.data.count"
                                 ng-model="occTable.currentPage"
                                 max-size="occTable.maxSize"
                                 items-per-page="occTable.limit"
@@ -127,12 +127,11 @@
                                 boundary-link-numbers="false"
                                 rotate="false"
                                 ng-change="occTable.pageChanged()"
-                                ng-show="occTable.count > occTable.limit">
+                                ng-show="occTable.results.data.count > occTable.limit">
                         </uib-pagination>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

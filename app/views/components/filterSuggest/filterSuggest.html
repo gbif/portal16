@@ -22,7 +22,7 @@
         <div ng-if="vm.filterQuery[vm.queryKey].length > 0" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.filterQuery[vm.queryKey]">
                 <label>
-                    <input type="checkbox" checklist-model="vm.filterQuery[vm.queryKey]" checklist-value="key">
+                    <input type="checkbox" checklist-model="vm.filterQuery[vm.queryKey]" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span>
                         {{key}}
                     </span>

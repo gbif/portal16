@@ -41,12 +41,6 @@ function routerConfig($stateProvider, $locationProvider) {
                     controller: 'occurrenceCtrl',
                     controllerAs: 'occurrence'
                 }
-            },
-            resolve: {
-                results:  function($stateParams, OccurrenceTableSearch){
-                    var query = angular.copy($stateParams);
-                    return OccurrenceTableSearch.query(query).$promise;
-                }
             }
         })
         .state('occurrenceSearchTable', {

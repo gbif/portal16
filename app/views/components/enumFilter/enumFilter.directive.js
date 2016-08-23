@@ -24,13 +24,13 @@ function enumFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function enumFilter($state, $filter) {
+    function enumFilter($filter, OccurrenceFilter) {
         var vm = this;
         vm.enumValues = vm.filterConfig.enumValues;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate || false;
+        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
         vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
         vm.filterQuery[vm.title] = $filter('unique')(vm.filterQuery[vm.title]);
@@ -49,12 +49,19 @@ function enumFilterDirective() {
             vm.filterQuery[vm.title] =  vm.enumValues.filter(function(e){
                 return vm.filterQuery[vm.title].indexOf(e) == -1;
             });
+            if (vm.filterAutoUpdate) {
+                vm.apply();
+            }
         };
         vm.uncheckAll = function() {
             vm.filterQuery[vm.title] = [];
+            if (vm.filterAutoUpdate) {
+                vm.apply();
+            }
         };
         vm.apply = function() {
-            $state.go('.', vm.filterQuery, {inherit: false, notify: true, reload: true});
+            //$state.go('.', vm.filterQuery, {inherit: false, notify: false, reload: false});
+            OccurrenceFilter.update(vm.filterQuery);
         }
     }
 }

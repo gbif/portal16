@@ -32,7 +32,7 @@ function searchDrawerDirective() {
             var c = 0;
             Object.keys(vm.filter).forEach(function(e){
                 var v = vm.filter[e];
-                if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
+                if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'facet' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
                     c += [].concat(v).length;
                 }
             });
@@ -40,9 +40,10 @@ function searchDrawerDirective() {
         };
 
         vm.search = function() {
-            //$state.go('.', vm.filter, {inherit:false, notify: false, reload: false});
-            OccurrenceFilter.filterChange({'hej': 5});
+            $state.go('.', vm.filter, {inherit:false, notify: false, reload: false});
+            //OccurrenceFilter.update(vm.filter);
         };
+        //vm.search();
 
         //vm.fabStyle = {
         //    top: '300px'

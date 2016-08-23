@@ -24,13 +24,13 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($http, $filter, suggestEndpoints) {
+    function filterSuggest($http, $filter, suggestEndpoints, OccurrenceFilter) {
         var vm = this;
 
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || 'ocurrenceFieldNames';
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate || false;
+        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
         vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.queryKey];
         vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
@@ -51,12 +51,34 @@ function filterSuggestDirective() {
             if (vm.filterQuery[vm.queryKey].indexOf(item.toString()) < 0) {
                 vm.filterQuery[vm.queryKey].push(item.toString());
                 vm.selected = '';
+                if (vm.filterAutoUpdate) {
+                    vm.apply();
+                }
+            }
+        };
+
+        vm.change = function(e, checked) {
+            if (vm.filterAutoUpdate) {
+                if (checked) {
+                    vm.filterQuery[vm.title].push(e);
+                } else {
+                    vm.filterQuery[vm.title].splice(vm.filterQuery[vm.title].indexOf(e), 1);
+                }
+                vm.apply();
             }
         };
 
         vm.uncheckAll = function() {
             vm.filterQuery[vm.queryKey] = [];
+            if (vm.filterAutoUpdate) {
+                vm.apply();
+            }
         };
+
+        vm.apply = function() {
+            //$state.go('.', vm.filterQuery, {inherit: false, notify: false, reload: false});
+            OccurrenceFilter.update(vm.filterQuery);
+        }
     }
 }
 

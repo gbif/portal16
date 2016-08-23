@@ -14,7 +14,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter, results) {
+function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter) {
     var vm = this;
     vm.query = angular.copy($stateParams);
     vm.query.basisOfRecord = vm.query.basisOfRecord ? [].concat(vm.query.basisOfRecord) : [];
@@ -84,10 +84,9 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
     };
 
     vm.updateSearch = function() {
-        vm.query.offset =  undefined;
-        vm.query.limit =  undefined;
-        $state.go($state.current, vm.query);
-        window.scrollTo(0,0);
+        vm.query.offset = undefined;
+        vm.query.limit = undefined;
+        $state.go($state.current, vm.query, {inherit:false, notify: false, reload: false});
     };
     vm.searchOnEnter = function(event) {
         if(event.which === 13) {
@@ -120,10 +119,6 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
         }
     });
 
-    OccurrenceFilter.onFilterChange($scope, function(data){
-        console.log(data);
-        console.log(results);
-    });
 
 }
 

@@ -13,11 +13,9 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter, $state, $stateParams, hotkeys, results) {
+function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter, $state, $stateParams, hotkeys, OccurrenceFilter) {
     var vm = this, offset;
-    vm.count = results.count;
-    vm.results = results.results;
-
+    vm.results = OccurrenceFilter.getOccurrenceData();
     //a pretty print for coordinates.
     //TODO create as reusable filter/formater 
     vm.formatCoordinates = function(lat, lng) {
@@ -31,16 +29,16 @@ function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter,
     };
 
     // // watch state params and fetch new data if it changes
-    $scope.$watchCollection(function(){return $stateParams}, function(newValue) {
-        // console.log('update me');
-        OccurrenceTableSearch.query(newValue, function(data){
-            vm.count = data.count;
-            vm.results = data.results;
-            updatePaginationCounts();
-        }, function () {
-            //TODO handle errors
-        });
-    });
+    // $scope.$watchCollection(function(){return $stateParams}, function(newValue) {
+    //     // console.log('update me');
+    //     OccurrenceTableSearch.query(newValue, function(data){
+    //         // vm.count = data.count;
+    //         // vm.results = data.results;
+    //         updatePaginationCounts();
+    //     }, function () {
+    //         //TODO handle errors
+    //     });
+    // });
 
 
     /* pagination */
@@ -48,7 +46,7 @@ function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter,
         offset = parseInt($stateParams.offset) || 0;
         vm.maxSize = 5;
         vm.limit = parseInt($stateParams.limit) || 20;
-        vm.totalItems = vm.count;
+        vm.totalItems = vm.results.data.count;
         vm.currentPage = Math.floor(offset / vm.limit) + 1;
     }
     updatePaginationCounts();
