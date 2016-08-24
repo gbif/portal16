@@ -4,7 +4,8 @@ var express = require('express'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/cmsData/apiConfig'),
-    cmsData = require('../../../../models/cmsData/cmsData');
+    cmsData = require('../../../../models/cmsData/cmsData'),
+    log = require('../../../../../config/log');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -52,10 +53,12 @@ router.get('/cms/search', function (req, res, next) {
         res.json(data);
 
     }, function(err){
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
-        next();
+        log.error('Error in /api/cms/search controller: ' + err.message);
+        res.status(500).json({
+            endpoint: '/api/cms/search',
+            statusCode: 500,
+            errorType: err.message
+        });
     });
 });
 

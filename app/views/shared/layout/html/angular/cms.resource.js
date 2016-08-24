@@ -17,10 +17,16 @@ var angular = require('angular');
             );
         })
         .factory('CmsSearch', function($resource) {
+
+            function resourceErrorHandler(response) {
+                var something;
+            }
+
             return $resource('/api/cms/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
+                        interceptor: {responseError: resourceErrorHandler}
                     }
                 }
             );
