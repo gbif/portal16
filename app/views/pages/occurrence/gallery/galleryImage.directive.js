@@ -15,8 +15,9 @@ angular
 
                 element.on('load', function() {
                     element.parent().css({
-                        'background-image': 'url(' + attrs.src +')'
+                        'background-image': 'url("' + attrs.src +'")'
                     });
+
                     var ratio = (element[0].naturalWidth)/element[0].naturalHeight;
                     if (ratio > widest) element.parent().attr('data-width', 'widest');
                     else if (ratio > wider && ratio <= widest) element.parent().attr('data-width', 'wider');

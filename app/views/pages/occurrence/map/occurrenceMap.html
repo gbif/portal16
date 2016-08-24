@@ -7,7 +7,9 @@
 					<span class="article-header__category__upper">Search</span>
 					<span class="article-header__category__lower">Occurrences</span>
 				</nav>
-				<div class="small text-muted text-center" style="height:30px">{{occMap.searchState.data.count | number}} results</div>
+				<div class="search-header__description">
+					<span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>
+				</div>
 				<div class="stripe-menu">
 					<a href="" ui-sref="occurrenceSearchTable()"
 					   class="gb-icon-menu stripe-menu__option"

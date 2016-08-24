@@ -3,20 +3,20 @@
 var angular = require('angular');
 angular
     .module('portal')
-    .directive('enumFilter', enumFilterDirective);
+    .directive('filterRadio', filterRadioDirective);
 
 /** @ngInject */
-function enumFilterDirective() {
+function filterRadioDirective() {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/enumFilter/enumFilter.html',
+        templateUrl: '/templates/components/filterRadio/filterRadio.html',
         scope: {
             filterState: '=',
             filterConfig: '='
         },
         replace: true,
-        controller: enumFilter,
+        controller: filterRadio,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -24,7 +24,7 @@ function enumFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function enumFilter($scope, $filter, OccurrenceFilter) {
+    function filterRadio($scope, $filter, OccurrenceFilter) {
         var vm = this;
         vm.enumValues = vm.filterConfig.enumValues;
         vm.title = vm.filterConfig.title;
@@ -69,4 +69,4 @@ function enumFilterDirective() {
     }
 }
 
-module.exports = enumFilterDirective;
+module.exports = filterRadioDirective;

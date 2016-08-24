@@ -1,12 +1,12 @@
-<div search-drawer filter="occurrence.query" content-type="occurrences">
+<div search-drawer filter="occurrence.occurrenceState" content-type="occurrences">
     <div class="site-drawer__section">
         <div class="search-bar filter-group">
             <form class="search-bar__term" ng-submit="occurrence.search()">
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
-                       ng-model="occurrence.query.q"
-                       placeholder="Search">
+                       ng-model="occurrence.occurrenceState.query.q"
+                       placeholder="Search all fields">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
@@ -25,7 +25,6 @@
         <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
         <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
         <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
-
 
         <div enum-filter filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
         <div enum-filter filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>

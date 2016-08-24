@@ -13,9 +13,10 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParamSerializer, $stateParams, env, OccurrenceFilter) {
+function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParamSerializer, $stateParams, env, OccurrenceSearch, OccurrenceFilter) {
     var vm = this;
-    vm.searchState = OccurrenceFilter.getOccurrenceData();
+    vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
+    vm.count = -1;
     vm.mapMenu = {
         occurrences: {}
     };
@@ -82,8 +83,23 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
 
     setOverlay(angular.copy($stateParams));
 
+    var latestData = {};
+    var search = function(query) {
+        query = angular.copy(query);
+        query.hasCoordinate = 'true';
+        query.limit = 0;
+        vm.count = -1;
+        if (latestData.$cancelRequest) latestData.$cancelRequest();
+        latestData = OccurrenceSearch.query(query, function (data) {
+            vm.count = data.count;
+        }, function () {
+            //TODO handle request error
+        });
+    };
+
     $scope.$watchCollection(function(){return $state.params }, function(newValue) {
         setOverlay(newValue);
+        search(vm.occurrenceState.query);
     });
 }
 

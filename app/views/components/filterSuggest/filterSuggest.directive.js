@@ -52,7 +52,8 @@ function filterSuggestDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
-            if (vm.query.indexOf(item.toString()) < 0) {
+            var searchString = item.toString();
+            if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
                 vm.query.push(item.toString());
                 vm.selected = '';
                 if (vm.filterAutoUpdate) {
@@ -81,7 +82,13 @@ function filterSuggestDirective() {
 
         vm.apply = function() {
             OccurrenceFilter.updateParam(vm.queryKey, vm.query);
-        }
+        };
+
+        vm.searchOnEnter = function(event) {
+            if(event.which === 13) {
+                vm.typeaheadSelect(vm.selected);
+            }
+        };
     }
 }
 

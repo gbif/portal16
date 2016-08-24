@@ -1187,7 +1187,9 @@
 		"nPublishedDatasets": {
 			"one": "%s published dataset",
 			"other": "%s published datasets"
-		}
+		},
+		"clear": "clear",
+		"invert": "invert"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

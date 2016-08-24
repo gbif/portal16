@@ -18,7 +18,7 @@
     <div class="filter-group__filter" ng-if="!vm.collapsed">
         <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues">
             <label>
-                <input type="checkbox" checklist-model="vm.query" checklist-value="enum" ng-change="vm.change(enum, checked)">
+                <input type="radio" name="{{vm.queryKey}}" ng-value="vm.selected" ng-model="vm.test">
                 <span>
                     <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
                     <!--<span class="text-muted">123</span>-->

@@ -7,7 +7,9 @@
                     <span class="article-header__category__upper">Search</span>
                     <span class="article-header__category__lower">Occurrences</span>
                 </nav>
-                <div class="small text-muted text-center" style="height:30px">{{occGallery.totalCount | number}} results. {{occGallery.count | number}} with images.</div>
+                <div class="search-header__description">
+                    <span ng-if="occGallery.count >= 0">{{occGallery.occurrenceState.data.count | number}} occurrences. {{occGallery.count | number}} with images</span>
+                </div>
                 <div class="stripe-menu">
                     <a href="" ui-sref="occurrenceSearchTable()"
                        class="gb-icon-menu stripe-menu__option"
@@ -26,7 +28,8 @@
         </div>
     </div>
 
-    <section class="horizontal-stripe light-background">
+    <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"> </ng-include>
+    <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">

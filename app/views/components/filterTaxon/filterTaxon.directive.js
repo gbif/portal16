@@ -52,14 +52,12 @@ function filterTaxonDirective() {
         
 
         vm.change = function(e, checked) {
-            if (true) {
-                if (checked) {
-                    vm.query.push(e);
-                } else {
-                    vm.query.splice(vm.query.indexOf(e), 1);
-                }
-                vm.apply();
+            if (checked) {
+                vm.query.push(e);
+            } else {
+                vm.query.splice(vm.query.indexOf(e), 1);
             }
+            vm.apply();
         };
 
         vm.getSuggestions = function(val) {
@@ -86,6 +84,7 @@ function filterTaxonDirective() {
 
         vm.uncheckAll = function() {
             vm.query = [];
+            vm.apply();
         };
         vm.apply = function() {
             OccurrenceFilter.updateParam(vm.filterTitle, vm.query);

@@ -7,7 +7,11 @@
                     <span class="article-header__category__upper">Search</span>
                     <span class="article-header__category__lower">Occurrences</span>
                 </nav>
-                <div class="small text-muted text-center" style="height:30px" ng-if="occTable.hasData()">{{occTable.occurrenceState.data.count | number}} results</div>
+                <div class="search-header__description">
+                    <span ng-if="occTable.hasData()">
+                        {{occTable.occurrenceState.data.count | number}} results
+                    </span>
+                </div>
                 <div class="stripe-menu">
                     <span
                        class="gb-icon-menu stripe-menu__option stripe-menu__option is-active"

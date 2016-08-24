@@ -24,35 +24,20 @@ function searchDrawerDirective() {
     return directive;
 
     /** @ngInject */
-    function searchDrawer($state, OccurrenceFilter) {
+    function searchDrawer() {
         var vm = this;
         vm.filter = vm.filter || {};
 
         vm.getFilterCount = function() {
             var c = 0;
-            Object.keys(vm.filter).forEach(function(e){
-                var v = vm.filter[e];
+            Object.keys(vm.filter.query).forEach(function(e){
+                var v = vm.filter.query[e];
                 if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'facet' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
                     c += [].concat(v).length;
                 }
             });
             return c;
         };
-
-        vm.search = function() {
-            $state.go('.', vm.filter, {inherit:false, notify: false, reload: false});
-            //OccurrenceFilter.update(vm.filter);
-        };
-        //vm.search();
-
-        //vm.fabStyle = {
-        //    top: '300px'
-        //};
-        //vm.repositionFloatAction = function($event) {
-        //    vm.fabStyle.top = $event.pageY + 'px';
-        //    console.log($event.clientY);
-        //};
-
     }
 }
 

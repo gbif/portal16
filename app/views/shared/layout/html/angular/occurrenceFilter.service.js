@@ -22,7 +22,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess', 
-            function(event, toState, toParams, fromState, fromParams){
+            function(event, toState, toParams){
                 refreshData(toParams);
             }
         );
@@ -45,6 +45,7 @@ angular
 
         function updateParam(key, values) {
             occurrenceState.query[key] = values;
+            occurrenceState.query.offset = undefined;
             $state.go('.', occurrenceState.query, {inherit:false, notify: false, reload: false});
             refreshData(occurrenceState.query);
         }
