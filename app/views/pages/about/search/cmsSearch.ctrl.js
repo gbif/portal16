@@ -12,12 +12,15 @@ angular
     .module('portal')
     .controller('cmsSearchCtrl', cmsSearchCtrl);
 
+// http://stackoverflow.com/questions/18961332/angular-ui-router-show-loading-animation-during-resolve-process#
+
 /** @ngInject */
-function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, hotkeys) {
+function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
     var vm = this;
     vm.query = $stateParams;
     vm.freeTextQuery = $stateParams.q;
-    vm.state = DatasetFilter.state;
+    vm.status = results.status;
+    vm.statusText = results.statusText;
     vm.count = results.count;
     vm.appliedFilterCount = 0;
     vm.actionMessageClass = 'action-notice--hidden';

@@ -1,21 +1,11 @@
 <article class="wrapper-horizontal-stripes">
     <span class="{{cms.actionMessageClass}}">Loading...</span>
 
-    <!--<div class="horizontal-stripe bare-background" ng-show="cmsTable.featuredDataSets.nodes.length > 0">-->
-        <!--<div class="card" ng-repeat="featured in cmsTable.featuredDataSets.nodes | limitTo:3">-->
-            <!--<a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">-->
-                <!--<img ng-src="{{featured.node.field_uni_images.src}}">-->
-                <!--<div  class="card__content">-->
-                    <!--<h2 class="h3">{{featured.node.title}}</h2>-->
-                    <!--<p>-->
-                        <!--{{featured.node.body}}-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="container-fluid white-background search-header" ng-show="cms.status == 500">
+        <p>This page is currently unavailable. Please come back later. We are sorry for the inconvenience.</p>
+    </div>
 
-    <div class="container-fluid white-background search-header">
+    <div class="container-fluid white-background search-header" ng-hide="cms.status == 500">
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
@@ -29,7 +19,7 @@
         </div>
     </div>
 
-    <div class="horizontal-stripe white-background">
+    <div class="horizontal-stripe white-background" ng-hide="cms.status == 500">
         <div class="">
             <div class="container--narrow">
                 <div class="search-results__list row">

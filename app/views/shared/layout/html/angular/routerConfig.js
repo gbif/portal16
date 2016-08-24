@@ -108,7 +108,12 @@ function routerConfig($stateProvider, $locationProvider) {
             resolve: {
                 results:  function($stateParams, CmsSearch){
                     var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise;
+                    return CmsSearch.query(query).$promise.then(function(response){
+                        return response;
+                    }, function(error){
+                    'use strict';
+                        return error;
+                    });
                 }
             }
         })
