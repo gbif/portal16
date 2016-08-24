@@ -16,12 +16,7 @@ angular
 /** @ngInject */
 function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter) {
     var vm = this;
-    vm.query = angular.copy($stateParams);
-    vm.query.basisOfRecord = vm.query.basisOfRecord ? [].concat(vm.query.basisOfRecord) : [];
-    vm.query.typeStatus = vm.query.typeStatus ? [].concat(vm.query.typeStatus) : [];
-    vm.hide = true;
-    vm.state = $state;
-
+    vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {
         basisOfRecord: {
@@ -79,14 +74,14 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
 
 
     vm.search = function() {
-        $state.go('.', vm.query, {inherit:false, notify: true, reload: true});
+        $state.go('.', vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
         //window.scrollTo(0,0);
     };
 
     vm.updateSearch = function() {
-        vm.query.offset = undefined;
-        vm.query.limit = undefined;
-        $state.go($state.current, vm.query, {inherit:false, notify: false, reload: false});
+        vm.occurrenceState.query.offset = undefined;
+        vm.occurrenceState.query.limit = undefined;
+        $state.go($state.current, vm.occurrenceState.query, {inherit:false, notify: false, reload: false});
     };
     vm.searchOnEnter = function(event) {
         if(event.which === 13) {

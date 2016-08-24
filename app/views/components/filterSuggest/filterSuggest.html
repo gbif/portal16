@@ -19,10 +19,10 @@
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true">
         </div>
-        <div ng-if="vm.filterQuery[vm.queryKey].length > 0" class="is-padded">
-            <div class="checkbox" ng-repeat="key in vm.filterQuery[vm.queryKey]">
+        <div ng-if="vm.query.length > 0" class="is-padded">
+            <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.filterQuery[vm.queryKey]" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span>
                         {{key}}
                     </span>
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed && vm.filterQuery[vm.queryKey].length > 0">
+        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">No filter</a>
         </div>
 

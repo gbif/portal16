@@ -14,7 +14,7 @@ function filterTaxonDirective() {
         templateUrl: '/templates/components/filterTaxon/filterTaxon.html',
         scope: {
             filterTitle: '@',
-            filterQuery: '=',
+            filterState: '=',
             filterCollapsed: '=',
             filterAutoUpdate: '='
         },
@@ -27,11 +27,15 @@ function filterTaxonDirective() {
     return directive;
 
     /** @ngInject */
-    function filterTaxon($state, $http, $filter, Species, suggestEndpoints) {
+    function filterTaxon($scope, $state, $http, $filter, Species, suggestEndpoints, OccurrenceFilter) {
         var vm = this;
         vm.usedKeys = {};
+        vm.query = $filter('unique')(vm.filterState.query[vm.filterTitle]);
 
-        vm.filterQuery[vm.filterTitle] = $filter('unique')(vm.filterQuery[vm.filterTitle]);
+        $scope.$watch(function(){return vm.filterState.query[vm.filterTitle]}, function(newQuery){
+            vm.query = $filter('unique')(newQuery);
+            resolveAllKeys();
+        });
 
         function getFullResource(key) {
             Species.get({id: key}, function(data){
@@ -39,9 +43,24 @@ function filterTaxonDirective() {
             });
         }
 
-        vm.filterQuery[vm.filterTitle].forEach(function(e){
-            getFullResource(e);
-        });
+        function resolveAllKeys() {
+            vm.query.forEach(function(e){
+                getFullResource(e);
+            });    
+        }
+        resolveAllKeys();
+        
+
+        vm.change = function(e, checked) {
+            if (true) {
+                if (checked) {
+                    vm.query.push(e);
+                } else {
+                    vm.query.splice(vm.query.indexOf(e), 1);
+                }
+                vm.apply();
+            }
+        };
 
         vm.getSuggestions = function(val) {
             return $http.get(suggestEndpoints.species, {
@@ -56,19 +75,20 @@ function filterTaxonDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
-            if (vm.filterQuery[vm.filterTitle].indexOf(item.key.toString()) < 0) {
+            if (vm.query.indexOf(item.key.toString()) < 0) {
                 vm.usedKeys[item.key] = item;
-                vm.filterQuery[vm.filterTitle].push(item.key.toString());
+                vm.query.push(item.key.toString());
                 vm.selected = '';
                 getFullResource(item.key);
+                vm.apply();
             }
         };
 
         vm.uncheckAll = function() {
-            vm.filterQuery[vm.filterTitle] = [];
+            vm.query = [];
         };
         vm.apply = function() {
-            $state.go('.', vm.filterQuery, {inherit: false, notify: true, reload: true});
+            OccurrenceFilter.updateParam(vm.filterTitle, vm.query);
         };
     }
 }

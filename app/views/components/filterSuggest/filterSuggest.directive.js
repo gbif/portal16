@@ -12,7 +12,7 @@ function filterSuggestDirective() {
         restrict: 'A',
         templateUrl: '/templates/components/filterSuggest/filterSuggest.html',
         scope: {
-            filterQuery: '=',
+            filterState: '=',
             filterConfig: '='
         },
         replace: true,
@@ -24,7 +24,7 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($http, $filter, suggestEndpoints, OccurrenceFilter) {
+    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter) {
         var vm = this;
 
         vm.title = vm.filterConfig.title;
@@ -34,7 +34,11 @@ function filterSuggestDirective() {
         vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.queryKey];
         vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
-        vm.filterQuery[vm.queryKey] = $filter('unique')(vm.filterQuery[vm.queryKey]);
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+
+        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+            vm.query = $filter('unique')(newQuery);
+        });
 
         vm.getSuggestions = function(val) {
             return $http.get(vm.suggestEndpoint, {
@@ -48,8 +52,8 @@ function filterSuggestDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
-            if (vm.filterQuery[vm.queryKey].indexOf(item.toString()) < 0) {
-                vm.filterQuery[vm.queryKey].push(item.toString());
+            if (vm.query.indexOf(item.toString()) < 0) {
+                vm.query.push(item.toString());
                 vm.selected = '';
                 if (vm.filterAutoUpdate) {
                     vm.apply();
@@ -60,24 +64,23 @@ function filterSuggestDirective() {
         vm.change = function(e, checked) {
             if (vm.filterAutoUpdate) {
                 if (checked) {
-                    vm.filterQuery[vm.title].push(e);
+                    vm.query.push(e);
                 } else {
-                    vm.filterQuery[vm.title].splice(vm.filterQuery[vm.title].indexOf(e), 1);
+                    vm.query.splice(vm.query.indexOf(e), 1);
                 }
                 vm.apply();
             }
         };
 
         vm.uncheckAll = function() {
-            vm.filterQuery[vm.queryKey] = [];
+            vm.query = [];
             if (vm.filterAutoUpdate) {
                 vm.apply();
             }
         };
 
         vm.apply = function() {
-            //$state.go('.', vm.filterQuery, {inherit: false, notify: false, reload: false});
-            OccurrenceFilter.update(vm.filterQuery);
+            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         }
     }
 }

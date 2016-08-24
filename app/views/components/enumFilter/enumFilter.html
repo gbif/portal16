@@ -7,9 +7,9 @@
         </h5>
     </a>
     <div class="filter-group__filter filter-group__filter--collapsed" ng-if="vm.collapsed">
-        <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues" ng-if="vm.filterQuery[vm.title].indexOf(enum) > -1">
+        <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues" ng-if="vm.query.indexOf(enum) > -1">
             <label>
-                <input type="checkbox" checklist-model="vm.filterQuery[vm.title]" checklist-value="enum" ng-change="vm.change(enum, checked)">
+                <input type="checkbox" checklist-model="vm.query" checklist-value="enum" ng-change="vm.change(enum, checked)">
                 <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
             </label>
         </div>
@@ -18,7 +18,7 @@
     <div class="filter-group__filter" ng-if="!vm.collapsed">
         <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues">
             <label>
-                <input type="checkbox" checklist-model="vm.filterQuery[vm.title]" checklist-value="enum" ng-change="vm.change(enum, checked)">
+                <input type="checkbox" checklist-model="vm.query" checklist-value="enum" ng-change="vm.change(enum, checked)">
                 <span>
                     <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
                     <!--<span class="text-muted">123</span>-->
@@ -28,7 +28,7 @@
 
 
         <div class="site-drawer__bar seperator">
-            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.filterQuery[vm.queryKey].length == 0}">No filter</a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}">No filter</a>
             <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()">Reverse</a>
         </div>
     </div>

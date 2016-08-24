@@ -14,20 +14,22 @@
             </form>
         </div>
 
-        <div filter-taxon filter-title="taxonKey" filter-resource="occurrence.Species" filter-query="occurrence.query" filter-collapsed="true"></div>
-        <div enum-filter filter-config="occurrence.filters.basisOfRecord" filter-query="occurrence.query"></div>
 
-        <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-query="occurrence.query"></div>
-        <div filter-suggest filter-config="occurrence.filters.recordNumber" filter-query="occurrence.query"></div>
-        <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-query="occurrence.query"></div>
-        <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-query="occurrence.query"></div>
-        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-query="occurrence.query"></div>
-        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-query="occurrence.query"></div>
+        <div filter-taxon filter-title="taxonKey" filter-resource="occurrence.Species" filter-state="occurrence.occurrenceState" filter-collapsed="true"></div>
+
+        <div enum-filter filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState"></div>        
+        <div filter-suggest filter-config="occurrence.filters.recordNumber" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
 
 
-        <div enum-filter filter-config="occurrence.filters.typeStatus" filter-query="occurrence.query"></div>
-        <div enum-filter filter-config="occurrence.filters.month" filter-query="occurrence.query"></div>
-        <div enum-filter filter-config="occurrence.filters.establishmentMeans" filter-query="occurrence.query"></div>
+        <div enum-filter filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
+        <div enum-filter filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
+        <div enum-filter filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState"></div>
 
     </div>
 

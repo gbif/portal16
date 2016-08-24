@@ -12,7 +12,7 @@ function enumFilterDirective() {
         transclude: true,
         templateUrl: '/templates/components/enumFilter/enumFilter.html',
         scope: {
-            filterQuery: '=',
+            filterState: '=',
             filterConfig: '='
         },
         replace: true,
@@ -24,7 +24,7 @@ function enumFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function enumFilter($filter, OccurrenceFilter) {
+    function enumFilter($scope, $filter, OccurrenceFilter) {
         var vm = this;
         vm.enumValues = vm.filterConfig.enumValues;
         vm.title = vm.filterConfig.title;
@@ -33,35 +33,38 @@ function enumFilterDirective() {
         vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
         vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
-        vm.filterQuery[vm.title] = $filter('unique')(vm.filterQuery[vm.title]);
+        vm.query = $filter('unique')(vm.filterState.query[vm.title]);
+
+        $scope.$watch(function(){return vm.filterState.query[vm.title]}, function(newQuery){
+            vm.query = $filter('unique')(newQuery);
+        });
 
         vm.change = function(e, checked) {
             if (vm.filterAutoUpdate) {
                 if (checked) {
-                    vm.filterQuery[vm.title].push(e);
+                    vm.query.push(e);
                 } else {
-                    vm.filterQuery[vm.title].splice(vm.filterQuery[vm.title].indexOf(e), 1);
+                    vm.query.splice(vm.query.indexOf(e), 1);
                 }
                 vm.apply();
             }
         };
         vm.reverse = function() {
-            vm.filterQuery[vm.title] =  vm.enumValues.filter(function(e){
-                return vm.filterQuery[vm.title].indexOf(e) == -1;
+            vm.query =  vm.enumValues.filter(function(e){
+                return vm.query.indexOf(e) == -1;
             });
             if (vm.filterAutoUpdate) {
                 vm.apply();
             }
         };
         vm.uncheckAll = function() {
-            vm.filterQuery[vm.title] = [];
+            vm.query = [];
             if (vm.filterAutoUpdate) {
                 vm.apply();
             }
         };
         vm.apply = function() {
-            //$state.go('.', vm.filterQuery, {inherit: false, notify: false, reload: false});
-            OccurrenceFilter.update(vm.filterQuery);
+            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         }
     }
 }

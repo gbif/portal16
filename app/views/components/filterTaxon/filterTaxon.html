@@ -20,10 +20,10 @@
                    typeahead-focus-first="true"
                    typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html">
         </div>
-        <div ng-if="vm.filterQuery[vm.filterTitle].length > 0" class="is-padded">
-            <div class="checkbox" ng-repeat="key in vm.filterQuery[vm.filterTitle]">
+        <div ng-if="vm.query.length > 0" class="is-padded">
+            <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.filterQuery[vm.filterTitle]" checklist-value="key">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span ng-if="vm.usedKeys[key].scientificName">
                         {{vm.usedKeys[key].scientificName}}
                     </span>

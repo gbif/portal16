@@ -30,19 +30,19 @@ function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter,
 
     /* pagination */
     function updatePaginationCounts() {
-        offset = parseInt($stateParams.offset) || 0;
+        offset = parseInt(vm.occurrenceState.query.offset) || 0;
         vm.maxSize = 5;
-        vm.limit = parseInt($stateParams.limit) || 20;
+        vm.limit = parseInt(vm.occurrenceState.query.limit) || 20;
         vm.totalItems = vm.occurrenceState.data.count;
         vm.currentPage = Math.floor(offset / vm.limit) + 1;
     }
     updatePaginationCounts();
 
     vm.pageChanged = function() {
-        //$stateParams.offset =  (vm.currentPage-1) * vm.limit;
-        //OccurrenceFilter.update($stateParams);
-        //updatePaginationCounts();
-        //window.scrollTo(0,0);
+        vm.occurrenceState.query.offset =  (vm.currentPage-1) * vm.limit;
+        OccurrenceFilter.update(vm.occurrenceState.query);
+        updatePaginationCounts();
+        window.scrollTo(0,0);
     };
 
     hotkeys.add({

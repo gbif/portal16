@@ -7,7 +7,8 @@ angular
     .service('OccurrenceFilter', function ($rootScope, $state, $stateParams, OccurrenceTableSearch) {
         var occurrenceState = {
             data: {},
-            failedRequest: false
+            failedRequest: false,
+            query: $stateParams
         };
 
         var availableFacets = ['basisOfRecord', 'month', 'typeStatus', 'dataset'];
@@ -20,34 +21,40 @@ angular
             return occurrenceState;
         }
 
-        $rootScope.$watchCollection(function(){return $state.params }, function(newValue) {
-            var query = newValue || {};
-            query.facet = facets;
+        $rootScope.$on('$stateChangeSuccess', 
+            function(event, toState, toParams, fromState, fromParams){
+                refreshData(toParams);
+            }
+        );
+
+        function refreshData(query) {
+            occurrenceState.query = query || $stateParams;
+            occurrenceState.query.facet = facets;
             if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
-            occurrenceState.data = OccurrenceTableSearch.query(query, function(data){
+            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(data){
                 occurrenceState.failedRequest = false;
             }, function() {
                 occurrenceState.failedRequest = true;
             });
-        });
+        }
 
         function update(query) {
             $state.go('.', query, {inherit:false, notify: false, reload: false});
-            //query = query || {};
-            //query.facet = facets;
-            //if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
-            //occurrenceState.data = OccurrenceTableSearch.query(query, function(data){
-            //    occurrenceState.failedRequest = false;
-            //}, function() {
-            //    occurrenceState.failedRequest = true;
-            //});
+            refreshData(query);
         }
 
-        update($stateParams);
+        function updateParam(key, values) {
+            occurrenceState.query[key] = values;
+            $state.go('.', occurrenceState.query, {inherit:false, notify: false, reload: false});
+            refreshData(occurrenceState.query);
+        }
+
+        refreshData();
 
         return {
             getOccurrenceData: getOccurrenceState,
-            update: update
+            update: update,
+            updateParam: updateParam
         };
 
     });
