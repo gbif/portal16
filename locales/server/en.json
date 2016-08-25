@@ -1280,8 +1280,6 @@
 			"data_digitization": "Data digitization",
 			"data_curation_&_quality": "Data curation & quality",
 			"data_access": "Data access",
-			"document": "Document",
-			"presentation": "Presentation",
 			"conservation": "Conservation",
 			"climate_change": "Climate change",
 			"species_distributions": "Species distribution",
@@ -1304,9 +1302,13 @@
 			"gbif_awards": "GBIF awards",
 			"gbif_history/overview": "GBIF history/overview",
 			"public_stakeholders": "Public stakeholders",
-			"data_analysis": "Data analysis",
-			"link": "Link",
-			"tool": "Tool"
+			"data_analysis": "Data analysis"
+		},
+		"resourceType": {
+			"document": "Document",
+			"presentation": "Presentation",
+			"tool": "Tool",
+			"link": "Link"
 		}
 	}
 }

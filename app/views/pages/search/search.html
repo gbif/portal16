@@ -46,11 +46,6 @@
                             <span class="site-drawer__facet-group__facet" translate="cms.type.event">Event</span>
                         </span>
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource'})">
-                        <span>
-                            <span class="site-drawer__facet-group__facet" translate="cms.type.resource">Resource</span>
-                        </span>
-                    </a>
                     <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})">
                         <span>
                             <span class="site-drawer__facet-group__facet" translate="cms.type.programme">Programme</span>
@@ -59,6 +54,21 @@
                     <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})">
                         <span>
                             <span class="site-drawer__facet-group__facet" translate="cms.type.project">Project</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource', category_resource_type: 895})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.resourceType.document">Document</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource', category_resource_type: 987})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.resourceType.presentation">Presentation</span>
+                        </span>
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'resource', category_resource_type: 1010})">
+                        <span>
+                            <span class="site-drawer__facet-group__facet" translate="cms.resourceType.tool">Tool</span>
                         </span>
                     </a>
                 </div>
@@ -121,7 +131,7 @@
                 <ng-include ng-if="omniSearch.query.q" src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"> </ng-include>
                 <div ng-if="!omniSearch.query.q">
                     <div style="margin: 50px auto; padding: 0 10px; font-size: 24px; text-align: center; max-width: 500px">
-                        <p>Try searching for something
+                        <div>Try searching for something
                             <ul style="padding: 0">
                                 <li><a ui-sref="omniSearch({q: 'argentina'})">argentina</a></li>
                                 <li><a ui-sref="omniSearch({q: 'flabellina'})">flabellina</a></li>
@@ -130,7 +140,7 @@
                                 <li><a ui-sref="omniSearch({q: 'ebird'})">ebird</a></li>
                                 <li><a ui-sref="omniSearch({q: 'nørrebro'})">nørrebro</a></li>
                             </ul>
-                        </p>
+                        </div>
                         <p>When there is not results we could show links to contacts and about pages.</p>
                     </div>
                 </div>

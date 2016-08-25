@@ -20,7 +20,7 @@ var angular = require('angular');
             return $resource('/api/cms/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false,
+                        isArray: false
                     }
                 }
             );

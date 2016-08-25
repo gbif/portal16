@@ -41,6 +41,9 @@ router.get('/cms/search', function (req, res, next) {
                                 case 'category_country':
                                     count.facetLabel = res.__('country.' + count.enum);
                                     break;
+                                case 'category_resource_type':
+                                    count.facetLabel = res.__('cms.resourceType.' + count.enum);
+                                    break;
                                 default:
                                     count.facetLabel = res.__('cms.filter.' + count.enum);
                                     break;

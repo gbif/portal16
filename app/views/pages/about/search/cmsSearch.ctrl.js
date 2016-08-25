@@ -12,8 +12,6 @@ angular
     .module('portal')
     .controller('cmsSearchCtrl', cmsSearchCtrl);
 
-// http://stackoverflow.com/questions/18961332/angular-ui-router-show-loading-animation-during-resolve-process#
-
 /** @ngInject */
 function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
     var vm = this;
@@ -51,11 +49,27 @@ function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
                 var facet = {};
                 facet.field = property;
                 facet.fieldLabel = property;
-                facet.counts = [{
-                    enum: $stateParams[property],
-                    key: $stateParams[property],
-                    title: $stateParams[property]
-                }];
+                if (property == 'category_resource_type') {
+                    var resource_type = {
+                        '895': 'document',
+                        '987': 'presentation',
+                        '1010': 'tool',
+                        '1076': 'link'
+                    };
+                    var key = $stateParams[property];
+                    facet.counts = [{
+                        enum: resource_type[key],
+                        key: key,
+                        title: resource_type[key]
+                    }];
+                }
+                else {
+                    facet.counts = [{
+                        enum: $stateParams[property],
+                        key: $stateParams[property],
+                        title: $stateParams[property]
+                    }];
+                }
                 facets.push(facet);
             }
         }

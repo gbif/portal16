@@ -35,7 +35,8 @@
                             <span ng-if="facet.field == 'type'" class="site-drawer__facet-group__facet" translate="cms.type.{{row.enum}}"></span>
                             <span ng-if="facet.field == 'language'" class="site-drawer__facet-group__facet" translate="language.{{row.enum}}"></span>
                             <span ng-if="facet.field == 'category_country'" class="site-drawer__facet-group__facet" translate="country.{{row.enum}}"></span>
-                            <span ng-if="facet.field != 'type' && facet.field != 'language' && facet.field != 'category_country'" class="site-drawer__facet-group__facet" translate="cms.filter.{{row.enum}}"></span>
+                            <span ng-if="facet.field == 'category_resource_type'" class="site-drawer__facet-group__facet" translate="cms.resourceType.{{row.enum}}"></span>
+                            <span ng-if="facet.field != 'type' && facet.field != 'language' && facet.field != 'category_country' && facet.field != 'category_resource_type'" class="site-drawer__facet-group__facet" translate="cms.filter.{{row.enum}}"></span>
                             <span class="site-drawer__facet-group__count">({{row.count}})</span>
                         </span>
                     </a>
@@ -44,7 +45,8 @@
                             <span ng-if="facet.field == 'type'" class="site-drawer__facet-group__facet" translate="cms.type.{{row.enum}}"></span>
                             <span ng-if="facet.field == 'language'" class="site-drawer__facet-group__facet" translate="language.{{row.enum}}"></span>
                             <span ng-if="facet.field == 'category_country'" class="site-drawer__facet-group__facet" translate="country.{{row.enum}}"></span>
-                            <span ng-if="facet.field != 'type' && facet.field != 'language' && facet.field != 'category_country'" class="site-drawer__facet-group__facet" translate="cms.filter.{{row.enum}}"></span>
+                            <span ng-if="facet.field == 'category_resource_type'" class="site-drawer__facet-group__facet" translate="cms.resourceType.{{row.enum}}"></span>
+                            <span ng-if="facet.field != 'type' && facet.field != 'language' && facet.field != 'category_country' && facet.field != 'category_resource_type'" class="site-drawer__facet-group__facet" translate="cms.filter.{{row.enum}}"></span>
                             <span class="close"></span>
                         </a>
                     </span>
