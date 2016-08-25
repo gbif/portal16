@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/cms/search', function (req, res, next) {
+router.get('/cms/search', function (req, res) {
     cmsSearch(req.query).then(function(data) {
         if (data.hasOwnProperty('facets')) {
             cmsData.expandFacets(data.facets, res.__, function(err){
@@ -30,7 +30,7 @@ router.get('/cms/search', function (req, res, next) {
                     });
                     data.facets.forEach(function(facet){
                         facet.fieldLabel = res.__('cms.facet.' + facet.field);
-                        facet.counts.forEach(function(count){
+                        facet.counts.forEach(function(count, i){
                             switch (facet.field) {
                                 case 'type':
                                     count.facetLabel = res.__('cms.type.' + count.enum);
@@ -47,6 +47,10 @@ router.get('/cms/search', function (req, res, next) {
                                 default:
                                     count.facetLabel = res.__('cms.filter.' + count.enum);
                                     break;
+                            }
+                            // Strip type:resource filter for less confusion
+                            if (count.key == 'resource') {
+                                facet.counts.splice(i, 1);
                             }
                         });
                     });
