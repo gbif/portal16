@@ -83,17 +83,17 @@
                             <span class="site-drawer__facet-group__facet">Project</span>
                         </span>
                     </a>
-                    <a href="/cms/table?type=resource&category_resource_type=895">
+                    <a href="/cms/table?type=document">
                         <span>
                             <span class="site-drawer__facet-group__facet">Document</span>
                         </span>
                     </a>
-                    <a href="/cms/table?type=resource&category_resource_type=987">
+                    <a href="/cms/table?type=presentation">
                         <span>
                             <span class="site-drawer__facet-group__facet">Presentation</span>
                         </span>
                     </a>
-                    <a href="/cms/table?type=resource&category_resource_type=1010">
+                    <a href="/cms/table?type=tool">
                         <span>
                             <span class="site-drawer__facet-group__facet">Tool</span>
                         </span>

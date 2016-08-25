@@ -33,11 +33,10 @@ function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
         category_about_gbif: 6,
         category_audience: 7,
         category_purpose: 8,
-        category_data_type: 9,
-        category_country: 10,
-        category_resource_type: 11,
-        category_topic: 12,
-        category_tags: 13
+        category_topic: 9,
+        category_data_type: 10,
+        category_country: 11,
+        category_tags: 12
     };
 
     vm.facets = (results.hasOwnProperty('facets')) ? results.facets : facetsFromUrl(facetOrder);
@@ -49,27 +48,11 @@ function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
                 var facet = {};
                 facet.field = property;
                 facet.fieldLabel = property;
-                if (property == 'category_resource_type') {
-                    var resource_type = {
-                        '895': 'document',
-                        '987': 'presentation',
-                        '1010': 'tool',
-                        '1076': 'link'
-                    };
-                    var key = $stateParams[property];
-                    facet.counts = [{
-                        enum: resource_type[key],
-                        key: key,
-                        title: resource_type[key]
-                    }];
-                }
-                else {
-                    facet.counts = [{
-                        enum: $stateParams[property],
-                        key: $stateParams[property],
-                        title: $stateParams[property]
-                    }];
-                }
+                facet.counts = [{
+                    enum: $stateParams[property],
+                    key: $stateParams[property],
+                    title: $stateParams[property]
+                }];
                 facets.push(facet);
             }
         }

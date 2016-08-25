@@ -1244,11 +1244,15 @@
 			"project": "Project",
 			"gbif_participant": "Participant",
 			"programme": "Programme",
-			"dataset": "Featured dataset"
+			"dataset": "Featured dataset",
+			"document": "Document",
+			"presentation": "Presentation",
+			"tool": "Tool",
+			"link": "Link"
 		},
 		"facet": {
 			"language": "Language",
-			"type": "Type",
+			"type": "Content type",
 			"category_informatics": "Informatics",
 			"category_tags": "Tags",
 			"category_topic": "Topic",
@@ -1258,8 +1262,7 @@
 			"category_audience": "Audience",
 			"category_purpose": "Purpose",
 			"category_data_type": "Data type",
-			"category_country": "Country",
-			"category_resource_type": "Resource type"
+			"category_country": "Country"
 		},
 		"filter": {
 			"invasives": "Invasives",
@@ -1303,12 +1306,6 @@
 			"gbif_history/overview": "GBIF history/overview",
 			"public_stakeholders": "Public stakeholders",
 			"data_analysis": "Data analysis"
-		},
-		"resourceType": {
-			"document": "Document",
-			"presentation": "Presentation",
-			"tool": "Tool",
-			"link": "Link"
 		}
 	}
 }

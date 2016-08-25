@@ -7,6 +7,13 @@ var express = require('express'),
     cmsData = require('../../../../models/cmsData/cmsData'),
     log = require('../../../../../config/log');
 
+var resource_type = {
+    '895': 'document',
+    '987': 'presentation',
+    '1010': 'tool',
+    '1076': 'link'
+};
+
 module.exports = function (app) {
     app.use('/api', router);
 };
@@ -28,12 +35,38 @@ router.get('/cms/search', function (req, res) {
                         if (e.field == 'category_data_type') return false;
                         return true;
                     });
+
+                    // merge category_resource_type filters with type filters
+                    var index_type, index_category_resource_type;
+                    data.facets.forEach(function(facet, fi){
+                        switch (facet.field) {
+                            case 'type':
+                                index_type = fi;
+                                break;
+                            case 'category_resource_type':
+                                index_category_resource_type = fi;
+                                break;
+                        }
+                        facet.counts.forEach(function(count, ci){
+                            // Strip type:resource filter for less confusion
+                            if (count.key == 'resource') {
+                                facet.counts.splice(ci, 1);
+                            }
+                        });
+                    });
+                    data.facets[index_type].counts = data.facets[index_type].counts.concat(data.facets[index_category_resource_type].counts);
+                    data.facets.splice(index_category_resource_type, 1);
+
+
                     data.facets.forEach(function(facet){
                         facet.fieldLabel = res.__('cms.facet.' + facet.field);
-                        facet.counts.forEach(function(count, i){
+                        facet.counts.forEach(function(count){
                             switch (facet.field) {
                                 case 'type':
                                     count.facetLabel = res.__('cms.type.' + count.enum);
+                                    if ([895, 987, 1010, 1076].indexOf(count.key) !== -1) {
+                                        count.key = resource_type[count.key];
+                                    }
                                     break;
                                 case 'language':
                                     count.facetLabel = res.__('language.' + count.enum);
@@ -41,19 +74,13 @@ router.get('/cms/search', function (req, res) {
                                 case 'category_country':
                                     count.facetLabel = res.__('country.' + count.enum);
                                     break;
-                                case 'category_resource_type':
-                                    count.facetLabel = res.__('cms.resourceType.' + count.enum);
-                                    break;
                                 default:
                                     count.facetLabel = res.__('cms.filter.' + count.enum);
                                     break;
                             }
-                            // Strip type:resource filter for less confusion
-                            if (count.key == 'resource') {
-                                facet.counts.splice(i, 1);
-                            }
                         });
                     });
+
                 }
             });
         }
@@ -84,10 +111,22 @@ function cmsSearch(query) {
     }
 
     // Converting facets in the array notation that the CMS API consumes.
-    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_resource_type', 'category_country', 'category_topic', 'category_tags'];
+    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_country', 'category_topic', 'category_tags'];
+    var resource_type_id = {
+        'document': '895',
+        'presentation': '987',
+        'tool': '1010',
+        'link': '1076'
+    };
+
     availableFacets.forEach(function(facet){
         if (typeof query[facet] !== 'undefined') {
-            queryUrl += '&' + 'filter[' + facet + ']=' + query[facet];
+            if (facet == 'type' && ['document', 'presentation', 'tool', 'link'].indexOf(query[facet]) !== -1) {
+                queryUrl += '&' + 'filter[category_resource_type]=' + resource_type_id[query[facet]];
+            }
+            else {
+                queryUrl += '&' + 'filter[' + facet + ']=' + query[facet];
+            }
         }
     });
 
