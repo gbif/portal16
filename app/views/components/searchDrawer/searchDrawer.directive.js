@@ -35,7 +35,11 @@ function searchDrawerDirective() {
                 if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'facet' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
                     c += [].concat(v).length;
                 }
+                // if (e === 'hasCoordinate') {
+                //     if (v=="TRUE") c--;
+                // }
             });
+            // if (typeof vm.filter.query.hasCoordinate === 'undefined') c++;
             return c;
         };
     }

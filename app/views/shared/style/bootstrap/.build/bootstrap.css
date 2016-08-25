@@ -6741,3 +6741,7 @@ That is very annoying and ie does so in a way that doesn't work well. This remov
 @-ms-viewport {
   width: auto !important;
 }
+.dropdown-menu {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}

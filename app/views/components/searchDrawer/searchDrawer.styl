@@ -233,7 +233,6 @@
 		}
 	}
 	&__filter {
-		overflow hidden
 		background $drawerSecondaryBackgroundColor
 		border-top 1px solid $stripeBorderColor
 		&--collapsed {
@@ -258,6 +257,48 @@
 		color #c3c3c3
 	}
 }
+.filter-group__filter--radio {
+	@extends .filter-group__filter
+	label {
+		width auto
+	}
+}
+
+.filter-group__filter__interval {
+	input {
+		background 0 0 //$stripeBorderColor
+		border none
+		width 80px
+		// border 1px solid $stripeBorderColor
+		padding 5px 0
+		outline 0
+		&.ng-invalid-pattern {
+			color tomato
+		}
+	}
+	&__option-trigger {
+		a {
+			color inherit
+			display block
+			padding 5px 0
+			>span {
+				display inline-block
+				bottom 1px
+				margin 0 3px
+				position relative
+				triangle 'down' 4px $bodyTextColor
+			}
+		}
+	}
+	&__input {
+		>span, a {
+			padding 5px 20px 5px 0
+		}
+		>a {
+			padding 5px
+		}
+	}
+}
 
 
 +isAbove($desktop) {
@@ -272,6 +313,7 @@
 		}
 	}
 }
+
 
 
 //.attention {
