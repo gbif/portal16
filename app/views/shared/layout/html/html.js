@@ -11,12 +11,14 @@ require('ng-infinite-scroll');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
-require('checklist-model');
+require('nouislider-angular');
+
+require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
 
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider']);
 })();
 
 (function () {

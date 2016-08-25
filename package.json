@@ -75,6 +75,7 @@
     "method-override": "^2.3.0",
     "moment": "^2.13.0",
     "ng-infinite-scroll": "^1.2.1",
+    "nouislider-angular": "^2.6.0",
     "nunjucks": "^2.0.0",
     "nunjucks-markdown": "^2.0.0",
     "require-dir": "^0.3.0",

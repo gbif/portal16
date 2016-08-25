@@ -1,0 +1,65 @@
+$sliderBarColor = #d4d4d4
+$sliderSelectColor = #888
+$sliderSelectColorInactive = darken($sliderBarColor, 5)
+$sliderHandleSize = 15px
+$sliderBarHeight = 3px
+
+.noUi-horizontal {
+	height $sliderBarHeight
+}
+
+.noUi-background {
+	background $sliderBarColor
+	box-shadow none
+}
+
+.noUi-origin {
+	border-radius 2px
+}
+.noUi-target {
+	border none
+}
+
+.noUi-connect {
+	background $sliderSelectColorInactive
+	transition background 450ms
+	box-shadow none
+}
+
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+	width $sliderHandleSize
+	height $sliderHandleSize
+	border 0
+	border-radius 100%
+	cursor pointer
+	&:before, &:after {
+		content none
+	}
+	background $sliderSelectColorInactive
+
+	//add drag hover effect
+	box-shadow 0 0 0 0px $sliderSelectColorInactive
+	transition box-shadow 200ms ease
+	&.noUi-active {
+		box-shadow 0 0 0 5px rgba(0,0,0,0.15)
+	}
+	.noUi-marker {
+		display none
+		&.noUi-marker-large {
+			display block
+		}
+	}
+}
+
+.noUi-horizontal .noUi-handle {
+	left -($sliderHandleSize/2)
+}
+
+.is-active {
+	.noUi-connect {
+		background $sliderSelectColor
+	}
+	&.noUi-horizontal .noUi-handle, &.noUi-vertical .noUi-handle, &.noUi-connect {
+		background $sliderSelectColor
+	}
+}
