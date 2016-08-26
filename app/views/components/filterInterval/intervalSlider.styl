@@ -1,0 +1,42 @@
+.filter-group__filter__interval {
+	input {
+		background 0 0 //white
+		width 4em
+		border none
+		//border-bottom 1px solid darken($stripeBorderColor, 10)
+		margin-bottom 10px
+		outline 0
+		&.ng-invalid-pattern {
+			color tomato
+		}
+	}
+	&__option-trigger {
+		//margin-bottom 15px
+		a {
+			color inherit
+			padding 5px 0
+			display inline-block
+			>i {
+				display inline-block
+				bottom 1px
+				margin 0 3px
+				position relative
+				triangle 'down' 4px $bodyTextColor
+			}
+			&.gb-icon-close {
+				font-size: 20px;
+				position: relative;
+				top: -3px;
+			}
+		}
+	}
+	&__input {
+		>span, a {
+			padding 5px 20px 5px 0
+		}
+		>a {
+			padding 5px
+		}
+		padding-bottom 10px
+	}
+}

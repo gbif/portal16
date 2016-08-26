@@ -34,12 +34,7 @@ function enumFilterDirective() {
         vm.collapsed = vm.filterConfig.collapsed !== false;
 
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
-
-
-        vm.checkboxModel = {
-            'HUMAN_OBSERVATION' : true,
-            'OBSERVATION' : 'YES'
-        }
+        vm.checkboxModel = {};
 
         function setModel(query) {
             vm.enumValues.forEach(function(e){
@@ -72,7 +67,7 @@ function enumFilterDirective() {
                 });
                 OccurrenceFilter.updateParam(vm.queryKey, vm.query);
             }
-        }
+        };
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('unique')(newQuery);

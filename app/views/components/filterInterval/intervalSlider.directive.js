@@ -12,7 +12,7 @@ function intervalSliderDirective() {
         transclude: true,
         templateUrl: '/templates/components/filterInterval/intervalSlider.html',
         scope: {
-            intervalOptions: '=',
+            intervalOptions: '='
         },
         replace: true,
         controller: intervalSlider,
@@ -23,16 +23,12 @@ function intervalSliderDirective() {
     return directive;
 
     /** @ngInject */
-    function intervalSlider($scope, $filter, OccurrenceFilter) {
+    function intervalSlider($scope) {
         var vm = this;
-        vm.intervalOptions.isActive = false;
+        vm.form = {};
         vm.options = ['between', 'is', 'lessThan', 'largerThan'];
         vm.selected = vm.options[0];
-        $scope.$watchCollection(function(){return vm.intervalOptions}, function(val){
-            if (vm.intervalOptions.isActive === false) {
-                vm.uncheckAll();
-            }
-        });
+
         vm.sliderOptions = {
             start: [1700, 2016],
             range: {
@@ -51,17 +47,14 @@ function intervalSliderDirective() {
             step: 1,
             connect: true
         };
-        //vm.sliderSingle = {
-        //    connect: false
-        //};
 
         vm.eventHandlers = {
             update: function(values, handle, unencoded) {
             },
             slide: function(values, handle, unencoded) {
+                vm.intervalOptions.inActive = undefined;
                 vm.from = values[0];
                 vm.to = values[1];
-                vm.intervalOptions.isActive = true;
             },
             set: function(values, handle, unencoded) {
             },
@@ -70,19 +63,48 @@ function intervalSliderDirective() {
             }
         };
 
-        // $scope.$watch(function(){return vm.filterState.query[vm.title]}, function(newQuery){
-        //     vm.query = $filter('unique')(newQuery);
-        // });
+        vm.parseQueryString = function(str) {
+            str = str || '';
+            if (str.toString() == '') return;
 
-        vm.selectType = function(choice) {
+            var parts = str.toString().split(',');
+            if ( parts.length == 1 && isFinite(parts[0]) ) {
+                //is
+                vm.sliderOptions.start = [parts[0]];
+                vm.setType(vm.options[1])
+            } else if (parts.length == 2) {
+                if (isFinite(parts[0]) && isFinite(parts[1])) {
+                    //between
+                    vm.sliderOptions.start = parts;
+                    vm.setType(vm.options[0])
+                } else if (parts[0] === '*' && isFinite(parts[1])) {
+                    //less than
+                    vm.sliderOptions.start = [undefined, parts[1]];
+                    vm.setType(vm.options[2])
+                } else if (isFinite(parts[0]) && parts[1] === '*') {
+                    //greater than
+                    vm.sliderOptions.start = [parts[0], undefined];
+                    vm.setType(vm.options[3])
+                }
+            }
+        };
+
+        $scope.$watchCollection(function(){return vm.intervalOptions}, function(newState, oldState){
+            if (newState.queryString !== oldState.queryString) {
+                vm.parseQueryString(newState.queryString);
+            }
+        });
+
+        vm.setType = function(choice) {
             vm.selected = choice;
             switch(vm.selected) {
                 case 'between':
                     vm.sliderOptions.connect = true;
-                    vm.sliderOptions.start[1] = vm.sliderOptions.range.max;
-                    if (vm.sliderOptions.start[0] >= vm.sliderOptions.range.max) {
-                        vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
-                        vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
+                    if ( typeof vm.sliderOptions.start[0] === 'undefined') {
+                        vm.sliderOptions.start[0] = vm.sliderOptions.range.min;
+                    }
+                    if ( typeof vm.sliderOptions.start[1] === 'undefined') {
+                        vm.sliderOptions.start[1] = vm.sliderOptions.range.max;
                     }
                     break;
                 case 'is':
@@ -115,26 +137,28 @@ function intervalSliderDirective() {
                     break;
                 default: vm.query = '';
             }
-            vm.intervalOptions.isActive = true;
+            vm.from = vm.sliderOptions.start[0];
+            vm.to = vm.sliderOptions.start[1];
+        };
+
+        vm.selectType = function(choice) {
+            vm.setType(choice);
             vm.apply();
         };
         vm.isValid = function() {
             return vm.form.$valid;// && (vm.tester.start[0] && vm.tester.start[1]);
         };
-        vm.uncheckAll = function() {
-            vm.intervalOptions.isActive = false;
-            OccurrenceFilter.updateParam('year', '');
-            vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
-            vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
-            vm.from = '';
-            vm.to = '';
-        };
+        //vm.uncheckAll = function() {
+        //    vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
+        //    vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
+        //    vm.from = '';
+        //    vm.to = '';
+        //};
 
         vm.changeFrom = function() {
             if (!vm.form.from.$valid) {
                 vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
             } else {
-                vm.intervalOptions.isActive = true;
                 vm.sliderOptions.start[0] = vm.from;
             }
         };
@@ -142,21 +166,22 @@ function intervalSliderDirective() {
             if (!vm.form.to.$valid) {
                 vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
             } else {
-                vm.intervalOptions.isActive = true;
                 vm.sliderOptions.start[1] = vm.to;
             }
         };
 
         vm.blurFrom = function() {
-            if (!vm.form.from.$valid && vm.intervalOptions.isActive) {
+            if (!vm.form.from.$valid) {
                 vm.from = vm.sliderOptions.start[0];
             }
+            vm.apply();
         };
 
         vm.blurTo = function() {
-            if (!vm.form.to.$valid && vm.intervalOptions.isActive) {
+            if (!vm.form.to.$valid) {
                 vm.to = vm.sliderOptions.start[1];
             }
+            vm.apply();
         };
 
         vm.remove = function() {
@@ -167,29 +192,29 @@ function intervalSliderDirective() {
 
         vm.apply = function() {
             var stateString = '';
-            if (vm.form.$valid) {
-                switch (vm.selected) {
-                    case 'between':
-                        stateString = vm.sliderOptions.start[0] + ',' + vm.sliderOptions.start[1];
-                        break;
-                    case 'is':
-                        stateString = vm.sliderOptions.start[0];
-                        break;
-                    case 'lessThan':
-                        stateString = '*,' + vm.sliderOptions.start[0];
-                        break;
-                    case 'largerThan':
-                        stateString = vm.sliderOptions.start[0] + ',*';
-                        break;
-                    default:
-                        stateString = '';
-                }
+            vm.intervalOptions.inActive = undefined;
+            switch (vm.selected) {
+                case 'between':
+                    stateString = vm.sliderOptions.start[0] + ',' + vm.sliderOptions.start[1];
+                    break;
+                case 'is':
+                    stateString = vm.sliderOptions.start[0];
+                    break;
+                case 'lessThan':
+                    stateString = '*,' + vm.sliderOptions.start[0];
+                    break;
+                case 'largerThan':
+                    stateString = vm.sliderOptions.start[0] + ',*';
+                    break;
+                default:
+                    stateString = '';
             }
             vm.intervalOptions.queryString = stateString;
             if (angular.isFunction(vm.intervalOptions.change)) {
                 vm.intervalOptions.change(stateString);
             }
-        }
+        };
+        vm.parseQueryString(vm.intervalOptions.queryString);
     }
 }
 

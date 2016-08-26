@@ -72,6 +72,11 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
         title: 'collectionCode'
     };
 
+    //intervals
+    vm.filters.year = {
+        queryKey: 'year'
+    };
+
 
     vm.search = function() {
         $state.go('.', vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
