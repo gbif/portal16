@@ -45,7 +45,7 @@ function enumFilterDirective() {
             vm.enumValues.forEach(function(e){
                 vm.checkboxModel[e] = false;
             });
-            vm.query.forEach(function(e){
+            query.forEach(function(e){
                 vm.checkboxModel[e] = true;
             });
         }

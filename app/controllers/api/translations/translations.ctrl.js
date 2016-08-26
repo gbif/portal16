@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/translation.json', function (req, res, next) {
+router.get('/translation.json', function (req, res) {
     var lang = req.query.lang;
     if (lang == 'en') {
         res.json(en);

@@ -31,7 +31,7 @@ angular
             occurrenceState.query = query || $stateParams;
             occurrenceState.query.facet = facets;
             if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
-            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(data){
+            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(){
                 occurrenceState.failedRequest = false;
             }, function() {
                 occurrenceState.failedRequest = true;
