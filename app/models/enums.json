@@ -58,5 +58,10 @@
     "INVASIVE",
     "MANAGED",
     "UNCERTAIN"
+  ],
+  "mediaType": [
+    "StillImage",
+    "MovingImage",
+    "Sound"
   ]
 }

@@ -8,16 +8,16 @@
     </a>
 
      <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues" ng-if="vm.checkboxModel[enum] || !vm.collapsed">
+        <div class="checkbox is-padded" ng-repeat="enumName in vm.enumValues" ng-if="vm.checkboxModel[enumName] || !vm.collapsed">
             <label>
-                <input type="checkbox" ng-model="vm.checkboxModel[enum]" ng-change="vm.apply(enum, checked)">
-                <span>
-                    <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
-                    <!--<span class="text-muted">123</span>-->
+                <input type="checkbox" ng-model="vm.checkboxModel[enumName]" ng-change="vm.apply(enumName, checked)">
+                <span class="filter-group__filter__name">
+                    <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(enumName)" ng-if="vm.showFacetCount()"></div>
+                    <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enumName}}">{{enumName}}</span>
+                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()" >{{vm.filterState.data.facets[vm.facetKey].map[enumName].count}}</span>
                 </span>
             </label>
         </div>
-
 
         <div class="site-drawer__bar seperator" ng-if="!vm.collapsed">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>

@@ -1136,6 +1136,11 @@
 		"CLASS": "class",
 		"VARIETY": "variety"
 	},
+	"mediaType": {
+		"StillImage": "image",
+		"Sound": "audio",
+		"MovingImage": "video"
+	},
 	"stdTerms": {
 		"location": "location",
 		"basisOfRecord": "basis of record",

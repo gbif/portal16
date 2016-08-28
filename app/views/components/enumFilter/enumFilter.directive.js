@@ -29,12 +29,14 @@ function enumFilterDirective() {
         vm.enumValues = vm.filterConfig.enumValues;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        vm.facetKey = vm.filterConfig.facetKey;
         vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
         vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
         vm.collapsed = vm.filterConfig.collapsed !== false;
 
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
         vm.checkboxModel = {};
+        vm.facets = {};
 
         function setModel(query) {
             vm.enumValues.forEach(function(e){
@@ -45,6 +47,24 @@ function enumFilterDirective() {
             });
         }
         setModel(vm.query);
+
+        vm.getWidth = function(enumName) {
+            if (!vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[vm.facetKey] || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map[enumName]) {
+                return {
+                    width: '0px'
+                }
+            }
+            var fraction = vm.filterState.data.facets[vm.facetKey].map[enumName].fraction;
+            var gear = 100 / (vm.filterState.data.facets[vm.facetKey].maxCount / vm.filterState.data.count);
+            var width = fraction * gear;
+            return {
+                width: width + '%'
+            };
+        };
+
+        vm.showFacetCount = function() {
+            return vm.facetKey && !vm.collapsed && vm.query.length != 1;
+        };
 
         vm.reverse = function() {
             vm.enumValues.forEach(function(key){
@@ -73,6 +93,11 @@ function enumFilterDirective() {
             vm.query = $filter('unique')(newQuery);
             setModel(vm.query);
         });
+
+        // $scope.$watch(function(){return vm.filterState.data}, function(newData){
+        //     vm.setFacets(data.facets);
+        // });
+
     }
 }
 

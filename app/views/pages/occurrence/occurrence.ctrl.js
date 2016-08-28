@@ -23,21 +23,32 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
             enumValues: enums.basisOfRecord,
             queryKey: 'basisOfRecord',
             title: 'basisOfRecord',
-            translationPrefix: 'basisOfRecord'
+            translationPrefix: 'basisOfRecord',
+            facetKey: 'BASIS_OF_RECORD'
         }
     };
     vm.filters.typeStatus = {
         enumValues: enums.typeStatus,
         queryKey: 'typeStatus',
         title: 'typeStatus',
-        translationPrefix: 'typeStatus'
+        translationPrefix: 'typeStatus',
+        facetKey: 'TYPE_STATUS'
     };
 
     vm.filters.month = {
         enumValues: enums.month,
         queryKey: 'month',
         title: 'month',
-        translationPrefix: 'month'
+        translationPrefix: 'month',
+        facetKey: 'MONTH'
+    };
+
+    vm.filters.mediaType = {
+        enumValues: enums.mediaType,
+        queryKey: 'mediaType',
+        title: 'mediaType',
+        translationPrefix: 'mediaType',
+        facetKey: 'MEDIA_TYPE'
     };
 
     vm.filters.establishmentMeans = {
