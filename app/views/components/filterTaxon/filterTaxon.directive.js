@@ -13,10 +13,8 @@ function filterTaxonDirective() {
         transclude: true,
         templateUrl: '/templates/components/filterTaxon/filterTaxon.html',
         scope: {
-            filterTitle: '@',
             filterState: '=',
-            filterCollapsed: '=',
-            filterAutoUpdate: '='
+            filterConfig: '='
         },
         replace: true,
         controller: filterTaxon,
@@ -27,18 +25,26 @@ function filterTaxonDirective() {
     return directive;
 
     /** @ngInject */
-    function filterTaxon($scope, $state, $http, $filter, Species, suggestEndpoints, OccurrenceFilter) {
+    function filterTaxon($scope, $state, $http, $filter, OccurrenceFilter) {
         var vm = this;
-        vm.usedKeys = {};
-        vm.query = $filter('unique')(vm.filterState.query[vm.filterTitle]);
+        vm.title = vm.filterConfig.title;
+        vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        vm.facetKey = vm.filterConfig.facetKey;
+        vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
+        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
+        vm.collapsed = vm.filterConfig.collapsed !== false;
 
-        $scope.$watch(function(){return vm.filterState.query[vm.filterTitle]}, function(newQuery){
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+
+        vm.usedKeys = {};
+
+        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('unique')(newQuery);
             resolveAllKeys();
         });
 
         function getFullResource(key) {
-            Species.get({id: key}, function(data){
+            vm.filterConfig.resource.get({id: key}, function(data){
                 vm.usedKeys[key] = data;
             });
         }
@@ -61,12 +67,11 @@ function filterTaxonDirective() {
         };
 
         vm.getSuggestions = function(val) {
-            return $http.get(suggestEndpoints.species, {
-                params: {
-                    q: val,
-                    limit: 10,
-                    datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
-                }
+            var params = angular.copy(vm.filterConfig.defaultParams);
+            params.q = val;
+            params.limit = 10;
+            return $http.get(vm.filterConfig.suggestEndpoint, {
+                params: params
             }).then(function(response){
                 return response.data;
             });
@@ -77,7 +82,9 @@ function filterTaxonDirective() {
                 vm.usedKeys[item.key] = item;
                 vm.query.push(item.key.toString());
                 vm.selected = '';
-                getFullResource(item.key);
+                if (vm.filterConfig.expand) {
+                    getFullResource(item.key);
+                }   
                 vm.apply();
             }
         };
@@ -87,7 +94,7 @@ function filterTaxonDirective() {
             vm.apply();
         };
         vm.apply = function() {
-            OccurrenceFilter.updateParam(vm.filterTitle, vm.query);
+            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         };
     }
 }

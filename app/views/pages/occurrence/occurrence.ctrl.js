@@ -14,19 +14,49 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter) {
+function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset) {
     var vm = this;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
-    vm.filters = {
-        basisOfRecord: {
-            enumValues: enums.basisOfRecord,
-            queryKey: 'basisOfRecord',
-            title: 'basisOfRecord',
-            translationPrefix: 'basisOfRecord',
-            facetKey: 'BASIS_OF_RECORD'
-        }
+    vm.filters = {};
+    //suggest complex
+    vm.filters.scientificName = {
+        queryKey: 'taxonKey',
+        translationPrefix: 'ocurrenceFieldNames',
+        title: 'scientificName',
+        suggestEndpoint: suggestEndpoints.taxon,
+        defaultParams: {
+            datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        },
+        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+        shortName: 'canonicalName',
+        longName: 'scientificName',
+        expand: true,
+        resource: Species
     };
+
+    vm.filters.dataset = {
+        queryKey: 'datasetKey',
+        title: 'dataset',
+        translationPrefix: 'stdTerms',
+        suggestEndpoint: suggestEndpoints.dataset,
+        defaultParams: {},
+        suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html',
+        shortName: 'title',
+        longName: 'title',
+        expand: false,
+        resource: Dataset
+    };
+
+    //enums
+    vm.filters.basisOfRecord = {
+        enumValues: enums.basisOfRecord,
+        queryKey: 'basisOfRecord',
+        title: 'basisOfRecord',
+        translationPrefix: 'basisOfRecord',
+        facetKey: 'BASIS_OF_RECORD'
+    };
+
     vm.filters.typeStatus = {
         enumValues: enums.typeStatus,
         queryKey: 'typeStatus',

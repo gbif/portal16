@@ -1,40 +1,40 @@
 <div class="filter-group filter-group--search">
-    <a href="" class="inherit" ng-click="vm.filterCollapsed = !vm.filterCollapsed">
+    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
         <h5>
-            <span class="text-capitalize" translate="ocurrenceFieldNames.scientificName">scientificName</span>
-            <span class="gb-icon-angle-down pull-right" ng-if="vm.filterCollapsed"></span>
-            <span class="gb-icon-angle-up pull-right" ng-if="!vm.filterCollapsed"></span>
+            <span class="text-capitalize" translate="{{vm.filterConfig.translationPrefix}}.{{vm.title}}">{{vm.title}}</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
         </h5>
     </a>
 
-    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.filterCollapsed}">
-        <div class="filter-group__filter__search" ng-if="!vm.filterCollapsed">
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
+        <div class="filter-group__filter__search" ng-if="!vm.collapsed">
             <input type="text"
-                   focus-me="!vm.filterCollapsed"
+                   focus-me="!vm.collapsed"
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
                    placeholder="{{ 'search.placeholder' | translate }}"
-                   uib-typeahead="suggestion.canonicalName for suggestion in vm.getSuggestions($viewValue)"
+                   uib-typeahead="suggestion[vm.filterConfig.shortName] for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
-                   typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html">
+                   typeahead-template-url="{{vm.filterConfig.suggestTemplate}}">
         </div>
         <div ng-if="vm.query.length > 0" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
-                    <span ng-if="vm.usedKeys[key].scientificName">
-                        {{vm.usedKeys[key].scientificName}}
+                    <span ng-if="vm.usedKeys[key][vm.filterConfig.longName]">
+                        {{vm.usedKeys[key][vm.filterConfig.longName]}}
                     </span>
-                    <span ng-if="!vm.usedKeys[key].scientificName">
-                        {{vm.usedKeys[key].canonicalName}}
+                    <span ng-if="!vm.usedKeys[key][vm.filterConfig.longName]">
+                        {{vm.usedKeys[key][vm.filterConfig.shortName]}}
                     </span>
                 </label>
             </div>
         </div>
 
-        <div class="site-drawer__bar seperator" ng-if="!vm.filterCollapsed && vm.query.length > 0">
+        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>
