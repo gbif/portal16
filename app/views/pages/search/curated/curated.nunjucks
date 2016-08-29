@@ -9,9 +9,9 @@
 					{% include "./country/country.nunjucks" %}
 				{% endif %}
 
-				{% if highlight.type == 'ARTICLE' %}
-					{% import "./article/article.nunjucks" as article %}
-					{$ article.articleHighlight(highlight.highlight, __) $}
+				{% if highlight.type == 'CMS' %}
+					{% import "./cms/cmsCuratedContents.nunjucks" as cms %}
+					{$ cms.cmsContentHighlight(highlight.highlight, __) $}
 				{% endif %}
 
 				{% if highlight.type == 'SPECIES' %}

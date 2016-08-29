@@ -8,4 +8,4 @@
 
 {% include "./publishers/publishers.nunjucks" %}
 
-{% include "./cms/cms.nunjucks" %}
+{% include "./cms/cmsContents.nunjucks" %}

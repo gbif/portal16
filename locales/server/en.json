@@ -1150,14 +1150,15 @@
 		"search": "search",
 		"cms": "Information",
 		"occurrences": "occurrences",
-		"datasets": "datasets",
+		"datasets": "Datasets",
 		"nMore": "%s more",
 		"publishedBy": "published by",
 		"publishers": "publishers",
 		"nPublishedDatasets": {
 			"one": "%s published dataset",
 			"other": "%s published datasets"
-		}
+		},
+		"programme": "stdTerms.programme"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

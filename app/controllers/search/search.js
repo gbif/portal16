@@ -156,7 +156,7 @@ function getData(query, cb) {
                 helper.getApiData(baseConfig.dataApi + 'organization?limit=3&q=' + q, callback);
             },
             cms: function(callback){
-                helper.getApiData(baseConfig.cmsApi + 'search/' + q, callback);
+                helper.getApiData(baseConfig.cmsApi + 'search/' + q + '?page[size]=10', callback);
             },
             country: function(callback) {
                 helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function(err, data) {

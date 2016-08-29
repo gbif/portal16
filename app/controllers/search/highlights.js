@@ -1,33 +1,24 @@
-"use strict";
+'use strict';
 
+//@mgh should we choose either underscore or lodash?
 var _ = require('underscore');
 
-const curatedArticles = {
-    hard: [
-        {
-            cmsContentId: '82565',
-            keywords: ['bear', 'asiatic']
-        }
-    ]
-};
-const keywordToResource = {};
-curatedArticles.hard.forEach(function (e) {
-    e.keywords.forEach(function (k) {
-        keywordToResource[k] = e.cmsContentId;
-    });
-});
-
-function getCuratedArticle(q, data) {
+function getCuratedCmsContents(q, data) {
     if (typeof q === 'undefined' || typeof data === 'undefined') {
         return;
     }
-    let cmsContentId = keywordToResource[q.toString().toLocaleLowerCase()];
-    if (typeof cmsContentId !== 'undefined' && data.articles && data.articles.data && data.articles.data.length > 0) {
-        for (let i = 0; i < data.articles.data.length; i++) {
-            if (data.articles.data[i].entity_id == cmsContentId) {
-                return data.articles.data[i];
+    if (data.cms && data.cms.results && data.cms.results.length > 0) {
+        var featuredContents = [];
+        for (let i = 0; i < data.cms.results.length; i++) {
+            if (Array.isArray(data.cms.results[i].featuredSearchTerms) && data.cms.results[i].featuredSearchTerms.length > 0) {
+                data.cms.results[i].featuredSearchTerms.forEach(function(term){
+                    if (term.name.toLowerCase() == q) {
+                        featuredContents.push(data.cms.results[i]);
+                    }
+                });
             }
         }
+        return featuredContents;
     }
 }
 
@@ -36,7 +27,7 @@ function getHighlights(q, data) {
         return [];
     }
     let highlights = [],
-        curatedArticle = getCuratedArticle(q, data);
+        curatedCmsContents = getCuratedCmsContents(q, data);
 
     if (data.country) {
         highlights.push({
@@ -45,10 +36,10 @@ function getHighlights(q, data) {
         });
     }
 
-    if (curatedArticle) {
+    if (curatedCmsContents) {
         highlights.push({
-            type: 'ARTICLE',
-            highlight: curatedArticle
+            type: 'CMS',
+            highlight: curatedCmsContents
         });
     }
 
