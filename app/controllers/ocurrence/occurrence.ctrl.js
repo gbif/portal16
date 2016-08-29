@@ -8,7 +8,6 @@ module.exports = function (app) {
 function renderSearch(req, res) {
     res.render('pages/occurrence/ocurrence', {
         title: 'Ocurrences',
-        message: 'yada yada',
         _meta: {
             hideSearchAction: false,
             hasDrawer: true,

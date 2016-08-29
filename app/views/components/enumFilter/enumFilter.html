@@ -8,7 +8,7 @@
     </a>
 
      <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div class="checkbox is-padded" ng-repeat="enumName in vm.enumValues" ng-if="vm.checkboxModel[enumName] || !vm.collapsed">
+        <div class="checkbox is-padded" ng-repeat="enumName in vm.filterConfig.enumValues" ng-if="vm.checkboxModel[enumName] || !vm.collapsed">
             <label>
                 <input type="checkbox" ng-model="vm.checkboxModel[enumName]" ng-change="vm.apply(enumName, checked)">
                 <span class="filter-group__filter__name">

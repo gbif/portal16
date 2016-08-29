@@ -84,6 +84,7 @@ require('../../../components/filterTaxon/filterTaxon.directive');
 require('../../../components/filterSuggest/filterSuggest.directive');
 require('../../../components/filterLocation/filterLocation.directive');
 require('../../../components/filterInterval/filterInterval.directive');
+require('../../../components/filterFacet/filterFacet.directive');
 
 require('../../../components/focusMe/focusMe.directive');
 

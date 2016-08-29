@@ -1,4 +1,4 @@
-<script type="text/ng-template" id="customTemplate.html">
+<!-- <script type="text/ng-template" id="customTemplate.html">
     <a ng-href="../dataset/{{match.model.key}}">
         <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
     </a>
@@ -18,7 +18,6 @@
                        typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
                        typeahead-focus-first="false"
                        typeahead-template-url="customTemplate.html">
-                <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>
@@ -59,44 +58,48 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+
+
+
+
+
+<div search-drawer filter="dataset.state" content-type="datasets">
+    <div class="site-drawer__section">
+        <div class="search-bar filter-group">
+            <form class="search-bar__term" ng-submit="dataset.search()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       ng-model="dataset.state.query.q"
+                       placeholder="Search all fields">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.search()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
+
+
+        <div enum-filter filter-config="dataset.filters.type" filter-state="dataset.state"></div>
+
+        <div filter-facet filter-config="dataset.filters.publishingOrg" filter-state="dataset.state"></div>
+
+
+
+    </div>
+
 </div>
 
 
+<div class="site-content">
 
+    <div class="page">
+        <div class="dataset-search-results">
+            <div ui-view>
 
-
-
-
-<!--<div search-drawer filter="dataset.state" content-type="datasets">-->
-    <!--<div class="site-drawer__section">-->
-        <!--<div class="search-bar filter-group">-->
-            <!--<form class="search-bar__term" ng-submit="dataset.search()">-->
-                <!--<input type="text"-->
-                       <!--id="siteSearch"-->
-                       <!--autocomplete="off"-->
-                       <!--ng-model="dataset.state.query.q"-->
-                       <!--placeholder="Search all fields">-->
-                <!--&lt;!&ndash;<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>&ndash;&gt;-->
-                <!--<a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.search()">-->
-                    <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
-                <!--</a>-->
-            <!--</form>-->
-        <!--</div>-->
-
-
-
-    <!--</div>-->
-
-<!--</div>-->
-
-
-<!--<div class="site-content">-->
-
-    <!--<div class="page">-->
-        <!--<div class="dataset-search-results">-->
-            <!--<div ui-view>-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

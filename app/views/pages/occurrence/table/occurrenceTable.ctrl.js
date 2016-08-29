@@ -44,7 +44,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         window.scrollTo(0,0);
     };
 
-    $scope.$watch(function(){return vm.occurrenceState.query.offset}, updatePaginationCounts);
+    // $scope.$watch(function(){return vm.occurrenceState.query.offset}, updatePaginationCounts);
 
     hotkeys.add({
         combo: 'alt+right',

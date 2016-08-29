@@ -3,20 +3,20 @@
 var angular = require('angular');
 angular
     .module('portal')
-    .directive('enumFilter', enumFilterDirective);
+    .directive('filterFacet', filterFacetDirective);
 
 /** @ngInject */
-function enumFilterDirective() {
+function filterFacetDirective() {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/enumFilter/enumFilter.html',
+        templateUrl: '/templates/components/filterFacet/filterFacet.html',
         scope: {
             filterState: '=',
             filterConfig: '='
         },
         replace: true,
-        controller: enumFilter,
+        controller: filterFacet,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -24,42 +24,35 @@ function enumFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function enumFilter($scope, $filter) {
+    function filterFacet($scope, $filter) {
         var vm = this;
-        vm.filterConfig.enumValues = vm.filterConfig.enumValues;
+        vm.filterAutoUpdate = true;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.facetKey = vm.filterConfig.facetKey;
-        vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
         vm.collapsed = vm.filterConfig.collapsed !== false;
 
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+        vm.filterConfig.enumValues = vm.query;
         vm.checkboxModel = {};
         vm.facets = {};
 
         function setModel(query) {
-            vm.filterConfig.enumValues.forEach(function(e){
-                vm.checkboxModel[e] = false;
-            });
             query.forEach(function(e){
                 vm.checkboxModel[e] = true;
             });
         }
         setModel(vm.query);
 
-        vm.getWidth = function(enumName) {
-            if (!vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[vm.facetKey] || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map[enumName]) {
-                return {
-                    width: '0px'
-                }
+        vm.getOptions = function(a, b) {
+            var options = {};
+            b = b || [];
+            if (a) {
+                b.concat(a).forEach(function(e){
+                    options[e.name] = e;
+                });
             }
-            var fraction = vm.filterState.data.facets[vm.facetKey].map[enumName].fraction;
-            var gear = 100 / (vm.filterState.data.facets[vm.facetKey].maxCount / vm.filterState.data.count);
-            var width = fraction * gear;
-            return {
-                width: width + '%'
-            };
+            return options;
         };
 
         vm.showFacetCount = function() {
@@ -82,8 +75,11 @@ function enumFilterDirective() {
 
         vm.apply = function() {
             if (vm.filterAutoUpdate) {
-                vm.query = vm.filterConfig.enumValues.filter(function(e){
-                    return !!vm.checkboxModel[e];
+                vm.query = [];
+                Object.keys(vm.checkboxModel).forEach(function(key){
+                    if (vm.checkboxModel[key]) {
+                        vm.query.push(key);
+                    } 
                 });
                 vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
             }
@@ -94,7 +90,12 @@ function enumFilterDirective() {
             setModel(vm.query);
         });
 
+        // $scope.$watch(function(){return vm.filterState.data}, function(newQuery){
+        //     vm.query = $filter('unique')(newQuery);
+        //     setModel(vm.query);
+        // });
+
     }
 }
 
-module.exports = enumFilterDirective;
+module.exports = filterFacetDirective;

@@ -34,7 +34,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?offset&limit&q&basisOfRecord&catalogNumber&collectionCode&continent&country&datasetKey&decimalLatitude&decimalLongitude&depth&elevation&eventDate&geometry&hasCoordinate&hasGeospatialIssue&institutionCode&issue&lastInterpreted&mediaType&month&occurrenceId&publishingCountry&recordedBy&recordNumber&scientificName&taxonKey&kingdomKey&phylumKey&classKey&orderKey&familyKey&genusKey&subGenusKey&speciesKey&year&establishmentMeans&repatriated&typeStatus&organismId&kingdomKey.facetLimit',
+            url: '/occurrence?q&basisOfRecord&catalogNumber&collectionCode&continent&country&datasetKey&decimalLatitude&decimalLongitude&depth&elevation&eventDate&geometry&hasCoordinate&hasGeospatialIssue&institutionCode&issue&lastInterpreted&mediaType&month&occurrenceId&publishingCountry&recordedBy&recordNumber&scientificName&taxonKey&kingdomKey&phylumKey&classKey&orderKey&familyKey&genusKey&subGenusKey&speciesKey&year&establishmentMeans&repatriated&typeStatus&organismId&kingdomKey.facetLimit',
             views: {
                 main: {
                     templateUrl: '/templates/pages/occurrence/occurrence.html',
@@ -45,7 +45,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearchTable', {
             parent: 'occurrenceSearch',
-            url: '/table',
+            url: '/table?offset&limit',
             templateUrl: '/templates/pages/occurrence/table/occurrenceTable.html',
             controller: 'occurrenceTableCtrl',
             controllerAs: 'occTable'
@@ -72,19 +72,6 @@ function routerConfig($stateProvider, $locationProvider) {
                     templateUrl: '/templates/pages/dataset/search/dataset.html',
                     controller: 'datasetCtrl',
                     controllerAs: 'dataset'
-                }
-            },
-            resolve: {
-                results:  function($stateParams, DatasetSearch){
-                    var query = angular.copy($stateParams);
-                    var availableFacets = ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country'];
-                    availableFacets.forEach(function(facet){
-                        //if (angular.isUndefined(query[facet])) {
-                            query.facet = query.facet || [];
-                            query.facet.push(facet);
-                        //}
-                    });
-                    return DatasetSearch.query(query).$promise;
                 }
             }
         })

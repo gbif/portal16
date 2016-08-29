@@ -31,7 +31,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         shortName: 'canonicalName',
         longName: 'scientificName',
         expand: true,
-        resource: Species
+        resource: Species,
+        filter: OccurrenceFilter
     };
 
     vm.filters.dataset = {
@@ -44,7 +45,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         shortName: 'title',
         longName: 'title',
         expand: false,
-        resource: Dataset
+        resource: Dataset,
+        filter: OccurrenceFilter
     };
 
     //enums
@@ -53,7 +55,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'basisOfRecord',
         title: 'basisOfRecord',
         translationPrefix: 'basisOfRecord',
-        facetKey: 'BASIS_OF_RECORD'
+        facetKey: 'BASIS_OF_RECORD',
+        filter: OccurrenceFilter
     };
 
     vm.filters.typeStatus = {
@@ -61,7 +64,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'typeStatus',
         title: 'typeStatus',
         translationPrefix: 'typeStatus',
-        facetKey: 'TYPE_STATUS'
+        facetKey: 'TYPE_STATUS',
+        filter: OccurrenceFilter
     };
 
     vm.filters.month = {
@@ -69,7 +73,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'month',
         title: 'month',
         translationPrefix: 'month',
-        facetKey: 'MONTH'
+        facetKey: 'MONTH',
+        filter: OccurrenceFilter
     };
 
     vm.filters.mediaType = {
@@ -77,44 +82,53 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'mediaType',
         title: 'mediaType',
         translationPrefix: 'mediaType',
-        facetKey: 'MEDIA_TYPE'
+        facetKey: 'MEDIA_TYPE',
+        filter: OccurrenceFilter
     };
 
     vm.filters.establishmentMeans = {
         enumValues: enums.establishmentMeans,
         queryKey: 'establishmentMeans',
         title: 'establishmentMeans',
-        translationPrefix: 'establishmentMeans'
+        translationPrefix: 'establishmentMeans',
+        filter: OccurrenceFilter
     };
 
     //suggest filters
     vm.filters.recordedBy = {
-        title: 'recordedBy'
+        title: 'recordedBy',
+        filter: OccurrenceFilter
     };
 
     vm.filters.recordNumber = {
-        title: 'recordNumber'
+        title: 'recordNumber',
+        filter: OccurrenceFilter
     };
 
     vm.filters.occurrenceId = {
-        title: 'occurrenceId'
+        title: 'occurrenceId',
+        filter: OccurrenceFilter
     };
 
     vm.filters.catalogNumber = {
-        title: 'catalogNumber'
+        title: 'catalogNumber',
+        filter: OccurrenceFilter
     };
 
     vm.filters.institutionCode = {
-        title: 'institutionCode'
+        title: 'institutionCode',
+        filter: OccurrenceFilter
     };
 
     vm.filters.collectionCode = {
-        title: 'collectionCode'
+        title: 'collectionCode',
+        filter: OccurrenceFilter
     };
 
     //intervals
     vm.filters.year = {
-        queryKey: 'year'
+        queryKey: 'year',
+        filter: OccurrenceFilter
     };
 
 
