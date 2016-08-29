@@ -7,14 +7,13 @@
  */
 'use strict';
 var angular = require('angular');
-//require('./components/taxon/taxonExplore.directive');
 
 angular
     .module('portal')
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset) {
+function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset) {
     var vm = this;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
@@ -159,7 +158,6 @@ function occurrenceCtrl($scope, $state, $stateParams, hotkeys, enums, Occurrence
             event.preventDefault();
         }
     });
-
 
 }
 

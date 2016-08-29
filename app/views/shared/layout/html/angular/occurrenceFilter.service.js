@@ -38,8 +38,9 @@ angular
                 facetType.counts.forEach(function(e){
                     facetCountMap[e.name] = {
                         count: e.count,
-                        fraction: e.count/total
-                    }
+                        fraction: e.count/total,
+                        title: e.title
+                    };
                     max = e.count > max ? e.count : max;
                 });
                 facetMap[facetType.field].maxCount = max;
@@ -54,10 +55,8 @@ angular
             occurrenceState.query['month.facetLimit'] = 12;
             occurrenceState.query['typeStatus.facetLimit'] = 30;
             if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
-            // occurrenceState.data = {};
-            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(data){
+            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(){
                 occurrenceState.failedRequest = false;
-                // occurrenceState.data = data;
                 occurrenceState.data.facets = facetArrayToMap(occurrenceState.data.facets, occurrenceState.data.count);
             }, function() {
                 occurrenceState.failedRequest = true;

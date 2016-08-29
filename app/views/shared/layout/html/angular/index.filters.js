@@ -24,6 +24,12 @@
         .filter('encodeURIComponent', function() {
             return window.encodeURIComponent;
         })
+        .filter('localNumber', function() {
+            return function(num, lang) {
+                if (angular.isUndefined(num)) return '';
+                return num.toLocaleString(lang);
+            }
+        })
         .filter('unique', function() {
             return function(a) {
                 if (angular.isString(a)) return [a];

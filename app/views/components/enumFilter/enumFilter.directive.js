@@ -94,10 +94,6 @@ function enumFilterDirective() {
             setModel(vm.query);
         });
 
-        // $scope.$watch(function(){return vm.filterState.data}, function(newData){
-        //     vm.setFacets(data.facets);
-        // });
-
     }
 }
 

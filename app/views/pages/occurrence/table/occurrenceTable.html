@@ -9,7 +9,7 @@
                 </nav>
                 <div class="search-header__description">
                     <span ng-if="occTable.hasData()">
-                        {{occTable.occurrenceState.data.count | number}} results
+                        {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
                     </span>
                 </div>
                 <div class="stripe-menu">
