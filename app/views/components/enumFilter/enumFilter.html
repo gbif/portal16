@@ -14,7 +14,7 @@
                 <span class="filter-group__filter__name">
                     <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(enumName)" ng-if="vm.showFacetCount()"></div>
                     <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enumName}}">{{enumName}}</span>
-                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()" >{{vm.filterState.data.facets[vm.facetKey].map[enumName].count | localNumber:vm.filterState.query.locale}}</span>
+                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()" >{{vm.filterState.data.facets[vm.facetKey].counts[enumName].count | localNumber:vm.filterState.query.locale}}</span>
                 </span>
             </label>
         </div>

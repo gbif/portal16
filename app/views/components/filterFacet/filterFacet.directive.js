@@ -65,14 +65,11 @@ function filterFacetDirective() {
             setModel(vm.query);
         });
 
-        vm.updateOptions = function(apiReponse) {
-            var a = apiReponse.facets[vm.facetKey],
-                b = apiReponse.filters[vm.facetKey] || [];
-            b = b || [];
-            vm.options = {};
-            if (a) {
-                b.concat(a).forEach(function(e){
-                    vm.options[e.name] = e;
+        vm.updateOptions = function(apiResponse) {
+            vm.options = apiResponse.facets[vm.facetKey].counts;
+            if (angular.isArray(apiResponse.filters[vm.facetKey])) {
+                apiResponse.filters[vm.facetKey].forEach(function(e){
+                    vm.options[e.name] = vm.options[e.name] || e;
                 });
             }
         };

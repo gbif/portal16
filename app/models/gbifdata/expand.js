@@ -96,6 +96,7 @@ function expand(data, config, __, cb) {
                 getResultTasks(data.results, config.expandList, callback)
             }
         }, function(err, results) {
+            data.facets = facetArrayToMap(data);
             cb();
         });
 
@@ -104,6 +105,27 @@ function expand(data, config, __, cb) {
     } catch(e) {
         console.log(e);
     }
+}
+
+function facetArrayToMap(data) {
+    var facetMap = {};
+    Object.keys(data.facets).forEach(function(key){
+        let facetType = data.facets[key];
+        facetMap[key] = {};
+        var facetCountMap = {};
+        var max = 0;
+        facetType.forEach(function(e){
+            facetCountMap[e.name] = {
+                count: e.count,
+                fraction: e.count/data.count,
+                title: e.title
+            };
+            max = e.count > max ? e.count : max;
+        });
+        facetMap[key].max = max;
+        facetMap[key].counts = facetCountMap;
+    });
+    return facetMap;
 }
 
 function getFacetTasks(data, __) {

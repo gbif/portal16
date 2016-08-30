@@ -49,13 +49,13 @@ function enumFilterDirective() {
         setModel(vm.query);
 
         vm.getWidth = function(enumName) {
-            if (!vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[vm.facetKey] || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map || !vm.filterState.data.facets[vm.facetKey].map[enumName]) {
+            if (!vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[vm.facetKey] || !vm.filterState.data.facets[vm.facetKey].counts || !vm.filterState.data.facets[vm.facetKey].counts[enumName]) {
                 return {
                     width: '0px'
                 }
             }
-            var fraction = vm.filterState.data.facets[vm.facetKey].map[enumName].fraction;
-            var gear = 100 / (vm.filterState.data.facets[vm.facetKey].maxCount / vm.filterState.data.count);
+            var fraction = vm.filterState.data.facets[vm.facetKey].counts[enumName].fraction;
+            var gear = 100 / (vm.filterState.data.facets[vm.facetKey].max / vm.filterState.data.count);
             var width = fraction * gear;
             return {
                 width: width + '%'

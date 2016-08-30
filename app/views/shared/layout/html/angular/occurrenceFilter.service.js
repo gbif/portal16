@@ -27,28 +27,6 @@ angular
             }
         );
 
-        function facetArrayToMap(facets, total) {
-            var facetMap = {};
-            facets.forEach(function(facetType){
-                facetMap[facetType.field] = {
-                    sorted: facetType.counts
-                };
-                var facetCountMap = {};
-                var max = 0;
-                facetType.counts.forEach(function(e){
-                    facetCountMap[e.name] = {
-                        count: e.count,
-                        fraction: e.count/total,
-                        title: e.title
-                    };
-                    max = e.count > max ? e.count : max;
-                });
-                facetMap[facetType.field].maxCount = max;
-                facetMap[facetType.field].map = facetCountMap;
-            });
-            return facetMap;
-        }
-
         function refreshData(query) {
             occurrenceState.query = query || $stateParams;
             occurrenceState.query.facet = facets;
