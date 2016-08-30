@@ -19,16 +19,15 @@ function datasetCtrl($state, DatasetFilter, $stateParams, $http, hotkeys) {
 
     vm.filters = {};
 
-    //enums
+    //facet filters
     vm.filters.type = {
-        enumValues: ['OCCURRENCE', 'CHECKLIST'],
         queryKey: 'type',
+        facetKey: 'TYPE',
         title: 'type',
         translationPrefix: 'dataset.type',
         filter: DatasetFilter
     };
 
-    //facet filters
     vm.filters.publishingOrg = {
         queryKey: 'publishing_org',
         facetKey: 'PUBLISHING_ORG',
@@ -36,6 +35,24 @@ function datasetCtrl($state, DatasetFilter, $stateParams, $http, hotkeys) {
         translationPrefix: 'stdTerms',
         filter: DatasetFilter
     };
+
+    vm.filters.hostingOrg = {
+        queryKey: 'hosting_org',
+        facetKey: 'HOSTING_ORG',
+        title: 'hosting_org',
+        translationPrefix: 'stdTerms',
+        filter: DatasetFilter
+    };
+    vm.filters.publishingCountry = {
+        queryKey: 'publishing_country',
+        facetKey: 'PUBLISHING_COUNTRY',
+        title: 'publishingCountry',
+        translationPrefix: 'stdTerms',
+        filter: DatasetFilter
+    };
+    
+
+    
 
     // vm.getSuggestions = function(val) {
     //     return $http.get('//api.gbif.org/v1/dataset/suggest', {

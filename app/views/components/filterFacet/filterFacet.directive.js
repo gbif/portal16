@@ -56,7 +56,7 @@ function filterFacetDirective() {
         };
 
         vm.showFacetCount = function() {
-            return vm.facetKey && !vm.collapsed && vm.query.length != 1;
+            return vm.facetKey && vm.query.length != 1;
         };
 
         vm.reverse = function() {
@@ -67,9 +67,7 @@ function filterFacetDirective() {
         };
 
         vm.uncheckAll = function() {
-            vm.filterConfig.enumValues.forEach(function(key){
-                vm.checkboxModel[key] = false;
-            });
+            vm.checkboxModel = {};
             vm.apply();
         };
 

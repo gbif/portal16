@@ -11,7 +11,7 @@ angular
             query: $stateParams
         };
 
-        var availableFacets = ['type', 'keyword', 'publishingOrg'];
+        var availableFacets = ['type', 'publishingOrg', 'hostingOrg', 'publishingCountry'];
         var facets = [];
         availableFacets.forEach(function(facet){
             facets.push(facet);

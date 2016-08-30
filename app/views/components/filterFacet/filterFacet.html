@@ -1,25 +1,17 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
-    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
-        <h5>
-            <span class="text-capitalize">{{vm.title}}</span>
-            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
-            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
-        </h5>
-    </a>
+    <h5>
+        <span class="text-capitalize">{{vm.title}}</span>
+    </h5>
 
-     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.getOptions(vm.filterState.data.facets[vm.facetKey], vm.filterState.data.filters[vm.facetKey])" ng-if="vm.checkboxModel[key] || !vm.collapsed">
+     <div class="filter-group__filter filter-group__filter--collapsed">
+        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.getOptions(vm.filterState.data.facets[vm.facetKey], vm.filterState.data.filters[vm.facetKey])">
             <label>
                 <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)">
                 <span class="filter-group__filter__name">
                     <span>{{option.title}}</span>
-                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()" >{{option.count | localNumber:vm.filterState.query.locale}}</span>
+                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
                 </span>
             </label>
-        </div>
-
-        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed">
-            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
         </div>
     </div>
 </div>

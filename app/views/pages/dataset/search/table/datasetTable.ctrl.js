@@ -13,10 +13,10 @@ angular
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl($scope, $http, hotkeys, DatasetFilter) {
+function datasetTableCtrl($scope, $http, hotkeys, DatasetFilter, env) {
     var vm = this, offset;
     vm.state = DatasetFilter.getState();
-
+    vm.tileApi = env.tileApi;
     vm.featuredDataSets = {
         nodes: []
     };
