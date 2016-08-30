@@ -4,16 +4,6 @@
     <div>
         <article class="wrapper-horizontal-stripes">
             <div class="horizontal-stripe--paddingless article-header white-background">
-                {% if image.width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ image.image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
                 <div class="container">
                     <div class="row">
                         <header class="col-xs-12 text-center article-header--programme">
@@ -29,8 +19,40 @@
                         </header>
                     </div>
                 </div>
-
-
+             </div>
+            {% if data.funders.length > 0 %}
+             <div class="horizontal-stripe light-background">
+                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="text-center">
+                            This programme is funded by
+                            <div class="funders">
+                                <h5></h5>
+                            </div>
+                            {% set comma = joiner('and') %}
+                            {% for funder in data.funders %}
+                                <div class="funders">
+                                    <h5>{$ comma() $}</h5>
+                                    <img ng-src="{$ funder.image.styles.funder_image $}">
+                                    <h5>{$ funder.title $}</h5>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                 </div>
+             </div>
+            {% endif %}
+            <div class="horizontal-stripe--paddingless">
+                {% if image.width > 1000 %}
+                    <figure class="heading-image">
+                        <div class="cover-image">
+                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
+                        </div>
+                        <figcaption class="container-fluid container--prose">
+                            {$ image.image_field_caption.value | safe $}
+                        </figcaption>
+                    </figure>
+                {% endif %}
                 <div class="container-fluid container--prose">
                     <div class="body-text col-xs-12 col-md-9">
                         {% if image.width <= 1000 %}
@@ -69,17 +91,6 @@
                     </div>
 
                     <div class="col-xs-12 col-md-3 sidebar">
-                        {% if data.funders.length > 0 %}
-                            <div class="sidebar__item">
-                                <h3>Funder</h3>
-                            </div>
-                           {% for funder in data.funders %}
-                               <div class="sidebar__item">
-                                   <img ng-src="{$ funder.image.styles.funder_image $}">
-                                   <h5>This programme is funded by {$ funder.title $}</h5>
-                               </div>
-                            {% endfor %}
-                        {% endif %}
 
                         {% if data.relatedProjects.length > 0 %}
                         <div class="sidebar__item">
