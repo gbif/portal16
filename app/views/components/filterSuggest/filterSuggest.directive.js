@@ -31,7 +31,7 @@ function filterSuggestDirective() {
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || 'ocurrenceFieldNames';
         vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
-        vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.queryKey];
+        vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.title];
         vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
 
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
@@ -52,6 +52,7 @@ function filterSuggestDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
+            if (angular.isUndefined(item)) return;
             var searchString = item.toString();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
                 vm.query.push(item.toString());

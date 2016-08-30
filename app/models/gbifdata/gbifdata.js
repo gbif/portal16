@@ -13,5 +13,6 @@ module.exports = {
 	Publisher: Publisher,
 	Taxon: Taxon,
 	Dataset: Dataset,
-	expandFacetsAndFilters: expandFacetsAndFilters
+	expandFacetsAndFilters: expandFacetsAndFilters,
+	expand: require('./expand')
 };

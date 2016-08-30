@@ -1250,15 +1250,21 @@
 		"longType": {
 			"OCCURRENCE": "occurrence dataset",
 			"CHECKLIST": "checklist dataset",
-			"SAMPLING_EVENT": "Sampling event",
-			"METADATA": "Metadata dataset"
+			"SAMPLING_EVENT": "sampling event",
+			"METADATA": "metadata dataset"
 		},
 		"type": {
 			"OCCURRENCE": "occurrence",
 			"CHECKLIST": "checklist",
-			"SAMPLING_EVENT": "Sampling event",
-			"METADATA": "Metadata",
-			"undefined": "dataset.type.undefined"
+			"SAMPLING_EVENT": "sampling event",
+			"METADATA": "metadata",
+			"undefined": "unknown"
+		},
+		"terms": {
+			"type": "type",
+			"publishingOrg": "publisher",
+			"hostingOrg": "host",
+			"publishingCountry": "publishing country"
 		}
 	},
 	"countryPage": {

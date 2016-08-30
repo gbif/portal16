@@ -57,7 +57,7 @@ angular
             if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
             occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(){
                 occurrenceState.failedRequest = false;
-                occurrenceState.data.facets = facetArrayToMap(occurrenceState.data.facets, occurrenceState.data.count);
+                //occurrenceState.data.facets = facetArrayToMap(occurrenceState.data.facets, occurrenceState.data.count);
             }, function() {
                 occurrenceState.failedRequest = true;
             });

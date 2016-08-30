@@ -20,7 +20,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     vm.filters = {};
     //suggest complex
     vm.filters.scientificName = {
-        queryKey: 'taxonKey',
+        queryKey: 'taxon_key',
         translationPrefix: 'ocurrenceFieldNames',
         title: 'scientificName',
         suggestEndpoint: suggestEndpoints.taxon,
@@ -36,7 +36,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
 
     vm.filters.dataset = {
-        queryKey: 'datasetKey',
+        queryKey: 'dataset_key',
         title: 'dataset',
         translationPrefix: 'stdTerms',
         suggestEndpoint: suggestEndpoints.dataset,
@@ -52,7 +52,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     //enums
     vm.filters.basisOfRecord = {
         enumValues: enums.basisOfRecord,
-        queryKey: 'basisOfRecord',
+        queryKey: 'basis_of_record',
         title: 'basisOfRecord',
         translationPrefix: 'basisOfRecord',
         facetKey: 'BASIS_OF_RECORD',
@@ -61,7 +61,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.filters.typeStatus = {
         enumValues: enums.typeStatus,
-        queryKey: 'typeStatus',
+        queryKey: 'type_status',
         title: 'typeStatus',
         translationPrefix: 'typeStatus',
         facetKey: 'TYPE_STATUS',
@@ -79,7 +79,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.filters.mediaType = {
         enumValues: enums.mediaType,
-        queryKey: 'mediaType',
+        queryKey: 'media_type',
         title: 'mediaType',
         translationPrefix: 'mediaType',
         facetKey: 'MEDIA_TYPE',
@@ -88,7 +88,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.filters.establishmentMeans = {
         enumValues: enums.establishmentMeans,
-        queryKey: 'establishmentMeans',
+        queryKey: 'establishment_means',
         title: 'establishmentMeans',
         translationPrefix: 'establishmentMeans',
         filter: OccurrenceFilter
@@ -97,31 +97,37 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     //suggest filters
     vm.filters.recordedBy = {
         title: 'recordedBy',
+        queryKey: 'recorded_by',
         filter: OccurrenceFilter
     };
 
     vm.filters.recordNumber = {
         title: 'recordNumber',
+        queryKey: 'record_number',
         filter: OccurrenceFilter
     };
 
     vm.filters.occurrenceId = {
         title: 'occurrenceId',
+        queryKey: 'occurrence_id',
         filter: OccurrenceFilter
     };
 
     vm.filters.catalogNumber = {
         title: 'catalogNumber',
+        queryKey: 'catalog_number',
         filter: OccurrenceFilter
     };
 
     vm.filters.institutionCode = {
         title: 'institutionCode',
+        queryKey: 'institution_code',
         filter: OccurrenceFilter
     };
 
     vm.filters.collectionCode = {
         title: 'collectionCode',
+        queryKey: 'collection_code',
         filter: OccurrenceFilter
     };
 
@@ -134,7 +140,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.search = function() {
         $state.go('.', vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
-        //window.scrollTo(0,0);
     };
 
     vm.updateSearch = function() {

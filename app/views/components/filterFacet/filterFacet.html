@@ -1,14 +1,14 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
     <h5>
-        <span class="text-capitalize">{{vm.title}}</span>
+        <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{vm.title}}">{{vm.title}}</span>
     </h5>
 
      <div class="filter-group__filter filter-group__filter--collapsed">
-        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.getOptions(vm.filterState.data.facets[vm.facetKey], vm.filterState.data.filters[vm.facetKey])">
+        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.options">
             <label>
-                <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)">
+                <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)" ng-disabled="vm.disabled">
                 <span class="filter-group__filter__name">
-                    <span>{{option.title}}</span>
+                    <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key]}" class="uppercase-first">{{option.title}}</span>
                     <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
                 </span>
             </label>

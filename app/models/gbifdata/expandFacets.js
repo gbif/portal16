@@ -22,6 +22,10 @@ const facetTypeConfig = {
         type: 'KEY',
         endpoint: apiConfig.publisher.url,
         fromKey: 'title'
+    },
+    BASIS_OF_RECORD: {
+        type: 'ENUM',
+        translationPath: 'basisOfRecord.'
     }
 };
 

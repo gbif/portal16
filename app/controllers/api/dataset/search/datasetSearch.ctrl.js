@@ -14,7 +14,21 @@ module.exports = function (app) {
 
 router.get('/dataset/search', function (req, res, next) {
     datasetSearch(req.query).then(function(data) {
-        gbifData.expandFacetsAndFilters(data, req.query, res.__, function(err){
+        let expandConfig = {
+            facets: true,
+            query: req.query,
+            expandList: [
+                {
+                    fromKey: 'publishingOrganizationKey',
+                    type: gbifData.expand.types.PUBLISHING_ORG
+                },
+                {
+                    fromKey: 'hostingOrganizationKey',
+                    type: gbifData.expand.types.HOSTING_ORG
+                }
+            ]
+        };
+        gbifData.expand.expand(data, expandConfig, res.__, function(err){
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);

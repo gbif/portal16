@@ -255,10 +255,16 @@
 		}
 		&__name {
 			position relative
-			display inline-block
-			width 100%
+			display flex
+			//width 100%
 			span {
+				flex 1 1 auto
 				position relative
+			}
+			&__title {
+				white-space nowrap
+				text-overflow ellipsis
+				overflow hidden
 			}
 			&__bar {
 				position absolute
@@ -272,7 +278,8 @@
 			&__count {
 				color darken($drawerSecondaryBackgroundColor, 30)
 				padding-left 5px
-				float right
+				text-align right
+				flex 0 0 auto
 			}
 		}
 	}

@@ -34,7 +34,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?q&basisOfRecord&catalogNumber&collectionCode&continent&country&datasetKey&decimalLatitude&decimalLongitude&depth&elevation&eventDate&geometry&hasCoordinate&hasGeospatialIssue&institutionCode&issue&lastInterpreted&mediaType&month&occurrenceId&publishingCountry&recordedBy&recordNumber&scientificName&taxonKey&kingdomKey&phylumKey&classKey&orderKey&familyKey&genusKey&subGenusKey&speciesKey&year&establishmentMeans&repatriated&typeStatus&organismId&kingdomKey.facetLimit',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&geometry&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&repatriated&type_status&organism_id',
             views: {
                 main: {
                     templateUrl: '/templates/pages/occurrence/occurrence.html',

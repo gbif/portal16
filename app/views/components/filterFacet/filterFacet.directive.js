@@ -26,16 +26,16 @@ function filterFacetDirective() {
     /** @ngInject */
     function filterFacet($scope, $filter) {
         var vm = this;
+        vm.disabled = false;
         vm.filterAutoUpdate = true;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
         vm.facetKey = vm.filterConfig.facetKey;
-        vm.collapsed = vm.filterConfig.collapsed !== false;
-
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
-        vm.filterConfig.enumValues = vm.query;
         vm.checkboxModel = {};
-        vm.facets = {};
+
+        vm.options = {};
 
         function setModel(query) {
             query.forEach(function(e){
@@ -44,35 +44,12 @@ function filterFacetDirective() {
         }
         setModel(vm.query);
 
-        vm.getOptions = function(a, b) {
-            var options = {};
-            b = b || [];
-            if (a) {
-                b.concat(a).forEach(function(e){
-                    options[e.name] = e;
-                });
-            }
-            return options;
-        };
-
         vm.showFacetCount = function() {
-            return vm.facetKey && vm.query.length != 1;
-        };
-
-        vm.reverse = function() {
-            vm.filterConfig.enumValues.forEach(function(key){
-                vm.checkboxModel[key] = !vm.checkboxModel[key];
-            });
-            vm.apply();
-        };
-
-        vm.uncheckAll = function() {
-            vm.checkboxModel = {};
-            vm.apply();
+            return vm.facetKey && Object.keys(vm.options).length > 1;
         };
 
         vm.apply = function() {
-            if (vm.filterAutoUpdate) {
+            if (vm.filterAutoUpdate && !vm.disabled) {
                 vm.query = [];
                 Object.keys(vm.checkboxModel).forEach(function(key){
                     if (vm.checkboxModel[key]) {
@@ -88,10 +65,29 @@ function filterFacetDirective() {
             setModel(vm.query);
         });
 
-        // $scope.$watch(function(){return vm.filterState.data}, function(newQuery){
-        //     vm.query = $filter('unique')(newQuery);
-        //     setModel(vm.query);
-        // });
+        vm.updateOptions = function(apiReponse) {
+            var a = apiReponse.facets[vm.facetKey],
+                b = apiReponse.filters[vm.facetKey] || [];
+            b = b || [];
+            vm.options = {};
+            if (a) {
+                b.concat(a).forEach(function(e){
+                    vm.options[e.name] = e;
+                });
+            }
+        };
+
+         $scope.$watch(function(){return vm.filterState.data}, function(newData){
+             vm.disabled = true;
+             newData.$promise.then(function(data){
+                 vm.updateOptions(data);
+                 vm.disabled = false;
+             }, function(){vm.disabled = false;});
+         });
+
+        vm.filterState.data.$promise.then(function(data){
+            vm.updateOptions(data);
+        });
 
     }
 }

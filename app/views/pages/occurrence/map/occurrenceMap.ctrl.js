@@ -44,10 +44,11 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
     };
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        crs: L.CRS.EPSG4326
     };
     function onMapClick(event) {
-        var targetSize = 20;//TODO use right projection with leaflet. this will not query for the correct lat lng
+        var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
         vm.query = angular.copy(vm.occurrenceState.query);
         vm.query.decimalLatitude = (event.latlng.lat - (targetSize/event.target._zoom) ) + ',' + (event.latlng.lat + (targetSize/event.target._zoom));
         vm.query.decimalLongitude = (event.latlng.lng - (targetSize/event.target._zoom)) + ',' + (event.latlng.lng + (targetSize/event.target._zoom));
