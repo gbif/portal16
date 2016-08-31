@@ -2,7 +2,7 @@
 
 {% block page %} <article class="wrapper-horizontal-stripes">
         <script type="text/javascript">
-            var datasetKey = '{$ datasetDetails.key $}';
+            var programmeID = '{$ data.id $}';
         </script>
         <div class="horizontal-stripe--paddingless article-header white-background">
             <div class="container">
@@ -44,26 +44,20 @@
          </div>
         {% endif %}
         <div class="horizontal-stripe--programme">
-            {% if image.width > 1000 %}
-                <figure class="heading-image">
-                    <div class="cover-image">
-                        <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
-                    </div>
-                    <figcaption class="container-fluid container--prose">
-                        {$ image.image_field_caption.value | safe $}
-                    </figcaption>
-                </figure>
-            {% endif %}
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns--single-col">
-                    {% if image.width <= 1000 %}
-                        <figure>
-                            <div class="cover-image article-image">
-                                <img ng-src="{$ image.styles.focal_point_for_news $}" alt="{$ image.filename $}" gallery-image>
-                            </div>
-                            <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
-                        </figure>
-                    {% endif %}
+                    <div class="row">
+                        {% if image.width > 1000 %}
+                            <figure class="heading-image">
+                                <div class="cover-image">
+                                    <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
+                                </div>
+                                <figcaption class="container-fluid container--prose">
+                                    {$ image.image_field_caption.value | safe $}
+                                </figcaption>
+                            </figure>
+                        {% endif %}
+                    </div>
 
                     {$ data.body | safe $}
                 </div>
@@ -85,7 +79,7 @@
                             <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
                         {% endfor %}
                         {% for file in data.file %}
-                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
                         {% endfor %}
                     </ul>
                 </div>
