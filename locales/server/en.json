@@ -1309,9 +1309,16 @@
 			"data_analysis": "Data analysis"
 		},
 		"projectGrantType": {
-			"regional": "cms.projectGrantType.regional",
-			"small": "cms.projectGrantType.small",
-			"national": "cms.projectGrantType.national"
+			"regional": "Regional grant",
+			"small": "Small grant",
+			"national": "National grant"
+		},
+		"projectDuration": {
+			"to": "to"
+		},
+		"projectStatus": {
+			"in_progress": "In progress",
+			"approved": "Approved"
 		}
 	}
 }

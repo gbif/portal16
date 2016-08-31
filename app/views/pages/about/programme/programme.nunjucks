@@ -43,7 +43,7 @@
              </div>
          </div>
         {% endif %}
-        <div class="horizontal-stripe--paddingless">
+        <div class="horizontal-stripe--programme">
             {% if image.width > 1000 %}
                 <figure class="heading-image">
                     <div class="cover-image">
@@ -71,7 +71,9 @@
         </div>
         {% if data.relatedProjects.length > 0 %}
         <div class="horizontal-stripe">
-            {% include "./includes/projectTable.nunjucks" %}
+            <div class="container-fluid">
+                {% include "./includes/projectTable.nunjucks" %}
+            </div>
         </div>
         {% endif %}
         <aside class="horizontal-stripe horizontal-stripe--card light-background">
