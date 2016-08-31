@@ -1,138 +1,119 @@
 {% extends "../html-prose.nunjucks" %}
 
-{% block page %}
-    <div>
-        <article class="wrapper-horizontal-stripes">
-            <div class="horizontal-stripe--paddingless article-header white-background">
-                <div class="container">
-                    <div class="row">
-                        <header class="col-xs-12 text-center article-header--programme">
-                            <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">About</span>
-                                <span class="article-header__category__lower">Programme</span>
-                            </nav>
-                            <h1>{$ data.title $}</h1>
-                            <div class="article-header__intro">
-                                {# fulltext html already wrapped by <p> from Content API #}
-                                {$ data.summary | safe $}
-                            </div>
-                        </header>
-                    </div>
-                </div>
-             </div>
-            {% if data.funders.length > 0 %}
-             <div class="horizontal-stripe light-background">
-                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="text-center">
-                            This programme is funded by
-                            <div class="funders">
-                                <h5></h5>
-                            </div>
-                            {% set comma = joiner('and') %}
-                            {% for funder in data.funders %}
-                                <div class="funders">
-                                    <h5>{$ comma() $}</h5>
-                                    <img ng-src="{$ funder.image.styles.funder_image $}">
-                                    <h5>{$ funder.title $}</h5>
-                                </div>
-                            {% endfor %}
+{% block page %} <article class="wrapper-horizontal-stripes">
+        <script type="text/javascript">
+            var datasetKey = '{$ datasetDetails.key $}';
+        </script>
+        <div class="horizontal-stripe--paddingless article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center article-header--programme">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">About</span>
+                            <span class="article-header__category__lower">Programme</span>
+                        </nav>
+                        <h1>{$ data.title $}</h1>
+                        <div class="article-header__intro">
+                            {# fulltext html already wrapped by <p> from Content API #}
+                            {$ data.summary | safe $}
                         </div>
-                    </div>
-                 </div>
-             </div>
-            {% endif %}
-            <div class="horizontal-stripe--paddingless">
-                {% if image.width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ image.image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
-                <div class="container-fluid container--prose">
-                    <div class="body-text col-xs-12 col-md-9">
-                        {% if image.width <= 1000 %}
-                            <figure>
-                                <div class="cover-image article-image">
-                                    <img ng-src="{$ image.styles.focal_point_for_news $}" alt="{$ image.filename $}" gallery-image>
-                                </div>
-                                <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
-                            </figure>
-                        {% endif %}
-
-                        {$ data.body | safe $}
-
-                        {% if data.relatedNews.length > 0 %}
-                        <div class="related-news--programme">
-                            <h3>Related news</h3>
-                            {% for i in range(0, 5) -%}
-                                <div class="entity-summary__row">
-                                    <div class="entity-summary__image">
-                                        <img ng-src="{$ data.relatedNews[i].image.styles.square_thumbnail $}">
-                                    </div>
-                                    <div class="entity-summary__text">
-                                        <h4><a href="/{$ data.relatedNews[i].targetUrl $}">{$ data.relatedNews[i].title $}</a></h4>
-                                        <div class="entity-summary__summary">{$ data.relatedNews[i].summary | safe $}</div>
-                                        {$ data.relatedNews[i].created | formatDate(gb.locales.current) $}
-                                    </div>
-                                </div>
-                            {%- endfor %}
-                            {% if data.relatedNews.length > 5 %}
-                                <p>View all related news...</p>
-                            {% endif %}
-
-                        </div>
-                        {% endif %}
-
-                    </div>
-
-                    <div class="col-xs-12 col-md-3 sidebar">
-
-                        {% if data.relatedProjects.length > 0 %}
-                        <div class="sidebar__item">
-                            <h3>Related projects</h3>
-                        </div>
-
-                            {% for i in range(0, 5) -%}
-                                <div class="sidebar__item">
-                                    <img ng-src="{$ data.relatedProjects[i].image.styles.sidebar_thumbnail $}">
-                                    <h5><a href="/{$ data.relatedProjects[i].targetUrl $}">{$ data.relatedProjects[i].title $}</a></h5>
-                                </div>
-                            {%- endfor %}
-                            {% if data.relatedProjects.length > 5 %}
-                                <p>View all related projects...</p>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-
-                </div>
-
-                <div class="container-fluid container--prose">
+                    </header>
                 </div>
             </div>
-            <aside class="horizontal-stripe horizontal-stripe--card light-background">
-                <div class="container-fluid container--related-stories">
-                    <div class="row">
-                            <div> {# placeholder for the bootstrap row class, which breaks column here #}
-                                <section class="no-break">
-                                    <h4>Related documents and information</h4>
-                                    <ul class="list-links--programme-resources">
-                                        {% for resource in data.relatedResources %}
-                                            <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
-                                        {% endfor %}
-                                        {% for file in data.file %}
-                                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </section>
+         </div>
+        {% if data.funders.length > 0 %}
+         <div class="horizontal-stripe light-background">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="text-center">
+                        This programme is funded by
+                        <div class="funders">
+                            <h5></h5>
+                        </div>
+                        {% set comma = joiner('and') %}
+                        {% for funder in data.funders %}
+                            <div class="funders">
+                                <h5>{$ comma() $}</h5>
+                                <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
+                                <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
                             </div>
+                        {% endfor %}
                     </div>
                 </div>
-            </aside>
-        </article>
-    </div>
+             </div>
+         </div>
+        {% endif %}
+        <div class="horizontal-stripe--paddingless">
+            {% if image.width > 1000 %}
+                <figure class="heading-image">
+                    <div class="cover-image">
+                        <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
+                    </div>
+                    <figcaption class="container-fluid container--prose">
+                        {$ image.image_field_caption.value | safe $}
+                    </figcaption>
+                </figure>
+            {% endif %}
+            <div class="container-fluid container--prose">
+                <div class="body-text prose-columns--single-col">
+                    {% if image.width <= 1000 %}
+                        <figure>
+                            <div class="cover-image article-image">
+                                <img ng-src="{$ image.styles.focal_point_for_news $}" alt="{$ image.filename $}" gallery-image>
+                            </div>
+                            <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
+                        </figure>
+                    {% endif %}
+
+                    {$ data.body | safe $}
+                </div>
+            </div>
+        </div>
+        {% if data.relatedProjects.length > 0 %}
+        <div class="horizontal-stripe">
+            {% include "./includes/projectTable.nunjucks" %}
+        </div>
+        {% endif %}
+        <aside class="horizontal-stripe horizontal-stripe--card light-background">
+            <div class="container-fluid container--related-stories">
+                <div class="row">
+                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
+                            <section class="no-break">
+                                {% if data.relatedNews.length > 0 %}
+                                    <div class="related-news--programme">
+                                        <h3>Related news</h3>
+                                        {% for i in range(0, 3) -%}
+                                            <div class="entity-summary__row">
+                                                <div class="entity-summary__image">
+                                                    <img ng-src="{$ data.relatedNews[i].image.styles.square_thumbnail $}">
+                                                </div>
+                                                <div class="entity-summary__text">
+                                                    <h4><a href="/{$ data.relatedNews[i].targetUrl $}">{$ data.relatedNews[i].title $}</a></h4>
+                                                    <div class="entity-summary__summary">{$ data.relatedNews[i].summary | safe $}</div>
+                                                    {$ data.relatedNews[i].created | formatDate(gb.locales.current) $}
+                                                </div>
+                                            </div>
+                                        {%- endfor %}
+                                        {% if data.relatedNews.length > 5 %}
+                                            <p><a href="/cms/table?q=bid&type=news">View all related news...</a></p>
+                                        {% endif %}
+
+                                    </div>
+                                {% endif %}
+
+                                <h4>Related documents and information</h4>
+                                <ul class="list-links--programme-resources">
+                                    {% for resource in data.relatedResources %}
+                                        <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
+                                    {% endfor %}
+                                    {% for file in data.file %}
+                                        <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                </div>
+            </div>
+        </aside>
+    </article>
 {% endblock %}

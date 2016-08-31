@@ -135,6 +135,5 @@ function routerConfig($stateProvider, $locationProvider) {
     });
 }
 
-
 module.exports = routerConfig;
 

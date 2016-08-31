@@ -47,18 +47,7 @@
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value !== undefined" ng-bind-html="row.summary.value"></div>
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value == undefined" ng-bind-html="row.summary"></div>
                                 </div>
-                                <!-- <ul class="list-chips">
-                                    <li><a href="../dataset/table?type={{ row.type }}">{{row.type | lowercase }}</a></li>
-                                </ul> -->
                             </div>
-    <!--                         <div class="search-results__list__item__details">
-                                <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
-                                    <div class="species-overview-map--small">
-                                        <img src="/img/tile000/basemap-grey-light2.png">
-                                        <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
-                                    </div>
-                                </a>
-                            </div> -->
                         </article>
 
                         <uib-pagination

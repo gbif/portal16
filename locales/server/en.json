@@ -1307,6 +1307,11 @@
 			"gbif_history/overview": "GBIF history/overview",
 			"public_stakeholders": "Public stakeholders",
 			"data_analysis": "Data analysis"
+		},
+		"projectGrantType": {
+			"regional": "cms.projectGrantType.regional",
+			"small": "cms.projectGrantType.small",
+			"national": "cms.projectGrantType.national"
 		}
 	}
 }
