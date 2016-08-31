@@ -15,17 +15,14 @@
                     </div>
 
                     {% for result in results.cms.results | limit(3) %}
-                        <article class="search-results__list__item">
-                            <div>
-                                <div>
-                                    <h4 class="search-results__list__item__title">
-                                        <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
-                                    </h4>
-                                    {% if result.body %}
-                                        <h4 class="search-results__list__item__subtitle">{$ result.body | striptags | truncate(150) | safe $}</h4>
-                                    {% endif %}
-                                </div>
-                            </div>
+                        <article class="search-results__list__item cms-list-item">
+                            <img ng-src="{$ result.images[0].styles.square_thumbnail $}">
+                            <h4 class="search-results__list__item__title">
+                                <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
+                            </h4>
+                            {% if result.body %}
+                                <p>{$ result.body | striptags | truncate(150) | safe $}</p>
+                            {% endif %}
                         </article>
                     {% endfor %}
 

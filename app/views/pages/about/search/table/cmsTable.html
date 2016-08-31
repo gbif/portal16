@@ -26,28 +26,17 @@
                     <div class="col-xs-12">
                         <div class="search-results__list__overview">
                             <span>{{cmsTable.totalItems}} results</span><span ng-show="cmsTable.totalItems > 0">, showing {{cmsTable.resultStart}} - {{cmsTable.resultEnd}}</span>
-                            <!-- <div class="hidden-lg">
-                                <span class="chip">
-                                    <a href="" class="chip__content">
-                                        <span class="chip__term">publisher</span>
-                                        <span>Comisión nacional para el conocimiento y uso de la</span>
-                                        <span class="close"></span>
-                                    </a>
-                                </span>
-                            </div> -->
                         </div>
 
-                        <article class="search-results__list__item" ng-repeat="row in cmsTable.results">
+                        <article class="search-results__list__item cms-list-item--cms-search" ng-repeat="row in cmsTable.results">
                             <span class="search-results__list__item__tag"><span>Information </span><span translate="cms.type.{{row.type}}">{{row.type}}</span></span>
-                            <div>
-                                <div>
+                                    <img ng-src="{{row.images[0].styles.square_thumbnail}}">
                                     <h4 class="search-results__list__item__title">
                                         <a href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
                                     </h4>
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value !== undefined" ng-bind-html="row.summary.value"></div>
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value == undefined" ng-bind-html="row.summary"></div>
-                                </div>
-                            </div>
+                                    <div class="search-results__list__item__time">{{ row.created * 1000 | date:'longDate' }}</div>
                         </article>
 
                         <uib-pagination
