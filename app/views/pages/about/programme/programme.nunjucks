@@ -76,46 +76,61 @@
             </div>
         </div>
         {% endif %}
+        <div class="horizontal-stripe">
+            <div class="container-fluid container--prose">
+                <div class="body-text prose-columns--single-col">
+                    <h4>Related documents and information</h4>
+                    <ul class="list-links--programme-resources">
+                        {% for resource in data.relatedResources %}
+                            <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
+                        {% endfor %}
+                        {% for file in data.file %}
+                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
         <aside class="horizontal-stripe horizontal-stripe--card light-background">
             <div class="container-fluid container--related-stories">
                 <div class="row">
-                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
-                            <section class="no-break">
-                                {% if data.relatedNews.length > 0 %}
-                                    <div class="related-news--programme">
-                                        <h3>Related news</h3>
-                                        {% for i in range(0, 3) -%}
-                                            <div class="entity-summary__row">
-                                                <div class="entity-summary__image">
-                                                    <img ng-src="{$ data.relatedNews[i].image.styles.square_thumbnail $}">
-                                                </div>
-                                                <div class="entity-summary__text">
-                                                    <h4><a href="/{$ data.relatedNews[i].targetUrl $}">{$ data.relatedNews[i].title $}</a></h4>
-                                                    <div class="entity-summary__summary">{$ data.relatedNews[i].summary | safe $}</div>
-                                                    {$ data.relatedNews[i].created | formatDate(gb.locales.current) $}
-                                                </div>
-                                            </div>
-                                        {%- endfor %}
-                                        {% if data.relatedNews.length > 5 %}
-                                            <p><a href="/cms/table?q=bid&type=news">View all related news...</a></p>
-                                        {% endif %}
-
-                                    </div>
-                                {% endif %}
-
-                                <h4>Related documents and information</h4>
-                                <ul class="list-links--programme-resources">
-                                    {% for resource in data.relatedResources %}
-                                        <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
-                                    {% endfor %}
-                                    {% for file in data.file %}
-                                        <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize | isNotEmpty %} ({$ file.filesize | formatByte $}){% endif %}</li>
-                                    {% endfor %}
-                                </ul>
-                            </section>
-                        </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <article class="container-fluid card card--nav">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                    <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}" gallery-image alt="">
+                                </div>
+                                <div class="col-xs-12 col-md-6 card__content">
+                                    <span></span>
+                                    <h2 class="h4">
+                                        <a href="/{$ data.relatedNews[0].targetUrl $}">
+                                            {$ data.relatedNews[0].title | truncate(80) $}
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <article class="container-fluid card card--nav">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                    <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
+                                </div>
+                                <div class="col-xs-12 col-md-6 card__content">
+                                    <span></span>
+                                    <h2 class="h4">
+                                        <a href="/{$ data.relatedNews[1].targetUrl $}">
+                                            {$ data.relatedNews[1].title | truncate(80) $}
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </aside>
+
     </article>
 {% endblock %}
