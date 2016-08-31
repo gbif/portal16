@@ -11,7 +11,7 @@
                                 {$ __('cms.type.' + highlightedNode.type) $}
                             </span>
                     </nav>
-                    <h2 class="h4 text-center">{$ highlightedNode.title $}</h2>
+                    <h2 class="h4 text-center card__content__title"><a href="/{$ highlightedNode.targetUrl $}">{$ highlightedNode.title $}</a></h2>
                 </div>
             </div>
             <div class="card__stripe" style="background-image: url('{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
