@@ -5,38 +5,98 @@ var helper = require('../util/util'),
     async = require('async');
 
 //configuration of how to expand keys and enums
-const facetTypeConfig = {
-    TYPE: {
-        type: 'ENUM',
-        translationPath: 'dataset.type.'
-    },
-    PUBLISHING_COUNTRY: {
-        type: 'ENUM',
-        translationPath: 'country.'
-    },
-    PUBLISHING_ORG: {
-        type: 'KEY',
-        endpoint: apiConfig.publisher.url,
-        fromKey: 'title'
-    },
-    HOSTING_ORG: {
-        type: 'KEY',
-        endpoint: apiConfig.publisher.url,
-        fromKey: 'title'
-    },
-    DATASET_KEY: {
-        type: 'KEY',
-        endpoint: apiConfig.dataset.url,
-        fromKey: 'title'
-    },
-    BASIS_OF_RECORD: {
-        type: 'ENUM',
-        translationPath: 'basisOfRecord.'
-    }
-};
+//const facetTypeConfig = {
+//    TYPE: {
+//        type: 'ENUM',
+//        translationPath: 'dataset.type.'
+//    },
+//    RANK: {
+//        type: 'ENUM',
+//        translationPath: 'taxonRank.'
+//    },
+//    PUBLISHING_COUNTRY: {
+//        type: 'ENUM',
+//        translationPath: 'country.'
+//    },
+//    PUBLISHING_ORG: {
+//        type: 'KEY',
+//        endpoint: apiConfig.publisher.url,
+//        fromKey: 'title'
+//    },
+//    HOSTING_ORG: {
+//        type: 'KEY',
+//        endpoint: apiConfig.publisher.url,
+//        fromKey: 'title'
+//    },
+//    DATASET_KEY: {
+//        type: 'KEY',
+//        endpoint: apiConfig.dataset.url,
+//        fromKey: 'title'
+//    },
+//    CONSTITUENT_KEY: {
+//        type: 'KEY',
+//        endpoint: apiConfig.dataset.url,
+//        fromKey: 'title'
+//    },
+//    HIGHERTAXON_KEY: {
+//        type: 'KEY',
+//        endpoint: apiConfig.taxon.url,
+//        fromKey: 'canonicalName'
+//    },
+//    BASIS_OF_RECORD: {
+//        type: 'ENUM',
+//        translationPath: 'basisOfRecord.'
+//    }
+//};
 
-function getTasks(list, __) {
+//facet expand conf
+//const expandConfig = {
+//    dataset: {
+//        TYPE: {
+//            type: 'ENUM',
+//            translationPath: 'dataset.type.'
+//        },
+//        PUBLISHING_COUNTRY: {
+//            type: 'ENUM',
+//            translationPath: 'country.'
+//        },
+//        PUBLISHING_ORG: {
+//            type: 'KEY',
+//            endpoint: apiConfig.publisher.url,
+//            fromKey: 'title'
+//        },
+//        HOSTING_ORG: {
+//            type: 'KEY',
+//            endpoint: apiConfig.publisher.url,
+//            fromKey: 'title'
+//        }
+//    },
+//    species: {
+//        RANK: {
+//            type: 'ENUM',
+//            translationPath: 'taxonRank.'
+//        },
+//        DATASET_KEY: {
+//            type: 'KEY',
+//            endpoint: apiConfig.dataset.url,
+//            fromKey: 'title'
+//        },
+//        CONSTITUENT_KEY: {
+//            type: 'KEY',
+//            endpoint: apiConfig.dataset.url,
+//            fromKey: 'title'
+//        },
+//        HIGHERTAXON_KEY: {
+//            type: 'KEY',
+//            endpoint: apiConfig.taxon.url,
+//            fromKey: 'canonicalName'
+//        }
+//    }
+//};
+
+function getTasks(list, settings, __) {
     var tasks = [];
+    let facetTypeConfig = settings.expandConfig;
     Object.keys(list).forEach(function(facetType){
         let ftc = facetTypeConfig[facetType];
         list[facetType].forEach(function(e){
@@ -67,25 +127,21 @@ function getTasks(list, __) {
  * @param __ : translation object
  * @param cb : callback when completed. cb(error if any, expanded results)
  */
-function expand(data, config, __, cb) {
+function expand(data, settings, __, cb) {
     try {
-        config = config || {};
+        settings = settings || {};
         var tasks = [],
             facetTasks = [],
             filterTasks = [];
-        if (config.query) {
+        if (settings.query) {
             //expand query
-            filterTasks = getFilterTasks(data, config.query, __)
+            filterTasks = getFilterTasks(data, settings, __)
         }
-        if (config.facets) {
+        if (settings.facets) {
             //expand facets
-            facetTasks = getFacetTasks(data, __);
+            facetTasks = getFacetTasks(data, settings, __);
         }
-        //if (config.expandList) {
-        //    //expand results
-        //}
         tasks = tasks.concat(facetTasks).concat(filterTasks);
-
 
 
         async.parallel({
@@ -93,7 +149,7 @@ function expand(data, config, __, cb) {
                 async.each(tasks, expandKey, callback);
             },
             resultList: function(callback) {
-                getResultTasks(data.results, config.expandList, callback)
+                getResultTasks(data.results, settings.expandList, callback)
             }
         }, function(err, results) {
             data.facets = facetArrayToMap(data);
@@ -128,7 +184,7 @@ function facetArrayToMap(data) {
     return facetMap;
 }
 
-function getFacetTasks(data, __) {
+function getFacetTasks(data, settings, __) {
     let facetMap = {};
     //create map of facets instead of list
     data.facets.forEach(function (e) {
@@ -136,11 +192,13 @@ function getFacetTasks(data, __) {
     });
     data.facets = facetMap;
     //get facet tasks
-    return getTasks(data.facets, __);
+    return getTasks(data.facets, settings, __);
 }
 
-function getFilterTasks(data, query, __) {
+function getFilterTasks(data, settings, __) {
     //create map similar to facets with filters to be expanded
+    let query = settings.query || {};
+    let facetTypeConfig = settings.expandConfig;
     data.filters = {};
     Object.keys(query).forEach(function(key){
         let k = key.toUpperCase();
@@ -157,7 +215,7 @@ function getFilterTasks(data, query, __) {
             });
         });
     });
-    return getTasks(data.filters, __);
+    return getTasks(data.filters, settings, __);
 }
 
 function filterObj( obj, reference ) {
@@ -217,6 +275,5 @@ function expandKey(task, callback) {
 }
 
 module.exports = {
-    types: facetTypeConfig,
     expand: expand
 };

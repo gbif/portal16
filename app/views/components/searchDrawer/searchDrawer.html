@@ -38,6 +38,11 @@
                                         Occurrences
                                     </a>
                                 </li>
+                                <li ng-if="vm.contentType != 'species'" class="text-capitalize">
+                                    <a ui-sref="speciesSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.species">
+                                        Species
+                                    </a>
+                                </li>
                                 <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
                                     <a ui-sref="datasetSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
                                         Datasets

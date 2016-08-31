@@ -16,6 +16,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesSearch', function($resource) {
+            return $resource('/api/species/search', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         .factory('SpeciesSuggest', function($resource, env) {
             return $resource(env.dataApi + 'species/suggest', null, {
                     'query': {

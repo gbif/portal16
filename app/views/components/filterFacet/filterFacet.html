@@ -1,10 +1,14 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
-    <h5>
-        <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{vm.title}}">{{vm.title}}</span>
-    </h5>
+    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
+        <h5>
+            <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{vm.title}}">{{vm.title}}</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
+        </h5>
+    </a>
 
-     <div class="filter-group__filter filter-group__filter--collapsed">
-        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.options">
+     <div class="filter-group__filter--facet" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
+        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.options" ng-if="vm.checkboxModel[key] || !vm.collapsed">
             <label>
                 <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)" ng-disabled="vm.disabled">
                 <span class="filter-group__filter__name">

@@ -31,6 +31,7 @@ function filterFacetDirective() {
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
+        vm.collapsed = vm.filterConfig.collapsed !== false;
         vm.facetKey = vm.filterConfig.facetKey;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
         vm.checkboxModel = {};
@@ -45,7 +46,7 @@ function filterFacetDirective() {
         setModel(vm.query);
 
         vm.showFacetCount = function() {
-            return vm.facetKey && Object.keys(vm.options).length > 1;
+            return vm.facetKey && !vm.collapsed && Object.keys(vm.options).length > 1;
         };
 
         vm.apply = function() {

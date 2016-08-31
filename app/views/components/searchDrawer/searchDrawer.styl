@@ -1,3 +1,4 @@
+$filterEmphasisColor = $bodyTextColor
 //.site-drawer {
 //	&__fab {
 //		position absolute
@@ -26,6 +27,7 @@
 	font-size 12px
 	position relative
 	background white
+
 	&__content {
 		background white
 	}
@@ -235,7 +237,6 @@
 	&__filter {
 		background $drawerSecondaryBackgroundColor
 		border-top 1px solid $stripeBorderColor
-		overflow hidden
 		&--collapsed {
 			border-color $drawerBackgroundColor
 			background $drawerBackgroundColor
@@ -295,13 +296,42 @@
 		background darken(#d6e1e6, 5)
 	}
 }
-.filter-group__filter--radio {
+
+.filter-group__filter--facet {
 	@extends .filter-group__filter
-	label {
-		width auto
-	}
+	overflow hidden
 }
 
+.site-drawer__comment {
+	text-align center
+	color #aaa
+	margin 50px 30px
+}
+
+.gb-btn-group {
+	//background $greyBackground
+	border 25px
+	border-radius 25px
+	display block
+	text-align center
+	>label {
+		border none
+		box-shadow none
+		border-radius 25px
+		padding 3px 10px
+		margin 3px 0
+		margin-right 3px
+		display inline-block
+		font-weight normal
+		&:first-of-type {
+			margin-left 3px
+		}
+		&.active {
+			background $filterEmphasisColor
+			color white
+		}
+	}
+}
 
 +isAbove($desktop) {
 	.drawer-padding {

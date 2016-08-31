@@ -5,6 +5,9 @@
 .uppercase-first::first-letter {
 	text-transform uppercase
 }
+.overflow-hidden {
+	overflow hidden
+}
 
 .no-break {
 	break-inside avoid-column
@@ -32,6 +35,13 @@
 	&:nth-of-type(even) {
 		background-color $paper
 	}
+}
+
+.p-t-1 {
+	padding-top vrBlock(1)
+}
+.p-t-05 {
+	padding-top vrBlock(0.5)
 }
 
 +isAbove($laptop){

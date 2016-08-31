@@ -39,7 +39,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'issues', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
+                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                                     </a>
                                 </td>
                                 <td class="table-cell--wide">
-                                    <a ng-href="{{result.key}}">{{result._dataset.title}}</a>
+                                    <a ng-href="{{result.key}}">{{result._datasetKey.title}}</a>
                                 </td>
                                 <td class="table-cell--narrow">
                                     <a ng-href="{{result.key}}">{{result.issues.length}}</a>

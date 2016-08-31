@@ -10,16 +10,13 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('datasetTableCtrl', datasetTableCtrl);
+    .controller('speciesTableCtrl', speciesTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl(hotkeys, DatasetFilter, env) {
+function speciesTableCtrl(hotkeys, SpeciesFilter, env) {
     var vm = this, offset;
-    vm.state = DatasetFilter.getState();
+    vm.state = SpeciesFilter.getState();
     vm.tileApi = env.tileApi;
-    vm.featuredDataSets = {
-        nodes: []
-    };
 
     //* pagination */
     function updatePaginationCounts() {
@@ -33,11 +30,9 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env) {
     vm.pageChanged = function(a, b, c, d) {
         vm.state.query.offset = (vm.currentPage-1) * vm.limit;
         updatePaginationCounts();
-        DatasetFilter.update(vm.state.query);
+        SpeciesFilter.update(vm.state.query);
         window.scrollTo(0,0);
     };
-
-    // $scope.$watch(function(){return vm.state.query.offset}, updatePaginationCounts);
 
     hotkeys.add({
         combo: 'alt+right',
@@ -64,29 +59,7 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env) {
     vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined'
     };
-
-
-    // vm.getFeatured = function() {
-    //     var keys = Object.keys($stateParams).reduce(function(prev, curr){
-    //         var v = $stateParams[curr]? 1 : 0;
-    //         return prev + v;
-    //     }, 0);
-
-    //     if (keys == 1) {//lang key
-    //         //http://www.gbif.org/featured-datasets/json
-    //         $http({
-    //             method: 'GET',
-    //             url: 'http://www.gbif.org/featured-datasets/json'
-    //         }).then(function successCallback(response) {
-    //             vm.featuredDataSets.nodes = response.data.nodes;
-    //         }, function errorCallback() {
-    //             //ignore any errors and just do not show featured datasets
-    //         });
-    //     }
-    // };
-    // vm.getFeatured();
-    
 }
 
-module.exports = datasetTableCtrl;
+module.exports = speciesTableCtrl;
 

@@ -45,7 +45,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearchTable', {
             parent: 'occurrenceSearch',
-            url: '/table?offset&limit',
+            url: '/search?offset&limit',
             templateUrl: '/templates/pages/occurrence/table/occurrenceTable.html',
             controller: 'occurrenceTableCtrl',
             controllerAs: 'occTable'
@@ -77,10 +77,34 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('datasetSearchTable', {
             parent: 'datasetSearch',
-            url: '/table',
+            url: '/search',
             templateUrl: '/templates/pages/dataset/search/table/datasetTable.html',
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
+        })
+        .state('speciesSearch', {
+            parent: 'localization',
+            url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&status&issue&{advanced:bool}',
+            params: {
+                advanced: {
+                    value: false,
+                    squash: true
+                }
+            },
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/species/search/species.html',
+                    controller: 'speciesCtrl',
+                    controllerAs: 'species'
+                }
+            }
+        })
+        .state('speciesSearchTable', {
+            parent: 'speciesSearch',
+            url: '/search',
+            templateUrl: '/templates/pages/species/search/table/speciesTable.html',
+            controller: 'speciesTableCtrl',
+            controllerAs: 'speciesTable'
         })
         .state('cmsSearch', {
             parent: 'localization',

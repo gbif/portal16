@@ -18,14 +18,10 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    renderSearch(req, res);
+    res.redirect(301, './occurrence/search');
 });
 
 router.get('/search', function (req, res) {
-    renderSearch(req, res);
-});
-
-router.get('/table', function (req, res) {
     renderSearch(req, res);
 });
 

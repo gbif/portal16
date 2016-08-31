@@ -45,6 +45,9 @@ var apiConfig = {
     taxon: {
         url: baseUrl + 'species/'
     },
+    taxonSearch: {
+        url: baseUrl + 'species/search/'
+    },
     speciesParsedName: {
         url: baseUrl + 'species/'
     }

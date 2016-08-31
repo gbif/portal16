@@ -12,8 +12,8 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/occurrence/search', function (req, res, next) {
-    occurrenceSearch(req.query).then(function(data) {
+router.get('/species/search', function (req, res, next) {
+    speciesSearch(req.query).then(function(data) {
         let settings = {
             facets: true,
             query: req.query,
@@ -21,10 +21,6 @@ router.get('/occurrence/search', function (req, res, next) {
                 {
                     fromKey: 'datasetKey',
                     type: expandConfig.DATASET_KEY
-                },
-                {
-                    fromKey: 'publishingOrgKey',
-                    type: expandConfig.PUBLISHING_ORG
                 }
             ],
             expandConfig: expandConfig
@@ -34,6 +30,7 @@ router.get('/occurrence/search', function (req, res, next) {
                 //TODO handle expansion errors
                 res.json(data);
             } else {
+
                 res.json(data);
             }
         });
@@ -47,10 +44,10 @@ router.get('/occurrence/search', function (req, res, next) {
 });
 
 
-function occurrenceSearch(query) {
+function speciesSearch(query) {
     "use strict";
     var deferred = Q.defer();
-    helper.getApiData(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query), function (err, data) {
+    helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {
@@ -64,14 +61,35 @@ function occurrenceSearch(query) {
 }
 
 const expandConfig = {
-    PUBLISHING_ORG: {
-        type: 'KEY',
-        endpoint: apiConfig.publisher.url,
-        fromKey: 'title'
+    RANK: {
+        type: 'ENUM',
+        translationPath: 'taxonRank.'
     },
     DATASET_KEY: {
         type: 'KEY',
         endpoint: apiConfig.dataset.url,
         fromKey: 'title'
     },
+    CONSTITUENT_KEY: {
+        type: 'KEY',
+        endpoint: apiConfig.dataset.url,
+        fromKey: 'title'
+    },
+    HIGHERTAXON_KEY: {
+        type: 'KEY',
+        endpoint: apiConfig.taxon.url,
+        fromKey: 'canonicalName'
+    },
+    ISSUE: {
+        type: 'ENUM',
+        translationPath: 'taxon.issueEnum.'
+    },
+    NAME_TYPE: {
+        type: 'ENUM',
+        translationPath: 'taxon.nameTypeEnum.'
+    },
+    STATUS: {
+        type: 'ENUM',
+        translationPath: 'taxon.statusEnum.'
+    }
 };

@@ -1,0 +1,61 @@
+<div search-drawer filter="species.state" content-type="species">
+    <div class="site-drawer__section">
+
+        <div class="search-bar filter-group">
+
+            <form class="search-bar__term" ng-submit="species.search()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       ng-model="species.state.query.q"
+                       placeholder="Search for species">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="species.search()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+
+        </div>
+
+        <div class="filter-group text-center">
+            <div class="gb-btn-group">
+                <label ng-model="species.state.query.advanced" uib-btn-radio="false" ng-change="species.toggleAdvanced()">Simple</label>
+                <label ng-model="species.state.query.advanced" uib-btn-radio="true" ng-change="species.toggleAdvanced()">Advanced</label>
+            </div>
+        </div>
+
+        <div filter-facet filter-config="species.filters.rank" filter-state="species.state"></div>
+
+        <div filter-facet filter-config="species.filters.status" filter-state="species.state"></div>
+
+        <div filter-facet filter-config="species.filters.highertaxonKey" filter-state="species.state"></div>
+
+        <div filter-facet filter-config="species.filters.issue" filter-state="species.state"></div>
+
+
+        <div filter-facet filter-config="species.filters.datasetKey" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+
+        <div filter-facet filter-config="species.filters.constituentKey" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+
+        <div filter-facet filter-config="species.filters.nameType" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+
+        <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
+            <div>You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced mode.</div>
+            <div class="p-t-05">
+                <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()">ADVANCED</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="site-content">
+
+    <div class="page">
+        <div class="species-search-results">
+            <div ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

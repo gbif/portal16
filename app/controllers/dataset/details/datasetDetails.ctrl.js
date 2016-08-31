@@ -12,17 +12,28 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
+function isGuid(stringToTest) {
+    if (stringToTest[0] === "{") {
+        stringToTest = stringToTest.substring(1, stringToTest.length - 1);
+    }
+    var regexGuid = /^(\{)?[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(})?$/gi;
+    return regexGuid.test(stringToTest);
+}
+
 router.get('/dataset/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
-
-    var getOptions = {
-        expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents', 'datasetRefLookup']
-    };
-    Dataset.get(datasetKey, getOptions).then(function(dataset) {
-        renderPage(req, res, dataset);
-    }, function(err){
+    if (!isGuid(datasetKey)) {
         next();
-    });
+    } else {
+        var getOptions = {
+            expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents', 'datasetRefLookup']
+        };
+        Dataset.get(datasetKey, getOptions).then(function (dataset) {
+            renderPage(req, res, dataset);
+        }, function (err) {
+            next();
+        });
+    }
 });
 
 router.get('/occurrence-download-dataset/:key', function (req, res) {

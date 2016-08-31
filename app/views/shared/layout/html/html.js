@@ -51,6 +51,7 @@ require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
+require('./angular/speciesFilter.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
 
@@ -72,6 +73,9 @@ require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
 require('../../../pages/about/search/cmsSearch.ctrl');
 require('../../../pages/about/search/table/cmsTable.ctrl');
+
+require('../../../pages/species/search/species.ctrl');
+require('../../../pages/species/search/table/speciesTable.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');

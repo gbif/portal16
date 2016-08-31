@@ -32,7 +32,8 @@ function searchDrawerDirective() {
             var c = 0;
             Object.keys(vm.filter.query).forEach(function(e){
                 var v = vm.filter.query[e];
-                if (typeof v !== 'undefined' && v!= '' && e != 'locale' && e != 'facet' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom' && e.indexOf('.facetLimit') == -1) {
+                var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced'];
+                if (typeof v !== 'undefined' && v!= '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
                     c += [].concat(v).length;
                 }
                 // if (e === 'hasCoordinate') {
