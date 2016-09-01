@@ -14,6 +14,7 @@ module.exports = function (app) {
 
 router.get('/species/search', function (req, res, next) {
     speciesSearch(req.query).then(function(data) {
+        data = prune(data, ['descriptions']);
         let settings = {
             facets: true,
             query: req.query,
@@ -43,6 +44,15 @@ router.get('/species/search', function (req, res, next) {
     });
 });
 
+function prune(data, keys) {
+    "use strict";
+    data.results.forEach(function(item){
+        keys.forEach(function(key){
+            delete item[key];
+        });
+    });
+    return data
+}
 
 function speciesSearch(query) {
     "use strict";

@@ -96,6 +96,10 @@ function filterTaxonDirective() {
         vm.apply = function() {
             OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         };
+
+        vm.inQuery = function(name){
+            return vm.query.indexOf(name) != -1;
+        };
     }
 }
 

@@ -1,4 +1,4 @@
-<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': dataset.showDrawer}">
+<aside class="site-drawer is-locked" id="site-search">
     <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
         <!--Apply filters-->
     <!--</div>-->
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <a ui-sref="{}" ui-sref-opts="{inherit: false}" class="gb-icon-trash discreet inherit site-drawer__bar__icon" tooltip-placement="left" uib-tooltip="Clear filters">
+                <a href="" ng-click="vm.clear()" class="gb-icon-trash discreet inherit site-drawer__bar__icon" tooltip-placement="left" uib-tooltip="Clear filters">
                     <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
                 </a>
             </div>

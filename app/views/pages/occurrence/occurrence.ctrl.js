@@ -122,7 +122,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     vm.filters.institutionCode = {
         title: 'institutionCode',
         queryKey: 'institution_code',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        faceted: true
     };
 
     vm.filters.collectionCode = {

@@ -46,7 +46,6 @@ router.get('/occurrence/search', function (req, res, next) {
     });
 });
 
-
 function occurrenceSearch(query) {
     "use strict";
     var deferred = Q.defer();

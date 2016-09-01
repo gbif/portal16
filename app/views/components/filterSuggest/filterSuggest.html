@@ -30,6 +30,16 @@
                 </label>
             </div>
         </div>
+        <div class="is-padded overflow-hidden seperator" ng-if="!vm.collapsed">
+            <div class="checkbox" ng-repeat="(key, facet) in vm.facetSuggestions.counts" ng-if="!vm.inQuery(key)">
+                <label>
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <span>
+                        {{facet.title}}
+                    </span>
+                </label>
+            </div>
+        </div>
 
         <div class="site-drawer__bar seperator" ng-if="!vm.collapsed && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">

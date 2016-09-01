@@ -50,8 +50,23 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
     function onMapClick(event) {
         var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
         vm.query = angular.copy(vm.occurrenceState.query);
-        vm.query.decimalLatitude = (event.latlng.lat - (targetSize/event.target._zoom) ) + ',' + (event.latlng.lat + (targetSize/event.target._zoom));
-        vm.query.decimalLongitude = (event.latlng.lng - (targetSize/event.target._zoom)) + ',' + (event.latlng.lng + (targetSize/event.target._zoom));
+        var decimalLatitudeMin = event.latlng.lat - (targetSize/event.target._zoom);
+        var decimalLatitudeMax = event.latlng.lat + (targetSize/event.target._zoom);
+        var decimalLongitudeMin = event.latlng.lng - (targetSize/event.target._zoom);
+        var decimalLongitudeMax = event.latlng.lng + (targetSize/event.target._zoom);
+
+        decimalLatitudeMin = Math.max(-90, decimalLatitudeMin);
+        decimalLongitudeMin = Math.max(-180, decimalLongitudeMin);
+        decimalLatitudeMin = Math.min(90, decimalLatitudeMin);
+        decimalLongitudeMin = Math.min(180, decimalLongitudeMin);
+
+        decimalLatitudeMax = Math.min(90, decimalLatitudeMax);
+        decimalLongitudeMax = Math.min(180, decimalLongitudeMax);
+        decimalLatitudeMax = Math.max(-90, decimalLatitudeMax);
+        decimalLongitudeMax = Math.max(-180, decimalLongitudeMax);
+
+        vm.query.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
+        vm.query.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
         vm.mapMenu.show = true;
         vm.mapMenu.isLoading = true;
         OccurrenceSearch.query(vm.query, function (data) {

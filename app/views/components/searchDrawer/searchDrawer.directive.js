@@ -24,7 +24,7 @@ function searchDrawerDirective() {
     return directive;
 
     /** @ngInject */
-    function searchDrawer() {
+    function searchDrawer($state) {
         var vm = this;
         vm.filter = vm.filter || {};
 
@@ -42,6 +42,10 @@ function searchDrawerDirective() {
             });
             // if (typeof vm.filter.query.hasCoordinate === 'undefined') c++;
             return c;
+        };
+
+        vm.clear = function() {
+            $state.go('.', {}, {inherit:false, notify: true, reload: true});
         };
     }
 }

@@ -53,7 +53,8 @@
 							<li ng-repeat="occurrence in occMap.mapMenu.occurrences.results" class="species-list-item seperator">
 
 								<a ng-href="/occurrence/{{occurrence.key}}" class="discreet">
-									<span class="species-list-item__name">{{occurrence.scientificName}}</span>
+									<span class="species-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</span>
+									<span class="species-list-item__name" ng-if="!occurrence.scientificName" style="color: tomato">Unkown species TODO</span>
 									<!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
 									<div class="small discreet classification-list">
 										<span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">

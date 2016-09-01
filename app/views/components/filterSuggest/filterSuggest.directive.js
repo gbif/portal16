@@ -24,20 +24,25 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter) {
+    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter, OccurrenceTableSearch) {
         var vm = this;
 
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
+        vm.facetKey = vm.filterConfig.facetKey || vm.filterConfig.queryKey.toUpperCase();
         vm.translationPrefix = vm.filterConfig.translationPrefix || 'ocurrenceFieldNames';
         vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
         vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.title];
-        vm.collapsed = vm.filterConfig.collapsed === false ? false : true;
-
+        vm.collapsed = vm.filterConfig.collapsed !== false;
+        vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('unique')(newQuery);
+        });
+
+        $scope.$watch(function(){return vm.filterState.data}, function(newQuery){
+            newQuery.$promise.then(vm.getFacetSuggestions);
         });
 
         vm.getSuggestions = function(val) {
@@ -49,6 +54,21 @@ function filterSuggestDirective() {
             }).then(function(response){
                 return response.data;
             });
+        };
+
+        vm.facetSuggestions = {};
+        vm.getFacetSuggestions = function(val) {
+            if (!vm.hasFacetSuggestions) return;
+            var query = angular.copy(vm.filterState.query);
+            query[vm.queryKey] = undefined;
+            query.facet = vm.queryKey;
+            vm.facetSuggestions = {};
+            OccurrenceTableSearch.query(query, function(response){
+                vm.facetSuggestions = response.facets[vm.facetKey];
+            });
+        };
+        vm.inQuery = function(name){
+            return vm.query.indexOf(name) != -1;
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
