@@ -41,7 +41,7 @@
         </div>
 
         <div class="card__stripe card__stripe--actions">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?q={$ query $}">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?q={$ query $}">
                 {$ __('stdTerms.seeAll') $}
             </a>
         </div>
