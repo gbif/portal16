@@ -22,7 +22,7 @@
 
 {#{% endif %}#}
 
-
+{# @mgh this drawer template seems redudant when we have page/search/search.html. Use the angular template instead? #}
 <aside class="site-drawer" id="site-search">
 
     <div class="search-bar">
@@ -73,11 +73,6 @@
                             <span class="site-drawer__facet-group__facet">Event</span>
                         </span>
                     </a>
-                    <a href="/cms/table?type=resource">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Resource</span>
-                        </span>
-                    </a>
                     <a href="/cms/table?type=programme">
                         <span>
                             <span class="site-drawer__facet-group__facet">Programme</span>
@@ -86,6 +81,21 @@
                     <a href="/cms/table?type=project">
                         <span>
                             <span class="site-drawer__facet-group__facet">Project</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=document">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Document</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=presentation">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Presentation</span>
+                        </span>
+                    </a>
+                    <a href="/cms/table?type=tool">
+                        <span>
+                            <span class="site-drawer__facet-group__facet">Tool</span>
                         </span>
                     </a>
                 </div>

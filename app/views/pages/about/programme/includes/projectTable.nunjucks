@@ -1,0 +1,22 @@
+<div class="occurrence-search__table__area">
+    <div class="table-container projects-table">
+        <h3>Projects</h3>
+        <table class="table">
+           <thead>
+           <tr><th>Project</th><th>Grant type</th><th>Duration</th><th>Funding allocated</th><th>Estimated co-funding</th><th>Status</th></tr>
+           </thead>
+           <tbody>
+           {% for project in data.relatedProjects %}
+           <tr>
+           <td class="table-cell--wide"><a href="/{$ project.url $}">{$ project.title $}</a></td> {# title #}
+           <td class="table-cell--narrow">{$ __('cms.projectGrantType.' + project.grantType) $}</td> {# grant type #}
+           <td class="table-cell--normal">{$ project.duration.start | formatDate(gb.locales.current) $} {$ __('cms.projectDuration.to') $} {$ project.duration.end | formatDate(gb.locales.current) $}</td> {# duration #}
+           <td class="table-cell--narrow">{$ project.fundingAllocated $}</td> {# funding #}
+           <td class="table-cell--narrow">{$ project.estimatedCoFunding $}</td> {# estimated co-funding #}
+           <td class="table-cell--narrow">{$ __('cms.projectStatus.' + project.status) $}</td> {# status #}
+           </tr>
+           {% endfor %}
+           </tbody>
+        </table>
+    </div>
+</div>

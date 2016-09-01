@@ -7,9 +7,7 @@ angular
     .controller('scrollSpyCtrl', scrollSpyCtrl);
 
 /** @ngInject */
-function scrollSpyCtrl($document) {
-    var vm = this;
-
+function scrollSpyCtrl() {
     var EventUtil = {
         addHandler: function(element, type, handler) {
             if (element.addEventListener) {
@@ -27,13 +25,12 @@ function scrollSpyCtrl($document) {
         metaContent = document.getElementById('metadata-content'),
         metaNavBottomSpacing = 200,
         offsetHeightMetaNavOccupied = 80 + metaNav.offsetHeight + metaNavBottomSpacing,
-        offsetTopMetadataStrip = metadataStrip.offsetTop + 60,
         offsetHeightMetadataStrip = metadataStrip.offsetHeight,
         offsetTopMetadataStripHighest = offsetHeightMetadataStrip - offsetHeightMetaNavOccupied,
         rectMetadataStrip,
         rectMetaNav;
 
-    EventUtil.addHandler(window, 'scroll', function($event){
+    EventUtil.addHandler(window, 'scroll', function(){
         if (document.compatMode == 'CSS1Compat') {
             rectMetadataStrip = metadataStrip.getBoundingClientRect();
             rectMetaNav = metaNav.getBoundingClientRect();

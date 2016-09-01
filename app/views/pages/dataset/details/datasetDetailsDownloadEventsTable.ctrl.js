@@ -17,7 +17,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     vm.events = [];
     var limit = 5;
     var offset = 0;
-    var uuid = datasetKey; // This key is passed through the template.
+    var uuid = (typeof datasetKey !== 'undefined') ? datasetKey : ''; // This key is passed through the template.
 
     var concatenateValues = function(events) {
         // Use the "processedValue" if it's provided by the server side.
@@ -40,7 +40,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     DownloadEventsService.get({id: uuid, limit: limit}).$promise.then(
         function (res) {
             vm.events = res.results;
-        }, function (errRes) {
+        }, function () {
         }
     );
 
@@ -50,7 +50,7 @@ function downloadEventsTableCtrl(DownloadEventsService) {
             function (res) {
                 vm.events = vm.events.concat(res.results);
                 concatenateValues(vm.events);
-            }, function (errRes) {
+            }, function () {
             }
 
         );

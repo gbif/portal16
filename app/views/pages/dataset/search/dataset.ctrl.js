@@ -17,7 +17,21 @@ function datasetCtrl($state, DatasetFilter, $stateParams, $http, hotkeys) {
     var vm = this;
     vm.state = DatasetFilter.getState();
 
+
     vm.filters = {};
+
+    //fixed order for facets
+    //vm.facetOrder = [
+    //    'TYPE',
+    //    'PUBLISHING_ORG',
+    //    'PUBLISHING_COUNTRY',
+    //    'HOSTING_ORG',
+    //    'KEYWORD'
+    //];
+    //vm.sortFacets = function(a) {
+    //    return vm.facetOrder[a.field] || 100;
+    //};
+
 
     //facet filters
     vm.filters.type = {

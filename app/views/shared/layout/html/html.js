@@ -68,7 +68,6 @@ require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');
 
 require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
-require('../../../pages/dataset/details/datasetDetailsContactPopup.ctrl');
 require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
 require('../../../pages/about/search/cmsSearch.ctrl');

@@ -1,21 +1,11 @@
 <article class="wrapper-horizontal-stripes">
     <span class="{{cms.actionMessageClass}}">Loading...</span>
 
-    <!--<div class="horizontal-stripe bare-background" ng-show="cmsTable.featuredDataSets.nodes.length > 0">-->
-        <!--<div class="card" ng-repeat="featured in cmsTable.featuredDataSets.nodes | limitTo:3">-->
-            <!--<a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">-->
-                <!--<img ng-src="{{featured.node.field_uni_images.src}}">-->
-                <!--<div  class="card__content">-->
-                    <!--<h2 class="h3">{{featured.node.title}}</h2>-->
-                    <!--<p>-->
-                        <!--{{featured.node.body}}-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="container-fluid white-background search-header" ng-show="cms.status == 500">
+        <p>This page is currently unavailable. Please come back later. We are sorry for the inconvenience.</p>
+    </div>
 
-    <div class="container-fluid white-background search-header">
+    <div class="container-fluid white-background search-header" ng-hide="cms.status == 500">
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
@@ -29,46 +19,24 @@
         </div>
     </div>
 
-    <div class="horizontal-stripe white-background">
+    <div class="horizontal-stripe white-background" ng-hide="cms.status == 500">
         <div class="">
             <div class="container--narrow">
                 <div class="search-results__list row">
                     <div class="col-xs-12">
                         <div class="search-results__list__overview">
                             <span>{{cmsTable.totalItems}} results</span><span ng-show="cmsTable.totalItems > 0">, showing {{cmsTable.resultStart}} - {{cmsTable.resultEnd}}</span>
-                            <!-- <div class="hidden-lg">
-                                <span class="chip">
-                                    <a href="" class="chip__content">
-                                        <span class="chip__term">publisher</span>
-                                        <span>Comisión nacional para el conocimiento y uso de la</span>
-                                        <span class="close"></span>
-                                    </a>
-                                </span>
-                            </div> -->
                         </div>
 
-                        <article class="search-results__list__item" ng-repeat="row in cmsTable.results">
+                        <article class="search-results__list__item cms-list-item--cms-search" ng-repeat="row in cmsTable.results">
                             <span class="search-results__list__item__tag"><span>Information </span><span translate="cms.type.{{row.type}}">{{row.type}}</span></span>
-                            <div>
-                                <div>
+                                    <img ng-src="{{row.images[0].styles.square_thumbnail}}">
                                     <h4 class="search-results__list__item__title">
                                         <a href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
                                     </h4>
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value !== undefined" ng-bind-html="row.summary.value"></div>
                                     <div class="search-results__list__item__summary" ng-show="row.summary.value == undefined" ng-bind-html="row.summary"></div>
-                                </div>
-                                <!-- <ul class="list-chips">
-                                    <li><a href="../dataset/table?type={{ row.type }}">{{row.type | lowercase }}</a></li>
-                                </ul> -->
-                            </div>
-    <!--                         <div class="search-results__list__item__details">
-                                <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
-                                    <div class="species-overview-map--small">
-                                        <img src="/img/tile000/basemap-grey-light2.png">
-                                        <img ng-src="//cdn.gbif.org/v1/map/density/tile.png?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=DATASET&resolution=4">
-                                    </div>
-                                </a>
-                            </div> -->
+                                    <div class="search-results__list__item__time">{{ row.created * 1000 | date:'longDate' }}</div>
                         </article>
 
                         <uib-pagination

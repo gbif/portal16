@@ -75,7 +75,7 @@ function getApiData(path, callback, options) {
                 if (options.failHard) {
                     callback(err, null);
                 } else {
-                    callback(null, {
+                    callback(err, {
                         errorType: err
                     });
                 }

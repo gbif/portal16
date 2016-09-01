@@ -24,12 +24,6 @@ function routerConfig($stateProvider, $locationProvider) {
                     controller: 'searchCtrl',
                     controllerAs: 'omniSearch'
                 }
-            },
-            resolve: {
-                results:  function($stateParams, CmsSearch){
-                    var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise;
-                }
             }
         })
         .state('occurrenceSearch', {
@@ -119,7 +113,12 @@ function routerConfig($stateProvider, $locationProvider) {
             resolve: {
                 results:  function($stateParams, CmsSearch){
                     var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise;
+                    return CmsSearch.query(query).$promise.then(function(response){
+                        return response;
+                    }, function(error){
+                    'use strict';
+                        return error;
+                    });
                 }
             }
         })
@@ -140,7 +139,6 @@ function routerConfig($stateProvider, $locationProvider) {
         rewriteLinks: false
     });
 }
-
 
 module.exports = routerConfig;
 

@@ -1,3 +1,8 @@
-<div class="page-header">
-<h3>500 : User friendly server Error to be shown here</h3>
-</div>
+{% extends "../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <section class="404 errorPage">
+        <h1 class="giant gb-icon-dodo">500</h1>
+        <p>Internal server error.</p>
+    </section>
+{% endblock %}

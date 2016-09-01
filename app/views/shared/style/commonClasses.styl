@@ -29,6 +29,10 @@
     @extends .horizontal-stripe
     padding 0
 }
+.horizontal-stripe--programme {
+    @extends .horizontal-stripe
+    padding-top 0
+}
 
 /*
  * Header area styles
@@ -59,7 +63,7 @@
     }
     &--programme {
         margin-top vrBlock(1)
-        margin-bottom vrBlock(2)
+        margin-bottom vrBlock(1)
     }
 }
 
@@ -195,6 +199,12 @@ $articleCategorySeparatorSpacing = 6px
 .body-text {
     font-size 16px
     font-weight normal
+    h3 {
+        font-size 20px
+    }
+    strong {
+        font-weight 600
+    }
 }
 
 .article-auxiliary {

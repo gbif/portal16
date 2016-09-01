@@ -13,11 +13,12 @@ angular
     .controller('cmsSearchCtrl', cmsSearchCtrl);
 
 /** @ngInject */
-function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, hotkeys) {
+function cmsSearchCtrl($state, $stateParams, results, hotkeys) {
     var vm = this;
     vm.query = $stateParams;
     vm.freeTextQuery = $stateParams.q;
-    vm.state = DatasetFilter.state;
+    vm.status = results.status;
+    vm.statusText = results.statusText;
     vm.count = results.count;
     vm.appliedFilterCount = 0;
     vm.actionMessageClass = 'action-notice--hidden';
@@ -32,11 +33,10 @@ function cmsSearchCtrl($state, DatasetFilter, $stateParams, results, hotkeys) {
         category_about_gbif: 6,
         category_audience: 7,
         category_purpose: 8,
-        category_data_type: 9,
-        category_country: 10,
-        category_resource_type: 11,
-        category_topic: 12,
-        category_tags: 13
+        category_topic: 9,
+        category_data_type: 10,
+        category_country: 11,
+        category_tags: 12
     };
 
     vm.facets = (results.hasOwnProperty('facets')) ? results.facets : facetsFromUrl(facetOrder);

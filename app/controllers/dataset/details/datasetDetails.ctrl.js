@@ -292,7 +292,7 @@ function organizeContacts(sourceContacts, mode) {
             break;
     }
 
-    roles.forEach(function (role, ri) {
+    roles.forEach(function (role) {
         role.contacts = [];
         sourceContacts.forEach(function(sourceContact){
             if (sourceContact.type == role.type) {
