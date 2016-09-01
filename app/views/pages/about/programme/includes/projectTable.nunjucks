@@ -11,8 +11,8 @@
            <td class="table-cell--wide"><a href="/{$ project.url $}">{$ project.title $}</a></td> {# title #}
            <td class="table-cell--narrow">{$ __('cms.projectGrantType.' + project.grantType) $}</td> {# grant type #}
            <td class="table-cell--normal">{$ project.duration.start | formatDate(gb.locales.current) $} {$ __('cms.projectDuration.to') $} {$ project.duration.end | formatDate(gb.locales.current) $}</td> {# duration #}
-           <td class="table-cell--narrow">{$ project.fundingAllocated $}</td> {# funding #}
-           <td class="table-cell--narrow">{$ project.estimatedCoFunding $}</td> {# estimated co-funding #}
+           <td class="table-cell--narrow">{$ project.fundingAllocated | formatNumber $}</td> {# funding #}
+           <td class="table-cell--narrow">{$ project.estimatedCoFunding | formatNumber $}</td> {# estimated co-funding #}
            <td class="table-cell--narrow">{$ __('cms.projectStatus.' + project.status) $}</td> {# status #}
            </tr>
            {% endfor %}

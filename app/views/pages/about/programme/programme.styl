@@ -6,18 +6,18 @@
 .funders {
     display inline-block
     img {
-        height vrBlock(3)
+        height vrBlock(2)
         display inline-block
-        margin 0
+        margin 0 5px
     }
     h5 {
         display inline-block
     }
 }
-.funders:nth-of-type(2) {
-    img {
-        margin-right 10px
-        margin-left 10px
+
++isAbove($tablet) {
+    .funders-lead {
+        display inline
     }
 }
 

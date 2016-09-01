@@ -11,7 +11,7 @@ angular
                     thin = 0.8,
                     wide = 1.4,
                     wider = 1.8,
-                    widest= 2.0;
+                    widest = 2.0;
 
                 element.on('load', function() {
                     element.parent().css({

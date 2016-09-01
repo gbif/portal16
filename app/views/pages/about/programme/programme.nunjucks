@@ -4,7 +4,7 @@
         <script type="text/javascript">
             var programmeID = '{$ data.id $}';
         </script>
-        <div class="horizontal-stripe--paddingless article-header white-background">
+        <div class="horizontal-stripe--programme article-header white-background">
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center article-header--programme">
@@ -17,48 +17,36 @@
                             {# fulltext html already wrapped by <p> from Content API #}
                             {$ data.summary | safe $}
                         </div>
-                    </header>
-                </div>
-            </div>
-         </div>
-        {% if data.funders.length > 0 %}
-         <div class="horizontal-stripe light-background">
-             <div class="container-fluid">
-                <div class="row">
-                    <div class="text-center">
-                        This programme is funded by
-                        <div class="funders">
-                            <h5></h5>
-                        </div>
+                        {% if data.funders.length > 0 %}
+                        <div class="funders-lead">This programme is funded by</div>
                         {% set comma = joiner('and') %}
                         {% for funder in data.funders %}
                             <div class="funders">
                                 <h5>{$ comma() $}</h5>
-                                <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
                                 <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
+                                {% if loop.index == 1 %}
+                                    <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
+                                {% endif %}
                             </div>
                         {% endfor %}
-                    </div>
+                        {% endif %}
+                    </header>
                 </div>
-             </div>
-         </div>
+            </div>
+        </div>
+        {% if image.width > 1000 %}
+            <figure class="heading-image">
+                <div class="cover-image">
+                    <img ng-src="{$ image.styles.prose_image_for_desktop $}" alt="{$ image.filename $}" gallery-image>
+                </div>
+                <figcaption class="container-fluid container--prose">
+                    {$ image.image_field_caption.value | safe $}
+                </figcaption>
+            </figure>
         {% endif %}
         <div class="horizontal-stripe--programme">
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns--single-col">
-                    <div class="row">
-                        {% if image.width > 1000 %}
-                            <figure class="heading-image">
-                                <div class="cover-image">
-                                    <img ng-src="{$ image.styles.masthead__desktop $}" alt="{$ image.filename $}" gallery-image>
-                                </div>
-                                <figcaption class="container-fluid container--prose">
-                                    {$ image.image_field_caption.value | safe $}
-                                </figcaption>
-                            </figure>
-                        {% endif %}
-                    </div>
-
                     {$ data.body | safe $}
                 </div>
             </div>

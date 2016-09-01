@@ -118,6 +118,10 @@ module.exports = function(nunjucksConfiguration, config) {
         nunjucksConfiguration.addFilter('formatByte', format.formatBytes);
     })();
 
+    (function() {
+        nunjucksConfiguration.addFilter('formatNumber', format.formatNumber);
+    })();
+
     /**
     DEPRECATED
     Moved away from this and use source maps instead

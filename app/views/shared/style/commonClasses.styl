@@ -32,7 +32,8 @@
 }
 .horizontal-stripe--programme {
     @extends .horizontal-stripe
-    padding-top 0
+    padding 0
+    border-bottom none
 }
 
 /*
@@ -255,7 +256,7 @@ $headerImageMaxFullWidth = 1200px
 }
 .cover-image {
     height 0
-    padding-bottom 25%
+    padding-bottom 50%
     background #f7f9fa
     overflow hidden
     background-size cover
@@ -266,6 +267,7 @@ $headerImageMaxFullWidth = 1200px
 }
 +isAbove($tablet){
     .cover-image {
+        padding-bottom 40%
     }
 }
 
