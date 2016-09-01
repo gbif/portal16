@@ -8,7 +8,18 @@
     </a>
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div class="filter-group__filter__search" ng-if="!vm.collapsed">
+
+        <div ng-if="vm.query.length > 0" class="is-padded">
+            <div class="checkbox" ng-repeat="key in vm.query">
+                <label>
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <span>
+                        {{key}}
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="filter-group__filter__search seperator" ng-if="!vm.collapsed">
             <input type="text"
                    focus-me="!vm.collapsed"
                    autocomplete="off"
@@ -20,17 +31,7 @@
                    typeahead-focus-first="true"
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
-        <div ng-if="vm.query.length > 0" class="is-padded">
-            <div class="checkbox" ng-repeat="key in vm.query">
-                <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
-                    <span>
-                        {{key}}
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="is-padded overflow-hidden seperator" ng-if="!vm.collapsed">
+        <div class="is-padded overflow-hidden" ng-if="!vm.collapsed">
             <div class="checkbox" ng-repeat="(key, facet) in vm.facetSuggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">

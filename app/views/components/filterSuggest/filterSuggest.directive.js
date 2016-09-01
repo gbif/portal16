@@ -42,7 +42,14 @@ function filterSuggestDirective() {
         });
 
         $scope.$watch(function(){return vm.filterState.data}, function(newQuery){
-            newQuery.$promise.then(vm.getFacetSuggestions);
+            //newQuery.$promise.then(vm.getFacetSuggestions);
+        });
+
+        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+            if (vm.hasFacetSuggestions && !angular.equals(newState, oldState)) {
+                console.log('query param changed - update facets for ' + vm.facetKey);
+                vm.getFacetSuggestions();
+            }
         });
 
         vm.getSuggestions = function(val) {
@@ -57,16 +64,19 @@ function filterSuggestDirective() {
         };
 
         vm.facetSuggestions = {};
-        vm.getFacetSuggestions = function(val) {
+        vm.getFacetSuggestions = function() {
             if (!vm.hasFacetSuggestions) return;
             var query = angular.copy(vm.filterState.query);
             query[vm.queryKey] = undefined;
             query.facet = vm.queryKey;
-            vm.facetSuggestions = {};
+
             OccurrenceTableSearch.query(query, function(response){
                 vm.facetSuggestions = response.facets[vm.facetKey];
+            }, function(){
+                vm.facetSuggestions = {};
             });
         };
+        vm.getFacetSuggestions();
         vm.inQuery = function(name){
             return vm.query.indexOf(name) != -1;
         };

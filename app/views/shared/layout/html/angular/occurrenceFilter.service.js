@@ -11,7 +11,7 @@ angular
             query: $stateParams
         };
 
-        var availableFacets = ['basis_of_record', 'month', 'type_status', 'dataset_key'];
+        var availableFacets = ['basis_of_record', 'month', 'type_status', 'dataset_key', 'institution_code'];
         var facets = [];
         availableFacets.forEach(function(facet){
             facets.push(facet);
@@ -28,12 +28,15 @@ angular
         );
 
         function refreshData(query) {
+            var apiQuery;
             occurrenceState.query = query || $stateParams;
-            occurrenceState.query.facet = facets;
-            occurrenceState.query['month.facetLimit'] = 12;
-            occurrenceState.query['type_status.facetLimit'] = 30;
+            apiQuery = angular.copy(occurrenceState.query);
+
+            apiQuery.facet = facets;
+            apiQuery['month.facetLimit'] = 12;
+            apiQuery['type_status.facetLimit'] = 30;
             if (occurrenceState.data.$cancelRequest) occurrenceState.data.$cancelRequest();
-            occurrenceState.data = OccurrenceTableSearch.query(occurrenceState.query, function(){
+            occurrenceState.data = OccurrenceTableSearch.query(apiQuery, function(){
                 occurrenceState.failedRequest = false;
                 //occurrenceState.data.facets = facetArrayToMap(occurrenceState.data.facets, occurrenceState.data.count);
             }, function() {

@@ -58,7 +58,7 @@ function occurrenceSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 3, timeoutMilliSeconds:10000});
+    }, {retries: 2, timeoutMilliSeconds:30000});
     return deferred.promise;
 }
 
