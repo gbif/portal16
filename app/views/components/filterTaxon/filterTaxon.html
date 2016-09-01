@@ -14,7 +14,7 @@
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
-                   placeholder="{{ 'search.placeholder' | translate }}"
+                   placeholder="{{ vm.filterState.placeholder | translate }}"
                    uib-typeahead="suggestion[vm.filterConfig.shortName] for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
@@ -33,16 +33,16 @@
                 </label>
             </div>
         </div>
-        <div class="is-padded" ng-if="!vm.collapsed">
-            <div class="checkbox" ng-repeat="(key, facet) in vm.filterState.data.facets.DATASET_KEY.counts" ng-if="!vm.inQuery(key)">
-                <label>
-                    <input type="checkbox" ng-click="vm.change(key, checked)">
-                    <span>
-                        {{facet.title}}
-                    </span>
-                </label>
-            </div>
-        </div>
+        <!--<div class="is-padded" ng-if="!vm.collapsed">-->
+            <!--<div class="checkbox" ng-repeat="(key, facet) in vm.filterState.data.facets.DATASET_KEY.counts" ng-if="!vm.inQuery(key)">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" ng-click="vm.change(key, checked)">-->
+                    <!--<span>-->
+                        <!--{{facet.title}}-->
+                    <!--</span>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="site-drawer__bar seperator" ng-if="!vm.collapsed && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>

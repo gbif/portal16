@@ -74,7 +74,7 @@ angular
         function refresh() {
             state.query.offset = undefined;
 
-            //when in not advanced mode then remove parameters that are fill with default values
+            //when in not advanced mode then remove parameters from URL that are filled with default values
             if (!state.query.advanced) {
                 Object.keys(advancedDefaults).forEach(function(keyDefault){
                     delete state.query[keyDefault];

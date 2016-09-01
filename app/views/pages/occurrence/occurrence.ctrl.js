@@ -30,6 +30,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
         shortName: 'canonicalName',
         longName: 'scientificName',
+        placeholder: 'search.taxonSearchPlaceholder',
         expand: true,
         resource: Species,
         filter: OccurrenceFilter
@@ -44,6 +45,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html',
         shortName: 'title',
         longName: 'title',
+        placeholder: 'search.datasetSearchPlaceholder',
         expand: false,
         resource: Dataset,
         filter: OccurrenceFilter
@@ -132,10 +134,39 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         filter: OccurrenceFilter
     };
 
+    vm.filters.organismId = {
+        title: 'organismID',
+        queryKey: 'organism_id',
+        filter: OccurrenceFilter,
+        suggestEndpoint: suggestEndpoints.organismId
+    };
+
+    vm.filters.waterBody = {
+        title: 'waterBody',
+        queryKey: 'water_body',
+        filter: OccurrenceFilter
+    };
+
+    vm.filters.stateProvince = {
+        title: 'stateProvince',
+        queryKey: 'state_province',
+        filter: OccurrenceFilter
+    };
+
+    vm.filters.locality = {
+        title: 'locality',
+        queryKey: 'locality',
+        filter: OccurrenceFilter
+    };
+
     //intervals
     vm.filters.year = {
         queryKey: 'year',
         filter: OccurrenceFilter
+    };
+
+    vm.toggleAdvanced = function() {
+        OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };
 
 

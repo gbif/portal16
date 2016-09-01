@@ -1,7 +1,9 @@
 {
 	"search": {
 		"partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what is available at the moment.",
-		"placeholder": "search"
+		"placeholder": "search",
+		"taxonSearchPlaceholder": "search species ... kingdom",
+		"datasetSearchPlaceholder": "search datasets"
 	},
 	"basisOfRecord": {
 		"PRESERVED_SPECIMEN": "preserved specimen",
@@ -1189,17 +1191,7 @@
 		"PHAGOVAR": "phagovar",
 		"SEROVAR": "serovar",
 		"CHEMOFORM": "chemoform",
-		"FORMA_SPECIALIS": "forma specialis",
-		"SCIENTIFIC_NAME_ASSEMBLED": "taxonRank.SCIENTIFIC_NAME_ASSEMBLED",
-		"BACKBONE_MATCH_NONE": "taxonRank.BACKBONE_MATCH_NONE",
-		"CLASSIFICATION_NOT_APPLIED": "taxonRank.CLASSIFICATION_NOT_APPLIED",
-		"ORIGINAL_NAME_DERIVED": "taxonRank.ORIGINAL_NAME_DERIVED",
-		"PARENT_NAME_USAGE_ID_INVALID": "taxonRank.PARENT_NAME_USAGE_ID_INVALID",
-		"TAXONOMIC_STATUS_INVALID": "taxonRank.TAXONOMIC_STATUS_INVALID",
-		"VERNACULAR_NAME_INVALID": "taxonRank.VERNACULAR_NAME_INVALID",
-		"NOMENCLATURAL_STATUS_INVALID": "taxonRank.NOMENCLATURAL_STATUS_INVALID",
-		"CONFLICTING_BASIONYM_COMBINATION": "taxonRank.CONFLICTING_BASIONYM_COMBINATION",
-		"NO_SPECIES": "taxonRank.NO_SPECIES"
+		"FORMA_SPECIALIS": "forma specialis"
 	},
 	"taxon": {
 		"rank": "rank",

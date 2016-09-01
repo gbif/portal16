@@ -31,7 +31,7 @@ function filterSuggestDirective() {
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.facetKey = vm.filterConfig.facetKey || vm.filterConfig.queryKey.toUpperCase();
         vm.translationPrefix = vm.filterConfig.translationPrefix || 'ocurrenceFieldNames';
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate === false ? false : true;
+        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
         vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.title];
         vm.collapsed = vm.filterConfig.collapsed !== false;
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
@@ -47,7 +47,6 @@ function filterSuggestDirective() {
 
         $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
             if (vm.hasFacetSuggestions && !angular.equals(newState, oldState)) {
-                console.log('query param changed - update facets for ' + vm.facetKey);
                 vm.getFacetSuggestions();
             }
         });

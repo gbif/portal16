@@ -16,17 +16,17 @@
                  click-outside-unless="!occurrence.expandMore">
                 <ul>
                     <li>
-                        <a href="" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
+                        <a href="" class="inherit uppercase-first" ng-click="occurrence.hideDetails = !occurrence.hideDetails; occurrence.expandMore = false;">
                             <span ng-show="occurrence.hideDetails">{$ __('stdTerms.showDiagnostics') $} (Alt+d)</span>
                             <span ng-show="!occurrence.hideDetails">{$ __('stdTerms.hideDiagnostics') $} (Alt+d)</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="uppercase-first">
                         <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
                             {$ __('stdTerms.raw') $}
                         </a>
                     </li>
-                    <li class="seperator">
+                    <li class="seperator uppercase-first">
                         <a href="http://rs.tdwg.org/dwc/terms/">{$ __('stdTerms.aboutDarwinCore') $}</a>
                     </li>
                 </ul>
