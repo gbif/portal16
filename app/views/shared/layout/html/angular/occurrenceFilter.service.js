@@ -7,6 +7,7 @@ angular
     .service('OccurrenceFilter', function ($rootScope, $state, $stateParams, OccurrenceTableSearch) {
         var state = {
             data: {},
+            facetMultiselect: {},
             failedRequest: false,
             query: $stateParams
         };
@@ -18,11 +19,16 @@ angular
             recorded_by: undefined
         };
 
-        var availableFacets = ['basis_of_record', 'month', 'type_status', 'dataset_key', 'institution_code', 'organism_id'];
-        var facets = [];
-        availableFacets.forEach(function(facet){
-            facets.push(facet);
+        //for fields where we want faceting and will always ask for all possible. This is the case for most enums
+        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code'];
+        var exhaustiveFacets = [];
+        exhaustiveFacetsKeys.forEach(function(facet){
+            exhaustiveFacets.push(facet);
         });
+
+        //for fields with low cardinality and that isn't enums
+        var multiSelectFacetsKeys = ['dataset_key', 'institution_code'];
+        var multiSelectFacets = [];
 
         function getOccurrenceState() {
             return state;
@@ -38,13 +44,13 @@ angular
             var apiQuery;
             state.query = query || $stateParams;
             apiQuery = angular.copy(state.query);
-            apiQuery.facet = facets;
+            apiQuery.facet = exhaustiveFacets;
             apiQuery['month.facetLimit'] = 12;
             apiQuery['type_status.facetLimit'] = 30;
+            apiQuery['issue.facetLimit'] = 30;
 
             //when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
-                console.log('prune for simple');
                 Object.keys(advancedDefaults).forEach(function(keyDefault){
                     apiQuery[keyDefault] = advancedDefaults[keyDefault];
                 });
@@ -56,6 +62,20 @@ angular
                 //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
             }, function() {
                 state.failedRequest = true;
+            });
+
+            //get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
+            apiQuery.facetMultiselect = true;
+            apiQuery.limit = 0; //no need to get the same results again
+            apiQuery.facet = [];
+            multiSelectFacetsKeys.forEach(function(key){
+                if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
+                    apiQuery.facet.push(key);
+                }
+            });
+            state.facetMultiselect = OccurrenceTableSearch.query(apiQuery, function(){
+            }, function() {
+                //TODO how to indicate missing facet data
             });
         }
 
@@ -87,7 +107,6 @@ angular
         state.query = $stateParams;
         if (!state.query.advanced) {
             for (var key in advancedDefaults) {
-                console.log('set defaults');
                 if (advancedDefaults.hasOwnProperty(key) && typeof state.query[key] !== 'undefined') {
                     state.query.advanced = true;
                     $state.go('.', state.query, {inherit:false, notify: false, reload: false});

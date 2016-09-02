@@ -24,16 +24,14 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter, OccurrenceTableSearch) {
+    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter) {
         var vm = this;
 
-        vm.title = vm.filterConfig.title;
-        vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
-        vm.facetKey = vm.filterConfig.facetKey || vm.filterConfig.queryKey.toUpperCase();
-        vm.translationPrefix = vm.filterConfig.translationPrefix || 'ocurrenceFieldNames';
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
-        vm.suggestEndpoint = vm.filterConfig.suggestEndpoint || suggestEndpoints[vm.title];
-        vm.collapsed = vm.filterConfig.collapsed !== false;
+        vm.filterConfig.titleTranslation;
+        vm.queryKey = vm.filterConfig.queryKey;
+        vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+
+
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
@@ -46,38 +44,56 @@ function filterSuggestDirective() {
         });
 
         $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
-            if (vm.hasFacetSuggestions && !angular.equals(newState, oldState)) {
-                vm.getFacetSuggestions();
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
+                vm.setFacetSuggestions();
             }
         });
 
-        vm.getSuggestions = function(val) {
-            return $http.get(vm.suggestEndpoint, {
-                params: {
-                    q: val,
-                    limit: 10
-                }
-            }).then(function(response){
-                return response.data;
-            });
-        };
-
         vm.facetSuggestions = {};
-        vm.getFacetSuggestions = function() {
-            if (!vm.hasFacetSuggestions) return;
-            var query = angular.copy(vm.filterState.query);
-            query[vm.queryKey] = undefined;
-            query.facet = vm.queryKey;
-
-            OccurrenceTableSearch.query(query, function(response){
-                vm.facetSuggestions = response.facets[vm.facetKey];
-            }, function(){
-                vm.facetSuggestions = {};
-            });
+        vm.setFacetSuggestions = function() {
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
+                vm.filterState.facetMultiselect.$promise.then(function (data) {
+                    vm.facetSuggestions = data.facets[vm.filterConfig.facets.facetKey];
+                });
+            };
         };
-        vm.getFacetSuggestions();
+        vm.setFacetSuggestions();
+
+        vm.getSuggestions = function(val) {
+            //if search enabled and
+            if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                return $http.get(vm.filterConfig.search.suggestEndpoint, {
+                    params: {
+                        q: val,
+                        limit: 10
+                    }
+                }).then(function (response) {
+                    return response.data;
+                });
+            }
+        };
+
         vm.inQuery = function(name){
             return vm.query.indexOf(name) != -1;
+        };
+
+        vm.showFacetCount = function() {
+            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
+        };
+
+        vm.getWidth = function(key) {
+            var facetKey = vm.filterConfig.facets.facetKey;
+            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[key]) {
+                return {
+                    width: '0%'
+                }
+            }
+            var fraction = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].fraction;
+            var gear = 100 / (vm.filterState.data.facets[facetKey].max / vm.filterState.data.count);
+            var width = fraction * gear;
+            return {
+                width: width + '%'
+            };
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
@@ -86,28 +102,22 @@ function filterSuggestDirective() {
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
                 vm.query.push(item.toString());
                 vm.selected = '';
-                if (vm.filterAutoUpdate) {
-                    vm.apply();
-                }
+                vm.apply();
             }
         };
 
         vm.change = function(e, checked) {
-            if (vm.filterAutoUpdate) {
-                if (checked) {
-                    vm.query.push(e);
-                } else {
-                    vm.query.splice(vm.query.indexOf(e), 1);
-                }
-                vm.apply();
+            if (checked) {
+                vm.query.push(e);
+            } else {
+                vm.query.splice(vm.query.indexOf(e), 1);
             }
+            vm.apply();
         };
 
         vm.uncheckAll = function() {
             vm.query = [];
-            if (vm.filterAutoUpdate) {
-                vm.apply();
-            }
+            vm.apply();
         };
 
         vm.apply = function() {

@@ -25,7 +25,7 @@ function filterTaxonDirective() {
     return directive;
 
     /** @ngInject */
-    function filterTaxon($scope, $state, $http, $filter, OccurrenceFilter) {
+    function filterTaxon($scope, $http, $filter, OccurrenceFilter) {
         var vm = this;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;

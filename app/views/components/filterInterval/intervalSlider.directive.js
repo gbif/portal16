@@ -30,10 +30,11 @@ function intervalSliderDirective() {
         vm.selected = vm.options[0];
 
         vm.sliderOptions = {
-            start: [1700, 2016],
+            start: [1000, 2016],
             range: {
-                'min': [ 1700, 1 ],
-                '50%': [ 1950, 1 ],
+                'min': [ 1000, 1 ],
+                '10%': [ 1700, 1 ],
+                '50%': [ 1960, 1 ],
                 'max': [ 2016 ]
             },
             format: {

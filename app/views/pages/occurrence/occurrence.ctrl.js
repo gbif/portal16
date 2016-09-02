@@ -79,6 +79,15 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         filter: OccurrenceFilter
     };
 
+    vm.filters.issue = {
+        enumValues: enums.occurrenceIssue,
+        queryKey: 'issue',
+        title: 'issue',
+        translationPrefix: 'stdTerms',
+        facetKey: 'ISSUE',
+        filter: OccurrenceFilter
+    };
+
     vm.filters.mediaType = {
         enumValues: enums.mediaType,
         queryKey: 'media_type',
@@ -122,16 +131,32 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
 
     vm.filters.institutionCode = {
-        title: 'institutionCode',
+        titleTranslation: 'ocurrenceFieldNames.institutionCode',
         queryKey: 'institution_code',
         filter: OccurrenceFilter,
-        faceted: true
+        facets: {
+            hasFacets: true,
+            facetKey: 'INSTITUTION_CODE'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.institutionCode',
+            suggestEndpoint: suggestEndpoints.institutionCode
+        }
     };
 
     vm.filters.collectionCode = {
-        title: 'collectionCode',
+        titleTranslation: 'ocurrenceFieldNames.collectionCode',
         queryKey: 'collection_code',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.collectionCode',
+            suggestEndpoint: suggestEndpoints.collectionCode
+        },
+        facets: {
+            facetKey: 'COLLECTION_CODE'
+        }
     };
 
     vm.filters.organismId = {

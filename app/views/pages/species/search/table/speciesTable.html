@@ -28,7 +28,7 @@
                         <article class="search-results__list__item" ng-repeat="row in speciesTable.state.data.results">
                             <span class="search-results__list__item__tag"><span>{{row.rank}}</span>{{row.taxonomicStatus}}</span>
                             <div>
-                                <a href="../species/{{row.key}}" class="tile">
+                                <a href="../species/{{row.key}}" class="tile" ng-if="speciesTable.backboneKey == row.datasetKey">
                                     <div class="teaser-map--small">
                                         <img src="/img/tile000/basemap-grey-light2.png">
                                         <img ng-src="{{speciesTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=TAXON&resolution=4">

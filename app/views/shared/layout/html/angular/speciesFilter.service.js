@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('SpeciesFilter', function ($rootScope, $state, $stateParams, SpeciesSearch) {
+    .service('SpeciesFilter', function ($rootScope, $state, $stateParams, SpeciesSearch, speciesConstants) {
         var state = {
             data: {},
             failedRequest: false,
@@ -13,7 +13,7 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
-            dataset_key: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+            dataset_key: speciesConstants.backboneKey,
             name_type: undefined,
             constituent_key: undefined
         };
@@ -42,6 +42,7 @@ angular
             state.query['issue.facetLimit'] = 100;
             state.query['name_type.facetLimit'] = 100;
             state.query['rank.facetLimit'] = 100;
+            state.query.facetMultiselect = true;
             apiQuery = state.query;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
