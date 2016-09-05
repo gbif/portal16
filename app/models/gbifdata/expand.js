@@ -63,6 +63,7 @@ function expand(data, settings, __, cb) {
             }
         }, function(err, results) {
             data.facets = facetArrayToMap(data);
+            //addFilterFacets(data.facets, );
             cb();
         });
 

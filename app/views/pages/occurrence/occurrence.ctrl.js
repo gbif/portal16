@@ -159,6 +159,26 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
+    vm.filters.dataset = {
+        titleTranslation: 'stdTerms.dataset',
+        queryKey: 'dataset_key',
+        filter: OccurrenceFilter,
+        listTemplate: '/templates/components/filterSuggest/datasetSelect.html',
+        facets: {
+            hasFacets: true,
+            facetKey: 'DATASET_KEY'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.dataset,
+            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html',
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
     vm.filters.organismId = {
         title: 'organismID',
         queryKey: 'organism_id',

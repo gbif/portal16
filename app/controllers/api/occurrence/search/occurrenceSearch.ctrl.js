@@ -73,4 +73,8 @@ const expandConfig = {
         endpoint: apiConfig.dataset.url,
         fromKey: 'title'
     },
+    BASIS_OF_RECORD: {
+        type: 'ENUM',
+        translationPath: 'basisOfRecord.'
+    }
 };

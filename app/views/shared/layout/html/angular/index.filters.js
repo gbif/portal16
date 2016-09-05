@@ -46,5 +46,21 @@
                 return r;
             }
         })
-
+        .filter('uniqueLower', function() {
+            return function(a) {
+                if (angular.isString(a)) return [a.toString().toLowerCase()];
+                if (!Array.isArray(a)) return [];
+                var n = {},r=[];
+                for(var i = 0; i < a.length; i++)
+                {
+                    var val = a[i].toString().toLowerCase();
+                    if (!n[val])
+                    {
+                        n[val] = true;
+                        r.push(val);
+                    }
+                }
+                return r;
+            }
+        })
 })();

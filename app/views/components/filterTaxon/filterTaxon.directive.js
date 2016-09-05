@@ -27,35 +27,90 @@ function filterTaxonDirective() {
     /** @ngInject */
     function filterTaxon($scope, $http, $filter, OccurrenceFilter) {
         var vm = this;
-        vm.title = vm.filterConfig.title;
-        vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
-        vm.facetKey = vm.filterConfig.facetKey;
-        vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
-        vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
-        vm.collapsed = vm.filterConfig.collapsed !== false;
 
-        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+        vm.filterConfig.titleTranslation;
+        vm.queryKey = vm.filterConfig.queryKey;
+        vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
-        vm.usedKeys = {};
+        vm.listTemplate = vm.filterConfig.listTemplate ? vm.filterConfig.listTemplate : '/templates/components/filterSuggest/basicSuggest.html';
+
+        vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
+        vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
-            vm.query = $filter('unique')(newQuery);
-            resolveAllKeys();
+            vm.query = $filter('uniqueLower')(newQuery);
         });
 
-        function getFullResource(key) {
-            vm.filterConfig.resource.get({id: key}, function(data){
-                vm.usedKeys[key] = data;
-            });
-        }
+        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
+                vm.setFacetSuggestions();
+            }
+        });
 
-        function resolveAllKeys() {
-            vm.query.forEach(function(e){
-                getFullResource(e);
-            });    
-        }
-        resolveAllKeys();
-        
+        vm.facetSuggestions = {};
+        vm.setFacetSuggestions = function() {
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
+                vm.filterState.facetMultiselect.$promise.then(function (data) {
+                    vm.facetSuggestions = data.facets[vm.filterConfig.facets.facetKey];
+                });
+            }
+        };
+        vm.setFacetSuggestions();
+
+        vm.getSuggestions = function(val) {
+            //if search enabled and
+            if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                return $http.get(vm.filterConfig.search.suggestEndpoint, {
+                    params: {
+                        q: val.toLowerCase(),
+                        limit: 10
+                    }
+                }).then(function (response) {
+                    return response.data;
+                });
+            }
+        };
+
+        vm.getSuggestionLabel = function(suggestion) {
+            return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
+        };
+
+        vm.inQuery = function(name){
+            return vm.query.indexOf(name) != -1;
+        };
+
+        vm.showFacetCount = function() {
+            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
+        };
+
+        vm.getFacetCount = function(key){
+            var count = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count
+        };
+
+        vm.getWidth = function(key) {
+            var keyLower = key.toLowerCase();
+            var facetKey = vm.filterConfig.facets.facetKey;
+            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
+                return {
+                    width: '0%'
+                }
+            }
+            var fraction = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[keyLower].fraction;
+            var gear = 100 / (vm.filterState.data.facets[facetKey].max / vm.filterState.data.count);
+            var width = fraction * gear;
+            return {
+                width: width + '%'
+            };
+        };
+
+        vm.typeaheadSelect = function(item){ //  model, label, event
+            if (angular.isUndefined(item)) return;
+            if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
+                vm.query.push(searchString.toLowerCase());
+                vm.selected = '';
+                vm.apply();
+            }
+        };
 
         vm.change = function(e, checked) {
             if (checked) {
@@ -66,39 +121,19 @@ function filterTaxonDirective() {
             vm.apply();
         };
 
-        vm.getSuggestions = function(val) {
-            var params = angular.copy(vm.filterConfig.defaultParams);
-            params.q = val;
-            params.limit = 10;
-            return $http.get(vm.filterConfig.suggestEndpoint, {
-                params: params
-            }).then(function(response){
-                return response.data;
-            });
-        };
-
-        vm.typeaheadSelect = function(item){ //  model, label, event
-            if (vm.query.indexOf(item.key.toString()) < 0) {
-                vm.usedKeys[item.key] = item;
-                vm.query.push(item.key.toString());
-                vm.selected = '';
-                if (vm.filterConfig.expand) {
-                    getFullResource(item.key);
-                }   
-                vm.apply();
-            }
-        };
-
         vm.uncheckAll = function() {
             vm.query = [];
             vm.apply();
         };
+
         vm.apply = function() {
             OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         };
 
-        vm.inQuery = function(name){
-            return vm.query.indexOf(name) != -1;
+        vm.searchOnEnter = function(event) {
+            if(event.which === 13) {
+                vm.typeaheadSelect(vm.selected);
+            }
         };
     }
 }

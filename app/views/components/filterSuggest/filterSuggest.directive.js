@@ -24,23 +24,18 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($scope, $http, $filter, suggestEndpoints, OccurrenceFilter) {
+    function filterSuggest($scope, $http, $filter, OccurrenceFilter) {
         var vm = this;
 
         vm.filterConfig.titleTranslation;
         vm.queryKey = vm.filterConfig.queryKey;
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
-
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
-        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+        vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
-            vm.query = $filter('unique')(newQuery);
-        });
-
-        $scope.$watch(function(){return vm.filterState.data}, function(newQuery){
-            //newQuery.$promise.then(vm.getFacetSuggestions);
+            vm.query = $filter('uniqueLower')(newQuery);
         });
 
         $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
@@ -55,7 +50,7 @@ function filterSuggestDirective() {
                 vm.filterState.facetMultiselect.$promise.then(function (data) {
                     vm.facetSuggestions = data.facets[vm.filterConfig.facets.facetKey];
                 });
-            };
+            }
         };
         vm.setFacetSuggestions();
 
@@ -64,7 +59,7 @@ function filterSuggestDirective() {
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
                     params: {
-                        q: val,
+                        q: val.toLowerCase(),
                         limit: 10
                     }
                 }).then(function (response) {
@@ -81,14 +76,19 @@ function filterSuggestDirective() {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
         };
 
+        vm.getFacetCount = function(key){
+            var count = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count
+        };
+
         vm.getWidth = function(key) {
+            var keyLower = key.toLowerCase();
             var facetKey = vm.filterConfig.facets.facetKey;
-            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[key]) {
+            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
                 return {
                     width: '0%'
                 }
             }
-            var fraction = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].fraction;
+            var fraction = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[keyLower].fraction;
             var gear = 100 / (vm.filterState.data.facets[facetKey].max / vm.filterState.data.count);
             var width = fraction * gear;
             return {
@@ -98,9 +98,9 @@ function filterSuggestDirective() {
 
         vm.typeaheadSelect = function(item){ //  model, label, event
             if (angular.isUndefined(item)) return;
-            var searchString = item.toString();
+            var searchString = item.toString().toLowerCase();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
-                vm.query.push(item.toString());
+                vm.query.push(searchString);
                 vm.selected = '';
                 vm.apply();
             }
