@@ -37,8 +37,11 @@ function filterTaxonDirective() {
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
 
+        vm.usedKeys = {};
+
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('uniqueLower')(newQuery);
+            resolveAllKeys();
         });
 
         $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
@@ -46,6 +49,19 @@ function filterTaxonDirective() {
                 vm.setFacetSuggestions();
             }
         });
+
+        function getFullResource(key) {
+            vm.filterConfig.expand.resource.get({id: key}, function(data){
+                vm.usedKeys[key] = data[vm.filterConfig.expand.expandedTitle];
+            });
+        }
+
+        function resolveAllKeys() {
+            vm.query.forEach(function(e){
+                getFullResource(e);
+            });
+        }
+        resolveAllKeys();
 
         vm.facetSuggestions = {};
         vm.setFacetSuggestions = function() {
@@ -104,20 +120,28 @@ function filterTaxonDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
-            if (angular.isUndefined(item)) return;
-            if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
-                vm.query.push(searchString.toLowerCase());
+            if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
+            var searchString = item.key.toString().toLowerCase();
+            if (vm.query.indexOf(searchString) < 0) {
+                vm.usedKeys[item.key] = item[vm.filterConfig.search.suggestTitle];
+                vm.query.push(searchString);
                 vm.selected = '';
+                if (vm.filterConfig.expand) {
+                    getFullResource(item.key);
+                }
                 vm.apply();
             }
         };
 
-        vm.change = function(e, checked) {
-            if (checked) {
-                vm.query.push(e);
-            } else {
-                vm.query.splice(vm.query.indexOf(e), 1);
-            }
+        vm.add = function(key, checked, facet) {
+            vm.usedKeys[key] = facet[vm.filterConfig.search.suggestTitle];
+            vm.query.push(key);
+            vm.apply();
+        };
+
+
+        vm.remove = function(key, checked) {
+            vm.query.splice(vm.query.indexOf(key), 1);
             vm.apply();
         };
 

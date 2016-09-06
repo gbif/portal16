@@ -12,10 +12,10 @@
         <div ng-if="vm.query.length > 0" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.remove(key, checked)">
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span>{{vm.usedKeys[key].title}}</span>
+                        <span>{{vm.usedKeys[key]}}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
@@ -24,14 +24,14 @@
             </div>
             <!--<ng-include src="vm.listTemplate"></ng-include>-->
         </div>
-        <div class="filter-group__filter__search seperator" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
+        <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
                    focus-me="vm.filterConfig.expanded"
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
                    placeholder="search"
-                   uib-typeahead="suggestion[vm.filterConfig.search.suggestShortName] for suggestion in vm.getSuggestions($viewValue)"
+                   uib-typeahead="suggestion[vm.filterConfig.search.suggestTitle] for suggestion in vm.getSuggestions($viewValue)"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
                    typeahead-template-url="{{vm.filterConfig.search.suggestTemplate}}"
@@ -41,7 +41,7 @@
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets">
             <div class="checkbox" ng-repeat="(key, facet) in vm.facetSuggestions.counts" ng-if="vm.query.length > 0 && !vm.inQuery(key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.add(key, checked, facet)">
                     <span class="filter-group__filter__name">
                         <span>{{facet.title}}</span>
                         <span class="filter-group__filter__name__count">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
@@ -51,7 +51,7 @@
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts" ng-if="vm.query.length == 0">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.add(key, checked, facet)">
                     <span class="filter-group__filter__name">
                         <span>{{facet.title}}</span>
                         <span class="filter-group__filter__name__count">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
@@ -61,7 +61,7 @@
 
         </div>
 
-        <div class="site-drawer__bar seperator" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
+        <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>

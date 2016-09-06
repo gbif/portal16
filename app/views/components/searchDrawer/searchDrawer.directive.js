@@ -32,7 +32,7 @@ function searchDrawerDirective() {
             var c = 0;
             Object.keys(vm.filter.query).forEach(function(e){
                 var v = vm.filter.query[e];
-                var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced'];
+                var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect'];
                 if (typeof v !== 'undefined' && v!= '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
                     c += [].concat(v).length;
                 }

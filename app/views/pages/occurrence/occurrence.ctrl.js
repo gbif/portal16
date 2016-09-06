@@ -163,7 +163,10 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'stdTerms.dataset',
         queryKey: 'dataset_key',
         filter: OccurrenceFilter,
-        listTemplate: '/templates/components/filterSuggest/datasetSelect.html',
+        expand: {
+            resource: Dataset,
+            expandedTitle: 'title'
+        },
         facets: {
             hasFacets: true,
             facetKey: 'DATASET_KEY'
@@ -178,6 +181,33 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
             suggestKey: 'key'
         }
     };
+
+    vm.filters.taxonKey = {
+        titleTranslation: 'ocurrenceFieldNames.scientificName',
+        queryKey: 'taxon_key',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Species,
+            expandedTitle: 'scientificName'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'TAXON_KEY'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.taxon,
+            defaultParams: {
+                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+            },
+            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+            suggestTitle: 'canonicalName',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
 
     vm.filters.organismId = {
         title: 'organismID',

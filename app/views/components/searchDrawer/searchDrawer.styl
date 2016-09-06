@@ -230,6 +230,12 @@ $filterEmphasisColor = $bodyTextColor
 		margin-top 3px
 	}
 	&__filter {
+		>* {
+			border-bottom 1px solid $stripeBorderColor
+			&:last-child {
+				border-bottom none
+			}
+		}
 		>.is-padded {
 			padding 0 20px
 		}

@@ -23,7 +23,7 @@
                 </label>
             </div>
         </div>
-        <div class="filter-group__filter__search seperator" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
+        <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
                    focus-me="vm.filterConfig.expanded"
                    autocomplete="off"
@@ -59,7 +59,7 @@
 
         </div>
 
-        <div class="site-drawer__bar seperator" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
+        <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>
