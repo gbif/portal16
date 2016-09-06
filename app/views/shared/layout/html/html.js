@@ -68,6 +68,7 @@ require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
 require('../../../pages/about/search/cmsSearch.ctrl');
 require('../../../pages/about/search/table/cmsTable.ctrl');
+require('../../../pages/about/programme/programme.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');

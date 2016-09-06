@@ -1311,14 +1311,16 @@
 		"projectGrantType": {
 			"regional": "Regional grant",
 			"small": "Small grant",
-			"national": "National grant"
+			"national": "National grant",
+			"undefined": "cms.projectGrantType.undefined"
 		},
 		"projectDuration": {
 			"to": "to"
 		},
 		"projectStatus": {
 			"in_progress": "In progress",
-			"approved": "Approved"
+			"approved": "Approved",
+			"undefined": "cms.projectStatus.undefined"
 		}
 	}
 }

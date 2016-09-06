@@ -1,22 +1,27 @@
-<div class="occurrence-search__table__area">
-    <div class="table-container projects-table">
+<div class="projects__table" ng-controller="programmeCtrl as programme">
+    <div class="table-container" ng-init="programme.nodeId = '{$ data.id $}'; programme.nodeType = '{$ data.type $}'; programme.getNodeData()">
         <h3>Projects</h3>
         <table class="table">
-           <thead>
-           <tr><th>Project</th><th>Grant type</th><th>Duration</th><th>Funding allocated</th><th>Estimated co-funding</th><th>Status</th></tr>
-           </thead>
-           <tbody>
-           {% for project in data.relatedProjects %}
-           <tr>
-           <td class="table-cell--wide"><a href="/{$ project.url $}">{$ project.title $}</a></td> {# title #}
-           <td class="table-cell--narrow">{$ __('cms.projectGrantType.' + project.grantType) $}</td> {# grant type #}
-           <td class="table-cell--normal">{$ project.duration.start | formatDate(gb.locales.current) $} {$ __('cms.projectDuration.to') $} {$ project.duration.end | formatDate(gb.locales.current) $}</td> {# duration #}
-           <td class="table-cell--narrow">{$ project.fundingAllocated | formatNumber $}</td> {# funding #}
-           <td class="table-cell--narrow">{$ project.estimatedCoFunding | formatNumber $}</td> {# estimated co-funding #}
-           <td class="table-cell--narrow">{$ __('cms.projectStatus.' + project.status) $}</td> {# status #}
-           </tr>
-           {% endfor %}
-           </tbody>
+            <thead>
+                <tr>
+                <th class="text-capitalize"><a ng-click="sortField = 'title'; sortReverse = !sortReverse">Project<span ng-show="sortField == 'title' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'title' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                <th class="text-capitalize"><a ng-click="sortField = 'grantType'; sortReverse = !sortReverse">Grant type<span ng-show="sortField == 'grantType' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'grantType' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                <th class="text-capitalize"><a ng-click="sortField = 'duration.start'; sortReverse = !sortReverse">Duration<span ng-show="sortField == 'duration.start' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'duration.start' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                <th class="text-capitalize"><a ng-click="sortField = 'fundingAllocated'; sortReverse = !sortReverse">Funding allocated<span ng-show="sortField == 'fundingAllocated' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'fundingAllocated' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                <th class="text-capitalize"><a ng-click="sortField = 'estimatedCoFunding'; sortReverse = !sortReverse">Estimated co-funding<span ng-show="sortField == 'estimatedCoFunding' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'estimatedCoFunding' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                <th class="text-capitalize"><a ng-click="sortField = 'status'; sortReverse = !sortReverse">Status<span ng-show="sortField == 'status' && !sortReverse" class="gb-icon-angle-down"></span><span ng-show="sortField == 'status' && sortReverse" class="gb-icon-angle-up"></span></a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sortField:sortReverse">
+                    <td class="table-cell--wide"><a href="/{{ project.targetUrl }}">{{ project.title }}</a></td> {# title #}
+                    <td class="table-cell--normal" translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grant type #}
+                    <td class="table-cell--normal">{{ project.duration.start * 1000 | date:'longDate' }} {$ __('cms.projectDuration.to') $}<br>{{ project.duration.end * 1000 | date:'longDate' }}</td> {# duration #}
+                    <td class="text-right currency">&euro; {{ project.fundingAllocated | number: 2 }}</td> {# funding #}
+                    <td class="text-right currency">&euro; {{ project.estimatedCoFunding | number: 2}}</td> {# estimated co-funding #}
+                    <td class="table-cell--narrow" translate="cms.projectStatus.{{ project.status }}"></td> {# status #}
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

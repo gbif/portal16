@@ -119,7 +119,7 @@ module.exports = function(nunjucksConfiguration, config) {
     })();
 
     (function() {
-        nunjucksConfiguration.addFilter('formatNumber', format.formatNumber);
+        nunjucksConfiguration.addFilter('localizeInteger', format.localizeInteger);
     })();
 
     /**

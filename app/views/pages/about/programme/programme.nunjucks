@@ -1,9 +1,7 @@
 {% extends "../html-prose.nunjucks" %}
 
-{% block page %} <article class="wrapper-horizontal-stripes">
-        <script type="text/javascript">
-            var programmeID = '{$ data.id $}';
-        </script>
+{% block page %}
+    <article class="wrapper-horizontal-stripes">
         <div class="horizontal-stripe--programme article-header white-background">
             <div class="container">
                 <div class="row">

@@ -6,7 +6,7 @@
 .funders {
     display inline-block
     img {
-        height vrBlock(2)
+        height vrBlock(1.5)
         display inline-block
         margin 0 5px
     }
@@ -21,6 +21,48 @@
     }
 }
 
-.projects-table {
-    margin 0 auto
+.projects__table {
+    >div {
+        margin 0 auto
+    }
+
+    .projects__table__area {
+        position relative
+        overflow hidden
+        width 100%
+    }
+    .table {
+        font-size 13px
+        tr, td, th {
+            a {
+                color inherit
+                padding-right 1em
+                display block
+                &:hover {
+                    text-decoration none
+                }
+            }
+            span {
+                font-size 18px
+                font-weight bold
+            }
+        }
+        th {
+            font-weight bold
+        }
+        tbody {
+            tr {
+                cursor pointer
+            }
+            tr:nth-of-type(even) {
+                background lighten($lightBackground, 2)
+            }
+            tr:hover {
+                background darken($lightBackground, 5)
+            }
+        }
+        .currency {
+            padding-right 20px
+        }
+    }
 }

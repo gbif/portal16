@@ -83,15 +83,10 @@ function formatBytes(bytes,decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function formatNumber(number) {
-    return number.toLocaleString('en-US', { style: 'currency', currency: 'EUR'});
-}
-
 module.exports = {
     date: date,
     localizeInteger: localizeInteger,
     prettifyEnum: prettifyEnum,
     getHighlightedText: getHighlightedText,
-    formatBytes: formatBytes,
-    formatNumber: formatNumber
-}
+    formatBytes: formatBytes
+};

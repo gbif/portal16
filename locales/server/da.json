@@ -1228,5 +1228,10 @@
 			"undefined": "",
 			"FORMER": "%s is a former participant of GBIF"
 		}
+	},
+	"cms": {
+		"projectDuration": {
+			"to": "cms.projectDuration.to"
+		}
 	}
 }

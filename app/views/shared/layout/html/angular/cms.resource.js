@@ -25,6 +25,18 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('CmsNode', function($resource, env) {
+            return $resource(env.cmsApi + 'v1/:type/:id', null, {
+                'get': {
+                    method: 'GET',
+                    isArray: false,
+                    params: {
+                        type: '@nodeType',
+                        id: '@nodeId'
+                    }
+                }
+            });
+        })
     ;
 
 })();
