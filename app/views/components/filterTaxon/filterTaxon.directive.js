@@ -52,7 +52,7 @@ function filterTaxonDirective() {
 
         function getFullResource(key) {
             vm.filterConfig.expand.resource.get({id: key}, function(data){
-                vm.usedKeys[key] = data[vm.filterConfig.expand.expandedTitle];
+                vm.usedKeys[key] = data[vm.filterConfig.search.suggestTitle];
             });
         }
 
@@ -63,12 +63,22 @@ function filterTaxonDirective() {
         }
         resolveAllKeys();
 
-        vm.facetSuggestions = {};
+        vm.hideFacetCounts = false;
+        vm.suggestions = {};
         vm.setFacetSuggestions = function() {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
-                vm.filterState.facetMultiselect.$promise.then(function (data) {
-                    vm.facetSuggestions = data.facets[vm.filterConfig.facets.facetKey];
-                });
+                vm.hideFacetCounts = true;
+                if (vm.query.length > 0) {
+                    vm.filterState.facetMultiselect.$promise.then(function (data) {
+                        vm.hideFacetCounts = false;
+                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                    });
+                } else {
+                    vm.filterState.data.$promise.then(function (data) {
+                        vm.hideFacetCounts = false;
+                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                    });
+                }
             }
         };
         vm.setFacetSuggestions();

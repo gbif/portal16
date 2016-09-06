@@ -15,7 +15,7 @@
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span>{{key}}</span>
+                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{key}}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
@@ -37,22 +37,13 @@
         </div>
 
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets">
-            <div class="checkbox" ng-repeat="(key, facet) in vm.facetSuggestions.counts" ng-if="vm.query.length > 0 && !vm.inQuery(key)">
-                <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
-                    <span class="filter-group__filter__name">
-                        <span>{{facet.title}}</span>
-                        <span class="filter-group__filter__name__count">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
-                    </span>
-                </label>
-            </div>
 
-            <div class="checkbox" ng-repeat="(key, facet) in vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts" ng-if="vm.query.length == 0">
+            <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <span>{{facet.title}}</span>
-                        <span class="filter-group__filter__name__count">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
+                        <span class="filter-group__filter__name__title">{{facet.title}}</span>
+                        <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
                 </label>
             </div>

@@ -4,19 +4,19 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .directive('filterSuggest', filterSuggestDirective);
+    .directive('filterEnum', filterEnumDirective);
 
 /** @ngInject */
-function filterSuggestDirective() {
+function filterEnumDirective() {
     var directive = {
         restrict: 'A',
-        templateUrl: '/templates/components/filterSuggest/filterSuggest.html',
+        templateUrl: '/templates/components/filterEnum/filterEnum.html',
         scope: {
             filterState: '=',
             filterConfig: '='
         },
         replace: true,
-        controller: filterSuggest,
+        controller: filterEnum,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -24,7 +24,7 @@ function filterSuggestDirective() {
     return directive;
 
     /** @ngInject */
-    function filterSuggest($scope, $http, $filter) {
+    function filterEnum($scope, $http, $filter) {
         var vm = this;
 
         vm.filterConfig.titleTranslation;
@@ -32,10 +32,10 @@ function filterSuggestDirective() {
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
-        vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
-            vm.query = $filter('uniqueLower')(newQuery);
+            vm.query = $filter('unique')(newQuery);
         });
 
         $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
@@ -64,42 +64,35 @@ function filterSuggestDirective() {
         };
         vm.setFacetSuggestions();
 
-        vm.getSuggestions = function(val) {
+        vm.searchSuggestions = [];
+        vm.getSuggestions = function() {
             //if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
-                return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: {
-                        q: val.toLowerCase(),
-                        limit: 10
-                    }
-                }).then(function (response) {
-                    return response.data;
+                return $http.get(vm.filterConfig.search.suggestEndpoint
+                ).then(function (response) {
+                    vm.searchSuggestions = response.data;
                 });
             }
         };
+        vm.getSuggestions();
 
         vm.inQuery = function(name){
             return vm.query.indexOf(name) != -1;
         };
 
         vm.showFacetCount = function() {
-            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
-        };
-
-        vm.getFacetCount = function(key){
-            var count = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count
+            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
         vm.getWidth = function(key) {
-            var keyLower = key.toLowerCase();
-            var facetKey = vm.filterConfig.facets.facetKey;
-            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
+            if (vm.suggestions.counts)
+            if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
                 return {
                     width: '0%'
                 }
             }
-            var fraction = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[keyLower].fraction;
-            var gear = 100 / (vm.filterState.data.facets[facetKey].max / vm.filterState.data.count);
+            var fraction = vm.suggestions.counts[key].fraction;
+            var gear = 100 / (vm.suggestions.max / vm.filterState.data.count);
             var width = fraction * gear;
             return {
                 width: width + '%'
@@ -107,8 +100,8 @@ function filterSuggestDirective() {
         };
 
         vm.typeaheadSelect = function(item){ //  model, label, event
-            if (angular.isUndefined(item)) return;
-            var searchString = item.toString().toLowerCase();
+            if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
+            var searchString = item.key.toString();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
                 vm.query.push(searchString);
                 vm.selected = '';
@@ -142,4 +135,4 @@ function filterSuggestDirective() {
     }
 }
 
-module.exports = filterSuggestDirective;
+module.exports = filterEnumDirective;

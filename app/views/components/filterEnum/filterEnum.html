@@ -9,20 +9,19 @@
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
 
-        <div ng-if="vm.query.length > 0" class="is-padded">
+        <div ng-if="vm.query.length > 0 && vm.filterConfig.search.isSearchable" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.remove(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" >{{vm.usedKeys[key]}}</span>
+                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
                     </span>
                 </label>
             </div>
-            <!--<ng-include src="vm.listTemplate"></ng-include>-->
         </div>
         <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
@@ -31,21 +30,37 @@
                    class="fit-suggestions"
                    ng-model="vm.selected"
                    placeholder="search"
-                   uib-typeahead="suggestion[vm.filterConfig.search.suggestTitle] for suggestion in vm.getSuggestions($viewValue)"
+                   uib-typeahead="suggestion.title for suggestion in vm.searchSuggestions | filter:$viewValue | limitTo:8"
                    typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
                    typeahead-focus-first="true"
-                   typeahead-template-url="{{vm.filterConfig.search.suggestTemplate}}"
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets">
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.filterConfig.search.isSearchable">
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.add(key, checked, facet)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <span class="filter-group__filter__name__title">{{facet.title}}</span>
+                        <span class="filter-group__filter__name__title" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
+                    </span>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.search.isSearchable">
+
+            <div class="checkbox" ng-repeat="key in vm.filterConfig.enums" ng-if="vm.inQuery(key) || (vm.filterConfig.expanded && (vm.suggestions.counts[key] || vm.filterConfig.showAll))">
+                <label>
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <span class="filter-group__filter__name">
+                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets"></div>
+                        <span class="filter-group__filter__name__title" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{vm.suggestions.counts[key].title}}</span>
+                        <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">
+                            {{vm.suggestions.counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
+                        </span>
                     </span>
                 </label>
             </div>
@@ -59,9 +74,5 @@
         </div>
 
     </div>
-
-
-
 </div>
-
 

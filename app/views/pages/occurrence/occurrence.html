@@ -35,7 +35,7 @@
         <!--<div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>-->
         <!--<div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>-->
 
-        <!--<div enum-filter filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>-->
+
         <!--<div enum-filter filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
         <!--<div enum-filter filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
 
@@ -49,34 +49,48 @@
         <!--<div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
         <!--<div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
 
-        <!--<div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
+
         <!--<div filter-suggest filter-config="occurrence.filters.recordNumber" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
         <!--<div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
 
 
         <!--enum with counts ordered by enum or count-->
-        <div enum-filter filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
+        <!--<div enum-filter filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>-->
 
         <!--enum without counts-->
-        <div enum-filter filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
-
-        <!--enum with only top counts showing and overlapping filters-->
-        <div enum-filter filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
-
-        <!--enum with only first in order showing-->
-        <div enum-filter filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
+        <!--<div enum-filter filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>-->
 
 
-        <!--free with search-->
-        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
 
-        <!--free with search and counts-->
-        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
 
-        <!--free with template-->
-        <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.countryCode" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
+
+
+        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+
+
 
 
 

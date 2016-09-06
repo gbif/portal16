@@ -52,64 +52,61 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
 
     //enums
-    vm.filters.basisOfRecord = {
-        enumValues: enums.basisOfRecord,
-        queryKey: 'basis_of_record',
-        title: 'basisOfRecord',
-        translationPrefix: 'basisOfRecord',
-        facetKey: 'BASIS_OF_RECORD',
-        filter: OccurrenceFilter
-    };
 
     vm.filters.typeStatus = {
-        enumValues: enums.typeStatus,
+        titleTranslation: 'ocurrenceFieldNames.typeStatus',
         queryKey: 'type_status',
-        title: 'typeStatus',
-        translationPrefix: 'typeStatus',
-        facetKey: 'TYPE_STATUS',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.month = {
-        enumValues: enums.month,
-        queryKey: 'month',
-        title: 'month',
-        translationPrefix: 'month',
-        facetKey: 'MONTH',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'typeStatus.',
+        showAll: false,
+        enums: enums.typeStatus,
+        facets: {
+            hasFacets: true,
+            facetKey: 'TYPE_STATUS'
+        }
     };
 
     vm.filters.issue = {
-        enumValues: enums.occurrenceIssue,
+        titleTranslation: 'ocurrenceFieldNames.issue',
         queryKey: 'issue',
-        title: 'issue',
-        translationPrefix: 'stdTerms',
-        facetKey: 'ISSUE',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'stdTerms.',
+        showAll: false,
+        enums: enums.occurrenceIssue,
+        facets: {
+            hasFacets: true,
+            facetKey: 'ISSUE'
+        }
     };
 
     vm.filters.mediaType = {
-        enumValues: enums.mediaType,
-        queryKey: 'media_type',
-        title: 'mediaType',
-        translationPrefix: 'mediaType',
-        facetKey: 'MEDIA_TYPE',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.establishmentMeans = {
-        enumValues: enums.establishmentMeans,
-        queryKey: 'establishment_means',
-        title: 'establishmentMeans',
-        translationPrefix: 'establishmentMeans',
-        filter: OccurrenceFilter
+        titleTranslation: 'ocurrenceFieldNames.mediaType',
+        queryKey: 'mediaType',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'mediaType.',
+        showAll: false,
+        enums: enums.mediaType,
+        facets: {
+            hasFacets: true,
+            facetKey: 'MEDIA_TYPE'
+        }
     };
 
     //suggest filters
+
+
     vm.filters.recordedBy = {
-        title: 'recordedBy',
+        titleTranslation: 'ocurrenceFieldNames.recordedBy',
         queryKey: 'recorded_by',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.recordedBy',
+            suggestEndpoint: suggestEndpoints.recordedBy
+        },
+        facets: {
+            facetKey: 'RECORDED_BY'
+        }
     };
 
     vm.filters.recordNumber = {
@@ -159,6 +156,55 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
+    //enums 2
+    vm.filters.countryCode = {
+        titleTranslation: 'ocurrenceFieldNames.countryCode',
+        queryKey: 'country',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'country.',
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.TRANSLATE',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'COUNTRY'
+        }
+    };
+
+    vm.filters.basisOfRecord = {
+        titleTranslation: 'ocurrenceFieldNames.basisOfRecord',
+        queryKey: 'basis_of_record',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'basisOfRecord.',
+        showAll: false,
+        enums: enums.basisOfRecord,
+        facets: {
+            hasFacets: true,
+            facetKey: 'BASIS_OF_RECORD'
+        }
+    };
+
+    vm.filters.month = {
+        titleTranslation: 'ocurrenceFieldNames.month',
+        queryKey: 'month',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'month.',
+        showAll: true,
+        enums: enums.month,
+        facets: {
+            hasFacets: true,
+            facetKey: 'MONTH'
+        }
+    };
+
+
+    /*
+    Special suggest with templates and name resolving as the url contains ID's
+    it might be worth joining normal suggest and facets with these. Currently it just seemed like a configuration chaos that wouldn't help understanding.
+    If these filters grow and it is starting to become a headache aligning them, then this decision should be reconsidered
+     */
     vm.filters.dataset = {
         titleTranslation: 'stdTerms.dataset',
         queryKey: 'dataset_key',
