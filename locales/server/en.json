@@ -1312,7 +1312,7 @@
 			"regional": "Regional grant",
 			"small": "Small grant",
 			"national": "National grant",
-			"undefined": "cms.projectGrantType.undefined"
+			"undefined": "Not specified"
 		},
 		"projectDuration": {
 			"to": "to"
@@ -1320,7 +1320,17 @@
 		"projectStatus": {
 			"in_progress": "In progress",
 			"approved": "Approved",
-			"undefined": "cms.projectStatus.undefined"
+			"undefined": "Not specified"
+		},
+		"programme": {
+			"projects": "Projects",
+			"project": "Project",
+			"grantType": "Grant type",
+			"duration": "Duration",
+			"fundingAllocated": "Funding allocated",
+			"estCoFunding": "Est. co-funding",
+			"status": "Status",
+			"relatedNews": "Related news"
 		}
 	}
 }

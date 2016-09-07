@@ -52,7 +52,9 @@
         {% if data.relatedProjects.length > 0 %}
         <div class="horizontal-stripe">
             <div class="container-fluid">
-                {% include "./includes/projectTable.nunjucks" %}
+                <div class="row">
+                    {% include "./includes/projectTable.nunjucks" %}
+                </div>
             </div>
         </div>
         {% endif %}
@@ -81,7 +83,7 @@
                                     <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}" gallery-image alt="">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span></span>
+                                    <span>{$ __('cms.programme.relatedNews') $}</span>
                                     <h2 class="h4">
                                         <a href="/{$ data.relatedNews[0].targetUrl $}">
                                             {$ data.relatedNews[0].title | truncate(80) $}
@@ -98,7 +100,7 @@
                                     <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
                                 </div>
                                 <div class="col-xs-12 col-md-6 card__content">
-                                    <span></span>
+                                    <span>{$ __('cms.programme.relatedNews') $}</span>
                                     <h2 class="h4">
                                         <a href="/{$ data.relatedNews[1].targetUrl $}">
                                             {$ data.relatedNews[1].title | truncate(80) $}
