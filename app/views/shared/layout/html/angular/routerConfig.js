@@ -111,7 +111,6 @@ function routerConfig($stateProvider, $locationProvider) {
                     return CmsSearch.query(query).$promise.then(function(response){
                         return response;
                     }, function(error){
-                    'use strict';
                         return error;
                     });
                 }
