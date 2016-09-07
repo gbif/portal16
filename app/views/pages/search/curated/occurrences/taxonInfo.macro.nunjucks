@@ -3,13 +3,13 @@
 {% if taxon.occurrences.count > 0 %}
 <div class="card-flex-columns__block-double">
     <div class="card card--flexible">
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}" class="card__stripe">
             <div class="card__content">
                 {$ taxon.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </div>
         </a>
         <div class="card__stripe card__stripe--flexible">
-            <div class="card__content scrollable-y">
+            <div class="card__content scrollable">
                 <table class="table table--compact">
                     <thead>
                     <tr>

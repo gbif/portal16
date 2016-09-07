@@ -6,7 +6,7 @@
         <div class="site-drawer__header">
             <div class="site-drawer__bar">
                 <a href=""
-                   ui-sref="omniSearch({q: vm.query})"
+                   ui-sref="omniSearch({q: vm.filter.query.q})"
                    ui-sref-opts="{inherit: false}"
                    class="gb-icon-angle-left site-drawer__bar__icon inherit"
                    tooltip-placement="right"
@@ -29,22 +29,22 @@
                              click-outside-unless="!vm.expandContentTypeMenu">
                             <ul>
                                 <li class="text-capitalize seperator--b">
-                                    <a ui-sref="omniSearch({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
+                                    <a ui-sref="omniSearch({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
                                         All
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
-                                    <a ui-sref="occurrenceSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
+                                    <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
                                         Occurrences
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'species'" class="text-capitalize">
-                                    <a ui-sref="speciesSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.species">
+                                    <a ui-sref="speciesSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.species">
                                         Species
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
-                                    <a ui-sref="datasetSearchTable({q:vm.query})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
+                                    <a ui-sref="datasetSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
                                         Datasets
                                     </a>
                                 </li>

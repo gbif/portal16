@@ -26,12 +26,13 @@ $filterEmphasisColor = $bodyTextColor
 	background $drawerBackgroundColor
 	font-size 12px
 	position relative
-	background white
+	background $drawerBackgroundColor
 
 	&__content {
 		background white
 	}
 	&__header {
+		border-bottom 1px solid $stripeBorderColor
 		background white
 		//padding 0 20px
 		position relative
@@ -41,8 +42,8 @@ $filterEmphasisColor = $bodyTextColor
 				font-weight 700
 				text-align center
 				display block
-				height vrBlock(1.5)
-				line-height vrBlock(1.5)
+				height $searchTabBar-height
+				line-height $searchTabBar-height
 				text-transform capitalize
 				color inherit
 			}
@@ -127,7 +128,6 @@ $filterEmphasisColor = $bodyTextColor
 
 
 	&__section {
-		border-top 1px solid $stripeBorderColor
 		padding-bottom 50px
 		&__content {
 			padding 10px 20px
@@ -179,8 +179,8 @@ $filterEmphasisColor = $bodyTextColor
 				font-weight 700
 				text-align center
 				display block
-				height vrBlock(1.5)
-				line-height vrBlock(1.5)
+				height $searchTabBar-height
+				line-height $searchTabBar-height
 				text-transform capitalize
 				color inherit
 			}
@@ -217,6 +217,7 @@ $filterEmphasisColor = $bodyTextColor
 	&__header {
 		background white
 	}
+
 	h5 {
 		font-weight bold
 		padding 0 20px
@@ -307,6 +308,21 @@ $filterEmphasisColor = $bodyTextColor
 .filter-group__filter--facet {
 	@extends .filter-group__filter
 	overflow hidden
+}
+
+.filter-group--links {
+	@extends .filter-group
+	overflow hidden
+	border none
+	a {
+		display block
+		margin -5px 20px 10px 20px
+		//line-height vrBlock(1.25)
+		height 20px
+		&:first-child {
+			margin-top 10px
+		}
+	}
 }
 
 .site-drawer__comment {

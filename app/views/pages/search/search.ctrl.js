@@ -43,6 +43,7 @@ function searchCtrl($state, $stateParams, hotkeys) {
     };
     vm.cmsTypedSearch = function() {
     };
+
 }
 
 module.exports = searchCtrl;

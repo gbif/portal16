@@ -1,6 +1,6 @@
 {% import "../../searchResults.macro.nunjucks" as searchMacro %}
 {% if results.country %}
-<div>
+<div class="card-flex-columns__block-narrow">
     <article class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">
             <div class="card__content">
@@ -15,38 +15,39 @@
         </a>
         <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">
             <div class="card__content">
-                <div class="clearfix">
+                <div>
                     <div class="flag">
                         <img src="/img/flags/{$ results.country.countryCode $}.png">
                     </div>
-                    <p>
-                        {$ __('countryPage.countryDescription.' + results.country.participationStatus, __('country.' + results.country.countryCode) ) $}
-                    </p>
+                    {#<p>#}
+                        {#{$ __('countryPage.countryDescription.' + results.country.participationStatus, __('country.' + results.country.countryCode) ) $}#}
+                    {#</p>#}
+                    <dl class="inline">
+                        {% if results.countryAbout.count %}
+                            <div>
+                                <dt>{$ __('countryPage.occurrencesAbout') $}</dt>
+                                <dd>
+                                    {$ results.countryAbout.count | locInt(gb.locales.current) $}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        {% if results.countryFrom.count %}
+                            <div>
+                                <dt>{$ __('countryPage.occurrencesFrom') $}</dt>
+                                <dd>
+                                    {$ results.countryFrom.count | locInt(gb.locales.current) $}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        <div>
+                            <dt>{$ __('countryPage.MemberSince') $}</dt>
+                            <dd>
+                                {$ results.country.membershipStart $}
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
-                <dl class="inline">
-                    {% if results.countryAbout.count %}
-                        <div>
-                            <dt>{$ __('countryPage.occurrencesAbout') $}</dt>
-                            <dd>
-                                {$ results.countryAbout.count | locInt(gb.locales.current) $}
-                            </dd>
-                        </div>
-                    {% endif %}
-                    {% if results.countryFrom.count %}
-                        <div>
-                            <dt>{$ __('countryPage.occurrencesFrom') $}</dt>
-                            <dd>
-                                {$ results.countryFrom.count | locInt(gb.locales.current) $}
-                            </dd>
-                        </div>
-                    {% endif %}
-                    <div>
-                        <dt>{$ __('countryPage.MemberSince') $}</dt>
-                        <dd>
-                            {$ results.country.membershipStart $}
-                        </dd>
-                    </div>
-                </dl>
+
 
             </div>
         </a>

@@ -1,107 +1,47 @@
-{#{% if not _meta.hideSearchAction %}#}
-{#<div class="search" id="site-search">#}
-    {#<div class="search-content">#}
-        {#<div class="horizontal-stripe--paddingless white-background search-bar">#}
-            {#<div class="container--narrow">#}
-                {#<div class="row">#}
-                    {#<div class="col-xs-12">#}
-                        {#<div class="search-bar__form">#}
-                            {#<form action="/search" class="search-bar__term">#}
-                                {#<input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q" autocomplete="off" value="{$ query $}" ng-model="omniSearchTerm">#}
-                                {#<a ng-href="/search?q={{ omniSearchTerm }}" type="submit" class="gb-icon-search search-bar__search">#}
-                                    {#<span class="sr-only">{$ __('stdTerms.search') $}</span>#}
-                                {#</a>#}
-                            {#</form>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</div>#}
-
-{#{% endif %}#}
-
-{# @mgh this drawer template seems redudant when we have page/search/search.html. Use the angular template instead? #}
 <aside class="site-drawer" id="site-search">
 
-    <div class="search-bar">
-        <form class="search-bar__term" ng-submit="omniSearch.updateSearch()" ng-controller="searchCtrl as omniSearch">
-            <input type="text"
-                   id="siteSearch"
-                   autocomplete="off"
-                   ng-model="omniSearch.freeTextQuery"
-                   placeholder="Search">
-            <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
-                <span class="sr-only">{$ __('stdTerms.search') $}</span>
-            </a>
-        </form>
-    </div>
+    <div class="site-drawer__content" ng-controller="searchCtrl as omniSearch">
 
-    <div class="site-drawer__section">
-        <div>
-            <div class="site-drawer__facet-group">
-                <h5>Content type</h5>
+        <div class="site-drawer__section">
+
+            <div class="search-bar filter-group">
+
+                <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
+                    <input type="text"
+                           autocomplete="off"
+                           id="siteSearch"
+                           ng-model="omniSearch.freeTextQuery"
+                           placeholder="Occurrences, species, news ...">
+                    <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+
+            </div>
+
+            <div class="filter-group--links">
+                <h5>
+                    Filter by
+                </h5>
                 <div>
-                    <a href="/occurrence/table">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Occurrences</span>
-                        </span>
+                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">
+                        Occurrences
                     </a>
-                    <a href="/dataset/table">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Datasets</span>
-                        </span>
+                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">
+                        Species
                     </a>
-                    <a href="/species/table">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Species</span>
-                        </span>
+                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/datasets/search?q={{ omniSearch.freeTextQuery }}">
+                        Datasets
                     </a>
-                    <a href="/cms/table?type=news">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">News</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=data_use">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Featured data use</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=event">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Event</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=programme">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Programme</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=project">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Project</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=document">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Document</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=presentation">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Presentation</span>
-                        </span>
-                    </a>
-                    <a href="/cms/table?type=tool">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">Tool</span>
-                        </span>
-                    </a>
+                    {% for type in ['news', 'data_use', 'programme', 'document', 'presentation', 'tool'] %}
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/table?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.type.{$ type $}">
+                            {$ type $}
+                        </a>
+                    {%  endfor %}
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
 </aside>

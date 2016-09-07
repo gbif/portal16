@@ -158,7 +158,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     //enums 2
     vm.filters.countryCode = {
-        titleTranslation: 'ocurrenceFieldNames.countryCode',
+        titleTranslation: 'ocurrenceFieldNames.country',
         queryKey: 'country',
         filter: OccurrenceFilter,
         enumTranslationPath: 'country.',

@@ -1,4 +1,4 @@
-<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': omniSearch.showDrawer}">
+<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.showDrawer}">
 
     <div class="site-drawer__content">
 
@@ -24,7 +24,10 @@
                     Filter by
                 </h5>
                 <div>
-                    <a href="" ui-sref="occurrenceSearchTable({q:omniSearch.freeTextQuery})">
+                    <a href="" ng-href="{{ $stateParams.locale }}/occurrence/search">
+                        Occurrences reload?
+                    </a>
+                    <a href="" ui-sref="occurrenceSearchTable({q:omniSearch.freeTextQuery})" ui-sref-opts="{inherit: true, reload: true}" >
                         Occurrences
                     </a>
                     <a href="" ui-sref="speciesSearchTable({q:omniSearch.freeTextQuery})">
@@ -61,40 +64,3 @@
     </div>
 
 </aside>
-
-<div class="site-content">
-
-    <!--<div class="fab" fab>-->
-        <!--<div class="fab__trigger">-->
-            <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <div class="page">
-        <div class="dataset-search-results">
-
-            <div ui-view>
-
-                <div class="container-fluid white-background search-header">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <nav class="article-header__category">
-                                <strong class="article-header__category__upper">Search</strong>
-                            </nav>
-                            <div class="search-header__description">
-                                <span ng-if="omniSearch.query.q">
-                                    <span ng-if="loaded">Showing results for <i>{{omniSearch.query.q}}</i></span>
-                                    <span ng-if="!loaded">Searching for <i>{{omniSearch.query.q}}</i></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <ng-include src="'/templates/components/loader/loader.html'" ng-if="omniSearch.query.q && !loaded"> </ng-include>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale" onload="loaded = true"></ng-include>
-
-            </div>
-        </div>
-    </div>
-</div>

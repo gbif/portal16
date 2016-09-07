@@ -4,7 +4,7 @@
 {% block page %}
     <script>
         var gb = gb || {};
-        gb.species = {$ species | rawJson | safe $};
+//        gb.species = {$ species | rawJson | safe $};
     </script>
     <article class="wrapper-horizontal-stripes speciesKey page--data">
 
