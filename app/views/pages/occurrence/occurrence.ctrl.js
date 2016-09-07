@@ -81,10 +81,10 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.filters.mediaType = {
         titleTranslation: 'ocurrenceFieldNames.mediaType',
-        queryKey: 'mediaType',
+        queryKey: 'media_type',
         filter: OccurrenceFilter,
         enumTranslationPath: 'mediaType.',
-        showAll: false,
+        showAll: true,
         enums: enums.mediaType,
         facets: {
             hasFacets: true,
@@ -178,7 +178,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'basis_of_record',
         filter: OccurrenceFilter,
         enumTranslationPath: 'basisOfRecord.',
-        showAll: false,
+        showAll: true,
         enums: enums.basisOfRecord,
         facets: {
             hasFacets: true,

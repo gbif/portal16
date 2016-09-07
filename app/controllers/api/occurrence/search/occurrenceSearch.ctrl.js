@@ -13,6 +13,8 @@ module.exports = function (app) {
 };
 
 router.get('/occurrence/search', function (req, res, next) {
+    delete req.query.locale;
+    delete req.query.advanced;
     occurrenceSearch(req.query).then(function(data) {
         let settings = {
             facets: true,

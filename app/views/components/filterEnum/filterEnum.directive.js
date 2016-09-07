@@ -80,12 +80,27 @@ function filterEnumDirective() {
             return vm.query.indexOf(name) != -1;
         };
 
+        vm.showEnum = function(key) {
+            if (vm.inQuery(key)) return true;
+            if (vm.filterConfig.expanded) {
+                if (vm.filterConfig.showAll) return true;
+                if (vm.suggestions && vm.suggestions.counts && vm.suggestions.counts[key]) return true;
+            }
+            return false;
+        }
+
+        vm.getVisibleEnums = function() {
+            return vm.filterConfig.enums.filter(function(key){
+                return vm.showEnum(key);
+            });
+        };
+
         vm.showFacetCount = function() {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
         vm.getWidth = function(key) {
-            if (vm.suggestions.counts)
+            if (!vm.suggestions.counts) return;
             if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
                 return {
                     width: '0%'
