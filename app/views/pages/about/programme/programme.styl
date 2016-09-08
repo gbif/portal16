@@ -112,6 +112,7 @@
                         font-size 18px
                         width 18px
                         margin-top -8px
+                        height 20px
                         vertical-align middle
                     }
                 }
@@ -125,6 +126,9 @@
                         width 45px
                     }
                 }
+                th:hover {
+                    cursor pointer
+                }
         
             }
             tbody {
@@ -135,6 +139,7 @@
                         border-bottom none
                         display table-cell
                         width auto
+                        vertical-align middle
                     }
                     td:nth-of-type(1) {
                         padding-left 10px
@@ -154,7 +159,7 @@
                     }
                 }
                 tr:nth-of-type(even) {
-                    background lighten($lightBackground, 2)
+                    background alpha($alternativeTableRow, 1)
                 }
                 tr:hover {
                     background darken($lightBackground, 5)

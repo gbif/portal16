@@ -234,7 +234,7 @@ $articleCategorySeparatorSpacing = 6px
 $headerImageMaxFullWidth = 1200px
 .heading-image {
     max-width $headerImageMaxFullWidth
-    margin 0 -20px 20px -20px
+    margin 0 auto 20px auto
     figcaption {
         font-size 0.9rem
         font-weight 300
@@ -248,12 +248,12 @@ $headerImageMaxFullWidth = 1200px
 +isAbove($headerImageMaxFullWidth) {
     .heading-image {
         max-width $headerImageMaxFullWidth
-        margin 0 auto 20px auto
         .cover-image {
             margin 0 $halfGutter
         }
     }
 }
+
 .cover-image {
     height 0
     padding-bottom 50%
@@ -267,6 +267,23 @@ $headerImageMaxFullWidth = 1200px
 }
 +isAbove($tablet){
     .cover-image {
+        padding-bottom 40%
+    }
+}
+
+.card-image {
+    height 0
+    padding-bottom 50%
+    background #f7f9fa
+    overflow hidden
+    background-size cover
+    background-position center
+    img {
+        display none
+    }
+}
++isAbove($tablet) {
+    .card-image {
         padding-bottom 40%
     }
 }

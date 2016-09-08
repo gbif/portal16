@@ -21,8 +21,12 @@
                         {% for funder in data.funders %}
                             <div class="funders">
                                 <h5>{$ comma() $}</h5>
-                                <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
-                                {% if loop.index == 1 %}
+                                {% if funder.title != 'GBIF' %}
+                                    <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
+                                {% else %}
+                                    <h5>{$ funder.title $}</h5>
+                                {% endif %}
+                                {% if funder.title != 'GBIF' %}
                                     <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
                                 {% endif %}
                             </div>
@@ -79,10 +83,10 @@
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card--nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                <div class="col-xs-12 col-md-5 card-image hidden-xs">
                                     <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}" gallery-image alt="">
                                 </div>
-                                <div class="col-xs-12 col-md-6 card__content">
+                                <div class="col-xs-12 col-md-7 card__content">
                                     <span>{$ __('cms.programme.relatedNews') $}</span>
                                     <h2 class="h4">
                                         <a href="/{$ data.relatedNews[0].targetUrl $}">
@@ -96,10 +100,10 @@
                     <div class="col-xs-12 col-sm-6">
                         <article class="container-fluid card card--nav">
                             <div class="row">
-                                <div class="col-xs-12 col-md-6 cover-image hidden-xs">
+                                <div class="col-xs-12 col-md-5 card-image hidden-xs">
                                     <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
                                 </div>
-                                <div class="col-xs-12 col-md-6 card__content">
+                                <div class="col-xs-12 col-md-7 card__content">
                                     <span>{$ __('cms.programme.relatedNews') $}</span>
                                     <h2 class="h4">
                                         <a href="/{$ data.relatedNews[1].targetUrl $}">
