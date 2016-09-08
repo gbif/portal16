@@ -1,6 +1,5 @@
 "use strict";
 var helper = require('../util/util'),
-    apiConfig = require('./apiConfig'),
     _ = require('lodash'),
     async = require('async');
 
@@ -61,10 +60,14 @@ function expand(data, settings, __, cb) {
             resultList: function(callback) {
                 getResultTasks(data.results, settings.expandList, callback)
             }
-        }, function(err, results) {
-            data.facets = facetArrayToMap(data);
-            //addFilterFacets(data.facets, );
-            cb();
+        }, function(err) {
+            if (err) {
+                cb(err, data);
+            } else {
+                data.facets = facetArrayToMap(data);
+                //addFilterFacets(data.facets, );
+                cb(null, data);
+            }
         });
 
         //getResultTasks(data.results, config.resultKeys, cb);
@@ -164,7 +167,7 @@ function getResultTasks(results, expandList, cb) {
     //run tasks
     async.parallel(tasks, function(err, data){
         if (_.isUndefined(err)) {
-            deferred.reject(new Error(err));
+            cb(new Error(err), null);
         } else {
             //once all the keys and their values is returned, then attach to the individual results that have that specific key
             results.forEach(function (e) {

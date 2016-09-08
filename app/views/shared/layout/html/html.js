@@ -70,8 +70,11 @@ require('../../../pages/dataset/search/table/datasetTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
-require('../../../pages/about/search/cmsSearch.ctrl');
-require('../../../pages/about/search/table/cmsTable.ctrl');
+//require('../../../pages/about/search/cmsSearch.ctrl');
+//require('../../../pages/about/search/table/cmsTable.ctrl');
+require('./angular/cmsFilter.service');
+require('../../../pages/cms/search/cms.ctrl');
+require('../../../pages/cms/search/table/cmsTable.ctrl');
 
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');

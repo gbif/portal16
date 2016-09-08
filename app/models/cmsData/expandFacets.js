@@ -81,7 +81,7 @@ function expandFacets(facets, __, cb) {
                 e.title = __(ftc.translationPath + e.enum);
                 e.key = e.enum;
             } else if (ftc.type == 'id') {
-                e.title = e.label;
+                e.title = e.id;
                 e.key = e.id;
             }
         });

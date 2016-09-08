@@ -49,7 +49,7 @@ function filterEnumDirective() {
         vm.setFacetSuggestions = function() {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
-                if (vm.query.length > 0) {
+                if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
                     vm.filterState.facetMultiselect.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
                         vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
@@ -87,7 +87,7 @@ function filterEnumDirective() {
                 if (vm.suggestions && vm.suggestions.counts && vm.suggestions.counts[key]) return true;
             }
             return false;
-        }
+        };
 
         vm.getVisibleEnums = function() {
             return vm.filterConfig.enums.filter(function(key){
@@ -146,6 +146,10 @@ function filterEnumDirective() {
             if(event.which === 13) {
                 vm.typeaheadSelect(vm.selected);
             }
+        };
+
+        vm.allowSelection = function() {
+            return !vm.filterConfig.singleSelect || vm.query.length == 0;
         };
     }
 }

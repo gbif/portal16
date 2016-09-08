@@ -111,27 +111,16 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/about/search/cmsSearch.html',
-                    controller: 'cmsSearchCtrl',
+                    templateUrl: '/templates/pages/cms/search/cms.html',
+                    controller: 'cmsCtrl',
                     controllerAs: 'cms'
-                }
-            },
-            resolve: {
-                results:  function($stateParams, CmsSearch){
-                    var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise.then(function(response){
-                        return response;
-                    }, function(error){
-                    'use strict';
-                        return error;
-                    });
                 }
             }
         })
         .state('cmsSearchTable', {
             parent: 'cmsSearch',
-            url: '/table',
-            templateUrl: '/templates/pages/about/search/table/cmsTable.html',
+            url: '/search',
+            templateUrl: '/templates/pages/cms/search/table/cmsTable.html',
             controller: 'cmsTableCtrl',
             controllerAs: 'cmsTable'
         })

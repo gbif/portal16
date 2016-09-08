@@ -9,7 +9,7 @@
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
 
-        <div ng-if="vm.query.length > 0" class="is-padded">
+        <div ng-if="vm.query.length > 0" class="is-padded overflow-hidden">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
@@ -36,7 +36,7 @@
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets">
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.allowSelection()">
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
@@ -50,7 +50,7 @@
 
         </div>
 
-        <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0">
+        <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>

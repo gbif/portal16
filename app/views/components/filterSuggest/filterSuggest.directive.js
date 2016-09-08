@@ -139,6 +139,10 @@ function filterSuggestDirective() {
                 vm.typeaheadSelect(vm.selected);
             }
         };
+
+        vm.allowSelection = function() {
+            return !vm.filterConfig.singleSelect || vm.query.length == 0;
+        };
     }
 }
 

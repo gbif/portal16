@@ -1,0 +1,34 @@
+<div search-drawer filter="cms.state" content-type="cms">
+    <div class="site-drawer__section">
+
+        <div class="search-bar filter-group">
+
+            <form class="search-bar__term" ng-submit="cms.search()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       ng-model="cms.state.query.q"
+                       placeholder="Search">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="cms.search()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+
+        </div>
+
+        <div filter-enum filter-config="cms.filters.type" filter-state="cms.state"></div>
+
+    </div>
+</div>
+
+
+<div class="site-content">
+
+    <div class="page">
+        <div class="species-search-results">
+            <div ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

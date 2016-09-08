@@ -48,6 +48,11 @@
                                         Datasets
                                     </a>
                                 </li>
+                                <li ng-if="vm.contentType != 'cms'" class="text-capitalize">
+                                    <a ui-sref="cmsSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.cms">
+                                        GBIF Network
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

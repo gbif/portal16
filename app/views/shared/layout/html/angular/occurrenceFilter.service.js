@@ -73,6 +73,7 @@ angular
                     apiQuery.facet.push(key);
                 }
             });
+            if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
             state.facetMultiselect = OccurrenceTableSearch.query(apiQuery, function(){
             }, function() {
                 //TODO how to indicate missing facet data
