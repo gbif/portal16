@@ -168,6 +168,7 @@ $articleCategorySeparatorSpacing = 6px
         overflow-wrap break-word
         word-wrap break-word
         hyphens auto
+        margin-bottom vrBlock(1)
         figure {
             overflow hidden
             break-inside avoid-column
@@ -177,6 +178,9 @@ $articleCategorySeparatorSpacing = 6px
                 font-weight 300
                 color $citationTextColor
             }
+        }
+        section {
+            break-inside avoid-column
         }
     }
 }
@@ -219,16 +223,34 @@ $articleCategorySeparatorSpacing = 6px
 
     section {
         border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+        div {
+            display inline-block
+        }
+        h5 {
+            font-weight bold
+            margin-right 0.5em
+            margin-bottom 0.3em
+            &:after {
+                content: ":"
+            }
+            &:first-letter {
+                text-transform capitalize
+            }
+        }
+        .h5 {
+            font-weight bold
+            margin-right 0.5em
+            margin-top 0
+            margin-bottom 0
+            &:after {
+                content: ":"
+            }
+            &:first-letter {
+                text-transform capitalize
+            }
+        }
     }
 
-    h5 {
-        font-weight bold
-        display inline
-        &:after {
-            content: ":"
-        }
-        margin-right 0.5em
-    }
 }
 
 $headerImageMaxFullWidth = 1200px

@@ -1324,13 +1324,33 @@
 		},
 		"programme": {
 			"projects": "Projects",
+			"relatedNews": "Related news"
+		},
+		"project": {
 			"project": "Project",
 			"grantType": "Grant type",
 			"duration": "Duration",
 			"fundingAllocated": "Funding allocated",
 			"estCoFunding": "Est. co-funding",
 			"status": "Status",
-			"relatedNews": "Related news"
+			"relatedNews": "Related news",
+			"programme": "programme",
+			"call": "call",
+			"partner": {
+				"one": "partner",
+				"other": "partners"
+			},
+			"funder": {
+				"one": "funder",
+				"other": "funders"
+			}
+		},
+		"auxiliary": {
+			"subject": {
+				"one": "subject",
+				"other": "subjects"
+			},
+			"publishedOn": "published on"
 		}
 	}
 }
