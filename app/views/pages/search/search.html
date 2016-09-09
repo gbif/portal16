@@ -33,6 +33,11 @@
                     <a href="" ui-sref="datasetSearchTable({q:omniSearch.freeTextQuery})">
                         Datasets
                     </a>
+                </div>
+                <div class="seperator">
+                    <a href="" ui-sref="publisherSearchTable({q:omniSearch.freeTextQuery})">
+                        Publishers
+                    </a>
                     <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})" translate="cms.type.news">
                         News
                     </a>
@@ -92,7 +97,7 @@
                 </div>
 
                 <ng-include src="'/templates/components/loader/loader.html'" ng-if="omniSearch.query.q && !loaded"> </ng-include>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale" onload="loaded = true"></ng-include>
+                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale" onload="loaded = true" ng-show="omniSearch.query.q"></ng-include>
 
             </div>
         </div>

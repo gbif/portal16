@@ -41,7 +41,7 @@
                             {% endif %}
                         </div>
                         <ul class="list-chips">
-                            <li><a href="{$ gb.locales.urlPrefix $}/dataset/table?type={$ result.type $}">{$ __('dataset.longType.' + result.type) $}</a></li>
+                            <li><a href="{$ gb.locales.urlPrefix $}/dataset/search?type={$ result.type $}">{$ __('dataset.longType.' + result.type) $}</a></li>
                         </ul>
                     </div>
                 </article>
@@ -50,7 +50,7 @@
                 {% if results.datasets.count > results.datasets.results.length %}
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
+                        <a href="{$ gb.locales.urlPrefix $}/dataset/search?q={$ query $}" class="pull-right search-results__list--short-list__more">
                             <span>
                                 {$ __('stdTerms.nMore', (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) ) $}
                             </span>

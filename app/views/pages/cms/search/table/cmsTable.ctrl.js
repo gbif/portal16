@@ -16,6 +16,7 @@ function cmsTableCtrl(hotkeys, CmsFilter) {
         vm.maxSize = 5;
         vm.limit = parseInt(vm.state.query.limit) || 20;
         vm.currentPage = Math.floor(offset / vm.limit) + 1;
+        vm.totalPages = vm.state.data.count % vm.limit;
     }
     updatePaginationCounts();
 

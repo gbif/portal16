@@ -28,7 +28,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&geometry&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&repatriated&type_status&organism_id&locality&water_body&state_province&{advanced:bool}',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&geometry&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&repatriated&type_status&organism_id&locality&water_body&state_province&{advanced:bool}',
             params: {
                 advanced: {
                     value: false,
@@ -105,6 +105,24 @@ function routerConfig($stateProvider, $locationProvider) {
             templateUrl: '/templates/pages/species/search/table/speciesTable.html',
             controller: 'speciesTableCtrl',
             controllerAs: 'speciesTable'
+        })
+        .state('publisherSearch', {
+            parent: 'localization',
+            url: '/publisher?offset&limit&q&country',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/publisher/search/publisher.html',
+                    controller: 'publisherCtrl',
+                    controllerAs: 'publisher'
+                }
+            }
+        })
+        .state('publisherSearchTable', {
+            parent: 'publisherSearch',
+            url: '/search',
+            templateUrl: '/templates/pages/publisher/search/table/publisherTable.html',
+            controller: 'publisherTableCtrl',
+            controllerAs: 'publisherTable'
         })
         .state('cmsSearch', {
             parent: 'localization',

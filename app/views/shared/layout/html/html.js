@@ -76,6 +76,11 @@ require('./angular/cmsFilter.service');
 require('../../../pages/cms/search/cms.ctrl');
 require('../../../pages/cms/search/table/cmsTable.ctrl');
 
+require('./angular/publisher.resource');
+require('./angular/publisherFilter.service');
+require('../../../pages/publisher/search/publisher.ctrl');
+require('../../../pages/publisher/search/table/publisherTable.ctrl');
+
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
 

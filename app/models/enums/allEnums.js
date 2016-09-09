@@ -6,6 +6,7 @@ module.exports = {
     "mediaType": require('./basic/mediaType.json'),
     "rank": require('./basic/rank.json'),
     "occurrenceIssue": require('./basic/occurrenceIssue.json'),
+    "license":  require('./basic/license.json'),
     "cms": {
         "type": require('./cms/type.json'),
         "category_about_gbif": require('./cms/category_about_gbif.json')

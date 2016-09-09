@@ -10,6 +10,7 @@
                     <input type="text"
                            autocomplete="off"
                            id="siteSearch"
+                           ng-init="omniSearch.freeTextQuery == ''"
                            ng-model="omniSearch.freeTextQuery"
                            placeholder="Occurrences, species, news ...">
                     <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
@@ -33,8 +34,13 @@
                     <a href="" ng-href="{$ gb.locales.urlPrefix $}/datasets/search?q={{ omniSearch.freeTextQuery }}">
                         Datasets
                     </a>
+                </div>
+                <div class="seperator">
+                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">
+                        Publishers
+                    </a>
                     {% for type in ['news', 'data_use', 'programme', 'document', 'presentation', 'tool'] %}
-                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/table?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.type.{$ type $}">
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.type.{$ type $}">
                             {$ type $}
                         </a>
                     {%  endfor %}

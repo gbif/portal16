@@ -14,20 +14,26 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
+            typeStatus: undefined,
+            recordedBy: undefined,
+            occurrenceId: undefined,
+            organismId: undefined,
+            publishingCountry: undefined,
             locality: undefined,
             waterBody: undefined,
-            recorded_by: undefined
+            recorded_by: undefined,
+            establishmentMeans: undefined
         };
 
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
-        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type'];
+        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet){
             exhaustiveFacets.push(facet);
         });
 
         //for fields with low cardinality and that isn't enums
-        var multiSelectFacetsKeys = ['dataset_key', 'institution_code', 'basis_of_record', 'country', 'month', 'media_type', 'type_status', 'issue'];
+        var multiSelectFacetsKeys = ['dataset_key', 'institution_code', 'basis_of_record', 'country', 'month', 'media_type', 'type_status', 'issue', 'license'];
         var multiSelectFacets = [];
 
         function getOccurrenceState() {

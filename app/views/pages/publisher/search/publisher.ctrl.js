@@ -19,35 +19,23 @@ function publisherCtrl($state, hotkeys, enums, PublisherFilter, suggestEndpoints
 
     vm.filters = {};
 
-    vm.filters.type = {
-        titleTranslation: 'ocurrenceFieldNames.type',
-        queryKey: 'type',
+    vm.filters.countryCode = {
+        titleTranslation: 'ocurrenceFieldNames.country',
+        queryKey: 'country',
         filter: PublisherFilter,
-        enumTranslationPath: 'publisher.type.',
-        showAll: false,
+        enumTranslationPath: 'country.',
         singleSelect: true,
-        enums: enums.publisher.type,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.TRANSLATE',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+        },
         facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'type'
+            hasFacets: false,
+            facetKey: 'COUNTRY'
         }
     };
 
-    vm.filters.category_about_gbif = {
-        titleTranslation: 'ocurrenceFieldNames.category_about_gbif',
-        queryKey: 'category_about_gbif',
-        filter: PublisherFilter,
-        enumTranslationPath: 'publisher.category_about_gbif.',
-        showAll: false,
-        singleSelect: true,
-        enums: enums.publisher.category_about_gbif,
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_about_gbif'
-        }
-    };
 
     vm.search = function() {
         $state.go('.', vm.state.query, {inherit:false, notify: true, reload: true});

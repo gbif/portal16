@@ -1427,6 +1427,13 @@
 		"MANAGED": "managed",
 		"UNCERTAIN": "uncertain"
 	},
+	"license": {
+		"CC0_1_0": "CC0_1_0",
+		"CC_BY_4_0" : "CC_BY_4_0",
+		"CC_BY_NC_4_0" : "CC_BY_NC_4_0",
+		"UNSPECIFIED" : "UNSPECIFIED",
+		"UNSUPPORTED" : "UNSUPPORTED"
+	},
 	"cms": {
 		"enum": {
 

@@ -5,7 +5,7 @@
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper">Search</span>
-                    <span class="article-header__category__lower">Network</span>
+                    <span class="article-header__category__lower">Publishers</span>
                 </nav>
                 <div class="search-header__description">
                     <span ng-if="publisherTable.hasData()">
@@ -24,40 +24,116 @@
                 <div class="search-results__list row">
                     <div class="col-xs-12">
 
-                        <article class="search-results__list__item" ng-repeat="row in publisherTable.state.data.results">
-                            {{row.title}}
-                            <!--<span class="search-results__list__item__tag"><span>{{row.rank}}</span>{{row.taxonomicStatus}}</span>-->
+                        <!--<article class="search-results__list__item&#45;&#45;publisher" ng-repeat="row in publisherTable.state.data.results">-->
                             <!--<div>-->
-                                <!--<a href="../species/{{row.key}}" class="tile" ng-if="publisherTable.backboneKey == row.datasetKey">-->
-                                    <!--<div class="teaser-map&#45;&#45;small">-->
-                                        <!--<img src="/img/tile000/basemap-grey-light2.png">-->
-                                        <!--<img ng-src="{{publisherTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=TAXON&resolution=4">-->
-                                    <!--</div>-->
-                                <!--</a>-->
-                                <!--<div>-->
-                                    <!--<h4 class="search-results__list__item__title">-->
-                                        <!--<a href="../species/{{row.key}}">{{row.scientificName | limitTo:150}}</a>-->
-                                    <!--</h4>-->
-                                    <!--<p class="search-results__list__item__meta" ng-if="publisherTable.state.query.advanced">-->
-                                        <!--Checklist:-->
-                                        <!--<a class="" href="../dataset/{{ row.datasetKey }}">{{row._datasetKey.title | limitTo:50 }}</a>-->
-                                    <!--</p>-->
-                                    <!--&lt;!&ndash;<h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>&ndash;&gt;-->
-                                <!--</div>-->
+                                <!--<h4>{{row.title}}</h4>-->
+                                <!--<p class="search-results__list__item__meta">Endorsed by-->
+                                    <!--<a class="" href="../participant/{{ row.publishingOrganizationKey }}">Somewhere</a>-->
+                                <!--</p>-->
                             <!--</div>-->
+                            <!--&lt;!&ndash;<div class="search-results__counts">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__bubble">891</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__description">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;Checklists&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;123 records&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__bubble">891</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__description">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;Checklists&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;123 records&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__bubble">891</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="search-results__counts__description">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;Checklists&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;123 records&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--<div>-->
+                                <!--<img style="max-width: 150px;max-height: 60px;" src="{{row.logoUrl}}">-->
+                            <!--</div>-->
+                        <!--</article>-->
+
+                        <article class="search-results__list__item--publisher" ng-repeat="row in publisherTable.state.data.results">
+                            <div>
+                                <div>
+                                    <a href="../publisher/{{ row.key }}" class="search-results__list__item__logo" ng-if="row.logoUrl">
+                                        <div class="">
+                                            <img ng-src="{{ row.logoUrl }}" onError="this.style.display = 'none'">
+                                        </div>
+                                    </a>
+                                    <h4 class="search-results__list__item__title">
+                                        <a href="/publisher/{{ row.key }}">{{ row.title }}</a>
+                                    </h4>
+                                    <div class="search-results__list__item__meta">
+                                        <dl class="inline">
+                                            <div ng-if="row._endorsingNodeKey.title">
+                                                <dt>endorsed by</dt>
+                                                <dd>
+                                                    {{ row._endorsingNodeKey.title }}
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>published datasets</dt>
+                                                <dd>
+                                                    {{ row.numPublishedDatasets }}
+                                                </dd>
+                                            </div>
+                                            <div ng-if="row.country">
+                                                <dt>country</dt>
+                                                <dd translate="country.{{ row.country }}">
+                                                    {{ row.country }}
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                    </div>
+
+                                    <!--<p class="search-results__list__item__meta" ng-if="row._endorsingNodeKey.title">-->
+                                        <!--Endorsed by: {{ row._endorsingNodeKey.title }}-->
+                                    <!--</p>-->
+                                    <!--<p class="search-results__list__item__meta">-->
+                                        <!--<a ui-sref="occurrenceSearchTable({publishing_org: row.key})">-->
+                                            <!--{{ row.numPublishedDatasets }} pubslied datasetes not translated-->
+                                        <!--</a>-->
+                                    <!--</p>-->
+
+                                    <!--<div class="search-results__counts" ng-if="row.numPublishedDatasets > 0">-->
+                                        <!--<div>-->
+                                            <!--<div class="search-results__counts__bubble"> {{ row.numPublishedDatasets }}</div>-->
+                                            <!--<div class="search-results__counts__description">-->
+                                                <!--<span translate="stdTerms.dataset" ng-if="row.numPublishedDatasets == 1">dataset</span>-->
+                                                <!--<span translate="stdTerms.datasets" ng-if="row.numPublishedDatasets > 1">datasets</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
                         </article>
 
-                        <!--<uib-pagination-->
-                        <!--total-items="datasetTable.state.data.count"-->
-                        <!--ng-model="datasetTable.currentPage"-->
-                        <!--max-size="datasetTable.maxSize"-->
-                        <!--items-per-page="datasetTable.limit"-->
-                        <!--class="pagination-sm"-->
-                        <!--boundary-link-numbers="false"-->
-                        <!--rotate="false"-->
-                        <!--ng-change="datasetTable.pageChanged()"-->
-                        <!--ng-show="datasetTable.state.data.count > datasetTable.limit">-->
-                        <!--</uib-pagination>-->
+                        <uib-pagination
+                            total-items="publisherTable.state.data.count"
+                            ng-model="publisherTable.currentPage"
+                            max-size="publisherTable.maxSize"
+                            items-per-page="publisherTable.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="publisherTable.pageChanged()"
+                            ng-show="publisherTable.state.data.count > publisherTable.limit">
+                        </uib-pagination>
+
+
                     </div>
                 </div>
 

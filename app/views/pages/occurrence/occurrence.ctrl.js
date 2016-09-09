@@ -92,6 +92,32 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
+    //vm.filters.establishmentMeans = {
+    //    titleTranslation: 'ocurrenceFieldNames.establishmentMeans',
+    //    queryKey: 'establishment_means',
+    //    filter: OccurrenceFilter,
+    //    enumTranslationPath: 'establishmentMeans.',
+    //    showAll: true,
+    //    enums: enums.establishmentMeans,
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'ESTABLISHMENT_MEANS'
+    //    }
+    //};
+
+    vm.filters.license = {
+        titleTranslation: 'ocurrenceFieldNames.license',
+        queryKey: 'license',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'license.',
+        showAll: true,
+        enums: enums.license,
+        facets: {
+            hasFacets: true,
+            facetKey: 'LICENSE'
+        }
+    };
+
     //suggest filters
 
 
@@ -126,6 +152,102 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         queryKey: 'catalog_number',
         filter: OccurrenceFilter
     };
+
+
+
+
+    vm.filters.occurrenceId = {
+        titleTranslation: 'ocurrenceFieldNames.occurrenceId',
+        queryKey: 'occurrence_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.occurrenceId',
+            suggestEndpoint: suggestEndpoints.occurrenceId
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'OCCURRENCE_ID'
+        }
+    };
+
+    vm.filters.organismId = {
+        titleTranslation: 'ocurrenceFieldNames.organismID',
+        queryKey: 'organism_id',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.organismID',
+            suggestEndpoint: suggestEndpoints.organismId
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'ORGANISM_ID'
+        }
+    };
+
+    vm.filters.catalogNumber = {
+        titleTranslation: 'ocurrenceFieldNames.catalogNumber',
+        queryKey: 'catalog_number',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.catalogNumber',
+            suggestEndpoint: suggestEndpoints.catalogNumber
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'CATALOG_NUMBER'
+        }
+    };
+
+    vm.filters.locality = {
+        titleTranslation: 'ocurrenceFieldNames.locality',
+        queryKey: 'locality',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.locality',
+            suggestEndpoint: suggestEndpoints.locality
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'LOCALITY'
+        }
+    };
+
+    vm.filters.waterBody = {
+        titleTranslation: 'ocurrenceFieldNames.waterBody',
+        queryKey: 'water_body',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.waterBody',
+            suggestEndpoint: suggestEndpoints.waterBody
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'WATER_BODY'
+        }
+    };
+
+    vm.filters.stateProvince = {
+        titleTranslation: 'ocurrenceFieldNames.stateProvince',
+        queryKey: 'state_province',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.stateProvince',
+            suggestEndpoint: suggestEndpoints.stateProvince
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'STATE_PROVINCE'
+        }
+    };
+
+
+
 
     vm.filters.institutionCode = {
         titleTranslation: 'ocurrenceFieldNames.institutionCode',
@@ -170,6 +292,22 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         facets: {
             hasFacets: true,
             facetKey: 'COUNTRY'
+        }
+    };
+
+    vm.filters.publishingCountry = {
+        titleTranslation: 'ocurrenceFieldNames.publishingCountry',
+        queryKey: 'publishing_country',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'country.',
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.TRANSLATE',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.occurrenceState.query.locale
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'PUBLISHING_COUNTRY'
         }
     };
 
@@ -254,31 +392,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
-
-    vm.filters.organismId = {
-        title: 'organismID',
-        queryKey: 'organism_id',
-        filter: OccurrenceFilter,
-        suggestEndpoint: suggestEndpoints.organismId
-    };
-
-    vm.filters.waterBody = {
-        title: 'waterBody',
-        queryKey: 'water_body',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.stateProvince = {
-        title: 'stateProvince',
-        queryKey: 'state_province',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.locality = {
-        title: 'locality',
-        queryKey: 'locality',
-        filter: OccurrenceFilter
-    };
 
     //intervals
     vm.filters.year = {

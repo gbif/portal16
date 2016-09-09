@@ -38,7 +38,7 @@
                         <!--</div>-->
 
                         <article class="search-results__list__item" ng-repeat="row in datasetTable.state.data.results">
-                            <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
+                            <strong class="search-results__list__item__tag">{{row.type}}</strong>
                             <div>
                                 <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
                                     <div class="teaser-map--small">
@@ -53,7 +53,7 @@
                                     <p class="search-results__list__item__meta">Published by
                                         <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">{{row.publishingOrganizationTitle | limitTo:50 }}</a>
                                     </p>
-                                    <h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>
+                                    <p class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</p>
                                 </div>
                                 <!-- <ul class="list-chips">
                                     <li><a href="../dataset/table?type={{ row.type }}">{{row.type | lowercase }}</a></li>

@@ -64,7 +64,9 @@ function expand(data, settings, __, cb) {
             if (err) {
                 cb(err, data);
             } else {
-                data.facets = facetArrayToMap(data);
+                if (data.facets) {
+                    data.facets = facetArrayToMap(data);
+                }
                 //addFilterFacets(data.facets, );
                 cb(null, data);
             }
