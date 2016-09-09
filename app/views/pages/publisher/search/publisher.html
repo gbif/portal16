@@ -1,0 +1,34 @@
+<div search-drawer filter="publisher.state" content-type="publisher">
+    <div class="site-drawer__section">
+
+        <div class="search-bar filter-group">
+
+            <form class="search-bar__term" ng-submit="publisher.search()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       ng-model="publisher.state.query.q"
+                       placeholder="Search">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="publisher.search()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+
+        </div>
+
+        <div filter-enum filter-config="publisher.filters.type" filter-state="publisher.state"></div>
+
+    </div>
+</div>
+
+
+<div class="site-content">
+
+    <div class="page">
+        <div class="species-search-results">
+            <div ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

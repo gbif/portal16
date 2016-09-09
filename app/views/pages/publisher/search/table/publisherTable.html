@@ -1,0 +1,68 @@
+<article class="wrapper-horizontal-stripes">
+    
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Network</span>
+                </nav>
+                <div class="search-header__description">
+                    <span ng-if="publisherTable.hasData()">
+                        {{publisherTable.state.data.count | localNumber:publisherTable.state.query.locale }} results
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="horizontal-stripe white-background">
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!publisherTable.hasData()"> </ng-include>
+        <div ng-if="publisherTable.hasData()">
+            <div class="container--narrow">
+                <div class="search-results__list row">
+                    <div class="col-xs-12">
+
+                        <article class="search-results__list__item" ng-repeat="row in publisherTable.state.data.results">
+                            {{row.title}}
+                            <!--<span class="search-results__list__item__tag"><span>{{row.rank}}</span>{{row.taxonomicStatus}}</span>-->
+                            <!--<div>-->
+                                <!--<a href="../species/{{row.key}}" class="tile" ng-if="publisherTable.backboneKey == row.datasetKey">-->
+                                    <!--<div class="teaser-map&#45;&#45;small">-->
+                                        <!--<img src="/img/tile000/basemap-grey-light2.png">-->
+                                        <!--<img ng-src="{{publisherTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{row.key}}&type=TAXON&resolution=4">-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<div>-->
+                                    <!--<h4 class="search-results__list__item__title">-->
+                                        <!--<a href="../species/{{row.key}}">{{row.scientificName | limitTo:150}}</a>-->
+                                    <!--</h4>-->
+                                    <!--<p class="search-results__list__item__meta" ng-if="publisherTable.state.query.advanced">-->
+                                        <!--Checklist:-->
+                                        <!--<a class="" href="../dataset/{{ row.datasetKey }}">{{row._datasetKey.title | limitTo:50 }}</a>-->
+                                    <!--</p>-->
+                                    <!--&lt;!&ndash;<h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </article>
+
+                        <!--<uib-pagination-->
+                        <!--total-items="datasetTable.state.data.count"-->
+                        <!--ng-model="datasetTable.currentPage"-->
+                        <!--max-size="datasetTable.maxSize"-->
+                        <!--items-per-page="datasetTable.limit"-->
+                        <!--class="pagination-sm"-->
+                        <!--boundary-link-numbers="false"-->
+                        <!--rotate="false"-->
+                        <!--ng-change="datasetTable.pageChanged()"-->
+                        <!--ng-show="datasetTable.state.data.count > datasetTable.limit">-->
+                        <!--</uib-pagination>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</article>
