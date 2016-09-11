@@ -69,6 +69,7 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter, suggestEndpoints) {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
+
     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
     hotkeys.add({
         combo: 'alt+f',

@@ -13,11 +13,13 @@ function getCuratedCmsContents(q, data) {
             if (Array.isArray(data.cms.results[i].featuredSearchTerms) && data.cms.results[i].featuredSearchTerms.length > 0) {
                 data.cms.results[i].featuredSearchTerms.forEach(function(term){
                     if (term.name.toLowerCase() == q) {
-                        featuredContents.push(data.cms.results[i]);
+                        var highlighted_item = data.cms.results.splice(i, 1);
+                        featuredContents.push(highlighted_item[0]);
                     }
                 });
             }
         }
+        data.cms.displayedCount = featuredContents.length + 3;
         return featuredContents;
     }
 }

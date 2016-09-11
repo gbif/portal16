@@ -6,10 +6,10 @@
                 <div class="col-xs-12">
 
                     <div class="search-results__list--short-list__header">
-                        <h5><a href="{$ gb.locales.urlPrefix $}/cms/table?q={$ query $}">Inside GBIF</a></h5>
+                        <h5><a href="{$ gb.locales.urlPrefix $}/cms/search?q={$ query $}">Inside GBIF</a></h5>
                         {% if results.cms.count > 3 %}
                             <span class="small">
-                        <a href="{$ gb.locales.urlPrefix $}/cms/table?q={$ query $}" class="inherit">{$ results.cms.count - 3 $} more</a>
+                        <a href="{$ gb.locales.urlPrefix $}/cms/search?q={$ query $}" class="inherit">{$ results.cms.count - results.cms.displayedCount $} more</a>
                     </span>
                         {% endif %}
                     </div>
@@ -29,8 +29,8 @@
                     {% if results.cms.count > 3 %}
                         <div class="row">
                             <div class="col-xs-12">
-                                <a href="{$ gb.locales.urlPrefix $}/cms/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
-                                    <span>{$ results.cms.count - 3 $} more</span> <span class="gb-icon-right-arrow h2"></span>
+                                <a href="{$ gb.locales.urlPrefix $}/cms/search?q={$ query $}" class="pull-right search-results__list--short-list__more">
+                                    <span>{$ results.cms.count - results.cms.displayedCount $} more</span> <span class="gb-icon-right-arrow h2"></span>
                                 </a>
                             </div>
                         </div>
