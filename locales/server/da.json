@@ -1229,9 +1229,15 @@
 			"FORMER": "%s is a former participant of GBIF"
 		}
 	},
-	"cms": {
-		"projectDuration": {
-			"to": "cms.projectDuration.to"
-		}
+	"basisOfRecord": {
+		"HUMAN_OBSERVATION": "basisOfRecord.HUMAN_OBSERVATION",
+		"PRESERVED_SPECIMEN": "basisOfRecord.PRESERVED_SPECIMEN",
+		"OBSERVATION": "basisOfRecord.OBSERVATION",
+		"UNKNOWN": "basisOfRecord.UNKNOWN",
+		"FOSSIL_SPECIMEN": "basisOfRecord.FOSSIL_SPECIMEN",
+		"MACHINE_OBSERVATION": "basisOfRecord.MACHINE_OBSERVATION",
+		"LIVING_SPECIMEN": "basisOfRecord.LIVING_SPECIMEN",
+		"LITERATURE": "basisOfRecord.LITERATURE",
+		"MATERIAL_SAMPLE": "basisOfRecord.MATERIAL_SAMPLE"
 	}
 }

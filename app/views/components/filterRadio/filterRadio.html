@@ -1,0 +1,36 @@
+<div class="filter-group" ng-mouseover="vm.isHovered = true">
+    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
+        <h5>
+            <span class="text-capitalize" translate="ocurrenceFieldNames.{{vm.title}}">{{vm.title}}</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
+        </h5>
+    </a>
+    <div class="filter-group__filter filter-group__filter--collapsed" ng-if="vm.collapsed">
+        <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues" ng-if="vm.query.indexOf(enum) > -1">
+            <label>
+                <input type="checkbox" checklist-model="vm.query" checklist-value="enum" ng-change="vm.change(enum, checked)">
+                <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="filter-group__filter" ng-if="!vm.collapsed">
+        <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues">
+            <label>
+                <input type="radio" name="{{vm.queryKey}}" ng-value="vm.selected" ng-model="vm.test">
+                <span>
+                    <span class="text-capitalize" translate="{{vm.translationPrefix}}.{{enum}}">{{enum}}</span>
+                    <!--<span class="text-muted">123</span>-->
+                </span>
+            </label>
+        </div>
+
+
+        <div class="site-drawer__bar seperator">
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()"><span translate="stdTerms.invert">Invert</span></a>
+        </div>
+    </div>
+</div>
+

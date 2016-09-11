@@ -1,22 +1,5 @@
 <article class="wrapper-horizontal-stripes">
 
-    <!--<div class="horizontal-stripe bare-background" ng-show="datasetTable.featuredDataSets.nodes.length > 0">-->
-        <!--<div class="card" ng-repeat="featured in datasetTable.featuredDataSets.nodes | limitTo:3">-->
-            <!--<a ng-href="../dataset/{{featured.node.field_dataset_uuid}}" class="card__stripe">-->
-                <!--<img ng-src="{{featured.node.field_uni_images.src}}">-->
-                <!--<div  class="card__content">-->
-                    <!--<h2 class="h3">{{featured.node.title}}</h2>-->
-                    <!--<p>-->
-                        <!--{{featured.node.body}}-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
-
-
 
     <div class="container-fluid white-background search-header">
         <div class="row">
@@ -25,16 +8,10 @@
                     <span class="article-header__category__upper">Search</span>
                     <span class="article-header__category__lower">Datasets</span>
                 </nav>
-                <div class="small text-muted text-center" style="height:30px">{{datasetTable.totalItems}} results</div>
-                <div class="stripe-menu">
-                    <a href="" ui-sref="occurrenceSearchTable()"
-                       class="gb-icon-menu stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Table"></a>
-                    <a href="" ui-sref="occurrenceSearchMap()"
-                       class="gb-icon-map stripe-menu__menu stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Map"></a>
+                 <div class="search-header__description">
+                    <span ng-if="datasetTable.hasData()">
+                        {{datasetTable.state.data.count | localNumber:datasetTable.state.query.locale }} results
+                    </span>
                 </div>
             </div>
         </div>
@@ -42,7 +19,8 @@
 
 
     <div class="horizontal-stripe white-background">
-        <div class="">
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!datasetTable.hasData()"> </ng-include>
+        <div ng-if="datasetTable.hasData()">
             <div class="container--narrow">
                 <div class="search-results__list row">
                     <div class="col-xs-12">
@@ -59,8 +37,8 @@
                             <!--</div> &ndash;&gt;-->
                         <!--</div>-->
 
-                        <article class="search-results__list__item" ng-repeat="row in datasetTable.results">
-                            <span class="search-results__list__item__tag"><span>Dataset </span>{{row.type}}</span>
+                        <article class="search-results__list__item" ng-repeat="row in datasetTable.state.data.results">
+                            <strong class="search-results__list__item__tag">{{row.type}}</strong>
                             <div>
                                 <a href="../dataset/{{row.key}}" class="tile" ng-if="row.type == 'OCCURRENCE'">
                                     <div class="teaser-map--small">
@@ -75,7 +53,7 @@
                                     <p class="search-results__list__item__meta">Published by
                                         <a class="" href="../publisher/{{ row.publishingOrganizationKey }}">{{row.publishingOrganizationTitle | limitTo:50 }}</a>
                                     </p>
-                                    <h4 class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</h4>
+                                    <p class="search-results__list__item__subtitle">{{ row.description | limitTo:150 }}</p>
                                 </div>
                                 <!-- <ul class="list-chips">
                                     <li><a href="../dataset/table?type={{ row.type }}">{{row.type | lowercase }}</a></li>
@@ -92,7 +70,7 @@
                         </article>
 
                         <uib-pagination
-                                total-items="datasetTable.totalItems"
+                                total-items="datasetTable.state.data.count"
                                 ng-model="datasetTable.currentPage"
                                 max-size="datasetTable.maxSize"
                                 items-per-page="datasetTable.limit"
@@ -100,13 +78,13 @@
                                 boundary-link-numbers="false"
                                 rotate="false"
                                 ng-change="datasetTable.pageChanged()"
-                                ng-show="datasetTable.count > datasetTable.limit">
+                                ng-show="datasetTable.state.data.count > datasetTable.limit">
                         </uib-pagination>
                     </div>
                 </div>
 
 
-            <div>
+            </div>
         </div>
     </div>
 </article>

@@ -5,7 +5,7 @@
 	right 0
 	top 0
 	margin -.5rem 1rem 0 0
-	.stripe-menu__option {
+	&__option {
 		color $discreetInk
 		border-radius 50%
 		width 1.7rem
@@ -15,6 +15,15 @@
 		font-size 14px
 		line-height 1.7rem
 		text-decoration none
+		&:hover, &:focus {
+			//background rgba(0,0,0,0.08)
+			color $discreetInk
+			text-decoration none
+		}
+		&.is-active {
+			background rgba(0,0,0,0.08)
+			color darken($discreetInk, 5)
+		}
 	}
 	.stripe-menu__drop-down {
 		position absolute
@@ -49,7 +58,4 @@
 			display block
 		}
 	}
-}
-.stripe-menu__option:hover {
-	background rgba(0,0,0,0.1)
 }

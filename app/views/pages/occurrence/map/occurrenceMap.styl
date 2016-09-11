@@ -1,9 +1,73 @@
 .occurrence-search-map {
-	height "calc(100vh - %s)" % ($navBar_height + $searchTabBar-height + $searchBar-height + vrBlock(3) )
+	height "calc(100vh - %s)" % ($navBar_height + vrBlock(4.5) )
 	min-height 200px
 	position relative
 	z-index 5
 	.occurrenceMap {
 		background #848A8E
+	}
+}
+
+.search-overlay {
+	background white
+	width 400px
+	height 600px
+	max-width 100%
+	max-height 100%
+	position absolute
+	z-index 50
+	left calc( 50% - 200px)
+	top calc(50% - 300px)
+	display flex
+	flex-direction column
+	box-shadow 0 2px 3px 2px rgba(0,0,0,0.3)
+	&__header {
+		flex 0 0 auto
+		background #4d5258
+		color white
+		h4 {
+			margin 0
+			padding 20px
+		}
+	}
+	&__results {
+		flex 1 1 auto
+		overflow-y auto
+		ul {
+			padding 0
+			overflow hidden
+			li {
+				padding 5px 80px 5px 20px
+				position relative
+				.img-round-thumb {
+					position absolute
+					top calc(50% - 25px)
+					right 0
+					margin 0 20px 0 10px
+					background-size cover
+					background-position center
+					&.isValid {
+						img {
+							display none
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.img-round-thumb {
+	height 50px
+	width 50px
+	border-radius 25px
+	overflow hidden
+	display none
+	&.isValid {
+		display block
+		box-shadow 0 0 3px rgba(0, 0, 0, 0.3)
+	}
+	img {
+		height 100%
 	}
 }

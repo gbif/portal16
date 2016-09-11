@@ -3,13 +3,13 @@
 {% if taxon.occurrences.count > 0 %}
 <div class="card-flex-columns__block-double">
     <div class="card card--flexible">
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}" class="card__stripe">
             <div class="card__content">
                 {$ taxon.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </div>
         </a>
         <div class="card__stripe card__stripe--flexible">
-            <div class="card__content scrollable-y">
+            <div class="card__content scrollable">
                 <table class="table table--compact">
                     <thead>
                     <tr>
@@ -62,13 +62,13 @@
 
                     {% if taxon.holotypes.count > 0 %}
                         <div>
-                            <dt>Holo type</dt>
+                            <dt>Holotype</dt>
                             <dd>
                                 {% if taxon.featuredHolotype %}
                                     <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ taxon.holotypes.results[0].key $}">Type specimen</a> located at <a href="{$ gb.locales.urlPrefix $}/publisher/{$ taxon.featuredHolotype.key $}">{$ taxon.featuredHolotype.title $}</a>
                                 {% endif %}
                                 {% if taxon.holotypes.count > 1 %}
-                                    and <a href="{$ gb.locales.urlPrefix $}/occurrence/table?typeStatus=holotype&taxonKey={$ taxon.info.key $}">{$ taxon.holotypes.count - 1 $} other places</a>
+                                    and <a href="{$ gb.locales.urlPrefix $}/occurrence/search?type_status=holotype&taxon_key={$ taxon.info.key $}">{$ taxon.holotypes.count - 1 $} other places</a>
                                 {% endif %}
                             </dd>
                         </div>
@@ -83,7 +83,7 @@
         {% endif %}
 
         <div class="card__stripe card__stripe--actions">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}">
                 {$ __('stdTerms.seeAll') $}
             </a>
         </div>

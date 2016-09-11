@@ -1,12 +1,12 @@
-<div search-drawer query="{{occurrence.freeTextQuery}}" content-type="occurrences">
+<div search-drawer filter="occurrence.occurrenceState" content-type="occurrences">
     <div class="site-drawer__section">
-        <div class="search-bar">
+        <div class="search-bar filter-group">
             <form class="search-bar__term" ng-submit="occurrence.search()">
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
-                       ng-model="occurrence.freeTextQuery"
-                       placeholder="Search">
+                       ng-model="occurrence.occurrenceState.query.q"
+                       placeholder="Search all fields">
                 <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
                 <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="occurrence.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
@@ -14,108 +14,58 @@
             </form>
         </div>
 
-        <div ng-repeat="facet in dataset.facets | orderBy: dataset.sortFacets">
-            <div class="site-drawer__facet-group" ng-if="facet.counts.length > 0">
-                <h5 translate>{{facet.field | prettifyEnum}}</h5>
-                <div ng-repeat="row in facet.counts">
-                    <a href="" ng-click="dataset.addFilter(facet.field, row.name)" ng-if="!dataset.isFacetInQuery(facet.field, row.name)">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
-                            <span class="site-drawer__facet-group__count">({{row.count}})</span>
-                        </span>
-                    </a>
-                    <span ng-if="dataset.isFacetInQuery(facet.field, row.name)" class="chip">
-                        <a href="" ng-click="dataset.removeFilter(facet.field, row.name)" class="chip__content">
-                            <span class="site-drawer__facet-group__facet">{{row.title}}</span>
-                            <span class="close"></span>
-                        </a>
-                    </span>
-                </div>
+        <div class="filter-group text-center">
+            <div class="gb-btn-group">
+                <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false" ng-change="occurrence.toggleAdvanced()">Simple</label>
+                <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="true" ng-change="occurrence.toggleAdvanced()">Advanced</label>
             </div>
         </div>
 
-        <div class="site-drawer__facet-group filter-group filter-group--multiselect">
-            <h5>Scientific Name</h5>
-            <div class="filter-group__filter">
-                <input type="text"
-                       autocomplete="off"
-                       class="fit-suggestions"
-                       ng-model="occurrence.species.term"
-                       placeholder="Search for species"
-                       uib-typeahead="suggestion.canonicalName for suggestion in occurrence.getSuggestions($viewValue)"
-                       typeahead-on-select="occurrence.typeaheadSelect($item, $model, $label, $event)"
-                       typeahead-focus-first="true">
+        <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
 
-                <div class="checkbox" ng-repeat="taxonKey in occurrence.query.taxonKey">
-                    <label>
-                        <input type="checkbox" checklist-model="occurrence.query.taxonKey" checklist-value="taxonKey"> {{occurrence.taxonKeyMap[taxonKey].canonicalName}}
-                    </label>
-                </div>
+        <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
 
-            </div>
-        </div>
+        <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
 
-        <div class="site-drawer__facet-group filter-group filter-group--multiselect" ng-class="{'is-collapsed': occurrence.collapsed.basisOfRecord}">
-            <h5><a href="" class="inherit" ng-click="occurrence.collapsed.basisOfRecord = !occurrence.collapsed.basisOfRecord">Basis of Record</a></h5>
-            <div class="filter-group__filter">
-                <div class="checkbox" ng-repeat="bor in occurrence.enums.basisOfRecord" ng-if="!occurrence.collapsed.basisOfRecord">
-                    <label>
-                        <input type="checkbox" checklist-model="occurrence.query.basisOfRecord" checklist-value="bor"> {{bor}}
-                    </label>
-                </div>
+        <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
 
-                <div class="checkbox" ng-repeat="bor in occurrence.query.basisOfRecord" ng-if="occurrence.collapsed.basisOfRecord">
-                    <label>
-                        <input type="checkbox" checklist-model="occurrence.query.basisOfRecord" checklist-value="bor"> {{bor}}
-                    </label>
-                </div>
+        <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
 
-            </div>
-        </div>
+        <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
 
-        <div class="site-drawer__facet-group filter-group filter-group--multiselect">
-            <h5>Type Status</h5>
-            <div class="filter-group__filter">
-                <div class="checkbox" ng-repeat="type in occurrence.enums.typeStatus">
-                    <label>
-                        <input type="checkbox" checklist-model="occurrence.query.typeStatus" checklist-value="type"> {{type}}
-                    </label>
-                </div>
-            </div>
-        </div>
+        <div filter-enum filter-config="occurrence.filters.countryCode" filter-state="occurrence.occurrenceState"></div>
+
+        <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
 
 
 
-        <!--<div enum-filter>-->
+        <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
-        <!--</div>-->
+        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
 
-        <!--<div class="filter-group filter-group&#45;&#45;multiselect">-->
-            <!--<div class="filter-group__header">Basis Of Record</div>-->
-            <!--<div class="filter-group__filter">-->
-                <!--<div class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.HUMAN_OBSERVATION"> Human observation-->
-                    <!--</label>-->
-                <!--</div>-->
-                <!--<div class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.MACHINE_OBSERVATION"> Machine observation-->
-                    <!--</label>-->
-                <!--</div>-->
-                <!--<div class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.OBSERVATION"> Observation-->
-                    <!--</label>-->
-                <!--</div>-->
-                <!--<div class="checkbox">-->
-                    <!--<label>-->
-                        <!--<input type="checkbox" ng-model="occurrence.basisOfRecord.LITERATURE"> LITERATURE-->
-                    <!--</label>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
 
+        <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
+
+
+
+
+        <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-suggest filter-config="occurrence.filters.organismId" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+
+        <!--<div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
+
+        <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <!--<div filter-enum filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
 
 
     </div>

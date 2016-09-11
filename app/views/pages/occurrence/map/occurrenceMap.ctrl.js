@@ -13,10 +13,12 @@ angular
     .controller('occurrenceMapCtrl', occurrenceMapCtrl);
 
 /** @ngInject */
-function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $stateParams, env, results) {
+function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParamSerializer, $stateParams, env, OccurrenceSearch, OccurrenceFilter) {
     var vm = this;
-    vm.totalCount = results.count;
+    vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
+    vm.count = -1;
     vm.mapMenu = {
+        show: false,
         occurrences: {}
     };
 
@@ -42,16 +44,39 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
     };
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        crs: L.CRS.EPSG4326
     };
     function onMapClick(event) {
-        vm.query = angular.copy($stateParams);
-        vm.query.decimalLatitude = (event.latlng.lat - (2/event.target._zoom) ) + ',' + (event.latlng.lat + (2/event.target._zoom));
-        vm.query.decimalLongitude = (event.latlng.lng - (2/event.target._zoom)) + ',' + (event.latlng.lng + (2/event.target._zoom));
-        // OccurrenceSearch.query(vm.query, function (data) {
-        //     vm.mapMenu.occurrences = data;
-        // }, function () {
-        // });
+        var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
+        vm.query = angular.copy(vm.occurrenceState.query);
+        var decimalLatitudeMin = event.latlng.lat - (targetSize/event.target._zoom);
+        var decimalLatitudeMax = event.latlng.lat + (targetSize/event.target._zoom);
+        var decimalLongitudeMin = event.latlng.lng - (targetSize/event.target._zoom);
+        var decimalLongitudeMax = event.latlng.lng + (targetSize/event.target._zoom);
+
+        decimalLatitudeMin = Math.max(-90, decimalLatitudeMin);
+        decimalLongitudeMin = Math.max(-180, decimalLongitudeMin);
+        decimalLatitudeMin = Math.min(90, decimalLatitudeMin);
+        decimalLongitudeMin = Math.min(180, decimalLongitudeMin);
+
+        decimalLatitudeMax = Math.min(90, decimalLatitudeMax);
+        decimalLongitudeMax = Math.min(180, decimalLongitudeMax);
+        decimalLatitudeMax = Math.max(-90, decimalLatitudeMax);
+        decimalLongitudeMax = Math.max(-180, decimalLongitudeMax);
+
+        vm.query.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
+        vm.query.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
+        vm.mapMenu.show = true;
+        vm.mapMenu.isLoading = true;
+        OccurrenceSearch.query(vm.query, function (data) {
+            vm.mapMenu.isLoading = false;
+            vm.mapMenu.occurrences = data;
+            console.log(data);
+        }, function () {
+            vm.mapMenu.isLoading = false;
+            console.log('ERROR');//TODO
+        });
     }
     leafletData.getMap('occurrenceMap').then(function(map) {
         map.fitWorld().zoomIn();
@@ -71,16 +96,35 @@ function occurrenceMapCtrl(leafletData, mapConstants, $httpParamSerializer, $sta
     var hashObject = function(obj) {
       return hashString(JSON.stringify(obj));
     };
-    var setOverlay = function() {
+    var setOverlay = function(q) {
         //TODO this should be changed to match the new tile/heatmap api
-        vm.query = angular.copy($stateParams);
+        vm.query = q;
         if (Object.keys(vm.layers.overlays).length > 0) {
             vm.layers.overlays = {};
         }
         vm.layers.overlays['occurrences' + hashObject(vm.query)] =  getOverlay(vm.query);
     };
 
-    setOverlay();
+    setOverlay(angular.copy($stateParams));
+
+    var latestData = {};
+    var search = function(query) {
+        query = angular.copy(query);
+        query.hasCoordinate = 'true';
+        query.limit = 0;
+        vm.count = -1;
+        if (latestData.$cancelRequest) latestData.$cancelRequest();
+        latestData = OccurrenceSearch.query(query, function (data) {
+            vm.count = data.count;
+        }, function () {
+            //TODO handle request error
+        });
+    };
+
+    $scope.$watchCollection(function(){return $state.params }, function(newValue) {
+        setOverlay(newValue);
+        search(vm.occurrenceState.query);
+    });
 }
 
 module.exports = occurrenceMapCtrl;

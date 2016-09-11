@@ -1,0 +1,32 @@
+<div class="filter-group" ng-mouseover="vm.isHovered = true">
+    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
+        <h5>
+            <span class="text-capitalize">Year</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
+        </h5>
+    </a>
+
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
+        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{seperator: $index > 0}" ng-if="!vm.collapsed">
+            <div interval-slider interval-options="q">
+            </div>
+        </div>
+
+        <div class="checkbox is-padded" ng-repeat="q in vm.intervalQuery" ng-if="vm.collapsed && q.queryString">
+            <label>
+                <input type="checkbox" checked="true" ng-click="vm.remove(q)">
+                <span>
+                    <span class="text-capitalize">{{q.queryString}}</span>
+                    <!--<span class="text-muted">123</span>-->
+                </span>
+            </label>
+        </div>
+
+        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed">
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.add()" ng-if="vm.query.length == vm.intervalQuery.length"><span>Add</span></a>
+        </div>
+    </div>
+</div>
+

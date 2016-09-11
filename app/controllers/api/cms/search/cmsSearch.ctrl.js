@@ -1,6 +1,7 @@
 'use strict';
 var express = require('express'),
     router = express.Router(),
+    _ = require('lodash'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/cmsData/apiConfig'),
@@ -84,6 +85,7 @@ router.get('/cms/search', function (req, res) {
                 }
             });
         }
+        transformFacetsToMap(data);
         res.json(data);
 
     }, function(err){
@@ -141,4 +143,36 @@ function cmsSearch(query) {
         }
     });
     return deferred.promise;
+}
+
+
+
+function transformFacetsToMap(data) {
+    if (!_.isArray(data.facets)) {
+        return
+    }
+    let facets = {};
+    data.facets.forEach(function (e) {
+        facets[e.field] = e.counts;
+    });
+    data.facets = facets;
+
+    let facetMap = {};
+    Object.keys(data.facets).forEach(function(key){
+        let facetType = data.facets[key];
+        facetMap[key] = {};
+        let facetCountMap = {};
+        let max = 0;
+        facetType.forEach(function(e){
+            facetCountMap[e.enum] = {
+                count: e.count,
+                fraction: e.count/data.count,
+                title: e.title
+            };
+            max = e.count > max ? e.count : max;
+        });
+        facetMap[key].max = max;
+        facetMap[key].counts = facetCountMap;
+    });
+    data.facets = facetMap;
 }

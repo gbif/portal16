@@ -14,7 +14,22 @@ module.exports = function (app) {
 
 router.get('/dataset/search', function (req, res, next) {
     datasetSearch(req.query).then(function(data) {
-        gbifData.expandFacetsAndFilters(data, req.query, res.__, function(err){
+        let settings = {
+            facets: true,
+            query: req.query,
+            expandList: [
+                {
+                    fromKey: 'publishingOrganizationKey',
+                    type: expandConfig.PUBLISHING_ORG
+                },
+                {
+                    fromKey: 'hostingOrganizationKey',
+                    type: expandConfig.HOSTING_ORG
+                }
+            ],
+            expandConfig: expandConfig
+        };
+        gbifData.expand.expand(data, settings, res.__, function(err){
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
@@ -47,3 +62,25 @@ function datasetSearch(query) {
     });
     return deferred.promise;
 }
+
+
+const expandConfig = {
+    TYPE: {
+        type: 'ENUM',
+        translationPath: 'dataset.type.'
+    },
+    PUBLISHING_COUNTRY: {
+        type: 'ENUM',
+        translationPath: 'country.'
+    },
+    PUBLISHING_ORG: {
+        type: 'KEY',
+        endpoint: apiConfig.publisher.url,
+        fromKey: 'title'
+    },
+    HOSTING_ORG: {
+        type: 'KEY',
+        endpoint: apiConfig.publisher.url,
+        fromKey: 'title'
+    }
+};

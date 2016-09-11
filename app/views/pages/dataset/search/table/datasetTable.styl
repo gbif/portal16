@@ -31,20 +31,12 @@
 			}
 		}
 		&__subtitle {
-			font-size 14px
 			margin 0 0 4px
-			//font-style italic
-			font-weight normal
-			//font-family $caslon
-			color #63616d
+			font-size 14px
 		}
 		&__meta {
 			margin-bottom 5px
 			color #9a9aa0 //inherit
-			font-size 14px
-			//font-weight 300
-			//font-family $caslon
-			font-style italic
 			a {
 				text-decoration underline
 				color inherit
@@ -52,6 +44,7 @@
 		}
 		&__logo {
 			float right
+			margin-left 15px
 			img {
 				max-width 150px
 				max-height 60px
@@ -154,62 +147,66 @@
 }
 
 .chip {
-	.chip__content{
+	display flex
+	flex-direction row
+	flex-wrap nowrap
+	&.chip--selected {
+		background-color #5a7888
 		color white
-	}
-	display inline-block
-	height 23px
-	max-width 300px
-	>a {
 		display inline-block
-		background-color #5a7888//#628292
-		padding 3px 10px
-		font-size 12px
+		margin-left 20px
+		margin-right 20px
+		padding-left 10px
 		position relative
-		max-width 100%
-		color white
-		overflow hidden
-		text-overflow ellipsis
-		white-space nowrap
-		padding-right 25px
-	}
-	&__term {
-		text-transform capitalize
-		&:after {
-			content ' : '
+		&:hover {
+			background-color darken(#5a7888, 10)
 		}
-	}
-	.close {
-		icon-x(12px, white, 1.2px)
-		opacity 1
-		top 5px
-		right 5px
-		position absolute
+		.chip__remove {
+			icon-x(12px, white, 1.2px)
+			opacity 1
+			top calc(50% - 6px)
+			right 5px
+			position absolute
+		}
 	}
 }
-.chip--double {
+.chip--option {
+	@extends .chip
+}
+.chip--facet-option {
 	@extends .chip
 	>* {
-		display inline-block
-		float left
-		margin 0 2px
+		min-width 0
 	}
-	>*:first-of-type {
-		text-transform capitalize
-		&:after {
-			content ':'
+	.chip__title {
+		flex 0 1 auto
+		text-overflow ellipsis
+		overflow hidden
+		span {
+			text-overflow ellipsis
+			overflow hidden
+			white-space nowrap
 		}
 	}
-	>*:nth-of-type(2) {
-		max-width 200px
+	.chip__count {
+		float right
+		background #ccc
+		font-weight normal
+		margin-top 2px
+		flex 0 0 auto
+		background none
+		color #888
 	}
 }
 
 .fit-suggestions + ul.dropdown-menu {
-	max-width 100%
+	width calc(100% - 20px)
 	border-radius 0
+	margin 0 10px
 	a{
 		overflow hidden
 		text-overflow ellipsis
 	}
 }
+
+

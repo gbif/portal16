@@ -2,13 +2,12 @@ var express = require('express'),
     router = express.Router();
 
 module.exports = function (app) {
-    app.use('/occurrence', router);
+    app.use('/publisher', router);
 };
 
 function renderSearch(req, res) {
-    res.render('pages/occurrence/ocurrence', {
-        title: 'Ocurrences',
-        message: 'yada yada',
+    res.render('pages/publisher/search/publisherSearch', {
+        title: 'Publishers',
         _meta: {
             hideSearchAction: false,
             hasDrawer: true,
@@ -19,22 +18,10 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    renderSearch(req, res);
+    res.redirect(301, './publisher/search');
 });
 
 router.get('/search', function (req, res) {
-    renderSearch(req, res);
-});
-
-router.get('/table', function (req, res) {
-    renderSearch(req, res);
-});
-
-router.get('/gallery', function (req, res) {
-    renderSearch(req, res);
-});
-
-router.get('/map', function (req, res) {
     renderSearch(req, res);
 });
 

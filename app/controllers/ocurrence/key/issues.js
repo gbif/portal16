@@ -1,8 +1,12 @@
 "use strict";
+var _  = require('lodash');
 
 function getFieldsWithIssues(occurrenceIssues, remarks) {
     let fieldsWithRemarks = {};
     occurrenceIssues.forEach(function(issue) {
+        if (_.isUndefined(remarks[issue])) {
+            return;
+        }
         remarks[issue].relatedSimpleTerms.forEach(function(term){
             fieldsWithRemarks[term] = fieldsWithRemarks[term] || [];
             fieldsWithRemarks[term].push({
@@ -43,6 +47,19 @@ function getSummary(occurrenceIssues, remarks) {
     var summary = undefined;
     occurrenceIssues.forEach(function(e){
         let remark = remarks[e];
+
+        //handle remarks that isn't listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation
+        if (_.isUndefined(remark)) {
+
+            // Dummy remark: show remarks that isn't known as warnings. Translations is likely to be missing
+            //remark = { type: name,
+            //    severity: 'WARNING',
+            //        relatedTerms: [],
+            //        relatedSimpleTerms: []
+            //};
+
+            return; //don't show remarks that are not listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation
+        }
         if (remark.severity == 'INFO') return;
         summary = summary || {};
         summary[remark.severity] = summary[remark.severity] || [];

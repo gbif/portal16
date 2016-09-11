@@ -29,8 +29,8 @@ var config = {
         },
         port: port || 80,
         log: log,
-        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif.org/v1/',
+        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
     },
     uat: {

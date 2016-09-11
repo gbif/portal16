@@ -28,24 +28,24 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('occurrenceSearch', {
             parent: 'localization',
-            url: '/occurrence?offset&limit&q&basisOfRecord&catalogNumber&collectionCode&continent&country&datasetKey&decimalLatitude&decimalLongitude&depth&elevation&eventDate&geometry&hasCoordinate&hasGeospatialIssue&institutionCode&issue&lastInterpreted&mediaType&month&occurrenceId&publishingCountry&recordedBy&recordNumber&scientificName&taxonKey&kingdomKey&phylumKey&classKey&orderKey&familyKey&genusKey&subGenusKey&speciesKey&year&establishmentMeans&repatriated&typeStatus&organismId&kingdomKey.facetLimit',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&geometry&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&repatriated&type_status&organism_id&locality&water_body&state_province&{advanced:bool}',
+            params: {
+                advanced: {
+                    value: false,
+                    squash: true
+                }
+            },
             views: {
                 main: {
                     templateUrl: '/templates/pages/occurrence/occurrence.html',
                     controller: 'occurrenceCtrl',
                     controllerAs: 'occurrence'
                 }
-            },
-            resolve: {
-                results:  function($stateParams, OccurrenceTableSearch){
-                    var query = angular.copy($stateParams);
-                    return OccurrenceTableSearch.query(query).$promise;
-                }
             }
         })
         .state('occurrenceSearchTable', {
             parent: 'occurrenceSearch',
-            url: '/table',
+            url: '/search?offset&limit',
             templateUrl: '/templates/pages/occurrence/table/occurrenceTable.html',
             controller: 'occurrenceTableCtrl',
             controllerAs: 'occTable'
@@ -73,35 +73,64 @@ function routerConfig($stateProvider, $locationProvider) {
                     controller: 'datasetCtrl',
                     controllerAs: 'dataset'
                 }
-            },
-            resolve: {
-                results:  function($stateParams, DatasetSearch){
-                    var query = angular.copy($stateParams);
-                    var availableFacets = ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country'];
-                    availableFacets.forEach(function(facet){
-                        //if (angular.isUndefined(query[facet])) {
-                            query.facet = query.facet || [];
-                            query.facet.push(facet);
-                        //}
-                    });
-                    return DatasetSearch.query(query).$promise;
-                }
             }
         })
         .state('datasetSearchTable', {
             parent: 'datasetSearch',
-            url: '/table',
+            url: '/search',
             templateUrl: '/templates/pages/dataset/search/table/datasetTable.html',
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
+        })
+        .state('speciesSearch', {
+            parent: 'localization',
+            url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&status&issue&{advanced:bool}',
+            params: {
+                advanced: {
+                    value: false,
+                    squash: true
+                }
+            },
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/species/search/species.html',
+                    controller: 'speciesCtrl',
+                    controllerAs: 'species'
+                }
+            }
+        })
+        .state('speciesSearchTable', {
+            parent: 'speciesSearch',
+            url: '/search',
+            templateUrl: '/templates/pages/species/search/table/speciesTable.html',
+            controller: 'speciesTableCtrl',
+            controllerAs: 'speciesTable'
+        })
+        .state('publisherSearch', {
+            parent: 'localization',
+            url: '/publisher?offset&limit&q&country',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/publisher/search/publisher.html',
+                    controller: 'publisherCtrl',
+                    controllerAs: 'publisher'
+                }
+            }
+        })
+        .state('publisherSearchTable', {
+            parent: 'publisherSearch',
+            url: '/search',
+            templateUrl: '/templates/pages/publisher/search/table/publisherTable.html',
+            controller: 'publisherTableCtrl',
+            controllerAs: 'publisherTable'
         })
         .state('cmsSearch', {
             parent: 'localization',
             url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/about/search/cmsSearch.html',
-                    controller: 'cmsSearchCtrl',
+                    templateUrl: '/templates/pages/cms/search/cms.html',
+                    controller: 'cmsCtrl',
                     controllerAs: 'cms'
                 }
             },
@@ -118,8 +147,8 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('cmsSearchTable', {
             parent: 'cmsSearch',
-            url: '/table',
-            templateUrl: '/templates/pages/about/search/table/cmsTable.html',
+            url: '/search',
+            templateUrl: '/templates/pages/cms/search/table/cmsTable.html',
             controller: 'cmsTableCtrl',
             controllerAs: 'cmsTable'
         })

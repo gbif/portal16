@@ -7,18 +7,22 @@
                     <span class="article-header__category__upper">Search</span>
                     <span class="article-header__category__lower">Occurrences</span>
                 </nav>
-                <div class="small text-muted text-center" style="height:30px">{{occTable.count | number}} results</div>
+                <div class="search-header__description">
+                    <span ng-if="occTable.hasData()">
+                        {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
+                    </span>
+                </div>
                 <div class="stripe-menu">
-                    <a href="" ui-sref="occurrenceSearchTable()"
-                       class="gb-icon-menu stripe-menu__option"
+                    <span
+                       class="gb-icon-menu stripe-menu__option stripe-menu__option is-active"
                        tooltip-placement="bottom"
-                       uib-tooltip="Table"></a>
+                       uib-tooltip="Table"></span>
                     <a href="" ui-sref="occurrenceSearchGallery()"
-                       class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+                       class="gb-icon-photo stripe-menu__option"
                        tooltip-placement="bottom"
                        uib-tooltip="Gallery"></a>
                     <a href="" ui-sref="occurrenceSearchMap()"
-                       class="gb-icon-map-marker stripe-menu__menu stripe-menu__option"
+                       class="gb-icon-map-marker stripe-menu__option"
                        tooltip-placement="bottom"
                        uib-tooltip="Map"></a>
                 </div>
@@ -26,52 +30,19 @@
         </div>
     </div>
 
-    <!--<div>-->
-        <!--<div class="horizontal-stripe white-background occurrence-search__summary">-->
-            <!--<div class="container-fluid">-->
-
-
-                <!--<div class="stripe-menu">-->
-                    <!--<a href="" ui-sref="occurrenceSearchTable()"-->
-                       <!--class="gb-icon-menu stripe-menu__option"-->
-                       <!--tooltip-placement="top"-->
-                       <!--uib-tooltip="Table"></a>-->
-                    <!--<a href="" ui-sref="occurrenceSearchMap()"-->
-                       <!--class="gb-icon-map stripe-menu__menu stripe-menu__option"-->
-                       <!--tooltip-placement="top"-->
-                       <!--uib-tooltip="Map"></a>-->
-                   <!--<a href="" ui-sref="occurrenceSearchGallery()"-->
-                       <!--class="gb-icon-photo stripe-menu__menu stripe-menu__option"-->
-                       <!--tooltip-placement="top"-->
-                       <!--uib-tooltip="Gallery"></a>-->
-                <!--</div>-->
-
-                <!--<div class="row">-->
-                    <!--<div class="col-xs-12">-->
-                        <!--{{occTable.count | number}} results-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <!--<nav class="cms-header__category cms-header__category&#45;&#45;deep" style="position:absolute; top: 0; width:100%;">-->
-                    <!--<span class="cms-header__category__upper">Search</span>-->
-                    <!--<span class="cms-header__category__lower">Occurrences-->
-                    <!--</span>-->
-                <!--</nav>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
     <div class="horizontal-stripe white-background">
-        <div class="occurrence-search__table__area">
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"> </ng-include>
+        <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
                 <div class="table-container">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'issues', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
+                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.results" >
+                            <tr ng-repeat="result in occTable.occurrenceState.data.results" >
                                 <td class="table-cell--wide">
                                     <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                                 </td>
@@ -84,7 +55,7 @@
                                     </a>
                                 </td>
                                 <td class="table-cell--normal">
-                                    <a ng-href="{{result.key}}" translate="bor.{{result.basisOfRecord}}"></a>
+                                    <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                                 </td>
                                 <td class="table-cell--narrow">
                                     <a ng-href="{{result.key}}">
@@ -92,7 +63,7 @@
                                     </a>
                                 </td>
                                 <td class="table-cell--wide">
-                                    <a ng-href="{{result.key}}">{{result._dataset.title}}</a>
+                                    <a ng-href="{{result.key}}">{{result._datasetKey.title}}</a>
                                 </td>
                                 <td class="table-cell--narrow">
                                     <a ng-href="{{result.key}}">{{result.issues.length}}</a>
@@ -119,7 +90,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <uib-pagination
-                                total-items="occTable.totalItems"
+                                total-items="occTable.occurrenceState.data.count"
                                 ng-model="occTable.currentPage"
                                 max-size="occTable.maxSize"
                                 items-per-page="occTable.limit"
@@ -127,12 +98,11 @@
                                 boundary-link-numbers="false"
                                 rotate="false"
                                 ng-change="occTable.pageChanged()"
-                                ng-show="occTable.count > occTable.limit">
+                                ng-show="occTable.occurrenceState.data.count > occTable.limit">
                         </uib-pagination>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

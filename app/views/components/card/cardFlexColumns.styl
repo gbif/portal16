@@ -6,28 +6,47 @@ $maxFlexCardWidth = ($laptop/3)
 	flex-wrap wrap
 	justify-content center
 	margin-bottom $flexCardMarginTopBottom
+	margin-left ($flexCardSpacing/2)
+	margin-right ($flexCardSpacing/2)
 	>div {
+		max-width $maxFlexCardWidth
 		flex 1 1 auto
-		padding 0 $flexCardSpacing
+		padding 0 ($flexCardSpacing/2)
 		margin-top $flexCardMarginTopBottom
-		width 100%
+		width 220px
 		display none
-		&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+		&:nth-of-type(1), &:nth-of-type(2) {
 			display block
 		}
 	}
 	.card-flex-columns__block-double {
 		max-width ($maxFlexCardWidth*3)
 	}
+	.card-flex-columns__block-narrow {
+		max-width ($maxFlexCardWidth)
+	}
 	.card-flex-columns__block-aligned {
 		max-width 768px
 	}
 }
 
-+isAbove($mobile) {
+//+isAbove($tablet) {
+//	.card-flex-columns {
+//		>div {
+//			&:nth-of-type(3) {
+//				display none
+//			}
+//		}
+//	}
+//}
+
++isAbove($laptop) {
 	.card-flex-columns {
 		>div {
 			max-width $maxFlexCardWidth
+			&:nth-of-type(3) {
+				display block
+			}
 		}
 		.card-flex-columns__block-double {
 			width $maxFlexCardWidth

@@ -13,11 +13,9 @@ angular
     .controller('occurrenceTableCtrl', occurrenceTableCtrl);
 
 /** @ngInject */
-function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter, $state, $stateParams, hotkeys, results) {
+function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     var vm = this, offset;
-    vm.count = results.count;
-    vm.results = results.results;
-
+    vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     //a pretty print for coordinates.
     //TODO create as reusable filter/formater 
     vm.formatCoordinates = function(lat, lng) {
@@ -30,40 +28,29 @@ function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter,
         }
     };
 
-    // // watch state params and fetch new data if it changes
-    $scope.$watchCollection(function(){return $stateParams}, function(newValue) {
-        // console.log('update me');
-        OccurrenceTableSearch.query(newValue, function(data){
-            vm.count = data.count;
-            vm.results = data.results;
-            updatePaginationCounts();
-        }, function () {
-            //TODO handle errors
-        });
-    });
-
-
     /* pagination */
     function updatePaginationCounts() {
-        offset = parseInt($stateParams.offset) || 0;
+        offset = parseInt(vm.occurrenceState.query.offset) || 0;
         vm.maxSize = 5;
-        vm.limit = parseInt($stateParams.limit) || 20;
-        vm.totalItems = vm.count;
+        vm.limit = parseInt(vm.occurrenceState.query.limit) || 20;
         vm.currentPage = Math.floor(offset / vm.limit) + 1;
     }
     updatePaginationCounts();
 
     vm.pageChanged = function() {
-        $stateParams.offset =  (vm.currentPage-1) * vm.limit;
-        $state.go($state.current, $stateParams, {notify: false, reload: true});
+        vm.occurrenceState.query.offset = (vm.currentPage-1) * vm.limit;
+        OccurrenceFilter.update(vm.occurrenceState.query);
+        updatePaginationCounts();
         window.scrollTo(0,0);
     };
+
+    // $scope.$watch(function(){return vm.occurrenceState.query.offset}, updatePaginationCounts);
 
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
         callback: function() {
-            if (offset + vm.limit < vm.totalItems) {
+            if (offset + vm.limit < vm.occurrenceState.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
@@ -79,6 +66,10 @@ function occurrenceTableCtrl($rootScope, $scope, OccurrenceTableSearch, $filter,
             }
         }
     });
+
+    vm.hasData = function() {
+        return typeof vm.occurrenceState.data.count !== 'undefined'
+    }
 
 }
 

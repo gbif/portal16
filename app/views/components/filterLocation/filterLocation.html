@@ -1,0 +1,36 @@
+<div class="filter-group" ng-mouseover="vm.isHovered = true">
+    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
+        <h5>
+            <span class="text-capitalize">Location</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
+        </h5>
+    </a>
+
+    <div class="filter-group__filter--radio">
+
+        <div class="is-padded">
+            <div>Is georeferenced</div>
+            <label class="radio-inline">
+                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="">Either
+            </label>
+            <label class="radio-inline">
+                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="true">Yes
+            </label>
+            <label class="radio-inline">
+                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="false">No
+            </label>
+            <div>
+                description goes here about the filter
+            </div>
+        </div>
+
+
+
+        <div class="site-drawer__bar seperator">
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()"><span translate="stdTerms.clear">Clear</span></a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()"><span translate="stdTerms.invert">Invert</span></a>
+        </div>
+    </div>
+</div>
+

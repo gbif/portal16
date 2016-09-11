@@ -11,12 +11,14 @@ require('ng-infinite-scroll');
 require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
-require('checklist-model');
+require('nouislider-angular');
+
+require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
 
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider']);
 })();
 
 (function () {
@@ -47,9 +49,11 @@ require('./angular/cms.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
-//require('./angular/occurrenceFilter.service');
+require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
+require('./angular/speciesFilter.service');
 require('./angular/map.constants');
+require('./angular/enums.constants');
 
 
 require('../../../pages/search/search.ctrl');
@@ -66,9 +70,18 @@ require('../../../pages/dataset/search/table/datasetTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 
-require('../../../pages/about/search/cmsSearch.ctrl');
-require('../../../pages/about/search/table/cmsTable.ctrl');
+require('./angular/cmsFilter.service');
+require('../../../pages/cms/search/cms.ctrl');
+require('../../../pages/cms/search/table/cmsTable.ctrl');
 require('../../../pages/about/programme/programme.ctrl');
+
+require('./angular/publisher.resource');
+require('./angular/publisherFilter.service');
+require('../../../pages/publisher/search/publisher.ctrl');
+require('../../../pages/publisher/search/table/publisherTable.ctrl');
+
+require('../../../pages/species/search/species.ctrl');
+require('../../../pages/species/search/table/speciesTable.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
@@ -77,6 +90,15 @@ require('../../../components/shorten/shorten.directive');
 require('../../../components/fab/fab.directive');
 require('../../../components/searchDrawer/searchDrawer.directive');
 require('../../../components/enumFilter/enumFilter.directive');
+require('../../../components/filterTaxon/filterTaxon.directive');
+require('../../../components/filterSuggest/filterSuggest.directive');
+//require('../../../components/filterLocation/filterLocation.directive');
+require('../../../components/filterInterval/filterInterval.directive');
+require('../../../components/filterFacet/filterFacet.directive');
+
+require('../../../components/filterEnum/filterEnum.directive');
+
+require('../../../components/focusMe/focusMe.directive');
 
 require('./angular/translate');
 

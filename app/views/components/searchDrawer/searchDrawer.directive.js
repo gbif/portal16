@@ -12,7 +12,7 @@ function searchDrawerDirective() {
         transclude: true,
         templateUrl: '/templates/components/searchDrawer/searchDrawer.html',
         scope: {
-            query: '@',
+            filter: '=',
             contentType: '@'
         },
         replace: true,
@@ -24,26 +24,31 @@ function searchDrawerDirective() {
     return directive;
 
     /** @ngInject */
-    function searchDrawer($rootScope, $stateParams) {
+    function searchDrawer($state) {
         var vm = this;
-
-        //$rootScope.$on('$stateChangeSuccess',
-        //    function(event, toState, toParams, fromState, fromParams){
-        //        vm.setFilterCount(toParams);
-        //    });
+        vm.filter = vm.filter || {};
 
         vm.getFilterCount = function() {
             var c = 0;
-            Object.keys($stateParams).forEach(function(e){
-                var v = $stateParams[e];
-                if (typeof v !== 'undefined' && e != 'locale' && e != 'offset' && e != 'limit' && e != 'center' && e != 'zoom') {
-                    c++;
+            Object.keys(vm.filter.query).forEach(function(e){
+                var v = vm.filter.query[e];
+                var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect'];
+                if (typeof v !== 'undefined' && v!= '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
+                    c += [].concat(v).length;
                 }
+                // if (e === 'hasCoordinate') {
+                //     if (v=="TRUE") c--;
+                // }
             });
+            // if (typeof vm.filter.query.hasCoordinate === 'undefined') c++;
             return c;
         };
 
+        vm.clear = function() {
+            $state.go('.', {}, {inherit:false, notify: true, reload: true});
+        };
     }
 }
 
 module.exports = searchDrawerDirective;
+

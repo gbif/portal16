@@ -1,0 +1,57 @@
+<article class="wrapper-horizontal-stripes">
+    
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Network</span>
+                </nav>
+                <div class="search-header__description">
+                    <span ng-if="cmsTable.hasData()">
+                        {{cmsTable.state.data.count | localNumber:cmsTable.state.query.locale }} results
+                        <!--<span>Showing page {{cmsTable.currentPage}} of {{vm.totalPages}}</span>-->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="horizontal-stripe white-background">
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!cmsTable.hasData()"> </ng-include>
+        <div ng-if="cmsTable.hasData()">
+            <div class="container--narrow">
+                <div class="search-results__list row">
+                    <div class="col-xs-12">
+
+                        <article class="search-results__list__item cms-list-item--cms-search" ng-repeat="row in cmsTable.state.data.results">
+                            <span class="search-results__list__item__tag"><span>Information </span><span translate="cms.type.{{row.type}}">{{row.type}}</span></span>
+                            <img ng-src="{{row.images[0].styles.square_thumbnail}}">
+                            <h4 class="search-results__list__item__title">
+                                <a href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
+                            </h4>
+                            <div class="search-results__list__item__summary" ng-show="row.summary.value !== undefined" ng-bind-html="row.summary.value"></div>
+                            <div class="search-results__list__item__summary" ng-show="row.summary.value == undefined" ng-bind-html="row.summary"></div>
+                            <div class="search-results__list__item__time">{{ row.created * 1000 | date:'longDate' }}</div>
+                        </article>
+
+                        <uib-pagination
+                            total-items="cmsTable.state.data.count"
+                            ng-model="cmsTable.currentPage"
+                            max-size="cmsTable.maxSize"
+                            items-per-page="cmsTable.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="cmsTable.pageChanged()"
+                            ng-show="cmsTable.state.data.count > cmsTable.limit">
+                        </uib-pagination>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</article>

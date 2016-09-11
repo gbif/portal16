@@ -9,7 +9,7 @@ router.get('/dataset', function (req, res) {
     searchHandler(req, res);
 });
 
-router.get('/dataset/table', function (req, res) {
+router.get('/dataset/search', function (req, res) {
     searchHandler(req, res);
 });
 

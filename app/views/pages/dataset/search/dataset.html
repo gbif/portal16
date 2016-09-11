@@ -1,56 +1,39 @@
-<script type="text/ng-template" id="customTemplate.html">
-    <a ng-href="../dataset/{{match.model.key}}">
-        <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
-    </a>
-</script>
-
-<div search-drawer query="{{dataset.freeTextQuery}}" content-type="datasets">
+<div search-drawer filter="dataset.state" content-type="datasets">
     <div class="site-drawer__section">
-        <div class="search-bar">
-            <form class="search-bar__term" ng-submit="dataset.freeTextSearch()">
+        <div class="search-bar filter-group">
+
+            <form class="search-bar__term" ng-submit="dataset.search()">
                 <input type="text"
                        id="siteSearch"
                        autocomplete="off"
                        class="fit-suggestions"
-                       ng-model="dataset.freeTextQuery"
+                       ng-model="dataset.state.query.q"
                        placeholder="Search for datasets"
                        uib-typeahead="suggestion.title for suggestion in dataset.getSuggestions($viewValue)"
                        typeahead-on-select="dataset.typeaheadSelect($item, $model, $label, $event)"
-                       typeahead-focus-first="false"
-                       typeahead-template-url="customTemplate.html">
-                <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
-                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.freeTextSearch()">
+                       typeahead-focus-first="false">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="dataset.search()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>
             </form>
+
         </div>
 
-        <div ng-repeat="facetField in dataset.facetOrder">
-            <div class="site-drawer__facet-group" ng-if="dataset.filters[facetField].length > 0 || dataset.facets[facetField].length > 0">
-                <h5 translate>{{facetField | prettifyEnum}}</h5>
-                <div ng-repeat="filter in dataset.filters[facetField]">
-                    <span class="chip">
-                        <a href="" ng-click="dataset.removeFilter(facetField, filter.name)" class="chip__content">
-                            <span class="site-drawer__facet-group__facet">{{filter.title}}</span>
-                            <span class="close"></span>
-                        </a>
-                    </span>
-                </div>
 
-                <div ng-repeat="facet in dataset.facets[facetField]">
-                    <a href="" ng-click="dataset.addFilter(facetField, facet.name)" ng-if="!dataset.isFacetInQuery(facetField, facet.name)">
-                        <span>
-                            <span class="site-drawer__facet-group__facet">{{facet.title}}</span>
-                            <span class="site-drawer__facet-group__count">({{facet.count}})</span>
-                        </span>
-                    </a>
-                </div>
+        <div filter-facet filter-config="dataset.filters.type" filter-state="dataset.state"></div>
 
-            </div>
-        </div>
+        <div filter-facet filter-config="dataset.filters.publishingOrg" filter-state="dataset.state"></div>
+
+        <div filter-facet filter-config="dataset.filters.hostingOrg" filter-state="dataset.state"></div>
+
+        <div filter-facet filter-config="dataset.filters.publishingCountry" filter-state="dataset.state"></div>
+
+
 
     </div>
+
 </div>
+
 
 <div class="site-content">
 

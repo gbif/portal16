@@ -13,34 +13,37 @@ angular
     .controller('datasetTableCtrl', datasetTableCtrl);
 
 /** @ngInject */
-function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
-    var vm = this,
-        offset = parseInt($stateParams.offset) || 0;
-
+function datasetTableCtrl(hotkeys, DatasetFilter, env) {
+    var vm = this, offset;
+    vm.state = DatasetFilter.getState();
     vm.tileApi = env.tileApi;
-    vm.count = results.count;
-    vm.results = results.results;
     vm.featuredDataSets = {
         nodes: []
     };
 
-    //pagination
-    vm.maxSize = 5;
-    vm.limit = parseInt($stateParams.limit) || 20;
-    vm.totalItems = results.count;
-    vm.currentPage = Math.floor(offset / vm.limit) + 1;
+    //* pagination */
+    function updatePaginationCounts() {
+        offset = parseInt(vm.state.query.offset) || 0;
+        vm.maxSize = 5;
+        vm.limit = parseInt(vm.state.query.limit) || 20;
+        vm.currentPage = Math.floor(offset / vm.limit) + 1;
+    }
+    updatePaginationCounts();
 
-    vm.pageChanged = function() {
-        $stateParams.offset =  (vm.currentPage - 1) * vm.limit;
-        $state.go($state.current, $stateParams, {reload: true});
-        //window.scrollTo(0,0);
+    vm.pageChanged = function(a, b, c, d) {
+        vm.state.query.offset = (vm.currentPage-1) * vm.limit;
+        updatePaginationCounts();
+        DatasetFilter.update(vm.state.query);
+        window.scrollTo(0,0);
     };
+
+    // $scope.$watch(function(){return vm.state.query.offset}, updatePaginationCounts);
 
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
         callback: function() {
-            if (offset + vm.limit < vm.totalItems) {
+            if (offset + vm.limit < vm.state.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
@@ -57,25 +60,31 @@ function datasetTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
         }
     });
 
-    vm.getFeatured = function() {
-        var keys = Object.keys($stateParams).reduce(function(prev, curr){
-            var v = $stateParams[curr]? 1 : 0;
-            return prev + v;
-        }, 0);
 
-        if (keys == 1) {//lang key
-            //http://www.gbif.org/featured-datasets/json
-            $http({
-                method: 'GET',
-                url: 'http://www.gbif.org/featured-datasets/json'
-            }).then(function successCallback(response) {
-                vm.featuredDataSets.nodes = response.data.nodes;
-            }, function errorCallback() {
-                //ignore any errors and just do not show featured datasets
-            });
-        }
+    vm.hasData = function() {
+        return typeof vm.state.data.count !== 'undefined'
     };
-    vm.getFeatured();
+
+
+    // vm.getFeatured = function() {
+    //     var keys = Object.keys($stateParams).reduce(function(prev, curr){
+    //         var v = $stateParams[curr]? 1 : 0;
+    //         return prev + v;
+    //     }, 0);
+
+    //     if (keys == 1) {//lang key
+    //         //http://www.gbif.org/featured-datasets/json
+    //         $http({
+    //             method: 'GET',
+    //             url: 'http://www.gbif.org/featured-datasets/json'
+    //         }).then(function successCallback(response) {
+    //             vm.featuredDataSets.nodes = response.data.nodes;
+    //         }, function errorCallback() {
+    //             //ignore any errors and just do not show featured datasets
+    //         });
+    //     }
+    // };
+    // vm.getFeatured();
     
 }
 

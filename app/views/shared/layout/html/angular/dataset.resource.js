@@ -23,7 +23,8 @@ var angular = require('angular');
             return $resource('/api/dataset/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
+                        cancellable: true
                     }
                 }
             );
