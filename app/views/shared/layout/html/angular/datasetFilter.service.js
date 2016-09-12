@@ -1,3 +1,66 @@
+//'use strict';
+//
+//var angular = require('angular');
+//
+//angular
+//    .module('portal')
+//    .service('DatasetFilter', function ($rootScope, $state, $stateParams, DatasetSearch) {
+//        var state = {
+//            data: {},
+//            failedRequest: false,
+//            query: $stateParams
+//        };
+//
+//        var availableFacets = ['type', 'publishingOrg', 'hostingOrg', 'publishingCountry'];
+//        var facets = [];
+//        availableFacets.forEach(function(facet){
+//            facets.push(facet);
+//        });
+//
+//        function getState() {
+//            return state;
+//        }
+//
+//        $rootScope.$on('$stateChangeSuccess',
+//            function(event, toState, toParams){
+//                refreshData(toParams);
+//            }
+//        );
+//
+//        function refreshData(query) {
+//            state.query = query || $stateParams;
+//            state.query.facet = facets;
+//            if (state.data.$cancelRequest) state.data.$cancelRequest();
+//            state.data = DatasetSearch.query(state.query, function(){
+//                state.failedRequest = false;
+//            }, function() {
+//                state.failedRequest = true;
+//            });
+//        }
+//
+//        function update(query) {
+//            $state.go('.', query, {inherit:false, notify: false, reload: false});
+//            refreshData(query);
+//        }
+//
+//        function updateParam(key, values) {
+//            state.query[key] = values;
+//            state.query.offset = undefined;
+//            $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+//            refreshData(state.query);
+//        }
+//
+//        refreshData();
+//
+//        return {
+//            getState: getState,
+//            update: update,
+//            updateParam: updateParam
+//        };
+//
+//    });
+
+
 'use strict';
 
 var angular = require('angular');
@@ -7,15 +70,22 @@ angular
     .service('DatasetFilter', function ($rootScope, $state, $stateParams, DatasetSearch) {
         var state = {
             data: {},
+            facetMultiselect: {},
             failedRequest: false,
             query: $stateParams
         };
 
-        var availableFacets = ['type', 'publishingOrg', 'hostingOrg', 'publishingCountry'];
-        var facets = [];
-        availableFacets.forEach(function(facet){
-            facets.push(facet);
+
+        //for fields where we want faceting and will always ask for all possible. This is the case for most enums
+        var exhaustiveFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country'];
+        var exhaustiveFacets = [];
+        exhaustiveFacetsKeys.forEach(function(facet){
+            exhaustiveFacets.push(facet);
         });
+
+        //for fields with low cardinality and that isn't enums
+        var multiSelectFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country'];
+        var multiSelectFacets = [];
 
         function getState() {
             return state;
@@ -28,13 +98,32 @@ angular
         );
 
         function refreshData(query) {
+            var apiQuery;
             state.query = query || $stateParams;
-            state.query.facet = facets;
+            apiQuery = angular.copy(state.query);
+            apiQuery.facet = exhaustiveFacets;
+
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = DatasetSearch.query(state.query, function(){
+            state.data = DatasetSearch.query(apiQuery, function(){
                 state.failedRequest = false;
+                //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
             }, function() {
                 state.failedRequest = true;
+            });
+
+            //get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
+            apiQuery.facetMultiselect = true;
+            apiQuery.limit = 0; //no need to get the same results again
+            apiQuery.facet = [];
+            multiSelectFacetsKeys.forEach(function(key){
+                if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
+                    apiQuery.facet.push(key);
+                }
+            });
+            if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
+            state.facetMultiselect = DatasetSearch.query(apiQuery, function(){
+            }, function() {
+                //TODO how to indicate missing facet data
             });
         }
 
@@ -45,17 +134,24 @@ angular
 
         function updateParam(key, values) {
             state.query[key] = values;
+            refresh();
+        }
+
+        function refresh() {
             state.query.offset = undefined;
             $state.go('.', state.query, {inherit:false, notify: false, reload: false});
             refreshData(state.query);
         }
 
-        refreshData();
+        //when in not advanced mode then remove parameters from URL that are filled with default values
+        state.query = $stateParams;
+        refreshData(state.query);
 
         return {
             getState: getState,
             update: update,
-            updateParam: updateParam
+            updateParam: updateParam,
+            refresh: refresh
         };
 
     });

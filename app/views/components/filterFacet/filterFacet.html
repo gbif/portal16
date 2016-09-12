@@ -8,14 +8,16 @@
     </a>
 
      <div class="filter-group__filter--facet" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div class="checkbox is-padded" ng-repeat="(key, option) in vm.options" ng-if="vm.checkboxModel[key] || !vm.collapsed">
-            <label>
-                <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)" ng-disabled="vm.disabled">
-                <span class="filter-group__filter__name">
-                    <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key]}" class="uppercase-first">{{option.title}}</span>
-                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
-                </span>
-            </label>
+        <div class="is-padded">
+            <div class="checkbox" ng-repeat="(key, option) in vm.options" ng-if="vm.checkboxModel[key] || !vm.collapsed">
+                <label>
+                    <input type="checkbox" ng-model="vm.checkboxModel[key]" ng-change="vm.apply(option, checked)" ng-disabled="vm.disabled">
+                    <span class="filter-group__filter__name">
+                        <span ng-class="{'filter-group__filter__name__title' : !vm.checkboxModel[key]}" class="uppercase-first">{{option.title}}</span>
+                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount()">{{option.count | localNumber:vm.filterState.query.locale}}</span>
+                    </span>
+                </label>
+            </div>
         </div>
     </div>
 </div>

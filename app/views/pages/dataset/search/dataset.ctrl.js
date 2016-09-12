@@ -13,25 +13,12 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $stateParams, $http, hotkeys) {
+function datasetCtrl($state, DatasetFilter, $http, enums) {
     var vm = this;
     vm.state = DatasetFilter.getState();
 
 
     vm.filters = {};
-
-    //fixed order for facets
-    //vm.facetOrder = [
-    //    'TYPE',
-    //    'PUBLISHING_ORG',
-    //    'PUBLISHING_COUNTRY',
-    //    'HOSTING_ORG',
-    //    'KEYWORD'
-    //];
-    //vm.sortFacets = function(a) {
-    //    return vm.facetOrder[a.field] || 100;
-    //};
-
 
     //facet filters
     vm.filters.type = {
@@ -65,6 +52,51 @@ function datasetCtrl($state, DatasetFilter, $stateParams, $http, hotkeys) {
         translationPrefix: 'dataset.terms',
         filter: DatasetFilter
     };
+
+
+
+
+    //vm.filters.publishingCountry = {
+    //    titleTranslation: 'ocurrenceFieldNames.publishingCountry',
+    //    queryKey: 'publishing_country',
+    //    filter: DatasetFilter,
+    //    enumTranslationPath: 'country.',
+    //    search: {
+    //        isSearchable: true,
+    //        placeholder: 'ocurrenceFieldNames.TRANSLATE',
+    //        suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+    //    },
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'PUBLISHING_COUNTRY'
+    //    }
+    //};
+    //
+    //vm.filters.type = {
+    //    titleTranslation: 'ocurrenceFieldNames.type',
+    //    queryKey: 'type',
+    //    filter: DatasetFilter,
+    //    enumTranslationPath: 'dataset.type.',
+    //    showAll: true,
+    //    enums: enums.datasetType,
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'TYPE'
+    //    }
+    //};
+    //
+    //vm.filters.hostingOrg = {
+    //    titleTranslation: 'dataset.terms.hosting_org',
+    //    queryKey: 'hosting_org',
+    //    filter: DatasetFilter,
+    //    search: {
+    //        isSearchable: false
+    //    },
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'HOSTING_ORG'
+    //    }
+    //};
 
 
     vm.search = function() {

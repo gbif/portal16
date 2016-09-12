@@ -23,6 +23,7 @@
                 </label>
             </div>
         </div>
+        {{vm.filterState.data.filters[vm.filterConfig.facets.facetKey]}}
         <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
                    focus-me="vm.filterConfig.expanded"

@@ -31,7 +31,7 @@
                     <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">
                         Species
                     </a>
-                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/datasets/search?q={{ omniSearch.freeTextQuery }}">
+                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">
                         Datasets
                     </a>
                 </div>

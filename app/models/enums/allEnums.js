@@ -7,6 +7,7 @@ module.exports = {
     "rank": require('./basic/rank.json'),
     "occurrenceIssue": require('./basic/occurrenceIssue.json'),
     "license":  require('./basic/license.json'),
+    "datasetType":  require('./basic/datasetType.json'),
     "cms": {
         "type": require('./cms/type.json'),
         "category_about_gbif": require('./cms/category_about_gbif.json')
