@@ -642,7 +642,7 @@ function processQueryTable(body, __) {
             switch (row.filterType) {
                 case 'Taxon':
                     row.filterValues.forEach(function(v, vi){
-                        requestUrls[vi] = api.speciesParsedName.url + v.value;
+                        requestUrls[vi] = api.taxon.url + v.value;
                     });
                     break;
                 case 'Country':

@@ -1,7 +1,6 @@
 'use strict';
 
-//@mgh should we choose either underscore or lodash?
-var _ = require('underscore');
+var _ = require('lodash');
 
 function getCuratedCmsContents(q, data) {
     if (typeof q === 'undefined' || typeof data === 'undefined') {

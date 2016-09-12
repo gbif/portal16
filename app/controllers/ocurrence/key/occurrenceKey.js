@@ -1,6 +1,6 @@
 "use strict";
 var Q = require('q'),
-    _ = require('underscore'),
+    _ = require('lodash'),
     util = require('../../../helpers/util'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),

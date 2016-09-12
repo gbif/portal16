@@ -5,6 +5,7 @@ var request = require('request'),
 var ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
     API_ERROR: 'API_ERROR',
+    NOT_FOUND: 'NOT_FOUND',
     INVALID_RESPONSE: 'INVALID_RESPONSE'
 });
 
@@ -16,19 +17,19 @@ function getData(cb, path, options) {
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 cb(ERRORS.API_TIMEOUT, null);
-                log.error('timed out while connecting to api ' + path);
+                log.error('timed out while connecting to ' + path);
             } else if (err.connect === true) {
                 cb(ERRORS.API_TIMEOUT, null);
-                log.error('timed out getting data from api ' + path);
+                log.error('timed out getting data from ' + path);
             } else {
                 cb(ERRORS.API_ERROR, null);
-                log.error('error while talking to api ' + path + ' ' + err);
+                log.error('error while talking to ' + path + ' ' + err);
             }
         }
         //if not found or not status code 200
         else if (response && response.statusCode !== 200) {
             if (response.statusCode == '404') {
-                cb(ERRORS.INVALID_RESPONSE, null);
+                cb(ERRORS.NOT_FOUND, null);
                 log.error('got 404 ' + path); //TODO might be okay dependent on caller context
             } else {
                 cb(ERRORS.INVALID_RESPONSE, null);
@@ -85,9 +86,9 @@ function getApiData(path, callback, options) {
             }
         }
     );
-
 }
 
 module.exports = {
-    getApiData: getApiData
+    getApiData: getApiData,
+    ERRORS: ERRORS
 };
