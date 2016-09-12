@@ -72,10 +72,9 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         OccurrenceSearch.query(vm.query, function (data) {
             vm.mapMenu.isLoading = false;
             vm.mapMenu.occurrences = data;
-            console.log(data);
         }, function () {
             vm.mapMenu.isLoading = false;
-            console.log('ERROR');//TODO
+            //TODO error handling
         });
     }
     leafletData.getMap('occurrenceMap').then(function(map) {

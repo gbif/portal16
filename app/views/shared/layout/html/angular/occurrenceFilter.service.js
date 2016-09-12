@@ -34,7 +34,6 @@ angular
 
         //for fields with low cardinality and that isn't enums
         var multiSelectFacetsKeys = ['dataset_key', 'institution_code', 'basis_of_record', 'country', 'month', 'media_type', 'type_status', 'issue', 'license'];
-        var multiSelectFacets = [];
 
         function getOccurrenceState() {
             return state;

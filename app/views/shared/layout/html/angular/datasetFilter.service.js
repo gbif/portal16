@@ -85,7 +85,6 @@ angular
 
         //for fields with low cardinality and that isn't enums
         var multiSelectFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country'];
-        var multiSelectFacets = [];
 
         function getState() {
             return state;

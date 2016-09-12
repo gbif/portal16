@@ -13,7 +13,7 @@ angular
     .controller('cmsCtrl', cmsCtrl);
 
 /** @ngInject */
-function cmsCtrl($state, hotkeys, enums, CmsFilter, suggestEndpoints) {
+function cmsCtrl($state, hotkeys, enums, CmsFilter) {
     var vm = this;
     vm.state = CmsFilter.getState();
 

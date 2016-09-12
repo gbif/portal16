@@ -86,10 +86,6 @@ function filterSuggestDirective() {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
         };
 
-        vm.getFacetCount = function(key){
-            var count = vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count
-        };
-
         vm.getWidth = function(key) {
             var keyLower = key.toLowerCase();
             var facetKey = vm.filterConfig.facets.facetKey;

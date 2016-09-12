@@ -30,7 +30,7 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env) {
     }
     updatePaginationCounts();
 
-    vm.pageChanged = function(a, b, c, d) {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage-1) * vm.limit;
         updatePaginationCounts();
         DatasetFilter.update(vm.state.query);

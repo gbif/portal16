@@ -50,16 +50,16 @@ function intervalSliderDirective() {
         };
 
         vm.eventHandlers = {
-            update: function(values, handle, unencoded) {
-            },
-            slide: function(values, handle, unencoded) {
+            //update: function(values, handle, unencoded) {
+            //},
+            slide: function(values) { //values, handle, unencoded
                 vm.intervalOptions.inActive = undefined;
                 vm.from = values[0];
                 vm.to = values[1];
             },
-            set: function(values, handle, unencoded) {
-            },
-            change: function(values, handle, unencoded) {
+            //set: function(values, handle, unencoded) {
+            //},
+            change: function() { //values, handle, unencoded
                 vm.apply();
             }
         };

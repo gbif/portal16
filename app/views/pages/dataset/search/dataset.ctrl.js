@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, enums) {
+function datasetCtrl($state, DatasetFilter, $http) {
     var vm = this;
     vm.state = DatasetFilter.getState();
 

@@ -19,7 +19,7 @@ function publisherTableCtrl(hotkeys, PublisherFilter) {
     }
     updatePaginationCounts();
 
-    vm.pageChanged = function(a, b, c, d) {
+    vm.pageChanged = function() {
         vm.state.query.offset = (vm.currentPage-1) * vm.limit;
         updatePaginationCounts();
         PublisherFilter.update(vm.state.query);
