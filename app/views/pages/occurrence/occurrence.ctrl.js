@@ -120,7 +120,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     //suggest filters
 
-
     vm.filters.recordedBy = {
         titleTranslation: 'ocurrenceFieldNames.recordedBy',
         queryKey: 'recorded_by',
