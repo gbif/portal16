@@ -1,9 +1,10 @@
 [
   "news",
   "data_use",
+  "event",
   "programme",
+  "project",
   "document",
   "presentation",
-  "event",
   "tool"
 ]

@@ -33,7 +33,6 @@ router.get('/cms/search', function (req, res) {
                     data.facets = data.facets.filter(function(e){
                         if (e.field == 'category_informatics') return false;
                         if (e.field == 'category_tags') return false;
-                        if (e.field == 'category_data_type') return false;
                         return true;
                     });
 

@@ -20,11 +20,11 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
     vm.filters = {};
 
     vm.filters.type = {
-        titleTranslation: 'ocurrenceFieldNames.type',
+        titleTranslation: 'cms.facet.type',
         queryKey: 'type',
         filter: CmsFilter,
         enumTranslationPath: 'cms.type.',
-        showAll: false,
+        showAll: true,
         singleSelect: true,
         enums: enums.cms.type,
         facets: {
@@ -33,12 +33,27 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
             facetKey: 'type'
         }
     };
+    
+    vm.filters.language = {
+        titleTranslation: 'cms.facet.language',
+        queryKey: 'language',
+        filter: CmsFilter,
+        enumTranslationPath: 'language.',
+        showAll: true,
+        singleSelect: true,
+        enums: enums.cms.language,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'language'
+        }
+    };
 
     vm.filters.category_about_gbif = {
-        titleTranslation: 'ocurrenceFieldNames.category_about_gbif',
+        titleTranslation: 'cms.facet.category_about_gbif',
         queryKey: 'category_about_gbif',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.category_about_gbif.',
+        enumTranslationPath: 'cms.filter.',
         showAll: false,
         singleSelect: true,
         enums: enums.cms.category_about_gbif,
@@ -46,6 +61,36 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
             hasFacets: true,
             hideBar: true,
             facetKey: 'category_about_gbif'
+        }
+    };
+    
+    vm.filters.category_audience = {
+        titleTranslation: 'cms.facet.category_audience',
+        queryKey: 'category_audience',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: true,
+        singleSelect: true,
+        enums: enums.cms.category_audience,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_audience'
+        }
+    };
+    
+    vm.filters.category_data_type = {
+        titleTranslation: 'cms.facet.category_data_type',
+        queryKey: 'category_data_type',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: false,
+        singleSelect: true,
+        enums: enums.cms.category_data_type,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_data_type'
         }
     };
 

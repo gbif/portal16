@@ -1502,12 +1502,13 @@
 			"gbif": {
 				"org": "GBIF.org"
 			},
-			"strategic_application": "Stratigic application",
+			"strategic_application": "Strategic application",
 			"gbif_governance": "GBIF governance",
 			"gbif_awards": "GBIF awards",
 			"gbif_history/overview": "GBIF history/overview",
 			"public_stakeholders": "Public stakeholders",
-			"data_analysis": "Data analysis"
+			"data_analysis": "Data analysis",
+			"abundance_data": "Abundance data"
 		},
 		"projectGrantType": {
 			"regional": "Regional grant",
