@@ -94,6 +94,66 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
         }
     };
 
+    vm.filters.category_purpose = {
+        titleTranslation: 'cms.facet.category_purpose',
+        queryKey: 'category_purpose',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: false,
+        singleSelect: true,
+        enums: enums.cms.category_purpose,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_purpose'
+        }
+    };
+
+    vm.filters.category_data_use = {
+        titleTranslation: 'cms.facet.category_data_use',
+        queryKey: 'category_data_use',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: false,
+        singleSelect: true,
+        enums: enums.cms.category_data_use,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_data_use'
+        }
+    };
+
+    vm.filters.category_capacity_enhancement = {
+        titleTranslation: 'cms.facet.category_capacity_enhancement',
+        queryKey: 'category_capacity_enhancement',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: false,
+        singleSelect: true,
+        enums: enums.cms.category_capacity_enhancement,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_capacity_enhancement'
+        }
+    };
+
+    vm.filters.category_topic = {
+        titleTranslation: 'cms.facet.category_topic',
+        queryKey: 'category_topic',
+        filter: CmsFilter,
+        enumTranslationPath: 'cms.filter.',
+        showAll: false,
+        singleSelect: true,
+        enums: enums.cms.category_topic,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_topic'
+        }
+    };
+
     vm.search = function() {
         $state.go('.', vm.state.query, {inherit:false, notify: true, reload: true});
     };
