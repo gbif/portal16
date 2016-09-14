@@ -23,7 +23,7 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
         titleTranslation: 'cms.facet.type',
         queryKey: 'type',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.type.',
+        enumTranslationPath: 'cms.contentType.',
         showAll: true,
         singleSelect: true,
         enums: enums.cms.type,
@@ -85,6 +85,7 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
         filter: CmsFilter,
         enumTranslationPath: 'cms.filter.',
         showAll: false,
+        expanded: true,
         singleSelect: true,
         enums: enums.cms.category_data_type,
         facets: {

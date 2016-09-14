@@ -9,7 +9,7 @@ module.exports = {
     "license":  require('./basic/license.json'),
     "datasetType":  require('./basic/datasetType.json'),
     "cms": {
-        "type": require('./cms/contentType.json'),
+        "contentType": require('./cms/contentType.json'),
         "language": require('./cms/language.json'),
         "category_about_gbif": require('./cms/category_about_gbif.json'),
         "category_audience": require('./cms/category_audience.json'),

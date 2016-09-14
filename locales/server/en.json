@@ -1436,10 +1436,7 @@
 		"UNSUPPORTED" : "UNSUPPORTED"
 	},
 	"cms": {
-		"enum": {
-
-		},
-		"type": {
+		"contentType": {
 			"event": "Event",
 			"news": "News",
 			"resource": "Resource",

@@ -8,93 +8,41 @@ var express = require('express'),
     cmsData = require('../../../../models/cmsData/cmsData'),
     log = require('../../../../../config/log');
 
-var resource_type = {
-    '895': 'document',
-    '987': 'presentation',
-    '1010': 'tool',
-    '1076': 'link'
-};
-
 module.exports = function (app) {
     app.use('/api', router);
 };
 
 router.get('/cms/search', function (req, res) {
-    cmsSearch(req.query).then(function(data) {
+    cmsSearch(req.query)
+    .then(function(data) {
         if (data.hasOwnProperty('facets')) {
-            cmsData.expandFacets(data.facets, res.__, function(err){
-                if (err) {
-                    //TODO handle expansion errors
-                    res.json(data);
-
-                } else {
-
-                    // Duplicate the machine name so the sorting of facet groups can happen in the front end.
-                    data.facets = data.facets.filter(function(e){
-                        if (e.field == 'category_informatics') return false;
-                        if (e.field == 'category_tags') return false;
-                        return true;
-                    });
-
-                    // merge category_resource_type filters with type filters
-                    var index_type, index_category_resource_type;
-                    data.facets.forEach(function(facet, fi){
-                        switch (facet.field) {
-                            case 'type':
-                                index_type = fi;
-                                break;
-                            case 'category_resource_type':
-                                index_category_resource_type = fi;
-                                break;
-                        }
-                        facet.counts.forEach(function(count, ci){
-                            // Strip type:resource filter for less confusion
-                            if (count.key == 'resource') {
-                                facet.counts.splice(ci, 1);
-                            }
-                        });
-                    });
-                    data.facets[index_type].counts = data.facets[index_type].counts.concat(data.facets[index_category_resource_type].counts);
-                    data.facets.splice(index_category_resource_type, 1);
-
-
-                    data.facets.forEach(function(facet){
-                        facet.fieldLabel = res.__('cms.facet.' + facet.field);
-                        facet.counts.forEach(function(count){
-                            switch (facet.field) {
-                                case 'type':
-                                    count.facetLabel = res.__('cms.type.' + count.enum);
-                                    if ([895, 987, 1010, 1076].indexOf(count.key) !== -1) {
-                                        count.key = resource_type[count.key];
-                                    }
-                                    break;
-                                case 'language':
-                                    count.facetLabel = res.__('language.' + count.enum);
-                                    break;
-                                case 'category_country':
-                                    count.facetLabel = res.__('country.' + count.enum);
-                                    break;
-                                default:
-                                    count.facetLabel = res.__('cms.filter.' + count.enum);
-                                    break;
-                            }
-                        });
-                    });
-
-                }
-            });
+            return data;
         }
-        transformFacetsToMap(data);
+        else {
+            throw new Error();
+        }
+    })
+    .then(function(data){
+        try {
+            cmsData.expandFacets(data.facets, res.__);
+            return data;
+        } catch(e) {
+            next(e);
+        }
+    })
+    .then(function(data){
+        try {
+            transformFacetsToMap(data);
+        } catch(e) {
+            next(e);
+        }
         res.json(data);
-
-    }, function(err){
+    })
+    .catch(function(err){
         log.error('Error in /api/cms/search controller: ' + err.message);
-        res.status(500).json({
-            endpoint: '/api/cms/search',
-            statusCode: 500,
-            errorType: err.message
-        });
+        next(err)
     });
+
 });
 
 function cmsSearch(query) {
@@ -112,7 +60,7 @@ function cmsSearch(query) {
     }
 
     // Converting facets in the array notation that the CMS API consumes.
-    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_data_type', 'category_country', 'category_topic', 'category_tags'];
+    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_country', 'category_topic'];
     var resource_type_id = {
         'document': '895',
         'presentation': '987',
@@ -145,7 +93,6 @@ function cmsSearch(query) {
 }
 
 
-
 function transformFacetsToMap(data) {
     if (!_.isArray(data.facets)) {
         return
@@ -166,7 +113,7 @@ function transformFacetsToMap(data) {
             facetCountMap[e.enum] = {
                 count: e.count,
                 fraction: e.count/data.count,
-                title: e.title
+                title: e.translatedLabel
             };
             max = e.count > max ? e.count : max;
         });

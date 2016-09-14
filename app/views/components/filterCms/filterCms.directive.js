@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+
 angular
     .module('portal')
     .directive('filterCms', filterCmsDirective);
@@ -9,7 +10,6 @@ angular
 function filterCmsDirective() {
     var directive = {
         restrict: 'A',
-        transclude: true,
         templateUrl: '/templates/components/filterCms/filterCms.html',
         scope: {
             filterState: '=',
@@ -24,69 +24,134 @@ function filterCmsDirective() {
     return directive;
 
     /** @ngInject */
-    function filterCms($scope, $filter) {
+    function filterCms($scope, $http, $filter) {
         var vm = this;
-        vm.disabled = false;
-        vm.filterAutoUpdate = true;
-        vm.title = vm.filterConfig.title;
-        vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
-        vm.translationPrefix = vm.filterConfig.translationPrefix || 'stdTerms';
-        vm.collapsed = vm.filterConfig.collapsed !== false;
-        vm.facetKey = vm.filterConfig.facetKey;
+
+        vm.filterConfig.titleTranslation;
+        vm.queryKey = vm.filterConfig.queryKey;
+        vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+
+        vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
-        vm.checkboxModel = {};
-
-        vm.options = {};
-
-        function setModel(query) {
-            query.forEach(function(e){
-                vm.checkboxModel[e] = true;
-            });
-        }
-        setModel(vm.query);
-
-        vm.showFacetCount = function() {
-            return vm.facetKey && !vm.collapsed && Object.keys(vm.options).length > 1;
-        };
-
-        vm.apply = function() {
-            if (vm.filterAutoUpdate && !vm.disabled) {
-                vm.query = [];
-                Object.keys(vm.checkboxModel).forEach(function(key){
-                    if (vm.checkboxModel[key]) {
-                        vm.query.push(key);
-                    }
-                });
-                vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
-            }
-        };
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('unique')(newQuery);
-            setModel(vm.query);
         });
 
-        vm.updateOptions = function(apiResponse) {
-            vm.options = apiResponse.facets[vm.facetKey].counts;
-            if (angular.isArray(apiResponse.filters[vm.facetKey])) {
-                apiResponse.filters[vm.facetKey].forEach(function(e){
-                    vm.options[e.name] = vm.options[e.name] || e;
-                });
+        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
+                vm.setFacetSuggestions();
+            }
+        });
+
+        vm.hideFacetCounts = false;
+        vm.suggestions = {};
+        vm.setFacetSuggestions = function() {
+            if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
+                vm.hideFacetCounts = true;
+                if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
+                    vm.filterState.facetMultiselect.$promise.then(function (data) {
+                        vm.hideFacetCounts = false;
+                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                    });
+                } else {
+                    vm.filterState.data.$promise.then(function (data) {
+                        vm.hideFacetCounts = false;
+                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                    });
+                }
             }
         };
 
-        $scope.$watch(function(){return vm.filterState.data}, function(newData){
-            vm.disabled = true;
-            newData.$promise.then(function(data){
-                vm.updateOptions(data);
-                vm.disabled = false;
-            }, function(){vm.disabled = false;});
-        });
+        vm.setFacetSuggestions();
 
-        vm.filterState.data.$promise.then(function(data){
-            vm.updateOptions(data);
-        });
+        vm.searchSuggestions = [];
+        vm.getSuggestions = function() {
+            //if search enabled and
+            if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                return $http.get(vm.filterConfig.search.suggestEndpoint
+                ).then(function (response) {
+                    vm.searchSuggestions = response.data;
+                });
+            }
+        };
+        vm.getSuggestions();
 
+        vm.inQuery = function(name){
+            return vm.query.indexOf(name) != -1;
+        };
+
+        vm.showEnum = function(key) {
+            if (vm.inQuery(key)) return true;
+            if (vm.filterConfig.expanded) {
+                if (vm.filterConfig.showAll) return true;
+                if (vm.suggestions && vm.suggestions.counts && vm.suggestions.counts[key]) return true;
+            }
+            return false;
+        };
+
+        vm.getVisibleEnums = function() {
+            return vm.filterConfig.enums.filter(function(key){
+                return vm.showEnum(key);
+            });
+        };
+
+        vm.showFacetCount = function() {
+            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+        };
+
+        vm.getWidth = function(key) {
+            if (!vm.suggestions.counts) return;
+            if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
+                return {
+                    width: '0%'
+                }
+            }
+            var fraction = vm.suggestions.counts[key].fraction;
+            var gear = 100 / (vm.suggestions.max / vm.filterState.data.count);
+            var width = fraction * gear;
+            return {
+                width: width + '%'
+            };
+        };
+
+        vm.typeaheadSelect = function(item){ //  model, label, event
+            if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
+            var searchString = item.key.toString();
+            if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
+                vm.query.push(searchString);
+                vm.selected = '';
+                vm.apply();
+            }
+        };
+
+        vm.change = function(e, checked) {
+            if (checked) {
+                vm.query.push(e);
+            } else {
+                vm.query.splice(vm.query.indexOf(e), 1);
+            }
+            vm.apply();
+        };
+
+        vm.uncheckAll = function() {
+            vm.query = [];
+            vm.apply();
+        };
+
+        vm.apply = function() {
+            vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
+        };
+
+        vm.searchOnEnter = function(event) {
+            if(event.which === 13) {
+                vm.typeaheadSelect(vm.selected);
+            }
+        };
+
+        vm.allowSelection = function() {
+            return !vm.filterConfig.singleSelect || vm.query.length == 0;
+        };
     }
 }
 

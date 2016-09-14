@@ -97,6 +97,7 @@ require('../../../components/filterInterval/filterInterval.directive');
 require('../../../components/filterFacet/filterFacet.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
+require('../../../components/filterCms/filterCms.directive');
 
 require('../../../components/focusMe/focusMe.directive');
 
