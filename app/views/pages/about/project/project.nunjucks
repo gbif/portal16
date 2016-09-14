@@ -49,100 +49,104 @@
                     <div class="article-auxiliary prose-columns">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
 
-                            {# programme #}
-                            {% if data.programme | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.programme') $}</div>
-                                    {% for name in data.programme %}
-                                        <a href="/{$ name.targetUrl $}">{$ name.title $}</a>
-                                    {% endfor %}
-                                </section>
-                            {% endif %}
-
-                            {# call #}
-                            {% if data.call | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.call') $}</div>
-                                    {% for name in data.call %}
-                                        {$ name.acronym $}
-                                    {% endfor %}
-                                </section>
-                            {% endif %}
-
-                            {# status #}
-                            {% if data.status | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.status') $}</div>
-                                    {$ __('cms.projectStatus.' + data.status) $}
-                                </section>
-                            {% endif %}
-
-                            {# duration #}
-                            {% if data.duration | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.duration') $}</div>
-                                    {$ data.duration.value | formatDate(gb.locales.current) $} {$ __('cms.projectDuration.to') $} {$ data.duration.value2 | formatDate(gb.locales.current) $}
-                                </section>
-                            {% endif %}
-
-                            {# grant type #}
-                            {% if data.grantType | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.grantType') $}</div>
-                                    {$ __('cms.projectGrantType.' + data.grantType) $}
-                                </section>
-                            {% endif %}
-
-                            {# funding allocated #}
-                            {% if data.fundingAllocated | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.fundingAllocated') $}</div>
-                                    &euro; {$ data.fundingAllocated | localizeInteger(gb.locales.current) $}
-                                </section>
-                            {% endif %}
-
-                            {# est. co-funding #}
-                            {% if data.estimatedCoFunding | isNotEmpty %}
-                                <section>
-                                    <div class="h5">{$ __('cms.project.estCoFunding') $}</div>
-                                    &euro; {$ data.estimatedCoFunding | localizeInteger(gb.locales.current) $}
-                                </section>
-                            {% endif %}
-
-                            {#This assumes that there is always tags to show.#}
-                            {% if data.tagsPurpose | isNotEmpty %}
-                                <section class="no-break">
-                                    <div class="h5">{$ __n('cms.auxiliary.subject', 'cms.auxiliary.subjects', data.tagsPurpose.length) $}</div>
-                                    <ul class="list-chips">
-                                        {% for tag in data.tagsPurpose %}
-                                            <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                            <div class="block--non-breaking">
+                                {# programme #}
+                                {% if data.programme | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.programme') $}</div>
+                                        {% for name in data.programme %}
+                                            <a href="/{$ name.targetUrl $}">{$ name.title $}</a>
                                         {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
+                                    </section>
+                                {% endif %}
 
-                            {# partners #}
-                            {% if data.partners | isNotEmpty %}
-                                <section>
-                                    <h5>{$ __n('cms.project.partner', 'cms.project.partners', data.partners.length) $}</h5>
-                                    <ul class="list-style-none">
-                                        {% for name in data.partners %}
-                                            <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a></li>
+                                {# call #}
+                                {% if data.call | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.call') $}</div>
+                                        {% for name in data.call %}
+                                            {$ name.acronym $}
                                         {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
+                                    </section>
+                                {% endif %}
 
-                            {% if data.funder | isNotEmpty %}
-                                <section>
-                                    <h5>{$ __n('cms.project.funder', 'cms.project.funders', data.funder.length) $}</h5>
-                                    <ul class="list-style-none">
-                                        {% for name in data.funder %}
-                                            <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
+                                {# status #}
+                                {% if data.status | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.status') $}</div>
+                                        {$ __('cms.projectStatus.' + data.status) $}
+                                    </section>
+                                {% endif %}
+
+                                {# duration #}
+                                {% if data.duration | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.duration') $}</div>
+                                        {$ data.duration.value | formatDate(gb.locales.current) $} {$ __('cms.projectDuration.to') $} {$ data.duration.value2 | formatDate(gb.locales.current) $}
+                                    </section>
+                                {% endif %}
+
+                                {# grant type #}
+                                {% if data.grantType | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.grantType') $}</div>
+                                        {$ __('cms.projectGrantType.' + data.grantType) $}
+                                    </section>
+                                {% endif %}
+
+                                {# funding allocated #}
+                                {% if data.fundingAllocated | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.fundingAllocated') $}</div>
+                                        &euro; {$ data.fundingAllocated | localizeInteger(gb.locales.current) $}
+                                    </section>
+                                {% endif %}
+
+                                {# est. co-funding #}
+                                {% if data.estimatedCoFunding | isNotEmpty %}
+                                    <section>
+                                        <div class="h5">{$ __('cms.project.estCoFunding') $}</div>
+                                        &euro; {$ data.estimatedCoFunding | localizeInteger(gb.locales.current) $}
+                                    </section>
+                                {% endif %}
+
+                                {#This assumes that there is always tags to show.#}
+                                {% if data.tagsPurpose | isNotEmpty %}
+                                    <section class="no-break">
+                                        <div class="h5">{$ __n('cms.auxiliary.subject', 'cms.auxiliary.subjects', data.tagsPurpose.length) $}</div>
+                                        <ul class="list-chips">
+                                            {% for tag in data.tagsPurpose %}
+                                                <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
+
+                            <div class="block-non-breaking">
+                                {# partners #}
+                                {% if data.partners | isNotEmpty %}
+                                    <section>
+                                        <h5>{$ __n('cms.project.partner', 'cms.project.partners', data.partners.length) $}</h5>
+                                        <ul class="list-style-none">
+                                            {% for name in data.partners %}
+                                                <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+
+                                {% if data.funder | isNotEmpty %}
+                                    <section>
+                                        <h5>{$ __n('cms.project.funder', 'cms.project.funders', data.funder.length) $}</h5>
+                                        <ul class="list-style-none">
+                                            {% for name in data.funder %}
+                                                <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
 
                             {#
                             {% if data.created | isNotEmpty %}
