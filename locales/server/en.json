@@ -1332,10 +1332,11 @@
 		"ASIA": "Asia"
 	},
 	"taxonomicStatus": {
-		"ACCEPTED": "Accepted",
-		"undefined": "Unknown",
-		"DOUBTFUL": "Doubtful",
-		"SYNONYM": "Synonym"
+		"ACCEPTED": "accepted",
+		"undefined": "unknown",
+		"DOUBTFUL": "doubtful",
+		"SYNONYM": "synonym",
+		"MISAPPLIED": "misapplied"
 	},
 	"participationStatus": {
 		"VOTING": "voting",

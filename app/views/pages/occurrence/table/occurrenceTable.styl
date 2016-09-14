@@ -5,34 +5,43 @@
 		width 100%
 	}
 	.table {
-		font-size 12px
 		tr, td, th {
-			overflow hidden
 			a, span {
-				color inherit
 				text-overflow ellipsis
 				white-space nowrap
-				padding-right 1em
-				display block
-				overflow hidden
-				&:hover {
-					text-decoration none
-				}
 			}
 		}
-		th {
-			font-weight bold
+	}
+}
+
+.search-table {
+	font-size 12px
+	tr, td, th {
+		overflow hidden
+		>a, >span {
+			color inherit
+			//text-overflow ellipsis
+			//white-space nowrap
+			padding-right 1em
+			display block
+			overflow hidden
+			&:hover {
+				text-decoration none
+			}
 		}
-		tbody {
-			tr {
-				cursor pointer
-			}
-			tr:nth-of-type(even) {
-				background alpha($alternativeTableRow, 1)
-			}
-			tr:hover {
-				background darken($lightBackground, 5)
-			}
+	}
+	th {
+		font-weight bold
+	}
+	tbody {
+		tr {
+			cursor pointer
+		}
+		tr:nth-of-type(even) {
+			background alpha($alternativeTableRow, 1)
+		}
+		tr:hover {
+			background darken($lightBackground, 5)
 		}
 	}
 }
@@ -45,20 +54,26 @@
 .table-cell {
 	&--narrow {
 		width 8em
-		a, span {
+		>a, >span {
 			width 8em
 		}
 	}
 	&--normal {
 		width 12em
-		a, span {
+		>a, >span {
 			width 12em
 		}
 	}
 	&--wide {
 		width 20em
-		a, span {
+		>a, >span {
 			width 20em
+		}
+	}
+	&--widder {
+		width 30em
+		>a, >span {
+			width 30em
 		}
 	}
 }
