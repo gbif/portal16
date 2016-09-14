@@ -5,7 +5,7 @@
     <div class="card card--flexible">
         <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}" class="card__stripe">
             <div class="card__content">
-                {$ taxon.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
+                <strong>{$ taxon.info.scientificName $}</strong>
             </div>
         </a>
         <div class="card__stripe card__stripe--flexible">
@@ -42,24 +42,6 @@
         <div class="card__stripe">
             <div class="card__content">
                 <dl class="inline">
-
-                    {#{% if taxon.children.results.length > 0 %}#}
-                    {#<div>#}
-                        {#<dt>Lower classifications</dt>#}
-                        {#<dd>#}
-                            {#{% for child in taxon.children.results | limit(5) %}#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ child.scientificName $}</a>{% if not loop.last or taxon.children.results.length > loop.index %}<span>, </span>{% endif %}#}
-                            {#{% endfor %}#}
-
-                            {#{% if taxon.children.results.length == 6 %}#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/search?q={$ child.scientificName $}" title="{$ child.scientificName $}">{$ taxon.children.results[3].scientificName $}</a>#}
-                                {#{% elif taxon.children.results.length > 6 %}#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/species/search#somewhere that shows this" class="more">view all</a>#}
-                            {#{% endif %}#}
-                        {#</dd>#}
-                    {#</div>#}
-                    {#{% endif %}#}
-
                     {% if taxon.holotypes.count > 0 %}
                         <div>
                             <dt>Holotype</dt>
@@ -75,23 +57,15 @@
                     {% endif %}
 
                 </dl>
-                {#<div class="pull-right text-uppercase">#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}">filter occurrences</a>#}
-                {#</div>#}
             </div>
         </div>
         {% endif %}
 
         <div class="card__stripe card__stripe--actions">
             <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}">
-                {$ __('stdTerms.seeAll') $}
+                {$ taxon.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </a>
         </div>
-        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/table?taxonKey={$ taxon.info.key $}" class="card__stripe card__stripe--actions">#}
-            {#<div class="card__content">#}
-                {#FILTER OCCURRENCES#}
-            {#</div>#}
-        {#</a>#}
     </div>
 </div>
 {% endif %}

@@ -23,6 +23,17 @@ function getCuratedCmsContents(q, data) {
     }
 }
 
+/**
+ * the same species might occur twice in the result set if it is matched by both its synonym and its accepted name. Only show one in those cases
+ * @param taxaMatches the list of matched species/taxa
+ */
+function getDuplicateFreeSpeciesMatches(taxaMatches){
+    let duplicateFree = _.uniqBy(taxaMatches, function (e) {
+        return e.info.key;
+    });
+    return duplicateFree;
+}
+
 function getHighlights(q, data) {
     if (typeof q === 'undefined' || typeof data === 'undefined') {
         return [];
@@ -68,6 +79,7 @@ function getHighlights(q, data) {
     }
 
     if (_.isArray(data.taxaMatches)) {
+        data.taxaMatches = getDuplicateFreeSpeciesMatches(data.taxaMatches);
         highlights.push({
             type: 'SPECIES',
             highlight: data.taxaMatches
