@@ -1,5 +1,4 @@
 'use strict';
-var apiConfig = require('./apiConfig');
 
 const facetTypeConfig = {
     type: {
@@ -78,21 +77,16 @@ const resource_type = {
 
 function expandFacets(facets, __) {
     facets.forEach(function(facetType, i){
-        let ftc = facetTypeConfig[facetType.field];
-        if (ftc.show) {
-            facetType.facetLabel = __('cms.facet.' + facetType.field);
-            facetType.counts.forEach(function(e){
-                e.translatedLabel = __(ftc.translationPath + e.enum);
-                if (ftc.type == 'enum') {
-                    e.key = e.enum;
-                } else if (ftc.type == 'id') {
-                    e.key = e.id;
-                }
-            });
-        }
-        else {
-            facets.splice(i, 1);
-        }
+       let ftc = facetTypeConfig[facetType.field];
+        facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
+        facetType.counts.forEach(function(e){
+            e.translatedLabel = __(ftc.translationPath + e.enum);
+            if (ftc.type == 'enum') {
+                e.key = e.enum;
+            } else if (ftc.type == 'id') {
+                e.key = e.id;
+            }
+        });
     });
 
     // merge category_resource_type filters with type filters

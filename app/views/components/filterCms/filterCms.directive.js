@@ -27,7 +27,6 @@ function filterCmsDirective() {
     function filterCms($scope, $http, $filter) {
         var vm = this;
 
-        vm.filterConfig.titleTranslation;
         vm.queryKey = vm.filterConfig.queryKey;
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
@@ -52,12 +51,18 @@ function filterCmsDirective() {
                 if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
                     vm.filterState.facetMultiselect.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
-                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                        if (data.hasOwnProperty('facets')) {
+                            vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                            vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
+                        }
                     });
                 } else {
                     vm.filterState.data.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
-                        vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                        if (data.hasOwnProperty('facets')) {
+                            vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                            vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
+                        }
                     });
                 }
             }
@@ -91,7 +96,7 @@ function filterCmsDirective() {
         };
 
         vm.getVisibleEnums = function() {
-            return vm.filterConfig.enums.filter(function(key){
+            return vm.suggestions.counts.filter(function(key){
                 return vm.showEnum(key);
             });
         };

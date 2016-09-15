@@ -12,10 +12,14 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/cms/search', function (req, res) {
+router.get('/cms/search', function (req, res, next) {
     cmsSearch(req.query)
     .then(function(data) {
         if (data.hasOwnProperty('facets')) {
+            return data;
+        }
+        else if (data.hasOwnProperty('filters')) {
+            data.facets = data.filter;
             return data;
         }
         else {
@@ -25,18 +29,11 @@ router.get('/cms/search', function (req, res) {
     .then(function(data){
         try {
             cmsData.expandFacets(data.facets, res.__);
-            return data;
-        } catch(e) {
-            next(e);
-        }
-    })
-    .then(function(data){
-        try {
             transformFacetsToMap(data);
+            res.json(data);
         } catch(e) {
             next(e);
         }
-        res.json(data);
     })
     .catch(function(err){
         log.error('Error in /api/cms/search controller: ' + err.message);
@@ -46,7 +43,6 @@ router.get('/cms/search', function (req, res) {
 });
 
 function cmsSearch(query) {
-    'use strict';
     var deferred = Q.defer();
     var limit = parseInt(query.limit) || 20;
     var queryUrl = apiConfig.search.url;
@@ -73,6 +69,11 @@ function cmsSearch(query) {
             if (facet == 'type' && ['document', 'presentation', 'tool', 'link'].indexOf(query[facet]) !== -1) {
                 queryUrl += '&' + 'filter[category_resource_type]=' + resource_type_id[query[facet]];
             }
+            else if (typeof query[facet] === 'object') {
+                query[facet].forEach(function(tid){
+                    queryUrl += '&' + 'filter[' + facet + ']=' + tid;
+                });
+            }
             else {
                 queryUrl += '&' + 'filter[' + facet + ']=' + query[facet];
             }
@@ -92,7 +93,7 @@ function cmsSearch(query) {
     return deferred.promise;
 }
 
-
+// @todo merge into cmsData.expandFacets()
 function transformFacetsToMap(data) {
     if (!_.isArray(data.facets)) {
         return
@@ -100,6 +101,8 @@ function transformFacetsToMap(data) {
     let facets = {};
     data.facets.forEach(function (e) {
         facets[e.field] = e.counts;
+        facets[e.field]['translatedLabel'] = e.tranlsatedLabel;
+        facets[e.field]['fieldKey'] = e.field;
     });
     data.facets = facets;
 
@@ -107,18 +110,20 @@ function transformFacetsToMap(data) {
     Object.keys(data.facets).forEach(function(key){
         let facetType = data.facets[key];
         facetMap[key] = {};
-        let facetCountMap = {};
         let max = 0;
+        facetMap[key].counts = [];
         facetType.forEach(function(e){
-            facetCountMap[e.enum] = {
+            facetMap[key].counts.push({
                 count: e.count,
                 fraction: e.count/data.count,
-                title: e.translatedLabel
-            };
+                translatedLabel: e.translatedLabel,
+                key: e.key
+            });
             max = e.count > max ? e.count : max;
         });
         facetMap[key].max = max;
-        facetMap[key].counts = facetCountMap;
+        facetMap[key].fieldKey = facetType.fieldKey;
+        facetMap[key].translatedLabel = facetType.translatedLabel;
     });
     data.facets = facetMap;
 }

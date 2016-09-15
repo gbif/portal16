@@ -13,20 +13,18 @@ angular
     .controller('cmsCtrl', cmsCtrl);
 
 /** @ngInject */
-function cmsCtrl($state, hotkeys, enums, CmsFilter) {
+function cmsCtrl($state, hotkeys, CmsFilter) {
     var vm = this;
     vm.state = CmsFilter.getState();
 
     vm.filters = {};
 
     vm.filters.type = {
-        titleTranslation: 'cms.facet.type',
         queryKey: 'type',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.contentType.',
         showAll: true,
+        expanded: true,
         singleSelect: true,
-        enums: enums.cms.type,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -35,13 +33,11 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
     };
     
     vm.filters.language = {
-        titleTranslation: 'cms.facet.language',
         queryKey: 'language',
         filter: CmsFilter,
-        enumTranslationPath: 'language.',
         showAll: true,
+        expanded: false,
         singleSelect: true,
-        enums: enums.cms.language,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -49,75 +45,12 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
         }
     };
 
-    vm.filters.category_about_gbif = {
-        titleTranslation: 'cms.facet.category_about_gbif',
-        queryKey: 'category_about_gbif',
+    vm.filters.category_data_use = {
+        queryKey: 'category_data_use',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
-        showAll: false,
-        singleSelect: true,
-        enums: enums.cms.category_about_gbif,
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_about_gbif'
-        }
-    };
-    
-    vm.filters.category_audience = {
-        titleTranslation: 'cms.facet.category_audience',
-        queryKey: 'category_audience',
-        filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
-        showAll: true,
-        singleSelect: true,
-        enums: enums.cms.category_audience,
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_audience'
-        }
-    };
-    
-    vm.filters.category_data_type = {
-        titleTranslation: 'cms.facet.category_data_type',
-        queryKey: 'category_data_type',
-        filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
         showAll: false,
         expanded: true,
         singleSelect: true,
-        enums: enums.cms.category_data_type,
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_data_type'
-        }
-    };
-
-    vm.filters.category_purpose = {
-        titleTranslation: 'cms.facet.category_purpose',
-        queryKey: 'category_purpose',
-        filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
-        showAll: false,
-        singleSelect: true,
-        enums: enums.cms.category_purpose,
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_purpose'
-        }
-    };
-
-    vm.filters.category_data_use = {
-        titleTranslation: 'cms.facet.category_data_use',
-        queryKey: 'category_data_use',
-        filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
-        showAll: false,
-        singleSelect: true,
-        enums: enums.cms.category_data_use,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -126,13 +59,11 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
     };
 
     vm.filters.category_capacity_enhancement = {
-        titleTranslation: 'cms.facet.category_capacity_enhancement',
         queryKey: 'category_capacity_enhancement',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
         showAll: false,
+        expanded: false,
         singleSelect: true,
-        enums: enums.cms.category_capacity_enhancement,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -140,14 +71,78 @@ function cmsCtrl($state, hotkeys, enums, CmsFilter) {
         }
     };
 
+    vm.filters.category_about_gbif = {
+        queryKey: 'category_about_gbif',
+        filter: CmsFilter,
+        showAll: false,
+        expanded: false,
+        singleSelect: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_about_gbif'
+        }
+    };
+
+    vm.filters.category_audience = {
+        queryKey: 'category_audience',
+        filter: CmsFilter,
+        showAll: false,
+        expanded: false,
+        singleSelect: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_audience'
+        }
+    };
+
+    vm.filters.category_purpose = {
+        queryKey: 'category_purpose',
+        filter: CmsFilter,
+        showAll: false,
+        expanded: false,
+        singleSelect: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_purpose'
+        }
+    };
+
+    vm.filters.category_country = {
+        queryKey: 'category_country',
+        filter: CmsFilter,
+        showAll: false,
+        expanded: false,
+        singleSelect: true,
+        isSearchable: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_country'
+        }
+    };
+
+    vm.filters.category_about_gbif = {
+        queryKey: 'category_about_gbif',
+        filter: CmsFilter,
+        showAll: false,
+        expanded: false,
+        singleSelect: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_about_gbif'
+        }
+    };
+
     vm.filters.category_topic = {
-        titleTranslation: 'cms.facet.category_topic',
         queryKey: 'category_topic',
         filter: CmsFilter,
-        enumTranslationPath: 'cms.filter.',
         showAll: false,
+        expanded: false,
         singleSelect: true,
-        enums: enums.cms.category_topic,
         facets: {
             hasFacets: true,
             hideBar: true,

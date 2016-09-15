@@ -40,7 +40,7 @@
                         Publishers
                     </a>
                     {% for type in ['news', 'data_use', 'programme', 'project', 'document', 'presentation', 'tool'] %}
-                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.type.{$ type $}">
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.contentType.{$ type $}">
                             {$ type $}
                         </a>
                     {%  endfor %}

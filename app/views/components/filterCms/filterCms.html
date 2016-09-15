@@ -1,7 +1,7 @@
-<div class="filter-group filter-group--search">
+<div class="filter-group filter-group--search" ng-show="vm.suggestions.counts.length > 0">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h5>
-            <span class="text-capitalize" translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
+            <span class="text-capitalize">{{ vm.facetTitle }}</span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h5>
@@ -14,12 +14,12 @@
                 <label>
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span class="text-capitalize" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
-                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
-                            {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
-                        </span>
+                    <span class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></span>
+                    <span class="text-capitalize" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{ vm.facetTitle }}</span>
+                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
+                        {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                     </span>
+                </span>
                 </label>
             </div>
         </div>
@@ -38,33 +38,33 @@
 
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.filterConfig.search.isSearchable && vm.allowSelection()">
 
-            <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
+            <div class="checkbox" ng-repeat="facet in vm.suggestions.counts" ng-if="!vm.inQuery(facet.key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
-                    <span class="filter-group__filter__name">
-                        <span class="filter-group__filter__name__title text-capitalize" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{facet.title}}</span>
-                        <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
-                    </span>
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key, checked)">
+                        <span class="filter-group__filter__name">
+                            <span class="filter-group__filter__name__title text-capitalize" >{{ facet.translatedLabel }}</span>
+                            <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{ facet.count | localNumber:vm.filterState.query.locale }}</span>
+                        </span>
                 </label>
             </div>
 
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.search.isSearchable">
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.search.isSearchable && vm.filterConfig.expanded">
 
-            <div class="checkbox" ng-repeat="key in vm.getVisibleEnums()">
+            <div class="checkbox" ng-repeat="facet in vm.suggestions.counts">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key, checked)">
                     <span class="filter-group__filter__name">
-                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span class="filter-group__filter__name__title text-capitalize" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
+                        <span class="filter-group__filter__name__bar" ng-style="vm.getWidth(facet.key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></span>
+                        <span class="filter-group__filter__name__title text-capitalize">{{ facet.translatedLabel }}</span>
                         <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && !vm.hideFacetCounts">
-                            {{vm.suggestions.counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
+                            {{ facet.count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
                     </span>
                 </label>
             </div>
-            <div ng-if="vm.filterConfig.expanded && !vm.getVisibleEnums().length">
+            <div ng-if="vm.filterConfig.expanded && vm.suggestions.counts.length == 0">
                 <p>Non found - try to clear some filters</p>
             </div>
 
