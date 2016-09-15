@@ -30,6 +30,11 @@
                 return num.toLocaleString(lang);
             }
         })
+        .filter('stripTags', function() {
+            return function(text) {
+                return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+            };
+        })
         .filter('unique', function() {
             return function(a) {
                 if (angular.isString(a)) return [a];

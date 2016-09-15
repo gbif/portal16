@@ -13,8 +13,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset) {
+function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter) {
     var vm = this;
+
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
@@ -391,7 +392,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
-
     //intervals
     vm.filters.year = {
         queryKey: 'year',
@@ -442,6 +442,28 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
             event.preventDefault();
         }
     });
+
+    vm.freeTextSpeciesSuggestion = undefined;
+    vm.showFreeTextSpeciesSuggestion = false;
+    vm.testFreeTextForSpeciesName = function() {
+        vm.freeTextSpeciesSuggestion = SpeciesMatch.query({verbose: false, name: vm.occurrenceState.query.q}, function(response){
+            if (response.matchType !== 'NONE' && response.confidence > 80) {
+                vm.showFreeTextSpeciesSuggestion = true;
+            }
+        });
+    };
+    vm.testFreeTextForSpeciesName();
+
+    vm.addTaxon = function(taxon) {
+        vm.occurrenceState.query.q = '';
+        vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
+        vm.occurrenceState.query.taxon_key = [taxon.usageKey].concat(vm.occurrenceState.query.taxon_key);
+        vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
+        vm.occurrenceState.query.offset = undefined;
+        vm.occurrenceState.query.limit = undefined;
+        $state.go($state.current, vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
+    }
+
 
 }
 

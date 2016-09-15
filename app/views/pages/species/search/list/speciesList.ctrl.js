@@ -10,10 +10,10 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('speciesTableCtrl', speciesTableCtrl);
+    .controller('speciesListCtrl', speciesListCtrl);
 
 /** @ngInject */
-function speciesTableCtrl(hotkeys, SpeciesFilter, env, speciesConstants) {
+function speciesListCtrl(hotkeys, SpeciesFilter, env, speciesConstants) {
     var vm = this, offset;
     vm.backboneKey = speciesConstants.backboneKey;
     vm.state = SpeciesFilter.getState();
@@ -57,11 +57,22 @@ function speciesTableCtrl(hotkeys, SpeciesFilter, env, speciesConstants) {
         }
     });
 
+    vm.getVernacularNameMatch = function(species){
+        if (species && angular.isArray(species.vernacularNames)) {
+            for (var i = 0; i < species.vernacularNames.length; i++) {
+                if (species.vernacularNames[i].vernacularName.indexOf('gbifHl') > -1) {
+                    return species.vernacularNames[i];
+                }
+            }
+        }
+        return false;
+    };
+
 
     vm.hasData = function() {
         return typeof vm.state.data.count !== 'undefined'
     };
 }
 
-module.exports = speciesTableCtrl;
+module.exports = speciesListCtrl;
 

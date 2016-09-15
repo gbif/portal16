@@ -25,4 +25,7 @@ router.get('/search', function (req, res) {
     renderSearch(req, res);
 });
 
+router.get('/table', function (req, res) {
+    renderSearch(req, res);
+});
 

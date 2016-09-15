@@ -82,6 +82,7 @@ require('../../../pages/publisher/search/table/publisherTable.ctrl');
 
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
+require('../../../pages/species/search/list/speciesList.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');

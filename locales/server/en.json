@@ -1320,7 +1320,9 @@
 		},
 		"invert": "reverse",
 		"clear": "clear",
-		"cms": "GBIF network"
+		"cms": "GBIF network",
+		"yes": "yes",
+		"no": "no"
 	},
 	"continent": {
 		"NORTH_AMERICA": "North America",

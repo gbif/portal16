@@ -44,6 +44,7 @@ angular
             state.query['rank.facetLimit'] = 100;
             state.query.facetMultiselect = true;
             apiQuery = state.query;
+            //apiQuery.hl = true;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
 

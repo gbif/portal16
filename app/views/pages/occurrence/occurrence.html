@@ -14,6 +14,28 @@
             </form>
         </div>
 
+
+
+
+        <!--<div class="filter-group filter-group&#45;&#45;search">-->
+            <!--<div class="filter-group__filter">-->
+        <div class="seperator--b" ng-if="occurrence.showFreeTextSpeciesSuggestion && occurrence.freeTextSpeciesSuggestion">
+            <div>
+                Did you mean
+                <div>
+                    {{occurrence.freeTextSpeciesSuggestion.scientificName}} the <span translate="taxonRank.{{occurrence.freeTextSpeciesSuggestion.rank}}"></span>?
+                </div>
+            </div>
+            <div class="site-drawer__bar">
+                <a href="" class="site-drawer__bar__action" ng-click="occurrence.addTaxon(occurrence.freeTextSpeciesSuggestion)">
+                    <span translate="stdTerms.yes">Yes</span>
+                </a>
+                <a href="" class="site-drawer__bar__action" ng-click="occurrence.showFreeTextSpeciesSuggestion = false">
+                    <span translate="stdTerms.no">No</span>
+                </a>
+            </div>
+        </div>
+
         <div class="filter-group text-center">
             <div class="gb-btn-group">
                 <label ng-model="occurrence.occurrenceState.query.advanced" uib-btn-radio="false" ng-change="occurrence.toggleAdvanced()">Simple</label>
