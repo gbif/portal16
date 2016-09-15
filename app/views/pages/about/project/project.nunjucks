@@ -26,7 +26,7 @@
                             <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | safe $}
+                            {$ data.image.image_field_caption | safe $}
                         </figcaption>
                     </figure>
                 {% endif %}
@@ -38,7 +38,7 @@
                                 <div class="cover-image article-image">
                                     <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
                                 </div>
-                                <figcaption><div>{$ image.image_field_caption.value | safe $}</div></figcaption>
+                                <figcaption><div>{$ data.image.image_field_caption | safe $}</div></figcaption>
                             </figure>
                         {% endif %}
 
@@ -160,24 +160,52 @@
                     </div>
                 </div>
             </div>
+            {% if data.__system.prev or data.__system.next %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">
                     <div class="row">
+                        {% if data.__system.prev %}
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image alt="{$ data.__system.prev.imageCaption $}">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span><a href="/{$ data.__system.prev.targetUrl $}">Previous Project</a></span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.__system.prev.targetUrl $}">
+                                                {$ data.__system.prev.title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
                                 </div>
                             </article>
                         </div>
+                        {% endif %}
+                        {% if data.__system.next %}
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image alt="{$ data.__system.next.imageCaption $}">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span><a href="/{$ data.__system.next.targetUrl $}">Next Project</a></span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.__system.next.targetUrl $}">
+                                                {$ data.__system.next.title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
                                 </div>
                             </article>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </aside>
+            {% endif %}
         </article>
     </div>
 {% endblock %}

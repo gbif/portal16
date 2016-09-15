@@ -46,7 +46,6 @@
                         {% endif %}
 
                         {$ data.body | safe $}
-
                     </div>
 
                     <div class="article-auxiliary prose-columns">
@@ -89,25 +88,25 @@
                                 <h5>Subject</h5>
                                 <ul class="list-chips">
                                     {% for tag in data.tagsAudience %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsDataUse %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsDataType %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsCapacityEnhancement %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsPurpose %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsTopic %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.gbifArea %}
-                                        <li><a href="/tag/{$ tag.id $}">{$ tag.name $}</a></li>
+                                        <li><a href="">{$ tag.name $}</a></li>
                                     {% endfor %}
                                 </ul>
                             </section>
@@ -120,9 +119,11 @@
                     </div>
                 </div>
             </div>
+            {% if data.__system.prev or data.__system.next %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">
                     <div class="row">
+                        {% if data.__system.prev %}
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
@@ -140,6 +141,8 @@
                                 </div>
                             </article>
                         </div>
+                        {% endif %}
+                        {% if data.__system.next %}
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
@@ -157,9 +160,11 @@
                                 </div>
                             </article>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </aside>
+            {% endif %}
         </article>
     </div>
 {% endblock %}
