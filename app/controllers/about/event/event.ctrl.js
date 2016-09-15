@@ -2,8 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     cmsApi = require('../../../models/cmsData/apiConfig'),
-    cmsData = require('../../../models/cmsData/cmsData'),
-    request = require('request');
+    cmsData = require('../../../models/cmsData/cmsData');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -28,10 +27,10 @@ router.get('/event/:requestedPath(*)', function(req, res, next) {
             return data;
         }
         else {
-            throw new error();
+            throw new Error("No valid URL alias or it doesn't match.");
         }})
     .then(function(data){
-        return cmsEndpointAccess(cmsApi.event.url + data.data[0].id);
+        return cmsData.cmsEndpointAccess(cmsApi.event.url + data.data[0].id);
     })
     .then(function(body){
         var proseContent = {
