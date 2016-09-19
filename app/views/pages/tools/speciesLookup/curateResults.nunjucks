@@ -34,9 +34,18 @@
                             </td>
 
                             <td class="table-cell--widder" ng-click="speciesLookup.itemToEdit = species">
-                                <span ng-if="species.key">{{species.scientificName}}</span>
-                                <span class="discreet" ng-if="!species.key && species.match.alternatives && !species.userEdited">Multiple matches</span>
-                                <span class="discreet" ng-if="!species.key && species.userEdited">Discarded</span>
+                                <span ng-if="species.key">
+                                    <span class="gb-icon-pen"></span>
+                                    {{species.scientificName}}
+                                </span>
+                                <span ng-if="!species.key && species.match.alternatives && !species.userEdited">
+                                    <span class="gb-icon-pen"></span>
+                                    <span class="discreet">Multiple matches</span>
+                                </span>
+                                <span class="discreet" ng-if="!species.key && species.userEdited">
+                                    <span class="gb-icon-pen"></span>
+                                    <span class="discreet">Discarded</span>
+                                </span>
                             </td>
 
                             <td class="table-cell--narrow">
@@ -50,11 +59,11 @@
                             </td>
 
                             <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                <a ng-href="../species/{{species[t + 'Key']}}">{{species[t]}}</a>
+                                <a ng-href="../species/{{species[t + 'Key']}}" target="_blank">{{species[t]}}</a>
                             </td>
 
                             <td class="table-cell--widder">
-                                <a ng-href="../species/{{speciesKey}}">{{species.species}}</a>
+                                <a ng-href="../species/{{species.speciesKey}}" target="_blank">{{species.species}}</a>
                             </td>
 
                             <!-- <td class="table-cell--wide">
