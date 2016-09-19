@@ -30,6 +30,12 @@
                 return num.toLocaleString(lang);
             }
         })
+        .filter('startFrom', function() {
+            return function(input, start) {
+                start = +start; //parse to int
+                return input.slice(start);
+            }
+        })
         .filter('stripTags', function() {
             return function(text) {
                 return  text ? String(text).replace(/<[^>]+>/gm, '') : '';

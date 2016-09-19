@@ -9,6 +9,7 @@
     </script>
     <article class="wrapper-horizontal-stripes occurrenceKey page--data" ng-controller="occurrenceKeyCtrl as occurrence">
         <div class="overlay"></div>
+
         {% include('./header/header.nunjucks') %}
         {% include('./highlights/highlights.nunjucks') %}
         {% include('./location/location.nunjucks') %}

@@ -1,0 +1,57 @@
+// switch
+// http://codepen.io/JohnTheCat/pen/azbRpM
+
+
+$grid-step = 0.3
+
+$size = $grid-step * 10
+$height = $grid-step * 4
+$padding = $grid-step
+$label = $height + ($padding * 2)
+
+$animation = .28s cubic-bezier(0.4,0,.2,1)
+$animation-slow = .56s cubic-bezier(0.4,0,.2,1)
+
+$color-swatch = darken(deepskyblue, 10)
+$color-thumb-off = #fafafa
+$color-track-off = #ddd
+$color-track-on = lighten(deepskyblue, 20)
+
+.switch-group
+	padding 1rem
+	.switch
+		display inline-block
+		position relative
+		width ( $size )rem
+		height ( $height )rem
+		border-radius ( $height / 2 )rem
+		background $color-track-off
+		transition background $animation
+		vertical-align middle
+		cursor pointer
+		&::before
+			content ''
+			position absolute
+			top ( - $padding )rem
+			left ( - $padding )rem
+			width ($label)rem
+			height ($label)rem
+			background $color-thumb-off
+			box-shadow 0 2px ( $height / 2 )rem rgba(0,0,0,.28)
+			border-radius 50%
+			transition left $animation, background $animation, box-shadow $animation
+	&:active::before
+		box-shadow 0 2px ( $height / 2 )px rgba(black, .28), 0 0 0 ($size / 2)px rgba(#808080, .1)
+	input:checked + .switch
+		background $color-track-on
+		&::before
+			left ( $size - $label + $padding )rem
+			background $color-swatch
+		&:active::before
+			box-shadow 0 2px ( $height / 2 )rem rgba(black, .28), 0 0 0 ($size / 2)rem rgba(#808080, .1)
+	input
+		display none
+	p
+		display inline
+		padding 0 1rem
+		color $gray

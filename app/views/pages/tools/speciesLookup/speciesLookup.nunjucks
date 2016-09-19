@@ -1,0 +1,34 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes speciesLookup page--data" ng-controller="speciesLookupCtrl as speciesLookup">
+    	
+    	{% include "./matchOverlay.nunjucks" %}
+
+		{% include "./downloadOverlay.nunjucks" %}
+		
+        <div class="container-fluid white-background search-header">
+	        <div class="row">
+	            <div class="col-xs-12">
+	                <nav class="article-header__category article-header__category--deep">
+	                    <span class="article-header__category__upper">Tools</span>
+	                    <span class="article-header__category__lower">Look up</span>
+	                </nav>
+	                <!-- <div class="search-header__description">
+	                    <span ng-if="occTable.hasData()">
+	                        {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
+	                    </span>
+	                </div> -->
+	            </div>
+	        </div>
+	    </div>
+
+		{% include "./upload.nunjucks" %}
+		
+		{% include "./selectKingdom.nunjucks" %}
+
+		{% include "./curateResults.nunjucks" %}
+
+
+    </article>
+{% endblock %}

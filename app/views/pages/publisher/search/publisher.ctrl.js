@@ -13,7 +13,7 @@ angular
     .controller('publisherCtrl', publisherCtrl);
 
 /** @ngInject */
-function publisherCtrl($state, hotkeys, PublisherFilter, suggestEndpoints) {
+function publisherCtrl($state, hotkeys, PublisherFilter) {
     var vm = this;
     vm.state = PublisherFilter.getState();
 

@@ -1,17 +1,6 @@
 
 'use strict';
 
-/*
-HEADLINE with batch infos
-MAP LOCATION
-SUMMARY + FREE?
-FREE? COMPOSED? e.g. last seen in area OR estimated temperature OR species traits OR suspicious data
-MEDIA
-SIMILAR
-DETAILS
-GBIF SPECIFIC INFO
-*/
-
 var angular = require('angular');
 
 angular
@@ -225,6 +214,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             map.once('focus', function() { map.scrollWheelZoom.enable(); });
         });
     }
+
 }
 
 module.exports = occurrenceKeyCtrl;

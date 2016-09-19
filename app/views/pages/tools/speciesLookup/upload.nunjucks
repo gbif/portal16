@@ -1,0 +1,19 @@
+<!-- Select file -->
+<div ng-if="!speciesLookup.species">
+	<p class="text-center">
+    	Normalize species names from a csv file against the GBIF backbone.</br>
+    	The file is expected to be have a column called 'scientificName' and an optional column 'kingdom'. See <a download="example.csv" href="data:application/octet-stream,scientificName,kingdom%0Apuma%20concolor,animalia%0Aabies%20alba%0A">example.csv</a>.
+    </p>
+	<div class="text-center">
+        <div class="speciesLookup__input-file">  
+		    <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
+		    <a href="">Select file</a>
+		</div>
+		<p>or</p>
+	</div>
+    <p class="speciesLookup__dropArea text-uppercase" droppable drop="speciesLookup.handleDrop">Drop here</p>
+    <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
+    <!-- <p ng-if="speciesLookup.invalidFileFormat">
+    	Invalid file format
+    </p> -->
+</div>

@@ -47,6 +47,9 @@ var apiConfig = {
     },
     taxonSearch: {
         url: baseUrl + 'species/search/'
+    },
+    taxonMatch: {
+        url: baseUrl + 'species/match'
     }
 };
 

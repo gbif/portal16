@@ -1,0 +1,70 @@
+<div class="ng-cloak" ng-if="speciesLookup.species && !speciesLookup.processing">
+			
+	<!-- Lookup keys -->
+    <div class="horizontal-stripe white-background speciesLookup__raw-table">
+
+        <!-- <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"> </ng-include> -->
+
+        <div class="speciesLookup__default-kingdom">
+			<p>
+				If no kingdom specified then prefer
+			</p>
+			<div>
+				<ul class="list-inline">
+					<li ng-repeat="kingdom in ['animalia', 'plantae', 'fungi', 'chromista', 'bacteria', 'protozoa', 'viruses', 'archaea']">
+						<a href="" class="inherit" ng-click="speciesLookup.setDefaultKingdom(kingdom)" ng-class="{'is-active': kingdom == speciesLookup.defaultKingdom}">
+							<span class="h1 gb-icon-{{kingdom}}"></span>
+							{{kingdom}} 
+						</a>
+					</li>
+				</ul>
+				<div class="p text-center">
+					<a href="" ng-click="speciesLookup.normalizeAll()" class="gb-button--primary">Match to GBIF backbone</a>
+				</div>
+				<div ng-if="speciesLookup.species.length > 2000">
+					<p class="badge badge--warning">Large file</p>
+					<p>
+						Expect to download around {{speciesLookup.species.length*2/1000 | number: 0}}mb - on slow connections this will take a while
+					</p>
+				</div>
+			</div>
+		</div>
+        <div class="occurrence-search__table__area" >
+            <div class="scrollable-y">
+                <div class="table-container">
+                    <table class="table search-table">
+                        <thead>
+                            <tr>
+                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'prefered kingdom']">{{field}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="species in speciesLookup.species | startFrom:speciesLookup.pagination.currentPage*speciesLookup.pagination.pageSize-speciesLookup.pagination.pageSize | limitTo:speciesLookup.pagination.pageSize" >
+                                <td class="table-cell--widder">
+                                    <span>{{species.originalName}}</span>
+                                </td>
+                                <td class="table-cell--normal">
+                                    <span>{{species.preferedKingdom}}</span>
+									<!-- <span ng-if="!species.preferedKingdom && speciesLookup.defaultKingdom">{{speciesLookup.defaultKingdom}}</span>
+									<span ng-if="!species.preferedKingdom && !speciesLookup.defaultKingdom">any</span> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <uib-pagination
+		                total-items="speciesLookup.species.length"
+		                ng-model="speciesLookup.pagination.currentPage"
+		                max-size="5"
+		                items-per-page="speciesLookup.pagination.pageSize"
+		                class="pagination-sm"
+		                boundary-link-numbers="true"
+		                rotate="true"
+		                ng-change="speciesLookup.pageChanged()"
+		                ng-show="speciesLookup.species.length > speciesLookup.pagination.pageSize">
+			        </uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
