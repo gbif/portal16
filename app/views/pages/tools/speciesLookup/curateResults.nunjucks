@@ -40,7 +40,7 @@
                                 </span>
                                 <span ng-if="!species.key && species.match.alternatives && !species.userEdited">
                                     <span class="gb-icon-pen"></span>
-                                    <span class="discreet">Multiple matches</span>
+                                    <span class="discreet">Options</span>
                                 </span>
                                 <span class="discreet" ng-if="!species.key && species.userEdited">
                                     <span class="gb-icon-pen"></span>
