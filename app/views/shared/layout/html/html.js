@@ -105,10 +105,6 @@ require('./angular/translate');
 
 
 
-require('../../../pages/tools/speciesLookup/speciesLookup.ctrl');
-
-
-
 var menu = require('../partials/navigation/navigation.js');
 
 

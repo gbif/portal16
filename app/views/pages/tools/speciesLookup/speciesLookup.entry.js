@@ -1,8 +1,7 @@
 
 'use strict';
 
-var angular = require('angular'),
-    async = require('async');
+var async = require('async');
 
 require('./droppable.directive');
 
@@ -33,7 +32,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
 
     var isValidFile = function(file){
         return file && file.type == 'text/csv';
-    }
+    };
 
     var parseFile = function(file) {
         vm.invalidFileFormat = false;
@@ -238,7 +237,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         vm.referenceId = response.data.referenceId;
       }, function(){
       });
-    }
+    };
 
     // vm.normalizeAll();
 }

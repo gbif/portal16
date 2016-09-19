@@ -63,5 +63,6 @@
 <script src="/js/vendor/vendor.js"></script>
 <script src="/js/base/custom.js"></script>
 
+{% block scripts %}{% endblock %}
 </body>
 </html>
