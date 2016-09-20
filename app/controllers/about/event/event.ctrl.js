@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/event/:requestedPath(*)', function(req, res, next) {
-    // If there is '.debug' then later output pre-renderred data as JSON
+    // If there is '.debug' then later output data as JSON
     var requestedPath,
         jsonOutput = false;
     if (req.params.requestedPath.search(/\.debug/) != -1) {
@@ -20,19 +20,38 @@ router.get('/event/:requestedPath(*)', function(req, res, next) {
         requestedPath = req.params.requestedPath;
     }
 
+    // Check whether parsed path is nid. If true, then skip URL alias lookup.
+    if (!isNaN(requestedPath)) {
+        cmsData.cmsEndpointAccess(cmsApi.event.url + requestedPath)
+            .then(function(body){
+                renderPage(body, jsonOutput);
+            })
+            .catch(function(err){
+                next(err);
+            });
+    }
     // Start by looking up URL Alias
-    cmsData.cmsEndpointAccess(cmsApi.urlLookup.url + requestedPath)
-    .then(function(data){
-        if (data.data.length == 1 && data.data[0].targetUrl == requestedPath) {
-            return data;
-        }
-        else {
-            throw new Error("No valid URL alias or it doesn't match.");
-        }})
-    .then(function(data){
-        return cmsData.cmsEndpointAccess(cmsApi.event.url + data.data[0].id);
-    })
-    .then(function(body){
+    else {
+        cmsData.cmsEndpointAccess(cmsApi.urlLookup.url + requestedPath)
+            .then(function(data){
+                if (data.data.length == 1 && data.data[0].targetUrl == requestedPath) {
+                    return data;
+                }
+                else {
+                    throw new Error("No valid URL alias or it doesn't match.");
+                }})
+            .then(function(data){
+                return cmsData.cmsEndpointAccess(cmsApi.event.url + data.data[0].id);
+            })
+            .then(function(body){
+                renderPage(body, jsonOutput);
+            })
+            .catch(function(err){
+                next(err);
+            });
+    }
+
+    function renderPage(body, jsonOutput) {
         var proseContent = {
             data: body.data[0],
             images: body.data[0].images,
@@ -52,8 +71,5 @@ router.get('/event/:requestedPath(*)', function(req, res, next) {
         } catch(e) {
             next(e);
         }
-    })
-    .catch(function(err){
-        next(err);
-    });
+    }
 });

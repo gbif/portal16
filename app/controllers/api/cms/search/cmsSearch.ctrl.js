@@ -23,7 +23,7 @@ router.get('/cms/search', function (req, res, next) {
             return data;
         }
         else {
-            throw new Error();
+            throw new Error('Neither facets nor filters exists.');
         }
     })
     .then(function(data){

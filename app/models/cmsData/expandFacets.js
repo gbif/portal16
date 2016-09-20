@@ -76,7 +76,7 @@ const resource_type = {
 };
 
 function expandFacets(facets, __) {
-    facets.forEach(function(facetType, i){
+    facets.forEach(function(facetType){
        let ftc = facetTypeConfig[facetType.field];
         facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
         facetType.counts.forEach(function(e){

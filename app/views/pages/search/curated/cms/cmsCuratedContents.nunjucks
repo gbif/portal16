@@ -8,7 +8,7 @@
                     <nav class="article-header__category article-header__category--deep small">
                         <span class="article-header__category__upper">about</span>
                             <span class="article-header__category__lower">
-                                {$ __('cms.type.' + highlightedNode.type) $}
+                                {$ __('cms.contentType.' + highlightedNode.type) $}
                             </span>
                     </nav>
                     <h2 class="h4 text-center card__content__title"><a href="/{$ highlightedNode.targetUrl $}">{$ highlightedNode.title $}</a></h2>
