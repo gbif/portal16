@@ -162,6 +162,10 @@ function getResultTasks(results, expandList, cb) {
                 tasks[fromKey + '_' + e[fromKey]] = function (cb) {
                     helper.getApiData(expandConfig.endpoint + e[fromKey], cb);
                 };
+            } else if (expandConfig && expandConfig.type == 'TEMPLATE') {
+                tasks[fromKey + '_' + e[fromKey]] = function (cb) {
+                    helper.getApiData(expandConfig.templatedEndpoint.replace('{{key}}', e[fromKey]), cb);
+                };
             }
         });
     });
@@ -175,7 +179,8 @@ function getResultTasks(results, expandList, cb) {
             results.forEach(function (e) {
                 //prune the extended results to keep the response json small
                 expandList.forEach(function(expandItem){
-                    e['_' + expandItem.fromKey] = filterObj(data[expandItem.fromKey + '_' + e[expandItem.fromKey]], expandItem.fields || ['title']);
+                    let toKey = expandItem.toKey || expandItem.fromKey;
+                    e['_' + toKey] = filterObj(data[expandItem.fromKey + '_' + e[expandItem.fromKey]], expandItem.fields || ['title']);
                 });
             });
             cb();

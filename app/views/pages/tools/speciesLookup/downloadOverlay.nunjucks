@@ -1,0 +1,24 @@
+<div class="speciesLookup__overlay ng-cloak" ng-show="speciesLookup.download">
+
+	<div class="speciesLookup__overlay__card">
+		<div class="speciesLookup__overlay__card__header">
+			<h4>Download as .csv</h4>
+		</div>
+		<div class="speciesLookup__overlay__card__download seperator--b seperator">
+			<div>
+				<a id="speciesLookup_generatedCsv" href="" download='normalized.csv' ng-click="speciesLookup.download = false" class="gb-icon-cloud-download"></a>
+			</div>
+		</div>
+		<div ng-if="speciesLookup.referenceId">
+			See final result at <a ng-href="https://github.com/MortenHofft/slettes/blob/master/{{speciesLookup.referenceId}}/counts.csv">Github</a>
+		</div>
+		<div class="site-drawer__bar">
+            <a href="" class="site-drawer__bar__action" ng-click="speciesLookup.download = false">
+                <span>cancel</span>
+            </a>
+            <a href="" class="site-drawer__bar__action" ng-click="speciesLookup.countSpecies()">
+                <span>count</span>
+            </a>
+        </div>
+	</div>
+</div>

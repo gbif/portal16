@@ -6,7 +6,8 @@ var path = require('path'),
     port = yargs.port,
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
-    cmsApi = yargs.cmsapi;
+    cmsApi = yargs.cmsapi,
+    ghpw = yargs.ghpw;
 
 var config = {
     local: {
@@ -17,6 +18,7 @@ var config = {
         },
         port: port || 3000,
         log: log,
+        githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
@@ -29,6 +31,7 @@ var config = {
         },
         port: port || 80,
         log: log,
+        githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
@@ -41,6 +44,7 @@ var config = {
         },
         port: port || 80,
         log: log,
+        githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
@@ -53,6 +57,7 @@ var config = {
         },
         port: port || 80,
         log: log,
+        githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
@@ -65,6 +70,7 @@ var config = {
         },
         port: port || 3000,
         log: log,
+        githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'

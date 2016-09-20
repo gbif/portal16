@@ -99,9 +99,16 @@ function routerConfig($stateProvider, $locationProvider) {
                 }
             }
         })
-        .state('speciesSearchTable', {
+        .state('speciesSearchList', {
             parent: 'speciesSearch',
             url: '/search',
+            templateUrl: '/templates/pages/species/search/list/speciesList.html',
+            controller: 'speciesListCtrl',
+            controllerAs: 'speciesList'
+        })
+        .state('speciesSearchTable', {
+            parent: 'speciesSearch',
+            url: '/table',
             templateUrl: '/templates/pages/species/search/table/speciesTable.html',
             controller: 'speciesTableCtrl',
             controllerAs: 'speciesTable'

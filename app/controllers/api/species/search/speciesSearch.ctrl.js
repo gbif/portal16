@@ -22,6 +22,12 @@ router.get('/species/search', function (req, res, next) {
                 {
                     fromKey: 'datasetKey',
                     type: expandConfig.DATASET_KEY
+                },
+                {
+                    fromKey: 'key',
+                    toKey: 'media',
+                    type: expandConfig.MEDIA,
+                    fields: ['results']
                 }
             ],
             expandConfig: expandConfig
@@ -101,5 +107,10 @@ const expandConfig = {
     STATUS: {
         type: 'ENUM',
         translationPath: 'taxon.statusEnum.'
+    },
+    MEDIA: {
+        type: 'TEMPLATE',
+        templatedEndpoint: apiConfig.taxon.url  + '{{key}}/media',
+        fromKey: 'key'
     }
 };

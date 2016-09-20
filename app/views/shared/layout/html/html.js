@@ -82,6 +82,7 @@ require('../../../pages/publisher/search/table/publisherTable.ctrl');
 
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
+require('../../../pages/species/search/list/speciesList.ctrl');
 
 require('../../../components/map/basic/gbmap.directive');
 require('../../../components/suggest/suggest.directive');
@@ -102,6 +103,8 @@ require('../../../components/filterCms/filterCms.directive');
 require('../../../components/focusMe/focusMe.directive');
 
 require('./angular/translate');
+
+
 
 var menu = require('../partials/navigation/navigation.js');
 

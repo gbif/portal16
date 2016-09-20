@@ -26,6 +26,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesMatch', function($resource, env) {
+            return $resource(env.dataApi + 'species/match', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesSuggest', function($resource, env) {
             return $resource(env.dataApi + 'species/suggest', null, {
                     'query': {
