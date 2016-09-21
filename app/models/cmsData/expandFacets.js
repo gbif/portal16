@@ -107,8 +107,10 @@ function expandFacets(facets, __) {
             }
         });
     });
-    facets[index_type].counts = facets[index_type].counts.concat(facets[index_category_resource_type].counts);
-    facets.splice(index_category_resource_type, 1);
+    if (!isNaN(index_type) && !isNaN(index_category_resource_type)) {
+        facets[index_type].counts = facets[index_type].counts.concat(facets[index_category_resource_type].counts);
+        facets.splice(index_category_resource_type, 1);
+    }
 
     // use enum as resource type key, and exclude dataset from content types
     facets.forEach(function(facet){

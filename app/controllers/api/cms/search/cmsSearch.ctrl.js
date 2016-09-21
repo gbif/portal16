@@ -19,7 +19,7 @@ router.get('/cms/search', function (req, res, next) {
             return data;
         }
         else if (data.hasOwnProperty('filters')) {
-            data.facets = data.filter;
+            data.facets = data.filters;
             return data;
         }
         else {
