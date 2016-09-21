@@ -20,25 +20,25 @@
                     </div>
                 </div>
 
-                {% if data.image.width > 1000 %}
+                {% if data.images[0].width > 1000 %}
                     <figure class="heading-image">
                         <div class="cover-image">
-                            <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
+                            <img ng-src="{$ data.images[0].original $}" alt="{$ data.images[0].id $}" gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
-                            {$ data.image.image_field_caption | safe $}
+                            {$ data.images[0].image_field_caption | safe $}
                         </figcaption>
                     </figure>
                 {% endif %}
 
                 <div class="container-fluid container--prose">
                     <div class="body-text prose-columns">
-                        {% if data.image.width <= 1000 %}
+                        {% if data.images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
-                                    <img ng-src="{$ data.image.original $}" alt="{$ data.image.id $}" gallery-image>
+                                    <img ng-src="{$ data.images[0].original $}" alt="{$ data.images[0].id $}" gallery-image>
                                 </div>
-                                <figcaption><div>{$ data.image.image_field_caption | safe $}</div></figcaption>
+                                <figcaption><div>{$ data.images[0].image_field_caption | safe $}</div></figcaption>
                             </figure>
                         {% endif %}
 

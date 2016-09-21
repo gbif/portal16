@@ -36,13 +36,13 @@
                 </div>
             </div>
         </div>
-        {% if image.width > 1000 %}
+        {% if images[0].width > 1000 %}
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img ng-src="{$ image.styles.prose_image_for_desktop $}" alt="{$ image.filename $}" gallery-image>
+                    <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
                 </div>
                 <figcaption class="container-fluid container--prose">
-                    {$ image.image_field_caption.value | safe $}
+                    {$ images[0].image_field_caption.value | safe $}
                 </figcaption>
             </figure>
         {% endif %}

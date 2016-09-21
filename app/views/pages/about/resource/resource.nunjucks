@@ -86,12 +86,12 @@
                                 </section>
                             {% endif %}
 
-                            {% if data.image or data.file[0] %}
+                            {% if data.images or data.file[0] %}
                                 <section class="no-break">
                                     <figure>
                                         <div class="resource-image">
                                             {% if data.file[0] %}<a href="{$ data.file[0].original $}">{% endif %}
-                                            <img src="{$ data.image.original $}" alt="{$ data.image.original $}">
+                                            <img src="{$ data.images[0].original $}" alt="{$ data.images[0].original $}">
                                             {% if data.file[0] %}</a>{% endif %}
                                         </div>
                                     </figure>
