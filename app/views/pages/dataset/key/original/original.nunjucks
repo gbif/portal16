@@ -1,0 +1,9 @@
+<section class="horizontal-stripe dataset-key__original">
+    <div class="container--normal">
+        <div>
+            <a href="" class="dataset-key__original__action inherit">Explore original</a>
+            <i class="gb-icon-logo"></i>
+            <a href="" class="dataset-key__original__action inherit">Download dataset</a>
+        </div>
+    </div>
+</section>

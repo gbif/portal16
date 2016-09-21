@@ -1,0 +1,65 @@
+[
+  {
+    "contact": {
+      "userId": [
+        "userId1"
+      ],
+      "email": [],
+      "organization": "Reef Life Survey Foundation"
+    },
+    "expected": [
+      "userId1"
+    ]
+  },
+  {
+    "contact": {
+      "userId": [
+        "userId1",
+        "userId2"
+      ],
+      "firstName": "Graham J",
+      "lastName": "Edgar",
+      "email": [
+        "a@mail.com"
+      ],
+      "organization": "orgNameA"
+    },
+    "expected": [
+      "userId1",
+      "userId2",
+      "a@mail.com"
+    ]
+  },
+  {
+    "contact": {
+      "userId": [],
+      "firstName": "Graham J",
+      "lastName": "Edgar",
+      "organization": "orgNameB"
+    },
+    "expected": [
+      "Graham J Edgar"
+    ]
+  },
+  {
+    "contact": {
+      "organization": "orgNameC"
+    },
+    "expected": [
+      "orgNameC"
+    ]
+  },
+  {
+    "contact": {
+      "email": "mymail"
+    },
+    "expected": [
+      "mymail"
+    ]
+  },
+  {
+    "contact": {
+    },
+    "expected": []
+  }
+]

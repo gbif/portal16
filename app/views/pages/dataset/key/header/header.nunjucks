@@ -1,0 +1,70 @@
+<div class="horizontal-stripe article-header white-background">
+    <div class="container--normal">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">{$ __('stdTerms.dataset') $}</span>
+                    <span class="article-header__category__lower">{$ dataset.record.type $}</span>
+                </nav>
+
+                <h1 class="h2 text-center">
+                    <span>{$ dataset.record.title $}</span>
+                    {#<div class="h4 article-header__sub">#}
+                        {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit">{$ dataset.publisher.title $}</a>#}
+                    {#</div>#}
+                </h1>
+                <div class="article-header__intro">
+                    Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit"><u>{$ dataset.publisher.title $}</u></a>
+                </div>
+
+
+                {% if dataset._computedValues.citedContributers.length > 0 %}
+                    <div>
+                        <ol class="inline-bullet-list">
+                            {% for contributor in dataset._computedValues.citedContributers %}
+                                <li>
+                                    <a href="" class="inherit">
+                                        {$ contributor.firstName $} {$ contributor.lastName $}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                    <p></p>
+                {% endif %}
+
+                {#<div>#}
+                    {#<strong>Affiliations</strong>#}
+                    {#<p>#}
+                        {#Fischereiamt Berlin, Leibniz Institut für Gewässerökologie und Binnenfischerei#}
+                    {#</p>#}
+                {#</div>#}
+                <div>
+                    <span class="gb-button--round">Contributors</span>
+                    <span class="gb-button--round">Corresponding author</span>
+                    <a href="#dataset_citation" class="gb-button--round">Citation</a>
+                </div>
+
+            </header>
+        </div>
+
+
+
+        {#<div class="stripe-comment">#}
+            {#<div>#}
+                {#{$ __('date.synced') $}#}
+                {#{% if gb.locales.current == 'en' %}#}
+                    {#<time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>#}
+                {#{% else %}#}
+                    {#{$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}#}
+                {#{% endif %}#}
+            {#</div>#}
+            {#{% if occurrence.record.modified %}#}
+                {#<div>#}
+                    {#{$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}#}
+                {#</div>#}
+            {#{% endif %}#}
+        {#</div>#}
+
+    </div>
+</div>

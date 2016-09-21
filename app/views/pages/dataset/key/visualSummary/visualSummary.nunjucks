@@ -1,0 +1,23 @@
+
+<section class="horizontal-stripe light-background dataset-key__intro">
+    <div class="container--normal">
+        <div class="container--prose description">
+            <h2 class="h4">About</h2>
+            <div class="prose-columns ">
+                <p>
+                    {$ dataset.record.description | slice(0, 130) $}
+                </p>
+                <p>
+                    <div class="gb-button--round pull-right">More</div>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="horizontal-stripe light-background dataset-key__visual-summary">
+    <p>sldfkjh</p>
+    <p>sldfkjh</p>
+    <p>sldfkjh</p>
+    <p>sldfkjh</p>
+</section>
