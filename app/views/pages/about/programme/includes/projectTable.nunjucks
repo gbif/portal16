@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                 <th><a ng-click="sortField = 'title'; sortReverse = !sortReverse">{$ __('cms.project.project') $}</a><div ng-show="sortField == 'title' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'title' && sortReverse" class="gb-icon-angle-up"></div></th>
-                <th><a ng-click="sortField = 'grantType'; sortReverse = !sortReverse">{$ __('cms.project.grantType') $}</a><div ng-show="sortField == 'grantType' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'grantType' && sortReverse" class="gb-icon-angle-up"></div></th>
+                <th ng-if="programme.node.relatedProjects[0].grantType"><a ng-click="sortField = 'grantType'; sortReverse = !sortReverse">{$ __('cms.project.grantType') $}</a><div ng-show="sortField == 'grantType' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'grantType' && sortReverse" class="gb-icon-angle-up"></div></th>
                 <th><a ng-click="sortField = 'duration.start'; sortReverse = !sortReverse">{$ __('cms.project.duration') $}</a><div ng-show="sortField == 'duration.start' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'duration.start' && sortReverse" class="gb-icon-angle-up"></div></th>
                 <th><a ng-click="sortField = 'fundingAllocated'; sortReverse = !sortReverse">{$ __('cms.project.fundingAllocated') $}</a><div ng-show="sortField == 'fundingAllocated' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'fundingAllocated' && sortReverse" class="gb-icon-angle-up"></div></th>
                 <th><a ng-click="sortField = 'estimatedCoFunding'; sortReverse = !sortReverse">{$ __('cms.project.estCoFunding') $}</a><div ng-show="sortField == 'estimatedCoFunding' && !sortReverse" class="gb-icon-angle-down"></div><div ng-show="sortField == 'estimatedCoFunding' && sortReverse" class="gb-icon-angle-up"></div></th>
@@ -14,13 +14,13 @@
             </thead>
             <tbody>
                 <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sortField:sortReverse">
-                    <td><a href="/{{ project.targetUrl }}">{{ project.title }}</a></td> {# title #}
-                    <td class="text-nowrap" translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grant type #}
-                    <td class="text-nowrap">{{ project.duration.start * 1000 | date:'longDate' }} {$ __('cms.projectDuration.to') $}<br>{{ project.duration.end * 1000 | date:'longDate' }}</td> {# duration #}
+                    <td><a ng-bind="project.title" href="/{{ project.targetUrl }}"></a></td> {# title #}
+                    <td ng-if="project.grantType" class="text-nowrap" translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grant type #}
+                    <td ng-bind="project.duration.end * 1000 | date:'longDate'" class="text-nowrap">{{ project.duration.start * 1000 | date:'longDate' }} {$ __('cms.projectDuration.to') $}<br></td> {# duration #}
                     <th>{$ __('cms.project.fundingAllocated') $}</th>
-                    <td class="text-nowrap currency-allocated">&euro; {{ project.fundingAllocated | number: 2 }}</td> {# funding #}
+                    <td ng-bind="'&euro; ' + (project.fundingAllocated | number: 2)" class="text-nowrap currency-allocated"></td> {# funding #}
                     <th>{$ __('cms.project.estCoFunding') $}</th>
-                    <td class="text-nowrap currency-estimated">&euro; {{ project.estimatedCoFunding | number: 2}}</td> {# estimated co-funding #}
+                    <td ng-bind="'&euro; ' + (project.estimatedCoFunding | number: 2)" class="text-nowrap currency-estimated"></td> {# estimated co-funding #}
                     <td class="text-nowrap" translate="cms.projectStatus.{{ project.status }}"></td> {# status #}
                 </tr>
             </tbody>

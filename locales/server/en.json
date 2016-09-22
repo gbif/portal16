@@ -1531,7 +1531,8 @@
     "projectStatus": {
       "in_progress": "In progress",
       "approved": "Approved",
-      "undefined": "Not specified"
+      "undefined": "Not specified",
+      "closed": "Closed"
     },
     "programme": {
       "projects": "Projects",
