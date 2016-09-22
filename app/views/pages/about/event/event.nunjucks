@@ -71,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            {% if data.__system.prev or data.__system.next %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">
                     <div class="row">
@@ -119,6 +120,7 @@
                     </div>
                 </div>
             </aside>
+            {% endif %}#}
         </article>
     </div>
 {% endblock %}

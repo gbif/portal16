@@ -77,6 +77,7 @@
                 </div>
             </div>
         </div>
+        {% if data.relatedNews.length > 0 %}
         <aside class="horizontal-stripe horizontal-stripe--card light-background">
             <div class="container-fluid container--related-stories">
                 <div class="row">
@@ -117,6 +118,6 @@
                 </div>
             </div>
         </aside>
-
+        {% endif %}
     </article>
 {% endblock %}
