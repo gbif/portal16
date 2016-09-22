@@ -94,7 +94,7 @@ router.get([
 
     function renderPage(body, jsonOutput) {
         // Preprocess file size string (for resource)
-        if (body.data[0].file[0]) {
+        if (typeof body.data[0].file != 'undefined' && body.data[0].file.length > 0) {
             body.data[0].file[0].filesize = format.formatBytes(body.data[0].file[0].filesize, 1);
         }
         var proseContent = {
