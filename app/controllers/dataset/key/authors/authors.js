@@ -141,6 +141,27 @@ function cleanContacts(contacts) {
     return trimmedContacts;
 }
 
+function getRoleOrder(roles) {
+    if (roles.indexOf('ORIGINATOR') != -1) {
+        return 0;
+    } else if (roles.indexOf('METADATA_AUTHOR') != -1) {
+        return 1;
+    } else if (roles.indexOf('ADMINISTRATIVE_POINT_OF_CONTACT') != -1) {
+        return 3;
+    } else {
+        return 2;
+    }
+}
+
+function getFirstWithEmail(contacts) {
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].email.length > 0) {
+            return contacts[i];
+        }
+    }
+    return false;
+}
+
 function getCitationOrder(contacts) {
     if (!_.isArray(contacts)) {
         return [];
@@ -154,14 +175,50 @@ function getCitationOrder(contacts) {
         }),
         administrativeContacts = trimmedContacts.filter(function(e){
             return e.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && indexInList(originators, e) == -1;
-        }).reverse(),
+        }),
         metaDataAuthors = trimmedContacts.filter(function(e){
             return e.type == 'METADATA_AUTHOR' && indexInList(originators, e) == -1 && indexInList(administrativeContacts, e) == -1;
         });
+        //remainingAuthors = trimmedContacts.filter(function(e){
+        //    return indexInList(originators, e) == -1 && indexInList(administrativeContacts, e) == -1 && indexInList(metaDataAuthors, e) == -1;
+        //});
 
-    let citationOrder = originators.concat(metaDataAuthors).concat(administrativeContacts);
+    let citationOrder = originators.concat(metaDataAuthors).concat(administrativeContacts).map(function(e){
+        return e._id
+    });
 
-    return citationOrder;
+    let uniqueContacts = getUniqueContacts(trimmedContacts);
+    uniqueContacts.sort(function(a, b){
+        let x = getRoleOrder(a.roles) - getRoleOrder(b.roles);
+        return x == 0 ? a._id - b._id : x;
+    });
+    uniqueContacts.forEach(function(e){
+       if ( _.intersection(e.roles, ['ORIGINATOR', 'ADMINISTRATIVE_POINT_OF_CONTACT', 'METADATA_AUTHOR']).length > 0 ) {
+           e._highlighted = true;
+       }
+    });
+
+    //assign primary contact
+    let primaryContact = getFirstWithEmail(administrativeContacts);
+
+    if (!primaryContact) {
+        primaryContact = getFirstWithEmail(uniqueContacts);
+    } else {
+        primaryContact = uniqueContacts.find(function(e){
+            return isSameAuthor(e, primaryContact);
+        });
+    }
+    if (primaryContact) {
+        primaryContact._primaryContact = true;
+        console.log(primaryContact);
+    }
+
+    return {
+        contributers: uniqueContacts,
+        citedContributers: uniqueContacts.filter(function(e){
+            return e._highlighted;
+        })
+    };
 }
 
 module.exports = {

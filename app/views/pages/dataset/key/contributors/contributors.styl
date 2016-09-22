@@ -1,0 +1,118 @@
+//$dataset_contributor_animation = 0.7s cubic-bezier(0.4,0,.2,1)
+
+.dataset-key__contributors {
+	&__mail {
+		height vrBlock(1)
+	}
+
+	.address {
+		padding ($halfGutter/2) $halfGutter
+		margin 0
+		width 100% //could be removed once the other dataset contact styling is adjusted
+		i {
+			display none
+		}
+		>div:first-of-type {
+			i {
+				display inline-block
+				width 1.3em
+				margin-left -1.3em
+				float left
+
+			}
+			> span {
+				font-weight bold
+			}
+		}
+		>div>a {
+			overflow hidden
+			text-overflow ellipsis
+			white-space nowrap
+			width 100%
+			display inline-block
+		}
+		//>a+div {
+		//	position relative
+		//	&::before {
+		//		content ''
+		//		position absolute
+		//		top 50%
+		//		left 25%
+		//		width 1px
+		//		height 1px
+		//		background tomato
+		//		box-shadow 0 2px 20px rgba(0, 0, 0, .28)
+		//		border-radius 50%
+		//		transition background $dataset_contributor_animation, box-shadow $dataset_contributor_animation
+		//
+		//		}
+		//}
+		>a:target+div {
+			>span {
+				color $linkColor
+			}
+			//&::before {
+			//	box-shadow 0 2px 40px rgba(black, .28), 0 0 0 40px rgba(#808080, .1)
+			//}
+		}
+	}
+	&__columns {
+		display flex
+		flex-wrap wrap
+		margin 0 -($halfGutter)
+		>div {
+			flex 0 1 auto
+			width 33%
+		}
+	}
+}
++isAbove($desktop) {
+	.dataset-key__contributors {
+		&__columns {
+			> div {
+				width 100px
+			}
+		}
+	}
+}
+
+
+.flex-columns, .flex-columns-wide {
+	margin auto
+	display flex
+	flex-wrap wrap
+	>div {
+		flex 0 1 auto
+		width 100%
+	}
+	max-width $laptop
+	>div {
+		margin-top 10px
+	}
+}
+
++isAbove(400px) {
+	.flex-columns, .flex-columns-wide {
+		>div {
+			width 50%
+		}
+	}
+}
+
++isAbove(900px) {
+	.flex-columns, .flex-columns-wide {
+		>div {
+			width 25%
+		}
+	}
+}
+
++isAbove( $XL ) {
+	.flex-columns-wide {
+		margin auto
+		max-width $XL
+		>div {
+			width 20%
+		}
+	}
+}

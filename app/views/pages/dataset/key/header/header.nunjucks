@@ -23,12 +23,22 @@
                         <ol class="inline-bullet-list">
                             {% for contributor in dataset._computedValues.citedContributers %}
                                 <li>
-                                    <a href="" class="inherit">
+                                    <a href="#contributor_{$ contributor._id $}" class="inherit"
+                                       tooltip-placement="bottom"
+                                       tooltip-popup-delay="300"
+                                       uib-tooltip="
+                                        {% for role in contributor.roles %}
+                                            {$ __('role.' + role) | capitalize $}{% if not loop.last %}, {% endif %}
+                                        {% endfor %}">
+                                        {% if contributor._primaryContact %}
+                                            <i class="gb-icon-mail"></i>
+                                        {% endif %}
                                         {$ contributor.firstName $} {$ contributor.lastName $}
                                     </a>
                                 </li>
                             {% endfor %}
                         </ol>
+                        {$ contributor.roles $}
                     </div>
                     <p></p>
                 {% endif %}
@@ -40,7 +50,7 @@
                     {#</p>#}
                 {#</div>#}
                 <div>
-                    <span class="gb-button--round">Contributors</span>
+                    <a href="#contributor_15" class="gb-button--round">Contributors</a>
                     <span class="gb-button--round">Corresponding author</span>
                     <a href="#dataset_citation" class="gb-button--round">Citation</a>
                 </div>

@@ -23,9 +23,9 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
         Dataset.get(datasetKey, getOptions).then(function (dataset) {
             try {
                 dataset._computedValues = {};
-                dataset._computedValues.contributers = authors.getUniqueContacts(dataset.record.contacts);
-                dataset._computedValues.citedContributers = authors.getCitationOrder(dataset.record.contacts);
-
+                //dataset._computedValues.contributers = authors.getUniqueContacts(dataset.record.contacts);
+                //dataset._computedValues.citedContributers = authors.getCitationOrder(dataset.record.contacts);
+                dataset._computedValues = authors.getCitationOrder(dataset.record.contacts);
                 renderPage(req, res, next, dataset);
             } catch(err) {
                 next(err);
