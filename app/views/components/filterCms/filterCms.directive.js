@@ -29,9 +29,13 @@ function filterCmsDirective() {
 
         vm.queryKey = vm.filterConfig.queryKey;
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+        // explicitly set collapsed by default.
+        vm.expanded = (vm.filterConfig.expanded) ? vm.filterConfig.expanded : false;
 
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+        // expand if checked.
+        vm.expanded = vm.query.length > 0;
 
         $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
             vm.query = $filter('unique')(newQuery);
@@ -54,6 +58,7 @@ function filterCmsDirective() {
                         if (data.hasOwnProperty('facets')) {
                             vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
                             vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
+                            vm.filterConfig.expanded = vm.query.length > 0;
                         }
                     });
                 } else {
@@ -86,23 +91,8 @@ function filterCmsDirective() {
             return vm.query.indexOf(name) != -1;
         };
 
-        vm.showEnum = function(key) {
-            if (vm.inQuery(key)) return true;
-            if (vm.filterConfig.expanded) {
-                if (vm.filterConfig.showAll) return true;
-                if (vm.suggestions && vm.suggestions.counts && vm.suggestions.counts[key]) return true;
-            }
-            return false;
-        };
-
-        vm.getVisibleEnums = function() {
-            return vm.suggestions.counts.filter(function(key){
-                return vm.showEnum(key);
-            });
-        };
-
         vm.showFacetCount = function() {
-            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+            return vm.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
         vm.getWidth = function(key) {

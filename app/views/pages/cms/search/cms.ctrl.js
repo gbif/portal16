@@ -23,7 +23,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'type',
         filter: CmsFilter,
         showAll: true,
-        expanded: true,
         singleSelect: true,
         facets: {
             hasFacets: true,
@@ -36,7 +35,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'language',
         filter: CmsFilter,
         showAll: true,
-        expanded: false,
         singleSelect: true,
         facets: {
             hasFacets: true,
@@ -49,8 +47,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_data_use',
         filter: CmsFilter,
         showAll: false,
-        expanded: true,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -62,8 +58,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_capacity_enhancement',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -75,8 +69,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_about_gbif',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -88,8 +80,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_audience',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -101,8 +91,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_purpose',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -114,8 +102,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_country',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         isSearchable: true,
         facets: {
             hasFacets: true,
@@ -128,8 +114,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_about_gbif',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -141,8 +125,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_topic',
         filter: CmsFilter,
         showAll: false,
-        expanded: false,
-        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
