@@ -50,7 +50,7 @@
                     {#</p>#}
                 {#</div>#}
                 <div>
-                    <a href="#contributor_15" class="gb-button--round">Contributors</a>
+                    <a href="#contributors" class="gb-button--round">Contributors</a>
                     <a href="#dataset_citation" class="gb-button--round">Citation</a>
                 </div>
 

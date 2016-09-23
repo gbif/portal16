@@ -4,7 +4,7 @@
         {% if dataset.record.bibliographicCitations.length > 8 %}
             ng-class="{'is-expanded': datasetKey.bibExpand.isExpanded}"
         {% endif %}>
-    <div class="container--narrow">
+    <div class="container--normal">
         <h2 class="h4">Bibliography</h2>
         <div class="dataset-key__bibliography__list">
             <ol>

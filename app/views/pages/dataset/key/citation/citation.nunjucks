@@ -5,29 +5,29 @@
             <blockquote class="dataset-key__citation__text">
                 <p>{$ dataset.record.citation.text $}</p>
             </blockquote>
-            <div>
-                <strong>Identifier: </strong><a href="">{$ dataset.record.citation.identifier $}</a> TODO
-            </div>
-            <div class="dataset-key__citation__files">
-                <strong>Download as: </strong>
-                <ul class="inline-bullet-list">
-                    <li>
-                        <a href="" class="inherit">RIS</a>
-                    </li>
-                    <li>
-                        <a href="" class="inherit">DMI</a>
-                    </li>
-                    <li>
-                        <a href="" class="inherit">TRY</a>
-                    </li>
-                    <li>
-                        <a href="" class="inherit">DEC</a>
-                    </li>
-                    <li>
-                        <a href="" class="inherit">IDE</a>
-                    </li>
-                </ul>
-            </div>
+            {#<div>#}
+                {#<strong>Identifier: </strong><a href="">{$ dataset.record.citation.identifier $}</a> TODO#}
+            {#</div>#}
+            {#<div class="dataset-key__citation__files">#}
+                {#<strong>Download as: </strong>#}
+                {#<ul class="inline-bullet-list">#}
+                    {#<li>#}
+                        {#<a href="" class="inherit">RIS</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="" class="inherit">DMI</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="" class="inherit">TRY</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="" class="inherit">DEC</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="" class="inherit">IDE</a>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</div>#}
         </div>
     </div>
 </section>
