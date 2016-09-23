@@ -124,6 +124,21 @@ function transformFacetsToMap(data) {
         facetMap[key].max = max;
         facetMap[key].fieldKey = facetType.fieldKey;
         facetMap[key].translatedLabel = facetType.translatedLabel;
+
+        // CMS API by default has filters sorted by counts,
+        // we sort them by name here so it behaves closer to GBIF Data API.
+        facetMap[key].counts.sort(function(a, b){
+            if (a.translatedLabel > b.translatedLabel) return 1;
+            if (a.translatedLabel < b.translatedLabel) return -1;
+        });
+        // Push 'und' to the last for language facet.
+        if (key == 'language') {
+            facetMap[key].counts.forEach(function(count, i){
+                if (count.key == 'und') {
+                    facetMap[key].counts = facetMap[key].counts.concat(facetMap[key].counts.splice(i, 1));
+                }
+            });
+        }
     });
     data.facets = facetMap;
 }

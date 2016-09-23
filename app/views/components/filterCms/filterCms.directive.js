@@ -58,7 +58,6 @@ function filterCmsDirective() {
                         if (data.hasOwnProperty('facets')) {
                             vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
                             vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
-                            vm.filterConfig.expanded = vm.query.length > 0;
                         }
                     });
                 } else {
@@ -77,7 +76,6 @@ function filterCmsDirective() {
 
         vm.searchSuggestions = [];
         vm.getSuggestions = function() {
-            //if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint
                 ).then(function (response) {
