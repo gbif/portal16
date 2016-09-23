@@ -1,0 +1,19 @@
+<section class="horizontal-stripe dataset-key__bibliography" id="dataset_bibliography">
+    <div class="container--normal">
+        <h2 class="h4">Bibliography</h2>
+        <div>
+            <ol>
+                {% for reference in dataset.record.bibliographicCitations %}
+                <li>
+                    <div>
+                        {$ reference.text $}
+                    </div>
+                    <div>
+                        <a href="https://scholar.google.com/scholar?q={$ reference.text $}">Google Scholar</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</section>

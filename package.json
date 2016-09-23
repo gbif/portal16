@@ -43,6 +43,7 @@
     "dtrace-provider": "^0.6.0",
     "express": "^4.13.3",
     "forever": "^0.15.1",
+    "get-urls": "^5.0.1",
     "glob": "^7.0.3",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^2.0.7",

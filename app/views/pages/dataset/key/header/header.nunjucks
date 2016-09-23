@@ -51,7 +51,6 @@
                 {#</div>#}
                 <div>
                     <a href="#contributor_15" class="gb-button--round">Contributors</a>
-                    <span class="gb-button--round">Corresponding author</span>
                     <a href="#dataset_citation" class="gb-button--round">Citation</a>
                 </div>
 

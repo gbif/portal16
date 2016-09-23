@@ -8,6 +8,7 @@
         {% include('./header/header.nunjucks') %}
         {% include('./original/original.nunjucks') %}
         {#{% include('./visualSummary/visualSummary.nunjucks') %}#}
+        {% include('./bibliography/bibliography.nunjucks') %}
         {% include('./contributors/contributors.nunjucks') %}
         {% include('./citation/citation.nunjucks') %}
 

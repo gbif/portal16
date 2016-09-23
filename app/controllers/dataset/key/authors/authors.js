@@ -166,32 +166,25 @@ function getCitationOrder(contacts) {
     if (!_.isArray(contacts)) {
         return [];
     }
-    let trimmedContacts = cleanContacts(contacts);
+    let originators, administrativeContacts, uniqueContacts, trimmedContacts = cleanContacts(contacts);
     trimmedContacts = trimmedContacts.filter(function(e){
        return e.firstName || e.lastName;
     });
-    let originators = trimmedContacts.filter(function(e){
-            return e.type == 'ORIGINATOR';
-        }),
-        administrativeContacts = trimmedContacts.filter(function(e){
-            return e.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && indexInList(originators, e) == -1;
-        }),
-        metaDataAuthors = trimmedContacts.filter(function(e){
-            return e.type == 'METADATA_AUTHOR' && indexInList(originators, e) == -1 && indexInList(administrativeContacts, e) == -1;
-        });
-        //remainingAuthors = trimmedContacts.filter(function(e){
-        //    return indexInList(originators, e) == -1 && indexInList(administrativeContacts, e) == -1 && indexInList(metaDataAuthors, e) == -1;
-        //});
-
-    let citationOrder = originators.concat(metaDataAuthors).concat(administrativeContacts).map(function(e){
-        return e._id
+    originators = trimmedContacts.filter(function(e){
+        return e.type == 'ORIGINATOR';
+    });
+    administrativeContacts = trimmedContacts.filter(function(e){
+        return e.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && indexInList(originators, e) == -1;
     });
 
-    let uniqueContacts = getUniqueContacts(trimmedContacts);
+    //get unique
+    uniqueContacts = getUniqueContacts(trimmedContacts);
+    //sort based on role, then order the are delivered in
     uniqueContacts.sort(function(a, b){
         let x = getRoleOrder(a.roles) - getRoleOrder(b.roles);
         return x == 0 ? a._id - b._id : x;
     });
+    //mark contacts that are to be highlighted in header
     uniqueContacts.forEach(function(e){
        if ( _.intersection(e.roles, ['ORIGINATOR', 'ADMINISTRATIVE_POINT_OF_CONTACT', 'METADATA_AUTHOR']).length > 0 ) {
            e._highlighted = true;
@@ -210,7 +203,6 @@ function getCitationOrder(contacts) {
     }
     if (primaryContact) {
         primaryContact._primaryContact = true;
-        console.log(primaryContact);
     }
 
     return {
