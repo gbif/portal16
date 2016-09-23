@@ -67,6 +67,8 @@ require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');
 
+require('../../../pages/dataset/key/datasetKey.ctrl');
+
 require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
 require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
 

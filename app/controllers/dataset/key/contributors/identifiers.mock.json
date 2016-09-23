@@ -17,7 +17,7 @@
         "userId1",
         "userId2"
       ],
-      "firstName": "Graham J",
+      "firstName": "Graham",
       "lastName": "Edgar",
       "email": [
         "a@mail.com"
@@ -27,18 +27,18 @@
     "expected": [
       "userId1",
       "userId2",
-      "a@mail.com"
+      "a@mail.comGrahamEdgar"
     ]
   },
   {
     "contact": {
       "userId": [],
-      "firstName": "Graham J",
+      "firstName": "Graham",
       "lastName": "Edgar",
       "organization": "orgNameB"
     },
     "expected": [
-      "Graham J Edgar"
+      "Graham Edgar"
     ]
   },
   {

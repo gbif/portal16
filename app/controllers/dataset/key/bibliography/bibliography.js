@@ -3,54 +3,87 @@ var _ = require('lodash'),
     doiRegex = require('doi-regex'),
     getUrls = require('get-urls');
 
-function getBibliography(bibliography) {
-    var bib = bibliography.map(function(e){
-        if (_.isString(e.text)) {
-            let withoutUrls = e.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''),
-                dois = .text.match(doiRegex()),
-                urls = getUrls(.text),
-                pdfs = urls.filter(function(e){return e.endsWith('pdf')});
-
-            urls = urls.filter(function(e){
-                return !e.endsWith('pdf');
-            });
-            e._query = withoutUrls;
-            e.dois = dois;
-            e.pdfs = pdfs;
-
-        }
-    });
+function getBibliography(bibliographicCitations) {
+    if (!_.isArray(bibliographicCitations)) bibliographicCitations = [];
+    return bibliographicCitations
+        .filter(function (e) {
+            return !_.isEmpty(e.text);
+        }).map(function (e) {
+            return getBibliographicReference(e);
+        });
 }
 
-function getBib(e) {
-    if (_.isString(e.text)) {
-        let withoutUrls = e.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''),
-            dois = e.text.match(doiRegex()),
-            urls = getUrls(e.text),
-            pdfs = urls.filter(function(e){return e.endsWith('pdf')});
-        
-        //remove pdfs as they are already detected
-        urls = urls.filter(function(e){
-            return !e.endsWith('pdf');
-        });
-        //remove dois that is already detected
-        urls = urls.filter(function(e){
-            return !doiRegex().test(e);
-        });
-        //remove dois that is listed as identifier
-        if (_.isString(e.identifier)) {
-            dois = dois.filter(function(doi){
-                return !e.identifier.endsWith(doi);
+function getBibliographicReference(ref) {
+    ref.text = ref.text || '';
+    let withoutUrls = ref.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''),
+        dois = ref.text.match(doiRegex()),
+        urls = getUrls(ref.text)
+            .filter(function (e) {
+                return !doiRegex().test(e);
+            })
+            .map(function (e) {
+                return formatUrl(e)
             });
+    dois = dois || [];
+    dois = dois.map(function (e) {
+        return formatDoi(e)
+    });
+
+    ref._query = 'https://scholar.google.com/scholar?q=' + encodeURIComponent(withoutUrls);
+
+    let identifiers = [];
+    if (_.isString(ref.identifier)) {
+        let formated = formatReference(ref.identifier);
+        if (formated) {
+            identifiers.push(formated);
         }
-        e._query = withoutUrls;
-        e.dois = dois;
-        e.pdfs = pdfs;
-        e.urls = urls;
-        return e;
+    }
+
+    identifiers = _.uniqBy(identifiers.concat(dois).concat(urls), 'ref');
+    ref._identifiers = identifiers;
+    return ref;
+}
+
+
+function formatDoi(doi) {
+    return {
+        type: 'DOI',
+        ref: 'http://dx.doi.org/' + doi,
+        text: doi
     }
 }
-getBibliography(biblio[0])
+
+function formatUrl(url) {
+    let type = url.endsWith('pdf') ? 'PDF' : 'URL';
+    return {
+        type: type,
+        ref: url,
+        text: url
+    }
+}
+
+function formatReference(str) {
+    if (_.isEmpty(str)) return false;
+
+    let doi = str.match(doiRegex());
+    if (doi && doi.length == 1) {
+        return formatDoi(doi[0]);
+    } else if (doi && doi.length > 1) {
+        return false;
+    }
+
+    let url = getUrls(str);
+    if (url.length == 1) {
+        return formatUrl(url[0]);
+    } else if (url.length > 1) {
+        return false;
+    }
+
+    return {
+        type: 'STR',
+        text: str
+    }
+}
 
 module.exports = {
     getBibliography: getBibliography

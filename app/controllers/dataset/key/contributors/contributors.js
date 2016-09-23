@@ -9,11 +9,14 @@ var _ = require('lodash');
  */
 function getContactIdentifiers(contact) {
     let identifiers = [];
-    if (_.isArray(contact.userId) ) {
+    if (_.isArray(contact.userId)) {
         identifiers = identifiers.concat(contact.userId);
     }
-    if (contact.email) {
-        identifiers = identifiers.concat(contact.email);
+    if (!_.isEmpty(contact.email)) {
+        let emailIdentifier = contact.email;
+        emailIdentifier += !_.isEmpty(contact.firstName) ? contact.firstName : '';
+        emailIdentifier += !_.isEmpty(contact.lastName) ? contact.lastName : '';
+        identifiers = identifiers.concat(emailIdentifier);
     }
     if (identifiers.length == 0) {
         if (contact.firstName && contact.lastName) {
@@ -26,14 +29,18 @@ function getContactIdentifiers(contact) {
     return identifiers;
 }
 
+function hasDisplayName(contact) {
+    return contact.firstName || contact.lastName || contact.organization;
+}
+
 /**
  * Remove contacts that have too little information to be useful. A contact is considered incomplete if there is no identification means (see function getContactIdentifiers)
  * @param contacts
  * @returns {*}
  */
-function removeContactsWithoutIdentifier(contacts) {
-    return contacts.filter(function(e){
-       return  getContactIdentifiers(e).length > 0;
+function removeContactsWithoutIdentifierOrName(contacts) {
+    return contacts.filter(function (e) {
+        return getContactIdentifiers(e).length > 0 && hasDisplayName(e);
     });
 }
 
@@ -79,10 +86,10 @@ function getUniqueContacts(contacts) {
     if (!_.isArray(contacts)) {
         return [];
     }
-    let trimmedContacts = removeContactsWithoutIdentifier(contacts),
+    let trimmedContacts = removeContactsWithoutIdentifierOrName(contacts),
         mergedContacts = [];
 
-    trimmedContacts.forEach(function(e){
+    trimmedContacts.forEach(function (e) {
         let index = indexInList(mergedContacts, e);
         if (index > -1) {
             //merge
@@ -107,7 +114,7 @@ function getUniqueContacts(contacts) {
  */
 function indexInList(list, contact) {
     for (var i = 0; i < list.length; i++) {
-        if ( isSameAuthor(list[i], contact)) {
+        if (isSameAuthor(list[i], contact)) {
             return i;
         }
     }
@@ -117,12 +124,11 @@ function indexInList(list, contact) {
 
 function cleanContacts(contacts) {
     //remove contacts with insuffient contact details
-    let trimmedContacts = removeContactsWithoutIdentifier(contacts);
-
+    let trimmedContacts = removeContactsWithoutIdentifierOrName(contacts);
     //assign IDs based on their identifiers
     let ids = [];
-    trimmedContacts.forEach(function(e){
-       let i = indexInList(ids, e);
+    trimmedContacts.forEach(function (e) {
+        let i = indexInList(ids, e);
         if (i == -1) {
             //new contact found - assign new ID
             e._id = ids.length;
@@ -134,7 +140,7 @@ function cleanContacts(contacts) {
     });
 
     //remove duplicates (same person same role shouldn't appear twice)
-    trimmedContacts = _.uniqWith(trimmedContacts, function(a, b){
+    trimmedContacts = _.uniqWith(trimmedContacts, function (a, b) {
         return a.type == b.type && a._id == b._id;
     });
 
@@ -162,33 +168,39 @@ function getFirstWithEmail(contacts) {
     return false;
 }
 
-function getCitationOrder(contacts) {
+function getContributors(contacts) {
     if (!_.isArray(contacts)) {
         return [];
     }
     let originators, administrativeContacts, uniqueContacts, trimmedContacts = cleanContacts(contacts);
-    trimmedContacts = trimmedContacts.filter(function(e){
-       return e.firstName || e.lastName;
+
+    let personsOnly = trimmedContacts.filter(function (e) {
+        return e.firstName || e.lastName;
     });
-    originators = trimmedContacts.filter(function(e){
+    originators = personsOnly.filter(function (e) {
         return e.type == 'ORIGINATOR';
     });
-    administrativeContacts = trimmedContacts.filter(function(e){
+    administrativeContacts = personsOnly.filter(function (e) {
         return e.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && indexInList(originators, e) == -1;
     });
 
     //get unique
     uniqueContacts = getUniqueContacts(trimmedContacts);
     //sort based on role, then order the are delivered in
-    uniqueContacts.sort(function(a, b){
+    uniqueContacts.sort(function (a, b) {
         let x = getRoleOrder(a.roles) - getRoleOrder(b.roles);
         return x == 0 ? a._id - b._id : x;
     });
+
     //mark contacts that are to be highlighted in header
-    uniqueContacts.forEach(function(e){
-       if ( _.intersection(e.roles, ['ORIGINATOR', 'ADMINISTRATIVE_POINT_OF_CONTACT', 'METADATA_AUTHOR']).length > 0 ) {
-           e._highlighted = true;
-       }
+    uniqueContacts.forEach(function (e) {
+        if (!e.firstName && !e.lastName) {
+            return;
+        }
+        e._person = true;
+        if (_.intersection(e.roles, ['ORIGINATOR', 'ADMINISTRATIVE_POINT_OF_CONTACT', 'METADATA_AUTHOR']).length > 0) {
+            e._highlighted = true;
+        }
     });
 
     //assign primary contact
@@ -197,25 +209,26 @@ function getCitationOrder(contacts) {
     if (!primaryContact) {
         primaryContact = getFirstWithEmail(uniqueContacts);
     } else {
-        primaryContact = uniqueContacts.find(function(e){
+        primaryContact = uniqueContacts.find(function (e) {
             return isSameAuthor(e, primaryContact);
         });
     }
     if (primaryContact) {
         primaryContact._primaryContact = true;
+        primaryContact.roles.push('_PRIMARY_CONTACT');
     }
 
+
     return {
-        contributers: uniqueContacts,
-        citedContributers: uniqueContacts.filter(function(e){
+        all: uniqueContacts,
+        highlighted: uniqueContacts.filter(function (e) {
             return e._highlighted;
         })
     };
 }
 
 module.exports = {
-    getCitationOrder: getCitationOrder,
-    getContactIdentifiers: getContactIdentifiers,
-    getUniqueContacts: getUniqueContacts
+    getContributors: getContributors,
+    getContactIdentifiers: getContactIdentifiers
 };
 

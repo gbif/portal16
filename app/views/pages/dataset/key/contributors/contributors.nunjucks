@@ -4,46 +4,67 @@
     </div>
     <div class="">
         <div>
-            <div class="flex-columns {% if dataset._computedValues.contributers.length > 3 %}flex-columns-wide{% endif %}">
+            <div class="flex-columns {% if dataset._computedValues.contributors.all.length > 3 %}flex-columns-wide{% endif %}">
 
-                {% for contributor in dataset._computedValues.contributers %}
+                {% for contributor in dataset._computedValues.contributors.all %}
                 <div>
-                    <address class="address">
+                    <address>
                         <a class="hidden-anchor-offset" name="contributor_{$ contributor._id $}"></a>
-                        {% if contributor.firstName or contributor.lastName %}
-                            <div>
-                                {% if contributor._primaryContact %}
-                                    <i class="gb-icon-mail"></i>
-                                {% endif %}
-                                <span>{$ contributor.firstName $} {$ contributor.lastName $}</span>
-                            </div>
+                        {% if contributor._person %}
+                            {% if contributor._primaryContact %}
+                                <i class="gb-icon-mail"></i>
+                            {% endif %}
+                            <span><strong>{$ contributor.firstName $} {$ contributor.lastName $}</strong></span><br>
                         {% endif %}
-                        {% if contributor.organization %}
-                            <div>
-                                <i class="gb-icon-institution"></i>
-                                <span>{$ contributor.organization $}</span>
-                            </div>
+                        {% if not contributor._person %}
+                            <i class="gb-icon-institution"></i>
+                            <span><strong>{$ contributor.organization $}</strong></span><br>
                         {% endif %}
 
-                        <div>
+                        {% if contributor.roles.length > 0 %}
                             {% for role in contributor.roles %}
-                                <div class="uppercase-first inline-block">{$ __('role.' + role) $}</div>{% if not loop.last %}, {% endif %}
+                                <span class="uppercase-first dataset-key__contributors__roles">{$ __('role.' + role) $}</span>{% if not loop.last %}, {% endif %}
                             {% endfor %}
-                        </div>
+                            <br>
+                        {% endif %}
 
-                        {% if contributor.phone.length > 0 %}
-                            <div class="dataset-key__contributors__mail">
-                                <a href="tel:{$ contributor.phone[0] $}" class="inherit">{$ contributor.phone[0] $}</a>
+                        {% if contributor._person and contributor.organization %}
+                        <span>{$ contributor.organization $}</span><br>
+                        {% endif %}
+
+                        {% if contributor.address.length > 0 %}
+                            <div>
+                            {% for addressLine in contributor.address %}
+                                <span>{$ addressLine $}</span><br>
+                            {% endfor %}
                             </div>
+                        {% endif %}
+
+
+                        {% if contributor.country %}
+                            <span>{$ __('country.' + contributor.country) $}</span><br>
+                        {% endif %}
+
+                        {#{% if contributor.phone[0] %}#}
+                            {#<abbr title="Phone">P:</abbr>{% for p in contributor.phone -%}{% set comma = joiner() %}#}
+                            {#{$ comma() $} {$ p $}{%- endfor %}<br>#}
+                        {#{% endif %}#}
+
+                        <div class="clearfix">
+                        {% if contributor.phone.length > 0 %}
+                            <span class="dataset-key__contributors__phone">
+                                <i class="gb-icon-phone2"></i>
+                                <a href="tel:{$ contributor.phone[0] $}" class="inherit">{$ contributor.phone[0] $}</a>
+                            </span>
                         {% endif %}
 
                         {% if contributor.email.length > 0 %}
-                            {% for email in contributor.email %}
-                                <div class="dataset-key__contributors__mail">
-                                    <a href="mailto:{$ email $}" class="inherit">{$ email $}</a>
-                                </div>
-                            {% endfor %}
+                            <span class="dataset-key__contributors__mail">
+                                <i class="gb-icon-mail"></i>
+                                <a href="mailto:{$ contributor.email[0] $}" class="inherit">{$ contributor.email[0] $}</a>
+                            </span>
                         {% endif %}
+                        </div>
 
                     </address>
                 </div>

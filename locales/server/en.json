@@ -1360,6 +1360,7 @@
   "role": {
     "TECHNICAL_POINT_OF_CONTACT": "technical point of contact",
     "ADMINISTRATIVE_POINT_OF_CONTACT": "administrative point of contact",
+    "_PRIMARY_CONTACT": "primary contact",
     "POINT_OF_CONTACT": "point of contact",
     "ORIGINATOR": "originator",
     "METADATA_AUTHOR": "metadata author",

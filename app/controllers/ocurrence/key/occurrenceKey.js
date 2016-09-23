@@ -1,7 +1,6 @@
 "use strict";
 var Q = require('q'),
     _ = require('lodash'),
-    util = require('../../../helpers/util'),
     occurrenceCoreTerms = require('../../../models/gbifdata/occurrence/occurrenceCoreTerms'),
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     getTitle = require('./title'),
@@ -21,7 +20,7 @@ function getAngularInitData(occurrence) {
         'coordinateUncertaintyInMeters'
     ];
     var selectedData = {};
-    keys.forEach(function(e){
+    keys.forEach(function (e) {
         selectedData[e] = occurrence.record[e];
     });
     return selectedData;
@@ -83,11 +82,11 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
             distanceAboveSurface: true,
             distanceAboveSurfaceAccuracy: true
         };
-    terms.forEach(function(e){
+    terms.forEach(function (e) {
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
         }
-        if ( !util.isEmpty(occurrence.record[e.simpleName]) || !util.isEmpty(occurrence.verbatim[e.qualifiedName]) ) {
+        if (!_.isEmpty(occurrence.record[e.simpleName]) || !_.isEmpty(occurrence.verbatim[e.qualifiedName])) {
             usedTerms.push(e);
             let group = e.group || 'other';
             groups[group] = groups[group] || [];
@@ -96,7 +95,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         }
     });
 
-    usedGroups = Array.from(usedGroups).sort(function(a,b) {
+    usedGroups = Array.from(usedGroups).sort(function (a, b) {
         return (groupsOrder[a] || 100) - (groupsOrder[b] || 100);
     });
     return {
@@ -109,11 +108,11 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
 function getUsedExtensionTerms(verbatim) {
     var used = {};
     if (verbatim.extensions) {
-        Object.keys(verbatim.extensions).forEach(function(extensionType){
+        Object.keys(verbatim.extensions).forEach(function (extensionType) {
             if (verbatim.extensions[extensionType].length > 0) {
                 used[extensionType] = {};
-                verbatim.extensions[extensionType].forEach(function(extension){
-                    Object.keys(extension).forEach(function(field) {
+                verbatim.extensions[extensionType].forEach(function (extension) {
+                    Object.keys(extension).forEach(function (field) {
                         used[extensionType][field] = true;
                     });
                 });
@@ -138,7 +137,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrenceCoreTerms
     ];
 
-    Q.all(promises).spread(function(occurrence, occurrenceMeta) {
+    Q.all(promises).spread(function (occurrence, occurrenceMeta) {
         occurrence.highlights = highlight(occurrence);
         occurrence.computedFields = {
             title: getTitle(occurrence, __)
@@ -150,7 +149,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.fieldsWithDifferences = occurrencIssues.getFieldsWithDifferences(occurrence.record, occurrence.verbatim, occurrence.terms.terms);
         occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
         deferred.resolve(occurrence);
-    }, function(err){
+    }, function (err) {
         deferred.reject(new Error(err));
     }).fail(function (err) {
         deferred.reject(new Error(err));

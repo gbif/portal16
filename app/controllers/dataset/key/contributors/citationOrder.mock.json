@@ -1,0 +1,101 @@
+[
+  {
+    "contacts": [
+      {
+        "type": "ORIGINATOR",
+        "email": [
+          "ori1"
+        ],
+        "firstName": "A"
+      },
+      {
+        "type": "ORIGINATOR",
+        "email": [
+          "ori2_meta1"
+        ],
+        "firstName": "B"
+      },
+      {
+        "type": "ORIGINATOR",
+        "email": [
+          "ori3"
+        ],
+        "firstName": "C"
+      },
+      {
+        "type": "METADATA_AUTHOR",
+        "email": [
+          "ori2_meta1"
+        ],
+        "firstName": "B"
+      },
+      {
+        "type": "METADATA_AUTHOR",
+        "email": [
+          "meta2"
+        ],
+        "firstName": "D"
+      },
+      {
+        "type": "METADATA_AUTHOR",
+        "email": [
+          "meta3_admin1"
+        ],
+        "firstName": "E"
+      },
+      {
+        "type": "ADMINISTRATIVE_POINT_OF_CONTACT",
+        "email": [
+          "meta3_admin1"
+        ],
+        "firstName": "E"
+      },
+      {
+        "type": "ADMINISTRATIVE_POINT_OF_CONTACT",
+        "email": [
+          "admin2"
+        ],
+        "firstName": "F"
+      },
+      {
+        "type": "ADMINISTRATIVE_POINT_OF_CONTACT",
+        "email": [
+          "admin3_edit1"
+        ],
+        "firstName": "G"
+      },
+      {
+        "type": "ORIGINATOR",
+        "email": [
+          "ori4_edit1"
+        ],
+        "firstName": "H"
+      },
+      {
+        "type": "EDITOR",
+        "email": [
+          "ori4_edit1"
+        ],
+        "firstName": "H"
+      },
+      {
+        "type": "EDITOR",
+        "email": [
+          "edit2"
+        ],
+        "firstName": "I"
+      }
+    ],
+    "expected": [
+      "ori1",
+      "ori2_meta1",
+      "ori3",
+      "ori4_edit1",
+      "meta2",
+      "meta3_admin1",
+      "edit2",
+      "admin2",
+      "admin3_edit1"
+    ]
+  }
+]

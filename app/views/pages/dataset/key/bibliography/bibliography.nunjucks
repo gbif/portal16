@@ -1,7 +1,12 @@
-<section class="horizontal-stripe dataset-key__bibliography" id="dataset_bibliography">
-    <div class="container--normal">
+<section
+        class="horizontal-stripe dataset-key__bibliography {% if dataset.record.bibliographicCitations.length <= 8 %} is-expanded {% endif %}"
+        id="dataset_bibliography"
+        {% if dataset.record.bibliographicCitations.length > 8 %}
+            ng-class="{'is-expanded': datasetKey.bibExpand.isExpanded}"
+        {% endif %}>
+    <div class="container--narrow">
         <h2 class="h4">Bibliography</h2>
-        <div>
+        <div class="dataset-key__bibliography__list">
             <ol>
                 {% for reference in dataset.record.bibliographicCitations %}
                 <li>
@@ -9,11 +14,43 @@
                         {$ reference.text $}
                     </div>
                     <div>
-                        <a href="https://scholar.google.com/scholar?q={$ reference.text $}">Google Scholar</a>
+                        <ul class="inline-bullet-list">
+                        {% if reference._identifiers | isNotEmpty %}
+                            {% for identifier in reference._identifiers %}
+                                <li>
+                                {% if identifier.type == 'PDF' %}
+                                    <a href="{$ identifier.ref $}">View article</a>
+                                {% endif %}
+
+                                {% if identifier.type == 'DOI' %}
+                                    <a href="{$ identifier.ref $}">View article</a>
+                                {% endif %}
+
+                                {% if identifier.type == 'URL' %}
+                                    <a href="{$ identifier.ref $}">View article</a>
+                                {% endif %}
+                                </li>
+
+
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if reference._query | isNotEmpty %}
+                            <li>
+                                <a href="{$ reference._query | safe $}">Google scholar</a>
+                            </li>
+                        {% endif %}
+                        </ul>
                     </div>
                 </li>
+
                 {% endfor %}
             </ol>
         </div>
+        {% if dataset.record.bibliographicCitations.length > 8 %}
+        <div class="dataset-key__bibliography__expand">
+            <a href="" class="gb-icon-angle-down" ng-class="{'gb-icon-angle-down': !datasetKey.bibExpand.isExpanded, 'gb-icon-angle-up': datasetKey.bibExpand.isExpanded}" ng-click="datasetKey.bibExpand.isExpanded = !datasetKey.bibExpand.isExpanded"></a>
+        </div>
+        {% endif %}
     </div>
 </section>

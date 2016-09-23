@@ -7,7 +7,7 @@ function setSupportedLocales(supportedLocales) {
             // `Intl` exists, but it doesn't have the data we need, so load the
             // polyfill and replace the constructors we need with the polyfill's.
             var IntlPolyfill = require('intl');
-            global.Intl.NumberFormat   = IntlPolyfill.NumberFormat;
+            global.Intl.NumberFormat = IntlPolyfill.NumberFormat;
             global.Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
         }
     } else {

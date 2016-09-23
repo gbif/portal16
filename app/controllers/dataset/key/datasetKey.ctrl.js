@@ -1,6 +1,7 @@
 var express = require('express'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
-    authors = require('./authors/authors'),
+    contributors = require('./contributors/contributors'),
+    bibliography = require('./bibliography/bibliography'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -23,11 +24,12 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
         Dataset.get(datasetKey, getOptions).then(function (dataset) {
             try {
                 dataset._computedValues = {};
-                //dataset._computedValues.contributers = authors.getUniqueContacts(dataset.record.contacts);
-                //dataset._computedValues.citedContributers = authors.getCitationOrder(dataset.record.contacts);
-                dataset._computedValues = authors.getCitationOrder(dataset.record.contacts);
+                dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
+                dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+                //dataset = bibliography.getBibliography(dataset.record.bibliographicCitations);
+
                 renderPage(req, res, next, dataset);
-            } catch(err) {
+            } catch (err) {
                 next(err);
             }
         }, function (err) {
@@ -52,7 +54,7 @@ function renderPage(req, res, next, dataset) {
                 }
             });
         }
-    } catch(e) {
+    } catch (e) {
         next(e);
     }
 }

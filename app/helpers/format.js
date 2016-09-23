@@ -20,7 +20,7 @@ function prettifyEnum(text) {
     if (typeof text === 'undefined' || text === null) {
         return '';
     }
-    text = text.substr(text.lastIndexOf('/')+1);
+    text = text.substr(text.lastIndexOf('/') + 1);
     return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ');
 }
 
@@ -62,9 +62,9 @@ function getHighlightedText(text, desiredLength, isExtract) {
         return '...' + strippedText.substr(start, desiredLength) + '...';
     }
 
-    var croppedText = replacedText.substr(start-20, desiredLength+20 + startTag.length + endTag.length);
-    if (start-20 > 0) croppedText = '...' + croppedText;
-    if (start-20+desiredLength+20 + startTag.length + endTag.length<replacedText.length) croppedText += '...';
+    var croppedText = replacedText.substr(start - 20, desiredLength + 20 + startTag.length + endTag.length);
+    if (start - 20 > 0) croppedText = '...' + croppedText;
+    if (start - 20 + desiredLength + 20 + startTag.length + endTag.length < replacedText.length) croppedText += '...';
     return croppedText;
 }
 
@@ -74,8 +74,8 @@ function getHighlightedText(text, desiredLength, isExtract) {
  * @returns {*}
  * @see http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
  */
-function formatBytes(bytes,decimals) {
-    if(bytes == 0) return '0 Byte';
+function formatBytes(bytes, decimals) {
+    if (bytes == 0) return '0 Byte';
     var k = 1000;
     var dm = decimals + 1 || 3;
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
