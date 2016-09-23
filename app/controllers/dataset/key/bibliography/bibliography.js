@@ -62,6 +62,14 @@ function formatUrl(url) {
     }
 }
 
+function formatISSN(issn){
+    return {
+        type: 'ISSN',
+        ref: 'http://www.issn.cc/' + issn.replace('ISSN', '').trim(),
+        text: issn
+    }
+}
+
 function formatReference(str) {
     if (_.isEmpty(str)) return false;
 
@@ -77,6 +85,10 @@ function formatReference(str) {
         return formatUrl(url[0]);
     } else if (url.length > 1) {
         return false;
+    }
+
+    if (str.startsWith('ISSN')) {
+        return formatISSN(str);
     }
 
     return {

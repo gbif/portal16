@@ -1,5 +1,3 @@
-//$dataset_contributor_animation = 0.7s cubic-bezier(0.4,0,.2,1)
-
 .dataset-key__contributors {
 	&__mail, &__phone {
 		overflow hidden
@@ -27,42 +25,25 @@
 			margin-left -1.3em
 			float left
 		}
-		//>div:first-of-type {
-		//	i {
-		//		display inline-block
-		//		width 1.3em
-		//		margin-left -1.3em
-		//		float left
-		//	}
-		//	> span {
-		//		font-weight bold
-		//	}
-		//}
-		//>div>a {
-		//	overflow hidden
-		//	text-overflow ellipsis
-		//	white-space nowrap
-		//	width 100%
-		//	display inline-block
-		//}
-		//>a+div {
-		//	position relative
-		//	&::before {
-		//		content ''
-		//		position absolute
-		//		top 50%
-		//		left 25%
-		//		width 1px
-		//		height 1px
-		//		background tomato
-		//		box-shadow 0 2px 20px rgba(0, 0, 0, .28)
-		//		border-radius 50%
-		//		transition background $dataset_contributor_animation, box-shadow $dataset_contributor_animation
-		//
-		//		}
-		//}
-		>a:target+span {
-			color $linkColor
+	}
+	&__item {
+		position relative
+		>address, >i {
+			position relative
+		}
+		>i {
+			font-size 60px
+			margin-right 20px
+			float none
+			position absolute
+			color #ededed
+			top 0
+			right 0
+		}
+		&:hover {
+			>i {
+				color #cee3ff
+			}
 		}
 	}
 	&__columns {

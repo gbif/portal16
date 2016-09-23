@@ -1,4 +1,3 @@
-
 'use strict';
 
 var angular = require('angular');
@@ -13,6 +12,7 @@ function datasetKeyCtrl() {
     vm.bibExpand = {
         isExpanded: false
     };
+    
 }
 
 module.exports = datasetKeyCtrl;

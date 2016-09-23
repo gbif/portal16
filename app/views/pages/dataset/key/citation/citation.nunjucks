@@ -1,5 +1,6 @@
-<section class="horizontal-stripe dataset-key__citation" id="dataset_citation">
+<section class="horizontal-stripe dataset-key__citation">
     <div class="container--normal">
+        <span class="relative-anchor-offset"><a name="citation"></a></span>
         <h2 class="h4">Citation</h2>
         <div>
             <blockquote class="dataset-key__citation__text">

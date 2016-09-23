@@ -1,6 +1,6 @@
 <section class="horizontal-stripe light-background dataset-key__contributors" id="dataset_contributors">
     <div class="container--normal">
-        <a class="hidden-anchor-offset" name="contributors"></a>
+        <span class="relative-anchor-offset"><a name="contributors"></a></span>
         <h2 class="h4">Contributors</h2>
     </div>
     <div>
@@ -8,9 +8,13 @@
             <div class="flex-columns {% if dataset._computedValues.contributors.all.length > 4 %}flex-columns-wide{% endif %}">
 
                 {% for contributor in dataset._computedValues.contributors.all %}
-                <div>
+                <div class="dataset-key__contributors__item">
+                    {% if contributor.userId.length > 0 %}
+                        <i class="gb-icon-test"></i>
+                    {% endif %}
                     <address>
-                        <a class="hidden-anchor-offset" name="contributor_{$ contributor._id $}"></a>
+
+                        <span class="relative-anchor-offset"><a name="contributor_{$ contributor._id $}"></a></span>
                         {% if contributor._person %}
                             {% if contributor._primaryContact %}
                                 <i class="gb-icon-mail"></i>
@@ -24,7 +28,7 @@
 
                         {% if contributor.roles.length > 0 %}
                             {% for role in contributor.roles %}
-                                <span class="uppercase-first dataset-key__contributors__roles">{$ __('role.' + role) $}</span>{% if not loop.last %}, {% endif %}
+                                <span class="dataset-key__contributors__roles">{$ __('role.' + role) | capitalize $}</span>{% if not loop.last %}, {% endif %}
                             {% endfor %}
                             <br>
                         {% endif %}

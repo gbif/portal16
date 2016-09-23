@@ -478,3 +478,11 @@ sub {
     line-height 18px
     margin-bottom vrBlock(1)
 }
+
+.relative-anchor-offset {
+    position relative
+    >a {
+        position absolute
+        top -($navBar_height + vrBlock(1))
+    }
+}

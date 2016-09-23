@@ -4,7 +4,7 @@
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper">{$ __('stdTerms.dataset') $}</span>
-                    <span class="article-header__category__lower">{$ dataset.record.type $}</span>
+                    <span class="article-header__category__lower">{$ __('dataset.type.' + dataset.record.type) $}</span>
                 </nav>
 
                 <h1 class="h2 text-center">
@@ -51,7 +51,7 @@
                 {#</div>#}
                 <div>
                     <a href="#contributors" class="gb-button--round">Contributors</a>
-                    <a href="#dataset_citation" class="gb-button--round">Citation</a>
+                    <a href="#citation" class="gb-button--round">Citation</a>
                 </div>
 
             </header>
