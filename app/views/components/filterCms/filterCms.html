@@ -40,7 +40,7 @@
 
             <div class="checkbox" ng-repeat="facet in vm.suggestions.counts" ng-if="!vm.inQuery(facet.key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key.toString(), checked)">
                         <span class="filter-group__filter__name">
                             <span class="filter-group__filter__name__title text-capitalize" >{{ facet.translatedLabel }}</span>
                             <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{ facet.count | localNumber:vm.filterState.query.locale }}</span>
@@ -54,7 +54,7 @@
 
             <div class="checkbox" ng-repeat="facet in vm.suggestions.counts">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="facet.key.toString()" ng-change="vm.change(facet.key.toString(), checked)">
                     <span class="filter-group__filter__name">
                         <span class="filter-group__filter__name__bar" ng-style="vm.getWidth(facet.key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></span>
                         <span ng-bind="facet.translatedLabel" class="filter-group__filter__name__title text-capitalize"></span>
