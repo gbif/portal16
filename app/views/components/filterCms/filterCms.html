@@ -10,16 +10,16 @@
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.expanded}">
 
         <div ng-if="vm.query.length > 0 && vm.filterConfig.search.isSearchable" class="is-padded overflow-hidden">
-            <div class="checkbox" ng-repeat="key in vm.query">
+            <div class="checkbox" ng-repeat="(index, key) in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key.toString()" ng-change="vm.change(key.toString(), checked)">
                     <span class="filter-group__filter__name">
-                    <span class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></span>
-                    <span class="text-capitalize" ng-class="{'filter-group__filter__name__title' : vm.expanded}">{{ vm.facetTitle }}</span>
-                    <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
-                        {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
+                        <span class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></span>
+                        <span translate="country.{{key}}" class="text-capitalize" ng-class="{'filter-group__filter__name__title' : vm.expanded}"></span>
+                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
+                            {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[index].count || 0 | localNumber:vm.filterState.query.locale}}
+                        </span>
                     </span>
-                </span>
                 </label>
             </div>
         </div>

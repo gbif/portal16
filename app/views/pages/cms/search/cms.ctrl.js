@@ -102,7 +102,11 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         queryKey: 'category_country',
         filter: CmsFilter,
         showAll: false,
-        isSearchable: true,
+        search: {
+            isSearchable: true,
+            placeholder: 'country',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+        },
         facets: {
             hasFacets: true,
             hideBar: true,

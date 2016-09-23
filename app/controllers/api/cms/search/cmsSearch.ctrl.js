@@ -117,7 +117,7 @@ function transformFacetsToMap(data) {
                 count: e.count,
                 fraction: e.count/data.count,
                 translatedLabel: e.translatedLabel,
-                key: e.key
+                key: key == 'category_country' ? e.enum : e.key
             });
             max = e.count > max ? e.count : max;
         });
@@ -126,11 +126,19 @@ function transformFacetsToMap(data) {
         facetMap[key].translatedLabel = facetType.translatedLabel;
 
         // CMS API by default has filters sorted by counts,
-        // we sort them by name here so it behaves closer to GBIF Data API.
+        // we sort them by name here, except country, so it behaves closer to GBIF Data API.
         facetMap[key].counts.sort(function(a, b){
             if (a.translatedLabel > b.translatedLabel) return 1;
             if (a.translatedLabel < b.translatedLabel) return -1;
         });
+        if (key == 'category_country') {
+            facetMap[key].counts.sort(function(a, b){
+                if (a.count > b.count) return -1;
+                if (a.count < b.count) return 1;
+            });
+            // only show the first ten.
+            facetMap[key].counts.splice(10);
+        }
         // Push 'und' to the last for language facet.
         if (key == 'language') {
             facetMap[key].counts.forEach(function(count, i){

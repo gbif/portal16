@@ -77,7 +77,7 @@ function filterCmsDirective() {
         vm.searchSuggestions = [];
         vm.getSuggestions = function() {
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
-                return $http.get(vm.filterConfig.search.suggestEndpoint
+                    return $http.get(vm.filterConfig.search.suggestEndpoint
                 ).then(function (response) {
                     vm.searchSuggestions = response.data;
                 });
