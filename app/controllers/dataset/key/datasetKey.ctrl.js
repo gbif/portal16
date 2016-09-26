@@ -19,7 +19,7 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
         next();
     } else {
         var getOptions = {
-            expand: ['publisher', 'installation', 'occurrenceCount', 'occurrenceGeoRefCount', 'process', 'occurrenceDownloadEvents', 'datasetRefLookup']
+            expand: ['publisher']
         };
         Dataset.get(datasetKey, getOptions).then(function (dataset) {
             try {

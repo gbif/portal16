@@ -12,6 +12,8 @@ function datasetKeyCtrl() {
     vm.bibExpand = {
         isExpanded: false
     };
+
+    vm.latLon = {lat: 45, lon: 10};
     
 }
 

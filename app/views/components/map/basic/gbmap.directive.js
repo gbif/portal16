@@ -1,6 +1,8 @@
 'use strict';
 
 var angular = require('angular');
+require('../../globeContext/globeContext.directive');
+
 angular
     .module('portal')
     .directive('gbmap', gbmapDirective);
@@ -29,6 +31,13 @@ function gbmapDirective() {
         vm.id = 'gbifMap';//TODO how to handle mutiple ids? Random is ugly
         //vm.center = {zoom: 0, lat: 0, lng: 0};
         vm.mapstyle = vm.mapstyle || 'classic';
+        vm.globeOptions = {
+            center: {
+                lat: 0,
+                lng: 0
+            }
+        };
+
 
         var palette = 'palette=reds';
         if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette) {
@@ -81,6 +90,12 @@ function gbmapDirective() {
                 [40.712, -74.227],
                 [40.774, -74.125]
             ]);
+
+            map.on('drag zoomend', function(e) {
+                // vm.globeOptions.center = map.getCenter();
+                vm.globeOptions.center.lat += 1;
+                console.log(vm.globeOptions.center.lat);
+            });
         });
 
         OccurrenceBbox.query({
