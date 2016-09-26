@@ -115,7 +115,10 @@ var baseLayers = {
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
-                colors: "%2C%2C%23CC0000FF",
+                //colors: "%2C%2C%23CC0000FF",
+                //colors: encodeURIComponent(',100,#d0f1fbff|100,1000,#aee7f9ff|1000,10000,#94dff8ff|10000,,#81daf6ff'),
+                //colors: encodeURIComponent(',100,#9dbd82ff|100,1000,#f5cc27ff|1000,10000,#f5ba27ff|10000,,#ff6347ff'),
+                colors: encodeURIComponent(',50,#9dbd82ff|50,100,#b6c066ff|100,300,#c7c354ff|300,800,#dec73dff|800,1500,#f7b52eff|1500,2500,#f5cc27ff|2500,5000,#fa9737ff|5000,8000,#fc813eff|8000,,#ff6347ff'),
                 attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
             }
         },
@@ -136,8 +139,6 @@ var baseLayers = {
 
 
 (function () {
-
-
     angular
         .module('portal')
         .constant('mapConstants', {

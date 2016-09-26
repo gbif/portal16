@@ -28,7 +28,64 @@ function globeContextDirective() {
     function globeContext($scope) {
         var vm = this;
 
-        var width = 100,
+        function getPointGeoJson(center) {
+            return  {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [
+                                center.lng,
+                                center.lat
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+        function getBboxGeoJson(bounds) {
+            return {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {},
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        bounds._southWest.lng,
+                                        bounds._southWest.lat
+                                    ],
+                                    [
+                                        bounds._northEast.lng,
+                                        bounds._southWest.lat
+                                    ],
+                                    [
+                                        bounds._northEast.lng,
+                                        bounds._northEast.lat
+                                    ],
+                                    [
+                                        bounds._southWest.lng,
+                                        bounds._northEast.lat
+                                    ],
+                                    [
+                                        bounds._southWest.lng,
+                                        bounds._southWest.lat
+                                    ]
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            };
+        }
+
+        var width = 70,
             height = width,
             radius = height / 2 - 5,
             scale = radius;
@@ -57,10 +114,12 @@ function globeContextDirective() {
           setCenter(0,0);
         });
 
-        function setCenter(lat, lon) {
+        function setCenter(lat, lng, bounds) {
+            //lat = Math.min(lat, 50);
+            //lat = Math.max(lat, -50);
             context.clearRect(0, 0, width, height);
 
-            projection.rotate([lat, lon]);
+            projection.rotate([-lng, -lat]);
 
             //background
             context.beginPath();
@@ -77,38 +136,42 @@ function globeContextDirective() {
             //graticules
             context.beginPath();
             path(graticule());
-            context.lineWidth = .5;
-            context.strokeStyle = "#aaa";
+            context.lineWidth = .25;
+            context.strokeStyle = "#bbb";
             context.stroke();
 
             //bbox
-            // context.beginPath();
-            // path(square);
-            // context.strokeStyle = "#888";
-            // context.lineWidth = 5;
-            // context.fillStyle = "rgba(0,0,0,0.1)";
-            // context.fill();
-            // context.stroke();
+            //if (bounds) { // && (Math.abs(bounds._northEast.lat - bounds._southWest.lat) < 25)
+            //    var bbox = getBboxGeoJson(bounds);
+            //    context.beginPath();
+            //    path(bbox);
+            //    context.strokeStyle = "#888";
+            //    context.lineWidth = 1;
+            //    context.fillStyle = "rgba(0,0,0,0.05)";
+            //    context.fill();
+            //    context.stroke();
+            //}
 
-            // //point
-            // context.beginPath();
-            // path(point);
-            // context.fillStyle = "deepskyblue";
-            // context.fill();
+             //point
+            if (vm.globeOptions.zoom > 3) {
+                context.beginPath();
+                path(getPointGeoJson({lat: lat, lng: lng}));
+                context.fillStyle = "rgba(0,0,0,0.3)";
+                context.fill();
+            }
 
             //border
             context.beginPath();
             context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
-            context.lineWidth = 0.5;
+            context.lineWidth = .5;
+            context.strokeStyle = "#aaa";
             context.stroke();
         }
 
-        $scope.$watch(function(){
-            console.log(vm.globeOptions.center.lat); 
-            return vm.globeOptions.center.lat
-        }, function(newSetting){
-            console.log('sdf');
-        });
+        $scope.$watchCollection(function(){return vm.globeOptions;}, function(){
+            setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
+        }, true);
+
 
     }
 }

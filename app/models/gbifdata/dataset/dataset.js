@@ -34,6 +34,10 @@ Dataset.prototype.expand = function (fieldNames) {
                 resource: api.installation.url + this.record.installationKey,
                 extendToField: 'installation'
             },
+            images: {
+                resource: api.occurrenceSearch.url + '?limit=35&media_type=stillImage&dataset_key=' + this.record.key,
+                extendToField: 'images'
+            },
             occurrenceCount: {
                 resource: api.occurrence.url + 'count?datasetKey=' + this.record.key,
                 extendToField: 'occurrenceCount'

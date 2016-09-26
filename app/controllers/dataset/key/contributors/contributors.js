@@ -71,9 +71,9 @@ function isSameAuthor(a, b) {
 function extendContact(a, b) {
     a.primary = a.primary || b.primary;
     if (!a.roles) {
-        a.roles = [a.type];
+        a.roles = a.type ? [a.type] : [];
     }
-    a.roles = _.union(a.roles, [b.type]);
+    a.roles = b.type ? _.union(a.roles, [b.type]) : a.roles;
     return a;
 }
 
@@ -98,7 +98,7 @@ function getUniqueContacts(contacts) {
             //add
             let cloned = _.cloneDeep(e);
             if (!cloned.roles) {
-                cloned.roles = [cloned.type];
+                cloned.roles = cloned.type ? [cloned.type] : [];
             }
             mergedContacts.push(cloned);
         }

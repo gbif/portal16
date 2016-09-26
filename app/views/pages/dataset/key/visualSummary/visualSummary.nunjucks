@@ -16,7 +16,7 @@
 
 <section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
     <div class="clearfix" style="position: relative; z-index: 1">
-        <gbmap style="height:300px; width: 50%; float: left;" type="'dataset'" key="" mapstyle="'light'"></gbmap>
+        <gbmap style="height:300px; width: 50%; float: left;" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
         <div style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
         </div>
     </div>

@@ -19,7 +19,7 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
         next();
     } else {
         var getOptions = {
-            expand: ['publisher']
+            expand: ['publisher', 'images']
         };
         Dataset.get(datasetKey, getOptions).then(function (dataset) {
             try {

@@ -26,7 +26,7 @@ function gbmapDirective() {
     return directive;
 
     /** @ngInject */
-    function gbmap(leafletData, OccurrenceBbox, mapConstants, env) {
+    function gbmap(leafletData, OccurrenceBbox, mapConstants, env, $scope, $timeout) {
         var vm = this;
         vm.id = 'gbifMap';//TODO how to handle mutiple ids? Random is ugly
         //vm.center = {zoom: 0, lat: 0, lng: 0};
@@ -35,11 +35,11 @@ function gbmapDirective() {
             center: {
                 lat: 0,
                 lng: 0
-            }
+            },
+            bounds: undefined
         };
 
-
-        var palette = 'palette=reds';
+        var palette = 'palette=yellows_reds';
         if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette) {
             palette = 'palette=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette;
         }
@@ -47,9 +47,32 @@ function gbmapDirective() {
             palette = 'colors=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors;
         }
 
+
         vm.controls = {
             scale: true
         };
+        var getOverlay = function(palette, resolution) {
+            var overlay = {
+                name: 'gb',
+                url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=2&' + palette,
+                type: 'xyz',
+                visible: true,
+                layerParams: {
+                    key: vm.key || 0,
+                    type: vm.type ? vm.type.toUpperCase() : 'TAXON',
+                    "showOnSelector": false
+                }
+            };
+            return overlay;
+        };
+        var setOverlay = function(q) {
+            vm.query = q;
+            if (Object.keys(vm.layers.overlays).length > 0) {
+                vm.layers.overlays = {};
+            }
+            vm.layers.overlays['occurrences' + hashObject(vm.query)] =  getOverlay(vm.query);
+        };
+
         vm.layers = {
             baselayers: {
                 base: mapConstants.baseLayers.options[vm.mapstyle]
@@ -57,7 +80,7 @@ function gbmapDirective() {
             overlays: {
                 occurrences: {
                     name: 'gb',
-                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=4&' + palette,
+                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=2&' + palette,
                     type: 'xyz',
                     visible: true,
                     layerParams: {
@@ -83,34 +106,45 @@ function gbmapDirective() {
             }
         };
 
-        leafletData.getMap(vm.id).then(function(map) {
-            map.once('focus', function() { map.scrollWheelZoom.enable(); });
-            //map.fitWorld().zoomIn();
-            map.fitBounds([
-                [40.712, -74.227],
-                [40.774, -74.125]
-            ]);
-
-            map.on('drag zoomend', function(e) {
-                // vm.globeOptions.center = map.getCenter();
-                vm.globeOptions.center.lat += 1;
-                console.log(vm.globeOptions.center.lat);
+        leafletData.getMap(vm.id).then(function (map) {
+            map.once('focus', function () {
+                map.scrollWheelZoom.enable();
             });
+            map.fitWorld().zoomIn();
+            //map.fitBounds([
+            //    [40.712, -74.227],
+            //    [40.774, -74.125]
+            //]);
+
+            map.on('drag zoomend', function() {
+                $timeout( function() {
+                    $scope.$apply(function () {
+                        $scope.message = "Timeout called!";
+                        vm.globeOptions.center = map.getCenter();
+                        vm.globeOptions.bounds = map.getBounds();
+                        vm.globeOptions.zoom = map.getZoom();
+                    });
+                }, 50);
+            });
+
+            vm.globeOptions.center = map.getCenter();
+            vm.globeOptions.bounds = map.getBounds();
         });
+
 
         OccurrenceBbox.query({
             type: 'DATASET',
             key: vm.key
-        }, function(data) {
+        }, function (data) {
             data.minimumLatitude = Math.max(-90, data.minimumLatitude - 2);
             data.minimumLongitude = Math.max(-180, data.minimumLongitude - 2);
             data.maximumLatitude = Math.min(90, data.maximumLatitude + 2);
             data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
 
-            leafletData.getMap(vm.id).then(function(map) {
+            leafletData.getMap(vm.id).then(function (map) {
                 map.fitBounds([
-                    [ data.minimumLatitude, data.minimumLongitude ],
-                    [ data.maximumLatitude, data.maximumLongitude  ]
+                    [data.minimumLatitude, data.minimumLongitude],
+                    [data.maximumLatitude, data.maximumLongitude]
                 ]);
                 //map.fitBounds([[-75.62778879339942,-180],[85.19489563661588,180]]);
             });
@@ -123,7 +157,7 @@ function gbmapDirective() {
             //});
 
 
-        }, function() {
+        }, function () {
             //TODO
         });
     }
