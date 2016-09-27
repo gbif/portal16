@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     d3 = require('d3'),
+    world = require('./world-110m'),
     topojson = require('topojson');
 
 angular
@@ -106,13 +107,16 @@ function globeContextDirective() {
             .context(context);
 
         var graticule = d3.geoGraticule();
-        var land = {};
+        var land = topojson.feature(world, world.objects.land);
+        setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
 
-        d3.json("https://dl.dropboxusercontent.com/u/2718924/world-110m.json", function(error, world) {
-          if (error) throw error;
-          land = topojson.feature(world, world.objects.land);
-          setCenter(0,0);
-        });
+        //async version to load world data
+        //var land = {};
+        //d3.json("https://dl.dropboxusercontent.com/u/2718924/world-110m.json", function(error, world) {
+        //  if (error) throw error;
+        //  land = topojson.feature(world, world.objects.land);
+        //  setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
+        //});
 
         function setCenter(lat, lng, bounds) {
             //lat = Math.min(lat, 50);
@@ -140,18 +144,6 @@ function globeContextDirective() {
             context.strokeStyle = "#bbb";
             context.stroke();
 
-            //bbox
-            //if (bounds) { // && (Math.abs(bounds._northEast.lat - bounds._southWest.lat) < 25)
-            //    var bbox = getBboxGeoJson(bounds);
-            //    context.beginPath();
-            //    path(bbox);
-            //    context.strokeStyle = "#888";
-            //    context.lineWidth = 1;
-            //    context.fillStyle = "rgba(0,0,0,0.05)";
-            //    context.fill();
-            //    context.stroke();
-            //}
-
              //point
             if (vm.globeOptions.zoom > 3) {
                 context.beginPath();
@@ -168,8 +160,8 @@ function globeContextDirective() {
             context.stroke();
         }
 
-        $scope.$watchCollection(function(){return vm.globeOptions;}, function(){
-            setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
+        $scope.$watchCollection(function(){return vm.globeOptions;}, function(newOptions){
+            setCenter(newOptions.center.lat, newOptions.center.lng, newOptions.bounds);
         }, true);
 
 

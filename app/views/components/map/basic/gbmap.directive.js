@@ -116,21 +116,20 @@ function gbmapDirective() {
             //    [40.774, -74.125]
             //]);
 
-            map.on('drag zoomend', function() {
-                $timeout( function() {
-                    $scope.$apply(function () {
-                        $scope.message = "Timeout called!";
-                        vm.globeOptions.center = map.getCenter();
-                        vm.globeOptions.bounds = map.getBounds();
-                        vm.globeOptions.zoom = map.getZoom();
-                    });
-                }, 50);
+            map.on('drag zoomend dragend', function() {
+                updateGlobe(map);
             });
-
-            vm.globeOptions.center = map.getCenter();
-            vm.globeOptions.bounds = map.getBounds();
         });
 
+        function updateGlobe(map) {
+            $timeout( function() {
+                $scope.$apply(function () {
+                    vm.globeOptions.center = map.getCenter();
+                    vm.globeOptions.bounds = map.getBounds();
+                    vm.globeOptions.zoom = map.getZoom();
+                });
+            }, 50);
+        }
 
         OccurrenceBbox.query({
             type: 'DATASET',
@@ -146,7 +145,7 @@ function gbmapDirective() {
                     [data.minimumLatitude, data.minimumLongitude],
                     [data.maximumLatitude, data.maximumLongitude]
                 ]);
-                //map.fitBounds([[-75.62778879339942,-180],[85.19489563661588,180]]);
+                updateGlobe(map);
             });
 
             //leafletData.getMap(vm.id).then(function(map) {
