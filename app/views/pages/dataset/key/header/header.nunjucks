@@ -49,9 +49,14 @@
                         {#Fischereiamt Berlin, Leibniz Institut für Gewässerökologie und Binnenfischerei#}
                     {#</p>#}
                 {#</div>#}
+
                 <div>
                     <a href="#contributors" class="gb-button--round">Contributors</a>
                     <a href="#citation" class="gb-button--round">Citation</a>
+                    {% if dataset.record.homepage | isNotEmpty %}
+                    <a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>
+                    {% endif %}
+                    <a href="" class="gb-button--round">Download</a>
                 </div>
 
             </header>

@@ -70,6 +70,7 @@ var bowerJs = !wiredep.js ? [] : wiredep.js.map(function(e) {
     return path.relative('.', e);
 });
 
+bowerCss.push('node_modules/chartist/dist/chartist.min.css'); //This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
 config.bower = {
     cssFiles: bowerCss,
     jsFiles: bowerJs
@@ -95,7 +96,7 @@ config.stylus = {
 
 
 /**
- *  The entry point for building the css from stylus. Bower stylus dependencies will be injected into this file.
+ *  The entry point for building Bootstrap css
  */
 config.bootstrap = {
     root: loc('./app/views/shared/style/bootstrap/bootstrap.less'),

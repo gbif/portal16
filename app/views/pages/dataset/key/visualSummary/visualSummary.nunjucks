@@ -18,6 +18,7 @@
     <div class="clearfix" style="position: relative; z-index: 1">
         <gbmap style="height:300px; width: 50%; float: left;" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
         <div style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
+            {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
         </div>
     </div>
 </section>

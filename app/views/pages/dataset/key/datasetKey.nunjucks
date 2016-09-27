@@ -3,10 +3,13 @@
 {% block page %}
     <script>
         var gb = gb || {};
+        gb.datasetKey =  {
+            key: '{$ dataset.record.key $}'
+        };
     </script>
     <article class="wrapper-horizontal-stripes datasetKey page--data" ng-controller="datasetKeyCtrl as datasetKey">
         {% include('./header/header.nunjucks') %}
-        {% include('./original/original.nunjucks') %}
+        {#{% include('./original/original.nunjucks') %}#}
         {% include('./visualSummary/visualSummary.nunjucks') %}
         {% include('./images/images.nunjucks') %}
         {% include('./bibliography/bibliography.nunjucks') %}

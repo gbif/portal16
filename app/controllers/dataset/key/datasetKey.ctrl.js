@@ -1,7 +1,8 @@
 var express = require('express'),
-    Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
-    contributors = require('./contributors/contributors'),
-    bibliography = require('./bibliography/bibliography'),
+    //Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
+    //contributors = require('./contributors/contributors'),
+    //bibliography = require('./bibliography/bibliography'),
+    dataset = require('./datasetViewData'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -18,26 +19,30 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
     if (!isGuid(datasetKey)) {
         next();
     } else {
-        var getOptions = {
-            expand: ['publisher', 'images']
-        };
-        Dataset.get(datasetKey, getOptions).then(function (dataset) {
-            try {
-                dataset._computedValues = {};
-                dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
-                dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
-                //dataset = bibliography.getBibliography(dataset.record.bibliographicCitations);
-
-                renderPage(req, res, next, dataset);
-            } catch (err) {
-                next(err);
-            }
-        }, function (err) {
-            //TODO should this be logged here or in model/controller/api?
-            //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-            console.log('error in ctrl ' + err);
-            next();
-        });
+        //var getOptions = {
+        //    expand: ['publisher', 'images']
+        //};
+        //Dataset.get(datasetKey, getOptions).then(function (dataset) {
+        //    try {
+        //        dataset._computedValues = {};
+        //        dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
+        //        dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+        //        //dataset = bibliography.getBibliography(dataset.record.bibliographicCitations);
+        //
+        //        renderPage(req, res, next, dataset);
+        //    } catch (err) {
+        //        next(err);
+        //    }
+        //}, function (err) {
+        //    //TODO should this be logged here or in model/controller/api?
+        //    //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
+        //    console.log('error in ctrl ' + err);
+        //    next();
+        //});
+        dataset.getDataset(datasetKey, function(err, viewData) {
+            "use strict";
+            renderPage(req, res, next, viewData);
+        })
     }
 });
 
