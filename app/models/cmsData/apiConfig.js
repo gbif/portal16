@@ -19,6 +19,9 @@ var apiConfig = {
     event: {
         url: baseUrl + 'v1/event/'
     },
+    generic: {
+        url: baseUrl + 'v1/generic/'
+    },
     resource: {
         url: baseUrl + 'v1/resource/'
     },

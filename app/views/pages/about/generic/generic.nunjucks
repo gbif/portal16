@@ -1,0 +1,97 @@
+{% extends "../html-prose.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes">
+        <div class="horizontal-stripe--programme article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center article-header--programme">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">About</span>
+                            <span class="article-header__category__lower">GBIF Network</span>
+                        </nav>
+                        <h1>{$ data.title $}</h1>
+                        <div class="article-header__intro">
+                            {# fulltext html already wrapped by <p> from Content API #}
+                            {$ data.summary | safe $}
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+        {% if images[0].width > 1000 %}
+            <figure class="heading-image">
+                <div class="cover-image">
+                    <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                </div>
+                <figcaption class="container-fluid container--prose">
+                    {$ images[0].image_field_caption.value | safe $}
+                </figcaption>
+            </figure>
+        {% endif %}
+        <div class="horizontal-stripe--programme">
+            <div class="container-fluid container--prose">
+                <div class="body-text prose-columns--single-col">
+                    {$ data.body | safe $}
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-stripe">
+            <div class="container-fluid container--prose">
+                <div class="body-text prose-columns--single-col">
+                    <h4>Related documents and information</h4>
+                    <ul class="list-links--programme-resources">
+                        {% for resource in data.relatedResources %}
+                            <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
+                        {% endfor %}
+                        {% for file in data.file %}
+                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% if data.relatedNews.length > 0 %}
+            <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}" gallery-image alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span>{$ __('cms.programme.relatedNews') $}</span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.relatedNews[0].targetUrl $}">
+                                                {$ data.relatedNews[0].title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span>{$ __('cms.programme.relatedNews') $}</span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.relatedNews[1].targetUrl $}">
+                                                {$ data.relatedNews[1].title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        {% endif %}
+    </article>
+{% endblock %}

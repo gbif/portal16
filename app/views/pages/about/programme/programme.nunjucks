@@ -16,21 +16,23 @@
                             {$ data.summary | safe $}
                         </div>
                         {% if data.funders.length > 0 %}
-                        <div class="funders-lead">This programme is funded by</div>
-                        {% set comma = joiner('and') %}
-                        {% for funder in data.funders %}
-                            <div class="funders">
-                                <h5>{$ comma() $}</h5>
-                                {% if funder.title != 'GBIF' %}
-                                    <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
-                                {% else %}
-                                    <h5>{$ funder.title $}</h5>
-                                {% endif %}
-                                {% if funder.title != 'GBIF' %}
-                                    <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
+                        <div class="funders__block">
+                            <div class="funders-lead">This programme is funded by</div>
+                            {% set comma = joiner('and') %}
+                            {% for funder in data.funders %}
+                                <div class="funders">
+                                    <h5>{$ comma() $}</h5>
+                                    {% if funder.title != 'GBIF' %}
+                                        <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
+                                    {% else %}
+                                        <h5>{$ funder.title $}</h5>
+                                    {% endif %}
+                                    {% if funder.title != 'GBIF' %}
+                                        <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </header>
                 </div>
@@ -62,6 +64,7 @@
             </div>
         </div>
         {% endif %}
+        {% if data.relatedResources.length > 0 %}
         <div class="horizontal-stripe">
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns--single-col">
@@ -77,6 +80,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         {% if data.relatedNews.length > 0 %}
         <aside class="horizontal-stripe horizontal-stripe--card light-background">
             <div class="container-fluid container--related-stories">

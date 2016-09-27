@@ -13,6 +13,7 @@ router.get([
         '/news/:requestedPath(*)',
         '/data-use/:requestedPath(*)',
         '/event/:requestedPath(*)',
+        '/generic/:requestedPath(*)',
         '/page/:requestedPath(*)',
         '/programme/:requestedPath(*)',
         '/project/:requestedPath(*)',
