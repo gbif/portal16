@@ -17,8 +17,57 @@
 <section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
     <div class="clearfix" style="position: relative; z-index: 1">
         <gbmap style="height:300px; width: 50%; float: left;" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
-        <div style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
+        <div class="dataset-key__visual-summary__counts" style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
             {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
+            <p>
+                <span class="h3">123.345</span> <span>records</span>
+            </p>
+            <div>
+                <div class="dataset-key__visual-summary__counts__group">
+                    <div>
+                        <!-- <span class="h3 gb-icon-map"></span> -->
+                        <span class="h4" >78%</span>
+                    </div>
+                    <div>
+                        with coordinates
+                    </div>
+                </div>
+
+                <div class="dataset-key__visual-summary__counts__group">
+                    <div>
+                        <span class="h4" >53%</span>
+                    </div>
+                    <div>
+                        with year
+                    </div>
+                </div>
+
+                <div class="dataset-key__visual-summary__counts__group">
+                    <div>
+                        <span class="h4" >32%</span>
+                    </div>
+                    <div>
+                        with taxon match
+                    </div>
+                </div>
+            </div>
+
+            <div class="dataset-key__visual-summary__counts__image">
+                <div>
+                </div>
+                <!-- <div>
+                    <div>
+                        <span class="h4">40%</span>
+                    </div>
+                    <div>
+                        with images
+                    </div>
+                </div> -->
+            </div>
+            <!-- <p>
+                <span class="h3">76</span> <span>species</span>
+            </p> -->
+
         </div>
     </div>
 </section>

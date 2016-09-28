@@ -2,4 +2,35 @@
 	.ct-series-a .ct-bar {
 		stroke #444
 	}
+	
+	&__counts {
+		>p {
+			margin-bottom vrBlock(1)
+		}
+			
+		>div {
+			display flex
+		}
+		&__group {
+			flex 0 0 33%
+			margin-right 10px
+			>div {
+				// text-align center
+				&:first-of-type {
+				}
+			}
+		}
+		&__image{
+			margin-top vrBlock(2)
+			>div {
+				width 100px
+				height 100px
+				border-radius 50px
+				background-image url('http://www.kew.org/herbcatimg/847400.jpg')
+				background-size cover
+				backgroundposition center
+				margin-right vrBlock(1)
+			}
+		}
+	}
 }
