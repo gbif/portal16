@@ -39,11 +39,6 @@
                 {#<p>Explore 600+ million occurrences</p>#}
             {#</div>#}
         </div>
-
-        {% markdown %}
-        {$ test $}
-        {% endmarkdown %}
-
     </div>
 
 {% endblock %}

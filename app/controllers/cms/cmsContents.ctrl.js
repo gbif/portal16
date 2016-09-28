@@ -3,7 +3,15 @@ var express = require('express'),
     router = express.Router(),
     format = require('../../helpers/format'),
     cmsApi = require('../../models/cmsData/apiConfig'),
-    cmsData = require('../../models/cmsData/cmsData');
+    cmsData = require('../../models/cmsData/cmsData'),
+    md = require('markdown-it')({html:true,linkify:true,typographer:true});
+
+md.use(require('markdown-it-video'), {
+    youtube: { width: 640, height: 390 },
+    vimeo: { width: 500, height: 281 },
+    vine: { width: 600, height: 600, embed: 'simple' },
+    prezi: { width: 550, height: 400 }
+});
 
 module.exports = function (app) {
     app.use('/', router);
@@ -98,6 +106,11 @@ router.get([
         if (typeof body.data[0].file != 'undefined' && body.data[0].file.length > 0) {
             body.data[0].file[0].filesize = format.formatBytes(body.data[0].file[0].filesize, 1);
         }
+
+        if (body.data[0].type == 'generic') {
+            body.data[0].body.markdown = md.render(body.data[0].body.value);
+        }
+
         var proseContent = {
             data: body.data[0],
             images: body.data[0].images,
