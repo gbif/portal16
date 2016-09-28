@@ -2,7 +2,7 @@
 
 {% block page %}
     <article class="wrapper-horizontal-stripes">
-        <div class="horizontal-stripe--programme article-header white-background">
+        <div class="horizontal-stripe--paddingless article-header white-background">
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center article-header--programme">
@@ -48,7 +48,7 @@
                 </figcaption>
             </figure>
         {% endif %}
-        <div class="horizontal-stripe--programme white-background">
+        <div class="horizontal-stripe--top-borderless white-background">
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns--single-col">
                     {$ data.body | safe $}
