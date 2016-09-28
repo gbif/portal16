@@ -1,10 +1,10 @@
 {% if dataset.record.bibliographicCitations.length > 0 %}
 <section
-        class="horizontal-stripe dataset-key__bibliography {% if dataset.record.bibliographicCitations.length <= 5 %} is-expanded {% endif %}"
+        class="horizontal-stripe dataset-key__bibliography white-background {% if dataset.record.bibliographicCitations.length <= 5 %} is-expanded {% endif %}"
         {% if dataset.record.bibliographicCitations.length > 5 %}
             ng-class="{'is-expanded': datasetKey.bibExpand.isExpanded}"
         {% endif %}>
-    <div class="container--normal">
+    <div class="container--narrow">
         <h2 class="h4">Bibliography</h2>
         <div class="dataset-key__bibliography__list">
             <ol>

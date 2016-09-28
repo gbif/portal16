@@ -111,10 +111,6 @@ function gbmapDirective() {
                 map.scrollWheelZoom.enable();
             });
             map.fitWorld().zoomIn();
-            //map.fitBounds([
-            //    [40.712, -74.227],
-            //    [40.774, -74.125]
-            //]);
 
             map.on('drag zoomend dragend', function() {
                 updateGlobe(map);
@@ -141,10 +137,15 @@ function gbmapDirective() {
             data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
 
             leafletData.getMap(vm.id).then(function (map) {
-                map.fitBounds([
-                    [data.minimumLatitude, data.minimumLongitude],
-                    [data.maximumLatitude, data.maximumLongitude]
-                ]);
+                //map.fitBounds([
+                //    [data.minimumLatitude, data.minimumLongitude],
+                //    [data.maximumLatitude, data.maximumLongitude]
+                //]);
+                //console.log(3);
+                //if (map.getZoom() < 2){
+                //    map.fitWorld().zoomIn();
+                //}
+                map.fitWorld().zoomIn().zoomIn();
                 updateGlobe(map);
             });
 

@@ -41,12 +41,7 @@
         </div>
 
         {% markdown %}
-        ### Bike shed
-        Notice the search for `bike shed`. This is the search example that we give the users currently. 4 users seemingly took it on face value.
-
-        Why not just try this?
-        <iframe src="https://player.vimeo.com/video/35893267" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        <p><a href="https://vimeo.com/35893267">Donald Hobern shares thoughts on GBIF</a> from <a href="https://vimeo.com/gbif">GBIF</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+        {$ test $}
         {% endmarkdown %}
 
     </div>
