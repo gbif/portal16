@@ -1,0 +1,12 @@
+<section class="horizontal-stripe white-background dataset-key__text">
+    <div class="container--narrow">
+        {% if dataset.record.description %}
+            <div class="container--prose description">
+                <h2 class="h4">Description</h2>
+                <div>
+                    {$ dataset.record.description | safe $}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

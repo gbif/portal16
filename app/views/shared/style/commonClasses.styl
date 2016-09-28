@@ -1,491 +1,500 @@
 .container--normal {
-    padding-left 15px
-    padding-right 15px
-    margin-right auto
-    margin-left auto
-    max-width $contentWidth--normal
+	padding-left 15px
+	padding-right 15px
+	margin-right auto
+	margin-left auto
+	max-width $contentWidth--normal
 }
+
 .container--wide {
-    @extend .container--normal
-    max-width $contentWidth--wide
+	@extend .container--normal
+	max-width $contentWidth--wide
 }
 
 .container--narrow {
-    @extend .container--normal
-    max-width $contentWidth--narrow
+	@extend .container--normal
+	max-width $contentWidth--narrow
 }
 
 .horizontal-stripe {
-    padding vrBlock(1) 0
-    border-bottom 1px solid $stripeBorderColor
-    &:last-child.white-background {
-        border none
-    }
-    >*:last-child {
-        margin-bottom 0
-    }
+	padding vrBlock(1) 0
+	border-top 1px solid $stripeBorderColor
+	&:first-child {
+		border none
+	}
+	&.white-background + .white-background {
+		border none
+	}
+	&:last-child.white-background {
+		border none
+	}
+	> *:last-child {
+		margin-bottom 0
+	}
 }
+
 .horizontal-stripe--paddingless {
-    @extends .horizontal-stripe
-    padding 0
+	@extends .horizontal-stripe
+	padding 0
 }
+
 .horizontal-stripe--programme {
-    @extends .horizontal-stripe
-    padding 0
-    border-bottom none
+	@extends .horizontal-stripe
+	padding 0
+	border-top none
 }
 
 /*
  * Header area styles
  */
 .article-header {
-    h1 {
-        margin-top vrBlock(0.4)
-        .error {
-            color tomato
-        }
-    }
-    &__intro {
-        font-size 1.2rem
-        font-style italic
-        font-family $didot
-        max-width 700px
-        margin 0 auto
-        p {
-            margin-bottom 0
-        }
-    }
-    &__meta {
-        font-weight bold
-        margin-bottom 20px
-        >* {
-            margin 0 //necessary because the drupal api sometimes returns a paragraph tag
-        }
-    }
-    &__sub {
-        margin-top vrBlock(0.5)
-    }
-    &--programme {
-        margin-top vrBlock(1)
-        margin-bottom vrBlock(1)
-    }
+	h1 {
+		margin-top vrBlock(0.4)
+		.error {
+			color tomato
+		}
+	}
+	&__intro {
+		font-size 1.2rem
+		font-style italic
+		font-family $didot
+		max-width 700px
+		margin 0 auto
+		p {
+			margin-bottom 0
+		}
+	}
+	&__meta {
+		font-weight bold
+		margin-bottom 20px
+		> * {
+			margin 0 //necessary because the drupal api sometimes returns a paragraph tag
+		}
+	}
+	&__sub {
+		margin-top vrBlock(0.5)
+	}
+	&--programme {
+		margin-top vrBlock(1)
+		margin-bottom vrBlock(1)
+	}
 }
-
-
 
 /*
  * Header - page level navigation
  */
 $articleCategorySeparatorSpacing = 6px
 .article-header__category {
-    overflow hidden
-    white-space nowrap
-    text-overflow ellipsis
-    margin vrBlock(0.5) auto -vrBlock(0.5) auto
-    text-align center
-    text-transform uppercase
-    font-weight bold
-    >span:last-of-type {
-        font-weight normal
-    }
-    .article-header__category__lower {
-        border-left 2px solid $orangePeel
-        margin-left $articleCategorySeparatorSpacing
-        padding-left ($articleCategorySeparatorSpacing + 2)
-    }
-    &.article-header__category--deep {
-        text-align left
-        .article-header__category__upper {
-            display inline-block
-            width s('calc(50% - %s)', $articleCategorySeparatorSpacing * 2)
-            text-align right
-        }
-    }
+	overflow hidden
+	white-space nowrap
+	text-overflow ellipsis
+	margin vrBlock(0.5) auto -vrBlock(0.5) auto
+	text-align center
+	text-transform uppercase
+	font-weight bold
+	> span:last-of-type {
+		font-weight normal
+	}
+	.article-header__category__lower {
+		border-left 2px solid $orangePeel
+		margin-left $articleCategorySeparatorSpacing
+		padding-left ($articleCategorySeparatorSpacing + 2)
+	}
+	&.article-header__category--deep {
+		text-align left
+		.article-header__category__upper {
+			display inline-block
+			width s('calc(50% - %s)', $articleCategorySeparatorSpacing * 2)
+			text-align right
+		}
+	}
 }
 
 .article-header__field {
-    display inline-block
-    padding 10px 20px
-    text-align center
-    margin 10px 0
-    vertical-align middle
-    div {
-        display inline-block
-        vertical-align middle
-    }
-    img {
-        height 60px
-        margin-right 8px
-    }
+	display inline-block
+	padding 10px 20px
+	text-align center
+	margin 10px 0
+	vertical-align middle
+	div {
+		display inline-block
+		vertical-align middle
+	}
+	img {
+		height 60px
+		margin-right 8px
+	}
 }
 
 .header-short-text {
-    max-width 800px
-    margin 0 auto
+	max-width 800px
+	margin 0 auto
 }
 
 .paragraph-label {
-    font-weight bold
-    color $gray60
+	font-weight bold
+	color $gray60
 }
 
 .section-map {
-    position relative
-    z-index 10
-    height 350px
-    padding 0 0
-    a {
-        color @gray-base
-    }
+	position relative
+	z-index 10
+	height 350px
+	padding 0 0
+	a {
+		color @gray-base
+	}
 }
 
 .block-map {
-    height 100%
-    >div:last-child:after {
-        content ''
-        position absolute
-        box-shadow inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3)
-        width 100%
-        height 100%
-        display block
-        pointer-events none
-    }
+	height 100%
+	> div:last-child:after {
+		content ''
+		position absolute
+		box-shadow inset 0 6px 6px -6px rgba(0, 0, 0, 0.3), inset 0 -6px 6px -6px rgba(0, 0, 0, 0.3)
+		width 100%
+		height 100%
+		display block
+		pointer-events none
+	}
 }
 
 .container--prose {
-    max-width $contentWidth--narrow
-    margin-left auto
-    margin-right auto
-    
-    .body-text {
-        ul {
-            list-style disc
-        }
-        ol {
-            list-style decimal
-        }
-    }
-    
-    .prose-columns {
-        overflow-wrap break-word
-        word-wrap break-word
-        hyphens auto
-        margin-bottom vrBlock(1)
-        figure {
-            overflow hidden
-            break-inside avoid-column
-            margin-bottom vrBlock(1)
-            figcaption {
-                font-size 0.9rem
-                font-weight 300
-                color $citationTextColor
-            }
-        }
-        section {
-            break-inside avoid-column
-        }
-        .block--non-breaking {
-            break-inside avoid-column
-        }
-    }
+	max-width $contentWidth--narrow
+	margin-left auto
+	margin-right auto
+
+	.body-text {
+		ul {
+			list-style disc
+		}
+		ol {
+			list-style decimal
+		}
+	}
+
+	.prose-columns {
+		overflow-wrap break-word
+		word-wrap break-word
+		hyphens auto
+		margin-bottom vrBlock(1)
+		figure {
+			overflow hidden
+			break-inside avoid-column
+			margin-bottom vrBlock(1)
+			figcaption {
+				font-size 0.9rem
+				font-weight 300
+				color $citationTextColor
+			}
+		}
+		section {
+			break-inside avoid-column
+		}
+		.block--non-breaking {
+			break-inside avoid-column
+		}
+	}
 }
 
 +isAbove($contentWidth--normal) {
-    .container--prose {
-        max-width $contentWidth--normal
-        .prose-columns {
-            columns 2 30px
-            &--single-col {
-                max-width $tablet
-                margin 0 auto 0 auto
-                orphans 100
-            }
-            &--justified {
-                text-align justify
-            }
-        }
-    }
+	.container--prose {
+		max-width $contentWidth--normal
+		.prose-columns {
+			columns 2 30px
+			&--single-col {
+				max-width $tablet
+				margin 0 auto 0 auto
+				orphans 100
+			}
+			&--justified {
+				text-align justify
+			}
+		}
+	}
 }
 
 .body-text {
-    font-size 16px
-    font-weight normal
-    h3 {
-        font-size 20px
-    }
-    strong {
-        font-weight 600
-    }
+	font-size 16px
+	font-weight normal
+	h3 {
+		font-size 20px
+	}
+	strong {
+		font-weight 600
+	}
 }
 
 .article-auxiliary {
-    padding-top vrBlock(1)
-    margin-top vrBlock(2)
-    margin-bottom -10px //to compensate for the bottom border on the sections.
-    border-top 1px solid $stripeBorderColor
-    font-size 1rem
-    color $gray63
+	padding-top vrBlock(1)
+	margin-top vrBlock(2)
+	margin-bottom -10px //to compensate for the bottom border on the sections.
+	border-top 1px solid $stripeBorderColor
+	font-size 1rem
+	color $gray63
 
-    section {
-        border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
-        div {
-            display inline-block
-        }
-        h5 {
-            font-weight bold
-            margin-right 0.5em
-            margin-top 0
-            margin-bottom 0.3em
-            &:after {
-                content: ":"
-            }
-            &:first-letter {
-                text-transform capitalize
-            }
-        }
-        .h5 {
-            font-weight bold
-            margin-right 0.5em
-            margin-top 0
-            margin-bottom 0
-            &:after {
-                content: ":"
-            }
-            &:first-letter {
-                text-transform capitalize
-            }
-        }
-    }
+	section {
+		border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+		div {
+			display inline-block
+		}
+		h5 {
+			font-weight bold
+			margin-right 0.5em
+			margin-top 0
+			margin-bottom 0.3em
+			&:after {
+				content: ":"
+			}
+			&:first-letter {
+				text-transform capitalize
+			}
+		}
+		.h5 {
+			font-weight bold
+			margin-right 0.5em
+			margin-top 0
+			margin-bottom 0
+			&:after {
+				content: ":"
+			}
+			&:first-letter {
+				text-transform capitalize
+			}
+		}
+	}
 
 }
 
 $headerImageMaxFullWidth = 1200px
 .heading-image {
-    max-width $headerImageMaxFullWidth
-    margin 0 auto 20px auto
-    figcaption {
-        font-size 0.9rem
-        font-weight 300
-        color $citationTextColor
-        >* {
-            margin 0
-        }
-    }
+	max-width $headerImageMaxFullWidth
+	margin 0 auto 20px auto
+	figcaption {
+		font-size 0.9rem
+		font-weight 300
+		color $citationTextColor
+		> * {
+			margin 0
+		}
+	}
 }
 
 +isAbove($headerImageMaxFullWidth) {
-    .heading-image {
-        max-width $headerImageMaxFullWidth
-        .cover-image {
-            margin 0 $halfGutter
-        }
-    }
+	.heading-image {
+		max-width $headerImageMaxFullWidth
+		.cover-image {
+			margin 0 $halfGutter
+		}
+	}
 }
 
 .cover-image {
-    height 0
-    padding-bottom 50%
-    background #f7f9fa
-    overflow hidden
-    background-size cover
-    background-position center
-    img {
-        display none
-    }
+	height 0
+	padding-bottom 50%
+	background #f7f9fa
+	overflow hidden
+	background-size cover
+	background-position center
+	img {
+		display none
+	}
 }
 
-+isAbove($mobile){
-    .cover-image {
-        padding-bottom 42%
-    }
++isAbove($mobile) {
+	.cover-image {
+		padding-bottom 42%
+	}
 }
 
-+isAbove($tablet){
-    .cover-image {
-        padding-bottom 35%
-    }
++isAbove($tablet) {
+	.cover-image {
+		padding-bottom 35%
+	}
 }
 
 .card-image {
-    height 0
-    padding-bottom 50%
-    background #f7f9fa
-    overflow hidden
-    background-size cover
-    background-position center
-    img {
-        display none
-    }
+	height 0
+	padding-bottom 50%
+	background #f7f9fa
+	overflow hidden
+	background-size cover
+	background-position center
+	img {
+		display none
+	}
 }
+
 +isAbove($tablet) {
-    .card-image {
-        padding-bottom 40%
-    }
+	.card-image {
+		padding-bottom 40%
+	}
 }
 
 .taxon-classification {
-    i:after {
-        font-style normal
-        content '\276f' // ❯
-        font-size 80%
-    }
-    &--discreet {
-        color #ddd
-        a {
-            color #666
-        }
-    }
+	i:after {
+		font-style normal
+		content '\276f' // ❯
+		font-size 80%
+	}
+	&--discreet {
+		color #ddd
+		a {
+			color #666
+		}
+	}
 }
 
 .inline-bullet-list {
-    display inline
-    padding 0
-    li {
-        display inline
-        &:after {
-            font-style normal
-            content '\25CF' // ❯
-            font-size 80%
-        }
-        &:last-of-type:after {
-            content '';
-        }
-    }
-    &--discreet {
-        color #ddd
-        a {
-            color #666
-        }
-    }
+	display inline
+	padding 0
+	li {
+		display inline
+		&:after {
+			font-style normal
+			content '\25CF' // ❯
+			font-size 80%
+		}
+		&:last-of-type:after {
+			content '';
+		}
+	}
+	&--discreet {
+		color #ddd
+		a {
+			color #666
+		}
+	}
 }
 
 .page--data {
-    font-weight 300
+	font-weight 300
 }
 
 .article-image {
-    padding-bottom 60%
+	padding-bottom 60%
 }
 
 .resource-image {
-    max-width 240px
+	max-width 240px
 }
 
 .sidebar {
-    .sidebar__item:first-of-type {
-        border-top 1px solid $stripeBorderColor
-        border-bottom none
-}
-    .sidebar__item {
-        border-bottom 1px solid $stripeBorderColor
-        margin-bottom vrBlock(1)
-        img {
-            width 100%
-        }
-    }
-    
-    .sidebar__item:last-of-type {
-        border-bottom none
-    }
+	.sidebar__item:first-of-type {
+		border-top 1px solid $stripeBorderColor
+		border-bottom none
+	}
+	.sidebar__item {
+		border-bottom 1px solid $stripeBorderColor
+		margin-bottom vrBlock(1)
+		img {
+			width 100%
+		}
+	}
+
+	.sidebar__item:last-of-type {
+		border-bottom none
+	}
 }
 
 .entity-summary {
-    &__row {
-        border-bottom 1px solid $stripeBorderColor
-        padding-bottom vrBlock(1)
-    }
-    &__row:last-of-type {
-        border-bottom none
-    }
-    &__image {
-        display inline-block
-        vertical-align top
-        margin 10px 10px 10px 0px
-        padding-top 5px
-        width 100px
-        height 100px
-    }
-    &__text {
-        display inline-block
-        width 65%
-    }
-    &__summary {
-        display none
-    }
-}
-+isAbove($tablet) {
-    .entity-summary {
-        &__text {
-            width 82%
-        }
-        &__summary {
-            display block
-        }
-    }
+	&__row {
+		border-bottom 1px solid $stripeBorderColor
+		padding-bottom vrBlock(1)
+	}
+	&__row:last-of-type {
+		border-bottom none
+	}
+	&__image {
+		display inline-block
+		vertical-align top
+		margin 10px 10px 10px 0px
+		padding-top 5px
+		width 100px
+		height 100px
+	}
+	&__text {
+		display inline-block
+		width 65%
+	}
+	&__summary {
+		display none
+	}
 }
 
 +isAbove($tablet) {
-    // .count-text {
-    //     text-align left
-    // }
-    .card {
-        margin 0 0
-    }
+	.entity-summary {
+		&__text {
+			width 82%
+		}
+		&__summary {
+			display block
+		}
+	}
+}
+
++isAbove($tablet) {
+	// .count-text {
+	//     text-align left
+	// }
+	.card {
+		margin 0 0
+	}
 }
 
 +isBelow($tablet) {
-    .publisher {
-        overflow-wrap break-word
-    }
-    // .count-text {
-    //     text-align center
-    // }
-    .card {
-        margin-bottom vrBlock(0.5)
-    }
+	.publisher {
+		overflow-wrap break-word
+	}
+	// .count-text {
+	//     text-align center
+	// }
+	.card {
+		margin-bottom vrBlock(0.5)
+	}
 }
 
-
 ul.list-style-none {
-    list-style none
-    padding-left vrBlock(1)
+	list-style none
+	padding-left vrBlock(1)
 }
 
 //@todo to arrange this in _typography.styl ?
 sup, sub {
-    vertical-align baseline
-    position relative
-    top -0.4rem
+	vertical-align baseline
+	position relative
+	top -0.4rem
 }
+
 sub {
-    top 0.4rem
+	top 0.4rem
 }
 
 .action-notice--visible {
-    padding 1px 6px 1px 8px
-    left 0
-    background-color $actionColor
-    color white
-    opacity 1
-    transition opacity 0.5s linear
+	padding 1px 6px 1px 8px
+	left 0
+	background-color $actionColor
+	color white
+	opacity 1
+	transition opacity 0.5s linear
 }
 
 .action-notice--hidden {
-    left 0
-    opacity 0
-    transition opacity 0.5s linear
+	left 0
+	opacity 0
+	transition opacity 0.5s linear
 }
 
 .related-news--programme {
-    font-size 14px
-    line-height 18px
-    margin-bottom vrBlock(1)
+	font-size 14px
+	line-height 18px
+	margin-bottom vrBlock(1)
 }
 
 .relative-anchor-offset {
-    position relative
-    >a {
-        position absolute
-        top -($navBar_height + vrBlock(1))
-    }
+	position relative
+	> a {
+		position absolute
+		top -($navBar_height + vrBlock(1))
+	}
 }

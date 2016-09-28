@@ -48,7 +48,7 @@
                 </figcaption>
             </figure>
         {% endif %}
-        <div class="horizontal-stripe--programme">
+        <div class="horizontal-stripe--programme white-background">
             <div class="container-fluid container--prose">
                 <div class="body-text prose-columns--single-col">
                     {$ data.body | safe $}
@@ -56,7 +56,7 @@
             </div>
         </div>
         {% if data.relatedProjects.length > 0 %}
-        <div class="horizontal-stripe">
+        <div class="horizontal-stripe--paddingless white-background">
             <div class="container-fluid">
                 <div class="row">
                     {% include "./includes/projectTable.nunjucks" %}

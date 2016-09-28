@@ -14,19 +14,19 @@
     {#</div>#}
 {#</section>#}
 
-<section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
-    <div class="clearfix" style="position: relative; z-index: 1">
-        <gbmap style="height:300px; width: 50%; float: left;" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+<section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+    <div class="clearfix light-background">
+        <gbmap class="dataset-key__visual-summary__map" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
         <div class="dataset-key__visual-summary__counts" style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
             {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
             <p>
-                <span class="h3">123.345</span> <span>records</span>
+                <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span> <span>records</span>
             </p>
             <div>
                 <div class="dataset-key__visual-summary__counts__group">
                     <div>
                         <!-- <span class="h3 gb-icon-map"></span> -->
-                        <span class="h4" >78%</span>
+                        <span class="h4" >{$ dataset._occurrenceGeoreferencedCount.percentage $}%</span>
                     </div>
                     <div>
                         with coordinates
@@ -35,7 +35,7 @@
 
                 <div class="dataset-key__visual-summary__counts__group">
                     <div>
-                        <span class="h4" >53%</span>
+                        <span class="h4" >{$ dataset._occurrenceDatedCount.percentage $}%</span>
                     </div>
                     <div>
                         with year
@@ -44,7 +44,7 @@
 
                 <div class="dataset-key__visual-summary__counts__group">
                     <div>
-                        <span class="h4" >32%</span>
+                        <span class="h4" >{$ dataset._occurrenceNoTaxonCount.percentage $}%</span>
                     </div>
                     <div>
                         with taxon match
@@ -53,8 +53,14 @@
             </div>
 
             <div class="dataset-key__visual-summary__counts__image">
-                <div>
-                </div>
+
+                {% for image in dataset.images.results | slice(0, 1) %}
+                    <div style="background-image:url('{$ image.media[0].identifier $}')"></div>
+                    {#<a href="../occurrence/{$ image.key $}">#}
+                        {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
+                    {#</a>#}
+                {% endfor %}
+
                 <!-- <div>
                     <div>
                         <span class="h4">40%</span>

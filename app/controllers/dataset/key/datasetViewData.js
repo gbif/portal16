@@ -7,6 +7,25 @@ var _ = require('lodash'),
     bibliography = require('./bibliography/bibliography'),
     async = require('async');
 
+function formatAsPercentage(part, total) {
+    var percentage = part * 100 / total,
+        formatedPercentage = 0;
+    if (percentage == 100) {
+        formatedPercentage = 100;
+    } else if (percentage >= 99.9) {
+        formatedPercentage = 99.9;
+    } else if (percentage > 99) {
+        formatedPercentage = percentage.toFixed(1);
+    } else if (percentage >= 1) {
+        formatedPercentage = percentage.toFixed();
+    } else if (percentage >= 0.01) {
+        formatedPercentage = percentage.toFixed(2);
+    } else if (percentage < 0.01 && percentage != 0) {
+        formatedPercentage = 0.01;
+    }
+    return formatedPercentage;
+}
+
 function getDataset(datasetKey, cb) {
     async.parallel(
         {
@@ -19,7 +38,7 @@ function getDataset(datasetKey, cb) {
                         cb(err);
                     } else {
                         var mapped = {};
-                        data.facets[0].counts.forEach(function(e) {
+                        data.facets[0].counts.forEach(function (e) {
                             mapped[e.name] = e.count;
                         });
                         callback(null, mapped);
@@ -34,12 +53,23 @@ function getDataset(datasetKey, cb) {
             },
             occurrenceDatedCount: function (callback) {
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&year=*,3000&dataset_key=' + datasetKey, callback);
+            },
+            occurrenceNoTaxonCount: function (callback) {
+                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
             }
         }, function (err, data) {
             data.expanded._speciesTaxonCount = data.speciesTaxonCount;
             data.expanded._occurrenceCount = data.occurrenceCount;
+
+            data.occurrenceGeoreferencedCount.percentage = formatAsPercentage(data.occurrenceGeoreferencedCount.count, data.occurrenceCount.count);
             data.expanded._occurrenceGeoreferencedCount = data.occurrenceGeoreferencedCount;
+
+            data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
             data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
+
+            data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count-data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
+            data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
+
             cb(err, data.expanded);
         }
     );
