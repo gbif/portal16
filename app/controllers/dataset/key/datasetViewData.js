@@ -91,10 +91,9 @@ function getExpanded(datasetKey, cb) {
                 dataset._computedValues.projectContacts = contributors.getContributors(projectContacts);
             }
 
-            try{
-                dataset._computedValues.taxonomicCoverages = taxonomicCoverage.getTaxonomicCoverages(dataset.record.taxonomicCoverages[1]);
-            } catch(err) {
-                console.log(err)
+            let taxonomicCoverages = _.get(dataset, 'record.taxonomicCoverages', false);
+            if (taxonomicCoverages) {
+                dataset._computedValues.taxonomicCoverages = taxonomicCoverage.extendTaxonomicCoverages(taxonomicCoverages);
             }
 
             cb(null, dataset);

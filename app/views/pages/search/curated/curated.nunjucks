@@ -1,6 +1,6 @@
 {% if results.highlights | isNotEmpty or results.occurrences.count > 0 %}
 
-<div class="horizontal-stripe--paddingless light-background seperator search__curated">
+<div class="horizontal-stripe--paddingless light-background search__curated">
 	<div>
 		<div class="card-flex-columns">
 			{% for highlight in results.highlights %}

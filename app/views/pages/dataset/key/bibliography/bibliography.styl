@@ -1,6 +1,4 @@
 .dataset-key__bibliography{
-	position relative
-	overflow hidden
 	ol {
 		padding 0
 		li {
@@ -17,46 +15,11 @@
 	&__list {
 		max-height 400px
 	}
-	&__expand {
-		$_buttonSize = vrBlock(1.5)
-		position absolute
-		width 100%
-		left 0
-		height 90px
-		background linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,255,255,1) 35%) // Standard syntax (must be last)
-		bottom 0
-		text-align center
-		>a {
-			margin auto
-			display block
-			font-size $_buttonSize
-			color white
-			width $_buttonSize
-			height $_buttonSize
-			line-height $_buttonSize
-			text-align center
-			border-radius 50%
-			background rgba(0,0,0,0.1)
-			position absolute
-			left "calc(50% - %s)" % ($_buttonSize / 2)
-			bottom ($_buttonSize / 2)
-			&:before {
-				font-weight bold
-			}
-		}
-	}
 }
 
-.dataset-key__bibliography.is-expanded {
+.is-fade-expanded {
 	.dataset-key__bibliography__list {
 		max-height 100000px
-	}
-	.dataset-key__bibliography__expand {
-		position relative
-		height auto
-		>a {
-			position static
-		}
 	}
 }
 

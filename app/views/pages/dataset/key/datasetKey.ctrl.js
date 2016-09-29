@@ -13,6 +13,7 @@ function datasetKeyCtrl(OccurrenceSearch) {
     vm.bibExpand = {
         isExpanded: false
     };
+
     vm.key = gb.datasetKey.key; //TODO what would be a better way to do this? an bootstraped constant possibly?
 
     vm.latLon = {lat: 45, lon: 10};
