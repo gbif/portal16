@@ -54,7 +54,7 @@ function gbmapDirective() {
         var getOverlay = function(palette, resolution) {
             var overlay = {
                 name: 'gb',
-                url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=2&' + palette,
+                url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=8&' + palette,
                 type: 'xyz',
                 visible: true,
                 layerParams: {
@@ -80,7 +80,7 @@ function gbmapDirective() {
             overlays: {
                 occurrences: {
                     name: 'gb',
-                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=2&' + palette,
+                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=8&' + palette,
                     type: 'xyz',
                     visible: true,
                     layerParams: {
@@ -137,15 +137,13 @@ function gbmapDirective() {
             data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
 
             leafletData.getMap(vm.id).then(function (map) {
-                //map.fitBounds([
-                //    [data.minimumLatitude, data.minimumLongitude],
-                //    [data.maximumLatitude, data.maximumLongitude]
-                //]);
-                //console.log(3);
-                //if (map.getZoom() < 2){
-                //    map.fitWorld().zoomIn();
-                //}
-                map.fitWorld().zoomIn().zoomIn();
+                map.fitBounds([
+                   [data.minimumLatitude, data.minimumLongitude],
+                   [data.maximumLatitude, data.maximumLongitude]
+                ]);
+                if (map.getZoom() < 2){
+                   map.fitWorld().zoomIn();
+                }
                 updateGlobe(map);
             });
 

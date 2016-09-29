@@ -5,6 +5,7 @@ var _ = require('lodash'),
     helper = require('../../../models/util/util'),
     contributors = require('./contributors/contributors'),
     bibliography = require('./bibliography/bibliography'),
+    taxonomicCoverage = require('./taxonomicCoverage/taxonomicCoverage'),
     async = require('async');
 
 function formatAsPercentage(part, total) {
@@ -84,6 +85,17 @@ function getExpanded(datasetKey, cb) {
             dataset._computedValues = {};
             dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
             dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+
+            let projectContacts = _.get(dataset, 'record.project.contacts', false);
+            if (projectContacts) {
+                dataset._computedValues.projectContacts = contributors.getContributors(projectContacts);
+            }
+
+            try{
+                dataset._computedValues.taxonomicCoverages = taxonomicCoverage.getTaxonomicCoverages(dataset.record.taxonomicCoverages[1]);
+            } catch(err) {
+                console.log(err)
+            }
 
             cb(null, dataset);
         } catch (err) {
