@@ -8,7 +8,7 @@
                     <header class="col-xs-12 text-center article-header--programme">
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">About</span>
-                            <span class="article-header__category__lower">GBIF Network</span>
+                            <span class="article-header__category__lower">[to be decided]</span>
                         </nav>
                         <h1>{$ data.title $}</h1>
                         <div class="article-header__intro">
@@ -31,7 +31,9 @@
                 </div>
             </div>
         </div>
+        {#
         {% if images[0].width > 1000 %}
+        <div class="horizontal-stripe white-background">
             <figure class="heading-image">
                 <div class="cover-image">
                     <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
@@ -40,7 +42,9 @@
                     {$ images[0].image_field_caption.value | safe $}
                 </figcaption>
             </figure>
+        </div>
         {% endif %}
+        #}
         <div class="horizontal-stripe white-background">
             <div class="container-fluid container--prose">
                 <div class="body-text--markdown prose-columns--single-col">

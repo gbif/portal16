@@ -1461,7 +1461,8 @@
       "document": "Document",
       "presentation": "Presentation",
       "tool": "Tool",
-      "link": "Link"
+      "link": "Link",
+      "generic": "Generic"
     },
     "facet": {
       "language": "Language",
