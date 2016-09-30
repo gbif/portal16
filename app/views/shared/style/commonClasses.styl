@@ -512,6 +512,13 @@ sub {
 		top -($navBar_height + vrBlock(1))
 	}
 }
+.anchor-block:before {
+    display block
+    content " "
+    height $navBar_height
+    margin-top -($navBar_height)
+    visibility hidden
+}
 
 .seperator {
 	border-top 1px solid $stripeBorderColor

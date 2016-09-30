@@ -1,157 +1,174 @@
+<div class="submenu-wrapper" id="submenuWrapper">
+    {% include('./submenu.nunjucks') %}
 
-{% if dataset.record.description %}
-<section class="horizontal-stripe white-background dataset-key__text">
-    <div class="container--narrow">
-
-        {% if dataset.record.language != 'eng' %}
-        <div class="stripe-comment-wrapper">
-            <div class="stripe-comment">
-                <div>
-                    {$ __('language.' + dataset.record.language) $}
+    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary__map" id="id_map">
+        <span class="relative-anchor-offset"><a name="map"></a></span>
+        <div class="container--narrow">
+            <div class="row no-gutter">
+                <div class="col-xs-12 dataset-key__visual-summary__map__container">
+                    <gbmap class="light-background" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
                 </div>
             </div>
         </div>
-        {% endif %}
+    </section>
 
-        <div>
-            <h2 class="h4">Description</h2>
-            <div>
-                <p>
-                    {$ dataset.record.description | safe $}
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-{% endif %}
-
-{% if dataset.record.purpose %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    {% if dataset.record.description %}
+    <section class="horizontal-stripe white-background dataset-key__text" id="id_description">
+        <span class="relative-anchor-offset"><a name="description"></a></span>
         <div class="container--narrow">
+
+            {% if dataset.record.language != 'eng' %}
+            <div class="stripe-comment-wrapper">
+                <div class="stripe-comment">
+                    <div>
+                        {$ __('language.' + dataset.record.language) $}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <div>
-                <h2 class="h4">Purpose</h2>
+                <h2 class="h4">Description</h2>
                 <div>
                     <p>
-                        {$ dataset.record.purpose | safe $}
+                        {$ dataset.record.description | safe $}
                     </p>
                 </div>
             </div>
         </div>
     </section>
-{% endif %}
+    {% endif %}
 
-{% if dataset.record.temporalCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text">
-        <div class="container--narrow">
-            <div>
-                <h2 class="h4">Temporal coverage</h2>
+    {% if dataset.record.purpose %}
+        <section class="horizontal-stripe white-background dataset-key__text anchor-block" id="id_purpose">
+            <span class="relative-anchor-offset"><a name="purpose"></a></span>
+            <div class="container--narrow">
                 <div>
-                    {% for period in dataset.record.temporalCoverages %}
-                    <p>
-                        {% if period["@type"] == "range" %}
-                            {$ period.start | formatDate(gb.locales.current) $} - {$ period.end | formatDate(gb.locales.current) $}
-                        {% endif %}
-                        {% if period["@type"] == "single" %}
-                            {$ period.period | formatDate(gb.locales.current) $}
-                        {% endif %}
-                        {% if period["@type"] == "verbatim" %}
-                            {$ period.period $}
-                        {% endif %}
-                    </p>
-                    {% endfor %}
+                    <h2 class="h4">Purpose</h2>
+                    <div>
+                        <p>
+                            {$ dataset.record.purpose | safe $}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-{% endif %}
+        </section>
+    {% endif %}
 
-{% if dataset.record.geographicCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text">
-        <div class="container--narrow">
-            <div>
-                <h2 class="h4">Geographic coverages</h2>
+    {% if dataset.record.temporalCoverages.length > 0 %}
+        <section class="horizontal-stripe white-background dataset-key__text" id="id_temporal">
+            <span class="relative-anchor-offset"><a name="temporal"></a></span>
+            <div class="container--narrow">
                 <div>
-                    {% for geographicCoverage in dataset.record.geographicCoverages %}
-                        {% if geographicCoverage.description %}
-                            <p>
-                                {$ geographicCoverage.description $}
-                            </p>
-                            {% if geographicCoverage.boundingBox %}
-                                <p>
-                                    <strong>Bounding box:</strong> 8.68N, 80.60056W
-                                </p>
+                    <h2 class="h4">Temporal coverage</h2>
+                    <div>
+                        {% for period in dataset.record.temporalCoverages %}
+                        <p>
+                            {% if period["@type"] == "range" %}
+                                {$ period.start | formatDate(gb.locales.current) $} - {$ period.end | formatDate(gb.locales.current) $}
                             {% endif %}
-                        {% endif %}
-                    {% endfor %}
+                            {% if period["@type"] == "single" %}
+                                {$ period.period | formatDate(gb.locales.current) $}
+                            {% endif %}
+                            {% if period["@type"] == "verbatim" %}
+                                {$ period.period $}
+                            {% endif %}
+                        </p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-{% endif %}
+        </section>
+    {% endif %}
 
-{% if dataset.record.samplingDescription %}
-    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling">
-        <span class="relative-anchor-offset"><a name="samplingDescription"></a></span>
-        <div class="container--narrow">
-            <div>
-                <h2 class="h4">Methodology</h2>
+    {% if dataset.record.geographicCoverages.length > 0 %}
+        <section class="horizontal-stripe white-background dataset-key__text" id="id_geographic">
+            <span class="relative-anchor-offset"><a name="geographic"></a></span>
+            <div class="container--narrow">
                 <div>
-                    {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
-                        {% if dataset.record.samplingDescription[field] %}
-                            <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
-                            <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
-                        <h3 class="h5" style="margin-top:30px">Method steps</h3>
-                        <ol>
-                            {% for step in dataset.record.samplingDescription.methodSteps %}
-                                <li class="counted-section--connected">
-                                    <div>
-                                        <span class="badge badge--white">{$ loop.index $}</span>
-                                    </div>
-                                    <div>{$ step | safe $}</div>
-                                </li>
-                            {% endfor %}
-                        </ol>
-                    {% endif %}
+                    <h2 class="h4">Geographic coverages</h2>
+                    <div>
+                        {% for geographicCoverage in dataset.record.geographicCoverages %}
+                            {% if geographicCoverage.description %}
+                                <p>
+                                    {$ geographicCoverage.description $}
+                                </p>
+                                {% if geographicCoverage.boundingBox %}
+                                    <p>
+                                        <strong>Bounding box:</strong> 8.68N, 80.60056W
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-{% endif %}
+        </section>
+    {% endif %}
 
-{% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
-
-{% if dataset.record.keywordCollections.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text">
-        <span class="relative-anchor-offset"><a name="keywords"></a></span>
-        <div class="container--narrow">
-            <div class="article-auxiliary prose-columns">
+    {% if dataset.record.samplingDescription %}
+        <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block" id="samplingDescription">
+            <span class="relative-anchor-offset"><a name="sampling-description"></a></span>
+            <div class="container--narrow">
                 <div>
-                    <section class="no-break">
-                        <h5>Keywords</h5>
-                        <ul class="list-chips">
-                            {% for keywordsCollection in dataset.record.keywordCollections %}
-                                {% for k in keywordsCollection.keywords %}
-                                    <li><a href="">{$ k $}</a></li>
+                    <h2 class="h4">Methodology</h2>
+                    <div>
+                        {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
+                            {% if dataset.record.samplingDescription[field] %}
+                                <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
+                                <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
+                            <h3 class="h5" style="margin-top:30px">Method steps</h3>
+                            <ol>
+                                {% for step in dataset.record.samplingDescription.methodSteps %}
+                                    <li class="counted-section--connected">
+                                        <div>
+                                            <span class="badge badge--white">{$ loop.index $}</span>
+                                        </div>
+                                        <div>{$ step | safe $}</div>
+                                    </li>
                                 {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </section>
-                    <section class="no-break">
-                        <h5>Data language</h5>
-                        <ul class="list-chips">
-                            <li><a href="">{$ __('language.' + dataset.record.dataLanguage) $}</a></li>
-                        </ul>
-                    </section>
+                            </ol>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-{% endif %}
+        </section>
+    {% endif %}
 
+    {% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
+
+    {% if dataset.record.keywordCollections.length > 0 %}
+        <section class="horizontal-stripe white-background dataset-key__text">
+            <span class="relative-anchor-offset"><a name="keywords"></a></span>
+            <div class="container--narrow">
+                <div class="article-auxiliary prose-columns">
+                    <div>
+                        <section class="no-break">
+                            <h5>Keywords</h5>
+                            <ul class="list-chips">
+                                {% for keywordsCollection in dataset.record.keywordCollections %}
+                                    {% for k in keywordsCollection.keywords %}
+                                        <li><a href="">{$ k $}</a></li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </section>
+                        <section class="no-break">
+                            <h5>Data language</h5>
+                            <ul class="list-chips">
+                                <li><a href="">{$ __('language.' + dataset.record.dataLanguage) $}</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+</div>
 
 
 {% include('./project/project.nunjucks') %}

@@ -1,17 +1,4 @@
 .dataset-key__visual-summary {
-	>div {
-		width 1170px
-		max-width 100%
-		margin auto
-		position relative
-		z-index 1
-	}
-	&__map {
-		height 300px
-		min-height 100%
-		width 100%
-	}
-	
 	&__counts {
 		padding 1rem
 		overflow hidden
@@ -21,7 +8,7 @@
 			
 		>div {
 			display flex
-			justify-content center
+			justify-content flex-start
 			flex-wrap wrap
 		}
 		&__group {
@@ -42,13 +29,9 @@
 +isAbove($laptop) {
 	.dataset-key__visual-summary {
 		&__counts {
-			height 300px
 			&__group {
-				width 33%
-				flex 0 0 33%
-				&:nth-of-type(7), &:nth-of-type(8) {
-					display none
-				}
+				padding 0 $halfGutter
+				flex 0 0 auto
 			}
 		}
 	}
@@ -70,9 +53,30 @@
 }
 
 .round-image {
+	display block
 	width 85px
 	height 85px
 	border-radius 50px
 	background-size cover
 	background-position center
+}
+
+.dataset-key__visual-summary__map {
+	&__container {
+		padding-bottom 50%
+		gbmap {
+			position absolute
+			height 100%
+			width 100%
+		}
+	}
+}
++isAbove($laptop) {
+	.dataset-key__visual-summary__map {
+		position relative
+		z-index 1
+		&__container {
+			margin-top vrBlock(1)
+		}
+	}
 }

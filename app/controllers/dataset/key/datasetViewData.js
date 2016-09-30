@@ -6,6 +6,7 @@ var _ = require('lodash'),
     contributors = require('./contributors/contributors'),
     bibliography = require('./bibliography/bibliography'),
     taxonomicCoverage = require('./taxonomicCoverage/taxonomicCoverage'),
+    processIdentifiers = require('./identifiers/identifiers'),
     async = require('async');
 
 function formatAsPercentage(part, total) {
@@ -59,43 +60,57 @@ function getDataset(datasetKey, cb) {
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
             }
         }, function (err, data) {
-            data.expanded._speciesTaxonCount = data.speciesTaxonCount;
-            data.expanded._occurrenceCount = data.occurrenceCount;
+            if (err || _.isEmpty(data.expanded)) {
+                cb(err);
+                return;
+            } else {
+                data.expanded._speciesTaxonCount = data.speciesTaxonCount;
+                data.expanded._occurrenceCount = data.occurrenceCount;
 
-            data.occurrenceGeoreferencedCount.percentage = formatAsPercentage(data.occurrenceGeoreferencedCount.count, data.occurrenceCount.count);
-            data.expanded._occurrenceGeoreferencedCount = data.occurrenceGeoreferencedCount;
+                data.occurrenceGeoreferencedCount.percentage = formatAsPercentage(data.occurrenceGeoreferencedCount.count, data.occurrenceCount.count);
+                data.expanded._occurrenceGeoreferencedCount = data.occurrenceGeoreferencedCount;
 
-            data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
-            data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
+                data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
+                data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
 
-            data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count-data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
-            data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
+                data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count-data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
+                data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
 
-            cb(err, data.expanded);
+                data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
+
+                cb(null, data.expanded);
+            }
         }
     );
 }
 
+function transformBaseResult(dataset) {
+    dataset._computedValues = {};
+    dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
+    dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+
+    let projectContacts = _.get(dataset, 'record.project.contacts', false);
+    if (projectContacts) {
+        dataset._computedValues.projectContacts = contributors.getContributors(projectContacts);
+    }
+
+    let taxonomicCoverages = _.get(dataset, 'record.taxonomicCoverages', false);
+    if (taxonomicCoverages) {
+        dataset._computedValues.taxonomicCoverages = taxonomicCoverage.extendTaxonomicCoverages(taxonomicCoverages);
+    }
+
+    dataset._computedValues.identifiers = processIdentifiers(dataset.record.identifiers);
+    
+    return dataset;
+}
+
 function getExpanded(datasetKey, cb) {
     var getOptions = {
-        expand: ['publisher', 'images']
+        expand: ['publisher', 'images', 'process', 'installation']
     };
     Dataset.get(datasetKey, getOptions).then(function (dataset) {
         try {
-            dataset._computedValues = {};
-            dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
-            dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
-
-            let projectContacts = _.get(dataset, 'record.project.contacts', false);
-            if (projectContacts) {
-                dataset._computedValues.projectContacts = contributors.getContributors(projectContacts);
-            }
-
-            let taxonomicCoverages = _.get(dataset, 'record.taxonomicCoverages', false);
-            if (taxonomicCoverages) {
-                dataset._computedValues.taxonomicCoverages = taxonomicCoverage.extendTaxonomicCoverages(taxonomicCoverages);
-            }
-
+            dataset = transformBaseResult(dataset);
             cb(null, dataset);
         } catch (err) {
             cb(err);

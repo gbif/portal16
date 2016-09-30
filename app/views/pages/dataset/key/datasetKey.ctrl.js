@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 var _ = require('lodash');
+require('./text/submenu');
 
 angular
     .module('portal')
