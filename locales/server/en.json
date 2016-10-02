@@ -1323,7 +1323,8 @@
     "clear": "clear",
     "cms": "GBIF network",
     "yes": "yes",
-    "no": "no"
+    "no": "no",
+    "dataType": "Data type"
   },
   "continent": {
     "NORTH_AMERICA": "North America",
@@ -1406,7 +1407,9 @@
       "publishingOrg": "publisher",
       "hostingOrg": "host",
       "publishingCountry": "publishing country"
-    }
+    },
+    "title": "Title",
+    "publishedBy": "Published by"
   },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
@@ -1557,7 +1560,8 @@
       "funder": {
         "one": "funder",
         "other": "funders"
-      }
+      },
+      "relatedDatasets": "Related Datasets"
     },
     "auxiliary": {
       "subject": {

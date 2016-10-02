@@ -76,7 +76,13 @@ router.get([
         .then(function(data) {
             // Render content if the result is not from URL Lookup.
             if (typeof data.data[0] == 'object' && data.data[0].hasOwnProperty('created') && data.data[0].hasOwnProperty('title')) {
-                renderPage(data, jsonOutput);
+                if (data.data[0].type == 'project' && data.data[0].projectId) {
+                    return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function(datasets){
+                        data.data[0].relatedDatasets = datasets.results;
+                        return data;
+                    });
+                }
+                return data;
             }
             // Redirect if the result is from URL Lookup.
             else if (typeof data.data[0] == 'object' && typeof data.data[0].targetUrl == 'string') {
@@ -97,6 +103,9 @@ router.get([
                 throw new Error('URL Alias lookup exception with originalUrlForLookup.');
             }
         })
+        .then(function(data){
+            renderPage(data, jsonOutput);
+        })
         .catch(function(err){
             next(err);
         });
@@ -107,8 +116,11 @@ router.get([
             body.data[0].file[0].filesize = format.formatBytes(body.data[0].file[0].filesize, 1);
         }
 
-        if (body.data[0].type == 'generic') {
-            body.data[0].body.markdown = md.render(body.data[0].body.value);
+        // Expand/modify data before rendering
+        switch (body.data[0].type) {
+            case 'generic':
+                body.data[0].body.markdown = md.render(body.data[0].body.value);
+                break;
         }
 
         var proseContent = {
