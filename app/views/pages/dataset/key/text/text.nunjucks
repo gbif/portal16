@@ -56,8 +56,8 @@
     {% endif %}
 
     {% if dataset.record.temporalCoverages.length > 0 %}
-        <section class="horizontal-stripe white-background dataset-key__text" id="id_temporal">
-            <span class="relative-anchor-offset"><a name="temporal"></a></span>
+        <section class="horizontal-stripe white-background dataset-key__text" id="id_temporalCoverages">
+            <span class="relative-anchor-offset"><a name="temporalCoverages"></a></span>
             <div class="container--narrow">
                 <div>
                     <h2 class="h4">Temporal coverage</h2>
@@ -82,8 +82,8 @@
     {% endif %}
 
     {% if dataset.record.geographicCoverages.length > 0 %}
-        <section class="horizontal-stripe white-background dataset-key__text" id="id_geographic">
-            <span class="relative-anchor-offset"><a name="geographic"></a></span>
+        <section class="horizontal-stripe white-background dataset-key__text" id="id_geographicCoverages">
+            <span class="relative-anchor-offset"><a name="geographicCoverages"></a></span>
             <div class="container--narrow">
                 <div>
                     <h2 class="h4">Geographic coverages</h2>
@@ -93,46 +93,13 @@
                                 <p>
                                     {$ geographicCoverage.description $}
                                 </p>
-                                {% if geographicCoverage.boundingBox %}
+                                <!-- {% if geographicCoverage.boundingBox %}
                                     <p>
                                         <strong>Bounding box:</strong> 8.68N, 80.60056W
                                     </p>
-                                {% endif %}
+                                {% endif %} -->
                             {% endif %}
                         {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </section>
-    {% endif %}
-
-    {% if dataset.record.samplingDescription %}
-        <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block" id="samplingDescription">
-            <span class="relative-anchor-offset"><a name="sampling-description"></a></span>
-            <div class="container--narrow">
-                <div>
-                    <h2 class="h4">Methodology</h2>
-                    <div>
-                        {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
-                            {% if dataset.record.samplingDescription[field] %}
-                                <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
-                                <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
-                            <h3 class="h5" style="margin-top:30px">Method steps</h3>
-                            <ol>
-                                {% for step in dataset.record.samplingDescription.methodSteps %}
-                                    <li class="counted-section--connected">
-                                        <div>
-                                            <span class="badge badge--white">{$ loop.index $}</span>
-                                        </div>
-                                        <div>{$ step | safe $}</div>
-                                    </li>
-                                {% endfor %}
-                            </ol>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -141,7 +108,49 @@
 
     {% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
 
-    {% if dataset.record.keywordCollections.length > 0 %}
+    {% if dataset.record.samplingDescription %}
+        <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block" id="id_samplingDescription">
+            <span class="relative-anchor-offset"><a name="samplingDescription"></a></span>
+            <div class="container--narrow">
+                <div>
+                    <h2 class="h4">Methodology</h2>
+                    <div>
+                        {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
+                        
+                            {% if dataset.record.samplingDescription[field] %}
+                            <div id="id_{$ field $}">
+                                <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
+                                <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
+                                <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
+                            </div>
+                            {% endif %}
+
+                        {% endfor %}
+
+                        {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
+                        <div id="id_methodSteps">
+                        <span class="relative-anchor-offset"><a name="methodSteps"></a></span>
+                        <h3 class="h5" style="margin-top:30px">Method steps</h3>
+                        <ol>
+                            {% for step in dataset.record.samplingDescription.methodSteps %}
+                                <li class="counted-section--connected">
+                                    <div>
+                                        <span class="badge badge--white">{$ loop.index $}</span>
+                                    </div>
+                                    <div>{$ step | safe $}</div>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    
+    <!-- {% if dataset.record.keywordCollections.length > 0 %}
         <section class="horizontal-stripe white-background dataset-key__text">
             <span class="relative-anchor-offset"><a name="keywords"></a></span>
             <div class="container--narrow">
@@ -167,7 +176,9 @@
                 </div>
             </div>
         </section>
-    {% endif %}
+    {% endif %} -->
+
+
 </div>
 
 

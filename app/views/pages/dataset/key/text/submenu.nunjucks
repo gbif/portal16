@@ -2,111 +2,18 @@
 
 <nav class="submenu" id="submenu">
 	<ul class="nav-parts">
+		{% for part in dataset._computedValues.submenu %}
 		<li class="part-name">
-			<a href="" class="h4">Introduction</a>
+			<a href="" class="h4">{$ __('dataset.submenu.group.' + part.name + '.name') | capitalize $}</a>
 			<ul class="nav-chapters">
-				<li class="nav-chapter" du-scrollspy="id_metrics" data-menu-scroll-match="metrics">
-					<a href="#metrics">Metrics</a>
+				{% for chapter in part.items %}
+				<li class="nav-chapter" du-scrollspy="id_{$ chapter $}">
+					<a href="#{$ chapter $}">{$ __('dataset.submenu.group.' + part.name + '.chapters.' + chapter) | capitalize $}</a>
 					<div class="pipe"></div>
 				</li>
-				<li class="nav-chapter" du-scrollspy="id_map">
-					<a href="#map">Map</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter" du-scrollspy="id_description">
-					<a href="#description">Description</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter" du-scrollspy="id_purpose">
-					<a href="#purpose">Purpose</a>
-					<div class="pipe"></div>
-				</li>
+				{% endfor %}
 			</ul>
 		</li>
-		<li class="part-name">
-			<a href="" class="h4">Coverage</a>
-			<ul class="nav-chapters">
-				<li class="nav-chapter" du-scrollspy="id_temporal">
-					<a href="#temporal">Temporal</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter" du-scrollspy="id_geographic">
-					<a href="#geographic">Geographical</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter" du-scrollspy="id_taxonomic">
-					<a href="#taxonomic-coverage">Taxonomic</a>
-					<div class="pipe"></div>
-				</li>
-			</ul>
-		</li>
-		<li class="part-name">
-			<a href="" class="h4">Methodology</a>
-			<ul class="nav-chapters">
-				<li class="nav-chapter">
-					<a href="">Study Extent</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Sampling</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Quality Control</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Method steps</a>
-					<div class="pipe"></div>
-				</li>
-			</ul>
-		</li>
-		<li class="part-name">
-			<a href="" class="h4">Credit</a>
-			<ul class="nav-chapters">
-				<li class="nav-chapter">
-					<a href="">Bibliography</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Contributions</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Citation</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">License</a>
-					<div class="pipe"></div>
-				</li>
-			</ul>
-		</li>
-		<li class="part-name">
-			<a href="" class="h4">Project</a>
-			<ul class="nav-chapters">
-				<li class="nav-chapter">
-					<a href="">About</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Funding</a>
-					<div class="pipe"></div>
-				</li>
-			</ul>
-		</li>
-		<li class="part-name">
-			<a href="" class="h4">Other</a>
-			<ul class="nav-chapters">
-				<li class="nav-chapter">
-					<a href="">Usage Metrics</a>
-					<div class="pipe"></div>
-				</li>
-				<li class="nav-chapter">
-					<a href="">Processing History</a>
-					<div class="pipe"></div>
-				</li>
-			</ul>
-		</li>
+		{% endfor %}
 	</ul>
 </nav>

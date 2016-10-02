@@ -7,6 +7,7 @@ var _ = require('lodash'),
     bibliography = require('./bibliography/bibliography'),
     taxonomicCoverage = require('./taxonomicCoverage/taxonomicCoverage'),
     processIdentifiers = require('./identifiers/identifiers'),
+    composeSubmenu = require('./submenu'),
     async = require('async');
 
 function formatAsPercentage(part, total) {
@@ -43,7 +44,10 @@ function getDataset(datasetKey, cb) {
                         data.facets[0].counts.forEach(function (e) {
                             mapped[e.name] = e.count;
                         });
-                        callback(null, mapped);
+                        callback(null, {
+                            count: data.count,
+                            facets: mapped
+                        });
                     }
                 });
             },
@@ -78,6 +82,7 @@ function getDataset(datasetKey, cb) {
 
                 data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
 
+                data.expanded = composeSubmenu(data.expanded);
                 cb(null, data.expanded);
             }
         }

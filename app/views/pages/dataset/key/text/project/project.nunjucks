@@ -1,6 +1,6 @@
 {% if dataset.record.project %}
-    <section class="horizontal-stripe light-background dataset-key__text dataset-key__text__project">
-        <span class="relative-anchor-offset"><a name="project"></a></span>
+    <section class="horizontal-stripe light-background dataset-key__text dataset-key__text__project" id="id_project">
+        <span class="relative-anchor-offset"><a name="about"></a></span>
         <div class="container--narrow">
             <div>
                 <h2 class="h4">Project</h2>
@@ -9,21 +9,29 @@
                         <span class="h6">Project title</span>
                         <h3 class="h4">{$ dataset.record.project.title | capitalize $}</h3>
 
+                        {% if dataset.record.project.studyAreaDescription %}
                         <h4 class="h6">Study area</h4>
                         <p>
                             {$ dataset.record.project.studyAreaDescription | safe $}
                         </p>
+                        {% endif %}
 
+                        {% if dataset.record.project.designDescription %}
                         <h4 class="h6">Description</h4>
                         <p>
                             {$ dataset.record.project.designDescription | safe $}
                         </p>
+                        {% endif %}
 
+                        {% if dataset.record.project.funding %}
+                        <span class="relative-anchor-offset"><a name="funding"></a></span>
                         <h4 class="h6">Funding</h4>
                         <p>
                             {$ dataset.record.project.funding | safe $}
                         </p>
+                        {% endif %}
 
+                        {% if dataset._computedValues.projectContacts.all.length > 0 %}
                         <h4 class="h6">Project contacts</h4>
                         <div>
                             {% for contributor in dataset._computedValues.projectContacts.all %}
@@ -94,6 +102,8 @@
                                 </div>
                             {% endfor %}
                         </div>
+                        {% endif %}
+                        
                     </div>
                 </div>
             </div>
