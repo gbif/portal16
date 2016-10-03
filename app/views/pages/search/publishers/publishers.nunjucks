@@ -7,13 +7,13 @@
 
                 <div class="search-results__list--short-list__header">
                     <h5>
-                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}">
+                        <a ui-sref="publisherSearchTable({q: '{$ query $}'})">
                             {$ __('stdTerms.publishers') $}
                         </a>
                     </h5>
                     {% if results.publishers.count > results.publishers.results.length %}
                     <span class="small">
-                        <a href="{$ gb.locales.urlPrefix $}/publisher/table?q={$ query $}" class="inherit">{$ __('stdTerms.nMore', (results.publishers.count - results.publishers.results.length) | locInt(gb.locales.current) ) $}</a>
+                        <a ui-sref="publisherSearchTable({q: '{$ query $}'})" class="inherit">{$ __('stdTerms.nMore', (results.publishers.count - results.publishers.results.length) | locInt(gb.locales.current) ) $}</a>
                     </span>
                     {% endif %}
                 </div>
@@ -33,7 +33,7 @@
                                 <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.key $}">{$ result.title | striptags | truncate(80) | safe $}</a>
                             </h4>
                             <p class="search-results__list__item__meta">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/table?publishing_org={$ result.key $}">
+                                <a ui-sref="datasetSearchTable({publishing_org: '{$ result.key $}'})">
                                     {$ __n('stdTerms.nPublishedDatasets', result.numPublishedDatasets) $}
                                 </a>
                             </p>
@@ -48,7 +48,7 @@
                 {% if results.publishers.count > results.publishers.results.length %}
                 <div class="row">
                     <div class="col-xs-12">
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="pull-right search-results__list--short-list__more">
+                        <a ui-sref="publisherSearchTable({q: '{$ query $}'})" class="pull-right search-results__list--short-list__more">
                             <span>
                                 {$ __('stdTerms.nMore', (results.publishers.count - results.publishers.results.length) | locInt(gb.locales.current) ) $}
                             </span>

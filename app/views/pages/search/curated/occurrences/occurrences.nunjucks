@@ -1,7 +1,7 @@
 {% if results.occurrences.count > 0 %}
 <div class="card-flex-columns__block-aligned">
     <div class="card card--flexible">
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/search?q={$ query $}" class="card__stripe">
+        <a ui-sref="occurrenceSearchTable({q: '{$ query $}' })" class="card__stripe">
             <div class="card__content">
                 {$ results.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </div>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="card__stripe card__stripe--actions">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?q={$ query $}">
+            <a ui-sref="occurrenceSearchTable({q: '{$ query $}' })">
                 {$ __('stdTerms.seeAll') $}
             </a>
         </div>
