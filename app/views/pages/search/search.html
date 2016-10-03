@@ -83,17 +83,19 @@
 
             <div ui-view>
 
-                <div class="container-fluid white-background search-header">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <nav class="article-header__category">
-                                <strong class="article-header__category__upper">Search</strong>
-                            </nav>
-                            <div class="search-header__description">
-                                <span ng-if="omniSearch.query.q">
-                                    <span ng-if="loaded">Showing results for <i>{{omniSearch.query.q}}</i></span>
-                                    <span ng-if="!loaded">Searching for <i>{{omniSearch.query.q}}</i></span>
-                                </span>
+                <div class="horizontal-stripe--paddingless white-background search-header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <nav class="article-header__category">
+                                    <strong class="article-header__category__upper">Search</strong>
+                                </nav>
+                                <div class="search-header__description">
+                                    <span ng-if="omniSearch.query.q">
+                                        <span ng-if="loaded">Showing results for <i>{{omniSearch.query.q}}</i></span>
+                                        <span ng-if="!loaded">Searching for <i>{{omniSearch.query.q}}</i></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

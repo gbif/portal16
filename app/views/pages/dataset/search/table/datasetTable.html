@@ -1,17 +1,19 @@
 <article class="wrapper-horizontal-stripes">
 
 
-    <div class="container-fluid white-background search-header">
-        <div class="row">
-            <div class="col-xs-12">
-                <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">Search</span>
-                    <span class="article-header__category__lower">Datasets</span>
-                </nav>
-                 <div class="search-header__description">
-                    <span ng-if="datasetTable.hasData()">
-                        {{datasetTable.state.data.count | localNumber:datasetTable.state.query.locale }} results
-                    </span>
+    <div class="horizontal-stripe--paddingless white-background search-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Search</span>
+                        <span class="article-header__category__lower">Datasets</span>
+                    </nav>
+                     <div class="search-header__description">
+                        <span ng-if="datasetTable.hasData()">
+                            {{datasetTable.state.data.count | localNumber:datasetTable.state.query.locale }} results
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

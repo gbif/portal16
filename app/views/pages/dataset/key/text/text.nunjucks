@@ -1,6 +1,7 @@
 <div class="submenu-wrapper" id="submenuWrapper">
     {% include('./submenu.nunjucks') %}
 
+    {% if dataset._occurrenceCount.count %}
     <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary__map" id="id_map">
         <span class="relative-anchor-offset"><a name="map"></a></span>
         <div class="container--narrow">
@@ -11,6 +12,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     {% if dataset.record.description %}
     <section class="horizontal-stripe white-background dataset-key__text" id="id_description">

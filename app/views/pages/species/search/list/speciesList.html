@@ -1,26 +1,28 @@
 <article class="wrapper-horizontal-stripes">
 
 
-    <div class="container-fluid white-background search-header">
-        <div class="row">
-            <div class="col-xs-12">
-                <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">Search</span>
-                    <span class="article-header__category__lower">Species</span>
-                </nav>
-                <div class="search-header__description">
-                    <span ng-if="speciesList.hasData()">
-                        {{speciesList.state.data.count | localNumber:speciesList.state.query.locale }} results
-                    </span>
-                </div>
-                <div class="stripe-menu">
-                    <span class="gb-icon-menu stripe-menu__option is-active"
-                       tooltip-placement="bottom"
-                       uib-tooltip="List"></span>
-                    <a href="" ui-sref="speciesSearchTable()"
-                        class="gb-icon-table stripe-menu__menu stripe-menu__option"
-                        tooltip-placement="bottom"
-                        uib-tooltip="Table"></a>
+    <div class="horizontal-stripe--paddingless white-background search-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Search</span>
+                        <span class="article-header__category__lower">Species</span>
+                    </nav>
+                    <div class="search-header__description">
+                        <span ng-if="speciesList.hasData()">
+                            {{speciesList.state.data.count | localNumber:speciesList.state.query.locale }} results
+                        </span>
+                    </div>
+                    <div class="stripe-menu">
+                        <span class="gb-icon-menu stripe-menu__option is-active"
+                           tooltip-placement="bottom"
+                           uib-tooltip="List"></span>
+                        <a href="" ui-sref="speciesSearchTable()"
+                            class="gb-icon-table stripe-menu__menu stripe-menu__option"
+                            tooltip-placement="bottom"
+                            uib-tooltip="Table"></a>
+                    </div>
                 </div>
             </div>
         </div>

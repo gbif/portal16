@@ -3,7 +3,7 @@
 {% if taxon.occurrences.count > 0 %}
 <div class="card-flex-columns__block-double">
     <div class="card card--flexible">
-        <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}" class="card__stripe">
+        <a ui-sref="occurrenceSearchTable({taxon_key: {$ taxon.info.key $} })" class="card__stripe">
             <div class="card__content">
                 <strong>{$ taxon.info.scientificName $}</strong>
             </div>
@@ -62,7 +62,7 @@
         {% endif %}
 
         <div class="card__stripe card__stripe--actions">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?taxon_key={$ taxon.info.key $}">
+            <a ui-sref="occurrenceSearchTable({taxon_key: {$ taxon.info.key $} })">
                 {$ taxon.occurrences.count | locInt(gb.locales.current) $} {$ __('stdTerms.occurrences') $}
             </a>
         </div>
