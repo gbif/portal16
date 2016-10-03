@@ -39,7 +39,7 @@ function searchHandler(req, res) {
             results.cms.results.forEach(function(result){
                 switch (result.type) {
                     case 'data_use':
-                        result.type = 'data_use';
+                        result.type = 'data-use';
                         break;
                     case 'gbif_participant':
                         result.type = 'participant';

@@ -23,13 +23,15 @@ router.get('/cms/search', function (req, res, next) {
             return data;
         }
         else {
-            throw new Error('Neither facets nor filters exists.');
+            next('Neither facets nor filters exists.');
         }
     })
     .then(function(data){
         try {
             cmsData.expandFacets(data.facets, res.__);
             transformFacetsToMap(data);
+            // Add URL prefix
+            addContentTypeUrlPrefix(data);
             res.json(data);
         } catch(e) {
             next(e);
@@ -91,6 +93,14 @@ function cmsSearch(query) {
         }
     });
     return deferred.promise;
+}
+
+function addContentTypeUrlPrefix(data) {
+    if (data.results) {
+        data.results.forEach(function(result){
+            result.contentTypeUrlPrefix = (result.type == 'gbif_participant') ? result.type.replace('gbif_', '') : result.type.replace('_', '-');
+        });
+    }
 }
 
 // @todo merge into cmsData.expandFacets()
