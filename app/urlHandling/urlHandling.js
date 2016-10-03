@@ -27,7 +27,7 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 res.redirect(301, redirectedUrl);
             }
             else {
-                throw new Error('URL Alias lookup exception with requestedPath.');
+                next();
             }
         })
         .catch(function(err){

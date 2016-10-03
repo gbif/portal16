@@ -101,7 +101,7 @@ router.get([
                     }
                 }
                 else {
-                    throw new Error('URL Alias lookup exception with originalUrlForLookup.');
+                    next();
                 }
             })
             .catch(function(err){
