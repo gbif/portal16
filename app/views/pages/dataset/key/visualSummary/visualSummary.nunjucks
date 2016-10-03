@@ -1,79 +1,174 @@
-{#<section class="horizontal-stripe light-background dataset-key__intro">#}
-    {#<div class="container--normal">#}
-        {#<div class="container--prose description">#}
-            {#<h2 class="h4">About</h2>#}
-            {#<div class="prose-columns ">#}
-                {#<p>#}
-                    {#{$ dataset.record.description | slice(0, 130) $}#}
-                {#</p>#}
-                {#<p>#}
-                    {#<div class="gb-button--round pull-right">More</div>#}
-                {#</p>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-{#</section>#}
+{#{% include('./speciesOnly/speciesOnly.nunjucks') %}#}
 
-<section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
-    <div class="clearfix light-background">
-        <gbmap class="dataset-key__visual-summary__map" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
-        <div class="dataset-key__visual-summary__counts" style="height:300px; width: 50%; position:absolute; right: 0; top: 0; padding: 20px" >
-            {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
-            <p>
-                <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span> <span>records</span>
-            </p>
-            <div>
-                <div class="dataset-key__visual-summary__counts__group">
-                    <div>
-                        <!-- <span class="h3 gb-icon-map"></span> -->
-                        <span class="h4" >{$ dataset._occurrenceGeoreferencedCount.percentage $}%</span>
-                    </div>
-                    <div>
-                        with coordinates
-                    </div>
-                </div>
 
-                <div class="dataset-key__visual-summary__counts__group">
-                    <div>
-                        <span class="h4" >{$ dataset._occurrenceDatedCount.percentage $}%</span>
-                    </div>
-                    <div>
-                        with year
-                    </div>
-                </div>
 
-                <div class="dataset-key__visual-summary__counts__group">
-                    <div>
-                        <span class="h4" >{$ dataset._occurrenceNoTaxonCount.percentage $}%</span>
+
+<section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary" id="id_metrics">
+    <span class="relative-anchor-offset"><a name="metrics"></a></span>
+    <div class="container--narrow">
+        <div class="row no-gutter">
+            <div class="col-xs-12">
+                <div class="dataset-key__visual-summary__counts">
+                    {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
+                    <p>
+                        <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span> <span>occurrences</span>
+                    </p>
+                    <div class="row">
+                        {% for image in dataset.images.results | slice(0, 1) %}
+                            <div class="dataset-key__visual-summary__counts__group">
+                                <a href="../occurrence/gallery?dataset_key={$ dataset.record.key $}" class="round-image" style="background-image:url('{$ image.media[0].identifier $}')">
+                                </a>
+                                <div>
+                                    {$ dataset.images._percentage $}% with image
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceGeoreferencedCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with coordinates
+                            </div>
+                        </div>
+
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceDatedCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceDatedCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with year
+                            </div>
+                        </div>
+
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceNoTaxonCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with taxon match
+                            </div>
+                        </div>
+
+                        
+
+
                     </div>
-                    <div>
-                        with taxon match
-                    </div>
+
                 </div>
             </div>
-
-            <div class="dataset-key__visual-summary__counts__image">
-
-                {% for image in dataset.images.results | slice(0, 1) %}
-                    <div style="background-image:url('{$ image.media[0].identifier $}')"></div>
-                    {#<a href="../occurrence/{$ image.key $}">#}
-                        {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
-                    {#</a>#}
-                {% endfor %}
-
-                <!-- <div>
-                    <div>
-                        <span class="h4">40%</span>
-                    </div>
-                    <div>
-                        with images
-                    </div>
-                </div> -->
-            </div>
-            <!-- <p>
-                <span class="h3">76</span> <span>species</span>
-            </p> -->
-
         </div>
+
+
     </div>
 </section>
+
+
+
+
+
+<!-- <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+    <div class="container-fluid">
+        <div class="row no-gutter light-background">
+            <div class="col-md-6 col-xs-12">
+                <gbmap class="dataset-key__visual-summary__map" type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="dataset-key__visual-summary__counts">
+                    {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
+                    <p>
+                        <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span> <span>occurrences</span>
+                    </p>
+                    <div>
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceGeoreferencedCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with coordinates
+                            </div>
+                        </div>
+
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceDatedCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceDatedCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with year
+                            </div>
+                        </div>
+
+                        <div class="dataset-key__visual-summary__counts__group">
+                            <div class="radial-progress">
+                                <div class="radial-progress__count">{$ dataset._occurrenceNoTaxonCount.percentage $}%</div>
+                                <round-progress
+                                        max="100"
+                                        current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
+                                        color="#4e565f"
+                                        responsive="true">
+                                </round-progress>
+                            </div>
+                            <div>
+                                with taxon match
+                            </div>
+                        </div>
+
+                        {% for image in dataset.images.results | slice(0, 1) %}
+                            <div class="dataset-key__visual-summary__counts__group">
+                                <div class="round-image" style="background-image:url('{$ image.media[0].identifier $}')"></div>
+                                {#<a href="../occurrence/{$ image.key $}">#}
+                                {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
+                                {#</a>#}
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                    {#<div class="dataset-key__visual-summary__counts__image">#}
+                    {#{% for image in dataset.images.results | slice(0, 1) %}#}
+                    {#<div class="round-image" style="background-image:url('{$ image.media[0].identifier $}')"></div>#}
+                    {#<a href="../occurrence/{$ image.key $}">#}
+                    {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
+                    {#</a>#}
+                    {#{% endfor %}#}
+                    {#</div>#}
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section> -->

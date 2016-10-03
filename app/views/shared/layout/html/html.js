@@ -16,10 +16,13 @@ require('angular-chartist.js');
 
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
 
+require('angular-svg-round-progressbar');
+
+
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist']);
+        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar']);
 })();
 
 (function () {
@@ -111,7 +114,6 @@ require('./angular/translate');
 
 
 var menu = require('../partials/navigation/navigation.js');
-
 
 //https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js
 /*! modernizr 3.3.1 (Custom Build) | MIT *

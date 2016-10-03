@@ -12,42 +12,104 @@
         {#{% include('./original/original.nunjucks') %}#}
         {% include('./visualSummary/visualSummary.nunjucks') %}
         {# {% include('./images/images.nunjucks') %} #}
+
         {% include('./text/text.nunjucks') %}
+        
+        {% include('./citation/citation.nunjucks') %}
         {% include('./bibliography/bibliography.nunjucks') %}
         {% include('./contributors/contributors.nunjucks') %}
-        {% include('./citation/citation.nunjucks') %}
+        
 
-        {#{% include('./highlights/highlights.nunjucks') %}#}
-        {#{% include('./location/location.nunjucks') %}#}
-        {#{% include('./dataset/dataset.nunjucks') %}#}
-        {#{% include('./details/details.nunjucks') %}#}
-        {#{% include('./media/media.nunjucks') %}#}
-        {#{% include('./extensions/extensions.nunjucks') %}#}
+        <section id="gbif-registration-info" class="horizontal-stripe bare-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox" >
+                        <label for="gbif-registration-info-toggle"><h2 class="h4">GBIF Registration Information</h2></label>
+                        <div>
+                            {# This template is included in datasetDetails.nunjucks. #}
+                            <div class="row">
+                                <div class="col-xs-6 col-md-4">
+                                    {# TODO Show the status of both crawling and indexing here. #}
+                                    <h5>Processing history</h5>
+                                    <ul class="no-indent">
+                                        <li>Registered on: {$ dataset.record.created | formatDate() $}</li>
+                                        <li>Last updated on: {$ dataset.record.modified | formatDate() $}</li>
+                                        {% if dataset.process.results[0] %}
+                                            <li>Latest process: {$ dataset.process.results[0].finishReason $} {# TODO check available enumerations and format them. #}
+                                                <ul class="no-indent">
+                                                    <li>Crawling:
+                                                        {% if dataset.process.results[0].finishedCrawling %}
+                                                            finished on {$ dataset.process.results[0].finishedCrawling | formatDate() $}
+                                                        {% else %}
+                                                            status unknown
+                                                        {% endif %}
+                                                    </li>
+                                                    <li>Indexing:
+                                                        {% if dataset.process.results[0].processStateOccurrence == 'FINISHED' and dataset.process.results[0].processStateChecklist == 'FINISHED' %}
+                                                            finished
+                                                        {% else %}
+                                                            status unknown
+                                                        {% endif %}
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="col-xs-6 col-md-4">
+                                    {% if dataset.installation.key %}
+                                    <h5>Technically served by</h5>
+                                    <ul class="no-indent">
+                                        {# TODO Suggest datasets served by the same installation. #}
+                                        <li><a href="#">{$ dataset.installation.title $}</a></li>
+                                        {% if dataset.installation.contacts[0] %}
+                                            <li>
+                                                <ul class="no-indent">
+                                                    {% for contact in dataset.installation.contacts %}
+                                                        {% if contact.type == 'TECHNICAL_POINT_OF_CONTACT' %}
+                                                            <li>Technical contact: {% if contact.email[0] %}<a href="mailto:{$ contact.email[0] $}">{% endif %}{$ contact.firstName $} {$ contact.lastName $}{% if contact.email[0] %}</a>{% endif %}</li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="col-xs-6 col-md-4">
+                                    <h5>Source data</h5>
+                                    <ul class="no-indent">
+                                        <li><a href="{$ api.dataset.url $}{$ datasetDetails.key $}/document">Metadata (EML)</a></li>
+                                        {% if dataset.record.endpoints[0] %}
+                                            {% for endpoint in dataset.record.endpoints %}
+                                                {% if endpoint.type == 'DWC_ARCHIVE' %}
+                                                    <li><a href="{$ endpoint.url $}">Darwin Core Archive</a></li>
+                                                {% elif endpoint.type == 'EML' %}
+                                                    <li><a href="{$ endpoint.url $}">Original metadata (EML)</a></li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-8">
+                                    {% if dataset._computedValues.identifiers[0] %}
+                                    <h5>Alternative identifiers</h5>
+                                        <ul class="no-indent">
+                                            {% for id in dataset._computedValues.identifiers %}
+                                                <li>{$ id.formattedString | safe $}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </article>
 {% endblock %}
-
-
-{# Annotation buttons #}
-{#{% block tools %}#}
-    {#{% if occurrence.dataset.contacts[0].email[0] or occurrence.annotation %}#}
-        {#<div class="fab" fab>#}
-            {#<div class="fab__trigger">#}
-                {#<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>#}
-            {#</div>#}
-            {#<ul class="fab__options">#}
-                {#{% if occurrence.annotation %}#}
-                    {#<li class="fab__options__primary">#}
-                        {#<a href="{$ occurrence.annotation.url $}" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>#}
-                    {#</li>#}
-                {#{% endif %}#}
-                {#{% if occurrence.dataset.contacts[0].email[0] %}#}
-                    {#<li>#}
-                        {#<a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"#}
-                           {#class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.sendPublisherMail') $}"><i class="gb-icon-mail"></i></a>#}
-                    {#</li>#}
-                {#{% endif %}#}
-            {#</ul>#}
-        {#</div>#}
-    {#{% endif %}#}
-{#{% endblock %}#}

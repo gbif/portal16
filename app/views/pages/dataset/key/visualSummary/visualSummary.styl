@@ -1,49 +1,82 @@
 .dataset-key__visual-summary {
-	>div {
-		width 1170px
-		max-width 100%
-		height 300px
-		margin auto
-		position relative
-		z-index 1
-	}
-	&__map {
-		height 100%
-		width 50%
-		float left
-	}
-	.ct-series-a .ct-bar {
-		stroke #444
-	}
-	
 	&__counts {
+		padding 1rem
+		overflow hidden
 		>p {
 			margin-bottom vrBlock(1)
 		}
 			
 		>div {
 			display flex
+			justify-content flex-start
+			flex-wrap wrap
 		}
 		&__group {
-			flex 0 0 33%
-			margin-right 10px
+			flex 1 0 auto
+			text-align center
+			padding-right 10px
+			margin-bottom vrBlock(0.5)
 			>div {
-				// text-align center
-				&:first-of-type {
-				}
+				margin auto
 			}
 		}
 		&__image{
-			margin-top vrBlock(2)
-			>div {
-				width 100px
-				height 100px
-				border-radius 50px
-				background-image url('http://www.kew.org/herbcatimg/847400.jpg')
-				background-size cover
-				background-position center
-				margin-right vrBlock(1)
+			margin-top vrBlock(1)
+
+		}
+	}
+}
++isAbove($laptop) {
+	.dataset-key__visual-summary {
+		&__counts {
+			&__group {
+				padding 0 $halfGutter
+				flex 0 0 auto
 			}
+		}
+	}
+}
+
+.radial-progress {
+	width 85px
+	height 85px
+	margin auto
+	position relative
+	&__count {
+		position absolute
+		top 50%
+		bottom auto
+		left 50%
+		transform translateY(-50%) translateX(-50%)
+		font-size 20px
+	}
+}
+
+.round-image {
+	display block
+	width 85px
+	height 85px
+	border-radius 50px
+	background-size cover
+	background-position center
+}
+
+.dataset-key__visual-summary__map {
+	&__container {
+		padding-bottom 50%
+		gbmap {
+			position absolute
+			height 100%
+			width 100%
+		}
+	}
+}
++isAbove($laptop) {
+	.dataset-key__visual-summary__map {
+		position relative
+		z-index 1
+		&__container {
+			margin-top vrBlock(1)
 		}
 	}
 }

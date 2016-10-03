@@ -64,5 +64,6 @@
 <script src="/js/base/custom.js"></script>
 
 {% block scripts %}{% endblock %}
+
 </body>
 </html>

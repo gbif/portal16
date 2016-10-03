@@ -366,7 +366,7 @@ $headerImageMaxFullWidth = 1200px
 	display inline
 	padding 0
 	li {
-		display inline
+		display inline-block
 		&:after {
 			font-style normal
 			content '\25CF' // ❯
@@ -513,5 +513,19 @@ sub {
 	> a {
 		position absolute
 		top -($navBar_height + vrBlock(1))
+	}
+}
+.anchor-block:before {
+    display block
+    content " "
+    height $navBar_height
+    margin-top -($navBar_height)
+    visibility hidden
+}
+
+.seperator {
+	border-top 1px solid $stripeBorderColor
+	&--b {
+		border-bottom 1px solid rgba(0,0,0,0.08)
 	}
 }

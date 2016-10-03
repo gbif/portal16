@@ -1,8 +1,8 @@
 {% if dataset.record.bibliographicCitations.length > 0 %}
 <section
-        class="horizontal-stripe dataset-key__bibliography white-background {% if dataset.record.bibliographicCitations.length <= 5 %} is-expanded {% endif %}"
+        class="horizontal-stripe dataset-key__bibliography white-background is-fade-expandable {% if dataset.record.bibliographicCitations.length <= 5 %} is-fade-expanded {% endif %}"
         {% if dataset.record.bibliographicCitations.length > 5 %}
-            ng-class="{'is-expanded': datasetKey.bibExpand.isExpanded}"
+            ng-class="{'is-fade-expanded': datasetKey.bibExpand.isExpanded}"
         {% endif %}>
     <div class="container--narrow">
         <h2 class="h4">Bibliography</h2>
@@ -54,7 +54,7 @@
             </ol>
         </div>
         {% if dataset.record.bibliographicCitations.length > 5 %}
-        <div class="dataset-key__bibliography__expand">
+        <div class="fade-expand">
             <a href="" class="gb-icon-angle-down" ng-class="{'gb-icon-angle-down': !datasetKey.bibExpand.isExpanded, 'gb-icon-angle-up': datasetKey.bibExpand.isExpanded}" ng-click="datasetKey.bibExpand.isExpanded = !datasetKey.bibExpand.isExpanded"></a>
         </div>
         {% endif %}

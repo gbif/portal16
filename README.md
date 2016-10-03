@@ -111,7 +111,7 @@ The CSS is build using the [Stylus](http://stylus-lang.com/) precompiler and [Po
 
 
 ##Project overview
-See (project_structure.md)[project_structure.md]
+See [project_structure.md](project_structure.md)
 Some folder also have a readme describing the content of that folder
 
 

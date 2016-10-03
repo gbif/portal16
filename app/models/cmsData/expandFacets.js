@@ -71,12 +71,12 @@ const facetTypeConfig = {
         translationPath: 'cms.filter.',
         show: false
     },
-    category_un_region: {
+    category_content_stream: {
         type: 'id',
         translationPath: 'cms.filter.',
         show: false
     },
-    category_content_stream: {
+    category_un_region: {
         type: 'id',
         translationPath: 'cms.filter.',
         show: false

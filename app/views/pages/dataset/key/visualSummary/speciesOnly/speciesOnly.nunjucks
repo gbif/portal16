@@ -1,0 +1,10 @@
+<section class="horizontal-stripe--paddingless white-background dataset-key__species-only">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="round-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_March_2010-1.jpg')"></div>
+                <div class="round-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4d/Cat_March_2010-1.jpg')"></div>
+            </div>
+        </div>
+    </div>
+</section>
