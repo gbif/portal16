@@ -6,13 +6,13 @@
 
                 <div class="search-results__list--short-list__header">
                     <h5>
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}">
+                        <a ui-sref="datasetSearchTable({q: '{$ query $}'})">
                             {$ __('stdTerms.datasets') $}
                         </a>
                     </h5>
                     {% if results.datasets.count > results.datasets.results.length %}
                     <span class="small">
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/table?q={$ query $}" class="inherit">{$ __('stdTerms.nMore', (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) ) $}</a>
+                        <a ui-sref="datasetSearchTable({q: '{$ query $}'})" class="inherit">{$ __('stdTerms.nMore', (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) ) $}</a>
                     </span>
                     {% endif %}
                 </div>
