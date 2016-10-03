@@ -56,10 +56,10 @@
                     {% if dataset.record.homepage | isNotEmpty %}
                     <a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>
                     {% endif %}
+                    <a href="" class="gb-button--round">Download</a>
                     {% if dataset._occurrenceCount.count > 0 %}
                         <a href="../occurrence/search?dataset_key={$ dataset.record.key $}" class="gb-button--round">Explore</a>
                     {% endif %}
-                    <a href="" class="gb-button--round">Download</a>
 
                 </div>
 
