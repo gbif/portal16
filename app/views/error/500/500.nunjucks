@@ -1,4 +1,4 @@
-{% extends "../shared/layout/html/html.nunjucks" %}
+{% extends "../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
     <section class="404 errorPage">

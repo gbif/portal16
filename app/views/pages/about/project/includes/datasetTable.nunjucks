@@ -12,7 +12,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="(index, dataset) in project.relatedDatasets | orderBy:sortField:sortReverse">
-                <td><a ng-bind="dataset.title" href="/dataset/{{ dataset.key}}"></a></td>
+                <td><a ng-bind="dataset.title" href="/dataset/{{ dataset.key }}"></a></td>
                 <td ng-if="dataset.type" class="text-nowrap" translate="dataset.type.{{ dataset.type }}"></td>
                 <th>{$ __('dataset.publishedBy') $}</th>
                 <td ng-bind="dataset.publishingOrganizationTitle" class="text-nowrap"></td>
