@@ -1596,6 +1596,10 @@
         "other": "subjects"
       },
       "publishedOn": "published on"
-    }
+    },
+    "about": "about"
+  },
+  "directory": {
+    "contactUs": "contact us"
   }
 }

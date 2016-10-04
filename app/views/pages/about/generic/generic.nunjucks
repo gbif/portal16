@@ -7,8 +7,8 @@
                 <div class="row">
                     <header class="col-xs-12 text-center article-header--programme">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">About</span>
-                            <span class="article-header__category__lower">[to be decided]</span>
+                            <span class="article-header__category__upper">{$ __('cms.about') $}</span>
+                            <span class="article-header__category__lower">{$ __('cms.contentType.generic') $}</span>
                         </nav>
                         <h1>{$ data.title $}</h1>
                         <div class="article-header__intro">
