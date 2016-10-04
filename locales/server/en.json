@@ -1409,7 +1409,59 @@
       "publishingCountry": "publishing country"
     },
     "title": "Title",
-    "publishedBy": "Published by"
+    "publishedBy": "Published by",
+    "submenu": {
+      "group": {
+        "introduction": {
+          "name": "introduction",
+          "chapters": {
+            "metrics": "metrics",
+            "map": "map",
+            "description": "description",
+            "purpose": "purpose"
+          }
+        },
+        "coverage": {
+          "name": "coverage",
+          "chapters": {
+            "temporalCoverages": "temporal",
+            "geographicCoverages": "geographic",
+            "taxonomicCoverages": "taxonomic"
+          }
+        },
+        "methodology": {
+          "name": "methodology",
+          "chapters": {
+            "studyExtent": "study extent",
+            "qualityControl": "quality control",
+            "sampling": "sampling",
+            "methodSteps": "method steps"
+          }
+        },
+        "project": {
+          "name": "project",
+          "chapters": {
+            "about": "about",
+            "funding": "funding"
+          }
+        },
+        "credit": {
+          "name": "credit",
+          "chapters": {
+            "contributions": "contributions",
+            "bibliography": "bibliography",
+            "citation": "citation"
+          }
+        },
+        "usage": {
+          "name": "usage",
+          "chapters": {
+            "usage metrics": "usage metrics",
+            "processing history": "processing history"
+          }
+        }
+      }
+    }
   },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
