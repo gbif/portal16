@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 
 <!--[if !IE]> -->
-<html lang="en" class="not_ie"  ng-app="portal">
+<html lang="en" class="not_ie" ng-app="portal">
 <!-- <![endif]-->
 <!--[if IE]>
-<html lang="en" class="ie"  ng-app="portal">
+<html lang="en" class="ie" ng-app="portal">
 <![endif]-->
 
 {# <head> #}
@@ -13,52 +13,52 @@
 
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
 
-    {# Main layout #}
-    <div id="site-wrapper" class="site-wrapper">
-        <div id="site-canvas" class="site-canvas">
+{# Main layout #}
+<div id="site-wrapper" class="site-wrapper">
+    <div id="site-canvas" class="site-canvas">
 
-            {# Navigation #}
-            {% include "../partials/navigation/navigation.nunjucks" %}
-            {#{% include "../partials/navigation/search/search.nunjucks" %}#}
-            {# Navigation end #}
+        {# Navigation #}
+        {% include "../partials/navigation/navigation.nunjucks" %}
+        {#{% include "../partials/navigation/search/search.nunjucks" %}#}
+        {# Navigation end #}
 
-            {# Main layout cont #}
-            {# http://html5doctor.com/the-main-element/ #}
-            <main id="main" class="main" role="main" ui-view>
+        {# Main layout cont #}
+        {# http://html5doctor.com/the-main-element/ #}
+        <main id="main" class="main" role="main" ui-view>
 
-                {# Drawer block is contextual, therefore is a part of the <main> #}
-                {% if _meta.hasDrawer %}
+            {# Drawer block is contextual, therefore is a part of the <main> #}
+            {% if _meta.hasDrawer %}
                 <aside id="filter" class="site-drawer">
                     <div>
 
                         {% block drawer %}{% endblock %}
                     </div>
                 </aside>
+            {% endif %}
+
+            {% include "../partials/navigation/search/search.nunjucks" %}
+
+            <div class="site-content">
+
+                {% if _meta.hasTools %}
+                    {% block tools %}{% endblock %}
                 {% endif %}
 
-                {% include "../partials/navigation/search/search.nunjucks" %}
+                {# use page--fixed-width to restrict main column width #}
+                <div class="page">
 
-                <div class="site-content">
-
-                    {% if _meta.hasTools %}
-                        {% block tools %}{% endblock %}
-                    {% endif %}
-
-                    {# use page--fixed-width to restrict main column width #}
-                    <div class="page">
-
-                        <div>
-                            {% block page %}{% endblock %}
-                        </div>
-                        {# Footer #}
-                        {% include "../partials/footer/footer.nunjucks" %}
+                    <div>
+                        {% block page %}{% endblock %}
                     </div>
-
+                    {# Footer #}
+                    {% include "../partials/footer/footer.nunjucks" %}
                 </div>
-            </main>
 
-        </div>
+            </div>
+        </main>
+
     </div>
+</div>
 
 <script src="/js/vendor/vendor.js"></script>
 <script src="/js/base/custom.js"></script>

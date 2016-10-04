@@ -1,6 +1,6 @@
 var angular = require('angular');
 
-module.exports = (function() {
+module.exports = (function () {
     'use strict';
 
     angular
@@ -10,7 +10,7 @@ module.exports = (function() {
     function clickOutside($window, $document, $parse) {
         return {
             restrict: 'A',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
                 if (!attr.clickOutside) {
                     return;
                 }
@@ -23,7 +23,7 @@ module.exports = (function() {
                 var nakedEl = el[0];
                 var fn = $parse(attr.clickOutside);
 
-                var handler = function(e) {
+                var handler = function (e) {
                     if (nakedEl === e.target || nakedEl.contains(e.target) || (ignore && ignore(scope))) {
                         return;
                     }
@@ -40,7 +40,7 @@ module.exports = (function() {
                     $window.addEventListener('touchstart', handler, true);
                 }
 
-                scope.$on('$destroy', function() {
+                scope.$on('$destroy', function () {
                     $document.off('click', handler);
                     $document.off('touchstart', handler);
                 });

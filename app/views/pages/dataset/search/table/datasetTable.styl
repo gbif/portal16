@@ -1,215 +1,220 @@
 .search-results__list {
-	&__item {
-		border-bottom solid 1px #d9d9d9
-		padding: 20px 0
-		&:last-of-type {
-			border none
-		}
-		&__tag {
-			text-transform uppercase
-			font-size 11px
-			margin 0
-			letter-spacing 0.05em
-			>span {
-				font-weight bold
-				&:nth-of-type(2) {
-					padding-left 5px
-					font-weight normal
-				}
-			}
-		}
-		&__title {
-			margin 4px 0
-			overflow hidden
-			text-overflow ellipsis
-			white-space nowrap
-			max-width 100%
-			a {
-				font-size 16px
-				color inherit
-				&:hover {
-					color #337ab7
-					text-decoration none
-				}
-			}
-		}
-		&__subtitle {
-			margin 0 0 4px
-			font-size 14px
-		}
-		&__meta {
-			margin-bottom 5px
-			color #9a9aa0 //inherit
-			a {
-				text-decoration underline
-				color inherit
-			}
-		}
-		&__logo {
-			float right
-			margin-left 15px
-			img {
-				max-width 150px
-				max-height 60px
-			}
-		}
-		>div {
-			group()
-			>a {
-				margin-left 10px
-				float right
-			}
-		}
-		&__details {
-			display none
-		}
-	}
-	&__overview {
-		border-bottom solid 1px #d9d9d9
-	}
+    &__item {
+        border-bottom solid 1px #d9d9d9
+        padding: 20px 0
+        &:last-of-type {
+            border none
+        }
+        &__tag {
+            text-transform uppercase
+            font-size 11px
+            margin 0
+            letter-spacing 0.05em
+            > span {
+                font-weight bold
+                &:nth-of-type(2) {
+                    padding-left 5px
+                    font-weight normal
+                }
+            }
+        }
+        &__title {
+            margin 4px 0
+            overflow hidden
+            text-overflow ellipsis
+            white-space nowrap
+            max-width 100%
+            a {
+                font-size 16px
+                color inherit
+                &:hover {
+                    color #337ab7
+                    text-decoration none
+                }
+            }
+        }
+        &__subtitle {
+            margin 0 0 4px
+            font-size 14px
+        }
+        &__meta {
+            margin-bottom 5px
+            color #9a9aa0 //inherit
+            a {
+                text-decoration underline
+                color inherit
+            }
+        }
+        &__logo {
+            float right
+            margin-left 15px
+            img {
+                max-width 150px
+                max-height 60px
+            }
+        }
+        > div {
+            group()
+            > a {
+                margin-left 10px
+                float right
+            }
+        }
+        &__details {
+            display none
+        }
+    }
+    &__overview {
+        border-bottom solid 1px #d9d9d9
+    }
 }
 
 .search-results__list--short-list {
-	.search-results__list__item {
-		border none
-	}
-	&__header {
-		h5 {
-			display inline
-		}
-		span {
-			padding-left 10px
-		}
-	}
-	&__more {
-		&:hover {
-			text-decoration none
-		}
-		span {
-			vertical-align middle
-		}
-	}
+    .search-results__list__item {
+        border none
+    }
+    &__header {
+        h5 {
+            display inline
+        }
+        span {
+            padding-left 10px
+        }
+    }
+    &__more {
+        &:hover {
+            text-decoration none
+        }
+        span {
+            vertical-align middle
+        }
+    }
 }
+
 +isAbove($mobile) {
-	.search-results__list--short-list {
-		&__more {
-			display none
-		}
-	}
-	.search-results__list {
-		&__item {
-			&__title {
-				a {
-					font-size 18px
-				}
-			}
-		}
-	}
+    .search-results__list--short-list {
+        &__more {
+            display none
+        }
+    }
+    .search-results__list {
+        &__item {
+            &__title {
+                a {
+                    font-size 18px
+                }
+            }
+        }
+    }
 }
-+isAbove($desktop+200px) {
-	.search-results__list--short-list {
-		.search-results__list__item:first-of-type {
-			padding-top 0
-		}
-		&__header {
-			width 200px
-			position absolute
-			left -200px
-			top 5px
-			text-align right
-			padding-right 30px
-			h5 {
-				display block
-				margin 0
-			}
-			span {
-				padding-left 10px
-			}
-		}
-	}
+
++isAbove($desktop+ 200px) {
+    .search-results__list--short-list {
+        .search-results__list__item:first-of-type {
+            padding-top 0
+        }
+        &__header {
+            width 200px
+            position absolute
+            left -200px
+            top 5px
+            text-align right
+            padding-right 30px
+            h5 {
+                display block
+                margin 0
+            }
+            span {
+                padding-left 10px
+            }
+        }
+    }
 }
+
 +isBelow($mobile) {
-	.search-results__list {
-		&__item {
-			.tile .species-overview-map--small {
-				width 64px
-				height 32px
-				>img {
-					top -12px
-				}
-			}
-			&__title{
-				overflow visible
-				white-space normal
-				&--occurrence {
-					    max-width calc(100% - 74px)
-				}
-			}
-		}
-	}
+    .search-results__list {
+        &__item {
+            .tile .species-overview-map--small {
+                width 64px
+                height 32px
+                > img {
+                    top -12px
+                }
+            }
+            &__title {
+                overflow visible
+                white-space normal
+                &--occurrence {
+                    max-width calc(100% - 74px)
+                }
+            }
+        }
+    }
 }
 
 .chip {
-	display flex
-	flex-direction row
-	flex-wrap nowrap
-	&.chip--selected {
-		background-color #5a7888
-		color white
-		display inline-block
-		margin-left 20px
-		margin-right 20px
-		padding-left 10px
-		position relative
-		&:hover {
-			background-color darken(#5a7888, 10)
-		}
-		.chip__remove {
-			icon-x(12px, white, 1.2px)
-			opacity 1
-			top calc(50% - 6px)
-			right 5px
-			position absolute
-		}
-	}
+    display flex
+    flex-direction row
+    flex-wrap nowrap
+    &.chip--selected {
+        background-color #5a7888
+        color white
+        display inline-block
+        margin-left 20px
+        margin-right 20px
+        padding-left 10px
+        position relative
+        &:hover {
+            background-color darken(#5a7888, 10)
+        }
+        .chip__remove {
+            icon-x(12px, white, 1.2px)
+            opacity 1
+            top calc(50% - 6px)
+            right 5px
+            position absolute
+        }
+    }
 }
+
 .chip--option {
-	@extends .chip
+    @extends .chip
 }
+
 .chip--facet-option {
-	@extends .chip
-	>* {
-		min-width 0
-	}
-	.chip__title {
-		flex 0 1 auto
-		text-overflow ellipsis
-		overflow hidden
-		span {
-			text-overflow ellipsis
-			overflow hidden
-			white-space nowrap
-		}
-	}
-	.chip__count {
-		float right
-		background #ccc
-		font-weight normal
-		margin-top 2px
-		flex 0 0 auto
-		background none
-		color #888
-	}
+    @extends .chip
+    > * {
+        min-width 0
+    }
+    .chip__title {
+        flex 0 1 auto
+        text-overflow ellipsis
+        overflow hidden
+        span {
+            text-overflow ellipsis
+            overflow hidden
+            white-space nowrap
+        }
+    }
+    .chip__count {
+        float right
+        background #ccc
+        font-weight normal
+        margin-top 2px
+        flex 0 0 auto
+        background none
+        color #888
+    }
 }
 
 .fit-suggestions + ul.dropdown-menu {
-	width calc(100% - 20px)
-	border-radius 0
-	margin 0 10px
-	a{
-		overflow hidden
-		text-overflow ellipsis
-	}
+    width calc(100% - 20px)
+    border-radius 0
+    margin 0 10px
+    a {
+        overflow hidden
+        text-overflow ellipsis
+    }
 }
 
 

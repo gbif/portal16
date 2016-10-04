@@ -13,7 +13,7 @@ function searchCtrl($state, $stateParams, hotkeys) {
     vm.freeTextQuery = vm.query.q;
     vm.locale = $stateParams.locale;
 
-    vm.clearFreetextAndSetFocus = function() {
+    vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
@@ -21,27 +21,27 @@ function searchCtrl($state, $stateParams, hotkeys) {
     hotkeys.add({
         combo: 'alt+f',
         description: 'Site search',
-        callback: function(event) {
+        callback: function (event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
     });
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         vm.query.q = vm.freeTextQuery;
         if ($state.current.abstract) {
             location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery);
         } else {
             $state.go($state.current, vm.query);
         }
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
-    vm.searchOnEnter = function(event) {
-        if(event.which === 13) {
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
             vm.updateSearch();
         }
     };
-    vm.cmsTypedSearch = function() {
+    vm.cmsTypedSearch = function () {
     };
 
 }

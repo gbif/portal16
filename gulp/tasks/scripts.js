@@ -12,16 +12,16 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('scripts-reload', function() {
+gulp.task('scripts-reload', function () {
     return buildScripts()
         .pipe(browserSync.stream());
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return buildScripts();
 });
 
-gulp.task('vendor-scripts', function() {
+gulp.task('vendor-scripts', function () {
     return gulp.src(config.bower.jsFiles, {
             base: './'
         })
@@ -37,7 +37,7 @@ function buildScripts() {
     return build(config.js.browserify.main.path, config.js.browserify.main.dest);
 }
 
-gulp.task('speciesLookup', function() {
+gulp.task('speciesLookup', function () {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
 
@@ -48,9 +48,9 @@ gulp.task('speciesLookup', function() {
 
 function build(entry, name) {
     return browserify({
-            entries: entry,
-            debug: true
-        }).bundle()
+        entries: entry,
+        debug: true
+    }).bundle()
         .on('error', function (err) {
             if (!config.isProd) {
                 console.log(err.toString());

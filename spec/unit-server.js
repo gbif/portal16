@@ -5,8 +5,8 @@ var Jasmine = require('jasmine'),
 
 jasmine.loadConfigFile('spec/support/jasmine_server.json');
 
-jasmine.onComplete(function(passed) {
-    if(passed) {
+jasmine.onComplete(function (passed) {
+    if (passed) {
         console.log('All specs have passed');
     }
     else {
@@ -15,7 +15,7 @@ jasmine.onComplete(function(passed) {
 });
 
 jasmine.addReporter(new SpecReporter());
-jasmine.addReporter(new jasmineReporters.JUnitXmlReporter( {
+jasmine.addReporter(new jasmineReporters.JUnitXmlReporter({
     savePath: './reports/',
     filePrefix: 'server'
 }));

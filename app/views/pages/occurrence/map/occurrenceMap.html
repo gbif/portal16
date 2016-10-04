@@ -1,75 +1,82 @@
 <div class="wrapper-horizontal-stripes occurrence-search__map">
 
-	<div class="container-fluid white-background search-header">
-		<div class="row">
-			<div class="col-xs-12">
-				<nav class="article-header__category article-header__category--deep">
-					<span class="article-header__category__upper">Search</span>
-					<span class="article-header__category__lower">Occurrences</span>
-				</nav>
-				<div class="search-header__description">
-					<span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>
-				</div>
-				<div class="stripe-menu">
-					<a href="" ui-sref="occurrenceSearchTable()"
-					   class="gb-icon-table stripe-menu__option"
-					   tooltip-placement="bottom"
-					   uib-tooltip="Table"></a>
-					<a href="" ui-sref="occurrenceSearchGallery()"
-					   class="gb-icon-photo stripe-menu__menu stripe-menu__option"
-					   tooltip-placement="bottom"
-					   uib-tooltip="Gallery"></a>
+    <div class="container-fluid white-background search-header">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Search</span>
+                    <span class="article-header__category__lower">Occurrences</span>
+                </nav>
+                <div class="search-header__description">
+                    <span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>
+                </div>
+                <div class="stripe-menu">
+                    <a href="" ui-sref="occurrenceSearchTable()"
+                       class="gb-icon-table stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Table"></a>
+                    <a href="" ui-sref="occurrenceSearchGallery()"
+                       class="gb-icon-photo stripe-menu__menu stripe-menu__option"
+                       tooltip-placement="bottom"
+                       uib-tooltip="Gallery"></a>
 					<span
-					   class="gb-icon-map-marker stripe-menu__menu stripe-menu__option is-active"
-					   tooltip-placement="bottom"
-					   uib-tooltip="Map"></span>
-				</div>
-			</div>
-		</div>
-	</div>
+                            class="gb-icon-map-marker stripe-menu__menu stripe-menu__option is-active"
+                            tooltip-placement="bottom"
+                            uib-tooltip="Map"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<section class="horizontal-stripe--paddingless light-background" >
-		<div>
-			<div class="occurrence-search-map">
-				<leaflet
-						leafletMap="leafletMap"
-						id="occurrenceMap"
-						class="occurrenceMap"
-						defaults="occMap.mapDefaults"
-						height="100%"
-						width="100%"
-						layers="occMap.layers"
-				></leaflet>
+    <section class="horizontal-stripe--paddingless light-background">
+        <div>
+            <div class="occurrence-search-map">
+                <leaflet
+                        leafletMap="leafletMap"
+                        id="occurrenceMap"
+                        class="occurrenceMap"
+                        defaults="occMap.mapDefaults"
+                        height="100%"
+                        width="100%"
+                        layers="occMap.layers"
+                ></leaflet>
 
-				<div class="search-overlay" ng-if="occMap.mapMenu.show">
-					<div class="search-overlay__header">
-						<h4 class="h5">Occurrences in area
-							<a href="" class="gb-icon-close_L inherit pull-right" ng-click="occMap.mapMenu.show = false"></a>
-						</h4>
-					</div>
-					<div class="search-overlay__results">
-						<ng-include src="'/templates/components/loader/loader.html'" ng-if="occMap.mapMenu.isLoading"> </ng-include>
-						<ul ng-if="!occMap.mapMenu.isLoading">
-							<li ng-repeat="occurrence in occMap.mapMenu.occurrences.results" class="species-list-item seperator">
+                <div class="search-overlay" ng-if="occMap.mapMenu.show">
+                    <div class="search-overlay__header">
+                        <h4 class="h5">Occurrences in area
+                            <a href="" class="gb-icon-close_L inherit pull-right"
+                               ng-click="occMap.mapMenu.show = false"></a>
+                        </h4>
+                    </div>
+                    <div class="search-overlay__results">
+                        <ng-include src="'/templates/components/loader/loader.html'"
+                                    ng-if="occMap.mapMenu.isLoading"></ng-include>
+                        <ul ng-if="!occMap.mapMenu.isLoading">
+                            <li ng-repeat="occurrence in occMap.mapMenu.occurrences.results"
+                                class="species-list-item seperator">
 
-								<a ng-href="/occurrence/{{occurrence.key}}" class="discreet">
-									<span class="species-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</span>
-									<span class="species-list-item__name" ng-if="!occurrence.scientificName" style="color: tomato">Unkown species TODO</span>
-									<!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
-									<div class="small discreet classification-list">
-										<span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">
+                                <a ng-href="/occurrence/{{occurrence.key}}" class="discreet">
+                                    <span class="species-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</span>
+                                    <span class="species-list-item__name" ng-if="!occurrence.scientificName"
+                                          style="color: tomato">Unkown species TODO</span>
+                                    <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
+                                    <div class="small discreet classification-list">
+										<span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                                              ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">
 											{{occurrence[taxa]}}
 										</span>
-									</div>
-									<div class="imageGallery__img img-round-thumb" ng-if="occurrence.media[0].identifier && occurrence.media[0].type=='StillImage'">
-										<img ng-src="https://http2-api-test.gbif-uat.org/v1/image?url={{occurrence.media[0].identifier | encodeURIComponent}}&size=S" gallery-image>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                                    </div>
+                                    <div class="imageGallery__img img-round-thumb"
+                                         ng-if="occurrence.media[0].identifier && occurrence.media[0].type=='StillImage'">
+                                        <img ng-src="https://http2-api-test.gbif-uat.org/v1/image?url={{occurrence.media[0].identifier | encodeURIComponent}}&size=S"
+                                             gallery-image>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

@@ -1,9 +1,9 @@
 var angular = require('angular');
-require('angular-ui-router'); 
+require('angular-ui-router');
 angular
     .module('portal')
     .config(routerConfig);
-    
+
 // The annotation is necessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
 /** @ngInject */
 function routerConfig($stateProvider, $locationProvider) {
@@ -13,7 +13,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/{locale:(?:en|da)}',
             abstract: true,
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
-            params: {locale : { squash : true, value: 'en' }}
+            params: {locale: {squash: true, value: 'en'}}
         })
         .state('omniSearch', {
             parent: 'localization',
@@ -142,11 +142,11 @@ function routerConfig($stateProvider, $locationProvider) {
                 }
             },
             resolve: {
-                results:  function($stateParams, CmsSearch){
+                results: function ($stateParams, CmsSearch) {
                     var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise.then(function(response){
+                    return CmsSearch.query(query).$promise.then(function (response) {
                         return response;
-                    }, function(error){
+                    }, function (error) {
                         return error;
                     });
                 }

@@ -1,6 +1,6 @@
 <aside class="site-drawer is-locked" id="site-search">
     <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
-        <!--Apply filters-->
+    <!--Apply filters-->
     <!--</div>-->
     <div class="site-drawer__content">
         <div class="site-drawer__header">
@@ -29,32 +29,38 @@
                              click-outside-unless="!vm.expandContentTypeMenu">
                             <ul>
                                 <li class="text-capitalize seperator--b">
-                                    <a ui-sref="omniSearch({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.all">
+                                    <a ui-sref="omniSearch({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}"
+                                       translate="stdTerms.all">
                                         All
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'occurrences'" class="text-capitalize">
-                                    <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
+                                    <a ui-sref="occurrenceSearchTable({q:vm.filter.query.q})"
+                                       ui-sref-opts="{inherit: false}" translate="stdTerms.occurrences">
                                         Occurrences
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'species'" class="text-capitalize">
-                                    <a ui-sref="speciesSearchList({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.species">
+                                    <a ui-sref="speciesSearchList({q:vm.filter.query.q})"
+                                       ui-sref-opts="{inherit: false}" translate="stdTerms.species">
                                         Species
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'datasets'" class="text-capitalize">
-                                    <a ui-sref="datasetSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
+                                    <a ui-sref="datasetSearchTable({q:vm.filter.query.q})"
+                                       ui-sref-opts="{inherit: false}" translate="stdTerms.datasets">
                                         Datasets
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'publishers'" class="text-capitalize">
-                                    <a ui-sref="publisherSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.publishers">
+                                    <a ui-sref="publisherSearchTable({q:vm.filter.query.q})"
+                                       ui-sref-opts="{inherit: false}" translate="stdTerms.publishers">
                                         Publishers
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'cms'" class="text-capitalize">
-                                    <a ui-sref="cmsSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}" translate="stdTerms.cms">
+                                    <a ui-sref="cmsSearchTable({q:vm.filter.query.q})" ui-sref-opts="{inherit: false}"
+                                       translate="stdTerms.cms">
                                         GBIF Network
                                     </a>
                                 </li>
@@ -62,7 +68,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="" ng-click="vm.clear()" class="gb-icon-trash discreet inherit site-drawer__bar__icon" tooltip-placement="left" uib-tooltip="Clear filters">
+                <a href="" ng-click="vm.clear()" class="gb-icon-trash discreet inherit site-drawer__bar__icon"
+                   tooltip-placement="left" uib-tooltip="Clear filters">
                     <span class="count badge" ng-show="vm.getFilterCount() > 0">{{vm.getFilterCount()}}</span>
                 </a>
             </div>

@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     requireDir = require('require-dir');
 
-global.rootRequire = function(name) {
+global.rootRequire = function (name) {
     return require(__dirname + '/' + name);
 };
 
@@ -33,13 +33,13 @@ requireDir('./gulp/tasks', {
 //     gulp.start('build');
 // });
 
-gulp.task('prod', function(callback) {
+gulp.task('prod', function (callback) {
     runSequence(
         ['clean-all'], ['env-constants'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates', 'speciesLookup'], ['ieStyle'],
         callback);
 });
 
-gulp.task('test-drive-development', [], function(callback){
+gulp.task('test-drive-development', [], function (callback) {
     runSequence(
         ['test-server-continuously', 'test-client-continuously', 'dev'],
         callback);
@@ -47,7 +47,7 @@ gulp.task('test-drive-development', [], function(callback){
 
 gulp.task('test', ['test-client', 'test-server']);
 
-gulp.task('watch', ['browser-sync'], function() {
+gulp.task('watch', ['browser-sync'], function () {
     gulp.watch([
         path.join(config.paths.src, '/**/*.styl'),
         path.join(config.paths.src, '/**/*.less'),
@@ -62,7 +62,7 @@ gulp.task('watch', ['browser-sync'], function() {
     browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
 });
 
-gulp.task('dev', [], function(callback) {
+gulp.task('dev', [], function (callback) {
     runSequence(
         ['clean-all'], ['env-constants'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates', 'speciesLookup'],
         ['ieStyle'],

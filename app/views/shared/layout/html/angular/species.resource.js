@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('Species', function($resource, env) {
+        .factory('Species', function ($resource, env) {
             return $resource(env.dataApi + 'species/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesSearch', function($resource) {
+        .factory('SpeciesSearch', function ($resource) {
             return $resource('/api/species/search', null, {
                     'query': {
                         method: 'GET',
@@ -26,7 +26,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesMatch', function($resource, env) {
+        .factory('SpeciesMatch', function ($resource, env) {
             return $resource(env.dataApi + 'species/match', null, {
                     'query': {
                         method: 'GET',
@@ -35,7 +35,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesSuggest', function($resource, env) {
+        .factory('SpeciesSuggest', function ($resource, env) {
             return $resource(env.dataApi + 'species/suggest', null, {
                     'query': {
                         method: 'GET',

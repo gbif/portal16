@@ -30,7 +30,7 @@ function expandDirective() {
         vm.expandText = vm.expandText || vm.expandModel.expandText;
         vm.collapseText = vm.collapseText || vm.expandModel.collapseText;
         vm.isExpanded = false;
-        vm.toggle = function() {
+        vm.toggle = function () {
             vm.isExpanded = !vm.isExpanded;
             if (vm.expandModel) {
                 vm.expandModel.isExpanded = vm.isExpanded;

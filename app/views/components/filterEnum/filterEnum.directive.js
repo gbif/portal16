@@ -34,11 +34,15 @@ function filterEnumDirective() {
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
-        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
         });
 
-        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+        $scope.$watchCollection(function () {
+            return vm.filterState.query
+        }, function (newState, oldState) {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
                 vm.setFacetSuggestions();
             }
@@ -46,7 +50,7 @@ function filterEnumDirective() {
 
         vm.hideFacetCounts = false;
         vm.suggestions = {};
-        vm.setFacetSuggestions = function() {
+        vm.setFacetSuggestions = function () {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
                 if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
@@ -65,7 +69,7 @@ function filterEnumDirective() {
         vm.setFacetSuggestions();
 
         vm.searchSuggestions = [];
-        vm.getSuggestions = function() {
+        vm.getSuggestions = function () {
             //if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint
@@ -76,11 +80,11 @@ function filterEnumDirective() {
         };
         vm.getSuggestions();
 
-        vm.inQuery = function(name){
+        vm.inQuery = function (name) {
             return vm.query.indexOf(name) != -1;
         };
 
-        vm.showEnum = function(key) {
+        vm.showEnum = function (key) {
             if (vm.inQuery(key)) return true;
             if (vm.filterConfig.expanded) {
                 if (vm.filterConfig.showAll) return true;
@@ -89,17 +93,17 @@ function filterEnumDirective() {
             return false;
         };
 
-        vm.getVisibleEnums = function() {
-            return vm.filterConfig.enums.filter(function(key){
+        vm.getVisibleEnums = function () {
+            return vm.filterConfig.enums.filter(function (key) {
                 return vm.showEnum(key);
             });
         };
 
-        vm.showFacetCount = function() {
+        vm.showFacetCount = function () {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
-        vm.getWidth = function(key) {
+        vm.getWidth = function (key) {
             if (!vm.suggestions.counts) return;
             if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
                 return {
@@ -114,7 +118,7 @@ function filterEnumDirective() {
             };
         };
 
-        vm.typeaheadSelect = function(item){ //  model, label, event
+        vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             var searchString = item.key.toString();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
@@ -124,7 +128,7 @@ function filterEnumDirective() {
             }
         };
 
-        vm.change = function(e, checked) {
+        vm.change = function (e, checked) {
             if (checked) {
                 vm.query.push(e);
             } else {
@@ -133,22 +137,22 @@ function filterEnumDirective() {
             vm.apply();
         };
 
-        vm.uncheckAll = function() {
+        vm.uncheckAll = function () {
             vm.query = [];
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
             vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         };
 
-        vm.searchOnEnter = function(event) {
-            if(event.which === 13) {
+        vm.searchOnEnter = function (event) {
+            if (event.which === 13) {
                 vm.typeaheadSelect(vm.selected);
             }
         };
 
-        vm.allowSelection = function() {
+        vm.allowSelection = function () {
             return !vm.filterConfig.singleSelect || vm.query.length == 0;
         };
     }

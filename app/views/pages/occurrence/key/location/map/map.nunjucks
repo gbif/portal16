@@ -1,7 +1,7 @@
 <section class="horizontal-stripe--paddingless">
     <div class="container-fluid">
         <div class="row">
-            <div class="occurrenceKey__map"  ng-init="occurrence.setData()">
+            <div class="occurrenceKey__map" ng-init="occurrence.setData()">
                 <leaflet
                         leafletMap="leafletMap"
                         id="occurrenceMap"

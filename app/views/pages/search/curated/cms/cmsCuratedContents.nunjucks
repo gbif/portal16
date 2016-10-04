@@ -1,23 +1,25 @@
 {% macro cmsContentHighlight(contentNode, __) %}
-{% if contentNode | isNotEmpty %}
-    {% for highlightedNode in contentNode %}
-    <div>
-        <article class="card article-card card--flexible">
-            <div class="card__stripe">
-                <div class="card__content">
-                    <nav class="article-header__category article-header__category--deep small">
-                        <span class="article-header__category__upper">about</span>
+    {% if contentNode | isNotEmpty %}
+        {% for highlightedNode in contentNode %}
+            <div>
+                <article class="card article-card card--flexible">
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            <nav class="article-header__category article-header__category--deep small">
+                                <span class="article-header__category__upper">about</span>
                             <span class="article-header__category__lower">
                                 {$ __('cms.contentType.' + highlightedNode.type) $}
                             </span>
-                    </nav>
-                    <h2 class="h4 text-center card__content__title"><a href="/{$ highlightedNode.targetUrl $}">{$ highlightedNode.title $}</a></h2>
-                </div>
+                            </nav>
+                            <h2 class="h4 text-center card__content__title"><a href="/{$ highlightedNode.targetUrl $}">{$
+                                    highlightedNode.title $}</a></h2>
+                        </div>
+                    </div>
+                    <div class="card__stripe"
+                         style="background-image: url('{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
+                    </div>
+                </article>
             </div>
-            <div class="card__stripe" style="background-image: url('{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
-            </div>
-        </article>
-    </div>
-    {% endfor %}
-{% endif %}
+        {% endfor %}
+    {% endif %}
 {% endmacro %}

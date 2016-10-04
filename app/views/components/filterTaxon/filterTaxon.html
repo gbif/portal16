@@ -12,11 +12,14 @@
         <div ng-if="vm.query.length > 0" class="is-padded">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.remove(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key"
+                           ng-change="vm.remove(key, checked)">
                     <span class="filter-group__filter__name">
-                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" >{{vm.usedKeys[key]}}</span>
-                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
+                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
+                             ng-if="vm.filterConfig.facets.hasFacets"></div>
+                        <span ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{vm.usedKeys[key]}}</span>
+                        <span class="filter-group__filter__name__count"
+                              ng-if="vm.showFacetCount() && vm.filterState.data.facets">
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
                     </span>
@@ -24,7 +27,8 @@
             </div>
             <!--<ng-include src="vm.listTemplate"></ng-include>-->
         </div>
-        <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
+        <div class="filter-group__filter__search"
+             ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
                    focus-me="vm.filterConfig.expanded"
                    autocomplete="off"
@@ -42,7 +46,8 @@
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.add(key, checked, facet)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key"
+                           ng-change="vm.add(key, checked, facet)">
                     <span class="filter-group__filter__name">
                         <span class="filter-group__filter__name__title">{{facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
@@ -59,7 +64,6 @@
         </div>
 
     </div>
-
 
 
 </div>

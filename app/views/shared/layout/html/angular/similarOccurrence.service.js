@@ -26,7 +26,7 @@ var angular = require('angular');
                 OccurrenceSearch.query(query, function (data) {
                     if (data.count >= 1) {
                         data.count = data.count - 1;
-                        data.results = data.results.filter(function(e) {
+                        data.results = data.results.filter(function (e) {
                             return e.key != occurrenceKey;
                         });
                     }
@@ -43,13 +43,13 @@ var angular = require('angular');
                     .replace(/s/g, Math.max(bounds.getSouth(), -90))
                     .replace(/e/g, Math.min(bounds.getEast(), 180))
                     .replace(/w/g, Math.max(bounds.getWest(), -180));
-                return 'POLYGON(('+b+'))';
+                return 'POLYGON((' + b + '))';
             };
 
-            this.getMarkers = function(data, settings) {
+            this.getMarkers = function (data, settings) {
                 var markers = [];
                 if (data.count > 1) {
-                    data.results.forEach(function(e) {
+                    data.results.forEach(function (e) {
                         var timeDiff;
                         if (e.eventDate == settings.eventDate) {
                             timeDiff = 'Same time';
@@ -65,9 +65,9 @@ var angular = require('angular');
                         }
                         var message = '<p>' + timeDiff + '</p>';
                         message += '<p>Same species</p>';
-                        if (e.datasetKey == data.datasetKey) message += '<p>Same <a href="/dataset/'+ data.datasetKey+'">data set</a></p>';
+                        if (e.datasetKey == data.datasetKey) message += '<p>Same <a href="/dataset/' + data.datasetKey + '">data set</a></p>';
                         if (e.decimalLatitude == settings.decimalLatitude && e.decimalLongitude == settings.decimalLongitude) message += '<p>Same location</p>';
-                        message += '<p><a href="'+ e.key+'">See record</a></p>';
+                        message += '<p><a href="' + e.key + '">See record</a></p>';
                         markers.push(
                             {
                                 group: 'similar',

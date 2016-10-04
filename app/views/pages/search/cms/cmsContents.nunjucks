@@ -9,7 +9,8 @@
                         <h5><a ui-sref="cmsSearchTable({q: '{$ query $}'})">Inside GBIF</a></h5>
                         {% if results.cms.count > 3 %}
                             <span class="small">
-                       <a ui-sref="cmsSearchTable({q: '{$ query $}'})" class="inherit">{$ results.cms.count - results.cms.displayedCount $} more</a>
+                       <a ui-sref="cmsSearchTable({q: '{$ query $}'})" class="inherit">{$ results.cms.count -
+                           results.cms.displayedCount $} more</a>
                     </span>
                         {% endif %}
                     </div>
@@ -18,7 +19,8 @@
                         <article class="search-results__list__item cms-list-item">
                             <img ng-src="{$ result.images[0].styles.square_thumbnail $}">
                             <h4 class="search-results__list__item__title">
-                                <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$
+                                    result.title | striptags | truncate(120) | safe $}</a>
                             </h4>
                             {% if result.body %}
                                 <p>{$ result.body | striptags | truncate(150) | safe $}</p>
@@ -29,8 +31,10 @@
                     {% if results.cms.count > 3 %}
                         <div class="row">
                             <div class="col-xs-12">
-                                <a ui-sref="cmsSearchTable({q: '{$ query $}'})" class="pull-right search-results__list--short-list__more">
-                                    <span>{$ results.cms.count - results.cms.displayedCount $} more</span> <span class="gb-icon-right-arrow h2"></span>
+                                <a ui-sref="cmsSearchTable({q: '{$ query $}'})"
+                                   class="pull-right search-results__list--short-list__more">
+                                    <span>{$ results.cms.count - results.cms.displayedCount $} more</span> <span
+                                            class="gb-icon-right-arrow h2"></span>
                                 </a>
                             </div>
                         </div>

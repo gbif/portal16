@@ -83,9 +83,6 @@
 {#</section>#}
 
 
-
-
-
 <section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
     <div class="container-fluid">
         <div class="row">
@@ -96,12 +93,15 @@
                 <div class="dataset-key__visual-summary__counts dataset-key__visual-summary__counts--double">
                     {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
                     <p>
-                        <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span> <span>occurrences</span>
+                        <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span>
+                        <span>occurrences</span>
                     </p>
                     <div>
                         <div class="dataset-key__visual-summary__counts__group">
                             <div class="radial-progress">
-                                <div class="radial-progress__count">{$ dataset._occurrenceGeoreferencedCount.percentage $}%</div>
+                                <div class="radial-progress__count">{$ dataset._occurrenceGeoreferencedCount.percentage
+                                    $}%
+                                </div>
                                 <round-progress
                                         max="100"
                                         current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
@@ -116,7 +116,8 @@
 
                         <div class="dataset-key__visual-summary__counts__group">
                             <div class="radial-progress">
-                                <div class="radial-progress__count">{$ dataset._occurrenceDatedCount.percentage $}%</div>
+                                <div class="radial-progress__count">{$ dataset._occurrenceDatedCount.percentage $}%
+                                </div>
                                 <round-progress
                                         max="100"
                                         current="{$ dataset._occurrenceDatedCount.percentage | int $}"
@@ -131,7 +132,8 @@
 
                         <div class="dataset-key__visual-summary__counts__group">
                             <div class="radial-progress">
-                                <div class="radial-progress__count">{$ dataset._occurrenceNoTaxonCount.percentage $}%</div>
+                                <div class="radial-progress__count">{$ dataset._occurrenceNoTaxonCount.percentage $}%
+                                </div>
                                 <round-progress
                                         max="100"
                                         current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
@@ -146,9 +148,11 @@
 
                         {% for image in dataset.images.results | slice(0, 1) %}
                             <div class="dataset-key__visual-summary__counts__group">
-                                <div class="round-image" style="background-image:url('{$ image.media[0].identifier $}')"></div>
+                                <div class="round-image"
+                                     style="background-image:url('{$ image.media[0].identifier $}')"></div>
                                 <a href="../occurrence/{$ image.key $}">
-                                    <img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">
+                                    <img src="{$ image.media[0].identifier $}"
+                                         onerror="this.parentElement.style.display='none'">
                                 </a>
                             </div>
                         {% endfor %}
@@ -157,12 +161,12 @@
                     </div>
 
                     {#<div class="dataset-key__visual-summary__counts__image">#}
-                        {#{% for image in dataset.images.results | slice(0, 1) %}#}
-                            {#<div class="round-image" style="background-image:url('{$ image.media[0].identifier $}')"></div>#}
-                            {#<a href="../occurrence/{$ image.key $}">#}
-                                {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
-                            {#</a>#}
-                        {#{% endfor %}#}
+                    {#{% for image in dataset.images.results | slice(0, 1) %}#}
+                    {#<div class="round-image" style="background-image:url('{$ image.media[0].identifier $}')"></div>#}
+                    {#<a href="../occurrence/{$ image.key $}">#}
+                    {#<img src="{$ image.media[0].identifier $}" onerror="this.parentElement.style.display='none'">#}
+                    {#</a>#}
+                    {#{% endfor %}#}
                     {#</div>#}
 
                 </div>
@@ -170,7 +174,6 @@
 
             </div>
         </div>
-
 
 
     </div>

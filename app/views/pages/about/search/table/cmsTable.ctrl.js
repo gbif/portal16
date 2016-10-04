@@ -32,17 +32,17 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     vm.resultStart = offset + 1;
     vm.resultEnd = (offset + vm.limit > vm.totalItems ) ? vm.totalItems : offset + vm.limit;
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         $stateParams.currentPage = vm.currentPage;
         $stateParams.offset = (vm.currentPage - 1) * vm.limit;
         $state.go($state.current, $stateParams, {reload: true});
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
 
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function() {
+        callback: function () {
             if (offset + vm.limit < vm.totalItems) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -52,7 +52,7 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function() {
+        callback: function () {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -60,9 +60,9 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
         }
     });
 
-    vm.getFeatured = function() {
-        var keys = Object.keys($stateParams).reduce(function(prev, curr){
-            var v = $stateParams[curr]? 1 : 0;
+    vm.getFeatured = function () {
+        var keys = Object.keys($stateParams).reduce(function (prev, curr) {
+            var v = $stateParams[curr] ? 1 : 0;
             return prev + v;
         }, 0);
 
@@ -79,7 +79,7 @@ function cmsTableCtrl(results, $stateParams, $state, $http, hotkeys, env) {
         }
     };
     vm.getFeatured();
-    
+
 }
 
 module.exports = cmsTableCtrl;

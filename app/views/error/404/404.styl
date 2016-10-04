@@ -1,31 +1,31 @@
 .errorPage {
-	max-width 800px
-	margin auto
-	padding 0 vrBlock(1)
-	>* {
-		margin 0 auto vrBlock(1) auto
-		text-align center
-	}
-	.giant {
-		font-size 5rem
-		line-height 1
-	}
-	.errorPage__img {
-		max-width 256px
-		.responsiveImage {
-			width 100%
-			height 0
-			padding-bottom 103%
-		}
-		img {
-			width 100%
-		}
-	}
+    max-width 800px
+    margin auto
+    padding 0 vrBlock(1)
+    > * {
+        margin 0 auto vrBlock(1) auto
+        text-align center
+    }
+    .giant {
+        font-size 5rem
+        line-height 1
+    }
+    .errorPage__img {
+        max-width 256px
+        .responsiveImage {
+            width 100%
+            height 0
+            padding-bottom 103%
+        }
+        img {
+            width 100%
+        }
+    }
 }
 
 +isAbove($laptop) {
-	.errorPage .giant {
-		font-size 10rem
-	}
+    .errorPage .giant {
+        font-size 10rem
+    }
 }
 

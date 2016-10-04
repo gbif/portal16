@@ -11,31 +11,31 @@ for 5 col lyaout on large deviced (more than 5 cards) use .card-columns-wide
 //TODO breakpoint widths should fit centered page content widths
 */
 .card-columns, .card-columns-wide {
-	margin auto
-	padding 0 15px
-	max-width $laptop
-	columns 1 30px
-	>div {
-		margin-top 10px
-	}
+    margin auto
+    padding 0 15px
+    max-width $laptop
+    columns 1 30px
+    > div {
+        margin-top 10px
+    }
 }
 
 +isAbove(600px) {
-	.card-columns, .card-columns-wide {
-		columns 2 30px
-	}
+    .card-columns, .card-columns-wide {
+        columns 2 30px
+    }
 }
 
 +isAbove(900px) {
-	.card-columns, .card-columns-wide {
-		columns 3 30px
-	}
+    .card-columns, .card-columns-wide {
+        columns 3 30px
+    }
 }
 
-+isAbove( $XL ) {
-	.card-columns-wide {
-		margin auto
-		max-width $XL
-		columns 5 30px
-	}
++isAbove($XL) {
+    .card-columns-wide {
+        margin auto
+        max-width $XL
+        columns 5 30px
+    }
 }

@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block exampleLive %}
-    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'" style="height:300px"></gbmap>
+    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'"
+           style="height:300px"></gbmap>
 {% endblock %}
 
 {% block exampleCode %}
     {% markdown %}
     ```
-    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'" style="height:300px"></gbmap>
+    <gbmap type="'dataset'" key="'7d5a76b9-819f-4fb8-aab0-664d4089aa54'" mapstyle="'grey-blue'"
+           style="height:300px"></gbmap>
     ```
     {% endmarkdown %}
 {% endblock %}

@@ -10,11 +10,12 @@
                 <h1 class="h2 text-center">
                     <span>{$ dataset.record.title $}</span>
                     {#<div class="h4 article-header__sub">#}
-                        {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit">{$ dataset.publisher.title $}</a>#}
+                    {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit">{$ dataset.publisher.title $}</a>#}
                     {#</div>#}
                 </h1>
                 <div class="article-header__intro">
-                    Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit"><u>{$ dataset.publisher.title $}</u></a>
+                    Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"
+                                    class="inherit"><u>{$ dataset.publisher.title $}</u></a>
                 </div>
 
 
@@ -44,17 +45,17 @@
                 {% endif %}
 
                 {#<div>#}
-                    {#<strong>Affiliations</strong>#}
-                    {#<p>#}
-                        {#Fischereiamt Berlin, Leibniz Institut für Gewässerökologie und Binnenfischerei#}
-                    {#</p>#}
+                {#<strong>Affiliations</strong>#}
+                {#<p>#}
+                {#Fischereiamt Berlin, Leibniz Institut für Gewässerökologie und Binnenfischerei#}
+                {#</p>#}
                 {#</div>#}
 
                 <div>
                     <a href="#contributors" class="gb-button--round">Contributors</a>
                     <a href="#citation" class="gb-button--round">Citation</a>
                     {% if dataset.record.homepage | isNotEmpty %}
-                    <a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>
+                        <a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>
                     {% endif %}
                     <a href="" class="gb-button--round">Download</a>
                     {% if dataset._occurrenceCount.count > 0 %}
@@ -67,21 +68,20 @@
         </div>
 
 
-
         {#<div class="stripe-comment">#}
-            {#<div>#}
-                {#{$ __('date.synced') $}#}
-                {#{% if gb.locales.current == 'en' %}#}
-                    {#<time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>#}
-                {#{% else %}#}
-                    {#{$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}#}
-                {#{% endif %}#}
-            {#</div>#}
-            {#{% if occurrence.record.modified %}#}
-                {#<div>#}
-                    {#{$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}#}
-                {#</div>#}
-            {#{% endif %}#}
+        {#<div>#}
+        {#{$ __('date.synced') $}#}
+        {#{% if gb.locales.current == 'en' %}#}
+        {#<time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>#}
+        {#{% else %}#}
+        {#{$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}#}
+        {#{% endif %}#}
+        {#</div>#}
+        {#{% if occurrence.record.modified %}#}
+        {#<div>#}
+        {#{$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}#}
+        {#</div>#}
+        {#{% endif %}#}
         {#</div>#}
 
     </div>

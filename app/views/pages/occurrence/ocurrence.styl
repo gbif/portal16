@@ -1,54 +1,56 @@
 .viewContentWrapper {
-	height 100%
-}
-.Ocurrences {
-	margin vrBlock(1)
-}
-.Ocurrences > div {
-	height 300px;
-	background white
-	margin-bottom vrBlock(1)
-	padding vrBlock(1)
+    height 100%
 }
 
+.Ocurrences {
+    margin vrBlock(1)
+}
+
+.Ocurrences > div {
+    height 300px;
+    background white
+    margin-bottom vrBlock(1)
+    padding vrBlock(1)
+}
 
 .site-drawer {
-	.site-drawer__sub {
-		color black
-		background #fff
-		width ($filterDrawerWidth - 2em)
-		height 100%
-		position absolute
-		top vrBlock(3)
-		right ($filterDrawerWidth - 2em)
-		transition right 500ms ease;
-	}
+    .site-drawer__sub {
+        color black
+        background #fff
+        width ($filterDrawerWidth - 2em)
+        height 100%
+        position absolute
+        top vrBlock(3)
+        right ($filterDrawerWidth - 2em)
+        transition right 500ms ease;
+    }
 }
+
 +isAbove($tablet) {
-	.site-drawer {
-		.site-drawer__sub {
-			box-shadow -1px 0 2px rgba(0,0,0,0.3)
-			right 0
-			//right $filterDrawerWidth
-			.is-active {
-				background pink
-			}
-		}
-	}
+    .site-drawer {
+        .site-drawer__sub {
+            box-shadow -1px 0 2px rgba(0, 0, 0, 0.3)
+            right 0
+            //right $filterDrawerWidth
+            .is-active {
+                background pink
+            }
+        }
+    }
 }
 
 .tabBar {
-	background #fbfbfb
-	border-bottom 1px solid #ddd
-	.tabs {
-		group()
-		a {
-			float left
-			display inline-block
-			padding .375rem .75rem
-			&.is-active {
-				border-bottom 2px solid deepskyblue
-			}
-		}
-	}
+    background #fbfbfb
+    border-bottom 1px solid #ddd
+    .tabs {
+        group()
+        a {
+            float left
+            display inline-block
+            padding .375rem .75rem
+            &.is-active {
+                border-bottom 2px solid deepskyblue
+            }
+        }
+    }
 }

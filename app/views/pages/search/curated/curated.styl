@@ -1,26 +1,27 @@
 .search__curated {
-	overflow hidden
-	.card-flex-columns {
-		>div {
-			display none
-			&:nth-of-type(1), &:nth-of-type(2) {
-				display block
-			}
-		}
-	}
+    overflow hidden
+    .card-flex-columns {
+        > div {
+            display none
+            &:nth-of-type(1), &:nth-of-type(2) {
+                display block
+            }
+        }
+    }
 }
+
 .search__curated.search__curated.search__curated {
-	border-top 1px solid $stripeBorderColor
+    border-top 1px solid $stripeBorderColor
 }
 
 +isAbove($laptop) {
-	.search__curated {
-		.card-flex-columns {
-			> div {
-				&:nth-of-type(3) {
-					display block
-				}
-			}
-		}
-	}
+    .search__curated {
+        .card-flex-columns {
+            > div {
+                &:nth-of-type(3) {
+                    display block
+                }
+            }
+        }
+    }
 }

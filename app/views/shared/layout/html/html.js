@@ -34,7 +34,7 @@ require('angular-svg-round-progressbar');
     /** @ngInject */
     function runBlock(amMoment, $translate) { //$log
         //$log.debug('runBlock end');
-        if (location.pathname.startsWith('/da/') ) {
+        if (location.pathname.startsWith('/da/')) {
             $translate.use('da');
             amMoment.changeLocale('da');
         } else {
@@ -112,7 +112,6 @@ require('../../../components/focusMe/focusMe.directive');
 require('./angular/translate');
 
 
-
 var menu = require('../partials/navigation/navigation.js');
 
 //https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js
@@ -125,7 +124,7 @@ var menu = require('../partials/navigation/navigation.js');
 //} else {
 //    alert(Modernizr.classlist);
 //}
-(function() {
+(function () {
     function appendScript(conditionalScript) {
         var el = document.createElement('script');
         el.setAttribute('src', conditionalScript);
@@ -139,21 +138,19 @@ var menu = require('../partials/navigation/navigation.js');
 })();
 
 
-
 //Matches there are vendor prefixes and no suport in ie9
-this.Element && function(ElementPrototype) {
+this.Element && function (ElementPrototype) {
     ElementPrototype.matchesSelector = ElementPrototype.matchesSelector ||
-    ElementPrototype.mozMatchesSelector ||
-    ElementPrototype.msMatchesSelector ||
-    ElementPrototype.oMatchesSelector ||
-    ElementPrototype.webkitMatchesSelector ||
-    function (selector) {
-        var node = this, nodes = (node.parentNode || node.document).querySelectorAll(selector), i = -1;
-        while (nodes[++i] && nodes[i] != node);
-        return !!nodes[i];
-    }
+        ElementPrototype.mozMatchesSelector ||
+        ElementPrototype.msMatchesSelector ||
+        ElementPrototype.oMatchesSelector ||
+        ElementPrototype.webkitMatchesSelector ||
+        function (selector) {
+            var node = this, nodes = (node.parentNode || node.document).querySelectorAll(selector), i = -1;
+            while (nodes[++i] && nodes[i] != node);
+            return !!nodes[i];
+        }
 }(Element.prototype);
-
 
 
 /**
@@ -178,7 +175,7 @@ function stackTrace() {
     return err.stack;
 }
 
-window.onerror = function(msg, file, line, col, error) {
+window.onerror = function (msg, file, line, col, error) {
     //return;//TODO find better way that won't spam server in case of a looping error
     window.gb = window.gb || {};
     gb.lastErrorDateTime = gb.lastErrorDateTime || 0;
@@ -241,7 +238,7 @@ module.exports = {
     //consider moving into polyfill
     util.matches = function (el, selector) {
         var p = Element.prototype;
-        var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) {
+        var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function (s) {
                 return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
             };
         return f.call(el, selector);
@@ -318,7 +315,7 @@ function toggleSearchDrawer() {
     searchAreaEl.classList.toggle('is-active');
     if (searchAreaEl.classList.contains('is-active')) {
         //searchAreaEl.querySelector('input').focus();
-        window.setTimeout(function(){
+        window.setTimeout(function () {
             searchAreaEl.querySelector('input').focus();
         }, 150);
     }
@@ -328,9 +325,6 @@ gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
     toggleSearchDrawer();
     event.preventDefault();
 });
-
-
-
 
 
 //close menu when clicking outside

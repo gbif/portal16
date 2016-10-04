@@ -6,13 +6,15 @@
 
             <div class="search-bar filter-group">
 
-                <form class="search-bar__term" ng-submit="omniSearch.updateSearch()" ng-controller="searchCtrl as omniSearch">
+                <form class="search-bar__term" ng-submit="omniSearch.updateSearch()"
+                      ng-controller="searchCtrl as omniSearch">
                     <input type="text"
                            autocomplete="off"
                            id="siteSearch"
                            ng-model="omniSearch.freeTextQuery"
                            placeholder="Occurrences, species, news ...">
-                    <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                    <a href="" type="submit" class="gb-icon-search search-bar__search"
+                       ng-click="omniSearch.updateSearch()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>
                 </form>
@@ -41,22 +43,28 @@
                     <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})" translate="cms.contentType.news">
                         News
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})" translate="cms.contentType.data_use">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})"
+                       translate="cms.contentType.data_use">
                         Data use
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})" translate="cms.contentType.event">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})"
+                       translate="cms.contentType.event">
                         Event
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})" translate="cms.contentType.programme">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})"
+                       translate="cms.contentType.programme">
                         Programme
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})" translate="cms.contentType.project">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})"
+                       translate="cms.contentType.project">
                         Project
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'document'})" translate="cms.contentType.document">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'document'})"
+                       translate="cms.contentType.document">
                         Document
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'presentation'})" translate="cms.contentType.presentation">
+                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'presentation'})"
+                       translate="cms.contentType.presentation">
                         Presentation
                     </a>
                     <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'tool'})" translate="cms.contentType.tool">
@@ -73,9 +81,9 @@
 <div class="site-content">
 
     <!--<div class="fab" fab>-->
-        <!--<div class="fab__trigger">-->
-            <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
-        <!--</div>-->
+    <!--<div class="fab__trigger">-->
+    <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
+    <!--</div>-->
     <!--</div>-->
 
     <div class="page">
@@ -101,8 +109,10 @@
                     </div>
                 </div>
 
-                <ng-include src="'/templates/components/loader/loader.html'" ng-if="omniSearch.query.q && !loaded"> </ng-include>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale" onload="loaded = true" ng-show="omniSearch.query.q"></ng-include>
+                <ng-include src="'/templates/components/loader/loader.html'"
+                            ng-if="omniSearch.query.q && !loaded"></ng-include>
+                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"
+                            onload="loaded = true" ng-show="omniSearch.query.q"></ng-include>
 
             </div>
         </div>

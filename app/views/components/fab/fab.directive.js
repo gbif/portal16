@@ -11,8 +11,7 @@ function fabDirective() {
         restrict: 'A',
         transclude: true,
         templateUrl: '/templates/components/fab/fab.html',
-        scope: {
-        },
+        scope: {},
         controller: fab,
         controllerAs: 'vm',
         bindToController: true

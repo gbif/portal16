@@ -1,92 +1,92 @@
 $submenuProgressColor = lighten($bodyTextColor, 10);
 .submenu-wrapper {
-	.submenu {
-		display none
-	}
+    .submenu {
+        display none
+    }
 }
 
 +isAbove(1200px) {
-	.submenu-wrapper {
-		position relative
-		.submenu {
-			max-height "calc(100% - %s)" % $navBar_height
-			overflow auto
-			display block
-			position absolute
-			width 220px
-			top 0
-			left "calc(50% - %s - 220px)" % ($contentWidth--narrow / 2)
-			z-index 50
-			padding 20px 0
-			ul {
-				padding 0
-			}
-			a {
-				color inherit
-				&:hover {
-					text-decoration none
-				}
-			}
-			.nav-parts {
-			    margin 0
-			}
-			.part-name>a {
-			    margin-left 0
-			    font-weight 300
-			    padding 15px 30px 0 20px
-			}
-			.nav-chapters {
-				padding: 8px 20px 15px;
-    			height: 100%;
-    			 li:last-child .pipe {
-				    height 0
-				    display none
-				}
-			}
-			.nav-chapter {
-				position relative
-				padding 0 0 8px
-				a {
-					padding-left 24px
-					display block
-					line-height 1rem
-					&:before {
-					    border: 2px solid $submenuProgressColor
-					    border-radius: 50%;
-					    content: "";
-					    float: left;
-					    height 1rem
-					    left: 0;
-					    margin-right: 8px;
-					    position: absolute;
-					    top: 0;
-					    width: 1rem
-					}
-				}
-				&.active {
-					a:before {
-						background $submenuProgressColor
-					}
-				}
-				.pipe {
-				    background-color: $submenuProgressColor
-				    padding-top: 2px;
-				    position: absolute;
-				    top: 15px;
-				    bottom: 0;
-				    left: 6px;
-				    width: 2px;
-				    margin-top: -1px;
-				}
-			}
-		}
-		.submenu--bottom {
-			top auto
-			bottom 0
-		}
-		.submenu--fixed {
-			position fixed
-			top $navBar_height
-		}
-	}
+    .submenu-wrapper {
+        position relative
+        .submenu {
+            max-height "calc(100% - %s)" % $navBar_height
+            overflow auto
+            display block
+            position absolute
+            width 220px
+            top 0
+            left "calc(50% - %s - 220px)" % ($contentWidth--narrow / 2)
+            z-index 50
+            padding 20px 0
+            ul {
+                padding 0
+            }
+            a {
+                color inherit
+                &:hover {
+                    text-decoration none
+                }
+            }
+            .nav-parts {
+                margin 0
+            }
+            .part-name > a {
+                margin-left 0
+                font-weight 300
+                padding 15px 30px 0 20px
+            }
+            .nav-chapters {
+                padding: 8px 20px 15px;
+                height: 100%;
+                li:last-child .pipe {
+                    height 0
+                    display none
+                }
+            }
+            .nav-chapter {
+                position relative
+                padding 0 0 8px
+                a {
+                    padding-left 24px
+                    display block
+                    line-height 1rem
+                    &:before {
+                        border: 2px solid $submenuProgressColor
+                        border-radius: 50%;
+                        content: "";
+                        float: left;
+                        height 1rem
+                        left: 0;
+                        margin-right: 8px;
+                        position: absolute;
+                        top: 0;
+                        width: 1rem
+                    }
+                }
+                &.active {
+                    a:before {
+                        background $submenuProgressColor
+                    }
+                }
+                .pipe {
+                    background-color: $submenuProgressColor
+                    padding-top: 2px;
+                    position: absolute;
+                    top: 15px;
+                    bottom: 0;
+                    left: 6px;
+                    width: 2px;
+                    margin-top: -1px;
+                }
+            }
+        }
+        .submenu--bottom {
+            top auto
+            bottom 0
+        }
+        .submenu--fixed {
+            position fixed
+            top $navBar_height
+        }
+    }
 }

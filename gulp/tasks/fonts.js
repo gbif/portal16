@@ -1,10 +1,10 @@
 /**
  * Create our icon font from svg files.
- * This spares us from creating the icon font manually. 
+ * This spares us from creating the icon font manually.
  * The alternative would be to use icomoon or similar and place the font in the assets folder.
  * The css needs to be generated and updated manually to reflect the icons if to be used as classes.
  *
- * TODO:    There is no hashvalue in the font file names. 
+ * TODO:    There is no hashvalue in the font file names.
  *          This should be changed so we do not have to be so carefull with caching
  */
 
@@ -17,17 +17,17 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('fonts-reload', function() {
+gulp.task('fonts-reload', function () {
     return buildFont()
         .pipe(browserSync.stream());
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
     return buildFont();
 });
 
 function buildFont() {
-    var runTimestamp = Math.round(Date.now()/1000);
+    var runTimestamp = Math.round(Date.now() / 1000);
     return gulp.src(config.iconfont.paths)
         .pipe(g.iconfont({
             fontName: 'gbificons', // required 
@@ -36,9 +36,9 @@ function buildFont() {
             timestamp: runTimestamp, // recommended to get consistent builds when watching files 
             normalize: true,
             fontHeight: 448, // matching IcoMoon's defaults for the font-awesome icons @ "14px grid"
-            descent:    64
+            descent: 64
         }))
-        .on('glyphs', function(glyphs, options) {
+        .on('glyphs', function (glyphs, options) {
             g.nunjucksRender.nunjucks.configure(config.iconfont.templatePath, {watch: false});
             return gulp.src(config.iconfont.templatePath)
                 .pipe(g.data({

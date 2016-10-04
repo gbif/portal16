@@ -3,27 +3,31 @@ $develop_vertical_rythm ?= false
 $develop_pink ?= false
 
 if ($develop_vertical_rythm)
-	body
-		gridOverlay(blue)//in development this can be nice to have to help you keep the vertical rhythm
-		/*&:after //we can also add the rhythm as an overlay*/
-			/*content ' '*/
-			/*display block*/
-			/*position absolute*/
-			/*top 0*/
-			/*left 0*/
-			/*bottom 0*/
-			/*width 100%*/
-			/*gridOverlay(blue)*/
+    body
+        gridOverlay(blue)
+
+//in development this can be nice to have to help you keep the vertical rhythm
+/*&:after //we can also add the rhythm as an overlay*/
+/*content ' '*/
+/*display block*/
+/*position absolute*/
+/*top 0*/
+/*left 0*/
+/*bottom 0*/
+/*width 100%*/
+/*gridOverlay(blue)*/
 
 // make everything transparent pink to better see vertical rythm and element outlines
 // Simple class boosting to overwrite all other styles
 if ($develop_pink)
-	.site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper
-		background transparent
-		*
-			background rgba(255, 100, 100, 0.05)
-			color #555
-			&:before, &:after
-				background rgba(150, 150, 255, 0.05)
-		div
-			box-shadow inset 0 0 1px red // Border change layout. Shadows do not
+    .site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper.site-wrapper
+        background transparent
+        *
+            background rgba(255, 100, 100, 0.05)
+            color #555
+            &:before, &:after
+                background rgba(150, 150, 255, 0.05)
+        div
+            box-shadow inset 0 0 1px red
+
+// Border change layout. Shadows do not

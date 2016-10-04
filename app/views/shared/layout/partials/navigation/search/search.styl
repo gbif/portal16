@@ -2,22 +2,23 @@
 
 //layout
 .search {
-	position fixed
-	top $navBar_height
-	z-index 50
-	width 100%
-	height "calc(100% - %s)" % $navBar_height
-	display none
-	background $searchBg
-	overflow hidden
-	box-shadow 0 2px 2px rgba(0,0,0,0.1)
-	&.is-active {
-		display block
-		//+ .main {
-		//	visibility hidden
-		//}
-	}
+    position fixed
+    top $navBar_height
+    z-index 50
+    width 100%
+    height "calc(100% - %s)" % $navBar_height
+    display none
+    background $searchBg
+    overflow hidden
+    box-shadow 0 2px 2px rgba(0, 0, 0, 0.1)
+    &.is-active {
+        display block
+        //+ .main {
+        //	visibility hidden
+        //}
+    }
 }
+
 //.search-content {
 //	overflow hidden
 //	height 100%
@@ -25,59 +26,58 @@
 //	overflow-y: auto;
 //}
 
-
 //content
 .search-content {
-	.search-form {
-		width 100%
-		max-width $contentWidth--normal
-		margin auto
-		margin vrBlock(0.25) auto
-		padding 0 vrBlock(1)
-		position relative
-		input {
-			width 100%
-			height vrBlock(2)
-			border none
-			box-sizing border-box
-			padding-right vrBlock(2)
-			white-space nowrap
-			overflow hidden
-			text-overflow ellipsis
-			background none
-			color $searchInputColor
-			font-size vrBlock(1)
-			&:focus {
-				outline none
-			}
-		}
-		//&:after {
-		//	content ' '
-		//	display block
-		//	width 100%
-		//	border-bottom 1px solid #ccc
-		//}
-		button {
-			outline none
-			width vrBlock(1)
-			height 100%
-			background none
-			position absolute
-			font-size vrBlock(1.5)
-			right vrBlock(1)
-			top 0%
-			float right
-			border none
-			&:before {
-				display block
-			}
-		}
-	}
+    .search-form {
+        width 100%
+        max-width $contentWidth--normal
+        margin auto
+        margin vrBlock(0.25) auto
+        padding 0 vrBlock(1)
+        position relative
+        input {
+            width 100%
+            height vrBlock(2)
+            border none
+            box-sizing border-box
+            padding-right vrBlock(2)
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+            background none
+            color $searchInputColor
+            font-size vrBlock(1)
+            &:focus {
+                outline none
+            }
+        }
+        //&:after {
+        //	content ' '
+        //	display block
+        //	width 100%
+        //	border-bottom 1px solid #ccc
+        //}
+        button {
+            outline none
+            width vrBlock(1)
+            height 100%
+            background none
+            position absolute
+            font-size vrBlock(1.5)
+            right vrBlock(1)
+            top 0%
+            float right
+            border none
+            &:before {
+                display block
+            }
+        }
+    }
 }
 
 +isAbove($laptop) {
-	.search {
-		overflow initial
-		height auto
-	}
+    .search {
+        overflow initial
+        height auto
+    }
 }

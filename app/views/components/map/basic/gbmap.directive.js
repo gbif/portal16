@@ -51,7 +51,7 @@ function gbmapDirective() {
         vm.controls = {
             scale: true
         };
-        var getOverlay = function(palette, resolution) {
+        var getOverlay = function (palette, resolution) {
             var overlay = {
                 name: 'gb',
                 url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=8&' + palette,
@@ -65,12 +65,12 @@ function gbmapDirective() {
             };
             return overlay;
         };
-        var setOverlay = function(q) {
+        var setOverlay = function (q) {
             vm.query = q;
             if (Object.keys(vm.layers.overlays).length > 0) {
                 vm.layers.overlays = {};
             }
-            vm.layers.overlays['occurrences' + hashObject(vm.query)] =  getOverlay(vm.query);
+            vm.layers.overlays['occurrences' + hashObject(vm.query)] = getOverlay(vm.query);
         };
 
         vm.layers = {
@@ -112,13 +112,13 @@ function gbmapDirective() {
             });
             map.fitWorld().zoomIn();
 
-            map.on('drag zoomend dragend', function() {
+            map.on('drag zoomend dragend', function () {
                 updateGlobe(map);
             });
         });
 
         function updateGlobe(map) {
-            $timeout( function() {
+            $timeout(function () {
                 $scope.$apply(function () {
                     vm.globeOptions.center = map.getCenter();
                     vm.globeOptions.bounds = map.getBounds();
@@ -138,11 +138,11 @@ function gbmapDirective() {
 
             leafletData.getMap(vm.id).then(function (map) {
                 map.fitBounds([
-                   [data.minimumLatitude, data.minimumLongitude],
-                   [data.maximumLatitude, data.maximumLongitude]
+                    [data.minimumLatitude, data.minimumLongitude],
+                    [data.maximumLatitude, data.maximumLongitude]
                 ]);
-                if (map.getZoom() < 2){
-                   map.fitWorld().zoomIn();
+                if (map.getZoom() < 2) {
+                    map.fitWorld().zoomIn();
                 }
                 updateGlobe(map);
             });

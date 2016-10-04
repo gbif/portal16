@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('Cms', function($resource, env) {
+        .factory('Cms', function ($resource, env) {
             return $resource(env.cmsApi + 'node/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('CmsSearch', function($resource) {
+        .factory('CmsSearch', function ($resource) {
             return $resource('/api/cms/search', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('CmsNode', function($resource, env) {
+        .factory('CmsNode', function ($resource, env) {
             return $resource(env.cmsApi + 'v1/:type/:id', null, {
                 'get': {
                     method: 'GET',

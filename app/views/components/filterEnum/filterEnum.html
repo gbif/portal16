@@ -12,18 +12,24 @@
         <div ng-if="vm.query.length > 0 && vm.filterConfig.search.isSearchable" class="is-padded overflow-hidden">
             <div class="checkbox" ng-repeat="key in vm.query">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key"
+                           ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span class="text-capitalize" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
-                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && vm.filterState.data.facets" >
+                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
+                             ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
+                        <span class="text-capitalize"
+                              ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}"
+                              translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
+                        <span class="filter-group__filter__name__count"
+                              ng-if="vm.showFacetCount() && vm.filterState.data.facets">
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
                     </span>
                 </label>
             </div>
         </div>
-        <div class="filter-group__filter__search" ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable && vm.allowSelection()">
+        <div class="filter-group__filter__search"
+             ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable && vm.allowSelection()">
             <input type="text"
                    focus-me="vm.filterConfig.expanded"
                    autocomplete="off"
@@ -36,13 +42,16 @@
                    ng-keyup="vm.searchOnEnter($event)">
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.filterConfig.search.isSearchable && vm.allowSelection()">
+        <div class="is-padded overflow-hidden"
+             ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.filterConfig.search.isSearchable && vm.allowSelection()">
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key"
+                           ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <span class="filter-group__filter__name__title text-capitalize" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{facet.title}}</span>
+                        <span class="filter-group__filter__name__title text-capitalize"
+                              translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
                 </label>
@@ -50,15 +59,20 @@
 
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.search.isSearchable">
+        <div class="is-padded overflow-hidden"
+             ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.search.isSearchable">
 
             <div class="checkbox" ng-repeat="key in vm.getVisibleEnums()">
                 <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="key" ng-change="vm.change(key, checked)">
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="key"
+                           ng-change="vm.change(key, checked)">
                     <span class="filter-group__filter__name">
-                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)" ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
-                        <span class="filter-group__filter__name__title text-capitalize" translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
-                        <span class="filter-group__filter__name__count" ng-if="vm.showFacetCount() && !vm.hideFacetCounts">
+                        <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
+                             ng-if="vm.filterConfig.facets.hasFacets && !vm.filterConfig.facets.hideBar"></div>
+                        <span class="filter-group__filter__name__title text-capitalize"
+                              translate="{{vm.filterConfig.enumTranslationPath}}{{key}}">{{key}}</span>
+                        <span class="filter-group__filter__name__count"
+                              ng-if="vm.showFacetCount() && !vm.hideFacetCounts">
                             {{vm.suggestions.counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
                         </span>
                     </span>
@@ -70,7 +84,8 @@
 
         </div>
 
-        <div class="site-drawer__bar" ng-if="vm.filterConfig.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
+        <div class="site-drawer__bar"
+             ng-if="vm.filterConfig.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>

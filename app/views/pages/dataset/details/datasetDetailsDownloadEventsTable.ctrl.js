@@ -19,16 +19,16 @@ function downloadEventsTableCtrl(DownloadEventsService) {
     var offset = 0;
     var uuid = (typeof datasetKey !== 'undefined') ? datasetKey : ''; // This key is passed through the template.
 
-    var concatenateValues = function(events) {
+    var concatenateValues = function (events) {
         // Use the "processedValue" if it's provided by the server side.
-        events.forEach(function(event){
-            event.queryTable.forEach(function(query){
+        events.forEach(function (event) {
+            event.queryTable.forEach(function (query) {
                 query.valueProcessed = '';
                 if (query.processedValue.length != 0) {
                     query.valueProcessed = query.processedValue;
                 }
                 else {
-                    query.filterValues.forEach(function(v, vi){
+                    query.filterValues.forEach(function (v, vi) {
                         if (vi != 0) query.valueProcessed += ', ';
                         query.valueProcessed += v.value;
                     });
@@ -52,7 +52,6 @@ function downloadEventsTableCtrl(DownloadEventsService) {
                 concatenateValues(vm.events);
             }, function () {
             }
-
         );
     };
 }

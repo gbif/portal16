@@ -8,8 +8,10 @@
                 <div class="col-xs-12">
                     <div class="search-bar--home__form">
                         <form action="/search" class="search-bar--home__term">
-                            <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q" autocomplete="off" value="" ng-model="omniSearchTerm">
-                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit" class="gb-icon-search search-bar--home__search">
+                            <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q"
+                                   autocomplete="off" value="" ng-model="omniSearchTerm">
+                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit"
+                               class="gb-icon-search search-bar--home__search">
                                 <span class="sr-only">{$ __('stdTerms.search') $}</span>
                             </a>
                         </form>
@@ -27,16 +29,16 @@
         <p>Free and Open Access to Biodiversity Data</p>
         <div style="height: 500px; display: flex; justify-content: center">
             {#<div style="text-align: center; flex: 0 0 auto; position: relative">#}
-                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-                {#<p>Explore 600+ million occurrences</p>#}
+            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+            {#<p>Explore 600+ million occurrences</p>#}
             {#</div>#}
             {#<div style="text-align: center; flex: 0 0 auto;  position: relative;">#}
-                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-                {#<p>Explore 600+ million occurrences</p>#}
+            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+            {#<p>Explore 600+ million occurrences</p>#}
             {#</div>#}
             {#<div style="text-align: center; flex: 0 0 auto; position: relative;">#}
-                {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-                {#<p>Explore 600+ million occurrences</p>#}
+            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
+            {#<p>Explore 600+ million occurrences</p>#}
             {#</div>#}
         </div>
     </div>

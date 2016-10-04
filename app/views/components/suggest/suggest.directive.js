@@ -30,7 +30,7 @@ function suggestDirective() {
         vm.suggest.selectedKeys = vm.suggest.selectedKeys || [];
         vm.currentQuery = '';
 
-        vm.suggest.add = function(index) {
+        vm.suggest.add = function (index) {
             vm.setActive(index);
             if (vm.suggest.selectedKeys.indexOf(vm.suggest.active[vm.config.key]) < 0) {
                 if (!vm.config.multiSelect) {
@@ -45,7 +45,7 @@ function suggestDirective() {
             }
         };
 
-        vm.suggest.remove = function(i) {
+        vm.suggest.remove = function (i) {
             if (i < 0 || i > vm.suggest.selected.length) return;
 
             vm.suggest.selected.splice(i, 1);
@@ -53,7 +53,7 @@ function suggestDirective() {
             if (vm.config.onChange) vm.config.onChange(vm.suggest.selected);
         };
 
-        vm.search = function(event, query) {
+        vm.search = function (event, query) {
 
             if (event.keyCode == 40 || event.keyCode == 38) return;//UP DOWN ARROWS
             if (event.keyCode == 13) {//ENTER
@@ -67,21 +67,21 @@ function suggestDirective() {
                 return;
             }
             if (timer) window.clearTimeout(timer);
-            timer = setTimeout(function(){
+            timer = setTimeout(function () {
                 vm.getSuggestions(query);
             }, 300);
 
 
         };
 
-        vm.getSuggestions = function(query) {
+        vm.getSuggestions = function (query) {
             if (vm.currentQuery == query) return;
             var queryParams = vm.config.baseQuery;
             queryParams[vm.config.queryField] = query;
             vm.currentQuery = query;
             vm.suggest.activeIndex = undefined;
             vm.suggest.active = undefined;
-            vm.config.resource.query(queryParams, function(data) {
+            vm.config.resource.query(queryParams, function (data) {
                 vm.suggest.suggestions = data;
                 var firstSuggestion = vm.suggest.suggestions;
                 if (firstSuggestion && firstSuggestion[0] && vm.config.matchField && firstSuggestion[0][vm.config.matchField].toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) > -1) {
@@ -92,13 +92,13 @@ function suggestDirective() {
             });
         };
 
-        vm.setActive = function(index) {
+        vm.setActive = function (index) {
             if (index !== parseInt(index, 10) || !vm.suggest.suggestions) {
                 vm.suggest.active = vm.suggest.activeIndex = undefined;
                 return;
             }
             if (index < 0) {
-                index = vm.suggest.suggestions.length-1;
+                index = vm.suggest.suggestions.length - 1;
             } else if (index >= vm.suggest.suggestions.length) {
                 index = index % vm.suggest.suggestions.length;
             }
@@ -107,15 +107,15 @@ function suggestDirective() {
             vm.query = vm.suggest.active.canonicalName;
         };
 
-        vm.browse = function(event) {
+        vm.browse = function (event) {
             if (timer) window.clearTimeout(timer);
             if (event.keyCode == 40) {//DOWN ARROW
-                vm.suggest.activeIndex = vm.suggest.activeIndex+1 || 0;
+                vm.suggest.activeIndex = vm.suggest.activeIndex + 1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();
             }
             if (event.keyCode == 38) {//UP ARROW
-                vm.suggest.activeIndex = vm.suggest.activeIndex-1 || 0;
+                vm.suggest.activeIndex = vm.suggest.activeIndex - 1 || 0;
                 vm.setActive(vm.suggest.activeIndex);
                 event.preventDefault();
             }

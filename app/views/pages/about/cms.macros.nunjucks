@@ -73,9 +73,9 @@
 {% macro textAreaField(label, values) %}
     <section>
         <h3>{$ label $}</h3>
-            {% for value in values %}
-                {$ value.value | safe $}
-            {% endfor %}
+        {% for value in values %}
+            {$ value.value | safe $}
+        {% endfor %}
     </section>
 {% endmacro %}
 

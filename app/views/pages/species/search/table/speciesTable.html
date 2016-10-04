@@ -20,9 +20,9 @@
                            tooltip-placement="bottom"
                            uib-tooltip="Table"></a>
                         <span
-                            class="gb-icon-table stripe-menu__menu stripe-menu__option is-active"
-                            tooltip-placement="bottom"
-                            uib-tooltip="Gallery"></span>
+                                class="gb-icon-table stripe-menu__menu stripe-menu__option is-active"
+                                tooltip-placement="bottom"
+                                uib-tooltip="Gallery"></span>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
 
     <div class="horizontal-stripe white-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"> </ng-include>
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"></ng-include>
         <div ng-show="speciesTable.hasData()">
 
             <div class="scrollable-y">
@@ -39,20 +39,23 @@
                     <table class="table search-table">
                         <thead>
                         <tr>
-                            <th class="text-capitalize table-cell--wide" ng-repeat="field in ['scientificName', 'taxonRank', 'status', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
+                            <th class="text-capitalize table-cell--wide"
+                                ng-repeat="field in ['scientificName', 'taxonRank', 'status', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                                {{field}}
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="species in speciesTable.state.data.results" >
+                        <tr ng-repeat="species in speciesTable.state.data.results">
                             <!--<td class="table-cell&#45;&#45;narrow">-->
-                                <!--<a href="{{species.key}}" ng-if="speciesTable.backboneKey == species.datasetKey">-->
-                                    <!--<div class="tile inline-block pull-left">-->
-                                        <!--<div class="teaser-map&#45;&#45;smaller">-->
-                                            <!--<img src="/img/tile000/basemap-grey-light2.png">-->
-                                            <!--<img ng-src="{{speciesTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</a>-->
+                            <!--<a href="{{species.key}}" ng-if="speciesTable.backboneKey == species.datasetKey">-->
+                            <!--<div class="tile inline-block pull-left">-->
+                            <!--<div class="teaser-map&#45;&#45;smaller">-->
+                            <!--<img src="/img/tile000/basemap-grey-light2.png">-->
+                            <!--<img ng-src="{{speciesTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</a>-->
                             <!--</td>-->
                             <td class="table-cell--widder">
                                 <a ng-href="{{species.key}}">
@@ -60,10 +63,11 @@
                                 </a>
                             </td>
                             <td class="table-cell--normal text-capitalize">
-                                <a ng-href="{{species.key}}" translate="taxonRank.{{species.rank}}" ng-if="species.rank">{{species.rank}}</a>
+                                <a ng-href="{{species.key}}" translate="taxonRank.{{species.rank}}"
+                                   ng-if="species.rank">{{species.rank}}</a>
                             </td>
                             <td class="table-cell--narrow text-capitalize">
-                                <a ng-href="{{species.key}}" >
+                                <a ng-href="{{species.key}}">
                                     <span ng-if="species.taxonomicStatus == 'ACCEPTED'">
                                         <span translate="taxonomicStatus.{{species.taxonomicStatus}}">
                                         {{species.taxonomicStatus}}
@@ -90,7 +94,8 @@
                                 </a>
                             </td>
 
-                            <td class="table-cell--normal" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                            <td class="table-cell--normal"
+                                ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
                                 <a ng-href="{{species.key}}">{{species[t]}}</a>
                             </td>
                         </tr>

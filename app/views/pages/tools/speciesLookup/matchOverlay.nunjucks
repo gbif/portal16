@@ -2,65 +2,73 @@
 
 <div class="speciesLookup__overlay ng-cloak" ng-if="speciesLookup.itemToEdit">
 
-	<div class="speciesLookup__overlay__card">
-		<div class="speciesLookup__overlay__card__header">
-			<h4>{{speciesLookup.itemToEdit.scientificName}}</h4>
-		</div>
-		<div class="speciesLookup__overlay__card__search seperator">
+    <div class="speciesLookup__overlay__card">
+        <div class="speciesLookup__overlay__card__header">
+            <h4>{{ speciesLookup.itemToEdit.scientificName }}</h4>
+        </div>
+        <div class="speciesLookup__overlay__card__search seperator">
 
-			<div class="search-bar filter-group">
-	            <form class="search-bar__term" ng-submit="speciesLookup.search()">
-	                <input type="text"
-	                   focus-me="!!speciesLookup.itemToEdit"
-	                   autocomplete="off"
-	                   class="fit-suggestions"
-	                   ng-model="speciesLookup.selectedSuggestion"
-	                   placeholder="search species"
-	                   uib-typeahead="suggestion.canonicalName for suggestion in speciesLookup.getSuggestions($viewValue)"
-	                   typeahead-on-select="speciesLookup.typeaheadSelect($item, $model, $label, $event)"
-	                   typeahead-focus-first="true"
-	                   typeahead-template-url="taxonSuggestTemplate.html"
-	                   ng-keyup="speciesLookup.searchOnEnter($event)">
-	                <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
-	                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="speciesLookup.search()">
-	                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
-	                </a>
-	            </form>
-	        </div>
+            <div class="search-bar filter-group">
+                <form class="search-bar__term" ng-submit="speciesLookup.search()">
+                    <input type="text"
+                           focus-me="!!speciesLookup.itemToEdit"
+                           autocomplete="off"
+                           class="fit-suggestions"
+                           ng-model="speciesLookup.selectedSuggestion"
+                           placeholder="search species"
+                           uib-typeahead="suggestion.canonicalName for suggestion in speciesLookup.getSuggestions($viewValue)"
+                           typeahead-on-select="speciesLookup.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="true"
+                           typeahead-template-url="taxonSuggestTemplate.html"
+                           ng-keyup="speciesLookup.searchOnEnter($event)">
+                    <!--<a href="" class="gb-icon-close search-bar__clear ng-cloak" ng-show="dataset.freeTextQuery" ng-click="dataset.clearFreetextAndSetFocus()"></a>-->
+                    <a href="" type="submit" class="gb-icon-search search-bar__search"
+                       ng-click="speciesLookup.search()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
 
-		</div>
-		<div class="speciesLookup__overlay__card__suggestions seperator--b">
-			<div ng-if="speciesLookup.itemToEdit.match.usageKey" ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, speciesLookup.itemToEdit.match)">
-				{{speciesLookup.itemToEdit.match.scientificName}}
-				<span class="small discreet text-capitalize" translate="taxonRank.{{speciesLookup.itemToEdit.match.rank}}">{{speciesLookup.itemToEdit.match.rank}}</span>
-				<div class="small discreet classification-list">
-			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" ng-if="speciesLookup.itemToEdit.match[taxa] && taxa != speciesLookup.itemToEdit.match.rank.toLowerCase()">
-			            {{speciesLookup.itemToEdit.match[taxa]}}
+        </div>
+        <div class="speciesLookup__overlay__card__suggestions seperator--b">
+            <div ng-if="speciesLookup.itemToEdit.match.usageKey"
+                 ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, speciesLookup.itemToEdit.match)">
+                {{ speciesLookup.itemToEdit.match.scientificName }}
+                <span class="small discreet text-capitalize"
+                      translate="taxonRank.{{ speciesLookup.itemToEdit.match.rank }}">{{ speciesLookup.itemToEdit.match.rank }}</span>
+                <div class="small discreet classification-list">
+			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                          ng-if="speciesLookup.itemToEdit.match[taxa] && taxa != speciesLookup.itemToEdit.match.rank.toLowerCase()">
+			            {{ speciesLookup.itemToEdit.match[taxa] }}
 			        </span>
-			    </div>
-			</div>
-			<div ng-repeat="alternative in speciesLookup.itemToEdit.match.alternatives" ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, alternative)" ng-if="speciesLookup.itemToEdit.match.alternatives">
-				{{alternative.scientificName}}
-				<span class="small discreet text-capitalize" translate="taxonRank.{{alternative.rank}}">{{alternative.rank}}</span>
-				<div class="small discreet classification-list">
-			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" ng-if="alternative[taxa] && taxa != alternative.rank.toLowerCase()">
-			            {{alternative[taxa]}}
+                </div>
+            </div>
+            <div ng-repeat="alternative in speciesLookup.itemToEdit.match.alternatives"
+                 ng-click="speciesLookup.selectAlternative(speciesLookup.itemToEdit, alternative)"
+                 ng-if="speciesLookup.itemToEdit.match.alternatives">
+                {{ alternative.scientificName }}
+                <span class="small discreet text-capitalize"
+                      translate="taxonRank.{{ alternative.rank }}">{{ alternative.rank }}</span>
+                <div class="small discreet classification-list">
+			        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                          ng-if="alternative[taxa] && taxa != alternative.rank.toLowerCase()">
+			            {{ alternative[taxa] }}
 			        </span>
-			    </div>
-			</div>
-		</div>
-		<div class="site-drawer__bar">
-            <a href="" 
-            	class="site-drawer__bar__action" 
-            	ng-click="speciesLookup.itemToEdit = undefined">
+                </div>
+            </div>
+        </div>
+        <div class="site-drawer__bar">
+            <a href=""
+               class="site-drawer__bar__action"
+               ng-click="speciesLookup.itemToEdit = undefined">
                 <span>cancel</span>
             </a>
-            <a href="" 
-            	class="site-drawer__bar__action" 
-            	ng-click="speciesLookup.discard(speciesLookup.itemToEdit)">
+            <a href=""
+               class="site-drawer__bar__action"
+               ng-click="speciesLookup.discard(speciesLookup.itemToEdit)">
                 <span>discard</span>
             </a>
         </div>
-	</div>
+    </div>
 </div>
 

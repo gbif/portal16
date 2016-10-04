@@ -30,7 +30,7 @@ function datasetKeyCtrl(OccurrenceSearch) {
         high: 70,
         low: 0,
         axisY: {
-            labelInterpolationFnc: function(value, index) {
+            labelInterpolationFnc: function (value, index) {
                 return formatIntegerNumber(value, 1);
             }
         }

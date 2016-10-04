@@ -20,9 +20,7 @@ var baseLayers = {
         'classic': {
             name: "Classic",
             url: "https://{s}.tiles.mapbox.com/v4/gbif.faa58830/{z}/{x}/{y}.png?access_token=" + accessToken,
-            options: {
-
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -34,9 +32,7 @@ var baseLayers = {
             name: "Retro",  // alternative suggestions very welcome
             // TODO: This url is temporary 
             url: "http://b.ashbu.cartocdn.com/timrobertson100/api/v1/map/fb250d3166967c63ba8a177dcea6ba83:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
-            options: {
-
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -48,9 +44,7 @@ var baseLayers = {
             name: "Retro",  // alternative suggestions very welcome
             // TODO: This url is temporary 
             url: "http://b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
-            options: {
-
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -74,8 +68,7 @@ var baseLayers = {
         'dark': {
             name: 'Night',
             url: "https://{s}.tiles.mapbox.com/v4/gbif.dec5e9ae/{z}/{x}/{y}.png?access_token=" + accessToken,
-            options: {
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -86,8 +79,7 @@ var baseLayers = {
         'ocean': {
             "name": "Terrain",
             "url": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
-            options: {
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -98,8 +90,7 @@ var baseLayers = {
         'satellite': {
             name: "Satellite",
             url: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png",
-            options: {
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -110,8 +101,7 @@ var baseLayers = {
         'light': {
             name: "High contrast",
             url: "https://{s}.tiles.mapbox.com/v4/gbif.e8bcd045/{z}/{x}/{y}.png?access_token=" + accessToken,
-            options: {
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 showOnSelector: false,
@@ -125,8 +115,7 @@ var baseLayers = {
         'grey-blue': {
             name: 'Roads',
             url: "http://2.maps.nlp.nokia.com/maptile/2.1/maptile/newest/normal.day.grey/{z}/{x}/{y}/256/png8?app_id=_peU-uCkp-j8ovkzFGNU&app_code=gBoUkAMoxoqIWfxWA5DuMQ",
-            options: {
-            },
+            options: {},
             type: 'xyz',
             layerOptions: {
                 colors: '%2C%2C%23CC0000FF',

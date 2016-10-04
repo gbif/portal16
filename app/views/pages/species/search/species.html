@@ -18,8 +18,10 @@
 
         <div class="filter-group text-center">
             <div class="gb-btn-group">
-                <label ng-model="species.state.query.advanced" uib-btn-radio="false" ng-change="species.toggleAdvanced()">Simple</label>
-                <label ng-model="species.state.query.advanced" uib-btn-radio="true" ng-change="species.toggleAdvanced()">Advanced</label>
+                <label ng-model="species.state.query.advanced" uib-btn-radio="false"
+                       ng-change="species.toggleAdvanced()">Simple</label>
+                <label ng-model="species.state.query.advanced" uib-btn-radio="true"
+                       ng-change="species.toggleAdvanced()">Advanced</label>
             </div>
         </div>
 
@@ -32,14 +34,19 @@
         <div filter-facet filter-config="species.filters.issue" filter-state="species.state"></div>
 
 
-        <div filter-facet filter-config="species.filters.datasetKey" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+        <div filter-facet filter-config="species.filters.datasetKey" filter-state="species.state"
+             ng-if="species.state.query.advanced"></div>
 
-        <div filter-facet filter-config="species.filters.constituentKey" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+        <div filter-facet filter-config="species.filters.constituentKey" filter-state="species.state"
+             ng-if="species.state.query.advanced"></div>
 
-        <div filter-facet filter-config="species.filters.nameType" filter-state="species.state" ng-if="species.state.query.advanced"></div>
+        <div filter-facet filter-config="species.filters.nameType" filter-state="species.state"
+             ng-if="species.state.query.advanced"></div>
 
         <div class="site-drawer__comment" ng-if="!species.state.query.advanced">
-            <div>You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced mode.</div>
+            <div>You are currently searching for species in the GBIF taxonomy. To search other checklists try advanced
+                mode.
+            </div>
             <div class="p-t-05">
                 <a href="" class="inherit" ng-click="species.state.query.advanced=true; species.toggleAdvanced()">ADVANCED</a>
             </div>

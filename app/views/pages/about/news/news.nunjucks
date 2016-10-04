@@ -26,7 +26,8 @@
                 {% if images[0].width > 1000 %}
                     <figure class="heading-image">
                         <div class="cover-image">
-                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
+                                 gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
                             {$ images[0].image_field_caption.value | safe $}
@@ -39,9 +40,12 @@
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
-                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
+                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}"
+                                         alt="{$ images[0].filename $}" gallery-image>
                                 </div>
-                                <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
+                                <figcaption>
+                                    <div>{$ images[0].image_field_caption.value | safe $}</div>
+                                </figcaption>
                             </figure>
                         {% endif %}
 
@@ -120,50 +124,54 @@
                 </div>
             </div>
             {% if data.__system.prev or data.__system.next %}
-            <aside class="horizontal-stripe horizontal-stripe--card light-background">
-                <div class="container-fluid container--related-stories">
-                    <div class="row">
-                        {% if data.__system.prev %}
-                        <div class="col-xs-12 col-sm-6">
-                            <article class="container-fluid card card--nav">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image alt="{$ data.__system.prev.imageCaption $}">
-                                    </div>
-                                    <div class="col-xs-12 col-md-7 card__content">
-                                        <span><a href="/{$ data.__system.prev.targetUrl $}">Previous Story</a></span>
-                                        <h2 class="h4">
-                                            <a href="/{$ data.__system.prev.targetUrl $}">
-                                                {$ data.__system.prev.title | truncate(80) $}
-                                            </a>
-                                        </h2>
-                                    </div>
+                <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                    <div class="container-fluid container--related-stories">
+                        <div class="row">
+                            {% if data.__system.prev %}
+                                <div class="col-xs-12 col-sm-6">
+                                    <article class="container-fluid card card--nav">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                                <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image
+                                                     alt="{$ data.__system.prev.imageCaption $}">
+                                            </div>
+                                            <div class="col-xs-12 col-md-7 card__content">
+                                                <span><a href="/{$ data.__system.prev.targetUrl $}">Previous
+                                                        Story</a></span>
+                                                <h2 class="h4">
+                                                    <a href="/{$ data.__system.prev.targetUrl $}">
+                                                        {$ data.__system.prev.title | truncate(80) $}
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
-                        </div>
-                        {% endif %}
-                        {% if data.__system.next %}
-                        <div class="col-xs-12 col-sm-6">
-                            <article class="container-fluid card card--nav">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image alt="{$ data.__system.next.imageCaption $}">
-                                    </div>
-                                    <div class="col-xs-12 col-md-7 card__content">
-                                        <span><a href="/{$ data.__system.next.targetUrl $}">Next Story</a></span>
-                                        <h2 class="h4">
-                                            <a href="/{$ data.__system.next.targetUrl $}">
-                                                {$ data.__system.next.title | truncate(80) $}
-                                            </a>
-                                        </h2>
-                                    </div>
+                            {% endif %}
+                            {% if data.__system.next %}
+                                <div class="col-xs-12 col-sm-6">
+                                    <article class="container-fluid card card--nav">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                                <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image
+                                                     alt="{$ data.__system.next.imageCaption $}">
+                                            </div>
+                                            <div class="col-xs-12 col-md-7 card__content">
+                                                <span><a href="/{$ data.__system.next.targetUrl $}">Next
+                                                        Story</a></span>
+                                                <h2 class="h4">
+                                                    <a href="/{$ data.__system.next.targetUrl $}">
+                                                        {$ data.__system.next.title | truncate(80) $}
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
+                            {% endif %}
                         </div>
-                        {% endif %}
                     </div>
-                </div>
-            </aside>
+                </aside>
             {% endif %}
         </article>
     </div>

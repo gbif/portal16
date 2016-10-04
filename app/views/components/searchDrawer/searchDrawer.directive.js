@@ -28,12 +28,12 @@ function searchDrawerDirective() {
         var vm = this;
         vm.filter = vm.filter || {};
 
-        vm.getFilterCount = function() {
+        vm.getFilterCount = function () {
             var c = 0;
-            Object.keys(vm.filter.query).forEach(function(e){
+            Object.keys(vm.filter.query).forEach(function (e) {
                 var v = vm.filter.query[e];
                 var ignoreParams = ['locale', 'facet', 'offset', 'limit', 'center', 'zoom', 'advanced', 'facetMultiselect'];
-                if (typeof v !== 'undefined' && v!= '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
+                if (typeof v !== 'undefined' && v != '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
                     c += [].concat(v).length;
                 }
                 // if (e === 'hasCoordinate') {
@@ -44,8 +44,8 @@ function searchDrawerDirective() {
             return c;
         };
 
-        vm.clear = function() {
-            $state.go('.', {}, {inherit:false, notify: true, reload: true});
+        vm.clear = function () {
+            $state.go('.', {}, {inherit: false, notify: true, reload: true});
         };
     }
 }

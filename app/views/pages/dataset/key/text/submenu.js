@@ -1,4 +1,4 @@
-module.exports = (function() {
+module.exports = (function () {
     if (document.compatMode == 'CSS1Compat') {
         var navbarHeight = 60; //TODO should build stylus variables to js 
         var submenuWrapper = document.getElementById('submenuWrapper');

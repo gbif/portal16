@@ -2,33 +2,33 @@
 <div class="download-events" ng-controller="downloadEventsTableCtrl as dCtrl">
     <table class="table table-striped" infinite-scroll="dCtrl.getMoreData()">
         <thead>
-            <tr>
-                <td>Event</td>
-                <td>Records involved</td>
-                <td>Filter</td>
-                <td>Query latest data</td>
-            </tr>
+        <tr>
+            <td>Event</td>
+            <td>Records involved</td>
+            <td>Filter</td>
+            <td>Query latest data</td>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="event in dCtrl.events">
-                <td>
-                    {{event.created}} <a href="{{ event.downloadKey }}">{{event.downloadDoi}}</a><br>
-                    {{event.totalRecords}} records from {{event.datasetInvolved}} datasets. (size: {{ event.size }})
-                </td>
-                <td>
-                    {{event.recordInvolved}}
-                </td>
-                <td>
-                    <div ng-show="!event.queryTable.length">No filter applied.</div>
-                    <div ng-repeat="filter in event.queryTable">
-                        <span class="table-cell-label">{{ filter.filterType }}</span>
-                        <span>{{ filter.valueProcessed }}</span>
-                    </div>
-                </td>
-                <td>
-                    <a href="{{ event.queryUrl }}">Query</a>
-                </td>
-            </tr>
+        <tr ng-repeat="event in dCtrl.events">
+            <td>
+                {{ event.created }} <a href="{{ event.downloadKey }}">{{ event.downloadDoi }}</a><br>
+                {{ event.totalRecords }} records from {{ event.datasetInvolved }} datasets. (size: {{ event.size }})
+            </td>
+            <td>
+                {{ event.recordInvolved }}
+            </td>
+            <td>
+                <div ng-show="!event.queryTable.length">No filter applied.</div>
+                <div ng-repeat="filter in event.queryTable">
+                    <span class="table-cell-label">{{ filter.filterType }}</span>
+                    <span>{{ filter.valueProcessed }}</span>
+                </div>
+            </td>
+            <td>
+                <a href="{{ event.queryUrl }}">Query</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

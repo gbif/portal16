@@ -37,23 +37,23 @@ function publisherCtrl($state, hotkeys, PublisherFilter) {
     };
 
 
-    vm.search = function() {
-        $state.go('.', vm.state.query, {inherit:false, notify: true, reload: true});
+    vm.search = function () {
+        $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         vm.state.query.offset = undefined;
         vm.state.query.limit = undefined;
-        $state.go($state.current, vm.state.query, {inherit:false, notify: false, reload: false});
+        $state.go($state.current, vm.state.query, {inherit: false, notify: false, reload: false});
     };
 
-    vm.searchOnEnter = function(event) {
-        if(event.which === 13) {
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function() {
+    vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
@@ -62,7 +62,7 @@ function publisherCtrl($state, hotkeys, PublisherFilter) {
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
@@ -72,7 +72,7 @@ function publisherCtrl($state, hotkeys, PublisherFilter) {
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.updateSearch();
             event.preventDefault();
         }

@@ -26,7 +26,8 @@
                 {% if images[0].width > 1000 %}
                     <figure class="heading-image">
                         <div class="cover-image">
-                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
+                                 gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
                             {$ images[0].image_field_caption.value | safe $}
@@ -39,9 +40,12 @@
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
-                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}" alt="{$ images[0].filename $}" gallery-image>
+                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}"
+                                         alt="{$ images[0].filename $}" gallery-image>
                                 </div>
-                                <figcaption><div>{$ images[0].image_field_caption.value | safe $}</div></figcaption>
+                                <figcaption>
+                                    <div>{$ images[0].image_field_caption.value | safe $}</div>
+                                </figcaption>
                             </figure>
                         {% endif %}
 

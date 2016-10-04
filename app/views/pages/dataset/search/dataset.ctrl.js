@@ -54,8 +54,6 @@ function datasetCtrl($state, DatasetFilter, $http) {
     };
 
 
-
-
     //vm.filters.publishingCountry = {
     //    titleTranslation: 'ocurrenceFieldNames.publishingCountry',
     //    queryKey: 'publishing_country',
@@ -99,45 +97,45 @@ function datasetCtrl($state, DatasetFilter, $http) {
     //};
 
 
-    vm.search = function() {
-        $state.go('.', vm.state.query, {inherit:false, notify: true, reload: true});
+    vm.search = function () {
+        $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-     vm.getSuggestions = function(val) {
-         return $http.get('//api.gbif.org/v1/dataset/suggest', {
-             params: {
-                 q: val,
-                 limit: 10
-             }
-         }).then(function(response){
-             return response.data;
-         });
-     };
+    vm.getSuggestions = function (val) {
+        return $http.get('//api.gbif.org/v1/dataset/suggest', {
+            params: {
+                q: val,
+                limit: 10
+            }
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 
-     vm.typeaheadSelect = function(item){ //  model, label, event
-         window.location.href = "../dataset/" + item.key;
-     };
+    vm.typeaheadSelect = function (item) { //  model, label, event
+        window.location.href = "../dataset/" + item.key;
+    };
 
-     vm.searchOnEnter = function(event) {
-         if(event.which === 13) {
-             vm.freeTextSearch();
-         }
-     };
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
+            vm.freeTextSearch();
+        }
+    };
 
-     //vm.clearFreetextAndSetFocus = function() {
-     //    document.getElementById('siteSearch').focus();
-     //    vm.freeTextQuery = '';
-     //    event.preventDefault();
-     //};
-     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
-     //hotkeys.add({
-     //    combo: 'alt+f',
-     //    description: 'Site search',
-     //    callback: function(event) {
-     //        vm.clearFreetextAndSetFocus();
-     //        event.preventDefault();
-     //    }
-     //});
+    //vm.clearFreetextAndSetFocus = function() {
+    //    document.getElementById('siteSearch').focus();
+    //    vm.freeTextQuery = '';
+    //    event.preventDefault();
+    //};
+    //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
+    //hotkeys.add({
+    //    combo: 'alt+f',
+    //    description: 'Site search',
+    //    callback: function(event) {
+    //        vm.clearFreetextAndSetFocus();
+    //        event.preventDefault();
+    //    }
+    //});
 }
 
 module.exports = datasetCtrl;

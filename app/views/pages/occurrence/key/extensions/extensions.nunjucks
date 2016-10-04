@@ -1,63 +1,65 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
-{% if occurrence.verbatim.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty%}
-<section class="horizontal-stripe bare-background extensions">
-    <div class="container--normal">
-        <div class="row">
-            <div class="col-xs-12">
-                {% for name, fields in occurrence.usedExtensionFields %}
+{% if occurrence.verbatim.extensions | isNotEmpty and occurrence.usedExtensionFields | isNotEmpty %}
+    <section class="horizontal-stripe bare-background extensions">
+        <div class="container--normal">
+            <div class="row">
+                <div class="col-xs-12">
+                    {% for name, fields in occurrence.usedExtensionFields %}
 
-                    {% if occurrence.usedExtensionFields[name] | isNotEmpty %}
-                    <h3 class="h5">{$ name | prettifyEnum $}</h3>
-                    <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %} class="card card-table" expand-text="'Show all {$ extensions.length $}'" collapse-text="'Collapse'">
-                        <div class="scrollable">
-                            <table class="table table-extensions">
-                                <thead>
-                                    <tr>
-                                        {% for term, value in occurrence.usedExtensionFields[name] %}
-                                            <th>{$ term | prettifyEnum $}</th>
-                                        {% endfor %}
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                {% if occurrence.verbatim.extensions[name].length < 6 %}
-                                    {% for extension in occurrence.verbatim.extensions[name] %}
+                        {% if occurrence.usedExtensionFields[name] | isNotEmpty %}
+                            <h3 class="h5">{$ name | prettifyEnum $}</h3>
+                            <div {% if occurrence.verbatim.extensions[name].length >= 6 %}expand{% endif %}
+                                 class="card card-table" expand-text="'Show all {$ extensions.length $}'"
+                                 collapse-text="'Collapse'">
+                                <div class="scrollable">
+                                    <table class="table table-extensions">
+                                        <thead>
                                         <tr>
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                {$ shorten.compactTableCell(extension[term]) $}
+                                                <th>{$ term | prettifyEnum $}</th>
                                             {% endfor %}
                                         </tr>
-                                    {% endfor %}
-                                {% else %}
-                                    {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
-                                        <tr>
-                                            {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                {$ shorten.compactTableCell(extension[term]) $}
+                                        </thead>
+                                        <tbody>
+
+                                        {% if occurrence.verbatim.extensions[name].length < 6 %}
+                                            {% for extension in occurrence.verbatim.extensions[name] %}
+                                                <tr>
+                                                    {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                    {% endfor %}
+                                                </tr>
                                             {% endfor %}
-                                        </tr>
-                                    {% endfor %}
-
-                                    {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
-                                        <tr class="is-collapsable ng-cloak">
-                                            {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                {$ shorten.compactTableCell(extension[term]) $}
+                                        {% else %}
+                                            {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
+                                                <tr>
+                                                    {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                    {% endfor %}
+                                                </tr>
                                             {% endfor %}
-                                        </tr>
-                                    {% endfor %}
-                                {% endif %}
+
+                                            {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
+                                                <tr class="is-collapsable ng-cloak">
+                                                    {% for term, value in occurrence.usedExtensionFields[name] %}
+                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                        {% endif %}
 
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
 
-                    {% endif %}
+                        {% endif %}
 
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endif %}

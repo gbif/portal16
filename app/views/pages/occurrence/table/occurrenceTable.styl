@@ -1,81 +1,81 @@
 .occurrence-search__table {
-	.occurrence-search__table__area {
-		position relative
-		overflow hidden
-		width 100%
-	}
-	.table {
-		tr, td, th {
-			a, span {
-				text-overflow ellipsis
-				white-space nowrap
-			}
-		}
-	}
+    .occurrence-search__table__area {
+        position relative
+        overflow hidden
+        width 100%
+    }
+    .table {
+        tr, td, th {
+            a, span {
+                text-overflow ellipsis
+                white-space nowrap
+            }
+        }
+    }
 }
 
 .search-table {
-	font-size 12px
-	tr, td, th {
-		overflow hidden
-		>a, >span {
-			color inherit
-			//text-overflow ellipsis
-			//white-space nowrap
-			padding-right 1em
-			display block
-			overflow hidden
-			&:hover {
-				text-decoration none
-			}
-		}
-	}
-	th {
-		font-weight bold
-	}
-	tbody {
-		tr {
-			cursor pointer
-		}
-		tr:nth-of-type(even) {
-			background alpha($alternativeTableRow, 1)
-		}
-		tr:hover {
-			background darken($lightBackground, 5)
-		}
-	}
+    font-size 12px
+    tr, td, th {
+        overflow hidden
+        > a, > span {
+            color inherit
+            //text-overflow ellipsis
+            //white-space nowrap
+            padding-right 1em
+            display block
+            overflow hidden
+            &:hover {
+                text-decoration none
+            }
+        }
+    }
+    th {
+        font-weight bold
+    }
+    tbody {
+        tr {
+            cursor pointer
+        }
+        tr:nth-of-type(even) {
+            background alpha($alternativeTableRow, 1)
+        }
+        tr:hover {
+            background darken($lightBackground, 5)
+        }
+    }
 }
-
 
 .table-container {
-	padding 0 15px
-	display table
+    padding 0 15px
+    display table
 }
+
 .table-cell {
-	&--narrow {
-		width 8em
-		>a, >span {
-			width 8em
-		}
-	}
-	&--normal {
-		width 12em
-		>a, >span {
-			width 12em
-		}
-	}
-	&--wide {
-		width 20em
-		>a, >span {
-			width 20em
-		}
-	}
-	&--widder {
-		width 30em
-		>a, >span {
-			width 30em
-		}
-	}
+    &--narrow {
+        width 8em
+        > a, > span {
+            width 8em
+        }
+    }
+    &--normal {
+        width 12em
+        > a, > span {
+            width 12em
+        }
+    }
+    &--wide {
+        width 20em
+        > a, > span {
+            width 20em
+        }
+    }
+    &--widder {
+        width 30em
+        > a, > span {
+            width 30em
+        }
+    }
 }
 
 //.gradient--right {
@@ -87,8 +87,6 @@
 //	width 20px
 //	background linear-gradient(90deg, rgba(255,255,255,0), white)
 //}
-
-
 
 //.occurrence-search__summary {
 //	>div {

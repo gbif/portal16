@@ -1,32 +1,32 @@
-.dataset-key__bibliography{
-	ol {
-		padding 0
-		li {
-			padding-bottom 15px
-		}
-	}
-	.inline-bullet-list {
-		li {
-			&:after {
-				color rgba(0,0,0,0.3)
-			}
-		}
-	}
-	&__list {
-		max-height 400px
-	}
+.dataset-key__bibliography {
+    ol {
+        padding 0
+        li {
+            padding-bottom 15px
+        }
+    }
+    .inline-bullet-list {
+        li {
+            &:after {
+                color rgba(0, 0, 0, 0.3)
+            }
+        }
+    }
+    &__list {
+        max-height 400px
+    }
 }
 
 .is-fade-expanded {
-	.dataset-key__bibliography__list {
-		max-height 100000px
-	}
+    .dataset-key__bibliography__list {
+        max-height 100000px
+    }
 }
 
 +isAbove($laptop) {
-	.dataset-key__bibliography {
-		ol {
-			list-style-type decimal
-		}
-	}
+    .dataset-key__bibliography {
+        ol {
+            list-style-type decimal
+        }
+    }
 }

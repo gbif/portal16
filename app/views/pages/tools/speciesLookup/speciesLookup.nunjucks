@@ -1,28 +1,29 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes speciesLookup page--data" ng-controller="speciesLookupCtrl as speciesLookup">
+    <article class="wrapper-horizontal-stripes speciesLookup page--data"
+             ng-controller="speciesLookupCtrl as speciesLookup">
 
-    	{% include "./matchOverlay.nunjucks" %}
+        {% include "./matchOverlay.nunjucks" %}
 
-		{% include "./downloadOverlay.nunjucks" %}
+        {% include "./downloadOverlay.nunjucks" %}
 
         <div class="container-fluid white-background search-header">
-	        <div class="row">
-	            <div class="col-xs-12">
-	                <nav class="article-header__category article-header__category--deep">
-	                    <span class="article-header__category__upper">Tools</span>
-	                    <span class="article-header__category__lower">Look up</span>
-	                </nav>
-	            </div>
-	        </div>
-	    </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Tools</span>
+                        <span class="article-header__category__lower">Look up</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
 
-		{% include "./upload.nunjucks" %}
+        {% include "./upload.nunjucks" %}
 
-		{% include "./selectKingdom.nunjucks" %}
+        {% include "./selectKingdom.nunjucks" %}
 
-		{% include "./curateResults.nunjucks" %}
+        {% include "./curateResults.nunjucks" %}
 
 
     </article>
@@ -30,5 +31,5 @@
 
 
 {% block scripts %}
-	<script src="/js/base/pages/speciesLookup.js"></script>
+    <script src="/js/base/pages/speciesLookup.js"></script>
 {% endblock %}

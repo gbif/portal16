@@ -1,17 +1,17 @@
 {% for contact in contactsByName %}
-<address class="address">
-    <a name="{$ contact.key $}"></a>
-    {% if contact.name %}<strong>{$ contact.name $}</strong><br>{% endif %}
-    {% if contact.organization %}{$ contact.organization $}<br>{% endif %}
-    {% if contact.addressLine %}{$ contact.addressLine $}<br>{% endif %}
-    {% if contact.country %}{$ contact.country $}<br>{% endif %}
-    {% if contact.phone[0] %}
-        <abbr title="Phone">P:</abbr>{% for p in contact.phone -%}{% set comma = joiner() %}
-        {$ comma() $} {$ p $}{%- endfor %}<br>
-    {% endif %}
-    {% if contact.email[0] %}
-        <abbr title="Email">Email:</abbr>{% for e in contact.email -%}{% set comma = joiner() %}
-        {$ comma() $} <a href="mailto:{$ e $}">{$ e $}</a>{%- endfor %}<br>
-    {% endif %}
-</address>
+    <address class="address">
+        <a name="{$ contact.key $}"></a>
+        {% if contact.name %}<strong>{$ contact.name $}</strong><br>{% endif %}
+        {% if contact.organization %}{$ contact.organization $}<br>{% endif %}
+        {% if contact.addressLine %}{$ contact.addressLine $}<br>{% endif %}
+        {% if contact.country %}{$ contact.country $}<br>{% endif %}
+        {% if contact.phone[0] %}
+            <abbr title="Phone">P:</abbr>{% for p in contact.phone -%}{% set comma = joiner() %}
+            {$ comma() $} {$ p $}{%- endfor %}<br>
+        {% endif %}
+        {% if contact.email[0] %}
+            <abbr title="Email">Email:</abbr>{% for e in contact.email -%}{% set comma = joiner() %}
+            {$ comma() $} <a href="mailto:{$ e $}">{$ e $}</a>{%- endfor %}<br>
+        {% endif %}
+    </address>
 {% endfor %}

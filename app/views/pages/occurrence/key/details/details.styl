@@ -1,70 +1,72 @@
 //TODO could need a celaning hand - the term-block must be something we can reuse elsewhere
 .occurrenceKey__details {
-	>div {
-		position relative
-	}
+    > div {
+        position relative
+    }
 }
+
 +isAbove($tablet) {
-	.occurrenceKey__details {
-		>div {
-			max-width 100%
-			section {
-				max-width calc(50% - 30px)
-			}
-		}
-	}
+    .occurrenceKey__details {
+        > div {
+            max-width 100%
+            section {
+                max-width calc(50% - 30px)
+            }
+        }
+    }
 }
 
 +isAbove($laptop) {
-	.occurrenceKey__details {
-		>div {
-			max-width $laptop
-		}
-	}
+    .occurrenceKey__details {
+        > div {
+            max-width $laptop
+        }
+    }
 }
 
 .occurrence-key__term-groups {
-	min-width 350px
-	&.is-expanded {
-		min-width 800px
-	}
-	display flex
-	flex-wrap wrap
-	>section {
-		flex 0 1 auto
-		margin 0 15px
-	}
-	>section.is-expanded {
-		flex 0 1 auto
-		max-width 100%
-	}
+    min-width 350px
+    &.is-expanded {
+        min-width 800px
+    }
+    display flex
+    flex-wrap wrap
+    > section {
+        flex 0 1 auto
+        margin 0 15px
+    }
+    > section.is-expanded {
+        flex 0 1 auto
+        max-width 100%
+    }
 }
-.term-block {
-	.table {
-		table-layout fixed
-		tr, td, th {
-			width 25%
-		}
-		td:first-of-type {
-			text-transform capitalize
-			width 150px
-			word-break normal
-		}
-	}
-	dl dl {
-		padding-left 1rem
-		dt {
-			display inline
-		}
-	}
 
-	&.is-collapsed {
-		.table {
-			thead {
-				th {
-					display none
-				}
-			}
-		}
-	}
+.term-block {
+    .table {
+        table-layout fixed
+        tr, td, th {
+            width 25%
+        }
+        td:first-of-type {
+            text-transform capitalize
+            width 150px
+            word-break normal
+        }
+    }
+    dl dl {
+        padding-left 1rem
+        dt {
+            display inline
+        }
+    }
+
+    &.is-collapsed {
+        .table {
+            thead {
+                th {
+                    display none
+                }
+            }
+        }
+    }
 }

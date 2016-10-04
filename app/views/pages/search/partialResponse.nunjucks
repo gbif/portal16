@@ -1,16 +1,16 @@
 {% if results.isPartialResponse %}
 
-<div class="search__partial-response">
-    <div class="text-center">
-        <a href="" ng-click="showPartialResultExplanation = !showPartialResultExplanation">
-            <span class="badge badge--warning">Partial result</span>
-        </a>
-    </div>
-    <div class="horizontal-stripe white-background" ng-if="showPartialResultExplanation">
-        <div class="container--narrow">
-            {$ __('search.partialResultExplanation') $}
+    <div class="search__partial-response">
+        <div class="text-center">
+            <a href="" ng-click="showPartialResultExplanation = !showPartialResultExplanation">
+                <span class="badge badge--warning">Partial result</span>
+            </a>
+        </div>
+        <div class="horizontal-stripe white-background" ng-if="showPartialResultExplanation">
+            <div class="container--narrow">
+                {$ __('search.partialResultExplanation') $}
+            </div>
         </div>
     </div>
-</div>
 
 {% endif %}

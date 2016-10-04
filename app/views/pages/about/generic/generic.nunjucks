@@ -17,16 +17,17 @@
                         </div>
                     </header>
                     {% if data.__system.translated_copies.length > 0 %}
-                    <div class="stripe-comment">
-                        <div uib-dropdown on-toggle="toggled(open)">
-                            <a href id="simple-dropdown" uib-dropdown-toggle>Translated versions available</a>
-                            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                {% for translation in data.__system.translated_copies %}
-                                <li><a href="/{$ translation.targetUrl $}">{$ __('language.' + translation.language) $}</a></li>
-                                {% endfor %}
-                            </ul>
+                        <div class="stripe-comment">
+                            <div uib-dropdown on-toggle="toggled(open)">
+                                <a href id="simple-dropdown" uib-dropdown-toggle>Translated versions available</a>
+                                <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                    {% for translation in data.__system.translated_copies %}
+                                        <li><a href="/{$ translation.targetUrl $}">{$ __('language.' +
+                                                translation.language) $}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                 </div>
             </div>
@@ -53,39 +54,42 @@
             </div>
         </div>
         {% if data.files.length > 0 or data.linkBlocks.length > 0 %}
-        <div class="horizontal-stripe">
-            <div class="container-fluid container--prose">
-                <div class="body-text prose-columns">
-                    <h4>Related documents and information</h4>
-                    <ul class="list-links--programme-resources">
-                        {% for file in data.files %}
-                            <li><a href="{$ file.original $}" target="_blank">{$ file.filename $}</a></li>
-                        {% endfor %}
-                        {% for file in data.file %}
-                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
-                        {% endfor %}
-                    </ul>
+            <div class="horizontal-stripe">
+                <div class="container-fluid container--prose">
+                    <div class="body-text prose-columns">
+                        <h4>Related documents and information</h4>
+                        <ul class="list-links--programme-resources">
+                            {% for file in data.files %}
+                                <li><a href="{$ file.original $}" target="_blank">{$ file.filename $}</a></li>
+                            {% endfor %}
+                            {% for file in data.file %}
+                                <li><a href="{$ file.original $}" download>{$ file.filename
+                                        $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
         {% if data.linkBlocks.length > 0 %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">
                     <div class="row">
                         {% for linkBlock in data.linkBlocks %}
-                        <div class="col-xs-12 col-sm-4">
-                            <article class="container-fluid card card--supplemental">
-                                <h2 class="h4">{$ linkBlock.field_title.und[0].value $}</h2>
-                                {% if linkBlock.field_links %}
-                                    <ul>
-                                        {% for link in linkBlock.field_links.und %}
-                                            <li><a href="{$ link.url $}" target="{$ link.attributes.target $}">{$ link.title $}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            </article>
-                        </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <article class="container-fluid card card--supplemental">
+                                    <h2 class="h4">{$ linkBlock.field_title.und[0].value $}</h2>
+                                    {% if linkBlock.field_links %}
+                                        <ul>
+                                            {% for link in linkBlock.field_links.und %}
+                                                <li><a href="{$ link.url $}" target="{$ link.attributes.target $}">{$
+                                                        link.title $}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </article>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>

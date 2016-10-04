@@ -1,8 +1,8 @@
 /**
- It is only used in development mode and starts the server using `nodemon`. 
+ It is only used in development mode and starts the server using `nodemon`.
  Nodemon watch files and restarts the server when files are changed.
  Which files in configurable in this task.
-*/
+ */
 'use strict';
 
 var gulp = require('gulp'),
@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     yargs = require('yargs').argv,
     g = require('gulp-load-plugins')();
 
-gulp.task('browser-sync', ['server'], function() {
+gulp.task('browser-sync', ['server'], function () {
     console.log('Starting browser-synced site at http://localhost:' + config.browsersync.port);
     return browserSync.init(null, {
         proxy: 'http://localhost:' + serverConfig.port,
@@ -24,13 +24,13 @@ gulp.task('browser-sync', ['server'], function() {
     });
 });
 
-gulp.task('server', ['server-lint'], function(cb) {
+gulp.task('server', ['server-lint'], function (cb) {
 
     var started = false;
     var args = [];
-    ['loglevel', 'dataapi', 'tileapi', 'cmsapi', 'port', 'ghpw'].forEach(function(e){
+    ['loglevel', 'dataapi', 'tileapi', 'cmsapi', 'port', 'ghpw'].forEach(function (e) {
         if (yargs[e]) {
-            args.push('--'+e+'=' + yargs[e]);
+            args.push('--' + e + '=' + yargs[e]);
         }
     });
 
@@ -46,8 +46,8 @@ gulp.task('server', ['server-lint'], function(cb) {
             },
             stdout: false
         })
-        .on('readable', function() {
-            this.stdout.on('data', function(chunk) {
+        .on('readable', function () {
+            this.stdout.on('data', function (chunk) {
                 if (/^Express server listening on port/.test(chunk)) {
                     browserSync.reload();
                 }
@@ -55,7 +55,7 @@ gulp.task('server', ['server-lint'], function(cb) {
             this.stdout.pipe(process.stdout);
             this.stderr.pipe(process.stderr);
         })
-        .on('start', function() {
+        .on('start', function () {
             // to avoid nodemon being started multiple times //TODO is this actulaly an issue? Someone wrote so, but I haven't observed it myself.
             if (!started) {
                 started = true;

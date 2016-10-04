@@ -1,51 +1,57 @@
 .scrollable-y {
-	overflow-y auto
+    overflow-y auto
 }
 
 .uppercase-first::first-letter {
-	text-transform uppercase
+    text-transform uppercase
 }
+
 .overflow-hidden {
-	overflow hidden
+    overflow hidden
 }
 
 .no-break {
-	break-inside avoid-column
+    break-inside avoid-column
 }
 
 .inline-block {
-	display inline-block
+    display inline-block
 }
 
 //Hardly utilities, but created as such instead of modifiers - @Burke wouldn't it make better sense as modifiers?
 .white-background {
-	background-color $paper
+    background-color $paper
 }
+
 .bare-background {
-	background-color $greyBackground
+    background-color $greyBackground
 }
+
 .light-background {
-	background-color $lightBackground
+    background-color $lightBackground
 }
+
 .alert-background {
-	background-color $alertBackground
+    background-color $alertBackground
 }
+
 .horizontal-stripe--alternating-background {
-	background-color $lightBackground
-	&:nth-of-type(even) {
-		background-color $paper
-	}
+    background-color $lightBackground
+    &:nth-of-type(even) {
+        background-color $paper
+    }
 }
 
 .p-t-1 {
-	padding-top vrBlock(1)
-}
-.p-t-05 {
-	padding-top vrBlock(0.5)
+    padding-top vrBlock(1)
 }
 
-+isAbove($laptop){
-	.hide-on-laptop {
-		display none
-	}
+.p-t-05 {
+    padding-top vrBlock(0.5)
+}
+
++isAbove($laptop) {
+    .hide-on-laptop {
+        display none
+    }
 }

@@ -8,7 +8,8 @@
     </a>
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{seperator: $index > 0}" ng-if="!vm.collapsed">
+        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{seperator: $index > 0}"
+             ng-if="!vm.collapsed">
             <div interval-slider interval-options="q">
             </div>
         </div>
@@ -24,8 +25,10 @@
         </div>
 
         <div class="site-drawer__bar seperator" ng-if="!vm.collapsed">
-            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()" ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
-            <a href="" class="site-drawer__bar__action" ng-click="vm.add()" ng-if="vm.query.length == vm.intervalQuery.length"><span>Add</span></a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()"
+               ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
+            <a href="" class="site-drawer__bar__action" ng-click="vm.add()"
+               ng-if="vm.query.length == vm.intervalQuery.length"><span>Add</span></a>
         </div>
     </div>
 </div>

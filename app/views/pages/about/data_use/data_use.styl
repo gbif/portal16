@@ -1,77 +1,77 @@
 img {
-	max-width 100%
+    max-width 100%
 }
 
 .list-links--data-use-resources {
-	display inline
-	padding 0
-	li {
-		display inline
-		padding 0
-		&:after {
-			content: ","
-		}
-		&:last-of-type:after {
-			content none
-		}
-	}
+    display inline
+    padding 0
+    li {
+        display inline
+        padding 0
+        &:after {
+            content: ","
+        }
+        &:last-of-type:after {
+            content none
+        }
+    }
 }
 
 .list-chips {
-	display inline
-	padding 0
-	li {
-		padding 0
-		display inline
-		a {
-			display inline-block
-			padding 0 vrBlock(0.125)
-			background #f1f1f1
-			border 1px solid #ddd
-			color inherit
-			text-decoration none
-			font-size 12px
-			&:hover {
-				background darken(#f1f1f1, 10)
-			}
-		}
-	}
+    display inline
+    padding 0
+    li {
+        padding 0
+        display inline
+        a {
+            display inline-block
+            padding 0 vrBlock(0.125)
+            background #f1f1f1
+            border 1px solid #ddd
+            color inherit
+            text-decoration none
+            font-size 12px
+            &:hover {
+                background darken(#f1f1f1, 10)
+            }
+        }
+    }
 }
 
 .list-citations {
-	display inline
-	padding 0
-	li {
-		padding-top 5px
-		&:first-of-type {
-			display inline
-		}
-		> * {
-			margin 0 !important // @todo Burke will clean up the api so there is no inline styling. If not we should strip it server side
-			padding 0 !important
-			&:first-of-type {
-				display inline
-			}
-		}
-	}
+    display inline
+    padding 0
+    li {
+        padding-top 5px
+        &:first-of-type {
+            display inline
+        }
+        > * {
+            margin 0 !important // @todo Burke will clean up the api so there is no inline styling. If not we should strip it server side
+            padding 0 !important
+            &:first-of-type {
+                display inline
+            }
+        }
+    }
 }
 
 .card--nav {
-	a {
-		color inherit
-	}
-	span {
-		font-weight normal
-	}
+    a {
+        color inherit
+    }
+    span {
+        font-weight normal
+    }
 }
 
 +isAbove($tablet) {
-	.container--related-stories {
-		max-width $laptop
-		.h4 {
+    .container--related-stories {
+        max-width $laptop
+        .h4 {
             a {
                 line-height 1.3em
             }
         }
-	}
+    }
 }

@@ -1,45 +1,45 @@
 {% if results.catalogNumberOccurrences and results.catalogNumberOccurrences.count > 0 %}
-{% for catalogCard in results.catalogNumberOccurrences.results | limit(1) %}
-    <div>
-        <article class="card">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
-                <div class="card__content">
-                    <nav class="article-header__category article-header__category--deep small">
-                        <span class="article-header__category__upper">{$ __('stdTerms.occurrence') $}</span>
+    {% for catalogCard in results.catalogNumberOccurrences.results | limit(1) %}
+        <div>
+            <article class="card">
+                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
+                    <div class="card__content">
+                        <nav class="article-header__category article-header__category--deep small">
+                            <span class="article-header__category__upper">{$ __('stdTerms.occurrence') $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('stdTerms.catalogNr') $}
                             </span>
-                    </nav>
-                    <h2 class="h4 text-center">{$ catalogCard.catalogNumber $}</h2>
-                </div>
-            </a>
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
-                <div class="card__content">
-                    <div>
-                        <dl class="inline">
-                            {% for field in ['institutionCode', 'collectionCode', 'scientificName'] %}
-                                {% if catalogCard[field] | isNotEmpty %}
-                                <div>
-                                    <dt>{$ __('ocurrenceFieldNames.' + field) $}</dt>
-                                    <dd>
-                                        {$ catalogCard[field] $}
-                                    </dd>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-                        </dl>
+                        </nav>
+                        <h2 class="h4 text-center">{$ catalogCard.catalogNumber $}</h2>
                     </div>
-                </div>
-            </a>
-            {% if results.catalogNumberOccurrences.count > 1 %}
-            <div class="card__stripe card__stripe--actions">
-                <a ui-sref="occurrenceSearchTable({catalog_number: '{$ query $}'})">
-                    {$ results.catalogNumberOccurrences.count - 1 $} more
                 </a>
-            </div>
-            {% endif %}
-        </article>
-    </div>
+                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
+                    <div class="card__content">
+                        <div>
+                            <dl class="inline">
+                                {% for field in ['institutionCode', 'collectionCode', 'scientificName'] %}
+                                    {% if catalogCard[field] | isNotEmpty %}
+                                        <div>
+                                            <dt>{$ __('ocurrenceFieldNames.' + field) $}</dt>
+                                            <dd>
+                                                {$ catalogCard[field] $}
+                                            </dd>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </dl>
+                        </div>
+                    </div>
+                </a>
+                {% if results.catalogNumberOccurrences.count > 1 %}
+                    <div class="card__stripe card__stripe--actions">
+                        <a ui-sref="occurrenceSearchTable({catalog_number: '{$ query $}'})">
+                            {$ results.catalogNumberOccurrences.count - 1 $} more
+                        </a>
+                    </div>
+                {% endif %}
+            </article>
+        </div>
 
-{% endfor %}
+    {% endfor %}
 {% endif %}

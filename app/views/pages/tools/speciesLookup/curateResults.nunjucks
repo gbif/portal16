@@ -1,42 +1,46 @@
 <!-- Lookup keys -->
 <div class="horizontal-stripe white-background ng-cloak" ng-if="speciesLookup.species && speciesLookup.processing">
-    <div class="occurrence-search__table__area" >
+    <div class="occurrence-search__table__area">
         <div class="scrollable-y">
             <div class="table-container">
-            	{{species}}
+                {{ species }}
                 <table class="table search-table">
                     <thead>
-                        <tr>
-                            <th class="text-capitalize" ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
-                            	<a href="" ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
+                    <tr>
+                        <th class="text-capitalize"
+                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                            <a href=""
+                               ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
                                 	<span class="inline-block">
-                                		{{col}}
-                                		<span ng-show="speciesLookup.state.sortType == col && !speciesLookup.state.sortReverse" class="sortReverse">&#x25B2;</span>
-                						<span ng-show="speciesLookup.state.sortType == col && speciesLookup.state.sortReverse" class="sortReverse">&#x25BC;</span>
+                                		{{ col }}
+                                        <span ng-show="speciesLookup.state.sortType == col && !speciesLookup.state.sortReverse"
+                                              class="sortReverse">&#x25B2;</span>
+                						<span ng-show="speciesLookup.state.sortType == col && speciesLookup.state.sortReverse"
+                                              class="sortReverse">&#x25BC;</span>
                                 	</span>
-            					</a>
-                            </th>
-                        </tr>
+                            </a>
+                        </th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="species in speciesLookup.species | orderBy:speciesLookup.state.sortType:speciesLookup.state.sortReverse | startFrom:speciesLookup.pagination.currentPage*speciesLookup.pagination.pageSize-speciesLookup.pagination.pageSize | limitTo:speciesLookup.pagination.pageSize">
-                            <td class="table-cell--wide">
-                                <span>{{species.originalName}}</span>
-                            </td>
-                            <td class="table-cell--normal">
-                                <span ng-if="species.preferedKingdom">{{species.preferedKingdom}}</span>
-								<span ng-if="!species.preferedKingdom && speciesLookup.defaultKingdom">{{speciesLookup.defaultKingdom}}</span>
-								<span ng-if="!species.preferedKingdom && !speciesLookup.defaultKingdom">any</span>
-                            </td>
+                    <tr ng-repeat="species in speciesLookup.species | orderBy:speciesLookup.state.sortType:speciesLookup.state.sortReverse | startFrom:speciesLookup.pagination.currentPage*speciesLookup.pagination.pageSize-speciesLookup.pagination.pageSize | limitTo:speciesLookup.pagination.pageSize">
+                        <td class="table-cell--wide">
+                            <span>{{ species.originalName }}</span>
+                        </td>
+                        <td class="table-cell--normal">
+                            <span ng-if="species.preferedKingdom">{{ species.preferedKingdom }}</span>
+                            <span ng-if="!species.preferedKingdom && speciesLookup.defaultKingdom">{{ speciesLookup.defaultKingdom }}</span>
+                            <span ng-if="!species.preferedKingdom && !speciesLookup.defaultKingdom">any</span>
+                        </td>
 
-                            <td class="table-cell--narrow">
-                            	<span ng-class="speciesLookup.getMatchTypeClass(species.matchType)">{{species.matchType}}</span>
-                            </td>
+                        <td class="table-cell--narrow">
+                            <span ng-class="speciesLookup.getMatchTypeClass(species.matchType)">{{ species.matchType }}</span>
+                        </td>
 
-                            <td class="table-cell--widder" ng-click="speciesLookup.itemToEdit = species">
+                        <td class="table-cell--widder" ng-click="speciesLookup.itemToEdit = species">
                                 <span ng-if="species.key">
                                     <span class="gb-icon-pen"></span>
-                                    {{species.scientificName}}
+                                    {{ species.scientificName }}
                                 </span>
                                 <span ng-if="!species.key && species.match.alternatives && !species.userEdited">
                                     <span class="gb-icon-pen"></span>
@@ -46,30 +50,32 @@
                                     <span class="gb-icon-pen"></span>
                                     <span class="discreet">Discarded</span>
                                 </span>
-                            </td>
+                        </td>
 
-                            <td class="table-cell--narrow">
-                            	<span>{{species.status}}</span>
-                            </td>
+                        <td class="table-cell--narrow">
+                            <span>{{ species.status }}</span>
+                        </td>
 
-                            <td class="table-cell--narrow">
+                        <td class="table-cell--narrow">
                                 <span>
-                                	<span ng-if="species.rank" translate="taxonRank.{{species.rank}}">{{species.rank}}</span>
+                                	<span ng-if="species.rank"
+                                          translate="taxonRank.{{ species.rank }}">{{ species.rank }}</span>
                             	</span>
-                            </td>
+                        </td>
 
-                            <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                <a ng-href="../species/{{species[t + 'Key']}}" target="_blank">{{species[t]}}</a>
-                            </td>
+                        <td class="table-cell--narrow"
+                            ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                            <a ng-href="../species/{{ species[t + 'Key'] }}" target="_blank">{{ species[t] }}</a>
+                        </td>
 
-                            <td class="table-cell--widder">
-                                <a ng-href="../species/{{species.speciesKey}}" target="_blank">{{species.species}}</a>
-                            </td>
+                        <td class="table-cell--widder">
+                            <a ng-href="../species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
+                        </td>
 
-                            <!-- <td class="table-cell--wide">
-                                <a ng-href="{{species.acceptedKey}}">{{species.accepted}}</a>
+                        <!-- <td class="table-cell--wide">
+                                <a ng-href="{{ species.acceptedKey }}">{{ species.accepted }}</a>
                             </td> -->
-                        </tr>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -80,33 +86,34 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div>
-		        	<uib-pagination
-			                total-items="speciesLookup.species.length"
-			                ng-model="speciesLookup.pagination.currentPage"
-			                max-size="5"
-			                items-per-page="speciesLookup.pagination.pageSize"
-			                class="pagination-sm"
-			                boundary-link-numbers="true"
-			                rotate="true"
-			                ng-change="speciesLookup.pageChanged()"
-			                ng-show="speciesLookup.species.length > speciesLookup.pagination.pageSize">
-			        </uib-pagination>
-		        </div>
+                    <uib-pagination
+                            total-items="speciesLookup.species.length"
+                            ng-model="speciesLookup.pagination.currentPage"
+                            max-size="5"
+                            items-per-page="speciesLookup.pagination.pageSize"
+                            class="pagination-sm"
+                            boundary-link-numbers="true"
+                            rotate="true"
+                            ng-change="speciesLookup.pageChanged()"
+                            ng-show="speciesLookup.species.length > speciesLookup.pagination.pageSize">
+                    </uib-pagination>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-6">
-            	<div class="clearfix">
-					<div class="switch-group pull-right">
-						<p>Exclude unmatched</p>
-						<input id="speciesLookupDiscardInCsv" type="checkbox"  ng-model="speciesLookup.exclude" aria-label="Discard" />
-						<label for="speciesLookupDiscardInCsv" class="switch"></label>
-					</div>
-				</div>
+                <div class="clearfix">
+                    <div class="switch-group pull-right">
+                        <p>Exclude unmatched</p>
+                        <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="speciesLookup.exclude"
+                               aria-label="Discard"/>
+                        <label for="speciesLookupDiscardInCsv" class="switch"></label>
+                    </div>
+                </div>
 
-				<div class="speciesLookup__generate">
-					<a href="" ng-click="speciesLookup.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
-				</div>
+                <div class="speciesLookup__generate">
+                    <a href="" ng-click="speciesLookup.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
+                </div>
             </div>
         </div>
     </div>
-	
+
 </div>

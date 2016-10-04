@@ -36,16 +36,18 @@ function filterLocationDirective() {
         vm.query = $filter('unique')(vm.filterState.query[vm.title]);
 
 
-vm.georeferenced = {
-        name: 'yes'
-      };
+        vm.georeferenced = {
+            name: 'yes'
+        };
 
 
-        $scope.$watch(function(){return vm.filterState.query[vm.title]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.title]
+        }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
         });
 
-        vm.change = function(e, checked) {
+        vm.change = function (e, checked) {
             if (vm.filterAutoUpdate) {
                 if (checked) {
                     vm.query.push(e);
@@ -55,18 +57,18 @@ vm.georeferenced = {
                 vm.apply();
             }
         };
-        vm.reverse = function() {
-            vm.query =  vm.enumValues.filter(function(e){
+        vm.reverse = function () {
+            vm.query = vm.enumValues.filter(function (e) {
                 return vm.query.indexOf(e) == -1;
             });
             if (vm.filterAutoUpdate) {
                 vm.apply();
             }
         };
-        vm.uncheckAll = function() {
+        vm.uncheckAll = function () {
             vm.georeferenced.name = undefined;
         };
-        vm.apply = function() {
+        vm.apply = function () {
             OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         }
     }

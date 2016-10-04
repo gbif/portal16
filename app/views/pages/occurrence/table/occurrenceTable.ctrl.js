@@ -18,7 +18,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     //a pretty print for coordinates.
     //TODO create as reusable filter/formater 
-    vm.formatCoordinates = function(lat, lng) {
+    vm.formatCoordinates = function (lat, lng) {
         if (angular.isUndefined(lat) || angular.isUndefined(lng)) {
             return '';
         } else {
@@ -35,13 +35,14 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         vm.limit = parseInt(vm.occurrenceState.query.limit) || 20;
         vm.currentPage = Math.floor(offset / vm.limit) + 1;
     }
+
     updatePaginationCounts();
 
-    vm.pageChanged = function() {
-        vm.occurrenceState.query.offset = (vm.currentPage-1) * vm.limit;
+    vm.pageChanged = function () {
+        vm.occurrenceState.query.offset = (vm.currentPage - 1) * vm.limit;
         OccurrenceFilter.update(vm.occurrenceState.query);
         updatePaginationCounts();
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
 
     // $scope.$watch(function(){return vm.occurrenceState.query.offset}, updatePaginationCounts);
@@ -49,7 +50,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     hotkeys.add({
         combo: 'alt+right',
         description: 'Next',
-        callback: function() {
+        callback: function () {
             if (offset + vm.limit < vm.occurrenceState.data.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
@@ -59,7 +60,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     hotkeys.add({
         combo: 'alt+left',
         description: 'Previous',
-        callback: function() {
+        callback: function () {
             if (offset > 0) {
                 vm.currentPage -= 1;
                 vm.pageChanged();
@@ -67,7 +68,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         }
     });
 
-    vm.hasData = function() {
+    vm.hasData = function () {
         return typeof vm.occurrenceState.data.count !== 'undefined'
     }
 

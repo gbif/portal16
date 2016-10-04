@@ -1,32 +1,30 @@
-$flexCardMarginTopBottom  = 20px
-$flexCardSpacing  = 15px
-$maxFlexCardWidth = ($laptop/3)
+$flexCardMarginTopBottom = 20px
+$flexCardSpacing = 15px
+$maxFlexCardWidth = ($laptop/ 3)
 .card-flex-columns {
-	display flex
-	flex-wrap wrap
-	justify-content center
-	margin-bottom $flexCardMarginTopBottom
-	margin-left ($flexCardSpacing/2)
-	margin-right ($flexCardSpacing/2)
-	>div {
-		max-width $maxFlexCardWidth
-		flex 1 1 auto
-		padding 0 ($flexCardSpacing/2)
-		margin-top $flexCardMarginTopBottom
-		width 220px
-	}
-	.card-flex-columns__block-double {
-		max-width ($maxFlexCardWidth*3)
-	}
-	.card-flex-columns__block-narrow {
-		max-width ($maxFlexCardWidth)
-	}
-	.card-flex-columns__block-aligned {
-		max-width 768px
-	}
+    display flex
+    flex-wrap wrap
+    justify-content center
+    margin-bottom $flexCardMarginTopBottom
+    margin-left ($flexCardSpacing/ 2)
+    margin-right ($flexCardSpacing/ 2)
+    > div {
+        max-width $maxFlexCardWidth
+        flex 1 1 auto
+        padding 0 ($flexCardSpacing/ 2)
+        margin-top $flexCardMarginTopBottom
+        width 220px
+    }
+    .card-flex-columns__block-double {
+        max-width ($maxFlexCardWidth* 3)
+    }
+    .card-flex-columns__block-narrow {
+        max-width ($maxFlexCardWidth)
+    }
+    .card-flex-columns__block-aligned {
+        max-width 768px
+    }
 }
-
-
 
 //+isAbove($tablet) {
 //	.card-flex-columns {
@@ -39,12 +37,12 @@ $maxFlexCardWidth = ($laptop/3)
 //}
 
 +isAbove($laptop) {
-	.card-flex-columns {
-		>div {
-			max-width $maxFlexCardWidth
-		}
-		.card-flex-columns__block-double {
-			width $maxFlexCardWidth
-		}
-	}
+    .card-flex-columns {
+        > div {
+            max-width $maxFlexCardWidth
+        }
+        .card-flex-columns__block-double {
+            width $maxFlexCardWidth
+        }
+    }
 }

@@ -45,7 +45,7 @@ $headerFontWeight = 300
 $bodyFont = $roboto
 $bodyFontWeight = normal
 $lineHeightRatio = 1.42857143
-$baseLineHeight = ($lineHeightRatio)rem
+$baseLineHeight = ($lineHeightRatio) rem
 
 // Color
 $headerColor = #333333
@@ -84,8 +84,8 @@ typeLineHeight($level)
     return $lineHeights[$level + 1]
 
 setType($level = 0)
-    font-size (typeScale($level))rem
-    line-height (typeLineHeight($level))rem
+    font-size (typeScale($level)) rem
+    line-height (typeLineHeight($level)) rem
 
 // Helpers
 
@@ -101,7 +101,7 @@ setType($level = 0)
  */
 gridOverlay($color = black, $pxOffset = false)
     background: linear-gradient(to top, rgba($color, 10%) 5%, transparent 5%)
-    background-size: 100% ($lineHeightRatio)em //$baseLineHeight
+    background-size: 100% ($lineHeightRatio) em //$baseLineHeight
     if $pxOffset
         background-position: 0 unit($pxOffset, 'px')
 

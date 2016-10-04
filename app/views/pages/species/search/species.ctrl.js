@@ -68,10 +68,9 @@ function speciesCtrl($state, SpeciesFilter) {
         filter: SpeciesFilter
     };
 
-    vm.toggleAdvanced = function() {
+    vm.toggleAdvanced = function () {
         SpeciesFilter.updateParam('advanced', vm.state.query.advanced);
     };
-
 
 
     //vm.isSingleDataset = function(){
@@ -82,16 +81,15 @@ function speciesCtrl($state, SpeciesFilter) {
     //};
 
 
-
-    vm.search = function() {
-        $state.go('.', vm.state.query, {inherit:false, notify: true, reload: true});
+    vm.search = function () {
+        $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
-     vm.searchOnEnter = function(event) {
-         if(event.which === 13) {
-             vm.search();
-         }
-     };
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
+            vm.search();
+        }
+    };
 }
 
 module.exports = speciesCtrl;

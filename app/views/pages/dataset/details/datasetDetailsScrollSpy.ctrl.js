@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function scrollSpyCtrl() {
     var EventUtil = {
-        addHandler: function(element, type, handler) {
+        addHandler: function (element, type, handler) {
             if (element.addEventListener) {
                 element.addEventListener(type, handler, false);
             } else if (element.attachEvent) {
@@ -30,7 +30,7 @@ function scrollSpyCtrl() {
         rectMetadataStrip,
         rectMetaNav;
 
-    EventUtil.addHandler(window, 'scroll', function(){
+    EventUtil.addHandler(window, 'scroll', function () {
         if (document.compatMode == 'CSS1Compat') {
             rectMetadataStrip = metadataStrip.getBoundingClientRect();
             rectMetaNav = metaNav.getBoundingClientRect();

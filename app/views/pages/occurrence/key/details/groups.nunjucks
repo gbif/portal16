@@ -1,25 +1,27 @@
 {% import "../../../../components/shorten/shorten.macro.nunjucks" as shorten %}
 
 {% for group in occurrence.terms.usedGroups %}
-    <section class="term-block is-collapsed" ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
+    <section class="term-block is-collapsed"
+             ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
         <div class="term-block__header">
             <h3 class="h5 text-capitalize">{$ __('stdTerms.' + group) $}</h3>
         </div>
         <div class="term-block__terms">
             <table class="table table--compact">
                 <thead>
-                    <tr>
-                        <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
-                        <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
-                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.original') $}</th>
-                        <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.remarks') $}</th>
-                    </tr>
+                <tr>
+                    <th class="text-capitalize">{$ __('stdTerms.term') $}</th>
+                    <th class="text-capitalize">{$ __('stdTerms.interpreted') $}</th>
+                    <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.original') $}</th>
+                    <th class="text-capitalize" ng-show="!occurrence.hideDetails">{$ __('stdTerms.remarks') $}</th>
+                </tr>
                 </thead>
                 <tbody>
 
                 {% for term in occurrence.terms.groups[group] %}
                     {# only show if the interpreted version has data. #}
-                    <tr {% if occurrence.record[term.simpleName] | isUndefined %}ng-if="!occurrence.hideDetails" data-ng-cloak="true" {% endif %} {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
+                    <tr {% if occurrence.record[term.simpleName] | isUndefined %}ng-if="!occurrence.hideDetails"
+                        data-ng-cloak="true" {% endif %} {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                         <td>
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                         </td>
@@ -34,7 +36,7 @@
                                 {% for issue in occurrence.issues[term.simpleName] %}
                                     <span class="badge badge--{$ issue.severity | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
                                 {% endfor %}
-                            {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
+                                {% elif occurrence.fieldsWithDifferences[term.simpleName] %}
                                 <span class="small">{$  __('interpretationRemarks.comments.' + occurrence.fieldsWithDifferences[term.simpleName]) $}</span>
                             {% endif %}
                         </td>

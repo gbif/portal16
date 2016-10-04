@@ -1,4 +1,4 @@
-module.exports = (function() {
+module.exports = (function () {
 
     function UserException(message) {
         this.message = message;
@@ -8,6 +8,7 @@ module.exports = (function() {
     function thisFunctionFails() {
         throw new UserException('I threw it on purpose.');
     }
+
     return {
         tester: thisFunctionFails,
         myvar: 10

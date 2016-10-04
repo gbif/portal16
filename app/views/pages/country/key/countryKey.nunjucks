@@ -29,7 +29,12 @@
                         <div class="card text-center this-is-a-stub">
                             <div class="card__content">
                                 <h2>This is a stub</h2>
-                                <p>This page is not implemented yet. If you have some great ideas for this page then please let us know. A good way is to <a href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Country detail page ideas">send a mail</a> with reference to JIRA issues you believe is relevant to the new site  - either existing issues that needs special attention or new ones you have created.</p>
+                                <p>This page is not implemented yet. If you have some great ideas for this page then
+                                    please let us know. A good way is to <a
+                                            href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Country detail page ideas">send
+                                        a mail</a> with reference to JIRA issues you believe is relevant to the new site
+                                    - either existing issues that needs special attention or new ones you have created.
+                                </p>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('Publisher', function($resource, env) {
+        .factory('Publisher', function ($resource, env) {
             return $resource(env.dataApi + 'organization/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('PublisherSearch', function($resource) {
+        .factory('PublisherSearch', function ($resource) {
             return $resource('/api/publisher/search', null, {
                     'query': {
                         method: 'GET',

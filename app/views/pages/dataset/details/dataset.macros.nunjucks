@@ -10,7 +10,7 @@
 
     <div id="metadata-content" class="col-xs-12 col-md-8 metadata-content">
         {% for element in elements %}
-            <input class="toggle-collapse" id="input_{$ element.property $}" type="checkbox" >
+            <input class="toggle-collapse" id="input_{$ element.property $}" type="checkbox">
             <label for="input_{$ element.property $}">{$ element.title $}</label>
             <section id="{$ element.property $}">
                 <h4>{$ element.title $}</h4>

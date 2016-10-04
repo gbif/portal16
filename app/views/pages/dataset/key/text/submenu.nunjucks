@@ -1,19 +1,20 @@
 <span class="relative-anchor-offset"><a name="menu"></a></span>
 
 <nav class="submenu" id="submenu">
-	<ul class="nav-parts">
-		{% for part in dataset._computedValues.submenu %}
-		<li class="part-name">
-			<a href="" class="h4">{$ __('dataset.submenu.group.' + part.name + '.name') | capitalize $}</a>
-			<ul class="nav-chapters">
-				{% for chapter in part.items %}
-				<li class="nav-chapter" du-scrollspy="id_{$ chapter $}">
-					<a href="#{$ chapter $}">{$ __('dataset.submenu.group.' + part.name + '.chapters.' + chapter) | capitalize $}</a>
-					<div class="pipe"></div>
-				</li>
-				{% endfor %}
-			</ul>
-		</li>
-		{% endfor %}
-	</ul>
+    <ul class="nav-parts">
+        {% for part in dataset._computedValues.submenu %}
+            <li class="part-name">
+                <a href="" class="h4">{$ __('dataset.submenu.group.' + part.name + '.name') | capitalize $}</a>
+                <ul class="nav-chapters">
+                    {% for chapter in part.items %}
+                        <li class="nav-chapter" du-scrollspy="id_{$ chapter $}">
+                            <a href="#{$ chapter $}">{$ __('dataset.submenu.group.' + part.name + '.chapters.' +
+                                chapter) | capitalize $}</a>
+                            <div class="pipe"></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 </nav>

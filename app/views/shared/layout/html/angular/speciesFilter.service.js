@@ -20,7 +20,7 @@ angular
 
         var availableFacets = ['rank', 'dataset_key', 'constituent_key', 'highertaxon_key', 'name_type', 'status', 'issue'];
         var facets = [];
-        availableFacets.forEach(function(facet){
+        availableFacets.forEach(function (facet) {
             facets.push(facet);
         });
 
@@ -29,7 +29,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function(event, toState, toParams){
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -51,20 +51,20 @@ angular
             //when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
                 apiQuery = angular.copy(state.query);
-                Object.keys(advancedDefaults).forEach(function(keyDefault){
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     apiQuery[keyDefault] = advancedDefaults[keyDefault];
                 });
             }
 
-            state.data = SpeciesSearch.query(apiQuery, function(){
+            state.data = SpeciesSearch.query(apiQuery, function () {
                 state.failedRequest = false;
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
         }
 
         function update(query) {
-            $state.go('.', query, {inherit:false, notify: false, reload: false});
+            $state.go('.', query, {inherit: false, notify: false, reload: false});
             refreshData(query);
         }
 
@@ -78,12 +78,12 @@ angular
 
             //when in not advanced mode then remove parameters from URL that are filled with default values
             if (!state.query.advanced) {
-                Object.keys(advancedDefaults).forEach(function(keyDefault){
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     delete state.query[keyDefault];
                 });
             }
 
-            $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+            $state.go('.', state.query, {inherit: false, notify: false, reload: false});
             refreshData(state.query);
         }
 

@@ -1,97 +1,97 @@
 $mobileGalleryHeight = 100px
 .imageGallery {
-	display flex
-	flex-wrap wrap
-	justify-content flex-start
-	margin-left vrBlock(-0.5)
-	>a {
-		&:hover {
-			box-shadow 0 0 1px 1px rgba(0,0,0,.3)
-		}
-		background #ccc
-		display block
-		flex 1 1 auto
-		width $mobileGalleryHeight //asummed square
-		&[data-width="thinner"] {
-			width $mobileGalleryHeight*0.6
-		}
-		&[data-width="thin"] {
-			width $mobileGalleryHeight*0.75
-		}
-		&[data-width="wide"] {
-			width $mobileGalleryHeight*1.5
-		}
-		&[data-width="wider"] {
-			width $mobileGalleryHeight*1.8
-		}
-		&[data-width="widest"] {
-			width $mobileGalleryHeight*2
-		}
-		height $mobileGalleryHeight
-		overflow hidden
-		background-size cover
-		background-position center
-		img {
-			display none
-		}
-		&.imageGallery__img {
-			display none
-			&.isValid {
-				display block
-				margin 0 0 vrBlock(0.5) vrBlock(0.5)
-			}
-		}
-	}
-	>div {
-		&.imageGallery__more {
-			flex 100 1 auto // to make sure that images in the last row do not expand beyond what is natural for them
-			display flex
-			justify-content center
-			text-align center
-			flex-direction column
-			color #888
-			min-width 100px
-			cursor pointer
-			margin 0 0 vrBlock(0.5) vrBlock(0.5)
-			padding vrBlock(1)
-			border 1px solid #888
-			background none
-			transition background 300ms ease
-			&:hover {
-				background #ccc
-			}
-			&:focus {
-				outline none
-			}
-			span {
-				text-align center
-			}
+    display flex
+    flex-wrap wrap
+    justify-content flex-start
+    margin-left vrBlock(-0.5)
+    > a {
+        &:hover {
+            box-shadow 0 0 1px 1px rgba(0, 0, 0, .3)
+        }
+        background #ccc
+        display block
+        flex 1 1 auto
+        width $mobileGalleryHeight //asummed square
+        &[data-width="thinner"] {
+            width $mobileGalleryHeight* 0.6
+        }
+        &[data-width="thin"] {
+            width $mobileGalleryHeight* 0.75
+        }
+        &[data-width="wide"] {
+            width $mobileGalleryHeight* 1.5
+        }
+        &[data-width="wider"] {
+            width $mobileGalleryHeight* 1.8
+        }
+        &[data-width="widest"] {
+            width $mobileGalleryHeight* 2
+        }
+        height $mobileGalleryHeight
+        overflow hidden
+        background-size cover
+        background-position center
+        img {
+            display none
+        }
+        &.imageGallery__img {
+            display none
+            &.isValid {
+                display block
+                margin 0 0 vrBlock(0.5) vrBlock(0.5)
+            }
+        }
+    }
+    > div {
+        &.imageGallery__more {
+            flex 100 1 auto // to make sure that images in the last row do not expand beyond what is natural for them
+            display flex
+            justify-content center
+            text-align center
+            flex-direction column
+            color #888
+            min-width 100px
+            cursor pointer
+            margin 0 0 vrBlock(0.5) vrBlock(0.5)
+            padding vrBlock(1)
+            border 1px solid #888
+            background none
+            transition background 300ms ease
+            &:hover {
+                background #ccc
+            }
+            &:focus {
+                outline none
+            }
+            span {
+                text-align center
+            }
 
-		}
-	}
+        }
+    }
 }
 
 $laptopGalleryHeight = 180px
 +isAbove($laptop) {
-	.imageGallery {
-		>div, a {
-			width $laptopGalleryHeight //asummed square
-			&[data-width="thinner"] {
-				width $laptopGalleryHeight*0.6
-			}
-			&[data-width="thin"] {
-				width $laptopGalleryHeight*0.75
-			}
-			&[data-width="wide"] {
-				width $laptopGalleryHeight*1.5
-			}
-			&[data-width="wider"] {
-				width $laptopGalleryHeight*1.8
-			}
-			&[data-width="widest"] {
-				width $laptopGalleryHeight*2
-			}
-			height $laptopGalleryHeight
-		}
-	}
+    .imageGallery {
+        > div, a {
+            width $laptopGalleryHeight //asummed square
+            &[data-width="thinner"] {
+                width $laptopGalleryHeight* 0.6
+            }
+            &[data-width="thin"] {
+                width $laptopGalleryHeight* 0.75
+            }
+            &[data-width="wide"] {
+                width $laptopGalleryHeight* 1.5
+            }
+            &[data-width="wider"] {
+                width $laptopGalleryHeight* 1.8
+            }
+            &[data-width="widest"] {
+                width $laptopGalleryHeight* 2
+            }
+            height $laptopGalleryHeight
+        }
+    }
 }

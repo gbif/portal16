@@ -20,7 +20,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
 
     var latestData = {};
 
-    var search = function(query) {
+    var search = function (query) {
         query.mediaType = 'stillImage';
         vm.endOfRecords = true;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
@@ -33,7 +33,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         });
     };
 
-    vm.loadMore = function() {
+    vm.loadMore = function () {
         vm.query = angular.copy(vm.occurrenceState.query);
         vm.query.limit = limit;
         offset += limit;
@@ -42,7 +42,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
     };
 
 
-    vm.filter = function(query) {
+    vm.filter = function (query) {
         vm.query = angular.copy(query);
         vm.query.limit = limit;
         vm.query.offset = 0;
@@ -52,7 +52,9 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
     };
     vm.filter(vm.occurrenceState.query);
 
-    $scope.$watch(function(){return vm.occurrenceState.data}, function(){
+    $scope.$watch(function () {
+        return vm.occurrenceState.data
+    }, function () {
         offset = 0;
         vm.filter(vm.occurrenceState.query);
     });

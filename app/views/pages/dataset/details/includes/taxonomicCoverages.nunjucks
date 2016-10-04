@@ -13,7 +13,9 @@
                             <dd>
                                 {% set comma = joiner() %}
                                 {% for taxon in coverage.taxa -%}
-                                    {% if taxon.italicized %}<em>{% endif %}{$ comma() $} <a href="{$ taxon.searchUrl $}">{$ taxon.scientificName $}</a>{% if taxon.italicized %}</em>{% endif %}{% if taxon.commonName %}({$ taxon.commonName $}){% endif %}
+                                    {% if taxon.italicized %}<em>{% endif %}{$ comma() $} <a
+                                        href="{$ taxon.searchUrl $}">{$ taxon.scientificName
+                                    $}</a>{% if taxon.italicized %}</em>{% endif %}{% if taxon.commonName %}({$ taxon.commonName $}){% endif %}
                                 {%- endfor %}
                             </dd>
                         {% endif %}

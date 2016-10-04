@@ -1,48 +1,48 @@
 .dataset-key__visual-summary {
-	&__wrapper {
-		display flex
-		position relative
-	}
-	&__map {
-		flex 1 1 auto
-		gbmap {
-			height 360px
-		}
-	}
-	&__counts {
-		flex 0 0 auto
-		padding 1rem
-		height 360px
-		>div {
-			overflow hidden
-			width 150px
-		}
-		>p {
-			margin-bottom vrBlock(1)
-		}
-		&__group {
-			display inline-block
-			width 100%
-			text-align center
-			padding-right 10px
-			margin-bottom vrBlock(0.5)
-			>div {
-				margin auto
-			}
-		}
-		&__image{
-			margin-top vrBlock(1)
+    &__wrapper {
+        display flex
+        position relative
+    }
+    &__map {
+        flex 1 1 auto
+        gbmap {
+            height 360px
+        }
+    }
+    &__counts {
+        flex 0 0 auto
+        padding 1rem
+        height 360px
+        > div {
+            overflow hidden
+            width 150px
+        }
+        > p {
+            margin-bottom vrBlock(1)
+        }
+        &__group {
+            display inline-block
+            width 100%
+            text-align center
+            padding-right 10px
+            margin-bottom vrBlock(0.5)
+            > div {
+                margin auto
+            }
+        }
+        &__image {
+            margin-top vrBlock(1)
 
-		}
-	}
-	&__counts--double {
-		>div {
-			width 300px
-		}
-		.dataset-key__visual-summary__counts__group {
-			width 140px
-		}
-	}
+        }
+    }
+    &__counts--double {
+        > div {
+            width 300px
+        }
+        .dataset-key__visual-summary__counts__group {
+            width 140px
+        }
+    }
 }
 
 //+isAbove($laptop) {
@@ -57,27 +57,27 @@
 //}
 //
 .radial-progress {
-	width 85px
-	height 85px
-	margin auto
-	position relative
-	&__count {
-		position absolute
-		top 50%
-		bottom auto
-		left 50%
-		transform translateY(-50%) translateX(-50%)
-		font-size 20px
-	}
+    width 85px
+    height 85px
+    margin auto
+    position relative
+    &__count {
+        position absolute
+        top 50%
+        bottom auto
+        left 50%
+        transform translateY(-50%) translateX(-50%)
+        font-size 20px
+    }
 }
 
 .round-image {
-	display block
-	width 85px
-	height 85px
-	border-radius 50px
-	background-size cover
-	background-position center
+    display block
+    width 85px
+    height 85px
+    border-radius 50px
+    background-size cover
+    background-position center
 }
 
 //.dataset-key__visual-summary__map {

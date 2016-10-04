@@ -5,8 +5,8 @@
                 <h2 class="h4">Coordinates missing</h2>
 
                 {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
-                <p>
-                    This record isn't published with coordinates, but with a textual description of its location.
+                    <p>
+                        This record isn't published with coordinates, but with a textual description of its location.
                     <dl class="inline">
                         <div>
                             <dt>{$ __('stdTerms.location') $}</dt>
@@ -24,61 +24,63 @@
                             </dd>
                         </div>
 
-                    {% if occurrence.record.locality | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.locality') $}</dt>
-                            <dd>{$ occurrence.record.locality $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.locationRemarks | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.locationRemarks') $}</dt>
-                            <dd>{$ occurrence.record.locationRemarks $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.verbatimLocality | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.verbatimLocality') $}</dt>
-                            <dd>{$ occurrence.record.verbatimLocality $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.elevation | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.elevation') $}</dt>
-                            <dd>{$ occurrence.record.elevation $} +- {$ occurrence.record.elevationAccuracy $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.depth | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.depth') $}</dt>
-                            <dd>{$ occurrence.record.depth $} +- {$ occurrence.record.depthAccuracy $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.distanceAboveSurface | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.distanceAboveSurface') $}</dt>
-                            <dd>{$ occurrence.record.distanceAboveSurface $} +- {$ occurrence.record.distanceAboveSurfaceAccuracy $}</dd>
-                        </div>
-                    {% endif %}
-                    {% if occurrence.record.informationWithheld | isNotEmpty %}
-                        <div>
-                            <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
-                            <dd>{$ occurrence.record.informationWithheld $}</dd>
-                        </div>
-                    {% endif %}
-                    </dl>
-                </p>
-                {% else %}
-                    <p>
-                        There is no location information published for this record
-                        <dl>
+                        {% if occurrence.record.locality | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.locality') $}</dt>
+                                <dd>{$ occurrence.record.locality $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if occurrence.record.locationRemarks | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.locationRemarks') $}</dt>
+                                <dd>{$ occurrence.record.locationRemarks $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if occurrence.record.verbatimLocality | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.verbatimLocality') $}</dt>
+                                <dd>{$ occurrence.record.verbatimLocality $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if occurrence.record.elevation | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.elevation') $}</dt>
+                                <dd>{$ occurrence.record.elevation $} +- {$ occurrence.record.elevationAccuracy $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if occurrence.record.depth | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.depth') $}</dt>
+                                <dd>{$ occurrence.record.depth $} +- {$ occurrence.record.depthAccuracy $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if occurrence.record.distanceAboveSurface | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.distanceAboveSurface') $}</dt>
+                                <dd>{$ occurrence.record.distanceAboveSurface $} +- {$
+                                    occurrence.record.distanceAboveSurfaceAccuracy $}
+                                </dd>
+                            </div>
+                        {% endif %}
                         {% if occurrence.record.informationWithheld | isNotEmpty %}
                             <div>
                                 <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
                                 <dd>{$ occurrence.record.informationWithheld $}</dd>
                             </div>
                         {% endif %}
-                        </dl>
+                    </dl>
+                    </p>
+                {% else %}
+                    <p>
+                        There is no location information published for this record
+                    <dl>
+                        {% if occurrence.record.informationWithheld | isNotEmpty %}
+                            <div>
+                                <dt>{$ __('ocurrenceFieldNames.informationWithheld') $}</dt>
+                                <dd>{$ occurrence.record.informationWithheld $}</dd>
+                            </div>
+                        {% endif %}
+                    </dl>
                     </p>
                 {% endif %}
             </div>

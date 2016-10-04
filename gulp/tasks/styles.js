@@ -1,7 +1,7 @@
 /**
  * Compile all stylus files in src. Files are automatically added so no need to import them explictly in the stylus files
  *
- * Wiredep : if any stylus files is defined in the bower mains they will be injected into our custom stylus and compiled. 
+ * Wiredep : if any stylus files is defined in the bower mains they will be injected into our custom stylus and compiled.
  * This allow us to overwrite variables and customize vendor files
  */
 
@@ -18,22 +18,22 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 
-gulp.task('stylus-reload', ['bootstrap-style'], function() {
+gulp.task('stylus-reload', ['bootstrap-style'], function () {
     return buildStylus()
         .pipe(browserSync.stream());
 });
 
-gulp.task('stylus', ['bootstrap-style'], function() {
+gulp.task('stylus', ['bootstrap-style'], function () {
     return buildStylus();
 });
 
-gulp.task('bootstrap-style', function() {
+gulp.task('bootstrap-style', function () {
     return gulp.src(config.bootstrap.root)
         .pipe(g.less())
         .pipe(gulp.dest(config.bootstrap.dest));
 });
 
-gulp.task('vendor-styles', function() {
+gulp.task('vendor-styles', function () {
     return gulp.src(config.bower.cssFiles, {
             base: './'
         })
@@ -63,7 +63,7 @@ function buildStylus() {
     });
 
     var injectOptions = {
-        transform: function(filePath) {
+        transform: function (filePath) {
             filePath = filePath.replace(config.paths.src + '/', '');
             return '@import "' + path.join('../..', filePath) + '";';
         },
@@ -94,7 +94,7 @@ function buildStylus() {
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base')));
 }
 
-gulp.task('ieStyle', [], function() {
+gulp.task('ieStyle', [], function () {
     var ieProcessors = [
         require('postcss-unmq')({
             type: 'screen',
@@ -109,7 +109,7 @@ gulp.task('ieStyle', [], function() {
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base/ie')));
 });
 
-gulp.task('styles-reload', [], function(callback) {
+gulp.task('styles-reload', [], function (callback) {
     runSequence(
         ['stylus-reload'],
         ['ieStyle'],

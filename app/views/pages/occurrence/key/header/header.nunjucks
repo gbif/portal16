@@ -18,13 +18,15 @@
                 <div class="text-center">
                     <span class="taxon-classification taxon-classification--discreet">
                         {% if occurrence.record.kingdom %}
-                            <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.kingdomKey $}" class="kingdom">{$ occurrence.record.kingdom $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.kingdomKey $}"
+                               class="kingdom">{$ occurrence.record.kingdom $}</a>
                         {% endif %}
 
                         {% for taxon in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
                             {% if occurrence.record[taxon] %}
                                 <i></i>
-                                <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxon + 'Key'] $}" class="{$ taxon $}">{$ occurrence.record[taxon] $}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record[taxon + 'Key'] $}"
+                                   class="{$ taxon $}">{$ occurrence.record[taxon] $}</a>
                             {% endif %}
                         {% endfor %}
                     </span>

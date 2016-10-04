@@ -154,8 +154,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
 
 
-
-
     vm.filters.occurrenceId = {
         titleTranslation: 'ocurrenceFieldNames.occurrenceId',
         queryKey: 'occurrence_id',
@@ -245,8 +243,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
             facetKey: 'STATE_PROVINCE'
         }
     };
-
-
 
 
     vm.filters.institutionCode = {
@@ -339,9 +335,9 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
 
     /*
-    Special suggest with templates and name resolving as the url contains ID's
-    it might be worth joining normal suggest and facets with these. Currently it just seemed like a configuration chaos that wouldn't help understanding.
-    If these filters grow and it is starting to become a headache aligning them, then this decision should be reconsidered
+     Special suggest with templates and name resolving as the url contains ID's
+     it might be worth joining normal suggest and facets with these. Currently it just seemed like a configuration chaos that wouldn't help understanding.
+     If these filters grow and it is starting to become a headache aligning them, then this decision should be reconsidered
      */
     vm.filters.dataset = {
         titleTranslation: 'stdTerms.dataset',
@@ -398,27 +394,27 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         filter: OccurrenceFilter
     };
 
-    vm.toggleAdvanced = function() {
+    vm.toggleAdvanced = function () {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };
 
 
-    vm.search = function() {
-        $state.go('.', vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
+    vm.search = function () {
+        $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
-    vm.updateSearch = function() {
+    vm.updateSearch = function () {
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
-        $state.go($state.current, vm.occurrenceState.query, {inherit:false, notify: false, reload: false});
+        $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
     };
-    vm.searchOnEnter = function(event) {
-        if(event.which === 13) {
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
             vm.updateSearch();
         }
     };
 
-    vm.clearFreetextAndSetFocus = function() {
+    vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';
     };
@@ -427,7 +423,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         combo: 'alt+f',
         description: 'Site search',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.clearFreetextAndSetFocus();
             event.preventDefault();
         }
@@ -437,7 +433,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         combo: 'alt+enter',
         description: 'Apply',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(event) {
+        callback: function (event) {
             vm.updateSearch();
             event.preventDefault();
         }
@@ -445,8 +441,11 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     vm.freeTextSpeciesSuggestion = undefined;
     vm.showFreeTextSpeciesSuggestion = false;
-    vm.testFreeTextForSpeciesName = function() {
-        vm.freeTextSpeciesSuggestion = SpeciesMatch.query({verbose: false, name: vm.occurrenceState.query.q}, function(response){
+    vm.testFreeTextForSpeciesName = function () {
+        vm.freeTextSpeciesSuggestion = SpeciesMatch.query({
+            verbose: false,
+            name: vm.occurrenceState.query.q
+        }, function (response) {
             if (response.matchType !== 'NONE' && response.confidence > 80) {
                 vm.showFreeTextSpeciesSuggestion = true;
             }
@@ -454,14 +453,14 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
     vm.testFreeTextForSpeciesName();
 
-    vm.addTaxon = function(taxon) {
+    vm.addTaxon = function (taxon) {
         vm.occurrenceState.query.q = '';
         vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
         vm.occurrenceState.query.taxon_key = [taxon.usageKey].concat(vm.occurrenceState.query.taxon_key);
         vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
-        $state.go($state.current, vm.occurrenceState.query, {inherit:false, notify: true, reload: true});
+        $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     }
 
 

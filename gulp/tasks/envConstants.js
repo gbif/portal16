@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     configEnv = rootRequire('config/config'),
     g = require('gulp-load-plugins')();
 
-gulp.task('env-constants', [], function() {
+gulp.task('env-constants', [], function () {
     var DATA_URL = configEnv.dataApi,
         TILE_URL = configEnv.tileApi,
         CMS_URL = configEnv.cmsApi;

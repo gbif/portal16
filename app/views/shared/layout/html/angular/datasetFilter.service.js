@@ -79,7 +79,7 @@ angular
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country'];
         var exhaustiveFacets = [];
-        exhaustiveFacetsKeys.forEach(function(facet){
+        exhaustiveFacetsKeys.forEach(function (facet) {
             exhaustiveFacets.push(facet);
         });
 
@@ -91,7 +91,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function(event, toState, toParams){
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -103,10 +103,10 @@ angular
             apiQuery.facet = exhaustiveFacets;
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = DatasetSearch.query(apiQuery, function(){
+            state.data = DatasetSearch.query(apiQuery, function () {
                 state.failedRequest = false;
                 //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
 
@@ -114,20 +114,20 @@ angular
             apiQuery.facetMultiselect = true;
             apiQuery.limit = 0; //no need to get the same results again
             apiQuery.facet = [];
-            multiSelectFacetsKeys.forEach(function(key){
+            multiSelectFacetsKeys.forEach(function (key) {
                 if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
                     apiQuery.facet.push(key);
                 }
             });
             if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
-            state.facetMultiselect = DatasetSearch.query(apiQuery, function(){
-            }, function() {
+            state.facetMultiselect = DatasetSearch.query(apiQuery, function () {
+            }, function () {
                 //TODO how to indicate missing facet data
             });
         }
 
         function update(query) {
-            $state.go('.', query, {inherit:false, notify: false, reload: false});
+            $state.go('.', query, {inherit: false, notify: false, reload: false});
             refreshData(query);
         }
 
@@ -138,7 +138,7 @@ angular
 
         function refresh() {
             state.query.offset = undefined;
-            $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+            $state.go('.', state.query, {inherit: false, notify: false, reload: false});
             refreshData(state.query);
         }
 

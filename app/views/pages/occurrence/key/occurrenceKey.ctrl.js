@@ -1,4 +1,3 @@
-
 'use strict';
 
 var angular = require('angular');
@@ -46,8 +45,8 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     vm.mapDefaults = {
         zoomControlPosition: 'topleft',
         scrollWheelZoom: false
-   };
-   vm.mapEvents = {
+    };
+    vm.mapEvents = {
         map: {
             enable: [], //https://github.com/tombatossals/angular-leaflet-directive/issues/1033
             logic: 'broadcast'
@@ -61,7 +60,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
         scale: true
     };
 
-    vm.paths =  {};
+    vm.paths = {};
 
     vm.markerMessage = {
         template: '<dl class="occurrenceKey__markerMessage">{{coordinateUncertainty}}{{elevation}}{{weather}}</dl>',
@@ -71,7 +70,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
         weather: undefined,
         elevation: undefined
     };
-    vm.updateMarkerMessage = function() {
+    vm.updateMarkerMessage = function () {
         var message, weather = '', elevation = '', coordinateUncertainty = '';
 
         if (vm.data.coordinateUncertaintyInMeters) {
@@ -106,13 +105,13 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     hotkeys.add({
         combo: 'alt+d',
         description: 'Show record details',
-        callback: function() {
+        callback: function () {
             vm.hideDetails = !vm.hideDetails;
             vm.expandMore = false;
         }
     });
 
-    vm.setData = function() {
+    vm.setData = function () {
         //TODO find a better way to parse required data to controller from server without seperate calls
         vm.occurrenceCoreTerms = gb.occurrenceCoreTerms;
         vm.verbatim = gb.occurrenceRecordVerbatim;
@@ -136,11 +135,11 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             date = moment(date).unix();
             var weatherUrl = '/api/weather/' + lat + '/' + lng + '/' + date;
             $http.get(weatherUrl).then(
-                function(response){
+                function (response) {
                     vm.markerMessage.weather = response.data;
                     vm.updateMarkerMessage();
                 },
-                function(){
+                function () {
                     //ignore api errors as this is supplemental data. fail silently
                 }
             );
@@ -158,19 +157,19 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
                 range: false
             };
 
-             var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
-             $http.get(elevationApi).then(
-                 function(response){
-                     vm.markerMessage.elevation = {
-                         elevation: response.data.height[0],
-                         source: 'from Mapzen.com'
-                     };
-                     vm.updateMarkerMessage();
-                 },
-                 function(){
-                     //ignore api errors as this is supplemental data. fail silently
-                 }
-             );
+            var elevationApi = 'https://elevation.mapzen.com/height?api_key=elevation-u7RCaXn&json=' + JSON.stringify(query);
+            $http.get(elevationApi).then(
+                function (response) {
+                    vm.markerMessage.elevation = {
+                        elevation: response.data.height[0],
+                        source: 'from Mapzen.com'
+                    };
+                    vm.updateMarkerMessage();
+                },
+                function () {
+                    //ignore api errors as this is supplemental data. fail silently
+                }
+            );
         }
     }
 
@@ -203,7 +202,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             };
         }
         //set static marker
-        leafletData.getMap('occurrenceMap').then(function(map) {
+        leafletData.getMap('occurrenceMap').then(function (map) {
             //var a= L.latLng(data.decimalLatitude, data.decimalLongitude);
             //var projPos = map.project(a, 0);
             //vm.tilePosStyle = {
@@ -211,7 +210,9 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             //    top: projPos.y/2.56 + '%',
             //    display: 'block'
             //};
-            map.once('focus', function() { map.scrollWheelZoom.enable(); });
+            map.once('focus', function () {
+                map.scrollWheelZoom.enable();
+            });
         });
     }
 

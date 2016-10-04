@@ -22,340 +22,339 @@ $filterEmphasisColor = $bodyTextColor
 //}
 
 .site-drawer {
-	box-shadow -2px 1px 2px rgba(0,0,0,0.2)
-	background $drawerBackgroundColor
-	font-size 12px
-	position relative
-	background $drawerBackgroundColor
+    box-shadow -2px 1px 2px rgba(0, 0, 0, 0.2)
+    background $drawerBackgroundColor
+    font-size 12px
+    position relative
+    background $drawerBackgroundColor
 
-	&__content {
-		background white
-	}
-	&__header {
-		border-bottom 1px solid $stripeBorderColor
-		background white
-		//padding 0 20px
-		position relative
-		&__title {
-			font-size 14px
-			> a, >span {
-				font-weight 700
-				text-align center
-				display block
-				height $searchTabBar-height
-				line-height $searchTabBar-height
-				text-transform capitalize
-				color inherit
-			}
-		}
-		//a.site-drawer__header__action {
-		//	width vrBlock(1.5)
-		//	font-size 24px
-		//	height $searchTabBar-height
-		//	line-height $searchTabBar-height
-		//	text-align center
-		//	display inline-block
-		//	position absolute
-		//	margin 0 20px
-		//	top 0
-		//	&:hover {
-		//		text-decoration none
-		//	}
-		//	.count {
-		//		position absolute
-		//		bottom 2px
-		//		left 15px
-		//	}
-		//}
-	}
+    &__content {
+        background white
+    }
+    &__header {
+        border-bottom 1px solid $stripeBorderColor
+        background white
+        //padding 0 20px
+        position relative
+        &__title {
+            font-size 14px
+            > a, > span {
+                font-weight 700
+                text-align center
+                display block
+                height $searchTabBar-height
+                line-height $searchTabBar-height
+                text-transform capitalize
+                color inherit
+            }
+        }
+        //a.site-drawer__header__action {
+        //	width vrBlock(1.5)
+        //	font-size 24px
+        //	height $searchTabBar-height
+        //	line-height $searchTabBar-height
+        //	text-align center
+        //	display inline-block
+        //	position absolute
+        //	margin 0 20px
+        //	top 0
+        //	&:hover {
+        //		text-decoration none
+        //	}
+        //	.count {
+        //		position absolute
+        //		bottom 2px
+        //		left 15px
+        //	}
+        //}
+    }
 
-	&__section {
-		background $drawerBackgroundColor
-		color $drawerTextColor
-	}
+    &__section {
+        background $drawerBackgroundColor
+        color $drawerTextColor
+    }
 
-	//&__footer {
-	//	position relative
-	//	>div {
-	//		vertically-align()
-	//	}
-	//	background white
-	//	position relative
-	//	width 100%
-	//	z-index 20
-	//	overflow hidden
-	//	height vrBlock(2)
-	//	border-top 1px solid $stripeBorderColor
-	//}
+    //&__footer {
+    //	position relative
+    //	>div {
+    //		vertically-align()
+    //	}
+    //	background white
+    //	position relative
+    //	width 100%
+    //	z-index 20
+    //	overflow hidden
+    //	height vrBlock(2)
+    //	border-top 1px solid $stripeBorderColor
+    //}
 
-	&__search-bar {
-		position relative
-		border-bottom 1px solid $stripeBorderColor
-		input {
-			width calc(100% - 30px)
-			border none
-			margin 10px 0
-			outline none
-			padding 0 20px
-		}
-		button {
-			position absolute
-			right 0
-			background none
-			border none
-			font-size 20px
-			margin 5px 10px
-		}
-		.dropdown-menu {
-			width 100%
-			overflow hidden
-			border-radius 0
-			a {
-				text-overflow ellipsis
-				overflow hidden
-			}
-		}
-	}
+    &__search-bar {
+        position relative
+        border-bottom 1px solid $stripeBorderColor
+        input {
+            width calc(100% - 30px)
+            border none
+            margin 10px 0
+            outline none
+            padding 0 20px
+        }
+        button {
+            position absolute
+            right 0
+            background none
+            border none
+            font-size 20px
+            margin 5px 10px
+        }
+        .dropdown-menu {
+            width 100%
+            overflow hidden
+            border-radius 0
+            a {
+                text-overflow ellipsis
+                overflow hidden
+            }
+        }
+    }
 
-
-	&__section {
-		padding-bottom 50px
-		&__content {
-			padding 10px 20px
-		}
-	}
+    &__section {
+        padding-bottom 50px
+        &__content {
+            padding 10px 20px
+        }
+    }
 
 }
 
 .site-drawer {
-	&__bar {
-		display flex
-		padding 0
-		&__action, &__title, &__icon {
-			flex 1 1 auto
-			text-transform uppercase
-			text-align center
-			height $searchTabBar-height
-			line-height $searchTabBar-height
-			position relative
-			&:hover {
-				text-decoration none
-				//	background darken($drawerSecondaryBackgroundColor, 5)
-			}
-		}
-		&__action {
-			max-width 50%
-		}
-		&__icon {
-			width vrBlock(1.5)
-			margin 0 20px
-			font-size 22px
-			text-align center
-			display block
-			flex 0 0 auto
-			border-radius 50%
-			&:hover, &:focus {
-				text-decoration none
-				//background rgba(0,0,0,0.08)
-			}
-			.count {
-				position absolute
-				bottom 2px
-				left 15px
-			}
-		}
-		&__title {
-			font-size 14px
-			> a, >span {
-				font-weight 700
-				text-align center
-				display block
-				height $searchTabBar-height
-				line-height $searchTabBar-height
-				text-transform capitalize
-				color inherit
-			}
-			.stripe-menu {
-				top vrBlock(1)
-				left 0
-				margin 0
-				.stripe-menu__drop-down {
-					left 0
-					right 0
-					width 100%
-					line-height vrBlock(1)
-				}
-			}
-		}
-	}
+    &__bar {
+        display flex
+        padding 0
+        &__action, &__title, &__icon {
+            flex 1 1 auto
+            text-transform uppercase
+            text-align center
+            height $searchTabBar-height
+            line-height $searchTabBar-height
+            position relative
+            &:hover {
+                text-decoration none
+                //	background darken($drawerSecondaryBackgroundColor, 5)
+            }
+        }
+        &__action {
+            max-width 50%
+        }
+        &__icon {
+            width vrBlock(1.5)
+            margin 0 20px
+            font-size 22px
+            text-align center
+            display block
+            flex 0 0 auto
+            border-radius 50%
+            &:hover, &:focus {
+                text-decoration none
+                //background rgba(0,0,0,0.08)
+            }
+            .count {
+                position absolute
+                bottom 2px
+                left 15px
+            }
+        }
+        &__title {
+            font-size 14px
+            > a, > span {
+                font-weight 700
+                text-align center
+                display block
+                height $searchTabBar-height
+                line-height $searchTabBar-height
+                text-transform capitalize
+                color inherit
+            }
+            .stripe-menu {
+                top vrBlock(1)
+                left 0
+                margin 0
+                .stripe-menu__drop-down {
+                    left 0
+                    right 0
+                    width 100%
+                    line-height vrBlock(1)
+                }
+            }
+        }
+    }
 }
+
 .site-drawer__bar__action--hover-only {
-	visibility hidden
+    visibility hidden
 }
 
 .filter-group {
-	border-bottom 1px solid $stripeBorderColor
-	&:hover {
-		.site-drawer__bar__action--hover-only {
-			visibility visible
-		}
-	}
-	&__header {
-		background white
-	}
+    border-bottom 1px solid $stripeBorderColor
+    &:hover {
+        .site-drawer__bar__action--hover-only {
+            visibility visible
+        }
+    }
+    &__header {
+        background white
+    }
 
-	h5 {
-		font-weight bold
-		padding 0 20px
-		[class^="gb-icon-"], [class*=" gb-icon-"] {
-			font-size 20px
-			position relative
-			top -3px
-		}
-	}
-	input[type=checkbox], input[type=radio] {
-		margin-top 3px
-	}
-	&__filter {
-		>* {
-			border-bottom 1px solid $stripeBorderColor
-			&:last-child {
-				border-bottom none
-			}
-		}
-		>.is-padded {
-			padding 0 20px
-		}
-	}
-	&__filter {
-		background $drawerSecondaryBackgroundColor
-		border-top 1px solid $stripeBorderColor
-		&--collapsed {
-			border-color $drawerBackgroundColor
-			background $drawerBackgroundColor
-		}
-		label {
-			width 100%
-		}
-		&__search {
-			position relative
-			padding 0
-			input {
-				width 100%
-				background none
-				border none
-				padding 10px 20px
-				outline 0
-			}
-		}
-		&__name {
-			position relative
-			display flex
-			//width 100%
-			span {
-				flex 1 1 auto
-				position relative
-			}
-			&__title {
-				white-space nowrap
-				text-overflow ellipsis
-				overflow hidden
-			}
-			&__bar {
-				position absolute
-				left 0
-				bottom -0.125rem
-				height 1.5rem
-				width 0%
-				background #d6e1e6
-				transition width 200ms ease
-			}
-			&__count {
-				color darken($drawerSecondaryBackgroundColor, 30)
-				padding-left 5px
-				text-align right
-				flex 0 0 auto
-			}
-		}
-	}
-	&__count {
-		color #c3c3c3
-	}
+    h5 {
+        font-weight bold
+        padding 0 20px
+        [class^="gb-icon-"], [class*=" gb-icon-"] {
+            font-size 20px
+            position relative
+            top -3px
+        }
+    }
+    input[type=checkbox], input[type=radio] {
+        margin-top 3px
+    }
+    &__filter {
+        > * {
+            border-bottom 1px solid $stripeBorderColor
+            &:last-child {
+                border-bottom none
+            }
+        }
+        > .is-padded {
+            padding 0 20px
+        }
+    }
+    &__filter {
+        background $drawerSecondaryBackgroundColor
+        border-top 1px solid $stripeBorderColor
+        &--collapsed {
+            border-color $drawerBackgroundColor
+            background $drawerBackgroundColor
+        }
+        label {
+            width 100%
+        }
+        &__search {
+            position relative
+            padding 0
+            input {
+                width 100%
+                background none
+                border none
+                padding 10px 20px
+                outline 0
+            }
+        }
+        &__name {
+            position relative
+            display flex
+            //width 100%
+            span {
+                flex 1 1 auto
+                position relative
+            }
+            &__title {
+                white-space nowrap
+                text-overflow ellipsis
+                overflow hidden
+            }
+            &__bar {
+                position absolute
+                left 0
+                bottom -0.125rem
+                height 1.5rem
+                width 0%
+                background #d6e1e6
+                transition width 200ms ease
+            }
+            &__count {
+                color darken($drawerSecondaryBackgroundColor, 30)
+                padding-left 5px
+                text-align right
+                flex 0 0 auto
+            }
+        }
+    }
+    &__count {
+        color #c3c3c3
+    }
 }
+
 .filter-group__filter__name:hover {
-	.filter-group__filter__name__count {
-		color darken($drawerSecondaryBackgroundColor, 50)
-	}
-	.filter-group__filter__name__bar {
-		background darken(#d6e1e6, 5)
-	}
+    .filter-group__filter__name__count {
+        color darken($drawerSecondaryBackgroundColor, 50)
+    }
+    .filter-group__filter__name__bar {
+        background darken(#d6e1e6, 5)
+    }
 }
 
 .filter-group__filter--facet {
-	@extends .filter-group__filter
-	overflow hidden
+    @extends .filter-group__filter
+    overflow hidden
 }
 
 .filter-group--links {
-	@extends .filter-group
-	overflow hidden
-	border none
-	a {
-		display block
-		margin -5px 20px 10px 20px
-		//line-height vrBlock(1.25)
-		height 20px
-		&:first-child {
-			margin-top 10px
-		}
-	}
+    @extends .filter-group
+    overflow hidden
+    border none
+    a {
+        display block
+        margin -5px 20px 10px 20px
+        //line-height vrBlock(1.25)
+        height 20px
+        &:first-child {
+            margin-top 10px
+        }
+    }
 }
 
 .site-drawer__comment {
-	text-align center
-	color #aaa
-	margin 50px 30px
+    text-align center
+    color #aaa
+    margin 50px 30px
 }
 
 .gb-btn-group {
-	//background $greyBackground
-	border 25px
-	border-radius 25px
-	display block
-	text-align center
-	>label {
-		border none
-		box-shadow none
-		border-radius 25px
-		padding 3px 10px
-		margin 3px 0
-		margin-right 3px
-		display inline-block
-		font-weight normal
-		&:first-of-type {
-			margin-left 3px
-		}
-		&.active {
-			background $filterEmphasisColor
-			color white
-		}
-	}
+    //background $greyBackground
+    border 25px
+    border-radius 25px
+    display block
+    text-align center
+    > label {
+        border none
+        box-shadow none
+        border-radius 25px
+        padding 3px 10px
+        margin 3px 0
+        margin-right 3px
+        display inline-block
+        font-weight normal
+        &:first-of-type {
+            margin-left 3px
+        }
+        &.active {
+            background $filterEmphasisColor
+            color white
+        }
+    }
 }
 
 +isAbove($desktop) {
-	.drawer-padding {
-		padding-left $filterDrawerWidth
-	}
-	.site-drawer {
-		&__header {
-			&__close {
-				display none
-			}
-		}
-	}
+    .drawer-padding {
+        padding-left $filterDrawerWidth
+    }
+    .site-drawer {
+        &__header {
+            &__close {
+                display none
+            }
+        }
+    }
 }
-
-
 
 //.attention {
 //	color #3b99fc !important

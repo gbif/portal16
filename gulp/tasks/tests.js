@@ -12,10 +12,10 @@ var gulp = require('gulp'),
 /**
  * Test server code
  */
-gulp.task("test-server", function() {
+gulp.task("test-server", function () {
     return gulp.src(jasmineServerConfig.spec_files)
         .pipe(g.jasmine({
-            reporter: [new reporters.JUnitXmlReporter( {
+            reporter: [new reporters.JUnitXmlReporter({
                 savePath: './reports/'
             }), new SpecReporter()],
             errorOnFail: false
@@ -24,7 +24,7 @@ gulp.task("test-server", function() {
     //TODO Test if there are residues across runs (globals or such that would compromise tests)
 });
 
-gulp.task('test-server-continuously', ['test-server'], function() {
+gulp.task('test-server-continuously', ['test-server'], function () {
     gulp.watch(config.js.server.paths, ['test-server']);
 });
 

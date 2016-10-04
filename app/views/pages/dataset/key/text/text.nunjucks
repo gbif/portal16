@@ -12,30 +12,30 @@
 {#{% endif %}#}
 
 {% if dataset.record.description %}
-<section class="horizontal-stripe white-background dataset-key__text" id="id_description">
-    <span class="relative-anchor-offset"><a name="description"></a></span>
-    <div class="container--narrow">
+    <section class="horizontal-stripe white-background dataset-key__text" id="id_description">
+        <span class="relative-anchor-offset"><a name="description"></a></span>
+        <div class="container--narrow">
 
-        {% if dataset.record.language != 'eng' %}
-        <div class="stripe-comment-wrapper">
-            <div class="stripe-comment">
+            {% if dataset.record.language != 'eng' %}
+                <div class="stripe-comment-wrapper">
+                    <div class="stripe-comment">
+                        <div>
+                            {$ __('language.' + dataset.record.language) $}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div>
+                <h2 class="h4">Description</h2>
                 <div>
-                    {$ __('language.' + dataset.record.language) $}
+                    <p>
+                        {$ dataset.record.description | safe $}
+                    </p>
                 </div>
             </div>
         </div>
-        {% endif %}
-
-        <div>
-            <h2 class="h4">Description</h2>
-            <div>
-                <p>
-                    {$ dataset.record.description | safe $}
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 {% endif %}
 
 {% if dataset.record.purpose %}
@@ -62,17 +62,17 @@
                 <h2 class="h4">Temporal coverage</h2>
                 <div>
                     {% for period in dataset.record.temporalCoverages %}
-                    <p>
-                        {% if period["@type"] == "range" %}
-                            {$ period.start | formatDate(gb.locales.current) $} - {$ period.end | formatDate(gb.locales.current) $}
-                        {% endif %}
-                        {% if period["@type"] == "single" %}
-                            {$ period.period | formatDate(gb.locales.current) $}
-                        {% endif %}
-                        {% if period["@type"] == "verbatim" %}
-                            {$ period.period $}
-                        {% endif %}
-                    </p>
+                        <p>
+                            {% if period["@type"] == "range" %}
+                                {$ period.start | formatDate(gb.locales.current) $} - {$ period.end | formatDate(gb.locales.current) $}
+                            {% endif %}
+                            {% if period["@type"] == "single" %}
+                                {$ period.period | formatDate(gb.locales.current) $}
+                            {% endif %}
+                            {% if period["@type"] == "verbatim" %}
+                                {$ period.period $}
+                            {% endif %}
+                        </p>
                     {% endfor %}
                 </div>
             </div>
@@ -108,7 +108,8 @@
 {% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
 
 {% if dataset.record.samplingDescription %}
-    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block" id="id_samplingDescription">
+    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block"
+             id="id_samplingDescription">
         <span class="relative-anchor-offset"><a name="samplingDescription"></a></span>
         <div class="container--narrow">
             <div>
@@ -117,30 +118,30 @@
                     {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
 
                         {% if dataset.record.samplingDescription[field] %}
-                        <div id="id_{$ field $}">
-                            <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
-                            <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
-                            <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
-                        </div>
+                            <div id="id_{$ field $}">
+                                <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
+                                <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
+                                <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
+                            </div>
                         {% endif %}
 
                     {% endfor %}
 
                     {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
-                    <div id="id_methodSteps">
-                    <span class="relative-anchor-offset"><a name="methodSteps"></a></span>
-                    <h3 class="h5" style="margin-top:30px">Method steps</h3>
-                    <ol>
-                        {% for step in dataset.record.samplingDescription.methodSteps %}
-                            <li class="counted-section--connected">
-                                <div>
-                                    <span class="badge badge--white">{$ loop.index $}</span>
-                                </div>
-                                <div>{$ step | safe $}</div>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                    </div>
+                        <div id="id_methodSteps">
+                            <span class="relative-anchor-offset"><a name="methodSteps"></a></span>
+                            <h3 class="h5" style="margin-top:30px">Method steps</h3>
+                            <ol>
+                                {% for step in dataset.record.samplingDescription.methodSteps %}
+                                    <li class="counted-section--connected">
+                                        <div>
+                                            <span class="badge badge--white">{$ loop.index $}</span>
+                                        </div>
+                                        <div>{$ step | safe $}</div>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
                     {% endif %}
                 </div>
             </div>
@@ -176,8 +177,6 @@
         </div>
     </section>
 {% endif %} -->
-
-
 
 
 {#TODO missing possible fields#}

@@ -27,43 +27,43 @@
                         <a href="#1">Menu not implemented yet</a>
                     </li>
                     {#<li>#}
-                        {#<a href="#2">Register</a>#}
+                    {#<a href="#2">Register</a>#}
                     {#</li>#}
                     {#<li>#}
-                        {#<a href="#3">Sign out</a>#}
+                    {#<a href="#3">Sign out</a>#}
                     {#</li>#}
                     {#<li>#}
-                        {#<a href="#4">My datasets</a>#}
+                    {#<a href="#4">My datasets</a>#}
                     {#</li>#}
                 </ul>
             </li>
             {#<li class="service-menu__language is-category">#}
-                {#<a href="#" class="gb-icon-global">Language</a>#}
-                {#<ul>#}
-                    {#<li>#}
-                        {#<a href="#1">English</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<a href="#2">Other languages not implemented yet</a>#}
-                    {#</li>#}
-                {#</ul>#}
+            {#<a href="#" class="gb-icon-global">Language</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#1">English</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#2">Other languages not implemented yet</a>#}
+            {#</li>#}
+            {#</ul>#}
             {#</li>#}
             {#<li class="service-menu__notifications is-own-menu is-active-x">#}
-                {#<a href="#" class="gb-icon-search">Search</a>#}
-                {#<ul>#}
-                    {#<li>#}
-                        {#<a href="#1">sdf</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<a href="#2">Swfghahili</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<a href="#3">Spawernish</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<a href="#4">Ruscvbsian</a>#}
-                    {#</li>#}
-                {#</ul>#}
+            {#<a href="#" class="gb-icon-search">Search</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#1">sdf</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#2">Swfghahili</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#3">Spawernish</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#4">Ruscvbsian</a>#}
+            {#</li>#}
+            {#</ul>#}
             {#</li>#}
         </ul>
     </div>
@@ -81,13 +81,13 @@
                         <a href="/occurrence">Menu not implemented yet</a>
                     </li>
                     {#<li>#}
-                        {#<a href="/species/408">Species</a>#}
+                    {#<a href="/species/408">Species</a>#}
                     {#</li>#}
                     {#<li>#}
-                        {#<a href="#">Data sets</a>#}
+                    {#<a href="#">Data sets</a>#}
                     {#</li>#}
                     {#<li>#}
-                        {#<a href="#">Very long menu titles will be cropped</a>#}
+                    {#<a href="#">Very long menu titles will be cropped</a>#}
                     {#</li>#}
                 </ul>
             </li>
@@ -100,10 +100,10 @@
                         <a href="#">Menu not implemented yet</a>
                     </li>
                     {#<li>#}
-                        {#<a href="#">Why</a>#}
+                    {#<a href="#">Why</a>#}
                     {#</li>#}
                     {#<li>#}
-                        {#<a href="#">Lorem</a>#}
+                    {#<a href="#">Lorem</a>#}
                     {#</li>#}
                 </ul>
             </li>
@@ -118,73 +118,73 @@
                 </ul>
             </li>
             {#<li class="is-category is-mega">#}
-                {#<a href="#" class="gb-icon-info">#}
-                    {#About#}
-                {#</a>#}
-                {#<ul>#}
-                    {#<li class="is-category">#}
-                        {#<a href="#">Inside</a>#}
-                        {#<ul>#}
-                            {#<li>#}
-                                {#<a href="#">Menu not implemented yet</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Facts and figures</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Impact</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Programmes and projects</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Knowledge base</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">FAQ</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="is-category">#}
-                        {#<a href="#">Pressroom</a>#}
-                        {#<ul>#}
-                            {#<li>#}
-                                {#<a href="#">Featured data use</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">News</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="is-category">#}
-                        {#<a href="#">Community</a>#}
-                        {#<ul>#}
-                            {#<li>#}
-                                {#<a href="#">Join the community</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Contact</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="is-category">#}
-                        {#<a href="#">Development</a>#}
-                        {#<ul>#}
-                            {#<li>#}
-                                {#<a href="#">API</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Python and R libraries</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Front end</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">About development at GBIF</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                {#</ul>#}
+            {#<a href="#" class="gb-icon-info">#}
+            {#About#}
+            {#</a>#}
+            {#<ul>#}
+            {#<li class="is-category">#}
+            {#<a href="#">Inside</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#">Menu not implemented yet</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Facts and figures</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Impact</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Programmes and projects</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Knowledge base</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">FAQ</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</li>#}
+            {#<li class="is-category">#}
+            {#<a href="#">Pressroom</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#">Featured data use</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">News</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</li>#}
+            {#<li class="is-category">#}
+            {#<a href="#">Community</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#">Join the community</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Contact</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</li>#}
+            {#<li class="is-category">#}
+            {#<a href="#">Development</a>#}
+            {#<ul>#}
+            {#<li>#}
+            {#<a href="#">API</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Python and R libraries</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">Front end</a>#}
+            {#</li>#}
+            {#<li>#}
+            {#<a href="#">About development at GBIF</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</li>#}
+            {#</ul>#}
             {#</li>#}
         </ul>
     </div>

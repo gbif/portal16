@@ -16,9 +16,9 @@
                        tooltip-placement="bottom"
                        uib-tooltip="Table"></a>
                     <span
-                       class="gb-icon-photo stripe-menu__menu stripe-menu__option is-active"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Gallery"></span>
+                            class="gb-icon-photo stripe-menu__menu stripe-menu__option is-active"
+                            tooltip-placement="bottom"
+                            uib-tooltip="Gallery"></span>
                     <a href="" ui-sref="occurrenceSearchMap()"
                        class="gb-icon-map-marker stripe-menu__menu stripe-menu__option"
                        tooltip-placement="bottom"
@@ -28,12 +28,13 @@
         </div>
     </div>
 
-    <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"> </ng-include>
+    <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"></ng-include>
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-                    <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S" gallery-image>
+                    <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S"
+                         gallery-image>
                 </a>
                 <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
             </div>

@@ -1,61 +1,61 @@
 .stripe-menu {
-	z-index 20
-	display block
-	position absolute
-	right 0
-	top 0
-	margin -.5rem 1rem 0 0
-	&__option {
-		color $discreetInk
-		border-radius 50%
-		width 1.7rem
-		height 1.7rem
-		display inline-block
-		text-align center
-		font-size 14px
-		line-height 1.7rem
-		text-decoration none
-		&:hover, &:focus {
-			//background rgba(0,0,0,0.08)
-			color $discreetInk
-			text-decoration none
-		}
-		&.is-active {
-			background rgba(0,0,0,0.08)
-			color darken($discreetInk, 5)
-		}
-	}
-	.stripe-menu__drop-down {
-		position absolute
-		display none
-		right 1rem
-		top 1rem
-		width 180px
-		background white
-		box-shadow 0 1px 2px rgba(0,0,0,0.3)
-		ul {
-			padding 0.5rem 0
-			li {
-				padding 2px 5px
-				&:hover {
-					background $lightBackground
-					cursor pointer
-				}
-				a {
-					display block
-				}
-				&.seperator {
-					border-top 1px solid $lightBackground
-				}
-			}
-		}
-	}
-	&.is-expanded {
-		.stripe-menu__menu {
-			background rgba(0,0,0,0.1)
-		}
-		.stripe-menu__drop-down {
-			display block
-		}
-	}
+    z-index 20
+    display block
+    position absolute
+    right 0
+    top 0
+    margin -.5rem 1rem 0 0
+    &__option {
+        color $discreetInk
+        border-radius 50%
+        width 1.7rem
+        height 1.7rem
+        display inline-block
+        text-align center
+        font-size 14px
+        line-height 1.7rem
+        text-decoration none
+        &:hover, &:focus {
+            //background rgba(0,0,0,0.08)
+            color $discreetInk
+            text-decoration none
+        }
+        &.is-active {
+            background rgba(0, 0, 0, 0.08)
+            color darken($discreetInk, 5)
+        }
+    }
+    .stripe-menu__drop-down {
+        position absolute
+        display none
+        right 1rem
+        top 1rem
+        width 180px
+        background white
+        box-shadow 0 1px 2px rgba(0, 0, 0, 0.3)
+        ul {
+            padding 0.5rem 0
+            li {
+                padding 2px 5px
+                &:hover {
+                    background $lightBackground
+                    cursor pointer
+                }
+                a {
+                    display block
+                }
+                &.seperator {
+                    border-top 1px solid $lightBackground
+                }
+            }
+        }
+    }
+    &.is-expanded {
+        .stripe-menu__menu {
+            background rgba(0, 0, 0, 0.1)
+        }
+        .stripe-menu__drop-down {
+            display block
+        }
+    }
 }

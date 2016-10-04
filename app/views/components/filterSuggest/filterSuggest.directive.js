@@ -34,11 +34,15 @@ function filterSuggestDirective() {
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
 
-        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('uniqueLower')(newQuery);
         });
 
-        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+        $scope.$watchCollection(function () {
+            return vm.filterState.query
+        }, function (newState, oldState) {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
                 vm.setFacetSuggestions();
             }
@@ -46,7 +50,7 @@ function filterSuggestDirective() {
 
         vm.hideFacetCounts = false;
         vm.suggestions = {};
-        vm.setFacetSuggestions = function() {
+        vm.setFacetSuggestions = function () {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
                 if (vm.query.length > 0) {
@@ -64,7 +68,7 @@ function filterSuggestDirective() {
         };
         vm.setFacetSuggestions();
 
-        vm.getSuggestions = function(val) {
+        vm.getSuggestions = function (val) {
             //if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
@@ -78,18 +82,18 @@ function filterSuggestDirective() {
             }
         };
 
-        vm.inQuery = function(name){
+        vm.inQuery = function (name) {
             return vm.query.indexOf(name) != -1;
         };
 
-        vm.showFacetCount = function() {
+        vm.showFacetCount = function () {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
         };
 
-        vm.getWidth = function(key) {
+        vm.getWidth = function (key) {
             var keyLower = key.toLowerCase();
             var facetKey = vm.filterConfig.facets.facetKey;
-            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
+            if (!vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
                 return {
                     width: '0%'
                 }
@@ -102,7 +106,7 @@ function filterSuggestDirective() {
             };
         };
 
-        vm.typeaheadSelect = function(item){ //  model, label, event
+        vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item)) return;
             var searchString = item.toString().toLowerCase();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
@@ -112,7 +116,7 @@ function filterSuggestDirective() {
             }
         };
 
-        vm.change = function(e, checked) {
+        vm.change = function (e, checked) {
             if (checked) {
                 vm.query.push(e);
             } else {
@@ -121,22 +125,22 @@ function filterSuggestDirective() {
             vm.apply();
         };
 
-        vm.uncheckAll = function() {
+        vm.uncheckAll = function () {
             vm.query = [];
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
             vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         };
 
-        vm.searchOnEnter = function(event) {
-            if(event.which === 13) {
+        vm.searchOnEnter = function (event) {
+            if (event.which === 13) {
                 vm.typeaheadSelect(vm.selected);
             }
         };
 
-        vm.allowSelection = function() {
+        vm.allowSelection = function () {
             return !vm.filterConfig.singleSelect || vm.query.length == 0;
         };
     }

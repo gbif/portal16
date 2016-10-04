@@ -39,33 +39,38 @@ function filterTaxonDirective() {
 
         vm.usedKeys = {};
 
-        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('uniqueLower')(newQuery);
             resolveAllKeys();
         });
 
-        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+        $scope.$watchCollection(function () {
+            return vm.filterState.query
+        }, function (newState, oldState) {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
                 vm.setFacetSuggestions();
             }
         });
 
         function getFullResource(key) {
-            vm.filterConfig.expand.resource.get({id: key}, function(data){
+            vm.filterConfig.expand.resource.get({id: key}, function (data) {
                 vm.usedKeys[key] = data[vm.filterConfig.search.suggestTitle];
             });
         }
 
         function resolveAllKeys() {
-            vm.query.forEach(function(e){
+            vm.query.forEach(function (e) {
                 getFullResource(e);
             });
         }
+
         resolveAllKeys();
 
         vm.hideFacetCounts = false;
         vm.suggestions = {};
-        vm.setFacetSuggestions = function() {
+        vm.setFacetSuggestions = function () {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
                 if (vm.query.length > 0) {
@@ -83,7 +88,7 @@ function filterTaxonDirective() {
         };
         vm.setFacetSuggestions();
 
-        vm.getSuggestions = function(val) {
+        vm.getSuggestions = function (val) {
             //if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
@@ -97,22 +102,22 @@ function filterTaxonDirective() {
             }
         };
 
-        vm.getSuggestionLabel = function(suggestion) {
+        vm.getSuggestionLabel = function (suggestion) {
             return suggestion && vm.filterConfig.search.suggestTitle ? suggestion[vm.filterConfig.search.suggestTitle] : suggestion;
         };
 
-        vm.inQuery = function(name){
+        vm.inQuery = function (name) {
             return vm.query.indexOf(name) != -1;
         };
 
-        vm.showFacetCount = function() {
+        vm.showFacetCount = function () {
             return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
         };
 
-        vm.getWidth = function(key) {
+        vm.getWidth = function (key) {
             var keyLower = key.toLowerCase();
             var facetKey = vm.filterConfig.facets.facetKey;
-            if ( !vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
+            if (!vm.showFacetCount() || !vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[facetKey] || !vm.filterState.data.facets[facetKey].counts || !vm.filterState.data.facets[facetKey].counts[keyLower]) {
                 return {
                     width: '0%'
                 }
@@ -125,7 +130,7 @@ function filterTaxonDirective() {
             };
         };
 
-        vm.typeaheadSelect = function(item){ //  model, label, event
+        vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             var searchString = item.key.toString().toLowerCase();
             if (vm.query.indexOf(searchString) < 0) {
@@ -139,29 +144,29 @@ function filterTaxonDirective() {
             }
         };
 
-        vm.add = function(key, checked, facet) {
+        vm.add = function (key, checked, facet) {
             vm.usedKeys[key] = facet[vm.filterConfig.search.suggestTitle];
             vm.query.push(key);
             vm.apply();
         };
 
 
-        vm.remove = function(key) {
+        vm.remove = function (key) {
             vm.query.splice(vm.query.indexOf(key), 1);
             vm.apply();
         };
 
-        vm.uncheckAll = function() {
+        vm.uncheckAll = function () {
             vm.query = [];
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
             OccurrenceFilter.updateParam(vm.queryKey, vm.query);
         };
 
-        vm.searchOnEnter = function(event) {
-            if(event.which === 13) {
+        vm.searchOnEnter = function (event) {
+            if (event.which === 13) {
                 vm.typeaheadSelect(vm.selected);
             }
         };

@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('Occurrence', function($resource, env) {
+        .factory('Occurrence', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/:id', null, {
                     'query': {
                         method: 'GET',
@@ -16,7 +16,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceVerbatim', function($resource, env) {
+        .factory('OccurrenceVerbatim', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/:id/verbatim', null, {
                     'query': {
                         method: 'GET',
@@ -25,7 +25,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceSearch', function($resource, env) {
+        .factory('OccurrenceSearch', function ($resource, env) {
             return $resource(env.dataApi + 'occurrence/search', null, {
                     'query': {
                         method: 'GET',
@@ -35,7 +35,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceTableSearch', function($resource) {
+        .factory('OccurrenceTableSearch', function ($resource) {
             return $resource('/api/occurrence/search', null, {
                     'query': {
                         method: 'GET',
@@ -46,7 +46,7 @@ var angular = require('angular');
             );
         })
         // This service connects to a proxy which returns processed result from /occurrence/download/dataset/:id.
-        .factory('DownloadEventsService', function($resource) {
+        .factory('DownloadEventsService', function ($resource) {
             return $resource('/occurrence-download-dataset/:id');
         })
     ;

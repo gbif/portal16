@@ -15,9 +15,9 @@
                     </div>
                     <div class="stripe-menu">
                         <span
-                           class="gb-icon-table stripe-menu__option stripe-menu__option is-active"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Table"></span>
+                                class="gb-icon-table stripe-menu__option stripe-menu__option is-active"
+                                tooltip-placement="bottom"
+                                uib-tooltip="Table"></span>
                         <a href="" ui-sref="occurrenceSearchGallery()"
                            class="gb-icon-photo stripe-menu__option"
                            tooltip-placement="bottom"
@@ -33,56 +33,60 @@
     </div>
 
     <div class="horizontal-stripe white-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"> </ng-include>
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
         <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
                 <div class="table-container">
                     <table class="table search-table">
                         <thead>
-                            <tr>
-                                <th class="text-capitalize" ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">{{field}}</th>
-                            </tr>
+                        <tr>
+                            <th class="text-capitalize"
+                                ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                                {{field}}
+                            </th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.occurrenceState.data.results" >
-                                <td class="table-cell--wide">
-                                    <a ng-href="{{result.key}}">{{result.scientificName}}</a>
-                                </td>
-                                <td class="table-cell--normal">
-                                    <a ng-href="{{result.key}}">{{result.country}}</a>
-                                </td>
-                                <td class="table-cell--normal">
-                                    <a ng-href="{{result.key}}">
-                                        {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
-                                    </a>
-                                </td>
-                                <td class="table-cell--normal">
-                                    <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
-                                </td>
-                                <td class="table-cell--narrow">
-                                    <a ng-href="{{result.key}}">
-                                        {{result.eventDate | amDateFormat:'MMMM YYYY'}}
-                                    </a>
-                                </td>
-                                <td class="table-cell--wide">
-                                    <a ng-href="{{result.key}}">{{result._datasetKey.title}}</a>
-                                </td>
-                                <td class="table-cell--narrow">
-                                    <a ng-href="{{result.key}}">{{result.issues.length}}</a>
-                                </td>
+                        <tr ng-repeat="result in occTable.occurrenceState.data.results">
+                            <td class="table-cell--wide">
+                                <a ng-href="{{result.key}}">{{result.scientificName}}</a>
+                            </td>
+                            <td class="table-cell--normal">
+                                <a ng-href="{{result.key}}">{{result.country}}</a>
+                            </td>
+                            <td class="table-cell--normal">
+                                <a ng-href="{{result.key}}">
+                                    {{occTable.formatCoordinates(result.decimalLatitude, result.decimalLongitude)}}
+                                </a>
+                            </td>
+                            <td class="table-cell--normal">
+                                <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
+                            </td>
+                            <td class="table-cell--narrow">
+                                <a ng-href="{{result.key}}">
+                                    {{result.eventDate | amDateFormat:'MMMM YYYY'}}
+                                </a>
+                            </td>
+                            <td class="table-cell--wide">
+                                <a ng-href="{{result.key}}">{{result._datasetKey.title}}</a>
+                            </td>
+                            <td class="table-cell--narrow">
+                                <a ng-href="{{result.key}}">{{result.issues.length}}</a>
+                            </td>
 
-                                <td class="table-cell--narrow">
-                                    <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</a>
-                                </td>
+                            <td class="table-cell--narrow">
+                                <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</a>
+                            </td>
 
-                                <td class="table-cell--narrow" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                                    <a ng-href="{{result.key}}">{{result[t]}}</a>
-                                </td>
+                            <td class="table-cell--narrow"
+                                ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                                <a ng-href="{{result.key}}">{{result[t]}}</a>
+                            </td>
 
-                                <td class="table-cell--wide">
-                                    <a ng-href="{{result.key}}">{{result.species}}</a>
-                                </td>
-                            </tr>
+                            <td class="table-cell--wide">
+                                <a ng-href="{{result.key}}">{{result.species}}</a>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

@@ -8,20 +8,20 @@
 //    });
 //});
 
-describe("CLIENT", function() {
-    it("contains spec with an expectation", function() {
+describe("CLIENT", function () {
+    it("contains spec with an expectation", function () {
         expect(true).toBe(true);
     });
 });
 
-describe("The 'toEqual' matcher", function() {
+describe("The 'toEqual' matcher", function () {
 
-    it("works for simple literals and variables", function() {
+    it("works for simple literals and variables", function () {
         var a = 12;
         expect(a).toEqual(12);
     });
 
-    it("should work for objects", function() {
+    it("should work for objects", function () {
         var foo = {
             a: 12,
             b: 34

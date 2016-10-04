@@ -1,150 +1,153 @@
 $speciesLookupActiveColor = #55afce;
 .speciesLookup {
-	&__dropArea {
-		width 200px
-		height 200px
-		background #ddd
-		border-radius 50%
-		margin auto
-		line-height 200px
-		text-align center
-		color white
-		&.over {background: tomato;}	
-	}
-	&__input-file {
-		position relative
-		width 250px
-		overflow hidden
-		margin auto
-		a {
-			// background $speciesLookupActiveColor
-			padding 5px 20px
-			// color #fff
-			transition all .4s
-			width 100%
-			text-align center
-			text-transform uppercase
-		}
-		input {
-			position absolute
-			display inline-block
-			left 0
-			top 0
-			right 0
-			bottom 0
-			opacity 0.01
-			cursor pointer
-			padding 5px 20px
-			width 100%
-		}
-		// input:hover + label,
-		// input:focus + label {
-		// 	background darken($speciesLookupActiveColor, 5)
-		// }
-	}
-	
-	&__default-kingdom {
-		text-align center
-		li {
-			width 80px
-			a.is-active>.h1:before {
-				background #55afce
-			    border-radius 50%
-			    color white
-			}
-		}
-		>div>* {
-			margin-bottom 10px
-		}
-	}
-	&__raw-table {
-		.table-container {
-			margin auto
-		}
-	}
-	.discreet {
-		color lighten($discreetInk, 40)
-	}
-	
-	&__overlay {
-		z-index 100
-		height 100% 
-		width 100%
-		position absolute
-		background rgba(0,0,0,0.1)
-		&__card {
-			background white
-			width 500px
-			max-width 100%
-			max-height 100%
-			margin auto
-			position fixed
-			left calc(50% - 250px)
-			top 10%
-			box-shadow 0 3px 2px rgba(0,0,0,0.2)
-			&__header {
-				padding 10px
-				text-align center
-			}
-			&__suggestions {
-				>div {
-					padding 10px 20px
-					&:nth-of-type(even) {
-						background $alternativeTableRow
-					}
-					&:hover {
-						background darken($alternativeTableRow, 5)
-					}
-				}
-			}
-			&__download {
-				>div>a {
-					width 200px
-					display block
-					height 200px
-					background #ddd
-					border-radius 50%
-					margin 30px auto
-					line-height 200px
-					text-align center
-					color white
-					&:hover {
-						background #bbb
-						text-decoration none
-					}
-					font-size 100px
-				}
-			}
-		}
-	}
-	&__generate {
-		padding 0 10px 20px 10px
-		a {
-			padding 10px 10px
-			&:hover {
-				background #eee
-			}
-		}
-	}
-	
-	.pagination-sm>li>a, .pagination-sm>li>span {
-		text-align center
-		min-width 3em
-	}
+    &__dropArea {
+        width 200px
+        height 200px
+        background #ddd
+        border-radius 50%
+        margin auto
+        line-height 200px
+        text-align center
+        color white
+        &.over {
+            background: tomato;
+        }
+    }
+    &__input-file {
+        position relative
+        width 250px
+        overflow hidden
+        margin auto
+        a {
+            // background $speciesLookupActiveColor
+            padding 5px 20px
+            // color #fff
+            transition all .4s
+            width 100%
+            text-align center
+            text-transform uppercase
+        }
+        input {
+            position absolute
+            display inline-block
+            left 0
+            top 0
+            right 0
+            bottom 0
+            opacity 0.01
+            cursor pointer
+            padding 5px 20px
+            width 100%
+        }
+        // input:hover + label,
+        // input:focus + label {
+        // 	background darken($speciesLookupActiveColor, 5)
+        // }
+    }
+
+    &__default-kingdom {
+        text-align center
+        li {
+            width 80px
+            a.is-active > .h1:before {
+                background #55afce
+                    border-radius 50%
+                    color white
+            }
+        }
+        > div > * {
+            margin-bottom 10px
+        }
+    }
+    &__raw-table {
+        .table-container {
+            margin auto
+        }
+    }
+    .discreet {
+        color lighten($discreetInk, 40)
+    }
+
+    &__overlay {
+        z-index 100
+        height 100%
+        width 100%
+        position absolute
+        background rgba(0, 0, 0, 0.1)
+        &__card {
+            background white
+            width 500px
+            max-width 100%
+            max-height 100%
+            margin auto
+            position fixed
+            left calc(50% - 250px)
+            top 10%
+            box-shadow 0 3px 2px rgba(0, 0, 0, 0.2)
+            &__header {
+                padding 10px
+                text-align center
+            }
+            &__suggestions {
+                > div {
+                    padding 10px 20px
+                    &:nth-of-type(even) {
+                        background $alternativeTableRow
+                    }
+                    &:hover {
+                        background darken($alternativeTableRow, 5)
+                    }
+                }
+            }
+            &__download {
+                > div > a {
+                    width 200px
+                    display block
+                    height 200px
+                    background #ddd
+                    border-radius 50%
+                    margin 30px auto
+                    line-height 200px
+                    text-align center
+                    color white
+                    &:hover {
+                        background #bbb
+                        text-decoration none
+                    }
+                    font-size 100px
+                }
+            }
+        }
+    }
+    &__generate {
+        padding 0 10px 20px 10px
+        a {
+            padding 10px 10px
+            &:hover {
+                background #eee
+            }
+        }
+    }
+
+    .pagination-sm > li > a, .pagination-sm > li > span {
+        text-align center
+        min-width 3em
+    }
 }
 
 .gb-button {
-	text-transform uppercase
-    padding 10px
-    display inline-block
+    text-transform uppercase
+        padding 10px
+        display inline-block
 }
+
 .gb-button--primary {
-	@extends .gb-button
-	background #55afce
-    color white
-    transition background 200ms ease
-    &:hover {
-    	background darken(#55afce, 5)
-    	color white
-    }
+    @extends .gb-button
+    background #55afce
+        color white
+        transition background 200ms ease
+        &:hover {
+            background darken(#55afce, 5)
+            color white
+        }
 }

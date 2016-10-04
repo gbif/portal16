@@ -28,7 +28,7 @@ angular
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license'];
         var exhaustiveFacets = [];
-        exhaustiveFacetsKeys.forEach(function(facet){
+        exhaustiveFacetsKeys.forEach(function (facet) {
             exhaustiveFacets.push(facet);
         });
 
@@ -39,8 +39,8 @@ angular
             return state;
         }
 
-        $rootScope.$on('$stateChangeSuccess', 
-            function(event, toState, toParams){
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -56,16 +56,16 @@ angular
 
             //when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {
-                Object.keys(advancedDefaults).forEach(function(keyDefault){
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     apiQuery[keyDefault] = advancedDefaults[keyDefault];
                 });
             }
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = OccurrenceTableSearch.query(apiQuery, function(){
+            state.data = OccurrenceTableSearch.query(apiQuery, function () {
                 state.failedRequest = false;
                 //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
 
@@ -73,20 +73,20 @@ angular
             apiQuery.facetMultiselect = true;
             apiQuery.limit = 0; //no need to get the same results again
             apiQuery.facet = [];
-            multiSelectFacetsKeys.forEach(function(key){
+            multiSelectFacetsKeys.forEach(function (key) {
                 if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {
                     apiQuery.facet.push(key);
                 }
             });
             if (state.facetMultiselect.$cancelRequest) state.facetMultiselect.$cancelRequest();
-            state.facetMultiselect = OccurrenceTableSearch.query(apiQuery, function(){
-            }, function() {
+            state.facetMultiselect = OccurrenceTableSearch.query(apiQuery, function () {
+            }, function () {
                 //TODO how to indicate missing facet data
             });
         }
 
         function update(query) {
-            $state.go('.', query, {inherit:false, notify: false, reload: false});
+            $state.go('.', query, {inherit: false, notify: false, reload: false});
             refreshData(query);
         }
 
@@ -100,12 +100,12 @@ angular
 
             //when in not advanced mode then remove parameters from URL that are filled with default values
             if (!state.query.advanced) {
-                Object.keys(advancedDefaults).forEach(function(keyDefault){
+                Object.keys(advancedDefaults).forEach(function (keyDefault) {
                     delete state.query[keyDefault];
                 });
             }
 
-            $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+            $state.go('.', state.query, {inherit: false, notify: false, reload: false});
             refreshData(state.query);
         }
 
@@ -115,7 +115,7 @@ angular
             for (var key in advancedDefaults) {
                 if (advancedDefaults.hasOwnProperty(key) && typeof state.query[key] !== 'undefined') {
                     state.query.advanced = true;
-                    $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+                    $state.go('.', state.query, {inherit: false, notify: false, reload: false});
                 }
             }
         }

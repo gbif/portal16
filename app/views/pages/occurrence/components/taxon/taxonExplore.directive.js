@@ -39,12 +39,14 @@ function taxonExploreDirective() {
             matchField: 'canonicalName',
             multiSelect: false,
             key: 'key',
-            onChange: function(selected){
-                var taxonKeys = selected.map(function(e){return e.key;});
+            onChange: function (selected) {
+                var taxonKeys = selected.map(function (e) {
+                    return e.key;
+                });
                 vm.query.taxonKey = taxonKeys;
                 $state.transitionTo($state.current, vm.query, {location: true, notify: false})
             },
-            onCancel: function(){
+            onCancel: function () {
                 vm.hide = true;
             }
         };

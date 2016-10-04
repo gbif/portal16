@@ -39,16 +39,17 @@ function enumFilterDirective() {
         vm.facets = {};
 
         function setModel(query) {
-            vm.filterConfig.enumValues.forEach(function(e){
+            vm.filterConfig.enumValues.forEach(function (e) {
                 vm.checkboxModel[e] = false;
             });
-            query.forEach(function(e){
+            query.forEach(function (e) {
                 vm.checkboxModel[e] = true;
             });
         }
+
         setModel(vm.query);
 
-        vm.getWidth = function(enumName) {
+        vm.getWidth = function (enumName) {
             if (!vm.filterState || !vm.filterState.data || !vm.filterState.data.facets || !vm.filterState.data.facets[vm.facetKey] || !vm.filterState.data.facets[vm.facetKey].counts || !vm.filterState.data.facets[vm.facetKey].counts[enumName]) {
                 return {
                     width: '0px'
@@ -62,34 +63,36 @@ function enumFilterDirective() {
             };
         };
 
-        vm.showFacetCount = function() {
+        vm.showFacetCount = function () {
             return vm.facetKey && !vm.collapsed && vm.query.length != 1;
         };
 
-        vm.reverse = function() {
-            vm.filterConfig.enumValues.forEach(function(key){
+        vm.reverse = function () {
+            vm.filterConfig.enumValues.forEach(function (key) {
                 vm.checkboxModel[key] = !vm.checkboxModel[key];
             });
             vm.apply();
         };
 
-        vm.uncheckAll = function() {
-            vm.filterConfig.enumValues.forEach(function(key){
+        vm.uncheckAll = function () {
+            vm.filterConfig.enumValues.forEach(function (key) {
                 vm.checkboxModel[key] = false;
             });
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
             if (vm.filterAutoUpdate) {
-                vm.query = vm.filterConfig.enumValues.filter(function(e){
+                vm.query = vm.filterConfig.enumValues.filter(function (e) {
                     return !!vm.checkboxModel[e];
                 });
                 vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
             }
         };
 
-        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
             setModel(vm.query);
         });

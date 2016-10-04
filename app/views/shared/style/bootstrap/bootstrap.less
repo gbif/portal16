@@ -1,9 +1,7 @@
 @import "../../../../../node_modules/bootstrap/less/bootstrap.less";
-
 // overwrite core variables and mixins
 @import "variables.less";
 @import "mixins.less";
-
 
 /*
   Original Bootstrap's CSS depends on empty href attributes to style cursors for several components (pagination, tabs etc.).
@@ -12,22 +10,24 @@
   See: https://angular-ui.github.io/bootstrap/
   The remedy is simple, just add the following styling to your application:
 */
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
 
 /*
 Bootstrap prefers to set internet explorer viewport width to 100% leading to a transparent overlaying scrollbar.
 That is very annoying and ie does so in a way that doesn't work well. This removes it.
 */
-@-ms-viewport{ width: auto !important; }
-
-
+@-ms-viewport {
+  width: auto !important;
+}
 
 .dropdown-menu {
-	border-radius: 0;
-	border: 1px solid rgba(0,0,0,.08);
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, .08);
 }
 
 .no-gutter > [class*='col-'] {
-	padding-right:0;
-	padding-left:0;
+  padding-right: 0;
+  padding-left: 0;
 }

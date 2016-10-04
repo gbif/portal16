@@ -17,7 +17,7 @@ angular
         }
 
         $rootScope.$on('$stateChangeSuccess',
-            function(event, toState, toParams){
+            function (event, toState, toParams) {
                 refreshData(toParams);
             }
         );
@@ -28,15 +28,15 @@ angular
             apiQuery = angular.copy(state.query);
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
-            state.data = PublisherSearch.query(apiQuery, function(){
+            state.data = PublisherSearch.query(apiQuery, function () {
                 state.failedRequest = false;
-            }, function() {
+            }, function () {
                 state.failedRequest = true;
             });
         }
 
         function update(query) {
-            $state.go('.', query, {inherit:false, notify: false, reload: false});
+            $state.go('.', query, {inherit: false, notify: false, reload: false});
             refreshData(query);
         }
 
@@ -47,7 +47,7 @@ angular
 
         function refresh() {
             state.query.offset = undefined;
-            $state.go('.', state.query, {inherit:false, notify: false, reload: false});
+            $state.go('.', state.query, {inherit: false, notify: false, reload: false});
             refreshData(state.query);
         }
 

@@ -1,66 +1,73 @@
 {% if results.datasets.count > 0 %}
-<div class="search-results horizontal-stripe white-background">
-     <section class="container--narrow">
-        <div class="search-results__list search-results__list--short-list row">
-            <div class="col-xs-12">
+    <div class="search-results horizontal-stripe white-background">
+        <section class="container--narrow">
+            <div class="search-results__list search-results__list--short-list row">
+                <div class="col-xs-12">
 
-                <div class="search-results__list--short-list__header">
-                    <h5>
-                        <a ui-sref="datasetSearchTable({q: '{$ query $}'})">
-                            {$ __('stdTerms.datasets') $}
-                        </a>
-                    </h5>
-                    {% if results.datasets.count > results.datasets.results.length %}
-                    <span class="small">
-                        <a ui-sref="datasetSearchTable({q: '{$ query $}'})" class="inherit">{$ __('stdTerms.nMore', (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) ) $}</a>
+                    <div class="search-results__list--short-list__header">
+                        <h5>
+                            <a ui-sref="datasetSearchTable({q: '{$ query $}'})">
+                                {$ __('stdTerms.datasets') $}
+                            </a>
+                        </h5>
+                        {% if results.datasets.count > results.datasets.results.length %}
+                            <span class="small">
+                        <a ui-sref="datasetSearchTable({q: '{$ query $}'})" class="inherit">{$ __('stdTerms.nMore',
+                            (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) )
+                            $}</a>
                     </span>
-                    {% endif %}
-                </div>
-
-                {% for result in results.datasets.results %}
-                <article class="search-results__list__item">
-                    <div>
-                         {% if result.type == 'OCCURRENCE' %}
-                        <a href="../dataset/{$ result.key $}" class="tile">
-                            <div class="teaser-map--small">
-                                <img src="/img/tile000/basemap-grey-light2.png">
-                                <img ng-src="{$ _meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$ result.key $}&type=DATASET&resolution=4">
-                            </div>
-                        </a>
                         {% endif %}
-                        <div>
-                            <h4 class="search-results__list__item__title">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ result.key $}">{$ result.title | striptags | truncate(80) | safe $}</a>
-                            </h4>
-                            <p class="search-results__list__item__meta">
-                                <span class="text-capitalize">{$ __('stdTerms.publishedBy') $}</span>
-                                <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.publishingOrganizationKey $}">{$ result.publishingOrganizationTitle | striptags | truncate(50) $}</a>
-                            </p>
-                            {% if result.description %}
-                            <h4 class="search-results__list__item__subtitle">{$ result.title | striptags | truncate(150) | safe $}</h4>
-                            {% endif %}
-                        </div>
-                        <ul class="list-chips">
-                            <li><a href="{$ gb.locales.urlPrefix $}/dataset/search?type={$ result.type $}">{$ __('dataset.longType.' + result.type) $}</a></li>
-                        </ul>
                     </div>
-                </article>
-                {% endfor %}
 
-                {% if results.datasets.count > results.datasets.results.length %}
-                <div class="row">
-                    <div class="col-xs-12">
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/search?q={$ query $}" class="pull-right search-results__list--short-list__more">
+                    {% for result in results.datasets.results %}
+                        <article class="search-results__list__item">
+                            <div>
+                                {% if result.type == 'OCCURRENCE' %}
+                                    <a href="../dataset/{$ result.key $}" class="tile">
+                                        <div class="teaser-map--small">
+                                            <img src="/img/tile000/basemap-grey-light2.png">
+                                            <img ng-src="{$ _meta.tileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={$ result.key $}&type=DATASET&resolution=4">
+                                        </div>
+                                    </a>
+                                {% endif %}
+                                <div>
+                                    <h4 class="search-results__list__item__title">
+                                        <a href="{$ gb.locales.urlPrefix $}/dataset/{$ result.key $}">{$ result.title |
+                                            striptags | truncate(80) | safe $}</a>
+                                    </h4>
+                                    <p class="search-results__list__item__meta">
+                                        <span class="text-capitalize">{$ __('stdTerms.publishedBy') $}</span>
+                                        <a href="{$ gb.locales.urlPrefix $}/publisher/{$ result.publishingOrganizationKey $}">{$
+                                            result.publishingOrganizationTitle | striptags | truncate(50) $}</a>
+                                    </p>
+                                    {% if result.description %}
+                                        <h4 class="search-results__list__item__subtitle">{$ result.title | striptags |
+                                            truncate(150) | safe $}</h4>
+                                    {% endif %}
+                                </div>
+                                <ul class="list-chips">
+                                    <li><a href="{$ gb.locales.urlPrefix $}/dataset/search?type={$ result.type $}">{$
+                                            __('dataset.longType.' + result.type) $}</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                    {% endfor %}
+
+                    {% if results.datasets.count > results.datasets.results.length %}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/search?q={$ query $}"
+                                   class="pull-right search-results__list--short-list__more">
                             <span>
                                 {$ __('stdTerms.nMore', (results.datasets.count - results.datasets.results.length) | locInt(gb.locales.current) ) $}
                             </span>
-                            <span class="gb-icon-right-arrow h2"></span>
-                        </a>
-                    </div>
+                                    <span class="gb-icon-right-arrow h2"></span>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 {% endif %}

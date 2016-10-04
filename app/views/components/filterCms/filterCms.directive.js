@@ -37,11 +37,15 @@ function filterCmsDirective() {
         // expand if checked.
         vm.expanded = vm.query.length > 0;
 
-        $scope.$watch(function(){return vm.filterState.query[vm.queryKey]}, function(newQuery){
+        $scope.$watch(function () {
+            return vm.filterState.query[vm.queryKey]
+        }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
         });
 
-        $scope.$watchCollection(function(){return vm.filterState.query}, function(newState, oldState){
+        $scope.$watchCollection(function () {
+            return vm.filterState.query
+        }, function (newState, oldState) {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && !angular.equals(newState, oldState)) {
                 vm.setFacetSuggestions();
             }
@@ -49,7 +53,7 @@ function filterCmsDirective() {
 
         vm.hideFacetCounts = false;
         vm.suggestions = {};
-        vm.setFacetSuggestions = function() {
+        vm.setFacetSuggestions = function () {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
                 if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
@@ -75,9 +79,9 @@ function filterCmsDirective() {
         vm.setFacetSuggestions();
 
         vm.searchSuggestions = [];
-        vm.getSuggestions = function() {
+        vm.getSuggestions = function () {
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
-                    return $http.get(vm.filterConfig.search.suggestEndpoint
+                return $http.get(vm.filterConfig.search.suggestEndpoint
                 ).then(function (response) {
                     vm.searchSuggestions = response.data;
                 });
@@ -85,15 +89,15 @@ function filterCmsDirective() {
         };
         vm.getSuggestions();
 
-        vm.inQuery = function(name){
+        vm.inQuery = function (name) {
             return vm.query.indexOf(name) != -1;
         };
 
-        vm.showFacetCount = function() {
+        vm.showFacetCount = function () {
             return vm.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
-        vm.getWidth = function(key) {
+        vm.getWidth = function (key) {
             if (!vm.suggestions.counts) return;
             if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
                 return {
@@ -108,7 +112,7 @@ function filterCmsDirective() {
             };
         };
 
-        vm.typeaheadSelect = function(item){ //  model, label, event
+        vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             var searchString = item.key.toString();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
@@ -118,7 +122,7 @@ function filterCmsDirective() {
             }
         };
 
-        vm.change = function(e, checked) {
+        vm.change = function (e, checked) {
             if (checked) {
                 vm.query.push(e);
             } else {
@@ -127,22 +131,22 @@ function filterCmsDirective() {
             vm.apply();
         };
 
-        vm.uncheckAll = function() {
+        vm.uncheckAll = function () {
             vm.query = [];
             vm.apply();
         };
 
-        vm.apply = function() {
+        vm.apply = function () {
             vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         };
 
-        vm.searchOnEnter = function(event) {
-            if(event.which === 13) {
+        vm.searchOnEnter = function (event) {
+            if (event.which === 13) {
                 vm.typeaheadSelect(vm.selected);
             }
         };
 
-        vm.allowSelection = function() {
+        vm.allowSelection = function () {
             return !vm.filterConfig.singleSelect || vm.query.length == 0;
         };
     }

@@ -1,46 +1,47 @@
 .table.table--compact {
-	thead {
-		border-bottom 1.5px solid #888
-		th {
-			border none
-		}
-	}
-	tr, td, th {
-		border none
-		padding 2px
-		overflow hidden
-		word-break break-word
-		hyphens auto
-		word-wrap break-word
-	}
-	tr:nth-of-type(even) {
-		background alpha(#F7F9FA, 1)
-	}
-	tbody tr:hover {
-		background darken(#F7F9FA, 10)
-	}
-	.table__tr--linked {
-		a {
-			display inline-block
-			width 100%
-			padding 2px
-			&:hover {
-				text-decoration none
-			}
-		}
-		td {
-			padding 0
-		}
-	}
+    thead {
+        border-bottom 1.5px solid #888
+        th {
+            border none
+        }
+    }
+    tr, td, th {
+        border none
+        padding 2px
+        overflow hidden
+        word-break break-word
+        hyphens auto
+        word-wrap break-word
+    }
+    tr:nth-of-type(even) {
+        background alpha(#F7F9FA, 1)
+    }
+    tbody tr:hover {
+        background darken(#F7F9FA, 10)
+    }
+    .table__tr--linked {
+        a {
+            display inline-block
+            width 100%
+            padding 2px
+            &:hover {
+                text-decoration none
+            }
+        }
+        td {
+            padding 0
+        }
+    }
 }
+
 .card {
-	.table.table--compact {
-		td {
-			a {
-				text-overflow ellipsis
-				white-space nowrap
-				padding-right 1em
-			}
-		}
-	}
+    .table.table--compact {
+        td {
+            a {
+                text-overflow ellipsis
+                white-space nowrap
+                padding-right 1em
+            }
+        }
+    }
 }

@@ -4,10 +4,11 @@
     <script>
         var gb = gb || {};
         gb.occurrenceRecord = {$ angularInitData | rawJson | safe $};
-//        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
-//        gb.rm = {$ occurrence | rawJson | safe $}
+        //        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
+        //        gb.rm = {$ occurrence | rawJson | safe $}
     </script>
-    <article class="wrapper-horizontal-stripes occurrenceKey page--data" ng-controller="occurrenceKeyCtrl as occurrence">
+    <article class="wrapper-horizontal-stripes occurrenceKey page--data"
+             ng-controller="occurrenceKeyCtrl as occurrence">
         <div class="overlay"></div>
 
         {% include('./header/header.nunjucks') %}
@@ -28,23 +29,27 @@
 {# TODO find correct email is more complicated than just choosing the first on i suppose #}
 {% block tools %}
     {% if occurrence.dataset.contacts[0].email[0] or occurrence.annotation %}
-    <div class="fab" fab>
-        <div class="fab__trigger">
-            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>
+        <div class="fab" fab>
+            <div class="fab__trigger">
+                <a href="" class="action-flow btn btn-lg btn-highlight btn-circle"
+                   tooltip="{$ __('stdTerms.feedbackOnData') $}"><i class="gb-icon-comment"></i></a>
+            </div>
+            <ul class="fab__options">
+                {% if occurrence.annotation %}
+                    <li class="fab__options__primary">
+                        <a href="{$ occurrence.annotation.url $}"
+                           class="action-flow btn btn-lg btn-highlight btn-circle"
+                           tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>
+                    </li>
+                {% endif %}
+                {% if occurrence.dataset.contacts[0].email[0] %}
+                    <li>
+                        <a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"
+                           class="action-flow btn btn-lg btn-highlight btn-circle"
+                           tooltip="{$ __('stdTerms.sendPublisherMail') $}"><i class="gb-icon-mail"></i></a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
-        <ul class="fab__options">
-            {% if occurrence.annotation %}
-                <li class="fab__options__primary">
-                    <a href="{$ occurrence.annotation.url $}" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ occurrence.annotation.name $}">{$ occurrence.annotation.abbrivation $}</a>
-                </li>
-            {% endif %}
-            {% if occurrence.dataset.contacts[0].email[0] %}
-                <li>
-                    <a href="mailto:{$ occurrence.dataset.contacts[0].email[0] $}?subject=Record annotation&body=Feedback on GBIF mediated record http://gbif.org/occurrence/{$ occurrence.record.key $}"
-                       class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="{$ __('stdTerms.sendPublisherMail') $}"><i class="gb-icon-mail"></i></a>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
     {% endif %}
 {% endblock %}

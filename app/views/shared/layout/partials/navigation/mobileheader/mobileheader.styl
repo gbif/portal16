@@ -1,26 +1,26 @@
 .site-header {
-	siteHeaderBar()
-	a {
-		text-decoration none
-		color inherit
-		menuTextShadow()
-	}
+    siteHeaderBar()
+    a {
+        text-decoration none
+        color inherit
+        menuTextShadow()
+    }
 
-	.site-header__mobile-options {
-		> div {
-			width 33.33%
-			display block
-			float left
-			&:nth-of-type(2) {
-				text-align center
-			}
-			&:nth-of-type(3) {
-				text-align right
-			}
-		}
-	}
+    .site-header__mobile-options {
+        > div {
+            width 33.33%
+            display block
+            float left
+            &:nth-of-type(2) {
+                text-align center
+            }
+            &:nth-of-type(3) {
+                text-align right
+            }
+        }
+    }
 }
 
-.is-active.site-header__search-toggle:before, .site-header.is-active .site-header__menu-toggle:before{
-	content $icon-string-close_L
+.is-active.site-header__search-toggle:before, .site-header.is-active .site-header__menu-toggle:before {
+    content $icon-string-close_L
 }

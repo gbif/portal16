@@ -8,10 +8,10 @@ angular
 /** @ngInject */
 function projectCtrl(DevDatasetSearch) {
     var vm = this;
-    vm.getRelatedDatasets = function() {
-        DevDatasetSearch.query({project_id: vm.projectId}).$promise.then(function(response){
+    vm.getRelatedDatasets = function () {
+        DevDatasetSearch.query({project_id: vm.projectId}).$promise.then(function (response) {
             vm.relatedDatasets = response.results;
-        }, function(error){
+        }, function (error) {
             return error;
         });
     };

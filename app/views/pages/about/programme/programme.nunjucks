@@ -16,23 +16,24 @@
                             {$ data.summary | safe $}
                         </div>
                         {% if data.funders.length > 0 %}
-                        <div class="funders__block">
-                            <div class="funders-lead">This programme is funded by</div>
-                            {% set comma = joiner('and') %}
-                            {% for funder in data.funders %}
-                                <div class="funders">
-                                    <h5>{$ comma() $}</h5>
-                                    {% if funder.title != 'GBIF' %}
-                                        <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
-                                    {% else %}
-                                        <h5>{$ funder.title $}</h5>
-                                    {% endif %}
-                                    {% if funder.title != 'GBIF' %}
-                                        <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        </div>
+                            <div class="funders__block">
+                                <div class="funders-lead">This programme is funded by</div>
+                                {% set comma = joiner('and') %}
+                                {% for funder in data.funders %}
+                                    <div class="funders">
+                                        <h5>{$ comma() $}</h5>
+                                        {% if funder.title != 'GBIF' %}
+                                            <a href="{$ funder.url.url $}"><h5>{$ funder.title $}</h5></a>
+                                        {% else %}
+                                            <h5>{$ funder.title $}</h5>
+                                        {% endif %}
+                                        {% if funder.title != 'GBIF' %}
+                                            <a href="{$ funder.url.url $}"><img
+                                                        ng-src="{$ funder.image.styles.funder_image $}"></a>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     </header>
                 </div>
@@ -41,7 +42,8 @@
         {% if images[0].width > 1000 %}
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                    <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}"
+                         gallery-image>
                 </div>
                 <figcaption class="container-fluid container--prose">
                     {$ images[0].image_field_caption.value | safe $}
@@ -56,72 +58,76 @@
             </div>
         </div>
         {% if data.relatedProjects.length > 0 %}
-        <div class="horizontal-stripe--paddingless white-background">
-            <div class="container-fluid">
-                <div class="row">
-                    {% include "./includes/projectTable.nunjucks" %}
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="container-fluid">
+                    <div class="row">
+                        {% include "./includes/projectTable.nunjucks" %}
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
         {% if data.relatedResources.length > 0 %}
-        <div class="horizontal-stripe">
-            <div class="container-fluid container--prose">
-                <div class="body-text prose-columns--single-col">
-                    <h4>Related documents and information</h4>
-                    <ul class="list-links--programme-resources">
-                        {% for resource in data.relatedResources %}
-                            <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
-                        {% endfor %}
-                        {% for file in data.file %}
-                            <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
-                        {% endfor %}
-                    </ul>
+            <div class="horizontal-stripe">
+                <div class="container-fluid container--prose">
+                    <div class="body-text prose-columns--single-col">
+                        <h4>Related documents and information</h4>
+                        <ul class="list-links--programme-resources">
+                            {% for resource in data.relatedResources %}
+                                <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
+                            {% endfor %}
+                            {% for file in data.file %}
+                                <li><a href="{$ file.original $}" download>{$ file.filename
+                                        $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
         {% if data.relatedNews.length > 0 %}
-        <aside class="horizontal-stripe horizontal-stripe--card light-background">
-            <div class="container-fluid container--related-stories">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <article class="container-fluid card card--nav">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                    <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}" gallery-image alt="">
+            <aside class="horizontal-stripe horizontal-stripe--card light-background">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}"
+                                             gallery-image alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span>{$ __('cms.programme.relatedNews') $}</span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.relatedNews[0].targetUrl $}">
+                                                {$ data.relatedNews[0].title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
                                 </div>
-                                <div class="col-xs-12 col-md-7 card__content">
-                                    <span>{$ __('cms.programme.relatedNews') $}</span>
-                                    <h2 class="h4">
-                                        <a href="/{$ data.relatedNews[0].targetUrl $}">
-                                            {$ data.relatedNews[0].title | truncate(80) $}
-                                        </a>
-                                    </h2>
+                            </article>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <article class="container-fluid card card--nav">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
+                                        <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}"
+                                             gallery-image alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 card__content">
+                                        <span>{$ __('cms.programme.relatedNews') $}</span>
+                                        <h2 class="h4">
+                                            <a href="/{$ data.relatedNews[1].targetUrl $}">
+                                                {$ data.relatedNews[1].title | truncate(80) $}
+                                            </a>
+                                        </h2>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <article class="container-fluid card card--nav">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                    <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
-                                </div>
-                                <div class="col-xs-12 col-md-7 card__content">
-                                    <span>{$ __('cms.programme.relatedNews') $}</span>
-                                    <h2 class="h4">
-                                        <a href="/{$ data.relatedNews[1].targetUrl $}">
-                                            {$ data.relatedNews[1].title | truncate(80) $}
-                                        </a>
-                                    </h2>
-                                </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
         {% endif %}
     </article>
 {% endblock %}

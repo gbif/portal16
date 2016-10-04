@@ -3,7 +3,7 @@
 {% block page %}
     <script>
         var gb = gb || {};
-        gb.datasetKey =  {
+        gb.datasetKey = {
             key: '{$ dataset.record.key $}'
         };
     </script>
@@ -24,14 +24,15 @@
             {% include('./contributors/contributors.nunjucks') %}
             {% include('./bibliography/bibliography.nunjucks') %}
         </div>
-        
+
 
         <section id="gbif-registration-info" class="horizontal-stripe bare-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox" >
-                        <label for="gbif-registration-info-toggle"><h2 class="h4">GBIF Registration Information</h2></label>
+                        <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox">
+                        <label for="gbif-registration-info-toggle"><h2 class="h4">GBIF Registration Information</h2>
+                        </label>
                         <div>
                             {# This template is included in datasetDetails.nunjucks. #}
                             <div class="row">
@@ -42,7 +43,8 @@
                                         <li>Registered on: {$ dataset.record.created | formatDate() $}</li>
                                         <li>Last updated on: {$ dataset.record.modified | formatDate() $}</li>
                                         {% if dataset.process.results[0] %}
-                                            <li>Latest process: {$ dataset.process.results[0].finishReason $} {# TODO check available enumerations and format them. #}
+                                            <li>Latest process: {$ dataset.process.results[0].finishReason
+                                                $} {# TODO check available enumerations and format them. #}
                                                 <ul class="no-indent">
                                                     <li>Crawling:
                                                         {% if dataset.process.results[0].finishedCrawling %}
@@ -65,33 +67,37 @@
                                 </div>
                                 <div class="col-xs-6 col-md-4">
                                     {% if dataset.installation.key %}
-                                    <h5>Technically served by</h5>
-                                    <ul class="no-indent">
-                                        {# TODO Suggest datasets served by the same installation. #}
-                                        <li><a href="#">{$ dataset.installation.title $}</a></li>
-                                        {% if dataset.installation.contacts[0] %}
-                                            <li>
-                                                <ul class="no-indent">
-                                                    {% for contact in dataset.installation.contacts %}
-                                                        {% if contact.type == 'TECHNICAL_POINT_OF_CONTACT' %}
-                                                            <li>Technical contact: {% if contact.email[0] %}<a href="mailto:{$ contact.email[0] $}">{% endif %}{$ contact.firstName $} {$ contact.lastName $}{% if contact.email[0] %}</a>{% endif %}</li>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </ul>
-                                            </li>
-                                        {% endif %}
-                                    </ul>
+                                        <h5>Technically served by</h5>
+                                        <ul class="no-indent">
+                                            {# TODO Suggest datasets served by the same installation. #}
+                                            <li><a href="#">{$ dataset.installation.title $}</a></li>
+                                            {% if dataset.installation.contacts[0] %}
+                                                <li>
+                                                    <ul class="no-indent">
+                                                        {% for contact in dataset.installation.contacts %}
+                                                            {% if contact.type == 'TECHNICAL_POINT_OF_CONTACT' %}
+                                                                <li>Technical contact: {% if contact.email[0] %}<a
+                                                                            href="mailto:{$ contact.email[0] $}">{% endif %}
+                                                                        {$ contact.firstName $} {$ contact.lastName
+                                                                        $}{% if contact.email[0] %}</a>{% endif %}</li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
                                     {% endif %}
                                 </div>
                                 <div class="col-xs-6 col-md-4">
                                     <h5>Source data</h5>
                                     <ul class="no-indent">
-                                        <li><a href="{$ api.dataset.url $}{$ datasetDetails.key $}/document">Metadata (EML)</a></li>
+                                        <li><a href="{$ api.dataset.url $}{$ datasetDetails.key $}/document">Metadata
+                                                (EML)</a></li>
                                         {% if dataset.record.endpoints[0] %}
                                             {% for endpoint in dataset.record.endpoints %}
                                                 {% if endpoint.type == 'DWC_ARCHIVE' %}
                                                     <li><a href="{$ endpoint.url $}">Darwin Core Archive</a></li>
-                                                {% elif endpoint.type == 'EML' %}
+                                                    {% elif endpoint.type == 'EML' %}
                                                     <li><a href="{$ endpoint.url $}">Original metadata (EML)</a></li>
                                                 {% endif %}
                                             {% endfor %}
@@ -102,7 +108,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-md-8">
                                     {% if dataset._computedValues.identifiers[0] %}
-                                    <h5>Alternative identifiers</h5>
+                                        <h5>Alternative identifiers</h5>
                                         <ul class="no-indent">
                                             {% for id in dataset._computedValues.identifiers %}
                                                 <li>{$ id.formattedString | safe $}</li>

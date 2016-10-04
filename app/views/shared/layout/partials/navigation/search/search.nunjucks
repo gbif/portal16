@@ -13,7 +13,8 @@
                            ng-init="omniSearch.freeTextQuery == ''"
                            ng-model="omniSearch.freeTextQuery"
                            placeholder="Occurrences, species, news ...">
-                    <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="omniSearch.updateSearch()">
+                    <a href="" type="submit" class="gb-icon-search search-bar__search"
+                       ng-click="omniSearch.updateSearch()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>
                 </form>
@@ -40,10 +41,12 @@
                         Publishers
                     </a>
                     {% for type in ['news', 'data_use', 'programme', 'project', 'document', 'presentation', 'tool'] %}
-                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}" translate="cms.contentType.{$ type $}">
+                        <a href=""
+                           ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}"
+                           translate="cms.contentType.{$ type $}">
                             {$ type $}
                         </a>
-                    {%  endfor %}
+                    {% endfor %}
                 </div>
             </div>
 

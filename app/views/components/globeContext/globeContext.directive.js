@@ -30,7 +30,7 @@ function globeContextDirective() {
         var vm = this;
 
         function getPointGeoJson(center) {
-            return  {
+            return {
                 "type": "FeatureCollection",
                 "features": [
                     {
@@ -47,6 +47,7 @@ function globeContextDirective() {
                 ]
             }
         }
+
         function getBboxGeoJson(bounds) {
             return {
                 "type": "FeatureCollection",
@@ -144,7 +145,7 @@ function globeContextDirective() {
             context.strokeStyle = "#bbb";
             context.stroke();
 
-             //point
+            //point
             if (vm.globeOptions.zoom > 3) {
                 context.beginPath();
                 path(getPointGeoJson({lat: lat, lng: lng}));
@@ -160,7 +161,9 @@ function globeContextDirective() {
             context.stroke();
         }
 
-        $scope.$watchCollection(function(){return vm.globeOptions;}, function(newOptions){
+        $scope.$watchCollection(function () {
+            return vm.globeOptions;
+        }, function (newOptions) {
             setCenter(newOptions.center.lat, newOptions.center.lng, newOptions.bounds);
         }, true);
 

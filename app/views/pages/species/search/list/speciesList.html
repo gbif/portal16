@@ -16,12 +16,12 @@
                     </div>
                     <div class="stripe-menu">
                         <span class="gb-icon-menu stripe-menu__option is-active"
-                           tooltip-placement="bottom"
-                           uib-tooltip="List"></span>
+                              tooltip-placement="bottom"
+                              uib-tooltip="List"></span>
                         <a href="" ui-sref="speciesSearchTable()"
-                            class="gb-icon-table stripe-menu__menu stripe-menu__option"
-                            tooltip-placement="bottom"
-                            uib-tooltip="Table"></a>
+                           class="gb-icon-table stripe-menu__menu stripe-menu__option"
+                           tooltip-placement="bottom"
+                           uib-tooltip="Table"></a>
                     </div>
                 </div>
             </div>
@@ -30,17 +30,19 @@
 
 
     <div class="horizontal-stripe white-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"> </ng-include>
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
         <div ng-show="speciesList.hasData()">
 
             <div class="container--narrow">
                 <div class="search-results__list row">
                     <div class="col-xs-12">
 
-                        <article class="search-results__list__item" ng-repeat="species in speciesList.state.data.results">
+                        <article class="search-results__list__item"
+                                 ng-repeat="species in speciesList.state.data.results">
                             <span class="search-results__list__item__tag"><span>{{species.rank}}</span><span>{{species.taxonomicStatus}}</span></span>
                             <div>
-                                <a href="../species/{{row.key}}" class="tile" ng-if="speciesList.backboneKey == species.datasetKey">
+                                <a href="../species/{{row.key}}" class="tile"
+                                   ng-if="speciesList.backboneKey == species.datasetKey">
                                     <div class="teaser-map--small">
                                         <img src="/img/tile000/basemap-grey-light2.png">
                                         <img ng-src="{{speciesList.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">
@@ -52,14 +54,18 @@
                                             {{species.scientificName | stripTags | limitTo:150}}
                                         </a>
                                     </h4>
-                                    <p class="search-results__list__item__meta" ng-if="speciesList.state.query.advanced">
-                                        Checklist: <a class="" href="../dataset/{{ species.datasetKey }}">{{species._datasetKey.title | limitTo:50 }}</a>
+                                    <p class="search-results__list__item__meta"
+                                       ng-if="speciesList.state.query.advanced">
+                                        Checklist: <a class="" href="../dataset/{{ species.datasetKey }}">{{species._datasetKey.title
+                                        | limitTo:50 }}</a>
                                     </p>
                                     <!--<p ng-if="speciesList.getVernacularNameMatch(species)">-->
-                                        <!--Common name in <span translate="language.{{speciesList.getVernacularNameMatch(species).language}}"></span>: <span ng-bind-html="speciesList.getVernacularNameMatch(species).vernacularName"></span>-->
+                                    <!--Common name in <span translate="language.{{speciesList.getVernacularNameMatch(species).language}}"></span>: <span ng-bind-html="speciesList.getVernacularNameMatch(species).vernacularName"></span>-->
                                     <!--</p>-->
                                     <p class="discreet classification-list">
-                                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" ng-if="species[taxa] && taxa != species.rank.toLowerCase()" ng-bind-html="species[taxa]"></span>
+                                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                                              ng-if="species[taxa] && taxa != species.rank.toLowerCase()"
+                                              ng-bind-html="species[taxa]"></span>
                                     </p>
 
                                     <p ng-if="species.acceptedKey">
@@ -71,15 +77,15 @@
                         </article>
 
                         <uib-pagination
-                            total-items="speciesList.state.data.count"
-                            ng-model="speciesList.currentPage"
-                            max-size="speciesList.maxSize"
-                            items-per-page="speciesList.limit"
-                            class="pagination-sm"
-                            boundary-link-numbers="false"
-                            rotate="false"
-                            ng-change="speciesList.pageChanged()"
-                            ng-show="speciesList.state.data.count > speciesList.limit">
+                                total-items="speciesList.state.data.count"
+                                ng-model="speciesList.currentPage"
+                                max-size="speciesList.maxSize"
+                                items-per-page="speciesList.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="speciesList.pageChanged()"
+                                ng-show="speciesList.state.data.count > speciesList.limit">
                         </uib-pagination>
                     </div>
                 </div>
