@@ -1,18 +1,28 @@
 .dataset-key__visual-summary {
+	&__wrapper {
+		display flex
+		position relative
+	}
+	&__map {
+		flex 1 1 auto
+		gbmap {
+			height 360px
+		}
+	}
 	&__counts {
+		flex 0 0 auto
 		padding 1rem
-		overflow hidden
+		height 360px
+		>div {
+			overflow hidden
+			width 150px
+		}
 		>p {
 			margin-bottom vrBlock(1)
 		}
-			
-		>div {
-			display flex
-			justify-content flex-start
-			flex-wrap wrap
-		}
 		&__group {
-			flex 1 0 auto
+			display inline-block
+			width 100%
 			text-align center
 			padding-right 10px
 			margin-bottom vrBlock(0.5)
@@ -25,18 +35,27 @@
 
 		}
 	}
-}
-+isAbove($laptop) {
-	.dataset-key__visual-summary {
-		&__counts {
-			&__group {
-				padding 0 $halfGutter
-				flex 0 0 auto
-			}
+	&__counts--double {
+		>div {
+			width 300px
+		}
+		.dataset-key__visual-summary__counts__group {
+			width 140px
 		}
 	}
 }
 
+//+isAbove($laptop) {
+//	.dataset-key__visual-summary {
+//		&__counts {
+//			&__group {
+//				padding 0 $halfGutter
+//				flex 0 0 auto
+//			}
+//		}
+//	}
+//}
+//
 .radial-progress {
 	width 85px
 	height 85px
@@ -61,22 +80,22 @@
 	background-position center
 }
 
-.dataset-key__visual-summary__map {
-	&__container {
-		padding-bottom 50%
-		gbmap {
-			position absolute
-			height 100%
-			width 100%
-		}
-	}
-}
-+isAbove($laptop) {
-	.dataset-key__visual-summary__map {
-		position relative
-		z-index 1
-		&__container {
-			margin-top vrBlock(1)
-		}
-	}
-}
+//.dataset-key__visual-summary__map {
+//	&__container {
+//		padding-bottom 50%
+//		gbmap {
+//			position absolute
+//			height 100%
+//			width 100%
+//		}
+//	}
+//}
+//+isAbove($laptop) {
+//	.dataset-key__visual-summary__map {
+//		position relative
+//		z-index 1
+//		&__container {
+//			margin-top vrBlock(1)
+//		}
+//	}
+//}

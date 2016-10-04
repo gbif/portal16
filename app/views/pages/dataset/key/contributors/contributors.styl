@@ -67,7 +67,7 @@
 }
 
 
-.flex-columns, .flex-columns-wide {
+.flex-columns {
 	margin auto
 	display flex
 	flex-wrap wrap
@@ -75,14 +75,13 @@
 		flex 0 1 auto
 		width 100%
 	}
-	max-width $laptop
 	>div {
 		margin-top 10px
 	}
 }
 
-+isAbove(400px) {
-	.flex-columns, .flex-columns-wide {
++isAbove(500px) {
+	.flex-columns {
 		>div {
 			width 50%
 		}
@@ -90,19 +89,9 @@
 }
 
 +isAbove(900px) {
-	.flex-columns, .flex-columns-wide {
+	.flex-columns {
 		>div {
-			width 25%
-		}
-	}
-}
-
-+isAbove( $XL ) {
-	.flex-columns-wide {
-		margin auto
-		max-width $XL
-		>div {
-			width 20%
+			width 33%
 		}
 	}
 }

@@ -1,11 +1,11 @@
-<section class="horizontal-stripe light-background dataset-key__contributors" id="dataset_contributors">
-    <div class="container--normal">
+<section class="horizontal-stripe white-background dataset-key__contributors" id="dataset_contributors">
+    <div class="container--narrow">
         <span class="relative-anchor-offset"><a name="contributors"></a></span>
         <h2 class="h4">Contributors</h2>
     </div>
     <div>
         <div>
-            <div class="flex-columns {% if dataset._computedValues.contributors.all.length > 4 %}flex-columns-wide{% endif %}">
+            <div class="container--narrow flex-columns">
 
                 {% for contributor in dataset._computedValues.contributors.all %}
                 <div class="dataset-key__contributors__item">

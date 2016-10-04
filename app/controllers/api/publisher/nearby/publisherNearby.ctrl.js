@@ -7,27 +7,9 @@ var express = require('express'),
 
 const querystring = require('querystring');
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.use('/api/publisher', router);
 };
-
-router.get('/nearby', function(req, res) {
-	var userIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	getNearByPublishers(userIp, function(publishers){
-		res.json(publishers);
-	});
-});
-
-function getCountryFromIp(userIp, cb) {
-	//use local max mind data to find country
-	cb("DK");
-}
-
-function getNearByPublishers(userIp, cb){
-	getCountryFromIp(userIp, function(countryCode){
-		publisherSearch({country: countryCode}).then(cb);
-	});
-}
 
 function publisherSearch(query) {
     "use strict";
@@ -41,6 +23,6 @@ function publisherSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 3, timeoutMilliSeconds:10000});
+    }, {retries: 3, timeoutMilliSeconds: 10000});
     return deferred.promise;
 }

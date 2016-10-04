@@ -13,11 +13,17 @@
         {% include('./visualSummary/visualSummary.nunjucks') %}
         {# {% include('./images/images.nunjucks') %} #}
 
-        {% include('./text/text.nunjucks') %}
-        
-        {% include('./citation/citation.nunjucks') %}
-        {% include('./bibliography/bibliography.nunjucks') %}
-        {% include('./contributors/contributors.nunjucks') %}
+        <div class="submenu-wrapper" id="submenuWrapper">
+            {% include('./text/submenu.nunjucks') %}
+
+            {% include('./text/text.nunjucks') %}
+
+            {% include('./project/project.nunjucks') %}
+
+            {% include('./citation/citation.nunjucks') %}
+            {% include('./contributors/contributors.nunjucks') %}
+            {% include('./bibliography/bibliography.nunjucks') %}
+        </div>
         
 
         <section id="gbif-registration-info" class="horizontal-stripe bare-background">

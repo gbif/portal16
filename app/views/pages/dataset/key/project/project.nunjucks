@@ -1,5 +1,5 @@
 {% if dataset.record.project %}
-    <section class="horizontal-stripe light-background dataset-key__text dataset-key__text__project" id="id_project">
+    <section class="horizontal-stripe white-background dataset-key__text dataset-key__text__project" id="id_project">
         <span class="relative-anchor-offset"><a name="about"></a></span>
         <div class="container--narrow">
             <div>
