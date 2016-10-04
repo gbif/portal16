@@ -48,31 +48,31 @@ router.post('/count', function (req, res) {
             referenceId: referenceId
         });
     }
-    
+
 });
 
 function countSpecies(list, names, countryCode, referenceId) {
-    countItems(list, countryCode, function(data){
+    countItems(list, countryCode, function (data) {
         saveResults(data, names, referenceId);
     });
 }
 
 function countItem(item, countryCode, callback) {
     speciesCount({
-        taxon_key: item, 
-        country:countryCode
-    }).then(function(data){
+        taxon_key: item,
+        country: countryCode
+    }).then(function (data) {
         callback(null, {
             taxon_key: item,
             count: data.count
         });
-    }, function(err){
+    }, function (err) {
         callback(err);
     });
 }
 
 function countItems(list, countryCode, callback) {
-    async.mapLimit(list, 10, function(item, cb){
+    async.mapLimit(list, 10, function (item, cb) {
         countItem(item, countryCode, cb);
     }, function (err, data) {
         if (err) {
@@ -95,27 +95,27 @@ function speciesCount(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 3, timeoutMilliSeconds:10000});
+    }, {retries: 3, timeoutMilliSeconds: 10000});
     return deferred.promise;
 }
 
-function saveResults(data, names, referenceId){
+function saveResults(data, names, referenceId) {
     var client = github.client({
-      username: 'mortenhofft',
-      password: require('../../../../../config/config').githubPassword
+        username: 'mortenhofft',
+        password: require('../../../../../config/config').githubPassword
     });
 
     var ghrepo = client.repo('MortenHofft/slettes');
 
     var content = getCsvContent(data, names);
-    ghrepo.createContents(referenceId + '/counts.csv', 'created from user request', content, function(){ //err, data, headers
+    ghrepo.createContents(referenceId + '/counts.csv', 'created from user request', content, function () { //err, data, headers
     }); //path
 }
 
 function getCsvContent(data, names) {
     var csvContent = 'key, scientificName, count\n';
     //write rows
-    data.forEach(function(e, i){
+    data.forEach(function (e, i) {
         //write row
         csvContent += e.taxon_key + ',"' + names[i] + '",' + e.count + '\n';
     });

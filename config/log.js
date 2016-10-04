@@ -15,7 +15,7 @@ var loglevels = Object.freeze({
 
 loglevel = typeof loglevels[loglevel] !== 'undefined' ? loglevels[loglevel] : loglevels.info;
 
-if (!fs.existsSync(dir)){
+if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
 
@@ -95,7 +95,6 @@ var log = bunyan.createLogger({
 
 
 log.info({state: 'initialising log'}, 'initialising log');
-
 
 
 module.exports = log;

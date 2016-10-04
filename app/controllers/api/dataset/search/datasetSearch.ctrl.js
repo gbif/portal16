@@ -13,7 +13,7 @@ module.exports = function (app) {
 };
 
 router.get('/dataset/search', function (req, res, next) {
-    datasetSearch(req.query).then(function(data) {
+    datasetSearch(req.query).then(function (data) {
         let settings = {
             facets: true,
             query: req.query,
@@ -29,7 +29,7 @@ router.get('/dataset/search', function (req, res, next) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function(err){
+        gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
@@ -38,7 +38,7 @@ router.get('/dataset/search', function (req, res, next) {
             }
         });
 
-    }, function(err){
+    }, function (err) {
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         console.log('error in ctrl ' + err);

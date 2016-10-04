@@ -44,7 +44,7 @@ var config = {
  */
 config.paths = {
     root: rootPath,
-    src: 'app/views', 
+    src: 'app/views',
     dist: 'public'
     // e2e: 'e2e'
 };
@@ -62,11 +62,11 @@ config.wiredep = {
 wiredep = require('wiredep')(config.wiredep);
 
 
-var bowerCss = !wiredep.css ? [] : wiredep.css.map(function(e) {
+var bowerCss = !wiredep.css ? [] : wiredep.css.map(function (e) {
     return path.relative('.', e);
 });
 
-var bowerJs = !wiredep.js ? [] : wiredep.js.map(function(e) {
+var bowerJs = !wiredep.js ? [] : wiredep.js.map(function (e) {
     return path.relative('.', e);
 });
 
@@ -129,7 +129,7 @@ config.js = {
     }
 };
 
- /**
+/**
  *  front end environment constants for api calls. These are generated from command line arguments and defaults to prod
  */
 config.envConstants = {
@@ -157,7 +157,7 @@ config.iconfont = {
 };
 
 
- /**
+/**
  *  Delete everyting in this folder before building
  */
 config.clean = {
@@ -168,8 +168,8 @@ config.clean = {
 /**
  *  Common implementation for an error handler of a Gulp plugin
  */
-config.errorHandler = function(title) {
-    return function(err) {
+config.errorHandler = function (title) {
+    return function (err) {
         gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
         this.emit('end');
     };

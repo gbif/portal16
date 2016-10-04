@@ -1,9 +1,9 @@
 "use strict";
 
 var express = require('express'),
-    //Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
-    //contributors = require('./contributors/contributors'),
-    //bibliography = require('./bibliography/bibliography'),
+//Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
+//contributors = require('./contributors/contributors'),
+//bibliography = require('./bibliography/bibliography'),
     dataset = require('./datasetViewData'),
     router = express.Router();
 
@@ -21,7 +21,7 @@ router.get('/dataset2/:key\.:ext?', function (req, res, next) {
     if (!isGuid(datasetKey)) {
         next();
     } else {
-        dataset.getDataset(datasetKey, function(err, viewData) {
+        dataset.getDataset(datasetKey, function (err, viewData) {
             if (err) {
                 next(err);
             } else {

@@ -10,12 +10,16 @@ function getTerms(callback) {
 }
 
 function getRemarkTypes(callback) {
-    helper.getApiData(api.occurrenceInterpretation.url, callback, {timeoutMilliSeconds: 10000, retries: 5, failHard: true});
+    helper.getApiData(api.occurrenceInterpretation.url, callback, {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true
+    });
 }
 
 function getQualifiedToSimple(terms) {
     var map = {};
-    terms.forEach(function(term){
+    terms.forEach(function (term) {
         map[term.qualifiedName] = term.simpleName;
     });
     return map;
@@ -25,7 +29,7 @@ function transformRemarks(remarks, terms) {
     var nameMap = getQualifiedToSimple(terms),
         remarksMap = {};
 
-    remarks.remarks.forEach(function(remark){
+    remarks.remarks.forEach(function (remark) {
         remark.relatedSimpleTerms = remark.relatedTerms.map(x => nameMap[x]);
         remarksMap[remark.type] = remark;
     });
@@ -40,10 +44,10 @@ function sortTerms(terms) {
     [
         'day', 'month', 'year',
         'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'specificEpithet'
-    ].forEach(function(e, i) {
+    ].forEach(function (e, i) {
         termOrder[e] = i - 1000;
     });
-    terms.sort(function(a, b) {
+    terms.sort(function (a, b) {
         var indexA = termOrder[a.simpleName] || 0;
         var indexB = termOrder[b.simpleName] || 0;
         return indexA - indexB;
@@ -53,7 +57,7 @@ function sortTerms(terms) {
 
 function getOccurrenceMetaData() {
     var deferred = Q.defer();
-    async.parallel({terms: getTerms, remarks: getRemarkTypes}, function(err, data){
+    async.parallel({terms: getTerms, remarks: getRemarkTypes}, function (err, data) {
         if (err !== null) {
             deferred.reject(new Error(err));
         } else if (data) {

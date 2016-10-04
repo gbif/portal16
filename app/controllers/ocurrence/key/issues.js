@@ -1,13 +1,13 @@
 "use strict";
-var _  = require('lodash');
+var _ = require('lodash');
 
 function getFieldsWithIssues(occurrenceIssues, remarks) {
     let fieldsWithRemarks = {};
-    occurrenceIssues.forEach(function(issue) {
+    occurrenceIssues.forEach(function (issue) {
         if (_.isUndefined(remarks[issue])) {
             return;
         }
-        remarks[issue].relatedSimpleTerms.forEach(function(term){
+        remarks[issue].relatedSimpleTerms.forEach(function (term) {
             fieldsWithRemarks[term] = fieldsWithRemarks[term] || [];
             fieldsWithRemarks[term].push({
                 type: issue,
@@ -21,7 +21,7 @@ function getFieldsWithIssues(occurrenceIssues, remarks) {
 
 function getFieldsWithDifferences(interpreted, verbatim, terms) {
     let fieldsWithDifferences = {};
-    terms.forEach(function(term) {
+    terms.forEach(function (term) {
         let i = '' + interpreted[term.simpleName],
             v = '' + verbatim[term.qualifiedName];
 
@@ -45,7 +45,7 @@ function getSummary(occurrenceIssues, remarks) {
         return undefined;
     }
     var summary = undefined;
-    occurrenceIssues.forEach(function(e){
+    occurrenceIssues.forEach(function (e) {
         let remark = remarks[e];
 
         //handle remarks that isn't listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation

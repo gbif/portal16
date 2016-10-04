@@ -6,7 +6,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     i18n = require("i18n"),
     bodyparser = require('body-parser');
-    //log = rootRequire('config/log'),
+//log = rootRequire('config/log'),
 
 module.exports = function (app, config) {
     var env = config.env || 'dev';
@@ -37,7 +37,7 @@ module.exports = function (app, config) {
         defaultLocale: defaultLocale,
         directory: './locales/server/',
         objectNotation: true,
-        fallbacks:{'da': 'en'},
+        fallbacks: {'da': 'en'},
         updateFiles: false
     });
     app.use(i18n.init);
@@ -58,7 +58,6 @@ module.exports = function (app, config) {
     app.use(compress());
     app.use(express.static(config.root + '/public'));
     app.use(methodOverride());
-
 
 
     /**

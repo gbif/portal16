@@ -1,6 +1,6 @@
 'use strict';
 
-var	resource = require('../resource'),
+var resource = require('../resource'),
     api = require('../apiConfig'),
     cmsApi = require('../../cmsData/apiConfig');
 
@@ -16,7 +16,7 @@ Dataset.get = function (key, options) {
     if (typeof options.expand === 'undefined') {
         return promise;
     } else {
-        return promise.then(function(dataset) {
+        return promise.then(function (dataset) {
             return dataset.expand(options.expand)
         });
     }
@@ -59,7 +59,7 @@ Dataset.prototype.expand = function (fieldNames) {
                 extendToField: 'datasetRefLookup'
             }
         };
-    fieldNames.forEach(function(e) {
+    fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
     return resource.extend(this).with(resources);

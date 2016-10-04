@@ -41,11 +41,11 @@ router.get('/occurrence-download-dataset/:key', function (req, res) {
         offset = req.query.offset,
         limit = req.query.limit;
 
-    request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function(error, response, body) {
+    request(api.occurrenceDownloadDataset.url + datasetKey + '?offset=' + offset + '&limit=' + limit, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var processedBody = reconstructQueryFromPredicates(JSON.parse(body));
             processQueryTable(processedBody, res.__).then(
-                function(data) {
+                function (data) {
                     res.json(data);
                 }, function (err) {
                     console.log(err);
@@ -89,7 +89,9 @@ function renderPage(req, res, dataset) {
 }
 
 function doiToUrl(doi) {
-    if (doi) { return doi.replace('doi:', 'http://dx.doi.org/'); }
+    if (doi) {
+        return doi.replace('doi:', 'http://dx.doi.org/');
+    }
 }
 
 /**
@@ -98,19 +100,19 @@ function doiToUrl(doi) {
  */
 function metadataElementsToFold(datasetDetails) {
     var metadataElementsToFold = [
-        { title: "Description", property: "description" },
-        { title: "Purpose", property: "purpose" },
-        { title: "Temporal coverage", property: "temporalCoverages" },
-        { title: "Geographic coverage", property: "geographicCoverages" },
-        { title: "Taxonomic coverage", property: "taxonomicCoverages" },
-        { title: "Project", property: "project" },
-        { title: "Sampling description", property: "samplingDescription" },
-        { title: "Data description", property: "dataDescriptions" },
-        { title: "Curatorial units", property: "curatorialUnits" },
-        { title: "Collections", property: "collections" },
-        { title: "Keyword collections", property: "keywordCollections" },
-        { title: "Additional information", property: "additionalInfo"},
-        { title: "Bibliographic citations", property: "bibliographicCitations" }
+        {title: "Description", property: "description"},
+        {title: "Purpose", property: "purpose"},
+        {title: "Temporal coverage", property: "temporalCoverages"},
+        {title: "Geographic coverage", property: "geographicCoverages"},
+        {title: "Taxonomic coverage", property: "taxonomicCoverages"},
+        {title: "Project", property: "project"},
+        {title: "Sampling description", property: "samplingDescription"},
+        {title: "Data description", property: "dataDescriptions"},
+        {title: "Curatorial units", property: "curatorialUnits"},
+        {title: "Collections", property: "collections"},
+        {title: "Keyword collections", property: "keywordCollections"},
+        {title: "Additional information", property: "additionalInfo"},
+        {title: "Bibliographic citations", property: "bibliographicCitations"}
     ];
     var results = [];
 
@@ -149,7 +151,7 @@ function metadataElementsToFold(datasetDetails) {
                                 }
                             });
                             // Sort ranks with arbitrary order
-                            var sortedRanks = availableRanks.sort(function(a, b){
+                            var sortedRanks = availableRanks.sort(function (a, b) {
                                 return ranks.indexOf(a) - ranks.indexOf(b);
                             });
 
@@ -157,9 +159,9 @@ function metadataElementsToFold(datasetDetails) {
                             sortedRanks.forEach(function (sortedRank) {
                                 var newCoverage = {rank: sortedRank, taxa: []};
 
-                                originalCoverage.coverages.forEach(function(coverage) {
+                                originalCoverage.coverages.forEach(function (coverage) {
                                     var taxon = {};
-                                    var searchUrl = function(name) {
+                                    var searchUrl = function (name) {
                                         var url = '/species/search?=';
                                         url = url + name.replace(' ', '+');
                                         return url;
@@ -204,7 +206,7 @@ function metadataElementsToFold(datasetDetails) {
                     // check valid contacts exist before returning
                     var organizedContacts = organizeContacts(datasetDetails[elementToFold.property], 'OTHER');
                     var valid = false;
-                    organizedContacts.forEach(function(c){
+                    organizedContacts.forEach(function (c) {
                         if (c.contacts.length >= 1) {
                             valid = true;
                         }
@@ -294,7 +296,7 @@ function organizeContacts(sourceContacts, mode) {
 
     roles.forEach(function (role) {
         role.contacts = [];
-        sourceContacts.forEach(function(sourceContact){
+        sourceContacts.forEach(function (sourceContact) {
             if (sourceContact.type == role.type) {
 
                 // Process firstName, lastName and email here so the template is cleaner.
@@ -313,7 +315,7 @@ function organizeContacts(sourceContacts, mode) {
 
                 var exists = false;
                 if (role.contacts[0]) {
-                    role.contacts.forEach(function(c){
+                    role.contacts.forEach(function (c) {
                         if (c.key == sourceContact.key) {
                             exists = true;
                         }
@@ -342,7 +344,7 @@ function organizeContactsByName(sourceContacts, __) {
     // Clone the array.
     var contacts = _.cloneDeep(sourceContacts);
     // First change the type property to array.
-    contacts.forEach(function(contact){
+    contacts.forEach(function (contact) {
         var roles = [];
         var addressFields = ['address', 'city', 'province', 'postalCode'];
         var addressLine = '';
@@ -350,11 +352,11 @@ function organizeContactsByName(sourceContacts, __) {
         contact.type = roles;
         contact.name = (contact.firstName) ? contact.firstName : '';
         contact.name += (contact.lastName) ? ' ' + contact.lastName : '';
-        addressFields.forEach(function(field, i){
+        addressFields.forEach(function (field, i) {
             if (contact[field]) {
                 if (i != 0) addressLine += ', ';
                 if (field == 'address') {
-                    contact[field].forEach(function(add, ai){
+                    contact[field].forEach(function (add, ai) {
                         if (ai != 0) addressLine += ', ';
                         addressLine += add;
                     });
@@ -371,10 +373,10 @@ function organizeContactsByName(sourceContacts, __) {
         contact.addressLine = addressLine;
     });
     var results = [];
-    contacts.forEach(function(contact){
+    contacts.forEach(function (contact) {
         // check if a contact with the same name already exists in the result
         var exists = false;
-        results.forEach(function(result, ri){
+        results.forEach(function (result, ri) {
             if (result.name == contact.name) {
                 // double check if email is the same
                 var sharedEmails = _.intersection(result.email, contact.email);
@@ -406,10 +408,10 @@ function organizeContactsByName(sourceContacts, __) {
 function processIdentifiers(identifiers) {
     var processedIdentifiers = [];
     var typeToDisplay = ['DOI', 'URL', 'UUID', 'LSID', 'FTP', 'UNKNOWN'];
-    identifiers = identifiers.sort(function(a, b){
+    identifiers = identifiers.sort(function (a, b) {
         return typeToDisplay.indexOf(a.type) - typeToDisplay.indexOf(b.type);
     });
-    identifiers.forEach(function(id){
+    identifiers.forEach(function (id) {
         if (typeToDisplay.indexOf(id.type) != -1) {
             var idObj = {};
             idObj.formattedString = id.type + ' ' + setAnchor(id.identifier);
@@ -437,53 +439,53 @@ function reconstructQueryFromPredicates(body) {
         results: []
     };
     var searchParameters = [
-        { type: 'DATASET_KEY', label: 'Dataset Key'},
-        { type: 'YEAR', label: 'Year'},
-        { type: 'MONTH', label: 'Month'},
-        { type: 'EVENT_DATE', label: 'Event date'},
-        { type: 'LAST_INTERPRETED', label: 'Last interpreted'},
-        { type: 'DECIMAL_LATITUDE', label: 'Decimal latitude'},
-        { type: 'DECIMAL_LONGITUDE', label: 'Decimal longitude'},
-        { type: 'COUNTRY', label: 'Country'},
-        { type: 'CONTINENT', label: 'Continent'},
-        { type: 'PUBLISHING_COUNTRY', label: 'Publishing country'},
-        { type: 'ELEVATION', label: 'Elevation'},
-        { type: 'DEPTH', label: 'Depth'},
-        { type: 'INSTITUTION_CODE', label: 'Institution code'},
-        { type: 'COLLECTION_CODE', label: 'Collection code'},
-        { type: 'CATALOG_NUMBER', label: 'Catalog number'},
-        { type: 'RECORDED_BY', label: 'Recorded by'},
-        { type: 'RECORD_NUMBER', label: 'Record number'},
-        { type: 'BASIS_OF_RECORD', label: 'Basis of record'},
-        { type: 'TAXON_KEY', label: 'Taxon'},
-        { type: 'KINGDOM_KEY', label: 'Kingdom'},
-        { type: 'PHYLUM_KEY', label: 'Phylum'},
-        { type: 'CLASS_KEY', label: 'Class'},
-        { type: 'ORDER_KEY', label: 'Order'},
-        { type: 'FAMILY_KEY', label: 'Family'},
-        { type: 'GENUS_KEY', label: 'Genus'},
-        { type: 'SUBGENUS_KEY', label: 'Subgenus'},
-        { type: 'SPECIES_KEY', label: 'Species'},
-        { type: 'SCIENTIFIC_NAME', label: 'Scientific name'},
-        { type: 'HAS_COORDINATE', label: 'Has coordinate'},
-        { type: 'GEOMETRY', label: 'Geometry'},
-        { type: 'HAS_GEOSPATIAL_ISSUE', label: 'Has geospatial issue'},
-        { type: 'ISSUE', label: 'Issue'},
-        { type: 'TYPE_STATUS', label: 'Type status'},
-        { type: 'MEDIA_TYPE', label: 'Media type'},
-        { type: 'OCCURRENCE_ID', label: 'Occurrence ID'},
-        { type: 'ESTABLISHMENT_MEANS', label: 'Establishment Means'}
+        {type: 'DATASET_KEY', label: 'Dataset Key'},
+        {type: 'YEAR', label: 'Year'},
+        {type: 'MONTH', label: 'Month'},
+        {type: 'EVENT_DATE', label: 'Event date'},
+        {type: 'LAST_INTERPRETED', label: 'Last interpreted'},
+        {type: 'DECIMAL_LATITUDE', label: 'Decimal latitude'},
+        {type: 'DECIMAL_LONGITUDE', label: 'Decimal longitude'},
+        {type: 'COUNTRY', label: 'Country'},
+        {type: 'CONTINENT', label: 'Continent'},
+        {type: 'PUBLISHING_COUNTRY', label: 'Publishing country'},
+        {type: 'ELEVATION', label: 'Elevation'},
+        {type: 'DEPTH', label: 'Depth'},
+        {type: 'INSTITUTION_CODE', label: 'Institution code'},
+        {type: 'COLLECTION_CODE', label: 'Collection code'},
+        {type: 'CATALOG_NUMBER', label: 'Catalog number'},
+        {type: 'RECORDED_BY', label: 'Recorded by'},
+        {type: 'RECORD_NUMBER', label: 'Record number'},
+        {type: 'BASIS_OF_RECORD', label: 'Basis of record'},
+        {type: 'TAXON_KEY', label: 'Taxon'},
+        {type: 'KINGDOM_KEY', label: 'Kingdom'},
+        {type: 'PHYLUM_KEY', label: 'Phylum'},
+        {type: 'CLASS_KEY', label: 'Class'},
+        {type: 'ORDER_KEY', label: 'Order'},
+        {type: 'FAMILY_KEY', label: 'Family'},
+        {type: 'GENUS_KEY', label: 'Genus'},
+        {type: 'SUBGENUS_KEY', label: 'Subgenus'},
+        {type: 'SPECIES_KEY', label: 'Species'},
+        {type: 'SCIENTIFIC_NAME', label: 'Scientific name'},
+        {type: 'HAS_COORDINATE', label: 'Has coordinate'},
+        {type: 'GEOMETRY', label: 'Geometry'},
+        {type: 'HAS_GEOSPATIAL_ISSUE', label: 'Has geospatial issue'},
+        {type: 'ISSUE', label: 'Issue'},
+        {type: 'TYPE_STATUS', label: 'Type status'},
+        {type: 'MEDIA_TYPE', label: 'Media type'},
+        {type: 'OCCURRENCE_ID', label: 'Occurrence ID'},
+        {type: 'ESTABLISHMENT_MEANS', label: 'Establishment Means'}
     ];
 
-    var parsePredicates = (function f(p, cGroup){
+    var parsePredicates = (function f(p, cGroup) {
         if (p.key) {
             var typeGroup = {label: '', type: '', values: []};
-            searchParameters.forEach(function(sp){
+            searchParameters.forEach(function (sp) {
                 if (sp.type == p.key) {
                     typeGroup.label = sp.label;
 
                     var exists = false;
-                    cGroup.forEach(function(tg, i){
+                    cGroup.forEach(function (tg, i) {
                         if (tg.label == typeGroup.label) {
                             exists = true;
                             cGroup[i].values.push({comparison: p.type, value: p.value});
@@ -499,8 +501,8 @@ function reconstructQueryFromPredicates(body) {
                 }
             });
         }
-        else if (p.predicates){
-            p.predicates.forEach(function(pp) {
+        else if (p.predicates) {
+            p.predicates.forEach(function (pp) {
                 f(pp, cGroup);
             });
         }
@@ -509,18 +511,18 @@ function reconstructQueryFromPredicates(body) {
     // http://www.gbif.org/occurrence/search?TAXON_KEY=9432&TAXON_KEY=5498&TAXON_KEY=9369&TAXON_KEY=6160&TAXON_KEY=2439923&TAXON_KEY=3240591&TAXON_KEY=2439920&TAXON_KEY=795&TAXON_KEY=2439881&TAXON_KEY=785&TAXON_KEY=731&TAXON_KEY=732&TAXON_KEY=798&TAXON_KEY=9418&TAXON_KEY=5489&TAXON_KEY=5219955&TAXON_KEY=5506&TAXON_KEY=5219946&TAXON_KEY=9619&COUNTRY=PA&COUNTRY=CO&COUNTRY=EC&COUNTRY=CR&COUNTRY=VE&HAS_COORDINATE=true&YEAR=2000%2C*
     function constructQueryUrl(cGroup) {
         var url = 'http://www.gbif.org/occurrence/search?';
-        cGroup.forEach(function(cg, cgi){
+        cGroup.forEach(function (cg, cgi) {
 
             // First to check whether there is any comparison that is not "equal"
             // If yes, those need to be considered as a group.
             var multipleComparison = false;
-            cg.values.forEach(function(v){
+            cg.values.forEach(function (v) {
                 if (v.comparison != 'equal') multipleComparison = true;
             });
 
             if (multipleComparison == true && cg.values.length == 2) {
                 var lower, upper, processedValue;
-                cg.values.forEach(function(v){
+                cg.values.forEach(function (v) {
                     switch (v.comparison) {
                         case 'greaterThanOrEquals':
                             lower = v.value;
@@ -543,7 +545,7 @@ function reconstructQueryFromPredicates(body) {
                 url += cg.type + '=' + encodeURIComponent(processedValue);
             }
             else {
-                cg.values.forEach(function(v, vi) {
+                cg.values.forEach(function (v, vi) {
                     if (cgi != 0 || vi != 0) url += '&';
                     url += cg.type + '=' + v.value;
                 });
@@ -559,7 +561,7 @@ function reconstructQueryFromPredicates(body) {
      */
     function humanReadableQuery(cGroup) {
         var table = [];
-        cGroup.forEach(function(cg){
+        cGroup.forEach(function (cg) {
             var tableObj = {
                 filterType: cg.label,
                 filterValues: [],
@@ -569,13 +571,13 @@ function reconstructQueryFromPredicates(body) {
             // First to check whether there is any comparison that is not "equal"
             // If yes, those need to be considered as a group.
             var multipleComparison = false;
-            cg.values.forEach(function(v){
+            cg.values.forEach(function (v) {
                 if (v.comparison != 'equals') multipleComparison = true;
             });
 
             if (multipleComparison == true) {
                 var lower, upper, processedValue;
-                cg.values.forEach(function(v){
+                cg.values.forEach(function (v) {
                     switch (v.comparison) {
                         case 'greaterThanOrEquals':
                             lower = v.value;
@@ -605,7 +607,7 @@ function reconstructQueryFromPredicates(body) {
         return table;
     }
 
-    body.results.forEach(function(result) {
+    body.results.forEach(function (result) {
         var criteriaGroup = [];
         if (result.download.request.predicate) {
             parsePredicates(result.download.request.predicate, criteriaGroup);
@@ -636,22 +638,22 @@ function reconstructQueryFromPredicates(body) {
 function processQueryTable(body, __) {
     var defer = Q.defer();
     var tasks = [];
-    body.results.forEach(function(result, ri){
+    body.results.forEach(function (result, ri) {
         var requestUrls = [];
-        result.queryTable.forEach(function(row){
+        result.queryTable.forEach(function (row) {
             switch (row.filterType) {
                 case 'Taxon':
-                    row.filterValues.forEach(function(v, vi){
+                    row.filterValues.forEach(function (v, vi) {
                         requestUrls[vi] = api.taxon.url + v.value;
                     });
                     break;
                 case 'Country':
-                    row.filterValues.forEach(function(v){
+                    row.filterValues.forEach(function (v) {
                         v.value = __('country.' + v.value);
                     });
                     break;
                 case 'Basis of record':
-                    row.filterValues.forEach(function(v){
+                    row.filterValues.forEach(function (v) {
                         v.value = __('basisOfRecord.' + v.value);
                     });
                     break;
@@ -661,15 +663,15 @@ function processQueryTable(body, __) {
     });
 
     var processedTaxonValuePromises = [];
-    tasks.forEach(function(lists, i){
+    tasks.forEach(function (lists, i) {
         processedTaxonValuePromises[i] = getTaxonName(lists);
     });
 
-    Q.all(processedTaxonValuePromises).then(function(values){
+    Q.all(processedTaxonValuePromises).then(function (values) {
         // add processed names to body
-        values.forEach(function(v, vi){
+        values.forEach(function (v, vi) {
             if (body.results[vi].queryTable && v.length != 0) {
-                body.results[vi].queryTable.forEach(function(row, roi){
+                body.results[vi].queryTable.forEach(function (row, roi) {
                     if (row.filterType == 'Taxon') {
                         body.results[vi].queryTable[roi].processedValue = v;
                     }
@@ -677,7 +679,7 @@ function processQueryTable(body, __) {
             }
         });
         defer.resolve(body);
-    }, function(err){
+    }, function (err) {
         defer.reject(new Error(err));
     });
     return defer.promise;
@@ -686,8 +688,8 @@ function processQueryTable(body, __) {
 function getTaxonName(lists) {
     var deferred = Q.defer();
     var processedTaxonValue = '';
-    async.map(lists, function(url, callback){
-        request(url, function (error, response, body){
+    async.map(lists, function (url, callback) {
+        request(url, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 var result = JSON.parse(body).canonicalName;
                 callback(null, result);
@@ -696,7 +698,7 @@ function getTaxonName(lists) {
                 callback(error || response.statusCode);
             }
         });
-    }, function(err, results) {
+    }, function (err, results) {
         if (!err) {
             processedTaxonValue = results.join(', ');
             deferred.resolve(processedTaxonValue);

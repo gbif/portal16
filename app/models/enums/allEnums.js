@@ -7,6 +7,6 @@ module.exports = {
     "mediaType": require('./basic/mediaType.json'),
     "rank": require('./basic/rank.json'),
     "occurrenceIssue": require('./basic/occurrenceIssue.json'),
-    "license":  require('./basic/license.json'),
-    "datasetType":  require('./basic/datasetType.json')
+    "license": require('./basic/license.json'),
+    "datasetType": require('./basic/datasetType.json')
 };

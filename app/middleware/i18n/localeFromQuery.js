@@ -1,8 +1,8 @@
 /**
-Express middleware
-Extracts the language from url and attaches it on the response so it is available in templates and elsewhere down stream.
-It also sets the locale of the i18n framework for handling translations.
-*/
+ Express middleware
+ Extracts the language from url and attaches it on the response so it is available in templates and elsewhere down stream.
+ It also sets the locale of the i18n framework for handling translations.
+ */
 
 //Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
 //e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'

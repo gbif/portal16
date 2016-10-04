@@ -6,9 +6,9 @@ var helper = require('../util/util'),
 function getTasks(list, settings, __) {
     var tasks = [];
     let facetTypeConfig = settings.expandConfig;
-    Object.keys(list).forEach(function(facetType){
+    Object.keys(list).forEach(function (facetType) {
         let ftc = facetTypeConfig[facetType];
-        list[facetType].forEach(function(e){
+        list[facetType].forEach(function (e) {
             if (typeof ftc === 'undefined') {
                 e.title = e.name;
             } else if (ftc.type == 'ENUM') {
@@ -16,7 +16,7 @@ function getTasks(list, settings, __) {
             } else if (ftc.type == 'KEY') {
                 var task = {
                     endpoint: ftc.endpoint + e.name,
-                    cb: function(err, data){
+                    cb: function (err, data) {
                         e.title = data[ftc.fromKey]
                     }
                 };
@@ -54,13 +54,13 @@ function expand(data, settings, __, cb) {
 
 
         async.parallel({
-            facetFilters: function(callback) {
+            facetFilters: function (callback) {
                 async.each(tasks, expandKey, callback);
             },
-            resultList: function(callback) {
+            resultList: function (callback) {
                 getResultTasks(data.results, settings.expandList, callback)
             }
-        }, function(err) {
+        }, function (err) {
             if (err) {
                 cb(err, data);
             } else {
@@ -74,22 +74,22 @@ function expand(data, settings, __, cb) {
 
         //getResultTasks(data.results, config.resultKeys, cb);
         //async.each(tasks, expandKey, cb);
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 }
 
 function facetArrayToMap(data) {
     var facetMap = {};
-    Object.keys(data.facets).forEach(function(key){
+    Object.keys(data.facets).forEach(function (key) {
         let facetType = data.facets[key];
         facetMap[key] = {};
         var facetCountMap = {};
         var max = 0;
-        facetType.forEach(function(e){
+        facetType.forEach(function (e) {
             facetCountMap[e.name] = {
                 count: e.count,
-                fraction: e.count/data.count,
+                fraction: e.count / data.count,
                 title: e.title
             };
             max = e.count > max ? e.count : max;
@@ -116,7 +116,7 @@ function getFilterTasks(data, settings, __) {
     let query = settings.query || {};
     let facetTypeConfig = settings.expandConfig;
     data.filters = {};
-    Object.keys(query).forEach(function(key){
+    Object.keys(query).forEach(function (key) {
         let k = key.toUpperCase();
         //if (['facet', 'locale', 'offset', 'limit'].indexOf(key) >= 0) return;
 
@@ -125,7 +125,7 @@ function getFilterTasks(data, settings, __) {
         data.filters[k] = [];
 
         let queryParams = [].concat(query[key]);
-        queryParams.forEach(function(e){
+        queryParams.forEach(function (e) {
             data.filters[k].push({
                 name: e
             });
@@ -134,9 +134,9 @@ function getFilterTasks(data, settings, __) {
     return getTasks(data.filters, settings, __);
 }
 
-function filterObj( obj, reference ) {
-    let keysToDelete = _.difference(_.keys( obj ), reference);
-    keysToDelete.forEach(function(key){
+function filterObj(obj, reference) {
+    let keysToDelete = _.difference(_.keys(obj), reference);
+    keysToDelete.forEach(function (key) {
         delete obj[key];
     });
     return obj;
@@ -154,10 +154,10 @@ function getResultTasks(results, expandList, cb) {
     if (!_.isArray(expandList)) {
         expandList = [];
     }
-    expandList.forEach(function(expandItem){
+    expandList.forEach(function (expandItem) {
         let fromKey = expandItem.fromKey,
             expandConfig = expandItem.type;
-        results.forEach(function(e){
+        results.forEach(function (e) {
             if (expandConfig && expandConfig.type == 'KEY') {
                 tasks[fromKey + '_' + e[fromKey]] = function (cb) {
                     helper.getApiData(expandConfig.endpoint + e[fromKey], cb);
@@ -171,14 +171,14 @@ function getResultTasks(results, expandList, cb) {
     });
 
     //run tasks
-    async.parallel(tasks, function(err, data){
+    async.parallel(tasks, function (err, data) {
         if (_.isUndefined(err)) {
             cb(new Error(err), null);
         } else {
             //once all the keys and their values is returned, then attach to the individual results that have that specific key
             results.forEach(function (e) {
                 //prune the extended results to keep the response json small
-                expandList.forEach(function(expandItem){
+                expandList.forEach(function (expandItem) {
                     let toKey = expandItem.toKey || expandItem.fromKey;
                     e['_' + toKey] = filterObj(data[expandItem.fromKey + '_' + e[expandItem.fromKey]], expandItem.fields || ['title']);
                 });
@@ -189,7 +189,7 @@ function getResultTasks(results, expandList, cb) {
 }
 
 function expandKey(task, callback) {
-    helper.getApiData(task.endpoint, function(err, data){
+    helper.getApiData(task.endpoint, function (err, data) {
         task.cb(err, data);
         callback(null, true);
     }, {timeoutMilliSeconds: 5000, retries: 3});

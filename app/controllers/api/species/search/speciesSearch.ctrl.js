@@ -13,7 +13,7 @@ module.exports = function (app) {
 };
 
 router.get('/species/search', function (req, res, next) {
-    speciesSearch(req.query).then(function(data) {
+    speciesSearch(req.query).then(function (data) {
         data = prune(data, ['descriptions']);
         let settings = {
             facets: true,
@@ -32,7 +32,7 @@ router.get('/species/search', function (req, res, next) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function(err){
+        gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
@@ -42,7 +42,7 @@ router.get('/species/search', function (req, res, next) {
             }
         });
 
-    }, function(err){
+    }, function (err) {
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         console.log('error in ctrl ' + err);
@@ -52,8 +52,8 @@ router.get('/species/search', function (req, res, next) {
 
 function prune(data, keys) {
     "use strict";
-    data.results.forEach(function(item){
-        keys.forEach(function(key){
+    data.results.forEach(function (item) {
+        keys.forEach(function (key) {
             delete item[key];
         });
     });
@@ -72,7 +72,7 @@ function speciesSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 3, timeoutMilliSeconds:10000});
+    }, {retries: 3, timeoutMilliSeconds: 10000});
     return deferred.promise;
 }
 
@@ -110,7 +110,7 @@ const expandConfig = {
     },
     MEDIA: {
         type: 'TEMPLATE',
-        templatedEndpoint: apiConfig.taxon.url  + '{{key}}/media',
+        templatedEndpoint: apiConfig.taxon.url + '{{key}}/media',
         fromKey: 'key'
     }
 };

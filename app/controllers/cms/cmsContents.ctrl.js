@@ -4,13 +4,13 @@ var express = require('express'),
     format = require('../../helpers/format'),
     cmsApi = require('../../models/cmsData/apiConfig'),
     cmsData = require('../../models/cmsData/cmsData'),
-    md = require('markdown-it')({html:true,linkify:true,typographer:true});
+    md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
 md.use(require('markdown-it-video'), {
-    youtube: { width: 640, height: 390 },
-    vimeo: { width: 500, height: 281 },
-    vine: { width: 600, height: 600, embed: 'simple' },
-    prezi: { width: 550, height: 400 }
+    youtube: {width: 640, height: 390},
+    vimeo: {width: 500, height: 281},
+    vine: {width: 600, height: 600, embed: 'simple'},
+    prezi: {width: 550, height: 400}
 });
 
 module.exports = function (app) {
@@ -28,7 +28,7 @@ router.get([
         '/participant/:requestedPath(*)',
         '/resource/:requestedPath(*)'
     ],
-    function(req, res, next) {
+    function (req, res, next) {
         var originalUrl,
             requestedPath,
             jsonOutput = false;
@@ -56,8 +56,8 @@ router.get([
         // prefix of the content type in the new site. So rendering happens when the targetUrl matches
         // requestedUrl.
         cmsData.cmsEndpointAccess(cmsApi.urlLookup.url + requestedPath)
-            .then(function(data){
-                if (typeof data.data[0] == 'object' && typeof data.data[0].targetUrl == 'string' ) {
+            .then(function (data) {
+                if (typeof data.data[0] == 'object' && typeof data.data[0].targetUrl == 'string') {
                     if (data.data[0].targetUrl == requestedPath) {
                         var contentType = data.data[0].type;
                         var nid = data.data[0].id;
@@ -73,12 +73,12 @@ router.get([
                     return cmsData.cmsEndpointAccess(cmsApi.urlLookup.url + originalUrlForLookup);
                 }
             })
-            .then(function(data) {
+            .then(function (data) {
                 // Render content if the result is not from URL Lookup.
                 if (typeof data.data[0] == 'object' && data.data[0].hasOwnProperty('created') && data.data[0].hasOwnProperty('title')) {
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
                         // @todo to wire the api endpoint when it goes in production.
-                        return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function(datasets){
+                        return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;
                             renderPage(data, jsonOutput, next);
                         });
@@ -104,7 +104,7 @@ router.get([
                     next();
                 }
             })
-            .catch(function(err){
+            .catch(function (err) {
                 next(err);
             });
 
@@ -139,7 +139,7 @@ router.get([
                     contentType = (contentType == 'gbif_participant') ? 'participant' : contentType;
                     res.render('pages/about/' + contentType + '/' + contentType + '.nunjucks', proseContent);
                 }
-            } catch(e) {
+            } catch (e) {
                 next(e);
             }
         }

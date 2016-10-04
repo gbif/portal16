@@ -13,10 +13,10 @@
 function processIdentifiers(identifiers) {
     var processedIdentifiers = [];
     var typeToDisplay = ['DOI', 'URL', 'UUID', 'LSID', 'FTP', 'UNKNOWN'];
-    identifiers = identifiers.sort(function(a, b){
+    identifiers = identifiers.sort(function (a, b) {
         return typeToDisplay.indexOf(a.type) - typeToDisplay.indexOf(b.type);
     });
-    identifiers.forEach(function(id){
+    identifiers.forEach(function (id) {
         if (typeToDisplay.indexOf(id.type) != -1) {
             var idObj = {};
             idObj.formattedString = id.type + ' ' + setAnchor(id.identifier);

@@ -11,9 +11,9 @@ function composeSubmenu(dataset) {
         project = {name: 'project', items: []},
         credit = {name: 'credit', items: []},
         usage = {name: 'usage', items: []};
-    
+
     //populate groups if there is content
-    if (_.get(dataset, '_occurrenceCount.count', 0) > 0 || _.get(dataset, '_speciesTaxonCount.count', 0) > 0 ) introduction.items.push('metrics');
+    if (_.get(dataset, '_occurrenceCount.count', 0) > 0 || _.get(dataset, '_speciesTaxonCount.count', 0) > 0) introduction.items.push('metrics');
     if (_.get(dataset, '_occurrenceCount.count', 0) > 0 || _.has(dataset, '_computedValues.geoCoverage')) introduction.items.push('map');
     if (_.has(dataset, 'record.description')) introduction.items.push('description');
     if (_.has(dataset, 'record.purpose')) introduction.items.push('purpose');
@@ -45,7 +45,7 @@ function composeSubmenu(dataset) {
 
     usage.items.push('usage metrics');
     usage.items.push('processing history');
-        
+
 
     //if there is content, then add the froup
     if (!_.isEmpty(introduction.items)) menu.push(introduction);

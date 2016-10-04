@@ -6,7 +6,7 @@ function composeGeoCoverage(dataset) {
     if (_.isEmpty(geographicCoverages)) {
         return dataset;
     }
-    
+
     return dataset;
 }
 

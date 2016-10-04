@@ -3,10 +3,10 @@
  */
 var _ = require('lodash');
 
-module.exports = function(occurrence, __){
+module.exports = function (occurrence, __) {
     var name = occurrence.record.scientificName || __('occurrence.title.unknownSpecies');
 
-    var location =  __('occurrence.title.unknownLocation');
+    var location = __('occurrence.title.unknownLocation');
     if (occurrence.record.countryCode) {
         location = __('occurrence.title.inCountry', __('country.' + occurrence.record.countryCode));
     }

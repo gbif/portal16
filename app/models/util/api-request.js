@@ -12,7 +12,7 @@ var ERRORS = Object.freeze({
 function getData(cb, path, options) {
     var data;
 
-    request(path, {timeout: options.timeoutMilliSeconds}, function(err, response, body) {
+    request(path, {timeout: options.timeoutMilliSeconds}, function (err, response, body) {
         //if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
@@ -65,10 +65,10 @@ function getApiData(path, callback, options) {
 
     async.retry(
         {times: options.retries, interval: 200},
-        function(cb){
+        function (cb) {
             getData(cb, path, options);
         },
-        function(err, result){
+        function (err, result) {
             if (err) {
                 //failed after all attempts
                 //if fail hard, then return explicit error. This will break async requests

@@ -77,7 +77,7 @@ function getDataset(datasetKey, cb) {
                 data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
                 data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
 
-                data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count-data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
+                data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count - data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
                 data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
 
                 data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
@@ -105,7 +105,7 @@ function transformBaseResult(dataset) {
     }
 
     dataset._computedValues.identifiers = processIdentifiers(dataset.record.identifiers);
-    
+
     return dataset;
 }
 

@@ -25,25 +25,25 @@ function getTaxonList(list, rank) {
 
 function parseTaxonomicCoverage(taxonomicCoverage) {
     let groupedByRank = {};
-    ranks.forEach(function(rank){
+    ranks.forEach(function (rank) {
         let sortedRank = getTaxonList(taxonomicCoverage.coverages, rank);
         if (sortedRank.length > 0) {
             groupedByRank[rank] = sortedRank
         }
     });
 
-    return ranks.map(function(rank){
+    return ranks.map(function (rank) {
         return {
             taxa: groupedByRank[rank],
             rank: rank
         };
-    }).filter(function(e){
+    }).filter(function (e) {
         return !_.isEmpty(e.taxa);
     });
 }
 
 function addUknownRankToUnkown(coverages) {
-    return coverages.map(function(e){
+    return coverages.map(function (e) {
         if (!_.has(e, 'rank.interpreted')) {
             e.rank = {
                 interpreted: 'UNKNOWN'
@@ -54,7 +54,7 @@ function addUknownRankToUnkown(coverages) {
 }
 
 function extendTaxonomicCoverages(taxonomicCoverages) {
-    taxonomicCoverages.forEach(function(taxonomicCoverage) {
+    taxonomicCoverages.forEach(function (taxonomicCoverage) {
         taxonomicCoverage.coverages = addUknownRankToUnkown(taxonomicCoverage.coverages);
         taxonomicCoverage._ranks = parseTaxonomicCoverage(taxonomicCoverage);
     });
@@ -66,7 +66,7 @@ module.exports = {
 };
 
 /*
-* description
-* ranks
-*   list or ABC lists
-* */
+ * description
+ * ranks
+ *   list or ABC lists
+ * */

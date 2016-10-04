@@ -3,70 +3,70 @@ var glob = require('glob'),
     _ = require('lodash'),
     path = require('path');
 
-module.exports = function(nunjucksConfiguration, config) {
+module.exports = function (nunjucksConfiguration, config) {
 
-    (function() {
-        nunjucksConfiguration.addFilter('rawJson', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('rawJson', function (data) {
             return JSON.stringify(data);
         });
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('formatDate', format.date);
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('highlighted', format.getHighlightedText);
     })();
 
 
-    (function() {
-        nunjucksConfiguration.addFilter('limit', function(data, limit) {
+    (function () {
+        nunjucksConfiguration.addFilter('limit', function (data, limit) {
             return data && data.constructor === Array ? data.slice(0, limit) : undefined;
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('slice', function(data, start, amount) {
+    (function () {
+        nunjucksConfiguration.addFilter('slice', function (data, start, amount) {
             return data && (data.constructor === Array || typeof(data) === 'string') ? data.slice(start, amount) : undefined;
         });
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('wordBreakToHyphen', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('wordBreakToHyphen', function (data) {
             var newstr = data.replace('_', '-');
             return newstr;
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('isUndefined', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('isUndefined', function (data) {
             return typeof data === 'undefined';
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('isDefined', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('isDefined', function (data) {
             return typeof data !== 'undefined';
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('isNotEmpty', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('isNotEmpty', function (data) {
             return !_.isEmpty(data);
         });
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('isLink', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('isLink', function (data) {
             if (!data) {
                 return false;
             }
@@ -77,8 +77,8 @@ module.exports = function(nunjucksConfiguration, config) {
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('truncateMiddle', function(data, len) {
+    (function () {
+        nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;
             }
@@ -87,15 +87,15 @@ module.exports = function(nunjucksConfiguration, config) {
                 return data;
             }
             if (len < 20) {
-                return data.slice(0,len-3) + '...';
+                return data.slice(0, len - 3) + '...';
             }
-            var splitLength = (len/2)-3;
-            return data.slice(0,splitLength) + '...' + data.slice(data.length-splitLength)
+            var splitLength = (len / 2) - 3;
+            return data.slice(0, splitLength) + '...' + data.slice(data.length - splitLength)
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('minTableWidth', function(data, div, max) {
+    (function () {
+        nunjucksConfiguration.addFilter('minTableWidth', function (data, div, max) {
             div = div || 1;
             max = max || 200;
             if (!data) {
@@ -105,8 +105,8 @@ module.exports = function(nunjucksConfiguration, config) {
         });
     })();
 
-    (function() {
-        nunjucksConfiguration.addFilter('encodeURI', function(data) {
+    (function () {
+        nunjucksConfiguration.addFilter('encodeURI', function (data) {
             if (!data) {
                 return ''
             }
@@ -114,29 +114,29 @@ module.exports = function(nunjucksConfiguration, config) {
         });
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('formatByte', format.formatBytes);
     })();
 
-    (function() {
+    (function () {
         nunjucksConfiguration.addFilter('localizeInteger', format.localizeInteger);
     })();
 
     /**
-    DEPRECATED
-    Moved away from this and use source maps instead
-    The idea is to inject the files without concatenation in development.
-    Given a folder it inject all files in alphabetical order
-    During gulp build the files should have a folder structure corresponding the depdencies order.
-    insert using:
-    {{ 'main' | assets('css' | safe )}} 
-    => 
-    <link rel="stylesheet" href="firstFile.css">
-    <link rel="stylesheet" href="fileThatDependsOnFirstFile.css">
-    */
-    (function() {
+     DEPRECATED
+     Moved away from this and use source maps instead
+     The idea is to inject the files without concatenation in development.
+     Given a folder it inject all files in alphabetical order
+     During gulp build the files should have a folder structure corresponding the depdencies order.
+     insert using:
+     {{ 'main' | assets('css' | safe )}}
+     =>
+     <link rel="stylesheet" href="firstFile.css">
+     <link rel="stylesheet" href="fileThatDependsOnFirstFile.css">
+     */
+    (function () {
         var injectStaticMap = {};
-        nunjucksConfiguration.addFilter('assets', function(location, type) {
+        nunjucksConfiguration.addFilter('assets', function (location, type) {
             if (type !== 'css' && type !== 'js') {
                 //missing parameter that defines type
                 return;
@@ -148,7 +148,7 @@ module.exports = function(nunjucksConfiguration, config) {
 
             var template = type === 'css' ? '<link rel="stylesheet" href="{file}">' : '<script src="{file}"></script>'
             var files = glob.sync(config.root + '/public/' + location + '/**/*.' + type);
-            var scriptTags = files.sort().reduce(function(previousValue, currentValue) {
+            var scriptTags = files.sort().reduce(function (previousValue, currentValue) {
                 var value = path.relative(config.root + '/public/', currentValue);
                 return previousValue + template.replace('{file}', value);
             }, '');

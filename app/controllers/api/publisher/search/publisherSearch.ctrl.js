@@ -13,7 +13,7 @@ module.exports = function (app) {
 };
 
 router.get('/publisher/search', function (req, res, next) {
-    publisherSearch(req.query).then(function(data) {
+    publisherSearch(req.query).then(function (data) {
         data = prune(data, ['description', 'contacts', 'comments']);
         let settings = {
             facets: false,
@@ -26,7 +26,7 @@ router.get('/publisher/search', function (req, res, next) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function(err){
+        gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
@@ -36,7 +36,7 @@ router.get('/publisher/search', function (req, res, next) {
             }
         });
 
-    }, function(err){
+    }, function (err) {
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         console.log('error in ctrl ' + err);
@@ -46,8 +46,8 @@ router.get('/publisher/search', function (req, res, next) {
 
 function prune(data, keys) {
     "use strict";
-    data.results.forEach(function(item){
-        keys.forEach(function(key){
+    data.results.forEach(function (item) {
+        keys.forEach(function (key) {
             delete item[key];
         });
     });
@@ -66,7 +66,7 @@ function publisherSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 3, timeoutMilliSeconds:10000});
+    }, {retries: 3, timeoutMilliSeconds: 10000});
     return deferred.promise;
 }
 

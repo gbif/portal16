@@ -8,10 +8,10 @@ function getMatchesByConfidence(results) {
     if (results && results.confidence > confidenceThreshold && results.matchType == 'EXACT') {
         delete results.alternatives;
         confidentMatches.push(results);
-    } else if(results && results.alternatives) {
-        for (var i=0; i < results.alternatives.length; i++) {
+    } else if (results && results.alternatives) {
+        for (var i = 0; i < results.alternatives.length; i++) {
             alternative = results.alternatives[i];
-            if ( alternative.confidence > confidenceThreshold ) {
+            if (alternative.confidence > confidenceThreshold) {
                 confidentMatches.push(alternative);
             } else {
                 break;
@@ -27,7 +27,7 @@ function filterByMatchType(matches) {
         return matches;
     }
     requiredMatchType = matches[0].matchType;
-    return matches.filter(function(e) {
+    return matches.filter(function (e) {
         return e.matchType == requiredMatchType;
     })
 }
@@ -64,7 +64,7 @@ function getHigestRankingLowerClasses(children) {
         return children;
     }
     var requiredRank = children.results[0].rank;
-    children.results = children.results.filter(function(e) {
+    children.results = children.results.filter(function (e) {
         return e.rank == requiredRank;
     });
     return children;

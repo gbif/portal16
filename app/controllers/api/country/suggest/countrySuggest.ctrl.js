@@ -25,7 +25,7 @@ router.get('/country/suggest.json', function (req, res) {
 });
 
 function getSuggestions(translations) {
-    return Object.keys(translations).map(function(countryCode){
+    return Object.keys(translations).map(function (countryCode) {
         return {
             key: countryCode,
             title: translations[countryCode]

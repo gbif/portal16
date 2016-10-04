@@ -13,7 +13,7 @@ module.exports = function (app) {
     /**
      * In production show 404s as a nice page with navigation to other relevant pages that might have interest.
      */
-    app.use(function(req, res) {
+    app.use(function (req, res) {
         //TODO needs implementation this is the 404 page the users will see
         res.status(404);
         res.render('error/404/404', {

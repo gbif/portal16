@@ -8,9 +8,9 @@ module.exports = function (app) {
 
 router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
+    occurrenceKey.getOccurrenceModel(key, res.__).then(function (occurrence) {
         renderPage(req, res, next, occurrence);
-    }, function(err){
+    }, function (err) {
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         console.log('error in ctrl ' + err);
@@ -35,7 +35,7 @@ function renderPage(req, res, next, occurrence) {
                 }
             });
         }
-    } catch(e) {
+    } catch (e) {
         next(e);
     }
 }

@@ -10,7 +10,7 @@ function getCuratedCmsContents(q, data) {
         var featuredContents = [];
         for (let i = 0; i < data.cms.results.length; i++) {
             if (Array.isArray(data.cms.results[i].featuredSearchTerms) && data.cms.results[i].featuredSearchTerms.length > 0) {
-                data.cms.results[i].featuredSearchTerms.forEach(function(term){
+                data.cms.results[i].featuredSearchTerms.forEach(function (term) {
                     if (term.name.toLowerCase() == q) {
                         var highlighted_item = data.cms.results.splice(i, 1);
                         featuredContents.push(highlighted_item[0]);
@@ -27,7 +27,7 @@ function getCuratedCmsContents(q, data) {
  * the same species might occur twice in the result set if it is matched by both its synonym and its accepted name. Only show one in those cases
  * @param taxaMatches the list of matched species/taxa
  */
-function getDuplicateFreeSpeciesMatches(taxaMatches){
+function getDuplicateFreeSpeciesMatches(taxaMatches) {
     let duplicateFree = _.uniqBy(taxaMatches, function (e) {
         return e.info.key;
     });

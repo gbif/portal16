@@ -7,10 +7,10 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/:requestedPath(*)', function(req, res, next) {
+router.get('/:requestedPath(*)', function (req, res, next) {
     // Start by looking up URL Alias
     cmsData.cmsEndpointAccess(cmsApi.urlLookup.url + req.params.requestedPath)
-        .then(function(body){
+        .then(function (body) {
             if (typeof body.data[0] == 'object' && typeof body.data[0].targetUrl == 'string') {
 
                 var contentTypeUrlPrefix = (body.data[0].type == 'gbif_participant') ? body.data[0].type.replace('gbif_', '') : body.data[0].type.replace('_', '-');
@@ -30,7 +30,7 @@ router.get('/:requestedPath(*)', function(req, res, next) {
                 next();
             }
         })
-        .catch(function(err){
+        .catch(function (err) {
             next(err);
         });
 });

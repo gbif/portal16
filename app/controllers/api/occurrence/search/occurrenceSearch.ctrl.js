@@ -15,7 +15,7 @@ module.exports = function (app) {
 router.get('/occurrence/search', function (req, res, next) {
     delete req.query.locale;
     delete req.query.advanced;
-    occurrenceSearch(req.query).then(function(data) {
+    occurrenceSearch(req.query).then(function (data) {
         let settings = {
             facets: true,
             query: req.query,
@@ -31,7 +31,7 @@ router.get('/occurrence/search', function (req, res, next) {
             ],
             expandConfig: expandConfig
         };
-        gbifData.expand.expand(data, settings, res.__, function(err){
+        gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
                 res.json(data);
@@ -40,7 +40,7 @@ router.get('/occurrence/search', function (req, res, next) {
             }
         });
 
-    }, function(err){
+    }, function (err) {
         //TODO should this be logged here or in model/controller/api?
         //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
         console.log('error in ctrl ' + err);
@@ -60,7 +60,7 @@ function occurrenceSearch(query) {
         else {
             deferred.reject(new Error(err));
         }
-    }, {retries: 2, timeoutMilliSeconds:30000});
+    }, {retries: 2, timeoutMilliSeconds: 30000});
     return deferred.promise;
 }
 

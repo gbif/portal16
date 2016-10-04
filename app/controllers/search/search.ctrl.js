@@ -31,12 +31,12 @@ function searchHandler(req, res) {
     "use strict";
     var searchString = req.query.q;
 
-    search.search(searchString, function(results){
+    search.search(searchString, function (results) {
 
         // handling type-url conversion for CMS contents
         // @todo use a node module to handle all possible cases once more content types are ready.
         if (_.has(results, 'cms.results.length')) {
-            results.cms.results.forEach(function(result){
+            results.cms.results.forEach(function (result) {
                 switch (result.type) {
                     case 'data_use':
                         result.type = 'data-use';
@@ -47,7 +47,8 @@ function searchHandler(req, res) {
                     case 'external':
                         result.type = 'external';
                         break;
-                }});
+                }
+            });
         }
         results.highlights = highlights.getHighlights(searchString, results);
 

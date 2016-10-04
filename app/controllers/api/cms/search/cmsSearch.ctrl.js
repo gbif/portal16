@@ -14,33 +14,33 @@ module.exports = function (app) {
 
 router.get('/cms/search', function (req, res, next) {
     cmsSearch(req.query)
-    .then(function(data) {
-        if (data.hasOwnProperty('facets')) {
-            return data;
-        }
-        else if (data.hasOwnProperty('filters')) {
-            data.facets = data.filters;
-            return data;
-        }
-        else {
-            next('Neither facets nor filters exists.');
-        }
-    })
-    .then(function(data){
-        try {
-            cmsData.expandFacets(data.facets, res.__);
-            transformFacetsToMap(data);
-            // Add URL prefix
-            addContentTypeUrlPrefix(data);
-            res.json(data);
-        } catch(e) {
-            next(e);
-        }
-    })
-    .catch(function(err){
-        log.error('Error in /api/cms/search controller: ' + err.message);
-        next(err)
-    });
+        .then(function (data) {
+            if (data.hasOwnProperty('facets')) {
+                return data;
+            }
+            else if (data.hasOwnProperty('filters')) {
+                data.facets = data.filters;
+                return data;
+            }
+            else {
+                next('Neither facets nor filters exists.');
+            }
+        })
+        .then(function (data) {
+            try {
+                cmsData.expandFacets(data.facets, res.__);
+                transformFacetsToMap(data);
+                // Add URL prefix
+                addContentTypeUrlPrefix(data);
+                res.json(data);
+            } catch (e) {
+                next(e);
+            }
+        })
+        .catch(function (err) {
+            log.error('Error in /api/cms/search controller: ' + err.message);
+            next(err)
+        });
 
 });
 
@@ -66,13 +66,13 @@ function cmsSearch(query) {
         'link': '1076'
     };
 
-    availableFacets.forEach(function(facet){
+    availableFacets.forEach(function (facet) {
         if (typeof query[facet] !== 'undefined') {
             if (facet == 'type' && ['document', 'presentation', 'tool', 'link'].indexOf(query[facet]) !== -1) {
                 queryUrl += '&' + 'filter[category_resource_type]=' + resource_type_id[query[facet]];
             }
             else if (typeof query[facet] === 'object') {
-                query[facet].forEach(function(tid){
+                query[facet].forEach(function (tid) {
                     queryUrl += '&' + 'filter[' + facet + ']=' + tid;
                 });
             }
@@ -97,7 +97,7 @@ function cmsSearch(query) {
 
 function addContentTypeUrlPrefix(data) {
     if (data.results) {
-        data.results.forEach(function(result){
+        data.results.forEach(function (result) {
             result.contentTypeUrlPrefix = (result.type == 'gbif_participant') ? result.type.replace('gbif_', '') : result.type.replace('_', '-');
         });
     }
@@ -117,15 +117,15 @@ function transformFacetsToMap(data) {
     data.facets = facets;
 
     let facetMap = {};
-    Object.keys(data.facets).forEach(function(key){
+    Object.keys(data.facets).forEach(function (key) {
         let facetType = data.facets[key];
         facetMap[key] = {};
         let max = 0;
         facetMap[key].counts = [];
-        facetType.forEach(function(e){
+        facetType.forEach(function (e) {
             facetMap[key].counts.push({
                 count: e.count,
-                fraction: e.count/data.count,
+                fraction: e.count / data.count,
                 translatedLabel: e.translatedLabel,
                 key: key == 'category_country' ? e.enum : e.key
             });
@@ -137,12 +137,12 @@ function transformFacetsToMap(data) {
 
         // CMS API by default has filters sorted by counts,
         // we sort them by name here, except country, so it behaves closer to GBIF Data API.
-        facetMap[key].counts.sort(function(a, b){
+        facetMap[key].counts.sort(function (a, b) {
             if (a.translatedLabel > b.translatedLabel) return 1;
             if (a.translatedLabel < b.translatedLabel) return -1;
         });
         if (key == 'category_country') {
-            facetMap[key].counts.sort(function(a, b){
+            facetMap[key].counts.sort(function (a, b) {
                 if (a.count > b.count) return -1;
                 if (a.count < b.count) return 1;
             });
@@ -151,7 +151,7 @@ function transformFacetsToMap(data) {
         }
         // Push 'und' to the last for language facet.
         if (key == 'language') {
-            facetMap[key].counts.forEach(function(count, i){
+            facetMap[key].counts.forEach(function (count, i) {
                 if (count.key == 'und') {
                     facetMap[key].counts = facetMap[key].counts.concat(facetMap[key].counts.splice(i, 1));
                 }

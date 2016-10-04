@@ -62,7 +62,7 @@ function formatUrl(url) {
     }
 }
 
-function formatISSN(issn){
+function formatISSN(issn) {
     return {
         type: 'ISSN',
         ref: 'http://www.issn.cc/' + issn.replace('ISSN', '').trim(),

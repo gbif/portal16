@@ -23,8 +23,7 @@ Installation.get = function (key, options) {
 
 Installation.prototype.expand = function (fieldNames) {
     var resources = [],
-        resourceLookup = {
-        };
+        resourceLookup = {};
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
