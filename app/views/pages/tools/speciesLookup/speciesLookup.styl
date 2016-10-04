@@ -1,4 +1,4 @@
-$speciesLookupActiveColor = #55afce;
+$speciesLookupActiveColor = #55afce
 .speciesLookup {
     &__dropArea {
         width 200px
@@ -10,7 +10,7 @@ $speciesLookupActiveColor = #55afce;
         text-align center
         color white
         &.over {
-            background: tomato;
+            background tomato
         }
     }
     &__input-file {
@@ -39,10 +39,6 @@ $speciesLookupActiveColor = #55afce;
             padding 5px 20px
             width 100%
         }
-        // input:hover + label,
-        // input:focus + label {
-        // 	background darken($speciesLookupActiveColor, 5)
-        // }
     }
 
     &__default-kingdom {
@@ -51,8 +47,8 @@ $speciesLookupActiveColor = #55afce;
             width 80px
             a.is-active > .h1:before {
                 background #55afce
-                    border-radius 50%
-                    color white
+                border-radius 50%
+                color white
             }
         }
         > div > * {
@@ -137,17 +133,17 @@ $speciesLookupActiveColor = #55afce;
 
 .gb-button {
     text-transform uppercase
-        padding 10px
-        display inline-block
+    padding 10px
+    display inline-block
 }
 
 .gb-button--primary {
     @extends .gb-button
     background #55afce
+    color white
+    transition background 200ms ease
+    &:hover {
+        background darken(#55afce, 5)
         color white
-        transition background 200ms ease
-        &:hover {
-            background darken(#55afce, 5)
-            color white
-        }
+    }
 }
