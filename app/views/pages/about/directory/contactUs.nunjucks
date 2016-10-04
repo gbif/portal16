@@ -14,5 +14,8 @@
                 </div>
             </div>
         </div>
+        <div class="horizontal-stripe">
+
+        </div>
     </article>
 {% endblock %}

@@ -10,10 +10,16 @@ var ERRORS = Object.freeze({
 });
 
 function getData(cb, path, options) {
-    var data;
+    var data,
+        requestOptions = {
+            url: path,
+            timeout: options.timeoutMilliSeconds
+        };
 
-    request(path, {timeout: options.timeoutMilliSeconds}, function (err, response, body) {
-        //if timeout
+    if (options.headers) requestOptions.headers = options.headers;
+
+    request(requestOptions, function (err, response, body) {
+        // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
                 cb(ERRORS.API_TIMEOUT, null);
@@ -28,12 +34,19 @@ function getData(cb, path, options) {
         }
         //if not found or not status code 200
         else if (response && response.statusCode !== 200) {
-            if (response.statusCode == '404') {
-                cb(ERRORS.NOT_FOUND, null);
-                log.error('got 404 ' + path); //TODO might be okay dependent on caller context
-            } else {
-                cb(ERRORS.INVALID_RESPONSE, null);
-                log.error('didnt get status code 200, but ' + response.statusCode + ' from ' + path);
+            switch (response.statusCode) {
+                case 404:
+                    cb(ERRORS.NOT_FOUND, null);
+                    log.error('got 404 ' + path); //TODO might be okay dependent on caller context
+                    break;
+                case 401:
+                    cb('UNAUTHORIZED', null);
+                    log.error('got 401 ' + path); //TODO might be okay dependent on caller context
+                    break;
+                default:
+                    cb(ERRORS.INVALID_RESPONSE, null);
+                    log.error('didnt get status code 200, but ' + response.statusCode + ' from ' + path);
+                    break;
             }
         }
 
