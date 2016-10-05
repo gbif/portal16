@@ -12,11 +12,11 @@ See the Thumbor documentation.  With this image, `https://apps.rhs.org.uk/plants
 
 ![Quercus rubra](http://api.gbif.org/v1/image/_vNy8HhjLsRikGe3yDjxx7y__IM=/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)
 
-or we can resize and crop it to 300×80px, and flip it horizontally, with the URL `[http://api.gbif.org/v1/image/rDlLGuaR5hxtaygg_AAYzw-amcg=/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg](http://api.gbif.org/v1/image/rDlLGuaR5hxtaygg_AAYzw-amcg=/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)`
+or we can resize and crop it to 300×80px, and flip it horizontally, with the URL [`http://api.gbif.org/v1/image/rDlLGuaR5hxtaygg_AAYzw-amcg=/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg`](http://api.gbif.org/v1/image/rDlLGuaR5hxtaygg_AAYzw-amcg=/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)
 
 ![300×80px, flipped horizontally](http://api.gbif.org/v1/image/rDlLGuaR5hxtaygg_AAYzw-amcg=/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)
 
-Using `fit-in/` we can resize it without cropping, and maintain the aspect ratio: `[http://api.gbif.org/v1/image/8JRfI6JDTXNflBLc3E91Ok9lEHk=/fit-in/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg](http://api.gbif.org/v1/image/8JRfI6JDTXNflBLc3E91Ok9lEHk=/fit-in/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)`
+Using `fit-in/` we can resize it without cropping, and maintain the aspect ratio: [`http://api.gbif.org/v1/image/8JRfI6JDTXNflBLc3E91Ok9lEHk=/fit-in/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg`](http://api.gbif.org/v1/image/8JRfI6JDTXNflBLc3E91Ok9lEHk=/fit-in/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)
 
 ![300×80px, flipped horizontally, aspect preserved](http://api.gbif.org/v1/image/8JRfI6JDTXNflBLc3E91Ok9lEHk=/fit-in/-300x80/https://apps.rhs.org.uk/plantselectorimages/detail/WSY0036490_3534.jpg)
 
