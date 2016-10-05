@@ -48,7 +48,7 @@ The service is running in "unsafe" mode (not requiring a key).  This will be dis
 
 ## Configuration
 
-The server is set to cache source images indefinitely, and produce images with a JPEG quality of 80 by default.
+The server is set to cache source images indefinitely, and produce images with a JPEG quality of 80 by default. *Feature detection is *not* installed*.
 
 Ten processes run, which Varnish accesses with a round-robin director.
 
