@@ -18,6 +18,9 @@ var apiConfig = {
     datasetSearch: {
         url: baseUrl + 'dataset/search/'
     },
+    image: {
+        url: baseUrl + 'image/unsafe/'
+    },
     installation: {
         url: baseUrl + 'installation/'
     },
