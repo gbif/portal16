@@ -31,8 +31,8 @@ URLs must include a signature, to prevent others from using the service.  Thumbo
 For testing or debugging, you can generate keys on `thumbor-vh.gbif.org`:
 
 ```
-$ imageurl 400x-600 http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F4e%2FEagle_beak_sideview_A.jpg
-http://api.gbif.org/v1/image/E99MssnWWLLFL-g5rS4DXQY_mEU=/400x-600/http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F4e%2FEagle_beak_sideview_A.jpg
+$ imageurl 400x-600 http://upload.wikimedia.org/wikipedia/commons/4/4e/Eagle_beak_sideview_A.jpg
+http://api.gbif.org/v1/image/b4WfZoi49K_vXGkJIRNJPQtf7D0=/400x-600/http://upload.wikimedia.org/wikipedia/commons/4/4e/Eagle_beak_sideview_A.jpg
 ```
 
 or alternatively:
