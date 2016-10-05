@@ -3,7 +3,7 @@
 {% block page %}
     <article class="wrapper-horizontal-stripes publisherKey page--data">
 
-        {% include "./header/header.nunjucks" %}        
+        {% include "./header/header.nunjucks" %}
 
         {% include "./highlights/highlights.nunjucks" %}
 

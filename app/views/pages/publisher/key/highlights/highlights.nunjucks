@@ -3,10 +3,14 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <dl class="inline">
-                    
+
                     <div>
                         <dt class="text-capitalize">Published</dt>
-                        <dd><a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}">{$ publisher.record.numPublishedDatasets $} datasets</a> with <a href="">{$ publisher.occurrences.count | localizeInteger(gb.locales.current) $} occurrences</a></dd>
+                        <dd>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}">{$
+                                publisher.record.numPublishedDatasets $} datasets</a> with <a href="">{$
+                                publisher.occurrences.count | localizeInteger(gb.locales.current) $} occurrences</a>
+                        </dd>
                     </div>
 
                     {% if publisher.endorsingNode | isNotEmpty %}
@@ -34,7 +38,7 @@
                 </dl>
             </div>
             <div class="col-xs-12 col-sm-6">
-            	<div class="publisher-logo-container">
+                <div class="publisher-logo-container">
                     <img src="{$ publisher.record.logoUrl $}" onError="this.style.display = 'none'" class="pull-right">
                 </div>
             </div>

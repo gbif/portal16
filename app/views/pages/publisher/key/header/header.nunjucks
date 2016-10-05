@@ -22,9 +22,9 @@
         {% endif %#}
 
         <div class="text-center">
-            
+
             {% if publisher.record.homepage | isDefined %}
-            <a href="{$ publisher.record.homepage $}" class="gb-button--round">Homepage</a>
+                <a href="{$ publisher.record.homepage $}" class="gb-button--round">Homepage</a>
             {% endif %}
 
             <a href="#contact" class="gb-button--round">Contact</a>
