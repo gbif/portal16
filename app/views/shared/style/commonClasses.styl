@@ -6,6 +6,11 @@
     max-width $contentWidth--normal
 }
 
+.container--desktop {
+    @extend .container--normal
+    max-width $desktop
+}
+
 .container--wide {
     @extend .container--normal
     max-width $contentWidth--wide
@@ -19,13 +24,13 @@
 .horizontal-stripe {
     padding vrBlock(1) 0
     border-top 1px solid $stripeBorderColor
-    &:first-child {
+    &:first-of-type {
         border none
     }
     &.white-background + .white-background {
         border none
     }
-    > *:last-child {
+    > *:last-of-type {
         margin-bottom 0
     }
 }
@@ -280,7 +285,7 @@ $articleCategorySeparatorSpacing = 6px
 
 }
 
-$headerImageMaxFullWidth = 1200px
+$headerImageMaxFullWidth = $desktop
 .heading-image {
     max-width $headerImageMaxFullWidth
     margin 0 auto 20px auto
@@ -522,8 +527,8 @@ sub {
 }
 
 .seperator {
-    border-top 1px solid $stripeBorderColor
+    border-top 1px solid $stripeBorderColor !important
     &--b {
-        border-bottom 1px solid rgba(0, 0, 0, 0.08)
+        border-bottom 1px solid rgba(0, 0, 0, 0.08) !important
     }
 }
