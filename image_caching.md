@@ -59,3 +59,10 @@ The server has three DNS aliases: `thumbor.gbif.org`, `thumbor.gbif-uat.org` and
 ## Installation
 
 Installation is with Ansible, using the GBIF scripts, which are based on [ansible-thumbor-centos](https://github.com/lloydmeta/ansible-thumbor-centos/).
+
+The installed version is:
+
+```
+$ thumbor --version
+Thumbor v6.1.5 (18-Aug-2016)
+```
