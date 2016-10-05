@@ -7,6 +7,7 @@ var path = require('path'),
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
+    analyticsImg = yargs.analyticsImg,
     ghpw = yargs.ghpw;
 
 var config = {
@@ -21,7 +22,8 @@ var config = {
         githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
     },
     dev: {
         env: env,
@@ -34,7 +36,8 @@ var config = {
         githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
     },
     uat: {
         env: env,
@@ -47,7 +50,8 @@ var config = {
         githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
     },
     prod: {
         env: env,
@@ -60,7 +64,8 @@ var config = {
         githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
     },
     test: {
         env: env,
@@ -73,7 +78,8 @@ var config = {
         githubPassword: ghpw,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/'
+        cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
     }
 };
 
