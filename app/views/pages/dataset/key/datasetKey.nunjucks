@@ -9,17 +9,57 @@
     </script>
     <article class="wrapper-horizontal-stripes datasetKey page--data" ng-controller="datasetKeyCtrl as datasetKey">
         {% include('./header/header.nunjucks') %}
-        {#{% include('./original/original.nunjucks') %}#}
-        {% include('./visualSummary/visualSummary.nunjucks') %}
-        {# {% include('./images/images.nunjucks') %} #}
+
+        <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary seperator--b">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <nav class="tabs">
+                            <ul>
+                                <li class="isActive">
+                                    <a href="./summary">
+                                        Dataset
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./summary">
+                                        Usage
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./summary">
+                                        Origin
+                                    </a>
+                                </li>
+                                <li class="tab-right">
+                                    <a href="./summary">
+                                        Download
+                                        <span class="gb-icon-menu icon-button-circle"></span>
+                                    </a>
+                                </li>
+                                <li class="tab-right">
+                                    <a href="./summary">
+                                        Explore
+                                        <span class="gb-icon-menu icon-button-circle"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <div class="submenu-wrapper" id="submenuWrapper">
             {% include('./text/submenu.nunjucks') %}
 
+            {% include('./metrics/metrics.nunjucks') %}
+            {% include('./map/map.nunjucks') %}
+
+
             {% include('./text/text.nunjucks') %}
-
             {% include('./project/project.nunjucks') %}
-
             {% include('./citation/citation.nunjucks') %}
             {% include('./contributors/contributors.nunjucks') %}
             {% include('./bibliography/bibliography.nunjucks') %}

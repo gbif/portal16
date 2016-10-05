@@ -12,7 +12,7 @@
 {#{% endif %}#}
 
 {% if dataset.record.description %}
-    <section class="horizontal-stripe white-background dataset-key__text" id="id_description">
+    <section class="horizontal-stripe white-background dataset-key__text">
         <span class="relative-anchor-offset"><a name="description"></a></span>
         <div class="container--narrow">
 
@@ -26,7 +26,7 @@
                 </div>
             {% endif %}
 
-            <div>
+            <div class="anchor-block" id="id_description">
                 <h2 class="h4">Description</h2>
                 <div>
                     <p>
@@ -39,10 +39,10 @@
 {% endif %}
 
 {% if dataset.record.purpose %}
-    <section class="horizontal-stripe white-background dataset-key__text anchor-block" id="id_purpose">
+    <section class="horizontal-stripe white-background dataset-key__text">
         <span class="relative-anchor-offset"><a name="purpose"></a></span>
         <div class="container--narrow">
-            <div>
+            <div class="anchor-block" id="id_purpose">
                 <h2 class="h4">Purpose</h2>
                 <div>
                     <p>
@@ -55,10 +55,10 @@
 {% endif %}
 
 {% if dataset.record.temporalCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text" id="id_temporalCoverages">
+    <section class="horizontal-stripe white-background dataset-key__text">
         <span class="relative-anchor-offset"><a name="temporalCoverages"></a></span>
         <div class="container--narrow">
-            <div>
+            <div class="anchor-block" id="id_temporalCoverages">
                 <h2 class="h4">Temporal coverage</h2>
                 <div>
                     {% for period in dataset.record.temporalCoverages %}
@@ -81,10 +81,10 @@
 {% endif %}
 
 {% if dataset.record.geographicCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text" id="id_geographicCoverages">
+    <section class="horizontal-stripe white-background dataset-key__text">
         <span class="relative-anchor-offset"><a name="geographicCoverages"></a></span>
         <div class="container--narrow">
-            <div>
+            <div class="anchor-block" id="id_geographicCoverages">
                 <h2 class="h4">Geographic coverages</h2>
                 <div>
                     {% for geographicCoverage in dataset.record.geographicCoverages %}
@@ -108,11 +108,10 @@
 {% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
 
 {% if dataset.record.samplingDescription %}
-    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling anchor-block"
-             id="id_samplingDescription">
+    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling">
         <span class="relative-anchor-offset"><a name="samplingDescription"></a></span>
         <div class="container--narrow">
-            <div>
+            <div class="anchor-block" id="id_samplingDescription">
                 <h2 class="h4">Methodology</h2>
                 <div>
                     {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}

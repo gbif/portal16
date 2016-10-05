@@ -51,18 +51,18 @@
                 {#</p>#}
                 {#</div>#}
 
-                <div>
-                    <a href="#contributors" class="gb-button--round">Contributors</a>
-                    <a href="#citation" class="gb-button--round">Citation</a>
-                    {% if dataset.record.homepage | isNotEmpty %}
-                        <a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>
-                    {% endif %}
-                    <a href="" class="gb-button--round">Download</a>
-                    {% if dataset._occurrenceCount.count > 0 %}
-                        <a href="../occurrence/search?dataset_key={$ dataset.record.key $}" class="gb-button--round">Explore</a>
-                    {% endif %}
+                {#<div>#}
+                {#<a href="#contributors" class="gb-button--round">Contributors</a>#}
+                {#<a href="#citation" class="gb-button--round">Citation</a>#}
+                {#{% if dataset.record.homepage | isNotEmpty %}#}
+                {#<a href="{$ dataset.record.homepage $}" class="gb-button--round">Dataset Origin</a>#}
+                {#{% endif %}#}
+                {#<a href="" class="gb-button--round">Download</a>#}
+                {#{% if dataset._occurrenceCount.count > 0 %}#}
+                {#<a href="../occurrence/search?dataset_key={$ dataset.record.key $}" class="gb-button--round">Explore</a>#}
+                {#{% endif %}#}
 
-                </div>
+                {#</div>#}
 
             </header>
         </div>

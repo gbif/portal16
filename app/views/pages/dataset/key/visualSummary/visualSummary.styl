@@ -1,46 +1,54 @@
+.container--desktop {
+    .dataset-key__visual-summary__map {
+        width $desktop
+        margin auto
+        height 0
+        padding-bottom 50%
+        position relative
+        gbmap {
+            position absolute
+            top 0
+            height 100%
+            width 100%
+        }
+    }
+}
+
 .dataset-key__visual-summary {
     &__wrapper {
-        display flex
         position relative
+        z-index 10
     }
     &__map {
-        flex 1 1 auto
         gbmap {
             height 360px
         }
     }
     &__counts {
-        flex 0 0 auto
         padding 1rem
-        height 360px
-        > div {
+        margin auto
+        margin-bottom -10px
+        &__percentages {
             overflow hidden
-            width 150px
+            display flex
+            flex-wrap wrap
         }
-        > p {
-            margin-bottom vrBlock(1)
+        &__totals {
+            margin-bottom vrBlock(0.5)
+            display flex
+            > div {
+                flex 1 0 auto
+            }
         }
         &__group {
             display inline-block
-            width 100%
-            text-align center
-            padding-right 10px
-            margin-bottom vrBlock(0.5)
-            > div {
-                margin auto
-            }
+            padding-right vrBlock(1)
+            margin-bottom 10px
+            flex 1 0 auto
         }
         &__image {
             margin-top vrBlock(1)
 
-        }
-    }
-    &__counts--double {
-        > div {
-            width 300px
-        }
-        .dataset-key__visual-summary__counts__group {
-            width 140px
         }
     }
 }
@@ -56,25 +64,30 @@
 //	}
 //}
 //
-.radial-progress {
-    width 85px
-    height 85px
-    margin auto
-    position relative
-    &__count {
-        position absolute
-        top 50%
-        bottom auto
-        left 50%
-        transform translateY(-50%) translateX(-50%)
-        font-size 20px
+.summary-counts {
+    .radial-progress {
+        width 50px
+        height 50px
+        margin auto
+        float left
+    }
+    &__percentage {
+        display block
+        float left
+        height 50px
+        line-height 50px
+        padding-left 10px
+        font-weight normal
+        font-size 18px
+    }
+    &__description {
     }
 }
 
 .round-image {
     display block
-    width 85px
-    height 85px
+    width 50px
+    height 50px
     border-radius 50px
     background-size cover
     background-position center

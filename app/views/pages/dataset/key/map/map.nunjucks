@@ -1,0 +1,15 @@
+{% if dataset._occurrenceCount.count > 0 %}
+    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary anchor-block"
+             id="id_map">
+        <div class="container--narrow">
+            <div class="row">
+                <div class="dataset-key__visual-summary__wrapper light-background">
+                    <div class="dataset-key__visual-summary__map">
+                        <gbmap type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

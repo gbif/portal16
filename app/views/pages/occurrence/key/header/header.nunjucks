@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background">
+<section class="horizontal-stripe article-header white-background">
     <div class="container--normal">
         <div class="row">
             <header class="col-xs-12 text-center">
@@ -51,4 +51,4 @@
         </div>
 
     </div>
-</div>
+</section>

@@ -23,6 +23,7 @@ module.exports = (function () {
                     submenu.classList.remove('submenu--bottom');
                 } else if (subMenuWrapperPosition.top < navbarHeight) {
                     submenu.classList.add('submenu--fixed');
+                    submenu.classList.remove('submenu--bottom');
                 }
             }
         }
