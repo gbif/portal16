@@ -1,53 +1,20 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
-{% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes publisherKey page--data">
 
-        <div class="horizontal-stripe article-header white-background">
-            <div class="container">
-                <div class="row">
-                    <header class="col-xs-12 text-center">
-                        <nav class="article-header__category">
-                            <span class="article-header__category__upper">{$ __('stdTerms.publisher') $}</span>
-                        </nav>
+        {% include "./header/header.nunjucks" %}        
 
-                        <h1 class="h2 text-center">
-                            <span>{$ publisher.record.title $}</span>
-                        </h1>
-                    </header>
-                </div>
-            </div>
-        </div>
-        <section class="horizontal-stripe bare-background">
-            <div class="card text-center this-is-a-stub">
-                <div class="card__content">
-                    <h2>This is a stub</h2>
-                    <p>This page is not implemented yet. If you have some great ideas for this page then please let us
-                        know. A good way is to <a
-                                href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Publisher detail page ideas">send a
-                            mail</a> with reference to JIRA issues you believe is relevant to the new site - either
-                        existing issues that needs special attention or new ones you have created.</p>
-                </div>
-            </div>
-        </section>
+        {% include "./highlights/highlights.nunjucks" %}
 
-        {% if publisher.record.description | isNotEmpty %}
-            <section class="horizontal-stripe light-background">
-                <div class="container--normal">
+        {% include "./description/description.nunjucks" %}
 
-                    <div class="container--prose description">
-                        <h2 class="h4">Publisher description</h2>
-                        <div class="prose-columns {% if publisher.record.description.length < 500 %} prose-columns--single-col {% endif %}">
-                            {$ publisher.record.description | safe $}
-                        </div>
-                    </div>
+        {% include "./map/map.nunjucks" %}
 
-                </div>
-            </section>
-        {% endif %}
+        {% include "./contacts/contacts.nunjucks" %}
 
-        <section class="horizontal-stripe white-background">
+        {#
+        <section class="horizontal-stripe light-background">
             <div class="container--normal tmpDataSetResults">
                 <h2 class="h4">Published datasets</h2>
                 {% if publisher.datasets.count > 0 %}
@@ -65,6 +32,7 @@
                 {% endif %}
             </div>
         </section>
+        #}
 
     </article>
 

@@ -1,0 +1,18 @@
+{% extends "../html-prose.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes">
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center article-header">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">{$ __('cms.about') $}</span>
+                            <span class="article-header__category__lower">{$ __('directory.contactUs') $}</span>
+                        </nav>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

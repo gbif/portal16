@@ -1,0 +1,44 @@
+<section class="horizontal-stripe light-background occurrenceKey__highlights">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <dl class="inline">
+                    
+                    <div>
+                        <dt class="text-capitalize">Published</dt>
+                        <dd><a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}">{$ publisher.record.numPublishedDatasets $} datasets</a> with <a href="">{$ publisher.occurrences.count | localizeInteger(gb.locales.current) $} occurrences</a></dd>
+                    </div>
+
+                    {% if publisher.endorsingNode | isNotEmpty %}
+                        <div>
+                            <dt class="text-capitalize">Endorsed by</dt>
+                            <dd><a href="{$ gb.locales.urlPrefix $}/node/{$ publisher.endorsingNode.key $}">{$
+                                    publisher.endorsingNode.title $}</a></dd>
+                        </div>
+                    {% endif %}
+
+                    {% if publisher.record.homepage | isDefined %}
+                        <div>
+                            <dt class="text-capitalize">Homepage</dt>
+                            <dd><a href="{$ publisher.record.homepage $}">{$ publisher.record.homepage $}</a></dd>
+                        </div>
+                    {% endif %}
+
+                    {% if publisher.record.created | isDefined %}
+                        <div>
+                            <dt class="text-capitalize">Created</dt>
+                            <dd>{$ publisher.record.created | formatDate(gb.locales.current) $}</dd>
+                        </div>
+                    {% endif %}
+
+                </dl>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+            	<div class="publisher-logo-container">
+                    <img src="{$ publisher.record.logoUrl $}" onError="this.style.display = 'none'" class="pull-right">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

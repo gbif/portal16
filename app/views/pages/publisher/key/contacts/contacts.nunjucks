@@ -1,0 +1,11 @@
+{% import "../../../../components/contacts/contacts.macro.nunjucks" as contactsMacro %}
+
+<section class="horizontal-stripe light-background dataset-key__contributors">
+<span class="relative-anchor-offset"><a name="contact"></a></span>
+    <div class="container--narrow">
+        <h2 class="h4">Contacts</h2>
+    </div>
+    <div class="container--narrow">
+        {$ contactsMacro.contactsList(publisher._computedValues.contributors.all, __) $}
+    </div>
+</section>

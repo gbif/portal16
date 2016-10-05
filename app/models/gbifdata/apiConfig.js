@@ -50,6 +50,27 @@ var apiConfig = {
     },
     taxonMatch: {
         url: baseUrl + 'species/match'
+    },
+    directoryParticipants: {
+        url: baseUrl + 'directory/participant?limit=300'
+    },
+    directoryParticipant: {
+        url: baseUrl + 'directory/participant'
+    },
+    directoryNode: {
+        url: baseUrl + 'directory/node'
+    },
+    directoryPerson: {
+        url: baseUrl + 'directory/person'
+    },
+    directoryPersonRole: {
+        url: baseUrl + 'directory/person_role?limit=100'
+    },
+    directoryCommittee: {
+        url: baseUrl + 'directory/committee'
+    },
+    directoryReport: {
+        url: baseUrl + 'directory/report'
     }
 };
 

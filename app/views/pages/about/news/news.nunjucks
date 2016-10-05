@@ -8,8 +8,8 @@
                     <div class="row">
                         <header class="col-xs-12 text-center">
                             <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">About</span>
-                                <span class="article-header__category__lower">News</span>
+                                <span class="article-header__category__upper">{$ __('cms.about') $}</span>
+                                <span class="article-header__category__lower">{$ __('cms.contentType.news') $}</span>
                             </nav>
                             <h1>{$ data.title $}</h1>
                             <div class="article-header__intro">
@@ -78,7 +78,7 @@
 
                             {% if data.researcherLocation %}
                                 <section class="no-break">
-                                    <h5>Location of researchers</h5>
+                                    <h5 class="h5">Location of researchers</h5>
                                     <ul class="list-chips">
                                         {% for loc in data.researcherLocation %}
                                             <li><a href="#">{$ loc.name $}</a></li>
@@ -89,7 +89,7 @@
 
                             {#This assumes that there is always tags to show. TODO hide if no available tags#}
                             <section class="no-break">
-                                <h5>Subject</h5>
+                                <div class="h5">Subject</div>
                                 <ul class="list-chips">
                                     {% for tag in data.tagsAudience %}
                                         <li><a href="">{$ tag.name $}</a></li>
@@ -116,7 +116,7 @@
                             </section>
 
                             <section class="no-break">
-                                <h5>Published on</h5>
+                                <div class="h5">Published on</div>
                                 {$ data.created | formatDate(gb.locales.current) $}
                             </section>
                         </div>

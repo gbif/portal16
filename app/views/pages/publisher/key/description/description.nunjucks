@@ -1,0 +1,25 @@
+{% if publisher.record.description %}
+    <section class="horizontal-stripe white-background publisher-key__text">
+        <div class="container--narrow">
+
+            {% if publisher.record.language != 'eng' %}
+                <div class="stripe-comment-wrapper">
+                    <div class="stripe-comment">
+                        <div>
+                            {$ __('language.' + publisher.record.language) $}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div>
+                <h2 class="h4">Description</h2>
+                <div>
+                    <p>
+                        {$ publisher.record.description | safe $}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
