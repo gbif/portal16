@@ -3,14 +3,12 @@ A new GBIF.org, scheduled to be completed in 2016
 
 > Note: Under development
 
-
-
 ## Install, build and run
 
 ### Requirements
-Node installed in version 5.3
-Working gyp command line tools. On Mac that means that either xcode or the Command Line Tools needs to installed
-`xcode-select --install`
+
+* Node version 6.2 installed.
+* Working gyp command line tools. On Mac that means that either xcode or the Command Line Tools needs to installed: `xcode-select --install`
 
 ### Install
 Once the project is downloaded install using
