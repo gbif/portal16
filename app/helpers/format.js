@@ -1,6 +1,22 @@
 var moment = require('moment'),
     defaultLanguage = 'en';
 
+// GBIF/UN date style
+moment.updateLocale('en', {
+    longDateFormat : {
+        LT: "k:mm",
+        LTS: "k:mm:ss",
+        l: "D-MMM-YYYY",
+        L: "DD-MMM-YYYY",
+        ll: "D MMMM YYYY",
+        LL: "D MMMM YYYY",
+        lll: "LT D MMMM YYYY",
+        LLL: "LT D MMMM YYYY",
+        llll: "LT, ddd D MMM YYYY",
+        LLLL: "LT, dddd Do MMMM YYYY"
+    }
+});
+
 function date(date, locale, format) {
     locale = locale || defaultLanguage;
     format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
