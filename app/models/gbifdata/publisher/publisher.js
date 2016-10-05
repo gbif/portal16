@@ -31,6 +31,10 @@ Publisher.prototype.expand = function (fieldNames) {
             datasets: {
                 resource: api.dataset.url + 'search?limit=1000&publishingOrg=' + this.record.key,
                 extendToField: 'datasets'
+            },
+            occurrences: {
+                resource: api.occurrenceSearch.url + '?limit=0&publishingOrg=' + this.record.key,
+                extendToField: 'occurrences'
             }
         };
     fieldNames.forEach(function (e) {
