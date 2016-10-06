@@ -13,7 +13,7 @@ TODO: figure out how to best execute custom JS on specific pages
 </script>
 
 <article class="wrapper-horizontal-stripes">
-    <div class="horizontal-stripe article-header white-background">
+    <section class="horizontal-stripe article-header white-background">
         <div class="container">
             <div class="row">
                 <header class="col-xs-12 text-center">
@@ -42,14 +42,13 @@ TODO: figure out how to best execute custom JS on specific pages
                 </header>
             </div>
         </div>
-    </div>
+    </section>
 
-    <section id="species-occurrence" class="horizontal-stripe white-background">
+    <section id="species-occurrence" class="horizontal-stripe light-background">
         <div class="container--normal">
                 <h3>Number of occurrence records</h3>
                 <p>These charts illustrate the change in availability of the species occurrence records over time.</p>
-
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4>Records by kingdom</h4>
                         <p>The number of available records categorized by kingdom.  "Unknown" includes records with taxonomic information that cannot be linked to available taxonomic checklists.</p>
@@ -63,22 +62,22 @@ TODO: figure out how to best execute custom JS on specific pages
                         <p>The number of plant records categorized by the basis of record. "Unknown" includes records without defined basis of record or with an unrecognised value for basis of record.</p>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
-                        <img class="jslghtbx-thmb" src="{$ thumbBase $}occ_animaliaBoR.png" data-jslghtbx="{$ imgBase $}occ_animaliaBoR.png" class="img-thumbnail">
+                        <img src="{$ thumbBase $}occ_animaliaBoR.png" data-jslghtbx="{$ imgBase $}occ_animaliaBoR.png" class="img-thumbnail">
                     </div>
                     <div class="col-xs-4">
-                        <img class="jslghtbx-thmb" src="{$ thumbBase $}occ_plantaeBoR.png" data-jslghtbx="{$ imgBase $}occ_plantaeBoR.png"  class="img-thumbnail">
+                        <img src="{$ thumbBase $}occ_plantaeBoR.png" data-jslghtbx="{$ imgBase $}occ_plantaeBoR.png"  class="img-thumbnail">
                     </div>
                     <div class="col-xs-4">
-                        <img class="jslghtbx-thmb" src="{$ thumbBase $}occ_kingdom.png" data-jslghtbx="{$ imgBase $}occ_kingdom.png"  class="img-thumbnail">
+                        <img src="{$ thumbBase $}occ_kingdom.png" data-jslghtbx="{$ imgBase $}occ_kingdom.png"  class="img-thumbnail">
                     </div>
                 </div>
             </div>
     </section>
 
     <section id="species-occurrence2" class="horizontal-stripe white-background">
-        <div class="container--normal article-auxiliary">
+        <div class="container--normal">
                 <h3>Species counts</h3>
                 <p>These charts illustrate the change in the number of species for which occurrence records are available.</p>
 
@@ -87,7 +86,7 @@ TODO: figure out how to best execute custom JS on specific pages
                     <p>Species counts are based on the number of binomial scientific names for which GBIF has received data records, organised as far as possible using synonyms recorded in key databases such as the Catalogue of Life. Since many names are not yet included in these databases, some proportion of these names will be unrecognised synonyms and do not represent valid species.  Therefore these counts can be used as an indication of richness only, and do not represent true species counts. All data have been processed using the same, most recent, version of the common GBIF backbone taxonomy, and comparisons over time are therefore realistic.</p>
                 </div>
 
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4>Species count by kingdom</h4>
                         <p>The number of species with available occurrence records, categorized by kingdom.</p>
@@ -101,7 +100,7 @@ TODO: figure out how to best execute custom JS on specific pages
                         <p>The number of species associated with observation records.</p>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}spe_kingdom.png" data-jslghtbx="{$ imgBase $}spe_kingdom.png"  />
                     </div>
@@ -115,8 +114,8 @@ TODO: figure out how to best execute custom JS on specific pages
             </div>
 
     </section>
-    <section id="occurrence-temporal" class="horizontal-stripe white-background">
-        <div class="container--normal article-auxiliary">
+    <section id="occurrence-temporal" class="horizontal-stripe light-background">
+        <div class="container--normal">
                 <h3>Time and seasonality</h3>
                 <p>These charts illustrate changes in the spread of records by year of occurrence and by day of year, indicating the extent of possible bias towards more recent periods or particular seasons. Snapshots are provided for approximately 3-year intervals to show changes in spread.</p>
                 <div class="bs-callout bs-callout-default">
@@ -124,7 +123,7 @@ TODO: figure out how to best execute custom JS on specific pages
                     <p>Species counts are based on the number of binomial scientific names for which GBIF has received data records, organised as far as possible using synonyms recorded in key databases such as the Catalogue of Life. Since many names are not yet included in these databases, some proportion of these names will be unrecognised synonyms and do not represent valid species.  Therefore these counts can be used as an indication of richness only, and do not represent true species counts. All data have been processed using the same, most recent, version of the common GBIF backbone taxonomy, and comparisons over time are therefore realistic.</p>
                 </div>
 
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4>Records by year of occurrence</h4>
                         <p>The number of occurrence records available for each year since 1950.</p>
@@ -136,7 +135,7 @@ TODO: figure out how to best execute custom JS on specific pages
                     <div class="col-xs-4">
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_yearCollected.png" data-jslghtbx="{$ imgBase $}occ_yearCollected.png"  />
                     </div>
@@ -147,7 +146,7 @@ TODO: figure out how to best execute custom JS on specific pages
                     </div>
                 </div>
 
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4>Records by day of year</h4>
                         <p>The number of occurrence records available for each day of the year.</p>
@@ -159,7 +158,7 @@ TODO: figure out how to best execute custom JS on specific pages
                     <div class="col-xs-4">
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_dayCollected.png" data-jslghtbx="{$ imgBase $}occ_dayCollected.png"  />
                     </div>
@@ -180,7 +179,7 @@ TODO: figure out how to best execute custom JS on specific pages
 
     </section>
     <section id="occurrence-completeness" class="horizontal-stripe white-background">
-        <div class="container--normal article-auxiliary">
+        <div class="container--normal">
                 <h3>Completeness and precision</h3>
                 <p>These charts illustrate changes in the completeness (see below) of available records and in the precision of these records with respect to time, geography and taxonomy.</p>
 
@@ -191,7 +190,7 @@ TODO: figure out how to best execute custom JS on specific pages
 
                 <h3>Completeness</h3>
                 <p>These charts illustrate changes in the number of records considered complete according to the definition above.  Separate charts separately show the same information for specimen records and for observation records. Subsequent charts illustrate the component elements that affect the number of complete records.</p>
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4 class="text-center">All records</h4>
                     </div>
@@ -202,7 +201,7 @@ TODO: figure out how to best execute custom JS on specific pages
                         <h4 class="text-center">Observation records</h4>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_complete.png" data-jslghtbx="{$ imgBase $}occ_complete.png"  />
                     </div>
@@ -241,7 +240,7 @@ TODO: figure out how to best execute custom JS on specific pages
 
                 <h3>Geographic precision</h3>
                 <p>These charts illustrate changes in the number of available records which include coordinates for which no known issues have been detected.  For records without accepted valid coordinates, these charts also show the number of records for which the country of occurrence is known.</p>
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4 class="text-center">All records</h4>
                     </div>
@@ -252,7 +251,7 @@ TODO: figure out how to best execute custom JS on specific pages
                         <h4 class="text-center">Observation records</h4>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_complete_geo.png" data-jslghtbx="{$ imgBase $}occ_complete_geo.png"  />
                     </div>
@@ -266,7 +265,7 @@ TODO: figure out how to best execute custom JS on specific pages
 
                 <h3>Temporal precision</h3>
                 <p>These charts illustrate changes in the number of available records which include a complete date including year, month and day.  The numbers of records including only the month and year or only the year are also shown.</p>
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4 class="text-center">All records</h4>
                     </div>
@@ -277,7 +276,7 @@ TODO: figure out how to best execute custom JS on specific pages
                         <h4 class="text-center">Observation records</h4>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_complete_date.png" data-jslghtbx="{$ imgBase $}occ_complete_date.png"  />
                     </div>
@@ -291,11 +290,11 @@ TODO: figure out how to best execute custom JS on specific pages
             </div>
 
     </section>
-    <section id="occurrence-cells" class="horizontal-stripe white-background">
-        <div class="container--normal article-auxiliary">
+    <section id="occurrence-cells" class="horizontal-stripe light-background">
+        <div class="container--normal">
                 <h3>Geographic coverage for recorded species</h3>
                 <p>These charts illustrate the change in the number of species for which occurrence records are available.</p>
-                <div class="balanced-row">
+                <div class="row">
                     <div class="col-xs-4">
                         <h4 class="text-center">1.0 degree</h4>
                     </div>
@@ -306,7 +305,7 @@ TODO: figure out how to best execute custom JS on specific pages
                         <h4 class="text-center">0.1 degree</h4>
                     </div>
                 </div>
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_cells_one_deg.png" data-jslghtbx="{$ imgBase $}occ_cells_one_deg.png"  />
                     </div>
@@ -321,7 +320,7 @@ TODO: figure out how to best execute custom JS on specific pages
 
     </section>
     <section id="occurrence-repatriation" class="horizontal-stripe white-background">
-        <div class="container--normal article-auxiliary">
+        <div class="container--normal">
                 <h3>Data sharing with country of origin</h3>
                 {% if country and about %}
                     <p>This chart shows the number of records about biodiversity occurring in {$ __('country.'+country) $}, with separate colours for records published from within {$ __('country.'+country) $}, and those shared by publishers from other countries.</p>
@@ -330,7 +329,7 @@ TODO: figure out how to best execute custom JS on specific pages
                 {% else %}
                     <p>This chart shows the total number of records published through GBIF over time, with separate colours for records published from within the country where the species occurred, and those shared by publishers from other countries.</p>
                 {% endif %}
-                <div class="balanced-row row-chart">
+                <div class="row row-chart">
                     <div class="col-xs-4">
                         <img src="{$ thumbBase $}occ_repatriation.png" data-jslghtbx="{$ imgBase $}occ_repatriation.png"  />
                     </div>
