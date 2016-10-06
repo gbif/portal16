@@ -38,13 +38,13 @@ gulp.task('vendor-styles', function () {
             base: './'
         })
         .pipe(g.plumber())
-        .pipe(g.sourcemaps.init())
-        .pipe(g.concat('vendor.css'))
         .pipe(g.cleanCss({
             debug: true,
             sourceMap: false,
             sourceMapInlineSources: false
         }))
+        .pipe(g.sourcemaps.init())
+        .pipe(g.concat('vendor.css'))
         .pipe(g.sourcemaps.write('./'))
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/vendor')));
 });
@@ -86,7 +86,6 @@ function buildStylus() {
         ])
         // .pipe(g.plumber())
         .pipe(g.inject(injectFiles, injectOptions))
-        //.pipe(wiredep.stream(config.wiredep))
         .pipe(g.sourcemaps.init())
         .pipe(g.stylus({
             use: [axis()]
