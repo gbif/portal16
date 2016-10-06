@@ -40,7 +40,11 @@ gulp.task('vendor-styles', function () {
         .pipe(g.plumber())
         .pipe(g.sourcemaps.init())
         .pipe(g.concat('vendor.css'))
-        .pipe(g.cleanCss({debug: true}))
+        .pipe(g.cleanCss({
+            debug: true,
+            sourceMap: false,
+            sourceMapInlineSources: false
+        }))
         .pipe(g.sourcemaps.write('./'))
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/vendor')));
 });
