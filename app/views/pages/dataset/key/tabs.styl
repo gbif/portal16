@@ -4,6 +4,7 @@
         padding 0
         max-width 100%
         overflow auto
+        white-space nowrap
     }
     li {
         display inline-block
@@ -30,12 +31,6 @@
             color $bodyTextColor
         }
     }
-    .tab-right {
-        float right
-        a {
-            text-transform none
-        }
-    }
 }
 
 .icon-button-circle {
@@ -46,4 +41,13 @@
     background #e2e1dc
     display inline-block
     font-size 18px
+}
+
++isAbove($laptop) {
+    .tab-right {
+        float right
+        a {
+            //text-transform none
+        }
+    }
 }

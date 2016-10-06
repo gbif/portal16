@@ -7,13 +7,13 @@
             key: '{$ dataset.record.key $}'
         };
     </script>
-    <article class="wrapper-horizontal-stripes datasetKey page--data seperator--b">
+    <article class="wrapper-horizontal-stripes datasetKey page--data" ng-controller="datasetUsageCtrl as datasetUsage">
         {% include('../header/header.nunjucks') %}
 
         {% import "../tabs.macro.nunjucks" as tabsMacro %}
-        {$ tabsMacro.datasetTabs(dataset, 'project', __) $}
+        {$ tabsMacro.datasetTabs(dataset, 'usage', __) $}
 
-        {% include('./projectSection.nunjucks') %}
+        {% include('./usageSection.nunjucks') %}
 
     </article>
 {% endblock %}

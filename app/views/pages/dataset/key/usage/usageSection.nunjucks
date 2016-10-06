@@ -1,0 +1,25 @@
+<section class="horizontal-stripe--paddingless light-background dataset-key__usage">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="dataset-key__visual-summary__wrapper">
+                <div class="dataset-key__visual-summary__counts">
+                    <h5>Since {$ dataset._downloadStats.dates.first | formatDate(gb.locales.current) $}</h5>
+                    <div class="dataset-key__visual-summary__counts__totals">
+                        <div>
+                            <span class="h3">{$ dataset._downloadStats.total | localizeInteger(gb.locales.current) $}</span>
+                            <span>downloads</span>
+                        </div>
+                        <div>
+                            <span class="h3">{$ dataset._downloadStats.occurrences | localizeInteger(gb.locales.current) $}</span>
+                            <span>occurrences</span>
+                        </div>
+                    </div>
+                </div>
+
+                <chartist class="ct-chart" chartist-data="datasetUsage.data" chartist-chart-options="datasetUsage.options" chartist-chart-type="Bar"></chartist>
+            </div>
+        </div>
+
+
+    </div>
+</section>

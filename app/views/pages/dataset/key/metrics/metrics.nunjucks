@@ -1,7 +1,7 @@
-<section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+<section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
     <div class="container--narrow">
         <div class="row">
-            <div class="dataset-key__visual-summary__wrapper anchor-block" id="id_metrics">
+            <div class="dataset-key__visual-summary__wrapper" id="metrics">
                 <div class="dataset-key__visual-summary__counts">
                     {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
                     <div class="dataset-key__visual-summary__counts__totals">

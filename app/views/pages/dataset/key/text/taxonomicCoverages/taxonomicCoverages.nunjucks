@@ -1,7 +1,6 @@
 {% if dataset._computedValues.taxonomicCoverages.length > 0 %}
     <section class="horizontal-stripe white-background dataset-key__text dataset-key_taxonomicCoverages">
-        <span class="relative-anchor-offset"><a name="taxonomicCoverages"></a></span>
-        <div class="container--narrow anchor-block" id="id_taxonomicCoverages">
+        <div class="container--narrow anchor-block" id="taxonomicCoverages">
             <h2 class="h4">Taxonomic coverage</h2>
             <div class="dataset-key__taxonomicCoverages__content">
                 {% for taxonomicCoverage in dataset._computedValues.taxonomicCoverages %}

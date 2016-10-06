@@ -29,6 +29,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetDownloadStats', function ($resource) {
+            return $resource('/api/dataset/stats/download/', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         // @ for testing purpose before API goes live.
         .factory('DevDatasetSearch', function ($resource) {
             return $resource('http://api.gbif-dev.org/v1/dataset/search', null, {

@@ -13,25 +13,24 @@
 
 {% if dataset.record.description %}
     <section class="horizontal-stripe white-background dataset-key__text">
-        <span class="relative-anchor-offset"><a name="description"></a></span>
         <div class="container--narrow">
-
-            {% if dataset.record.language != 'eng' %}
-                <div class="stripe-comment-wrapper">
-                    <div class="stripe-comment">
-                        <div>
-                            {$ __('language.' + dataset.record.language) $}
+            <div class="anchor-block" id="description">
+                {% if dataset.record.language != 'eng' %}
+                    <div class="stripe-comment-wrapper">
+                        <div class="stripe-comment">
+                            <div>
+                                {$ __('language.' + dataset.record.language) $}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endif %}
-
-            <div class="anchor-block" id="id_description">
-                <h2 class="h4">Description</h2>
+                {% endif %}
                 <div>
-                    <p>
-                        {$ dataset.record.description | safe $}
-                    </p>
+                    <h2 class="h4">Description</h2>
+                    <div>
+                        <p>
+                            {$ dataset.record.description | safe $}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,9 +39,8 @@
 
 {% if dataset.record.purpose %}
     <section class="horizontal-stripe white-background dataset-key__text">
-        <span class="relative-anchor-offset"><a name="purpose"></a></span>
         <div class="container--narrow">
-            <div class="anchor-block" id="id_purpose">
+            <div class="anchor-block" id="purpose">
                 <h2 class="h4">Purpose</h2>
                 <div>
                     <p>
@@ -56,9 +54,8 @@
 
 {% if dataset.record.temporalCoverages.length > 0 %}
     <section class="horizontal-stripe white-background dataset-key__text">
-        <span class="relative-anchor-offset"><a name="temporalCoverages"></a></span>
         <div class="container--narrow">
-            <div class="anchor-block" id="id_temporalCoverages">
+            <div class="anchor-block" id="temporalCoverages">
                 <h2 class="h4">Temporal coverage</h2>
                 <div>
                     {% for period in dataset.record.temporalCoverages %}
@@ -82,9 +79,8 @@
 
 {% if dataset.record.geographicCoverages.length > 0 %}
     <section class="horizontal-stripe white-background dataset-key__text">
-        <span class="relative-anchor-offset"><a name="geographicCoverages"></a></span>
         <div class="container--narrow">
-            <div class="anchor-block" id="id_geographicCoverages">
+            <div class="anchor-block" id="geographicCoverages">
                 <h2 class="h4">Geographic coverages</h2>
                 <div>
                     {% for geographicCoverage in dataset.record.geographicCoverages %}
@@ -109,9 +105,8 @@
 
 {% if dataset.record.samplingDescription %}
     <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling">
-        <span class="relative-anchor-offset"><a name="samplingDescription"></a></span>
         <div class="container--narrow">
-            <div class="anchor-block" id="id_samplingDescription">
+            <div class="anchor-block" id="methodology">
                 <h2 class="h4">Methodology</h2>
                 <div>
                     {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}

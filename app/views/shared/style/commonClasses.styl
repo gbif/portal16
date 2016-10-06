@@ -24,7 +24,7 @@
 .horizontal-stripe {
     padding vrBlock(1) 0
     border-top 1px solid $stripeBorderColor
-    &:first-of-type {
+    &.article-header {
         border none
     }
     &.white-background + .white-background {
@@ -518,12 +518,14 @@ sub {
     }
 }
 
-.anchor-block:before {
-    display block
-    content " "
-    height $navBar_height
-    margin-top -($navBar_height)
-    visibility hidden
+.anchor-block {
+    &:before {
+        display block
+        content " "
+        height $navBar_height
+        margin-top -($navBar_height)
+        visibility hidden
+    }
 }
 
 .seperator {

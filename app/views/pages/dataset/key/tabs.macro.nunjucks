@@ -1,0 +1,46 @@
+{% macro datasetTabs(dataset, active, __) %}
+    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+        <div class="container">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset2/{$ dataset.record.key $}">
+                                Dataset
+                            </a>
+                        </li>
+
+                        {% if dataset.record.project | isNotEmpty %}
+                            <li class="tab {% if active == 'project' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset2/{$ dataset.record.key $}/project">
+                                Project
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        <li class="tab {% if active == 'credit' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset2/{$ dataset.record.key $}/credit">
+                                Credit
+                            </a>
+                        </li>
+                        <li class="tab {% if active == 'usage' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset2/{$ dataset.record.key $}/usage">
+                                Usage metrics
+                            </a>
+                        </li>
+                        <li class="tab {% if active == 'download' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset2/{$ dataset.record.key $}/download">
+                                Download
+                            </a>
+                        </li>
+                        <li class="tab-right">
+                            <a href="../occurrence/search?dataset_key={$ dataset.record.key $}">
+                                <span class="gb-button--round">Explore</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+{% endmacro %}

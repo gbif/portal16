@@ -68,22 +68,26 @@ function getDataset(datasetKey, cb) {
                 cb(err);
                 return;
             } else {
-                data.expanded._speciesTaxonCount = data.speciesTaxonCount;
-                data.expanded._occurrenceCount = data.occurrenceCount;
+                try {
+                    data.expanded._speciesTaxonCount = data.speciesTaxonCount;
+                    data.expanded._occurrenceCount = data.occurrenceCount;
 
-                data.occurrenceGeoreferencedCount.percentage = formatAsPercentage(data.occurrenceGeoreferencedCount.count, data.occurrenceCount.count);
-                data.expanded._occurrenceGeoreferencedCount = data.occurrenceGeoreferencedCount;
+                    data.occurrenceGeoreferencedCount.percentage = formatAsPercentage(data.occurrenceGeoreferencedCount.count, data.occurrenceCount.count);
+                    data.expanded._occurrenceGeoreferencedCount = data.occurrenceGeoreferencedCount;
 
-                data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
-                data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
+                    data.occurrenceDatedCount.percentage = formatAsPercentage(data.occurrenceDatedCount.count, data.occurrenceCount.count);
+                    data.expanded._occurrenceDatedCount = data.occurrenceDatedCount;
 
-                data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count - data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
-                data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
+                    data.occurrenceNoTaxonCount.percentage = formatAsPercentage(data.occurrenceCount.count - data.occurrenceNoTaxonCount.count, data.occurrenceCount.count);
+                    data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
 
-                data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
+                    data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
 
-                data.expanded = composeSubmenu(data.expanded);
-                cb(null, data.expanded);
+                    data.expanded = composeSubmenu(data.expanded);
+                    cb(null, data.expanded);
+                } catch(error) {
+                    cb(error);
+                }
             }
         }
     );
