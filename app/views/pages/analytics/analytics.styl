@@ -1,33 +1,58 @@
-.row-chart img {
-    border 1px solid #ddd
-    cursor pointer
-    &:hover {
-        box-shadow 0 2px 5px 1px rgba(0,0,0,.1)
+
+$maxFlexChartWidth = (($laptop - 30)/ 3)
+.chart-flex-columns {
+    display flex
+    flex-wrap wrap
+    flex-direction row
+    .chart {
+        max-width $maxFlexChartWidth
+        width: 220px;
+        flex 1 0 auto
+        padding 5px
+        display flex
+        flex-direction column
+        .info {
+            flex 1 1 auto
+        }
+        .figure {
+            flex 0 0 auto
+            img {
+                border 1px solid #ddd
+                cursor pointer
+                &:hover {
+                    box-shadow 0 2px 5px 1px rgba(0,0,0,.1)
+                }
+            }
+        }
     }
 }
+
+    
+    
+
 .bs-callout {
     background-color rgba(0,0,0,0.05)
     padding 20px
     margin 20px 0
     border 1px solid rgba(0,0,0,0.1)
     border-left-width 5px
-}
-.bs-callout h4 {
-    margin-top 0
-    margin-bottom 5px
-}
-.bs-callout plast-child {
-    margin-bottom 0
-}
-.bs-callout code {
-    border-radius 3px
-}
-.bs-callout+.bs-callout {
-    margin-top -5px
+    h4 {
+        margin-top 0
+        margin-bottom 5px
+    }
+    plast-child {
+        margin-bottom 0
+    }
+    code {
+        border-radius 3px
+    }
+    +.bs-callout {
+        margin-top -5px
+    }
 }
 .bs-callout-default {
     border-left-color #777
-}
-.bs-callout-default h4 {
-    color #777
+    h4 {
+        color #777
+    }
 }
