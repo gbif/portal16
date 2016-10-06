@@ -2,6 +2,7 @@
 
 var crypto = require('crypto'),
     async = require('async'),
+    _ = require('lodash'),
     resource = require('../resource'),
     Q = require('q'),
     helper = require('../../util/util'),
@@ -20,21 +21,146 @@ Directory.getContacts = function() {
         //'gbif_secretariat'
     ];
 
-    var contacts = {};
+    var contacts = {
+        'participants': [],
+        'committees': []
+    };
 
     Q.all(groups.map(function(group){
         return getCommitteeContacts(group).then(function(results){
-            contacts[group] = results;
-            return results;
+            var committee = {
+                'name': group,
+                'members': results
+            };
+            return contacts.committees.push(committee);
         });
     }))
     .then(function(results){
-        if (results.length > 0) defer.resolve(contacts);
-    }, function(err){
+        return getParticipantsContacts().then(function(groupedP){
+            contacts.participants = groupedP;
+            defer.resolve(contacts)
+        });
+    })
+    .catch(function(err){
         defer.reject(new Error(err));
     });
     return defer.promise;
 };
+
+function getParticipantsContacts() {
+    var deferred = Q.defer();
+    var requestUrl = dataApi.directoryParticipants.url;
+    var options = authorizeApiCall(requestUrl);
+    var groups = [
+        {'enum': 'voting_participants', 'members': []},
+        {'enum': 'associate_country_participants', 'members': []},
+        {'enum': 'other_associate_participants', 'members': []},
+        {'enum': 'gbif_affiliate', 'members': []},
+        {'enum': 'former_participants', 'members': []},
+        {'enum': 'observer', 'members': []},
+        {'enum': 'others', 'members': []}
+    ];
+
+    genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            // Insert participant details
+            var detailsTasks = [];
+            data.results.forEach(function(p){
+                detailsTasks.push(getParticipantDetails(p));
+            });
+            return Q.all(detailsTasks);
+        })
+        .then(function(data){
+            // Insert people details
+            var contactTasks = [];
+            data.forEach(function(p){
+                contactTasks.push(getParticipantPeopleDetails(p));
+            });
+            return Q.all(contactTasks);
+        })
+        .then(function(data){
+
+            // Sort participants by name, case insensitive
+            const sortedData = _.orderBy(data, [p => p.name.toLowerCase()], ['asc']);
+
+            // group participants according to their participation status.
+            sortedData.forEach(function(p){
+                if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'voting_participants') group.members.push(p);
+                    });
+                }
+                else if (p.type == 'COUNTRY' && p.participationStatus == 'ASSOCIATE') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'associate_country_participants') group.members.push(p);
+                    });
+                }
+                else if (p.type == 'OTHER' && p.participationStatus == 'ASSOCIATE') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'other_associate_participants') group.members.push(p);
+                    });
+                }
+                else if (p.type == 'OTHER' && p.participationStatus == 'AFFILIATE') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'gbif_affiliate') group.members.push(p);
+                    });
+                }
+                else if (p.participationStatus == 'FORMER') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'former_participants') group.members.push(p);
+                    });
+                }
+                else if (p.participationStatus == 'OBSERVER') {
+                    groups.forEach(function(group){
+                        if (group.enum == 'observer') group.members.push(p);
+                    });
+                }
+                else {
+                    groups.forEach(function(group){
+                        if (group.enum == 'others') group.members.push(p);
+                    });
+                }
+            });
+            return deferred.resolve(groups);
+        })
+        .catch(function(err){
+            deferred.reject(err);
+        });
+
+    return deferred.promise;
+}
+
+function getParticipantDetails(participant) {
+    var deferred = Q.defer();
+    var requestUrl = dataApi.directoryParticipant.url + '/' + participant.id;
+    var options = authorizeApiCall(requestUrl);
+
+    genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            deferred.resolve(data);
+        })
+        .catch(function(err){
+            deferred.reject(new Error(err));
+        });
+    return deferred.promise;
+}
+
+function getParticipantPeopleDetails(participant) {
+    var deferred = Q.defer();
+    var peopleTasks = [];
+    participant.people.forEach(function(person){
+        peopleTasks.push(getPersonContacts(person.personId));
+    });
+    Q.all(peopleTasks)
+        .then(function(peopleDetails){
+            participant.people = peopleDetails;
+            deferred.resolve(participant);
+        })
+        .catch(function(err){
+            deferred.reject(new Error(err));
+        });
+    return deferred.promise;
+}
 
 function getCommitteeContacts(group) {
     var deferred = Q.defer();
@@ -47,13 +173,10 @@ function getCommitteeContacts(group) {
             results.forEach(function(person){
                 personsTasks.push(getPersonContacts(person.personId));
             });
-
-            Q.all(personsTasks).then(function(committee){
-                deferred.resolve(committee);
-            })
-            .catch(function(err){
-                deferred.reject(new Error(err));
-            });
+            return Q.all(personsTasks);
+        })
+        .then(function(committee){
+            deferred.resolve(committee);
         })
         .catch(function(err){
             deferred.reject(new Error(err));
@@ -61,10 +184,10 @@ function getCommitteeContacts(group) {
     return deferred.promise;
 }
 
-function getPersonContacts(persons) {
+function getPersonContacts(personId) {
     var deferred = Q.defer();
-    var requestUrl = dataApi.directoryPerson.url + '/' + persons;
-    var options = authorizeApiCall(requestUrl, 'directoryPerson');
+    var requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
         .then(function(data){
@@ -92,8 +215,8 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var appKey = 'gbif.drupal';
-    var secret = '6c6d4f43782772442450565b7b386d585f6141635c297171212c524b20';
+    var appKey = '';
+    var secret = '';
 
     var options = {
         url: requestUrl,
