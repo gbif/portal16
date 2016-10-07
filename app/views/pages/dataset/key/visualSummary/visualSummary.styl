@@ -91,6 +91,22 @@
     border-radius 50px
     background-size cover
     background-position center
+    line-height 50px
+    text-align center
+    font-size 30px
+    color white
+    &:hover {
+        text-decoration none
+        color white
+    }
+}
+.round-image--dark {
+    @extends .round-image
+    background darken($greyBackground, 10)
+    transition background 200ms ease
+    &:hover {
+        background darken($greyBackground, 20)
+    }
 }
 
 //.dataset-key__visual-summary__map {

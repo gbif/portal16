@@ -1,5 +1,5 @@
 <section class="horizontal-stripe--paddingless light-background dataset-key__visual-summary">
-    <div class="container--narrow">
+    <div class="container">
         <div class="row">
             <div class="dataset-key__visual-summary__wrapper" id="metrics">
                 <div class="dataset-key__visual-summary__counts">
@@ -32,8 +32,8 @@
                                             <round-progress
                                                     max="100"
                                                     current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
-                                                    color="#47bad4"
                                                     bgcolor="#cee4e8"
+                                                    color="#40bfff"
                                                     responsive="true">
                                             </round-progress>
                                         </div>
@@ -56,7 +56,7 @@
                                                     max="100"
                                                     current="{$ dataset._occurrenceDatedCount.percentage | int $}"
                                                     bgcolor="#cee4e8"
-                                                    color="#47bad4"
+                                                    color="#40bfff"
                                                     responsive="true">
                                             </round-progress>
                                         </div>
@@ -77,7 +77,7 @@
                                                     max="100"
                                                     current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
                                                     bgcolor="#cee4e8"
-                                                    color="#47bad4"
+                                                    color="#40bfff"
                                                     responsive="true">
                                             </round-progress>
                                         </div>
@@ -108,6 +108,19 @@
                                     </div>
                                 </div>
                             {% endfor %}
+
+                            <div class="dataset-key__visual-summary__counts__group">
+                                <div class="summary-counts">
+                                    <div class="clearfix">
+                                        <div class="radial-progress">
+                                            <a class="round-image--dark gb-icon-angle-right"
+                                               href="../occurrence/search?dataset_key={$ dataset.record.key $}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="summary-counts__description">Other metrics</div>
+                                </div>
+                            </div>
 
                         </div>
                     {% endif %}

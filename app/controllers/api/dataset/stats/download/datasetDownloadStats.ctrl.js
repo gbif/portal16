@@ -11,7 +11,7 @@ module.exports = function (app) {
 
 router.get('/dataset/stats/download/:key', function (req, res, next) {
     var datasetKey = req.params.key;
-    getDownloadStats(datasetKey).then(function (data) {
+    getDownloadStats(datasetKey, 200).then(function (data) {
         res.json(data);
     }, function (err) {
         next(err);

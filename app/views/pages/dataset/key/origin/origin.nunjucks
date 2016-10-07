@@ -1,0 +1,68 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes datasetKey page--data">
+        {% include('../header/header.nunjucks') %}
+
+        {% import "../tabs.macro.nunjucks" as tabsMacro %}
+        {$ tabsMacro.datasetTabs(dataset, 'origin', __) $}
+
+        <section class="horizontal-stripe light-background occurrenceKey__highlights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <dl class="inline">
+
+                            <div>
+                                <dt class="text-capitalize">Publisher</dt>
+                                <dd>
+                                    <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}">
+                                        {$ dataset.publisher.title $}
+                                    </a>
+                                </dd>
+                            </div>
+
+                            {% if dataset.record.homepage | isDefined %}
+                                <div>
+                                    <dt class="text-capitalize">Dataset homepage</dt>
+                                    <dd>
+                                        <a href="{$ dataset.record.homepage $}">
+                                            {$dataset.record.homepage | truncateMiddle(50) $}
+                                        </a>
+                                    </dd>
+                                </div>
+                            {% endif %}
+
+                            {% if dataset.record.pubDate | isDefined %}
+                                <div>
+                                    <dt class="text-capitalize">Published</dt>
+                                    <dd>{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</dd>
+                                </div>
+                            {% endif %}
+
+                            {% if dataset.record.modified | isDefined %}
+                                <div>
+                                    <dt class="text-capitalize">Last modified</dt>
+                                    <dd>{$ dataset.record.modified | formatDate(gb.locales.current) $}</dd>
+                                </div>
+                            {% endif %}
+
+                        </dl>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="publisher-logo-container">
+                            <img src="{$ dataset.publisher.logoUrl $}" onError="this.style.display = 'none'"
+                                 class="pull-right">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        {% include('../contributors/contributors.nunjucks') %}
+
+        {% include('../registration/registration.nunjucks') %}
+
+    </article>
+{% endblock %}

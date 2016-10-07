@@ -7,28 +7,38 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
+function isGuid(stringToTest) {
+    var regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
+    return regexGuid.test(stringToTest);
+}
+
 router.get('/publisher/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences']}).then(function (publisher) {
-        publisher._computedValues = {};
-        let contacts = publisher.record.contacts;
-        let organizationContact = {
-            organization: publisher.record.title,
-            city: publisher.record.city,
-            country: publisher.record.country,
-            address: publisher.record.address,
-            postalCode: publisher.record.postalCode,
-            type: 'PUBLISHER'
-        };
-        contacts.push(organizationContact);
-        publisher._computedValues.contributors = contributors.getContributors(contacts);
-        renderPage(req, res, next, publisher);
-    }, function (err) {
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
+    if (!isGuid(key)) {
         next();
-    });
+    } else {
+        Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences']}).then(function (publisher) {
+            try {
+                publisher._computedValues = {};
+                let contacts = publisher.record.contacts;
+                let organizationContact = {
+                    organization: publisher.record.title,
+                    city: publisher.record.city,
+                    country: publisher.record.country,
+                    address: publisher.record.address,
+                    postalCode: publisher.record.postalCode,
+                    type: 'PUBLISHER'
+                };
+                contacts.push(organizationContact);
+                publisher._computedValues.contributors = contributors.getContributors(contacts);
+                renderPage(req, res, next, publisher);
+            } catch(error) {
+                next(error);
+            }
+        }, function (err) {
+            next(err);
+        });
+    }
 });
 
 function renderPage(req, res, next, publisher) {

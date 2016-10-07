@@ -12,7 +12,9 @@ require('angular-scroll');
 require('angular-sanitize');
 require('../../../components/clickoutside/clickoutside.directive');
 require('nouislider-angular');
+window.Chartist = require('chartist');
 require('angular-chartist.js');
+require('chartist-plugin-axistitle');
 
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
 

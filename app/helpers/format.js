@@ -37,7 +37,7 @@ function prettifyEnum(text) {
         return '';
     }
     text = text.substr(text.lastIndexOf('/') + 1);
-    return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ');
+    return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ').toLowerCase();
 }
 
 function getHighlightedText(text, desiredLength, isExtract) {

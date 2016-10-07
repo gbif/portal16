@@ -1,12 +1,12 @@
 <section class="horizontal-stripe white-background dataset-key__contributors">
     <div class="anchor-block" id="id_contributors">
-        <div class="container--narrow">
+        <div class="container">
             <span class="relative-anchor-offset"><a name="contributors"></a></span>
             <h2 class="h4">Contributors</h2>
         </div>
         <div>
             <div>
-                <div class="container--narrow flex-columns">
+                <div class="container flex-columns">
 
                     {% for contributor in dataset._computedValues.contributors.all %}
                         <div class="dataset-key__contributors__item">

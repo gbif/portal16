@@ -30,6 +30,9 @@
     &.white-background + .white-background {
         border none
     }
+    &.light-background + .light-background {
+        border none
+    }
     > *:last-of-type {
         margin-bottom 0
     }
@@ -533,4 +536,8 @@ sub {
     &--b {
         border-bottom 1px solid rgba(0, 0, 0, 0.08) !important
     }
+}
+
+.ct-chart > svg:not(:root) {
+    overflow visible
 }

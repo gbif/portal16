@@ -62,6 +62,9 @@ function getDataset(datasetKey, cb) {
             },
             occurrenceNoTaxonCount: function (callback) {
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
+            },
+            downloads: function (callback) {
+                helper.getApiData(baseConfig.dataApi + 'occurrence/download/dataset/' + datasetKey + '?limit=0', callback);
             }
         }, function (err, data) {
             if (err || _.isEmpty(data.expanded)) {
@@ -69,6 +72,7 @@ function getDataset(datasetKey, cb) {
                 return;
             } else {
                 try {
+                    data.expanded._downloads = data.downloads;
                     data.expanded._speciesTaxonCount = data.speciesTaxonCount;
                     data.expanded._occurrenceCount = data.occurrenceCount;
 

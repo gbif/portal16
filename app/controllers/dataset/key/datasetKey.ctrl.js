@@ -14,37 +14,24 @@ function isGuid(stringToTest) {
     return regexGuid.test(stringToTest);
 }
 
-router.get('/dataset2/:key\.:ext?', function (req, res, next) {
+router.get('/dataset/:key\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/datasetKey');
 });
 
-router.get('/dataset2/:key/project\.:ext?', function (req, res, next) {
+router.get('/dataset/:key/project\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/project/project');
 });
 
-router.get('/dataset2/:key/credit\.:ext?', function (req, res, next) {
+router.get('/dataset/:key/credit\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/credit/credit');
 });
 
-router.get('/dataset2/:key/usage\.:ext?', function (req, res, next) {
-    //this is silly . we load all stats including those we do not need. TODO
-    var datasetKey = req.params.key;
-    if (!isGuid(datasetKey)) {
-        next();
-    } else {
-        dataset.getDataset(datasetKey, function (err, viewData) {
-            if (err) {
-                next(err);
-            } else {
-                getDownloadStats(datasetKey).then(function (data) {
-                    viewData._downloadStats = data;
-                    renderPage(req, res, next, 'pages/dataset/key/usage/usage', viewData);
-                }, function (error) {
-                    next(error);
-                });
-            }
-        })
-    }
+router.get('/dataset/:key/usage\.:ext?', function (req, res, next) {
+    buildModelAndRender(req, res, next, 'pages/dataset/key/usage/usage');
+});
+
+router.get('/dataset/:key/origin\.:ext?', function (req, res, next) {
+    buildModelAndRender(req, res, next, 'pages/dataset/key/origin/origin');
 });
 
 function buildModelAndRender(req, res, next, template) {

@@ -1,25 +1,41 @@
-<section class="horizontal-stripe--paddingless light-background dataset-key__usage">
-    <div class="container--narrow">
-        <div class="row">
-            <div class="dataset-key__visual-summary__wrapper">
-                <div class="dataset-key__visual-summary__counts">
-                    <h5>Since {$ dataset._downloadStats.dates.first | formatDate(gb.locales.current) $}</h5>
-                    <div class="dataset-key__visual-summary__counts__totals">
-                        <div>
-                            <span class="h3">{$ dataset._downloadStats.total | localizeInteger(gb.locales.current) $}</span>
-                            <span>downloads</span>
-                        </div>
-                        <div>
-                            <span class="h3">{$ dataset._downloadStats.occurrences | localizeInteger(gb.locales.current) $}</span>
-                            <span>occurrences</span>
+<section class="horizontal-stripe light-background dataset-key__usage seperator--b">
+    <div class="container">
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <span class="h3">{$ dataset._downloads.count | localizeInteger(gb.locales.current) $}</span>
+                        <span>downloads</span>
+                    </div>
+                </div>
+            </div>
+
+            {% if dataset._downloads.count > 0 %}
+                <div class="ng-cloak">
+                    <div ng-if="datasetUsage.state == 'LOADING'">
+                        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                    </div>
+                    <div ng-if="datasetUsage.state == 'FAILED'">
+                        <p>
+                            {#TODO link and possibly check system status#}
+                            We couldn't compile the stats for this dataset. You're are welcome to
+                            <a href="mailto:helpdesk@gbif.org">get in touch</a>.
+                        </p>
+                    </div>
+                    <div ng-if="datasetUsage.state == 'LOADED'">
+                        <h5>Frequency of used filters in downloads</h5>
+                        <div style="max-width: 800px">
+                            <chartist class="ct-chart ct-golden-section" chartist-data="datasetUsage.data"
+                                      chartist-chart-options="datasetUsage.options"
+                                      chartist-chart-type="Bar"></chartist>
                         </div>
                     </div>
                 </div>
+            {% endif %}
 
-                <chartist class="ct-chart" chartist-data="datasetUsage.data" chartist-chart-options="datasetUsage.options" chartist-chart-type="Bar"></chartist>
-            </div>
+            <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+            <div class='altmetric-embed' data-badge-popover='bottom' data-doi='{$ dataset.record.doi $}'></div>
+
         </div>
-
-
     </div>
 </section>

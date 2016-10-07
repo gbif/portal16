@@ -9,7 +9,7 @@ function rollUpCounts(downloads) {
     rollUp.total = downloads.count;
     rollUp.occurrences = 0;
     let filterCounts = {
-        everything: 0,
+        noFilter: 0,
         keys: {}
     };
     downloads.results.forEach(function (result) {
@@ -18,7 +18,7 @@ function rollUpCounts(downloads) {
 
         //filters used
         if (!downloadQuery) {
-            filterCounts.everything++;
+            filterCounts.noFilter++;
         } else {
             let predicates = getPredicates(downloadQuery);
             _.uniqBy(predicates, 'key').forEach(function (predicate) {
@@ -35,13 +35,22 @@ function rollUpCounts(downloads) {
         };
     }
 
+    //filterCounts to sorted list
+    filterCounts.keys = _.flatMap(filterCounts.keys, function(value, key){
+        return {
+            field: key,
+            value: value
+        };
+    });
+    filterCounts.keys = _.sortBy(filterCounts.keys, ['value']).reverse();
+
     rollUp.filterCounts = filterCounts;
     return rollUp;
 }
 
-function getDownloads(key) {
+function getDownloads(key, limit) {
     var deferred = Q.defer();
-    helper.getApiData(apiConfig.occurrenceDownloadDataset.url + key + '?limit=200', function (err, data) {
+    helper.getApiData(apiConfig.occurrenceDownloadDataset.url + key + '?limit=' + limit, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {
@@ -50,6 +59,8 @@ function getDownloads(key) {
         else {
             deferred.reject(new Error(err));
         }
+    }, {
+        timeoutMilliSeconds: 30000
     });
     return deferred.promise;
 }
@@ -66,11 +77,22 @@ function getPredicates(predicate) {
     return list;
 }
 
-function getStats(datasetKey) {
+function translateFields(data) {
+    var helper = require('../../../helpers/format');
+    data.filterCounts.keys.forEach(function(e){
+        e.displayName = helper.prettifyEnum(e.field);
+    });
+}
+
+function getStats(datasetKey, limit) {
+    limit = limit || 200;
     var deferred = Q.defer();
-    getDownloads(datasetKey).then(function (downloadData) {
+    getDownloads(datasetKey, limit).then(function (downloadData) {
         try {
             let summaryData = rollUpCounts(downloadData);
+            summaryData.limit = limit;
+            summaryData.usedResults = Math.min(limit, downloadData.count);
+            translateFields(summaryData);
             deferred.resolve(summaryData);
         } catch (err) {
             deferred.reject(new Error(err));

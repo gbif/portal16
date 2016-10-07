@@ -30,7 +30,7 @@ var angular = require('angular');
             );
         })
         .factory('DatasetDownloadStats', function ($resource) {
-            return $resource('/api/dataset/stats/download/', null, {
+            return $resource('/api/dataset/stats/download/:id', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,

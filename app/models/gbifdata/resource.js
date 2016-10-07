@@ -36,7 +36,7 @@ Resource.extendWith = function (dataInstance, resources) {
     var deferred = Q.defer();
     Resource.getReources(resources, function (err, results) {
         if (err) {
-            console.log(err);
+            deferred.reject(new Error(err));
         }
         resources.forEach(function (e) {
             dataInstance[e.extendToField] = results[e.extendToField];

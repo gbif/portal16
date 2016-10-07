@@ -160,9 +160,11 @@ function getRoleOrder(roles) {
 }
 
 function getFirstWithEmail(contacts) {
-    for (var i = 0; i < contacts.length; i++) {
-        if (contacts[i].email.length > 0) {
-            return contacts[i];
+    if (_.isArray(contacts)) {
+        for (var i = 0; i < contacts.length; i++) {
+            if (_.get(contacts[i], 'email.length', 0) > 0) {
+                return contacts[i];
+            }
         }
     }
     return false;

@@ -20,7 +20,7 @@ function isGuid(stringToTest) {
     return regexGuid.test(stringToTest);
 }
 
-router.get('/dataset/:key\.:ext?', function (req, res, next) {
+router.get('/dataset2/:key\.:ext?', function (req, res, next) {
     var datasetKey = req.params.key;
     if (!isGuid(datasetKey)) {
         next();
