@@ -31,7 +31,7 @@
 
                         {% if dataset._occurrenceCount.count > 0 %}
                         <li class="tab-right">
-                            <a href="../occurrence/search?dataset_key={$ dataset.record.key $}">
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
                                 <span class="gb-button--round">Explore</span>
                             </a>
                         </li>

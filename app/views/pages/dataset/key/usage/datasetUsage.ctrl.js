@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    Chartist = require('chartist');
 
 angular
     .module('portal')
@@ -79,7 +80,7 @@ function datasetUsageCtrl(DatasetDownloadStats) {
         serie.push(response.filterCounts.noFilter);
         vm.data.series = [serie];
         vm.state = 'LOADED';
-    }, function (err) {
+    }, function () {
         vm.state = 'FAILED';
         //TODO log error
     });

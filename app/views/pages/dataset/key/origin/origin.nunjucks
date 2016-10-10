@@ -49,12 +49,14 @@
 
                         </dl>
                     </div>
+                    {% if dataset.publisher.logoUrl | isNotEmpty %}
                     <div class="col-xs-12 col-sm-6">
                         <div class="publisher-logo-container">
                             <img src="{$ dataset.publisher.logoUrl $}" onError="this.style.display = 'none'"
                                  class="pull-right">
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
 
