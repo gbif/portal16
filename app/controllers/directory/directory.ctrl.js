@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    directory = require('../../models/gbifdata/directory/directory');
+    Directory = require('../../models/gbifdata/directory/directory');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -17,18 +17,19 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         jsonOutput = true;
     }
 
-    directory.getContacts()
+    Directory.getContacts()
         .then(function(data){
             if (data) {
                 var pageContent = {
                     title: 'Contact Us',
-                    sub: 'Directory of contacts'
+                    sub: 'Directory of contacts',
+                    contacts: data
                 };
                 if (jsonOutput == true) {
                     res.json(pageContent);
                 }
                 else {
-                    res.render('pages/about/directory/contactUs', pageContent);
+                    res.render('pages/about/directory/directoryOfContacts', pageContent);
                 }
             }
         })

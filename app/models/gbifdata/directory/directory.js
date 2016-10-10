@@ -215,8 +215,8 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var appKey = '';
-    var secret = '';
+    var appKey = 'gbif.drupal';
+    var secret = '6c6d4f43782772442450565b7b386d585f6141635c297171212c524b20';
 
     var options = {
         url: requestUrl,
