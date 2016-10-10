@@ -38,9 +38,14 @@ gulp.task('prod', function (callback) {
         ['clean-all'],
         ['env-constants'],
         // these produce rev'ed files
-        ['assets', 'vendor-styles', 'vendor-scripts'],
-        // styles & scripts need the rev'ed assets already but also produce new rev entries
-        ['stylus', 'scripts', 'speciesLookup'],
+        // We avoid parallel tasks that could overwrite the rev-manifest.json
+        ['assets'],
+        ['vendor-styles'],
+        ['vendor-scripts'],
+        // styles & scripts need the rev'ed assets already but also produce new rev entries.
+        ['stylus'],
+        ['scripts'],
+        ['speciesLookup'],
         ['templates', 'templates-nunjucks'], // needs to come after all files have been reved
         ['ieStyle'],
         callback);
