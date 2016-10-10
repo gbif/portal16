@@ -1,8 +1,12 @@
 /**
- * Compile all stylus files in src. Files are automatically added so no need to import them explictly in the stylus files
+ * Compile all stylus files in src.
+ * Files are automatically added so no need to import them explictly in the stylus files
  *
  * Wiredep : if any stylus files is defined in the bower mains they will be injected into our custom stylus and compiled.
  * This allow us to overwrite variables and customize vendor files
+ *
+ * Revisioning files is not working with streaming.
+ * We therefore only revision the production tasks but not the xyz-reload ones.
  */
 
 'use strict';
@@ -10,11 +14,15 @@
 var gulp = require('gulp'),
     path = require('path'),
     config = rootRequire('config/build'),
+    gulpif = require('gulp-if'),
+    rename = require("gulp-rename"),
     wiredep = require('wiredep'),
     browserSync = require('browser-sync'),
     lost = require('lost'),
     axis = require('axis'),
     runSequence = require('run-sequence'),
+    rev = require('gulp-rev'),
+    revReplace = require("gulp-rev-replace"),
     g = require('gulp-load-plugins')();
 
 
@@ -34,9 +42,10 @@ gulp.task('bootstrap-style', function () {
 });
 
 gulp.task('vendor-styles', function () {
+    var vendor = 'css/vendor';
     return gulp.src(config.bower.cssFiles, {
-            base: './'
-        })
+        base: vendor
+    })
         .pipe(g.plumber())
         .pipe(g.cleanCss({
             debug: true,
@@ -46,8 +55,20 @@ gulp.task('vendor-styles', function () {
         .pipe(g.sourcemaps.init())
         .pipe(g.concat('vendor.css'))
         .pipe(g.sourcemaps.write('./'))
-        .pipe(gulp.dest(path.join(config.paths.dist, 'css/vendor')));
+        .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulp.dest(path.join(config.paths.dist, vendor), {
+        }))
+        .pipe(rename(function (path) {
+            path.dirname += "/" + vendor
+        }))
+        .pipe(gulpif(config.isProd, rev.manifest({
+            path: config.rev.manifest,
+            cwd: config.rev.manifestDest,
+            merge: true
+        })))
+        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
+
 
 function buildStylus() {
     /**
@@ -80,7 +101,7 @@ function buildStylus() {
         lost()
     ];
 
-
+    var dest = 'css/base';
     return gulp.src([
             path.join(config.paths.src, '/shared/style/index.styl')
         ])
@@ -94,7 +115,20 @@ function buildStylus() {
         .pipe(g.postcss(processors))
         .pipe(g.cleanCss())
         .pipe(g.sourcemaps.write('./'))
-        .pipe(gulp.dest(path.join(config.paths.dist, 'css/base')));
+        .pipe(gulpif(config.isProd, revReplace({
+            manifest: gulp.src(config.rev.manifest)
+        })))
+        .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulp.dest(path.join(config.paths.dist, dest)))
+        .pipe(rename(function (path) {
+            path.dirname += "/" + dest
+        }))
+        .pipe(gulpif(config.isProd, rev.manifest({
+            path: config.rev.manifest,
+            cwd: config.rev.manifestDest,
+            merge: true
+        })))
+        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }
 
 gulp.task('ieStyle', [], function () {

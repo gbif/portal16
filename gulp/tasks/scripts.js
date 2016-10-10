@@ -8,6 +8,10 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     transform = require('vinyl-transform'),
     browserify = require('browserify'),
+    rename = require("gulp-rename"),
+    rev = require('gulp-rev'),
+    revReplace = require("gulp-rev-replace"),
+    gulpif = require('gulp-if'),
     notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
 
@@ -22,6 +26,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('vendor-scripts', function () {
+    var vendor = 'js/vendor';
     return gulp.src(config.bower.jsFiles, {
             base: './'
         })
@@ -29,8 +34,18 @@ gulp.task('vendor-scripts', function () {
         .pipe(g.sourcemaps.init())
         .pipe(g.concat('vendor.js'))
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
+        .pipe(gulpif(config.isProd, rev()))
         .pipe(g.sourcemaps.write('./'))
-        .pipe(gulp.dest(path.join(config.paths.dist, 'js/vendor')));
+        .pipe(gulp.dest(path.join(config.paths.dist, 'js/vendor')))
+        .pipe(rename(function (path) {
+            path.dirname += "/" + vendor
+        }))
+        .pipe(gulpif(config.isProd, rev.manifest({
+            path: config.rev.manifest,
+            cwd: config.rev.manifestDest,
+            merge: true
+        })))
+        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
 
 function buildScripts() {
@@ -47,6 +62,7 @@ gulp.task('speciesLookup', function () {
 //});
 
 function build(entry, name) {
+    var dest = 'js/base';
     return browserify({
         entries: entry,
         debug: true
@@ -73,5 +89,18 @@ function build(entry, name) {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(g.sourcemaps.write('./'))
-        .pipe(gulp.dest(path.join(config.paths.dist, 'js/base')));
+        .pipe(gulpif(config.isProd, revReplace({
+            manifest: gulp.src(config.rev.manifest)
+        })))
+        .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulp.dest(path.join(config.paths.dist, dest)))
+        .pipe(rename(function (path) {
+            path.dirname += "/" + dest
+        }))
+        .pipe(gulpif(config.isProd, rev.manifest({
+            path: config.rev.manifest,
+            cwd: config.rev.manifestDest,
+            merge: true
+        })))
+        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }

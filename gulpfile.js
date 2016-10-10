@@ -35,7 +35,14 @@ requireDir('./gulp/tasks', {
 
 gulp.task('prod', function (callback) {
     runSequence(
-        ['clean-all'], ['env-constants'], ['stylus', 'vendor-styles', 'scripts', 'vendor-scripts', 'assets', 'templates', 'speciesLookup'], ['ieStyle'],
+        ['clean-all'],
+        ['env-constants'],
+        // these produce rev'ed files
+        ['assets', 'vendor-styles', 'vendor-scripts'],
+        // styles & scripts need the rev'ed assets already but also produce new rev entries
+        ['stylus', 'scripts', 'speciesLookup'],
+        ['templates', 'templates-nunjucks'], // needs to come after all files have been reved
+        ['ieStyle'],
         callback);
 });
 
@@ -64,7 +71,10 @@ gulp.task('watch', ['browser-sync'], function () {
 
 gulp.task('dev', [], function (callback) {
     runSequence(
-        ['clean-all'], ['env-constants'], ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'templates', 'speciesLookup'],
+        ['clean-all'],
+        ['env-constants'],
+        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'speciesLookup'],
+        ['templates'],
         ['ieStyle'],
         ['watch'],
         callback);

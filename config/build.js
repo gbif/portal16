@@ -161,9 +161,16 @@ config.iconfont = {
  *  Delete everyting in this folder before building
  */
 config.clean = {
-    all: config.paths.dist
+    all: [config.paths.dist, 'build']
 };
 
+/**
+ *  gulp-rev configs like the path to the single manifest file.
+ */
+config.rev = {
+    manifestDest: loc(config.paths.dist),
+    manifest: loc('public/rev-manifest.json')
+};
 
 /**
  *  Common implementation for an error handler of a Gulp plugin

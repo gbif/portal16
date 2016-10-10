@@ -4,7 +4,9 @@ var nunjucks = require('nunjucks'),
 
 module.exports = function (app, config) {
     app.set('view engine', 'nunjucks');//to avoid having to specify file ext
-    var nunjucksConfiguration = nunjucks.configure(config.root + '/app/views', {
+    var templateDir = config.root + (config.env=='prod' ? '/build/nunjucks' : '/app/views');
+    console.log("Use nunjucks templates from " + templateDir);
+    var nunjucksConfiguration = nunjucks.configure(templateDir, {
         autoescape: true,
         express: app,
         noCache: app.locals.ENV_DEVELOPMENT,

@@ -7,6 +7,7 @@ node_modules/
 bower_components/
 public/
 log/
+build/
 reports/
 coverage/
 app/views/shared/layout/html/angular/env.constants.js
