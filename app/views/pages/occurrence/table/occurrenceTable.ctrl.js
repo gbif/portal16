@@ -22,8 +22,8 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         if (angular.isUndefined(lat) || angular.isUndefined(lng)) {
             return '';
         } else {
-            var la = $filter('number')(lat, 1) + (lat < 0 ? 'S' : 'N');
-            var lo = $filter('number')(lng, 1) + (lng < 0 ? 'W' : 'E');
+            var la = $filter('number')(Math.abs(lat), 1) + (lat < 0 ? 'S' : 'N');
+            var lo = $filter('number')(Math.abs(lng), 1) + (lng < 0 ? 'W' : 'E');
             return la + ', ' + lo;
         }
     };
