@@ -48,44 +48,44 @@ function globeContextDirective() {
             }
         }
 
-        function getBboxGeoJson(bounds) {
-            return {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "properties": {},
-                        "geometry": {
-                            "type": "Polygon",
-                            "coordinates": [
-                                [
-                                    [
-                                        bounds._southWest.lng,
-                                        bounds._southWest.lat
-                                    ],
-                                    [
-                                        bounds._northEast.lng,
-                                        bounds._southWest.lat
-                                    ],
-                                    [
-                                        bounds._northEast.lng,
-                                        bounds._northEast.lat
-                                    ],
-                                    [
-                                        bounds._southWest.lng,
-                                        bounds._northEast.lat
-                                    ],
-                                    [
-                                        bounds._southWest.lng,
-                                        bounds._southWest.lat
-                                    ]
-                                ]
-                            ]
-                        }
-                    }
-                ]
-            };
-        }
+        //function getBboxGeoJson(bounds) {
+        //    return {
+        //        "type": "FeatureCollection",
+        //        "features": [
+        //            {
+        //                "type": "Feature",
+        //                "properties": {},
+        //                "geometry": {
+        //                    "type": "Polygon",
+        //                    "coordinates": [
+        //                        [
+        //                            [
+        //                                bounds._southWest.lng,
+        //                                bounds._southWest.lat
+        //                            ],
+        //                            [
+        //                                bounds._northEast.lng,
+        //                                bounds._southWest.lat
+        //                            ],
+        //                            [
+        //                                bounds._northEast.lng,
+        //                                bounds._northEast.lat
+        //                            ],
+        //                            [
+        //                                bounds._southWest.lng,
+        //                                bounds._northEast.lat
+        //                            ],
+        //                            [
+        //                                bounds._southWest.lng,
+        //                                bounds._southWest.lat
+        //                            ]
+        //                        ]
+        //                    ]
+        //                }
+        //            }
+        //        ]
+        //    };
+        //}
 
         var width = 70,
             height = width,
@@ -119,7 +119,7 @@ function globeContextDirective() {
         //  setCenter(vm.globeOptions.center.lat, vm.globeOptions.center.lng, vm.globeOptions.bounds);
         //});
 
-        function setCenter(lat, lng, bounds) {
+        function setCenter(lat, lng) {
             //lat = Math.min(lat, 50);
             //lat = Math.max(lat, -50);
             context.clearRect(0, 0, width, height);
