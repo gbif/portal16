@@ -1,9 +1,7 @@
 'use strict';
 
 var crypto = require('crypto'),
-    async = require('async'),
     _ = require('lodash'),
-    resource = require('../resource'),
     Q = require('q'),
     helper = require('../../util/util'),
     dataApi = require('../apiConfig');
@@ -35,7 +33,7 @@ Directory.getContacts = function() {
             return contacts.committees.push(committee);
         });
     }))
-    .then(function(results){
+    .then(function(){
         return getParticipantsContacts().then(function(groupedP){
             contacts.participants = groupedP;
             defer.resolve(contacts)
