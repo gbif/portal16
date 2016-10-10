@@ -50,10 +50,14 @@
                             {% if dataset.record.endpoints | isNotEmpty %}
                                 <div>
                                     <dt class="text-capitalize">External data</dt>
-                                    <dd class="inline-bullet-list">
-                                        {% for endpoint in dataset.record.endpoints %}
-                                        <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum | capitalize $}</a>
-                                        {% endfor %}
+                                    <dd>
+                                        <ul class="inline-bullet-list">
+                                            {% for endpoint in dataset.record.endpoints %}
+                                            <li>
+                                                <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum | capitalize $}</a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
                                     </dd>
                                 </div>
                             {% endif %}
