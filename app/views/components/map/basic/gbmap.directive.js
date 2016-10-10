@@ -51,27 +51,28 @@ function gbmapDirective() {
         vm.controls = {
             scale: true
         };
-        var getOverlay = function (palette, resolution) {
-            var overlay = {
-                name: 'gb',
-                url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=8&' + palette,
-                type: 'xyz',
-                visible: true,
-                layerParams: {
-                    key: vm.key || 0,
-                    type: vm.type ? vm.type.toUpperCase() : 'TAXON',
-                    "showOnSelector": false
-                }
-            };
-            return overlay;
-        };
-        var setOverlay = function (q) {
-            vm.query = q;
-            if (Object.keys(vm.layers.overlays).length > 0) {
-                vm.layers.overlays = {};
-            }
-            vm.layers.overlays['occurrences' + hashObject(vm.query)] = getOverlay(vm.query);
-        };
+        //var getOverlay = function (palette, resolution) {
+        //    resolution = resolution || 8;
+        //    var overlay = {
+        //        name: 'gb',
+        //        url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=' + resolution + '&' + palette,
+        //        type: 'xyz',
+        //        visible: true,
+        //        layerParams: {
+        //            key: vm.key || 0,
+        //            type: vm.type ? vm.type.toUpperCase() : 'TAXON',
+        //            "showOnSelector": false
+        //        }
+        //    };
+        //    return overlay;
+        //};
+        //var setOverlay = function (q) {
+        //    vm.query = q;
+        //    if (Object.keys(vm.layers.overlays).length > 0) {
+        //        vm.layers.overlays = {};
+        //    }
+        //    vm.layers.overlays['occurrences' + hashObject(vm.query)] = getOverlay(vm.query);
+        //};
 
         vm.layers = {
             baselayers: {
