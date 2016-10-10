@@ -1,10 +1,9 @@
 'use strict';
 
-// TODO Use absolute path?
 var baseConfig = require('../../../config/config');
-
 var baseUrl = baseConfig.dataApi;
-// TODO Establish URL concatenation policy.
+
+// TODO Establish URL concatenation policy. Always no trailing slash?
 var apiConfig = {
     base: {
         url: baseUrl

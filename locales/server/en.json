@@ -1588,7 +1588,7 @@
         "one": "funder",
         "other": "funders"
       },
-      "relatedDatasets": "Related Datasets"
+      "relatedDatasets": "related datasets"
     },
     "auxiliary": {
       "subject": {
@@ -1600,6 +1600,8 @@
     "about": "about"
   },
   "directory": {
-    "contactUs": "contact us"
+    "title": "Directory of Contacts",
+    "contact": "contact",
+    "contactUsSubtitle": "Finding people and information around the GBIF community"
   }
 }
