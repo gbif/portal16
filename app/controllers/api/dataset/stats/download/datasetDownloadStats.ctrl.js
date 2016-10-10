@@ -3,8 +3,6 @@ var express = require('express'),
     router = express.Router(),
     getDownloadStats = require('../../../../../models/gbifdata/gbifdata').getDownloadStats;
 
-const querystring = require('querystring');
-
 module.exports = function (app) {
     app.use('/api', router);
 };
