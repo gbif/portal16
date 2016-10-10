@@ -4,11 +4,13 @@ var crypto = require('crypto'),
     _ = require('lodash'),
     Q = require('q'),
     helper = require('../../util/util'),
+    fs = require('fs'),
     dataApi = require('../apiConfig');
 
-var Directory = function(){};
+var Directory = {};
 
 Directory.getContacts = function() {
+    var deferFs = Q.defer();
     var defer = Q.defer();
     var groups = [
         'executive_committee',
@@ -24,24 +26,37 @@ Directory.getContacts = function() {
         'committees': []
     };
 
-    Q.all(groups.map(function(group){
-        return getCommitteeContacts(group).then(function(results){
-            var committee = {
-                'name': group,
-                'members': results
-            };
-            return contacts.committees.push(committee);
+    // First check whether we have the credential to complete all the calls to
+    // the directory.
+
+    fs.exists('/tmp/credential.js', deferFs.resolve);
+
+    deferFs.promise
+        .then((exists) => {
+            if (exists) {
+                return Q.all(groups.map(function(group){
+                    return getCommitteeContacts(group).then(function(results){
+                        var committee = {
+                            'name': group,
+                            'members': results
+                        };
+                        return contacts.committees.push(committee);
+                    });
+                }))
+            }
+            else {
+                throw new Error('No credential available.');
+            }
+        })
+        .then(function(){
+            return getParticipantsContacts().then(function(groupedP){
+                contacts.participants = groupedP;
+                defer.resolve(contacts)
+            });
+        })
+        .catch(function(err){
+            defer.reject(new Error(err));
         });
-    }))
-    .then(function(){
-        return getParticipantsContacts().then(function(groupedP){
-            contacts.participants = groupedP;
-            defer.resolve(contacts)
-        });
-    })
-    .catch(function(err){
-        defer.reject(new Error(err));
-    });
     return defer.promise;
 };
 
@@ -213,8 +228,10 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var appKey = 'gbif.drupal';
-    var secret = '6c6d4f43782772442450565b7b386d585f6141635c297171212c524b20';
+    var credential = require('/tmp/credential');
+
+    var appKey = credential.appKey;
+    var secret = credential.secret;
 
     var options = {
         url: requestUrl,
