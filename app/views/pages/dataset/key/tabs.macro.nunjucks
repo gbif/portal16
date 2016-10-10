@@ -28,6 +28,11 @@
                                 Usage metrics
                             </a>
                         </li>
+                        <li class="tab {% if active == 'citation' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/citation">
+                                Citation
+                            </a>
+                        </li>
 
                         {% if dataset._occurrenceCount.count > 0 %}
                         <li class="tab-right">
@@ -37,12 +42,16 @@
                         </li>
                         {% endif %}
 
-                        {% if dataset._occurrenceCount.count == 0 %}
-                        <li class="tab-right">
-                            <a href="">
-                                <span class="gb-button--round">Download</span>
-                            </a>
-                        </li>
+                        {% if dataset._occurrenceCount.count == 0 and dataset.record.type != 'METADATA' %}
+                            {% if dataset.record.endpoints | isNotEmpty %}
+                                {% for endpoint in dataset.record.endpoints | slice(0, 1) %}
+                                    <li class="tab-right">
+                                        <a href="{$ endpoint.url $}">
+                                            <span class="gb-button--round">Download</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
                         {% endif %}
                     </ul>
                 </nav>

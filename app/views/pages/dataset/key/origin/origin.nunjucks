@@ -47,6 +47,17 @@
                                 </div>
                             {% endif %}
 
+                            {% if dataset.record.endpoints | isNotEmpty %}
+                                <div>
+                                    <dt class="text-capitalize">External data</dt>
+                                    <dd class="inline-bullet-list">
+                                        {% for endpoint in dataset.record.endpoints %}
+                                        <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum | capitalize $}</a>
+                                        {% endfor %}
+                                    </dd>
+                                </div>
+                            {% endif %}
+
                         </dl>
                     </div>
                     {% if dataset.publisher.logoUrl | isNotEmpty %}

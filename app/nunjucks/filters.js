@@ -16,11 +16,6 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
-        nunjucksConfiguration.addFilter('highlighted', format.getHighlightedText);
-    })();
-
-
-    (function () {
         nunjucksConfiguration.addFilter('limit', function (data, limit) {
             return data && data.constructor === Array ? data.slice(0, limit) : undefined;
         });
@@ -34,6 +29,10 @@ module.exports = function (nunjucksConfiguration, config) {
 
     (function () {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('prettifyLicense', format.prettifyLicense);
     })();
 
     (function () {

@@ -1,0 +1,10 @@
+<section class="horizontal-stripe light-background dataset-key__citation seperator--b">
+    <div class="container">
+        <h2 class="h4">Citation</h2>
+        <div>
+            <blockquote class="dataset-key__citation__text">
+                <p>{$ dataset.record.citation.text $}</p>
+            </blockquote>
+        </div>
+    </div>
+</section>

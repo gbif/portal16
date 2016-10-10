@@ -20,7 +20,7 @@ router.get('/country/:key\.:ext?', function (req, res, next) {
 
 function renderPage(req, res, next, country) {
     try {
-        if (req.params.ext == 'json') {
+        if (req.params.ext == 'debug') {
             res.json(country);
         } else {
             res.render('pages/country/key/countryKey', {

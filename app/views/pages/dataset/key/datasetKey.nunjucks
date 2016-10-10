@@ -21,6 +21,7 @@
             {% include('./text/text.nunjucks') %}
             {% include('./bibliography/bibliography.nunjucks') %}
         </div>
+        {#{% include('./citation/citationSection.nunjucks') %}#}
 
     </article>
 {% endblock %}

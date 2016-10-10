@@ -25,19 +25,19 @@
         }
     }
     &__counts {
-        padding 1rem
         margin auto
-        margin-bottom -10px
         &__percentages {
             overflow hidden
             display flex
             flex-wrap wrap
         }
         &__totals {
-            margin-bottom vrBlock(0.5)
+            margin 0 (- vrBlock(1))
+            margin-bottom vrBlock(1)
             display flex
             > div {
-                flex 1 0 auto
+                margin 0 vrBlock(1)
+                flex 0 0 auto
             }
         }
         &__group {
@@ -48,39 +48,30 @@
         }
         &__image {
             margin-top vrBlock(1)
-
         }
     }
 }
 
-//+isAbove($laptop) {
-//	.dataset-key__visual-summary {
-//		&__counts {
-//			&__group {
-//				padding 0 $halfGutter
-//				flex 0 0 auto
-//			}
-//		}
-//	}
-//}
-//
 .summary-counts {
-    .radial-progress {
-        width 50px
-        height 50px
-        margin auto
-        float left
-    }
     &__percentage {
+        display block
+        float left
+        height 50px
+        line-height 25px
+        padding-left 10px
+        font-weight normal
+        font-size 18px
+        > div {
+            font-size 14px
+        }
+    }
+    &__description {
         display block
         float left
         height 50px
         line-height 50px
         padding-left 10px
         font-weight normal
-        font-size 18px
-    }
-    &__description {
     }
 }
 
@@ -100,6 +91,7 @@
         color white
     }
 }
+
 .round-image--dark {
     @extends .round-image
     background darken($greyBackground, 10)
@@ -109,22 +101,18 @@
     }
 }
 
-//.dataset-key__visual-summary__map {
-//	&__container {
-//		padding-bottom 50%
-//		gbmap {
-//			position absolute
-//			height 100%
-//			width 100%
-//		}
-//	}
-//}
-//+isAbove($laptop) {
-//	.dataset-key__visual-summary__map {
-//		position relative
-//		z-index 1
-//		&__container {
-//			margin-top vrBlock(1)
-//		}
-//	}
-//}
+.summary-circle {
+    width 50px
+    height 50px
+    line-height 50px
+    font-size 50px
+    margin auto
+    display inline-block
+    float left
+    color darken($greyBackground, 10)
+    text-decoration none
+    &:hover {
+        text-decoration none
+        color darken($greyBackground, 20)
+    }
+}

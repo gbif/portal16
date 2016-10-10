@@ -1,10 +1,13 @@
-<section class="horizontal-stripe light-background dataset-key__citation">
-    <div class="container--narrow">
-        <h2 class="h4">Citation</h2>
-        <div>
-            <blockquote class="dataset-key__citation__text">
-                <p>{$ dataset.record.citation.text $}</p>
-            </blockquote>
-        </div>
-    </div>
-</section>
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes datasetKey page--data">
+        {% include('../header/header.nunjucks') %}
+
+        {% import "../tabs.macro.nunjucks" as tabsMacro %}
+        {$ tabsMacro.datasetTabs(dataset, 'citation', __) $}
+
+        {% include('./citationSection.nunjucks') %}
+
+    </article>
+{% endblock %}
