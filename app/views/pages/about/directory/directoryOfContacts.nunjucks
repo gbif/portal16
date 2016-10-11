@@ -20,7 +20,37 @@
             </div>
         </div>
         <div class="horizontal-stripe">
-
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="contacts__table" ng-controller="directoryCtrl as directory">
+                        <div class="table-container--contacts">
+                            {% if contacts.participants.length > 0 %}
+                                {% for participant in contacts.participants %}
+                                    {% if participant.members.length > 1 %}
+                                        <h3>{$ __('directory.' + participant.enum) $}</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>{$ __('directory.participant') $}</th>
+                                                    <th>{$ __('directory.delegationMembers') $}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for member in participant.members %}
+                                                <tr>
+                                                    <td>{$ member.name $}</td>
+                                                    <td>{% include('./includes/contacts.nunjucks') %}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
 {% endblock %}

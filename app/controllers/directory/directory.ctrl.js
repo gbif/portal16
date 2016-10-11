@@ -12,8 +12,8 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         jsonOutput = false;
 
     if (req.params.requestedPath.search(/\.debug/) != -1) {
-        requestedPath = req.params.requestedPath.replace('.debug', '');
-        originalUrl = req.originalUrl.replace('.debug', '');
+        // requestedPath = req.params.requestedPath.replace('.debug', '');
+        // originalUrl = req.originalUrl.replace('.debug', '');
         jsonOutput = true;
     }
 
@@ -21,8 +21,8 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         .then(function(data){
             if (data) {
                 var pageContent = {
-                    title: 'Contact Us',
-                    sub: 'Directory of contacts',
+                    category: 'Contact Us',
+                    title: 'Directory of contacts',
                     contacts: data
                 };
                 if (jsonOutput == true) {
@@ -36,5 +36,4 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         .catch(function(err){
             next(err);
         });
-
 });
