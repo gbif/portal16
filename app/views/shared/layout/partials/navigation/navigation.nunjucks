@@ -1,9 +1,9 @@
 {% include "./mobileheader/mobileheader.nunjucks" %}
 
-<nav id="nav" class="site-nav" role="navigation">
+<nav id="nav" class="site-nav" role="navigation" ng-controller="navCtrl as nav">
     <div class="service-menu is-category">
         <div class="service-menu__teaser">
-            <a href="#">
+            <a href="">
                 <div class="service-menu__teaser-message">
                     <span>Welcome back</span>
                     <span>Doctor J. Lamiales</span>
@@ -14,14 +14,20 @@
             <!-- <li class="service-menu__search is-category">
                 <a href="#search">Search</a>
             </li> -->
+
             {% if not _meta.hideSearchAction %}
                 <li class="service-menu__search">
-                    <a href="#" class="gb-icon-search site-header__search-toggle">Search</a>
+                    <a href="" class="gb-icon-search" ng-click="nav.toggleSearch()"><span>Search</span></a>
                 </li>
             {% endif %}
 
+            <li class="service-menu__feedback">
+                <a href="" class="gb-icon-comment" ng-click="nav.toggleFilter()"><span>Feedback</span></a>
+                <span class="badge badge--error menu-notification">1</span>
+            </li>
+
             <li class="service-menu__profile is-category">
-                <a href="#" class="gb-icon-user-female">Profile</a>
+                <a href="" class="gb-icon-user-female"><span>Profile</span></a>
                 <ul>
                     <li>
                         <a href="#1">Menu not implemented yet</a>

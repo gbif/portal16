@@ -20,7 +20,6 @@ require('checklist-model');//TODO remove as we hardly use it now that there is c
 
 require('angular-svg-round-progressbar');
 
-
 (function () {
     'use strict';
     angular
@@ -60,6 +59,11 @@ require('./angular/datasetFilter.service');
 require('./angular/speciesFilter.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
+
+
+require('./angular/nav.constants');
+require('../partials/navigation/nav.ctrl');
+require('../partials/feedback/feedback.ctrl');
 
 
 require('../../../pages/search/search.ctrl');

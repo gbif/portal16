@@ -383,7 +383,13 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
         right -200px;
     }
 }
-
+.service-menu {
+    .menu-notification {
+        position absolute
+        top vrBlock(0.25)
+        right 0
+    }
+}
 +isAbove($laptop) {
     .service-menu {
         position absolute
@@ -404,8 +410,29 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
             background $plum
             color $mist
         }
-        > ul > li > a {
-            actionIcon()
+        > ul > li {
+            &:last-of-type {
+                margin-right 1rem
+            }
+            > a {
+                >span {
+                    display none
+                }
+                display inline-block
+                width 3rem
+                padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
+                relative()
+                font-size (100 /$majorThird) %
+                &:before {
+                    display block
+                    width 100%
+                    height vrBlock(2.75)
+                    text-align center
+                    absolute(top left)
+                    setType(2)
+                    line-height vrBlock(2.75)
+                }
+            }
         }
     }
 }
@@ -414,6 +441,9 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 +isBelow($laptop) {
     .service-menu {
         .service-menu__search {
+            display none
+        }
+        .service-menu__feedback {
             display none
         }
     }
@@ -547,7 +577,15 @@ main {
     &.is-active {
         right 0
     }
+    &.site-drawer--wide {
+        width $filterDrawerWidth + 10px
+        right -($filterDrawerWidth + 13)
+        &.is-active {
+            right 0
+        }
+    }
 }
+
 
 forceShowDrawer() {
     transition initial

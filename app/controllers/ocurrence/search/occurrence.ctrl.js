@@ -9,7 +9,7 @@ function renderSearch(req, res) {
     res.render('pages/occurrence/ocurrence', {
         title: 'Ocurrences',
         _meta: {
-            hideSearchAction: false,
+            hideSearchAction: true,
             hasDrawer: true,
             hasTools: true,
             hideFooter: true

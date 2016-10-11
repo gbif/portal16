@@ -7,8 +7,9 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($state, $stateParams, hotkeys) {
+function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
     var vm = this;
+    vm.isActive = false;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
     vm.locale = $stateParams.locale;
@@ -28,9 +29,9 @@ function searchCtrl($state, $stateParams, hotkeys) {
     });
 
     vm.updateSearch = function () {
-        vm.query.q = vm.freeTextQuery;
+        vm.query.q = vm.freeTextQuery || '';
         if ($state.current.abstract) {
-            location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery);
+            location.href = '/search?q=' + encodeURIComponent(vm.query.q);
         } else {
             $state.go($state.current, vm.query);
         }
@@ -41,9 +42,14 @@ function searchCtrl($state, $stateParams, hotkeys) {
             vm.updateSearch();
         }
     };
-    vm.cmsTypedSearch = function () {
-    };
 
+    $scope.$on(NAV_EVENTS.toggleSearch, function(event, data) {
+        if (data.toggle) {
+            vm.isActive = !vm.isActive;
+        } else {
+            vm.isActive = data.state;
+        }
+    });
 }
 
 module.exports = searchCtrl;

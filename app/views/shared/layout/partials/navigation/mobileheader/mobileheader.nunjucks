@@ -1,23 +1,26 @@
 <header class="site-header" id="site-header">
     <div>
-        <div class="site-header__mobile-options">
+        <div class="site-header__mobile-options clearfix">
             <div class="navbar-action">
-                <a href="#" class="action-icon gb-icon-menu site-header__menu-toggle">
+                <a href="#" class="action-icon gb-icon-logo site-header__menu-toggle">
                     <span>Menu</span>
                 </a>
             </div>
-            <div class="navbar-action">
-                <a href="/#" class="action-icon gb-icon-logo">
-                    <span>GBIF</span>
-                </a>
-            </div>
-            {% if not _meta.hideSearchAction %}
+
+            <div class="navbar-right-actions">
+                <div class="navbar-action">
+                    <a href="#" class="action-icon gb-icon-more-vertical">
+                        <span>More</span>
+                    </a>
+                </div>
+
                 <div class="navbar-action">
                     <a href="#" class="action-icon gb-icon-search site-header__search-toggle">
                         <span>Search</span>
                     </a>
                 </div>
-            {% endif %}
+
+            </div>
         </div>
     </div>
 </header>

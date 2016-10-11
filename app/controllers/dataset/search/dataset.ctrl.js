@@ -24,7 +24,7 @@ function renderPage(req, res, searchString) {
         query: searchString,
         _meta: {
             bodyClass: 'dataset',
-            hideSearchAction: false,
+            hideSearchAction: true,
             hideFooter: true,
             hasDrawer: true,
             hasTools: true

@@ -27,7 +27,6 @@ $filterEmphasisColor = $bodyTextColor
     font-size 12px
     position relative
     background $drawerBackgroundColor
-
     &__content {
         background white
     }
@@ -72,6 +71,9 @@ $filterEmphasisColor = $bodyTextColor
     &__section {
         background $drawerBackgroundColor
         color $drawerTextColor
+        &__content {
+            padding 10px
+        }
     }
 
     //&__footer {
@@ -343,16 +345,19 @@ $filterEmphasisColor = $bodyTextColor
     }
 }
 
-+isAbove($desktop) {
-    .drawer-padding {
-        padding-left $filterDrawerWidth
-    }
++isAbove($laptop) {
     .site-drawer {
         &__header {
             &__close {
-                display none
+                visibility none
             }
         }
+    }
+}
+
++isAbove($desktop) {
+    .drawer-padding {
+        padding-left $filterDrawerWidth
     }
 }
 

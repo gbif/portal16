@@ -30,11 +30,12 @@
             {% if _meta.hasDrawer %}
                 <aside id="filter" class="site-drawer">
                     <div>
-
                         {% block drawer %}{% endblock %}
                     </div>
                 </aside>
             {% endif %}
+
+            {% include "../partials/feedback/feedback.html" %}
 
             {% include "../partials/navigation/search/search.nunjucks" %}
 

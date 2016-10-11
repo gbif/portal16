@@ -1,7 +1,11 @@
-<aside class="site-drawer" id="site-search">
+<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch">
 
-    <div class="site-drawer__content" ng-controller="searchCtrl as omniSearch">
-
+    <div class="site-drawer__content">
+        <div class="site-drawer__header">
+            <div class="site-drawer__header__title">
+                <span class="text-center">Search</span>
+            </div>
+        </div>
         <div class="site-drawer__section">
 
             <div class="search-bar filter-group">

@@ -1,7 +1,11 @@
-<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': omniSearch.showDrawer}">
+<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': omniSearch.isActive}">
 
     <div class="site-drawer__content">
-
+        <div class="site-drawer__header">
+            <div class="site-drawer__header__title">
+                <span class="text-center">Search</span>
+            </div>
+        </div>
         <div class="site-drawer__section">
 
             <div class="search-bar filter-group">
@@ -78,12 +82,15 @@
 
 </aside>
 
+<ng-include src="'/templates/shared/layout/partials/feedback/feedback.html'"></ng-include>
+
 <div class="site-content">
 
     <!--<div class="fab" fab>-->
-    <!--<div class="fab__trigger">-->
-    <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter" ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
-    <!--</div>-->
+        <!--<div class="fab__trigger">-->
+            <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter"-->
+               <!--ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
+        <!--</div>-->
     <!--</div>-->
 
     <div class="page">

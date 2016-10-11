@@ -26,6 +26,7 @@ function searchDrawerDirective() {
     /** @ngInject */
     function searchDrawer($state) {
         var vm = this;
+        vm.isActive = false;
         vm.filter = vm.filter || {};
 
         vm.getFilterCount = function () {

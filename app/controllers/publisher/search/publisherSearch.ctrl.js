@@ -9,7 +9,7 @@ function renderSearch(req, res) {
     res.render('pages/publisher/search/publisherSearch', {
         title: 'Publishers',
         _meta: {
-            hideSearchAction: false,
+            hideSearchAction: true,
             hasDrawer: true,
             hasTools: true,
             hideFooter: true
