@@ -1,0 +1,65 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes dataset-suggest page--data"
+             ng-controller="suggestDatasetCtrl as suggestDataset">
+
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">Tools</span>
+                            <span class="article-header__category__lower">
+                                Featured
+                            </span>
+                        </nav>
+                        <h1 class="h2 text-center">
+                            <span>Suggest a dataset</span>
+                        </h1>
+                        <div class="article-header__intro">
+                            Do you know of a dataset with valuable information that is missing in GBIF? Then let us know. Or you could consider this your chance to <a href="">start publishing</a>.
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="h4">Please describe the dataset</div>
+                        <div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Check me out
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {#{% include "./curateResults.nunjucks" %}#}
+
+    </article>
+{% endblock %}
+
+
+{#{% block scripts %}#}
+    {#<script src="/js/base/pages/speciesLookup.js"></script>#}
+{#{% endblock %}#}
