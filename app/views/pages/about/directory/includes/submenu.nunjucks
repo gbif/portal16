@@ -1,0 +1,55 @@
+<span class="relative-anchor-offset"><a name="menu"></a></span>
+
+<nav class="submenu" id="submenu">
+    <ul class="nav-parts">
+        <li class="part-name">
+            <a href="" class="h4">Content</a>
+            <ul class="nav-chapters">
+                <li>menu?</li>
+
+                {% if dataset.record.description | isDefined %}
+                    <li class="nav-chapter" du-scrollspy="description">
+                        <a href="#description">Description</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.purpose | isDefined %}
+                    <li class="nav-chapter" du-scrollspy="purpose">
+                        <a href="#purpose">Purpose</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.temporalCoverages | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="temporalCoverages">
+                        <a href="#temporalCoverages">Temporal coverage</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.geographicCoverages | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="geographicCoverages">
+                        <a href="#geographicCoverages">Geographic coverage</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.taxonomicCoverages | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="taxonomicCoverages">
+                        <a href="#taxonomicCoverages">Taxonomic coverage</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.samplingDescription | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="methodology">
+                        <a href="#methodology">Method</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset.record.bibliographicCitations | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="bibliography">
+                        <a href="#bibliography">Bibliography</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </li>
+    </ul>
+</nav>

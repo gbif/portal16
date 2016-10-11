@@ -1354,7 +1354,7 @@
     "CURATOR": "curator",
     "DATA_ADMINISTRATOR": "data administrator",
     "SYSTEM_ADMINISTRATOR": "system administrator",
-    "HEAD_OF_DELEGATION": "head of_delegation",
+    "HEAD_OF_DELEGATION": "head of delegation",
     "TEMPORARY_HEAD_OF_DELEGATION": "temporary head of delegation",
     "ADDITIONAL_DELEGATE": "additional delegate",
     "TEMPORARY_DELEGATE": "temporary delegate",
@@ -1602,6 +1602,15 @@
   "directory": {
     "title": "Directory of Contacts",
     "contact": "contact",
-    "contactUsSubtitle": "Finding people and information around the GBIF community"
+    "contactUsSubtitle": "Finding people and information around the GBIF community",
+    "voting_participants": "Voting participants",
+    "associate_country_participants": "Associate country participants",
+    "other_associate_participants": "Other associate participants",
+    "gbif_affiliate": "GBIF affiliate",
+    "former_participants": "Former participants",
+    "observer": "Observer",
+    "others": "Other",
+    "participant": "participant",
+    "delegationMembers": "delegation members"
   }
 }
