@@ -1,7 +1,7 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes dataset-suggest page--data"
+    <article class="wrapper-horizontal-stripes dataset-suggest"
              ng-controller="suggestDatasetCtrl as suggestDataset">
 
         <div class="horizontal-stripe article-header white-background">
@@ -17,10 +17,19 @@
                         <h1 class="h2 text-center">
                             <span>Suggest a dataset</span>
                         </h1>
-                        <div class="article-header__intro">
-                            Do you know of a dataset with valuable information that is missing in GBIF? Then let us know. Or you could consider this your chance to <a href="">start publishing</a>.
-                        </div>
                     </header>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe white-background">
+            <div class="container--narrow">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {#{% markdown './pages/tools/suggestDataset/description/' + gb.locales.current + '.md' %}#}
+                        {$ translations.description | safe $}
+                        {$ translations.test | safe $}
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,29 +39,34 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="h4">Please describe the dataset</div>
-                        <div>
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <div class="card">
+                            <div class="card__content">
+                                <div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                                   placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                                   placeholder="Password">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Check me out
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Check me out
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         {#{% include "./curateResults.nunjucks" %}#}
 
