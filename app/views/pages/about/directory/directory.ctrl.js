@@ -1,5 +1,6 @@
 'use strict';
 var angular = require('angular');
+require('./contactsNav');
 
 angular
     .module('portal')

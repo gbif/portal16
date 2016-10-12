@@ -1,3 +1,54 @@
+.contacts-nav__wrapper {
+    .contacts-nav {
+        display none
+    }
+}
+
++isAbove($laptop) {
+    .contacts-nav__wrapper {
+        float left
+        position relative
+
+        .contacts-nav {
+            display block
+
+            .nav-chapters {
+                padding 8px 20px 15px
+                height 100%
+            }
+            .nav-chapter {
+                position relative
+                margin-left 6px
+                padding 0 0 8px
+                a {
+                    padding-left 10px
+                    margin-left -10px
+                    display block
+                    line-height 1rem
+                    border-left 2px solid transparent
+                    color inherit
+                }
+                &.active {
+                    a {
+                        border-left 2px solid grey
+                    }
+                }
+            }
+            .h4 {
+                margin-bottom 0
+            }
+        }
+        .contacts-nav--bottom {
+            top auto
+            bottom 0
+        }
+        .contacts-nav--fixed {
+            position fixed
+            top $navBar_height
+        }
+    }
+}
+
 .contacts__table {
     > div {
         padding 0 15px
@@ -35,6 +86,7 @@
         .table-container--contacts {
             max-width 600px
             margin 0 auto
+            padding-left 100px
         }
         
         table.table {
@@ -89,7 +141,8 @@
                         vertical-align middle
                     }
                     td:first-of-type {
-                        width 200px
+                        width 250px
+                        min-width 250px
                     }
                 }
                 tr:nth-of-type(even) {
@@ -140,7 +193,7 @@
         margin-bottom 5px
     }
     .contact__body.contact--show {
-        max-height 100px
+        max-height 120px
     }
 }
 

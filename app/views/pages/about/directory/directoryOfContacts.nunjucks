@@ -19,31 +19,61 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe">
-            <div class="container-fluid">
+        <div class="horizontal-stripe contacts--directory" ng-controller="directoryCtrl as directory">
+            <div class="container">
                 <div class="row">
-                    <div class="contacts__table" ng-controller="directoryCtrl as directory">
+                    {# in-page navigation #}
+                    {% if contacts.participants.length > 0 %}
+                    <div id="contacts-nav-wrapper" class="contacts-nav__wrapper">
+                        <nav id="contacts-nav" class="contacts-nav">
+                            <ul class="nav">
+                                <li>
+                                    <a class="h4">Governing Board</a>
+                                    <ul class="nav-chapters">
+                                        {% for participant in contacts.participants %}
+                                            {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
+                                                {% if participant.members.length > 0 %}
+                                                    <li class="nav-chapter" du-scrollspy="{$ participant.enum $}"><a href="#{$ participant.enum $}">{$ __('directory.' + participant.enum) $}</a></li>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="h4">Committees</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    {% endif %}
+                    {# contacts tables #}
+                    <div class="contacts__table">
                         <div class="table-container--contacts">
                             {% if contacts.participants.length > 0 %}
                                 {% for participant in contacts.participants %}
+                                    {# we only show certain types of participants #}
+                                    {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
                                     {% if participant.members.length > 1 %}
-                                        <h3>{$ __('directory.' + participant.enum) $}</h3>
-                                        <table class="table">
-                                            <thead>
+                                        <section id="{$ participant.enum $}">
+                                            <h3>{$ __('directory.' + participant.enum) $}</h3>
+                                            <table class="table">
+                                                <thead>
                                                 <tr>
                                                     <th>{$ __('directory.participant') $}</th>
                                                     <th>{$ __('directory.delegationMembers') $}</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for member in participant.members %}
-                                                <tr>
-                                                    <td>{$ member.name $}</td>
-                                                    <td>{% include('./includes/contacts.nunjucks') %}</td>
-                                                </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                {% for member in participant.members %}
+                                                    <tr>
+                                                        <td>{$ member.name $}</td>
+                                                        <td>{% include('./includes/contacts.nunjucks') %}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                    {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             {% endif %}
