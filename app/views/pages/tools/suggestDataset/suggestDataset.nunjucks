@@ -1,7 +1,7 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes dataset-suggest"
+    <article class="wrapper-horizontal-stripes dataset-suggest seperator--b"
              ng-controller="suggestDatasetCtrl as suggestDataset">
 
         <div class="horizontal-stripe article-header white-background">
@@ -26,54 +26,227 @@
             <div class="container--narrow">
                 <div class="row">
                     <div class="col-xs-12">
-                        {#{% markdown './pages/tools/suggestDataset/description/' + gb.locales.current + '.md' %}#}
                         {$ translations.description | safe $}
-                        {$ translations.test | safe $}
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="horizontal-stripe light-background">
-            <div class="container">
+            <div class="container--narrow">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" ng-if="suggestDataset.state != 'SUCCESS'">
                         <div class="h4">Please describe the dataset</div>
                         <div class="card">
-                            <div class="card__content">
+                            <div>
                                 <div>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                   placeholder="Email">
+                                    <form name="suggestDataset.form" novalidate>
+                                        <div class="card__content">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetTitle">Title<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.title"
+                                                                   id="datasetTitle" placeholder="Dataset name" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetLink">Internet link to data<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.datasetLink"
+                                                                   id="datasetLink"
+                                                                   placeholder="Where can we find the data"
+                                                                   required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetRegion">Region<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.region"
+                                                                   id="datasetRegion"
+                                                                   placeholder="e.g. 'Middle east' or 'Borneo'"
+                                                                   required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetCountry">Country</label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.country"
+                                                                   id="datasetCountry" placeholder="If primary about a single country">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetTaxon">Taxon<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.taxon"
+                                                                   id="datasetTaxon" placeholder="Required" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetType">This dataset is a<span
+                                                                        class="form-required"></span></label>
+                                                            <select class="form-control" ng-model="suggestDataset.suggestion.type" required="">
+                                                            {% for typeOption in ["OCCURRENCE", "CHECKLIST", "SAMPLING_EVENT", "METADATA", "undefined"] %}
+                                                                <option value="typeOption">{$__('dataset.type.' + typeOption) | capitalize $}</option>
+                                                            {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                   placeholder="Password">
+                                        <div class="card__content seperator--b">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetImportance">Why is this dataset
+                                                                important</label>
+                                            <textarea id="datasetImportance" class="form-control" rows="6"
+                                                      ng-model="suggestDataset.suggestion.datasetImportance"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <strong>How would you rate the datasets importance?</strong>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="priority" id="priority1"
+                                                                       value="1" ng-model="suggestDataset.suggestion.priority">
+                                                                Essential - it covers areas in which GBIF have no data
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="priority" id="priority2"
+                                                                       value="2" ng-model="suggestDataset.suggestion.priority">
+                                                                Important - it covers areas in which GBIF have limited
+                                                                data
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" name="priority" id="priority3"
+                                                                       value="3" ng-model="suggestDataset.suggestion.priority">
+                                                                Would be nice
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="datasetBibliographicDoi">Bibliographic
+                                                                reference</label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.datasetBibliographicDoi"
+                                                                   id="datasetBibliographicDoi"
+                                                                   placeholder="Link to related article if any">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <strong>Open or not? License information</strong>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" ng-model="suggestDataset.suggestion.openLicence"> CC-0, CC-BY, CC-BY-NC open licenses
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" ng-model="suggestDataset.suggestion.licenseRequiresCommunication"> Reading and communcation needed
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetHolderContact">E-mail of data holder</label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.datasetHolderContact"
+                                                                   id="datasetHolderContact"
+                                                                   placeholder="This information is public">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <label for="datasetUserEmail">Your e-mail.</label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="suggestDataset.suggestion.userEmail"
+                                                                   id="datasetUserEmail"
+                                                                   placeholder="This information is public">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <label for="datasetComments">Other comments</label>
+                                            <textarea id="datasetComments" class="form-control" rows="3"
+                                                      ng-model="suggestDataset.suggestion.comments"
+                                                      placeholder="Additional comments if any"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> Check me out
-                                            </label>
+                                        <div class="card__content seperator--b">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <button ng-disabled="!suggestDataset.form.$valid" type="submit"
+                                                                ng-click="suggestDataset.createSuggestion(suggestDataset.form)"
+                                                                class="btn btn-default flat">Submit
+                                                        </button>
+                                                        <div ng-if="suggestDataset.state == 'FAILED'">
+                                                            Something went wrong. Please try again later. If the problem persists then let us know.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Submit</button>
                                     </form>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" ng-if="suggestDataset.state == 'SUCCESS'">
+                        <div>
+                            {$ translations.thankyou | safe $}
+                            <a ng-href="{{ suggestDataset.referenceId }}" class="btn btn-default flat">Follow progress here</a>
+                            <a href="./" class="btn btn-default flat">Suggest another dataset</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        {#{% include "./curateResults.nunjucks" %}#}
 
     </article>
 {% endblock %}
-
-
-{#{% block scripts %}#}
-    {#<script src="/js/base/pages/speciesLookup.js"></script>#}
-{#{% endblock %}#}

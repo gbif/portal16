@@ -1,0 +1,27 @@
+{% if title %}# {$ title $}{% endif %}
+
+{% if datasetLink %}Dataset link: {$ datasetLink $}{% endif %}
+
+{% if region %}Region: {$ region $}{% endif %}
+
+{% if country %}Country: {$ country $}{% endif %}
+
+{% if taxon %}Taxon: {$ taxon $}{% endif %}
+
+{% if type %}Type: {$ type $}{% endif %}
+
+{% if datasetImportance %}Why is this important: {$ datasetImportance $}{% endif %}
+
+Priority: {% if priority == 1 %} High {% elif priority == 2%} Medium {% else %} Low {% endif %}
+
+Is it an open license: {% if openLicence %} yes {% else %} no {% endif %}
+
+Requires communication about license: {% if licenseRequiresCommunication %} yes {% else %} no {% endif %}
+
+{% if datasetBibliographicDoi %}Bibliographic reference: {$ datasetBibliographicDoi $}{% endif %}
+
+{% if comments %}Comments: {$ comments $}{% endif %}
+
+{% if datasetHolderContact %}Dataholders contact information: {$ datasetHolderContact $}{% endif %}
+
+{% if userEmail %}Users contact info: {$ userEmail $}{% endif %}

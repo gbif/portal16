@@ -11,3 +11,15 @@
         box-shadow none
     }
 }
+
+.btn.flat {
+    border-radius 0
+    border none
+    background-color transparent
+    text-transform uppercase
+    color $linkColor
+}
+
+.btn.flat.disabled, .flat.btn[disabled], fieldset[disabled] .btn.flat {
+    color #aaa
+}

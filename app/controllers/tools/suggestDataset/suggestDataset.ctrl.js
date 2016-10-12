@@ -11,7 +11,8 @@ module.exports = function (app) {
 router.get('/tools/suggest-dataset', function (req, res, next) {
     //get text content
     let markdownFiles = {
-        description: 'tools/suggestDataset/description/'
+        description: 'tools/suggestDataset/description/',
+        thankyou: 'tools/suggestDataset/thankyou/'
     };
     translationsHelper.getTranslations(markdownFiles, res.locals.gb.locales.current, function (err, translations) {
         if (err) {
