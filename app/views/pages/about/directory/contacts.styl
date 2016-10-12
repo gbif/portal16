@@ -49,119 +49,41 @@
     }
 }
 
-.contacts__table {
-    > div {
-        padding 0 15px
-    }
-    table.table {
-        thead, tbody, tr, th, td {
-            display block
-        }
-        thead tr th {
-            position absolute
-            text-transform capitalize
-            top -9999px
-            left -9999px
-        }
-        tr {
-            border-top 1px solid #ccc
-        }
-        tbody {
-            tr {
-                th, td {
-                    border none
-                    border-bottom 1px solid #eee
-                    position relative
-                    display inline-block
-                    width 100%
-                }
-            }
-        }
-    }
-}
-
 +isAbove($tablet) {
     .contacts__table {
-        
-        .table-container--contacts {
-            max-width 600px
-            margin 0 auto
-            padding-left 100px
+        font-size 13px
+        th {
+            font-weight bold
         }
-        
-        table.table {
-            font-size 13px
-            display table
-            thead {
-                display table-header-group
-            }
-            tbody {
-                display table-row-group
-            }
-            tr {
-                display table-row
-                border-top none
-            }
-            th {
-                display table-cell
-            }
-            thead tr {
-                th {
-                    font-weight bold
-                    position relative
-                    white-space nowrap
-                    top 0
-                    left 0
+        .table-container--contacts {
+            margin 0 auto
+        }
+        .table {
+            > tbody {
+                > td {
                     
-                    a {
-                        display inline-block
-                        color inherit
-                        padding-right 0
-                        white-space normal
-                    }
-                    a:hover {
-                        text-decoration none
-                    }
-                    div {
-                        display inline-block
-                        font-size 18px
-                        width 18px
-                        margin-top -8px
-                        height 20px
-                        vertical-align middle
-                    }
                 }
-            }
-            tbody {
-                tr {
-                    td {
-                        border-bottom none
-                        display table-cell
-                        width auto
-                        vertical-align middle
-                    }
-                    td:first-of-type {
-                        width 250px
-                        min-width 250px
-                    }
-                }
-                tr:nth-of-type(even) {
+                > tr:nth-of-type(even) {
                     background alpha($alternativeTableRow, 1)
                 }
+                > tr:hover {
+                    background darken($lightBackground, 5)
+                }
             }
         }
+        
+        .nested {
+            > thead {
+                > tr {
+                    border-bottom 1 solid grey
+                }
+            }
+        }
+        
     }
 }
 
 +isAbove(900px) {
-    .contacts__table {
-        .table {
-            thead tr {
-            }
-            tbody tr {
-            }
-        }
-    }
 }
 
 .contacts__item {

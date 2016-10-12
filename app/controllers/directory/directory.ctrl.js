@@ -7,9 +7,7 @@ module.exports = function (app) {
 };
 
 router.get('/directory/:requestedPath', function (req, res, next) {
-    var originalUrl,
-        requestedPath,
-        jsonOutput = false;
+    var jsonOutput = false;
 
     if (req.params.requestedPath.search(/\.debug/) != -1) {
         // requestedPath = req.params.requestedPath.replace('.debug', '');

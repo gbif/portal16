@@ -1,7 +1,7 @@
 {% extends "../html-prose.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes">
+    <article class="wrapper-horizontal-stripes"  ng-controller="directoryCtrl as directory">
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
@@ -19,12 +19,19 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe contacts--directory" ng-controller="directoryCtrl as directory">
+        <div class="horizontal-stripe" ng-init="directory.contacts = '{$ contacts $}'">
+            <div class="container">
+                <div class="row">
+                    search?
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-stripe contacts--directory">
             <div class="container">
                 <div class="row">
                     {# in-page navigation #}
                     {% if contacts.participants.length > 0 %}
-                    <div id="contacts-nav-wrapper" class="contacts-nav__wrapper">
+                    <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
                         <nav id="contacts-nav" class="contacts-nav">
                             <ul class="nav">
                                 <li>
@@ -47,7 +54,7 @@
                     </div>
                     {% endif %}
                     {# contacts tables #}
-                    <div class="contacts__table">
+                    <div class="contacts__table col-md-8 col-md-offset-0">
                         <div class="table-container--contacts">
                             {% if contacts.participants.length > 0 %}
                                 {% for participant in contacts.participants %}
@@ -57,19 +64,43 @@
                                         <section id="{$ participant.enum $}">
                                             <h3>{$ __('directory.' + participant.enum) $}</h3>
                                             <table class="table">
-                                                <thead>
-                                                <tr>
-                                                    <th>{$ __('directory.participant') $}</th>
-                                                    <th>{$ __('directory.delegationMembers') $}</th>
-                                                </tr>
-                                                </thead>
                                                 <tbody>
                                                 {% for member in participant.members %}
                                                     <tr>
-                                                        <td>{$ member.name $}</td>
-                                                        <td>{% include('./includes/contacts.nunjucks') %}</td>
+                                                        <td>
+                                                            <table class="nested">
+                                                                {% if loop.index == 1 %}
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>{$ __('directory.participant') $}</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                {% endif %}
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>{$ member.name $}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                        <td>
+                                                            <table class="nested">
+                                                                {% if loop.index == 1 %}
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>{$ __('directory.role') $}</th>
+                                                                        <th>{$ __('directory.delegationMembers') $}</th>
+                                                                        <th>{$ __('directory.institution') $}</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                {% endif %}
+                                                                <tbody>
+                                                                    {% include('./includes/contacts.nunjucks') %}
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
                                                     </tr>
-                                                {% endfor %}
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
                                         </section>

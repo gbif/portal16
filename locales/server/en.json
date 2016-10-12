@@ -1611,6 +1611,8 @@
     "observer": "Observer",
     "others": "Other",
     "participant": "participant",
-    "delegationMembers": "delegation members"
+    "delegationMembers": "delegation members",
+    "role": "role",
+    "institution": "institution"
   }
 }

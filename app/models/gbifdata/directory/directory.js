@@ -228,10 +228,10 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var credential = require('/tmp/credential');
+    var credential = require('/tmp/credentials.json');
 
-    var appKey = credential.appKey;
-    var secret = credential.secret;
+    var appKey = credential.directory.appKey;
+    var secret = credential.directory.secret;
 
     var options = {
         url: requestUrl,
