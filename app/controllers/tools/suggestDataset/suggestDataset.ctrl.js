@@ -12,7 +12,8 @@ router.get('/tools/suggest-dataset', function (req, res, next) {
     //get text content
     let markdownFiles = {
         description: 'tools/suggestDataset/description/',
-        thankyou: 'tools/suggestDataset/thankyou/'
+        thankyou: 'tools/suggestDataset/thankyou/',
+        failure: 'tools/suggestDataset/failure/'
     };
     translationsHelper.getTranslations(markdownFiles, res.locals.gb.locales.current, function (err, translations) {
         if (err) {

@@ -1614,5 +1614,35 @@
     "delegationMembers": "delegation members",
     "role": "role",
     "institution": "institution"
+  },
+  "tools": {
+    "categoryTitle": "tools",
+    "categoryFeatured": "featured",
+    "suggestDataset": {
+      "NOT_OPEN": "not an open license",
+      "Title": "suggest a dataset",
+      "PleaseDescribeTheDataset": "please describe the dataset",
+      "form": {
+        "title": "title",
+        "link": "internet link to data",
+        "region": "region",
+        "taxon": "taxon",
+        "whyImportant": "why is this dataset important",
+        "howWouldYouRateIt": "how would you rate its importance",
+        "high": "essential - GBIF have no data in this area",
+        "medium": "important - GBIF have little data in this area",
+        "low": "it would be a nice supplement to the existing data",
+        "bibliographicRef": "bibliographic reference",
+        "type": "dataset type",
+        "license": "license information",
+        "dataHolderContact": "dataholders contact information",
+        "publicAlert": "notice that all information is public",
+        "yourContact": "your contact information",
+        "comments": "comments",
+        "submit": "submit",
+        "followIssue": "see suggestion on github",
+        "suggestAnother": "suggest another dataset"
+      }
+    }
   }
 }

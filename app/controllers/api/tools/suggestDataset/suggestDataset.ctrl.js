@@ -9,15 +9,14 @@ var express = require('express'),
     querystring = require('querystring');
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
-let typeOptions = ["OCCURRENCE", "CHECKLIST", "SAMPLING_EVENT", "METADATA", "undefined"];
 
 module.exports = function (app) {
     app.use('/api/tools/suggest-dataset', router);
 };
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res) {
     let formData = req.body.form;
-    if (!formData || isValid(formData)) {
+    if (!formData || !isValid(formData)) {
         res.status(400);
         res.json({
             error: 'form data missing'
@@ -27,7 +26,7 @@ router.post('/', function (req, res, next) {
             if (err) {
                 res.status(400);
                 res.json({
-                    error: err
+                    error: 'could not write to github for some reason'
                 });
             } else {
                 res.json({
@@ -36,7 +35,6 @@ router.post('/', function (req, res, next) {
             }
         });
     }
-
 });
 
 function isValid(data) {
@@ -44,7 +42,6 @@ function isValid(data) {
     if (_.isEmpty(data.datasetLink)) return false;
     if (_.isEmpty(data.region)) return false;
     if (_.isEmpty(data.taxon)) return false;
-    if (_.isEmpty(data.type) || typeOptions.indexOf(data.type) < 0) return false;
     return true;
 }
 
@@ -72,7 +69,7 @@ function createIssue(data, cb) {
         "title": data.title,
         "body": description,
         "labels": labels
-    }, function (err, data, headers) {
+    }, function (err, data) {
         if (err) {
             cb(err);
         } else {
@@ -83,15 +80,7 @@ function createIssue(data, cb) {
 
 function getLabels(data) {
     let labels = ['Needs validation'];
-    if (data.region) {
-        labels.push(data.region);
-    }
-    if (data.country) {
-        labels.push(data.country);
-    }
-    if (data.openLicence) {
-        labels.push('Open license');
-    }
+    //additional logic for tagging suggestions can go here. F.x. based on license or region.
     return _.uniq(labels);
 }
 
