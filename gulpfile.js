@@ -46,7 +46,7 @@ gulp.task('prod', function (callback) {
         ['stylus'],
         ['scripts'],
         ['speciesLookup'],
-        ['templates', 'templates-nunjucks'], // needs to come after all files have been reved
+        ['templates'], // needs to come after all files have been rev'ed
         ['ieStyle'],
         callback);
 });

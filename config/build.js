@@ -161,7 +161,7 @@ config.iconfont = {
  *  Delete everyting in this folder before building
  */
 config.clean = {
-    all: [config.paths.dist, 'build']
+    all: [config.paths.dist]
 };
 
 /**
