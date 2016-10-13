@@ -1,0 +1,180 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "./developer.macros.nunjucks" as api %}
+
+{% macro erow(url, resp, respLink)  %}
+    {$ api.trow(url="/enumeration/"+url, httpMethod="GET", resp=resp, respLink=respLink, showParams=false, authRequired=undefined, description=caller()) $}
+{% endmacro %}
+
+{% block page %}
+
+<article class="wrapper-horizontal-stripes">
+    <section class="horizontal-stripe article-header white-background">
+        <div class="container">
+            <div class="row">
+                <header class="col-xs-12 text-center">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">GBIF API</span>
+                        <span class="article-header__category__lower">Version 1</span>
+                    </nav>
+                    <h1>API Summary</h1>
+                    <div class="article-header__intro">
+                        <p>{$ apiBase $}</p>
+                    </div>
+                </header>
+            </div>
+        </div>
+    </section>
+
+    {$ api.apiDocTabs('summary', __) $}
+
+    <section id="overview" class="horizontal-stripe light-background">
+        <div class="container">
+            <p>The GBIF API is a RESTful JSON based API. The base URL for v1 you should use is: <strong>{$ apiBase $}</strong></p>
+            <p>The API is split into logical sections to ease understanding:</p>
+            <ul class="indent">
+                <li><strong>Registry:</strong> Provides means to create, edit, update and search for information about the datasets,
+                    organizations (e.g. data publishers), networks and the means to access them (technical endpoints).  The registered
+                    content controls what is crawled and indexed in the GBIF data portal, but as a shared API may also be used for other
+                    initiatives</li>
+                <li><strong>Species:</strong> Provides services to discover and access information about species and higher taxa, and
+                    utility services for interpreting names and looking up the identifiers and complete scientific names used for species in
+                    the GBIF portal.</li>
+                <li><strong>Occurrence:</strong> Provides access to occurrence information crawled and indexed by GBIF and search services
+                    to do real time paged search and asynchronous download services to do large batch downloads.</li>
+                <li><strong>Maps:</strong> Provides simple services to show the maps of GBIF mobilized content on other sites.</li>
+                <li><strong>News:</strong> Provides services to stream useful information such as papers published using GBIF mobilized
+                    content for various themes.</li>
+            </ul>
+            <p>
+                The API should be considered stable, as should this accompanying documentation. Please report any issues you
+                find with either the API itself or the documentation using the "feedback" button on the right.
+            </p>
+        </div>
+    </section>
+
+    <div class="submenu-wrapper" id="submenuWrapper">
+
+        {%  set sections = {'communication':'Communication', 'common':'Common operations', 'authentication':'Authentication', 'enumerations':'Enumerations', 'roadmap':'Roadmap to v2'} %}
+        {$ api.submenu(sections) $}
+
+        <div class="container--narrow">
+
+            <section id="communication" class="horizontal-stripe white-background">
+                <div class="container--normal">
+                    <h3>Communication</h3>
+                    <p>
+                        You can sign up to the <a href="http://lists.gbif.org/mailman/listinfo/api-users" target="_blank">GBIF API users mailing list</a> to post your questions,
+                        and to keep informed about the API. We will announce new versions, and scheduled maintenance downtimes before they happen.
+                    </p>
+                    <p>
+                        We welcome any example uses of the API to guest feature on the <a href="http://gbif.blogspot.com">GBIF developer blog</a>.
+                    </p>
+                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a></p>
+                </div>
+            </section>
+
+            <section id="common" class="horizontal-stripe white-background">
+                <div class="container--normal">
+                    <h3>Common operations</h3>
+                    <p>The following details common cross-cutting parameters used in the API<p>
+
+                    <h3>Paging</h3>
+                    <p>For requests that support paging the following parameters are used:</p>
+                    <table class="table table-bordered table-striped table-params">
+                        <thead>
+                        <tr>
+                            <th width="25%" class="total">Parameter</th>
+                            <th width="75%">Details</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>limit</td>
+                            <td>Controls the number of results in the page.  Using too high a value will be overwritten with the default
+                                maximum threshold, depending on the service.  Sensible defaults are used so this may be omitted.</td>
+                        </tr>
+                        <tr>
+                            <td>offset</td>
+                            <td>Determines the offset for the search results.  A limit of 20 and offset of 20, will get the second page
+                                of 20 results.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Range queries</h3>
+                    <p>Some search parameters support range queries, for example the <em>year</em> parameter in the occurrence search.
+                        In general ranges are given as a single parameter value by concatenating a lower and an upper value with a comma.
+                        For example:
+                        <code class="block">{$ apiBase $}occurrence/search?year=1800,1899</code>
+                    </p>
+                </div>
+            </section>
+
+            <section id="authentication" class="horizontal-stripe white-background">
+                <div class="container--normal">
+                    <h3>Authentication</h3>
+                    <p>POST, PUT, and DELETE requests require authentication.
+                        The GBIF API uses <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>
+                        with any <a href="/user/register">GBIF user account</a> that you have created before.
+                    </p>
+                    <p>For example to issue a new download programmatically using curl with a <a href="/developer/occurrence#predicates">query filter as JSON</a> in a file called filter.json:
+                        <code class="block">$ curl -i --user yourUserName:yourPassword -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d @filter.json {$ apiBase $}occurrence/download/request</code>
+                    </p>
+                </div>
+            </section>
+
+            <section id="enumerations" class="horizontal-stripe white-background">
+                <div class="container--normal">
+                    <h3>Enumerations</h3>
+                    <p>Many parts of the GBIF API make use of enumerations, i.e. controlled vocabularies for specific topics.
+                        Often these are based on existing standards such as ISO or <a href="http://www.tdwg.org/standards/">TDWG</a>.
+                        The enumerations are part of the <a href='{$ api.apidocs $}/vocabulary/package-summary.html' target='_blank'>GBIF Java API</a>,
+                        but the currently active version can also be dynamically accessed through our JSON webservices to support more dynamic clients.
+                    </p>
+
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false, paging=false, params=false) $}
+                        <tbody>
+                            {%  call erow(url="basic", resp="Enumeration List", respLink=apiBase+"enumeration/basic") %}
+                            Lists all available enumerations
+                            {%  endcall %}
+
+                            {%  call erow(url="basic/{ENUMERATION}", resp="Enumeration values", respLink=apiBase+"enumeration/basic/TypeStatus") %}
+                            Lists all available values for a given enumeration
+                            {%  endcall %}
+
+                            {%  call erow(url="country", resp="Country List", respLink=apiBase+"enumeration/country") %}
+                            Lists all countries with their country code and title
+                            {%  endcall %}
+
+                            {%  call erow(url="license", resp="License List", respLink=apiBase+"enumeration/license") %}
+                            Lists all supported GBIF licenses using the License URL or just the enum name if no URL exists.
+                            {%  endcall %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="roadmap" class="horizontal-stripe white-background">
+                <div class="container--normal">
+                    <h3>Roadmap to v2</h3>
+                    <p>The GBIF API is currently at v1 which means:<p>
+                    <ol class="indent">
+                        <li>The API is stable - this means we won't rename or remove any REST resources or response properties to ensure
+                            backwards compatibility, but we might add new resources to the API. Any additions will be announced via the API
+                            mailing list.</li>
+                        <li>Any bug fixes or additions will result in minor version changes which are not reflected in the API URL, only
+                            in the documentation and our Java client code.</li>
+                        <li>If and when the need for breaking changes arises we will document our intent here and on the mailing list,
+                            and give considerable warning before moving to a future v2.</li>
+                        <li>The base URL includes the version as appropriate.</li>
+                    </ol>
+                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</article>
+
+{% endblock %}
