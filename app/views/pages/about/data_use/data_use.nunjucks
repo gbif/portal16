@@ -78,53 +78,65 @@
                             {% endif %}
 
                             {#{% if data.researcherLocation %}#}
-                                {#<section class="no-break">#}
-                                    {#<h5>Location of researchers</h5>#}
-                                    {#<ul class="list-chips">#}
-                                        {#{% for loc in data.researcherLocation %}#}
-                                            {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_country={$ loc.id $}">{$ loc.name $}</a></li>#}
-                                        {#{% endfor %}#}
-                                    {#</ul>#}
-                                {#</section>#}
+                            {#<section class="no-break">#}
+                            {#<h5>Location of researchers</h5>#}
+                            {#<ul class="list-chips">#}
+                            {#{% for loc in data.researcherLocation %}#}
+                            {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_country={$ loc.id $}">{$ loc.name $}</a></li>#}
+                            {#{% endfor %}#}
+                            {#</ul>#}
+                            {#</section>#}
                             {#{% endif %}#}
 
                             {#This assumes that there is always tags to show. TODO hide if no available tags#}
-                            <section class="no-break">
-                                <h5>Subject</h5>
-                                <ul class="list-chips">
-                                    {% for tag in data.tagsAudience %}
-                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_audience={$ tag.id $}">{$ tag.name $}</a></li>
-                                    {% endfor %}
-                                    {% for tag in data.tagsDataUse %}
-                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_data_use={$ tag.id $}">{$ tag.name $}</a></li>
-                                    {% endfor %}
-                                    {#{% for tag in data.tagsDataType %}#}
+                            {% if data.tagsAudience | isNotEmpty and data.tagsDataUse | isNotEmpty and data.tagsCapacityEnhancement | isNotEmpty and data.tagsPurpose | isNotEmpty and data.tagsTopic | isNotEmpty %}
+                                <section class="no-break">
+                                    <h5>Subject</h5>
+                                    <ul class="list-chips">
+                                        {% for tag in data.tagsAudience %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/cms/search?category_audience={$ tag.id $}">{$
+                                                    tag.name $}</a></li>
+                                        {% endfor %}
+                                        {% for tag in data.tagsDataUse %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/cms/search?category_data_use={$ tag.id $}">{$
+                                                    tag.name $}</a></li>
+                                        {% endfor %}
+                                        {#{% for tag in data.tagsDataType %}#}
                                         {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_data_type={$ tag.id $}">{$ tag.name $}</a></li>#}
-                                    {#{% endfor %}#}
-                                    {% for tag in data.tagsCapacityEnhancement %}
-                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_capacity_enhancement={$ tag.id $}">{$ tag.name $}</a></li>
-                                    {% endfor %}
-                                    {% for tag in data.tagsPurpose %}
-                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_purpose={$ tag.id $}">{$ tag.name $}</a></li>
-                                    {% endfor %}
-                                    {% for tag in data.tagsTopic %}
-                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_topic={$ tag.id $}">{$ tag.name $}</a></li>
-                                    {% endfor %}
-                                    {#{% for tag in data.gbifArea %}#}
+                                        {#{% endfor %}#}
+                                        {% for tag in data.tagsCapacityEnhancement %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/cms/search?category_capacity_enhancement={$ tag.id $}">{$
+                                                    tag.name $}</a></li>
+                                        {% endfor %}
+                                        {% for tag in data.tagsPurpose %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/cms/search?category_purpose={$ tag.id $}">{$
+                                                    tag.name $}</a></li>
+                                        {% endfor %}
+                                        {% for tag in data.tagsTopic %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/cms/search?category_topic={$ tag.id $}">{$
+                                                    tag.name $}</a></li>
+                                        {% endfor %}
+                                        {#{% for tag in data.gbifArea %}#}
                                         {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_audience={$ tag.id $}">{$ tag.name $}</a></li>#}
-                                    {#{% endfor %}#}
-                                </ul>
-                            </section>
+                                        {#{% endfor %}#}
+                                    </ul>
+                                </section>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
-            {% if data.__system.prev or data.__system.next %}
-                <aside class="horizontal-stripe horizontal-stripe--card light-background">
+            {% if data.__system.prev.id or data.__system.next.id %}
+                <aside class="horizontal-stripe horizontal-stripe--card light-background seperator--b">
                     <div class="container-fluid container--related-stories">
                         <div class="row">
-                            {% if data.__system.prev %}
-                                <div class="col-xs-12 col-sm-6">
+                            <div class="col-xs-12 col-sm-6">
+                                {% if data.__system.prev.id %}
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
@@ -142,10 +154,10 @@
                                             </div>
                                         </div>
                                     </article>
-                                </div>
-                            {% endif %}
-                            {% if data.__system.next %}
-                                <div class="col-xs-12 col-sm-6">
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                {% if data.__system.next.id %}
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
@@ -163,8 +175,8 @@
                                             </div>
                                         </div>
                                     </article>
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </aside>
