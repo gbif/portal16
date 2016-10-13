@@ -77,42 +77,42 @@
                                 </section>
                             {% endif %}
 
-                            {% if data.researcherLocation %}
-                                <section class="no-break">
-                                    <h5>Location of researchers</h5>
-                                    <ul class="list-chips">
-                                        {% for loc in data.researcherLocation %}
-                                            <li><a href="#">{$ loc.name $}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
+                            {#{% if data.researcherLocation %}#}
+                                {#<section class="no-break">#}
+                                    {#<h5>Location of researchers</h5>#}
+                                    {#<ul class="list-chips">#}
+                                        {#{% for loc in data.researcherLocation %}#}
+                                            {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_country={$ loc.id $}">{$ loc.name $}</a></li>#}
+                                        {#{% endfor %}#}
+                                    {#</ul>#}
+                                {#</section>#}
+                            {#{% endif %}#}
 
                             {#This assumes that there is always tags to show. TODO hide if no available tags#}
                             <section class="no-break">
                                 <h5>Subject</h5>
                                 <ul class="list-chips">
                                     {% for tag in data.tagsAudience %}
-                                        <li><a href="">{$ tag.name $}</a></li>
+                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_audience={$ tag.id $}">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsDataUse %}
-                                        <li><a href="">{$ tag.name $}</a></li>
+                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_data_use={$ tag.id $}">{$ tag.name $}</a></li>
                                     {% endfor %}
-                                    {% for tag in data.tagsDataType %}
-                                        <li><a href="">{$ tag.name $}</a></li>
-                                    {% endfor %}
+                                    {#{% for tag in data.tagsDataType %}#}
+                                        {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_data_type={$ tag.id $}">{$ tag.name $}</a></li>#}
+                                    {#{% endfor %}#}
                                     {% for tag in data.tagsCapacityEnhancement %}
-                                        <li><a href="">{$ tag.name $}</a></li>
+                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_capacity_enhancement={$ tag.id $}">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsPurpose %}
-                                        <li><a href="">{$ tag.name $}</a></li>
+                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_purpose={$ tag.id $}">{$ tag.name $}</a></li>
                                     {% endfor %}
                                     {% for tag in data.tagsTopic %}
-                                        <li><a href="">{$ tag.name $}</a></li>
+                                        <li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_topic={$ tag.id $}">{$ tag.name $}</a></li>
                                     {% endfor %}
-                                    {% for tag in data.gbifArea %}
-                                        <li><a href="">{$ tag.name $}</a></li>
-                                    {% endfor %}
+                                    {#{% for tag in data.gbifArea %}#}
+                                        {#<li><a href="{$ gb.locales.urlPrefix $}/cms/search?category_audience={$ tag.id $}">{$ tag.name $}</a></li>#}
+                                    {#{% endfor %}#}
                                 </ul>
                             </section>
                         </div>
