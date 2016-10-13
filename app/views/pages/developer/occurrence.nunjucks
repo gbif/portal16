@@ -53,7 +53,7 @@
     </section>
 
     <div class="submenu-wrapper" id="submenuWrapper">
-        {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Occurrence Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories'} %}
+        {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Occurrence Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
         {$ api.submenu(sections) $}
 
         <div class="container--narrow">
@@ -254,63 +254,57 @@
                 </div>
             </section>
 
-    {#
-
-        {$ api.paramArticle(apiName="Occurrence", addSearchParams=true, params={
-            "datasetKey": "The occurrence dataset key (a uuid).",
-            "year": "The 4 digit year. A year of 98 will be interpreted as AD 98. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "lastInterpreted": "This date the record was last modified in GBIF, in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "country": "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
-            "continent": "Continent, as defined in our <a href='{$ api.apidocs $}/vocabulary/Continent.html' target='_blank'>Continent enum</a>",
-            "publishingCountry" : "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the owining organization's country.",
-            "publishingOrg": "The publishing organization key (a uuid).",
-            "crawlId": "Crawl attempt that harvested this record.",
-            "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "depth" : "Depth in meters relative to altitude. For example 10 meters below a lake surface with given altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
-            "establishmentMeans": "EstablishmentMeans, as defined in our <a href='{$ api.apidocs $}/vocabulary/EstablishmentMeans.html' target='_blank'>EstablishmentMeans enum</a>",
-            "occurrenceID" : "A single globally unique identifier for the occurrence record as provided by the publisher.",
-            "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the Organism). May be a globally unique identifier or an identifier specific to the data set.",
-            "institutionCode" : "An identifier of any form assigned by the source to identify the institution the record belongs to. Not guaranteed to be unique.",
-            "collectionCode": "An identifier of any form assigned by the source to identify the physical collection or digital dataset uniquely within the context of an institution.",
-            "catalogNumber": "An identifier of any form assigned by the source within a physical collection or digital dataset for the record which may not be unique, but should be fairly unique in combination with the institution and collection code.",
-            "recordedBy": "The person who recorded the occurrence.",
-            "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
-            "basisOfRecord": "Basis of record, as defined in our <a href='{$ api.apidocs $}/vocabulary/BasisOfRecord.html' target='_blank'>BasisOfRecord enum</a>",
-            "protocol":"Protocol or mechanism used to provide the occurrence record.",
-            "license": "The type license applied to the dataset or record.",
-            "locality": "The specific description of the place.",
-            "waterBody": "The name of the water body in which the Locations occurs. ",
-            "stateProvince":"he name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
-            "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search, so a search for aves with taxonKey=212 (i.e. <a href='{$ apiBase $}occurrence/search?taxonKey=212' target='_blank'>/occurrence/search?taxonKey=212</a>) will match all birds, no matter which species.",
-            "scientificName": "A scientific name from the <a href='/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c'>GBIF backbone</a>. All included and synonym taxa are included in the search. Under the hood a call to the <a href='/developer/species#searching'>species match service</a> is done first to retrieve a taxonKey. Only unique scientific names will return results, homonyms (many monomials) return nothing! Consider to use the taxonKey parameter instead and the species match service directly",
-            "hasCoordinate": "Limits searches to occurrence records which contain a value in both latitude and longitude (i.e. hasCoordinate=true limits to occurrence records with coordinate values and hasCoordinate=false limits to occurrence records without coordinate values).",
-            "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written as POLYGON ((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1)) would be queried as is, i.e. <a href='{$ apiBase $}occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))' target='_blank'>/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
-            "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter returns any record with or without spatial issues.",
-            "issue": "A specific interpretation issue as defined in our <a href='{$ api.apidocs $}/vocabulary/OccurrenceIssue.html' target='_blank'>OccurrenceIssue enum</a>",
-            "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a href='{$ api.apidocs $}/vocabulary/MediaType.html' target='_blank'>MediaType enum</a>",
-            "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the subject.",
-            "kingdomKey": "Kingdom classification key.",
-            "phylumKey": "Phylum classification key.",
-            "classKey": "Class classification key.",
-            "orderKey": "Order classification key.",
-            "familyKey": "Family classification key.",
-            "genusKey": "Genus classification key.",
-            "subgenusKey": "Subgenus classification key.",
-            "speciesKey": "Species classification key.",
-            "repatriated": "Searches for records whose publishing country is different to the country where the record was recorded in.",
-            "q" : "Simple search parameter. The value for this parameter can be a simple word or a phrase.",
-            "limit": "The maximum number of results to return. This can't be greater than 300, any value greater is set to 300.",
-            "facet": "A list of facet names used to retrieve the most frequent values for a field. Facets are allowed for all the parameters except for: last interpreted date, event date and geometry",
-            "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. {$ api.apiLink('occurrence/search?facet=basisOfRecord&amp;limit=0&amp;facetMincount=10000') $} only basisOfRecord having counts less than 10000000.",
-            "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. {$ api.apiLink('occurrence/search?facet=basisOfRecord&amp;limit=0&amp;basisOfRecord=OBSERVATION&amp;facetMultiselect=true') $} still shows all type  even though type is being filtered by basisOfRecord=OBSERVATION",
-            "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example {$ api.apiLink('occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0') $}
-        }) $}
-
-    #}
+            {$ api.paramArticle(apiName="Occurrence", addSearchParams=true, apiBase=apiBase, params={
+                "datasetKey": "The occurrence dataset key (a uuid).",
+                "year": "The 4 digit year. A year of 98 will be interpreted as AD 98. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "lastInterpreted": "This date the record was last modified in GBIF, in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "country": "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
+                "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html' target='_blank'>Continent enum</a>",
+                "publishingCountry" : "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the owining organization's country.",
+                "publishingOrg": "The publishing organization key (a uuid).",
+                "crawlId": "Crawl attempt that harvested this record.",
+                "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "depth" : "Depth in meters relative to altitude. For example 10 meters below a lake surface with given altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
+                "establishmentMeans": "EstablishmentMeans, as defined in our <a href='"+apidocs+"/vocabulary/EstablishmentMeans.html' target='_blank'>EstablishmentMeans enum</a>",
+                "occurrenceID" : "A single globally unique identifier for the occurrence record as provided by the publisher.",
+                "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the Organism). May be a globally unique identifier or an identifier specific to the data set.",
+                "institutionCode" : "An identifier of any form assigned by the source to identify the institution the record belongs to. Not guaranteed to be unique.",
+                "collectionCode": "An identifier of any form assigned by the source to identify the physical collection or digital dataset uniquely within the context of an institution.",
+                "catalogNumber": "An identifier of any form assigned by the source within a physical collection or digital dataset for the record which may not be unique, but should be fairly unique in combination with the institution and collection code.",
+                "recordedBy": "The person who recorded the occurrence.",
+                "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
+                "basisOfRecord": "Basis of record, as defined in our <a href='"+apidocs+"/vocabulary/BasisOfRecord.html' target='_blank'>BasisOfRecord enum</a>",
+                "protocol":"Protocol or mechanism used to provide the occurrence record.",
+                "license": "The type license applied to the dataset or record.",
+                "locality": "The specific description of the place.",
+                "waterBody": "The name of the water body in which the Locations occurs. ",
+                "stateProvince":"he name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
+                "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search, so a search for aves with taxonKey=212 (i.e. <a href='"+apiBase+"occurrence/search?taxonKey=212' target='_blank'>/occurrence/search?taxonKey=212</a>) will match all birds, no matter which species.",
+                "scientificName": "A scientific name from the <a href='/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c'>GBIF backbone</a>. All included and synonym taxa are included in the search. Under the hood a call to the <a href='/developer/species#searching'>species match service</a> is done first to retrieve a taxonKey. Only unique scientific names will return results, homonyms (many monomials) return nothing! Consider to use the taxonKey parameter instead and the species match service directly",
+                "hasCoordinate": "Limits searches to occurrence records which contain a value in both latitude and longitude (i.e. hasCoordinate=true limits to occurrence records with coordinate values and hasCoordinate=false limits to occurrence records without coordinate values).",
+                "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written as POLYGON ((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1)) would be queried as is, i.e. <a href='{$ apiBase $}occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))' target='_blank'>/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
+                "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter returns any record with or without spatial issues.",
+                "issue": "A specific interpretation issue as defined in our <a href='"+apidocs+"/vocabulary/OccurrenceIssue.html' target='_blank'>OccurrenceIssue enum</a>",
+                "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a href='"+apidocs+"/vocabulary/MediaType.html' target='_blank'>MediaType enum</a>",
+                "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the subject.",
+                "kingdomKey": "Kingdom classification key.",
+                "phylumKey": "Phylum classification key.",
+                "classKey": "Class classification key.",
+                "orderKey": "Order classification key.",
+                "familyKey": "Family classification key.",
+                "genusKey": "Genus classification key.",
+                "subgenusKey": "Subgenus classification key.",
+                "speciesKey": "Species classification key.",
+                "repatriated": "Searches for records whose publishing country is different to the country where the record was recorded in.",
+                "q" : "Simple search parameter. The value for this parameter can be a simple word or a phrase.",
+                "limit": "The maximum number of results to return. This can't be greater than 300, any value greater is set to 300.",
+                "facet": "A list of facet names used to retrieve the most frequent values for a field. Facets are allowed for all the parameters except for: last interpreted date, event date and geometry",
+                "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example {$ api.link(apiBase+'occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0') $}"
+            }) $}
 
             <section id="predicates" class="horizontal-stripe white-background">
                 <div class="container--normal">

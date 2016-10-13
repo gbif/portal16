@@ -69,6 +69,12 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('merge', function (obj1, obj2) {
+            return _.merge(obj1, obj2);
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('isLink', function (data) {
             if (!data) {
                 return false;

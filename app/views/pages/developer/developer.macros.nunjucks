@@ -1,5 +1,7 @@
 
-{% set apidocs = "http://gbif.github.io/gbif-api/apidocs/org/gbif/api" %}
+{% macro link(url) %}
+    <a href="{$ url $}">{$ url $}</a>
+{% endmacro %}
 
 {% macro apiTableHead( method=true, auth=true, paging=true, params=true) %}
         <thead>
@@ -46,15 +48,15 @@
     </tr>
 {% endmacro %}
 
-{% macro paramArticle(params, apiName, addSearchParams=false) %}
+{% macro paramArticle(params, apiName, apiBase, addSearchParams=false) %}
     <section id="parameter" class="horizontal-stripe white-background">
         <div class="container--normal">
             {% if addSearchParams %}
-                {% set params22 = params + {
+                {% set params = params | merge({
                     "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
-                "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000' target='_blank'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
-                "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
-                } %}
+                    "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000' target='_blank'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
+                    "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
+                }) %}
             {% endif %}
             <h3 id="parameters">Query parameters explained</h3>
             <p>The following parameters are for use exclusively with the {$ apiName $} API described above.</p>
@@ -70,7 +72,7 @@
                 {% for k in params | dictsort %}
                     <tr>
                         <td><a id="p_{$ k[0] $}"></a>{$ k[0] $}</td>
-                        <td>{$ k[1] $}</td>
+                        <td>{$ k[1] | safe $}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -97,7 +99,6 @@
         </div>
     </section>
 {% endmacro %}
-
 
 {% macro submenu(sections) %}
     <span class="relative-anchor-offset"><a name="menu"></a></span>

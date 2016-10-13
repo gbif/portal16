@@ -1,5 +1,6 @@
 var express = require('express'),
     _ = require('lodash'),
+    cfg = require('../../../config/config');
     apiCfg = require('../../models/gbifdata/apiConfig'),
     router = express.Router();
 
@@ -20,6 +21,7 @@ function renderPage(req, res, next, page) {
         res.render('pages/developer/'+page, {
             page: page,
             apiBase: apiCfg.base.url,
+            apidocs: cfg.apidocs,
             _meta: {
                 title: 'GBIF ' + _.camelCase(page) + ' API'
             }
