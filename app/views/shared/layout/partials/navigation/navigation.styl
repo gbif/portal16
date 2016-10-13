@@ -516,7 +516,7 @@ main {
     overflow hidden
     min-height "calc(100vh - %s)" % $navBar_height
     transition: right 500ms ease;
-    .page {
+    &__page {
         min-height "calc(100vh - %s)" % $navBar_height
         display flex
         flex-direction column
@@ -534,7 +534,7 @@ main {
         height: 100%
         right 0 //to make the transitition smooth we need a starting position
 
-        .page {
+        &__page {
             min-height 100%
             -webkit-overflow-scrolling touch
             overflow-y auto
