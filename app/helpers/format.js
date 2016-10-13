@@ -1,9 +1,10 @@
 var moment = require('moment'),
+    sanitizeHtml = require('sanitize-html'),
     defaultLanguage = 'en';
 
 // GBIF/UN date style
 moment.updateLocale('en', {
-    longDateFormat : {
+    longDateFormat: {
         LT: "k:mm",
         LTS: "k:mm:ss",
         l: "D-MMM-YYYY",
@@ -72,10 +73,21 @@ function formatBytes(bytes, decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
+function sanitize(dirty) {
+    let clean = sanitizeHtml(dirty, {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ]),
+        exclusiveFilter: function(frame) {
+            return frame.tag === 'p' && !frame.text.trim();
+        }
+    });
+    return clean;
+}
+
 module.exports = {
     date: date,
     localizeInteger: localizeInteger,
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
-    prettifyLicense: prettifyLicense
+    prettifyLicense: prettifyLicense,
+    sanitize: sanitize
 };

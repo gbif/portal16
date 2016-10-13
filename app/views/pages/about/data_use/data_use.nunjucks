@@ -37,6 +37,9 @@
 
                 <div class="container-fluid container--prose">
                     <div class="body-text prose-columns prose-columns--justified">
+
+                        {$ data.body | sanitize | safe $}
+
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
@@ -48,8 +51,6 @@
                                 </figcaption>
                             </figure>
                         {% endif %}
-
-                        {$ data.body | safe $}
 
                     </div>
 

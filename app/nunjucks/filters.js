@@ -36,6 +36,10 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('sanitize', format.sanitize);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('wordBreakToHyphen', function (data) {
             var newstr = data.replace('_', '-');
             return newstr;
