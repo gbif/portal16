@@ -17,10 +17,8 @@ router.get('/:page', function(req, res, next) {
 
 function renderPage(req, res, next, page) {
     try {
-        console.log(apiCfg.base.url);
         res.render('pages/developer/'+page, {
             page: page,
-            apiBase2: "hattata",
             apiBase: apiCfg.base.url,
             _meta: {
                 title: 'GBIF ' + _.camelCase(page) + ' API'

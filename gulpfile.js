@@ -69,9 +69,9 @@ gulp.task('watch', ['browser-sync'], function () {
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
     gulp.watch([config.js.client.watch], ['scripts-reload', 'speciesLookup', 'client-lint']);
 
-    gulp.watch(['app/views/**/*.html'], ['templates']).on('change', browserSync.reload);
+    gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
 
-    browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
+    //browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
 });
 
 gulp.task('dev', [], function (callback) {
