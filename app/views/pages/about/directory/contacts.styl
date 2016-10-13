@@ -49,41 +49,146 @@
     }
 }
 
+.contacts__table {
+    > div {
+        padding 0 15px
+    }
+    .table {
+        thead, tbody, tr, th, td {
+            display block
+        }
+        thead tr th {
+            position absolute
+            text-transform capitalize
+            top -9999px
+            left -9999px
+        }
+        tr {
+            border-top 1px solid #ccc
+        }
+        tbody {
+            tr {
+                th, td {
+                    border none
+                    border-bottom 1px solid #eee
+                    position relative
+                    display inline-block
+                    width 49%
+                }
+                td:nth-of-type(1) {
+                    width 100%
+                    padding-left 6px
+                    background $lightBackground
+                }
+            }
+        }
+    }
+}
+
 +isAbove($tablet) {
     .contacts__table {
-        font-size 13px
-        th {
-            font-weight bold
-        }
+
         .table-container--contacts {
             margin 0 auto
         }
+
         .table {
-            > tbody {
-                > td {
-                    
+            font-size 13px
+            margin-bottom vrBlock(2)
+            thead {
+                display table-header-group
+            }
+            tbody {
+                display table-row-group
+            }
+            tr {
+                display table-row
+                border-top none
+            }
+            th {
+                display table-cell
+            }
+            thead tr {
+                th {
+                    font-weight bold
+                    position relative
+                    white-space nowrap
+                    padding-left 0
+                    top 0
+                    left 0
+
+                    a {
+                        display inline-block
+                        color inherit
+                        padding-right 0
+                        white-space normal
+                    }
+                    a:hover {
+                        text-decoration none
+                    }
                 }
-                > tr:nth-of-type(even) {
+                th:hover {
+                    cursor pointer
+                }
+
+            }
+            tbody {
+                tr {
+                    cursor pointer
+                    width 100%
+
+                    td {
+                        border-bottom none
+                        display table-cell
+                        vertical-align text-top
+                        padding 5px 5px
+                        address {
+                            margin-top 3px
+                            margin-bottom 0
+                        }
+                    }
+                    td:nth-of-type(1) {
+                        display table-cell
+                        padding-left 10px
+                        background none
+                        width 20%
+                    }
+                    td:nth-of-type(2) {
+                        display table-cell
+                        text-transform capitalize
+                        width 20%
+                    }
+                    td:nth-of-type(3) {
+                        display table-cell
+                        width 20%
+                    }
+                    td:nth-of-type(4) {
+                        width 40%
+                    }
+                    th {
+                        display none
+                    }
+                }
+                tr:nth-of-type(even) {
                     background alpha($alternativeTableRow, 1)
                 }
-                > tr:hover {
+                tr:hover {
                     background darken($lightBackground, 5)
                 }
             }
         }
-        
-        .nested {
-            > thead {
-                > tr {
-                    border-bottom 1 solid grey
-                }
-            }
-        }
-        
     }
 }
 
 +isAbove(900px) {
+    .contacts__table {
+        .table {
+            thead tr {
+            }
+            tbody tr {
+            }
+        }
+    }
 }
 
 .contacts__item {
@@ -109,14 +214,20 @@
     .contact__body {
         overflow-y hidden
         max-height 0 /* approximate max height */
+        max-width 220px
         transition-property all
         transition-duration .5s
         transition-timing-function cubic-bezier(0, 1, 0.5, 1)
         margin-bottom 5px
+
     }
     .contact__body.contact--show {
-        max-height 120px
+        max-height 200px
     }
+}
+
+.contact__address {
+    max-width 220px
 }
 
 .contact {

@@ -51,6 +51,7 @@ require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
 require('./angular/cms.resource');
+require('./angular/directory.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');

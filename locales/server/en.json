@@ -1613,6 +1613,11 @@
     "participant": "participant",
     "delegationMembers": "delegation members",
     "role": "role",
-    "institution": "institution"
+    "institution": "institution",
+    "executive_committee": "Executive committee",
+    "budget_committee": "Budget committee",
+    "science_committee": "Science committee",
+    "nodes_steering_group": "Nodes steering group",
+    "nodes_committee": "Nodes committee"
   }
 }

@@ -23,21 +23,22 @@ Directory.getContacts = function() {
 
     var contacts = {
         'participants': [],
-        'committees': []
+        'peopleByParticipants': [],
+        'committees': [],
+        'people': []
     };
 
     // First check whether we have the credential to complete all the calls to
     // the directory.
-
-    fs.exists('/tmp/credential.js', deferFs.resolve);
+    fs.exists('/etc/portal16/credentials.json', deferFs.resolve);
 
     deferFs.promise
         .then((exists) => {
             if (exists) {
                 return Q.all(groups.map(function(group){
-                    return getCommitteeContacts(group).then(function(results){
+                    return getCommitteeContacts(group, contacts).then(function(results){
                         var committee = {
-                            'name': group,
+                            'enum': group,
                             'members': results
                         };
                         return contacts.committees.push(committee);
@@ -49,8 +50,43 @@ Directory.getContacts = function() {
             }
         })
         .then(function(){
-            return getParticipantsContacts().then(function(groupedP){
+            return getParticipantsContacts(contacts).then(function(groupedP){
                 contacts.participants = groupedP;
+
+                // Make sure the country code comes from Participant entity
+                var participantPeople = [];
+                groupedP.forEach(function(p){
+                    var memberObj = {
+                        'enum': p.enum,
+                        'people': []
+                    };
+                    p.members.forEach(function(member){
+                        member.people.forEach(function(person){
+                            if (member.hasOwnProperty('countryCode')) person.participantCountry = member.countryCode;
+                            if (member.hasOwnProperty('countryCode') && !person.hasOwnProperty('countryCode')) {
+                                person.countryCode = member.countryCode;
+                            }
+                            person.participantName = member.name;
+                            memberObj.people.push(person);
+                        });
+                    });
+                    memberObj.people = _.orderBy(memberObj.people, [person => person.countryCode, person => person.role], ['asc', 'desc']);
+                    participantPeople.push(memberObj);
+                });
+                contacts.peopleByParticipants = participantPeople;
+
+                // For filtering
+                // 1) de-duplication
+                contacts.people = _.uniqBy(contacts.people, 'id');
+                contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
+
+                // 2) strip people details
+                contacts.people.forEach(function(p, i){
+                    var strippedP = {};
+                    strippedP.name = p.firstName + ' ' + p.surname;
+                    contacts.people[i] = strippedP;
+                });
+
                 defer.resolve(contacts)
             });
         })
@@ -60,7 +96,7 @@ Directory.getContacts = function() {
     return defer.promise;
 };
 
-function getParticipantsContacts() {
+function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryParticipants.url;
     var options = authorizeApiCall(requestUrl);
@@ -87,7 +123,7 @@ function getParticipantsContacts() {
             // Insert people details
             var contactTasks = [];
             data.forEach(function(p){
-                contactTasks.push(getParticipantPeopleDetails(p));
+                contactTasks.push(getParticipantPeopleDetails(p, contacts));
             });
             return Q.all(contactTasks);
         })
@@ -158,15 +194,22 @@ function getParticipantDetails(participant) {
     return deferred.promise;
 }
 
-function getParticipantPeopleDetails(participant) {
+function getParticipantPeopleDetails(participant, contacts) {
     var deferred = Q.defer();
     var peopleTasks = [];
     participant.people.forEach(function(person){
-        peopleTasks.push(getPersonContacts(person.personId));
+        peopleTasks.push(getPersonContact(person.personId, contacts));
     });
     Q.all(peopleTasks)
         .then(function(peopleDetails){
-            participant.people = peopleDetails;
+            // merge original person info about the participant and newly retrieved person details
+            participant.people.forEach(function(person, i){
+                for (var attr in peopleDetails[i]) {
+                    if (!person.hasOwnProperty(attr)) {
+                        person[attr] = peopleDetails[i][attr];
+                    }
+                }
+            });
             deferred.resolve(participant);
         })
         .catch(function(err){
@@ -175,7 +218,7 @@ function getParticipantPeopleDetails(participant) {
     return deferred.promise;
 }
 
-function getCommitteeContacts(group) {
+function getCommitteeContacts(group, contacts) {
     var deferred = Q.defer();
     var requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
     var options = authorizeApiCall(requestUrl);
@@ -184,7 +227,7 @@ function getCommitteeContacts(group) {
         .then(function(results){
             var personsTasks = [];
             results.forEach(function(person){
-                personsTasks.push(getPersonContacts(person.personId));
+                personsTasks.push(getPersonContact(person.personId, contacts));
             });
             return Q.all(personsTasks);
         })
@@ -197,13 +240,14 @@ function getCommitteeContacts(group) {
     return deferred.promise;
 }
 
-function getPersonContacts(personId) {
+function getPersonContact(personId, contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryPerson.url + '/' + personId;
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
         .then(function(data){
+            contacts.people.push(data);
             deferred.resolve(data);
         })
         .catch(function(err){
@@ -228,7 +272,7 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var credential = require('/tmp/credentials.json');
+    var credential = require('/etc/portal16/credentials.json');
 
     var appKey = credential.directory.appKey;
     var secret = credential.directory.secret;
