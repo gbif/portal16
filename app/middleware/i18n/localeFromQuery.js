@@ -38,7 +38,7 @@ function use(app, locales, defaultLocale) {
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);
             req.setLocale(locale);
-            res.locals.gb = {};
+            res.locals.gb = res.locals.gb || {};
             res.locals.gb.locales = {
                 urlPrefix: '/' + locale,
                 current: locale

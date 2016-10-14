@@ -48,6 +48,9 @@ module.exports = function (app, config) {
     // Node doesn't include other locales than english per default. Include these to use Intl.
     require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(locales);
 
+    //add menu to all requests
+    require(config.root + '/app/middleware/menu/menu.js').use(app);
+
     app.use(bodyparser.json({
         limit: '1mb'
     }));

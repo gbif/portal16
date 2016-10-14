@@ -1,0 +1,220 @@
+[
+  {
+    "name": "get",
+    "icon": "gb-icon-map",
+    "type": "normal",
+    "items": [
+      {
+        "name": "occurrences",
+        "url": "/occurrence/search"
+      },
+      {
+        "name": "species",
+        "url": "/species/search"
+      },
+      {
+        "name": "datasets",
+        "url": "/dataset/search"
+      },
+      {
+        "name": "publishers",
+        "url": "/publisher/search"
+      },
+      {
+        "name": "trends",
+        "url": "/analytics/global"
+      },
+      {
+        "name": "citationGuidance",
+        "url": "/citation-guidelines"
+      }
+    ]
+  },
+  {
+    "name": "share",
+    "icon": "gb-icon-cloud-upload",
+    "type": "normal",
+    "items": [
+      {
+        "name": "publishing",
+        "url": "/publishing"
+      },
+      {
+        "name": "datasetClasses",
+        "url": "/dataset-classes"
+      },
+      {
+        "name": "publishingGuide",
+        "url": "/publishing-guide"
+      },
+      {
+        "name": "endorsement",
+        "url": "/endorsement"
+      },
+      {
+        "name": "darwinCore",
+        "url": "/darwin-core"
+      },
+      {
+        "name": "digitizingCollections",
+        "url": "/digitizing-collections"
+      },
+      {
+        "name": "dataPapers",
+        "url": "/data-papers"
+      },
+      {
+        "name": "citizenScience",
+        "url": "/citizen-science"
+      }
+    ]
+  },
+  {
+    "name": "tools",
+    "icon": "gb-icon-tools",
+    "type": "mega",
+    "items": [
+      {
+        "name": "publishing",
+        "items": [
+          {
+            "name": "ipt",
+            "url": "/tools/ipt"
+          },
+          {
+            "name": "dataValidator",
+            "url": "/tools/data-validator"
+          },
+          {
+            "name": "suggestDataset",
+            "url": "/tools/suggest-dataset"
+          },
+          {
+            "name": "collectionManagment",
+            "url": "/tools/collection-managment"
+          }
+        ]
+      },
+      {
+        "name": "developers",
+        "items": [
+          {
+            "name": "api",
+            "url": "/developer/summary"
+          },
+          {
+            "name": "rgbif",
+            "url": "/tools/r-gbif"
+          },
+          {
+            "name": "atlases",
+            "url": "/tools/atlases"
+          },
+          {
+            "name": "maxent",
+            "url": "/tools/maxent"
+          },
+          {
+            "name": "gbifSoftware",
+            "url": "/tools/gbif-software"
+          }
+        ]
+      },
+      {
+        "name": "other",
+        "items": [
+          {
+            "name": "speciesPopulation",
+            "url": "/tools/species-population"
+          },
+          {
+            "name": "speciesMatching",
+            "url": "/tools/species-lookup"
+          },
+          {
+            "name": "toolsCatalogue",
+            "url": "/cms/search?type=tool"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "inside",
+    "icon": "gb-icon-info",
+    "type": "mega",
+    "items": [
+      {
+        "name": "about",
+        "items": [
+          {
+            "name": "whatIsGbif",
+            "url": "/what-is-gbif"
+          },
+          {
+            "name": "GbifNetwork",
+            "url": "/tools/ipt"
+          },
+          {
+            "name": "becomeMember",
+            "url": "/become-member"
+          },
+          {
+            "name": "contactDirectory",
+            "url": "directory/contact-us"
+          },
+          {
+            "name": "contactUs",
+            "url": "/contact-us"
+          }
+        ]
+      },
+      {
+        "name": "information",
+        "items": [
+          {
+            "name": "news",
+            "url": "/cms/search?type=news"
+          },
+          {
+            "name": "literature",
+            "url": "/cms/search?type=literature"
+          },
+          {
+            "name": "newsletters",
+            "url": "/newsletters"
+          },
+          {
+            "name": "featuredDataUse",
+            "url": "/cms/search?type=data_use"
+          },
+          {
+            "name": "events",
+            "url": "/cms/search?type=event"
+          },
+          {
+            "name": "awards",
+            "url": "/awards"
+          }
+        ]
+      },
+      {
+        "name": "capacityEnhancement",
+        "items": [
+          {
+            "name": "capacitySupport",
+            "url": "/capacity-support"
+          },
+          {
+            "name": "bidProgramme",
+            "url": "/programme/bid"
+          },
+          {
+            "name": "bifaProgramme",
+            "url": "/programme/bifa"
+          }
+        ]
+      }
+    ]
+  }
+]

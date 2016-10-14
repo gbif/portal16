@@ -92,6 +92,11 @@ siteHeaderBar() {
                             &:hover {
                                 background darken($navBar_dropDownBackground, 7%)
                             }
+                            &.category-header {
+                                &:hover {
+                                    background none
+                                }
+                            }
                         }
                     }
                 }
@@ -118,7 +123,9 @@ siteHeaderBar() {
                         > li {
                             lost-column: 1 / 4
                             > a {
-                                color $navBar_textColor
+                                cursor default
+                                color $navBar_dropDownHeaderColor
+                                font-weight $navBar_dropDownHeaderWeight
                             }
                             > ul {
                                 display block
@@ -383,6 +390,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
         right -200px;
     }
 }
+
 .service-menu {
     .menu-notification {
         position absolute
@@ -390,6 +398,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
         right 0
     }
 }
+
 +isAbove($laptop) {
     .service-menu {
         position absolute
@@ -415,7 +424,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                 margin-right 1rem
             }
             > a {
-                >span {
+                > span {
                     display none
                 }
                 display inline-block
@@ -585,7 +594,6 @@ main {
         }
     }
 }
-
 
 forceShowDrawer() {
     transition initial

@@ -76,122 +76,45 @@
 
 
     <div class="main-menu">
-        <a href="/" class="gb-icon-home"><span>Home</span></a>
+        <a href="/" class="gb-icon-home"><span>{$ __('menu.home') $}</span></a>
         <ul>
-            <li class="main-menu__item is-category">
-                <a href="#" class="gb-icon-map">
-                    Get data
-                </a>
-                <ul>
-                    <li>
-                        <a href="/occurrence">Menu not implemented yet</a>
+            {% for menuGroup in gb.menu %}
+                {% if menuGroup.type == 'normal' %}
+                    <li class="main-menu__item is-category">
+                        <a href="" class="{$ menuGroup.icon $}">
+                            {$ __('menu.' + menuGroup.name) $}
+                        </a>
+                        <ul>
+                            {% for item in menuGroup.items %}
+                                <li>
+                                    <a href="{$ gb.locales.urlPrefix $}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                    {#<li>#}
-                    {#<a href="/species/408">Species</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                    {#<a href="#">Data sets</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                    {#<a href="#">Very long menu titles will be cropped</a>#}
-                    {#</li>#}
-                </ul>
-            </li>
-            <li class="main-menu__item is-category">
-                <a href="#" class="gb-icon-cloud-upload">
-                    Share
-                </a>
-                <ul>
-                    <li>
-                        <a href="#">Menu not implemented yet</a>
+                {% endif %}
+                {% if menuGroup.type == 'mega' %}
+                    <li class="is-category is-mega">
+                        <a href="" class="{$ menuGroup.icon $}">
+                            {$ __('menu.' + menuGroup.name) $}
+                        </a>
+                        <ul>
+                            {% for category in menuGroup.items %}
+                                <li class="is-category">
+                                    <a class="category-header" href="#">{$ __('menu.' + category.name) $}</a>
+                                    <ul>
+                                        {% for item in category.items %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                    {#<li>#}
-                    {#<a href="#">Why</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                    {#<a href="#">Lorem</a>#}
-                    {#</li>#}
-                </ul>
-            </li>
-            <li class="main-menu__item is-category">
-                <a href="#" class="gb-icon-info">
-                    About
-                </a>
-                <ul>
-                    <li>
-                        <a href="#">Menu not implemented yet</a>
-                    </li>
-                </ul>
-            </li>
-            {#<li class="is-category is-mega">#}
-            {#<a href="#" class="gb-icon-info">#}
-            {#About#}
-            {#</a>#}
-            {#<ul>#}
-            {#<li class="is-category">#}
-            {#<a href="#">Inside</a>#}
-            {#<ul>#}
-            {#<li>#}
-            {#<a href="#">Menu not implemented yet</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Facts and figures</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Impact</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Programmes and projects</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Knowledge base</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">FAQ</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</li>#}
-            {#<li class="is-category">#}
-            {#<a href="#">Pressroom</a>#}
-            {#<ul>#}
-            {#<li>#}
-            {#<a href="#">Featured data use</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">News</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</li>#}
-            {#<li class="is-category">#}
-            {#<a href="#">Community</a>#}
-            {#<ul>#}
-            {#<li>#}
-            {#<a href="#">Join the community</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Contact</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</li>#}
-            {#<li class="is-category">#}
-            {#<a href="#">Development</a>#}
-            {#<ul>#}
-            {#<li>#}
-            {#<a href="#">API</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Python and R libraries</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">Front end</a>#}
-            {#</li>#}
-            {#<li>#}
-            {#<a href="#">About development at GBIF</a>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</li>#}
-            {#</ul>#}
-            {#</li>#}
+                {% endif %}
+            {% endfor %}
         </ul>
     </div>
 </nav>
