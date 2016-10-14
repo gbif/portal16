@@ -74,6 +74,8 @@ require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 
+require('../../../pages/species/key/speciesKey.ctrl');
+
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');
 

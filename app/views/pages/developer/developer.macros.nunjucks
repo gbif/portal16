@@ -106,7 +106,7 @@
     <nav class="submenu developer-submenu" id="submenu">
         <ul class="nav-parts">
             <li class="part-name">
-                <a href="" class="h4">Content</a>
+                <a href="" class="h3">Content</a>
                 <ul class="nav-chapters">
                     {% for id,sect in sections %}
                     <li class="nav-chapter" du-scrollspy="{$ id $}">

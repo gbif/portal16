@@ -13,8 +13,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">GBIF API</span>
-                        <span class="article-header__category__lower">Version 1</span>
+                        <span class="article-header__category__upper">Developer</span>
+                        <span class="article-header__category__lower">API Docs</span>
                     </nav>
                     <h1>Registry API</h1>
                     <div class="article-header__intro">
@@ -41,14 +41,14 @@
         </div>
     </section>
 
-    <div class="submenu-wrapper" id="submenuWrapper">
+    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
         {%  set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
         {$ api.submenu(sections) $}
 
 
         <div class="container--narrow">
 
-        <section id="datasets" class="horizontal-stripe white-background">
+        <section id="datasets" class="white-background">
             <div class="container--normal">
                 <h3>Datasets</h3>
                 <p>

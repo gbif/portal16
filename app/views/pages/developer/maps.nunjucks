@@ -9,8 +9,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">GBIF API</span>
-                        <span class="article-header__category__lower">Version 1</span>
+                        <span class="article-header__category__upper">Developer</span>
+                        <span class="article-header__category__lower">API Docs</span>
                     </nav>
                     <h1>Maps API</h1>
                     <div class="article-header__intro">
@@ -30,35 +30,41 @@
                 making it trivial to visualize GBIF content on interactive maps, and overlay content from other sources.
             </p>
             <p>
-                <strong>Developers familiar with tile mapping services should jump straight to the <a href="#preview">preview functionality</a></strong>
-            </p>
-            <p>
-                The following features are supported:
-            <ul>
-                <li>Map layers available for a <strong>country</strong>, <strong>dataset</strong>, <strong>taxon</strong> (species, subspecies or higher taxon), <strong>publisher</strong></li>
-                <li>User defined styling by selecting a predefined color palette, or by providing styling rules</li>
-                <li>Density of content is clustered to a user defined cluster size (regardless of zoom level)</li>
-                <li>The ability to customise content shown by the <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a> (E.g. Specimens, Observations, Fossils etc)</li>
-                <li>For certain basis of record types, the time period may be customised by decade; e.g. map the observations of a species since 1970</li>
-            </ul>
-            </p>
-            <p>
-                This service is intended for use with commonly used clients such as the <a href="https://developers.google.com/maps/">google
-                    maps api</a>, <a href="http://leaflet.cloudmade.com">leaflet JS library</a> or the <a href="http://modestmaps.com">modest maps JS library</a>.
-                These libraries allow the GBIF layers to be visualized with other content, such as those coming from
-                <a href="http://www.opengeospatial.org/standards/wms">web map service (WMS)</a> providers.  It should be noted that the mapping api is not
-                a WMS service, nor does it support WFS capabilities.  The examples on this page use the leaflet library.
+                Developers familiar with tile mapping services should jump straight to the <a href="#preview">preview functionality</a>.
             </p>
         </div>
     </section>
 
-    <div class="submenu-wrapper" id="submenuWrapper">
-        {%  set sections = {'overview':'Introduction', 'spec':'The tile URL format', 'layers':'Customizing layer content', 'colors':'Styling a layer', 'preview':'Preview'} %}
+    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+        {%  set sections = {'features':'Feature overview', 'spec':'The tile URL format', 'layers':'Customizing layer content', 'colors':'Styling a layer', 'preview':'Preview'} %}
         {$ api.submenu(sections) $}
 
         <div class="container--narrow">
 
-            <section id="spec" class="horizontal-stripe white-background">
+            <section id="features" class="white-background">
+                <div class="container--normal">
+                    <h3>Feature overview</h3>
+                    <p>
+                        The following features are supported:
+                    <ul>
+                        <li>Map layers available for a <strong>country</strong>, <strong>dataset</strong>, <strong>taxon</strong> (species, subspecies or higher taxon), <strong>publisher</strong></li>
+                        <li>User defined styling by selecting a predefined color palette, or by providing styling rules</li>
+                        <li>Density of content is clustered to a user defined cluster size (regardless of zoom level)</li>
+                        <li>The ability to customise content shown by the <a href="http://rs.tdwg.org/dwc/terms/#basisOfRecord">basis of record</a> (E.g. Specimens, Observations, Fossils etc)</li>
+                        <li>For certain basis of record types, the time period may be customised by decade; e.g. map the observations of a species since 1970</li>
+                    </ul>
+                    </p>
+                    <p>
+                        This service is intended for use with commonly used clients such as the <a href="https://developers.google.com/maps/">google
+                            maps api</a>, <a href="http://leaflet.cloudmade.com">leaflet JS library</a> or the <a href="http://modestmaps.com">modest maps JS library</a>.
+                        These libraries allow the GBIF layers to be visualized with other content, such as those coming from
+                        <a href="http://www.opengeospatial.org/standards/wms">web map service (WMS)</a> providers.  It should be noted that the mapping api is not
+                        a WMS service, nor does it support WFS capabilities.  The examples on this page use the leaflet library.
+                    </p>
+                </div>
+            </section>
+
+            <section id="spec" class="white-background">
                 <div class="container--normal">
                     <h3>The tile URL format</h3>
                     <p>

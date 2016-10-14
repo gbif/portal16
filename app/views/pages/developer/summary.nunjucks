@@ -13,8 +13,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">GBIF API</span>
-                        <span class="article-header__category__lower">Version 1</span>
+                        <span class="article-header__category__upper">Developer</span>
+                        <span class="article-header__category__lower">API Docs</span>
                     </nav>
                     <h1>API Summary</h1>
                     <div class="article-header__intro">
@@ -30,36 +30,42 @@
     <section id="overview" class="horizontal-stripe light-background">
         <div class="container">
             <p>The GBIF API is a RESTful JSON based API. The base URL for v1 you should use is: <strong>{$ apiBase $}</strong></p>
-            <p>The API is split into logical sections to ease understanding:</p>
-            <ul class="indent">
-                <li><strong>Registry:</strong> Provides means to create, edit, update and search for information about the datasets,
-                    organizations (e.g. data publishers), networks and the means to access them (technical endpoints).  The registered
-                    content controls what is crawled and indexed in the GBIF data portal, but as a shared API may also be used for other
-                    initiatives</li>
-                <li><strong>Species:</strong> Provides services to discover and access information about species and higher taxa, and
-                    utility services for interpreting names and looking up the identifiers and complete scientific names used for species in
-                    the GBIF portal.</li>
-                <li><strong>Occurrence:</strong> Provides access to occurrence information crawled and indexed by GBIF and search services
-                    to do real time paged search and asynchronous download services to do large batch downloads.</li>
-                <li><strong>Maps:</strong> Provides simple services to show the maps of GBIF mobilized content on other sites.</li>
-                <li><strong>News:</strong> Provides services to stream useful information such as papers published using GBIF mobilized
-                    content for various themes.</li>
-            </ul>
             <p>
                 The API should be considered stable, as should this accompanying documentation. Please report any issues you
-                find with either the API itself or the documentation using the "feedback" button on the right.
+                find with either the API itself or the documentation using the "feedback" button on the top right.
             </p>
         </div>
     </section>
 
-    <div class="submenu-wrapper" id="submenuWrapper">
+    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
 
-        {%  set sections = {'communication':'Communication', 'common':'Common operations', 'authentication':'Authentication', 'enumerations':'Enumerations', 'roadmap':'Roadmap to v2'} %}
+        {%  set sections = {'sections':'Sections', 'communication':'Communication', 'common':'Common operations', 'authentication':'Authentication', 'enumerations':'Enumerations', 'roadmap':'Roadmap to v2'} %}
         {$ api.submenu(sections) $}
 
         <div class="container--narrow">
 
-            <section id="communication" class="horizontal-stripe white-background">
+            <section id="sections" class="white-background">
+                <div class="container--normal">
+                    <h3>API Sections</h3>
+                    <p>The API is split into logical sections to ease understanding:</p>
+                    <ul class="indent">
+                        <li><a href="registry">Registry</a>: Provides means to create, edit, update and search for information about the datasets,
+                            organizations (e.g. data publishers), networks and the means to access them (technical endpoints).  The registered
+                            content controls what is crawled and indexed in the GBIF data portal, but as a shared API may also be used for other
+                            initiatives</li>
+                        <li><a href="species">Species</a>: Provides services to discover and access information about species and higher taxa, and
+                            utility services for interpreting names and looking up the identifiers and complete scientific names used for species in
+                            the GBIF portal.</li>
+                        <li><a href="occurrence">Occurrence</a>: Provides access to occurrence information crawled and indexed by GBIF and search services
+                            to do real time paged search and asynchronous download services to do large batch downloads.</li>
+                        <li><a href="maps">Maps</a>: Provides simple services to show the maps of GBIF mobilized content on other sites.</li>
+                        <li><a href="new">News</a>: Provides services to stream useful information such as papers published using GBIF mobilized
+                            content for various themes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="communication" class="white-background">
                 <div class="container--normal">
                     <h3>Communication</h3>
                     <p>

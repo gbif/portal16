@@ -25,8 +25,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">GBIF API</span>
-                        <span class="article-header__category__lower">Version 1</span>
+                        <span class="article-header__category__upper">Developer</span>
+                        <span class="article-header__category__lower">API Docs</span>
                     </nav>
                     <h1>Occurrence API</h1>
                     <div class="article-header__intro">
@@ -52,13 +52,13 @@
         </div>
     </section>
 
-    <div class="submenu-wrapper" id="submenuWrapper">
+    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
         {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Occurrence Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
         {$ api.submenu(sections) $}
 
         <div class="container--narrow">
 
-            <section id="occurrence" class="horizontal-stripe white-background">
+            <section id="occurrence" class="white-background">
                 <div class="container--normal">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>

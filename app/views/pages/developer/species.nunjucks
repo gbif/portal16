@@ -13,8 +13,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">GBIF API</span>
-                        <span class="article-header__category__lower">Version 1</span>
+                        <span class="article-header__category__upper">Developer</span>
+                        <span class="article-header__category__lower">API Docs</span>
                     </nav>
                     <h1>Species API</h1>
                     <div class="article-header__intro">
@@ -38,21 +38,20 @@
                 For statistics on checklist datasets, you can refer to the <a href="/developer/registry#datasetMetrics">dataset metrics</a> section of the Registry API.
             </p>
             <p>
-                Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web services. It
-                may be of interest to those coding against the API, and can be found in the <a
-                    href="https://github.com/gbif/checklistbank/tree/master/checklistbank-ws-client"
-                    target="_blank">checklistbank-ws-client project</a>.
+                Internally we use a
+                <a href="https://github.com/gbif/checklistbank/tree/master/checklistbank-ws-client" target="_blank">Java web service client</a>
+                for the consumption of these HTTP-based, RESTful JSON web services.
             </p>
         </div>
     </section>
 
-    <div class="submenu-wrapper" id="submenuWrapper">
+    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
         {%  set sections = {'nameUsages':'Name Usages', 'searching':'Searching', 'parser':'Name parser', 'parameters':'Query Parameters'} %}
         {$ api.submenu(sections) $}
 
         <div class="container--narrow">
 
-            <section id="nameUsages" class="horizontal-stripe white-background">
+            <section id="nameUsages" class="white-background">
                 <div class="container--normal">
                     <h3>Working with Name Usages</h3>
                     <p>A name usage is the usage of a scientific name according to one

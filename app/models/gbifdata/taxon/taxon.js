@@ -12,6 +12,11 @@ Taxon.prototype.record = {};
 Taxon.get = function (key, options) {
     options = options || {};
     var promise = resource.get(api.taxon.url + key).as(Taxon);
+    if ('mock' in options) {
+        promise.then(function (taxon) {
+            taxon.mock();
+        });
+    }
     if (typeof options.expand === 'undefined') {
         return promise
     } else {
@@ -21,15 +26,70 @@ Taxon.get = function (key, options) {
     }
 };
 
+Taxon.prototype.mock = function () {
+    this.record.publishedIn = 'Hansen, H.J. (1910): The Schizopoda of the Siboga Expedition. - Siboga Exped., 37: 1-123, 16pls';
+    this.record.basionym = 'Abies alba Mill.';
+    this.record.basionymKey = '432432';
+};
+
+
 Taxon.prototype.expand = function (fieldNames) {
     var resources = [],
         resourceLookup = {
+            name: {
+                resource: api.taxon.url + this.record.key + '/name',
+                extendToField: 'name'
+            },
             dataset: {
                 resource: api.dataset.url + this.record.datasetKey,
                 extendToField: 'dataset'
             },
+            constituent: {
+                resource: api.dataset.url + this.record.constituentKey,
+                extendToField: 'constituent'
+            },
+            parents: {
+                resource: api.taxon.url + this.record.key + '/parents',
+                extendToField: 'parents'
+            },
+            synonyms: {
+                resource: api.taxon.url + this.record.key + '/synonyms',
+                extendToField: 'synonyms'
+            },
+            combinations: {
+                resource: api.taxon.url + this.record.key + '/combinations',
+                extendToField: 'combinations'
+            },
+            media: {
+                resource: api.taxon.url + this.record.key + '/media?limit=50',
+                extendToField: 'media'
+            },
+            occurrenceCount: {
+                resource: api.occurrence.url + 'count?taxonKey=' + this.record.key,
+                extendToField: 'occurrenceCount'
+            },
+            occurrenceGeoRefCount: {
+                resource: api.occurrence.url + 'count?isGeoreferenced=true&taxonKey=' + this.record.key,
+                extendToField: 'occurrenceGeoRefCount'
+            },
+            occurrenceImages: {
+                resource: api.occurrenceSearch.url + '?limit=35&media_type=stillImage&taxonKey=' + this.record.key,
+                extendToField: 'occurrenceImages'
+            },
+            references: {
+                resource: api.taxon.url + this.record.key + '/references',
+                extendToField: 'references'
+            },
+            related: {
+                resource: api.taxon.url + this.record.key + '/related?limit=100',
+                extendToField: 'related'
+            },
+            typification: {
+                resource: api.taxon.url + this.record.key + '/typeSpecimens',
+                extendToField: 'typification'
+            },
             vernacular: {
-                resource: api.taxon.url + this.record.key + '/vernacularNames',
+                resource: api.taxon.url + this.record.key + '/vernacularNames?limit=100',
                 extendToField: 'vernacular'
             }
         };
