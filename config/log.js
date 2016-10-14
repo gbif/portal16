@@ -69,7 +69,7 @@ if (loglevel <= loglevels.warn) {
             level: 'warn',
             type: 'rotating-file',
             path: './log/warn.log',
-            period: '10000ms',
+            period: '1d',
             count: 7
         }
     );
@@ -81,7 +81,7 @@ if (loglevel <= loglevels.error) {
             level: 'error',
             type: 'rotating-file',
             path: './log/error.log',
-            period: '10000ms',
+            period: '1d',
             count: 7
         }
     );
