@@ -46,20 +46,19 @@
                 In addition we also provide a <a href="/developer/maps">Map API</a> that offers spatial services.
             </p>
             <p>
-                Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web services. It may
-                be of interest to those coding against the API, and can be found in the <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">occurrence-ws-client</a>.
+                Internally we use a
+                <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">Java web service client</a>
+                for the consumption of these HTTP-based, RESTful web services.
             </p>
         </div>
     </section>
 
     <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-        {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Occurrence Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
+        {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
         {$ api.submenu(sections) $}
 
-        <div class="container--narrow">
-
             <section id="occurrence" class="white-background">
-                <div class="container--normal">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -81,8 +80,8 @@
                 </div>
             </section>
 
-            <section id="search" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="search" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
                         In order to retrieve all results for a given search filter you need to issue individual requests for each page,
@@ -139,8 +138,8 @@
                 </div>
             </section>
 
-            <section id="download" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="download" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those downloads.</p>
                     <p>Occurrence downloads are created asynchronously - the user requests a download and, once complete, is sent and email with a link to the resulting file.</p>
@@ -198,8 +197,8 @@
                 </div>
             </section>
 
-            <section id="metrics" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="metrics" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrence Metrics</h3>
                     <p>This API provides services to retrieve various counts and metrics provided about occurrence records.
                         The kind of counts that are currently supported are listed by the schema, method, see below for details.
@@ -221,8 +220,8 @@
                 </div>
             </section>
 
-            <section id="inventories" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="inventories" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrence Inventories</h3>
                     <p>This API provides services that list all distinct values together with their occurrence count for a given occurrence property.
                         Only a few properties are supported, each with its own service to call.
@@ -306,8 +305,8 @@
                 "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
             }) $}
 
-            <section id="predicates" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="predicates" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads.</p>
                     <p>If you are interested in seeing some examples of how to use the Java API to build predicates, there are some <a href="https://github.com/gbif/occurrence/blob/master/occurrence-ws/src/test/java/org/gbif/occurrence/download/service/HiveQueryVisitorTest.java" target="_blank">test cases</a> that can be used as a reference.</p>
@@ -534,8 +533,8 @@
                 </div>
             </section>
 
-            <section id="download_limits" class="horizontal-stripe white-background">
-                <div class="container--normal">
+            <section id="download_limits" class="white-background">
+                <div class="container--narrow anchor-block">
                     <h3>Occurrence Download Limits</h3>
                     <p>Occurrence downloads is a very resource demanding service which needs to be monitored and limited according to the GBIF platform load.
                         In order to avoid that downloads requested by a single user utilize most of the resources two rules have been set:</p>
@@ -545,7 +544,6 @@
                     </ul>
                 </div>
             </section>
-        </div>
 
     </div>
 

@@ -49,8 +49,8 @@
 {% endmacro %}
 
 {% macro paramArticle(params, apiName, apiBase, addSearchParams=false) %}
-    <section id="parameter" class="horizontal-stripe white-background">
-        <div class="container--normal">
+    <section id="parameters" class="white-background">
+        <div class="container--narrow anchor-block">
             {% if addSearchParams %}
                 {% set params = params | merge({
                     "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
@@ -58,7 +58,7 @@
                     "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
                 }) %}
             {% endif %}
-            <h3 id="parameters">Query parameters explained</h3>
+            <h3>Query parameters explained</h3>
             <p>The following parameters are for use exclusively with the {$ apiName $} API described above.</p>
             <table class='table table-bordered table-striped table-params'>
                 <thead>

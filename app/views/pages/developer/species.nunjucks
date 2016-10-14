@@ -49,180 +49,177 @@
         {%  set sections = {'nameUsages':'Name Usages', 'searching':'Searching', 'parser':'Name parser', 'parameters':'Query Parameters'} %}
         {$ api.submenu(sections) $}
 
-        <div class="container--narrow">
+        <section id="nameUsages" class="white-background">
+            <div class="container--narrow anchor-block">
+                <h3>Working with Name Usages</h3>
+                <p>A name usage is the usage of a scientific name according to one
+                    particular Checklist including the <a href="/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">GBIF Taxonomic Backbone</a>
+                    which is just called <em>nub</em> in this API.
+                    Name usages from other checklists with names that also exist in the nub will
+                    have a taxonKey that points to the related usage in the backbone.
+                </p>
+                <table class='api table table-bordered table-striped table-params'>
+                    {$ api.apiTableHead(auth=false) $}
+                    <tbody>
+                    {%  call trow(url="", paging=true, resp="NameUsage Page", respLink=apiBase+"species?datasetKey=00a0607f-fd7e-4268-9707-0f53aa265f1f&sourceId=ICIMOD_Barsey_Plants_001", params=["language","datasetKey","sourceId","name"]) %}
+                    Lists all name usages across all checklists
+                    {%  endcall %}
 
-            <section id="nameUsages" class="white-background">
-                <div class="container--normal">
-                    <h3>Working with Name Usages</h3>
-                    <p>A name usage is the usage of a scientific name according to one
-                        particular Checklist including the <a href="/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">GBIF Taxonomic Backbone</a>
-                        which is just called <em>nub</em> in this API.
-                        Name usages from other checklists with names that also exist in the nub will
-                        have a taxonKey that points to the related usage in the backbone.
-                    </p>
-                    <table class='api table table-bordered table-striped table-params'>
-                        {$ api.apiTableHead(auth=false) $}
-                        <tbody>
-                        {%  call trow(url="", paging=true, resp="NameUsage Page", respLink=apiBase+"species?datasetKey=00a0607f-fd7e-4268-9707-0f53aa265f1f&sourceId=ICIMOD_Barsey_Plants_001", params=["language","datasetKey","sourceId","name"]) %}
-                        Lists all name usages across all checklists
-                        {%  endcall %}
+                    {%  call trow(url="/root/{uuid|shortname}", resp="NameUsage Page", respLink=apiBase+"species/root/66dd0960-2d7d-46ee-a491-87b9adcfe7b1", paging=true ) %}
+                    Lists root usages of a checklist
+                    {%  endcall %}
 
-                        {%  call trow(url="/root/{uuid|shortname}", resp="NameUsage Page", respLink=apiBase+"species/root/66dd0960-2d7d-46ee-a491-87b9adcfe7b1", paging=true ) %}
-                        Lists root usages of a checklist
-                        {%  endcall %}
+                    {%  call trow(url="/{int}", resp="NameUsage", respLink=apiBase+"species/5231190", params=["language"]) %}
+                    Gets the single name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}", resp="NameUsage", respLink=apiBase+"species/5231190", params=["language"]) %}
-                        Gets the single name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/verbatim", resp="VerbatimNameUsage", respLink=apiBase+"species/5231190/verbatim") %}
+                    Gets the verbatim name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/verbatim", resp="VerbatimNameUsage", respLink=apiBase+"species/5231190/verbatim") %}
-                        Gets the verbatim name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/name", resp="ParsedName", respLink=apiBase+"species/5231190/name") %}
+                    Gets the parsed name for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/name", resp="ParsedName", respLink=apiBase+"species/5231190/name") %}
-                        Gets the parsed name for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/parents", resp="NameUsage List", params=["language"], respLink=apiBase+"species/5231190/parents") %}
+                    Lists all parent usages for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/parents", resp="NameUsage List", params=["language"], respLink=apiBase+"species/5231190/parents") %}
-                        Lists all parent usages for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/children", resp="NameUsage Page", paging=true, params=["language"], respLink=apiBase+"species/5231190/children") %}
+                    Lists all direct child usages for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/children", resp="NameUsage Page", paging=true, params=["language"], respLink=apiBase+"species/5231190/children") %}
-                        Lists all direct child usages for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/related", resp="NameUsage List", paging=false, params=["language","datasetKey"], respLink=apiBase+"species/5231190/related") %}
+                    Lists all related name usages in other checklists
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/related", resp="NameUsage List", paging=false, params=["language","datasetKey"], respLink=apiBase+"species/5231190/related") %}
-                        Lists all related name usages in other checklists
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/synonyms", resp="NameUsage Page", paging=true, params=["language"], respLink=apiBase+"species/2973063/synonyms") %}
+                    Lists all synonyms for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/synonyms", resp="NameUsage Page", paging=true, params=["language"], respLink=apiBase+"species/2973063/synonyms") %}
-                        Lists all synonyms for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/combinations", resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
+                    Lists all combinations that have this name usage as their basionym
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/combinations", resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
-                        Lists all combinations that have this name usage as their basionym
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/descriptions", resp="Description Page", paging=true, respLink=apiBase+"species/5231190/descriptions") %}
+                    Lists all descriptions for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/descriptions", resp="Description Page", paging=true, respLink=apiBase+"species/5231190/descriptions") %}
-                        Lists all descriptions for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/distributions", resp="Distribution Page", paging=true, respLink=apiBase+"species/5231190/distributions") %}
+                    Lists all distributions for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/distributions", resp="Distribution Page", paging=true, respLink=apiBase+"species/5231190/distributions") %}
-                        Lists all distributions for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/5231190/media") %}
+                    Lists all media items for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/media", resp="Media Page", paging=true, respLink=apiBase+"species/5231190/media") %}
-                        Lists all media items for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/references", resp="Reference Page", paging=true, respLink=apiBase+"species/5231190/references") %}
+                    Lists all references for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/references", resp="Reference Page", paging=true, respLink=apiBase+"species/5231190/references") %}
-                        Lists all references for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/speciesProfiles", resp="SpeciesProfile Page", paging=true, respLink=apiBase+"species/5231190/speciesProfiles") %}
+                    Lists all species profiles for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/speciesProfiles", resp="SpeciesProfile Page", paging=true, respLink=apiBase+"species/5231190/speciesProfiles") %}
-                        Lists all species profiles for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/vernacularNames", resp="VernacularName Page", paging=true, respLink=apiBase+"species/5231190/vernacularNames") %}
+                    Lists all vernacular names for a name usage
+                    {%  endcall %}
 
-                        {%  call trow(url="/{int}/vernacularNames", resp="VernacularName Page", paging=true, respLink=apiBase+"species/5231190/vernacularNames") %}
-                        Lists all vernacular names for a name usage
-                        {%  endcall %}
+                    {%  call trow(url="/{int}/typeSpecimens", resp="TypeSpecimen Page", paging=true, respLink=apiBase+"species/5231190/typeSpecimens") %}
+                    Lists all type specimens for a name usage
+                    {%  endcall %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                        {%  call trow(url="/{int}/typeSpecimens", resp="TypeSpecimen Page", paging=true, respLink=apiBase+"species/5231190/typeSpecimens") %}
-                        Lists all type specimens for a name usage
-                        {%  endcall %}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <section id="searching" class="white-background">
+            <div class="container--narrow anchor-block">
+                <div class="anchor-block" id="temporalCoverages">
+                <h3>Searching Names</h3>
+                <p>GBIF provides 4 different ways of finding name usages.
+                    They differ in their matching behavior, response format and also the actual content covered.
+                </p>
+                <table class='api table table-bordered table-striped table-params'>
+                    {$ api.apiTableHead(auth=false) $}
+                    <tbody>
+                    {%  call trow(url="", resp="NameUsage Page", respLink=apiBase+"species?name=Puma%20concolor", paging=true, params=["language","datasetKey","sourceId","name"] ) %}
+                    Lists name usages across all or some checklists that share the exact same canonical name, i.e. without authorship.
+                    {%  endcall %}
 
-            <section id="searching" class="horizontal-stripe white-background">
-                <div class="container--normal">
-                    <h3>Searching Names</h3>
-                    <p>GBIF provides 4 different ways of finding name usages.
-                        They differ in their matching behavior, response format and also the actual content covered.
-                    </p>
-                    <table class='api table table-bordered table-striped table-params'>
-                        {$ api.apiTableHead(auth=false) $}
-                        <tbody>
-                        {%  call trow(url="", resp="NameUsage Page", respLink=apiBase+"species?name=Puma%20concolor", paging=true, params=["language","datasetKey","sourceId","name"] ) %}
-                        Lists name usages across all or some checklists that share the exact same canonical name, i.e. without authorship.
-                        {%  endcall %}
+                    {%  call trow(url="/match", resp="NameUsage Page", respLink=apiBase+"species/match?verbose=true&kingdom=Plantae&name=Oenante", paging=false, params=["rank","name","strict","verbose","kingdom","phylum","class","order","family","genus"]) %}
+                    Fuzzy matches scientific names against the GBIF Backbone Taxonomy with the optional classification provided.
+                    If a classification is provided and strict is not set to true, the default matching will also try to match against these if no direct match is found for the name parameter alone.
+                    {%  endcall %}
 
-                        {%  call trow(url="/match", resp="NameUsage Page", respLink=apiBase+"species/match?verbose=true&kingdom=Plantae&name=Oenante", paging=false, params=["rank","name","strict","verbose","kingdom","phylum","class","order","family","genus"]) %}
-                        Fuzzy matches scientific names against the GBIF Backbone Taxonomy with the optional classification provided.
-                        If a classification is provided and strict is not set to true, the default matching will also try to match against these if no direct match is found for the name parameter alone.
-                        {%  endcall %}
+                    {%  call trow(url="/search", resp="NameUsage Page", respLink=apiBase+"species/search?q=Puma&rank=GENUS", paging=true, params=["q","datasetKey","rank","highertaxonKey","status","isExtinct","habitat","threat","nameType","nomenclaturalStatus","issue","hl","facet","facetMincount","facetMultiselect"]) %}
+                    Full text search of name usages covering the scientific and vernacular name, the species description, distribution and the entire classification
+                    across all name usages of all or some checklists. Results are ordered by relevance as this search usually returns a lot of results.
+                    {%  endcall %}
 
-                        {%  call trow(url="/search", resp="NameUsage Page", respLink=apiBase+"species/search?q=Puma&rank=GENUS", paging=true, params=["q","datasetKey","rank","highertaxonKey","status","isExtinct","habitat","threat","nameType","nomenclaturalStatus","issue","hl","facet","facetMincount","facetMultiselect"]) %}
-                        Full text search of name usages covering the scientific and vernacular name, the species description, distribution and the entire classification
-                        across all name usages of all or some checklists. Results are ordered by relevance as this search usually returns a lot of results.
-                        {%  endcall %}
+                    {%  call trow(url="/suggest", resp="NameUsage Page", respLink=apiBase+"species/suggest?datasetKey=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=Puma%20con", paging=false, params=["q","datasetKey","rank"]) %}
+                    A quick and simple autocomplete service that returns up to 20 name usages by doing prefix matching against the scientific name.
+                    Results are ordered by relevance.
+                    {%  endcall %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                        {%  call trow(url="/suggest", resp="NameUsage Page", respLink=apiBase+"species/suggest?datasetKey=d7dddbf4-2cf0-4f39-9b2a-bb099caae36c&q=Puma%20con", paging=false, params=["q","datasetKey","rank"]) %}
-                        A quick and simple autocomplete service that returns up to 20 name usages by doing prefix matching against the scientific name.
-                        Results are ordered by relevance.
-                        {%  endcall %}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <section id="parser" class="white-background">
+            <div class="container--narrow anchor-block">
+                <h3>Name Parser</h3>
+                <p>GBIF exposes its java based name parser library through our API.
+                    The service takes one or a list of simple scientific name strings, parses each and returns a list of parsed names.
+                </p>
+                <table class='api table table-bordered table-striped table-params'>
+                    {$ api.apiTableHead(auth=false) $}
+                    <tbody>
+                    {%  call trow(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
+                    Parses a scientific name string and returns the ParsedName version of it.
+                    Accepts multiple parameters each with a single name. Make sure you url encode the names properly.
+                    {%  endcall %}
 
-            <section id="parser" class="horizontal-stripe white-background">
-                <div class="container--normal">
-                    <h3>Name Parser</h3>
-                    <p>GBIF exposes its java based name parser library through our API.
-                        The service takes one or a list of simple scientific name strings, parses each and returns a list of parsed names.
-                    </p>
-                    <table class='api table table-bordered table-striped table-params'>
-                        {$ api.apiTableHead(auth=false) $}
-                        <tbody>
-                        {%  call trow(url="/parser/name", httpMethod="GET", resp="ParsedName List", respLink=apiBase+"parser/name?name=Abies%20alba%20Mill.%20sec.%20Markus%20D.&name=Abies%20pinsapo%20var.%20marocana%20(Trab.)%20Ceballos%20%26%20Bolaño%201928", paging=false, params=["name"], authRequired="") %}
-                        Parses a scientific name string and returns the ParsedName version of it.
-                        Accepts multiple parameters each with a single name. Make sure you url encode the names properly.
-                        {%  endcall %}
+                    {%  call trow(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
+                    Parse list of name strings supplied via one of the following media type encodings:
+                    <ul>
+                        <li><em>json</em> array of name strings</li>
+                        <li><em>plain/text</em> content</li>
+                        <li><em>multipart/form-data</em> uploaded plain text file</li>
+                    </ul>
+                    All text files should be UTF8 encoded with one scientific name per line (please use \n unix new lines).
+                    {%  endcall %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                        {%  call trow(url="/parser/name", httpMethod="POST", resp="ParsedName List", paging=false, params=["name"], authRequired="") %}
-                        Parse list of name strings supplied via one of the following media type encodings:
-                        <ul>
-                            <li><em>json</em> array of name strings</li>
-                            <li><em>plain/text</em> content</li>
-                            <li><em>multipart/form-data</em> uploaded plain text file</li>
-                        </ul>
-                        All text files should be UTF8 encoded with one scientific name per line (please use \n unix new lines).
-                        {%  endcall %}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            {$ api.paramArticle(apiName="Occurrence", addSearchParams=true, apiBase=apiBase, params={
-                "q": "Simple full text search parameter. The value for this parameter can be a simple word or a phrase. Wildcards are not supported",
-                "language": "Language for vernacular names.  Overrides HTTP Accept-Language header",
-                "datasetKey": "Filters by the checklist dataset key (a uuid)",
-                "sourceId": "Filters by the source identifier",
-                "rank": "Filters by taxonomic rank as given in our <a href='"+apidocs+"/vocabulary/Rank.html' target='_blank'>Rank enum</a>",
-                "name": "A scientific name which can be either a case insensitive filter for a canonical namestring, e.g. 'Puma concolor', or an input to the name parser",
-                "strict": "If true it (fuzzy) matches only the given name, but never a taxon in the upper classification",
-                "verbose": "If true it shows alternative matches which were considered but then rejected",
-                "kingdom": "Optional kingdom classification accepting a canonical name.",
-                "phylum": "Optional phylum classification accepting a canonical name.",
-                "class": "Optional class classification accepting a canonical name.",
-                "order": "Optional order classification accepting a canonical name.",
-                "family": "Optional family classification accepting a canonical name.",
-                "genus": "Optional genus classification accepting a canonical name.",
-                "highertaxonKey": "Filters by any of the higher Linnean rank keys. Note this is within the respective checklist and not searching nub keys across all checklists.",
-                "status": "Filters by the taxonomic status as given in our <a href='"+apidocs+"/vocabulary/TaxonomicStatus.html' target='_blank'>TaxonomicStatus enum</a>",
-                "isExtinct": "Filters by extinction status (a boolean, e.g. isExtinct=true)",
-                "habitat": "Filters by the habitat. Currently only 3 major biomes are accepted in our <a href='"+apidocs+"/vocabulary/Habitat.html' target='_blank'>Habitat enum</a>",
-                "threat": "Not yet implemented, but will eventually allow for filtering by a threat status enum",
-                "nameType": "Filters by the name type as given in our <a href='"+apidocs+"/vocabulary/NameType.html' target='_blank'>NameType enum</a>",
-                "nomenclaturalStatus": "Not yet implemented, but will eventually allow for filtering by a nomenclatural status enum",
-                "issue": "A specific indexing issue as defined in our <a href='"+apidocs+"/vocabulary/NameUsageIssue.html' target='_blank'>NameUsageIssue enum</a>",
-                "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: datasetKey, higherTaxonKey, rank, status, nomenclaturalStatus, isExtinct, habitat, threat and nameType."
-                })
-            $}
-        </div>
-
+        {$ api.paramArticle(apiName="Occurrence", addSearchParams=true, apiBase=apiBase, params={
+            "q": "Simple full text search parameter. The value for this parameter can be a simple word or a phrase. Wildcards are not supported",
+            "language": "Language for vernacular names.  Overrides HTTP Accept-Language header",
+            "datasetKey": "Filters by the checklist dataset key (a uuid)",
+            "sourceId": "Filters by the source identifier",
+            "rank": "Filters by taxonomic rank as given in our <a href='"+apidocs+"/vocabulary/Rank.html' target='_blank'>Rank enum</a>",
+            "name": "A scientific name which can be either a case insensitive filter for a canonical namestring, e.g. 'Puma concolor', or an input to the name parser",
+            "strict": "If true it (fuzzy) matches only the given name, but never a taxon in the upper classification",
+            "verbose": "If true it shows alternative matches which were considered but then rejected",
+            "kingdom": "Optional kingdom classification accepting a canonical name.",
+            "phylum": "Optional phylum classification accepting a canonical name.",
+            "class": "Optional class classification accepting a canonical name.",
+            "order": "Optional order classification accepting a canonical name.",
+            "family": "Optional family classification accepting a canonical name.",
+            "genus": "Optional genus classification accepting a canonical name.",
+            "highertaxonKey": "Filters by any of the higher Linnean rank keys. Note this is within the respective checklist and not searching nub keys across all checklists.",
+            "status": "Filters by the taxonomic status as given in our <a href='"+apidocs+"/vocabulary/TaxonomicStatus.html' target='_blank'>TaxonomicStatus enum</a>",
+            "isExtinct": "Filters by extinction status (a boolean, e.g. isExtinct=true)",
+            "habitat": "Filters by the habitat. Currently only 3 major biomes are accepted in our <a href='"+apidocs+"/vocabulary/Habitat.html' target='_blank'>Habitat enum</a>",
+            "threat": "Not yet implemented, but will eventually allow for filtering by a threat status enum",
+            "nameType": "Filters by the name type as given in our <a href='"+apidocs+"/vocabulary/NameType.html' target='_blank'>NameType enum</a>",
+            "nomenclaturalStatus": "Not yet implemented, but will eventually allow for filtering by a nomenclatural status enum",
+            "issue": "A specific indexing issue as defined in our <a href='"+apidocs+"/vocabulary/NameUsageIssue.html' target='_blank'>NameUsageIssue enum</a>",
+            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: datasetKey, higherTaxonKey, rank, status, nomenclaturalStatus, isExtinct, habitat, threat and nameType."
+            })
+        $}
     </div>
 
 </article>
