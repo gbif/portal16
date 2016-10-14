@@ -13,27 +13,6 @@
 
         {% include "./contacts/contacts.nunjucks" %}
 
-        {#
-        <section class="horizontal-stripe light-background">
-            <div class="container--normal tmpDataSetResults">
-                <h2 class="h4">Published datasets</h2>
-                {% if publisher.datasets.count > 0 %}
-                    {% for dataset in publisher.datasets.results %}
-                        <div>
-                            <h3 class="h4"><a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.key $}">{$
-                                    dataset.title $}</a></h3>
-                            <p>
-                                {$ dataset.description | striptags | truncate(150) $}
-                            </p>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    No published datasets
-                {% endif %}
-            </div>
-        </section>
-        #}
-
     </article>
 
 

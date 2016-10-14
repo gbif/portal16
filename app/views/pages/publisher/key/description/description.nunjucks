@@ -13,7 +13,7 @@
             {% endif %}
 
             <div>
-                <h2 class="h4">Description</h2>
+                <h3>Description</h3>
                 <div>
                     <p>
                         {$ publisher.record.description | safe $}

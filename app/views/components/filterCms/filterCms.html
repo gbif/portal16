@@ -1,10 +1,10 @@
 <div class="filter-group filter-group--search" ng-show="vm.suggestions.counts.length > 0">
     <a href="" class="inherit" ng-click="vm.expanded = !vm.expanded">
-        <h5>
+        <h4>
             <span ng-bind="vm.facetTitle" class="text-capitalize"></span>
             <span class="gb-icon-angle-down pull-right" ng-if="!vm.expanded"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="vm.expanded"></span>
-        </h5>
+        </h4>
     </a>
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.expanded}">

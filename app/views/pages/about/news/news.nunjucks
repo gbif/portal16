@@ -56,7 +56,7 @@
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.citationInformation.length == 1 %}
                                 <section class="{% if data.citationInformation.length == 1 %}no-break{% endif %}">
-                                    <h5>Citations</h5>
+                                    <h4>Citations</h4>
                                     <ul class="list-citations">
                                         {% for loc in data.citationInformation %}
                                             <li class="no-break">{$ loc.value | safe $}</li>
@@ -67,7 +67,7 @@
 
                             {% if data.relatedGbifResources.length > 1 %}
                                 <section class="no-break">
-                                    <h5>Related GBIF resources</h5>
+                                    <h4>Related GBIF resources</h4>
                                     <ul class="list-links">
                                         {% for resource in data.relatedGbifResources %}
                                             <li><a href="{$ resource.url $}">{$ resource.title | safe $}</a></li>
@@ -78,7 +78,7 @@
 
                             {% if data.researcherLocation %}
                                 <section class="no-break">
-                                    <h5 class="h5">Location of researchers</h5>
+                                    <h4 class="h4">Location of researchers</h4>
                                     <ul class="list-chips">
                                         {% for loc in data.researcherLocation %}
                                             <li><a href="#">{$ loc.name $}</a></li>
@@ -89,7 +89,7 @@
 
                             {#This assumes that there is always tags to show. TODO hide if no available tags#}
                             <section class="no-break">
-                                <div class="h5">Subject</div>
+                                <div class="h4">Subject</div class="h4">
                                 <ul class="list-chips">
                                     {% for tag in data.tagsAudience %}
                                         <li><a href="">{$ tag.name $}</a></li>
@@ -116,7 +116,7 @@
                             </section>
 
                             <section class="no-break">
-                                <div class="h5">Published on</div>
+                                <div class="h4">Published on</div>
                                 {$ data.created | formatDate(gb.locales.current) $}
                             </section>
                         </div>
@@ -138,11 +138,11 @@
                                             <div class="col-xs-12 col-md-7 card__content">
                                                 <span><a href="/{$ data.__system.prev.targetUrl $}">Previous
                                                         Story</a></span>
-                                                <h2 class="h4">
+                                                <h3>
                                                     <a href="/{$ data.__system.prev.targetUrl $}">
                                                         {$ data.__system.prev.title | truncate(80) $}
                                                     </a>
-                                                </h2>
+                                                </h3>
                                             </div>
                                         </div>
                                     </article>
@@ -159,11 +159,11 @@
                                             <div class="col-xs-12 col-md-7 card__content">
                                                 <span><a href="/{$ data.__system.next.targetUrl $}">Next
                                                         Story</a></span>
-                                                <h2 class="h4">
+                                                <h3>
                                                     <a href="/{$ data.__system.next.targetUrl $}">
                                                         {$ data.__system.next.title | truncate(80) $}
                                                     </a>
-                                                </h2>
+                                                </h3>
                                             </div>
                                         </div>
                                     </article>

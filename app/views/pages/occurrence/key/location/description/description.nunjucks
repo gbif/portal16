@@ -1,8 +1,8 @@
 <section class="horizontal-stripe bare-background occurrenceKey__locationDescription">
     <div class="container--normal">
         <div class="row">
-            <div class="col-xs-12">
-                <h2 class="h4">Coordinates missing</h2>
+            <div class="col-xs-12 col-md-6">
+                <h3 class="m-t-0">Coordinates missing</h3>
 
                 {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
                     <p>

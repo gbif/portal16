@@ -7,15 +7,15 @@
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
-                    <header class="col-xs-12 text-center">
+                    <header class="col-xs-12">
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">{$ __('tools.categoryTitle') $}</span>
                             <span class="article-header__category__lower">
                                 {$ __('tools.categoryFeatured') $}
                             </span>
                         </nav>
-                        <h1 class="h2 text-center uppercase-first">
-                            <span>{$ __('tools.suggestDataset.Title') $}</span>
+                        <h1 class="uppercase-first">
+                            <span>{$ __('tools.suggestDataset.title') $}</span>
                         </h1>
                     </header>
                 </div>
@@ -36,7 +36,7 @@
             <div class="container--narrow">
                 <div class="row">
                     <div class="col-xs-12" ng-if="suggestDataset.state != 'SUCCESS'">
-                        <div class="h4 uppercase-first">{$ __('tools.suggestDataset.PleaseDescribeTheDataset') $}</div>
+                        <h4 class="uppercase-first">{$ __('tools.suggestDataset.pleaseDescribeTheDataset') $}</h4>
                         <div class="card">
                             <div>
                                 <div>

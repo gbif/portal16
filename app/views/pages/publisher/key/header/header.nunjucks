@@ -1,12 +1,12 @@
 <div class="horizontal-stripe article-header white-background">
     <div class="container">
         <div class="row">
-            <header class="col-xs-12 text-center">
+            <header class="col-xs-12">
                 <nav class="article-header__category">
                     <span class="article-header__category__upper">{$ __('stdTerms.publisher') $}</span>
                 </nav>
 
-                <h1 class="h2 text-center">
+                <h1>
                     <span>{$ publisher.record.title $}</span>
                 </h1>
             </header>

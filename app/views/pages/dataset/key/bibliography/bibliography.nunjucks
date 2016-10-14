@@ -5,7 +5,7 @@
         ng-class="{'is-fade-expanded': datasetKey.bibExpand.isExpanded}"
             {% endif %}>
         <div class="container--narrow anchor-block" id="bibliography">
-            <h2 class="h4">Bibliography</h2>
+            <h3>Bibliography</h3>
             <div class="dataset-key__bibliography__list">
                 <ol>
                     {% for reference in dataset.record.bibliographicCitations %}

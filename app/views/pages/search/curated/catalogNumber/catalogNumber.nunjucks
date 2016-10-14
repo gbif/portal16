@@ -2,7 +2,7 @@
     {% for catalogCard in results.catalogNumberOccurrences.results | limit(1) %}
         <div>
             <article class="card">
-                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">
+                <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="inherit card__stripe">
                     <div class="card__content">
                         <nav class="article-header__category article-header__category--deep small">
                             <span class="article-header__category__upper">{$ __('stdTerms.occurrence') $}</span>
@@ -10,7 +10,7 @@
                                 {$ __('stdTerms.catalogNr') $}
                             </span>
                         </nav>
-                        <h2 class="h4 text-center">{$ catalogCard.catalogNumber $}</h2>
+                        <h3 class="text-center m-t-05">{$ catalogCard.catalogNumber $}</h3>
                     </div>
                 </a>
                 <a href="{$ gb.locales.urlPrefix $}/occurrence/{$ catalogCard.key $}" class="card__stripe">

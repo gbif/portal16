@@ -23,7 +23,7 @@
                             <span class="article-header__category__lower">{$ datasetDetails.type $}</span>
                         </nav>
 
-                        <h1 class="h2 text-center">
+                        <h1 class="text-center">
                             <span>{$ datasetDetails.title $}</span>
                             <div class="h3 article-header__sub">
                                 Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ publisher.key $}">{$
@@ -268,7 +268,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox">
-                        <label for="gbif-registration-info-toggle"><h2 class="h4">GBIF Registration Information</h2>
+                        <label for="gbif-registration-info-toggle"><h3>GBIF Registration Information</h3>
                         </label>
                         <div>
                             {% include "./includes/registrationInfo.nunjucks" %}

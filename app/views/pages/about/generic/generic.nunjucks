@@ -79,7 +79,7 @@
                         {% for linkBlock in data.linkBlocks %}
                             <div class="col-xs-12 col-sm-4">
                                 <article class="container-fluid card card--supplemental">
-                                    <h2 class="h4">{$ linkBlock.field_title.und[0].value $}</h2>
+                                    <h3>{$ linkBlock.field_title.und[0].value $}</h3>
                                     {% if linkBlock.field_links %}
                                         <ul>
                                             {% for link in linkBlock.field_links.und %}

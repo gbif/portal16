@@ -25,7 +25,7 @@
                     </div>
                 {% endif %}
                 <div>
-                    <h2 class="h4">Description</h2>
+                    <h3>Description</h3>
                     <div>
                         <p>
                             {$ dataset.record.description | safe $}
@@ -41,7 +41,7 @@
     <section class="horizontal-stripe white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block" id="purpose">
-                <h2 class="h4">Purpose</h2>
+                <h3>Purpose</h3>
                 <div>
                     <p>
                         {$ dataset.record.purpose | safe $}
@@ -56,7 +56,7 @@
     <section class="horizontal-stripe white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block" id="temporalCoverages">
-                <h2 class="h4">Temporal coverage</h2>
+                <h3>Temporal coverage</h3>
                 <div>
                     {% for period in dataset.record.temporalCoverages %}
                         <p>
@@ -81,7 +81,7 @@
     <section class="horizontal-stripe white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block" id="geographicCoverages">
-                <h2 class="h4">Geographic coverages</h2>
+                <h3>Geographic coverages</h3>
                 <div>
                     {% for geographicCoverage in dataset.record.geographicCoverages %}
                         {% if geographicCoverage.description %}
@@ -107,14 +107,14 @@
     <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling">
         <div class="container--narrow">
             <div class="anchor-block" id="methodology">
-                <h2 class="h4">Methodology</h2>
+                <h3>Methodology</h3>
                 <div>
                     {% for field in ['studyExtent', 'sampling', 'qualityControl'] %}
 
                         {% if dataset.record.samplingDescription[field] %}
                             <div id="id_{$ field $}">
                                 <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
-                                <h3 class="h5" style="margin-top:30px">{$ field $}</h3>
+                                <h4 style="margin-top:30px">{$ field |prettifyEnum | capitalize $}</h4>
                                 <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
                             </div>
                         {% endif %}
@@ -124,7 +124,7 @@
                     {% if dataset.record.samplingDescription.methodSteps.length > 0 %}
                         <div id="id_methodSteps">
                             <span class="relative-anchor-offset"><a name="methodSteps"></a></span>
-                            <h3 class="h5" style="margin-top:30px">Method steps</h3>
+                            <h4 style="margin-top:30px">Method steps</h4>
                             <ol>
                                 {% for step in dataset.record.samplingDescription.methodSteps %}
                                     <li class="counted-section--connected">

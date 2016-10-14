@@ -4,7 +4,7 @@
     <section class="term-block is-collapsed"
              ng-class="{ 'is-expanded': !occurrence.hideDetails, 'is-collapsed': occurrence.hideDetails }">
         <div class="term-block__header">
-            <h3 class="h5 text-capitalize">{$ __('stdTerms.' + group) $}</h3>
+            <h4 class="text-capitalize">{$ __('stdTerms.' + group) $}</h4>
         </div>
         <div class="term-block__terms">
             <table class="table table--compact">

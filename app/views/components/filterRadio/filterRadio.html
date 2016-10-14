@@ -1,10 +1,10 @@
 <div class="filter-group" ng-mouseover="vm.isHovered = true">
     <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
-        <h5>
+        <h4>
             <span class="text-capitalize" translate="ocurrenceFieldNames.{{vm.title}}">{{vm.title}}</span>
             <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
             <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
-        </h5>
+        </h4>
     </a>
     <div class="filter-group__filter filter-group__filter--collapsed" ng-if="vm.collapsed">
         <div class="checkbox is-padded" ng-repeat="enum in vm.enumValues" ng-if="vm.query.indexOf(enum) > -1">

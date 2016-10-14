@@ -2,7 +2,7 @@
 {% if results.country %}
     <div class="card-flex-columns__block-narrow">
         <article class="card card--flexible">
-            <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">
+            <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="inherit card__stripe">
                 <div class="card__content">
                     <nav class="article-header__category article-header__category--deep small">
                         <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
@@ -10,7 +10,7 @@
                                 {$ __('participationStatus.' + results.country.participationStatus) $}
                             </span>
                     </nav>
-                    <h2 class="h4 text-center">{$ __('country.' + results.country.countryCode) $}</h2>
+                    <h3 class="text-center m-t-05">{$ __('country.' + results.country.countryCode) $}</h3>
                 </div>
             </a>
             <a href="{$ gb.locales.urlPrefix $}/country/{$ results.country.countryCode $}" class="card__stripe">

@@ -1259,6 +1259,7 @@
     "Event": "event",
     "Taxon": "taxon",
     "Identification": "identification",
+    "GeologicalContext": "geological context",
     "term": "term",
     "interpreted": "interpreted",
     "original": "original",
@@ -1620,8 +1621,8 @@
     "categoryFeatured": "featured",
     "suggestDataset": {
       "NOT_OPEN": "not an open license",
-      "Title": "suggest a dataset",
-      "PleaseDescribeTheDataset": "please describe the dataset",
+      "title": "suggest a dataset",
+      "pleaseDescribeTheDataset": "please describe the dataset",
       "form": {
         "title": "title",
         "link": "internet link to data",

@@ -5,7 +5,7 @@
         var gb = gb || {};
         //gb.taxon = {$ taxon | safe $};
     </script>
-    <article class="wrapper-horizontal-stripes speciesKey page--data" ng-controller="speciesKeyCtrl as spec">
+    <article class="wrapper-horizontal-stripes speciesKey" ng-controller="speciesKeyCtrl as spec">
 
         <div class="overlay"></div>
 
@@ -20,13 +20,13 @@
                             </span>
                         </nav>
 
-                        <h1 class="h2 text-center">
+                        <h1 class="text-center">
                             <span>{$ taxon.record.scientificName $}</span>
                         </h1>
 
                         {% if taxon.record.synonym %}
-                        <h1 class="h2 text-center">
-                            <div class="h4 article-header__sub">
+                        <h1 class="text-center">
+                            <div class="h3 article-header__sub">
                                 {$ __('taxonomicStatus.' + taxon.record.taxonomicStatus) $}
                                 of <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.acceptedKey $}">{$ taxon.record.accepted $}</a>
                             </div>

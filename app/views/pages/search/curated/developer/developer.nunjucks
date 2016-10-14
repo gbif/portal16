@@ -10,7 +10,7 @@
                             developer
                         </span>
                 </nav>
-                <h2 class="h4 text-center">Looking for the API?</h2>
+                <h3 class="text-center m-t-05">Looking for the API?</h3>
                 <p>
                     The GBIF API and all our code is free to use and Open Source. Get started.
                 </p>

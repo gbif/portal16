@@ -26,9 +26,9 @@
             </div>
 
             <div class="filter-group--links">
-                <h5>
+                <h4>
                     Filter by
-                </h5>
+                </h4>
                 <div>
                     <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">
                         Occurrences

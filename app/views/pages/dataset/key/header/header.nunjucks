@@ -7,11 +7,8 @@
                     <span class="article-header__category__lower">{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</span>
                 </nav>
 
-                <h1 class="h2 text-center">
+                <h1 class="text-center">
                     <span>{$ dataset.record.title $}</span>
-                    {#<div class="h4 article-header__sub">#}
-                    {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}" class="inherit">{$ dataset.publisher.title $}</a>#}
-                    {#</div>#}
                 </h1>
                 <div class="article-header__intro">
                     Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"

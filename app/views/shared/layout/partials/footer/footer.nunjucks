@@ -46,6 +46,14 @@
         </div>
         <div class="horizontal-stripe site-footer__lower">
             <div class="container--normal">
+
+                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F28791475%2Fhow-to-style-facebook-and-twitter-share-buttons"  onclick="window.open('https://www.facebook.com/sharer.php?u=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F28791475%2Fhow-to-style-facebook-and-twitter-share-buttons', 'newwindow', 'width=600, height=350'); return false;"> facebook</a>
+                <a href="https://twitter.com/intent/tweet?text=Hello%20world"  onclick="window.open('https://twitter.com/intent/tweet?text=Hello%20world', 'newwindow', 'width=600, height=350'); return false;"> twitter</a>
+                <a href="https://plus.google.com/share?url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F28791475%2Fhow-to-style-facebook-and-twitter-share-buttons"  onclick="window.open('https://plus.google.com/share?url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F28791475%2Fhow-to-style-facebook-and-twitter-share-buttons', 'newwindow', 'width=600, height=350'); return false;"> google</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network
+&summary=My%20favorite%20developer%20program&source=LinkedIn"  onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network&summary=My%20favorite%20developer%20program&source=LinkedIn', 'newwindow', 'width=600, height=350'); return false;"> linkedin</a>
+
+
                 <ul class="site-footer__social">
                     <li>
                         <a href="https://twitter.com/GBIF" class="gb-icon-twitter"></a>

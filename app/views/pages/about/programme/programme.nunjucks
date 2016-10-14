@@ -94,11 +94,11 @@
                                     </div>
                                     <div class="col-xs-12 col-md-7 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>
-                                        <h2 class="h4">
+                                        <h3>
                                             <a href="/{$ data.relatedNews[0].targetUrl $}">
                                                 {$ data.relatedNews[0].title | truncate(80) $}
                                             </a>
-                                        </h2>
+                                        </h3>
                                     </div>
                                 </div>
                             </article>
@@ -111,11 +111,11 @@
                                     </div>
                                     <div class="col-xs-12 col-md-7 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>
-                                        <h2 class="h4">
+                                        <h3>
                                             <a href="/{$ data.relatedNews[1].targetUrl $}">
                                                 {$ data.relatedNews[1].title | truncate(80) $}
                                             </a>
-                                        </h2>
+                                        </h3>
                                     </div>
                                 </div>
                             </article>

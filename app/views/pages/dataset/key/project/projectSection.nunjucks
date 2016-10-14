@@ -3,11 +3,11 @@
         <span class="relative-anchor-offset"><a name="about"></a></span>
         <div class="container--narrow">
             <div>
-                <h2 class="h4">Project</h2>
+                <h3>Project</h3>
                 <div class="card">
                     <div class="card__content">
                         <span class="h6">Project title</span>
-                        <h3 class="h4">{$ dataset.record.project.title | capitalize $}</h3>
+                        <h3>{$ dataset.record.project.title | capitalize $}</h3>
 
                         {% if dataset.record.project.studyAreaDescription %}
                             <h4 class="h6">Study area</h4>
@@ -17,7 +17,7 @@
                         {% endif %}
 
                         {% if dataset.record.project.designDescription %}
-                            <h4 class="h6">Description</h4>
+                            <h5>Description</h5>
                             <p>
                                 {$ dataset.record.project.designDescription | safe $}
                             </p>
@@ -25,14 +25,14 @@
 
                         {% if dataset.record.project.funding %}
                             <span class="relative-anchor-offset"><a name="funding"></a></span>
-                            <h4 class="h6">Funding</h4>
+                            <h5>Funding</h5>
                             <p>
                                 {$ dataset.record.project.funding | safe $}
                             </p>
                         {% endif %}
 
                         {% if dataset._computedValues.projectContacts.all.length > 0 %}
-                            <h4 class="h6">Project contacts</h4>
+                            <h5>Project contacts</h5>
                             <div>
                                 {% for contributor in dataset._computedValues.projectContacts.all %}
                                     <div class="dataset-key__contributors__item">

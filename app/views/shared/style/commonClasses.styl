@@ -54,6 +54,7 @@
  */
 .article-header {
     h1 {
+        text-align center
         margin-top vrBlock(0.4)
         .error {
             color tomato
@@ -71,7 +72,6 @@
     }
     &__meta {
         font-weight bold
-        margin-bottom 20px
         > * {
             margin 0 //necessary because the drupal api sometimes returns a paragraph tag
         }
@@ -205,13 +205,12 @@ $articleCategorySeparatorSpacing = 6px
     }
 }
 
-+isAbove($contentWidth--normal) {
++isAbove($contentWidth--narrow) {
     .container--prose {
         max-width $contentWidth--normal
         .prose-columns {
             columns 2 30px
             &--single-col {
-                max-width $tablet
                 margin 0 auto 0 auto
                 orphans 100
             }
@@ -260,23 +259,11 @@ $articleCategorySeparatorSpacing = 6px
         div {
             display inline-block
         }
-        h5 {
+        h4, .h4 {
             font-weight bold
             margin-right 0.5em
             margin-top 0
             margin-bottom 0.3em
-            &:after {
-                content: ":"
-            }
-            &:first-letter {
-                text-transform capitalize
-            }
-        }
-        .h5 {
-            font-weight bold
-            margin-right 0.5em
-            margin-top 0
-            margin-bottom 0
             &:after {
                 content: ":"
             }
@@ -387,10 +374,6 @@ $headerImageMaxFullWidth = $desktop
             color #666
         }
     }
-}
-
-.page--data {
-    font-weight 300
 }
 
 .article-image {

@@ -3,7 +3,7 @@
 <section class="horizontal-stripe light-background dataset-key__contributors">
     <span class="relative-anchor-offset"><a name="contact"></a></span>
     <div class="container--narrow">
-        <h2 class="h4">Contacts</h2>
+        <h3>Contacts</h3>
     </div>
     <div class="container--narrow">
         {$ contactsMacro.contactsList(publisher._computedValues.contributors.all, __) $}

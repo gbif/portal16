@@ -4,17 +4,15 @@
     {% for taxon in results.taxaMatches | limit(3) %}
     <div>
     <article class="card species-card {% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %} card--flexible {% endif %}">
-        <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="card__stripe">
+        <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.key $}" class="inherit card__stripe">
             <div class="card__content">
                 <nav class="article-header__category {% if taxon.info.taxonomicStatus %} article-header__category--deep{% endif %} small">
                     <span class="article-header__category__upper">{$ __('taxonRank.' + taxon.info.rank) $}</span>
                     {% if taxon.info.taxonomicStatus %}
-                        <span class="article-header__category__lower">
-								{$ __('taxonomicStatus.' + taxon.info.taxonomicStatus) $}
-							</span>
+                        <span class="article-header__category__lower">{$ __('taxonomicStatus.' + taxon.info.taxonomicStatus) $}</span>
                     {% endif %}
                 </nav>
-                <h2 class="h4 text-center">{$ taxon.info.scientificName $}</h2>
+                <h3 class="text-center m-t-05">{$ taxon.info.scientificName $}</h3>
             </div>
         </a>
         {% if taxon.occurrences.count > 0 or taxon.occurrences.count | isUndefined %}
@@ -31,20 +29,20 @@
         <div class="card__stripe card__stripe--expandable">
             <div class="card__content">
                 <div class="text-center">
-						<span class="taxon-classification taxon-classification--discreet">
-							{% if taxon.info.kingdom %}
+                    <span class="taxon-classification taxon-classification--discreet">
+                        {% if taxon.info.kingdom %}
                                 <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.kingdomKey $}"
                                    class="kingdom">{$ taxon.info.kingdom $}</a>
                             {% endif %}
 
-                            {% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
-                                {% if taxon.info[taxa] %}
-                                    <i></i>
-                                    <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info[taxa + 'Key'] $}"
-                                       class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
-                                {% endif %}
-                            {% endfor %}
-						</span>
+                        {% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
+                            {% if taxon.info[taxa] %}
+                                <i></i>
+                                <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info[taxa + 'Key'] $}"
+                                   class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </span>
                 </div>
             </div>
         </div>
