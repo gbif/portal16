@@ -23,7 +23,7 @@ function getTaxon(key, lang) {
     var getOptions = {
         expand: ['name','constituent','synonyms','combinations',
             'occurrenceGeoRefCount','occurrenceCount',
-            'media','references','vernacular','typification']
+            'references','vernacular','typification']
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {

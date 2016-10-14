@@ -74,6 +74,8 @@ function gbmapDirective() {
         //    vm.layers.overlays['occurrences' + hashObject(vm.query)] = getOverlay(vm.query);
         //};
 
+        vm.type = vm.type ? vm.type.toUpperCase() : 'TAXON';
+
         vm.layers = {
             baselayers: {
                 base: mapConstants.baseLayers.options[vm.mapstyle]
@@ -86,7 +88,7 @@ function gbmapDirective() {
                     visible: true,
                     layerParams: {
                         key: vm.key || 0,
-                        type: vm.type ? vm.type.toUpperCase() : 'TAXON',
+                        type: vm.type,
                         "showOnSelector": false
                     }
                 }
@@ -129,24 +131,27 @@ function gbmapDirective() {
         }
 
         OccurrenceBbox.query({
-            type: 'DATASET',
+            type: vm.type,
             key: vm.key
         }, function (data) {
-            data.minimumLatitude = Math.max(-90, data.minimumLatitude - 2);
-            data.minimumLongitude = Math.max(-180, data.minimumLongitude - 2);
-            data.maximumLatitude = Math.min(90, data.maximumLatitude + 2);
-            data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
+            // sometimes our Bbox service is down and returns undefined
+            if (data.minimumLatitude && data.maximumLatitude) {
+                data.minimumLatitude = Math.max(-90, data.minimumLatitude - 2);
+                data.minimumLongitude = Math.max(-180, data.minimumLongitude - 2);
+                data.maximumLatitude = Math.min(90, data.maximumLatitude + 2);
+                data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
 
-            leafletData.getMap(vm.id).then(function (map) {
-                map.fitBounds([
-                    [data.minimumLatitude, data.minimumLongitude],
-                    [data.maximumLatitude, data.maximumLongitude]
-                ]);
-                if (map.getZoom() < 2) {
-                    map.fitWorld().zoomIn();
-                }
-                updateGlobe(map);
-            });
+                leafletData.getMap(vm.id).then(function (map) {
+                   map.fitBounds([
+                       [data.minimumLatitude, data.minimumLongitude],
+                       [data.maximumLatitude, data.maximumLongitude]
+                   ]);
+                   if (map.getZoom() < 2) {
+                       map.fitWorld().zoomIn();
+                   }
+                   updateGlobe(map);
+                });
+            }
 
             //leafletData.getMap(vm.id).then(function(map) {
             //    map.fitBounds([

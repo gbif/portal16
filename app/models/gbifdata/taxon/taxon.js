@@ -12,11 +12,6 @@ Taxon.prototype.record = {};
 Taxon.get = function (key, options) {
     options = options || {};
     var promise = resource.get(api.taxon.url + key).as(Taxon);
-    if ('mock' in options) {
-        promise.then(function (taxon) {
-            taxon.mock();
-        });
-    }
     if (typeof options.expand === 'undefined') {
         return promise
     } else {
@@ -25,13 +20,6 @@ Taxon.get = function (key, options) {
         });
     }
 };
-
-Taxon.prototype.mock = function () {
-    this.record.publishedIn = 'Hansen, H.J. (1910): The Schizopoda of the Siboga Expedition. - Siboga Exped., 37: 1-123, 16pls';
-    this.record.basionym = 'Abies alba Mill.';
-    this.record.basionymKey = '432432';
-};
-
 
 Taxon.prototype.expand = function (fieldNames) {
     var resources = [],
@@ -81,7 +69,7 @@ Taxon.prototype.expand = function (fieldNames) {
                 extendToField: 'references'
             },
             related: {
-                resource: api.taxon.url + this.record.key + '/related?limit=100',
+                resource: api.taxon.url + this.record.key + '/related?limit=50',
                 extendToField: 'related'
             },
             typification: {
@@ -89,7 +77,7 @@ Taxon.prototype.expand = function (fieldNames) {
                 extendToField: 'typification'
             },
             vernacular: {
-                resource: api.taxon.url + this.record.key + '/vernacularNames?limit=100',
+                resource: api.taxon.url + this.record.key + '/vernacularNames?limit=50',
                 extendToField: 'vernacular'
             }
         };
