@@ -2,6 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     format = require('../../helpers/format'),
+    config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
     cmsData = require('../../models/cmsData/cmsData'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
@@ -128,7 +129,9 @@ router.get([
                     self: body.self,
                     _meta: {
                         title: body.data[0].title,
-                        hasTools: true
+                        hasTools: true,
+                        originalUrl: req.originalUrl,
+                        domain: config.domain
                     }
                 };
 

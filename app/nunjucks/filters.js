@@ -75,6 +75,12 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('remove', function (text, character) {
+            return text.replace(character, '')
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('isLink', function (data) {
             if (!data) {
                 return false;

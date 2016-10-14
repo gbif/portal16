@@ -26,7 +26,8 @@ var config = {
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'http://gbif-dev.org/'
     },
     dev: {
         env: env,
@@ -41,7 +42,8 @@ var config = {
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'http://gbif-dev.org/'
     },
     uat: {
         env: env,
@@ -56,7 +58,8 @@ var config = {
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'http://gbif-uat.org/'
     },
     prod: {
         env: env,
@@ -71,7 +74,8 @@ var config = {
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'http://gbif.org/'
     },
     test: {
         env: env,
@@ -86,7 +90,8 @@ var config = {
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/'
+        analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'http://gbif-dev.org/'
     }
 };
 
