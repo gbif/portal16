@@ -46,7 +46,7 @@ function isValid(data) {
 }
 
 function createIssue(data, cb) {
-    let credentials = require('/tmp/credentials');
+    let credentials = require('/etc/portal16/credentials');
     let description = '',
         labels = [];
 

@@ -29,7 +29,7 @@ Directory.getContacts = function() {
     // First check whether we have the credential to complete all the calls to
     // the directory.
 
-    fs.exists('/tmp/credential.js', deferFs.resolve);
+    fs.exists('/etc/portal16/credentials.json', deferFs.resolve);
 
     deferFs.promise
         .then((exists) => {
@@ -228,7 +228,7 @@ function genericEndpointAccess(requestUrl, options) {
 }
 
 function authorizeApiCall(requestUrl) {
-    var credential = require('/tmp/credentials.json');
+    let credential = require('/etc/portal16/credentials.json');
 
     var appKey = credential.directory.appKey;
     var secret = credential.directory.secret;
