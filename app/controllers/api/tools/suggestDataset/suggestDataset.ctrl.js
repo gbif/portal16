@@ -55,7 +55,7 @@ function createIssue(data, cb) {
         password: credentials.github.password
     });
 
-    var ghrepo = client.repo('gbif/data-mobilisation');
+    var ghrepo = client.repo('gbif/data-mobilization');
 
     try {
         description = getDescription(data);
