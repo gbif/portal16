@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function filterCmsDirective() {
-    var directive = {
+    return {
         restrict: 'A',
         templateUrl: '/templates/components/filterCms/filterCms.html',
         scope: {
@@ -20,8 +20,6 @@ function filterCmsDirective() {
         controllerAs: 'vm',
         bindToController: true
     };
-
-    return directive;
 
     /** @ngInject */
     function filterCms($scope, $http, $filter) {

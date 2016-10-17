@@ -53,6 +53,7 @@ require('./angular/dataset.resource');
 require('./angular/cms.resource');
 require('./angular/dbpedia.resource');
 require('./angular/redlist.resource');
+require('./angular/directory.resource');
 require('./angular/species.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');

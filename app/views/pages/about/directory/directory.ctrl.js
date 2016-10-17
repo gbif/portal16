@@ -7,9 +7,18 @@ angular
     .controller('directoryCtrl', directoryCtrl);
 
 /** @ngInject */
-function directoryCtrl() {
+function directoryCtrl(DirectoryContacts) {
     var vm = this;
-    vm.hiddenDetail = true;
+
+    DirectoryContacts.get().$promise.then(function(response){
+        return vm.contacts = response;
+    }, function(error){
+        return error;
+    });
+
+    vm.searchTerm = '';
+    vm.searchResults = [];
+
     vm.toggleStatus = {};
     vm.toggleDetail = function(personId) {
         // true means show
@@ -20,6 +29,21 @@ function directoryCtrl() {
             vm.toggleStatus[personId] = 'contact--show';
         }
     };
+
+    vm.searchOnEnter = function (event) {
+        if (event.which === 13) {
+            vm.typeaheadSelect(vm.selected);
+        }
+    };
+
+    vm.typeaheadSelect = function (item) { //  model, label, event
+        if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
+        var searchString = item.key.toString();
+        if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
+            vm.selected = '';
+        }
+    };
+
 }
 
 module.exports = directoryCtrl;

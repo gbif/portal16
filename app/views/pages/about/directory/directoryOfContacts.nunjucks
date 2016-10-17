@@ -1,7 +1,7 @@
 {% extends "../html-prose.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes"  ng-controller="directoryCtrl as directory">
+    <article class="wrapper-horizontal-stripes" ng-controller="directoryCtrl as vm">
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
@@ -19,94 +19,64 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe" ng-init="directory.contacts = '{$ contacts $}'">
+        {#
+        <div class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
-                    search?
+                    <div>
+                        <input type="text"
+                               ng-model="vm.selected"
+                               placeholder="find people"
+                               uib-typeahead="contact.name for contact in vm.contacts.people | filter:$viewValue | limitTo:8"
+                               typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
+                               typeahead-focus-first="true"
+                               typeahead-editable="false"
+                               ng-keyup="vm.searchOnEnter($event)"><span ng-bind="vm.selected"></span>
+                    </div>
                 </div>
             </div>
         </div>
+        #}
         <div class="horizontal-stripe contacts--directory">
             <div class="container">
                 <div class="row">
                     {# in-page navigation #}
                     {% if contacts.participants.length > 0 %}
-                    <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
-                        <nav id="contacts-nav" class="contacts-nav">
-                            <ul class="nav">
-                                <li>
-                                    <a class="h4">Governing Board</a>
-                                    <ul class="nav-chapters">
-                                        {% for participant in contacts.participants %}
-                                            {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
-                                                {% if participant.members.length > 0 %}
-                                                    <li class="nav-chapter" du-scrollspy="{$ participant.enum $}"><a href="#{$ participant.enum $}">{$ __('directory.' + participant.enum) $}</a></li>
+                        <span class="relative-anchor-offset"><a name="menu"></a></span>
+                        <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
+                            <nav id="contacts-nav" class="contacts-nav">
+                                <ul class="nav">
+                                    <li>
+                                        <a class="h4">Governing Board</a>
+                                        <ul class="nav-chapters">
+                                            {% for participant in contacts.participants %}
+                                                {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
+                                                    {% if participant.members.length > 0 %}
+                                                        <li class="nav-chapter" du-scrollspy="{$ participant.enum $}"><a href="#{$ participant.enum $}">{$ __('directory.' + participant.enum) $}</a></li>
+                                                    {% endif %}
                                                 {% endif %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="h4">Committees</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="h4">Committees</a>
+                                        <ul class="nav-chapters">
+                                            {% for committee in contacts.committees %}
+                                                {% if committee.members.length > 0 %}
+                                                    <li class="nav-chapter" du-scrollspy="{$ committee.enum $}"><a href="#{$ committee.enum $}">{$ __('directory.' + committee.enum) $}</a></li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     {% endif %}
                     {# contacts tables #}
-                    <div class="contacts__table col-md-8 col-md-offset-0">
+                    <div class="contacts__table col-md-9 col-md-offset-0">
                         <div class="table-container--contacts">
                             {% if contacts.participants.length > 0 %}
-                                {% for participant in contacts.participants %}
-                                    {# we only show certain types of participants #}
-                                    {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
-                                    {% if participant.members.length > 1 %}
-                                        <section id="{$ participant.enum $}">
-                                            <h3>{$ __('directory.' + participant.enum) $}</h3>
-                                            <table class="table">
-                                                <tbody>
-                                                {% for member in participant.members %}
-                                                    <tr>
-                                                        <td>
-                                                            <table class="nested">
-                                                                {% if loop.index == 1 %}
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>{$ __('directory.participant') $}</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                {% endif %}
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>{$ member.name $}</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                        <td>
-                                                            <table class="nested">
-                                                                {% if loop.index == 1 %}
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>{$ __('directory.role') $}</th>
-                                                                        <th>{$ __('directory.delegationMembers') $}</th>
-                                                                        <th>{$ __('directory.institution') $}</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                {% endif %}
-                                                                <tbody>
-                                                                    {% include('./includes/contacts.nunjucks') %}
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </section>
-                                    {% endif %}
-                                    {% endif %}
-                                {% endfor %}
+                                {% include('./includes/contactsTable.nunjucks') %}
                             {% endif %}
                         </div>
                     </div>
