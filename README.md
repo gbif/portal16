@@ -32,11 +32,9 @@ NODE_ENV=prod node app.js
 ```
 this will start the server in production mode.
 
-## Run with forever
-In production we might want to run with [Forever](https://github.com/foreverjs/forever) in case an error slips through
+## Run local development version
 ```
-node node_modules/forever/bin/forever start app.js
-node node_modules/forever/bin/forever stop app.js
+npm run local
 ```
 Logs end up in `user/.forever/` if nothing else is specified
 

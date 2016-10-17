@@ -22,7 +22,11 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe article-header bare-background">
+        {% import "./tabs.macro.nunjucks" as tabsMacro %}
+        {$ tabsMacro.datasetTabs(dataset, 'dataset', __) $}
+
+
+        <div class="horizontal-stripe article-header light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">

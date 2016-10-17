@@ -1,0 +1,35 @@
+{% macro datasetTabs(dataset, active, __) %}
+    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+        <div class="container">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}">
+                                Activity
+                            </a>
+                        </li>
+
+                        <li class="tab {% if active == 'project' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
+                                Participant
+                            </a>
+                        </li>
+
+                        <li class="tab {% if active == 'origin' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
+                                Trends
+                            </a>
+                        </li>
+
+                        <li class="tab-right">
+                            <a href="{$ endpoint.url $}">
+                                <span class="gb-button--round">Download report</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
