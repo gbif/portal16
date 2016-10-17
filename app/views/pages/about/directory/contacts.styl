@@ -11,9 +11,10 @@
 
         .contacts-nav {
             display block
+            margin-top vrBlock(1)
 
             .nav-chapters {
-                padding 8px 20px 15px
+                padding 0 20px 10px
                 height 100%
             }
             .nav-chapter {
@@ -34,8 +35,14 @@
                     }
                 }
             }
-            .h4 {
+            .h3 {
+                margin-top 0
                 margin-bottom 0
+                &:hover {
+                    background none
+                    color inherit
+                    text-decoration underline
+                }
             }
         }
         .contacts-nav--bottom {
@@ -67,6 +74,9 @@
             border-top 1px solid #ccc
         }
         tbody {
+            .gbif-role {
+                text-transform capitalize
+            }
             tr {
                 th, td {
                     border none
@@ -255,5 +265,6 @@
         width 100%
         display inline-block
         float left
+        text-transform none
     }
 }

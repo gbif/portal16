@@ -48,7 +48,7 @@
                                 <ul class="nav">
                                     {% if contacts.participants.length > 0 %}
                                     <li>
-                                        <a class="h4">Governing Board</a>
+                                        <a class="h3">Governing Board</a>
                                         <ul class="nav-chapters">
                                             {% for participant in contacts.participants %}
                                                 {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
@@ -62,7 +62,7 @@
                                     {% endif %}
                                     {% if contacts.committees.length > 0 %}
                                     <li>
-                                        <a class="h4">Committees</a>
+                                        <a class="h3">Committees</a>
                                         <ul class="nav-chapters">
                                             {% for committee in contacts.committees %}
                                                 {% if committee.members.length > 0 %}

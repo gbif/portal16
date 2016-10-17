@@ -36,7 +36,7 @@
                                 <span><strong ng-bind="person.firstName + ' ' + person.surname"></strong></span>
                             </div>
                             <div class="contact__body" ng-class="vm.toggleStatus[person.id]">
-                                <span ng-if="person.institutionName" ng-bind="person.institutionName"></span><br>
+                                <span ng-if="person.institutionName" ng-bind="person.institutionName"></span><br ng-if="person.institutionName">
                                 <div ng-if="person.address.length > 0">
                                     <span ng-bind="person.address"></span><br>
                                 </div>

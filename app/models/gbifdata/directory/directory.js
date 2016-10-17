@@ -97,6 +97,30 @@ Directory.getContacts = function() {
     return defer.promise;
 };
 
+Directory.postProcessContacts = function(contacts, __) {
+    // process data
+    contacts.peopleByParticipants.forEach(function(p){
+        p.people.forEach(function(person){
+            // insert countryName if missing
+            if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
+            // insert role name
+            if (person.hasOwnProperty('roles')) {
+                person.roles.forEach(function(role){
+                    role.translatedLabel = __('role.' + role.role);
+                });
+            }
+        });
+    });
+    contacts.committees.forEach(function(committee){
+        committee.members.forEach(function(member){
+            member.roles.forEach(function(role){
+                role.translatedLabel = __('role.' + role.role);
+            });
+        });
+    });
+
+};
+
 function processContacts(contacts) {
 
     // sort committees

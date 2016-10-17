@@ -18,12 +18,7 @@ router.get('/directory/:requestedPath', function (req, res, next) {
     Directory.getContacts(res.__)
         .then(function(data){
             if (data) {
-                // insert countryName if missing
-                data.peopleByParticipants.forEach(function(p){
-                    p.people.forEach(function(person){
-                        if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
-                    });
-                });
+                Directory.postProcessContacts(data, res.__);
 
                 var pageContent = {
                     category: 'Contact Us',

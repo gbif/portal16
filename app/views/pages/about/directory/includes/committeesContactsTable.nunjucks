@@ -20,9 +20,9 @@
                 </tr>
                 </thead>
                 <tbody class="{{ committee.enum | underscoreToHyphen }}">
-                <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse" ng-click="vm.toggleDetail(person.id)">
-                    <td> {# role #}
-                        <span ng-repeat="role in person.roles" translate="role.{{ role.role }}"></span>
+                <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse" ng-click="vm.toggleDetail(committee.enum + '_' + person.id)">
+                    <td class="gbif-role"> {# role #}
+                        <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
                     </td>
                     <td> {# delegation member #}
                         <address class="contacts__item" id="contact_{$ person.id $}">
@@ -30,7 +30,7 @@
                                 <span class="relative-anchor-offset"><a name="contact_{{ person.id }}"></a></span>
                                 <span><strong ng-bind="person.firstName + ' ' + person.surname"></strong></span>
                             </div>
-                            <div class="contact__body" ng-class="vm.toggleStatus[person.id]">
+                            <div class="contact__body" ng-class="vm.toggleStatus[committee.enum + '_' + person.id]">
                                 <span ng-if="person.institutionName" ng-bind="person.institutionName"></span><br>
                                 <div ng-if="person.address.length > 0">
                                     <span ng-bind="person.address"></span><br>

@@ -11,13 +11,7 @@ module.exports = function (app) {
 router.get('/directory/contacts', function (req, res, next) {
     directory.getContacts()
         .then(function (data) {
-            // insert countryName if missing
-            data.peopleByParticipants.forEach(function(p){
-                p.people.forEach(function(person){
-                    if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
-                });
-            });
-
+            directory.postProcessContacts(data, res.__);
             res.json(data);
         })
         .catch(function (err) {
