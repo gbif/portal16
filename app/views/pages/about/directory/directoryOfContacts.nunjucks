@@ -41,11 +41,12 @@
             <div class="container">
                 <div class="row">
                     {# in-page navigation #}
-                    {% if contacts.participants.length > 0 %}
+                    {% if contacts.participants.length > 0 or contacts.committees.length > 0 %}
                         <span class="relative-anchor-offset"><a name="menu"></a></span>
                         <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
                             <nav id="contacts-nav" class="contacts-nav">
                                 <ul class="nav">
+                                    {% if contacts.participants.length > 0 %}
                                     <li>
                                         <a class="h4">Governing Board</a>
                                         <ul class="nav-chapters">
@@ -58,6 +59,8 @@
                                             {% endfor %}
                                         </ul>
                                     </li>
+                                    {% endif %}
+                                    {% if contacts.committees.length > 0 %}
                                     <li>
                                         <a class="h4">Committees</a>
                                         <ul class="nav-chapters">
@@ -68,15 +71,19 @@
                                             {% endfor %}
                                         </ul>
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>
                     {% endif %}
-                    {# contacts tables #}
+                    {# contacts tables - participants #}
                     <div class="contacts__table col-md-9 col-md-offset-0">
                         <div class="table-container--contacts">
                             {% if contacts.participants.length > 0 %}
-                                {% include('./includes/contactsTable.nunjucks') %}
+                                {% include('./includes/participantsContactsTable.nunjucks') %}
+                            {% endif %}
+                            {% if contacts.committees.length > 0 %}
+                                {% include('./includes/committeesContactsTable.nunjucks') %}
                             {% endif %}
                         </div>
                     </div>

@@ -18,18 +18,18 @@ router.get('/directory/:requestedPath', function (req, res, next) {
     Directory.getContacts(res.__)
         .then(function(data){
             if (data) {
-                var pageContent = {
-                    category: 'Contact Us',
-                    title: 'Directory of contacts',
-                    contacts: data
-                };
-
                 // insert countryName if missing
                 data.peopleByParticipants.forEach(function(p){
                     p.people.forEach(function(person){
                         if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
                     });
                 });
+
+                var pageContent = {
+                    category: 'Contact Us',
+                    title: 'Directory of contacts',
+                    contacts: data
+                };
 
                 if (jsonOutput == true) {
                     res.json(pageContent);

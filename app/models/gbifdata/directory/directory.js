@@ -16,8 +16,8 @@ Directory.getContacts = function() {
         'executive_committee',
         'science_committee',
         'budget_committee',
-        'nodes_committee',
-        'nodes_steering_group'
+        'nodes_committee'
+        //'nodes_steering_group'
         //'gbif_secretariat'
     ];
 
@@ -87,7 +87,8 @@ Directory.getContacts = function() {
                     contacts.people[i] = strippedP;
                 });
 
-                defer.resolve(contacts)
+                contacts = processContacts(contacts);
+                defer.resolve(contacts);
             });
         })
         .catch(function(err){
@@ -95,6 +96,79 @@ Directory.getContacts = function() {
         });
     return defer.promise;
 };
+
+function processContacts(contacts) {
+
+    // sort committees
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee'];
+    contacts.committees.sort(function(x, y){
+        return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
+    });
+
+    var committeeRoles = {
+        'executive_committee': [
+            'GOVERNING_BOARD_CHAIR',
+            'GOVERNING_BOARD_1ST_VICE_CHAIR',
+            'GOVERNING_BOARD_2ND_VICE_CHAIR',
+            'GOVERNING_BOARD_3RD_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_CHAIR',
+            'BUDGET_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'EXECUTIVE_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'science_committee': [
+            'SCIENCE_COMMITTEE_CHAIR',
+            'SCIENCE_COMMITTEE_1ST_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_2ND_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_3RD_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_MEMBER',
+            'GOVERNING_BOARD_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'SCIENCE_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'budget_committee': [
+            'BUDGET_COMMITTEE_CHAIR',
+            'BUDGET_COMMITTEE_1ST_VICE_CHAIR',
+            'BUDGET_COMMITTEE_2ND_VICE_CHAIR',
+            'BUDGET_COMMITTEE_MEMBER',
+            'GOVERNING_BOARD_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'BUDGET_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'nodes_committee': [
+            'NODES_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_1ST_VICE_CHAIR',
+            'NODES_COMMITTEE_2ND_VICE_CHAIR',
+            'NODES_REGIONAL_REPRESENTATIVE_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
+            'NODES_COMMITTEE_GBIFS_SUPPORT'
+        ]
+    };
+
+    // reduce roles to one according to committee
+    contacts.committees.forEach(function(committee){
+        committee.members.forEach(function(member){
+            if (member.roles.length > 1) {
+                member.roles = member.roles.filter(function(role){
+                    return committeeRoles[committee.enum].indexOf(role.role) != -1;
+                });
+            }
+        });
+    });
+
+    return contacts;
+}
 
 function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
