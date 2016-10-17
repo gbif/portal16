@@ -2,45 +2,53 @@
 
 {# home page, or front page #}
 {% block page %}
-    <div class="horizontal-stripe--paddingless white-background search-bar--home">
-        <div class="container--narrow">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="search-bar--home__form">
-                        <form action="/search" class="search-bar--home__term">
-                            <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q"
-                                   autocomplete="off" value="" ng-model="omniSearchTerm">
-                            <a ng-href="/search?q={{ omniSearchTerm }}" type="submit"
-                               class="gb-icon-search search-bar--home__search">
-                                <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                            </a>
-                        </form>
+    <article class="wrapper-horizontal-stripes">
+
+        <div class="horizontal-stripe--paddingless white-background search-bar--home">
+            <div class="container--narrow">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="search-bar--home__form">
+                            <form action="/search" class="search-bar--home__term">
+                                <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q"
+                                       autocomplete="off" value="" ng-model="omniSearchTerm">
+                                <a ng-href="/search?q={{ omniSearchTerm }}" type="submit"
+                                   class="gb-icon-search search-bar--home__search">
+                                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                                </a>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="horizontal-stripe--paddingless light-background" style="overflow: hidden; text-align: center;">
-        <h1>
-            {#<span href="/" class="gb-icon-logo"></span>#}
-            Global Biodiversity Information Facility
-        </h1>
-        <p>Free and Open Access to Biodiversity Data</p>
-        <div style="height: 500px; display: flex; justify-content: center">
-            {#<div style="text-align: center; flex: 0 0 auto; position: relative">#}
-            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-            {#<p>Explore 600+ million occurrences</p>#}
-            {#</div>#}
-            {#<div style="text-align: center; flex: 0 0 auto;  position: relative;">#}
-            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-            {#<p>Explore 600+ million occurrences</p>#}
-            {#</div>#}
-            {#<div style="text-align: center; flex: 0 0 auto; position: relative;">#}
-            {#<div style="margin: auto; opacity: 0.5; background: url('https://static.pexels.com/photos/580/streets-landscape-mountains-nature.jpg'); border-radius: 50%; width: 150px; height: 150px; background-size: cover; background-position: absolute;" ></div>#}
-            {#<p>Explore 600+ million occurrences</p>#}
-            {#</div>#}
+        <div class="horizontal-stripe--paddingless light-background" style="overflow: hidden; text-align: center;">
+            <h1>
+                {#<span href="/" class="gb-icon-logo"></span>#}
+                Global Biodiversity Information Facility
+            </h1>
+            <p>Free and Open Access to Biodiversity Data</p>
         </div>
-    </div>
 
+        <div class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="card text-center this-is-a-stub">
+                            <div class="card__content">
+                                <h2>Under development</h2>
+                                <p style="color:#adadad" class="h1 gb-icon-tools"></p>
+                                <p>
+                                    Tim you wordsmith - could you come up with some appropriate words describing the state of the project
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </article>
 {% endblock %}
