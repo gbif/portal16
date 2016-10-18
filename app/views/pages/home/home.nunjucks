@@ -40,7 +40,17 @@
                                 <h2>Under development</h2>
                                 <p style="color:#adadad" class="h1 gb-icon-tools"></p>
                                 <p>
-                                    Tim you wordsmith - could you come up with some appropriate words describing the state of the project
+                                    This project is currently under very active development and this is an early access release with limited functionality.
+                                </p>
+                                <p>
+                                    The first release aims to address many of the <a href="http://dev.gbif.org/issues/browse/POR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel">issues reported</a> over the years and observed by analysing user behaviour with the <a href="http://www.gbif.org">existing GBIF.org site</a>. 
+                                    The most common issues relate to the search experience and confusing navigation with such a large site.  Here we address that with cross content search, and a far leaner site with a menu encapsulating the overall structure.
+                                </p>
+                                <p>
+                                    The data exposed on this site uses the same content as <a href="http://www.gbif.org">GBIF.org</a>.
+                                </p>
+                                <p>
+                                    Feedback mechanisms on this site will be enabled shortly. 
                                 </p>
                             </div>
                         </div>
