@@ -49,6 +49,5 @@
             </div>
         </div>
 
-
     </article>
 {% endblock %}

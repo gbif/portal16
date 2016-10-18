@@ -2,7 +2,7 @@
 {% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes publisherKey page--data">
+    <article class="wrapper-horizontal-stripes country-key page--data">
 
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
@@ -26,26 +26,70 @@
         {$ tabsMacro.datasetTabs(dataset, 'dataset', __) $}
 
 
-        <div class="horizontal-stripe article-header light-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card text-center this-is-a-stub">
-                            <div class="card__content">
-                                <h2>This is a stub</h2>
-                                <p>This page is not implemented yet. If you have some great ideas for this page then
-                                    please let us know. A good way is to <a
-                                            href="mailto:mhoefft@gbif.org,bko@gbif.org?subject=Country detail page ideas">send
-                                        a mail</a> with reference to JIRA issues you believe is relevant to the new site
-                                    - either existing issues that needs special attention or new ones you have created.
-                                </p>
+        <div class="horizontal-stripe light-background">
+
+            <div class="card-container--stats">
+                <div class="card country-key__occurrence-count">
+                    <div class="card__content">
+                        <h4 class="m0">Occurrences<a href="" class="gb-icon-right-arrow country-key__more-arrow"></a>
+                        </h4>
+                    </div>
+
+                    <div class="card__content seperator">
+                        <div class="country-key">
+                            <div class="h2" count="//api.gbif.org/v1/occurrence/search?country={$ country.record.country $}">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card country-key__datasets">
+                    <div class="card__content">
+                        <h4 class="m0">Datasets<a href="" class="gb-icon-right-arrow country-key__more-arrow"></a></h4>
+                    </div>
+
+                    <div class="card__content seperator">
+                        <div class="country-key__datasets__counts">
+                            <div>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=OCCURRENCE&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <div>
+                                    Occurrence dataset
+                                </div>
+                            </div>
+                            <div>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=CHECKLIST&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <div>
+                                    Checklists
+                                </div>
+                            </div>
+                            <div>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=METADATA&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <div>
+                                    Meta data only
+                                </div>
+                            </div>
+                            <div>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=SAMPLING_EVENT&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <div>
+                                    Sampling data
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {#<div class="card">#}
+                    {#<div class="card__content">#}
+                        {#<h4 class="m0">23.438.243 <span>occurrences with coordinates</span></h4>#}
+                    {#</div>#}
+                    {#<div class="seperator">#}
+                        {#<iframe id="mapframe" name="mapframe"#}
+                                {#src="http://api.gbif.org/v1/map/index.html?type=COUNTRY&key=FR&style=bright&resolution=4"#}
+                                {#allowfullscreen height="360px" width="100%" frameborder="0"/>#}
+                        {#</iframe>#}
+                    {#</div>#}
+                {#</div>#}
             </div>
         </div>
-
     </article>
 
 

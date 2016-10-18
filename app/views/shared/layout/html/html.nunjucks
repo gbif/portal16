@@ -61,6 +61,10 @@
     </div>
 </div>
 
+<script>
+    window.gb = window.gb || {};
+    window.gb.locale = '{$ gb.locales.current $}';
+</script>
 <script src="/js/vendor/vendor.js"></script>
 <script src="/js/base/custom.js"></script>
 

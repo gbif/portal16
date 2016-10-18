@@ -24,7 +24,7 @@
 
                         <li class="tab-right">
                             <a href="{$ endpoint.url $}">
-                                <span class="gb-button--round">Download report</span>
+                                <span class="gb-button">Download report</span>
                             </a>
                         </li>
                     </ul>

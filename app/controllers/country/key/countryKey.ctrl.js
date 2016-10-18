@@ -8,13 +8,10 @@ module.exports = function (app) {
 
 router.get('/country/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    Country.get(key, {expand: ['endorsingNode']}).then(function (country) {
+    Country.get(key, {expand: []}).then(function (country) {
         renderPage(req, res, next, country);
     }, function (err) {
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
-        next();
+        next(err);
     });
 });
 
@@ -26,7 +23,7 @@ function renderPage(req, res, next, country) {
             res.render('pages/country/key/countryKey', {
                 country: country,
                 _meta: {
-                    title: 'Country Detail ' + req.params.key
+                    title: country.record.participantTitle
                 }
             });
         }
