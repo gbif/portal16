@@ -5,24 +5,34 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th><a ng-click="sortField = 'role'; sortReverse = !sortReverse">{$ __('directory.role') $}</a>
+                    <th>
+                        <a ng-click="sortField = 'role'; sortReverse = !sortReverse">{$ __('directory.role') $}</a>
                         <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'surname'; sortReverse = !sortReverse">{$ __('directory.delegationMembers') $}</a>
+                    <th>
+                        <a ng-if="committee.enum != 'gbif_secretariat'" ng-click="sortField = 'surname'; sortReverse = !sortReverse">{$ __('directory.delegationMembers') $}</a>
+                        <a ng-if="committee.enum == 'gbif_secretariat'" ng-click="sortField = 'surname'; sortReverse = !sortReverse">{$ __('directory.staff_member') $}</a>
                         <span ng-show="sortField == 'surname' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'surname' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'participantName'; sortReverse = !sortReverse">{$ __('directory.participant') $}</a>
+                    <th ng-if="committee.enum != 'gbif_secretariat'">
+                        <a ng-click="sortField = 'participantName'; sortReverse = !sortReverse">{$ __('directory.participant') $}</a>
                         <span ng-show="sortField == 'participantName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'participantName' && sortReverse" class="gb-icon-angle-up"></span>
+                    </th>
+                    <th ng-if="committee.enum == 'nodes_committee'">
+                        <a ng-click="sortField = 'membership'; sortReverse = !sortReverse">{$ __('directory.membershipType') $}</a>
+                        <span ng-show="sortField == 'membershipType' && !sortReverse" class="gb-icon-angle-down"></span>
+                        <span ng-show="sortField == 'membershipType' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
                 </tr>
                 </thead>
                 <tbody class="{{ committee.enum | underscoreToHyphen }}">
                 <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse" ng-click="vm.toggleDetail(committee.enum + '_' + person.id)">
                     <td class="gbif-role"> {# role #}
-                        <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
+                        <span ng-if="committee.enum != 'gbif_secretariat'" ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
+                        <span ng-if="committee.enum == 'gbif_secretariat'" ng-bind="person.jobTitle"></span>
                     </td>
                     <td> {# delegation member #}
                         <address class="contacts__item" id="contact_{$ person.id $}">
@@ -49,7 +59,8 @@
                             </div>
                         </address>
                     </td>
-                    <td ng-bind="person.participantName"></td> {# participant #}
+                    <td ng-if="committee.enum != 'gbif_secretariat'" ng-bind="person.participantName"></td> {# participant #}
+                    <td ng-if="committee.enum == 'nodes_committee'"><span ng-if="person.membershipType.length > 0" translate="directory.{{ person.membershipType }}"></span></td> {# participant #}
                 </tr>
                 </tbody>
             </table>

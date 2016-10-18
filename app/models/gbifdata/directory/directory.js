@@ -16,9 +16,9 @@ Directory.getContacts = function() {
         'executive_committee',
         'science_committee',
         'budget_committee',
-        'nodes_committee'
+        'nodes_committee',
         //'nodes_steering_group'
-        //'gbif_secretariat'
+        'gbif_secretariat'
     ];
 
     var contacts = {
@@ -36,13 +36,14 @@ Directory.getContacts = function() {
         .then((exists) => {
             if (exists) {
                 return Q.all(groups.map(function(group){
-                    return getCommitteeContacts(group, contacts).then(function(results){
-                        var committee = {
-                            'enum': group,
-                            'members': results
-                        };
-                        return contacts.committees.push(committee);
-                    });
+                    return getCommitteeContacts(group, contacts)
+                        .then(function(results){
+                            var committee = {
+                                'enum': group,
+                                'members': results
+                            };
+                            return contacts.committees.push(committee);
+                        });
                 }))
             }
             else {
@@ -124,7 +125,7 @@ Directory.postProcessContacts = function(contacts, __) {
 function processContacts(contacts) {
 
     // sort committees
-    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee'];
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee', 'gbif_secretariat'];
     contacts.committees.sort(function(x, y){
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
@@ -177,18 +178,30 @@ function processContacts(contacts) {
             'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
             'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
             'NODES_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'gbifs_secretariat': [
+            'GBIFS_STAFF_MEMBER'
         ]
     };
 
-    // reduce roles to one according to committee
+    // committee specific processing
     contacts.committees.forEach(function(committee){
+        // reduce roles to one according to committee
         committee.members.forEach(function(member){
             if (member.roles.length > 1) {
                 member.roles = member.roles.filter(function(role){
-                    return committeeRoles[committee.enum].indexOf(role.role) != -1;
+                    if (committee.enum != 'gbif_secretariat') return committeeRoles[committee.enum].indexOf(role.role) != -1;
                 });
             }
         });
+
+        if (committee.enum == 'nodes_committee') {
+            committee.members.forEach(function(member){
+                if (member.participants.length > 0) {
+                    member.membershipType = member.participants[0].membershipType;
+                }
+            });
+        }
     });
 
     return contacts;
@@ -340,7 +353,12 @@ function getCommitteeContacts(group, contacts) {
         .then(function(results){
             var personsTasks = [];
             results.forEach(function(person){
-                personsTasks.push(getPersonContact(person.personId, contacts));
+                if (group == 'gbif_secretariat') {
+                    personsTasks.push(getPersonContact(person.id, contacts));
+                }
+                else {
+                    personsTasks.push(getPersonContact(person.personId, contacts));
+                }
             });
             return Q.all(personsTasks);
         })
@@ -389,6 +407,15 @@ function getPersonContact(personId, contacts) {
                 return Q.all(participantTasks).then(function(results){
                     results.forEach(function(result, i){
                         data.participants[i].participantName = result.name;
+                        // merge properties
+                        for (var attr in result) {
+                            if (!data.participants[i].hasOwnProperty(attr)) {
+                                data.participants[i][attr] = result[attr];
+                            }
+                        }
+                    });
+                    data.participants.forEach(function(p){
+                        setMembership(p);
                     });
                     return data;
                 });
@@ -405,6 +432,31 @@ function getPersonContact(personId, contacts) {
             deferred.reject(new Error(err));
         });
     return deferred.promise;
+}
+
+function setMembership(p) {
+    // determine membership type
+    if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
+        p.membershipType = 'voting_participant';
+    }
+    else if (p.type == 'COUNTRY' && p.participationStatus == 'ASSOCIATE') {
+        p.membershipType = 'associate_country_participant';
+    }
+    else if (p.type == 'OTHER' && p.participationStatus == 'ASSOCIATE') {
+        p.membershipType = 'other_associate_participant';
+    }
+    else if (p.type == 'OTHER' && p.participationStatus == 'AFFILIATE') {
+        p.membershipType = 'gbif_affiliate';
+    }
+    else if (p.participationStatus == 'FORMER') {
+        p.membershipType = 'former_participant';
+    }
+    else if (p.participationStatus == 'OBSERVER') {
+        p.membershipType = 'observer';
+    }
+    else {
+        p.membershipType = 'not_specified';
+    }
 }
 
 function genericEndpointAccess(requestUrl, options) {

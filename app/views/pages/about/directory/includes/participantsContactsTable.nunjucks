@@ -54,7 +54,8 @@
                             </div>
                         </address>
                     </td>
-                    <td ng-bind="person.institutionName | truncate:38"></td> {# status #}
+                    <td ng-if="participant.enum != 'other_associate_participants'" ng-bind="person.institutionName | truncate:38"></td> {# status #}
+                    <td ng-if="participant.enum == 'other_associate_participants'" ng-bind="person.institutionName | truncate:33"></td> {# status #}
                 </tr>
                 </tbody>
             </table>
