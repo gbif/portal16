@@ -1632,8 +1632,12 @@
     "voting_participants": "Voting participants",
     "associate_country_participants": "Associate country participants",
     "other_associate_participants": "Other associate participants",
+    "voting_participant": "Voting participant",
+    "associate_country_participant": "Associate country participant",
+    "other_associate_participant": "Other associate participant",
     "gbif_affiliate": "GBIF affiliate",
     "former_participants": "Former participants",
+    "former_participant": "Former participant",
     "observer": "Observer",
     "others": "Other",
     "participant": "participant",
@@ -1644,7 +1648,10 @@
     "budget_committee": "Budget committee",
     "science_committee": "Science committee",
     "nodes_steering_group": "Nodes steering group",
-    "nodes_committee": "Nodes committee"
+    "nodes_committee": "Nodes committee",
+    "gbif_secretariat": "GBIF Secretariat",
+    "staff_member": "Staff member",
+    "membershipType": "Membership"
   },
   "tools": {
     "categoryTitle": "tools",
