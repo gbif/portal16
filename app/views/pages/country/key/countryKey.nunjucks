@@ -26,49 +26,59 @@
         {$ tabsMacro.datasetTabs(dataset, 'dataset', __) $}
 
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe--paddingless light-background">
 
             <div class="card-container--stats">
                 <div class="card country-key__occurrence-count">
                     <div class="card__content">
-                        <h4 class="m0">Occurrences<a href="" class="gb-icon-right-arrow country-key__more-arrow"></a>
+                        <h4 class="m0">Occurrences
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_country={$ country.record.country $}" class="gb-icon-right-arrow country-key__more-arrow"></a>
                         </h4>
                     </div>
 
                     <div class="card__content seperator">
                         <div class="country-key">
-                            <div class="h2" count="//api.gbif.org/v1/occurrence/search?country={$ country.record.country $}">&nbsp;</div>
+                            <div class="h2"
+                                 count="//api.gbif.org/v1/occurrence/search?country={$ country.record.country $}">
+                                &nbsp;</div>
+
+                            <strong count="/api/count/country/{$ country.record.country $}/publishing-countries">
+                                &nbsp;</strong> countries contribute with data
                         </div>
                     </div>
                 </div>
 
                 <div class="card country-key__datasets">
                     <div class="card__content">
-                        <h4 class="m0">Datasets<a href="" class="gb-icon-right-arrow country-key__more-arrow"></a></h4>
+                        <h4 class="m0">Datasets<a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.record.country $}" class="gb-icon-right-arrow country-key__more-arrow"></a></h4>
                     </div>
 
                     <div class="card__content seperator">
                         <div class="country-key__datasets__counts">
                             <div>
-                                <strong count="//api.gbif.org/v1/dataset/search?type=OCCURRENCE&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=OCCURRENCE&publishing_country={$ country.record.country $}">
+                                    &nbsp;</strong>
                                 <div>
                                     Occurrence dataset
                                 </div>
                             </div>
                             <div>
-                                <strong count="//api.gbif.org/v1/dataset/search?type=CHECKLIST&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=CHECKLIST&publishing_country={$ country.record.country $}">
+                                    &nbsp;</strong>
                                 <div>
                                     Checklists
                                 </div>
                             </div>
                             <div>
-                                <strong count="//api.gbif.org/v1/dataset/search?type=METADATA&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=METADATA&publishing_country={$ country.record.country $}">
+                                    &nbsp;</strong>
                                 <div>
                                     Meta data only
                                 </div>
                             </div>
                             <div>
-                                <strong count="//api.gbif.org/v1/dataset/search?type=SAMPLING_EVENT&publishing_country={$ country.record.country $}">&nbsp;</strong>
+                                <strong count="//api.gbif.org/v1/dataset/search?type=SAMPLING_EVENT&publishing_country={$ country.record.country $}">
+                                    &nbsp;</strong>
                                 <div>
                                     Sampling data
                                 </div>
@@ -77,17 +87,72 @@
                     </div>
                 </div>
 
-                {#<div class="card">#}
-                    {#<div class="card__content">#}
-                        {#<h4 class="m0">23.438.243 <span>occurrences with coordinates</span></h4>#}
-                    {#</div>#}
-                    {#<div class="seperator">#}
-                        {#<iframe id="mapframe" name="mapframe"#}
-                                {#src="http://api.gbif.org/v1/map/index.html?type=COUNTRY&key=FR&style=bright&resolution=4"#}
-                                {#allowfullscreen height="360px" width="100%" frameborder="0"/>#}
-                        {#</iframe>#}
-                    {#</div>#}
-                {#</div>#}
+                <div class="card">
+                    <div class="card__content">
+                        <h4 class="m0"><span count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.record.country $}"></span> <span> occurrences with coordinates</span>
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.record.country $}" class="gb-icon-right-arrow country-key__more-arrow"></a>
+                        </h4>
+                    </div>
+                    <div class="seperator">
+                        <iframe id="mapframe" name="mapframe"
+                                src="http://api.gbif.org/v1/map/index.html?type=COUNTRY&key=FR&style=bright&resolution=4"
+                                allowfullscreen height="360px" width="100%" frameborder="0"/>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-stripe-paddingless light-background">
+        <div class="container-fluid">
+            <h4>Latest</h4>
+        </div>
+
+            <div class="card-container--news">
+                {% for item in country.latest | limit(5) %}
+                    <div class="card country-key__news">
+                        <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                           class="card__stripe card__stripe--light">
+                            <div style="height:0; padding-bottom:55%;position:relative;">
+                                <div style="font-size:12px;text-transform:uppercase;background:#4ba2ce;color:white;padding:5px 10px;position:absolute;bottom:0;left:0">
+                                    {$ item.type $}
+                                </div>
+                                <img src="{$ item.images[0].styles.focal_point_for_news $}">
+                            </div>
+                        </a>
+
+                        <div class="card__content">
+                            <h3>{$ item.title $}</h3>
+                            <p>{$ item.created | formatDate(gb.locales.current) $}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if country.feed.rss.channel[0].item | isNotEmpty %}
+                    <div class="card country-key__news">
+                        <a href="{$ country.feed.rss.channel[0].link $}"
+                           class="card__stripe">
+                            <div class="card__content">
+                                <h4 class="m0">Latest news from participant
+                                    <span
+                                       class="gb-icon-rss country-key__more-arrow">
+                                    </span>
+                                </h4>
+                            </div>
+                        </a>
+
+
+                        {% for item in country.feed.rss.channel[0].item | limit(3) %}
+                            <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                               class="card__stripe">
+                                <div class="card__content">
+                                    <h4>{$ item.title[0] | safe $}</h4>
+                                    <p>{$ item.pubDate $}</p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
             </div>
         </div>
     </article>

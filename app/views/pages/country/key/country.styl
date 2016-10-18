@@ -1,0 +1,107 @@
+$newsCardWidth = 250px
+.country-key {
+    .card {
+        flex 1 1 auto
+        width 400px
+        position relative
+        margin 10px
+    }
+
+    &__datasets {
+        &__counts {
+            display flex
+            flex-wrap wrap
+            > div {
+                flex 1 1 auto
+                min-width 100px
+                padding vrBlock(1) 10px
+            }
+        }
+    }
+    &__news {
+
+    }
+    &__occurrence-count {
+        .h2 {
+            font-weight 300
+            margin vrBlock(1) 10px
+        }
+    }
+    &__more-arrow {
+        font-size 30px
+        position absolute
+        top 0
+        line-height 55px
+        right 20px
+        color #888
+    }
+    .card-container--stats {
+        display flex
+        flex-wrap wrap
+    }
+    .card-container--news {
+        display flex
+        flex-wrap wrap
+    }
+    &__news {
+        display none
+        &.card {
+            width 100%
+        }
+        &:nth-of-type(1) {
+            display block
+        }
+        &:last-of-type {
+            display block
+        }
+    }
+}
+
++isAbove( $newsCardWidth * 2 + 40px ) {
+    .country-key {
+        &__news.card {
+            min-width 200px
+            width 200px
+            max-width 350px
+        }
+    }
+}
+
++isAbove( $newsCardWidth * 3 + 60px ) {
+    .country-key {
+        &__news.card {
+            width $newsCardWidth
+            min-width $newsCardWidth
+            max-width 350px
+            &:nth-of-type(-n+2) {
+                display block
+            }
+        }
+    }
+}
+
++isAbove( $newsCardWidth * 4 + 80px ) {
+    .country-key {
+        &__news.card {
+            width $newsCardWidth
+            min-width $newsCardWidth
+            max-width 350px
+            &:nth-of-type(-n+3) {
+                display block
+            }
+        }
+    }
+}
+
++isAbove( $newsCardWidth * 5 + 100px ) {
+    .country-key {
+        &__news.card {
+            width $newsCardWidth
+            min-width $newsCardWidth
+            max-width 350px
+            &:nth-of-type(-n+4) {
+                display block
+            }
+        }
+    }
+}
