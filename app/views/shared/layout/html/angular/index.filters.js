@@ -21,6 +21,11 @@
                 return text.length > length ? text.slice(0, length) + '…' : text;
             }
         })
+        .filter('underscoreToHyphen', function () {
+            return function (text) {
+                return text.replace(/_/g, '-');
+            }
+        })
         .filter('encodeURIComponent', function () {
             return window.encodeURIComponent;
         })

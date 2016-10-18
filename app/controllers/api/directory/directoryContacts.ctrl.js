@@ -1,7 +1,8 @@
 'use strict';
 var express = require('express'),
     router = express.Router(),
-    directory = require('../../../models/gbifdata/directory/directory');
+    directory = require('../../../models/gbifdata/directory/directory'),
+    log = require('../../../../config/log');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -10,6 +11,7 @@ module.exports = function (app) {
 router.get('/directory/contacts', function (req, res, next) {
     directory.getContacts()
         .then(function (data) {
+            directory.postProcessContacts(data, res.__);
             res.json(data);
         })
         .catch(function (err) {

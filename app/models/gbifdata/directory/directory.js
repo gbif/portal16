@@ -16,8 +16,8 @@ Directory.getContacts = function() {
         'executive_committee',
         'science_committee',
         'budget_committee',
-        'nodes_committee',
-        'nodes_steering_group'
+        'nodes_committee'
+        //'nodes_steering_group'
         //'gbif_secretariat'
     ];
 
@@ -87,7 +87,8 @@ Directory.getContacts = function() {
                     contacts.people[i] = strippedP;
                 });
 
-                defer.resolve(contacts)
+                contacts = processContacts(contacts);
+                defer.resolve(contacts);
             });
         })
         .catch(function(err){
@@ -95,6 +96,103 @@ Directory.getContacts = function() {
         });
     return defer.promise;
 };
+
+Directory.postProcessContacts = function(contacts, __) {
+    // process data
+    contacts.peopleByParticipants.forEach(function(p){
+        p.people.forEach(function(person){
+            // insert countryName if missing
+            if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
+            // insert role name
+            if (person.hasOwnProperty('roles')) {
+                person.roles.forEach(function(role){
+                    role.translatedLabel = __('role.' + role.role);
+                });
+            }
+        });
+    });
+    contacts.committees.forEach(function(committee){
+        committee.members.forEach(function(member){
+            member.roles.forEach(function(role){
+                role.translatedLabel = __('role.' + role.role);
+            });
+        });
+    });
+
+};
+
+function processContacts(contacts) {
+
+    // sort committees
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee'];
+    contacts.committees.sort(function(x, y){
+        return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
+    });
+
+    var committeeRoles = {
+        'executive_committee': [
+            'GOVERNING_BOARD_CHAIR',
+            'GOVERNING_BOARD_1ST_VICE_CHAIR',
+            'GOVERNING_BOARD_2ND_VICE_CHAIR',
+            'GOVERNING_BOARD_3RD_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_CHAIR',
+            'BUDGET_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'EXECUTIVE_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'science_committee': [
+            'SCIENCE_COMMITTEE_CHAIR',
+            'SCIENCE_COMMITTEE_1ST_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_2ND_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_3RD_VICE_CHAIR',
+            'SCIENCE_COMMITTEE_MEMBER',
+            'GOVERNING_BOARD_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'SCIENCE_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'budget_committee': [
+            'BUDGET_COMMITTEE_CHAIR',
+            'BUDGET_COMMITTEE_1ST_VICE_CHAIR',
+            'BUDGET_COMMITTEE_2ND_VICE_CHAIR',
+            'BUDGET_COMMITTEE_MEMBER',
+            'GOVERNING_BOARD_CHAIR',
+            'EXECUTIVE_SECRETARY',
+            'BUDGET_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'nodes_committee': [
+            'NODES_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_1ST_VICE_CHAIR',
+            'NODES_COMMITTEE_2ND_VICE_CHAIR',
+            'NODES_REGIONAL_REPRESENTATIVE_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
+            'NODES_COMMITTEE_GBIFS_SUPPORT'
+        ]
+    };
+
+    // reduce roles to one according to committee
+    contacts.committees.forEach(function(committee){
+        committee.members.forEach(function(member){
+            if (member.roles.length > 1) {
+                member.roles = member.roles.filter(function(role){
+                    return committeeRoles[committee.enum].indexOf(role.role) != -1;
+                });
+            }
+        });
+    });
+
+    return contacts;
+}
 
 function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
@@ -115,7 +213,7 @@ function getParticipantsContacts(contacts) {
             // Insert participant details
             var detailsTasks = [];
             data.results.forEach(function(p){
-                detailsTasks.push(getParticipantDetails(p));
+                detailsTasks.push(getParticipantDetails(p.id));
             });
             return Q.all(detailsTasks);
         })
@@ -179,9 +277,24 @@ function getParticipantsContacts(contacts) {
     return deferred.promise;
 }
 
-function getParticipantDetails(participant) {
+function getParticipantDetails(participantId) {
     var deferred = Q.defer();
-    var requestUrl = dataApi.directoryParticipant.url + '/' + participant.id;
+    var requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
+    var options = authorizeApiCall(requestUrl);
+
+    genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            deferred.resolve(data);
+        })
+        .catch(function(err){
+            deferred.reject(new Error(err));
+        });
+    return deferred.promise;
+}
+
+function getNodeDetails(node) {
+    var deferred = Q.defer();
+    var requestUrl = dataApi.directoryNode.url + '/' + node.id;
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
@@ -232,6 +345,24 @@ function getCommitteeContacts(group, contacts) {
             return Q.all(personsTasks);
         })
         .then(function(committee){
+            // determine the role to show
+            committee.forEach(function(member){
+                if (!member.hasOwnProperty('participantName')) {
+                    if (member.participants.length > 0) {
+                        member.participantName = member.participants[0].participantName;
+                    }
+                }
+                if (group == 'nodes_committee') {
+                    if (!member.hasOwnProperty('roles')) {
+                        member.roles = [];
+                    }
+                    if (member.nodes.length > 0) {
+                        member.nodes.forEach(function(node){
+                            member.roles.push({'nodeId':node.nodeId, 'role':node.role});
+                        });
+                    }
+                }
+            });
             deferred.resolve(committee);
         })
         .catch(function(err){
@@ -246,6 +377,26 @@ function getPersonContact(personId, contacts) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            // get node name and/or participant name
+            var participantTasks = [];
+            if (data.hasOwnProperty('participants') && data.participants.length > 0) {
+                data.participants.forEach(function(p){
+                    if (p.hasOwnProperty('participantId')) {
+                        participantTasks.push(getParticipantDetails(p.participantId));
+                    }
+                });
+                return Q.all(participantTasks).then(function(results){
+                    results.forEach(function(result, i){
+                        data.participants[i].participantName = result.name;
+                    });
+                    return data;
+                });
+            }
+            else {
+                return data;
+            }
+        })
         .then(function(data){
             contacts.people.push(data);
             deferred.resolve(data);
