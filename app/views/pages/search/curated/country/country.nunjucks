@@ -17,7 +17,7 @@
                 <div class="card__content">
                     <div>
                         <div class="flag">
-                            <img src="/img/flags/{$ results.country.countryCode $}.png">
+                            <img src="{$ results.country.countryCode | flag | rev $}"/>
                         </div>
                         {#<p>#}
                         {#{$ __('countryPage.countryDescription.' + results.country.participationStatus, __('country.' + results.country.countryCode) ) $}#}

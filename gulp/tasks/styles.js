@@ -52,9 +52,9 @@ gulp.task('vendor-styles', function () {
             sourceMap: false,
             sourceMapInlineSources: false
         }))
-        .pipe(g.sourcemaps.init())
+        .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.css'))
-        .pipe(g.sourcemaps.write('./'))
+        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor), {
         }))
@@ -107,14 +107,14 @@ function buildStylus() {
         ])
         // .pipe(g.plumber())
         .pipe(g.inject(injectFiles, injectOptions))
-        .pipe(g.sourcemaps.init())
+        .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.stylus({
             use: [axis()]
         })).on('error', config.errorHandler('Stylus'))
         .pipe(g.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
         .pipe(g.postcss(processors))
         .pipe(g.cleanCss())
-        .pipe(g.sourcemaps.write('./'))
+        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulpif(config.isProd, revReplace({
             manifest: gulp.src(config.rev.manifest)
         })))

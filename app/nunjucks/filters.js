@@ -1,6 +1,7 @@
 var glob = require('glob'),
     format = require('../helpers/format'),
     _ = require('lodash'),
+    fs = require('fs'),
     path = require('path');
 
 module.exports = function (nunjucksConfiguration, config) {
@@ -138,40 +139,42 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     /**
-     DEPRECATED
-     Moved away from this and use source maps instead
-     The idea is to inject the files without concatenation in development.
-     Given a folder it inject all files in alphabetical order
-     During gulp build the files should have a folder structure corresponding the depdencies order.
-     insert using:
-     {{ 'main' | assets('css' | safe )}}
-     =>
-     <link rel="stylesheet" href="firstFile.css">
-     <link rel="stylesheet" href="fileThatDependsOnFirstFile.css">
+     * Generates the absoulte path to the country flag for the given iso code.
+     * Remember to use it with the rev filter for versioned assets.
      */
     (function () {
-        var injectStaticMap = {};
-        nunjucksConfiguration.addFilter('assets', function (location, type) {
-            if (type !== 'css' && type !== 'js') {
-                //missing parameter that defines type
-                return;
+        nunjucksConfiguration.addFilter('flag', function (countryCode) {
+            if (countryCode) {
+                return '/img/flags/' + _.toUpper(countryCode)+ ".png";
             }
-            var preFetched = injectStaticMap[location + '_' + type];
-            if (preFetched) {
-                return preFetched;
-            }
-
-            var template = type === 'css' ? '<link rel="stylesheet" href="{file}">' : '<script src="{file}"></script>'
-            var files = glob.sync(config.root + '/public/' + location + '/**/*.' + type);
-            var scriptTags = files.sort().reduce(function (previousValue, currentValue) {
-                var value = path.relative(config.root + '/public/', currentValue);
-                return previousValue + template.replace('{file}', value);
-            }, '');
-
-            injectStaticMap[location + '_' + type] = scriptTags;
-            return scriptTags;
         });
+    })();
 
+    /**
+     * filter that uses the rev-manifest.json to change versioned asset file paths.
+     * The path to the file should be the full absolute path in the public folder to the unrev'ed asset.
+     *
+     * <img src="{$ code | flag | rev $}"/>
+     * =>
+     * <img src="/img/flags/DK-8257f70c13.png"/>
+     */
+    (function () {
+        var revManifest;
+        var revFile = 'public/rev-manifest.json';
+        if (fs.existsSync(revFile)) {
+            revManifest = JSON.parse(fs.readFileSync(revFile, 'utf8'));
+            console.log("Loaded asset versioning manifest at "+revFile+" with "+Object.keys(revManifest).length+" entries.");
+        } else {
+            revManifest = {};
+        }
+        nunjucksConfiguration.addFilter('rev', function (location) {
+            location = _.trimStart(location, '/');
+            console.log(location);
+            if (location in revManifest) {
+                return "/" + revManifest[location];
+            }
+            return location;
+        });
     })();
 
 };

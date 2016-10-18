@@ -31,11 +31,11 @@ gulp.task('vendor-scripts', function () {
             base: './'
         })
         .pipe(g.plumber())
-        .pipe(g.sourcemaps.init())
+        .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.js'))
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .pipe(gulpif(config.isProd, rev()))
-        .pipe(g.sourcemaps.write('./'))
+        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor)))
         .pipe(rename(function (path) {
             path.dirname += "/" + vendor
@@ -84,14 +84,14 @@ function build(entry, name) {
         })
         .pipe(source(name))
         .pipe(buffer())
-        .pipe(g.sourcemaps.init({
+        .pipe(gulpif(!config.isProd, g.sourcemaps.init({
             loadMaps: true
-        }))
+        })))
         // Add transformation tasks to the pipeline here.
         .pipe(g.ngAnnotate()) // To not break angular injection when minified
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
-        .pipe(g.sourcemaps.write('./'))
+        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulpif(config.isProd, revReplace({
             manifest: gulp.src(config.rev.manifest)
         })))
