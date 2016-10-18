@@ -36,7 +36,7 @@ gulp.task('vendor-scripts', function () {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .pipe(gulpif(config.isProd, rev()))
         .pipe(g.sourcemaps.write('./'))
-        .pipe(gulp.dest(path.join(config.paths.dist, 'js/vendor')))
+        .pipe(gulp.dest(path.join(config.paths.dist, vendor)))
         .pipe(rename(function (path) {
             path.dirname += "/" + vendor
         }))
@@ -98,7 +98,7 @@ function build(entry, name) {
         .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
-            path.dirname += "/" + dest
+            path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
         }))
         .pipe(gulpif(config.isProd, rev.manifest({
             path: config.rev.manifest,
