@@ -213,7 +213,7 @@ function getParticipantsContacts(contacts) {
             // Insert participant details
             var detailsTasks = [];
             data.results.forEach(function(p){
-                detailsTasks.push(getParticipantDetails(p));
+                detailsTasks.push(getParticipantDetails(p.id));
             });
             return Q.all(detailsTasks);
         })
@@ -277,9 +277,24 @@ function getParticipantsContacts(contacts) {
     return deferred.promise;
 }
 
-function getParticipantDetails(participant) {
+function getParticipantDetails(participantId) {
     var deferred = Q.defer();
-    var requestUrl = dataApi.directoryParticipant.url + '/' + participant.id;
+    var requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
+    var options = authorizeApiCall(requestUrl);
+
+    genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            deferred.resolve(data);
+        })
+        .catch(function(err){
+            deferred.reject(new Error(err));
+        });
+    return deferred.promise;
+}
+
+function getNodeDetails(node) {
+    var deferred = Q.defer();
+    var requestUrl = dataApi.directoryNode.url + '/' + node.id;
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
@@ -330,6 +345,24 @@ function getCommitteeContacts(group, contacts) {
             return Q.all(personsTasks);
         })
         .then(function(committee){
+            // determine the role to show
+            committee.forEach(function(member){
+                if (!member.hasOwnProperty('participantName')) {
+                    if (member.participants.length > 0) {
+                        member.participantName = member.participants[0].participantName;
+                    }
+                }
+                if (group == 'nodes_committee') {
+                    if (!member.hasOwnProperty('roles')) {
+                        member.roles = [];
+                    }
+                    if (member.nodes.length > 0) {
+                        member.nodes.forEach(function(node){
+                            member.roles.push({'nodeId':node.nodeId, 'role':node.role});
+                        });
+                    }
+                }
+            });
             deferred.resolve(committee);
         })
         .catch(function(err){
@@ -344,6 +377,26 @@ function getPersonContact(personId, contacts) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            // get node name and/or participant name
+            var participantTasks = [];
+            if (data.hasOwnProperty('participants') && data.participants.length > 0) {
+                data.participants.forEach(function(p){
+                    if (p.hasOwnProperty('participantId')) {
+                        participantTasks.push(getParticipantDetails(p.participantId));
+                    }
+                });
+                return Q.all(participantTasks).then(function(results){
+                    results.forEach(function(result, i){
+                        data.participants[i].participantName = result.name;
+                    });
+                    return data;
+                });
+            }
+            else {
+                return data;
+            }
+        })
         .then(function(data){
             contacts.people.push(data);
             deferred.resolve(data);
