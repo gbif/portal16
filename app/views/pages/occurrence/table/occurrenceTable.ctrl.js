@@ -51,7 +51,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
         combo: 'alt+right',
         description: 'Next',
         callback: function () {
-            if (offset + vm.limit < vm.occurrenceState.data.count) {
+            if (offset + vm.limit < vm.occurrenceState.table.count) {
                 vm.currentPage += 1;
                 vm.pageChanged();
             }
@@ -69,7 +69,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     });
 
     vm.hasData = function () {
-        return typeof vm.occurrenceState.data.count !== 'undefined'
+        return typeof vm.occurrenceState.table.count !== 'undefined'
     }
 
 }

@@ -47,7 +47,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="result in occTable.occurrenceState.data.results">
+                        <tr ng-repeat="result in occTable.occurrenceState.table.results">
                             <td class="table-cell--wide">
                                 <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                             </td>
@@ -92,11 +92,11 @@
                 </div>
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" ng-if="occTable.hasData()">
                 <div class="row">
                     <div class="col-xs-12">
                         <uib-pagination
-                                total-items="occTable.occurrenceState.data.count"
+                                total-items="occTable.occurrenceState.table.count"
                                 ng-model="occTable.currentPage"
                                 max-size="occTable.maxSize"
                                 items-per-page="occTable.limit"
@@ -104,7 +104,7 @@
                                 boundary-link-numbers="false"
                                 rotate="false"
                                 ng-change="occTable.pageChanged()"
-                                ng-show="occTable.occurrenceState.data.count > occTable.limit">
+                                ng-show="occTable.occurrenceState.table.count > occTable.limit">
                         </uib-pagination>
                     </div>
                 </div>
