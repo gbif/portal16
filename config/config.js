@@ -75,7 +75,7 @@ var config = {
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || 'http://cms.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif.org/'
+        domain: 'http://demo.gbif.org/'
     },
     test: {
         env: env,
