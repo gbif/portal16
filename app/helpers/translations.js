@@ -14,15 +14,10 @@ function parseMarkdown(data, cb) {
 }
 
 function getTranslatedMarkdown(path, language, cb) {
+    language = language ? language : en;
     fs.readFile(__dirname + '/../../locales/markdown/' + path + language + '.md', 'utf8', function (err, data) {
         if (err) {
-            fs.readFile(__dirname + '/../../locales/markdown/' + path + 'en.md', 'utf8', function (err, data) {
-                if (err) {
-                    cb(err);
-                } else {
-                    parseMarkdown(data, cb);
-                }
-            });
+            cb(err);
         } else {
             parseMarkdown(data, cb);
         }
