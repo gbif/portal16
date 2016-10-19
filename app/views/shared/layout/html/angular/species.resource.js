@@ -16,6 +16,24 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesSynonyms', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/synonyms', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('SpeciesChildren', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/children', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesSearch', function ($resource) {
             return $resource('/api/species/search', null, {
                     'query': {

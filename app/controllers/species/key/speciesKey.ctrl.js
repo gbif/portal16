@@ -21,8 +21,9 @@ function taxonRoute(req, res, next) {
 function getTaxon(key, lang) {
     var deferred = Q.defer();
     var getOptions = {
-        // load these async through angular to respond quicker:
+        // TODO: load these async through angular to respond quicker:
         // 'synonyms','combinations','references','typification'
+        //TODO:
         expand: ['name', 'constituent', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular']
     };
 
@@ -56,7 +57,7 @@ function renderPage(req, res, next, taxon) {
             res.json(taxon);
         } else {
             res.render('pages/species/key/speciesKey', {
-                t: taxon,
+                key: taxon.record.key,
                 taxon: taxon,
                 _meta: {
                     title: taxon.record.scientificName

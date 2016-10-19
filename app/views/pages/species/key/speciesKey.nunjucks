@@ -35,7 +35,7 @@
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">† {$ __('taxonRank.' + taxon.record.rank) $}</span>
+                            <span class="article-header__category__upper">{# † #}{$ __('taxonRank.' + taxon.record.rank) $}</span>
                             <span class="article-header__category__lower">{$ __('taxonomicStatus.' + taxon.record.taxonomicStatus) $}</span>
                         </nav>
 
@@ -221,22 +221,12 @@
                 <div class="container--narrow anchor-block">
                     <div class="balanced-row">
                         <div>
-                            <h4>Synonyms</h4>
-                            <ul>
-                                {% for tax in taxon.synonyms %}
-                                    <li>{$ taxonLink(tax) $}</li>
-                                {% endfor %}
-                                <li><a href="#">13 more</a></li>
-                            </ul>
+                            <h3>Synonyms</h3>
+                            <taxon-children key="{$ key $}" synonyms="true"/>
                         </div>
                         <div>
-                            <h4>Children</h4>
-                            <ul>
-                                {% for tax in taxon.children %}
-                                    <li>{$ taxonLink(tax) $}</li>
-                                {% endfor %}
-                                <li><a href="#">137 more</a></li>
-                            </ul>
+                            <h3>Children</h3>
+                            <taxon-children key="{$ key $}" synonyms="false"/>
                         </div>
                     </div>
                 </div>
