@@ -1,7 +1,7 @@
 "use strict";
 
 var resource = require('../resource'),
-    _ = require('lodash'),
+    cmsSearchUrl = require('../../cmsData/apiConfig').search.url,
     api = require('../apiConfig');
 
 var Country = function (record) {
@@ -26,15 +26,15 @@ Country.prototype.expand = function (fieldNames) {
     var resources = [],
         resourceLookup = {
             news: {
-                resource: 'http://cms.gbif-dev.org/api/v2/search/?sort=-created&page[size]=3&filter[type]=news&filter[category_country]=' + this.record.country,
+                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=news&filter[category_country]=' + this.record.country,
                 extendToField: 'news'
             },
             events: {
-                resource: 'http://cms.gbif-dev.org/api/v2/search/?sort=-created&page[size]=3&filter[type]=event&filter[category_country]=' + this.record.country,
+                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=event&filter[category_country]=' + this.record.country,
                 extendToField: 'events'
             },
             dataUse: {
-                resource: 'http://cms.gbif-dev.org/api/v2/search/?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
+                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
                 extendToField: 'dataUse'
             }
         };

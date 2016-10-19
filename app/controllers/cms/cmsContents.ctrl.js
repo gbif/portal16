@@ -4,6 +4,7 @@ var express = require('express'),
     format = require('../../helpers/format'),
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
+    imageCacheUrl = rootRequire('app/models/gbifData/apiConfig').image.url,
     cmsData = require('../../models/cmsData/cmsData'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
@@ -131,7 +132,8 @@ router.get([
                         title: body.data[0].title,
                         hasTools: true,
                         originalUrl: req.originalUrl,
-                        domain: config.domain
+                        domain: config.domain,
+                        imageCacheUrl: imageCacheUrl
                     }
                 };
 

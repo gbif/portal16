@@ -1,6 +1,6 @@
 var request = require('request'),
     async = require('async'),
-    parseXml = require('xml2js').parseString,
+    xmlParser = require('xml2js').parseString,
     log = require('../../../config/log');
 
 var ERRORS = Object.freeze({
@@ -11,11 +11,10 @@ var ERRORS = Object.freeze({
 });
 
 function getData(cb, path, options) {
-    var data,
-        requestOptions = {
-            url: path,
-            timeout: options.timeoutMilliSeconds
-        };
+    var requestOptions = {
+        url: path,
+        timeout: options.timeoutMilliSeconds
+    };
 
     if (options.headers) requestOptions.headers = options.headers;
 
@@ -69,14 +68,14 @@ function getData(cb, path, options) {
 
 function parseXml(body, path, cb) {
     "use strict";
-    let data;
     try {
-        parseXml(body, function (err, result) {
+        xmlParser(body, function (err, result) {
             if (err) {
                 cb(err);
             }
             else {
                 cb(null, result);
+                log.error('failed to parse XML response ' + path);
             }
         });
     } catch (err) {

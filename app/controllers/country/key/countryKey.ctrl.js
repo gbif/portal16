@@ -3,6 +3,7 @@ var express = require('express'),
     Q = require('q'),
     Country = require('../../../models/gbifdata/gbifdata').Country,
     helper = rootRequire('app/models/util/util'),
+    imageCacheUrl = rootRequire('app/models/gbifData/apiConfig').image.url,
     _ = require('lodash'),
     router = express.Router();
 
@@ -14,14 +15,19 @@ router.get('/country/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
     //renderPage(req, res, next, require('./test'));
     Country.get(key, {expand: ['news', 'events', 'dataUse']}).then(function (country) {
-        var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
-        country.latest = _.sortBy(latest, ['created']).reverse();
-        appendFeed(country).then(function (data) {
-            country.feed = data;
-            renderPage(req, res, next, country);
-        }, function (err) {
-            renderPage(req, res, next, country);
-        });
+        try {
+            var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
+            country.latest = _.sortBy(latest, ['created']).reverse();
+            appendFeed(country).then(function (data) {
+                country.feed = data;
+                renderPage(req, res, next, country);
+            }, function () {
+                //ignore error and render page without participants news feed
+                renderPage(req, res, next, country);
+            });
+        } catch (err) {
+            next(err)
+        }
     }, function (err) {
         next(err);
     });
@@ -36,7 +42,8 @@ function renderPage(req, res, next, country) {
             res.render('pages/country/key/countryKey', {
                 country: country,
                 _meta: {
-                    title: country.record.participantTitle
+                    title: country.record.participantTitle,
+                    imageCacheUrl: imageCacheUrl
                 }
             });
         }

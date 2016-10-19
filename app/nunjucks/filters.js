@@ -1,8 +1,6 @@
-var glob = require('glob'),
-    format = require('../helpers/format'),
+var format = require('../helpers/format'),
     _ = require('lodash'),
-    fs = require('fs'),
-    path = require('path');
+    fs = require('fs');
 
 module.exports = function (nunjucksConfiguration, config) {
 

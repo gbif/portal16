@@ -1,12 +1,10 @@
 "use strict";
 var express = require('express'),
-    hash = require('object-hash'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
     fs = require('fs'),
     _ = require('lodash'),
-    router = express.Router(),
-    querystring = require('querystring');
+    router = express.Router();
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
 
@@ -78,7 +76,7 @@ function createIssue(data, cb) {
     });
 }
 
-function getLabels(data) {
+function getLabels() {
     let labels = ['Needs validation'];
     //additional logic for tagging suggestions can go here. F.x. based on license or region.
     return _.uniq(labels);

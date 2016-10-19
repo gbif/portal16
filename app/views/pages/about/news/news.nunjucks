@@ -26,7 +26,7 @@
                 {% if images[0].width > 1000 %}
                     <figure class="heading-image">
                         <div class="cover-image">
-                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
+                            <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
                                  gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
@@ -40,7 +40,7 @@
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
-                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}"
+                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.focal_point_for_news $}"
                                          alt="{$ images[0].filename $}" gallery-image>
                                 </div>
                                 <figcaption>
@@ -132,7 +132,7 @@
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail $}" gallery-image
                                                      alt="{$ data.__system.prev.imageCaption $}">
                                             </div>
                                             <div class="col-xs-12 col-md-7 card__content">
@@ -153,7 +153,7 @@
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail $}" gallery-image
                                                      alt="{$ data.__system.next.imageCaption $}">
                                             </div>
                                             <div class="col-xs-12 col-md-7 card__content">

@@ -1,6 +1,5 @@
 var nunjucks = require('nunjucks'),
     markdown = require('nunjucks-markdown'),
-    fs = require('fs'),
     marked = require('marked');
 
 module.exports = function (app, config) {

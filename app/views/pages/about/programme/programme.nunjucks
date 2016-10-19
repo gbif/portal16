@@ -28,7 +28,7 @@
                                             <h5>{$ funder.title $}</h5>
                                         {% endif %}
                                         {% if funder.title != 'GBIF' %}
-                                            <a href="{$ funder.url.url $}"><img ng-src="{$ funder.image.styles.funder_image $}"></a>
+                                            <a href="{$ funder.url.url $}"><img ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image $}"></a>
                                         {% endif %}
                                     </div>
                                 {% endfor %}
@@ -41,7 +41,7 @@
         {% if images[0].width > 1000 %}
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img ng-src="{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
                 </div>
                 <figcaption class="container-fluid container--prose">
                     {$ images[0].image_field_caption.value | safe $}
@@ -89,7 +89,7 @@
                             <article class="container-fluid card card--nav">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ data.relatedNews[0].image.styles.square_thumbnail $}"
+                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.square_thumbnail $}"
                                              gallery-image alt="">
                                     </div>
                                     <div class="col-xs-12 col-md-7 card__content">
@@ -107,7 +107,7 @@
                             <article class="container-fluid card card--nav">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
+                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.square_thumbnail $}" gallery-image alt="">
                                     </div>
                                     <div class="col-xs-12 col-md-7 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>

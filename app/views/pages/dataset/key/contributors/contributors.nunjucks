@@ -10,9 +10,6 @@
 
                     {% for contributor in dataset._computedValues.contributors.all %}
                         <div class="dataset-key__contributors__item">
-                            {% if contributor.userId.length > 0 %}
-                                <i class="gb-icon-test"></i>
-                            {% endif %}
                             <address>
 
                                 <span class="relative-anchor-offset"><a

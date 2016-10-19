@@ -26,7 +26,7 @@
                 {% if images[0].width > 1000 %}
                     <figure class="heading-image">
                         <div class="cover-image">
-                            <img ng-src="{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
+                            <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop $}" alt="{$ images[0].filename $}"
                                  gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
@@ -40,7 +40,7 @@
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
-                                    <img ng-src="{$ images[0].styles.focal_point_for_news $}"
+                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.focal_point_for_news $}"
                                          alt="{$ images[0].filename $}" gallery-image>
                                 </div>
                                 <figcaption>
