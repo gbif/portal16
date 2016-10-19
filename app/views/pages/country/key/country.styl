@@ -46,8 +46,78 @@ $newsCardWidth = 250px
     &__news {
         display none
         &.card {
+            height 280px
             width 100%
         }
+        &__img-wrapper {
+            height 0
+            padding-bottom 55%
+            transition padding-bottom 300ms ease
+            position relative
+            background-size cover
+            background-position center
+            &:before {
+                content ''
+                position absolute
+                top 0
+                right 0
+                bottom 0
+                left 0
+                background-image linear-gradient(to bottom,#444,#000)
+                opacity .0
+                transition opacity 300ms ease
+            }
+        }
+        &:hover {
+            .country-key__news__img-wrapper {
+                padding-bottom 20%
+                &:before {
+                    opacity .6
+                }
+            }
+        }
+        a:hover .card__content {
+            color $bodyTextColor
+        }
+        &__type {
+            font-size 12px
+            text-transform uppercase
+            background #4ba2ce
+            color #fff
+            padding 5px 10px
+            display inline-block
+        }
+        &--img {
+            .country-key__news__type {
+                bottom 0
+                position absolute
+            }
+            .country-key__news__summary {
+                height 0
+                padding-bottom 0
+                transition padding-bottom 300ms ease
+                overflow hidden
+                position relative
+                > p {
+                    position absloute
+                    top 0
+                }
+            }
+            &:hover {
+                .country-key__news__summary {
+                    padding-bottom 35%
+                }
+            }
+        }
+        &__date {
+            position absolute
+            bottom 0
+            right 10px
+            color $discreetInk
+            font-weight normal
+            font-size 12px
+        }
+
         &:nth-of-type(1) {
             display block
         }
@@ -57,7 +127,7 @@ $newsCardWidth = 250px
     }
 }
 
-+isAbove( $newsCardWidth * 2 + 40px ) {
++isAbove($newsCardWidth * 2 + 40px) {
     .country-key {
         &__news.card {
             min-width 200px
@@ -67,7 +137,7 @@ $newsCardWidth = 250px
     }
 }
 
-+isAbove( $newsCardWidth * 3 + 60px ) {
++isAbove($newsCardWidth * 3 + 60px) {
     .country-key {
         &__news.card {
             width $newsCardWidth
@@ -80,7 +150,7 @@ $newsCardWidth = 250px
     }
 }
 
-+isAbove( $newsCardWidth * 4 + 80px ) {
++isAbove($newsCardWidth * 4 + 80px) {
     .country-key {
         &__news.card {
             width $newsCardWidth
@@ -93,7 +163,7 @@ $newsCardWidth = 250px
     }
 }
 
-+isAbove( $newsCardWidth * 5 + 100px ) {
++isAbove($newsCardWidth * 5 + 100px) {
     .country-key {
         &__news.card {
             width $newsCardWidth

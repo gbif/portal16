@@ -87,19 +87,19 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card__content">
-                        <h4 class="m0"><span count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.record.country $}"></span> <span> occurrences with coordinates</span>
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.record.country $}" class="gb-icon-right-arrow country-key__more-arrow"></a>
-                        </h4>
-                    </div>
-                    <div class="seperator">
-                        <iframe id="mapframe" name="mapframe"
-                                src="http://api.gbif.org/v1/map/index.html?type=COUNTRY&key=FR&style=bright&resolution=4"
-                                allowfullscreen height="360px" width="100%" frameborder="0"/>
-                        </iframe>
-                    </div>
-                </div>
+                {#<div class="card">#}
+                    {#<div class="card__content">#}
+                        {#<h4 class="m0"><span count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.record.country $}"></span> <span> occurrences with coordinates</span>#}
+                            {#<a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.record.country $}" class="gb-icon-right-arrow country-key__more-arrow"></a>#}
+                        {#</h4>#}
+                    {#</div>#}
+                    {#<div class="seperator">#}
+                        {#<iframe id="mapframe" name="mapframe"#}
+                                {#src="http://api.gbif.org/v1/map/index.html?type=COUNTRY&key=FR&style=bright&resolution=4"#}
+                                {#allowfullscreen height="360px" width="100%" frameborder="0"/>#}
+                        {#</iframe>#}
+                    {#</div>#}
+                {#</div>#}
             </div>
         </div>
         <div class="horizontal-stripe-paddingless light-background">
@@ -108,22 +108,38 @@
         </div>
 
             <div class="card-container--news">
+
                 {% for item in country.latest | limit(5) %}
-                    <div class="card country-key__news">
-                        <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
-                           class="card__stripe card__stripe--light">
-                            <div style="height:0; padding-bottom:55%;position:relative;">
-                                <div style="font-size:12px;text-transform:uppercase;background:#4ba2ce;color:white;padding:5px 10px;position:absolute;bottom:0;left:0">
-                                    {$ item.type $}
+                    <div class="card country-key__news {% if item.images[0] | isDefined %}country-key__news--img{% endif %}">
+                        {% if item.images[0] | isDefined %}
+                            <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                               class="card__stripe card__stripe--light">
+                                <div class="country-key__news__img-wrapper" style="background-image:url('{$ item.images[0].styles.focal_point_for_news $}')">
+                                    <div class="country-key__news__type">
+                                        {$ __('cms.contentType.' + item.type) $}
+                                    </div>
                                 </div>
-                                <img src="{$ item.images[0].styles.focal_point_for_news $}">
+                            </a>
+                        {% else %}
+                            <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                               class="card__stripe card__stripe--light">
+                                <div>
+                                    <div class="country-key__news__type">
+                                        {$ __('cms.contentType.' + item.type) $}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+
+                        <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                           class="card__stripe">
+                            <div class="card__content">
+                                <h3>{$ item.title | truncate(60) $}</h3>
+                                <div class="country-key__news__summary"><p>{$ (item.summary + item.body) | striptags | safe |
+                                        truncate(120) $}</p></div>
+                                <p class="country-key__news__date">{$ item.created | formatDate(gb.locales.current) $}</p>
                             </div>
                         </a>
-
-                        <div class="card__content">
-                            <h3>{$ item.title $}</h3>
-                            <p>{$ item.created | formatDate(gb.locales.current) $}</p>
-                        </div>
                     </div>
                 {% endfor %}
 
@@ -141,12 +157,12 @@
                         </a>
 
 
-                        {% for item in country.feed.rss.channel[0].item | limit(3) %}
+                        {% for item in country.feed.rss.channel[0].item | limit(2) %}
                             <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
                                class="card__stripe">
                                 <div class="card__content">
                                     <h4>{$ item.title[0] | safe $}</h4>
-                                    <p>{$ item.pubDate $}</p>
+                                    <p>{$ item.pubDate[0] | formatDate(gb.locales.current) $}</p>
                                 </div>
                             </a>
                         {% endfor %}
