@@ -6,7 +6,7 @@ var crypto = require('crypto'),
     helper = require('../../util/util'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
-    translationsHelper = rootRequire('app/helpers/translations'),
+    translationsHelper = rootRequire('app/helpers/translationsPromise'),
     log = require('../../../../config/log');
 
 var Directory = {};
@@ -216,16 +216,18 @@ function processContacts(contacts) {
 }
 
 function getGroupIntro(group) {
+    var deferred = Q.defer();
     // insert intro text for each group.
-    let groupIntroFile = {[group.enum]: 'directory/contactUs/' + group.enum + '/'};
-    translationsHelper.getTranslations(groupIntroFile, language, function(err, translation){
-        if (err) {
-            throw new Error(err.message);
-        }
-        else {
-            group.intro = translation;
-        }
-    });
+    let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
+    translationsHelper.getTranslations(groupIntroFile, language)
+        .then(function(translation){
+            group.intro = translation[0];
+            deferred.resolve(group);
+        })
+        .catch(function(err){
+            deferred.reject(err.message);
+        });
+    return deferred.promise;
 }
 
 function getParticipantsContacts(contacts) {
@@ -303,13 +305,17 @@ function getParticipantsContacts(contacts) {
                 }
             });
 
+            var translationTasks = [];
             groups.forEach(function(group){
-                if (['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate'].indexOf(group.enum) != -1) {
-                    getGroupIntro(group);
-                }
+                translationTasks.push(getGroupIntro(group));
             });
-
-            return deferred.resolve(groups);
+            return Q.all(translationTasks)
+                .then(function(groups){
+                    return groups;
+                });
+        })
+        .then(function(groups){
+            deferred.resolve(groups);
         })
         .catch(function(err){
             deferred.reject(err);
