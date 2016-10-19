@@ -132,7 +132,7 @@ $newsCardWidth = 250px
         &__news.card {
             min-width 200px
             width 200px
-            max-width 350px
+            max-width 300px
         }
     }
 }
@@ -142,7 +142,6 @@ $newsCardWidth = 250px
         &__news.card {
             width $newsCardWidth
             min-width $newsCardWidth
-            max-width 350px
             &:nth-of-type(-n+2) {
                 display block
             }
@@ -153,9 +152,6 @@ $newsCardWidth = 250px
 +isAbove($newsCardWidth * 4 + 80px) {
     .country-key {
         &__news.card {
-            width $newsCardWidth
-            min-width $newsCardWidth
-            max-width 350px
             &:nth-of-type(-n+3) {
                 display block
             }
@@ -166,9 +162,6 @@ $newsCardWidth = 250px
 +isAbove($newsCardWidth * 5 + 100px) {
     .country-key {
         &__news.card {
-            width $newsCardWidth
-            min-width $newsCardWidth
-            max-width 350px
             &:nth-of-type(-n+4) {
                 display block
             }
