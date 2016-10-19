@@ -7,7 +7,7 @@ angular
 /** @ngInject */
 function dataValidatorCtrl() {
     var vm = this;
-    vm.greeting = 'Salut Christian!'
+    vm.greeting = 'Salut Christian!';
 }
 
 module.exports = dataValidatorCtrl;
