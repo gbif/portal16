@@ -79,7 +79,7 @@
         "items": [
           {
             "name": "ipt",
-            "url": "/tools/ipt"
+            "url": "/ipt"
           },
           {
             "name": "dataValidator",
@@ -90,8 +90,8 @@
             "url": "/tools/suggest-dataset"
           },
           {
-            "name": "collectionManagment",
-            "url": "/tools/collection-managment"
+            "name": "collectionManagement",
+            "url": "/tools/collection-management"
           }
         ]
       },
@@ -203,7 +203,7 @@
         "items": [
           {
             "name": "capacitySupport",
-            "url": "/capacity-support"
+            "url": "/programme/capacity-support"
           },
           {
             "name": "bidProgramme",
