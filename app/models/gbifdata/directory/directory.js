@@ -5,11 +5,15 @@ var crypto = require('crypto'),
     Q = require('q'),
     helper = require('../../util/util'),
     fs = require('fs'),
-    dataApi = require('../apiConfig');
+    dataApi = require('../apiConfig'),
+    translationsHelper = rootRequire('app/helpers/translations'),
+    log = require('../../../../config/log');
 
 var Directory = {};
+var calls = 0;
+var language;
 
-Directory.getContacts = function() {
+Directory.getContacts = function(res) {
     var deferFs = Q.defer();
     var defer = Q.defer();
     var groups = [
@@ -28,6 +32,7 @@ Directory.getContacts = function() {
         'people': []
     };
 
+    language = res.locals.gb.locales.current;
     // First check whether we have the credential to complete all the calls to
     // the directory.
     fs.exists('/etc/portal16/credentials.json', deferFs.resolve);
@@ -89,8 +94,12 @@ Directory.getContacts = function() {
                 });
 
                 contacts = processContacts(contacts);
-                defer.resolve(contacts);
+                return contacts;
             });
+        })
+        .then(function(contacts){
+            defer.resolve(contacts);
+            log.info(calls + 'calls have been made to complete the contacts page.');
         })
         .catch(function(err){
             defer.reject(new Error(err));
@@ -206,6 +215,19 @@ function processContacts(contacts) {
     return contacts;
 }
 
+function getGroupIntro(group) {
+    // insert intro text for each group.
+    let groupIntroFile = {[group.enum]: 'directory/contactUs/' + group.enum + '/'};
+    translationsHelper.getTranslations(groupIntroFile, language, function(err, translation){
+        if (err) {
+            throw new Error(err.message);
+        }
+        else {
+            group.intro = translation;
+        }
+    });
+}
+
 function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryParticipants.url;
@@ -280,6 +302,13 @@ function getParticipantsContacts(contacts) {
                     });
                 }
             });
+
+            groups.forEach(function(group){
+                if (['voting_participant', 'associate_country_participant', 'other_associate_participant', 'gbif_affiliate'].indexOf(group.enum) != -1) {
+                    getGroupIntro(group);
+                }
+            });
+
             return deferred.resolve(groups);
         })
         .catch(function(err){
@@ -498,6 +527,7 @@ function setMembership(p) {
 function genericEndpointAccess(requestUrl, options) {
     var deferred = Q.defer();
     helper.getApiData(requestUrl, function (err, data) {
+        calls++;
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {

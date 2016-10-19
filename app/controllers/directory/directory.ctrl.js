@@ -15,7 +15,7 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         jsonOutput = true;
     }
 
-    Directory.getContacts(res.__)
+    Directory.getContacts(res)
         .then(function(data){
             if (data) {
                 Directory.postProcessContacts(data, res.__);

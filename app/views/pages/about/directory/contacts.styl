@@ -123,7 +123,7 @@
                     font-weight bold
                     position relative
                     white-space nowrap
-                    padding-left 0
+                    padding-left 5px
                     top 0
                     left 0
 
@@ -159,7 +159,6 @@
                     }
                     td:nth-of-type(1) {
                         display table-cell
-                        padding-left 10px
                         background none
                         width 20%
                     }
@@ -185,6 +184,10 @@
                 tr:hover {
                     background darken($lightBackground, 5)
                 }
+                tr:focus {
+                    outline none
+                }
+    
             }
             .other-associate-participants {
                 tr {
