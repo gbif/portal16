@@ -3,7 +3,7 @@ var express = require('express'),
     Q = require('q'),
     Country = require('../../../models/gbifdata/gbifdata').Country,
     helper = rootRequire('app/models/util/util'),
-    imageCacheUrl = rootRequire('app/models/gbifData/apiConfig').image.url,
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     _ = require('lodash'),
     router = express.Router();
 

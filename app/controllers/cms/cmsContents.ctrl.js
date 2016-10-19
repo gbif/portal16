@@ -4,7 +4,7 @@ var express = require('express'),
     format = require('../../helpers/format'),
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
-    imageCacheUrl = rootRequire('app/models/gbifData/apiConfig').image.url,
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     cmsData = require('../../models/cmsData/cmsData'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
