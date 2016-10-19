@@ -1,43 +1,61 @@
 "use strict";
 
 var marked = require('marked'),
-    async = require('async'),
-    fs = require('fs');
+    fs = require('fs'),
+    Q = require('q');
 
-function parseMarkdown(data, cb) {
-    try {
-        let renderedText = marked(data);
-        cb(null, renderedText);
-    } catch (err) {
-        cb(err)
+function parseMarkdown(data) {
+    var deferred = Q.defer();
+    let renderedText = marked(data);
+    if (renderedText) {
+        deferred.resolve(renderedText);
     }
+    else {
+        deferred.reject(new Error('Error when rendering markdown at line 14 of translation.js'));
+    }
+    return deferred.promise;
 }
 
-function getTranslatedMarkdown(path, language, cb) {
-    fs.readFile(__dirname + '/../../locales/markdown/' + path + language + '.md', 'utf8', function (err, data) {
-        if (err) {
-            fs.readFile(__dirname + '/../../locales/markdown/' + path + 'en.md', 'utf8', function (err, data) {
-                if (err) {
-                    cb(err);
-                } else {
-                    parseMarkdown(data, cb);
-                }
-            });
-        } else {
-            parseMarkdown(data, cb);
-        }
-    });
+function getTranslatedMarkdown(text, language) {
+    var deferred = Q.defer();
+    var readFile = Q.denodeify(fs.readFile);
+    if (!language) language = 'en';
+
+    readFile(__dirname + '/../../locales/markdown/' + text.directory + language + '.md', 'utf8')
+        .then(function(data){
+            return parseMarkdown(data);
+        })
+        .then(function(data){
+            var item = {
+                'token': text.token,
+                'text': data
+            };
+            deferred.resolve(item);
+        })
+        .catch(function(err){
+            deferred.reject(err.message)
+        });
+    return deferred.promise;
 }
 
-function getTranslations(fileMap, language, callback) {
-    var tasks = {};
-    Object.keys(fileMap).forEach(function (e) {
-        tasks[e] = function (cb) {
-            getTranslatedMarkdown(fileMap[e], language, cb);
-        };
+function getTranslations(files, language) {
+    var defer = Q.defer();
+    var tasks = [];
+    files.forEach(function (f) {
+        tasks.push(getTranslatedMarkdown(f, language));
     });
 
-    async.parallel(tasks, callback);
+    Q.all(tasks).then(function(translations){
+        var resultObj = {};
+        translations.forEach(function(translation){
+            resultObj[translation.token] = translation.text;
+        });
+        defer.resolve(resultObj);
+    })
+        .catch(function(err){
+            return defer.reject(err);
+        });
+    return defer.promise;
 }
 
 module.exports = {
