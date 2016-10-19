@@ -10,29 +10,28 @@ module.exports = function (app) {
 
 router.get('/tools/suggest-dataset', function (req, res, next) {
     //get text content
-    let markdownFiles = [
-        {'token': 'description', 'directory': 'tools/suggestDataset/description/'},
-        {'token': 'thankyou', 'directory': 'tools/suggestDataset/thankyou/'},
-        {'token': 'failure', 'directory': 'tools/suggestDataset/failure/'}
-    ];
-
-    translationsHelper.getTranslations(markdownFiles, res.locals.gb.locales.current)
-        .then(function(translations){
+    let markdownFiles = {
+        description: 'tools/suggestDataset/description/',
+        thankyou: 'tools/suggestDataset/thankyou/',
+        failure: 'tools/suggestDataset/failure/'
+    };
+    translationsHelper.getTranslations(markdownFiles, res.locals.gb.locales.current, function (err, translations) {
+        if (err) {
+            next(err);
+        } else {
             render(req, res, next, {
                 _meta: {
                     title: 'Suggest dataset'
                 },
                 translations: translations
             });
-        })
-        .catch(function(err){
-            next(err);
-        });
+        }
+    });
 });
 
-function render(req, res, next, context) {
+function render(req, res, next, data) {
     try {
-        res.render('pages/tools/suggestDataset/suggestDataset.nunjucks', context);
+        res.render('pages/tools/suggestDataset/suggestDataset', data);
     } catch (err) {
         next(err);
     }
