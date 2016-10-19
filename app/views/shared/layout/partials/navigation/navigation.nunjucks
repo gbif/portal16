@@ -4,10 +4,10 @@
     <div class="service-menu is-category">
         <div class="service-menu__teaser">
             <a href="">
-                <div class="service-menu__teaser-message">
-                    <span>Welcome back</span>
-                    <span>Doctor J. Lamiales</span>
-                </div>
+                {#<div class="service-menu__teaser-message">#}
+                    {#<span>Welcome back</span>#}
+                    {#<span>Doctor J. Lamiales</span>#}
+                {#</div>#}
             </a>
         </div>
         <ul>
@@ -26,12 +26,12 @@
                 <span class="badge badge--error menu-notification">1</span>
             </li>
 
-            <li class="service-menu__profile is-category">
-                <a href="" class="gb-icon-user-female"><span>Profile</span></a>
-                <ul>
-                    <li>
-                        <a href="#1">Menu not implemented yet</a>
-                    </li>
+            {#<li class="service-menu__profile is-category">#}
+                {#<a href="" class="gb-icon-user-female"><span>Profile</span></a>#}
+                {#<ul>#}
+                    {#<li>#}
+                        {#<a href="#1">Menu not implemented yet</a>#}
+                    {#</li>#}
                     {#<li>#}
                     {#<a href="#2">Register</a>#}
                     {#</li>#}
@@ -41,8 +41,8 @@
                     {#<li>#}
                     {#<a href="#4">My datasets</a>#}
                     {#</li>#}
-                </ul>
-            </li>
+                {#</ul>#}
+            {#</li>#}
             {#<li class="service-menu__language is-category">#}
             {#<a href="#" class="gb-icon-global">Language</a>#}
             {#<ul>#}

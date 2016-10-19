@@ -12,6 +12,7 @@ module.exports = function (app) {
 
 router.get('/country/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
+    //renderPage(req, res, next, require('./test'));
     Country.get(key, {expand: ['news', 'events', 'dataUse']}).then(function (country) {
         var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
         country.latest = _.sortBy(latest, ['created']).reverse();

@@ -41,27 +41,27 @@
       },
       {
         "name": "datasetClasses",
-        "url": "/dataset-classes"
+        "url": "/publishing/dataset-classes"
       },
       {
         "name": "publishingGuide",
-        "url": "/publishing-guide"
+        "url": "/publishing/publishing-guide"
       },
       {
         "name": "endorsement",
-        "url": "/endorsement"
+        "url": "/publishing/endorsement"
       },
       {
         "name": "darwinCore",
-        "url": "/darwin-core"
+        "url": "/publishing/darwin-core"
       },
       {
         "name": "digitizingCollections",
-        "url": "/digitizing-collections"
+        "url": "/publishing/digitizing-collections"
       },
       {
         "name": "dataPapers",
-        "url": "/data-papers"
+        "url": "/publishing/data-papers"
       },
       {
         "name": "citizenScience",
@@ -103,12 +103,12 @@
             "url": "/developer/summary"
           },
           {
-            "name": "rgbif",
-            "url": "/tools/r-gbif"
-          },
-          {
             "name": "atlases",
             "url": "/tools/atlases"
+          },
+          {
+            "name": "rgbif",
+            "url": "/tools/rgbif"
           },
           {
             "name": "maxent",
@@ -153,7 +153,7 @@
           },
           {
             "name": "GbifNetwork",
-            "url": "/tools/ipt"
+            "url": "/gbif-network"
           },
           {
             "name": "becomeMember",
@@ -161,7 +161,7 @@
           },
           {
             "name": "contactDirectory",
-            "url": "directory/contact-us"
+            "url": "/directory/contact-us"
           },
           {
             "name": "contactUs",
@@ -177,20 +177,20 @@
             "url": "/cms/search?type=news"
           },
           {
-            "name": "literature",
-            "url": "/cms/search?type=literature"
-          },
-          {
-            "name": "newsletters",
-            "url": "/newsletters"
-          },
-          {
             "name": "featuredDataUse",
             "url": "/cms/search?type=data_use"
           },
           {
+            "name": "literature",
+            "url": "/cms/search?type=literature"
+          },
+          {
             "name": "events",
             "url": "/cms/search?type=event"
+          },
+          {
+            "name": "newsletters",
+            "url": "/newsletters"
           },
           {
             "name": "awards",
