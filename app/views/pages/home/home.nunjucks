@@ -35,10 +35,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="card text-center this-is-a-stub">
+                        <div class="card this-is-a-stub">
                             <div class="card__content">
-                                <h2>Under development</h2>
-                                <p style="color:#adadad" class="h1 gb-icon-tools"></p>
+                                <h2 class="text-center">Under development</h2>
+                                <p style="color:#adadad" class="h1 text-center gb-icon-tools"></p>
                                 <p>
                                     This project is currently under very active development and this is an early access release with limited functionality.
                                 </p>

@@ -1,0 +1,44 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes speciesLookup page--data"
+             ng-controller="dataValidatorCtrl as dataValidator">
+
+        <div class="container-fluid white-background search-header">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Tools</span>
+                        <span class="article-header__category__lower">Data validator</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="card this-is-a-stub">
+                            <div class="card__content">
+                                <h2 class="text-center">Under development</h2>
+                                <p style="color:#adadad" class="h1 text-center gb-icon-tools"></p>
+                                <p>
+                                    We are working on a new validator.
+                                </p>
+                                <p>
+                                    This will allow publishers to easily validate DarwinCore Archives, CSV and Excel sheets with the same validator that we use when processing the data.
+                                </p>
+                                <p>
+                                    Come back soon for more.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+{% endblock %}
+

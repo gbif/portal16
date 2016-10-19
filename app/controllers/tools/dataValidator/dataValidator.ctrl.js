@@ -6,10 +6,17 @@ module.exports = function (app) {
 };
 
 router.get('/tools/data-validator', function (req, res) {
-    res.render('pages/tools/dataValidator/dataValidator', {
+    res.render('pages/tools/dataValidator/dataValidator_tmp', {
         _meta: {
             title: 'Data validator'
         }
     });
 });
 
+router.get('/tools/data-validator-test', function (req, res) {
+    res.render('pages/tools/dataValidator/dataValidator', {
+        _meta: {
+            title: 'Data validator'
+        }
+    });
+});
