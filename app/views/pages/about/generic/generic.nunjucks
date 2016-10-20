@@ -36,7 +36,7 @@
         <div class="horizontal-stripe--paddingless white-background">
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
+                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop | encodeURI $}" alt="{$ images[0].filename $}" gallery-image>
                 </div>
                 <figcaption class="container-fluid container--prose">
                     {$ images[0].image_field_caption.value | safe $}

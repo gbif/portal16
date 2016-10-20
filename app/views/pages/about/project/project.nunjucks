@@ -189,7 +189,7 @@
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail $}" gallery-image
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
                                                      alt="{$ data.__system.prev.imageCaption $}">
                                             </div>
                                             <div class="col-xs-12 col-md-7 card__content">
@@ -209,7 +209,7 @@
                                     <article class="container-fluid card card--nav">
                                         <div class="row">
                                             <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail $}" gallery-image
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
                                                      alt="{$ data.__system.next.imageCaption $}">
                                             </div>
                                             <div class="col-xs-12 col-md-7 card__content">

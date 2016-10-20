@@ -114,7 +114,7 @@
                         {% if item.images[0] | isDefined %}
                             <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
                                class="card__stripe card__stripe--light">
-                                <div class="country-key__news__img-wrapper" style="background-image:url('{$ _meta.imageCacheUrl $}{$ item.images[0].styles.focal_point_for_news $}')">
+                                <div class="country-key__news__img-wrapper" style="background-image:url('{$ _meta.imageCacheUrl $}{$ item.images[0].styles.focal_point_for_news | encodeURI $}')">
                                     <div class="country-key__news__type">
                                         {$ __('cms.contentType.' + item.type) $}
                                     </div>
