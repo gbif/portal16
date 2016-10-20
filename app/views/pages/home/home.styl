@@ -5,6 +5,7 @@ $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
     .hero {
         background-color $color_main
         text-align center
+        position relative
         padding 0 vrBlock(1)
         transition padding-bottom 200ms ease
         background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('http://api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2883643/original.jpg')
@@ -24,10 +25,26 @@ $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
             setType(1)
         }
         input {
-            border 1px solid rgba(255, 255, 255, 0.5)
+            border 1px solid rgba(255, 255, 255, 0.3)
             &::placeholder {
                 color #ddd
                 font-weight light
+            }
+        }
+        &__license {
+            position absolute
+            top 0
+            right 0
+            padding 5px 10px
+            color rgba(255, 255, 255, 0.8)
+            &:hover {
+                color white
+                text-decoration none
+            }
+        }
+        &:hover {
+            .hero__license {
+                color white
             }
         }
     }
@@ -36,8 +53,8 @@ $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
 //LAPTOPS
 +isAbove($laptop) {
     .home .hero {
-        height 0
-        padding-bottom 30%
+        //height 0
+        //padding-bottom 30%
         h1 {
             font-size 50px
         }
@@ -46,7 +63,16 @@ $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
 
 +isAbove($desktop) {
     .home .hero {
-        padding-bottom 25%
+        //padding-bottom 25%
+        h1 {
+            margin-top 1vw
+        }
+    }
+}
+
++isAbove($desktop) {
+    .home .hero {
+        //padding-bottom 25%
         h1 {
             margin-top 1vw
         }
