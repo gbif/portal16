@@ -41,7 +41,7 @@
                                  ng-repeat="species in speciesList.state.data.results">
                             <span class="search-results__list__item__tag"><span>{{species.rank}}</span><span>{{species.taxonomicStatus}}</span></span>
                             <div>
-                                <a href="../species/{{row.key}}" class="tile"
+                                <a href="../species/{{species.key}}" class="tile"
                                    ng-if="speciesList.backboneKey == species.datasetKey">
                                     <div class="teaser-map--small">
                                         <img src="/img/tile000/basemap-grey-light2.png">
