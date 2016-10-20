@@ -32,7 +32,6 @@
                 </div>
             </div>
         </div>
-        {#
         {% if images[0].width > 1000 %}
         <div class="horizontal-stripe white-background">
             <figure class="heading-image">
@@ -45,7 +44,6 @@
             </figure>
         </div>
         {% endif %}
-        #}
         <div class="horizontal-stripe white-background">
             <div class="container-fluid container--prose">
                 <div class="body-text--markdown prose-columns--single-col">
