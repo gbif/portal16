@@ -47,6 +47,16 @@ Directory.getContacts = function(res) {
                                 'enum': group,
                                 'members': results
                             };
+                            return committee;
+                        })
+                        .then(function(committee){
+                            // insert group intro
+                            return getGroupIntro(committee)
+                                .then(function(committee){
+                                    return committee;
+                                });
+                        })
+                        .then(function(committee){
                             return contacts.committees.push(committee);
                         });
                 }))
@@ -76,7 +86,7 @@ Directory.getContacts = function(res) {
                             memberObj.people.push(person);
                         });
                     });
-                    memberObj.people = _.orderBy(memberObj.people, [person => person.countryCode, person => person.role], ['asc', 'desc']);
+                    memberObj.people = _.orderBy(memberObj.people, [person => person.countryCode, person => person.role, person => person.firstName], ['asc', 'desc', 'asc']);
                     participantPeople.push(memberObj);
                 });
                 contacts.peopleByParticipants = participantPeople;
@@ -84,7 +94,7 @@ Directory.getContacts = function(res) {
                 // For filtering
                 // 1) de-duplication
                 contacts.people = _.uniqBy(contacts.people, 'id');
-                contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
+                contacts.people = _.orderBy(contacts.people, [person => person.firstName.toLowerCase(), ['asc']]);
 
                 // 2) strip people details
                 contacts.people.forEach(function(p, i){
