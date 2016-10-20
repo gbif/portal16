@@ -2,55 +2,62 @@
 
 {# home page, or front page #}
 {% block page %}
-    <article class="wrapper-horizontal-stripes">
-
-        <div class="horizontal-stripe--paddingless white-background search-bar--home">
-            <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="search-bar--home__form">
-                            <form action="/search" class="search-bar--home__term">
-                                <input id="siteSearch" type="text" placeholder="{$ __('search.placeholder') $}" name="q"
-                                       autocomplete="off" value="" ng-model="omniSearchTerm">
-                                <a ng-href="/search?q={{ omniSearchTerm }}" type="submit"
-                                   class="gb-icon-search search-bar--home__search">
-                                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                                </a>
-                            </form>
-                        </div>
-                    </div>
+    <article class="wrapper-horizontal-stripes seperator--b home">
+        <div class="horizontal-stripe--paddingless article-header light-background" style="overflow: hidden; text-align: center;">
+            <div class="hero">
+                <nav class="article-header__category article-header__category--deep" style="padding-top: 10px;">
+                    <span class="article-header__category__upper" style="font-size: 20px;">
+                        <span href="/" class="gb-icon-logo"></span>
+                    </span>
+                    <span class="article-header__category__lower">GBIF</span>
+                </nav>
+                <h1>
+                    Global Biodiversity Information Facility
+                </h1>
+                <p>Demonstration site, under active development</p>
+                <div class="search-bar--home__form" style="max-width: 400px;margin: auto; margin-top: 20px; padding-bottom:20px">
+                    <form action="/search" class="search-bar--home__term ng-pristine ng-valid">
+                        <input id="siteSearch" type="text" placeholder="Search" name="q" autocomplete="off" value=""
+                               ng-model="omniSearchTerm" class="ng-pristine ng-untouched ng-valid ng-empty"
+                               aria-invalid="false" style="background-color: rgba(255,255,255,0.3);margin: 0;">
+                        <a ng-href="/search?q=" type="submit" class="gb-icon-search search-bar--home__search"
+                           href="/search?q=" style="border: 1px solid rgba(255,255,255,0.2);border-width: 1px 1px 1px 0;">
+                            <span class="sr-only">search</span>
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class="horizontal-stripe--paddingless light-background" style="overflow: hidden; text-align: center;">
-            <h1>
-                {#<span href="/" class="gb-icon-logo"></span>#}
-                Global Biodiversity Information Facility
-            </h1>
-            <p>Free and Open Access to Biodiversity Data</p>
-        </div>
-
         <div class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="card this-is-a-stub">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <h3 class="text-center m-0">Under development</h3>
+                                </div>
+                            </div>
                             <div class="card__content">
-                                <h2 class="text-center">Under development</h2>
-                                <p style="color:#adadad" class="h1 text-center gb-icon-tools"></p>
                                 <p>
-                                    This project is currently under very active development and this is an early access release with limited functionality.
+                                    This project is currently under very active development and this is an early access
+                                    release with limited functionality.
                                 </p>
                                 <p>
-                                    The first release aims to address many of the <a href="http://dev.gbif.org/issues/browse/POR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel">issues reported</a> over the years and observed by analysing user behaviour with the <a href="http://www.gbif.org">existing GBIF.org site</a>. 
-                                    The most common issues relate to the search experience and confusing navigation with such a large site.  Here we address that with cross content search, and a far leaner site with a menu encapsulating the overall structure.
+                                    The first release aims to address many of the <a
+                                            href="http://dev.gbif.org/issues/browse/POR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel">issues
+                                        reported</a> over the years and observed by analysing user behaviour with the <a
+                                            href="http://www.gbif.org">existing GBIF.org site</a>.
+                                    The most common issues relate to the search experience and confusing navigation with
+                                    such a large site. Here we address that with cross content search, and a far leaner
+                                    site with a menu encapsulating the overall structure.
                                 </p>
                                 <p>
-                                    The data exposed on this site uses the same content as <a href="http://www.gbif.org">GBIF.org</a>.
+                                    The data exposed on this site uses the same content as <a
+                                            href="http://www.gbif.org">GBIF.org</a>.
                                 </p>
                                 <p>
-                                    Feedback mechanisms on this site will be enabled shortly. 
+                                    Feedback mechanisms on this site will be enabled shortly.
                                 </p>
                             </div>
                         </div>
