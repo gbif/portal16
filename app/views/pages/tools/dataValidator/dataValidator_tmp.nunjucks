@@ -15,32 +15,7 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe light-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card this-is-a-stub">
-                            <div class="card__stripe">
-                                <div class="card__content">
-                                    <h3 class="text-center m-0">Under development</h3>
-                                </div>
-                            </div>
-                            <div class="card__content">
-                                <p>
-                                    We are working on a new validator.
-                                </p>
-                                <p>
-                                    This will allow publishers to easily validate DarwinCore Archives, CSV and Excel sheets with the same validator that we use when processing the data.
-                                </p>
-                                <p>
-                                    Come back soon for more.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "../../../shared/layout/html/developmentnotice.nunjucks" %}
 
     </article>
 {% endblock %}

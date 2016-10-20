@@ -1,0 +1,29 @@
+<div class="horizontal-stripe light-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card this-is-a-stub">
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            <h3 class="text-center m-0">Under development</h3>
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <p>
+                            We are now actively engaged in redesigning <a href="http://gbif.org/">GBIF.org</a>. This is still an early-access release with limited functionality. The content exposed here is the same as that presented on the current site.
+                        </p>
+                        <p>
+                            Our first release aims to address issues reported and observed since we launched the current GBIF.org site in October 2013. Most common among these are a subpar search experience and confusing navigation within a large site.
+                        </p>
+                        <p>
+                            Significant improvements in our data processing and handling infrastructure now make it possible to introduce site-wide cross-content search, and revisions to the navigation reflect a much leaner site featuring a menu that encapsulates a simpler overall structure.
+                        </p>
+                        <p>
+                            Thanks for your interest, and your patience: we'll turn on feedback mechanisms to get your comments soon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
