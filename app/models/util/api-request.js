@@ -18,7 +18,7 @@ function getData(cb, path, options) {
 
     if (options.headers) requestOptions.headers = options.headers;
 
-    request(requestOptions, function (err, response, body) {
+    request.get(requestOptions, function (err, response, body) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
