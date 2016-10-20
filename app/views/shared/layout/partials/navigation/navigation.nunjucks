@@ -87,7 +87,7 @@
                         <ul>
                             {% for item in menuGroup.items %}
                                 <li>
-                                    <a href="{$ gb.locales.urlPrefix $}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
+                                    <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -105,7 +105,7 @@
                                     <ul>
                                         {% for item in category.items %}
                                             <li>
-                                                <a href="{$ gb.locales.urlPrefix $}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
+                                                <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$ __('menu.' + item.name) $}</a>
                                             </li>
                                         {% endfor %}
                                     </ul>

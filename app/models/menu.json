@@ -36,8 +36,8 @@
     "type": "normal",
     "items": [
       {
-        "name": "publishing",
-        "url": "/publishing"
+        "name": "dataPublishing",
+        "url": "/data-publishing"
       },
       {
         "name": "datasetClasses",
@@ -75,7 +75,7 @@
     "type": "mega",
     "items": [
       {
-        "name": "publishing",
+        "name": "publishers",
         "items": [
           {
             "name": "ipt",
@@ -103,10 +103,6 @@
             "url": "/developer/summary"
           },
           {
-            "name": "atlases",
-            "url": "/tools/atlases"
-          },
-          {
             "name": "rgbif",
             "url": "/resource/81747"
           },
@@ -121,7 +117,7 @@
         ]
       },
       {
-        "name": "other",
+        "name": "gbifLabs",
         "items": [
           {
             "name": "speciesPopulation",
@@ -134,6 +130,11 @@
           {
             "name": "toolsCatalogue",
             "url": "/cms/search?type=tool"
+          },
+          {
+            "name": "developerBlog",
+            "url": "http://gbif.blogspot.com",
+            "type": "EXTERNAL"
           }
         ]
       }
@@ -158,6 +159,10 @@
           {
             "name": "becomeMember",
             "url": "/become-member"
+          },
+          {
+            "name": "strategicPlan",
+            "url": "/strategic-plan"
           },
           {
             "name": "contactDirectory",
@@ -195,11 +200,16 @@
           {
             "name": "awards",
             "url": "/awards"
+          },
+          {
+            "name": "communitySite",
+            "url": "http://community.gbif.org",
+            "type": "EXTERNAL"
           }
         ]
       },
       {
-        "name": "capacityEnhancement",
+        "name": "ProgrammesProjects",
         "items": [
           {
             "name": "capacitySupport",
@@ -212,6 +222,10 @@
           {
             "name": "bifaProgramme",
             "url": "/programme/bifa"
+          },
+          {
+            "name": "livingAtlases",
+            "url": "/living-atlases"
           }
         ]
       }
