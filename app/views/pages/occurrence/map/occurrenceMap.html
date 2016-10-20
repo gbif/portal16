@@ -1,6 +1,6 @@
 <div class="wrapper-horizontal-stripes occurrence-search__map">
 
-    <div class="container-fluid white-background search-header">
+    <section class="horizontal-stripe--paddingless container-fluid white-background search-header">
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
@@ -10,23 +10,37 @@
                 <div class="search-header__description">
                     <span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>
                 </div>
-                <div class="stripe-menu">
-                    <a href="" ui-sref="occurrenceSearchTable()"
-                       class="gb-icon-table stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Table"></a>
-                    <a href="" ui-sref="occurrenceSearchGallery()"
-                       class="gb-icon-photo stripe-menu__menu stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Gallery"></a>
-					<span
-                            class="gb-icon-map-marker stripe-menu__menu stripe-menu__option is-active"
-                            tooltip-placement="bottom"
-                            uib-tooltip="Map"></span>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchTable()">
+                                Table
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchGallery()">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li class="tab isActive">
+                            <span>
+                                Map
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 
     <section class="horizontal-stripe--paddingless light-background">
         <div>

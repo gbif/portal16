@@ -1,6 +1,6 @@
 <div class="wrapper-horizontal-stripes occurrence-search__table">
 
-    <div class="horizontal-stripe--paddingless white-background search-header">
+    <section class="horizontal-stripe--paddingless white-background search-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
@@ -13,26 +13,40 @@
                             {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
                         </span>
                     </div>
-                    <div class="stripe-menu">
-                        <span
-                                class="gb-icon-table stripe-menu__option stripe-menu__option is-active"
-                                tooltip-placement="bottom"
-                                uib-tooltip="Table"></span>
-                        <a href="" ui-sref="occurrenceSearchGallery()"
-                           class="gb-icon-photo stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Gallery"></a>
-                        <a href="" ui-sref="occurrenceSearchMap()"
-                           class="gb-icon-map-marker stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Map"></a>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="horizontal-stripe white-background">
+    <section class="horizontal-stripe--paddingless white-background seperator--b">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab isActive">
+                            <span>
+                                Table
+                            </span>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchGallery()">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchMap()">
+                                Map
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
         <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
@@ -110,5 +124,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
