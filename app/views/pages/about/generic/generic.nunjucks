@@ -5,7 +5,7 @@
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
-                    <header class="col-xs-12 text-center article-header--programme">
+                    <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">{$ __('cms.about') $}</span>
                             <span class="article-header__category__lower">{$ __('cms.contentType.generic') $}</span>
@@ -33,7 +33,7 @@
             </div>
         </div>
         {% if images[0].width > 1000 %}
-        <div class="horizontal-stripe white-background">
+        <div class="horizontal-stripe--paddingless white-background">
             <figure class="heading-image">
                 <div class="cover-image">
                     <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop $}" alt="{$ images[0].filename $}" gallery-image>
@@ -45,8 +45,8 @@
         </div>
         {% endif %}
         <div class="horizontal-stripe white-background">
-            <div class="container-fluid container--prose">
-                <div class="body-text--markdown prose-columns--single-col">
+            <div class="container--narrow">
+                <div class="body-text--markdown">
                     {$ data.body.markdown | safe $}
                 </div>
             </div>
