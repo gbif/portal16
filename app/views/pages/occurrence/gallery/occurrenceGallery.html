@@ -33,10 +33,11 @@
         <div class="container-fluid">
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-                    <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S"
+                    <img ng-src="{{occGallery.imageCache}}x180/{{image.media[0].identifier}}"
                          gallery-image>
                 </a>
-                <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+                <div class="imageGallery__more" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>test</span></div>
+                <div class="imageGallery__more imageGallery__more__filler" ng-if="occGallery.endOfRecords"></div>
             </div>
         </div>
     </section>
