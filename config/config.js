@@ -23,8 +23,8 @@ var config = {
         log: log,
         githubPassword: ghpw,
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
+        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
         cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'http://gbif-dev.org/'
@@ -39,8 +39,8 @@ var config = {
         log: log,
         githubPassword: ghpw,
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
+        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
+        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
         cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'http://gbif-dev.org/'
@@ -55,10 +55,10 @@ var config = {
         log: log,
         githubPassword: ghpw,
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
+        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
+        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/',
+        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'http://gbif-uat.org/'
     },
     prod: {
@@ -73,8 +73,8 @@ var config = {
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
+        cmsApi: cmsApi || 'http://cms-api.gbif.org/api/',
+        analyticsImg: analyticsImg || 'cms-api.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'http://demo.gbif.org/'
     },
     test: {
