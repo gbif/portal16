@@ -39,8 +39,8 @@
             <tbody>
             <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sortField:sortReverse">
                 <td><a ng-bind="project.title" href="/{{ project.targetUrl }}"></a></td> {# title #}
-                <td ng-if="project.grantType" ng-bind="project.grantType" class="text-nowrap"
-                    translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grant type #}
+                <td ng-if="project.grantType" class="text-nowrap"
+                    translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grantType #}
                 <td ng-bind="project.duration.end * 1000 | date:'longDate'"
                     class="text-nowrap">{{ project.duration.start * 1000 | date:'longDate' }} {$
                     __('cms.projectDuration.to') $}<br></td> {# duration #}
