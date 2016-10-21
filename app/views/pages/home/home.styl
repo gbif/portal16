@@ -1,40 +1,81 @@
 $home_overlay_opacity = 0.3
 $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
 
-.hero
-    background-color $color_main
-    text-align center
-    padding 0 vrBlock(1)
-    background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('/img/mountain.jpeg')
-    background-size cover
-    width 100%
-    height 0px
-    padding-bottom (100 /$golden) %
-    color white
-    h1
-        padding vrBlock(1.5) 0 vrBlock(0.5) 0
-        setType(3)
-        line-height vrBlock(3)
-        font-weight bold
-    h4
-        setType(1)
-    input
-        margin vrBlock(1) auto
-        width 50%
-        background none //rgba(255,255,255,0.1)
-        border 1px solid rgba(255, 255, 255, 0.5)
-        border-width 0 0 1px 0
-        border-radius 0
-        &::placeholder
-            color #aaa
-        &:focus
-            outline none
-            border-color white
+.home {
+    .hero {
+        background-color $color_main
+        text-align center
+        position relative
+        padding 0 vrBlock(1)
+        transition padding-bottom 200ms ease
+        background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('http://api.gbif.org/v1/image/unsafe/1200x400/left/top/http://static.inaturalist.org/photos/2883643/original.jpg')
+        //background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('http://api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2883643/original.jpg')
+        background-size cover
+        background-position center
+        width 100%
+        color white
+        h1 {
+            max-width 500px
+            margin auto
+            margin-top 0
+            margin-bottom 0
+            padding vrBlock(.5) 0 vrBlock(.5) 0
+            font-weight bold
+        }
+        h4 {
+            setType(1)
+        }
+        input {
+            border 1px solid rgba(255, 255, 255, 0.3)
+            &::placeholder {
+                color #ddd
+                font-weight light
+            }
+        }
+        &__license {
+            position absolute
+            top 0
+            right 0
+            padding 5px 10px
+            color rgba(255, 255, 255, 0.8)
+            &:hover {
+                color white
+                text-decoration none
+            }
+        }
+        &:hover {
+            .hero__license {
+                color white
+            }
+        }
+    }
+}
 
 //LAPTOPS
-+isAbove($laptop)
-    .hero
-        padding-bottom (100 /$majorTwelfth) %
-        h1
-            setType(6)
-            font-weight bold
++isAbove($laptop) {
+    .home .hero {
+        //height 0
+        //padding-bottom 30%
+        h1 {
+            font-size 50px
+        }
+    }
+}
+
++isAbove($desktop) {
+    .home .hero {
+        //padding-bottom 25%
+        h1 {
+            margin-top 1vw
+        }
+    }
+}
+
++isAbove($desktop) {
+    .home .hero {
+        //padding-bottom 25%
+        h1 {
+            margin-top 1vw
+        }
+    }
+}

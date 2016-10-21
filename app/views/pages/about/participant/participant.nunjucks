@@ -104,7 +104,7 @@
                                         <div class="row">
                                             {% if data.__system.prev.thumbnail %}
                                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                                    <img ng-src="{$ data.__system.prev.thumbnail $}" gallery-image
+                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
                                                          alt="{$ data.__system.prev.imageCaption $}">
                                                 </div>
                                             {% endif %}
@@ -127,7 +127,7 @@
                                         <div class="row">
                                             {% if data.__system.next.thumbnail %}
                                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                                    <img ng-src="{$ data.__system.next.thumbnail $}" gallery-image
+                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
                                                          alt="{$ data.__system.next.imageCaption $}">
                                                 </div>
                                             {% endif %}

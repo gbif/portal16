@@ -15,8 +15,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
     vm.count = -1;
     vm.results = [];
 
-    //vm.dataApi = env.dataApi; //actual endpoint
-    vm.dataApi = 'https://http2-api-test.gbif-uat.org/v1/'; //tmp endpoint TODO http2 and multiple domains. test http2 'https://http2-api-test.gbif-uat.org/v1/';
+    vm.imageCache = env.imageCache;
 
     var latestData = {};
 

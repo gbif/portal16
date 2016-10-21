@@ -21,26 +21,30 @@ function taxonRoute(req, res, next) {
 function getTaxon(key, lang) {
     var deferred = Q.defer();
     var getOptions = {
-        expand: ['name','constituent','synonyms','combinations',
-            'occurrenceGeoRefCount','occurrenceCount',
-            'references','vernacular','typification']
+        // TODO: load these async through angular to respond quicker:
+        // 'synonyms','combinations','references','typification'
+        //TODO:
+        expand: ['name', 'constituent', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular']
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {
         // pick one vernacular name of requested language
         taxon.vernacular.results.some(function (v) {
             //TODO: create lookup map for 3 letter iso codes to 2 letter ones as used by the locale
+            // use http://api.gbif-dev.org/v1/enumeration/language
             if (v.language == lang || v.language=='eng') {
-                this.record.vernacularName = v.vernacularName;
-                this.record.vernacularLang = v.language;
-            }
-            return v.language == lang;
+                taxon.record.vernacularName = v.vernacularName;
+                taxon.record.vernacularLang = v.language;             }
+            return v.language == lang || v.language=='eng';
         });
         deferred.resolve(taxon);
 
     }, function (err) {
+        console.log(err);
         deferred.reject(new Error(err));
+
     }).fail(function (err) {
+        console.log(err);
         deferred.reject(new Error(err));
     }).done();
 
@@ -53,9 +57,10 @@ function renderPage(req, res, next, taxon) {
             res.json(taxon);
         } else {
             res.render('pages/species/key/speciesKey', {
+                key: taxon.record.key,
                 taxon: taxon,
                 _meta: {
-                    title: 'Taxon Detail ' + req.params.key
+                    title: taxon.record.scientificName
                 }
             });
         }

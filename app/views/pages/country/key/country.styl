@@ -1,0 +1,170 @@
+$newsCardWidth = 250px
+.country-key {
+    .card {
+        flex 1 1 auto
+        width 400px
+        position relative
+        margin 10px
+    }
+
+    &__datasets {
+        &__counts {
+            display flex
+            flex-wrap wrap
+            > div {
+                flex 1 1 auto
+                min-width 100px
+                padding vrBlock(1) 10px
+            }
+        }
+    }
+    &__news {
+
+    }
+    &__occurrence-count {
+        .h2 {
+            font-weight 300
+            margin vrBlock(1) 10px
+        }
+    }
+    &__more-arrow {
+        font-size 30px
+        position absolute
+        top 0
+        line-height 55px
+        right 20px
+        color #888
+    }
+    .card-container--stats {
+        display flex
+        flex-wrap wrap
+    }
+    .card-container--news {
+        display flex
+        flex-wrap wrap
+    }
+    &__news {
+        display none
+        &.card {
+            height 280px
+            width 100%
+        }
+        &__img-wrapper {
+            height 0
+            padding-bottom 55%
+            transition padding-bottom 300ms ease
+            position relative
+            background-size cover
+            background-position center
+            &:before {
+                content ''
+                position absolute
+                top 0
+                right 0
+                bottom 0
+                left 0
+                background-image linear-gradient(to bottom,#444,#000)
+                opacity .0
+                transition opacity 300ms ease
+            }
+        }
+        &:hover {
+            .country-key__news__img-wrapper {
+                padding-bottom 20%
+                &:before {
+                    opacity .6
+                }
+            }
+        }
+        a:hover .card__content {
+            color $bodyTextColor
+        }
+        &__type {
+            font-size 12px
+            text-transform uppercase
+            background #4ba2ce
+            color #fff
+            padding 5px 10px
+            display inline-block
+        }
+        &--img {
+            .country-key__news__type {
+                bottom 0
+                position absolute
+            }
+            .country-key__news__summary {
+                height 0
+                padding-bottom 0
+                transition padding-bottom 300ms ease
+                overflow hidden
+                position relative
+                > p {
+                    position absloute
+                    top 0
+                }
+            }
+            &:hover {
+                .country-key__news__summary {
+                    padding-bottom 35%
+                }
+            }
+        }
+        &__date {
+            position absolute
+            bottom 0
+            right 10px
+            color $discreetInk
+            font-weight normal
+            font-size 12px
+        }
+
+        &:nth-of-type(1) {
+            display block
+        }
+        &:last-of-type {
+            display block
+        }
+    }
+}
+
++isAbove($newsCardWidth * 2 + 40px) {
+    .country-key {
+        &__news.card {
+            min-width 200px
+            width 200px
+            max-width 300px
+        }
+    }
+}
+
++isAbove($newsCardWidth * 3 + 60px) {
+    .country-key {
+        &__news.card {
+            width $newsCardWidth
+            min-width $newsCardWidth
+            &:nth-of-type(-n+2) {
+                display block
+            }
+        }
+    }
+}
+
++isAbove($newsCardWidth * 4 + 80px) {
+    .country-key {
+        &__news.card {
+            &:nth-of-type(-n+3) {
+                display block
+            }
+        }
+    }
+}
+
++isAbove($newsCardWidth * 5 + 100px) {
+    .country-key {
+        &__news.card {
+            &:nth-of-type(-n+4) {
+                display block
+            }
+        }
+    }
+}

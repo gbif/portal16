@@ -1,4 +1,5 @@
 var angular = require('angular');
+//require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
 require('angular-ui-router');
 require('angular-translate');
 require('angular-moment');
@@ -168,59 +169,6 @@ this.Element && function (ElementPrototype) {
         }
 }(Element.prototype);
 
-
-/**
- This method should catch all, but the line number and column might not be supported in all browsers. Test this
-
- https://danlimerick.wordpress.com/2014/01/18/how-to-catch-javascript-errors-with-window-onerror-even-on-chrome-and-firefox/
- For files loaded across CDN use the crossorigin attribute for logging to work
- <script crossorigin="anonymous" src="//cdn/vendorfile.js"></script>
- The crossorigin tag has two possible values.
-
- There might be issues in iOS Safari and older Androids.
- These can be filtereed by checking if the error message is equal to “Script error.”.
- window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-    if (errorMsg.indexOf('Script error.') > -1) {
-        return;
-    }
-}
- */
-
-function stackTrace() {
-    var err = new Error();
-    return err.stack;
-}
-
-window.onerror = function (msg, file, line, col, error) {
-    //return;//TODO find better way that won't spam server in case of a looping error
-    window.gb = window.gb || {};
-    gb.lastErrorDateTime = gb.lastErrorDateTime || 0;
-    var currentTime = new Date().getTime();
-
-    if (currentTime - gb.lastErrorDateTime > 300000) {
-        gb.lastErrorDateTime = currentTime;
-        var errorData = {
-            msg: msg,
-            file: file,
-            line: line,
-            col: col,
-            error: error,
-            stack: stackTrace()
-        };
-        var request = new XMLHttpRequest();
-        request.open('POST', '/api/log/error', true);
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.send(JSON.stringify(errorData));
-    }
-
-    //$.post('/api/log/error', errorData);
-    return false; //still write error to console
-};
-
-// console.log('test');
-// window.mytest = $('.navbar');
-// menu.tester();
-//throw new Error();
 
 function increaseNumber(num) {
     return num + menu.myvar;

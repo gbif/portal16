@@ -13,6 +13,7 @@
     "window": true,
     "gb": true,
     "Firebase": true,
-    "L": true
+    "L": true,
+    "angular": true
   }
 }

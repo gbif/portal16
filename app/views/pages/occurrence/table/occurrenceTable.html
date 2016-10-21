@@ -1,6 +1,6 @@
 <div class="wrapper-horizontal-stripes occurrence-search__table">
 
-    <div class="horizontal-stripe--paddingless white-background search-header">
+    <section class="horizontal-stripe--paddingless white-background search-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
@@ -13,26 +13,40 @@
                             {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
                         </span>
                     </div>
-                    <div class="stripe-menu">
-                        <span
-                                class="gb-icon-table stripe-menu__option stripe-menu__option is-active"
-                                tooltip-placement="bottom"
-                                uib-tooltip="Table"></span>
-                        <a href="" ui-sref="occurrenceSearchGallery()"
-                           class="gb-icon-photo stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Gallery"></a>
-                        <a href="" ui-sref="occurrenceSearchMap()"
-                           class="gb-icon-map-marker stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Map"></a>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="horizontal-stripe white-background">
+    <section class="horizontal-stripe--paddingless white-background seperator--b">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab isActive">
+                            <span>
+                                Table
+                            </span>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchGallery()">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchMap()">
+                                Map
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
         <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
@@ -47,7 +61,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="result in occTable.occurrenceState.data.results">
+                        <tr ng-repeat="result in occTable.occurrenceState.table.results">
                             <td class="table-cell--wide">
                                 <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                             </td>
@@ -92,11 +106,11 @@
                 </div>
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" ng-if="occTable.hasData()">
                 <div class="row">
                     <div class="col-xs-12">
                         <uib-pagination
-                                total-items="occTable.occurrenceState.data.count"
+                                total-items="occTable.occurrenceState.table.count"
                                 ng-model="occTable.currentPage"
                                 max-size="occTable.maxSize"
                                 items-per-page="occTable.limit"
@@ -104,11 +118,11 @@
                                 boundary-link-numbers="false"
                                 rotate="false"
                                 ng-change="occTable.pageChanged()"
-                                ng-show="occTable.occurrenceState.data.count > occTable.limit">
+                                ng-show="occTable.occurrenceState.table.count > occTable.limit">
                         </uib-pagination>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>

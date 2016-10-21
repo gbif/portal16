@@ -36,32 +36,32 @@
     "type": "normal",
     "items": [
       {
-        "name": "publishing",
-        "url": "/publishing"
+        "name": "dataPublishing",
+        "url": "/data-publishing"
       },
       {
         "name": "datasetClasses",
-        "url": "/dataset-classes"
+        "url": "/publishing/dataset-classes"
       },
       {
         "name": "publishingGuide",
-        "url": "/publishing-guide"
+        "url": "/publishing/publishing-guide"
       },
       {
         "name": "endorsement",
-        "url": "/endorsement"
+        "url": "/publishing/endorsement"
       },
       {
         "name": "darwinCore",
-        "url": "/darwin-core"
+        "url": "/publishing/darwin-core"
       },
       {
         "name": "digitizingCollections",
-        "url": "/digitizing-collections"
+        "url": "/publishing/digitizing-collections"
       },
       {
         "name": "dataPapers",
-        "url": "/data-papers"
+        "url": "/publishing/data-papers"
       },
       {
         "name": "citizenScience",
@@ -75,11 +75,11 @@
     "type": "mega",
     "items": [
       {
-        "name": "publishing",
+        "name": "publishers",
         "items": [
           {
             "name": "ipt",
-            "url": "/tools/ipt"
+            "url": "/ipt"
           },
           {
             "name": "dataValidator",
@@ -90,8 +90,8 @@
             "url": "/tools/suggest-dataset"
           },
           {
-            "name": "collectionManagment",
-            "url": "/tools/collection-managment"
+            "name": "collectionManagement",
+            "url": "/tools/collection-management"
           }
         ]
       },
@@ -104,15 +104,11 @@
           },
           {
             "name": "rgbif",
-            "url": "/tools/r-gbif"
-          },
-          {
-            "name": "atlases",
-            "url": "/tools/atlases"
+            "url": "/resource/81747"
           },
           {
             "name": "maxent",
-            "url": "/tools/maxent"
+            "url": "/resource/81279"
           },
           {
             "name": "gbifSoftware",
@@ -121,7 +117,7 @@
         ]
       },
       {
-        "name": "other",
+        "name": "gbifLabs",
         "items": [
           {
             "name": "speciesPopulation",
@@ -134,6 +130,11 @@
           {
             "name": "toolsCatalogue",
             "url": "/cms/search?type=tool"
+          },
+          {
+            "name": "developerBlog",
+            "url": "http://gbif.blogspot.com",
+            "type": "EXTERNAL"
           }
         ]
       }
@@ -153,15 +154,19 @@
           },
           {
             "name": "GbifNetwork",
-            "url": "/tools/ipt"
+            "url": "/gbif-network"
           },
           {
             "name": "becomeMember",
             "url": "/become-member"
           },
           {
+            "name": "strategicPlan",
+            "url": "/strategic-plan"
+          },
+          {
             "name": "contactDirectory",
-            "url": "directory/contact-us"
+            "url": "/directory/contact-us"
           },
           {
             "name": "contactUs",
@@ -177,33 +182,38 @@
             "url": "/cms/search?type=news"
           },
           {
-            "name": "literature",
-            "url": "/cms/search?type=literature"
-          },
-          {
-            "name": "newsletters",
-            "url": "/newsletters"
-          },
-          {
             "name": "featuredDataUse",
             "url": "/cms/search?type=data_use"
+          },
+          {
+            "name": "literature",
+            "url": "/cms/search?type=literature"
           },
           {
             "name": "events",
             "url": "/cms/search?type=event"
           },
           {
+            "name": "newsletters",
+            "url": "/newsletters"
+          },
+          {
             "name": "awards",
             "url": "/awards"
+          },
+          {
+            "name": "communitySite",
+            "url": "http://community.gbif.org",
+            "type": "EXTERNAL"
           }
         ]
       },
       {
-        "name": "capacityEnhancement",
+        "name": "ProgrammesProjects",
         "items": [
           {
             "name": "capacitySupport",
-            "url": "/capacity-support"
+            "url": "/programme/capacity-support"
           },
           {
             "name": "bidProgramme",
@@ -212,6 +222,10 @@
           {
             "name": "bifaProgramme",
             "url": "/programme/bifa"
+          },
+          {
+            "name": "livingAtlases",
+            "url": "/living-atlases"
           }
         ]
       }

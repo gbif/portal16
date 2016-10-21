@@ -50,6 +50,7 @@ function cmsSearch(query) {
     var queryUrl = apiConfig.search.url;
     queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
     queryUrl += '?page[size]=' + limit;
+    queryUrl += '&sort=-created';
 
     if (query.offset) {
         queryUrl += '&';

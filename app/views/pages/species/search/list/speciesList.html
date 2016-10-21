@@ -28,6 +28,27 @@
         </div>
     </div>
 
+    <section class="horizontal-stripe--paddingless white-background seperator--b">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab isActive">
+                            <span>
+                                List
+                            </span>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="speciesSearchTable()">
+                                Table
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 
     <div class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
@@ -41,7 +62,7 @@
                                  ng-repeat="species in speciesList.state.data.results">
                             <span class="search-results__list__item__tag"><span>{{species.rank}}</span><span>{{species.taxonomicStatus}}</span></span>
                             <div>
-                                <a href="../species/{{row.key}}" class="tile"
+                                <a href="../species/{{species.key}}" class="tile"
                                    ng-if="speciesList.backboneKey == species.datasetKey">
                                     <div class="teaser-map--small">
                                         <img src="/img/tile000/basemap-grey-light2.png">

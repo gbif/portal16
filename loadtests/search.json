@@ -1,15 +1,15 @@
 {
   "config": {
-    "target": "http://localhost:3000",
+    "target": "http://localhost:3001",
     "phases": [
       {
         "duration": 2,
         "arrivalRate": 5
       },
       {
-        "duration": 4,
+        "duration": 10,
         "arrivalRate": 5,
-        "rampTo": 20
+        "rampTo": 30
       }
     ],
     "payload": [
@@ -27,7 +27,7 @@
       "flow": [
         {
           "get": {
-            "url": "/search?q={{ term }}"
+            "url": "/search/partial?q={{ term }}"
           }
         }
       ]

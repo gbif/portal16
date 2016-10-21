@@ -2,7 +2,6 @@
 
 var express = require('express'),
     dataset = require('./datasetViewData'),
-    getDownloadStats = require('../../../models/gbifdata/gbifdata').getDownloadStats,
     router = express.Router();
 
 module.exports = function (app) {

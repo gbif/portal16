@@ -16,9 +16,9 @@ Directory.getContacts = function() {
         'executive_committee',
         'science_committee',
         'budget_committee',
-        'nodes_committee'
+        'nodes_committee',
         //'nodes_steering_group'
-        //'gbif_secretariat'
+        'gbif_secretariat'
     ];
 
     var contacts = {
@@ -36,13 +36,14 @@ Directory.getContacts = function() {
         .then((exists) => {
             if (exists) {
                 return Q.all(groups.map(function(group){
-                    return getCommitteeContacts(group, contacts).then(function(results){
-                        var committee = {
-                            'enum': group,
-                            'members': results
-                        };
-                        return contacts.committees.push(committee);
-                    });
+                    return getCommitteeContacts(group, contacts)
+                        .then(function(results){
+                            var committee = {
+                                'enum': group,
+                                'members': results
+                            };
+                            return contacts.committees.push(committee);
+                        });
                 }))
             }
             else {
@@ -118,13 +119,12 @@ Directory.postProcessContacts = function(contacts, __) {
             });
         });
     });
-
 };
 
 function processContacts(contacts) {
 
     // sort committees
-    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee'];
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee', 'gbif_secretariat'];
     contacts.committees.sort(function(x, y){
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
@@ -177,18 +177,30 @@ function processContacts(contacts) {
             'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
             'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
             'NODES_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'gbifs_secretariat': [
+            'GBIFS_STAFF_MEMBER'
         ]
     };
 
-    // reduce roles to one according to committee
+    // committee specific processing
     contacts.committees.forEach(function(committee){
+        // reduce roles to one according to committee
         committee.members.forEach(function(member){
             if (member.roles.length > 1) {
                 member.roles = member.roles.filter(function(role){
-                    return committeeRoles[committee.enum].indexOf(role.role) != -1;
+                    if (committee.enum != 'gbif_secretariat') return committeeRoles[committee.enum].indexOf(role.role) != -1;
                 });
             }
         });
+
+        if (committee.enum == 'nodes_committee') {
+            committee.members.forEach(function(member){
+                if (member.nodes.length > 0) {
+                    member.membershipType = member.nodes[0].membershipType;
+                }
+            });
+        }
     });
 
     return contacts;
@@ -292,12 +304,21 @@ function getParticipantDetails(participantId) {
     return deferred.promise;
 }
 
-function getNodeDetails(node) {
+function getNodeDetails(nodeId) {
     var deferred = Q.defer();
-    var requestUrl = dataApi.directoryNode.url + '/' + node.id;
+    var requestUrl = dataApi.directoryNode.url + '/' + nodeId;
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
+        .then(function(data){
+            return getParticipantDetails(data.participantId)
+                .then(function(result){
+                    data.participantName = result.name;
+                    setMembership(result);
+                    data.membershipType = result.membershipType;
+                    return data;
+                });
+        })
         .then(function(data){
             deferred.resolve(data);
         })
@@ -340,7 +361,12 @@ function getCommitteeContacts(group, contacts) {
         .then(function(results){
             var personsTasks = [];
             results.forEach(function(person){
-                personsTasks.push(getPersonContact(person.personId, contacts));
+                if (group == 'gbif_secretariat') {
+                    personsTasks.push(getPersonContact(person.id, contacts));
+                }
+                else {
+                    personsTasks.push(getPersonContact(person.personId, contacts));
+                }
             });
             return Q.all(personsTasks);
         })
@@ -359,6 +385,14 @@ function getCommitteeContacts(group, contacts) {
                     if (member.nodes.length > 0) {
                         member.nodes.forEach(function(node){
                             member.roles.push({'nodeId':node.nodeId, 'role':node.role});
+                        });
+                    }
+                    // if member is from Nodes Committee, get their participant name from Node object.
+                    if (member.nodes.length > 0) {
+                        member.nodes.forEach(function(node){
+                            if (node.role == 'NODE_MANAGER') {
+                                member.participantName = node.participantName;
+                            }
                         });
                     }
                 }
@@ -389,6 +423,15 @@ function getPersonContact(personId, contacts) {
                 return Q.all(participantTasks).then(function(results){
                     results.forEach(function(result, i){
                         data.participants[i].participantName = result.name;
+                        // merge properties
+                        for (var attr in result) {
+                            if (!data.participants[i].hasOwnProperty(attr)) {
+                                data.participants[i][attr] = result[attr];
+                            }
+                        }
+                    });
+                    data.participants.forEach(function(p){
+                        setMembership(p);
                     });
                     return data;
                 });
@@ -398,6 +441,26 @@ function getPersonContact(personId, contacts) {
             }
         })
         .then(function(data){
+            var nodeTasks = [];
+            if (data.hasOwnProperty('nodes') && data.nodes.length > 0) {
+                data.nodes.forEach(function(n){
+                    if (n.hasOwnProperty('nodeId')) {
+                        nodeTasks.push(getNodeDetails(n.nodeId));
+                    }
+                });
+            }
+            return Q.all(nodeTasks).then(function(results){
+                results.forEach(function(result, i){
+                    for (var attr in result) {
+                        if (!data.nodes[i].hasOwnProperty(attr)) {
+                            data.nodes[i][attr] = result[attr];
+                        }
+                    }
+                });
+                return data;
+            });
+        })
+        .then(function(data){
             contacts.people.push(data);
             deferred.resolve(data);
         })
@@ -405,6 +468,31 @@ function getPersonContact(personId, contacts) {
             deferred.reject(new Error(err));
         });
     return deferred.promise;
+}
+
+function setMembership(p) {
+    // determine membership type
+    if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
+        p.membershipType = 'voting_participant';
+    }
+    else if (p.type == 'COUNTRY' && p.participationStatus == 'ASSOCIATE') {
+        p.membershipType = 'associate_country_participant';
+    }
+    else if (p.type == 'OTHER' && p.participationStatus == 'ASSOCIATE') {
+        p.membershipType = 'other_associate_participant';
+    }
+    else if (p.type == 'OTHER' && p.participationStatus == 'AFFILIATE') {
+        p.membershipType = 'gbif_affiliate';
+    }
+    else if (p.participationStatus == 'FORMER') {
+        p.membershipType = 'former_participant';
+    }
+    else if (p.participationStatus == 'OBSERVER') {
+        p.membershipType = 'observer';
+    }
+    else {
+        p.membershipType = 'not_specified';
+    }
 }
 
 function genericEndpointAccess(requestUrl, options) {

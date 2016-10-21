@@ -1,5 +1,6 @@
 var request = require('request'),
     async = require('async'),
+    xmlParser = require('xml2js').parseString,
     log = require('../../../config/log');
 
 var ERRORS = Object.freeze({
@@ -10,15 +11,14 @@ var ERRORS = Object.freeze({
 });
 
 function getData(cb, path, options) {
-    var data,
-        requestOptions = {
-            url: path,
-            timeout: options.timeoutMilliSeconds
-        };
+    var requestOptions = {
+        url: path,
+        timeout: options.timeoutMilliSeconds
+    };
 
     if (options.headers) requestOptions.headers = options.headers;
 
-    request(requestOptions, function (err, response, body) {
+    request.get(requestOptions, function (err, response, body) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
@@ -55,19 +55,47 @@ function getData(cb, path, options) {
             cb(ERRORS.INVALID_RESPONSE, null);
             log.error('no response data ' + path);
         }
-
-        //if invalid response
         else {
-            try {
-                data = JSON.parse(body);
-            } catch (err) {
-                cb(ERRORS.INVALID_RESPONSE, null);
-                log.error('invalid json response ' + path);
-                return;
+            if (options.type == 'XML') {
+                parseXml(body, path, cb);
             }
-            cb(null, data);
+            else {
+                parseJson(body, path, cb);
+            }
         }
     });
+}
+
+function parseXml(body, path, cb) {
+    "use strict";
+    try {
+        xmlParser(body, function (err, result) {
+            if (err) {
+                cb(err);
+            }
+            else {
+                cb(null, result);
+                log.error('failed to parse XML response ' + path);
+            }
+        });
+    } catch (err) {
+        //if invalid response
+        cb(ERRORS.INVALID_RESPONSE, null);
+        log.error('invalid xml response ' + path);
+    }
+}
+
+function parseJson(body, path, cb) {
+    "use strict";
+    let data;
+    try {
+        data = JSON.parse(body);
+        cb(null, data);
+    } catch (err) {
+        //if invalid response
+        cb(ERRORS.INVALID_RESPONSE, null);
+        log.error('invalid json response ' + path);
+    }
 }
 
 function getApiData(path, callback, options) {

@@ -4,9 +4,6 @@
 
         {% for contributor in contacts %}
             <div class="dataset-key__contributors__item">
-                {% if contributor.userId.length > 0 %}
-                    <i class="gb-icon-test"></i>
-                {% endif %}
                 <address>
 
                     <span class="relative-anchor-offset"><a name="contributor_{$ contributor._id $}"></a></span>

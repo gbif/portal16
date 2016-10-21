@@ -1,7 +1,7 @@
 <article class="wrapper-horizontal-stripes">
 
 
-    <div class="horizontal-stripe--paddingless white-background search-header">
+    <section class="horizontal-stripe--paddingless white-background search-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
@@ -14,23 +14,35 @@
                             {{speciesTable.state.data.count | localNumber:speciesTable.state.query.locale }} results
                         </span>
                     </div>
-                    <div class="stripe-menu">
-                        <a href="" ui-sref="speciesSearchList()"
-                           class="gb-icon-menu stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Table"></a>
-                        <span
-                                class="gb-icon-table stripe-menu__menu stripe-menu__option is-active"
-                                tooltip-placement="bottom"
-                                uib-tooltip="Gallery"></span>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless white-background seperator--b">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab">
+                            <a href="" ui-sref="speciesSearchList()">
+                                List
+                            </a>
+                        </li>
+
+                        <li class="tab isActive">
+                            <span>
+                                Table
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 
 
-    <div class="horizontal-stripe white-background">
+    <section class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"></ng-include>
         <div ng-show="speciesTable.hasData()">
 
@@ -122,5 +134,5 @@
             </div>
 
         </div>
-    </div>
+    </section>
 </article>

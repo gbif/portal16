@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="card__stripe"
-                         style="background-image: url('{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
+                         style="background-image: url('{$ _meta.imageCacheUrl $}{$ highlightedNode.images[0].styles.focal_point_for_news | encodeURI $}')">
                     </div>
                 </article>
             </div>

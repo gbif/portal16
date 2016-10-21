@@ -4,6 +4,7 @@ var express = require('express'),
     format = require('../../helpers/format'),
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     cmsData = require('../../models/cmsData/cmsData'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
@@ -78,7 +79,6 @@ router.get([
                 // Render content if the result is not from URL Lookup.
                 if (typeof data.data[0] == 'object' && data.data[0].hasOwnProperty('created') && data.data[0].hasOwnProperty('title')) {
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
-                        // @todo to wire the api endpoint when it goes in production.
                         return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;
                             renderPage(data, jsonOutput, next);
@@ -119,7 +119,12 @@ router.get([
                 // Expand/modify data before rendering
                 switch (body.data[0].type) {
                     case 'generic':
-                        body.data[0].body.markdown = md.render(body.data[0].body.value);
+                        if (body.data[0].body && body.data[0].body.value) {
+                            body.data[0].body.markdown = md.render(body.data[0].body.value);
+                        }
+                        else {
+                            body.data[0].body = {'markdown': '(No content provided yet.)'};
+                        }
                         break;
                 }
 
@@ -131,7 +136,8 @@ router.get([
                         title: body.data[0].title,
                         hasTools: true,
                         originalUrl: req.originalUrl,
-                        domain: config.domain
+                        domain: config.domain,
+                        imageCacheUrl: imageCacheUrl
                     }
                 };
 

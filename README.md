@@ -57,6 +57,14 @@ Start in development mode and continuously run server and client tests
 gulp --test
 ```
 
+### e2e tests using protractor
+installation see: http://www.protractortest.org/
+install protractor `npm install -g protractor`
+update webdriver `webdriver-manager update`
+start webdriver `webdriver-manager start`
+start the server at port 3000
+run the tests `protractor e2e.conf.js`
+
 ### Debugging
 Initiating debugging is very slow. Unclear what the best approach is. Currently I start gulp in dev mode with `gulp --tdd` and then in another process starts node inspector with `node-debug app.js --port=3002`
 

@@ -1,6 +1,6 @@
 <div class="wrapper-horizontal-stripes occurrence-search__gallery">
 
-    <div class="container-fluid white-background search-header">
+    <section class="horizontal-stripe--paddingless container-fluid white-background search-header">
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
@@ -10,33 +10,48 @@
                 <div class="search-header__description">
                     <span ng-if="occGallery.count >= 0">{{occGallery.occurrenceState.data.count | number}} occurrences. {{occGallery.count | number}} with images</span>
                 </div>
-                <div class="stripe-menu">
-                    <a href="" ui-sref="occurrenceSearchTable()"
-                       class="gb-icon-table stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Table"></a>
-                    <span
-                            class="gb-icon-photo stripe-menu__menu stripe-menu__option is-active"
-                            tooltip-placement="bottom"
-                            uib-tooltip="Gallery"></span>
-                    <a href="" ui-sref="occurrenceSearchMap()"
-                       class="gb-icon-map-marker stripe-menu__menu stripe-menu__option"
-                       tooltip-placement="bottom"
-                       uib-tooltip="Map"></a>
-                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container--narrow">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchTable()">
+                                Table
+                            </a>
+                        </li>
+
+                        <li class="tab isActive">
+                            <span>
+                                Gallery
+                            </span>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchMap()">
+                                Map
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 
     <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"></ng-include>
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
-                    <img ng-src="{{occGallery.dataApi}}image?url={{image.media[0].identifier | encodeURIComponent}}&size=S"
+                    <img ng-src="{{occGallery.imageCache}}x180/{{image.media[0].identifier | encodeURIComponent}}"
                          gallery-image>
                 </a>
-                <div class="imageGallery__more" ng-click="occGallery.loadMore()"><span>more</span></div>
+                <div class="imageGallery__more" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>test</span></div>
+                <div class="imageGallery__more imageGallery__more__filler" ng-if="occGallery.endOfRecords"></div>
             </div>
         </div>
     </section>

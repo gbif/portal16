@@ -6,6 +6,7 @@ angular
     .module('portal')
     .service('OccurrenceFilter', function ($rootScope, $state, $stateParams, OccurrenceTableSearch) {
         var state = {
+            table: {},
             data: {},
             facetMultiselect: {},
             failedRequest: false,
@@ -46,8 +47,9 @@ angular
         );
 
         function refreshData(query) {
-            var apiQuery;
+            var apiQuery, tableQuery;
             state.query = query || $stateParams;
+            tableQuery  = angular.copy(state.query);
             apiQuery = angular.copy(state.query);
             apiQuery.facet = exhaustiveFacets;
             apiQuery['month.facetLimit'] = 12;
@@ -69,9 +71,17 @@ angular
                 state.failedRequest = true;
             });
 
+            //test get only table without facets
+            if (state.table.$cancelRequest) state.table.$cancelRequest();
+            state.table = OccurrenceTableSearch.query(tableQuery, function () {
+                state.failedRequest = false;
+            }, function () {
+                state.failedRequest = true;
+            });
+
             //get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
             apiQuery.facetMultiselect = true;
-            apiQuery.limit = 0; //no need to get the same results again
+            //apiQuery.limit = 0; //no need to get the same results again
             apiQuery.facet = [];
             multiSelectFacetsKeys.forEach(function (key) {
                 if (angular.isDefined(apiQuery[key]) && [].concat(apiQuery[key]).length > 0) {

@@ -14,14 +14,9 @@ angular
                         limit: 0
                     }
                 }).then(function (response) {
-                    window.setTimeout(function(){
-                        var number = $filter('localNumber')(response.data.count, gb.locale);
-                        element.html(number);
-                        element.addClass('loaded');
-                    }, 5000);
-                    //var number = $filter('localNumber')(response.data.count, gb.locale);
-                    //element.html(number);
-                    //element.addClass('loaded');
+                    var number = $filter('localNumber')(response.data.count, gb.locale);
+                    element.html(number);
+                    element.addClass('loaded');
                 });
             }
         };

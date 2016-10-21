@@ -1,0 +1,21 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes publisherKey page--data">
+
+        {% include "./header/header.nunjucks" %}
+
+        {% include "./highlights/highlights.nunjucks" %}
+
+        {% include "./description/description.nunjucks" %}
+
+        {% include "./map/map.nunjucks" %}
+
+        {% include "./contacts/contacts.nunjucks" %}
+
+    </article>
+
+
+
+
+{% endblock %}
