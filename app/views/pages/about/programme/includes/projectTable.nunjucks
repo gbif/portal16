@@ -1,43 +1,44 @@
 <div class="projects__table" ng-controller="programmeCtrl as programme">
     <div class="table-container--project"
-         ng-init="programme.nodeId = '{$ data.id $}'; programme.nodeType = '{$ data.type $}'; programme.getNodeData()">
+         ng-init="programme.nodeId = '{$ data.id $}'; programme.nodeType = '{$ data.type $}'; programme.getNodeData();
+         sort = {field: '', reverse: false }; ">
         <h3>{$ __('cms.programme.projects') $}</h3>
         <table class="table">
             <thead>
             <tr>
-                <th><a ng-click="sortField = 'title'; sortReverse = !sortReverse">{$ __('cms.project.project') $}</a>
-                    <div ng-show="sortField == 'title' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'title' && sortReverse" class="gb-icon-angle-up"></div>
+                <th><a ng-click="sort.field = 'title'; sort.Reverse = !sort.Reverse">{$ __('cms.project.project') $}</a>
+                    <div ng-show="sort.field == 'title' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'title' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th ng-show="programme.node.relatedProjects[0].grantType"><a
-                            ng-click="sortField = 'grantType'; sortReverse = !sortReverse">{$
+                <th ng-if="programme.node.relatedProjects[0].grantType"><a
+                            ng-click="sort.field = 'grantType'; sort.Reverse = !sort.Reverse">{$
                         __('cms.project.grantType') $}</a>
-                    <div ng-show="sortField == 'grantType' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'grantType' && sortReverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'grantType' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'grantType' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sortField = 'duration.start'; sortReverse = !sortReverse">{$ __('cms.project.duration')
+                <th><a ng-click="sort.field = 'duration.start'; sort.Reverse = !sort.Reverse">{$ __('cms.project.duration')
                         $}</a>
-                    <div ng-show="sortField == 'duration.start' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'duration.start' && sortReverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'duration.start' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'duration.start' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sortField = 'fundingAllocated'; sortReverse = !sortReverse">{$
+                <th><a ng-click="sort.field = 'fundingAllocated'; sort.Reverse = !sort.Reverse">{$
                         __('cms.project.fundingAllocated') $}</a>
-                    <div ng-show="sortField == 'fundingAllocated' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'fundingAllocated' && sortReverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'fundingAllocated' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'fundingAllocated' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sortField = 'estimatedCoFunding'; sortReverse = !sortReverse">{$
+                <th><a ng-click="sort.field = 'estimatedCoFunding'; sort.Reverse = !sort.Reverse">{$
                         __('cms.project.estCoFunding') $}</a>
-                    <div ng-show="sortField == 'estimatedCoFunding' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'estimatedCoFunding' && sortReverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'estimatedCoFunding' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'estimatedCoFunding' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sortField = 'status'; sortReverse = !sortReverse">{$ __('cms.project.status') $}</a>
-                    <div ng-show="sortField == 'status' && !sortReverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sortField == 'status' && sortReverse" class="gb-icon-angle-up"></div>
+                <th><a ng-click="sort.field = 'status'; sort.Reverse = !sort.Reverse">{$ __('cms.project.status') $}</a>
+                    <div ng-show="sort.field == 'status' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'status' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sortField:sortReverse">
+            <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sort.field:sort.Reverse">
                 <td><a ng-bind="project.title" href="/{{ project.targetUrl }}"></a></td> {# title #}
                 <td ng-if="project.grantType" class="text-nowrap"
                     translate="cms.projectGrantType.{{ project.grantType }}"></td> {# grantType #}
