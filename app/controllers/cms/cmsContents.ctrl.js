@@ -78,6 +78,9 @@ router.get([
             .then(function (data) {
                 // Render content if the result is not from URL Lookup.
                 if (typeof data.data[0] == 'object' && data.data[0].hasOwnProperty('created') && data.data[0].hasOwnProperty('title')) {
+
+                    // @todo bko: encode URLs here
+
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
                         return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;
@@ -154,3 +157,17 @@ router.get([
         }
     }
 );
+
+function appendImgCachePrefix(url) {
+    return imageCacheUrl + url;
+}
+
+function processEncodedUrl(url) {
+    var count = 0;
+    while (count < 3 && url != decodeURIComponent(url)) {
+        url = decodeURIComponent(url);
+        count++;
+    }
+    var final = encodeURIComponent(url);
+    return appendImgCachePrefix(final)
+}
