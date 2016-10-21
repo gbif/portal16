@@ -1727,5 +1727,28 @@
     "capacitySupport": "Capacity support (2016)",
     "bidProgramme": "BID programme",
     "bifaProgramme": "BIFA programme"
+  },
+  "validation": {
+    "category" : {
+      "RESOURCE_STRUCTURE" :"Resource Structure",
+      "RECORD_STRUCTURE" :"Record Structure",
+      "OCC_INTERPRETATION_BASED" :"GBIF Occurrence Interpretation"
+    },
+    "issueType" : {
+      "COLUMN_MISMATCH": "Column mismatch"
+    },
+    "fileFormat" : {
+      "title": "File format",
+      "DWCA": "Darwin Core Archive",
+      "TABULAR": "Tabular File (.csv, .tsv)",
+      "SPREADSHEET": "Spreadsheet (.xlsx)"
+    },
+    "validationProfile" : {
+      "title": "Validation Profile",
+      "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
+    },
+    "summary": "Validation Summary",
+    "status": "Status",
+    "indexeable": "Can be indexed by GBIF?"
   }
 }

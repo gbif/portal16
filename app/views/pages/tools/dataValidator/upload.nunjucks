@@ -1,0 +1,9 @@
+<!-- Select file -->
+<div>
+    <div class="text-center">
+        <div class="dataValidator__input-file">
+            <input type="file" name="myfile" file-upload on-file-change="dataValidator.handleUploadFile">
+            <a href="">Select file</a>
+        </div>
+    </div>
+</div>

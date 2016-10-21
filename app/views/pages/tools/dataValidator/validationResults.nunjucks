@@ -1,0 +1,63 @@
+<div class="horizontal-stripe white-background ng-cloak">
+
+    <h2 ng-if="dataValidator.validationResults">{$ __('validation.summary') $}</h2>
+    <div class="table-container">
+        <table ng-if="dataValidator.validationResults">
+            <tbody>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.status') $}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.status }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.indexeable }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.fileFormat.title') $}</td>
+                    <td class="table-cell--wide" translate="validation.fileFormat.{{ dataValidator.validationResults.fileFormat }}"></td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
+                    <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.validationProfile }}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 ng-if="dataValidator.validationResults">Issues</h3>
+    <div ng-if="dataValidator.validationResults">
+        <div class="scrollable-y" ng-repeat="(issueCategory, issueBlockList) in dataValidator.issuesMap">
+            <h4 translate="validation.category.{{issueCategory}}"></h4>
+            <div class="table-container" ng-repeat="issueBlock in issueBlockList">
+                <a href="" ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
+
+                <span ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'" translate="interpretationRemarks.{{issueBlock.issue}}"></span>
+                <span ng-if="issueCategory !== 'OCC_INTERPRETATION_BASED'" translate="validation.issueType.{{issueBlock.issue}}"></span>
+                : {{ issueBlock.count }}</a>
+
+                <table class="table table-bordered table-striped" ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+                    <thead>
+                    <tr>
+                        <th ng-repeat="(key, val) in issueBlock.sample[0].issueData">
+                            {{ key }}
+                        </th>
+                        <th ng-repeat="(key, val) in issueBlock.sample[0].relatedData">
+                            {{ key }}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="issueSample in issueBlock.sample">
+                        <td ng-repeat="issueLine in issueSample.issueData" class="table-cell--wide">
+                         {{ issueLine }}
+                         </td>
+                        <td ng-repeat="issueLine in issueSample.relatedData" class="table-cell--wide">
+                            {{ issueLine }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

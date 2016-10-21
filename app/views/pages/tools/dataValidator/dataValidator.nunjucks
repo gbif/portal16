@@ -15,7 +15,8 @@
             </div>
         </div>
 
-        {{ dataValidator.greeting }}
+        {% include "./upload.nunjucks" %}
+        {% include "./validationResults.nunjucks" %}
 
     </article>
 {% endblock %}

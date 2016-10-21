@@ -1,0 +1,42 @@
+.dataValidator {
+    &__dropArea {
+        width 200px
+        height 200px
+        background #ddd
+        border-radius 50%
+        margin auto
+        line-height 200px
+        text-align center
+        color white
+        &.over {
+            background tomato
+        }
+    }
+    &__input-file {
+        position relative
+        width 250px
+        overflow hidden
+        margin auto
+        a {
+            // background $speciesLookupActiveColor
+            padding 5px 20px
+            // color #fff
+            transition all .4s
+            width 100%
+            text-align center
+            text-transform uppercase
+        }
+        input {
+            position absolute
+            display inline-block
+            left 0
+            top 0
+            right 0
+            bottom 0
+            opacity 0.01
+            cursor pointer
+            padding 5px 20px
+            width 100%
+        }
+    }
+}
