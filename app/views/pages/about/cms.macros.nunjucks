@@ -1,17 +1,4 @@
 <!-- masthead image -->
-{% macro newsImages(images) %}
-    {% if images %}
-        {% for image in images %}
-            {% if loop.first %}
-                <figure class="masthead-image">
-                    <img src="{$ image.image_styles.masthead__wide $}" alt="{$ image.filename $}">
-                    <figcaption>{$ image.image_field_caption.value | safe $}</figcaption>
-                </figure>
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endmacro %}
-
 {% macro sidebarFields(data, locale) %}
     {% if data.researcherLocation %}
         {% call termRefField("LOCATION OF RESEARCHERS", data.researcherLocation) -%}{%- endcall %}
