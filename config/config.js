@@ -73,8 +73,8 @@ var config = {
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif.org/sites/default/files/gbif_analytics/',
+        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/', // NB not prod!
+        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'http://demo.gbif.org/'
     },
     test: {
