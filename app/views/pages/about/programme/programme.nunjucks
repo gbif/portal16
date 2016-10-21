@@ -88,10 +88,11 @@
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
+                                    {% if data.relatedNews[0].image | isNotEmpty %}
                                     <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.square_thumbnail | encodeURI $}"
-                                             gallery-image alt="">
+                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.square_thumbnail | encodeURI $}" gallery-image alt="">
                                     </div>
+                                    {% endif %}
                                     <div class="col-xs-12 col-md-7 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>
                                         <h3>
@@ -106,9 +107,11 @@
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
                                 <div class="row">
+                                    {% if data.relatedNews[1].image | isNotEmpty %}
                                     <div class="col-xs-12 col-md-5 card-image hidden-xs">
                                         <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.square_thumbnail | encodeURI $}" gallery-image alt="">
                                     </div>
+                                    {% endif %}
                                     <div class="col-xs-12 col-md-7 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>
                                         <h3>

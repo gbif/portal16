@@ -2,6 +2,7 @@ var express = require('express'),
     search = require('./search'),
     highlights = require('./highlights'),
     baseConfig = require('../../../config/config'),
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     _ = require('lodash'),
     router = express.Router();
 
@@ -59,7 +60,8 @@ function searchHandler(req, res) {
                 bodyClass: 'omnisearch',
                 hideSearchAction: false,
                 hideFooter: true,
-                tileApi: baseConfig.tileApi
+                tileApi: baseConfig.tileApi,
+                imageCacheUrl: imageCacheUrl
             }
         };
 

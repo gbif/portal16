@@ -1,4 +1,4 @@
-{% macro cmsContentHighlight(contentNode, __) %}
+{% macro cmsContentHighlight(contentNode, __, _meta) %}
     {% if contentNode | isNotEmpty %}
         {% for highlightedNode in contentNode %}
             <div>
@@ -15,9 +15,11 @@
                                     highlightedNode.title $}</a></h3>
                         </div>
                     </div>
+                    {% if highlightedNode.images | isNotEmpty %}
                     <div class="card__stripe"
-                         style="background-image: url('{$ _meta.imageCacheUrl $}{$ highlightedNode.images[0].styles.focal_point_for_news | encodeURI $}')">
+                         style="background-image: url('{$ _meta.imageCacheUrl $}{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
                     </div>
+                    {% endif %}
                 </article>
             </div>
         {% endfor %}
