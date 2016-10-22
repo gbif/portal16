@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <div>
@@ -23,40 +24,18 @@
                     </div>
                 </div>
             </div>
-            <div class="horizontal-stripe--paddingless white-background">
+            
+            {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
-                {% if images[0].width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop | encodeURI $}" alt="{$ images[0].filename $}"
-                                 gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
-            </div>
             <div class="horizontal-stripe white-background">
-                <div class="container-fluid container--prose">
+                <div class="container--narrow">
                     <div class="body-text prose-columns">
 
                         {$ data.body | sanitize | safe $}
-
-                        {% if images[0].width <= 1000 %}
-                            <figure>
-                                <div class="cover-image article-image">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.focal_point_for_news | encodeURI $}"
-                                         alt="{$ images[0].filename $}" gallery-image>
-                                </div>
-                                <figcaption>
-                                    <div>{$ images[0].image_field_caption.value | safe $}</div>
-                                </figcaption>
-                            </figure>
-                        {% endif %}
+                        {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
                     </div>
-
+                    
                     <div class="article-auxiliary prose-columns">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.citationInformation %}
@@ -135,56 +114,9 @@
                     </div>
                 </div>
             </div>
-            {% if data.__system.prev.id or data.__system.next.id %}
-                <aside class="horizontal-stripe horizontal-stripe--card light-background seperator--b">
-                    <div class="container-fluid container--related-stories">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                {% if data.__system.prev.id %}
-                                    <article class="container-fluid card card--nav">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
-                                                     alt="{$ data.__system.prev.imageCaption $}">
-                                            </div>
-                                            <div class="col-xs-12 col-md-7 card__content">
-                                                <span><a href="/{$ data.__system.prev.targetUrl $}">Previous
-                                                        Story</a></span>
-                                                <h3>
-                                                    <a href="/{$ data.__system.prev.targetUrl $}">
-                                                        {$ data.__system.prev.title | truncate(80) $}
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </article>
-                                {% endif %}
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                {% if data.__system.next.id %}
-                                    <article class="container-fluid card card--nav">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
-                                                     alt="{$ data.__system.next.imageCaption $}">
-                                            </div>
-                                            <div class="col-xs-12 col-md-7 card__content">
-                                                <span><a href="/{$ data.__system.next.targetUrl $}">Next
-                                                        Story</a></span>
-                                                <h3>
-                                                    <a href="/{$ data.__system.next.targetUrl $}">
-                                                        {$ data.__system.next.title | truncate(80) $}
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </article>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-            {% endif %}
+
+            {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
+
         </article>
     </div>
 {% endblock %}

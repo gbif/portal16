@@ -74,6 +74,7 @@ function formatBytes(bytes, decimals) {
 }
 
 function sanitize(dirty) {
+    dirty = dirty || '';
     let clean = sanitizeHtml(dirty, {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ]),
         exclusiveFilter: function(frame) {

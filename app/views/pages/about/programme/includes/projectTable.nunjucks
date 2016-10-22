@@ -3,7 +3,7 @@
          ng-init="programme.nodeId = '{$ data.id $}'; programme.nodeType = '{$ data.type $}'; programme.getNodeData();
          sort = {field: '', reverse: false }; ">
         <h3>{$ __('cms.programme.projects') $}</h3>
-        <table class="table">
+        <table class="table card">
             <thead>
             <tr>
                 <th><a ng-click="sort.field = 'title'; sort.Reverse = !sort.Reverse">{$ __('cms.project.project') $}</a>

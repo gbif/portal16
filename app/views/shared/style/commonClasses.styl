@@ -255,7 +255,7 @@ $articleCategorySeparatorSpacing = 6px
     color $gray63
 
     section {
-        border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+        border-bottom solid 5px transparent //to imitate paragraphs without margin leakage to next column
         div {
             display inline-block
         }
@@ -305,6 +305,7 @@ $headerImageMaxFullWidth = $desktop
     overflow hidden
     background-size cover
     background-position center
+    border 1px solid $stripeBorderColor
     img {
         display none
     }
@@ -331,12 +332,6 @@ $headerImageMaxFullWidth = $desktop
     background-position center
     img {
         display none
-    }
-}
-
-+isAbove($tablet) {
-    .card-image {
-        padding-bottom 30%
     }
 }
 

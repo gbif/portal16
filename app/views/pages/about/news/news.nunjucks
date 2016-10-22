@@ -13,7 +13,7 @@
                             </nav>
                             <h1>{$ data.title $}</h1>
                             <div class="article-header__intro">
-                                {# fulltext html already wrapped by <p> from Content API #}
+                                {# fulltext html already wrapped by p tag from Content API #}
                                 {$ data.summary | safe $}
                             </div>
                             <p class="article-header__meta">
@@ -22,21 +22,26 @@
                         </header>
                     </div>
                 </div>
-
-                {% if images[0].width > 1000 %}
+            </div>
+            {% if images[0].width > 1000 %}
+                <div class="horizontal-stripe--paddingless white-background">
                     <figure class="heading-image">
                         <div class="cover-image">
                             <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop | encodeURI $}" alt="{$ images[0].filename $}"
                                  gallery-image>
                         </div>
                         <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | safe $}
+                            {$ images[0].image_field_caption.value | sanitize | safe $}
                         </figcaption>
                     </figure>
-                {% endif %}
-
-                <div class="container-fluid container--prose">
+                </div>
+            {% endif %}
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
                     <div class="body-text prose-columns">
+                        
+                        {$ data.body | sanitize | safe $}
+
                         {% if images[0].width <= 1000 %}
                             <figure>
                                 <div class="cover-image article-image">
@@ -44,12 +49,10 @@
                                          alt="{$ images[0].filename $}" gallery-image>
                                 </div>
                                 <figcaption>
-                                    <div>{$ images[0].image_field_caption.value | safe $}</div>
+                                    <div>{$ images[0].image_field_caption.value | sanitize | safe $}</div>
                                 </figcaption>
                             </figure>
                         {% endif %}
-
-                        {$ data.body | safe $}
                     </div>
 
                     <div class="article-auxiliary prose-columns">
@@ -123,56 +126,10 @@
                     </div>
                 </div>
             </div>
-            {% if data.__system.prev or data.__system.next %}
-                <aside class="horizontal-stripe horizontal-stripe--card light-background">
-                    <div class="container-fluid container--related-stories">
-                        <div class="row">
-                            {% if data.__system.prev %}
-                                <div class="col-xs-12 col-sm-6">
-                                    <article class="container-fluid card card--nav">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
-                                                     alt="{$ data.__system.prev.imageCaption $}">
-                                            </div>
-                                            <div class="col-xs-12 col-md-7 card__content">
-                                                <span><a href="/{$ data.__system.prev.targetUrl $}">Previous
-                                                        Story</a></span>
-                                                <h3>
-                                                    <a href="/{$ data.__system.prev.targetUrl $}">
-                                                        {$ data.__system.prev.title | truncate(80) $}
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            {% endif %}
-                            {% if data.__system.next %}
-                                <div class="col-xs-12 col-sm-6">
-                                    <article class="container-fluid card card--nav">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
-                                                     alt="{$ data.__system.next.imageCaption $}">
-                                            </div>
-                                            <div class="col-xs-12 col-md-7 card__content">
-                                                <span><a href="/{$ data.__system.next.targetUrl $}">Next
-                                                        Story</a></span>
-                                                <h3>
-                                                    <a href="/{$ data.__system.next.targetUrl $}">
-                                                        {$ data.__system.next.title | truncate(80) $}
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </aside>
-            {% endif %}
+            
+            {% import "../cms.macros.nunjucks" as cmsMacros %}
+            {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
+
         </article>
     </div>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <div>
@@ -13,7 +14,7 @@
                             </nav>
                             <h1>{$ data.title $}</h1>
                             <div class="article-header__intro">
-                                {# fulltext html already wrapped by <p> from Content API #}
+                                {# fulltext html already wrapped by p-tag from Content API #}
                                 {$ data.summary | safe $}
                             </div>
                             <p class="article-header__meta">
@@ -22,34 +23,15 @@
                         </header>
                     </div>
                 </div>
+            </div>
+            {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
-                {% if images[0].width > 1000 %}
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop | encodeURI $}" alt="{$ images[0].filename $}"
-                                 gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | safe $}
-                        </figcaption>
-                    </figure>
-                {% endif %}
-
-                <div class="container-fluid container--prose">
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
                     <div class="body-text prose-columns">
-                        {% if images[0].width <= 1000 %}
-                            <figure>
-                                <div class="cover-image article-image">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.focal_point_for_news | encodeURI $}"
-                                         alt="{$ images[0].filename $}" gallery-image>
-                                </div>
-                                <figcaption>
-                                    <div>{$ images[0].image_field_caption.value | safe $}</div>
-                                </figcaption>
-                            </figure>
-                        {% endif %}
-
-                        {$ data.body | safe $}
+                        
+                        {$ data.body | sanitize | safe $}
+                        {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
                     </div>
 
