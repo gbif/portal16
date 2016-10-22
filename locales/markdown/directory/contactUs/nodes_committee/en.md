@@ -1,0 +1,1 @@
+The nodes committee (also knows as the Participant Node Managers Committee) is a dynamic group containing all the node managers of the voting and non-voting participant countries.  Membership changes regularly, and the chair positions are established through voting at the governing board.  A chair position runs for 3 years.

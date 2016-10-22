@@ -1,0 +1,1 @@
+Membership on the science committee is through a democratic vote by the voting participants.  A term on the science committee lasts 3 years.

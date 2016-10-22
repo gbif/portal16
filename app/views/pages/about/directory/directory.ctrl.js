@@ -9,8 +9,10 @@ angular
 /** @ngInject */
 function directoryCtrl(DirectoryContacts) {
     var vm = this;
+    vm.state = {'loaded': false};
 
     DirectoryContacts.get().$promise.then(function(response){
+        vm.state.loaded = true;
         return vm.contacts = response;
     }, function(error){
         return error;

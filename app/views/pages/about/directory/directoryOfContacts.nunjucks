@@ -87,6 +87,9 @@
                             {% endif %}
                         </div>
                     </div>
+                    <ng-include src="'/templates/components/loader/loader.html'"
+                                ng-if="!vm.state.loaded"></ng-include>
+
                 </div>
             </div>
         </div>

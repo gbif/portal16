@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/directory/contacts', function (req, res, next) {
-    directory.getContacts()
+    directory.getContacts(res)
         .then(function (data) {
             directory.postProcessContacts(data, res.__);
             res.json(data);

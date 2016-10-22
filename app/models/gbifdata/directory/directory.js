@@ -5,11 +5,15 @@ var crypto = require('crypto'),
     Q = require('q'),
     helper = require('../../util/util'),
     fs = require('fs'),
-    dataApi = require('../apiConfig');
+    dataApi = require('../apiConfig'),
+    translationsHelper = rootRequire('app/helpers/translationsPromise'),
+    log = require('../../../../config/log');
 
 var Directory = {};
+var calls = 0;
+var language;
 
-Directory.getContacts = function() {
+Directory.getContacts = function(res) {
     var deferFs = Q.defer();
     var defer = Q.defer();
     var groups = [
@@ -28,6 +32,7 @@ Directory.getContacts = function() {
         'people': []
     };
 
+    language = res.locals.gb.locales.current;
     // First check whether we have the credential to complete all the calls to
     // the directory.
     fs.exists('/etc/portal16/credentials.json', deferFs.resolve);
@@ -42,6 +47,16 @@ Directory.getContacts = function() {
                                 'enum': group,
                                 'members': results
                             };
+                            return committee;
+                        })
+                        .then(function(committee){
+                            // insert group intro
+                            return getGroupIntro(committee)
+                                .then(function(committee){
+                                    return committee;
+                                });
+                        })
+                        .then(function(committee){
                             return contacts.committees.push(committee);
                         });
                 }))
@@ -71,7 +86,7 @@ Directory.getContacts = function() {
                             memberObj.people.push(person);
                         });
                     });
-                    memberObj.people = _.orderBy(memberObj.people, [person => person.countryCode, person => person.role], ['asc', 'desc']);
+                    memberObj.people = _.orderBy(memberObj.people, [person => person.countryCode, person => person.role, person => person.firstName], ['asc', 'desc', 'asc']);
                     participantPeople.push(memberObj);
                 });
                 contacts.peopleByParticipants = participantPeople;
@@ -79,7 +94,7 @@ Directory.getContacts = function() {
                 // For filtering
                 // 1) de-duplication
                 contacts.people = _.uniqBy(contacts.people, 'id');
-                contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
+                contacts.people = _.orderBy(contacts.people, [person => person.firstName.toLowerCase(), ['asc']]);
 
                 // 2) strip people details
                 contacts.people.forEach(function(p, i){
@@ -89,8 +104,12 @@ Directory.getContacts = function() {
                 });
 
                 contacts = processContacts(contacts);
-                defer.resolve(contacts);
+                return contacts;
             });
+        })
+        .then(function(contacts){
+            defer.resolve(contacts);
+            log.info(calls + 'calls have been made to complete the contacts page.');
         })
         .catch(function(err){
             defer.reject(new Error(err));
@@ -206,6 +225,21 @@ function processContacts(contacts) {
     return contacts;
 }
 
+function getGroupIntro(group) {
+    var deferred = Q.defer();
+    // insert intro text for each group.
+    let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
+    translationsHelper.getTranslations(groupIntroFile, language)
+        .then(function(translation){
+            group.intro = translation[0];
+            deferred.resolve(group);
+        })
+        .catch(function(err){
+            deferred.reject(err.message);
+        });
+    return deferred.promise;
+}
+
 function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryParticipants.url;
@@ -280,7 +314,18 @@ function getParticipantsContacts(contacts) {
                     });
                 }
             });
-            return deferred.resolve(groups);
+
+            var translationTasks = [];
+            groups.forEach(function(group){
+                translationTasks.push(getGroupIntro(group));
+            });
+            return Q.all(translationTasks)
+                .then(function(groups){
+                    return groups;
+                });
+        })
+        .then(function(groups){
+            deferred.resolve(groups);
         })
         .catch(function(err){
             deferred.reject(err);
@@ -498,6 +543,7 @@ function setMembership(p) {
 function genericEndpointAccess(requestUrl, options) {
     var deferred = Q.defer();
     helper.getApiData(requestUrl, function (err, data) {
+        calls++;
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {

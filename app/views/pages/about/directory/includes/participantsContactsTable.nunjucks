@@ -13,13 +13,13 @@
                         <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'surname'; sortReverse = !sortReverse">{$ __('directory.delegationMembers') $}</a>
-                        <span ng-show="sortField == 'surname' && !sortReverse" class="gb-icon-angle-down"></span>
-                        <span ng-show="sortField == 'surname' && sortReverse" class="gb-icon-angle-up"></span>
+                    <th><a ng-click="sortField = 'firstName'; sortReverse = !sortReverse">{$ __('directory.delegationMembers') $}</a>
+                        <span ng-show="sortField == 'firstName' && !sortReverse" class="gb-icon-angle-down"></span>
+                        <span ng-show="sortField == 'firstName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'institution'; sortReverse = !sortReverse">{$ __('directory.institution') $}</a>
-                        <span ng-show="sortField == 'institution' && !sortReverse" class="gb-icon-angle-down"></span>
-                        <span ng-show="sortField == 'institution' && sortReverse" class="gb-icon-angle-up"></span>
+                    <th><a ng-click="sortField = 'institutionName'; sortReverse = !sortReverse">{$ __('directory.institution') $}</a>
+                        <span ng-show="sortField == 'institutionName' && !sortReverse" class="gb-icon-angle-down"></span>
+                        <span ng-show="sortField == 'institutionName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
                 </tr>
                 </thead>
