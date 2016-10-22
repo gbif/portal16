@@ -1623,6 +1623,16 @@
       },
       "publishedOn": "published on"
     },
+    "heading": {
+      "primary": {
+        "tools": "Tools",
+        "dataPublishing": "Data Publishing"
+      },
+      "secondary": {
+        "ipt": "IPT",
+        "guidelines": "Guidelines"
+      }
+    },
     "about": "about"
   },
   "directory": {
