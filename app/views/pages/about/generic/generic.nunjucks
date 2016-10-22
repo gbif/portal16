@@ -7,9 +7,9 @@
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                            {% if data.categoryUpper | isNotEmpty and data.categoryLower | isNotEmpty %}
-                                <span class="article-header__category__upper">{$ __('cms.categoryUpper.' + data.categoryUpper) $}</span>
-                                <span class="article-header__category__lower">{$ __('cms.categoryLower.' + data.categoryLower) $}</span>
+                            {% if data.headingPrimary | isNotEmpty and data.headingSecondary | isNotEmpty %}
+                                <span class="article-header__category__upper">{$ __('cms.heading.primary.' + data.headingPrimary) $}</span>
+                                <span class="article-header__category__lower">{$ __('cms.heading.secondary.' + data.headingSecondary) $}</span>
                             {% else %}
                                 <span class="article-header__category__upper">{$ __('cms.about') $}</span>
                                 <span class="article-header__category__lower">{$ __('cms.contentType.generic') $}</span>
