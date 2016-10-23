@@ -24,6 +24,7 @@
                     </div>
                 </div>
             </div>
+
             {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
             <div class="horizontal-stripe white-background">

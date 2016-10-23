@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <div>
@@ -23,36 +24,16 @@
                     </div>
                 </div>
             </div>
-            {% if images[0].width > 1000 %}
-                <div class="horizontal-stripe--paddingless white-background">
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.masthead__desktop | encodeURI $}" alt="{$ images[0].filename $}"
-                                 gallery-image>
-                        </div>
-                        <figcaption class="container-fluid container--prose">
-                            {$ images[0].image_field_caption.value | sanitize | safe $}
-                        </figcaption>
-                    </figure>
-                </div>
-            {% endif %}
+
+            {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
+
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
                     <div class="body-text prose-columns">
                         
                         {$ data.body | sanitize | safe $}
+                        {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
-                        {% if images[0].width <= 1000 %}
-                            <figure>
-                                <div class="cover-image article-image">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.focal_point_for_news | encodeURI $}"
-                                         alt="{$ images[0].filename $}" gallery-image>
-                                </div>
-                                <figcaption>
-                                    <div>{$ images[0].image_field_caption.value | sanitize | safe $}</div>
-                                </figcaption>
-                            </figure>
-                        {% endif %}
                     </div>
 
                     <div class="article-auxiliary prose-columns">

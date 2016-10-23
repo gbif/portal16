@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes">
@@ -37,18 +38,9 @@
                 </div>
             </div>
         </div>
-        {% if images[0].width > 1000 %}
-        <div class="horizontal-stripe--paddingless white-background">
-            <figure class="heading-image">
-                <div class="cover-image">
-                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop | encodeURI $}" alt="{$ images[0].filename $}" gallery-image>
-                </div>
-                <figcaption class="container-fluid container--prose">
-                    {$ images[0].image_field_caption.value | safe $}
-                </figcaption>
-            </figure>
-        </div>
-        {% endif %}
+
+        {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
+
         <div class="horizontal-stripe white-background">
             <div class="container--narrow">
                 <div class="body-text--markdown">
@@ -56,6 +48,7 @@
                 </div>
             </div>
         </div>
+
         {% if data.files.length > 0 or data.linkBlocks.length > 0 %}
             <div class="horizontal-stripe">
                 <div class="container-fluid container--prose">
@@ -75,6 +68,7 @@
                 </div>
             </div>
         {% endif %}
+
         {% if data.linkBlocks.length > 0 %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">

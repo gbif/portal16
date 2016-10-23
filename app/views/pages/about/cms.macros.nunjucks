@@ -134,7 +134,7 @@
         <div class="horizontal-stripe--paddingless white-background">
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img src="{$ imageCacheUrl $}1170x422/{$ images[0].original | encodeURI $}" ng-src="{$ imageCacheUrl $}1170x422/{$ images[0].original | encodeURI $}" alt="{$ images[0].filename $}"
+                    <img ng-src="{$ imageCacheUrl $}{$ images[0].styles.header_image | encodeURI $}" alt="{$ images[0].filename $}"
                          gallery-image>
                 </div>
                 <figcaption class="container--narrow">
@@ -149,7 +149,7 @@
     {% if images[0].width <= 1000 %}
         <figure>
             <div class="cover-image article-image">
-                <img ng-src="{$ imageCacheUrl $}740x400/{$ images[0].original | encodeURI $}"
+                <img ng-src="{$ imageCacheUrl $}{$ images[0].styles.inline_header_image | encodeURI $}"
                      alt="{$ images[0].filename $}" gallery-image>
             </div>
             <figcaption>

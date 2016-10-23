@@ -30,7 +30,6 @@
                     <div class="body-text prose-columns">
                         
                         {$ data.description | sanitize | safe $}
-
                         {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
                     </div>
