@@ -1,0 +1,53 @@
+{% extends "../about/html-prose.nunjucks" %}
+{% import "../about/cms.macros.nunjucks" as cmsMacros %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <div class="container">
+                    <div class="row">
+                        <header class="col-xs-12 text-center">
+                            <nav class="article-header__category article-header__category--deep">
+                                <span class="article-header__category__upper">Tools</span>
+                                <span class="article-header__category__lower">Publishers</span>
+                            </nav>
+                            <h1>{$ data.title $}</h1>
+                            <div class="article-header__intro">
+                                {# fulltext html already wrapped by <p> from Content API #}
+                                {$ data.summary | safe $}
+                            </div>
+                            <span class="article-header__meta">
+                                {$ data.numResourceUsed $}
+                            </span>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+			<div class="horizontal-stripe--paddingless white-background">
+
+			</div>
+
+            <div class="horizontal-stripe--paddingless white-background">
+	            <div class="heading-image">
+	                <div class="cover-image" id="map">
+	                </div>
+	            </div>
+	        </div>
+
+
+            
+
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
+                    <div class="body-text prose-columns">
+
+                        {$ data.body.safe_value | sanitize | safe $}
+
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+{% endblock %}
