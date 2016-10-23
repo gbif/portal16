@@ -18,7 +18,7 @@
                     {% for result in results.cms.results | limit(3) %}
                         <article class="search-results__list__item cms-list-item">
                             {% if result.images | isNotEmpty %}
-                                <img ng-src="{$ _meta.imageCacheUrl $}{$ result.images[0].styles.square_thumbnail $}">
+                                <img ng-src="{$ _meta.imageCacheUrl $}{$ result.images[0].styles.square_thumbnail | encodeURI $}">
                             {% endif %}
                             <h4 class="search-results__list__item__title">
                                 <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">{$
