@@ -4,7 +4,7 @@
 {% block page %}
     <article class="wrapper-horizontal-stripes country-key page--data">
 
-        <div class="horizontal-stripe article-header white-background">
+        <div class="horizontal-stripe article-header white-background p-b-0">
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12">
