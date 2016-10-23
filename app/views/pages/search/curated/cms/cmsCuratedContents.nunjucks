@@ -17,7 +17,7 @@
                     </div>
                     {% if highlightedNode.images | isNotEmpty %}
                     <div class="card__stripe"
-                         style="background-image: url('{$ _meta.imageCacheUrl $}{$ highlightedNode.images[0].styles.focal_point_for_news $}')">
+                         style="background-image: url('{$ _meta.imageCacheUrl $}{$ highlightedNode.images[0].styles.inline_header_image $}')">
                     </div>
                     {% endif %}
                 </article>

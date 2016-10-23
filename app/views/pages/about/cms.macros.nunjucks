@@ -128,7 +128,6 @@
     {% endif %}
 {% endmacro %}
 
-
 {% macro headerImage(images, imageCacheUrl) %}
     {% if images[0].width > 1000 %}
         <div class="horizontal-stripe--paddingless white-background">
