@@ -6,10 +6,12 @@ angular
     .controller('cmsTableCtrl', cmsTableCtrl);
 
 /** @ngInject */
-function cmsTableCtrl(hotkeys, CmsFilter) {
+function cmsTableCtrl(hotkeys, CmsFilter, env) {
     var vm = this, offset;
     vm.state = CmsFilter.getState();
 
+    vm.imageCache = env.imageCache;
+    
     /* pagination */
     function updatePaginationCounts() {
         offset = parseInt(vm.state.query.offset) || 0;

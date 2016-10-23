@@ -26,6 +26,14 @@ angular
                     else if (ratio <= thinner) element.parent().attr('data-width', 'thinner');
                     element.parent().addClass('isValid');
                 });
+
+                element.on('error', function () {
+                    element.parent().css({
+                        'background-image': 'url("http://www.gbif.org/sites/all/modules/custom/gbifs/gbif_analytics/img/insufficient-data.png")'
+                    });
+                    element.parent().attr('data-width', 'wide');
+                    element.parent().addClass('isValid');
+                });
             }
         };
     });

@@ -11,7 +11,7 @@
                     <div class="card-figure">
                         <figure>
                             <div class="imgContainer">
-                                <img src="//api.gbif.org/v1/image?url={$ media.identifier | encodeURI $}&size=M"
+                                <img src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}"
                                      onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                             </div>
                             <figcaption class="card__content">
@@ -53,7 +53,7 @@
                              ng-class="{isShown:occurrence.mediaExpand.isExpanded}">
                             <figure>
                                 <div class="imgContainer">
-                                    <img ng-src="//api.gbif.org/v1/image?url={$ media.identifier | encodeURI $}&size=M"
+                                    <img ng-src="{$ _meta.imageCacheUrl $}500x/{$ media.identifier | encodeURI $}&size=M"
                                          onload="this.classList.add('loaded')" onerror="this.classList.add('failed')">
                                 </div>
                                 <figcaption class="card__content">

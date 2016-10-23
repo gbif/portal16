@@ -1,5 +1,6 @@
 var express = require('express'),
     occurrenceKey = require('./occurrenceKey'),
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     router = express.Router();
 
 module.exports = function (app) {
@@ -31,7 +32,8 @@ function renderPage(req, res, next, occurrence) {
                 occurrenceRemarks: occurrenceKey.occurrenceRemarks,
                 _meta: {
                     title: 'Occurrence Detail ' + req.params.key,
-                    hasTools: true
+                    hasTools: true,
+                    imageCacheUrl: imageCacheUrl
                 }
             });
         }
