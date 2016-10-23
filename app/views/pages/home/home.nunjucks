@@ -15,13 +15,15 @@
                     Global Biodiversity Information Facility
                 </h1>
                 <p>Demonstration site, under active development</p>
-                <div class="search-bar--home__form" style="max-width: 400px;margin: auto; margin-top: 20px; padding-bottom:20px">
-                    <form action="/search" class="search-bar--home__term ng-pristine ng-valid">
+                <div class="search-bar--home__form" style="max-width: 400px;margin: auto; margin-top: 20px; padding-bottom:20px" ng-controller="searchCtrl as omniSearch">
+                    <form action="/search" class="search-bar--home__term ng-pristine ng-valid" ng-submit="omniSearch.updateSearch()">
                         <input id="siteSearch" type="text" placeholder="Search" name="q" autocomplete="off" value=""
-                               ng-model="omniSearchTerm" class="ng-pristine ng-untouched ng-valid ng-empty"
+                                ng-init="omniSearch.freeTextQuery == ''"
+                                ng-model="omniSearch.freeTextQuery"
+                                class="ng-pristine ng-untouched ng-valid ng-empty"
                                aria-invalid="false" style="background-color: rgba(255,255,255,0.3);margin: 0;">
-                        <a ng-href="/search?q=" type="submit" class="gb-icon-search search-bar--home__search"
-                           href="/search?q=" style="border: 1px solid rgba(255,255,255,0.2);border-width: 1px 1px 1px 0;">
+                        <a ng-click="omniSearch.updateSearch()" type="submit" class="gb-icon-search search-bar--home__search"
+                           href="" ng-href="/search?q={{omniSearch.freeTextQuery | encodeURIComponent}}" style="border: 1px solid rgba(255,255,255,0.2);border-width: 1px 1px 1px 0;">
                             <span class="sr-only">search</span>
                         </a>
                     </form>
