@@ -8,11 +8,11 @@
             </div>
 
             <div class="navbar-right-actions">
-                <div class="navbar-action">
+                <!--<div class="navbar-action">
                     <a href="#" class="action-icon gb-icon-more-vertical">
                         <span>More</span>
                     </a>
-                </div>
+                </div>-->
 
                 <div class="navbar-action">
                     <a href="#" class="action-icon gb-icon-search site-header__search-toggle">
