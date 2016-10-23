@@ -31,7 +31,7 @@
                                  ng-repeat="row in cmsTable.state.data.results">
                             <span class="search-results__list__item__tag"><span>GBIF Network</span><span
                                     translate="cms.contentType.{{row.type}}">{{row.type}}</span></span>
-                            <img ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
+                            <img ng-if="row.images.length > 0" ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
                             <h4 class="search-results__list__item__title">
                                 <a ng-if="row.type !== 'dataset'" href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
                                 <a ng-if="row.type == 'dataset'" href="/dataset/{{ row.datasetUuid }}">{{ row.title | limitTo:150 }}</a>
