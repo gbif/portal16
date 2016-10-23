@@ -28,7 +28,12 @@
                         </a>
                     </form>
                 </div>
-                <a href="/occurrence/1229923922" class="hero__license gb-icon-cclogo3"></a>
+                <!--<a href="/occurrence/1229923922" class="hero__license gb-icon-cclogo3"></a>-->
+            </div>
+        </div>
+        <div class="horizontal-stripe--paddingless light-background">
+            <div class="container-fluid" style="font-size: .9rem;font-weight: 300;color: #758082;">
+                Arundinicola leucocephala (Linnaeus, 1764) observed in Brazil. CC BY-NC 2016 <a href="http://www.inaturalist.org/photos/2883643">Scott Buckel via iNaturalist</a>
             </div>
         </div>
         <div class="horizontal-stripe light-background">
