@@ -45,7 +45,8 @@ function buildFont() {
                     glyphs: glyphs,
                     fontName: 'gbificons',
                     fontPath: '/iconfont/',
-                    className: 'gb-icon'
+                    className: 'gb-icon',
+                    timestamp: runTimestamp
                 }))
                 .pipe(g.nunjucksRender())
                 .pipe(g.rename(function (path) {
@@ -54,5 +55,8 @@ function buildFont() {
                 }))
                 .pipe(gulp.dest(config.iconfont.templateDest));
         })
+        // .pipe(g.rename(function (path) {
+        //     path.basename += runTimestamp;
+        // }))
         .pipe(gulp.dest(config.iconfont.dest));
 }
