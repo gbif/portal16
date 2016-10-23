@@ -29,10 +29,11 @@ angular
 
                 element.on('error', function () {
                     element.parent().css({
-                        'background-image': 'url("http://www.gbif.org/sites/all/modules/custom/gbifs/gbif_analytics/img/insufficient-data.png")'
+                        'background-image': 'url("/img/brokenDoc.png")'
                     });
                     element.parent().attr('data-width', 'wide');
-                    element.parent().addClass('isValid');
+                    element.parent().addClass('isInValid');
+                    // element.parent().html('<span></span>');
                 });
             }
         };

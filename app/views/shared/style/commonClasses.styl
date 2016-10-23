@@ -305,9 +305,13 @@ $headerImageMaxFullWidth = $desktop
     overflow hidden
     background-size cover
     background-position center
+    background-repeat no-repeat
     border 1px solid $stripeBorderColor
     img {
         display none
+    }
+    &.isInValid {
+        background-size initial
     }
 }
 
