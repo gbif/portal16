@@ -35,9 +35,9 @@
                         </li>
 
                         {% if dataset._occurrenceCount.count > 0 %}
-                        <li class="tab-right">
+                        <li class="tab tab-right">
                             <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                <span class="gb-button--round">Explore</span>
+                                <span class="gb-button">Explore</span>
                             </a>
                         </li>
                         {% endif %}
@@ -47,7 +47,7 @@
                                 {% for endpoint in dataset.record.endpoints | slice(0, 1) %}
                                     <li class="tab-right">
                                         <a href="{$ endpoint.url $}">
-                                            <span class="gb-button--round">Download</span>
+                                            <span class="gb-button">Download</span>
                                         </a>
                                     </li>
                                 {% endfor %}
