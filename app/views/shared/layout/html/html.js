@@ -4,6 +4,7 @@ require('angular-ui-router');
 require('angular-translate');
 require('angular-moment');
 require('angular-leaflet-directive');
+window.L = L;
 require('angular-hotkeys');
 require('angular-resource');
 require('angular-aria');
