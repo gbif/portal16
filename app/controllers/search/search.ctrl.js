@@ -10,25 +10,30 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/search', function (req, res) {
-    var searchString = req.query.q,
-        context = {
-            query: searchString,
-            _meta: {
-                bodyClass: 'omnisearch',
-                tileApi: baseConfig.tileApi,
-                hideFooter: true,
-                hideSearchAction: true
-            }
-        };
-    res.render('pages/search/search', context);
+router.get('/search', function (req, res, next) {
+    try {
+        var searchString = req.query.q,
+            context = {
+                query: searchString,
+                _meta: {
+                    bodyClass: 'omnisearch',
+                    tileApi: baseConfig.tileApi,
+                    hideFooter: true,
+                    hideSearchAction: true
+                }
+            };
+
+        res.render('pages/search/search', context);
+    } catch(err) {
+        next(err);
+    }
 });
 
 router.get('/search/partial\.:ext?', function (req, res) {
     searchHandler(req, res);
 });
 
-function searchHandler(req, res) {
+function searchHandler(req, res, next) {
     "use strict";
     var searchString = req.query.q;
 
@@ -64,15 +69,19 @@ function searchHandler(req, res) {
                 imageCacheUrl: imageCacheUrl
             }
         };
-
-        renderPage(req, res, context);
+        renderPage(req, res, next, context);
     });
 }
 
-function renderPage(req, res, context) {
-    if (req.params.ext == 'debug') {
-        res.json(context);
-    } else {
-        res.render('pages/search/searchPartial', context);
+function renderPage(req, res, next, context) {
+    try {
+        if (req.params.ext == 'debug') {
+            res.json(context);
+        } else {
+            res.render('pages/search/searchPartial', context);
+        }
+    } catch(err) {
+        next(err);
     }
 }
+

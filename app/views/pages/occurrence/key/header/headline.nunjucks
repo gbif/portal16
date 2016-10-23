@@ -1,5 +1,11 @@
+{% import "../../../../components/common.macros.nunjucks" as commonMacros %}
+
 <h1 class="text-center">
-    <span {% if not occurrence.record.scientificName %} class="error" {% endif %}>{$ occurrence.computedFields.title.name $}</span>
+ 	{% if not occurrence.record.scientificName %} 
+    <span class="error">{$ __('occurrence.title.unknownSpecies') $}</span>
+    {% else %}
+    <span>{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
+    {% endif %}
     <div class="h3 article-header__sub">
         {% if occurrence.record.individualCount > 1 %}
             <span class="badge">{$ occurrence.record.individualCount $}</span>

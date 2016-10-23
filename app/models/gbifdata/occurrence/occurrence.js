@@ -1,6 +1,7 @@
 "use strict";
 
 var resource = require('../resource'),
+    _ = require('lodash'),
     api = require('../apiConfig');
 
 var Occurrence = function (record) {
@@ -53,6 +54,13 @@ Occurrence.prototype.expand = function (fieldNames) {
                 extendToField: 'vernacular'
             }
         };
+
+        if (!_.isUndefined(this.record.taxonKey)) {
+            resourceLookup.taxonName = {
+                resource: api.taxon.url + this.record.taxonKey + '/name',
+                extendToField: 'taxonName'
+            };
+        }
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });

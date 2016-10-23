@@ -2,3 +2,10 @@
 {% macro doi(label, URL) %}
     <span class=""><a href="{$ URL $}">{$ label $}</a></span>
 {% endmacro %}
+
+{% macro parsedTaxonName(n) %}
+    <em>{$ n.genusOrAbove $} {$ n.specificEpithet $}</em>
+    {% if n.infraSpecificEpithet %}{$ n.rankMarker $} <em>{$ n.infraSpecificEpithet $}</em>{% endif %}
+    {% if n.bracketAuthorship or n.bracketYear %}({$ n.bracketAuthorship $}{% if n.bracketYear and n.bracketAuthorship %}, {% endif %}{$ n.bracketYear $}){% endif %}
+    {$ n.authorship $}{% if n.authorship and n.year %}, {% endif %}{$ n.year $}
+{% endmacro %}
