@@ -80,26 +80,14 @@ router.get([
                 // Render content if the result is not from URL Lookup.
                 if (typeof data.data[0] == 'object' && data.data[0].hasOwnProperty('created') && data.data[0].hasOwnProperty('title')) {
 
-                    // markdown inline URL extracting and prefixing
+                    // markdown/html inline URL extracting and prefixing
                     if (data.data[0].hasOwnProperty('body') && data.data[0].type == 'generic') {
-                        var regex;
-                        switch (env) {
-                            case 'local':
-                                regex = /\]\(http\:\/\/bko\.gbif\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-                                break;
-                            case 'dev':
-                                regex = /\]\(http\:\/\/cms\.gbif-dev\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-                                break;
-                            case 'uat':
-                                regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-                                break;
-                            case 'prod':
-                                regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-                                break;
+                        if (data.data[0].body.hasOwnProperty('value')) {
+                            data.data[0].body.value = extractAndEncodeUriMarkdown(data.data[0].body.value);
                         }
-                        data.data[0].body.value = data.data[0].body.value.replace(regex, function(match){
-                            return '](' + 'http://api.gbif.org/v1/image/unsafe/' + encodeURIComponent(match.substring(2));
-                        });
+                    }
+                    else if (data.data[0].hasOwnProperty('body') && data.data[0].type !== 'generic') {
+                        data.data[0].body = extractAndEncodeUriHtml(data.data[0].body);
                     }
 
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
@@ -181,6 +169,51 @@ router.get([
 
 function appendImgCachePrefix(url) {
     return imageCacheUrl + url;
+}
+
+function extractAndEncodeUriMarkdown(text) {
+    var regex;
+    switch (env) {
+        case 'local':
+            regex = /\]\(http\:\/\/bko\.gbif\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'dev':
+            regex = /\]\(http\:\/\/cms\.gbif-dev\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'uat':
+            regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'prod':
+            regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+    }
+
+    return text.replace(regex, function(match){
+        return '](' + appendImgCachePrefix(encodeURIComponent(match.substring(2)));
+    });
+}
+
+// @todo merge in one function with extractAndEncodeUriMarkdown()
+function extractAndEncodeUriHtml(text) {
+    var regex;
+    switch (env) {
+        case 'local':
+            regex = /src\=\"http\:\/\/bko\.gbif\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'dev':
+            regex = /src\=\"http\:\/\/cms\.gbif-dev\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'uat':
+            regex = /src\=\"http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+        case 'prod':
+            regex = /src\=\"http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
+            break;
+    }
+
+    return text.replace(regex, function(match){
+        return 'src="' + appendImgCachePrefix(encodeURIComponent(match.substring(5)));
+    });
 }
 
 function processEncodedUrl(url) {
