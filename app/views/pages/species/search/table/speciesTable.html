@@ -44,7 +44,7 @@
 
     <section class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"></ng-include>
-        <div ng-show="speciesTable.hasData()">
+        <div ng-if="speciesTable.hasData()">
 
             <div class="scrollable-y">
                 <div class="table-container">

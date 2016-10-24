@@ -12,10 +12,7 @@ router.get('/occurrence/:key(\\d+)\.:ext?', function (req, res, next) {
     occurrenceKey.getOccurrenceModel(key, res.__).then(function (occurrence) {
         renderPage(req, res, next, occurrence);
     }, function (err) {
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
-        next();
+        next(err);
     });
 });
 

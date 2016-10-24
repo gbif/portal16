@@ -43,7 +43,7 @@
 
     <div class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
-        <div ng-show="speciesList.hasData()">
+        <div ng-if="speciesList.hasData()">
 
             <div class="container--narrow">
                 <div class="search-results__list row">
@@ -101,7 +101,6 @@
                         </uib-pagination>
                     </div>
                 </div>
-
 
             </div>
         </div>

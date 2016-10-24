@@ -11,10 +11,7 @@ router.get('/installation/:key\.:ext?', function (req, res, next) {
     Installation.get(key, {expand: ['endorsingNode']}).then(function (installation) {
         renderPage(req, res, next, installation);
     }, function (err) {
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
-        next();
+        next(err);
     });
 });
 

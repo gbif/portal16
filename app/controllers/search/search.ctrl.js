@@ -38,8 +38,6 @@ function searchHandler(req, res, next) {
     var searchString = req.query.q;
 
     search.search(searchString, function (results) {
-    console.log(results);
-
         try {
             // handling type-url conversion for CMS contents
             // @todo use a node module to handle all possible cases once more content types are ready.
