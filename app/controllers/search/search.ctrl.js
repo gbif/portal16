@@ -38,38 +38,43 @@ function searchHandler(req, res, next) {
     var searchString = req.query.q;
 
     search.search(searchString, function (results) {
+    console.log(results);
 
-        // handling type-url conversion for CMS contents
-        // @todo use a node module to handle all possible cases once more content types are ready.
-        if (_.has(results, 'cms.results.length')) {
-            results.cms.results.forEach(function (result) {
-                switch (result.type) {
-                    case 'data_use':
-                        result.type = 'data-use';
-                        break;
-                    case 'gbif_participant':
-                        result.type = 'participant';
-                        break;
-                    case 'external':
-                        result.type = 'external';
-                        break;
-                }
-            });
-        }
-        results.highlights = highlights.getHighlights(searchString, results);
-
-        var context = {
-            results: results,
-            query: searchString,
-            _meta: {
-                bodyClass: 'omnisearch',
-                hideSearchAction: false,
-                hideFooter: true,
-                tileApi: baseConfig.tileApi,
-                imageCacheUrl: imageCacheUrl
+        try {
+            // handling type-url conversion for CMS contents
+            // @todo use a node module to handle all possible cases once more content types are ready.
+            if (_.has(results, 'cms.results.length')) {
+                results.cms.results.forEach(function (result) {
+                    switch (result.type) {
+                        case 'data_use':
+                            result.type = 'data-use';
+                            break;
+                        case 'gbif_participant':
+                            result.type = 'participant';
+                            break;
+                        case 'external':
+                            result.type = 'external';
+                            break;
+                    }
+                });
             }
-        };
-        renderPage(req, res, next, context);
+            results.highlights = highlights.getHighlights(searchString, results);
+
+            var context = {
+                results: results,
+                query: searchString,
+                _meta: {
+                    bodyClass: 'omnisearch',
+                    hideSearchAction: false,
+                    hideFooter: true,
+                    tileApi: baseConfig.tileApi,
+                    imageCacheUrl: imageCacheUrl
+                }
+            };
+            renderPage(req, res, next, context);
+        } catch(err) {
+            next(err);
+        }
     });
 }
 
@@ -84,4 +89,3 @@ function renderPage(req, res, next, context) {
         next(err);
     }
 }
-

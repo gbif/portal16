@@ -6,6 +6,9 @@ angular
     .directive('galleryImage', function () {
         return {
             restrict: 'A',
+            scope: {
+                onImgError: '='
+            },
             link: function (scope, element, attrs) {
                 var thinner = 0.6,
                     thin = 0.8,
@@ -34,6 +37,12 @@ angular
                     element.parent().attr('data-width', 'wide');
                     element.parent().addClass('isInValid');
                     // element.parent().html('<span></span>');
+                    scope.$apply(function (scope) {
+                        var fn = scope.onImgError();
+                        if ('undefined' !== typeof fn) {
+                            fn();
+                        }
+                    });
                 });
             }
         };
