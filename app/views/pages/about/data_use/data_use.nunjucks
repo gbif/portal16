@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
             <div class="horizontal-stripe white-background">
@@ -35,7 +35,7 @@
                         {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
                     </div>
-                    
+
                     <div class="article-auxiliary prose-columns">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.citationInformation %}

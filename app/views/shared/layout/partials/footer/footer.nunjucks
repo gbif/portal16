@@ -1,48 +1,48 @@
 {% if not _meta.hideFooter %}
     <footer class="site-footer wrapper-horizontal-stripes">
         {#<div class="horizontal-stripe light-background site-footer__upper">#}
-            {#<div class="container--normal">#}
+        {#<div class="container--normal">#}
 
-                {#<ul class="row">#}
-                    {#<li class="col-xs-6 col-sm-6 col-md-3">#}
-                        {#<h4>GBIF secretariat</h4>#}
-                        {#<ul>#}
-                            {#<li>Universitetsparken 15</li>#}
-                            {#<li>DK-2100 Copenhagen Ø</li>#}
-                            {#<li>Denmark</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="col-xs-6 col-sm-6 col-md-3">#}
-                        {#<h4>Contact</h4>#}
-                        {#<ul>#}
-                            {#<li>Countries</li>#}
-                            {#<li>Organizations</li>#}
-                            {#<li>Data publishers</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="col-xs-6 col-sm-6 col-md-3">#}
-                        {#<h4>Footer not implemented</h4>#}
-                        {#<ul>#}
-                            {#<li>Privacy policy</li>#}
-                            {#<li>Disclaimer</li>#}
-                            {#<li>Data use agreement</li>#}
-                            {#<li>Data sharing agreement</li>#}
-                            {#<li>Memorandum of Understanding</li>#}
-                            {#<li>GBIF Work Programme</li>#}
-                            {#<li>GBIF Travel guidelines</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                    {#<li class="col-xs-6 col-sm-6 col-md-3">#}
-                        {#<h4>Footer not implemented</h4>#}
-                        {#<ul>#}
-                            {#<li>Portal API</li>#}
-                            {#<li>Developer blog</li>#}
-                            {#<li>Tools</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                {#</ul>#}
+        {#<ul class="row">#}
+        {#<li class="col-xs-6 col-sm-6 col-md-3">#}
+        {#<h4>GBIF secretariat</h4>#}
+        {#<ul>#}
+        {#<li>Universitetsparken 15</li>#}
+        {#<li>DK-2100 Copenhagen Ø</li>#}
+        {#<li>Denmark</li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#<li class="col-xs-6 col-sm-6 col-md-3">#}
+        {#<h4>Contact</h4>#}
+        {#<ul>#}
+        {#<li>Countries</li>#}
+        {#<li>Organizations</li>#}
+        {#<li>Data publishers</li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#<li class="col-xs-6 col-sm-6 col-md-3">#}
+        {#<h4>Footer not implemented</h4>#}
+        {#<ul>#}
+        {#<li>Privacy policy</li>#}
+        {#<li>Disclaimer</li>#}
+        {#<li>Data use agreement</li>#}
+        {#<li>Data sharing agreement</li>#}
+        {#<li>Memorandum of Understanding</li>#}
+        {#<li>GBIF Work Programme</li>#}
+        {#<li>GBIF Travel guidelines</li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#<li class="col-xs-6 col-sm-6 col-md-3">#}
+        {#<h4>Footer not implemented</h4>#}
+        {#<ul>#}
+        {#<li>Portal API</li>#}
+        {#<li>Developer blog</li>#}
+        {#<li>Tools</li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#</ul>#}
 
-            {#</div>#}
+        {#</div>#}
         {#</div>#}
         <div class="horizontal-stripe site-footer__lower">
             <div class="container--normal">

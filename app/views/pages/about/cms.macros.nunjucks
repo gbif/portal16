@@ -87,10 +87,11 @@
                             <article class="container-fluid card card--nav">
                                 <a href="/{$ data.__system.prev.targetUrl $}" class="row">
                                     {% if data.__system.prev.thumbnail | isNotEmpty %}
-                                    <div class="col-xs-12 card-image hidden-xs">
-                                        <img ng-src="{$ imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
-                                             alt="{$ data.__system.prev.imageCaption $}">
-                                    </div>
+                                        <div class="col-xs-12 card-image hidden-xs">
+                                            <img ng-src="{$ imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}"
+                                                 gallery-image
+                                                 alt="{$ data.__system.prev.imageCaption $}">
+                                        </div>
                                     {% endif %}
                                     <div class="col-xs-12 card__content">
                                         <span>Previous Story</span>
@@ -107,10 +108,11 @@
                             <article class="container-fluid card card--nav">
                                 <a href="/{$ data.__system.next.targetUrl $}" class="row">
                                     {% if data.__system.next.thumbnail | isNotEmpty %}
-                                    <div class="col-xs-12 card-image hidden-xs">
-                                        <img ng-src="{$ imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
-                                             alt="{$ data.__system.next.imageCaption $}">
-                                    </div>
+                                        <div class="col-xs-12 card-image hidden-xs">
+                                            <img ng-src="{$ imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}"
+                                                 gallery-image
+                                                 alt="{$ data.__system.next.imageCaption $}">
+                                        </div>
                                     {% endif %}
                                     <div class="col-xs-12 card__content">
                                         <span>Next Story</span>
@@ -133,11 +135,12 @@
         <div class="horizontal-stripe--paddingless white-background">
             <figure class="heading-image">
                 <div class="cover-image">
-                    <img ng-src="{$ imageCacheUrl $}{$ images[0].styles.header_image | encodeURI $}" alt="{$ images[0].filename $}"
+                    <img ng-src="{$ imageCacheUrl $}{$ images[0].styles.header_image | encodeURI $}"
+                         alt="{$ images[0].filename $}"
                          gallery-image>
                 </div>
                 <figcaption class="container--narrow">
-                    {$ images[0].image_field_caption | sanitize | safe $} 
+                    {$ images[0].image_field_caption | sanitize | safe $}
                 </figcaption>
             </figure>
         </div>

@@ -30,7 +30,7 @@
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
                     <div class="body-text prose-columns">
-                        
+
                         {$ data.body | sanitize | safe $}
                         {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {% import "../cms.macros.nunjucks" as cmsMacros %}
             {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
 

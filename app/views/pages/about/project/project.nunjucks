@@ -21,14 +21,14 @@
                     </div>
                 </div>
             </div>
-            
+
             {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
             <div class="horizontal-stripe white-background">
 
                 <div class="container--narrow">
                     <div class="body-text prose-columns">
-                        
+
                         {$ data.description | sanitize | safe $}
                         {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
 
@@ -120,11 +120,13 @@
                                     {# partners #}
                                     {% if data.partners | isNotEmpty %}
                                         <section>
-                                            <h4>{$ __n('cms.project.partner', 'cms.project.partners', data.partners.length)
+                                            <h4>{$ __n('cms.project.partner', 'cms.project.partners',
+                                                data.partners.length)
                                                 $}</h4>
                                             <ul class="list-style-none">
                                                 {% for name in data.partners %}
-                                                    <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a>
+                                                    <li class="no-break"><a href="{$ name.url.url $}">{$ name.title
+                                                            $}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
@@ -137,7 +139,8 @@
                                                 $}</h4>
                                             <ul class="list-style-none">
                                                 {% for name in data.funder %}
-                                                    <li class="no-break"><a href="{$ name.url.url $}">{$ name.title $}</a>
+                                                    <li class="no-break"><a href="{$ name.url.url $}">{$ name.title
+                                                            $}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>

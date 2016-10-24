@@ -9,8 +9,7 @@ angular
 /** @ngInject */
 function suggestDatasetCtrl($http) {
     var vm = this;
-    vm.suggestion = {
-    };
+    vm.suggestion = {};
     vm.state = 'ENTER';
     vm.referenceId = '';
 

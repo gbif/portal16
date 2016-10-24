@@ -2,7 +2,7 @@
 {% import "../about/cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
-    <div ng-controller="iptCtrl as ipt">
+    <div ng-controller="iptCtrl as ipt" class="ipt">
         <article class="wrapper-horizontal-stripes">
             <div class="horizontal-stripe article-header white-background">
                 <div class="container">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="horizontal-stripe--paddingless white-background">
-                <div class="heading-image" style="height:420px;">
+                <div class="heading-image ipt__map">
                     <leaflet
                             leafletMap="leafletMap"
                             id="iptInstallationsMap"

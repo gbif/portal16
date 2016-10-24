@@ -16,7 +16,7 @@ function dataValidatorCtrl($http, $scope) {
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
 
-    vm.handleUploadFile = function(params) {
+    vm.handleUploadFile = function (params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
         formData.append('format', "TABULAR");
@@ -40,11 +40,11 @@ function dataValidatorCtrl($http, $scope) {
         vm.validationResults = data;
 
         var issueBlock, issueSample;
-        angular.forEach(data.issues, function(value) {
+        angular.forEach(data.issues, function (value) {
             this[value.issueCategory] = this[value.issueCategory] || [];
             issueBlock = _.omit(value, 'sample');
 
-            angular.forEach(value.sample, function(sample) {
+            angular.forEach(value.sample, function (sample) {
                 this.sample = this.sample || [];
                 issueSample = {};
                 issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);

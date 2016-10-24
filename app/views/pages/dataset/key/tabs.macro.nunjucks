@@ -12,10 +12,10 @@
 
                         {% if dataset.record.project | isNotEmpty %}
                             <li class="tab {% if active == 'project' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
-                                Project
-                            </a>
-                        </li>
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
+                                    Project
+                                </a>
+                            </li>
                         {% endif %}
 
                         <li class="tab {% if active == 'origin' %}isActive{% endif %}">
@@ -35,11 +35,11 @@
                         </li>
 
                         {% if dataset._occurrenceCount.count > 0 %}
-                        <li class="tab tab-right">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                <span class="gb-button">Explore</span>
-                            </a>
-                        </li>
+                            <li class="tab tab-right">
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
+                                    <span class="gb-button">Explore</span>
+                                </a>
+                            </li>
                         {% endif %}
 
                         {% if dataset._occurrenceCount.count == 0 and dataset.record.type != 'METADATA' %}

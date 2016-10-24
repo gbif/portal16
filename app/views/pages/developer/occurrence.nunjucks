@@ -19,43 +19,45 @@
 
 {% block page %}
 
-<article class="wrapper-horizontal-stripes page--developer">
-    <section class="horizontal-stripe article-header white-background">
-        <div class="container">
-            <div class="row">
-                <header class="col-xs-12 text-center">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Developer</span>
-                        <span class="article-header__category__lower">API Docs</span>
-                    </nav>
-                    <h1>Occurrence API</h1>
-                    <div class="article-header__intro">
-                        <p>{$ apiBase $}</p>
-                    </div>
-                </header>
+    <article class="wrapper-horizontal-stripes page--developer">
+        <section class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">Developer</span>
+                            <span class="article-header__category__lower">API Docs</span>
+                        </nav>
+                        <h1>Occurrence API</h1>
+                        <div class="article-header__intro">
+                            <p>{$ apiBase $}</p>
+                        </div>
+                    </header>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    {$ api.apiDocTabs('occurrence', __) $}
+        {$ api.apiDocTabs('occurrence', __) $}
 
-    <section id="overview" class="horizontal-stripe light-background">
-        <div class="container">
-            <p>
-                This API works against the GBIF Occurrence Store, which handles occurrence records and makes them available through the web service and download files.
-                In addition we also provide a <a href="/developer/maps">Map API</a> that offers spatial services.
-            </p>
-            <p>
-                Internally we use a
-                <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">Java web service client</a>
-                for the consumption of these HTTP-based, RESTful web services.
-            </p>
-        </div>
-    </section>
+        <section id="overview" class="horizontal-stripe light-background">
+            <div class="container">
+                <p>
+                    This API works against the GBIF Occurrence Store, which handles occurrence records and makes them
+                    available through the web service and download files.
+                    In addition we also provide a <a href="/developer/maps">Map API</a> that offers spatial services.
+                </p>
+                <p>
+                    Internally we use a
+                    <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">Java
+                        web service client</a>
+                    for the consumption of these HTTP-based, RESTful web services.
+                </p>
+            </div>
+        </section>
 
-    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-        {%  set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
-        {$ api.submenu(sections) $}
+        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+            {% set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
+            {$ api.submenu(sections) $}
 
             <section id="occurrence" class="white-background">
                 <div class="container--narrow anchor-block">
@@ -64,17 +66,17 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false, paging=false, params=false) $}
                         <tbody>
-                            {% call trowO(url="/{key}", respLink=apiBase+"occurrence/1258202889") %}
-                            Gets details for a single, interpreted occurrence
-                            {% endcall %}
+                        {% call trowO(url="/{key}", respLink=apiBase+"occurrence/1258202889") %}
+                        Gets details for a single, interpreted occurrence
+                        {% endcall %}
 
-                            {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
-                            Get a single occurrence fragment in its raw form (xml or json)
-                            {% endcall %}
+                        {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
+                        Get a single occurrence fragment in its raw form (xml or json)
+                        {% endcall %}
 
-                            {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/1258202889/verbatim") %}
-                            Gets the verbatim occurrence record without any interpretation
-                            {% endcall %}
+                        {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/1258202889/verbatim") %}
+                        Gets the verbatim occurrence record without any interpretation
+                        {% endcall %}
                         </tbody>
                     </table>
                 </div>
@@ -84,16 +86,20 @@
                 <div class="container--narrow anchor-block">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
-                        In order to retrieve all results for a given search filter you need to issue individual requests for each page,
+                        In order to retrieve all results for a given search filter you need to issue individual requests
+                        for each page,
                         which is limited to a maximum size of 300 records per page.
 
                         Note that for technical reasons we also have a hard limit for any query of 200,000 records.
                         You will get an error if the offset + limit exceeds 200,000.
-                        To retrieve all records beyond 200,000 you should use our asynchronous <a href="#download">download service</a> instead.
+                        To retrieve all records beyond 200,000 you should use our asynchronous <a href="#download">download
+                            service</a> instead.
                     </p>
 
                     <p>
-                        <em>Please be aware that the following parameters are in a experimental phase and its definition could change in the future: q, facet, facetOffset, facetLimit, facetMincount and  facetMultiselect</em>
+                        <em>Please be aware that the following parameters are in a experimental phase and its definition
+                            could change in the future: q, facet, facetOffset, facetLimit, facetMincount and
+                            facetMultiselect</em>
                     </p>
 
                     <table class='api table table-bordered table-striped table-params'>
@@ -133,7 +139,7 @@
                         Search that returns matching institution codes.
                         Results are ordered by relevance.
                         {% endcall %}
-        </tbody>
+                        </tbody>
                     </table>
                 </div>
             </section>
@@ -141,10 +147,15 @@
             <section id="download" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrence Downloads</h3>
-                    <p>This API provides services to download occurrence records and retrieve information about those downloads.</p>
-                    <p>Occurrence downloads are created asynchronously - the user requests a download and, once complete, is sent and email with a link to the resulting file.</p>
-                    <p>Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web services. It may
-                        be of interest to those coding against the API, and can be found in the <a href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client" target="_blank">occurrence-download-ws-client</a>.
+                    <p>This API provides services to download occurrence records and retrieve information about those
+                        downloads.</p>
+                    <p>Occurrence downloads are created asynchronously - the user requests a download and, once
+                        complete, is sent and email with a link to the resulting file.</p>
+                    <p>Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web
+                        services. It may
+                        be of interest to those coding against the API, and can be found in the <a
+                                href="https://github.com/gbif/occurrence/tree/master/occurrence-ws-client"
+                                target="_blank">occurrence-download-ws-client</a>.
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(params=false) $}
@@ -153,8 +164,10 @@
 
                         {% call trowD(url="/request", resp="Download key", method="POST", authRequired=true) %}
                         Starts the process of creating a download file.
-                        See the <a href="#predicates">predicates</a> section to consult the requests accepted by this service
-                        and the <a href="#download_limits">limits</a> section to refer for information of how this service is limited per user.
+                        See the <a href="#predicates">predicates</a> section to consult the requests accepted by this
+                        service
+                        and the <a href="#download_limits">limits</a> section to refer for information of how this
+                        service is limited per user.
                         {% endcall %}
 
                         {% call trowD(url="/request/{key}", resp="Download file", respLink=apiBase+"occurrence/download/request/0000251-150304104939900", method="GET", authRequired=false) %}
@@ -174,11 +187,13 @@
                         {% endcall %}
 
                         {% call trowD(url="/{key}", method="PUT", authRequired=true) %}
-                        Updates the status of an existing occurrence download. This operation can be executed by the role ADMIN only.
+                        Updates the status of an existing occurrence download. This operation can be executed by the
+                        role ADMIN only.
                         {% endcall %}
 
                         {% call trowD(url="/{key}", method="POST", authRequired=true) %}
-                        Creates the metadata about an occurrence download. This operation can be executed by the role ADMIN only.
+                        Creates the metadata about an occurrence download. This operation can be executed by the role
+                        ADMIN only.
                         {% endcall %}
 
                         {% call trowD(url="/{key}/datasets", method="GET", authRequired=false, resp="Datasets", respLink=apiBase+"occurrence/download/0000251-150304104939900/datasets") %}
@@ -192,7 +207,7 @@
                         {% call trowD(url="/dataset/{datasetKey}", method="GET", resp="Downloads list", authRequired=true, paging=true, respLink=apiBase+"occurrence/download/dataset/7f2edc10-f762-11e1-a439-00145eb45e9a") %}
                         Lists the downloads activity of dataset.
                         {% endcall %}
-                       </tbody>
+                        </tbody>
                     </table>
                 </div>
             </section>
@@ -200,16 +215,22 @@
             <section id="metrics" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrence Metrics</h3>
-                    <p>This API provides services to retrieve various counts and metrics provided about occurrence records.
-                        The kind of counts that are currently supported are listed by the schema, method, see below for details.
+                    <p>This API provides services to retrieve various counts and metrics provided about occurrence
+                        records.
+                        The kind of counts that are currently supported are listed by the schema, method, see below for
+                        details.
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false, paging=false) $}
                         <tbody>
                         {% call trowM(url="/occurrence/count", resp="Count", respLink=apiBase+"occurrence/count") %}
                         Returns occurrence counts for a predefined set of dimensions.
-                        The supported dimensions are enumerated in the <a href="{$ apiBase $}occurrence/count/schema" target="_blank">/occurrence/count/schema</a> service.
-                        An example for the count of georeferenced observations from Canada: <a href="{$ apiBase $}occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION" target="_blank">/occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION</a>.
+                        The supported dimensions are enumerated in the <a href="{$ apiBase $}occurrence/count/schema"
+                                                                          target="_blank">/occurrence/count/schema</a>
+                        service.
+                        An example for the count of georeferenced observations from Canada: <a
+                                href="{$ apiBase $}occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION"
+                                target="_blank">/occurrence/count?country=CA&amp;isGeoreferenced=true&amp;basisOfRecord=OBSERVATION</a>.
                         {% endcall %}
 
                         {% call trowM(url="/occurrence/count/schema", resp="Count", respLink=apiBase+"occurrence/count/schema") %}
@@ -223,7 +244,8 @@
             <section id="inventories" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrence Inventories</h3>
-                    <p>This API provides services that list all distinct values together with their occurrence count for a given occurrence property.
+                    <p>This API provides services that list all distinct values together with their occurrence count for
+                        a given occurrence property.
                         Only a few properties are supported, each with its own service to call.
                     </p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -238,7 +260,7 @@
                         {% endcall %}
 
                         {% call trowM(url="/occurrence/counts/datasets", resp="Counts", respLink=apiBase+"occurrence/counts/datasets?country=DE", params=["country","taxonKey"]) %}
-                            Lists occurrence counts for datasets that cover a given taxon or country.
+                        Lists occurrence counts for datasets that cover a given taxon or country.
                         {% endcall %}
 
                         {% call trowM(url="/occurrence/counts/countries", resp="Counts", respLink=apiBase+"occurrence/counts/countries?publishingCountry=DE", params=["publishingCountry"]) %}
@@ -254,65 +276,115 @@
             </section>
 
             {$ api.paramArticle(apiName="Occurrence", addSearchParams=true, apiBase=apiBase, params={
-                "datasetKey": "The occurrence dataset key (a uuid).",
-                "year": "The 4 digit year. A year of 98 will be interpreted as AD 98. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "lastInterpreted": "This date the record was last modified in GBIF, in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "country": "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
-                "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html' target='_blank'>Continent enum</a>",
-                "publishingCountry" : "The 2-letter country code (as per <a href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm' target='_blank'>ISO-3166-1</a>) of the owining organization's country.",
-                "publishingOrg": "The publishing organization key (a uuid).",
-                "crawlId": "Crawl attempt that harvested this record.",
-                "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "depth" : "Depth in meters relative to altitude. For example 10 meters below a lake surface with given altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
-                "establishmentMeans": "EstablishmentMeans, as defined in our <a href='"+apidocs+"/vocabulary/EstablishmentMeans.html' target='_blank'>EstablishmentMeans enum</a>",
-                "occurrenceID" : "A single globally unique identifier for the occurrence record as provided by the publisher.",
-                "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the Organism). May be a globally unique identifier or an identifier specific to the data set.",
-                "institutionCode" : "An identifier of any form assigned by the source to identify the institution the record belongs to. Not guaranteed to be unique.",
-                "collectionCode": "An identifier of any form assigned by the source to identify the physical collection or digital dataset uniquely within the context of an institution.",
-                "catalogNumber": "An identifier of any form assigned by the source within a physical collection or digital dataset for the record which may not be unique, but should be fairly unique in combination with the institution and collection code.",
-                "recordedBy": "The person who recorded the occurrence.",
-                "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
-                "basisOfRecord": "Basis of record, as defined in our <a href='"+apidocs+"/vocabulary/BasisOfRecord.html' target='_blank'>BasisOfRecord enum</a>",
-                "protocol":"Protocol or mechanism used to provide the occurrence record.",
-                "license": "The type license applied to the dataset or record.",
-                "locality": "The specific description of the place.",
-                "waterBody": "The name of the water body in which the Locations occurs. ",
-                "stateProvince":"he name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
-                "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search, so a search for aves with taxonKey=212 (i.e. <a href='"+apiBase+"occurrence/search?taxonKey=212' target='_blank'>/occurrence/search?taxonKey=212</a>) will match all birds, no matter which species.",
-                "scientificName": "A scientific name from the <a href='/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c'>GBIF backbone</a>. All included and synonym taxa are included in the search. Under the hood a call to the <a href='/developer/species#searching'>species match service</a> is done first to retrieve a taxonKey. Only unique scientific names will return results, homonyms (many monomials) return nothing! Consider to use the taxonKey parameter instead and the species match service directly",
-                "hasCoordinate": "Limits searches to occurrence records which contain a value in both latitude and longitude (i.e. hasCoordinate=true limits to occurrence records with coordinate values and hasCoordinate=false limits to occurrence records without coordinate values).",
-                "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written as POLYGON ((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1)) would be queried as is, i.e. <a href='{$ apiBase $}occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))' target='_blank'>/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
-                "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter returns any record with or without spatial issues.",
-                "issue": "A specific interpretation issue as defined in our <a href='"+apidocs+"/vocabulary/OccurrenceIssue.html' target='_blank'>OccurrenceIssue enum</a>",
-                "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a href='"+apidocs+"/vocabulary/MediaType.html' target='_blank'>MediaType enum</a>",
-                "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the subject.",
-                "kingdomKey": "Kingdom classification key.",
-                "phylumKey": "Phylum classification key.",
-                "classKey": "Class classification key.",
-                "orderKey": "Order classification key.",
-                "familyKey": "Family classification key.",
-                "genusKey": "Genus classification key.",
-                "subgenusKey": "Subgenus classification key.",
-                "speciesKey": "Species classification key.",
-                "repatriated": "Searches for records whose publishing country is different to the country where the record was recorded in.",
-                "q" : "Simple search parameter. The value for this parameter can be a simple word or a phrase.",
-                "limit": "The maximum number of results to return. This can't be greater than 300, any value greater is set to 300.",
-                "facet": "A list of facet names used to retrieve the most frequent values for a field. Facets are allowed for all the parameters except for: last interpreted date, event date and geometry",
-                "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and <em>facetLimit</em> as this example <a href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
+            "datasetKey": "The occurrence dataset key (a uuid).",
+            "year": "The 4 digit year. A year of 98 will be interpreted as AD 98. Supports <a
+                    href='/developer/summary#common'>range queries</a>.",
+            "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range
+                queries</a>.",
+            "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a
+                    href='/developer/summary#common'>range queries</a>.",
+            "lastInterpreted": "This date the record was last modified in GBIF, in ISO 8601 format: yyyy, yyyy-MM,
+            yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
+            "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84.. Supports <a
+                    href='/developer/summary#common'>range queries</a>.",
+            "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84.. Supports <a
+                    href='/developer/summary#common'>range queries</a>.",
+            "country": "The 2-letter country code (as per <a
+                    href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
+                    target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
+            "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html' target='_blank'>Continent
+                enum</a>",
+            "publishingCountry" : "The 2-letter country code (as per <a
+                    href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
+                    target='_blank'>ISO-3166-1</a>) of the owining organization's country.",
+            "publishingOrg": "The publishing organization key (a uuid).",
+            "crawlId": "Crawl attempt that harvested this record.",
+            "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range
+                queries</a>.",
+            "depth" : "Depth in meters relative to altitude. For example 10 meters below a lake surface with given
+            altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
+            "establishmentMeans": "EstablishmentMeans, as defined in our <a
+                    href='"+apidocs+"/vocabulary/EstablishmentMeans.html' target='_blank'>EstablishmentMeans enum</a>",
+            "occurrenceID" : "A single globally unique identifier for the occurrence record as provided by the
+            publisher.",
+            "organismId": "An identifier for the Organism instance (as opposed to a particular digital record of the
+            Organism). May be a globally unique identifier or an identifier specific to the data set.",
+            "institutionCode" : "An identifier of any form assigned by the source to identify the institution the record
+            belongs to. Not guaranteed to be unique.",
+            "collectionCode": "An identifier of any form assigned by the source to identify the physical collection or
+            digital dataset uniquely within the context of an institution.",
+            "catalogNumber": "An identifier of any form assigned by the source within a physical collection or digital
+            dataset for the record which may not be unique, but should be fairly unique in combination with the
+            institution and collection code.",
+            "recordedBy": "The person who recorded the occurrence.",
+            "recordNumber": "An identifier given to the record at the time it was recorded in the field.",
+            "basisOfRecord": "Basis of record, as defined in our <a href='"+apidocs+"/vocabulary/BasisOfRecord.html'
+                                                                    target='_blank'>BasisOfRecord enum</a>",
+            "protocol":"Protocol or mechanism used to provide the occurrence record.",
+            "license": "The type license applied to the dataset or record.",
+            "locality": "The specific description of the place.",
+            "waterBody": "The name of the water body in which the Locations occurs. ",
+            "stateProvince":"he name of the next smaller administrative region than country (state, province, canton,
+            department, region, etc.) in which the Location occurs.",
+            "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search,
+            so a search for aves with taxonKey=212 (i.e. <a href='"+apiBase+"occurrence/search?taxonKey=212'
+                                                            target='_blank'>/occurrence/search?taxonKey=212</a>) will
+            match all birds, no matter which species.",
+            "scientificName": "A scientific name from the <a href='/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c'>GBIF
+                backbone</a>. All included and synonym taxa are included in the search. Under the hood a call to the <a
+                    href='/developer/species#searching'>species match service</a> is done first to retrieve a taxonKey.
+            Only unique scientific names will return results, homonyms (many monomials) return nothing! Consider to use
+            the taxonKey parameter instead and the species match service directly",
+            "hasCoordinate": "Limits searches to occurrence records which contain a value in both latitude and longitude
+            (i.e. hasCoordinate=true limits to occurrence records with coordinate values and hasCoordinate=false limits
+            to occurrence records without coordinate values).",
+            "geometry": "Searches for occurrences inside a polygon described in Well Known Text (WKT) format. Only
+            POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types. For example, a shape written
+            as POLYGON ((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1)) would be queried as is, i.e. <a
+                    href='{$ apiBase $}occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))'
+                    target='_blank'>/occurrence/search?geometry=POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))</a>.",
+            "hasGeospatialIssue": "Includes/excludes occurrence records which contain spatial issues (as determined in
+            our record interpretation), i.e. hasGeospatialIssue=true returns only those records with spatial issues
+            while hasGeospatialIssue=false includes only records without spatial issues. The absence of this parameter
+            returns any record with or without spatial issues.",
+            "issue": "A specific interpretation issue as defined in our <a
+                    href='"+apidocs+"/vocabulary/OccurrenceIssue.html' target='_blank'>OccurrenceIssue enum</a>",
+            "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a
+                    href='"+apidocs+"/vocabulary/MediaType.html' target='_blank'>MediaType enum</a>",
+            "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the
+            subject.",
+            "kingdomKey": "Kingdom classification key.",
+            "phylumKey": "Phylum classification key.",
+            "classKey": "Class classification key.",
+            "orderKey": "Order classification key.",
+            "familyKey": "Family classification key.",
+            "genusKey": "Genus classification key.",
+            "subgenusKey": "Subgenus classification key.",
+            "speciesKey": "Species classification key.",
+            "repatriated": "Searches for records whose publishing country is different to the country where the record
+            was recorded in.",
+            "q" : "Simple search parameter. The value for this parameter can be a simple word or a phrase.",
+            "limit": "The maximum number of results to return. This can't be greater than 300, any value greater is set
+            to 300.",
+            "facet": "A list of facet names used to retrieve the most frequent values for a field. Facets are allowed
+            for all the parameters except for: last interpreted date, event date and geometry",
+            "facet, paging": "All facets parameters allow, paging requests using the parameters <em>facetOffset</em> and
+            <em>facetLimit</em> as this example <a
+                    href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
             }) $}
 
             <section id="predicates" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads.</p>
-                    <p>If you are interested in seeing some examples of how to use the Java API to build predicates, there are some <a href="https://github.com/gbif/occurrence/blob/master/occurrence-ws/src/test/java/org/gbif/occurrence/download/service/HiveQueryVisitorTest.java" target="_blank">test cases</a> that can be used as a reference.</p>
-                    <p>The table below lists the supported predicates that can be combined to build download requests that can be POSTed to the <a href="#download">download API</a>.</p>
+                    <p>If you are interested in seeing some examples of how to use the Java API to build predicates,
+                        there are some <a
+                                href="https://github.com/gbif/occurrence/blob/master/occurrence-ws/src/test/java/org/gbif/occurrence/download/service/HiveQueryVisitorTest.java"
+                                target="_blank">test cases</a> that can be used as a reference.</p>
+                    <p>The table below lists the supported predicates that can be combined to build download requests
+                        that can be POSTed to the <a href="#download">download API</a>.</p>
 
-                    <table class='table table-bordered table-striped table-params'  >
+                    <table class='table table-bordered table-striped table-params'>
                         <thead>
                         <tr>
                             <th width="10%" class='total'>Predicate</th>
@@ -480,8 +552,10 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"within",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"geometry":"POLYGON((-130.78125 51.179342,<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-130.78125 22.593726,-62.578125 22.593726,<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-62.578125 51.179342,-130.78125 51.179342))"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-130.78125
+                                    22.593726,-62.578125 22.593726,<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-62.578125
+                                    51.179342,-130.78125 51.179342))"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }<br/>
                                 </code>
@@ -536,17 +610,24 @@
             <section id="download_limits" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrence Download Limits</h3>
-                    <p>Occurrence downloads is a very resource demanding service which needs to be monitored and limited according to the GBIF platform load.
-                        In order to avoid that downloads requested by a single user utilize most of the resources two rules have been set:</p>
+                    <p>Occurrence downloads is a very resource demanding service which needs to be monitored and limited
+                        according to the GBIF platform load.
+                        In order to avoid that downloads requested by a single user utilize most of the resources two
+                        rules have been set:</p>
                     <ul style="margin-left: 20px !important;">
-                        <li>If the total number of downloads is less than <b style="font-weight: bold;">100</b> any given user can have no more than <b style="font-weight: bold;">3</b> downloads simultaneously.</li>
-                        <li>If the total number of downloads is less than <b style="font-weight: bold;">1000</b> any given user can only have <b style="font-weight: bold;">1</b> download.</li>
+                        <li>If the total number of downloads is less than <b style="font-weight: bold;">100</b> any
+                            given user can have no more than <b style="font-weight: bold;">3</b> downloads
+                            simultaneously.
+                        </li>
+                        <li>If the total number of downloads is less than <b style="font-weight: bold;">1000</b> any
+                            given user can only have <b style="font-weight: bold;">1</b> download.
+                        </li>
                     </ul>
                 </div>
             </section>
 
-    </div>
+        </div>
 
-</article>
+    </article>
 
 {% endblock %}

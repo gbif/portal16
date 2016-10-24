@@ -7,374 +7,635 @@
 
 {% block page %}
 
-<article class="wrapper-horizontal-stripes page--developer">
-    <section class="horizontal-stripe article-header white-background">
-        <div class="container">
-            <div class="row">
-                <header class="col-xs-12 text-center">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Developer</span>
-                        <span class="article-header__category__lower">API Docs</span>
-                    </nav>
-                    <h1>Registry API</h1>
-                    <div class="article-header__intro">
-                        <p>{$ apiBase $}</p>
-                    </div>
-                </header>
+    <article class="wrapper-horizontal-stripes page--developer">
+        <section class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">Developer</span>
+                            <span class="article-header__category__lower">API Docs</span>
+                        </nav>
+                        <h1>Registry API</h1>
+                        <div class="article-header__intro">
+                            <p>{$ apiBase $}</p>
+                        </div>
+                    </header>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    {$ api.apiDocTabs('registry', __) $}
+        {$ api.apiDocTabs('registry', __) $}
 
-    <section id="overview" class="horizontal-stripe light-background">
-        <div class="container">
-            <p>This API works against the GBIF Registry, which makes all registered Datasets, Installations, Organizations, Nodes, and Networks discoverable.</p>
-            <p>
-                Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web services.
-                It may be of interest to those coding against the API, and can be found in the <a href="https://github.com/gbif/registry/tree/master/registry-ws-client">registry-ws-client</a> project.
-            </p>
-
-            <p>
-                Please note the old Registry API is still supported, but is now deprecated. Anyone starting new work is strongly encouraged to use the new API.
-            </p>
-        </div>
-    </section>
-
-    <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-        {%  set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-        {$ api.submenu(sections) $}
-
-        <section id="datasets" class="white-background">
-            <div class="container--narrow anchor-block">
-                <h3>Datasets</h3>
+        <section id="overview" class="horizontal-stripe light-background">
+            <div class="container">
+                <p>This API works against the GBIF Registry, which makes all registered Datasets, Installations,
+                    Organizations, Nodes, and Networks discoverable.</p>
                 <p>
-                    The dataset API provides CRUD and discovery services for datasets. Its most prominent use on the GBIF portal is to drive the <a href="/dataset">dataset search</a> and dataset pages.
+                    Internally we use a Java web service client for the consumption of these HTTP-based, RESTful web
+                    services.
+                    It may be of interest to those coding against the API, and can be found in the <a
+                            href="https://github.com/gbif/registry/tree/master/registry-ws-client">registry-ws-client</a>
+                    project.
                 </p>
 
                 <p>
-                    Please note deletion of datasets is logical, meaning dataset entries remain registered forever and only get a deleted timestamp.
-                    On the other hand, deletion of a dataset's contacts, endpoints, identifiers, tags, machine tags, comments, and metadata descriptions is physical, meaning the entries are permanently removed.
+                    Please note the old Registry API is still supported, but is now deprecated. Anyone starting new work
+                    is strongly encouraged to use the new API.
                 </p>
-
-                <table class='api table table-bordered table-striped table-params'>
-                    {$ api.apiTableHead() $}
-                    <tbody>
-                    {$ trowD(url="", resp="Dataset List", respLink=apiBase+"dataset", paging=true, params=["q","country","type","identifier","identifierType"], description="Lists all datasets")$}
-                    {$ trowD(url="", method="POST", resp="UUID", auth=true, description="Creates a new dataset") $}
-                    {$ trowD(url="/{UUID}", resp="Dataset", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e", description="Gets details for the single dataset") $}
-                    {$ trowD(url="/{UUID}", method="PUT", auth=true, description="Updates the dataset") $}
-                    {$ trowD(url="/{UUID}", method="DELETE", auth=true, description="Deletes the dataset. The dataset entry gets a deleted timestamp but remains registered.") $}
-                    {$ trowD(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/contact", description="Lists all contacts for the dataset") $}
-                    {$ trowD(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Create and add a dataset contact") $}
-                    {$ trowD(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes a dataset contact with contact identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates a dataset contact with contact identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/crawl", method="POST", auth=true, description="Schedules a new crawl of the dataset") $}
-                    {$ trowD(url="/{UUID}/endpoint", method="GET", resp="Endpoint List", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/endpoint", description="Lists the dataset endpoints") $}
-                    {$ trowD(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a dataset endpoint") $}
-                    {$ trowD(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a dataset endpoint with identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/identifier", description="Lists the dataset's identifiers") $}
-                    {$ trowD(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new dataset identifier") $}
-                    {$ trowD(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a dataset's identifier with identifier {ID}>") $}
-                    {$ trowD(url="/{UUID}/tag", method="GET", resp="Tag List", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/tag", description="Lists all tags for a dataset") $}
-                    {$ trowD(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Create and add a dataset tag") $}
-                    {$ trowD(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the dataset tag with tag identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"dataset/8575f23e-f762-11e1-a439-00145eb45e9a/machineTag", description="Lists all machine tags for a dataset") $}
-                    {$ trowD(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a dataset machine tag") $}
-                    {$ trowD(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the dataset machine tag with machine tag identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/comment", description="Lists all comments for a dataset") $}
-                    {$ trowD(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a dataset comment") $}
-                    {$ trowD(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the dataset comment with comment identifier {ID}") $}
-                    {$ trowD(url="/{UUID}/constituents", method="GET", respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/constituents", paging=true, description="Lists the dataset's subdataset constituents (datasets that have a parentDatasetKey equal to the one requested)") $}
-                    {$ trowD(url="/{UUID}/document", method="GET", resp="Metadata Document", respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/document", description="Gets a GBIF generated EML document overlaying GBIF information with any existing metadata document data.") $}
-                    {$ trowD(url="/{UUID}/document", method="POST", resp="ID", auth=true, description="Pushes a new original source metadata document for a dataset into the registry, replacing any previously existing document of the same type.") $}
-                    {$ trowD(url="/{UUID}/metadata", method="GET", resp="Metadata Description List", respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/metadata", params=["type"], description="Lists all metadata descriptions available for a dataset and optionally filters them by document type. The list is sorted by priority with the first result ranking highest. Highest priority in this sense means most relevant for augmenting/updating a dataset, with EML being the most relevant because it is the most informative type.") $}
-                    {$ trowD(url="/metadata/{ID}", method="GET", resp="Metadata Description", respLink=apiBase+"dataset/metadata/1", description="Get a metadata description by its identifier {ID}") $}
-                    {$ trowD(url="/metadata/{ID}/document", method="GET", resp="Metadata Document", respLink=apiBase+"dataset/metadata/1/document", description="Gets the actual metadata description's document by its identifier {ID}") $}
-                    {$ trowD(url="/metadata/{ID}", method="DELETE", auth=true, description="Deletes a metadata description entry and its document by its identifier {ID}") $}
-                    {$ trowD(url="/deleted", method="GET", respLink=apiBase+"dataset/deleted", paging=true, description="Lists all datasets that are marked as deleted") $}
-                    {$ trowD(url="/duplicate", method="GET", respLink=apiBase+"dataset/duplicate", paging=true, description="Lists all datasets that are marked as a duplicate of another") $}
-                    {$ trowD(url="/withNoEndpoint", method="GET", respLink=apiBase+"dataset/withNoEndpoint", paging=true, description="Lists all datasets (are not sub datasets) having no endpoint") $}
-                </tbody>
-                </table>
             </div>
         </section>
 
-        {% macro trowS(url, resp="DatasetSearchResult", respLink=undefined, paging=false, params=[], description="") %}
-            {$ api.trow(url="/dataset"+url, httpMethod="GET", resp=resp, respLink=respLink, authRequired=undefined, paging=paging, params=params, description=description) $}
-        {% endmacro %}
-        <section id="datasetSearch" class="white-background">
-            <div class="container--narrow anchor-block">
-                <h3>Dataset Search</h3>
-                <p>The dataset search API provides search services for datasets.</p>
+        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+            {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
+            {$ api.submenu(sections) $}
 
-                <table class='api table table-bordered table-striped table-params'>
-                    {$ api.apiTableHead(auth=false) $}
-                    <tbody>
-                    {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
-                    {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE", params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent"], description="Search that returns up to 20 matching datasets. Results are ordered by relevance.") $}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            <section id="datasets" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Datasets</h3>
+                    <p>
+                        The dataset API provides CRUD and discovery services for datasets. Its most prominent use on the
+                        GBIF portal is to drive the <a href="/dataset">dataset search</a> and dataset pages.
+                    </p>
 
-        <section id="datasetMetrics" class="white-background">
-            <div class="container--narrow anchor-block">
-                <h3>Dataset Metrics</h3>
-                <p>The dataset metrics API provides metrics for datasets of type CHECKLIST only.</p>
+                    <p>
+                        Please note deletion of datasets is logical, meaning dataset entries remain registered forever
+                        and only get a deleted timestamp.
+                        On the other hand, deletion of a dataset's contacts, endpoints, identifiers, tags, machine tags,
+                        comments, and metadata descriptions is physical, meaning the entries are permanently removed.
+                    </p>
 
-                <table class='api table table-bordered table-striped table-params'>
-                    {$ api.apiTableHead(auth=false) $}
-                    <tbody>
-                    {$ api.trow(url="/dataset/{UUID}/metrics", respLink=apiBase+"dataset/66dd0960-2d7d-46ee-a491-87b9adcfe7b1/metrics", description="Get various metrics for a checklist. Metrics include the number of species, the number of synonyms, counts by rank, counts by vernacular name language, etc.") $}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                        {$ trowD(url="", resp="Dataset List", respLink=apiBase+"dataset", paging=true,
+                        params=["q","country","type","identifier","identifierType"], description="Lists all datasets")$}
+                        {$ trowD(url="", method="POST", resp="UUID", auth=true, description="Creates a new dataset") $}
+                        {$ trowD(url="/{UUID}", resp="Dataset",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e", description="Gets details for
+                        the single dataset") $}
+                        {$ trowD(url="/{UUID}", method="PUT", auth=true, description="Updates the dataset") $}
+                        {$ trowD(url="/{UUID}", method="DELETE", auth=true, description="Deletes the dataset. The
+                        dataset entry gets a deleted timestamp but remains registered.") $}
+                        {$ trowD(url="/{UUID}/contact", method="GET", resp="Contact List",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/contact", description="Lists all
+                        contacts for the dataset") $}
+                        {$ trowD(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Create and add
+                        a dataset contact") $}
+                        {$ trowD(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes a dataset
+                        contact with contact identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates a dataset
+                        contact with contact identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/crawl", method="POST", auth=true, description="Schedules a new crawl of
+                        the dataset") $}
+                        {$ trowD(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/endpoint", description="Lists the
+                        dataset endpoints") $}
+                        {$ trowD(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a
+                        dataset endpoint") $}
+                        {$ trowD(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a dataset
+                        endpoint with identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/identifier", method="GET", resp="Identifier List",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/identifier", description="Lists
+                        the dataset's identifiers") $}
+                        {$ trowD(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a
+                        new dataset identifier") $}
+                        {$ trowD(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a
+                        dataset's identifier with identifier {ID}>") $}
+                        {$ trowD(url="/{UUID}/tag", method="GET", resp="Tag List",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/tag", description="Lists all tags
+                        for a dataset") $}
+                        {$ trowD(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Create and add a
+                        dataset tag") $}
+                        {$ trowD(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the dataset
+                        tag with tag identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List",
+                        respLink=apiBase+"dataset/8575f23e-f762-11e1-a439-00145eb45e9a/machineTag", description="Lists
+                        all machine tags for a dataset") $}
+                        {$ trowD(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and
+                        add a dataset machine tag") $}
+                        {$ trowD(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the dataset
+                        machine tag with machine tag identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/comment", method="GET", resp="Comment List",
+                        respLink=apiBase+"dataset/4fa7b334-ce0d-4e88-aaae-2e0c138d049e/comment", description="Lists all
+                        comments for a dataset") $}
+                        {$ trowD(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add
+                        a dataset comment") $}
+                        {$ trowD(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the dataset
+                        comment with comment identifier {ID}") $}
+                        {$ trowD(url="/{UUID}/constituents", method="GET",
+                        respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/constituents", paging=true,
+                        description="Lists the dataset's subdataset constituents (datasets that have a parentDatasetKey
+                        equal to the one requested)") $}
+                        {$ trowD(url="/{UUID}/document", method="GET", resp="Metadata Document",
+                        respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/document", description="Gets a
+                        GBIF generated EML document overlaying GBIF information with any existing metadata document
+                        data.") $}
+                        {$ trowD(url="/{UUID}/document", method="POST", resp="ID", auth=true, description="Pushes a new
+                        original source metadata document for a dataset into the registry, replacing any previously
+                        existing document of the same type.") $}
+                        {$ trowD(url="/{UUID}/metadata", method="GET", resp="Metadata Description List",
+                        respLink=apiBase+"dataset/7ddf754f-d193-4cc9-b351-99906754a03b/metadata", params=["type"],
+                        description="Lists all metadata descriptions available for a dataset and optionally filters them
+                        by document type. The list is sorted by priority with the first result ranking highest. Highest
+                        priority in this sense means most relevant for augmenting/updating a dataset, with EML being the
+                        most relevant because it is the most informative type.") $}
+                        {$ trowD(url="/metadata/{ID}", method="GET", resp="Metadata Description",
+                        respLink=apiBase+"dataset/metadata/1", description="Get a metadata description by its identifier
+                        {ID}") $}
+                        {$ trowD(url="/metadata/{ID}/document", method="GET", resp="Metadata Document",
+                        respLink=apiBase+"dataset/metadata/1/document", description="Gets the actual metadata
+                        description's document by its identifier {ID}") $}
+                        {$ trowD(url="/metadata/{ID}", method="DELETE", auth=true, description="Deletes a metadata
+                        description entry and its document by its identifier {ID}") $}
+                        {$ trowD(url="/deleted", method="GET", respLink=apiBase+"dataset/deleted", paging=true,
+                        description="Lists all datasets that are marked as deleted") $}
+                        {$ trowD(url="/duplicate", method="GET", respLink=apiBase+"dataset/duplicate", paging=true,
+                        description="Lists all datasets that are marked as a duplicate of another") $}
+                        {$ trowD(url="/withNoEndpoint", method="GET", respLink=apiBase+"dataset/withNoEndpoint",
+                        paging=true, description="Lists all datasets (are not sub datasets) having no endpoint") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-        {% macro trowI(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-            {$ api.trow(url="/installation"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
-        {% endmacro %}
-        <section id="installations" class="white-background">
-            <div class="container--narrow anchor-block">
-                <h3>Installations</h3>
-                <p>The installation API provides CRUD and discovery services for installations.</p>
-                <p>Please note deletion of installations is logical, meaning installation entries remain registered forever and only get a deleted timestamp.
-                    On the other hand, deletion of an installation's contacts, endpoints, identifiers, tags, machine tags, and comments is physical, meaning the entries are permanently removed.</p>
+            {% macro trowS(url, resp="DatasetSearchResult", respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/dataset"+url, httpMethod="GET", resp=resp, respLink=respLink, authRequired=undefined, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="datasetSearch" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Dataset Search</h3>
+                    <p>The dataset search API provides search services for datasets.</p>
 
-                <table class='api table table-bordered table-striped table-params'>
-                    {$ api.apiTableHead() $}
-                    <tbody>
-                    {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true, params=["q","identifier","identifierType"], description="Lists all installations") $}
-                    {$ trowI(url="", method="POST", resp="UUID", auth=true, description="Creates a new installation") $}
-                    {$ trowI(url="/{UUID}", resp="Installation", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details for the single installation") $}
-                    {$ trowI(url="/{UUID}", method="PUT", auth=true, description="Updates the installation") $}
-                    {$ trowI(url="/{UUID}", method="DELETE", auth=true, description="Deletes the installation. The installation entry gets a deleted timestamp but remains registered.") $}
-                    {$ trowI(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/contact", description="Lists all contacts for the installation") $}
-                    {$ trowI(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and adds an installation contact") $}
-                    {$ trowI(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes an installation contact with contact identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates an installation contact with contact identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/endpoint", method="GET", resp="Endpoint List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/endpoint", description="Lists the installation endpoints") $}
-                    {$ trowI(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates an installation endpoint") $}
-                    {$ trowI(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes an installation endpoint with identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/identifier", description="Lists the installation's identifiers") $}
-                    {$ trowI(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new installation identifier") $}
-                    {$ trowI(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes an installation's identifier with identifier {ID}>") $}
-                    {$ trowI(url="/{UUID}/tag", method="GET", resp="Tag List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/tag", description="Lists all tags for an installation") $}
-                    {$ trowI(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds an installation tag") $}
-                    {$ trowI(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the installation tag with tag identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/machineTag", description="Lists all machine tags for an installation") $}
-                    {$ trowI(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and adds an installation machine tag") $}
-                    {$ trowI(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the installation machine tag with machine tag identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/comment", description="Lists all comments for an installation") $}
-                    {$ trowI(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and adds an installation comment") $}
-                    {$ trowI(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the installation comment with comment identifier {ID}") $}
-                    {$ trowI(url="/{UUID}/dataset", method="GET", resp="Dataset List", respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/dataset", paging=true, description="Lists datasets served by the installation") $}
-                    {$ trowI(url="/deleted", method="GET", respLink=apiBase+"installation/deleted", paging=true, description="Lists the deleted installations") $}
-                    {$ trowI(url="/nonPublishing", method="GET", respLink=apiBase+"installation/nonPublishing", paging=true, description="Lists the installations serving 0 datasets") $}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false) $}
+                        <tbody>
+                        {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR",
+                        paging=true,
+                        params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","hl","facet","facetMincount","facetMultiselect"],
+                        description="Full text search across all datasets. Results are ordered by relevance.") $}
+                        {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE",
+                        params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent"],
+                        description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
+                        $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    {% macro trowO(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-        {$ api.trow(url="/organization"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
-    {% endmacro %}
-    <section id="organizations" class="white-background">
-        <div class="container--narrow anchor-block">
-            <h3>Organizations</h3>
-            <p>The organization API provides CRUD and discovery services for organizations. Its most prominent use on the GBIF portal is to drive the <a href="/publisher/search">data publisher search</a>.</p>
-            <p>Please note deletion of organizations is logical, meaning organization entries remain registered forever and only get a deleted timestamp.
-                On the other hand, deletion of an organization's contacts, endpoints, identifiers, tags, machine tags, and comments is physical, meaning the entries are permanently removed.</p>
+            <section id="datasetMetrics" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Dataset Metrics</h3>
+                    <p>The dataset metrics API provides metrics for datasets of type CHECKLIST only.</p>
 
-            <table class='api table table-bordered table-striped table-params'>
-                {$ api.apiTableHead() $}
-                <tbody>
-                {$ trowO(url="", resp="Organization List", respLink=apiBase+"organization", paging=true, params=["q","country","identifier","identifierType"], description="Lists all organizations") $}
-                {$ trowO(url="", method="POST", resp="UUID", auth=true, description="Creates a new organization") $}
-                {$ trowO(url="/{UUID}", resp="Organization", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530", description="Gets details for the single organization") $}
-                {$ trowO(url="/{UUID}", method="PUT", auth=true, description="Updates the organization") $}
-                {$ trowO(url="/{UUID}", method="DELETE", auth=true, description="Deletes the organization. The organization entry gets a deleted timestamp but remains registered.") $}
-                {$ trowO(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/contact", description="Lists all contacts for the organization") $}
-                {$ trowO(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and adds an organization contact") $}
-                {$ trowO(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes an organization contact with contact identifier {ID}") $}
-                {$ trowO(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates an organization contact with contact identifier {ID}") $}
-                {$ trowO(url="/{UUID}/endpoint", method="GET", resp="Endpoint List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/endpoint", description="Lists the organization endpoints") $}
-                {$ trowO(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates an organization endpoint") $}
-                {$ trowO(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes an organization endpoint with identifier {ID}") $}
-                {$ trowO(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/identifier", description="Lists the organization's identifiers") $}
-                {$ trowO(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new organization identifier") $}
-                {$ trowO(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes an organization's identifier with identifier {ID}>") $}
-                {$ trowO(url="/{UUID}/tag", method="GET", resp="Tag List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/tag", description="Lists all tags for an organization") $}
-                {$ trowO(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds an organization tag") $}
-                {$ trowO(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the organization tag with tag identifier {ID}") $}
-                {$ trowO(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/machineTag", description="Lists all machine tags for an organization") $}
-                {$ trowO(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and adds an organization machine tag") $}
-                {$ trowO(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the organization machine tag with machine tag identifier {ID}") $}
-                {$ trowO(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/comment", description="Lists all comments for an organization") $}
-                {$ trowO(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and adds an organization comment") $}
-                {$ trowO(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the organization comment with comment identifier {ID}") $}
-                {$ trowO(url="/{UUID}/hostedDataset", method="GET", resp="Dataset", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/hostedDataset", paging=true, description="Lists the hosted datasets (datasets hosted by installations hosted by the organization)") $}
-                {$ trowO(url="/{UUID}/publishedDataset", method="GET", resp="Dataset", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/publishedDataset", paging=true, description="Lists the published datasets (datasets published by the organization)") $}
-                {$ trowO(url="/{UUID}/installation", method="GET", resp="Installation", respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/installation", paging=true, description="Lists the technical installations hosted by this organization") $}
-                {$ trowO(url="/deleted", method="GET", resp="Organization List", respLink=apiBase+"organization/deleted", paging=true, description="Lists the deleted organizations") $}
-                {$ trowO(url="/pending", method="GET", resp="Organization List", respLink=apiBase+"organization/pending", paging=true, description="Lists the organizations whose endorsement is pending") $}
-                {$ trowO(url="/nonPublishing", method="GET", resp="Organization List", respLink=apiBase+"organization/nonPublishing", paging=true, description="Lists the organizations publishing 0 datasets") $}
-                </tbody>
-            </table>
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead(auth=false) $}
+                        <tbody>
+                        {$ api.trow(url="/dataset/{UUID}/metrics",
+                        respLink=apiBase+"dataset/66dd0960-2d7d-46ee-a491-87b9adcfe7b1/metrics", description="Get
+                        various metrics for a checklist. Metrics include the number of species, the number of synonyms,
+                        counts by rank, counts by vernacular name language, etc.") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {% macro trowI(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/installation"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="installations" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Installations</h3>
+                    <p>The installation API provides CRUD and discovery services for installations.</p>
+                    <p>Please note deletion of installations is logical, meaning installation entries remain registered
+                        forever and only get a deleted timestamp.
+                        On the other hand, deletion of an installation's contacts, endpoints, identifiers, tags, machine
+                        tags, and comments is physical, meaning the entries are permanently removed.</p>
+
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                        {$ trowI(url="", resp="Installation List", respLink=apiBase+"installation", paging=true,
+                        params=["q","identifier","identifierType"], description="Lists all installations") $}
+                        {$ trowI(url="", method="POST", resp="UUID", auth=true, description="Creates a new
+                        installation") $}
+                        {$ trowI(url="/{UUID}", resp="Installation",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed", description="Gets details
+                        for the single installation") $}
+                        {$ trowI(url="/{UUID}", method="PUT", auth=true, description="Updates the installation") $}
+                        {$ trowI(url="/{UUID}", method="DELETE", auth=true, description="Deletes the installation. The
+                        installation entry gets a deleted timestamp but remains registered.") $}
+                        {$ trowI(url="/{UUID}/contact", method="GET", resp="Contact List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/contact", description="Lists
+                        all contacts for the installation") $}
+                        {$ trowI(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an installation contact") $}
+                        {$ trowI(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes an
+                        installation contact with contact identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates an
+                        installation contact with contact identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/endpoint",
+                        description="Lists the installation endpoints") $}
+                        {$ trowI(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates an
+                        installation endpoint") $}
+                        {$ trowI(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes an
+                        installation endpoint with identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/identifier", method="GET", resp="Identifier List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/identifier",
+                        description="Lists the installation's identifiers") $}
+                        {$ trowI(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a
+                        new installation identifier") $}
+                        {$ trowI(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes an
+                        installation's identifier with identifier {ID}>") $}
+                        {$ trowI(url="/{UUID}/tag", method="GET", resp="Tag List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/tag", description="Lists all
+                        tags for an installation") $}
+                        {$ trowI(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds
+                        an installation tag") $}
+                        {$ trowI(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the
+                        installation tag with tag identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/machineTag",
+                        description="Lists all machine tags for an installation") $}
+                        {$ trowI(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an installation machine tag") $}
+                        {$ trowI(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the installation
+                        machine tag with machine tag identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/comment", method="GET", resp="Comment List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/comment", description="Lists
+                        all comments for an installation") $}
+                        {$ trowI(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an installation comment") $}
+                        {$ trowI(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the
+                        installation comment with comment identifier {ID}") $}
+                        {$ trowI(url="/{UUID}/dataset", method="GET", resp="Dataset List",
+                        respLink=apiBase+"installation/a957a663-2f17-415f-b1c8-5cf6398df8ed/dataset", paging=true,
+                        description="Lists datasets served by the installation") $}
+                        {$ trowI(url="/deleted", method="GET", respLink=apiBase+"installation/deleted", paging=true,
+                        description="Lists the deleted installations") $}
+                        {$ trowI(url="/nonPublishing", method="GET", respLink=apiBase+"installation/nonPublishing",
+                        paging=true, description="Lists the installations serving 0 datasets") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {% macro trowO(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/organization"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="organizations" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Organizations</h3>
+                    <p>The organization API provides CRUD and discovery services for organizations. Its most prominent
+                        use on the GBIF portal is to drive the <a href="/publisher/search">data publisher search</a>.
+                    </p>
+                    <p>Please note deletion of organizations is logical, meaning organization entries remain registered
+                        forever and only get a deleted timestamp.
+                        On the other hand, deletion of an organization's contacts, endpoints, identifiers, tags, machine
+                        tags, and comments is physical, meaning the entries are permanently removed.</p>
+
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                        {$ trowO(url="", resp="Organization List", respLink=apiBase+"organization", paging=true,
+                        params=["q","country","identifier","identifierType"], description="Lists all organizations") $}
+                        {$ trowO(url="", method="POST", resp="UUID", auth=true, description="Creates a new
+                        organization") $}
+                        {$ trowO(url="/{UUID}", resp="Organization",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530", description="Gets details
+                        for the single organization") $}
+                        {$ trowO(url="/{UUID}", method="PUT", auth=true, description="Updates the organization") $}
+                        {$ trowO(url="/{UUID}", method="DELETE", auth=true, description="Deletes the organization. The
+                        organization entry gets a deleted timestamp but remains registered.") $}
+                        {$ trowO(url="/{UUID}/contact", method="GET", resp="Contact List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/contact", description="Lists
+                        all contacts for the organization") $}
+                        {$ trowO(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an organization contact") $}
+                        {$ trowO(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes an
+                        organization contact with contact identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates an
+                        organization contact with contact identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/endpoint",
+                        description="Lists the organization endpoints") $}
+                        {$ trowO(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates an
+                        organization endpoint") $}
+                        {$ trowO(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes an
+                        organization endpoint with identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/identifier", method="GET", resp="Identifier List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/identifier",
+                        description="Lists the organization's identifiers") $}
+                        {$ trowO(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a
+                        new organization identifier") $}
+                        {$ trowO(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes an
+                        organization's identifier with identifier {ID}>") $}
+                        {$ trowO(url="/{UUID}/tag", method="GET", resp="Tag List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/tag", description="Lists all
+                        tags for an organization") $}
+                        {$ trowO(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds
+                        an organization tag") $}
+                        {$ trowO(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the
+                        organization tag with tag identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/machineTag",
+                        description="Lists all machine tags for an organization") $}
+                        {$ trowO(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an organization machine tag") $}
+                        {$ trowO(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the organization
+                        machine tag with machine tag identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/comment", method="GET", resp="Comment List",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/comment", description="Lists
+                        all comments for an organization") $}
+                        {$ trowO(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and
+                        adds an organization comment") $}
+                        {$ trowO(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the
+                        organization comment with comment identifier {ID}") $}
+                        {$ trowO(url="/{UUID}/hostedDataset", method="GET", resp="Dataset",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/hostedDataset", paging=true,
+                        description="Lists the hosted datasets (datasets hosted by installations hosted by the
+                        organization)") $}
+                        {$ trowO(url="/{UUID}/publishedDataset", method="GET", resp="Dataset",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/publishedDataset",
+                        paging=true, description="Lists the published datasets (datasets published by the
+                        organization)") $}
+                        {$ trowO(url="/{UUID}/installation", method="GET", resp="Installation",
+                        respLink=apiBase+"organization/e2e717bf-551a-4917-bdc9-4fa0f342c530/installation", paging=true,
+                        description="Lists the technical installations hosted by this organization") $}
+                        {$ trowO(url="/deleted", method="GET", resp="Organization List",
+                        respLink=apiBase+"organization/deleted", paging=true, description="Lists the deleted
+                        organizations") $}
+                        {$ trowO(url="/pending", method="GET", resp="Organization List",
+                        respLink=apiBase+"organization/pending", paging=true, description="Lists the organizations whose
+                        endorsement is pending") $}
+                        {$ trowO(url="/nonPublishing", method="GET", resp="Organization List",
+                        respLink=apiBase+"organization/nonPublishing", paging=true, description="Lists the organizations
+                        publishing 0 datasets") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {% macro trowNo(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/node"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="nodes" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Nodes</h3>
+                    <p>The node API provides CRUD and discovery services for nodes. Its most prominent use on the GBIF
+                        portal is to drive the <a href="/country">country pages</a>.</p>
+                    <p>Please note deletion of nodes is logical, meaning node entries remain registered forever and only
+                        get a deleted timestamp.
+                        On the other hand, deletion of an node's contacts, endpoints, identifiers, tags, machine tags,
+                        and comments is physical, meaning the entries are permanently removed.</p>
+
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                        {$ trowNo(url="", resp="Node List", respLink=apiBase+"node", paging=true,
+                        params=["q","identifier","identifierType"], description="Lists all nodes") $}
+                        {$ trowNo(url="", method="POST", resp="UUID", auth=true, description="Creates a new node") $}
+                        {$ trowNo(url="/{UUID}", resp="Node",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce", description="Gets details for the
+                        single node") $}
+                        {$ trowNo(url="/{UUID}", method="PUT", auth=true, description="Updates the node") $}
+                        {$ trowNo(url="/{UUID}", method="DELETE", auth=true, description="Deletes the node. The node
+                        entry gets a deleted timestamp but remains registered.") $}
+                        {$ trowNo(url="/{UUID}/organization", method="GET", resp="Organization",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/organization", paging=true,
+                        description="Lists organizations endorsed by the node") $}
+                        {$ trowNo(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
+                        respLink=apiBase+"node/1f94b3ca-9345-4d65-afe2-4bace93aa0fe/endpoint", description="Lists the
+                        node endpoints") $}
+                        {$ trowNo(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a
+                        node endpoint") $}
+                        {$ trowNo(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a node
+                        endpoint with identifier {ID}") $}
+                        {$ trowNo(url="/{UUID}/identifier", method="GET", resp="Identifier List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/identifier", description="Lists the
+                        node's identifiers") $}
+                        {$ trowNo(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a
+                        new node identifier") $}
+                        {$ trowNo(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a
+                        node's identifier with identifier {ID}>") $}
+                        {$ trowNo(url="/{UUID}/tag", method="GET", resp="Tag List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/tag", description="Lists all tags
+                        for a node") $}
+                        {$ trowNo(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds
+                        a node tag") $}
+                        {$ trowNo(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the node tag
+                        with tag identifier {ID}") $}
+                        {$ trowNo(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/machineTag", description="Lists all
+                        machine tags for a node") $}
+                        {$ trowNo(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates
+                        and adds a node machine tag") $}
+                        {$ trowNo(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the node machine
+                        tag with machine tag identifier {ID}") $}
+                        {$ trowNo(url="/{UUID}/comment", method="GET", resp="Comment List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/comment", description="Lists all
+                        comments for a node") $}
+                        {$ trowNo(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and
+                        adds a node comment") $}
+                        {$ trowNo(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the node
+                        comment with comment identifier {ID}") $}
+                        {$ trowNo(url="/pendingEndorsement", method="GET", resp="Organization List",
+                        respLink=apiBase+"node/pendingEndorsement", paging=true, description="Lists all organizations
+                        whose endorsement is pending") $}
+                        {$ trowNo(url="/{UUID}/pendingEndorsement", method="GET", resp="Organization List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/pendingEndorsement", paging=true,
+                        description="Lists all organizations whose endorsement by the node is pending") $}
+                        {$ trowNo(url="/country", method="GET", resp="ISO-CODE List", respLink=apiBase+"node/country",
+                        description="Lists names of all GBIF member countries") $}
+                        {$ trowNo(url="/activeCountries", method="GET", resp="ISO-CODE List",
+                        respLink=apiBase+"node/country", description="Lists of all GBIF member countries that are either
+                        voting or associate participants") $}
+                        {$ trowNo(url="/country/{ISO-CODE}", method="GET", resp="Node",
+                        respLink=apiBase+"node/country/CO", description="Gets the country node by ISO 639-1 (2 letter)
+                        or ISO 639-2 (3 letter) country code") $}
+                        {$ trowNo(url="/{UUID}/dataset", method="GET", resp="Dataset List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/dataset", paging=true,
+                        description="Lists datasets published by organizations endorsed by the node") $}
+                        {$ trowNo(url="/{UUID}/installation", method="GET", resp="Installation List",
+                        respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/installation", paging=true,
+                        description="Lists installations hosted by organizations endorsed by the node") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {% macro trowNe(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
+                {$ api.trow(url="/network"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
+            {% endmacro %}
+            <section id="networks" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Networks</h3>
+                    <p>The network API provides CRUD and discovery services for networks.</p>
+                    <p>Please note deletion of networks is logical, meaning network entries remain registered forever
+                        and only get a deleted timestamp.
+                        On the other hand, deletion of an network's contacts, endpoints, identifiers, tags, machine
+                        tags, and comments is physical, meaning the entries are permanently removed.</p>
+
+                    <table class='api table table-bordered table-striped table-params'>
+                        {$ api.apiTableHead() $}
+                        <tbody>
+                        {$ trowNe(url="", resp="Network List", respLink=apiBase+"network", paging=true,
+                        params=["q","identifier","identifierType"], description="Lists all networks") $}
+                        {$ trowNe(url="", method="POST", resp="UUID", auth=true, description="Creates a new network") $}
+                        {$ trowNe(url="/{UUID}", resp="Network",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3", description="Gets details for
+                        the single network") $}
+                        {$ trowNe(url="/{UUID}", method="PUT", auth=true, description="Updates the network") $}
+                        {$ trowNe(url="/{UUID}", method="DELETE", auth=true, description="Deletes the network. The
+                        network entry gets a deleted timestamp but remains registered.") $}
+                        {$ trowNe(url="/{UUID}/contact", method="GET", resp="Contact List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/contact", description="Lists all
+                        contacts for the network") $}
+                        {$ trowNe(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and
+                        adds a network contact") $}
+                        {$ trowNe(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes a network
+                        contact with contact identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates a network
+                        contact with contact identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/endpoint", method="GET", resp="Endpoint List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/endpoint", description="Lists the
+                        network endpoints") $}
+                        {$ trowNe(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a
+                        network endpoint") $}
+                        {$ trowNe(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a
+                        network endpoint with identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/identifier", method="GET", resp="Identifier List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/identifier", description="Lists
+                        the network's identifiers") $}
+                        {$ trowNe(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a
+                        new network identifier") $}
+                        {$ trowNe(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a
+                        network's identifier with identifier {ID}>") $}
+                        {$ trowNe(url="/{UUID}/tag", method="GET", resp="Tag List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/tag", description="Lists all tags
+                        for a network") $}
+                        {$ trowNe(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds
+                        a network tag") $}
+                        {$ trowNe(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the network
+                        tag with tag identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/machineTag", description="Lists
+                        all machine tags for the network") $}
+                        {$ trowNe(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates
+                        and adds a network machine tag") $}
+                        {$ trowNe(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the network
+                        machine tag with machine tag identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/comment", method="GET", resp="Comment List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/comment", description="Lists all
+                        comments for the network") $}
+                        {$ trowNe(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and
+                        adds a network comment") $}
+                        {$ trowNe(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the network
+                        comment with comment identifier {ID}") $}
+                        {$ trowNe(url="/{UUID}/constituents", method="GET", resp="Dataset List",
+                        respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/constituents", paging=true,
+                        description="Lists dataset constituents of the network") $}
+                        {$ trowNe(url="/{UUID}/constituents", method="POST", auth=true, description="Adds an existing
+                        dataset to the list of constituents of a network") $}
+                        {$ trowNe(url="/{UUID}/constituents", method="DELETE", resp="ID", auth=true,
+                        description="Deletes an existing constituent dataset from a network") $}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {$ api.paramArticle(apiName="Registry", addSearchParams=true, params={
+            "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can
+            be added to the simple word parameters only, e.g. q=*puma*",
+            "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use
+            with dataset search, but will eventually search on the countries within the geospatial coverage of the
+            dataset.",
+            "type": "For datasets, filters by dataset type as given in our <a
+                    href='{$ api.apidocs $}/vocabulary/DatasetType.html' target='_blank'>DatasetType enum</a>. For
+            metadata documents, filters by the metadata type as given in our <a
+                    href='{$ api.apidocs $}/vocabulary/MetadataType.html' target='_blank'>MetadataType enum</a>",
+            "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
+            "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier
+            type as given in our <a href='{$ api.apidocs $}/vocabulary/IdentifierType.html' target='_blank'>IdentifierType
+                enum</a>",
+            "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as
+            given in our <a href='{$ api.apidocs $}/vocabulary/DatasetSubtype.html' target='_blank'>DatasetSubtype
+                enum</a>.",
+            "license": "The type of license applied to the dataset.",
+            "keyword": "Filters datasets by a case insensitive plain text keyword. The search is done on the merged
+            collection of tags, the dataset keywordCollections and temporalCoverages.",
+            "publishingOrg": "Filters datasets by their publishing organization UUID key",
+            "hostingOrg": "Filters datasets by their hosting organization UUID key",
+            "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full
+            year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those
+            that cover the entire decade or more. Facet by decade to get the break down, e.g. <a
+                    href='{$ apiBase $}dataset/search?facet=DECADE&amp;limit=0' target='_blank'>/search?facet=DECADE&amp;limit=0</a>",
+            "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2
+            letter) country code",
+            "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as
+            given in our <a href='{$ api.apidocs $}/vocabulary/Continent.html' target='_blank'>Continent enum</a>.",
+            "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets
+            are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and
+            country are legal values but not yet implemented, so data will not yet be returned for them."
+            }) $}
+
+            <section id="oai-pmh" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>OAI-PMH</h3>
+                    <p>In addition to the RESTful JSON API, Datasets are exposed using OAI-PMH. Two metadata formats can
+                        be retrieved: Ecological Metadata Language (EML) and OAI Dublin Core. Datasets are grouped into
+                        <em>sets</em> according to type, country and installation.</p>
+
+                    <p>The endpoint is at <strong>{$ apiBase $}oai-pmh/registry</strong></p>
+
+                    <p>Example queries:</p>
+
+                    <ul>
+                        <li>
+                            <p>Retrieve information about the OAI-PMH service: <a
+                                        href="{$ apiBase $}/oai-pmh/registry?verb=Identify">Identify</a>.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve a list of available sets (dataset types, countries and serving installations):
+                                <a href="{$ apiBase $}/s"></a>.</p>
+                            <p>Sets have names like <code>dataset_type:CHECKLIST</code> and <code>country:NL</code>.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve the identifiers for all datasets from a particular installation: <a
+                                        href="{$ apiBase $}/l"></a>.</p>
+                            <p>According to the OAI-PMH protocol, <code>metadataPrefix</code> must be set to either
+                                <code>oai_dc</code> or <code>eml</code>, even though both formats are supported for all
+                                datasets.</p>
+                        </li>
+
+                        <li>
+                            <p>Retrieve the metadata for all datasets served by installations in a country: <a
+                                        href="{$ apiBase $}/c"></a>.</p>
+                            <p>Country codes are based on the <a href="https://www.iso.org/obp/ui/#search">ISO
+                                    3166-1</a> standard.</p>
+                        </li>
+
+                        <li>
+                            <p>Some queries will return more than one page of results. In this case, the XML will end
+                                with a resumption token element, for example:
+                                <code class="block">&lt;resumptionToken cursor="1"&gt;MToxMDB8Mjpjb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj&lt;/resumptionToken&gt;</code>
+                                The second page of results can be retrieved like this: <a href="{$ apiBase $}/j"></a>.
+                            </p>
+                        </li>
+                    </ul>
+                    <p>Full details of the protocol can be found in the <a
+                                href="https://www.openarchives.org/OAI/openarchivesprotocol.html">The Open Archives
+                            Initiative Protocol for Metadata Harvesting</a>, in particular the <a
+                                href="https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages">section
+                            on Protocol Requests and, Responses</a>.</p>
+                </div>
+            </section>
+
         </div>
-    </section>
 
-    {% macro trowNo(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-        {$ api.trow(url="/node"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
-    {% endmacro %}
-    <section id="nodes" class="white-background">
-        <div class="container--narrow anchor-block">
-            <h3>Nodes</h3>
-            <p>The node API provides CRUD and discovery services for nodes. Its most prominent use on the GBIF portal is to drive the <a href="/country">country pages</a>.</p>
-            <p>Please note deletion of nodes is logical, meaning node entries remain registered forever and only get a deleted timestamp.
-                On the other hand, deletion of an node's contacts, endpoints, identifiers, tags, machine tags, and comments is physical, meaning the entries are permanently removed.</p>
-
-            <table class='api table table-bordered table-striped table-params'>
-                {$ api.apiTableHead() $}
-                <tbody>
-                {$ trowNo(url="", resp="Node List", respLink=apiBase+"node", paging=true, params=["q","identifier","identifierType"], description="Lists all nodes") $}
-                {$ trowNo(url="", method="POST", resp="UUID", auth=true, description="Creates a new node") $}
-                {$ trowNo(url="/{UUID}", resp="Node", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce", description="Gets details for the single node") $}
-                {$ trowNo(url="/{UUID}", method="PUT", auth=true, description="Updates the node") $}
-                {$ trowNo(url="/{UUID}", method="DELETE", auth=true, description="Deletes the node. The node entry gets a deleted timestamp but remains registered.") $}
-                {$ trowNo(url="/{UUID}/organization", method="GET", resp="Organization", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/organization", paging=true, description="Lists organizations endorsed by the node") $}
-                {$ trowNo(url="/{UUID}/endpoint", method="GET", resp="Endpoint List", respLink=apiBase+"node/1f94b3ca-9345-4d65-afe2-4bace93aa0fe/endpoint", description="Lists the node endpoints") $}
-                {$ trowNo(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a node endpoint") $}
-                {$ trowNo(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a node endpoint with identifier {ID}") $}
-                {$ trowNo(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/identifier", description="Lists the node's identifiers") $}
-                {$ trowNo(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new node identifier") $}
-                {$ trowNo(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a node's identifier with identifier {ID}>") $}
-                {$ trowNo(url="/{UUID}/tag", method="GET", resp="Tag List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/tag", description="Lists all tags for a node") $}
-                {$ trowNo(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a node tag") $}
-                {$ trowNo(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the node tag with tag identifier {ID}") $}
-                {$ trowNo(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/machineTag", description="Lists all machine tags for a node") $}
-                {$ trowNo(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and adds a node machine tag") $}
-                {$ trowNo(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the node machine tag with machine tag identifier {ID}") $}
-                {$ trowNo(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/comment", description="Lists all comments for a node") $}
-                {$ trowNo(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and adds a node comment") $}
-                {$ trowNo(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the node comment with comment identifier {ID}") $}
-                {$ trowNo(url="/pendingEndorsement", method="GET", resp="Organization List", respLink=apiBase+"node/pendingEndorsement", paging=true, description="Lists all organizations whose endorsement is pending") $}
-                {$ trowNo(url="/{UUID}/pendingEndorsement", method="GET", resp="Organization List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/pendingEndorsement", paging=true, description="Lists all organizations whose endorsement by the node is pending") $}
-                {$ trowNo(url="/country", method="GET", resp="ISO-CODE List", respLink=apiBase+"node/country", description="Lists names of all GBIF member countries") $}
-                {$ trowNo(url="/activeCountries", method="GET", resp="ISO-CODE List", respLink=apiBase+"node/country", description="Lists of all GBIF member countries that are either voting or associate participants") $}
-                {$ trowNo(url="/country/{ISO-CODE}", method="GET", resp="Node", respLink=apiBase+"node/country/CO", description="Gets the country node by ISO 639-1 (2 letter) or ISO 639-2 (3 letter) country code") $}
-                {$ trowNo(url="/{UUID}/dataset", method="GET", resp="Dataset List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/dataset", paging=true, description="Lists datasets published by organizations endorsed by the node") $}
-                {$ trowNo(url="/{UUID}/installation", method="GET", resp="Installation List", respLink=apiBase+"node/0909d601-bda2-42df-9e63-a6d51847ebce/installation", paging=true, description="Lists installations hosted by organizations endorsed by the node") $}
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    {% macro trowNe(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-        {$ api.trow(url="/network"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
-    {% endmacro %}
-    <section id="networks" class="white-background">
-        <div class="container--narrow anchor-block">
-            <h3>Networks</h3>
-            <p>The network API provides CRUD and discovery services for networks.</p>
-            <p>Please note deletion of networks is logical, meaning network entries remain registered forever and only get a deleted timestamp.
-                On the other hand, deletion of an network's contacts, endpoints, identifiers, tags, machine tags, and comments is physical, meaning the entries are permanently removed.</p>
-
-            <table class='api table table-bordered table-striped table-params'>
-                {$ api.apiTableHead() $}
-                <tbody>
-                {$ trowNe(url="", resp="Network List", respLink=apiBase+"network", paging=true, params=["q","identifier","identifierType"], description="Lists all networks") $}
-                {$ trowNe(url="", method="POST", resp="UUID", auth=true, description="Creates a new network") $}
-                {$ trowNe(url="/{UUID}", resp="Network", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3", description="Gets details for the single network") $}
-                {$ trowNe(url="/{UUID}", method="PUT", auth=true, description="Updates the network") $}
-                {$ trowNe(url="/{UUID}", method="DELETE", auth=true, description="Deletes the network. The network entry gets a deleted timestamp but remains registered.") $}
-                {$ trowNe(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/contact", description="Lists all contacts for the network") $}
-                {$ trowNe(url="/{UUID}/contact", method="POST", resp="ID", auth=true, description="Creates and adds a network contact") $}
-                {$ trowNe(url="/{UUID}/contact/{ID}", method="DELETE", auth=true, description="Deletes a network contact with contact identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/contact/{ID}", method="PUT", auth=true, description="Updates a network contact with contact identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/endpoint", method="GET", resp="Endpoint List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/endpoint", description="Lists the network endpoints") $}
-                {$ trowNe(url="/{UUID}/endpoint", method="POST", resp="ID", auth=true, description="Creates a network endpoint") $}
-                {$ trowNe(url="/{UUID}/endpoint/{ID}", method="DELETE", auth=true, description="Deletes a network endpoint with identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/identifier", description="Lists the network's identifiers") $}
-                {$ trowNe(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new network identifier") $}
-                {$ trowNe(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes a network's identifier with identifier {ID}>") $}
-                {$ trowNe(url="/{UUID}/tag", method="GET", resp="Tag List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/tag", description="Lists all tags for a network") $}
-                {$ trowNe(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a network tag") $}
-                {$ trowNe(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the network tag with tag identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/machineTag", description="Lists all machine tags for the network") $}
-                {$ trowNe(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Creates and adds a network machine tag") $}
-                {$ trowNe(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the network machine tag with machine tag identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/comment", description="Lists all comments for the network") $}
-                {$ trowNe(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Creates and adds a network comment") $}
-                {$ trowNe(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the network comment with comment identifier {ID}") $}
-                {$ trowNe(url="/{UUID}/constituents", method="GET", resp="Dataset List", respLink=apiBase+"network/7ddd1f14-a2b0-4838-95b0-785846f656f3/constituents", paging=true, description="Lists dataset constituents of the network") $}
-                {$ trowNe(url="/{UUID}/constituents", method="POST", auth=true, description="Adds an existing dataset to the list of constituents of a network") $}
-                {$ trowNe(url="/{UUID}/constituents", method="DELETE", resp="ID", auth=true, description="Deletes an existing constituent dataset from a network") $}
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    {$ api.paramArticle(apiName="Registry", addSearchParams=true, params={
-    "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can be added to the simple word parameters only, e.g. q=*puma*",
-    "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use with dataset search, but will eventually search on the countries within the geospatial coverage of the dataset.",
-    "type": "For datasets, filters by dataset type as given in our <a href='{$ api.apidocs $}/vocabulary/DatasetType.html' target='_blank'>DatasetType enum</a>. For metadata documents, filters by the metadata type as given in our <a href='{$ api.apidocs $}/vocabulary/MetadataType.html' target='_blank'>MetadataType enum</a>",
-    "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
-    "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='{$ api.apidocs $}/vocabulary/IdentifierType.html' target='_blank'>IdentifierType enum</a>",
-    "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as given in our <a href='{$ api.apidocs $}/vocabulary/DatasetSubtype.html' target='_blank'>DatasetSubtype enum</a>.",
-    "license": "The type of license applied to the dataset.",
-    "keyword": "Filters datasets by a case insensitive plain text keyword. The search is done on the merged collection of tags, the dataset keywordCollections and temporalCoverages.",
-    "publishingOrg": "Filters datasets by their publishing organization UUID key",
-    "hostingOrg": "Filters datasets by their hosting organization UUID key",
-    "decade": "Filters datasets by their temporal coverage broken down to decades. Decades are given as a full year, e.g. 1880, 1960, 2000, etc, and will return datasets wholly contained in the decade as well as those that cover the entire decade or more. Facet by decade to get the break down, e.g. <a href='{$ apiBase $}dataset/search?facet=DECADE&amp;limit=0' target='_blank'>/search?facet=DECADE&amp;limit=0</a>",
-    "publishingCountry": "Filters datasets by their owining organization's country given as a ISO 639-1 (2 letter) country code",
-    "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='{$ api.apidocs $}/vocabulary/Continent.html' target='_blank'>Continent enum</a>.",
-    "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them."
-    }) $}
-
-    <section id="oai-pmh" class="white-background">
-        <div class="container--narrow anchor-block">
-            <h3>OAI-PMH</h3>
-            <p>In addition to the RESTful JSON API, Datasets are exposed using OAI-PMH.  Two metadata formats can be retrieved: Ecological Metadata Language (EML) and OAI Dublin Core.  Datasets are grouped into <em>sets</em> according to type, country and installation.</p>
-
-            <p>The endpoint is at <strong>{$ apiBase $}oai-pmh/registry</strong></p>
-
-            <p>Example queries:</p>
-
-            <ul>
-                <li>
-                    <p>Retrieve information about the OAI-PMH service: <a href="{$ apiBase $}/oai-pmh/registry?verb=Identify">Identify</a>.</p>
-                </li>
-
-                <li>
-                    <p>Retrieve a list of available sets (dataset types, countries and serving installations): <a href="{$ apiBase $}/s"></a>.</p>
-                    <p>Sets have names like <code>dataset_type:CHECKLIST</code> and <code>country:NL</code>.</p>
-                </li>
-
-                <li>
-                    <p>Retrieve the identifiers for all datasets from a particular installation: <a href="{$ apiBase $}/l"></a>.</p>
-                    <p>According to the OAI-PMH protocol, <code>metadataPrefix</code> must be set to either <code>oai_dc</code> or <code>eml</code>, even though both formats are supported for all datasets.</p>
-                </li>
-
-                <li>
-                    <p>Retrieve the metadata for all datasets served by installations in a country: <a href="{$ apiBase $}/c"></a>.</p>
-                    <p>Country codes are based on the <a href="https://www.iso.org/obp/ui/#search">ISO 3166-1</a> standard.</p>
-                </li>
-
-                <li>
-                    <p>Some queries will return more than one page of results.  In this case, the XML will end with a resumption token element, for example:
-                        <code class="block">&lt;resumptionToken cursor="1"&gt;MToxMDB8Mjpjb3VudHJ5Ok5MfDM6fDQ6fDU6b2FpX2Rj&lt;/resumptionToken&gt;</code>
-                        The second page of results can be retrieved like this: <a href="{$ apiBase $}/j"></a>.
-                        </p>
-                </li>
-            </ul>
-            <p>Full details of the protocol can be found in the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html">The Open Archives Initiative Protocol for Metadata Harvesting</a>, in particular the <a href="https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages">section on Protocol Requests and, Responses</a>.</p>
-        </div>
-        </section>
-
-    </div>
-
-</article>
+    </article>
 
 {% endblock %}

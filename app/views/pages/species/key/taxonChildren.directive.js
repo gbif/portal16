@@ -34,7 +34,7 @@ function taxonChildrenDirective() {
         }
     }
 
-    function renderChildren(resource, vm){
+    function renderChildren(resource, vm) {
         resource.query({
             id: vm.key
 

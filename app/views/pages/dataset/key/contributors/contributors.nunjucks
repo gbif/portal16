@@ -41,7 +41,7 @@
                                     <div>
                                         {% for addressLine in contributor.address %}
                                             {% if addressLine | isNotEmpty %}
-                                            <span>{$ addressLine $}</span><br>
+                                                <span>{$ addressLine $}</span><br>
                                             {% endif %}
                                         {% endfor %}
                                     </div>

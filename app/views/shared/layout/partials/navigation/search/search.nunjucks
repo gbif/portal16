@@ -1,4 +1,5 @@
-<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch">
+<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}"
+       ng-controller="searchCtrl as omniSearch">
 
     <div class="site-drawer__content">
         <div class="site-drawer__header">

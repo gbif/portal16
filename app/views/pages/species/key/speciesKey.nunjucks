@@ -2,7 +2,7 @@
 {% import "../../../components/common.macros.nunjucks" as commonMacros %}
 
 {% macro taxonLink(tax) %}
-<span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$ tax.scientificName $}</a></span>
+    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$ tax.scientificName $}</a></span>
 {% endmacro %}
 
 {% macro taxonLink(key, name) %}
@@ -38,9 +38,9 @@
                         </h1>
 
                         {% if taxon.record.publishedIn %}
-                        <div class="published-in article-header__intro">
-                            <a href="#" class="inherit"><u>{$ taxon.record.publishedIn $}</u></a>
-                        </div>
+                            <div class="published-in article-header__intro">
+                                <a href="#" class="inherit"><u>{$ taxon.record.publishedIn $}</u></a>
+                            </div>
                         {% endif %}
 
                         <div class="text-center">
@@ -58,7 +58,8 @@
                 <div class="stripe-comment">
                     {% if taxon.record.lastInterpreted %}
                         <div>
-                            {$ __('date.modified') $} {$ taxon.record.lastInterpreted | formatDate(gb.locales.current) $}
+                            {$ __('date.modified') $} {$ taxon.record.lastInterpreted | formatDate(gb.locales.current)
+                            $}
                         </div>
                     {% endif %}
                 </div>
@@ -72,10 +73,10 @@
                         <dl class="inline">
                             {% if taxon.record.synonym %}
                             {% endif %}
-                                <div>
-                                    <dt>Accepted Name</dt>
-                                    <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
-                                </div>
+                            <div>
+                                <dt>Accepted Name</dt>
+                                <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
+                            </div>
 
                             {% if taxon.record.basionym %}
                                 <div>
@@ -96,10 +97,10 @@
 
                             {% if taxon.record.vernacularName %}
                             {% endif %}
-                                <div>
-                                    <dt class="text-capitalize">Vernacular name</dt>
-                                    <dd>{$ taxon.record.vernacularName $}</dd>
-                                </div>
+                            <div>
+                                <dt class="text-capitalize">Vernacular name</dt>
+                                <dd>{$ taxon.record.vernacularName $}</dd>
+                            </div>
 
                             <div>
                                 {% if taxon.typification.results | isNotEmpty %}
@@ -116,7 +117,8 @@
                                 <dt class="text-capitalize">Source</dt>
                                 <dd>
                                     {% if taxon.record.origin == 'SOURCE' %}
-                                        <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title
+                                            $}</a>
                                     {% else %}
                                         {$ taxon.record.origin $}
                                     {% endif %}
@@ -129,7 +131,9 @@
                         <dl class="inline">
                             <div>
                                 <dt class="text-capitalize">IUCN category</dt>
-                                <dd><redlist name="{$ taxon.record.canonicalName $}" /></dd>
+                                <dd>
+                                    <redlist name="{$ taxon.record.canonicalName $}"/>
+                                </dd>
                             </div>
 
                             <div>
@@ -144,7 +148,11 @@
 
                             <div>
                                 <dt class="text-capitalize">Environment</dt>
-                                <dd>marine, <del>fresh</del>, <del>terrestrial</del></dd>
+                                <dd>marine,
+                                    <del>fresh</del>
+                                    ,
+                                    <del>terrestrial</del>
+                                </dd>
                             </div>
 
                             {% if taxon.issues | isNotEmpty %}
@@ -241,19 +249,19 @@
             {% endif %}
 
             {% if true or taxon.vernacular.results | isNotEmpty %}
-            <section id="vernacular" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <h3>Vernacular names</h3>
-                    <ul class="paragraph-list">
-                        {% for vn in taxon.vernacular.results %}
-                            <li>
-                                <span class="vernacular-name">{$ vn.vernacularName $}</span>
-                                <span class="vernacular-lang">{$ vn.language $}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </section>
+                <section id="vernacular" class="white-background">
+                    <div class="container--narrow anchor-block">
+                        <h3>Vernacular names</h3>
+                        <ul class="paragraph-list">
+                            {% for vn in taxon.vernacular.results %}
+                                <li>
+                                    <span class="vernacular-name">{$ vn.vernacularName $}</span>
+                                    <span class="vernacular-lang">{$ vn.language $}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
             {% endif %}
 
             <section id="related" class="white-background">

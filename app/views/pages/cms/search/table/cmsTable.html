@@ -31,14 +31,19 @@
                                  ng-repeat="row in cmsTable.state.data.results">
                             <span class="search-results__list__item__tag"><span>GBIF Network</span><span
                                     translate="cms.contentType.{{row.type}}">{{row.type}}</span></span>
-                            <img ng-if="row.images.length > 0" ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
+                            <img ng-if="row.images.length > 0"
+                                 ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
                             <h4 class="search-results__list__item__title">
-                                <a ng-if="row.type !== 'dataset'" href="/{{ row.targetUrl }}">{{ row.title | limitTo:150 }}</a>
-                                <a ng-if="row.type == 'dataset'" href="/dataset/{{ row.datasetUuid }}">{{ row.title | limitTo:150 }}</a>
+                                <a ng-if="row.type !== 'dataset'" href="/{{ row.targetUrl }}">{{ row.title | limitTo:150
+                                    }}</a>
+                                <a ng-if="row.type == 'dataset'" href="/dataset/{{ row.datasetUuid }}">{{ row.title |
+                                    limitTo:150 }}</a>
                             </h4>
-                            <div class="search-results__list__item__summary" ng-show="row.summary.value !== undefined && row.type !== 'dataset'"
+                            <div class="search-results__list__item__summary"
+                                 ng-show="row.summary.value !== undefined && row.type !== 'dataset'"
                                  ng-bind-html="row.summary.value"></div>
-                            <div class="search-results__list__item__summary" ng-show="row.summary.value == undefined && row.type !== 'dataset'"
+                            <div class="search-results__list__item__summary"
+                                 ng-show="row.summary.value == undefined && row.type !== 'dataset'"
                                  ng-bind-html="row.summary"></div>
                             <div class="search-results__list__item__summary" ng-show="row.type == 'dataset'"
                                  ng-bind-html="row.body"></div>

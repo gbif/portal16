@@ -29,7 +29,8 @@
                                             <h5>{$ funder.title $}</h5>
                                         {% endif %}
                                         {% if funder.title != 'GBIF' %}
-                                            <a href="{$ funder.url.url $}"><img ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}"></a>
+                                            <a href="{$ funder.url.url $}"><img
+                                                        ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}"></a>
                                         {% endif %}
                                     </div>
                                 {% endfor %}
@@ -71,7 +72,9 @@
                                 <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
                             {% endfor %}
                             {% for file in data.file %}
-                                <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                                <li><a href="{$ file.original $}" download>{$ file.filename
+                                        $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -81,48 +84,50 @@
 
 
         {% if data.relatedNews.length > 0 %}
-        <aside class="horizontal-stripe horizontal-stripe--card light-background seperator--b">
-            <div class="container-fluid container--related-stories">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <article class="container-fluid card card--nav">
-                            <a href="/{$ data.relatedNews[0].targetUrl $}" class="row">
-                                {%  if data.relatedNews[0].image | isNotEmpty %}
-                                <div class="col-xs-12 card-image hidden-xs">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.inline_header_image | encodeURI $}" gallery-image alt="">
-                                </div>
-                                {% endif %}
-                                <div class="col-xs-12 card__content">
-                                    <span>{$ __('cms.programme.relatedNews') $}</span>
-                                    <h3>
-                                        {$ data.relatedNews[0].title | truncate(75) $}
-                                    </h3>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        {% if data.relatedNews[1] %}
+            <aside class="horizontal-stripe horizontal-stripe--card light-background seperator--b">
+                <div class="container-fluid container--related-stories">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
-                                <a href="/{$ data.relatedNews[1].targetUrl $}" class="row">
-                                {%  if data.relatedNews[1].image | isNotEmpty %}
-                                <div class="col-xs-12 card-image hidden-xs">
-                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.inline_header_image | encodeURI $}" gallery-image alt="">
-                                </div>
-                                {% endif %}
-                                <div class="col-xs-12 card__content">
-                                    <span>{$ __('cms.programme.relatedNews') $}</span>
-                                    <h3>
-                                        {$ data.relatedNews[1].title | truncate(75) $}
-                                    </h3>
-                                </div>
-                            </a>
+                                <a href="/{$ data.relatedNews[0].targetUrl $}" class="row">
+                                    {% if data.relatedNews[0].image | isNotEmpty %}
+                                        <div class="col-xs-12 card-image hidden-xs">
+                                            <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.inline_header_image | encodeURI $}"
+                                                 gallery-image alt="">
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-xs-12 card__content">
+                                        <span>{$ __('cms.programme.relatedNews') $}</span>
+                                        <h3>
+                                            {$ data.relatedNews[0].title | truncate(75) $}
+                                        </h3>
+                                    </div>
+                                </a>
                             </article>
-                        {% endif %}
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            {% if data.relatedNews[1] %}
+                                <article class="container-fluid card card--nav">
+                                    <a href="/{$ data.relatedNews[1].targetUrl $}" class="row">
+                                        {% if data.relatedNews[1].image | isNotEmpty %}
+                                            <div class="col-xs-12 card-image hidden-xs">
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.inline_header_image | encodeURI $}"
+                                                     gallery-image alt="">
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-xs-12 card__content">
+                                            <span>{$ __('cms.programme.relatedNews') $}</span>
+                                            <h3>
+                                                {$ data.relatedNews[1].title | truncate(75) $}
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </article>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
         {% endif %}
 
     </article>

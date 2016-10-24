@@ -30,7 +30,8 @@
                     <div class="article-auxiliary prose-columns">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.location or data.venueCountry.length >= 1 %}
-                                <section class="{% if data.location or data.venueCountry.length >= 1 %}no-break{% endif %}">
+                                <section
+                                        class="{% if data.location or data.venueCountry.length >= 1 %}no-break{% endif %}">
                                     <h5>Location</h5>
                                     <ul class="list-citations">
                                         <li class="no-break">
@@ -74,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {% import "../cms.macros.nunjucks" as cmsMacros %}
             {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
 

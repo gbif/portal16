@@ -8,7 +8,8 @@
                         <dt class="text-capitalize">Published</dt>
                         <dd>
                             <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}">{$
-                                publisher.record.numPublishedDatasets $} datasets</a> with <span href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}">{$
+                                publisher.record.numPublishedDatasets $} datasets</a> with <span
+                                    href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}">{$
                                 publisher.occurrences.count | localizeInteger(gb.locales.current) $} occurrences</span>
                         </dd>
                     </div>

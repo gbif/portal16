@@ -1,18 +1,6 @@
 'use strict';
 var angular = require('angular');
 
-//var test = {
-//    "name": "Roads",
-//    "url": "https://{s}.tiles.mapbox.com/v4/gbif.dec5e9ae/{z}/{x}/{y}.png?access_token=" + accessToken,
-//        options: {
-//        attribution: "&copy; <a href='https://www.mapbox.com/'>Mapbox</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
-//    },
-//    type: 'xyz',
-//        layerOptions: {
-//        "showOnSelector": false
-//    }
-//};
-
 var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 var baseLayers = {
     defaultOption: 'classic',

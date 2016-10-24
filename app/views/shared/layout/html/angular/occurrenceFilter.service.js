@@ -49,7 +49,7 @@ angular
         function refreshData(query) {
             var apiQuery, tableQuery;
             state.query = query || $stateParams;
-            tableQuery  = angular.copy(state.query);
+            tableQuery = angular.copy(state.query);
             apiQuery = angular.copy(state.query);
             apiQuery.facet = exhaustiveFacets;
             apiQuery['month.facetLimit'] = 12;

@@ -14,7 +14,7 @@ function directoryCtrl(DirectoryContacts) {
     DirectoryContacts.get().$promise.then(function(response){
         vm.state.loaded = true;
         return vm.contacts = response;
-    }, function(error){
+    }, function (error) {
         return error;
     });
 
@@ -32,7 +32,7 @@ function directoryCtrl(DirectoryContacts) {
         }
     };
 
-    vm.selectAddress = function($event){
+    vm.selectAddress = function ($event) {
         $event.stopPropagation();
     };
 

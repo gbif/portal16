@@ -1,40 +1,40 @@
-
 {% macro link(url) %}
     <a href="{$ url $}">{$ url $}</a>
 {% endmacro %}
 
 {% macro apiTableHead( method=true, auth=true, paging=true, params=true) %}
-        <thead>
-        <tr>
-            <th>Resource URL</th>
-            {% if method %}
-                <th>Method</th>
-            {% endif %}
-            <th>Response</th>
-            <th>Description</th>
-            {% if auth %}
-                <th>Auth</th>
-            {% endif %}
-            {% if paging %}
-                <th>Paging</th>
-            {% endif %}
-            {% if params %}
-                <th width="16%">Parameters</th>
-            {% endif %}
-        </tr>
-        </thead>
+    <thead>
+    <tr>
+        <th>Resource URL</th>
+        {% if method %}
+            <th>Method</th>
+        {% endif %}
+        <th>Response</th>
+        <th>Description</th>
+        {% if auth %}
+            <th>Auth</th>
+        {% endif %}
+        {% if paging %}
+            <th>Paging</th>
+        {% endif %}
+        {% if params %}
+            <th width="16%">Parameters</th>
+        {% endif %}
+    </tr>
+    </thead>
 {% endmacro %}
 
 {% macro trow(url, httpMethod, resp, respLink=undefined, paging=undefined, showParams=true, params=[], authRequired=undefined, description="") %}
     <tr>
         <td class="nowrap">{$ url $}</td>
         <td class="nowrap">{$ httpMethod | upper $}</td>
-        <td class="wordwrap">{% if respLink %}<a href="{$ respLink $}" target="_blank">{$ resp $}</a>{% else %}{$ resp $}{% endif %}</td>
+        <td class="wordwrap">{% if respLink %}<a href="{$ respLink $}" target="_blank">{$ resp
+                $}</a>{% else %}{$ resp $}{% endif %}</td>
         <td>{$ description $}</td>
         {% if authRequired != undefined %}
             <td class="nowrap">{$ authRequired $}</td>
         {% endif %}
-        {% if paging != undefined  %}
+        {% if paging != undefined %}
             <td class="nowrap">{$ paging $}</td>
         {% endif %}
         {% if showParams %}
@@ -53,9 +53,9 @@
         <div class="container--narrow anchor-block">
             {% if addSearchParams %}
                 {% set params = params | merge({
-                    "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
-                    "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000' target='_blank'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
-                    "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
+                "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",
+                "facetMincount": "Used in combination with the facet parameter. Set facetMincount={#} to exclude facets with a count less than {#}, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;facetMincount=10000' target='_blank'>/search?facet=type&amp;limit=0&amp;facetMincount=10000</a> only shows the type value 'OCCURRENCE' because 'CHECKLIST' and 'METADATA' have counts less than 10000.",
+                "facetMultiselect": "Used in combination with the facet parameter. Set facetMultiselect=true to still return counts for values that are not currently filtered, e.g. <a href='"+apiBase+"dataset/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true' target='_blank'>/search?facet=type&amp;limit=0&amp;type=CHECKLIST&amp;facetMultiselect=true</a> still shows type values 'OCCURRENCE' and 'METADATA' even though type is being filtered by type=CHECKLIST"
                 }) %}
             {% endif %}
             <h3>Query parameters explained</h3>
@@ -109,9 +109,9 @@
                 <a href="" class="h3">Content</a>
                 <ul class="nav-chapters">
                     {% for id,sect in sections %}
-                    <li class="nav-chapter" du-scrollspy="{$ id $}">
-                        <a href="#{$ id $}">{$ sect | capitalize $}</a>
-                    </li>
+                        <li class="nav-chapter" du-scrollspy="{$ id $}">
+                            <a href="#{$ id $}">{$ sect | capitalize $}</a>
+                        </li>
                     {% endfor %}
                 </ul>
             </li>

@@ -43,7 +43,7 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
         }
     };
 
-    $scope.$on(NAV_EVENTS.toggleSearch, function(event, data) {
+    $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
         if (data.toggle) {
             vm.isActive = !vm.isActive;
         } else {

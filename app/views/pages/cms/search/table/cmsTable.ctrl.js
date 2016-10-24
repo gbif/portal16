@@ -11,7 +11,7 @@ function cmsTableCtrl(hotkeys, CmsFilter, env) {
     vm.state = CmsFilter.getState();
 
     vm.imageCache = env.imageCache;
-    
+
     /* pagination */
     function updatePaginationCounts() {
         offset = parseInt(vm.state.query.offset) || 0;
