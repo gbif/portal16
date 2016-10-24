@@ -1661,7 +1661,9 @@
     "nodes_committee": "Nodes committee",
     "gbif_secretariat": "GBIF Secretariat",
     "staff_member": "Staff member",
-    "membershipType": "Membership"
+    "membershipType": "Membership",
+    "governingBoard": "Governing Board",
+    "committees": "Committees"
   },
   "tools": {
     "categoryTitle": "tools",

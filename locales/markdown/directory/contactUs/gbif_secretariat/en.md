@@ -1,0 +1,1 @@
+GBIF Secretariat is hosted in Copenhagen, Denmark.
