@@ -20,15 +20,15 @@ Directory.getContacts = function(res) {
         'executive_committee',
         'science_committee',
         'budget_committee',
-        'nodes_committee',
+        'nodes_committee'
         //'nodes_steering_group'
-        'gbif_secretariat'
     ];
 
     var contacts = {
         'participants': [],
-        'peopleByParticipants': [],
         'committees': [],
+        'gbif_secretariat': [],
+        'peopleByParticipants': [],
         'people': []
     };
 
@@ -106,6 +106,21 @@ Directory.getContacts = function(res) {
                 contacts = processContacts(contacts);
                 return contacts;
             });
+        })
+        .then(function(contacts){
+            // get gbif_secretariat contacts
+            return getCommitteeContacts('gbif_secretariat', contacts)
+                .then(function(members){
+                    var obj = {
+                        'enum': 'gbif_secretariat',
+                        'members': members
+                    };
+                    return getGroupIntro(obj);
+                })
+                .then(function(group){
+                    contacts.gbif_secretariat.push(group);
+                    return contacts;
+                });
         })
         .then(function(contacts){
             defer.resolve(contacts);

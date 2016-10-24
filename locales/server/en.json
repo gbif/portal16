@@ -1638,7 +1638,7 @@
   "directory": {
     "title": "Directory of Contacts",
     "contact": "contact",
-    "contactUsSubtitle": "Finding people and information around the GBIF community",
+    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participants": "Voting participants",
     "associate_country_participants": "Associate country participants",
     "other_associate_participants": "Other associate participants",
@@ -1661,7 +1661,10 @@
     "nodes_committee": "Nodes committee",
     "gbif_secretariat": "GBIF Secretariat",
     "staff_member": "Staff member",
-    "membershipType": "Membership"
+    "membershipType": "Membership",
+    "governingBoard": "Governing Board",
+    "committees": "Committees",
+    "name": "name"
   },
   "tools": {
     "categoryTitle": "tools",
