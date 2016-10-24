@@ -8,8 +8,8 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/species/:key(\\d+)\.:ext?', taxonRoute);
-router.get('/taxon/:key(\\d+)\.:ext?', taxonRoute);
+router.get('/species2/:key(\\d+)\.:ext?', taxonRoute);
+router.get('/taxon2/:key(\\d+)\.:ext?', taxonRoute);
 
 function taxonRoute(req, res, next) {
     var key = req.params.key;

@@ -1,0 +1,34 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "../../../components/common.macros.nunjucks" as commonMacros %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes page--data seperator--b">
+
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">{$ __('taxonRank.' + species.record.rank) $}</span>
+                            <span class="article-header__category__lower">
+                                {$ __('taxonomicStatus.' + species.record.taxonomicStatus) $}
+                            </span>
+                        </nav>
+
+                        <h1 class="text-center">
+                            {$ commonMacros.parsedTaxonName(species.name) $}
+                        </h1>
+                        <span class=" article-header__meta">
+                            <a href="/occurrence/search?taxon_key={$ spcies.record.key $}">
+                                See all occurrence records
+                            </a>
+                        </span>
+                    </header>
+                </div>
+            </div>
+        </div>
+
+        {% include ".nunjucks ./../shared/layout/html/developmentnotice.nunjucks" %}
+
+    </article>
+{% endblock %}
