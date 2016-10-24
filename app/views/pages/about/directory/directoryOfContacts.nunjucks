@@ -45,8 +45,7 @@
                         <span class="relative-anchor-offset"><a name="menu"></a></span>
                         <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
                             <nav id="contacts-nav" class="contacts-nav">
-                                <ul class="nav">
-
+                                <ul>
                                     {% if contacts.participants.length > 0 %}
                                     <li>
                                         <div class="h3">{$ __('directory.governingBoard') $}</div>
