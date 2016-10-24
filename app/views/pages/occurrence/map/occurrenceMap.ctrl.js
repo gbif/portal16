@@ -1,10 +1,3 @@
-/**
- * search types?
- * auto complete
- * integer is [between, below, above]
- * date interval etc
- * enum list, multiselect
- */
 'use strict';
 var angular = require('angular');
 
@@ -48,6 +41,7 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         crs: L.CRS.EPSG4326
     };
     function onMapClick(event) {
+        return;
         var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
         vm.query = angular.copy(vm.occurrenceState.query);
         var decimalLatitudeMin = event.latlng.lat - (targetSize / event.target._zoom);
