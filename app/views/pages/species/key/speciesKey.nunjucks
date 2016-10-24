@@ -1,4 +1,5 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "../../../components/common.macros.nunjucks" as commonMacros %}
 
 {% macro taxonLink(tax) %}
 <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$ tax.scientificName $}</a></span>
@@ -6,13 +7,6 @@
 
 {% macro taxonLink(key, name) %}
     <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ key $}">{$ name $}</a></span>
-{% endmacro %}
-
-{% macro parsedName(n) %}
-    <em>{$ n.genusOrAbove $} {$ n.specificEpithet $}</em>
-    {% if n.infraSpecificEpithet %}{$ n.rankMarker $} <em>{$ n.infraSpecificEpithet $}</em>{% endif %}
-    {% if n.bracketAuthorship or n.bracketYear %}({$ n.bracketAuthorship $}{% if n.bracketYear and n.bracketAuthorship %}, {% endif %}{$ n.bracketYear $}){% endif %}
-    {$ n.authorship $}{% if n.authorship and n.year %}, {% endif %}{$ n.year $}
 {% endmacro %}
 
 {% block page %}
@@ -40,7 +34,7 @@
                         </nav>
 
                         <h1 class="text-center">
-                            {$ parsedName(taxon.name) $}
+                            {$ commonMacros.parsedTaxonName(taxon.name) $}
                         </h1>
 
                         {% if taxon.record.publishedIn %}
@@ -50,14 +44,11 @@
                         {% endif %}
 
                         <div class="text-center">
-                            <span class="taxon-classification taxon-classification--discreet">
-                                {% for rank in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
-                                    {% if taxon.record[rank] %}
-                                        {% if rank != 'kingdom' %}
-                                            <i></i>
-                                        {% endif %}
-                                        <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.record[rank + 'Key'] $}"
-                                           class="{$ rank $}">{$ taxon.record[rank] $}</a>
+                            <span class="classification-list discreet">
+                                {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
+                                    {% if taxon.record[taxa] and taxa != taxon.record.taxonRank | lower %}
+                                        <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.record[taxa + 'Key'] $}"
+                                           class="{$ taxa $}">{$ taxon.record[taxa] $}</a>
                                     {% endif %}
                                 {% endfor %}
                             </span>
