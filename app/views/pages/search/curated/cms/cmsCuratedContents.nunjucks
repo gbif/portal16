@@ -6,10 +6,15 @@
                     <div class="card__stripe">
                         <div class="card__content">
                             <nav class="article-header__category article-header__category--deep small">
-                                <span class="article-header__category__upper">about</span>
-                            <span class="article-header__category__lower">
-                                {$ __('cms.contentType.' + highlightedNode.type) $}
-                            </span>
+
+                                {% if highlightedNode.headingPrimary | isNotEmpty and highlightedNode.headingSecondary | isNotEmpty %}
+                                    <span class="article-header__category__upper">{$ __('cms.heading.primary.' + highlightedNode.headingPrimary) $}</span>
+                                    <span class="article-header__category__lower">{$ __('cms.heading.secondary.' + highlightedNode.headingSecondary) $}</span>
+                                {% else %}
+                                    <span class="article-header__category__upper">{$ __('cms.about') $}</span>
+                                    <span class="article-header__category__lower">{$ __('cms.contentType.' + highlightedNode.type) $}</span>
+                                {% endif %}
+
                             </nav>
                             <h3 class="text-center m-t-05 card__content__title"><a href="/{$ highlightedNode.targetUrl $}">{$
                                     highlightedNode.title $}</a></h3>
