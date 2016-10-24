@@ -30,15 +30,9 @@
         <div class="card__stripe card__stripe--expandable">
             <div class="card__content">
                 <div class="text-center">
-                    <span class="taxon-classification taxon-classification--discreet">
-                        {% if taxon.info.kingdom %}
-                                <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info.kingdomKey $}"
-                                   class="kingdom">{$ taxon.info.kingdom $}</a>
-                            {% endif %}
-
-                        {% for taxa in ['phylum', 'class', 'order', 'family', 'genus', 'species'] %}
-                            {% if taxon.info[taxa] %}
-                                <i></i>
+                    <span class="classification-list discreet">
+                        {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
+                            {% if taxon.info[taxa] and taxa != taxon.info.rank | lower %}
                                 <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.info[taxa + 'Key'] $}"
                                    class="{$ taxa $}">{$ taxon.info[taxa] $}</a>
                             {% endif %}
