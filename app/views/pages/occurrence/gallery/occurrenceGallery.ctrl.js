@@ -33,7 +33,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         });
     };
 
-    vm.imageFailed = function() {
+    vm.imageFailed = function () {
         vm.failedImageCount++;
     };
 

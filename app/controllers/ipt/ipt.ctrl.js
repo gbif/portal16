@@ -11,13 +11,13 @@ module.exports = function (app) {
 };
 
 router.get('/ipt\.:ext?', function (req, res, next) {
-    getIptContent().then(function(data){
+    getIptContent().then(function (data) {
         data.data = data.data[0];
         data._meta = {
             title: 'IPT'
         };
         render(req, res, next, data);
-    }, function(err) {
+    }, function (err) {
         next(err)
     });
 });

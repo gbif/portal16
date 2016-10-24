@@ -24,7 +24,7 @@ router.get('/search', function (req, res, next) {
             };
 
         res.render('pages/search/search', context);
-    } catch(err) {
+    } catch (err) {
         next(err);
     }
 });
@@ -70,7 +70,7 @@ function searchHandler(req, res, next) {
                 }
             };
             renderPage(req, res, next, context);
-        } catch(err) {
+        } catch (err) {
             next(err);
         }
     });
@@ -83,7 +83,7 @@ function renderPage(req, res, next, context) {
         } else {
             res.render('pages/search/searchPartial', context);
         }
-    } catch(err) {
+    } catch (err) {
         next(err);
     }
 }

@@ -32,7 +32,7 @@ router.get('/publisher/:key\.:ext?', function (req, res, next) {
                 contacts.push(organizationContact);
                 publisher._computedValues.contributors = contributors.getContributors(contacts);
                 renderPage(req, res, next, publisher);
-            } catch(error) {
+            } catch (error) {
                 next(error);
             }
         }, function (err) {

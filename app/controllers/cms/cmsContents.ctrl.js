@@ -2,7 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     format = require('../../helpers/format'),
-    env = process.env.NODE_ENV  || 'local',
+    env = process.env.NODE_ENV || 'local',
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
@@ -188,7 +188,7 @@ function extractAndEncodeUriMarkdown(text) {
             break;
     }
 
-    return text.replace(regex, function(match){
+    return text.replace(regex, function (match) {
         return '](' + appendImgCachePrefix(encodeURIComponent(match.substring(2)));
     });
 }
@@ -211,7 +211,7 @@ function extractAndEncodeUriHtml(text) {
             break;
     }
 
-    return text.replace(regex, function(match){
+    return text.replace(regex, function (match) {
         return 'src="' + appendImgCachePrefix(encodeURIComponent(match.substring(5)));
     });
 }

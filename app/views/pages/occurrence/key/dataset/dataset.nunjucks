@@ -1,12 +1,12 @@
 {% if occurrence.dataset.description and occurrence.dataset.description.length < 1500 %}
-<section class="horizontal-stripe light-background">
-    <div class="container--normal">
-        <div class="container--prose description">
-            <h3 class="m-t-0">{$ __('stdTerms.aboutTheDataset') $}</h3>
-            <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} prose-columns--single-col {% endif %}">
-                {$ occurrence.dataset.description | safe $}
+    <section class="horizontal-stripe light-background">
+        <div class="container--normal">
+            <div class="container--prose description">
+                <h3 class="m-t-0">{$ __('stdTerms.aboutTheDataset') $}</h3>
+                <div class="prose-columns {% if occurrence.dataset.description.length < 500 %} prose-columns--single-col {% endif %}">
+                    {$ occurrence.dataset.description | safe $}
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endif %}
