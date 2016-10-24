@@ -72,6 +72,8 @@
     }
     &__meta {
         font-weight bold
+        display inline-block
+        margin-top vrBlock(0.5)
         > * {
             margin 0 //necessary because the drupal api sometimes returns a paragraph tag
         }
@@ -336,23 +338,6 @@ $headerImageMaxFullWidth = $desktop
     background-position center
     img {
         display none
-    }
-}
-
-.taxon-classification {
-    i:after {
-        font-style normal
-        content '\276f' // ❯
-        font-size 80%
-    }
-    &--discreet {
-        color #ddd
-        a {
-            color #666
-        }
-    }
-    .genus, .species {
-        font-style italic
     }
 }
 

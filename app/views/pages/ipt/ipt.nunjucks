@@ -2,7 +2,7 @@
 {% import "../about/cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
-    <div>
+    <div ng-controller="iptCtrl as ipt">
         <article class="wrapper-horizontal-stripes">
             <div class="horizontal-stripe article-header white-background">
                 <div class="container">
@@ -17,27 +17,51 @@
                                 {# fulltext html already wrapped by <p> from Content API #}
                                 {$ data.summary | safe $}
                             </div>
-                            <span class="article-header__meta">
-                                {$ data.numResourceUsed $}
-                            </span>
+                            <div>
+                                <span class="article-header__meta m-r-2 m-l-2">
+                                    2.219 occurrence datasets
+                                </span>
+                                <span class="article-header__meta m-r-2 m-l-2">
+                                    450 million occurrence records
+                                </span>
+                                <span class="article-header__meta m-r-2 m-l-2">
+                                    199 checklist datasets
+                                </span>
+                            </div>
                         </header>
                     </div>
                 </div>
             </div>
 
-			<div class="horizontal-stripe--paddingless white-background">
-
-			</div>
-
             <div class="horizontal-stripe--paddingless white-background">
-	            <div class="heading-image">
-	                <div class="cover-image" id="map">
-	                </div>
-	            </div>
-	        </div>
+                <div class="heading-image" style="height:420px;">
+                    <leaflet
+                            leafletMap="leafletMap"
+                            id="iptInstallationsMap"
+                            class="iptInstallationsMap"
+                            defaults="ipt.mapDefaults"
+                            markers="ipt.installations"
+                            {#lf-center="ipt.center"#}
+                            height="100%"
+                            width="100%"
+                            layers="ipt.layers"
+                    ></leaflet>
+                </div>
+            </div>
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="heading-image">
+                    <div class="container-fluid">
+                        <div class="row ipt__map-stats">
+                            <div class="col-xs-12 col-sm-4 text-center"><span
+                                        class="ng-cloak">{{ ipt.installations.length }} </span>publishers
+                            </div>
+                            <div class="col-xs-12 col-sm-4 text-center">171 installations</div>
+                            <div class="col-xs-12 col-sm-4 text-center">50 countries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-
-            
 
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
@@ -50,4 +74,8 @@
             </div>
         </article>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/js/base/pages/ipt.js"></script>
 {% endblock %}

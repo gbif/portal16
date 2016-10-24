@@ -56,15 +56,24 @@
 .m-0 {
     margin 0 !important
 }
-.m-t-0 {
-    margin-top 0 !important
-}
+
 
 .m-t-05 {
-    margin-top vrBlock(0.5) !important
+    margin-top vrBlock(.5) !important
 }
-.m-t-1 {
-    margin-top vrBlock(1) !important
+for num in 0 1 2 3 {
+    .m-t-{num} {
+        margin-top vrBlock(num) !important
+    }
+    .m-r-{num} {
+        margin-right vrBlock(num) !important
+    }
+    .m-b-{num} {
+        margin-bottom vrBlock(num) !important
+    }
+    .m-l-{num} {
+        margin-left vrBlock(num) !important
+    }
 }
 
 +isAbove($laptop) {

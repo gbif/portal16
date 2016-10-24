@@ -47,6 +47,7 @@ gulp.task('prod', function (callback) {
         ['scripts'],
         ['speciesLookup'],
         ['dataValidator'],
+        ['ipt'],
         ['templates'], // needs to come after all files have been rev'ed
         ['ieStyle'],
         callback);
@@ -68,7 +69,7 @@ gulp.task('watch', ['browser-sync'], function () {
     ], ['styles-reload']);
 
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
-    gulp.watch([config.js.client.watch], ['scripts-reload', 'speciesLookup', 'dataValidator', 'client-lint']);
+    gulp.watch([config.js.client.watch], ['scripts-reload', 'speciesLookup', 'dataValidator', 'ipt', 'client-lint']);
 
     gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
 
@@ -79,7 +80,7 @@ gulp.task('dev', [], function (callback) {
     runSequence(
         ['clean-all'],
         ['env-constants'],
-        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'speciesLookup', 'dataValidator'],
+        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'speciesLookup', 'dataValidator', 'ipt'],
         ['templates'],
         ['ieStyle'],
         ['watch'],
