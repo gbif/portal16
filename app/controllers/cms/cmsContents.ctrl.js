@@ -82,8 +82,11 @@ router.get([
 
                     // markdown/html inline URL extracting and prefixing
                     if (data.data[0].hasOwnProperty('body') && data.data[0].type == 'generic') {
-                        if (data.data[0].body.hasOwnProperty('value')) {
+                        if (data.data[0].body) {
                             data.data[0].body.value = extractAndEncodeUriMarkdown(data.data[0].body.value);
+                        }
+                        else {
+                            data.data[0].body = {'value':'Pending content.'};
                         }
                     }
                     else if (data.data[0].hasOwnProperty('body') && data.data[0].type !== 'generic') {
