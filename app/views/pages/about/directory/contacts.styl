@@ -73,6 +73,12 @@
         tr {
             border-top 1px solid #ccc
         }
+        tr:focus {
+            outline none
+        }
+        td:focus {
+            outline none
+        }
         tbody {
             .gbif-role {
                 text-transform capitalize
@@ -89,6 +95,14 @@
                     width 100%
                     padding-left 6px
                     background $lightBackground
+                }
+                td {
+                    a {
+                        color inherit
+                        &:hover {
+                            text-decoration underline
+                        }
+                    }
                 }
             }
         }
@@ -180,10 +194,6 @@
                 tr:hover {
                     background darken($lightBackground, 5)
                 }
-                tr:focus {
-                    outline none
-                }
-    
             }
             .other-associate-participants {
                 tr {
