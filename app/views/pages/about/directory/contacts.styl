@@ -126,6 +126,9 @@
             }
         }
     }
+    address:focus {
+        outline none
+    }
 }
 
 +isAbove($tablet) {
@@ -287,6 +290,12 @@
     .contact__body.contact--show {
         max-height 200px
     }
+    .contact__body:focus {
+        outline none
+    }
+    .stop-propagation:focus {
+        outline none
+    }
 }
 
 .other-associate-participants {
@@ -294,8 +303,11 @@
         max-width 150px
     }
 }
-.contact__address {
-    max-width 220px
+
+.gbif-secretariat {
+    .contact__body {
+        max-width 250px
+    }
 }
 
 .contact {

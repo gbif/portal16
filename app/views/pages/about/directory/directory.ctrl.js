@@ -32,6 +32,10 @@ function directoryCtrl(DirectoryContacts) {
         }
     };
 
+    vm.selectAddress = function($event){
+        $event.stopPropagation();
+    };
+
     vm.searchOnEnter = function (event) {
         if (event.which === 13) {
             vm.typeaheadSelect(vm.selected);
