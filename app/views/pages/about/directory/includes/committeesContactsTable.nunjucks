@@ -6,23 +6,23 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>
-                        <a ng-click="sortField = 'role'; sortReverse = !sortReverse">{$ __('directory.role') $}</a>
+                    <th ng-click="sortField = 'role'; sortReverse = !sortReverse">
+                        <a>{$ __('directory.role') $}</a>
                         <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th>
-                        <a ng-click="sortField = 'firstName'; sortReverse = !sortReverse">{$ __('directory.name') $}</a>
+                    <th ng-click="sortField = 'firstName'; sortReverse = !sortReverse">
+                        <a>{$ __('directory.name') $}</a>
                         <span ng-show="sortField == 'firstName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'firstName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th>
-                        <a ng-click="sortField = 'participantName'; sortReverse = !sortReverse">{$ __('directory.participant') $}</a>
+                    <th ng-click="sortField = 'participantName'; sortReverse = !sortReverse">
+                        <a>{$ __('directory.participant') $}</a>
                         <span ng-show="sortField == 'participantName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'participantName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th ng-show="committee.enum == 'nodes_committee'">
-                        <a ng-click="sortField = 'membershipType'; sortReverse = !sortReverse">{$ __('directory.membershipType') $}</a>
+                    <th ng-show="committee.enum == 'nodes_committee'" ng-click="sortField = 'membershipType'; sortReverse = !sortReverse">
+                        <a>{$ __('directory.membershipType') $}</a>
                         <span ng-show="sortField == 'membershipType' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'membershipType' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>

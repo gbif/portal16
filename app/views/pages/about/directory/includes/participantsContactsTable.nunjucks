@@ -5,19 +5,19 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th><a ng-click="sortField = 'countryName'; sortReverse = !sortReverse">{$ __('directory.participant') $}</a>
+                    <th ng-click="sortField = 'countryName'; sortReverse = !sortReverse"><a>{$ __('directory.participant') $}</a>
                         <span ng-show="sortField == 'countryName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'countryName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'role'; sortReverse = !sortReverse">{$ __('directory.role') $}</a>
+                    <th ng-click="sortField = 'role'; sortReverse = !sortReverse"><a>{$ __('directory.role') $}</a>
                         <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'firstName'; sortReverse = !sortReverse">{$ __('directory.name') $}</a>
+                    <th ng-click="sortField = 'firstName'; sortReverse = !sortReverse"><a>{$ __('directory.name') $}</a>
                         <span ng-show="sortField == 'firstName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'firstName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th><a ng-click="sortField = 'institutionName'; sortReverse = !sortReverse">{$ __('directory.institution') $}</a>
+                    <th ng-click="sortField = 'institutionName'; sortReverse = !sortReverse"><a>{$ __('directory.institution') $}</a>
                         <span ng-show="sortField == 'institutionName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'institutionName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
