@@ -12,7 +12,7 @@
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
                     <th>
-                        <a ng-click="sortField = 'firstName'; sortReverse = !sortReverse">{$ __('directory.delegationMembers') $}</a>
+                        <a ng-click="sortField = 'firstName'; sortReverse = !sortReverse">{$ __('directory.name') $}</a>
                         <span ng-show="sortField == 'firstName' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'firstName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>

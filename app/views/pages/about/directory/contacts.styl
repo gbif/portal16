@@ -19,7 +19,7 @@
             }
             .nav-chapter {
                 position relative
-                margin-left 6px
+                margin-left 0
                 padding 0 0 8px
                 a {
                     padding-left 10px
@@ -35,13 +35,32 @@
                     }
                 }
             }
+            .nav-chapter--orphan {
+                left -8px
+                a {
+                    padding 0 0 0 8px
+                    font-size 15px
+                    border-left 2px solid transparent
+                    &:hover {
+                        text-decoration underline
+                    }
+                    &:focus {
+                        background none
+                    }
+                    
+                }
+                &.active {
+                    a {
+                        border-left 2px solid grey
+                    }
+                }
+            }
             .h3 {
                 margin-top 0
-                margin-bottom 0
+                margin-bottom vrBlock(0.5)
                 &:hover {
                     background none
                     color inherit
-                    text-decoration underline
                 }
             }
         }

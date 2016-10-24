@@ -1663,7 +1663,8 @@
     "staff_member": "Staff member",
     "membershipType": "Membership",
     "governingBoard": "Governing Board",
-    "committees": "Committees"
+    "committees": "Committees",
+    "name": "name"
   },
   "tools": {
     "categoryTitle": "tools",
