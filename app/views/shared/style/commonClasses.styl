@@ -513,7 +513,14 @@ sub {
         height $navBar_height
         margin-top -($navBar_height)
         visibility hidden
+        z-index -999
+        position relative
     }
+}
+
+.anchor-block__above {
+    position relative
+    z-index 100
 }
 
 .seperator {

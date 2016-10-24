@@ -1,5 +1,5 @@
 <div class="contacts__table">
-    <div class="table-container--contacts" ng-repeat="(index, participant) in vm.contacts.peopleByParticipants">
+    <div ng-repeat="(index, participant) in vm.contacts.peopleByParticipants">
         <div id="{{ participant.enum }}" class="anchor-block" ng-if="['voting_participants', 'associate_country_participants', 'other_associate_participants'].indexOf(participant.enum) != -1">
             <h2 translate="directory.{{ participant.enum }}"></h2>
             <table class="table">

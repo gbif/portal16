@@ -1,5 +1,5 @@
 <div class="contacts__table">
-    <div class="table-container--contacts" ng-repeat="(index, committee) in vm.contacts.committees">
+    <div ng-repeat="(index, committee) in vm.contacts.committees">
         <div id="{{ committee.enum }}" class="anchor-block">
             <h2 translate="directory.{{ committee.enum }}"></h2>
             <div ng-bind-html="committee.intro"></div>

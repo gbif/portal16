@@ -11,7 +11,7 @@
                             <span class="article-header__category__lower">{$ __('directory.contact') $}</span>
                         </nav>
                         <h1>{$ __('directory.title') $}</h1>
-                        <div class="article-header__intro">
+                        <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
                             {$ __('directory.contactUsSubtitle') $}
                         </div>
