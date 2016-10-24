@@ -28,7 +28,6 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
             vm.results = vm.results.concat(data.results);
-            vm.failedImageCount = 0;
         }, function () {
             //TODO handle request error
         });
@@ -53,6 +52,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         vm.query.offset = 0;
         vm.results = [];
         vm.count = -1;
+        vm.failedImageCount = 0;
         search(vm.query);
     };
     vm.filter(vm.occurrenceState.query);
