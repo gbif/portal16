@@ -19,7 +19,7 @@
                             {$ commonMacros.parsedTaxonName(species.name) $}
                         </h1>
                         <span class=" article-header__meta">
-                            <a href="/occurrence/search?taxon_key={$ spcies.record.key $}">
+                            <a href="/occurrence/search?taxon_key={$ species.record.key $}">
                                 See all occurrence records
                             </a>
                         </span>
