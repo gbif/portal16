@@ -1626,11 +1626,13 @@
     "heading": {
       "primary": {
         "tools": "Tools",
-        "dataPublishing": "Data Publishing"
+        "dataPublishing": "Data Publishing",
+        "publishing": "Publishing"
       },
       "secondary": {
         "ipt": "IPT",
-        "guidelines": "Guidelines"
+        "guidelines": "Guidelines",
+        "datasets": "Datasets"
       }
     },
     "about": "about"
