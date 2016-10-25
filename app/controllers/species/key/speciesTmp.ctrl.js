@@ -1,5 +1,6 @@
 var express = require('express'),
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
+    apiErrors = rootRequire('app/models/util/api-request').ERRORS,
     router = express.Router();
 
 module.exports = function (app) {
@@ -14,7 +15,11 @@ function taxonRoute(req, res, next) {
     Taxon.get(key, {expand: ['name']}).then(function (taxon) {
         renderPage(req, res, next, taxon);
     }, function (err) {
-        next(err);
+        if (err.message == apiErrors.NOT_FOUND) {
+            next();
+        } else {
+            next(err);
+        }
     });
 }
 
