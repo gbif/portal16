@@ -6,6 +6,13 @@
                 <span class="text-center">Search</span>
             </div>
         </div>
+        <!--<div style="position: absolute;-->
+    <!--background: deepskyblue;-->
+    <!--width: 200px;-->
+    <!--left: -200px;-->
+    <!--height: 60px;-->
+    <!--padding: 10px;-->
+    <!--color: white;">Search here</div>-->
         <div class="site-drawer__section">
 
             <div class="search-bar filter-group">
@@ -98,7 +105,7 @@
 
             <div ui-view>
 
-                <div class="horizontal-stripe--paddingless white-background search-header">
+                <div class="horizontal-stripe--paddingless white-background search-header" ng-click="omniSearch.clearFreetextAndSetFocus();">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
@@ -110,6 +117,9 @@
                                         <span ng-if="loaded">Showing results for <i>{{omniSearch.query.q}}</i></span>
                                         <span ng-if="!loaded">Searching for <i>{{omniSearch.query.q}}</i></span>
                                     </span>
+                                    <span ng-if="!omniSearch.query.q">
+                                        Search for species, articles and more
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -120,6 +130,13 @@
                             ng-if="omniSearch.query.q && !loaded"></ng-include>
                 <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"
                             onload="loaded = true" ng-show="omniSearch.query.q"></ng-include>
+
+
+                <div class="country-key seperator--b seperator">
+                    <ng-include src="'/search/defaultsearch'"
+                                onload="loaded = true" ng-show="!omniSearch.query.q"></ng-include>
+                </div>
+
 
             </div>
         </div>

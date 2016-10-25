@@ -27,6 +27,8 @@
                 </div>
             </a>
         {% endif %}
+
+        {% if taxon.info.rank and taxon.info.rank != 'KINGDOM' %}
         <div class="card__stripe card__stripe--expandable">
             <div class="card__content">
                 <div class="text-center">
@@ -41,6 +43,8 @@
                 </div>
             </div>
         </div>
+        {% endif %}
+
         {% if taxon.synonym %}
             <div class="card__stripe">
                 <div class="card__content">

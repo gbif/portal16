@@ -50,6 +50,7 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
             vm.isActive = data.state;
         }
     });
+
 }
 
 module.exports = searchCtrl;
