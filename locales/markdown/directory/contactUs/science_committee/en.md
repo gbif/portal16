@@ -1,1 +1,1 @@
-Membership on the science committee is through a democratic vote by the voting participants.  A term on the science committee lasts 3 years.
+The four Chair positions of the science committee are also selected by the Governing Board in two-year terms (with only one extension possible). The committee also includes five at-large members appointed by the Executive Committee.
