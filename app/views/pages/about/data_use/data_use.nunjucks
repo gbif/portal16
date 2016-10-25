@@ -29,7 +29,7 @@
 
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
-                    <div class="body-text prose-columns">
+                    <div class="body-text">
 
                         {$ data.body | sanitize | safe $}
                         {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}

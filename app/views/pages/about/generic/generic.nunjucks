@@ -36,9 +36,9 @@
         {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
 
         <div class="horizontal-stripe white-background">
-            <div class="container--narrow">
+            <div class="container--narrow body-text">
                 <div class="body-text--markdown">
-                    {$ data.body.markdown | safe $}
+                    {$ data.body.markdown | sanitize | addPortalClasses | safe $}
                 </div>
             </div>
         </div>
