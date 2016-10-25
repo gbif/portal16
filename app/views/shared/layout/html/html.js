@@ -17,6 +17,7 @@ require('nouislider-angular');
 window.Chartist = require('chartist');
 require('angular-chartist.js');
 require('chartist-plugin-axistitle');
+require('angular-local-storage');
 
 
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
@@ -26,14 +27,15 @@ require('angular-svg-round-progressbar');
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar']);
+        .module('portal', ['LocalStorageModule', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar']);
 })();
 
 (function () {
     'use strict';
     angular
         .module('portal')
-        .run(runBlock);
+        .run(runBlock)
+        .config(configBlock);
 
     /** @ngInject */
     function runBlock(amMoment, $translate, $http) { //$log
@@ -49,6 +51,14 @@ require('angular-svg-round-progressbar');
             method: 'GET',
             url: 'http://timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
         });
+    }
+
+    /** @ngInject */
+    function configBlock(localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setPrefix('p16')
+            .setStorageType('localStorage')
+            .setDefaultToCookie(false);
     }
 })();
 
@@ -75,6 +85,7 @@ require('./angular/enums.constants');
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');
 require('../partials/feedback/feedback.ctrl');
+require('../partials/popups/terms/terms.ctrl');
 
 
 require('../../../pages/search/search.ctrl');
@@ -138,16 +149,6 @@ require('./angular/translate');
 
 var menu = require('../partials/navigation/navigation.js');
 
-//https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js
-/*! modernizr 3.3.1 (Custom Build) | MIT *
- * http://modernizr.com/download/?-classlist-setclasses !*/
-//!function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,f,r;for(var c in l)if(l.hasOwnProperty(c)){if(n=[],e=l[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)f=n[i],r=f.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],l=[],f={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){l.push({name:n,fn:e,options:s})},addAsyncTest:function(n){l.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=f,Modernizr=new Modernizr;var r=e.documentElement;Modernizr.addTest("classlist","classList"in r);var c="svg"===r.nodeName.toLowerCase();a(),i(t),delete f.addTest,delete f.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
-//
-//if (Modernizr.classlist) {
-//    alert(Modernizr.classlist);
-//} else {
-//    alert(Modernizr.classlist);
-//}
 (function () {
     function appendScript(conditionalScript) {
         var el = document.createElement('script');
@@ -314,10 +315,17 @@ function closeMenusOnClickOutside(event) {
 document.addEventListener('click', closeMenusOnClickOutside);
 document.addEventListener('touchend', closeMenusOnClickOutside);
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-42057855-4', 'auto');
 ga('send', 'pageview');

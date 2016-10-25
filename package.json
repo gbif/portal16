@@ -17,6 +17,7 @@
     "angular-chartist.js": "^4.2.1",
     "angular-hotkeys": "^1.7.0",
     "angular-leaflet-directive": "^0.10.0",
+    "angular-local-storage": "^0.5.0",
     "angular-moment": "^1.0.0-beta.6",
     "angular-resource": "^1.5.2",
     "angular-sanitize": "^1.5.8",
