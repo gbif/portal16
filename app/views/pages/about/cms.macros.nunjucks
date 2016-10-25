@@ -131,7 +131,7 @@
 {% endmacro %}
 
 {% macro headerImage(images, imageCacheUrl) %}
-    {% if images[0].width > 1000 %}
+    {% if images[0].width >= 1170 %}
         <div class="horizontal-stripe--paddingless white-background">
             <figure class="heading-image">
                 <div class="cover-image">
@@ -148,7 +148,7 @@
 {% endmacro %}
 
 {% macro inlineHeaderImage(images, imageCacheUrl) %}
-    {% if images[0].width <= 1000 %}
+    {% if images[0].width < 1170 %}
         <figure>
             <div class="cover-image article-image">
                 <img ng-src="{$ imageCacheUrl $}{$ images[0].styles.inline_header_image | encodeURI $}"
