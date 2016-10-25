@@ -78,6 +78,10 @@ function searchHandler(req, res, next) {
 
 function renderPage(req, res, next, context) {
     try {
+        //do not cache partial results.
+        if (context.results.isPartialResponse) {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
         if (req.params.ext == 'debug') {
             res.json(context);
         } else {
