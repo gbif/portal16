@@ -124,12 +124,12 @@
         "name": "gbifLabs",
         "items": [
           {
-            "name": "speciesPopulation",
-            "url": "/tools/species-population"
-          },
-          {
             "name": "speciesMatching",
             "url": "/tools/species-lookup"
+          },
+          {
+            "name": "speciesPopulation",
+            "url": "/tools/species-population"
           },
           {
             "name": "developerBlog",
@@ -192,10 +192,6 @@
           {
             "name": "featuredDataUse",
             "url": "/cms/search?type=data_use"
-          },
-          {
-            "name": "literature",
-            "url": "/cms/search?type=literature"
           },
           {
             "name": "events",
