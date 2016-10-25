@@ -103,6 +103,10 @@
             "url": "/developer/summary"
           },
           {
+            "name": "gbifSoftware",
+            "url": "/tools/gbif-software"
+          },
+          {
             "name": "rgbif",
             "url": "/resource/81747"
           },
@@ -111,8 +115,8 @@
             "url": "/resource/81279"
           },
           {
-            "name": "gbifSoftware",
-            "url": "/tools/gbif-software"
+            "name": "toolsCatalogue",
+            "url": "/cms/search?type=tool"
           }
         ]
       },
@@ -126,10 +130,6 @@
           {
             "name": "speciesMatching",
             "url": "/tools/species-lookup"
-          },
-          {
-            "name": "toolsCatalogue",
-            "url": "/cms/search?type=tool"
           },
           {
             "name": "developerBlog",
@@ -161,8 +161,16 @@
             "url": "/become-member"
           },
           {
+            "name": "funders",
+            "url": "/funders"
+          },
+          {
             "name": "strategicPlan",
             "url": "/strategic-plan"
+          },
+          {
+            "name": "awards",
+            "url": "/awards"
           },
           {
             "name": "contactDirectory",
@@ -196,10 +204,6 @@
           {
             "name": "newsletters",
             "url": "/newsletters"
-          },
-          {
-            "name": "awards",
-            "url": "/awards"
           },
           {
             "name": "communitySite",
