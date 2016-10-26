@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('assets', [], function () {
     return gulp.src(config.assets.paths)
 
-        .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulpif(config.isProd, gulpif('!favicon.ico', rev())))
         .pipe(gulp.dest(config.assets.dest))
 
         .pipe(gulpif(config.isProd, rev.manifest({
