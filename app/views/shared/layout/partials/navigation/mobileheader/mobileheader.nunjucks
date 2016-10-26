@@ -2,8 +2,10 @@
     <div>
         <div class="site-header__mobile-options clearfix">
             <div class="navbar-action">
-                <a href="#" class="action-icon gb-icon-logo site-header__menu-toggle">
-                    <span>Menu</span>
+                <a href="" class="action-icon site-header__menu-toggle">
+                    <span class="site-header__mobile__icon gb-icon-logo"></span>
+                    <span class="site-header__mobile__icon gb-icon-close"></span>
+                    <span class="site-header__mobile__text">Menu</span>
                 </a>
             </div>
 
@@ -15,8 +17,9 @@
                 </div>-->
 
                 <div class="navbar-action">
-                    <a href="#" class="action-icon gb-icon-search site-header__search-toggle">
-                        <span>Search</span>
+                    <a href="" class="action-icon site-header__search-toggle">
+                        <span class="site-header__mobile__icon gb-icon-search"></span>
+                        <span class="site-header__mobile__text">Search</span>
                     </a>
                 </div>
 

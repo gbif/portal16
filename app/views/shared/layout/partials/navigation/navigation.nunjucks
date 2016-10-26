@@ -17,12 +17,18 @@
 
             {% if not _meta.hideSearchAction %}
                 <li class="service-menu__search">
-                    <a href="" class="gb-icon-search" ng-click="nav.toggleSearch()"><span>Search</span></a>
+                    <a href="" ng-click="nav.toggleSearch()">
+                        <span class="service-menu__icon gb-icon-search"></span>
+                        <span class="service-menu__text">Search</span>
+                    </a>
                 </li>
             {% endif %}
 
             <li class="service-menu__feedback">
-                <a href="" class="gb-icon-comment" ng-click="nav.toggleFilter()"><span>Feedback</span></a>
+                <a href="" ng-click="nav.toggleFilter()">
+                    <span class="service-menu__icon gb-icon-comment"></span>
+                    <span class="service-menu__text">Feedback</span>
+                </a>
                 <span class="badge badge--error menu-notification">1</span>
             </li>
 
@@ -76,13 +82,18 @@
 
 
     <div class="main-menu">
-        <a href="/" class="gb-icon-home"><span>{$ __('menu.home') $}</span></a>
+        <a href="/" class="main-menu__home">
+            <span class="main-menu__icon gb-icon-home"></span>
+            <span class="main-menu__icon gb-icon-logo"></span>
+            <span class="main-menu__home__text">{$ __('menu.home') $}</span>
+        </a>
         <ul>
             {% for menuGroup in gb.menu %}
                 {% if menuGroup.type == 'normal' %}
                     <li class="main-menu__item is-category">
-                        <a href="" class="{$ menuGroup.icon $}">
-                            {$ __('menu.' + menuGroup.name) $}
+                        <a href="">
+                            <span class="main-menu__icon {$ menuGroup.icon $}"></span>
+                            <span class="main-menu__text">{$ __('menu.' + menuGroup.name) $}</span>
                         </a>
                         <ul>
                             {% for item in menuGroup.items %}
@@ -96,8 +107,9 @@
                 {% endif %}
                 {% if menuGroup.type == 'mega' %}
                     <li class="is-category is-mega">
-                        <a href="" class="{$ menuGroup.icon $}">
-                            {$ __('menu.' + menuGroup.name) $}
+                        <a href="">
+                            <span class="main-menu__icon {$ menuGroup.icon $}"></span>
+                            <span class="main-menu__text">{$ __('menu.' + menuGroup.name) $}</span>
                         </a>
                         <ul>
                             {% for category in menuGroup.items %}
