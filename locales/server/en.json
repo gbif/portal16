@@ -1758,7 +1758,20 @@
       "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
     },
     "summary": "Validation Summary",
+    "issues": "Validation Issues",
+    "termsFrequency": {
+      "title": "Terms Frequency",
+      "term": "Term",
+      "count": "Count",
+      "percentage": "Percentage"
+    },
+    "interpretedCounts": {
+      "date" : "Number of interpreted date",
+      "taxon" : "Number of interpreted taxon",
+      "location" : "Number of interpreted coordinates"
+    },
     "status": "Status",
-    "indexeable": "Can be indexed by GBIF?"
+    "indexeable": "Can be indexed by GBIF?",
+    "numberOfLines": "Number of lines"
   }
 }

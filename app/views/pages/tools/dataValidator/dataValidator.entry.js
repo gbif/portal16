@@ -23,7 +23,7 @@ function dataValidatorCtrl($http, $scope) {
         formData.append('fieldsTerminatedBy', "\\t");
 
         $http({
-            url: devApiUrl + 'data/validation/file',
+            url: devApiUrl + 'validator/validate/file',
             method: "POST",
             data: formData,
             transformRequest: angular.identity,
@@ -35,15 +35,39 @@ function dataValidatorCtrl($http, $scope) {
         });
     };
 
+    vm.getEvaluationCategory = function(params) {
+        $http({
+            url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
+        }).success(function (data, status, headers, config) {
+            vm.evaluationCategory = data;
+        }).error(function (data, status, headers, config) {
+            // handle error things
+        });
+    }(); //run now
+
     //to be reviewed
     function handleValidationResult(data) {
+
         vm.validationResults = data;
+        //the order of the evaluationCategory is important
+        vm.validationResults.issues = _.orderBy(vm.validationResults.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
+
+        //prepare terms frequency
+        vm.termsFrequency = {};
+        var termFreqData;
+        angular.forEach(vm.validationResults.termsFrequency, function(value, key) {
+            termFreqData = {};
+            termFreqData.count = value;
+            termFreqData.percentage = Math.round((value/ vm.validationResults.numberOfLines)*100);
+            this[key] = termFreqData;
+        }, vm.termsFrequency);
 
         var issueBlock, issueSample;
-        angular.forEach(data.issues, function(value) {
+        angular.forEach(vm.validationResults.issues, function(value) {
             this[value.issueCategory] = this[value.issueCategory] || [];
-            issueBlock = _.omit(value, 'sample');
 
+            //rewrite sample to exclude redundant information (e.g. evaluationType)
+            issueBlock = _.omit(value, 'sample');
             angular.forEach(value.sample, function(sample) {
                 this.sample = this.sample || [];
                 issueSample = {};

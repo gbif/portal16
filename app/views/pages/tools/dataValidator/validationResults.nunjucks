@@ -5,10 +5,6 @@
         <table ng-if="dataValidator.validationResults">
             <tbody>
                 <tr>
-                    <td class="table-cell--wide">{$ __('validation.status') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.status }}</td>
-                </tr>
-                <tr>
                     <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
                     <td class="table-cell--wide">{{ dataValidator.validationResults.indexeable }}</td>
                 </tr>
@@ -20,11 +16,54 @@
                     <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
                     <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.validationProfile }}"></td>
                 </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.numberOfLines}}</td>
+                </tr>
             </tbody>
         </table>
     </div>
 
-    <h3 ng-if="dataValidator.validationResults">Issues</h3>
+    <div class="table-container">
+            <table ng-if="dataValidator.validationResults">
+                <tbody>
+                    <tr>
+                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['dwc:year'] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['gbif:taxonKey'] }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+     </div>
+
+    <h3 ng-if="dataValidator.validationResults">{$ __('validation.termsFrequency.title') $}</h3>
+    <div class="table-container">
+        <table class="table table-bordered table-striped" ng-if="dataValidator.validationResults.termsFrequency">
+            <thead>
+            <tr>
+                <th>{$ __('validation.termsFrequency.term') $}</th>
+                <th>{$ __('validation.termsFrequency.count') $}</th>
+                <th>{$ __('validation.termsFrequency.percentage') $}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(k,v) in dataValidator.termsFrequency">
+                <td>{{ k }}</td>
+                <td>{{ v.count }}</td>
+                <td>{{ v.percentage }} %</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 ng-if="dataValidator.validationResults">{$ __('validation.issues') $}</h3>
     <div ng-if="dataValidator.validationResults">
         <div class="scrollable-y" ng-repeat="(issueCategory, issueBlockList) in dataValidator.issuesMap">
             <h4 translate="validation.category.{{issueCategory}}"></h4>
