@@ -148,9 +148,10 @@ siteHeaderBar() {
             > ul, > a {
                 float left
             }
-            > ul > li > a:before {
-                content ''
-                content unset
+            > ul > li > a {
+                .main-menu__icon {
+                    display none
+                }
             }
             > ul > li > a, > a {
                 white-space nowrap
@@ -159,19 +160,28 @@ siteHeaderBar() {
                 height ($navBar_height - $navBar_borderWidth)
                 padding 0 vrBlock(0.75)
             }
-            > a {
+            .main-menu__home {
                 width vrBlock(3)
                 position relative
-                span {
+                .main-menu__home__text {
                     position absolute
                     left -9999px
                 }
-                &:before {
-                    content $icon-string-logo
+                .main-menu__icon {
                     font-size vrBlock(2)
                     position absolute
-                    bottom vrBlock(0.5)
+                    line-height ($navBar_height - $navBar_borderWidth)
+                    text-align center
+                    &.gb-icon-home {
+                        display none
+                    }
                 }
+                //&:before {
+                //    content $icon-string-logo
+                //    font-size vrBlock(2)
+                //    position absolute
+                //    bottom vrBlock(0.5)
+                //}
             }
         }
     }
@@ -183,7 +193,15 @@ siteHeaderBar() {
         //set base colors
         background $navDrawer_background
         color $navDrawer_color
-
+        .main-menu__icon.gb-icon-logo {
+            display none
+        }
+        .main-menu__icon {
+            font-size vrBlock(1)
+            position absolute
+            left 10px
+            top vrBlock(0.5)
+        }
         //all list items should have the same padding
         li > a, .main-menu > a {
             display block
@@ -199,12 +217,12 @@ siteHeaderBar() {
             //items with icons need additional styling
             a {
                 position relative
-                &:before {
-                    font-size vrBlock(1)
-                    position absolute
-                    left 10px
-                    top vrBlock(0.5)
-                }
+                //&:before {
+                //    font-size vrBlock(1)
+                //    position absolute
+                //    left 10px
+                //    top vrBlock(0.5)
+                //}
 
                 //add an overlay instead of dark color since background changes
                 &:hover, &.is-active {
@@ -306,7 +324,7 @@ siteHeaderBar() {
 
 actionIcon() {
     display inline-block
-    padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
+    //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
     relative()
     height vrBlock(2.75)
     font-size (100 /$majorThird) %
@@ -424,23 +442,39 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                 margin-right 1rem
             }
             > a {
-                > span {
+                height ($navBar_height - $navBar_borderWidth)
+                .service-menu__icon {
+                    position absolute
+                    font-size 28px
+                    width 4rem
+                    display block
+                    text-align center
+                    overflow hidden
+                    height ($navBar_height - $navBar_borderWidth)
+                    line-height ($navBar_height - $navBar_borderWidth)
+                }
+                .service-menu__text {
+                    position absolute
+                    bottom vrBlock(0.25)
+                    text-align center
+                    left 0
+                    width 4rem
                     display none
                 }
                 display inline-block
-                width 3rem
-                padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
+                width 4rem
+                //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
                 relative()
                 font-size (100 /$majorThird) %
-                &:before {
-                    display block
-                    width 100%
-                    height vrBlock(2.75)
-                    text-align center
-                    absolute(top left)
-                    setType(2)
-                    line-height vrBlock(2.75)
-                }
+                //&:before {
+                //    display block
+                //    width 100%
+                //    height vrBlock(2.75)
+                //    text-align center
+                //    absolute(top left)
+                //    setType(2)
+                //    line-height vrBlock(2.75)
+                //}
             }
         }
     }

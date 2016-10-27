@@ -74,12 +74,29 @@ function formatBytes(bytes, decimals) {
 }
 
 function sanitize(dirty) {
+    dirty = dirty || '';
     let clean = sanitizeHtml(dirty, {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img' ]),
-        exclusiveFilter: function(frame) {
-            return frame.tag === 'p' && !frame.text.trim();
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h2']),
+            exclusiveFilter: function (frame) {
+                return frame.tag === 'p' && !frame.text.trim();
+            }
         }
-    });
+    );
+    return clean;
+}
+
+function addPortalClasses(raw) {
+    raw = raw || '';
+    let clean = sanitizeHtml(raw, {
+            allowedTags: false,
+            allowedAttributes: {
+                '*': [ 'href', 'name', 'target', 'src', 'class' ]
+            },
+            transformTags: {
+                'table': sanitizeHtml.simpleTransform('table', {class: 'table table-bordered table-striped'})
+            }
+        }
+    );
     return clean;
 }
 
@@ -89,5 +106,6 @@ module.exports = {
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,
-    sanitize: sanitize
+    sanitize: sanitize,
+    addPortalClasses: addPortalClasses
 };

@@ -12,10 +12,10 @@
 
                         {% if dataset.record.project | isNotEmpty %}
                             <li class="tab {% if active == 'project' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
-                                Project
-                            </a>
-                        </li>
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
+                                    Project
+                                </a>
+                            </li>
                         {% endif %}
 
                         <li class="tab {% if active == 'origin' %}isActive{% endif %}">
@@ -35,11 +35,11 @@
                         </li>
 
                         {% if dataset._occurrenceCount.count > 0 %}
-                        <li class="tab-right">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                <span class="gb-button--round">Explore</span>
-                            </a>
-                        </li>
+                            <li class="tab tab-right">
+                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
+                                    <span class="gb-button">Explore</span>
+                                </a>
+                            </li>
                         {% endif %}
 
                         {% if dataset._occurrenceCount.count == 0 and dataset.record.type != 'METADATA' %}
@@ -47,7 +47,7 @@
                                 {% for endpoint in dataset.record.endpoints | slice(0, 1) %}
                                     <li class="tab-right">
                                         <a href="{$ endpoint.url $}">
-                                            <span class="gb-button--round">Download</span>
+                                            <span class="gb-button">Download</span>
                                         </a>
                                     </li>
                                 {% endfor %}

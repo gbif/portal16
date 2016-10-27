@@ -89,7 +89,7 @@ function getDataset(datasetKey, cb) {
 
                     data.expanded = composeSubmenu(data.expanded);
                     cb(null, data.expanded);
-                } catch(error) {
+                } catch (error) {
                     cb(error);
                 }
             }

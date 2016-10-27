@@ -11,7 +11,7 @@
 
                     {% if highlight.type == 'CMS' %}
                         {% import "./cms/cmsCuratedContents.nunjucks" as cms %}
-                        {$ cms.cmsContentHighlight(highlight.highlight, __) $}
+                        {$ cms.cmsContentHighlight(highlight.highlight, __, _meta) $}
                     {% endif %}
 
                     {% if highlight.type == 'SPECIES' %}

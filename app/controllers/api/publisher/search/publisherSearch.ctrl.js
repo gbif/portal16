@@ -37,10 +37,7 @@ router.get('/publisher/search', function (req, res, next) {
         });
 
     }, function (err) {
-        //TODO should this be logged here or in model/controller/api?
-        //TODO dependent on the error we should show different information. 404. timeout or error => info about stability.
-        console.log('error in ctrl ' + err);
-        next();
+        next(err);
     });
 });
 

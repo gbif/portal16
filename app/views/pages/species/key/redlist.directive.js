@@ -35,8 +35,8 @@ function redlistDirective() {
     /** @ngInject */
     function redlistCtrl(RedlistSpecies) {
         var vm = this;
-        vm.categoryTitle= '';
-        vm.category= '';
+        vm.categoryTitle = '';
+        vm.category = '';
 
         RedlistSpecies.query({
             name: vm.name

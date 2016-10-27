@@ -53,9 +53,10 @@
                                     <dd>
                                         <ul class="inline-bullet-list">
                                             {% for endpoint in dataset.record.endpoints %}
-                                            <li>
-                                                <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum | capitalize $}</a>
-                                            </li>
+                                                <li>
+                                                    <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum |
+                                                        capitalize $}</a>
+                                                </li>
                                             {% endfor %}
                                         </ul>
                                     </dd>
@@ -65,12 +66,12 @@
                         </dl>
                     </div>
                     {% if dataset.publisher.logoUrl | isNotEmpty %}
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="publisher-logo-container">
-                            <img src="{$ dataset.publisher.logoUrl $}" onError="this.style.display = 'none'"
-                                 class="pull-right">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="publisher-logo-container">
+                                <img src="{$ dataset.publisher.logoUrl $}" onError="this.style.display = 'none'"
+                                     class="pull-right">
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                 </div>
             </div>

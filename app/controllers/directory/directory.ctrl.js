@@ -15,8 +15,8 @@ router.get('/directory/:requestedPath', function (req, res, next) {
         jsonOutput = true;
     }
 
-    Directory.getContacts(res.__)
-        .then(function(data){
+    Directory.getContacts(res)
+        .then(function (data) {
             if (data) {
                 Directory.postProcessContacts(data, res.__);
 
@@ -34,7 +34,7 @@ router.get('/directory/:requestedPath', function (req, res, next) {
                 }
             }
         })
-        .catch(function(err){
+        .catch(function (err) {
             next(err);
         });
 });

@@ -72,6 +72,8 @@
     }
     &__meta {
         font-weight bold
+        display inline-block
+        margin-top vrBlock(0.5)
         > * {
             margin 0 //necessary because the drupal api sometimes returns a paragraph tag
         }
@@ -172,15 +174,6 @@ $articleCategorySeparatorSpacing = 6px
     margin-left auto
     margin-right auto
 
-    .body-text {
-        ul {
-            list-style disc
-        }
-        ol {
-            list-style decimal
-        }
-    }
-
     .prose-columns {
         overflow-wrap break-word
         word-wrap break-word
@@ -230,6 +223,12 @@ $articleCategorySeparatorSpacing = 6px
     strong {
         font-weight 600
     }
+    ul {
+        list-style disc
+    }
+    ol {
+        list-style decimal
+    }
 }
 
 .body-text--markdown {
@@ -255,7 +254,7 @@ $articleCategorySeparatorSpacing = 6px
     color $gray63
 
     section {
-        border-bottom solid 10px transparent //to imitate paragraphs without margin leakage to next column
+        border-bottom solid 5px transparent //to imitate paragraphs without margin leakage to next column
         div {
             display inline-block
         }
@@ -294,6 +293,7 @@ $headerImageMaxFullWidth = $desktop
         max-width $headerImageMaxFullWidth
         .cover-image {
             margin 0 $halfGutter
+            background-size initial
         }
     }
 }
@@ -305,8 +305,13 @@ $headerImageMaxFullWidth = $desktop
     overflow hidden
     background-size cover
     background-position center
+    background-repeat no-repeat
+    border 1px solid $stripeBorderColor
     img {
         display none
+    }
+    &.isInValid {
+        background-size initial
     }
 }
 
@@ -331,26 +336,6 @@ $headerImageMaxFullWidth = $desktop
     background-position center
     img {
         display none
-    }
-}
-
-+isAbove($tablet) {
-    .card-image {
-        padding-bottom 30%
-    }
-}
-
-.taxon-classification {
-    i:after {
-        font-style normal
-        content '\276f' // ❯
-        font-size 80%
-    }
-    &--discreet {
-        color #ddd
-        a {
-            color #666
-        }
     }
 }
 
@@ -511,7 +496,14 @@ sub {
         height $navBar_height
         margin-top -($navBar_height)
         visibility hidden
+        z-index -999
+        position relative
     }
+}
+
+.anchor-block__above {
+    position relative
+    z-index 100
 }
 
 .seperator {

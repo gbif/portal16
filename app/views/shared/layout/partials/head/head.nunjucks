@@ -2,6 +2,7 @@
 
     <title>{$ _meta.title $}</title>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- If IE use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +33,8 @@
 
     <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
     <link rel="stylesheet" type="text/css" href="/css/base/index.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700' rel='stylesheet'
+          type='text/css'>
 
     <!--[if !IE]> -->
     <!-- <![endif]-->

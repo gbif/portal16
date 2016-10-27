@@ -236,7 +236,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-md-6">
                                     <div class="row">
-                                        <img ng-src="{$ ref.images[0].styles.focal_point_for_news $}">
+                                        <img ng-src="{$ ref.images[0].styles.inline_header_image $}">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-6 related-news__body-text">

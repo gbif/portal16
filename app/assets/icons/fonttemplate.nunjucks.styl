@@ -1,10 +1,10 @@
 /*The icon font stylus file is templated. Changes to the compiled file will be overwritten. Make sure to edit on the nunjucks file /app/assets/icons/fontteplate.nunjucks.styl*/
 @font-face {
 	font-family: '{{fontName}}';
-	src:url('{{fontPath}}{{fontName}}.eot');
-	src:url('{{fontPath}}{{fontName}}.eot#iefix') format('embedded-opentype'),
-	url('{{fontPath}}{{fontName}}.ttf') format('truetype'),
-	url('{{fontPath}}{{fontName}}.woff') format('woff');
+	src:url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}');
+	src:url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}#iefix') format('embedded-opentype'),
+	url('{{fontPath}}{{fontName}}.ttf?v={{timestamp}}') format('truetype'),
+	url('{{fontPath}}{{fontName}}.woff?v={{timestamp}}') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }

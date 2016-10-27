@@ -11,7 +11,7 @@ function feedbackCtrl($scope, NAV_EVENTS) {
     var vm = this;
     vm.isActive = false;
 
-    $scope.$on(NAV_EVENTS.toggleFeedback, function(event, data) {
+    $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
         if (data.toggle) {
             vm.isActive = !vm.isActive;
         } else {

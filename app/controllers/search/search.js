@@ -19,6 +19,9 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
             info: function (callback) {
                 helper.getApiData(baseConfig.dataApi + 'species/' + key, callback);
             },
+            name: function (callback) {
+                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/name', callback);
+            },
             occurrences: function (callback) {
                 helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&taxonKey=' + key, callback);
             },

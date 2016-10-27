@@ -70,7 +70,7 @@ function datasetUsageCtrl(DatasetDownloadStats) {
 
     DatasetDownloadStats.get({id: vm.key}, function (response) {
         vm.stats = response;
-        vm.data.labels = response.filterCounts.keys.map(function(e){
+        vm.data.labels = response.filterCounts.keys.map(function (e) {
             return e.displayName;
         });
         vm.data.labels.push('No filter');

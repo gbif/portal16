@@ -8,7 +8,7 @@ $mobileGalleryHeight = 100px
         &:hover {
             box-shadow 0 0 1px 1px rgba(0, 0, 0, .3)
         }
-        background #ccc
+        background #eee
         display block
         flex 1 1 auto
         width $mobileGalleryHeight //asummed square
@@ -31,14 +31,22 @@ $mobileGalleryHeight = 100px
         overflow hidden
         background-size cover
         background-position center
+        background-repeat no-repeat
         img {
             display none
         }
         &.imageGallery__img {
-            display none
+            //display none
+            display block
+            margin 0 0 vrBlock(0.5) vrBlock(0.5)
+
+            color inherit
             &.isValid {
                 display block
                 margin 0 0 vrBlock(0.5) vrBlock(0.5)
+            }
+            &.isInValid {
+                background-size initial
             }
         }
     }

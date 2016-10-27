@@ -1623,12 +1623,24 @@
       },
       "publishedOn": "published on"
     },
+    "heading": {
+      "primary": {
+        "tools": "Tools",
+        "dataPublishing": "Data Publishing",
+        "publishing": "Publishing"
+      },
+      "secondary": {
+        "ipt": "IPT",
+        "guidelines": "Guidelines",
+        "datasets": "Datasets"
+      }
+    },
     "about": "about"
   },
   "directory": {
     "title": "Directory of Contacts",
     "contact": "contact",
-    "contactUsSubtitle": "Finding people and information around the GBIF community",
+    "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participants": "Voting participants",
     "associate_country_participants": "Associate country participants",
     "other_associate_participants": "Other associate participants",
@@ -1651,7 +1663,10 @@
     "nodes_committee": "Nodes committee",
     "gbif_secretariat": "GBIF Secretariat",
     "staff_member": "Staff member",
-    "membershipType": "Membership"
+    "membershipType": "Membership",
+    "governingBoard": "Governing Board",
+    "committees": "Committees",
+    "name": "name"
   },
   "tools": {
     "categoryTitle": "tools",
@@ -1694,7 +1709,7 @@
     "citationGuidance": "Citation guidance",
     "share": "Share",
     "dataPublishing": "Data publishing",
-    "datasetClasses": "Dataset Classes",
+    "datasetClasses": "Dataset classes",
     "publishingGuide": "Publishing guide",
     "endorsement": "Endorsement",
     "darwinCore": "Darwin Core",
@@ -1705,13 +1720,13 @@
     "ipt": "IPT",
     "dataValidator": "Data validator",
     "suggestDataset": "Suggest a dataset",
-    "collectionManagement": "Collection managment",
+    "collectionManagement": "Collection management",
     "developers": "Users",
     "api": "GBIF API",
     "rgbif": "rgbif",
     "livingAtlases": "Living Atlases",
     "maxent": "MAXENT",
-    "gbifSoftware": "Web application",
+    "gbifSoftware": "GBIF applications",
     "gbifLabs": "GBIF Labs",
     "speciesPopulation": "Species populations",
     "developerBlog": "Developers blog",
@@ -1723,20 +1738,21 @@
     "GbifNetwork": "The GBIF Network",
     "becomeMember": "Become a member",
     "communitySite": "Community site",
-    "strategicPlan": " Strategic Plan",
+    "strategicPlan": " Strategic plan",
     "contactDirectory": "Directory of contacts",
     "contactUs": "Contact us",
-    "information": "Information",
+    "information": "News & communications",
     "news": "News",
     "literature": "Literature",
     "newsletters": "Newsletters and lists",
     "featuredDataUse": "Featured data use",
     "events": "Events",
     "awards": "Awards",
-    "ProgrammesProjects": "Programmes + projects",
+    "ProgrammesProjects": "Programmes & projects",
     "capacitySupport": "Capacity enhancement",
-    "bidProgramme": "BID programme",
-    "bifaProgramme": "BIFA programme"
+    "bidProgramme": "BID: Biodiversity Information for Development",
+    "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
+    "funders": "Funders"
   },
   "validation": {
     "category" : {
@@ -1773,5 +1789,11 @@
     "status": "Status",
     "indexeable": "Can be indexed by GBIF?",
     "numberOfLines": "Number of lines"
+  },
+  "terms": {
+    "headline": "Use of cookies on GBIF",
+    "description": "GBIF uses cookies and the like for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. By visiting our website, you consent to our and third party use of cookies as described in our privacy and cookie policy.",
+    "readTerms": "Read terms",
+    "accept": "accept"
   }
 }

@@ -19,11 +19,11 @@ angular
 function fileUploadDirective() {
     return {
         restrict: 'A',
-        scope:{
-            onFileChange:'='
+        scope: {
+            onFileChange: '='
         },
         link: function (scope, element) {
-            element.on('change', function(event){
+            element.on('change', function (event) {
                 var params = {event: event, el: element, files: element[0].files};
                 scope.$apply(function (scope) {
                     scope.onFileChange(params);

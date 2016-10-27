@@ -6,6 +6,9 @@ angular
     .directive('galleryImage', function () {
         return {
             restrict: 'A',
+            scope: {
+                onImgError: '='
+            },
             link: function (scope, element, attrs) {
                 var thinner = 0.6,
                     thin = 0.8,
@@ -25,6 +28,21 @@ angular
                     else if (ratio > thinner && ratio <= thin) element.parent().attr('data-width', 'thin');
                     else if (ratio <= thinner) element.parent().attr('data-width', 'thinner');
                     element.parent().addClass('isValid');
+                });
+
+                element.on('error', function () {
+                    element.parent().css({
+                        'background-image': 'url("/img/brokenDoc.png")'
+                    });
+                    element.parent().attr('data-width', 'wide');
+                    element.parent().addClass('isInValid');
+                    // element.parent().html('<span></span>');
+                    scope.$apply(function (scope) {
+                        var fn = scope.onImgError();
+                        if ('undefined' !== typeof fn) {
+                            fn();
+                        }
+                    });
                 });
             }
         };

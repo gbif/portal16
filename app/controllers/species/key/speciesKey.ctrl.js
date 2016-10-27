@@ -8,12 +8,12 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/species/:key(\\d+)\.:ext?', taxonRoute);
-router.get('/taxon/:key(\\d+)\.:ext?', taxonRoute);
+router.get('/species2/:key(\\d+)\.:ext?', taxonRoute);
+router.get('/taxon2/:key(\\d+)\.:ext?', taxonRoute);
 
 function taxonRoute(req, res, next) {
     var key = req.params.key;
-    getTaxon(key, res.locals.gb.locales.current).then(function(taxon){
+    getTaxon(key, res.locals.gb.locales.current).then(function (taxon) {
         renderPage(req, res, next, taxon);
     });
 }
@@ -32,10 +32,11 @@ function getTaxon(key, lang) {
         taxon.vernacular.results.some(function (v) {
             //TODO: create lookup map for 3 letter iso codes to 2 letter ones as used by the locale
             // use http://api.gbif-dev.org/v1/enumeration/language
-            if (v.language == lang || v.language=='eng') {
+            if (v.language == lang || v.language == 'eng') {
                 taxon.record.vernacularName = v.vernacularName;
-                taxon.record.vernacularLang = v.language;             }
-            return v.language == lang || v.language=='eng';
+                taxon.record.vernacularLang = v.language;
+            }
+            return v.language == lang || v.language == 'eng';
         });
         deferred.resolve(taxon);
 

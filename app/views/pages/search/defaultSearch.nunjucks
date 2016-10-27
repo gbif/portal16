@@ -1,0 +1,46 @@
+<div class="horizontal-stripe-paddingless light-background">
+    <div class="container-fluid">
+        <h4>Latest news</h4>
+    </div>
+
+    <div class="card-container--news" style="justify-content: center">
+
+        {% for item in results | limit(5) %}
+            <div class="card country-key__news {% if item.images[0] | isDefined %}country-key__news--img{% endif %}">
+                {% if item.images[0] | isDefined %}
+                    <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                       class="card__stripe card__stripe--light">
+                        <div class="country-key__news__img-wrapper"
+                             style="background-image:url('{$ _meta.imageCacheUrl $}{$ item.images[0].styles.inline_header_image | encodeURI $}')">
+                            <div class="country-key__news__type">
+                                {$ __('cms.contentType.' + item.type) $}
+                            </div>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                       class="card__stripe card__stripe--light">
+                        <div>
+                            <div class="country-key__news__type">
+                                {$ __('cms.contentType.' + item.type) $}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+
+                <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
+                   class="card__stripe">
+                    <div class="card__content">
+                        <h3>{$ item.title | truncate(60) $}</h3>
+                        <div class="country-key__news__summary"><p>{$ (item.summary + item.body) | striptags |
+                                safe |
+                                truncate(120) $}</p></div>
+                        <p class="country-key__news__date">{$ item.created | formatDate(gb.locales.current)
+                            $}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

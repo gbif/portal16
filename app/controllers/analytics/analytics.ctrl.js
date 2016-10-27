@@ -8,16 +8,16 @@ module.exports = function (app) {
     app.use('/analytics', router);
 };
 
-router.get('/global', function(req, res, next) {
+router.get('/global', function (req, res, next) {
     renderPage(req, res, next, 'global');
 });
 
-router.get('/country/:country/about', function(req, res, next) {
+router.get('/country/:country/about', function (req, res, next) {
     //TODO: make sure iso country exists
     renderPage(req, res, next, 'country/' + req.params.country + '/about', req.params.country, true);
 });
 
-router.get('/country/:country/published', function(req, res, next) {
+router.get('/country/:country/published', function (req, res, next) {
     //TODO: make sure publishing country exists in GBIF
     renderPage(req, res, next, 'country/' + req.params.country + '/publishedBy', req.params.country, false);
 });
@@ -34,7 +34,7 @@ function renderPage(req, res, next, path, country, about) {
                 title: 'Data Trends'
             }
         });
-    } catch(e) {
+    } catch (e) {
         next(e);
     }
 }

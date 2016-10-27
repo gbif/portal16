@@ -142,14 +142,14 @@ function gbmapDirective() {
                 data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
 
                 leafletData.getMap(vm.id).then(function (map) {
-                   map.fitBounds([
-                       [data.minimumLatitude, data.minimumLongitude],
-                       [data.maximumLatitude, data.maximumLongitude]
-                   ]);
-                   if (map.getZoom() < 2) {
-                       map.fitWorld().zoomIn();
-                   }
-                   updateGlobe(map);
+                    map.fitBounds([
+                        [data.minimumLatitude, data.minimumLongitude],
+                        [data.maximumLatitude, data.maximumLongitude]
+                    ]);
+                    if (map.getZoom() < 2) {
+                        map.fitWorld().zoomIn();
+                    }
+                    updateGlobe(map);
                 });
             }
 

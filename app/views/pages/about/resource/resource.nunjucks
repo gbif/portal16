@@ -8,8 +8,8 @@
                     <div class="row">
                         <header class="col-xs-12 text-center">
                             <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">{$ __('cms.about') $}</span>
-                                <span class="article-header__category__lower">{$ __('cms.contentType.resource') $}</span>
+                                <span class="article-header__category__upper">{$ __('cms.contentType.resource') $}</span>
+                                <span class="article-header__category__lower">{$ data.created | formatDate(gb.locales.current) $}</span>
                             </nav>
                             <h1>{$ data.title $}</h1>
                             <div class="article-header__intro">
@@ -117,7 +117,8 @@
                                         <div class="row">
                                             {% if data.__system.prev.thumbnail %}
                                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}" gallery-image
+                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.prev.thumbnail | encodeURI $}"
+                                                         gallery-image
                                                          alt="{$ data.__system.prev.imageCaption $}">
                                                 </div>
                                             {% endif %}
@@ -140,7 +141,8 @@
                                         <div class="row">
                                             {% if data.__system.next.thumbnail %}
                                                 <div class="col-xs-12 col-md-6 cover-image hidden-xs">
-                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}" gallery-image
+                                                    <img ng-src="{$ _meta.imageCacheUrl $}{$ data.__system.next.thumbnail | encodeURI $}"
+                                                         gallery-image
                                                          alt="{$ data.__system.next.imageCaption $}">
                                                 </div>
                                             {% endif %}

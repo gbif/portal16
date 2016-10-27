@@ -8,7 +8,7 @@ function composeSubmenu(dataset) {
     var introduction = {name: 'introduction', items: []},
         coverage = {name: 'coverage', items: []},
         methodology = {name: 'methodology', items: []},
-        //project = {name: 'project', items: []},
+    //project = {name: 'project', items: []},
         credit = {name: 'credit', items: []},
         usage = {name: 'usage', items: []};
 

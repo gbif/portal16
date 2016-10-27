@@ -14,15 +14,6 @@
                             {{speciesList.state.data.count | localNumber:speciesList.state.query.locale }} results
                         </span>
                     </div>
-                    <div class="stripe-menu">
-                        <span class="gb-icon-menu stripe-menu__option is-active"
-                              tooltip-placement="bottom"
-                              uib-tooltip="List"></span>
-                        <a href="" ui-sref="speciesSearchTable()"
-                           class="gb-icon-table stripe-menu__menu stripe-menu__option"
-                           tooltip-placement="bottom"
-                           uib-tooltip="Table"></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +43,7 @@
 
     <div class="horizontal-stripe white-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
-        <div ng-show="speciesList.hasData()">
+        <div ng-if="speciesList.hasData()">
 
             <div class="container--narrow">
                 <div class="search-results__list row">
@@ -110,7 +101,6 @@
                         </uib-pagination>
                     </div>
                 </div>
-
 
             </div>
         </div>

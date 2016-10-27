@@ -9,10 +9,12 @@ angular
 /** @ngInject */
 function directoryCtrl(DirectoryContacts) {
     var vm = this;
+    vm.state = {'loaded': false};
 
     DirectoryContacts.get().$promise.then(function(response){
+        vm.state.loaded = true;
         return vm.contacts = response;
-    }, function(error){
+    }, function (error) {
         return error;
     });
 
@@ -28,6 +30,10 @@ function directoryCtrl(DirectoryContacts) {
         else {
             vm.toggleStatus[personId] = 'contact--show';
         }
+    };
+
+    vm.selectAddress = function ($event) {
+        $event.stopPropagation();
     };
 
     vm.searchOnEnter = function (event) {

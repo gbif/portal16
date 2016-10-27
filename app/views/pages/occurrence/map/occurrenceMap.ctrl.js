@@ -1,10 +1,3 @@
-/**
- * search types?
- * auto complete
- * integer is [between, below, above]
- * date interval etc
- * enum list, multiselect
- */
 'use strict';
 var angular = require('angular');
 
@@ -47,40 +40,40 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         scrollWheelZoom: false,
         crs: L.CRS.EPSG4326
     };
-    function onMapClick(event) {
-        var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
-        vm.query = angular.copy(vm.occurrenceState.query);
-        var decimalLatitudeMin = event.latlng.lat - (targetSize / event.target._zoom);
-        var decimalLatitudeMax = event.latlng.lat + (targetSize / event.target._zoom);
-        var decimalLongitudeMin = event.latlng.lng - (targetSize / event.target._zoom);
-        var decimalLongitudeMax = event.latlng.lng + (targetSize / event.target._zoom);
-
-        decimalLatitudeMin = Math.max(-90, decimalLatitudeMin);
-        decimalLongitudeMin = Math.max(-180, decimalLongitudeMin);
-        decimalLatitudeMin = Math.min(90, decimalLatitudeMin);
-        decimalLongitudeMin = Math.min(180, decimalLongitudeMin);
-
-        decimalLatitudeMax = Math.min(90, decimalLatitudeMax);
-        decimalLongitudeMax = Math.min(180, decimalLongitudeMax);
-        decimalLatitudeMax = Math.max(-90, decimalLatitudeMax);
-        decimalLongitudeMax = Math.max(-180, decimalLongitudeMax);
-
-        vm.query.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
-        vm.query.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
-        vm.mapMenu.show = true;
-        vm.mapMenu.isLoading = true;
-        OccurrenceSearch.query(vm.query, function (data) {
-            vm.mapMenu.isLoading = false;
-            vm.mapMenu.occurrences = data;
-        }, function () {
-            vm.mapMenu.isLoading = false;
-            //TODO error handling
-        });
-    }
+    //function onMapClick(event) {
+    //    var targetSize = 3;//TODO use right projection with leaflet. this will not query for the correct lat lng
+    //    vm.query = angular.copy(vm.occurrenceState.query);
+    //    var decimalLatitudeMin = event.latlng.lat - (targetSize / event.target._zoom);
+    //    var decimalLatitudeMax = event.latlng.lat + (targetSize / event.target._zoom);
+    //    var decimalLongitudeMin = event.latlng.lng - (targetSize / event.target._zoom);
+    //    var decimalLongitudeMax = event.latlng.lng + (targetSize / event.target._zoom);
+    //
+    //    decimalLatitudeMin = Math.max(-90, decimalLatitudeMin);
+    //    decimalLongitudeMin = Math.max(-180, decimalLongitudeMin);
+    //    decimalLatitudeMin = Math.min(90, decimalLatitudeMin);
+    //    decimalLongitudeMin = Math.min(180, decimalLongitudeMin);
+    //
+    //    decimalLatitudeMax = Math.min(90, decimalLatitudeMax);
+    //    decimalLongitudeMax = Math.min(180, decimalLongitudeMax);
+    //    decimalLatitudeMax = Math.max(-90, decimalLatitudeMax);
+    //    decimalLongitudeMax = Math.max(-180, decimalLongitudeMax);
+    //
+    //    vm.query.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
+    //    vm.query.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
+    //    vm.mapMenu.show = true;
+    //    vm.mapMenu.isLoading = true;
+    //    OccurrenceSearch.query(vm.query, function (data) {
+    //        vm.mapMenu.isLoading = false;
+    //        vm.mapMenu.occurrences = data;
+    //    }, function () {
+    //        vm.mapMenu.isLoading = false;
+    //        //TODO error handling
+    //    });
+    //}
 
     leafletData.getMap('occurrenceMap').then(function (map) {
         map.fitWorld().zoomIn();
-        map.on('click', onMapClick);
+        //map.on('click', onMapClick);
     });
 
     var hashString = function (str) {

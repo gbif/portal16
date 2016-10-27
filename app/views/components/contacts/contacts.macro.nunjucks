@@ -1,4 +1,3 @@
-
 {% macro contactsList(contacts, __) %}
     <div class="flex-columns">
 

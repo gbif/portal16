@@ -1,0 +1,1 @@
+The four Chair positions of the science committee are also selected by the Governing Board in two-year terms (with only one extension possible). The committee also includes five at-large members appointed by the Executive Committee.

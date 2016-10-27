@@ -7,12 +7,13 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) {
+function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, $filter) {
     var vm = this,
         limit = 100,
         offset = 0;
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
     vm.count = -1;
+    vm.failedImageCount = 0;
     vm.results = [];
 
     vm.imageCache = env.imageCache;
@@ -20,7 +21,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
     var latestData = {};
 
     var search = function (query) {
-        query.mediaType = 'stillImage';
+        query.mediaType = 'stillImage';//$filter('unique')($filter('unique')(query.mediaType).concat('stillImage'));
         vm.endOfRecords = true;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
         latestData = OccurrenceSearch.query(vm.query, function (data) {
@@ -30,6 +31,10 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         }, function () {
             //TODO handle request error
         });
+    };
+
+    vm.imageFailed = function () {
+        vm.failedImageCount++;
     };
 
     vm.loadMore = function () {
@@ -47,6 +52,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         vm.query.offset = 0;
         vm.results = [];
         vm.count = -1;
+        vm.failedImageCount = 0;
         search(vm.query);
     };
     vm.filter(vm.occurrenceState.query);

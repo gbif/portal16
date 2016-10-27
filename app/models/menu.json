@@ -103,6 +103,10 @@
             "url": "/developer/summary"
           },
           {
+            "name": "gbifSoftware",
+            "url": "/tools/gbif-software"
+          },
+          {
             "name": "rgbif",
             "url": "/resource/81747"
           },
@@ -111,8 +115,8 @@
             "url": "/resource/81279"
           },
           {
-            "name": "gbifSoftware",
-            "url": "/tools/gbif-software"
+            "name": "toolsCatalogue",
+            "url": "/cms/search?type=tool"
           }
         ]
       },
@@ -120,16 +124,12 @@
         "name": "gbifLabs",
         "items": [
           {
-            "name": "speciesPopulation",
-            "url": "/tools/species-population"
-          },
-          {
             "name": "speciesMatching",
             "url": "/tools/species-lookup"
           },
           {
-            "name": "toolsCatalogue",
-            "url": "/cms/search?type=tool"
+            "name": "speciesPopulation",
+            "url": "/tools/species-population"
           },
           {
             "name": "developerBlog",
@@ -161,8 +161,16 @@
             "url": "/become-member"
           },
           {
+            "name": "funders",
+            "url": "/funders"
+          },
+          {
             "name": "strategicPlan",
             "url": "/strategic-plan"
+          },
+          {
+            "name": "awards",
+            "url": "/awards"
           },
           {
             "name": "contactDirectory",
@@ -186,20 +194,12 @@
             "url": "/cms/search?type=data_use"
           },
           {
-            "name": "literature",
-            "url": "/cms/search?type=literature"
-          },
-          {
             "name": "events",
             "url": "/cms/search?type=event"
           },
           {
             "name": "newsletters",
             "url": "/newsletters"
-          },
-          {
-            "name": "awards",
-            "url": "/awards"
           },
           {
             "name": "communitySite",

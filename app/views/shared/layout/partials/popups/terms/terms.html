@@ -1,0 +1,24 @@
+<aside id="termsOfUse"
+       class="ng-cloak"
+       ng-show="!terms.userAcceptance"
+       ng-controller="termsCtrl as terms">
+    <div class="card termsPopup" ng-class="{'is-shown': !terms.userAcceptance}">
+        <div class="card__stripe">
+            <div class="card__content">
+                <h4>{$ __('terms.headline') $}</h4>
+                <p>
+                    {$ __('terms.description') $}
+
+                </p>
+            </div>
+        </div>
+        <div class="card__stripe card__stripe--actions">
+            <a href="http://www.gbif.org/terms/privacy-policy">
+                {$ __('terms.readTerms') $}
+            </a>
+            <a href="" ng-click="terms.accept()">
+                {$ __('terms.accept') $}
+            </a>
+        </div>
+    </div>
+</aside>

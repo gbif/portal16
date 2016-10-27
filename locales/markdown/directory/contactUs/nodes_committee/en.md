@@ -1,0 +1,1 @@
+The Participant Node Managers Committee (or Nodes Committee) is a dynamic group formed by the node managers appointed by all Participants (countries and international organizations).  The committee includes three Chair positions established through voting by the Governing Board for a maximum of two two-year terms.

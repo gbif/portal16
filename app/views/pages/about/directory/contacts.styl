@@ -12,6 +12,9 @@
         .contacts-nav {
             display block
             margin-top vrBlock(1)
+            >ul {
+                padding-left 0
+            }
 
             .nav-chapters {
                 padding 0 20px 10px
@@ -19,7 +22,7 @@
             }
             .nav-chapter {
                 position relative
-                margin-left 6px
+                margin-left 0
                 padding 0 0 8px
                 a {
                     padding-left 10px
@@ -35,13 +38,32 @@
                     }
                 }
             }
+            .nav-chapter--orphan {
+                margin-left -8px
+                a {
+                    padding 0 0 0 8px
+                    font-size 15px
+                    border-left 2px solid transparent
+                    &:hover {
+                        text-decoration underline
+                    }
+                    &:focus {
+                        background none
+                    }
+                    
+                }
+                &.active {
+                    a {
+                        border-left 2px solid grey
+                    }
+                }
+            }
             .h3 {
                 margin-top 0
-                margin-bottom 0
+                margin-bottom vrBlock(0.5)
                 &:hover {
                     background none
                     color inherit
-                    text-decoration underline
                 }
             }
         }
@@ -73,6 +95,15 @@
         tr {
             border-top 1px solid #ccc
         }
+        tr:focus {
+            outline none
+        }
+        th:focus {
+            outline none
+        }
+        td:focus {
+            outline none
+        }
         tbody {
             .gbif-role {
                 text-transform capitalize
@@ -90,17 +121,24 @@
                     padding-left 6px
                     background $lightBackground
                 }
+                td {
+                    a {
+                        color inherit
+                        &:hover {
+                            text-decoration underline
+                        }
+                    }
+                }
             }
         }
+    }
+    address:focus {
+        outline none
     }
 }
 
 +isAbove($tablet) {
     .contacts__table {
-
-        .table-container--contacts {
-            margin 0 auto
-        }
 
         .table {
             font-size 13px
@@ -123,7 +161,7 @@
                     font-weight bold
                     position relative
                     white-space nowrap
-                    padding-left 0
+                    padding-left 5px
                     top 0
                     left 0
 
@@ -159,7 +197,6 @@
                     }
                     td:nth-of-type(1) {
                         display table-cell
-                        padding-left 10px
                         background none
                         width 20%
                     }
@@ -259,6 +296,12 @@
     .contact__body.contact--show {
         max-height 200px
     }
+    .contact__body:focus {
+        outline none
+    }
+    .stop-propagation:focus {
+        outline none
+    }
 }
 
 .other-associate-participants {
@@ -266,8 +309,11 @@
         max-width 150px
     }
 }
-.contact__address {
-    max-width 220px
+
+.gbif-secretariat {
+    .contact__body {
+        max-width 250px
+    }
 }
 
 .contact {

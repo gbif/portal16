@@ -11,7 +11,7 @@
                             <span class="article-header__category__lower">{$ __('directory.contact') $}</span>
                         </nav>
                         <h1>{$ __('directory.title') $}</h1>
-                        <div class="article-header__intro">
+                        <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
                             {$ __('directory.contactUsSubtitle') $}
                         </div>
@@ -45,10 +45,10 @@
                         <span class="relative-anchor-offset"><a name="menu"></a></span>
                         <div id="contacts-nav-wrapper" class="contacts-nav__wrapper col-md-3">
                             <nav id="contacts-nav" class="contacts-nav">
-                                <ul class="nav">
+                                <ul>
                                     {% if contacts.participants.length > 0 %}
                                     <li>
-                                        <a class="h3">Governing Board</a>
+                                        <div class="h3">{$ __('directory.governingBoard') $}</div>
                                         <ul class="nav-chapters">
                                             {% for participant in contacts.participants %}
                                                 {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
@@ -60,9 +60,10 @@
                                         </ul>
                                     </li>
                                     {% endif %}
+
                                     {% if contacts.committees.length > 0 %}
                                     <li>
-                                        <a class="h3">Committees</a>
+                                        <div class="h3">{$ __('directory.committees') $}</div>
                                         <ul class="nav-chapters">
                                             {% for committee in contacts.committees %}
                                                 {% if committee.members.length > 0 %}
@@ -72,6 +73,13 @@
                                         </ul>
                                     </li>
                                     {% endif %}
+
+                                    {% if contacts.gbif_secretariat.length > 0 %}
+                                        <li class="nav-chapter--orphan" du-scrollspy="gbif_secretariat">
+                                            <a class="h3" href="#gbif_secretariat">{$ __('directory.gbif_secretariat') $}</a>
+                                        </li>
+                                    {% endif %}
+
                                 </ul>
                             </nav>
                         </div>
@@ -85,8 +93,14 @@
                             {% if contacts.committees.length > 0 %}
                                 {% include('./includes/committeesContactsTable.nunjucks') %}
                             {% endif %}
+                            {% if contacts.gbif_secretariat.length > 0 %}
+                                {% include('./includes/gbifSecretariatContactsTable.nunjucks') %}
+                            {% endif %}
                         </div>
                     </div>
+                    <ng-include src="'/templates/components/loader/loader.html'"
+                                ng-if="!vm.state.loaded"></ng-include>
+
                 </div>
             </div>
         </div>

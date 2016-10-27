@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes">
@@ -7,12 +8,12 @@
                 <div class="row">
                     <header class="col-xs-12 text-center article-header--programme">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('cms.about') $}</span>
-                            <span class="article-header__category__lower">{$ __('cms.contentType.programme') $}</span>
+                            <span class="article-header__category__upper">{$ __('cms.contentType.programme') $}</span>
+                            <span class="article-header__category__lower">{$ data.created | formatDate(gb.locales.current) $}</span>
                         </nav>
                         <h1>{$ data.title $}</h1>
                         <div class="article-header__intro">
-                            {# fulltext html already wrapped by <p> from Content API #}
+                            {# fulltext html already wrapped by p-tag from Content API #}
                             {$ data.summary | safe $}
                         </div>
                         {% if data.funders.length > 0 %}
@@ -28,7 +29,8 @@
                                             <h5>{$ funder.title $}</h5>
                                         {% endif %}
                                         {% if funder.title != 'GBIF' %}
-                                            <a href="{$ funder.url.url $}"><img ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}"></a>
+                                            <a href="{$ funder.url.url $}"><img
+                                                        ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}"></a>
                                         {% endif %}
                                     </div>
                                 {% endfor %}
@@ -38,25 +40,21 @@
                 </div>
             </div>
         </div>
-        {% if images[0].width > 1000 %}
-            <figure class="heading-image">
-                <div class="cover-image">
-                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop | encodeURI $}" alt="{$ images[0].filename $}" gallery-image>
-                </div>
-                <figcaption class="container-fluid container--prose">
-                    {$ images[0].image_field_caption.value | safe $}
-                </figcaption>
-            </figure>
-        {% endif %}
-        <div class="horizontal-stripe--top-borderless white-background">
-            <div class="container-fluid container--prose">
-                <div class="body-text prose-columns--single-col">
-                    {$ data.body | safe $}
+
+        {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
+
+        <div class="horizontal-stripe white-background">
+            <div class="container--narrow">
+                <div class="body-text prose-columns">
+
+                    {$ data.body | sanitize | safe $}
+                    {$ cmsMacros.inlineHeaderImage(images, _meta.imageCacheUrl) $}
+
                 </div>
             </div>
         </div>
         {% if data.relatedProjects.length > 0 %}
-            <div class="horizontal-stripe--paddingless white-background">
+            <div class="horizontal-stripe light-background">
                 <div class="container-fluid">
                     <div class="row">
                         {% include "./includes/projectTable.nunjucks" %}
@@ -65,64 +63,72 @@
             </div>
         {% endif %}
         {% if data.relatedResources.length > 0 %}
-            <div class="horizontal-stripe">
-                <div class="container-fluid container--prose">
-                    <div class="body-text prose-columns--single-col">
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
+                    <div class="body-text">
                         <h4>Related documents and information</h4>
                         <ul class="list-links--programme-resources">
                             {% for resource in data.relatedResources %}
                                 <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
                             {% endfor %}
                             {% for file in data.file %}
-                                <li><a href="{$ file.original $}" download>{$ file.filename $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}</li>
+                                <li><a href="{$ file.original $}" download>{$ file.filename
+                                        $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
             </div>
         {% endif %}
+
+
         {% if data.relatedNews.length > 0 %}
-            <aside class="horizontal-stripe horizontal-stripe--card light-background">
-                <div class="container-fluid container--related-stories">
+            <aside class="horizontal-stripe horizontal-stripe--card light-background seperator--b">
+                <div class="container--narrow">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <article class="container-fluid card card--nav">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.square_thumbnail | encodeURI $}"
-                                             gallery-image alt="">
-                                    </div>
-                                    <div class="col-xs-12 col-md-7 card__content">
+                                <a href="/{$ data.relatedNews[0].targetUrl $}" class="row">
+                                    {% if data.relatedNews[0].image | isNotEmpty %}
+                                        <div class="col-xs-12 card-image hidden-xs">
+                                            <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[0].image.styles.inline_header_image | encodeURI $}"
+                                                 gallery-image alt="">
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-xs-12 card__content">
                                         <span>{$ __('cms.programme.relatedNews') $}</span>
                                         <h3>
-                                            <a href="/{$ data.relatedNews[0].targetUrl $}">
-                                                {$ data.relatedNews[0].title | truncate(80) $}
-                                            </a>
+                                            {$ data.relatedNews[0].title | truncate(75) $}
                                         </h3>
                                     </div>
-                                </div>
+                                </a>
                             </article>
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <article class="container-fluid card card--nav">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-5 card-image hidden-xs">
-                                        <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.square_thumbnail | encodeURI $}" gallery-image alt="">
-                                    </div>
-                                    <div class="col-xs-12 col-md-7 card__content">
-                                        <span>{$ __('cms.programme.relatedNews') $}</span>
-                                        <h3>
-                                            <a href="/{$ data.relatedNews[1].targetUrl $}">
-                                                {$ data.relatedNews[1].title | truncate(80) $}
-                                            </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                            </article>
+                            {% if data.relatedNews[1] %}
+                                <article class="container-fluid card card--nav">
+                                    <a href="/{$ data.relatedNews[1].targetUrl $}" class="row">
+                                        {% if data.relatedNews[1].image | isNotEmpty %}
+                                            <div class="col-xs-12 card-image hidden-xs">
+                                                <img ng-src="{$ _meta.imageCacheUrl $}{$ data.relatedNews[1].image.styles.inline_header_image | encodeURI $}"
+                                                     gallery-image alt="">
+                                            </div>
+                                        {% endif %}
+                                        <div class="col-xs-12 card__content">
+                                            <span>{$ __('cms.programme.relatedNews') $}</span>
+                                            <h3>
+                                                {$ data.relatedNews[1].title | truncate(75) $}
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </article>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </aside>
         {% endif %}
+
     </article>
 {% endblock %}

@@ -36,7 +36,6 @@ function getTranslations(fileMap, language, callback) {
             getTranslatedMarkdown(fileMap[e], language, cb);
         };
     });
-
     async.parallel(tasks, callback);
 }
 

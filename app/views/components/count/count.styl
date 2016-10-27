@@ -5,7 +5,6 @@
     }
 }
 
-
 .loading:before,
 .loading:after,
 .loading {
@@ -17,9 +16,10 @@
     -webkit-animation: load7 1.8s infinite ease-in-out;
     animation: load7 1.8s infinite ease-in-out;
 }
+
 .loading {
     display: inline-block
-    color: rgba(0,0,0,0.1);
+    color: rgba(0, 0, 0, 0.1);
     margin: 0 1em
     position: relative;
     text-indent: -9999em;
@@ -30,20 +30,24 @@
     animation-delay: -0.16s;
     top -2.5em
 }
+
 .loading:before {
     left: -1em;
     -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;
 }
+
 .loading:after {
     left: 1em;
 }
+
 .loading:before,
 .loading:after {
     content: '';
     position: absolute;
     top: 0;
 }
+
 @-webkit-keyframes load7 {
     0%,
     80%,
@@ -54,6 +58,7 @@
         box-shadow: 0 2.5em 0 0;
     }
 }
+
 @keyframes load7 {
     0%,
     80%,

@@ -1,11 +1,24 @@
 .classification-list {
-    span:after {
+    a:after, span:after {
         font-style normal
         content ' \276f ' // ❯
         font-size 80%
         color #ccc
+        display inline-block
+        padding 0 3px
     }
-    span:last-of-type:after {
+    span:last-of-type:after, a:last-of-type:after {
         display none
+    }
+    &.discreet {
+        span, a {
+            color $discreetInk
+            &:hover {
+                color $discreetInk
+            }
+        }
+    }
+    .genus, .species {
+        font-style italic
     }
 }

@@ -32,7 +32,7 @@
                             <div class="dataset-key__visual-summary__counts__percentages">
                                 <div class="dataset-key__visual-summary__counts__group">
                                     <div class="summary-counts">
-                                        <div class="clearfix">
+                                        <div>
                                             <div class="summary-circle">
                                                 <round-progress
                                                         max="100"
@@ -52,7 +52,7 @@
 
                                 <div class="dataset-key__visual-summary__counts__group">
                                     <div class="summary-counts">
-                                        <div class="clearfix">
+                                        <div>
                                             <div class="summary-circle">
                                                 <round-progress
                                                         max="100"
@@ -72,7 +72,7 @@
 
                                 <div class="dataset-key__visual-summary__counts__group">
                                     <div class="summary-counts">
-                                        <div class="clearfix">
+                                        <div>
                                             <div class="summary-circle">
                                                 <round-progress
                                                         max="100"
@@ -94,7 +94,7 @@
                                 {% for image in dataset.images.results | slice(0, 1) %}
                                     <div class="dataset-key__visual-summary__counts__group">
                                         <div class="summary-counts">
-                                            <div class="clearfix">
+                                            <div>
                                                 <div class="summary-circle">
                                                     <a class="round-image"
                                                        href="../occurrence/gallery?dataset_key={$ dataset.record.key $}"

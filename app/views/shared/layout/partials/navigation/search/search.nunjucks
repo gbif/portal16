@@ -1,4 +1,5 @@
-<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch">
+<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}"
+       ng-controller="searchCtrl as omniSearch">
 
     <div class="site-drawer__content">
         <div class="site-drawer__header">
@@ -17,7 +18,7 @@
                            ng-init="omniSearch.freeTextQuery == ''"
                            ng-model="omniSearch.freeTextQuery"
                            placeholder="Occurrences, species, news ...">
-                    <a href="" type="submit" class="gb-icon-search search-bar__search"
+                    <a href="" type="submit" style="cursor:pointer" class="gb-icon-search search-bar__search"
                        ng-click="omniSearch.updateSearch()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>

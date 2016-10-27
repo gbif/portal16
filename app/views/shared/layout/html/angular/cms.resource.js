@@ -8,7 +8,7 @@ var angular = require('angular');
     angular
         .module('portal')
         .factory('Cms', function ($resource, env) {
-            return $resource(env.cmsApi + 'node/:id', null, {
+            return $resource(env.cmsProxy + 'node/:id', null, {
                     'query': {
                         method: 'GET',
                         isArray: false
@@ -26,7 +26,7 @@ var angular = require('angular');
             );
         })
         .factory('CmsNode', function ($resource, env) {
-            return $resource(env.cmsApi + 'v1/:type/:id', null, {
+            return $resource(env.cmsProxy + 'v1/:type/:id', null, {
                 'get': {
                     method: 'GET',
                     isArray: false,

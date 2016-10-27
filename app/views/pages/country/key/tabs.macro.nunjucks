@@ -22,7 +22,7 @@
                             </a>
                         </li>
 
-                        <li class="tab-right">
+                        <li class="tab tab-right">
                             <a href="{$ endpoint.url $}">
                                 <span class="gb-button">Download report</span>
                             </a>

@@ -1,4 +1,5 @@
 {% extends "../html-prose.nunjucks" %}
+{% import "../cms.macros.nunjucks" as cmsMacros %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes">
@@ -6,9 +7,8 @@
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center">
-                        <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{$ __('cms.about') $}</span>
-                            <span class="article-header__category__lower">{$ __('cms.contentType.generic') $}</span>
+                        <nav class="article-header__category">
+                            <span class="article-header__category__upper">{$ data.created | formatDate(gb.locales.current) $}</span>
                         </nav>
                         <h1>{$ data.title $}</h1>
                         <div class="article-header__intro">
@@ -32,25 +32,17 @@
                 </div>
             </div>
         </div>
-        {% if images[0].width > 1000 %}
-        <div class="horizontal-stripe--paddingless white-background">
-            <figure class="heading-image">
-                <div class="cover-image">
-                    <img ng-src="{$ _meta.imageCacheUrl $}{$ images[0].styles.prose_image_for_desktop | encodeURI $}" alt="{$ images[0].filename $}" gallery-image>
-                </div>
-                <figcaption class="container-fluid container--prose">
-                    {$ images[0].image_field_caption.value | safe $}
-                </figcaption>
-            </figure>
-        </div>
-        {% endif %}
+
+        {$ cmsMacros.headerImage(images, _meta.imageCacheUrl) $}
+
         <div class="horizontal-stripe white-background">
-            <div class="container--narrow">
+            <div class="container--narrow body-text">
                 <div class="body-text--markdown">
-                    {$ data.body.markdown | safe $}
+                    {$ data.body.markdown | sanitize | addPortalClasses | safe $}
                 </div>
             </div>
         </div>
+
         {% if data.files.length > 0 or data.linkBlocks.length > 0 %}
             <div class="horizontal-stripe">
                 <div class="container-fluid container--prose">
@@ -70,6 +62,7 @@
                 </div>
             </div>
         {% endif %}
+
         {% if data.linkBlocks.length > 0 %}
             <aside class="horizontal-stripe horizontal-stripe--card light-background">
                 <div class="container-fluid container--related-stories">

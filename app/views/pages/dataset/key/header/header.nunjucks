@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background">
+<div class="horizontal-stripe article-header white-background p-b-0">
     <div class="container--normal">
         <div class="row">
             <header class="col-xs-12 text-center">
@@ -21,7 +21,8 @@
                         <ol class="inline-bullet-list">
                             {% for contributor in dataset._computedValues.contributors.highlighted %}
                                 <li>
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin#contributor_{$ contributor._id $}" class="inherit"
+                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin#contributor_{$ contributor._id $}"
+                                       class="inherit"
                                        tooltip-placement="bottom"
                                        tooltip-popup-delay="300"
                                        uib-tooltip="

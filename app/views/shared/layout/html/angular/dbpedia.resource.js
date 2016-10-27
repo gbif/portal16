@@ -11,8 +11,7 @@ var angular = require('angular');
             return $resource('http://dbpedia.org/data/:name.json', null, {
                     'query': {
                         method: 'GET',
-                        params: {
-                        },
+                        params: {},
                         isArray: false
                     }
                 }

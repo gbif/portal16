@@ -58,6 +58,9 @@ gulp.task('speciesLookup', function () {
 gulp.task('dataValidator', function () {
     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
 });
+gulp.task('ipt', function () {
+    return build('./app/views/pages/ipt/ipt.entry.js', 'pages/ipt.js');
+});
 
 //gulp.task('buildOccurrenceKey', function() {
 //    return build(config.js.browserify.occurrenceKey.path, config.js.browserify.occurrenceKey.dest)

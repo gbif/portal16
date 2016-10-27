@@ -3,41 +3,43 @@
 
 {% block page %}
 
-<article class="wrapper-horizontal-stripes page--developer">
-    <section class="horizontal-stripe article-header white-background">
-        <div class="container">
-            <div class="row">
-                <header class="col-xs-12 text-center">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Developer</span>
-                        <span class="article-header__category__lower">API Docs</span>
-                    </nav>
-                    <h1>News API</h1>
-                    <div class="article-header__intro">
-                        <p>{$ apiBase $}</p>
-                    </div>
-                </header>
+    <article class="wrapper-horizontal-stripes page--developer">
+        <section class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">Developer</span>
+                            <span class="article-header__category__lower">API Docs</span>
+                        </nav>
+                        <h1>News API</h1>
+                        <div class="article-header__intro">
+                            <p>{$ apiBase $}</p>
+                        </div>
+                    </header>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    {$ api.apiDocTabs('news', __) $}
+        {$ api.apiDocTabs('news', __) $}
 
-    <section id="species-occurrence" class="horizontal-stripe light-background">
-        <div class="container--normal">
-            <p>This API is used to retrieve <a href="/newsroom/news">news</a> or publications from or about GBIF.</p>
-        </div>
-    </section>
+        <section id="species-occurrence" class="horizontal-stripe light-background">
+            <div class="container--normal">
+                <p>This API is used to retrieve <a href="/newsroom/news">news</a> or publications from or about GBIF.
+                </p>
+            </div>
+        </section>
 
-    <section id="species-occurrence" class="horizontal-stripe white-background">
-        <div class="container--normal">
-            <h3>RSS News Feeds</h3>
-            <p>GBIF provides RSS feeds for all news or the subset relevant to a specific country.
-                These feeds are currently not accessible through the API and are linked from the respective country pages,
-                for example the <a href="/country/ES/news">Spanish news</a>.
-            </p>
-        </div>
-    </section>
+        <section id="species-occurrence" class="horizontal-stripe white-background">
+            <div class="container--normal">
+                <h3>RSS News Feeds</h3>
+                <p>GBIF provides RSS feeds for all news or the subset relevant to a specific country.
+                    These feeds are currently not accessible through the API and are linked from the respective country
+                    pages,
+                    for example the <a href="/country/ES/news">Spanish news</a>.
+                </p>
+            </div>
+        </section>
 
-</article>
+    </article>
 {% endblock %}
