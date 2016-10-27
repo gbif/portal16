@@ -1,5 +1,5 @@
 # IDE and OS dependent
-.idea
+/.idea
 .DS_Store
 
 # Application specific
@@ -11,5 +11,5 @@ build/
 reports/
 coverage/
 app/views/shared/layout/html/angular/env.constants.js
-app/views/shared/style/bootstrap/.build/bootstrap.css
+app/views/shared/style/bootstrap/.build/
 npm-debug.log
