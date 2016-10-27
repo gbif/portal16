@@ -1,0 +1,29 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes" ng-controller="theGbifNetworkCtrl as vm">
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12 text-center article-header">
+                        <nav class="article-header__category">
+                            <span class="article-header__category__upper">draft page</span>
+                        </nav>
+                        <h1>{$ __('menu.GbifNetwork') $}</h1>
+                        <div class="article-header__intro anchor-block__above">
+                            {# fulltext html already wrapped by <p> from Content API #}
+                            {$ data.content $}
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-stripe contacts--directory">
+            <div class="container">
+                <div class="row">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
