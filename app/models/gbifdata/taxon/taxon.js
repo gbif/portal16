@@ -21,6 +21,10 @@ Taxon.get = function (key, options) {
     }
 };
 
+Taxon.prototype.isNub = function () {
+    return this.record.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c';
+};
+
 Taxon.prototype.expand = function (fieldNames) {
     var resources = [],
         resourceLookup = {
@@ -31,10 +35,6 @@ Taxon.prototype.expand = function (fieldNames) {
             dataset: {
                 resource: api.dataset.url + this.record.datasetKey,
                 extendToField: 'dataset'
-            },
-            constituent: {
-                resource: api.dataset.url + this.record.constituentKey,
-                extendToField: 'constituent'
             },
             parents: {
                 resource: api.taxon.url + this.record.key + '/parents',
@@ -81,6 +81,14 @@ Taxon.prototype.expand = function (fieldNames) {
                 extendToField: 'vernacular'
             }
         };
+    // add optional resources
+    if (this.record.constituentKey) {
+        resourceLookup.constituent = {
+            resource: api.dataset.url + this.record.constituentKey,
+            extendToField: 'constituent'
+        }
+    }
+
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });

@@ -2,11 +2,11 @@
 {% import "../../../components/common.macros.nunjucks" as commonMacros %}
 
 {% macro taxonLink(tax) %}
-    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$ tax.scientificName $}</a></span>
+    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ tax.key $}">{$ tax.scientificName $}</a></span>
 {% endmacro %}
 
 {% macro taxonLink(key, name) %}
-    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ key $}">{$ name $}</a></span>
+    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ key $}">{$ name $}</a></span>
 {% endmacro %}
 
 {% block page %}
@@ -37,7 +37,11 @@
                             {$ commonMacros.parsedTaxonName(taxon.name) $}
                         </h1>
 
-                        {% if taxon.record.publishedIn %}
+                        {% if not taxon.isNub() %}
+                            <div class="published-in article-header__intro">
+                                sensu <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}" class="inherit"><u>{$ taxon.dataset.title $}</u></a>
+                            </div>
+                        {% elseif taxon.record.publishedIn %}
                             <div class="published-in article-header__intro">
                                 <a href="#" class="inherit"><u>{$ taxon.record.publishedIn $}</u></a>
                             </div>
@@ -47,7 +51,7 @@
                             <span class="classification-list discreet">
                                 {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
                                     {% if taxon.record[taxa] and taxa != taxon.record.taxonRank | lower %}
-                                        <a href="{$ gb.locales.urlPrefix $}/species/{$ taxon.record[taxa + 'Key'] $}"
+                                        <a href="{$ gb.locales.urlPrefix $}/taxon2/{$ taxon.record[taxa + 'Key'] $}"
                                            class="{$ taxa $}">{$ taxon.record[taxa] $}</a>
                                     {% endif %}
                                 {% endfor %}
@@ -114,15 +118,19 @@
                             </div>
 
                             <div>
-                                <dt class="text-capitalize">Source</dt>
-                                <dd>
-                                    {% if taxon.record.origin == 'SOURCE' %}
-                                        <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title
-                                            $}</a>
-                                    {% else %}
-                                        {$ taxon.record.origin $}
-                                    {% endif %}
-                                </dd>
+                                {% if taxon.isNub() %}
+                                    <dt class="text-capitalize">Source</dt>
+                                    <dd>
+                                        {% if taxon.record.origin == 'SOURCE' %}
+                                            <a href="{$ gb.locales.urlPrefix $}/taxon2/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                        {% else %}
+                                            {$ taxon.record.origin $}
+                                        {% endif %}
+                                    </dd>
+                                {% elseif taxon.record.publishedIn %}
+                                    <dt class="text-capitalize">Publication</dt>
+                                    <dd>{$ taxon.record.publishedIn $}</dd>
+                                {% endif %}
                             </div>
                         </dl>
                     </div>
@@ -172,6 +180,23 @@
 
         </section>
 
+        {% if not taxon.isNub() %}
+            <section id="no-nub-warning" class="alert-stripe alert-background">
+                <div class="container">
+                    <div class="row">
+                        <h3 class="text-center">Checklist specific taxon view!</h3>
+                        <p>You are viewing the details of <em>{$ taxon.record.scientificName $}</em> treated in <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}">{$taxon.dataset.title $}</a>.
+                           Checklist taxon views are under development and highly experimental at this stage!
+                        {% if taxon.record.nubKey %}
+                        The name is also available in the <a href="{$ gb.locales.urlPrefix $}/taxon2/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                        {% endif %}
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+        {% endif %}
+
         <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
             <span class="relative-anchor-offset"><a name="menu"></a></span>
 
@@ -191,30 +216,13 @@
                 </ul>
             </nav>
 
-            <section>
-                <div class="container--narrow">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="card this-is-a-stub">
-                                <div class="card__content">
-                                    <h2 class="text-center">Under development</h2>
-                                    <p style="color:#adadad" class="h1 text-center gb-icon-tools"></p>
-                                    <p class="text-center">
-                                        Species pages are under active development.
-                                        <br/>This stub is lacking most of it's functionality.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            {% if taxon.isNub() %}
             <section id="abstract" class="white-background">
                 <div class="container--narrow anchor-block">
                     <dbpedia name="{$ taxon.record.canonicalName $}" lang="en"/>
                 </div>
             </section>
+            {% endif %}
 
             <section id="taxonomy" class="white-background">
                 <div class="container--narrow anchor-block">

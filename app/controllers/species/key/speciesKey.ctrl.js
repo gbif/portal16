@@ -24,10 +24,16 @@ function getTaxon(key, lang) {
         // TODO: load these async through angular to respond quicker:
         // 'synonyms','combinations','references','typification'
         //TODO:
-        expand: ['name', 'constituent', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular']
+        expand: ['name', 'dataset', 'constituent', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular']
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {
+        // this should be done server side in the future: http://dev.gbif.org/issues/browse/POR-307
+        uniqPageResult(taxon.vernacular, function(v){
+            return v.vernacularName + "|" + (v.language || '');
+        }, function(v){
+            return v.language;
+        });
         // pick one vernacular name of requested language
         taxon.vernacular.results.some(function (v) {
             //TODO: create lookup map for 3 letter iso codes to 2 letter ones as used by the locale
@@ -50,6 +56,10 @@ function getTaxon(key, lang) {
     }).done();
 
     return deferred.promise;
+}
+
+function uniqPageResult(page, hashFunc, sortFunc) {
+    page.results = _.sortedUniqBy(_.sortBy(page.results, sortFunc), hashFunc);
 }
 
 function renderPage(req, res, next, taxon) {
