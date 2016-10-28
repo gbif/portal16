@@ -20,7 +20,6 @@ function dataValidatorCtrl($http, $scope) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
         formData.append('format', "TABULAR");
-        formData.append('fieldsTerminatedBy', "\\t");
 
         $http({
             url: devApiUrl + 'validator/validate/file',
@@ -50,15 +49,17 @@ function dataValidatorCtrl($http, $scope) {
 
         vm.validationResults = data;
         //the order of the evaluationCategory is important
-        vm.validationResults.issues = _.orderBy(vm.validationResults.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
+        //FIXME we should not use results[0] but iterate
+        var resourceResult = vm.validationResults.results[0];
+        vm.validationResults.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
 
         //prepare terms frequency
         vm.termsFrequency = {};
         var termFreqData;
-        angular.forEach(vm.validationResults.termsFrequency, function(value, key) {
+        angular.forEach(resourceResult.termsFrequency, function(value, key) {
             termFreqData = {};
             termFreqData.count = value;
-            termFreqData.percentage = Math.round((value/ vm.validationResults.numberOfLines)*100);
+            termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
             this[key] = termFreqData;
         }, vm.termsFrequency);
 

@@ -17,8 +17,12 @@
                     <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.validationProfile }}"></td>
                 </tr>
                 <tr>
+                    <td class="table-cell--wide">File name</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.fileName}}</td>
+                </tr>
+                <tr>
                     <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.numberOfLines}}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].numberOfLines}}</td>
                 </tr>
             </tbody>
         </table>
@@ -29,15 +33,15 @@
                 <tbody>
                     <tr>
                         <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['dwc:year'] }}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['dwc:year'] }}</td>
                     </tr>
                     <tr>
                         <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['gbif:taxonKey'] }}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['gbif:taxonKey'] }}</td>
                     </tr>
                     <tr>
                         <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
+                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['dwc:decimalLatitude'] }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -45,7 +49,7 @@
 
     <h3 ng-if="dataValidator.validationResults">{$ __('validation.termsFrequency.title') $}</h3>
     <div class="table-container">
-        <table class="table table-bordered table-striped" ng-if="dataValidator.validationResults.termsFrequency">
+        <table class="table table-bordered table-striped" ng-if="dataValidator.termsFrequency">
             <thead>
             <tr>
                 <th>{$ __('validation.termsFrequency.term') $}</th>
