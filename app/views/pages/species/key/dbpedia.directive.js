@@ -11,7 +11,7 @@ angular
 function dbpediaDirective() {
     var directive = {
         restrict: 'E',
-        template: '<p class="db-pedia">{{vm.abstract}}</p>',
+        template: '<p class="db-pedia">{{vm.abstract}} -- <a href="{{vm.link}}">DBpedia</a></p>',
         scope: {},
         controller: dbpediaCtrl,
         controllerAs: 'vm',
@@ -26,6 +26,7 @@ function dbpediaDirective() {
     function dbpediaCtrl(DbPedia) {
         var vm = this;
         vm.abstract = '';
+        vm.link = '';
         vm._name = vm.name.replace(" ", "_");
 
         DbPedia.query({
@@ -46,6 +47,7 @@ function dbpediaDirective() {
                     return abstr.lang == vm.lang;
                 });
                 vm.abstract = vm.abstract ? vm.abstract : abstractEn;
+                vm.link = dbPediaResource;
 
             }
         }, function () {

@@ -76,11 +76,11 @@
                     <div class="col-md-8">
                         <dl class="inline">
                             {% if taxon.record.synonym %}
-                            {% endif %}
                             <div>
                                 <dt>Accepted Name</dt>
                                 <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
                             </div>
+                            {% endif %}
 
                             {% if taxon.record.basionym %}
                                 <div>
@@ -112,9 +112,12 @@
                                     {% for typ in taxon.typification.results %}
                                         <dd>{$ typ $}</dd>
                                     {% endfor %}
-                                {% else %}
-                                    <dt class="text-capitalize">Type specimen</dt>
                                 {% endif %}
+                            </div>
+
+                            <div>
+                                <dt>Occurrences</dt>
+                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
 
                             <div>
@@ -150,8 +153,8 @@
                             </div>
 
                             <div>
-                                <dt class="text-capitalize">Fossil range</dt>
-                                <dd></dd>
+                                <dt class="text-capitalize">Fossil</dt>
+                                <dd>no/yes - range</dd>
                             </div>
 
                             <div>
@@ -224,37 +227,38 @@
             </section>
             {% endif %}
 
-            <section id="taxonomy" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <div class="balanced-row">
-                        <div>
-                            <h3>Synonyms</h3>
-                            <taxon-children key="{$ key $}" synonyms="true"/>
-                        </div>
-                        <div>
-                            <h3>Children</h3>
-                            <taxon-children key="{$ key $}" synonyms="false"/>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {% if taxon.record.occurrenceGeoRefCount > 0 or true %}
+            {% if taxon.occurrenceGeoRefCount > 0 or true %}
                 <section id="occurrence" class="white-background dataset-key__visual-summary anchor-block">
                     <div class="container--narrow">
-                        <h3>Occurrences</h3>
                         <div class="row">
                             <span class="relative-anchor-offset"><a name="map"></a></span>
                             <div class="dataset-key__visual-summary__wrapper light-background">
                                 <div class="dataset-key__visual-summary__map">
                                     <gbmap type="'TAXON'" key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
                                 </div>
-
                             </div>
+                        </div>
+
+                        <h3>Type Specimen</h3>
+                        <div>
                         </div>
                     </div>
                 </section>
             {% endif %}
+
+            <section id="synonymy" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Synonyms</h3>
+                    <taxon-children key="{$ key $}" synonyms="true"/>
+                </div>
+            </section>
+
+            <section id="taxonomy" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <h3>Children</h3>
+                    <taxon-children key="{$ key $}" synonyms="false"/>
+                </div>
+            </section>
 
             {% if true or taxon.vernacular.results | isNotEmpty %}
                 <section id="vernacular" class="white-background">
