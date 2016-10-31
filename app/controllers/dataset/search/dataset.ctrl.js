@@ -27,7 +27,8 @@ function renderPage(req, res, searchString) {
             hideSearchAction: true,
             hideFooter: true,
             hasDrawer: true,
-            hasTools: true
+            hasTools: true,
+            title: res.__('stdTerms.search')
         }
     });
 }

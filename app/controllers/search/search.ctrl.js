@@ -19,7 +19,8 @@ router.get('/search', function (req, res, next) {
                     bodyClass: 'omnisearch',
                     tileApi: baseConfig.tileApi,
                     hideFooter: true,
-                    hideSearchAction: true
+                    hideSearchAction: true,
+                    title: res.__('stdTerms.search')
                 }
             };
 
