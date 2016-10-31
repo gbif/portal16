@@ -3,7 +3,8 @@
 var angular = require('angular');
 require('./redlist.directive');
 require('./dbpedia.directive');
-require('./taxonChildren.directive');
+require('./synonyms.directive');
+require('./taxBrowser.directive');
 
 angular
     .module('portal')

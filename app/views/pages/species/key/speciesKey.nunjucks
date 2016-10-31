@@ -20,6 +20,8 @@
         };
     </script>
 
+    <tax-browser key="{$ key $}"></tax-browser>
+
     <article class="wrapper-horizontal-stripes speciesKey" ng-controller="speciesKeyCtrl as spec">
 
         <div class="overlay"></div>
@@ -116,11 +118,6 @@
                             </div>
 
                             <div>
-                                <dt>Occurrences</dt>
-                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
-                            </div>
-
-                            <div>
                                 {% if taxon.isNub() %}
                                     <dt class="text-capitalize">Source</dt>
                                     <dd>
@@ -164,6 +161,11 @@
                                     ,
                                     <del>terrestrial</del>
                                 </dd>
+                            </div>
+
+                            <div>
+                                <dt>Occurrences</dt>
+                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
 
                             {% if taxon.issues | isNotEmpty %}
@@ -222,7 +224,9 @@
             {% if taxon.isNub() %}
             <section id="abstract" class="white-background">
                 <div class="container--narrow anchor-block">
-                    <dbpedia name="{$ taxon.record.canonicalName $}" lang="en"/>
+                    <div class="row">
+                        <dbpedia name="{$ taxon.record.canonicalName $}" lang="en"/>
+                    </div>
                 </div>
             </section>
             {% endif %}
@@ -232,59 +236,61 @@
                     <div class="container--narrow">
                         <div class="row">
                             <span class="relative-anchor-offset"><a name="map"></a></span>
-                            <div class="dataset-key__visual-summary__wrapper light-background">
-                                <div class="dataset-key__visual-summary__map">
-                                    <gbmap type="'TAXON'" key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
-                                </div>
+                            <div class="map light-background">
+                                <gbmap type="'TAXON'" key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
                             </div>
                         </div>
 
-                        <h3>Type Specimen</h3>
-                        <div>
+                        <div class="row">
+                            <h3>Type Specimen</h3>
+                            <div>
+                            </div>
                         </div>
+
                     </div>
                 </section>
             {% endif %}
 
             <section id="synonymy" class="white-background">
                 <div class="container--narrow anchor-block">
-                    <h3>Synonyms</h3>
-                    <taxon-children key="{$ key $}" synonyms="true"/>
-                </div>
-            </section>
-
-            <section id="taxonomy" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <h3>Children</h3>
-                    <taxon-children key="{$ key $}" synonyms="false"/>
+                    <div class="row">
+                        <h3>Synonyms</h3>
+                        <synonyms key="{$ key $}" />
+                    </div>
                 </div>
             </section>
 
             {% if true or taxon.vernacular.results | isNotEmpty %}
                 <section id="vernacular" class="white-background">
                     <div class="container--narrow anchor-block">
-                        <h3>Vernacular names</h3>
-                        <ul class="paragraph-list">
-                            {% for vn in taxon.vernacular.results %}
-                                <li>
-                                    <span class="vernacular-name">{$ vn.vernacularName $}</span>
-                                    <span class="vernacular-lang">{$ vn.language $}</span>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                        <div class="row">
+                            <h3>Vernacular names</h3>
+                            <ul class="paragraph-list">
+                                {% for vn in taxon.vernacular.results %}
+                                    <li>
+                                        <span class="vernacular-name">{$ vn.vernacularName $}</span>
+                                        <span class="vernacular-lang">{$ vn.language $}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </section>
             {% endif %}
 
             <section id="related" class="white-background">
                 <div class="container--narrow anchor-block">
-                    <h3>Name appears in</h3>
+                    <div class="row">
+                        <h3>Name appears in</h3>
+                    </div>
                 </div>
             </section>
 
             <section id="bibliography" class="white-background">
                 <div class="container--narrow anchor-block">
-                    <h3>Bibliography</h3>
+                    <div class="row">
+                        <h3>Bibliography</h3>
+                    </div>
                 </div>
             </section>
         </div>

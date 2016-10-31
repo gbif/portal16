@@ -34,6 +34,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesParents', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/parents', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
         .factory('SpeciesSearch', function ($resource) {
             return $resource('/api/species/search', null, {
                     'query': {

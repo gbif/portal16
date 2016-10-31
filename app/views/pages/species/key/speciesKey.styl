@@ -2,17 +2,36 @@
     font-weight 300
     
     .paragraph-list li
-        display: inline
-        margin-right: 10px
+        display inline
+        margin-right 10px
     
     .vernacular-lang
-        color: #777
+        color #777
         font-size: 75%
     
     .published-in
         margin-bottom 10px
     .badge
         font-weight 300
+    .map
+        //width $desktop - 30
+        //width inherit
+        margin auto
+        height 0
+        padding-bottom 50%
+        position relative
+        gbmap
+            position absolute
+            top 0
+            height 100%
+            width 100%
+    .db-pedia
+        cite
+            margin-left 5px
+            :before
+                content '\2014 \00A0'
+small.rank
+    font-size 60%
 .alert-stripe
     margin 0
     border-top: 1px solid #dbe3e7;
