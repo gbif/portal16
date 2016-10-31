@@ -249,7 +249,11 @@ function processContacts(contacts) {
         if (committee.enum == 'nodes_committee') {
             committee.members.forEach(function(member){
                 if (member.nodes.length > 0) {
-                    member.membershipType = member.nodes[0].membershipType;
+                    member.nodes.forEach(function(node){
+                        if (node.role == 'NODE_MANAGER') {
+                            member.membershipType = node.membershipType;
+                        }
+                    });
                 }
             });
         }
