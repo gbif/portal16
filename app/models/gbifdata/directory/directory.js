@@ -20,8 +20,8 @@ Directory.getContacts = function(res) {
         'executive_committee',
         'science_committee',
         'budget_committee',
+        'nodes_steering_group',
         'nodes_committee'
-        //'nodes_steering_group'
     ];
 
     var contacts = {
@@ -158,7 +158,7 @@ Directory.postProcessContacts = function(contacts, __) {
 function processContacts(contacts) {
 
     // sort committees
-    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee', 'gbif_secretariat'];
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_steering_group', 'nodes_committee', 'gbif_secretariat'];
     contacts.committees.sort(function(x, y){
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
@@ -193,6 +193,24 @@ function processContacts(contacts) {
             'GOVERNING_BOARD_CHAIR',
             'EXECUTIVE_SECRETARY',
             'BUDGET_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'nodes_steering_group': [
+            'NODES_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_1ST_VICE_CHAIR',
+            'NODES_COMMITTEE_2ND_VICE_CHAIR',
+            'NODES_REGIONAL_REPRESENTATIVE_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
+            'NODES_COMMITTEE_GBIFS_SUPPORT'
         ],
         'nodes_committee': [
             'NODES_COMMITTEE_CHAIR',
