@@ -257,8 +257,22 @@ function processContacts(contacts) {
                 }
             });
         }
+
+        // Sort by defined order as committeeRoles above.
+        if (committee.enum == 'nodes_steering_group') {
+            var nsgRoles = committeeRoles[committee.enum];
+            committee.members = committee.members.sort(function(a, b){
+                return nsgRoles.indexOf(a.roles[0].role) - nsgRoles.indexOf(b.roles[0].role)
+            });
+        }
+
     });
 
+
+    // sort peopleByParticipants by participant name
+    contacts.peopleByParticipants.forEach(function(pGroup){
+        pGroup.people = _.orderBy(pGroup.people, [p => p.participantName.toLowerCase()], ['asc']);
+    });
     return contacts;
 }
 
