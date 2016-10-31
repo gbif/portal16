@@ -94,7 +94,7 @@ Directory.getContacts = function(res) {
                 // For filtering
                 // 1) de-duplication
                 contacts.people = _.uniqBy(contacts.people, 'id');
-                contacts.people = _.orderBy(contacts.people, [person => person.firstName.toLowerCase(), ['asc']]);
+                contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
 
                 // 2) strip people details
                 contacts.people.forEach(function(p, i){
@@ -137,7 +137,7 @@ Directory.postProcessContacts = function(contacts, __) {
     contacts.peopleByParticipants.forEach(function(p){
         p.people.forEach(function(person){
             // insert countryName if missing
-            if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
+            if (!person.hasOwnProperty('countryName')) person.countryName = __('country.' + person.participantCountry);
             // insert role name
             if (person.hasOwnProperty('roles')) {
                 person.roles.forEach(function(role){
@@ -268,7 +268,6 @@ function processContacts(contacts) {
 
     });
 
-
     // sort peopleByParticipants by participant name
     contacts.peopleByParticipants.forEach(function(pGroup){
         pGroup.people = _.orderBy(pGroup.people, [p => p.participantName.toLowerCase()], ['asc']);
@@ -286,7 +285,7 @@ function getGroupIntro(group) {
             deferred.resolve(group);
         })
         .catch(function(err){
-            deferred.reject(err.message);
+            deferred.reject(err.message + ' in getGroupIntro()');
         });
     return deferred.promise;
 }
@@ -379,7 +378,7 @@ function getParticipantsContacts(contacts) {
             deferred.resolve(groups);
         })
         .catch(function(err){
-            deferred.reject(err);
+            deferred.reject(err + 'line 403.');
         });
 
     return deferred.promise;
@@ -395,7 +394,7 @@ function getParticipantDetails(participantId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(err + ' in getParticipantDetails()');
         });
     return deferred.promise;
 }
@@ -419,7 +418,7 @@ function getNodeDetails(nodeId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' ingetNodeDetails()'));
         });
     return deferred.promise;
 }
@@ -443,7 +442,7 @@ function getParticipantPeopleDetails(participant, contacts) {
             deferred.resolve(participant);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + 'getParticipantPeopleDetails()'));
         });
     return deferred.promise;
 }
@@ -496,7 +495,7 @@ function getCommitteeContacts(group, contacts) {
             deferred.resolve(committee);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' in getCommitteeContacts() while requesting against ' + requestUrl));
         });
     return deferred.promise;
 }
@@ -561,7 +560,7 @@ function getPersonContact(personId, contacts) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' ingetPersonContact()'));
         });
     return deferred.promise;
 }
@@ -601,7 +600,7 @@ function genericEndpointAccess(requestUrl, options) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' while requesting against ' + requestUrl));
         }
     }, options);
     return deferred.promise;
