@@ -11,6 +11,8 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     rev = require('gulp-rev'),
     revReplace = require("gulp-rev-replace"),
+    replace = require('gulp-replace'),
+    revision = rootRequire('config/revision'),
     gulpif = require('gulp-if'),
     notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
@@ -99,6 +101,7 @@ function build(entry, name) {
             manifest: gulp.src(config.rev.manifest)
         })))
         .pipe(gulpif(config.isProd, rev()))
+        .pipe(replace('/templates/', '/templates/' + revision.revision + '/'))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);

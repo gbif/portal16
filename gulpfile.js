@@ -9,6 +9,7 @@
 
 var gulp = require('gulp'),
     path = require('path'),
+    fs = require('fs'),
     config = require('./config/build'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
@@ -17,6 +18,12 @@ var gulp = require('gulp'),
 global.rootRequire = function (name) {
     return require(__dirname + '/' + name);
 };
+
+/**
+ * Write unique build revision to json file
+ */
+var revision = (Math.random().toString(36)+'0000000000').slice(2, 8+2);
+fs.writeFileSync('./config/revision.json', '{"revision":"'+revision+'"}');
 
 /**
  *  Require all tasks in gulp/tasks, including sub folders
@@ -48,7 +55,7 @@ gulp.task('prod', function (callback) {
         ['speciesLookup'],
         ['dataValidator'],
         ['ipt'],
-        ['templates'], // needs to come after all files have been rev'ed
+        ['templates'],
         ['ieStyle'],
         callback);
 });
