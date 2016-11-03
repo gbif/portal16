@@ -59,10 +59,12 @@
                                 {% endif %}
                             </div>
 
+                            {% if taxon.isNub() %}
                             <div>
                                 <dt>Occurrences</dt>
                                 <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
+                            {% endif %}
 
                             <div>
                                 {% if taxon.isNub() %}
@@ -95,6 +97,7 @@
 
                     <div class="col-md-4">
                         <dl class="inline">
+                            {% if taxon.isNub() %}
                             <div>
                                 <dt class="text-capitalize">IUCN category</dt>
                                 <dd>
@@ -108,6 +111,7 @@
                                     <cites name="{$ taxon.record.canonicalName $}"></cites>
                                 </dd>
                             </div>
+                            {% endif %}
 
                             <div>
                                 <dt class="text-capitalize">Fossil range</dt>
@@ -174,7 +178,7 @@
             </section>
             {% endif %}
 
-            {% if taxon.occurrenceGeoRefCount > 0 or true %}
+            {% if taxon.isNub() and taxon.occurrenceGeoRefCount > 0 or true %}
                 <section id="occurrence" class="white-background dataset-key__visual-summary anchor-block">
                     <div class="container--narrow">
                         <div class="row">
