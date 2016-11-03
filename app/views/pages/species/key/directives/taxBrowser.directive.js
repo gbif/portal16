@@ -11,7 +11,7 @@ angular
 function taxBrowserDirective() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/species/key/taxBrowser.html',
+        templateUrl: '/templates/pages/species/key/directives/taxBrowser.html',
         scope: {},
         controller: taxBrowserCtrl,
         controllerAs: 'vm',
@@ -47,14 +47,17 @@ function taxBrowserDirective() {
         });
 
         SpeciesChildren.query({
-            id: vm.key
+            id: vm.key,
+            limit: 100
 
         }, function (data) {
             vm.children = data.results;
 
+
         }, function () {
         })
     }
+
 }
 
 module.exports = taxBrowserDirective;

@@ -72,6 +72,14 @@ Taxon.prototype.expand = function (fieldNames) {
                 resource: api.taxon.url + this.record.key + '/related?limit=50',
                 extendToField: 'related'
             },
+            homonyms: {
+                resource: api.taxon.url + '?datasetKey=' + this.record.datasetKey + "&name=" + this.record.canonicalName,
+                extendToField: 'homonyms'
+            },
+            info: {
+                resource: api.taxon.url + this.record.key + '/speciesProfiles?limit=50',
+                extendToField: 'info'
+            },
             typification: {
                 resource: api.taxon.url + this.record.key + '/typeSpecimens',
                 extendToField: 'typification'

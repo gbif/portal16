@@ -21,10 +21,8 @@ function taxonRoute(req, res, next) {
 function getTaxon(key, lang) {
     var deferred = Q.defer();
     var getOptions = {
-        // TODO: load these async through angular to respond quicker:
-        // 'synonyms','combinations','references','typification'
-        //TODO:
-        expand: ['name', 'dataset', 'constituent', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular']
+        //TODO: replace occ counts with solr facets
+        expand: ['name', 'dataset', 'constituent', 'homonyms', 'typification', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular', 'info']
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {
@@ -44,6 +42,12 @@ function getTaxon(key, lang) {
             }
             return v.language == lang || v.language == 'eng';
         });
+        // merge infos into single object
+        mergeInfos(taxon);
+        // remove self from homonyms
+        _.remove(taxon.homonyms.results, function(tax) {
+            return tax.key == key;
+        });
         deferred.resolve(taxon);
 
     }, function (err) {
@@ -56,6 +60,18 @@ function getTaxon(key, lang) {
     }).done();
 
     return deferred.promise;
+}
+
+// aggregates all species infos into 1 object
+//TODO: do in backbone & server see http://dev.gbif.org/issues/browse/POR-358
+function mergeInfos (taxon) {
+    var info = {};
+    if (taxon.info) {
+        _.each(taxon.info.results, function (i) {
+            _.merge(info, i);
+        });
+    }
+    taxon.info = info;
 }
 
 function uniqPageResult(page, hashFunc, sortFunc) {

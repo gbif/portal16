@@ -11,7 +11,7 @@ angular
 function synonymsDirective() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/species/key/synonyms.html',
+        templateUrl: '/templates/pages/species/key/directives/synonyms.html',
         scope: {},
         controller: synonymsCtrl,
         controllerAs: 'vm',
@@ -24,13 +24,14 @@ function synonymsDirective() {
     /** @ngInject */
     function synonymsCtrl(SpeciesSynonyms) {
         var vm = this;
-        vm.children = [];
+        vm.synonyms;
 
         SpeciesSynonyms.query({
             id: vm.key
 
         }, function (data) {
-            vm.children = data.results;
+            //TODO: order by basionym groups (or do on server?)
+            vm.synonyms = data.results;
 
         }, function () {
         })

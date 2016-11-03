@@ -1,10 +1,6 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 {% import "../../../components/common.macros.nunjucks" as commonMacros %}
 
-{% macro taxonLink(tax) %}
-    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ tax.key $}">{$ tax.scientificName $}</a></span>
-{% endmacro %}
-
 {% macro taxonLink(key, name) %}
     <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ key $}">{$ name $}</a></span>
 {% endmacro %}
@@ -31,7 +27,7 @@
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                            <span class="article-header__category__upper">{# † #}{$ __('taxonRank.' + taxon.record.rank) $}</span>
+                            <span class="article-header__category__upper">{% if taxon.info.extinct %}† {% endif %}{$ __('taxonRank.' + taxon.record.rank) $}</span>
                             <span class="article-header__category__lower">{$ __('taxonomicStatus.' + taxon.record.taxonomicStatus) $}</span>
                         </nav>
 
@@ -89,24 +85,14 @@
                                     <dt class="text-capitalize">Basionym</dt>
                                     <dd>{$ taxonLink(taxon.record.basionymKey, taxon.record.basionym) $}</dd>
                                 </div>
-
-                            {% elseif taxon.combinations | isNotEmpty %}
-                                <div>
-                                    <dt class="text-capitalize">Recombinations</dt>
-                                    <dd class="combination__list">
-                                        {% for tax in taxon.combinations %}
-                                            {$ taxonLink(tax) $}
-                                        {% endfor %}
-                                    </dd>
-                                </div>
                             {% endif %}
 
                             {% if taxon.record.vernacularName %}
-                            {% endif %}
                             <div>
                                 <dt class="text-capitalize">Vernacular name</dt>
                                 <dd>{$ taxon.record.vernacularName $}</dd>
                             </div>
+                            {% endif %}
 
                             <div>
                                 {% if taxon.typification.results | isNotEmpty %}
@@ -115,6 +101,11 @@
                                         <dd>{$ typ $}</dd>
                                     {% endfor %}
                                 {% endif %}
+                            </div>
+
+                            <div>
+                                <dt>Occurrences</dt>
+                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
 
                             <div>
@@ -132,6 +123,17 @@
                                     <dd>{$ taxon.record.publishedIn $}</dd>
                                 {% endif %}
                             </div>
+
+                            {% if taxon.record.issues | isNotEmpty %}
+                                <div>
+                                    <dt class="text-capitalize">{$ __('stdTerms.issues') $}</dt>
+                                    <dd class="issue-summary__list">
+                                        {% for issue in taxon.record.issues %}
+                                            <span class="badge badge--info">{$ __('taxon.issueEnum.' + issue) $}</span>
+                                        {% endfor %}
+                                    </dd>
+                                </div>
+                            {% endif %}
                         </dl>
                     </div>
 
@@ -140,44 +142,29 @@
                             <div>
                                 <dt class="text-capitalize">IUCN category</dt>
                                 <dd>
-                                    <redlist name="{$ taxon.record.canonicalName $}"/>
+                                    <redlist name="{$ taxon.record.canonicalName $}"></redlist>
                                 </dd>
                             </div>
 
                             <div>
                                 <dt class="text-capitalize">CITES</dt>
-                                <dd></dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-capitalize">Fossil</dt>
-                                <dd>no/yes - range</dd>
-                            </div>
-
-                            <div>
-                                <dt class="text-capitalize">Environment</dt>
-                                <dd>marine,
-                                    <del>fresh</del>
-                                    ,
-                                    <del>terrestrial</del>
+                                <dd>
+                                    <cites name="{$ taxon.record.canonicalName $}"></cites>
                                 </dd>
                             </div>
 
                             <div>
-                                <dt>Occurrences</dt>
-                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
+                                <dt class="text-capitalize">Fossil range</dt>
+                                <dd>{$ taxon.info.livingPeriod $}</dd>
                             </div>
 
-                            {% if taxon.issues | isNotEmpty %}
-                                <div>
-                                    <dt class="text-capitalize">{$ __('stdTerms.issues') $}</dt>
-                                    <dd class="issue-summary__list">
-                                        {% for issue in taxon.issues %}
-                                            <span class="badge badge--info">{$ __('taxon.issueEnum.' + issue) $}</span>
-                                        {% endfor %}
-                                    </dd>
-                                </div>
-                            {% endif %}
+                            <div>
+                                <dt class="text-capitalize">Environment</dt>
+                                <dd>{% if taxon.info.marine %}marine{% elseif taxon.info.marine == false %}<del>marine</del>{% endif %}
+                                    {% if taxon.info.freshwater %}freshwater{% elseif taxon.info.freshwater == false %}<del>freshwater</del>{% endif %}
+                                    {% if taxon.info.terrestrial %}terrestrial{% elseif taxon.info.terrestrial == false %}<del>terrestrial</del>{% endif %}
+                                </dd>
+                            </div>
                         </dl>
                     </div>
                 </div>
@@ -210,7 +197,7 @@
                     <li class="part-name">
                         <a href="" class="h3">Content</a>
                         <ul class="nav-chapters">
-                            {% set sections = ['abstract', 'taxonomy', 'occurrence', 'vernacular', 'related', 'bibliography'] %}
+                            {% set sections = ['abstract', 'type-specimen', 'synonymy', 'combinations', 'vernacular', 'datasets', 'references'] %}
                             {% for sect in sections %}
                                 <li class="nav-chapter" du-scrollspy="{$ id $}">
                                     <a href="#{$ sect $}">{$ sect | capitalize $}</a>
@@ -225,7 +212,7 @@
             <section id="abstract" class="white-background">
                 <div class="container--narrow anchor-block">
                     <div class="row">
-                        <dbpedia name="{$ taxon.record.canonicalName $}" lang="en"/>
+                        <dbpedia name="{$ taxon.record.canonicalName $}" lang="en"></dbpedia>
                     </div>
                 </div>
             </section>
@@ -240,27 +227,40 @@
                                 <gbmap type="'TAXON'" key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <h3>Type Specimen</h3>
-                            <div>
-                            </div>
-                        </div>
-
                     </div>
                 </section>
             {% endif %}
 
-            <section id="synonymy" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <div class="row">
-                        <h3>Synonyms</h3>
-                        <synonyms key="{$ key $}" />
-                    </div>
-                </div>
-            </section>
+            {# we lack rank comparing utils in javascript, so use parsed name to know if we are at species level or below #}
+            {% if taxon.name.specificEpithet %}
+            <type-specimen key="{$ key $}"></type-specimen>
+            {% endif %}
 
-            {% if true or taxon.vernacular.results | isNotEmpty %}
+            <synonyms key="{$ key $}"></synonyms>
+
+            <combinations key="{$ key $}"></combinations>
+
+            {% if taxon.homonyms.results | isNotEmpty %}
+                <section id="homonyms" class="white-background">
+                    <div class="container--narrow anchor-block">
+                        <div class="row">
+                            <h3>Homonyms</h3>
+                            <ul>
+                                {% for tax in taxon.homonyms.results %}
+                                <li>
+                                    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ tax.key $}">{$ tax.scientificName $}</a> <small>{$ tax.rank $}</small></span>
+                                    {% if tax.acceptedKey %}
+                                        {$ tax.status $} for <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon2/{$ tax.acceptedKey $}">{$ tax.accepted $}</a></span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if taxon.vernacular.results | isNotEmpty %}
                 <section id="vernacular" class="white-background">
                     <div class="container--narrow anchor-block">
                         <div class="row">
@@ -278,21 +278,10 @@
                 </section>
             {% endif %}
 
-            <section id="related" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <div class="row">
-                        <h3>Name appears in</h3>
-                    </div>
-                </div>
-            </section>
+            <related key="{$ key $}" name="{$ taxon.record.canonicalName $}"></related>
 
-            <section id="bibliography" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <div class="row">
-                        <h3>Bibliography</h3>
-                    </div>
-                </div>
-            </section>
+            <references key="{$ key $}"></references>
+
         </div>
     </article>
 
