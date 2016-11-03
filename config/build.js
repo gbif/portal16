@@ -8,6 +8,7 @@
 'use strict';
 
 var path = require('path'),
+    fs = require('fs'),
     wiredep,
     yargs = require('yargs').argv,
     gutil = require('gulp-util'),
@@ -25,8 +26,6 @@ if (gutil.env.prod) {
     env = 'dev';
 }
 
-console.log(gutil.env.payload);
-
 function loc(p) {
     return path.join(rootPath, p);
 }
@@ -38,6 +37,8 @@ var config = {
     buildType: env,
     isProd: env == 'prod'
 };
+
+config.loc = loc;
 
 /**
  *  The main paths of our project handle these with care
@@ -169,7 +170,13 @@ config.clean = {
  */
 config.rev = {
     manifestDest: loc(config.paths.dist),
-    manifest: loc('public/rev-manifest.json')
+    manifest: loc('public/rev-manifest.json'),
+    revisionFile: loc('config/revision.json')
+};
+
+config.loadRevision = function () {
+    var revision = JSON.parse(fs.readFileSync('config/revision.json', 'utf8')).revision;
+    return revision;
 };
 
 /**

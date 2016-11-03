@@ -9,7 +9,6 @@
 
 var gulp = require('gulp'),
     path = require('path'),
-    fs = require('fs'),
     config = require('./config/build'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
@@ -18,12 +17,6 @@ var gulp = require('gulp'),
 global.rootRequire = function (name) {
     return require(__dirname + '/' + name);
 };
-
-/**
- * Write unique build revision to json file
- */
-var revision = (Math.random().toString(36)+'0000000000').slice(2, 8+2);
-fs.writeFileSync('./config/revision.json', '{"revision":"'+revision+'"}');
 
 /**
  *  Require all tasks in gulp/tasks, including sub folders
@@ -43,6 +36,7 @@ requireDir('./gulp/tasks', {
 gulp.task('prod', function (callback) {
     runSequence(
         ['clean-all'],
+        ['revision'],
         ['env-constants'],
         // these produce rev'ed files
         // We avoid parallel tasks that could overwrite the rev-manifest.json
@@ -86,6 +80,7 @@ gulp.task('watch', ['browser-sync'], function () {
 gulp.task('dev', [], function (callback) {
     runSequence(
         ['clean-all'],
+        ['revision'],
         ['env-constants'],
         ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'speciesLookup', 'dataValidator', 'ipt'],
         ['templates'],
