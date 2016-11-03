@@ -1,0 +1,143 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "../../../components/common.macros.nunjucks" as commonMacros %}
+{% import "./species.macros.nunjucks" as spm %}
+
+{% macro taxonLink(key, name) %}
+    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ key $}">{$ name $}</a></span>
+{% endmacro %}
+
+{% block page %}
+    <script>
+        var gb = gb || {};
+        gb.taxon = {
+            key: '{$ taxon.record.key $}',
+            name: '{$ taxon.record.canonicalName or taxon.record.scientificName $}',
+            rank: '{$ taxon.record.rank or taxon.record.rank $}',
+            synonym: '{$ taxon.record.synonym or false $}'
+        };
+    </script>
+
+    <article class="wrapper-horizontal-stripes speciesKey" ng-controller="speciesKeyCtrl as spec">
+
+        {% include "./header.nunjucks" %}
+
+        {$ spm.speciesTabs(key, 'verbatim', __) $}
+
+        <section id="highlights" class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <dl class="inline">
+                            {% if taxon.record.synonym %}
+                            <div>
+                                <dt>Accepted Name</dt>
+                                <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
+                            </div>
+                            {% endif %}
+
+                            {% if taxon.record.basionym %}
+                                <div>
+                                    <dt class="text-capitalize">Basionym</dt>
+                                    <dd>{$ taxonLink(taxon.record.basionymKey, taxon.record.basionym) $}</dd>
+                                </div>
+                            {% endif %}
+
+                            {% if taxon.record.vernacularName %}
+                            <div>
+                                <dt class="text-capitalize">Vernacular name</dt>
+                                <dd>{$ taxon.record.vernacularName $}</dd>
+                            </div>
+                            {% endif %}
+
+                            <div>
+                                {% if taxon.typification.results | isNotEmpty %}
+                                    <dt class="text-capitalize">Type species</dt>
+                                    {% for typ in taxon.typification.results %}
+                                        <dd>{$ typ $}</dd>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                {% if taxon.isNub() %}
+                                    <dt class="text-capitalize">Source</dt>
+                                    <dd>
+                                        {% if taxon.record.origin == 'SOURCE' %}
+                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                        {% else %}
+                                            {$ taxon.record.origin $}
+                                        {% endif %}
+                                    </dd>
+                                {% elseif taxon.record.publishedIn %}
+                                    <dt class="text-capitalize">Publication</dt>
+                                    <dd>{$ taxon.record.publishedIn $}</dd>
+                                {% endif %}
+                            </div>
+
+                            {% if taxon.record.issues | isNotEmpty %}
+                                <div>
+                                    <dt class="text-capitalize">{$ __('stdTerms.issues') $}</dt>
+                                    <dd class="issue-summary__list">
+                                        {% for issue in taxon.record.issues %}
+                                            <span class="badge badge--info">{$ __('taxon.issueEnum.' + issue) $}</span>
+                                        {% endfor %}
+                                    </dd>
+                                </div>
+                            {% endif %}
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="core" class="horizontal-stripe white-background verbatim-terms">
+            <div class="container">
+                <div class="row col-md-12">
+                    <h2>Core terms</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <dl class="inline">
+                            {% for k,v in taxon.verbatim %}
+                            {% if k != 'extensions' %}
+                            <div>
+                                <dt>{$ k $}</dt>
+                                <dd>{$ v $}</dd>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% for ext,records in taxon.verbatim.extensions %}
+        <section id="ext-{$ ext $}" class="horizontal-stripe white-background verbatim-terms">
+            <div class="container">
+                <div class="row col-md-12">
+                <h2>{$ ext $}</h2>
+                </div>
+
+                {% for rec in records %}
+                <div id="ext-{$ ext $}-rec{$ loop.index $}" class="row">
+                    <div class="col-md-12">
+                        <h3>Record {$ loop.index $}</h3>
+                        <dl class="inline">
+                            {% for k,v in rec %}
+                                <div>
+                                    <dt>{$ k $}</dt>
+                                    <dd>{$ v $}</dd>
+                                </div>
+                            {% endfor %}
+                        </dl>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </article>
+
+{% endblock %}

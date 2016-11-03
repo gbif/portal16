@@ -84,6 +84,10 @@ Taxon.prototype.expand = function (fieldNames) {
                 resource: api.taxon.url + this.record.key + '/typeSpecimens',
                 extendToField: 'typification'
             },
+            verbatim: {
+                resource: api.taxon.url + this.record.key + '/verbatim',
+                extendToField: 'verbatim'
+            },
             vernacular: {
                 resource: api.taxon.url + this.record.key + '/vernacularNames?limit=50',
                 extendToField: 'vernacular'
