@@ -53,6 +53,9 @@
  * Header area styles
  */
 .article-header {
+    >*last-child {
+        margin-bottom 0
+    }
     h1 {
         text-align center
         margin-top vrBlock(0.4)
@@ -61,22 +64,19 @@
         }
     }
     &__intro {
-        font-size 1.2rem
+        font-size 18px
         font-style italic
         font-family $didot
         max-width 700px
-        margin 0 auto
-        p {
-            margin-bottom 0
-        }
+        text-align center
+        margin 0 auto vrBlock(0.5) auto
     }
     &__meta {
         font-weight bold
         display inline-block
-        margin-top vrBlock(0.5)
-        > * {
-            margin 0 //necessary because the drupal api sometimes returns a paragraph tag
-        }
+        //> * {
+        //    margin 0 //necessary because the drupal api sometimes returns a paragraph tag ; we aren't safe printing. this shouldn't matter. have uncommented
+        //}
     }
     &__sub {
         margin-top vrBlock(0.5)
@@ -98,12 +98,19 @@ $articleCategorySeparatorSpacing = 6px
     overflow hidden
     white-space nowrap
     text-overflow ellipsis
-    margin vrBlock(0.5) auto -vrBlock(0.5) auto
+    margin 0 auto
     text-align center
     text-transform uppercase
     font-weight bold
-    > span:last-of-type {
+    > *:last-child {
         font-weight normal
+    }
+    a {
+        color inherit
+        &:hover {
+            color $orangePeel
+            text-decoration none
+        }
     }
     .article-header__category__lower {
         border-left 2px solid $orangePeel
@@ -277,7 +284,7 @@ $articleCategorySeparatorSpacing = 6px
 $headerImageMaxFullWidth = $desktop
 .heading-image {
     max-width $headerImageMaxFullWidth
-    margin 0 auto 20px auto
+    margin 0 auto
     figcaption {
         font-size 0.9rem
         font-weight 300

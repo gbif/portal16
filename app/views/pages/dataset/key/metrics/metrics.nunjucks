@@ -30,97 +30,184 @@
 
                         {% if dataset._occurrenceCount.count > 0 %}
                             <div class="dataset-key__visual-summary__counts__percentages">
-                                <div class="dataset-key__visual-summary__counts__group">
-                                    <div class="summary-counts">
-                                        <div>
-                                            <div class="summary-circle">
-                                                <round-progress
-                                                        max="100"
-                                                        current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
-                                                        bgcolor="#cee4e8"
-                                                        color="#40bfff"
-                                                        responsive="true">
-                                                </round-progress>
-                                            </div>
-                                            <div class="summary-counts__percentage">
-                                                <span>{$ dataset._occurrenceGeoreferencedCount.percentage $}%</span>
-                                                <div>With coordinates</div>
+
+                                <div class="card dataset-key__visual-summary__counts__group" style="position:relative;">
+                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}" class="card__stripe inherit">
+                                        <div class="card__content">
+                                            <div style="z-index:0;position:absolute; right: -80px;top:-70px;height:200px;width:200px; border-radius:50%;background-color:rgba(0,0,0,0.05)"></div>
+                                            <div style="z-index:1; position:relative;min-width:200px">
+                                                <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span>
+                                                <p>occurrences</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
-                                <div class="dataset-key__visual-summary__counts__group">
-                                    <div class="summary-counts">
-                                        <div>
-                                            <div class="summary-circle">
-                                                <round-progress
-                                                        max="100"
-                                                        current="{$ dataset._occurrenceDatedCount.percentage | int $}"
-                                                        bgcolor="#cee4e8"
-                                                        color="#40bfff"
-                                                        responsive="true">
-                                                </round-progress>
-                                            </div>
-                                            <div class="summary-counts__percentage">
-                                                <span>{$ dataset._occurrenceDatedCount.percentage $}%</span>
-                                                <div>With year</div>
+                                <div class="card dataset-key__visual-summary__counts__group">
+                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}&isGeoreferenced=true" class="card__stripe inherit">
+                                        <div class="card__content summary-counts">
+                                            <div>
+                                                <div class="summary-circle">
+                                                    <round-progress
+                                                            max="100"
+                                                            current="{$ dataset._occurrenceGeoreferencedCount.percentage | int $}"
+                                                            bgcolor="#cee4e8"
+                                                            color="#40bfff"
+                                                            responsive="true">
+                                                    </round-progress>
+                                                </div>
+                                                <div class="summary-counts__percentage">
+                                                    <span>{$ dataset._occurrenceGeoreferencedCount.percentage $}%</span>
+                                                    <div>With coordinates</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
-                                <div class="dataset-key__visual-summary__counts__group">
-                                    <div class="summary-counts">
-                                        <div>
-                                            <div class="summary-circle">
-                                                <round-progress
-                                                        max="100"
-                                                        current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
-                                                        bgcolor="#cee4e8"
-                                                        color="#40bfff"
-                                                        responsive="true">
-                                                </round-progress>
-                                            </div>
-                                            <div class="summary-counts__percentage">
-                                                <span>{$ dataset._occurrenceNoTaxonCount.percentage $}%</span>
-                                                <div>With taxon match</div>
+
+
+                                <div class="card dataset-key__visual-summary__counts__group">
+                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}&year=*,2017" class="card__stripe inherit">
+                                        <div class="card__content summary-counts">
+                                            <div>
+                                                <div class="summary-circle">
+                                                    <round-progress
+                                                            max="100"
+                                                            current="{$ dataset._occurrenceDatedCount.percentage | int $}"
+                                                            bgcolor="#cee4e8"
+                                                            color="#40bfff"
+                                                            responsive="true">
+                                                    </round-progress>
+                                                </div>
+                                                <div class="summary-counts__percentage">
+                                                    <span>{$ dataset._occurrenceDatedCount.percentage $}%</span>
+                                                    <div>With year</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
+
+                                <div class="card dataset-key__visual-summary__counts__group">
+                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}&issue=TAXON_MATCH_NONE" class="card__stripe inherit">
+                                        <div class="card__content summary-counts">
+                                            <div>
+                                                <div class="summary-circle">
+                                                    <round-progress
+                                                            max="100"
+                                                            current="{$ dataset._occurrenceNoTaxonCount.percentage | int $}"
+                                                            bgcolor="#cee4e8"
+                                                            color="#40bfff"
+                                                            responsive="true">
+                                                    </round-progress>
+                                                </div>
+                                                <div class="summary-counts__percentage">
+                                                    <span>{$ dataset._occurrenceNoTaxonCount.percentage $}%</span>
+                                                    <div>With taxon match</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                {#<div class="card" style="margin:20px">#}
+                                    {#<div class="card__stripe lighter-background">#}
+                                        {#<div class="card__content" style="font-weight:400">#}
+                                            {#<div style="width:350px">#}
+                                                {#<span style="font-size:20px">77</span><span> taxa</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Animalia#}
+                                                {#<span style="color:#aaa;float:right">76</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Anhtopoda#}
+                                                {#<span style="color:#aaa;float:right">75</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Insecta#}
+                                                {#<span style="color:#aaa;float:right">74</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Hemiptera#}
+                                                {#<span style="color:#aaa;float:right">73</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Reduviidae#}
+                                                {#<span style="color:#aaa;float:right">72</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe">#}
+                                        {#<div class="card__content">#}
+                                            {#<div>#}
+                                                {#Zelus#}
+                                                {#<span style="color:#aaa;float:right">62</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                    {#<div class="card__stripe lighter-background">#}
+                                        {#<div class="card__content" style="font-weight:400">#}
+                                            {#<div>#}
+                                                {#<span style="font-size:20px">70</span><span> species</span>#}
+                                            {#</div>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
 
 
                                 {% for image in dataset.images.results | slice(0, 1) %}
-                                    <div class="dataset-key__visual-summary__counts__group">
-                                        <div class="summary-counts">
-                                            <div>
-                                                <div class="summary-circle">
-                                                    <a class="round-image"
-                                                       href="../occurrence/gallery?dataset_key={$ dataset.record.key $}"
-                                                       style="background-image:url('{$ image.media[0].identifier $}')"></a>
-                                                </div>
-                                                <div class="summary-counts__percentage">
-                                                    <span>{$ dataset.images._percentage $}%</span>
-                                                    <div>With image</div>
+                                    <div class="card dataset-key__visual-summary__counts__group">
+                                        <a href="../occurrence/gallery?dataset_key={$ dataset.record.key $}" class="card__stripe inherit">
+                                            <div class="card__content summary-counts">
+                                                <div>
+                                                    <div class="summary-circle">
+                                                        <span class="round-image"
+                                                           style="background-image:url('http://api.gbif.org/v1/image/unsafe/100x100/{$ image.media[0].identifier | encodeURI $}')"></span>
+                                                    </div>
+                                                    <div class="summary-counts__percentage">
+                                                        <span>{$ dataset.images._percentage $}%</span>
+                                                        <div>With image</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 {% endfor %}
 
-                                <div class="dataset-key__visual-summary__counts__group">
-                                    <div class="summary-counts">
-                                        <div class="clearfix">
-                                            <a class="summary-circle gb-icon-cclogo3"
-                                               href="{$ dataset.record.license $}">
-                                            </a>
-                                            <a href="{$ dataset.record.license $}"
-                                               class="inherit summary-counts__description">{$ __('license.' +
-                                                dataset.record.license | prettifyLicense ) $}</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                {#<div class="dataset-key__visual-summary__counts__group">#}
+                                    {#<div class="summary-counts">#}
+                                        {#<div class="clearfix">#}
+                                            {#<a class="summary-circle gb-icon-cclogo3"#}
+                                               {#href="{$ dataset.record.license $}">#}
+                                            {#</a>#}
+                                            {#<a href="{$ dataset.record.license $}"#}
+                                               {#class="inherit summary-counts__description">{$ __('license.' +#}
+                                                {#dataset.record.license | prettifyLicense ) $}</a>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
 
                             </div>
                         {% endif %}

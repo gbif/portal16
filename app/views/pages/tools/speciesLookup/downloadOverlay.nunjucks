@@ -18,9 +18,9 @@
             <a href="" class="site-drawer__bar__action" ng-click="speciesLookup.download = false">
                 <span>cancel</span>
             </a>
-            <a href="" class="site-drawer__bar__action" ng-click="speciesLookup.countSpecies()">
-                <span>count</span>
-            </a>
+            {#<a href="" class="site-drawer__bar__action" ng-click="speciesLookup.countSpecies()">#}
+                {#<span>count</span>#}
+            {#</a>#}
         </div>
     </div>
 </div>

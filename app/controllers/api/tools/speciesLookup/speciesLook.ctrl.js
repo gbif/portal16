@@ -99,7 +99,7 @@ function speciesCount(query) {
 function saveResults(data, names, referenceId) {
     var client = github.client({
         username: 'mortenhofft',
-        password: require('../../../../../config/config').githubPassword
+        password: require('../../../../../config/config').githubPassword //TODO take from credentials file
     });
 
     var ghrepo = client.repo('MortenHofft/slettes');

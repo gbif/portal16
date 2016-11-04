@@ -147,6 +147,14 @@ config.assets = {
 };
 
 /**
+ * Static assets from vendors. fx. leaflet icon images
+ */
+config.vendorAssets = {
+    paths: [loc('bower_components/leaflet/dist/images/**/*.png')],
+    dest: config.paths.dist + '/img'
+};
+
+/**
  * svg icons to be build to an icon font
  */
 config.iconfont = {

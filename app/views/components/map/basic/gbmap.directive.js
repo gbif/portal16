@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 require('../../globeContext/globeContext.directive');
+require('./gbTileLayer');
 
 angular
     .module('portal')
@@ -14,10 +15,11 @@ function gbmapDirective() {
         transclude: true,
         templateUrl: '/templates/components/map/basic/gbmap.html',
         scope: {
-            type: '=',
-            key: '=',
+            datasetKey: '=',
+            taxonKey: '=',
             mapstyle: '='
         },
+        link: mapLink,
         controller: gbmap,
         controllerAs: 'vm',
         bindToController: true
@@ -26,145 +28,210 @@ function gbmapDirective() {
     return directive;
 
     /** @ngInject */
-    function gbmap(leafletData, OccurrenceBbox, mapConstants, env, $scope, $timeout) {
-        var vm = this;
-        vm.id = 'gbifMap';//TODO how to handle mutiple ids? Random is ugly
-        //vm.center = {zoom: 0, lat: 0, lng: 0};
-        vm.mapstyle = vm.mapstyle || 'classic';
-        vm.globeOptions = {
-            center: {
-                lat: 0,
-                lng: 0
-            },
-            bounds: undefined
-        };
-
-        var palette = 'palette=yellows_reds';
-        if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette) {
-            palette = 'palette=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.palette;
-        }
-        if (mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors) {
-            palette = 'colors=' + mapConstants.baseLayers.options[vm.mapstyle].layerOptions.colors;
-        }
-
-
-        vm.controls = {
-            scale: true
-        };
-        //var getOverlay = function (palette, resolution) {
-        //    resolution = resolution || 8;
-        //    var overlay = {
-        //        name: 'gb',
-        //        url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=' + resolution + '&' + palette,
-        //        type: 'xyz',
-        //        visible: true,
-        //        layerParams: {
-        //            key: vm.key || 0,
-        //            type: vm.type ? vm.type.toUpperCase() : 'TAXON',
-        //            "showOnSelector": false
-        //        }
-        //    };
-        //    return overlay;
-        //};
-        //var setOverlay = function (q) {
-        //    vm.query = q;
-        //    if (Object.keys(vm.layers.overlays).length > 0) {
-        //        vm.layers.overlays = {};
-        //    }
-        //    vm.layers.overlays['occurrences' + hashObject(vm.query)] = getOverlay(vm.query);
-        //};
-
-        vm.type = vm.type ? vm.type.toUpperCase() : 'TAXON';
-
-        vm.layers = {
-            baselayers: {
-                base: mapConstants.baseLayers.options[vm.mapstyle]
-            },
-            overlays: {
-                occurrences: {
-                    name: 'gb',
-                    url: env.tileApi + '?x={x}&y={y}&z={z}&key={key}&type={type}&resolution=8&' + palette,
-                    type: 'xyz',
-                    visible: true,
-                    layerParams: {
-                        key: vm.key || 0,
-                        type: vm.type,
-                        "showOnSelector": false
-                    }
-                }
-            }
-        };
-        vm.mapDefaults = {
-            zoomControlPosition: 'topleft',
-            scrollWheelZoom: false
-        };
-        vm.mapEvents = {
-            map: {
-                enable: [], //https://github.com/tombatossals/angular-leaflet-directive/issues/1033
-                logic: 'broadcast'
-            },
-            marker: {
-                enable: [],
-                logic: 'broadcast'
-            }
-        };
-
-        leafletData.getMap(vm.id).then(function (map) {
-            map.once('focus', function () {
-                map.scrollWheelZoom.enable();
-            });
-            map.fitWorld().zoomIn();
-
-            map.on('drag zoomend dragend', function () {
-                updateGlobe(map);
-            });
-        });
-
-        function updateGlobe(map) {
-            $timeout(function () {
-                $scope.$apply(function () {
-                    vm.globeOptions.center = map.getCenter();
-                    vm.globeOptions.bounds = map.getBounds();
-                    vm.globeOptions.zoom = map.getZoom();
-                });
-            }, 50);
-        }
-
-        OccurrenceBbox.query({
-            type: vm.type,
-            key: vm.key
-        }, function (data) {
-            // sometimes our Bbox service is down and returns undefined
-            if (data.minimumLatitude && data.maximumLatitude) {
-                data.minimumLatitude = Math.max(-90, data.minimumLatitude - 2);
-                data.minimumLongitude = Math.max(-180, data.minimumLongitude - 2);
-                data.maximumLatitude = Math.min(90, data.maximumLatitude + 2);
-                data.maximumLongitude = Math.min(180, data.maximumLongitude + 2);
-
-                leafletData.getMap(vm.id).then(function (map) {
-                    map.fitBounds([
-                        [data.minimumLatitude, data.minimumLongitude],
-                        [data.maximumLatitude, data.maximumLongitude]
-                    ]);
-                    if (map.getZoom() < 2) {
-                        map.fitWorld().zoomIn();
-                    }
-                    updateGlobe(map);
-                });
-            }
-
-            //leafletData.getMap(vm.id).then(function(map) {
-            //    map.fitBounds([
-            //        [ data.minimumLatitude, data.minimumLongitude ],
-            //        [ data.maximumLatitude, data.maximumLongitude  ]
-            //    ]);
-            //});
-
-
-        }, function () {
-            //TODO
-        });
+    function mapLink(scope, element, attrs, ctrl) {
+        scope.create(element);
     }
+
+    /** @ngInject */
+    function gbmap(enums, $httpParamSerializer, OccurrenceBbox, mapConstants, env, $scope, $timeout) {
+        var vm = this,
+            overlays = [],
+            map;
+
+        vm.basisOfRecord = {};
+        enums.basisOfRecord.forEach(function(bor){
+            vm.basisOfRecord[bor] = false;
+        });
+
+        vm.projection = {
+            epsg: 'EPSG:3857'
+        };
+
+        vm.allYears = false;
+        vm.yearRange = {};
+
+        $scope.create = function(element){
+            map = createMap(element);
+            changeBaseMap(map);
+            vm.updateMap();
+
+            var slider = element[0].querySelector('.time-slider__slider');
+            var years = element[0].querySelector('.time-slider__years');
+
+            noUiSlider.create(slider, {
+                start: [1700, 2016],
+                step: 1,
+                connect: true,
+                range: {
+                    'min': 1700,
+                    'max': 2016
+                }
+            });
+            slider.noUiSlider.on('update', function (vals) {
+                // only adjust the range the user can see
+                vm.yearRange.start = Math.floor(vals[0]);
+                vm.yearRange.end = Math.floor(vals[1]);
+                years.innerText = vm.yearRange.start  + " - " + vm.yearRange.end;
+            });
+            slider.noUiSlider.on('change', function (vals) {
+                vm.yearRange.start = Math.floor(vals[0]);
+                vm.yearRange.end = Math.floor(vals[1]);
+                vm.updateMap();
+            });
+        };
+
+        vm.updateMap = function() {
+            overlays.forEach(function (layer) {
+                map.removeLayer(layer);
+            });
+            overlays = addOverLays(map, getQuery());
+        };
+
+        function getQuery() {
+            var query = {};
+
+            //basis of record as array
+            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
+                return vm.basisOfRecord[e];
+            });
+            query.basisOfRecord = $httpParamSerializer({basisOfRecord: basisOfRecord});
+            if (basisOfRecord.length == 0 || basisOfRecord.length == Object.keys(vm.basisOfRecord).length) {
+                delete query.basisOfRecord;
+            }
+
+            //year filters
+            if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
+                query.year = vm.yearRange.start + "," + vm.yearRange.end;
+            }
+
+            //only show one key. if more are supplied then ignore the remaining. at a later time it could be two layers styled differently to compare them
+            if (vm.datasetKey) {
+                query.datasetKey = vm.datasetKey;
+            } else if (vm.taxonKey) {
+                query.taxonKey = vm.taxonKey;
+            }
+
+            return query;
+        }
+
+        vm.updateProjection = function() {
+            //Proj4js.defs["EPSG:3031"] = "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
+
+            //var crs = new L.Proj.CRS('EPSG:3575',
+            //    '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
+            //    {
+            //        resolutions: [
+            //            8192, 4096, 2048, 1024, 512, 256, 128
+            //        ],
+            //        origin: [0, 0]
+            //    });
+            //
+            //map.options.crs = crs;//L.CRS.EPSG3857;
+            //set new basemap and overlays
+        }
+    }
+}
+
+
+
+var baseMap = L.tileLayer('http://b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist', {
+    attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
+});
+
+var arctic = L.tileLayer('http://{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
+    attribution: '&copy; <a href="http://arcticconnect.org/">ArcticConnect</a>. Data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+});
+
+
+
+
+function createMap(element, projection) {
+    var mapElement = element[0].querySelector('.map-area');
+
+    var crs3575 = new L.Proj.CRS('EPSG:3575',
+        '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
+        {
+            //resolutions: [
+            //    8192, 4096, 2048, 1024, 512, 256, 128
+            //],
+            origin: [0, 0]
+        });
+
+    var map = L.map(mapElement, {
+        crs: L.CRS.EPSG4326
+    }).setView(new L.LatLng(0, 0), 1);
+
+    //map.on('mousemove', function(e){
+    //    document.getElementById('position').innerHTML = '<br>' + e.latlng.lat.toFixed(2) + '<br>' + e.latlng.lng.toFixed(2);
+    //});
+
+    //var geoJ = {
+    //    "type": "FeatureCollection",
+    //    "features": [
+    //        {
+    //            "type": "Feature",
+    //            "properties": {},
+    //            "geometry": {
+    //                "type": "Point",
+    //                "coordinates": [
+    //                    -40.078125,
+    //                    84.8024737243345
+    //                ]
+    //            }
+    //        },
+    //        {
+    //            "type": "Feature",
+    //            "properties": {},
+    //            "geometry": {
+    //                "type": "Point",
+    //                "coordinates": [
+    //                    -55.54687499999999,
+    //                    -84.33698037639608
+    //                ]
+    //            }
+    //        }
+    //    ]
+    //};
+    //L.geoJson(geoJ, {
+    //    style: function (feature) {
+    //        return 'red';//{color: feature.properties.color};
+    //    },
+    //    onEachFeature: function (feature, layer) {
+    //        //layer.bindPopup(feature.properties.description);
+    //        layer.bindPopup('mypop up text');
+    //    }
+    //}).addTo(map);
+
+    return map;
+}
+
+function changeBaseMap(map) {
+    baseMap.addTo(map);
+}
+
+function addOverLays(map, query) {
+    var queryParam = query.basisOfRecord;
+    delete query.basisOfRecord;
+    var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs:'EPSG:4326'};
+
+    var optionsA = angular.extend({}, conf, query);
+    //optionsA.style = "outline.poly";
+
+
+    //var optionsB = angular.copy(conf);
+    //optionsB.style = "orange.marker";
+
+    var overlays = [];
+    var overlayA = L.gbifSimpleLayer('http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
+    overlayA.addTo(map);
+    overlays.push(overlayA);
+
+    //var overlayB = L.gbifSimpleLayer('http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png', optionsB);
+    //overlayB.addTo(map);
+
+
+    //overlays.push(overlayB);
+    return overlays;
 }
 
 module.exports = gbmapDirective;

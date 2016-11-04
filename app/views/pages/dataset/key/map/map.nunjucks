@@ -6,7 +6,7 @@
                 <span class="relative-anchor-offset"><a name="map"></a></span>
                 <div class="dataset-key__visual-summary__wrapper light-background">
                     <div class="dataset-key__visual-summary__map">
-                        <gbmap type="'dataset'" key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+                        <gbmap taxon-key='256' dataset-key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
                     </div>
 
                 </div>

@@ -1,5 +1,5 @@
 {% macro datasetTabs(dataset, active, __) %}
-    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+    <section class="horizontal-stripe--paddingless lighter-background dataset-key__visual-summary">
         <div class="container">
             <div class="row">
                 <nav class="tabs">

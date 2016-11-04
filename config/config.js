@@ -21,12 +21,11 @@ var config = {
         },
         port: port || 3000,
         log: log,
-        githubPassword: ghpw,
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
+        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/',
+        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'http://gbif-dev.org/'
     },
     dev: {
@@ -37,7 +36,6 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
         tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
@@ -53,7 +51,6 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
         tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
@@ -69,7 +66,6 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif.org/v1/',
         tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
@@ -85,7 +81,6 @@ var config = {
         },
         port: port || 3000,
         log: log,
-        githubPassword: ghpw,
         apidocs: apidocs,
         dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
         tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',

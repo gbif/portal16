@@ -1,13 +1,39 @@
-<div>
-    <div globe-context globe-options="vm.globeOptions" class="globe-context"></div>
-    <leaflet
-            leafletMap="leafletMap"
-            id="{{vm.id}}"
-            defaults="vm.mapDefaults"
-            height="100%"
-            width="100%"
-            layers="vm.layers"
-            event-broadcast="vm.mapEvents"
-            controls="vm.controls"
-    ></leaflet>
+<div class="gb-map-wrapper">
+    <div class="map-area"></div>
+    <div class="time-slider" style="padding:15px;z-index:1000;position:absolute;top:20px;right:20px;width:200px;background:white;border:1px solid rgba(0,0,0,0.2);border-radius:3px;">
+        <div>
+            <div class="form-group">
+                <div>
+                    <div class="checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
+                        <label><input type="checkbox" name="basisOfRecord" ng-model="vm.basisOfRecord[bor]" ng-change="vm.updateMap()"><span class="text-capitalize" translate="basisOfRecord.{{bor}}"></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<p id="position"></p>-->
+        <!--<div>-->
+            <!--<div class="form-group">-->
+                <!--<div>-->
+                    <!--<label class="radio-inline">-->
+                        <!--<input type="radio" name="srs" id="srs3857" value="EPSG:3857" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Mercator-->
+                    <!--</label>-->
+                    <!--<label class="radio-inline">-->
+                        <!--<input type="radio" name="srs" id="srsWGS84" value="EPSG:4326" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> WGS84-->
+                    <!--</label>-->
+                    <!--<label class="radio-inline">-->
+                        <!--<input type="radio" name="srs" id="srs3575" value="EPSG:3575" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Arctic-->
+                    <!--</label>-->
+                    <!--<label class="radio-inline">-->
+                        <!--<input type="radio" name="srs" id="srs3031" value="EPSG:3031" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Antarctic-->
+                    <!--</label>-->
+                    <!--{{vm.projection.epsg}}-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <p class="time-slider__years"></p>
+        <div class="time-slider__slider is-active"></div>
+    </div>
+
 </div>
