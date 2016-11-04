@@ -11,7 +11,7 @@ angular
 function dbpediaDirective() {
     var directive = {
         restrict: 'E',
-        template: '<p class="db-pedia">{{vm.abstract}} -- <a href="{{vm.link}}">DBpedia</a></p>',
+        template: '<p ng-show="vm.abstract" class="db-pedia">{{vm.abstract}}<cite title="DBpedia"><a href="{{vm.link}}">DBpedia</a></cite></p>',
         scope: {},
         controller: dbpediaCtrl,
         controllerAs: 'vm',
@@ -25,8 +25,6 @@ function dbpediaDirective() {
     /** @ngInject */
     function dbpediaCtrl(DbPedia) {
         var vm = this;
-        vm.abstract = '';
-        vm.link = '';
         vm._name = vm.name.replace(" ", "_");
 
         DbPedia.query({

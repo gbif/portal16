@@ -19,7 +19,6 @@ function dataValidatorCtrl($http, $scope) {
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
-        formData.append('format', "TABULAR");
 
         $http({
             url: devApiUrl + 'validator/validate/file',
@@ -30,7 +29,7 @@ function dataValidatorCtrl($http, $scope) {
         }).success(function (data, status, headers, config) {
             handleValidationResult(data);
         }).error(function (data, status, headers, config) {
-            // handle error things
+            handleWSError(data);
         });
     };
 
@@ -79,6 +78,10 @@ function dataValidatorCtrl($http, $scope) {
 
             this[value.issueCategory].push(issueBlock);
         }, vm.issuesMap);
+    }
+
+    function handleWSError(data) {
+        vm.validationResults = data;
     }
 }
 

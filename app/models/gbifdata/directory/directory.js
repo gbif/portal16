@@ -20,8 +20,8 @@ Directory.getContacts = function(res) {
         'executive_committee',
         'science_committee',
         'budget_committee',
+        'nodes_steering_group',
         'nodes_committee'
-        //'nodes_steering_group'
     ];
 
     var contacts = {
@@ -94,7 +94,7 @@ Directory.getContacts = function(res) {
                 // For filtering
                 // 1) de-duplication
                 contacts.people = _.uniqBy(contacts.people, 'id');
-                contacts.people = _.orderBy(contacts.people, [person => person.firstName.toLowerCase(), ['asc']]);
+                contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
 
                 // 2) strip people details
                 contacts.people.forEach(function(p, i){
@@ -137,7 +137,7 @@ Directory.postProcessContacts = function(contacts, __) {
     contacts.peopleByParticipants.forEach(function(p){
         p.people.forEach(function(person){
             // insert countryName if missing
-            if (!person.hasOwnProperty('countryName')) person.countryName = res.__('country.' + person.participantCountry);
+            if (!person.hasOwnProperty('countryName')) person.countryName = __('country.' + person.participantCountry);
             // insert role name
             if (person.hasOwnProperty('roles')) {
                 person.roles.forEach(function(role){
@@ -158,7 +158,7 @@ Directory.postProcessContacts = function(contacts, __) {
 function processContacts(contacts) {
 
     // sort committees
-    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_committee', 'gbif_secretariat'];
+    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_steering_group', 'nodes_committee', 'gbif_secretariat'];
     contacts.committees.sort(function(x, y){
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
@@ -193,6 +193,24 @@ function processContacts(contacts) {
             'GOVERNING_BOARD_CHAIR',
             'EXECUTIVE_SECRETARY',
             'BUDGET_COMMITTEE_GBIFS_SUPPORT'
+        ],
+        'nodes_steering_group': [
+            'NODES_COMMITTEE_CHAIR',
+            'NODES_COMMITTEE_1ST_VICE_CHAIR',
+            'NODES_COMMITTEE_2ND_VICE_CHAIR',
+            'NODES_REGIONAL_REPRESENTATIVE_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_AFRICA',
+            'NODES_REGIONAL_REPRESENTATIVE_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_ASIA',
+            'NODES_REGIONAL_REPRESENTATIVE_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_EUROPE',
+            'NODES_REGIONAL_REPRESENTATIVE_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_LATIN_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_NORTH_AMERICA',
+            'NODES_REGIONAL_REPRESENTATIVE_OCEANIA',
+            'NODES_REGIONAL_REPRESENTATIVE_DEPUTY_OCEANIA',
+            'NODES_COMMITTEE_GBIFS_SUPPORT'
         ],
         'nodes_committee': [
             'NODES_COMMITTEE_CHAIR',
@@ -231,12 +249,29 @@ function processContacts(contacts) {
         if (committee.enum == 'nodes_committee') {
             committee.members.forEach(function(member){
                 if (member.nodes.length > 0) {
-                    member.membershipType = member.nodes[0].membershipType;
+                    member.nodes.forEach(function(node){
+                        if (node.role == 'NODE_MANAGER') {
+                            member.membershipType = node.membershipType;
+                        }
+                    });
                 }
             });
         }
+
+        // Sort by defined order as committeeRoles above.
+        if (committee.enum == 'nodes_steering_group') {
+            var nsgRoles = committeeRoles[committee.enum];
+            committee.members = committee.members.sort(function(a, b){
+                return nsgRoles.indexOf(a.roles[0].role) - nsgRoles.indexOf(b.roles[0].role)
+            });
+        }
+
     });
 
+    // sort peopleByParticipants by participant name
+    contacts.peopleByParticipants.forEach(function(pGroup){
+        pGroup.people = _.orderBy(pGroup.people, [p => p.participantName.toLowerCase()], ['asc']);
+    });
     return contacts;
 }
 
@@ -250,7 +285,7 @@ function getGroupIntro(group) {
             deferred.resolve(group);
         })
         .catch(function(err){
-            deferred.reject(err.message);
+            deferred.reject(err.message + ' in getGroupIntro()');
         });
     return deferred.promise;
 }
@@ -343,7 +378,7 @@ function getParticipantsContacts(contacts) {
             deferred.resolve(groups);
         })
         .catch(function(err){
-            deferred.reject(err);
+            deferred.reject(err + 'line 403.');
         });
 
     return deferred.promise;
@@ -359,7 +394,7 @@ function getParticipantDetails(participantId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(err + ' in getParticipantDetails()');
         });
     return deferred.promise;
 }
@@ -383,7 +418,7 @@ function getNodeDetails(nodeId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' ingetNodeDetails()'));
         });
     return deferred.promise;
 }
@@ -407,7 +442,7 @@ function getParticipantPeopleDetails(participant, contacts) {
             deferred.resolve(participant);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + 'getParticipantPeopleDetails()'));
         });
     return deferred.promise;
 }
@@ -460,7 +495,7 @@ function getCommitteeContacts(group, contacts) {
             deferred.resolve(committee);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' in getCommitteeContacts() while requesting against ' + requestUrl));
         });
     return deferred.promise;
 }
@@ -525,7 +560,7 @@ function getPersonContact(personId, contacts) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' ingetPersonContact()'));
         });
     return deferred.promise;
 }
@@ -565,7 +600,7 @@ function genericEndpointAccess(requestUrl, options) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(err + ' while requesting against ' + requestUrl));
         }
     }, options);
     return deferred.promise;

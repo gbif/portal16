@@ -2,16 +2,12 @@
 
 var express = require('express'),
     dataset = require('./datasetViewData'),
+    utils = rootRequire('app/helpers/utils'),
     router = express.Router();
 
 module.exports = function (app) {
     app.use('/', router);
 };
-
-function isGuid(stringToTest) {
-    var regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
-    return regexGuid.test(stringToTest);
-}
 
 router.get('/dataset/:key\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/datasetKey');
@@ -35,14 +31,13 @@ router.get('/dataset/:key/origin\.:ext?', function (req, res, next) {
 
 function buildModelAndRender(req, res, next, template) {
     var datasetKey = req.params.key;
-    if (!isGuid(datasetKey)) {
+    if (!utils.isGuid(datasetKey)) {
         next();
     } else {
         dataset.getDataset(datasetKey, function (err, viewData) {
             if (err) {
                 next(err);
             } else {
-
                 renderPage(req, res, next, template, viewData);
             }
         })

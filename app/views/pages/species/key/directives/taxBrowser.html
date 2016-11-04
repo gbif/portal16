@@ -1,0 +1,21 @@
+<section id="taxonomy-browser" class="horizontal-stripe white-background">
+    <div class="container">
+        <div class="row col-md-12">
+            <h3>Taxonomy</h3>
+            <ul class="list-unstyled">
+                <li style="margin-left:{{$index*10}}px" ng-repeat="tax in vm.parents">
+                    <a href="/taxon/{{tax.key}}/taxonomy">{{tax.canonicalName}}</a>
+                    <small class="rank">{{tax.rank}}</small>
+                </li>
+                <li style="margin-left:{{vm.parents.length*10}}px">
+                    <strong>{{vm.taxon.scientificName}}</strong>
+                    <small class="rank">{{vm.taxon.rank}}</small>
+                </li>
+                <li style="margin-left:{{(vm.parents.length+1)*10}}px" ng-repeat="tax in vm.children">
+                    <a href="/taxon/{{tax.key}}/taxonomy">{{tax.scientificName}}</a>
+                    <small class="rank">{{tax.rank}}</small>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

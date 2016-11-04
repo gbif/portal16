@@ -171,7 +171,6 @@ module.exports = function (nunjucksConfiguration, config) {
         }
         nunjucksConfiguration.addFilter('rev', function (location) {
             location = _.trimStart(location, '/');
-            console.log(location);
             if (location in revManifest) {
                 return "/" + revManifest[location];
             }

@@ -1,6 +1,7 @@
 <div class="horizontal-stripe white-background ng-cloak">
 
     <h2 ng-if="dataValidator.validationResults">{$ __('validation.summary') $}</h2>
+
     <div class="table-container">
         <table ng-if="dataValidator.validationResults">
             <tbody>
@@ -8,19 +9,23 @@
                     <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
                     <td class="table-cell--wide">{{ dataValidator.validationResults.indexeable }}</td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.errorCode">
+                    <td class="table-cell--wide">{$ __('validation.error') $}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.errorCode }}</td>
+                </tr>
+                <tr ng-if="dataValidator.validationResults.fileFormat">
                     <td class="table-cell--wide">{$ __('validation.fileFormat.title') $}</td>
                     <td class="table-cell--wide" translate="validation.fileFormat.{{ dataValidator.validationResults.fileFormat }}"></td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.validationProfile">
                     <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
                     <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.validationProfile }}"></td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.fileName">
                     <td class="table-cell--wide">File name</td>
                     <td class="table-cell--wide">{{ dataValidator.validationResults.fileName}}</td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.results">
                     <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
                     <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].numberOfLines}}</td>
                 </tr>
@@ -29,7 +34,7 @@
     </div>
 
     <div class="table-container">
-            <table ng-if="dataValidator.validationResults">
+            <table ng-if="dataValidator.validationResults.results">
                 <tbody>
                     <tr>
                         <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>

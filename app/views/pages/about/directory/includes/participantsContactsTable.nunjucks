@@ -13,9 +13,9 @@
                         <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th ng-click="sortField = 'firstName'; sortReverse = !sortReverse"><a>{$ __('directory.name') $}</a>
-                        <span ng-show="sortField == 'firstName' && !sortReverse" class="gb-icon-angle-down"></span>
-                        <span ng-show="sortField == 'firstName' && sortReverse" class="gb-icon-angle-up"></span>
+                    <th ng-click="sortField = 'surname'; sortReverse = !sortReverse"><a>{$ __('directory.name') $}</a>
+                        <span ng-show="sortField == 'surname' && !sortReverse" class="gb-icon-angle-down"></span>
+                        <span ng-show="sortField == 'surname' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
                     <th ng-click="sortField = 'institutionName'; sortReverse = !sortReverse"><a>{$ __('directory.institution') $}</a>
                         <span ng-show="sortField == 'institutionName' && !sortReverse" class="gb-icon-angle-down"></span>
@@ -34,7 +34,7 @@
                         <address class="contacts__item" id="contact_{$ person.id $}">
                             <div class="contact__heading">
                                 <span class="relative-anchor-offset"><a name="contact_{{ person.id }}"></a></span>
-                                <span><strong ng-bind="person.firstName + ' ' + person.surname"></strong></span>
+                                <span><strong ng-bind="person.surname + ', ' + person.firstName"></strong></span>
                             </div>
                             <div class="contact__body" ng-class="vm.toggleStatus[person.id]">
                                 <div class="stop-propagation" ng-click="vm.selectAddress($event)">

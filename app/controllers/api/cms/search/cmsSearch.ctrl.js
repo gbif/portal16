@@ -6,6 +6,7 @@ var express = require('express'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/cmsData/apiConfig'),
     cmsData = require('../../../../models/cmsData/cmsData'),
+    Utilities = require('../cmsUtilities'),
     log = require('../../../../../config/log');
 
 module.exports = function (app) {
@@ -46,17 +47,13 @@ router.get('/cms/search', function (req, res, next) {
 
 function cmsSearch(query) {
     var deferred = Q.defer();
-    var limit = parseInt(query.limit) || 20;
+    query = Utilities.queryTransform(query);
+
     var queryUrl = apiConfig.search.url;
     queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
-    queryUrl += '?page[size]=' + limit;
+    queryUrl += '?range=' + query.range;
+    queryUrl += '&page=' + query.page;
     queryUrl += '&sort=-created';
-
-    if (query.offset) {
-        queryUrl += '&';
-        var currentPage = query.offset / limit + 1;
-        queryUrl += 'page[number]=' + currentPage;
-    }
 
     // Converting facets in the array notation that the CMS API consumes.
     var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_country', 'category_topic'];

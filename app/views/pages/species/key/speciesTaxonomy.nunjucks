@@ -1,0 +1,115 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+{% import "../../../components/common.macros.nunjucks" as commonMacros %}
+{% import "./species.macros.nunjucks" as spm %}
+
+{% macro taxonLink(key, name) %}
+    <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ key $}">{$ name $}</a></span>
+{% endmacro %}
+
+{% block page %}
+    <script>
+        var gb = gb || {};
+        gb.taxon = {
+            key: '{$ taxon.record.key $}',
+            name: '{$ taxon.record.canonicalName or taxon.record.scientificName $}',
+            rank: '{$ taxon.record.rank or taxon.record.rank $}',
+            synonym: '{$ taxon.record.synonym or false $}'
+        };
+    </script>
+
+    <article class="wrapper-horizontal-stripes speciesKey" ng-controller="speciesKeyCtrl as spec">
+
+        {% include "./header.nunjucks" %}
+
+        {$ spm.speciesTabs(key, 'taxonomy', __) $}
+
+        <section id="highlights" class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <dl class="inline">
+                            {% if taxon.record.synonym %}
+                            <div>
+                                <dt>Accepted Name</dt>
+                                <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
+                            </div>
+                            {% endif %}
+
+                            {% if taxon.record.basionym %}
+                                <div>
+                                    <dt class="text-capitalize">Basionym</dt>
+                                    <dd>{$ taxonLink(taxon.record.basionymKey, taxon.record.basionym) $}</dd>
+                                </div>
+                            {% endif %}
+
+                            {% if taxon.record.vernacularName %}
+                            <div>
+                                <dt class="text-capitalize">Vernacular name</dt>
+                                <dd>{$ taxon.record.vernacularName $}</dd>
+                            </div>
+                            {% endif %}
+
+                            <div>
+                                {% if taxon.typification.results | isNotEmpty %}
+                                    <dt class="text-capitalize">Type species</dt>
+                                    {% for typ in taxon.typification.results %}
+                                        <dd>{$ typ $}</dd>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                {% if taxon.isNub() %}
+                                    <dt class="text-capitalize">Source</dt>
+                                    <dd>
+                                        {% if taxon.record.origin == 'SOURCE' %}
+                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                        {% else %}
+                                            {$ taxon.record.origin $}
+                                        {% endif %}
+                                    </dd>
+                                {% elseif taxon.record.publishedIn %}
+                                    <dt class="text-capitalize">Publication</dt>
+                                    <dd>{$ taxon.record.publishedIn $}</dd>
+                                {% endif %}
+                            </div>
+
+                            {% if taxon.record.issues | isNotEmpty %}
+                                <div>
+                                    <dt class="text-capitalize">{$ __('stdTerms.issues') $}</dt>
+                                    <dd class="issue-summary__list">
+                                        {% for issue in taxon.record.issues %}
+                                            <span class="badge badge--info">{$ __('taxon.issueEnum.' + issue) $}</span>
+                                        {% endfor %}
+                                    </dd>
+                                </div>
+                            {% endif %}
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        {% if not taxon.isNub() %}
+            <section id="no-nub-warning" class="alert-stripe alert-background">
+                <div class="container">
+                    <div class="row">
+                        <h3 class="text-center">Checklist specific taxon view!</h3>
+                        <p>You are viewing the details of <em>{$ taxon.record.scientificName $}</em> treated in <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}">{$taxon.dataset.title $}</a>.
+                           Checklist taxon views are under development and highly experimental at this stage!
+                        {% if taxon.record.nubKey %}
+                        The name is also available in the <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                        {% endif %}
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+        {% endif %}
+
+        <tax-browser key="{$ key $}"></tax-browser>
+
+    </article>
+
+{% endblock %}

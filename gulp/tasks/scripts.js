@@ -11,10 +11,11 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     rev = require('gulp-rev'),
     revReplace = require("gulp-rev-replace"),
+    replace = require('gulp-replace'),
+    fs = require('fs'),
     gulpif = require('gulp-if'),
     notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
-
 
 gulp.task('scripts-reload', function () {
     return buildScripts()
@@ -68,6 +69,7 @@ gulp.task('ipt', function () {
 //});
 
 function build(entry, name) {
+    var revision = config.loadRevision();
     var dest = 'js/base';
     return browserify({
         entries: entry,
@@ -99,6 +101,7 @@ function build(entry, name) {
             manifest: gulp.src(config.rev.manifest)
         })))
         .pipe(gulpif(config.isProd, rev()))
+        .pipe(replace('/templates/', '/templates/' + revision + '/'))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);

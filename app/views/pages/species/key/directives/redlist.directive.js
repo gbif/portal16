@@ -11,7 +11,7 @@ angular
 function redlistDirective() {
     var directive = {
         restrict: 'E',
-        template: '<a href="http://apiv3.iucnredlist.org/api/v3/website/{{vm.name}}" class="badge redlist-category-{{vm.category}}">{{vm.categoryTitle}}</a>',
+        template: '<a href="{{vm.link}}" class="badge redlist-category-{{vm.category}}">{{vm.categoryTitle}}</a>',
         scope: {},
         controller: redlistCtrl,
         controllerAs: 'vm',
@@ -35,8 +35,9 @@ function redlistDirective() {
     /** @ngInject */
     function redlistCtrl(RedlistSpecies) {
         var vm = this;
-        vm.categoryTitle = '';
-        vm.category = '';
+        vm.categoryTitle;
+        vm.category;
+        vm.link;
 
         RedlistSpecies.query({
             name: vm.name
@@ -45,10 +46,13 @@ function redlistDirective() {
             var iucn = _.head(data.result);
             if (iucn) {
                 vm.category = iucn.category;
-                vm.categoryTitle = categories[iucn.category];
+                vm.link = 'http://apiv3.iucnredlist.org/api/v3/website/' + vm.name;
+            } else {
+                vm.category = 'NE';
+                vm.link = '#';
             }
+            vm.categoryTitle = categories[vm.category];
         }, function () {
-
         });
     }
 }

@@ -1,0 +1,12 @@
+<section id="synonymy" class="white-background" ng-show="vm.synonyms">
+    <div class="container--narrow anchor-block">
+        <div class="row">
+            <h3>Synonyms</h3>
+            <ul>
+                <li ng-repeat="tax in vm.synonyms">
+                    <span class="scientific_name"><a ng-href="{{tax.key}}">{{tax.scientificName}}</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
