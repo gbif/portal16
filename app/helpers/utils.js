@@ -4,7 +4,17 @@ function isGuid(stringToTest) {
     return regexGuid.test(stringToTest);
 }
 
-
+function renderPage(req, res, next, template, data) {
+    try {
+        if (req.params.ext == 'debug') {
+            res.json(dataset);
+        } else {
+            res.render(template, data);
+        }
+    } catch (e) {
+        next(e);
+    }
+}
 
 module.exports = {
     isGuid: isGuid
