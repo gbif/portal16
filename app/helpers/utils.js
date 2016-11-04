@@ -17,5 +17,6 @@ function renderPage(req, res, next, template, data) {
 }
 
 module.exports = {
-    isGuid: isGuid
+    isGuid: isGuid,
+    renderPage: renderPage
 };
