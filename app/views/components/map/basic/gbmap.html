@@ -1,6 +1,19 @@
-<div class="gb-map-wrapper">
-    <div class="map-area"></div>
-    <div class="time-slider" style="padding:15px;z-index:1000;position:absolute;top:20px;right:20px;width:200px;background:white;border:1px solid rgba(0,0,0,0.2);border-radius:3px;">
+<div class="gb-map-wrapper" ng-click="vm.interactionWithMap()">
+    <div class="map-controls light-background">
+        <a href="" class="gb-icon-drop" ng-click="vm.toggleStyle()" ng-class="{'is-active': vm.controls.style}"></a>
+        <a href="" class="gb-icon-funnel" ng-click="vm.toggleFilter()" ng-class="{'is-active': vm.controls.filters}"></a>
+        <a href="" class="gb-icon-butterfly" ng-click="vm.toggleProjection()" ng-class="{'is-active': vm.controls.projection}"></a>
+        <a href="" ng-href="/occurrence/search?{{vm.getExploreQuery()}}" class="gb-icon-microscope"></a>
+    </div>
+    <div class="map-controls-area" ng-show="vm.controls.style">
+        <div>
+            <p>
+                Style your map.
+            </p>
+            <p>Coming soon</p>
+        </div>
+    </div>
+    <div class="map-controls-area" ng-show="vm.controls.filters">
         <div>
             <div class="form-group">
                 <div>
@@ -10,30 +23,50 @@
                 </div>
             </div>
         </div>
-        <!--<p id="position"></p>-->
-        <!--<div>-->
-            <!--<div class="form-group">-->
-                <!--<div>-->
-                    <!--<label class="radio-inline">-->
-                        <!--<input type="radio" name="srs" id="srs3857" value="EPSG:3857" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Mercator-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                        <!--<input type="radio" name="srs" id="srsWGS84" value="EPSG:4326" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> WGS84-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                        <!--<input type="radio" name="srs" id="srs3575" value="EPSG:3575" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Arctic-->
-                    <!--</label>-->
-                    <!--<label class="radio-inline">-->
-                        <!--<input type="radio" name="srs" id="srs3031" value="EPSG:3031" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Antarctic-->
-                    <!--</label>-->
-                    <!--{{vm.projection.epsg}}-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-        <p class="time-slider__years"></p>
-        <div class="time-slider__slider is-active"></div>
+    </div>
+    <div class="map-controls-area" ng-show="vm.controls.projection">
+        <div>
+            <p>
+                Earth is round, your screen is flat. Choose a projection.
+            </p>
+            <p>Coming soon</p>
+            <!--p id="position"></p>
+            <div class="form-group">
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" name="srs" id="srs3857" value="EPSG:3857" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Mercator
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="srs" id="srsWGS84" value="EPSG:4326" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> WGS84
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="srs" id="srs3575" value="EPSG:3575" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Arctic
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="srs" id="srs3031" value="EPSG:3031" ng-model="vm.projection.epsg" ng-change="vm.updateProjection()"> Antarctic
+                    </label>
+                    {{vm.projection.epsg}}
+                </div>
+            </div-->
+        </div>
+    </div>
+    <div class="gb-map-container" ng-click="vm.toggleControls()" ng-scroll="vm.toggleControls()">
+        <div class="globe-context">
+            <canvas class="globe"></canvas>
+        </div>
+        <div class="map-area"></div>
+    </div>
+    <div class="time-slider time-slider__card">
+        {{vm.clicked}}
+        <div class="gb-btn-group time-slider__buttons">
+            <label ng-model="vm.allYears" uib-btn-radio="true"
+                   ng-change="vm.updateMap()">All time</label>
+            <label ng-model="vm.allYears" uib-btn-radio="false"
+                   ng-change="vm.updateMap()"><span class="time-slider__years"></span></label>
+        </div>
+        <div class="time-slider__container">
+            <div class="time-slider__slider" ng-class="{'is-active': !vm.allYears}"></div>
+        </div>
     </div>
 
 </div>

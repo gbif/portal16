@@ -1,10 +1,13 @@
+$mapControlBarWidth = 40px
 gbmap {
     display block
     overflow hidden
+    position relative
+    z-index 10
+    border 1px solid rgba(0,0,0,0.2)
     > div {
         width 100%
         height 100%
-        position relative
         .map-area {
             width 100%
             height 100%
@@ -12,10 +15,77 @@ gbmap {
         .globe-context {
             position absolute
             top 0
-            right 0
+            right $mapControlBarWidth
             z-index 10
             width 70px
             height 70px
+        }
+    }
+    .gb-map-container {
+        width 100%
+        height 100%
+        padding-right $mapControlBarWidth
+        position relative
+        z-index 5
+    }
+    .map-controls {
+        width $mapControlBarWidth
+        height 100%
+        position absolute
+        right 0
+        top 0
+        border-left 1px solid $stripeBorderColor
+        z-index 30
+        >a {
+            display block
+            width $mapControlBarWidth
+            height $mapControlBarWidth
+            text-align center
+            line-height $mapControlBarWidth
+            color #9b9fa5
+            font-size ($mapControlBarWidth*0.7)
+            &.is-active {
+                color $linkColor
+                position relative
+                // &:after {
+                //     position absolute
+                //     triangle 'left' 5px #9b9fa5
+                //     left -5px
+                //     top 10px
+                //     content ' '
+                // }
+            }
+        }
+    }
+    .map-controls-area {
+        height 100%
+        position absolute
+        right $mapControlBarWidth
+        top 0
+        z-index 20
+        background white
+        border-left 1px solid $stripeBorderColor
+        padding 15px
+    }
+    .time-slider__card {
+        z-index 10
+        position absolute
+        bottom vrBlock(1)
+        left vrBlock(1)
+        background white
+        border 1px solid rgba(0,0,0,0.2)
+        border-radius 3px
+        font-size 12px
+        .time-slider__buttons, .time-slider__container {
+            display inline-block
+            padding 10px
+            float left
+        }
+        .time-slider__container {
+            padding 23px 20px 23px 0 //from tweaking the numbers to align. 
+        }
+        .time-slider__slider {
+            width 150px
         }
     }
 }

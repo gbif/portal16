@@ -1,8 +1,10 @@
 'use strict';
 
-var angular = require('angular');
-require('../../globeContext/globeContext.directive');
+var angular = require('angular'),
+    globeCreator = require('./globe');
+
 require('./gbTileLayer');
+
 
 angular
     .module('portal')
@@ -47,7 +49,7 @@ function gbmapDirective() {
             epsg: 'EPSG:3857'
         };
 
-        vm.allYears = false;
+        vm.allYears = true;
         vm.yearRange = {};
 
         $scope.create = function(element){
@@ -73,10 +75,56 @@ function gbmapDirective() {
                 vm.yearRange.end = Math.floor(vals[1]);
                 years.innerText = vm.yearRange.start  + " - " + vm.yearRange.end;
             });
-            slider.noUiSlider.on('change', function (vals) {
-                vm.yearRange.start = Math.floor(vals[0]);
-                vm.yearRange.end = Math.floor(vals[1]);
-                vm.updateMap();
+            slider.noUiSlider.on('start', function(){
+                $scope.$apply(function() {
+                    vm.allYears = false;
+                });
+            });
+            slider.noUiSlider.on('change', vm.sliderChange);
+        };
+
+        vm.interactionWithMap = function() {
+            if (!vm.hasInterActedWithMap) {
+                map.scrollWheelZoom.enable();
+                vm.hasInterActedWithMap = true;
+            }
+        }
+
+        vm.getExploreQuery = function(){
+            var q = getQuery();
+            q.basis_of_record = q.basisOfRecord;
+            delete q.basisOfRecord;
+            q.dataset_key = q.datasetKey;
+            delete q.datasetKey;
+            q.has_geospatial_issue = false;
+            q.has_coordinate = true;
+            q.geometry = getBoundsAsQueryString();
+            return $httpParamSerializer(q);
+        }
+
+        function getBoundsAsQueryString() {
+            if (!map) return;
+            var bounds = map.getBounds();
+            var N = bounds._northEast.lat.toFixed(2),
+                S = bounds._southWest.lat.toFixed(2),
+                W = bounds._southWest.lng.toFixed(2),
+                E = bounds._northEast.lng.toFixed(2);
+
+            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
+                .replace(/N/g, N)
+                .replace(/S/g, S)
+                .replace(/W/g, W)
+                .replace(/E/g, E);
+            return str;
+        }
+
+
+        vm.sliderChange = function(vals) {
+            vm.yearRange.start = Math.floor(vals[0]);
+            vm.yearRange.end = Math.floor(vals[1]);
+            vm.updateMap();
+            $scope.$apply(function() {
+                vm.allYears = false;
             });
         };
 
@@ -84,8 +132,18 @@ function gbmapDirective() {
             overlays.forEach(function (layer) {
                 map.removeLayer(layer);
             });
-            overlays = addOverLays(map, getQuery());
+            overlays = addOverLays(map, getMapQuery());
         };
+
+        function getMapQuery() {
+            var query = getQuery();
+
+            if (query.basisOfRecord) {
+                query.basisOfRecord = $httpParamSerializer({basisOfRecord: query.basisOfRecord});
+            }
+
+            return query;
+        }
 
         function getQuery() {
             var query = {};
@@ -94,7 +152,7 @@ function gbmapDirective() {
             var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
                 return vm.basisOfRecord[e];
             });
-            query.basisOfRecord = $httpParamSerializer({basisOfRecord: basisOfRecord});
+            query.basisOfRecord = basisOfRecord;
             if (basisOfRecord.length == 0 || basisOfRecord.length == Object.keys(vm.basisOfRecord).length) {
                 delete query.basisOfRecord;
             }
@@ -129,6 +187,25 @@ function gbmapDirective() {
             //map.options.crs = crs;//L.CRS.EPSG3857;
             //set new basemap and overlays
         }
+
+        vm.controls = {
+            filters: false,
+            style: false,
+            projection: false
+        };
+
+        vm.toggleControls = function(control) {
+            Object.keys(vm.controls).forEach(function(e){
+                if (e == control) {
+                    vm.controls[control] = !vm.controls[control];
+                } else {
+                    vm.controls[e] = false;
+                }
+            });
+        }
+        vm.toggleFilter = function(){ vm.toggleControls('filters'); }
+        vm.toggleStyle = function(){ vm.toggleControls('style'); }
+        vm.toggleProjection = function(){ vm.toggleControls('projection'); }
     }
 }
 
@@ -144,9 +221,10 @@ var arctic = L.tileLayer('http://{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y
 
 
 
-
+var globe;
 function createMap(element, projection) {
     var mapElement = element[0].querySelector('.map-area');
+    var globeCanvas = element[0].querySelector('.globe');
 
     var crs3575 = new L.Proj.CRS('EPSG:3575',
         '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
@@ -158,12 +236,21 @@ function createMap(element, projection) {
         });
 
     var map = L.map(mapElement, {
-        crs: L.CRS.EPSG4326
+        crs: L.CRS.EPSG4326,
+        scrollWheelZoom: false
     }).setView(new L.LatLng(0, 0), 1);
 
-    //map.on('mousemove', function(e){
-    //    document.getElementById('position').innerHTML = '<br>' + e.latlng.lat.toFixed(2) + '<br>' + e.latlng.lng.toFixed(2);
-    //});
+    if (!globe) {
+        globe = globeCreator(globeCanvas, {
+            land:'#4d5258',
+            focus: 'deepskyblue'
+        });
+    }
+    map.on('move', function(e){
+        globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
+    });
+    map.fitWorld().zoomIn();
+
 
     //var geoJ = {
     //    "type": "FeatureCollection",

@@ -1,5 +1,7 @@
 L.Icon.Default.imagePath = '/img';
 
+
+//GBIF leaflet layer. For other projections than 4326 use leaflet 0.7. 
 L.GBIFSimple = L.TileLayer.extend({
 
     options: {
@@ -37,5 +39,23 @@ L.GBIFSimple = L.TileLayer.extend({
 L.gbifSimpleLayer = function (url, options) {
     return new L.GBIFSimple(url, options);
 };
+
+
+//https://gist.github.com/rclark/5779673/ MIT license
+//TopoJspn is smaller then geojson. This leaflet extension allows working with topoJson in Leaflet
+//var topojson = require('topojson');
+// L.TopoJSON = L.GeoJSON.extend({
+//   addData: function(jsonData) {    
+//     if (jsonData.type === "Topology") {
+//       for (key in jsonData.objects) {
+//         geojson = topojson.feature(jsonData, jsonData.objects[key]);
+//         L.GeoJSON.prototype.addData.call(this, geojson);
+//       }
+//     }    
+//     else {
+//       L.GeoJSON.prototype.addData.call(this, jsonData);
+//     }
+//   }  
+// });
 
 module.exports = undefined;
