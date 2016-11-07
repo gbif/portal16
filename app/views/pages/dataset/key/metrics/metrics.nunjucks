@@ -27,6 +27,10 @@
                                 {#</div>#}
                             {#{% endif %}#}
                         {#</div>#}
+                        <div style="column-count:2">
+                            {$ dataset.record.description | safe | truncate(450) $} <a href="#description">MORE</a>
+                        </div>
+
 
                         {% if dataset._occurrenceCount.count > 0 %}
                             <div class="dataset-key__visual-summary__counts__percentages">
@@ -111,70 +115,7 @@
                                     </a>
                                 </div>
 
-                                {#<div class="card" style="margin:20px">#}
-                                    {#<div class="card__stripe lighter-background">#}
-                                        {#<div class="card__content" style="font-weight:400">#}
-                                            {#<div style="width:350px">#}
-                                                {#<span style="font-size:20px">77</span><span> taxa</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Animalia#}
-                                                {#<span style="color:#aaa;float:right">76</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Anhtopoda#}
-                                                {#<span style="color:#aaa;float:right">75</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Insecta#}
-                                                {#<span style="color:#aaa;float:right">74</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Hemiptera#}
-                                                {#<span style="color:#aaa;float:right">73</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Reduviidae#}
-                                                {#<span style="color:#aaa;float:right">72</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe">#}
-                                        {#<div class="card__content">#}
-                                            {#<div>#}
-                                                {#Zelus#}
-                                                {#<span style="color:#aaa;float:right">62</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="card__stripe lighter-background">#}
-                                        {#<div class="card__content" style="font-weight:400">#}
-                                            {#<div>#}
-                                                {#<span style="font-size:20px">70</span><span> species</span>#}
-                                            {#</div>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
+
 
 
                                 {% for image in dataset.images.results | slice(0, 1) %}
@@ -215,6 +156,76 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="max-width:1170px;margin:auto;">
+            <gbmap style="height:500px" dataset-key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+
+            {#<div>#}
+                {#<div class="card" style="margin:20px">#}
+                    {#<div class="card__stripe lighter-background">#}
+                        {#<div class="card__content" style="font-weight:400">#}
+                            {#<div style="width:350px">#}
+                                {#<span style="font-size:20px">77</span><span> taxa</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Animalia#}
+                                {#<span style="color:#aaa;float:right">76</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Anhtopoda#}
+                                {#<span style="color:#aaa;float:right">75</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Insecta#}
+                                {#<span style="color:#aaa;float:right">74</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Hemiptera#}
+                                {#<span style="color:#aaa;float:right">73</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Reduviidae#}
+                                {#<span style="color:#aaa;float:right">72</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe">#}
+                        {#<div class="card__content">#}
+                            {#<div>#}
+                                {#Zelus#}
+                                {#<span style="color:#aaa;float:right">62</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="card__stripe lighter-background">#}
+                        {#<div class="card__content" style="font-weight:400">#}
+                            {#<div>#}
+                                {#<span style="font-size:20px">70</span><span> species</span>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
         </div>
     </section>
 {% endif %}

@@ -6,6 +6,7 @@
     display inline-block
     text-decoration none
     color inherit
+    text-transform uppercase
     &:hover {
         text-decoration none
     }
@@ -21,3 +22,34 @@
     border none
     color $linkColor
 }
+
+.gb-button--primary {
+    @extends .gb-button
+    background #55afce
+    color white
+    transition background 200ms ease
+    &:hover {
+        background darken(#55afce, 5)
+        color white
+    }
+}
+
+.gb-icon-button {
+    background $linkColor
+    box-shadow 0 1px 1px 1px rgba(0, 0, 0, 0.2)
+    border-radius 50%
+    height 30px
+    width 30px
+    line-height 30px
+    display inline-block
+    margin 0
+    position relative
+    top 4px
+    color white
+    font-size 23px
+    transition background 300ms ease
+}
+a:hover .gb-icon-button, .gb-icon-button:hover {
+    background darken($linkColor, 20)
+}
+
