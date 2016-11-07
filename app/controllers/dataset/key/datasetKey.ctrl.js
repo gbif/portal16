@@ -1,6 +1,7 @@
 "use strict";
 
 var express = require('express'),
+    _ = require('lodash'),
     dataset = require('./datasetViewData'),
     utils = rootRequire('app/helpers/utils'),
     router = express.Router();
@@ -29,6 +30,10 @@ router.get('/dataset/:key/origin\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/origin/origin');
 });
 
+router.get('/dataset/:key/taxonomy/:taxonKey?', function (req, res, next) {
+    buildModelAndRender(req, res, next, 'pages/dataset/key/taxonomy/taxonomy');
+});
+
 function buildModelAndRender(req, res, next, template) {
     var datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
@@ -38,6 +43,7 @@ function buildModelAndRender(req, res, next, template) {
             if (err) {
                 next(err);
             } else {
+                _.merge(viewData, {"taxonKey":req.params.taxonKey});
                 renderPage(req, res, next, template, viewData);
             }
         })
