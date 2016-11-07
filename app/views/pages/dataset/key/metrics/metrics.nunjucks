@@ -5,28 +5,28 @@
                 <div class="dataset-key__visual-summary__wrapper" id="metrics">
                     <div class="dataset-key__visual-summary__counts">
                         {#<chartist class="ct-chart" chartist-data="datasetKey.data" chartist-chart-options="datasetKey.options" chartist-chart-type="Bar"></chartist>#}
-                        <div class="dataset-key__visual-summary__counts__totals">
-                            {% if dataset._occurrenceCount.count > 0 %}
-                                <div>
-                                    <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span>
-                                    <span>occurrences</span>
-                                </div>
-                            {% endif %}
+                        {#<div class="dataset-key__visual-summary__counts__totals">#}
+                            {#{% if dataset._occurrenceCount.count > 0 %}#}
+                                {#<div>#}
+                                    {#<span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span>#}
+                                    {#<span>occurrences</span>#}
+                                {#</div>#}
+                            {#{% endif %}#}
 
-                            {% if dataset._speciesTaxonCount.count > 0 %}
-                                <div>
-                                    <span class="h3">{$ dataset._speciesTaxonCount.count | localizeInteger(gb.locales.current) $}</span>
-                                    <span>taxa</span>
-                                </div>
-                            {% endif %}
+                            {#{% if dataset._speciesTaxonCount.count > 0 %}#}
+                                {#<div>#}
+                                    {#<span class="h3">{$ dataset._speciesTaxonCount.count | localizeInteger(gb.locales.current) $}</span>#}
+                                    {#<span>taxa</span>#}
+                                {#</div>#}
+                            {#{% endif %}#}
 
-                            {% if dataset._speciesTaxonCount.facets.SPECIES | isDefined %}
-                                <div>
-                                    <span class="h3">{$ dataset._speciesTaxonCount.facets.SPECIES | localizeInteger(gb.locales.current) $}</span>
-                                    <span>species</span>
-                                </div>
-                            {% endif %}
-                        </div>
+                            {#{% if dataset._speciesTaxonCount.facets.SPECIES | isDefined %}#}
+                                {#<div>#}
+                                    {#<span class="h3">{$ dataset._speciesTaxonCount.facets.SPECIES | localizeInteger(gb.locales.current) $}</span>#}
+                                    {#<span>species</span>#}
+                                {#</div>#}
+                            {#{% endif %}#}
+                        {#</div>#}
 
                         {% if dataset._occurrenceCount.count > 0 %}
                             <div class="dataset-key__visual-summary__counts__percentages">

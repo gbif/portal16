@@ -184,7 +184,7 @@
                         <div class="row">
                             <span class="relative-anchor-offset"><a name="map"></a></span>
                             <div class="map light-background">
-                                <gbmap type="'TAXON'" key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
+                                <gbmap taxon-key="'{$ taxon.record.key $}'" mapstyle="'light'"></gbmap>
                             </div>
                         </div>
                     </div>
