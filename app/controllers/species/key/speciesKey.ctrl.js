@@ -34,7 +34,7 @@ function taxonomyRoute(req, res, next) {
 function render(req, res, next, page, lookups) {
     getTaxon(req.params.key, res.locals.gb.locales.current, lookups).then(function (taxon) {
         try {
-            if (!t.isNub()) {
+            if (!taxon.isNub()) {
                 new Error("No backbone taxon: " + taxon.key);
             }
             res.render('pages/species/key/'+page, {

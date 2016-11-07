@@ -12,7 +12,6 @@
 
         {% import "./tabs.macro.nunjucks" as tabsMacro %}
         {$ tabsMacro.datasetTabs(dataset, 'dataset', __) $}
-
         {% include('./metrics/metrics.nunjucks') %}
 
         <div class="submenu-wrapper" id="submenuWrapper">

@@ -18,6 +18,12 @@
                             </li>
                         {% endif %}
 
+                        <li class="tab {% if active == 'taxonomy' %}isActive{% endif %}">
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/taxonomy">
+                                Taxonomy
+                            </a>
+                        </li>
+
                         <li class="tab {% if active == 'origin' %}isActive{% endif %}">
                             <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
                                 Origin

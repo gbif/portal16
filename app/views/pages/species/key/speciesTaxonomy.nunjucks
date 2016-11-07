@@ -108,7 +108,7 @@
             </section>
         {% endif %}
 
-        <tax-browser key="{$ key $}"></tax-browser>
+        <tax-browser occ="false" dataset-key="{$ taxon.record.datasetKey $}" taxon-key="{$ key $}"></tax-browser>
 
     </article>
 

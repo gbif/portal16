@@ -1,0 +1,20 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes datasetKey page--data">
+        {% include('../header/header.nunjucks') %}
+
+        {% import "../tabs.macro.nunjucks" as tabsMacro %}
+        {$ tabsMacro.datasetTabs(dataset, 'taxonomy', __) $}
+
+        <section class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </section>
+
+        <tax-browser occ="{$ dataset.record.type == 'OCCURRENCE' $}" dataset-key="{$ dataset.record.key $}" taxon-key="{$ dataset.taxonKey $}"></tax-browser>
+
+    </article>
+{% endblock %}

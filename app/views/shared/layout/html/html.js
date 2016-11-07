@@ -74,6 +74,7 @@ require('./angular/redlist.resource');
 require('./angular/cites.resource');
 require('./angular/directory.resource');
 require('./angular/species.resource');
+require('./angular/taxonomy.resource');
 require('./angular/map.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFilter.service');
