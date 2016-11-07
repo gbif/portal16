@@ -11,7 +11,6 @@ function parseMarkdown(data) {
 function getTranslatedMarkdown(directory, language) {
     var deferred = Q.defer();
     var readFile = Q.denodeify(fs.readFile);
-    if (!language) language = 'en';
 
     readFile(__dirname + '/../../locales/markdown/' + directory + language + '.md', 'utf8')
         .then(function(data){
@@ -19,7 +18,19 @@ function getTranslatedMarkdown(directory, language) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(err.message)
+            if (err.code == 'ENOENT') {
+                readFile(__dirname + '/../../locales/markdown/' + directory + 'en' + '.md', 'utf8')
+                    .then(function(data){
+                        data = parseMarkdown(data);
+                        deferred.resolve(data);
+                    })
+                    .catch(function(err){
+                        deferred.reject(err.message + ' in fallback to retrieve English version.');
+                    });
+            }
+            else {
+                deferred.reject(err.message + ' in retrieving requested language.')
+            }
         });
     return deferred.promise;
 }
