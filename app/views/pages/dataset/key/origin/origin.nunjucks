@@ -11,68 +11,83 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <dl class="inline">
-
-                            <div>
-                                <dt class="text-capitalize">Publisher</dt>
-                                <dd>
-                                    <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}">
-                                        {$ dataset.publisher.title $}
-                                    </a>
-                                </dd>
-                            </div>
-
-                            {% if dataset.record.homepage | isDefined %}
+                        <div class="card">
+                            <div class="card__content">
+                                <h3>Citation</h3>
                                 <div>
-                                    <dt class="text-capitalize">Dataset homepage</dt>
-                                    <dd>
-                                        <a href="{$ dataset.record.homepage $}">
-                                            {$dataset.record.homepage | truncateMiddle(50) $}
-                                        </a>
-                                    </dd>
+                                    {$ dataset.record.citation.text $}
                                 </div>
-                            {% endif %}
-
-                            {% if dataset.record.pubDate | isDefined %}
-                                <div>
-                                    <dt class="text-capitalize">Published</dt>
-                                    <dd>{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</dd>
-                                </div>
-                            {% endif %}
-
-                            {% if dataset.record.modified | isDefined %}
-                                <div>
-                                    <dt class="text-capitalize">Last modified</dt>
-                                    <dd>{$ dataset.record.modified | formatDate(gb.locales.current) $}</dd>
-                                </div>
-                            {% endif %}
-
-                            {% if dataset.record.endpoints | isNotEmpty %}
-                                <div>
-                                    <dt class="text-capitalize">External data</dt>
-                                    <dd>
-                                        <ul class="inline-bullet-list">
-                                            {% for endpoint in dataset.record.endpoints %}
-                                                <li>
-                                                    <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum |
-                                                        capitalize $}</a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </dd>
-                                </div>
-                            {% endif %}
-
-                        </dl>
-                    </div>
-                    {% if dataset.publisher.logoUrl | isNotEmpty %}
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="publisher-logo-container">
-                                <img src="{$ dataset.publisher.logoUrl $}" onError="this.style.display = 'none'"
-                                     class="pull-right">
                             </div>
                         </div>
-                    {% endif %}
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="card">
+                            <div class="card__content">
+                                <dl class="inline">
+
+                                    <div>
+                                        <dt class="text-capitalize">Publisher</dt>
+                                        <dd>
+                                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}">
+                                                {$ dataset.publisher.title $}
+                                            </a>
+                                        </dd>
+                                    </div>
+
+                                    {% if dataset.record.homepage | isDefined %}
+                                        <div>
+                                            <dt class="text-capitalize">Dataset homepage</dt>
+                                            <dd>
+                                                <a href="{$ dataset.record.homepage $}">
+                                                    {$dataset.record.homepage | truncateMiddle(50) $}
+                                                </a>
+                                            </dd>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if dataset.record.pubDate | isDefined %}
+                                        <div>
+                                            <dt class="text-capitalize">Published</dt>
+                                            <dd>{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</dd>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if dataset.record.modified | isDefined %}
+                                        <div>
+                                            <dt class="text-capitalize">Last modified</dt>
+                                            <dd>{$ dataset.record.modified | formatDate(gb.locales.current) $}</dd>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if dataset.record.endpoints | isNotEmpty %}
+                                        <div>
+                                            <dt class="text-capitalize">External data</dt>
+                                            <dd>
+                                                <ul class="inline-bullet-list">
+                                                    {% for endpoint in dataset.record.endpoints %}
+                                                        <li>
+                                                            <a href="{$ endpoint.url $}">{$ endpoint.type | prettifyEnum |
+                                                                capitalize $}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </dd>
+                                        </div>
+                                    {% endif %}
+                                </dl>
+                                {#<!--TODO need styling of logo(s)-->#}
+                                {#{% if dataset.publisher.logoUrl | isNotEmpty %}#}
+                                    {#<div class="col-xs-12 col-sm-6">#}
+                                        {#<div class="publisher-logo-container">#}
+                                            {#<img src="{$ dataset.publisher.logoUrl $}"#}
+                                                 {#onError="this.style.display = 'none'"#}
+                                                 {#class="pull-right">#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#{% endif %}#}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

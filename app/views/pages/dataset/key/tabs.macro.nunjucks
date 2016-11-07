@@ -34,11 +34,6 @@
                                 Usage metrics
                             </a>
                         </li>
-                        <li class="tab {% if active == 'citation' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/citation">
-                                Citation
-                            </a>
-                        </li>
 
                         {% if dataset._occurrenceCount.count > 0 %}
                             <li class="tab tab-right">

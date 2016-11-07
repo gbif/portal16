@@ -18,10 +18,6 @@ router.get('/dataset/:key/project\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/project/project');
 });
 
-router.get('/dataset/:key/citation\.:ext?', function (req, res, next) {
-    buildModelAndRender(req, res, next, 'pages/dataset/key/citation/citation');
-});
-
 router.get('/dataset/:key/usage\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/usage/usage');
 });
