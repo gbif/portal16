@@ -17,7 +17,7 @@
 
         <div class="submenu-wrapper" id="submenuWrapper">
             {% include('./text/submenu.nunjucks') %}
-            {% include('./map/map.nunjucks') %}
+            {#{% include('./map/map.nunjucks') %}#}
             {% include('./text/text.nunjucks') %}
             {% include('./bibliography/bibliography.nunjucks') %}
         </div>

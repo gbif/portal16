@@ -1,8 +1,11 @@
 <div class="gb-map-wrapper" ng-click="vm.interactionWithMap()">
     <div class="map-controls light-background">
-        <a href="" class="button gb-icon-drop" ng-click="vm.toggleStyle()" ng-class="{'is-active': vm.controls.style}"></a>
-        <a href="" class="button gb-icon-funnel" ng-click="vm.toggleFilter()" ng-class="{'is-active': vm.controls.filters}"></a>
-        <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleProjection()" ng-class="{'is-active': vm.controls.projection}"></a>
+        <a href="" class="button gb-icon-drop" ng-click="vm.toggleStyle()"
+           ng-class="{'is-active': vm.controls.style}"></a>
+        <a href="" class="button gb-icon-funnel" ng-click="vm.toggleFilter()"
+           ng-class="{'is-active': vm.controls.filters}"></a>
+        <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleProjection()"
+           ng-class="{'is-active': vm.controls.projection}"></a>
         <a href="" ng-href="/occurrence/search?{{vm.getExploreQuery()}}" class="button gb-icon-microscope"></a>
     </div>
     <div class="map-controls-area" ng-show="vm.controls.style">
@@ -18,7 +21,9 @@
             <div class="form-group">
                 <div>
                     <div class="checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
-                        <label><input type="checkbox" name="basisOfRecord" ng-model="vm.basisOfRecord[bor]" ng-change="vm.updateMap()"><span class="text-capitalize" translate="basisOfRecord.{{bor}}"></span></label>
+                        <label><input type="checkbox" name="basisOfRecord" ng-model="vm.basisOfRecord[bor]"
+                                      ng-change="vm.updateMap()"><span class="text-capitalize"
+                                                                       translate="basisOfRecord.{{bor}}"></span></label>
                     </div>
                 </div>
             </div>
