@@ -94,6 +94,7 @@ function parseJson(body, path, cb) {
     } catch (err) {
         //if invalid response
         cb(ERRORS.INVALID_RESPONSE, null);
+        console.log(err);
         log.error('invalid json response ' + path);
     }
 }

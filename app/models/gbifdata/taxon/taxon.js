@@ -1,6 +1,7 @@
 "use strict";
 
 var resource = require('../resource'),
+    keys = rootRequire('app/helpers/constants'),
     api = require('../apiConfig');
 
 var Taxon = function (record) {
@@ -22,7 +23,7 @@ Taxon.get = function (key, options) {
 };
 
 Taxon.prototype.isNub = function () {
-    return this.record.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c';
+    return this.record.datasetKey == keys.nubKey;
 };
 
 Taxon.prototype.expand = function (fieldNames) {

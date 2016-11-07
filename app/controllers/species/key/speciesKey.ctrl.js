@@ -2,6 +2,7 @@ var express = require('express'),
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     Q = require('q'),
     _ = require('lodash'),
+    nsMap = rootRequire('app/helpers/namespaces'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -33,6 +34,9 @@ function taxonomyRoute(req, res, next) {
 function render(req, res, next, page, lookups) {
     getTaxon(req.params.key, res.locals.gb.locales.current, lookups).then(function (taxon) {
         try {
+            if (!t.isNub()) {
+                new Error("No backbone taxon: " + taxon.key);
+            }
             res.render('pages/species/key/'+page, {
                 key: taxon.record.key,
                 taxon: taxon,
@@ -115,21 +119,6 @@ function uniqPageResult(page, hashFunc, sortFunc) {
 
 function cleanupVerbatim(v) {
     var v2 = {};
-    var nsMap = {
-        'http://rs.tdwg.org/dwc/terms': 'dwc',
-        'http://purl.org/dc/terms/': 'dcterm',
-        'http://purl.org/dc/elements/1.1': 'dc',
-        'http://rs.gbif.org/terms/1.0': 'gbif',
-        'http://rs.tdwg.org/ac/terms': 'ac',
-        'http://eol.org/schema/media/': 'eol',
-        'http://eol.org/schema/reference/': 'eol',
-        'http://purl.org/germplasm/germplasmTerm#': 'germplasm',
-        'http://ns.adobe.com/photoshop/1.0': 'photoshop',
-        'http://iptc.org/std/Iptc4xmpExt/2008-02-29': 'iptc',
-        'http://ns.adobe.com/xap/1.0': 'adobe',
-        'http://data.ggbn.org/schemas/ggbn/terms/': 'ggbn'
-    };
-
     _.forOwn(v, function(val, key) {
         if (_.startsWith(key, 'http')) {
             v2[normTerm(key)]=val;
