@@ -41,7 +41,7 @@ gulp.task('prod', function (callback) {
         // these produce rev'ed files
         // We avoid parallel tasks that could overwrite the rev-manifest.json
         ['assets'],
-        'vendorAssets'
+        ['vendorAssets'],
         ['vendor-styles'],
         ['vendor-scripts'],
         // styles & scripts need the rev'ed assets already but also produce new rev entries.
