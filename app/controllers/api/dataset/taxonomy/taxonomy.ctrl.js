@@ -106,7 +106,10 @@ function convertFacets(page, idsToIgnore) {
     _.each(page.facets[0].counts, function (fc){
         var key = Number(fc.name);
         if (_.indexOf(idsToIgnore, key) < 0) {
-            promises.push(Taxon.get(key));
+            promises.push(Taxon.get(key).then(function(t){
+                t.record.numOccurrences = fc.count;
+                return t;
+            }));
         }
     });
     delete page.facets;
@@ -138,7 +141,7 @@ function _pruneTaxa(taxa, idsToIgnore) {
                 })
         , function(tax) {
             return _.pick(
-            tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank']
+            tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'numDescendants', 'numOccurrences']
         );
     });
 }

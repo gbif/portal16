@@ -10,6 +10,11 @@
         <section class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
+                    {% if dataset.record.type == 'CHECKLIST' %}
+                    <p>The classification of all taxa in this dataset with number of descendant taxa indicated.</p>
+                    {%  else %}
+                    <p>The classification of all taxa in this dataset with number of occurrences indicated.</p>
+                    {%  endif %}
                 </div>
             </div>
         </section>
