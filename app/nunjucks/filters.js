@@ -1,5 +1,7 @@
 var format = require('../helpers/format'),
     _ = require('lodash'),
+    urlRegex = require('url-regex'),
+    truncate = require('html-truncate'),
     fs = require('fs');
 
 module.exports = function (nunjucksConfiguration, config) {
@@ -23,6 +25,12 @@ module.exports = function (nunjucksConfiguration, config) {
     (function () {
         nunjucksConfiguration.addFilter('slice', function (data, start, amount) {
             return data && (data.constructor === Array || typeof(data) === 'string') ? data.slice(start, amount) : undefined;
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('length', function (data) {
+            return data && (data.constructor === Array || typeof(data) === 'string') ? data.length : undefined;
         });
     })();
 
@@ -68,6 +76,12 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('isEmpty', function (data) {
+            return _.isEmpty(data);
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
     })();
 
@@ -85,13 +99,10 @@ module.exports = function (nunjucksConfiguration, config) {
 
     (function () {
         nunjucksConfiguration.addFilter('isLink', function (data) {
-            if (!data) {
+            if (typeof data !== 'string') {
                 return false;
             }
-            //var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-            var expression = /^(http)(s)?(:\/\/)[^ ]*$/gi;
-            var regex = new RegExp(expression);
-            return !!data.toString().match(regex);
+            return urlRegex({exact: true}).test(data);
         });
     })();
 
@@ -109,6 +120,15 @@ module.exports = function (nunjucksConfiguration, config) {
             }
             var splitLength = (len / 2) - 3;
             return data.slice(0, splitLength) + '...' + data.slice(data.length - splitLength)
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('truncateHtml', function (htmlText, len) {
+            if (!_.isString(htmlText)) {
+                return '';
+            }
+            return truncate(htmlText, len);
         });
     })();
 
