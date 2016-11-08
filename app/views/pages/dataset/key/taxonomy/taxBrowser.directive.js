@@ -2,7 +2,7 @@
 
 var angular = require('angular'),
     _ = require('lodash'),
-    nsMap = rootRequire('app/helpers/namespaces');
+    nsMap = require('../../../../../helpers/namespaces');
 
 angular
     .module('portal')
