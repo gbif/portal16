@@ -62,7 +62,7 @@
                             {% if taxon.isNub() %}
                             <div>
                                 <dt>Occurrences</dt>
-                                <dd><a href="/occurrence/search?taxon_key={$ species.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
+                                <dd><a href="/occurrence/search?taxon_key={$ taxon.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
                             {% endif %}
 
