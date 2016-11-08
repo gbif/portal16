@@ -10,10 +10,10 @@
                 <h1 class="text-center">
                     <span>{$ dataset.record.title $}</span>
                 </h1>
-                <div class="article-header__intro">
-                    Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"
-                                    class="inherit"><u>{$ dataset.publisher.title $}</u></a>
-                </div>
+                {#<div class="article-header__intro">#}
+                    {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"#}
+                                    {#class="inherit"><u>{$ dataset.publisher.title $}</u></a>#}
+                {#</div>#}
 
 
                 {% if dataset._computedValues.contributors.highlighted.length > 0 %}

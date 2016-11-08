@@ -17,7 +17,7 @@ $submenuProgressColor = lighten($bodyTextColor, 10);
             width 220px
             top 0
             left "calc(50% - %s - 220px)" % ($contentWidth--narrow / 2)
-            z-index 50
+            z-index 40
             padding 20px 0
             ul {
                 padding 0
@@ -42,18 +42,22 @@ $submenuProgressColor = lighten($bodyTextColor, 10);
             }
             .nav-chapter {
                 position relative
-                padding 0 0 8px
                 a {
-                    padding-left 10px
+                    padding 10px
                     margin-left -10px
                     display block
                     line-height 1rem
-                    border-left 2px solid transparent
+                    border-left 2px solid $greyBackground
                 }
                 &.active {
                     a {
-                        border-left 2px solid grey
+                        border-left 2px solid $linkColor
                     }
+                }
+            }
+            &.submenu--tabs {
+                &.submenu--fixed {
+                    top $navBar_height + 3rem //tab bar height TODO move to var
                 }
             }
         }

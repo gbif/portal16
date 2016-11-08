@@ -1,11 +1,13 @@
 <span class="relative-anchor-offset"><a name="menu"></a></span>
 
-<nav class="submenu" id="submenu">
+<nav class="submenu submenu--tabs" id="submenu">
     <ul class="nav-parts">
         <li class="part-name">
             <h3>Content</h3>
             <ul class="nav-chapters">
-
+                <li class="nav-chapter" du-scrollspy="summary">
+                    <a href="#summary">Summary</a>
+                </li>
                 {% if dataset.record.description | isDefined %}
                     <li class="nav-chapter" du-scrollspy="description">
                         <a href="#description">Description</a>

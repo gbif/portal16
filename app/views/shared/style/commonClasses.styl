@@ -10,6 +10,17 @@
     @extend .container--normal
     max-width $desktop
 }
+.container--desktop--snap-to-edges {
+    @extend .container--desktop
+    padding-left 0
+    padding-right 0
+}
++isAbove($desktop) {
+    .container--desktop--snap-to-edges {
+        padding-left 15px
+        padding-right 15px
+    }
+}
 
 .container--wide {
     @extend .container--normal
@@ -507,6 +518,13 @@ sub {
         position relative
     }
 }
+.anchor-block--tabs {
+    @extends .anchor-block
+    &:before {
+        height $navBar_height + 4rem //todo parameterize tab bar?
+        margin-top -($navBar_height + 4rem)
+    }
+}
 
 .anchor-block__above {
     position relative
@@ -522,4 +540,8 @@ sub {
 
 .ct-chart > svg:not(:root) {
     overflow visible
+}
+
+.dashboard {
+    font-size 14px
 }

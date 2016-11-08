@@ -1,67 +1,73 @@
 {% macro datasetTabs(dataset, active, __) %}
     <section class="horizontal-stripe--paddingless lighter-background dataset-key__visual-summary">
-        <div class="container">
+        <div class="container--desktop">
             <div class="row">
-                <nav class="tabs">
-                    <ul>
-                        <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}">
-                                Dataset
-                            </a>
-                        </li>
-
-                        {% if dataset.record.project | isNotEmpty %}
-                            <li class="tab {% if active == 'project' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
-                                    Project
+                <div class="col-xs-12">
+                    <nav class="tabs">
+                        <ul>
+                            <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}">
+                                    Dataset
                                 </a>
                             </li>
-                        {% endif %}
 
-                        <li class="tab {% if active == 'taxonomy' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/taxonomy">
-                                Taxonomy
-                            </a>
-                        </li>
-
-                        <li class="tab {% if active == 'origin' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
-                                Origin
-                            </a>
-                        </li>
-                        <li class="tab {% if active == 'usage' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/usage">
-                                Usage metrics
-                            </a>
-                        </li>
-
-                        {% if dataset._occurrenceCount.count > 0 %}
-                            <li class="tab tab-right">
-                                <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                    <span class="gb-icon-microscope gb-icon-button"></span>
-                                    <span>
-                                        Explore
-                                    </span>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        {% if dataset._occurrenceCount.count == 0 and dataset.record.type != 'METADATA' %}
-                            {% if dataset.record.endpoints | isNotEmpty %}
-                                {% for endpoint in dataset.record.endpoints | slice(0, 1) %}
-                                    <li class="tab tab-right">
-                                        <a href="{$ endpoint.url $}">
-                                            <span class="gb-icon-cloud-download gb-icon-button"></span>
-                                            <span>
-                                                Download
-                                            </span>
-                                        </a>
-                                    </li>
-                                {% endfor %}
+                            {% if dataset.record.project | isNotEmpty %}
+                                <li class="tab {% if active == 'project' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
+                                        Project
+                                    </a>
+                                </li>
                             {% endif %}
-                        {% endif %}
-                    </ul>
-                </nav>
+
+                            <li class="tab {% if active == 'taxonomy' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/taxonomy">
+                                    Taxonomy
+                                </a>
+                            </li>
+
+                            <li class="tab {% if active == 'origin' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
+                                    Origin
+                                </a>
+                            </li>
+
+                            {#At this point we do not have any sensible metrics to show. TODO we should display some, but further discussion needed https://github.com/gbif/portal16/issues/138#}
+                            {% if dataset.record.type == 'OCCURRENCE' %}
+                            <li class="tab {% if active == 'usage' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/metrics">
+                                    Metrics
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            {% if dataset._occurrenceCount.count > 0 %}
+                                <li class="tab tab-right tab--seperator">
+                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
+                                        <span class="gb-icon-microscope gb-icon-button"></span>
+                                        <span>
+                                            Explore
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            {#{% if dataset._occurrenceCount.count == 0 and dataset.record.type != 'METADATA' %}#}
+                                {% if dataset.record.endpoints | isNotEmpty %}
+                                    {% for endpoint in dataset.record.endpoints | slice(0, 1) %}
+                                        <li class="tab tab-right">
+                                            <a href="{$ endpoint.url $}">
+                                                <span class="gb-icon-file-download gb-icon-button"></span>
+                                                <span>
+                                                    Download
+                                                </span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            {#{% endif %}#}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>

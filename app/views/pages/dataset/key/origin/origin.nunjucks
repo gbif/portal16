@@ -5,7 +5,12 @@
         {% include('../header/header.nunjucks') %}
 
         {% import "../tabs.macro.nunjucks" as tabsMacro %}
-        {$ tabsMacro.datasetTabs(dataset, 'origin', __) $}
+        <div id="tabsScrollable">
+            {$ tabsMacro.datasetTabs(dataset, 'origin', __) $}
+        </div>
+        <div class="tabs-fixed-container" id="tabsFixedContainer">
+            {$ tabsMacro.datasetTabs(dataset, 'origin', __) $}
+        </div>
 
         <section class="horizontal-stripe light-background occurrenceKey__highlights">
             <div class="container">

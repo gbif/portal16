@@ -30,6 +30,9 @@
             color $bodyTextColor
         }
     }
+    .tab--seperator {
+        border-left 1px solid $stripeBorderColor
+    }
 }
 
 .icon-button-circle {
@@ -47,11 +50,31 @@
         ul {
             white-space normal
         }
+        .tab--seperator {
+            border-left none
+        }
     }
     .tab-right {
         float right
         a {
             //text-transform none
+        }
+    }
+}
+
+
+.tabs-fixed-container {
+    position fixed
+    width 100%
+    top $navBar_height
+    z-index 50
+    border-bottom 1px solid $stripeBorderColor
+    display none
+}
++isAbove($laptop) {
+    .tabs-fixed-container {
+        &.is-visible {
+            display block
         }
     }
 }

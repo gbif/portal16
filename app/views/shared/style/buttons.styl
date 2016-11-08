@@ -46,8 +46,12 @@
     position relative
     top 4px
     color white
-    font-size 23px
+    font-size 20px
     transition background 300ms ease
+    &:before {
+        position relative
+        top -1px;
+    }
 }
 a:hover .gb-icon-button, .gb-icon-button:hover {
     background darken($linkColor, 20)

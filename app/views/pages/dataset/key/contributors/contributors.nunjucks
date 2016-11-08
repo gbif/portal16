@@ -1,5 +1,5 @@
 <section class="horizontal-stripe white-background dataset-key__contributors">
-    <div class="anchor-block" id="id_contributors">
+    <div class="anchor-block--tabs" id="id_contributors">
         <div class="container">
             <span class="relative-anchor-offset"><a name="contributors"></a></span>
             <h3>Contributors</h3>
