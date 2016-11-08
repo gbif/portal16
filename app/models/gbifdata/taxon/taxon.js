@@ -2,6 +2,7 @@
 
 var resource = require('../resource'),
     keys = rootRequire('app/helpers/constants').keys,
+    _ = require('lodash'),
     api = require('../apiConfig');
 
 var Taxon = function (record) {
@@ -17,6 +18,10 @@ Taxon.get = function (key, options) {
         return promise
     } else {
         return promise.then(function (taxon) {
+            // the verbatim resource only exists for origin=SOURCE
+            if (taxon.record.origin != 'SOURCE') {
+                _.pull(options.expand, 'verbatim');
+            }
             return taxon.expand(options.expand)
         });
     }

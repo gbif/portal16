@@ -1,6 +1,8 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash'),
+    nsMap = rootRequire('app/helpers/namespaces');
 
 angular
     .module('portal')
@@ -79,6 +81,41 @@ function taxBrowserDirective() {
 
             }, function () {
             })
+        }
+    }
+
+    function cleanupVerbatim(v) {
+        var v2 = {};
+        _.forOwn(v, function(val, key) {
+            if (_.startsWith(key, 'http')) {
+                v2[normTerm(key)]=val;
+            }
+        });
+        v2.extensions={};
+        _.forOwn(v.extensions, function(records, eterm){
+            var records2 = [];
+            _.forEach(records, function(rec){
+                var rec2 = {};
+                _.forOwn(rec, function(value, term){
+                    rec2[normTerm(term)]=value;
+                });
+                records2.push(rec2);
+            });
+            v2.extensions[normTerm(eterm)] = records2;
+        });
+        return v2;
+
+        function normTerm(term) {
+            var index = term.lastIndexOf('/');
+            var ns    = term.slice(0, index);
+            var name  = term.substr(index+1);
+
+            if (ns in nsMap) {
+                ns = nsMap[ns]+":";
+            } else {
+                ns=ns+"/";
+            }
+            return ns + name;
         }
     }
 

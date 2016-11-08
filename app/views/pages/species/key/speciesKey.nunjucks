@@ -72,7 +72,12 @@
                                     <dd>
                                         {% if taxon.record.origin == 'SOURCE' %}
                                             Reference taxon in
-                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                            {% if taxon.record.sourceTaxonExists %}
+                                                <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                            {% else %}
+                                                <a href="{$ gb.locales.urlPrefix $}/species/search?advanced=1&dataset_key={$ taxon.constituent.key $}&rank={$ taxon.record.rank $}&q={$ taxon.record.scientificName $}">{$ taxon.constituent.title $}</a>
+                                                {# (taxon has since been removed) #}
+                                            {% endif %}
                                         {% else %}
                                             {$ taxon.record.origin $}
                                         {% endif %}

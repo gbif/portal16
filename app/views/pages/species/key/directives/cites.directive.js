@@ -34,7 +34,6 @@ function citesDirective() {
             name: vm.name
 
         }, function (data) {
-            console.log(data);
             var tax = _.head(data.taxon_concepts);
             if (tax) {
                 vm.appendix = "Appendix " + tax.cites_listing;
