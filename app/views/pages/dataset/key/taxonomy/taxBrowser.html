@@ -3,21 +3,21 @@
         <div class="row col-md-12">
             <ul class="list-unstyled">
                 <li style="margin-left:{{$index*10}}px" ng-repeat="tax in vm.parents">
-                    <small ng-show="vm.occ" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
-                    <small ng-show="!vm.occ" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
-                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}?occ={{vm.occ}}">{{tax.canonicalName}}</a>
+                    <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
+                    <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
+                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}?occ={{vm.isOcc}}">{{tax.canonicalName}}</a>
                     <small class="rank">{{tax.rank}}</small>
                 </li>
                 <li style="margin-left:{{vm.parents.length*10}}px">
-                    <small ng-show="vm.occ" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{vm.taxon.key}}">{{vm.taxon.numOccurrences}}</a></small>
-                    <small ng-show="!vm.occ" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{vm.taxon.key}}">{{vm.taxon.numDescendants}}</a></small>
-                    <span>{{vm.taxon.scientificName}}</span>
+                    <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{vm.taxon.key}}">{{vm.taxonNumOccurrences}}</a></small>
+                    <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{vm.taxon.key}}">{{vm.taxon.numDescendants}}</a></small>
+                    <span class="current">{{vm.taxon.scientificName}}</span>
                     <small class="rank">{{vm.taxon.rank}}</small>
                 </li>
                 <li style="margin-left:{{(vm.parents.length+1)*10}}px" ng-repeat="tax in vm.children">
-                    <small ng-show="vm.occ" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
-                    <small ng-show="!vm.occ" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
-                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}?occ={{vm.occ}}">{{tax.scientificName}}</a>
+                    <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
+                    <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
+                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}?occ={{vm.isOcc}}">{{tax.scientificName}}</a>
                     <small class="rank">{{tax.rank}}</small>
                 </li>
             </ul>

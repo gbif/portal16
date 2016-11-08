@@ -29,6 +29,8 @@ function taxBrowserDirective() {
         vm.taxon;
         vm.parents;
         vm.children;
+        vm.taxonNumOccurrences;
+        vm.isOcc = vm.occ == 'true';
 
         if (vm.taxonKey) {
             TaxonomyDetail.query({
@@ -60,7 +62,7 @@ function taxBrowserDirective() {
 
             }, function (data) {
                 vm.children = data.results;
-
+                vm.taxonNumOccurrences = data.numOccurrences;
 
             }, function () {
             })

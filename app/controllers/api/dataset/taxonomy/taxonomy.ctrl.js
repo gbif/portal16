@@ -101,6 +101,7 @@ function callApi(res, next, path, transform, idsToIgnore) {
 
 function convertFacets(page, idsToIgnore) {
     var promises = [];
+    page.numOccurrences=page.count;
     page.count=page.facets.length;
     page.endOfRecords=true;
     _.each(page.facets[0].counts, function (fc){

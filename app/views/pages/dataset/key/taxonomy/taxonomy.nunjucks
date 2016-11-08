@@ -11,9 +11,9 @@
             <div class="container">
                 <div class="row">
                     {% if dataset.record.type == 'CHECKLIST' %}
-                    <p>The classification of all taxa in this dataset with number of descendant taxa indicated.</p>
+                    <p>The classification of all taxa in this dataset with <span class="count-type">number of descendant taxa</span> indicated.</p>
                     {%  else %}
-                    <p>The classification of all taxa in this dataset with number of occurrences indicated.</p>
+                    <p>The classification of all taxa in this dataset with <span class="count-type">number of occurrences</span> indicated.</p>
                     {%  endif %}
                 </div>
             </div>
