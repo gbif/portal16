@@ -68,6 +68,10 @@ run the tests `protractor e2e.conf.js`
 ### Debugging
 Initiating debugging is very slow. Unclear what the best approach is. Currently I start gulp in dev mode with `gulp --tdd` and then in another process starts node inspector with `node-debug app.js --port=3002`
 
+Alternatively one can start node in debug mode listening to port 5858 after the prod anvironment was build. This works nicely to debug in IntelliJ:
+```
+NODE_ENV=prod node --debug=5858 app.js --port=3000
+```
 
 ## Logging
 Logging via [https://github.com/trentm/node-bunyan](https://github.com/trentm/node-bunyan)

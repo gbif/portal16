@@ -1,7 +1,7 @@
 var express = require('express'),
     _ = require('lodash'),
-    cfg = require('../../../config/config');
-apiCfg = require('../../models/gbifdata/apiConfig'),
+    cfg = require('../../../config/config'),
+    apiCfg = require('../../models/gbifdata/apiConfig'),
     router = express.Router();
 
 module.exports = function (app) {

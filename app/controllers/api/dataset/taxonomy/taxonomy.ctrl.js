@@ -1,16 +1,12 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
-    Q = require('q'),
     _ = require('lodash'),
     helper = rootRequire('app/models/util/util'),
-    keys = rootRequire('app/helpers/constants'),
     utils = rootRequire('app/helpers/utils'),
+    ranks = rootRequire('app/helpers/constants').linneanRanks,
     Taxon = rootRequire('app/models/gbifdata/gbifdata').Taxon,
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    gbifData = rootRequire('app/models/gbifdata/gbifdata');
-
-const querystring = require('querystring');
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -27,10 +23,12 @@ function isOccurrence(req) {
 
 
 function getRoot(req, res, next) {
+    //TODO: pass into API
+    var limit = 100;
     if (isOccurrence(req)) {
         //use occ solr facets
         // as every occ record with a taxonKey must also have a kingdom, the kingdoms and other higher taxa should always come first in facets as they are most frequent
-        return callApi(res, next, buildSolrQuery(req, null, 10), convertFacets);
+        return callApi(res, next, buildSolrQuery(req, null, limit), convertFacets);
     } else {
         callApi(res, next, apiConfig.taxonRoot.url + req.params.datasetKey, prunePage);
     }
@@ -45,19 +43,20 @@ function getParents(req, res, next) {
 };
 
 function getChildren(req, res, next) {
+    //TODO: pass into API
+    var limit = 100;
     if (isOccurrence(req)) {
         Taxon.get(req.params.taxonKey).then(function(tax) {
             //use occ solr facets
-            callApi(res, next, buildSolrQuery(req, tax.record.rank, 100), convertFacets, extractHigherTaxa(tax.record));
+            callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacets, extractHigherTaxa(tax.record));
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=100", prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit="+limit, prunePage);
     }
 };
 
 function nextLowerRank(rank) {
     if (rank) {
-        var ranks = ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         var idx = _.indexOf(ranks, rank);
         if (idx >= 0) {
             return rank == 'species' ? 'taxon' : ranks[idx+1];
@@ -117,9 +116,10 @@ function convertFacets(page, idsToIgnore) {
     // finally return combined promise
     return new Promise(function(resolve, reject) {
         Promise.all(promises).then(function (p){
-            page.results = _pruneTaxa(_.map(p, function(rec){
-                return rec.record;
-            }));
+            page.results = _pruneTaxa(utils.sortByRankThenAlpha(_.map(p, function(rec){
+                    return rec.record;
+                })
+            ));
             resolve(page);
         });
     });
@@ -137,13 +137,13 @@ function pruneTaxa(taxa, idsToIgnore) {
 function _pruneTaxa(taxa, idsToIgnore) {
     idsToIgnore = idsToIgnore || [];
     return _.map(
-                _.remove(taxa, function (t) {
-                    return _.indexOf(idsToIgnore, t.key) < 0
-                })
-        , function(tax) {
-            return _.pick(
-            tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'numDescendants', 'numOccurrences']
-        );
-    });
+            _.remove(taxa, function (t) {
+                return _.indexOf(idsToIgnore, t.key) < 0
+            })
+            , function(tax) {
+                return _.pick(
+                    tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'numDescendants', 'numOccurrences']
+                );
+            });
 }
 

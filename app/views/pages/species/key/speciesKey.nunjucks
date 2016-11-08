@@ -71,6 +71,7 @@
                                     <dt class="text-capitalize">Source</dt>
                                     <dd>
                                         {% if taxon.record.origin == 'SOURCE' %}
+                                            Reference taxon in
                                             <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
                                         {% else %}
                                             {$ taxon.record.origin $}

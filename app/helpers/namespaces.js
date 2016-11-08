@@ -1,3 +1,5 @@
+"use strict";
+
 var ns = {
     'http://rs.tdwg.org/dwc/terms': 'dwc',
     'http://purl.org/dc/terms/': 'dcterm',

@@ -1,7 +1,7 @@
 "use strict";
 
 var resource = require('../resource'),
-    keys = rootRequire('app/helpers/constants'),
+    keys = rootRequire('app/helpers/constants').keys,
     api = require('../apiConfig');
 
 var Taxon = function (record) {
