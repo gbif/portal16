@@ -1,0 +1,20 @@
+{# License formatters #}
+{% macro licenseFromUrl(url, __) %}
+    {% if url | isUndefined %}
+        <span>{$ __('license.UNSPECIFIED') $}</span>
+    {% elif url | isLink %}
+        <a href="{$ url $}">
+            {% if url == 'http://creativecommons.org/publicdomain/zero/1.0/legalcode' %}
+                {$ __('license.CC0_1_0') $}
+            {% elif url == 'http://creativecommons.org/licenses/by/4.0/legalcode' %}
+                {$ __('license.CC_BY_4_0') $}
+            {% elif url == 'http://creativecommons.org/licenses/by-nc/4.0/legalcode' %}
+                {$ __('license.CC_BY_NC_4_0') $}
+            {% else %}
+                {$ __('license.UNSUPPORTED') $}
+            {% endif %}
+        </a>
+    {% else %}
+        <span>{$ __('license.UNSUPPORTED') $}</span>
+    {% endif %}
+{% endmacro %}
