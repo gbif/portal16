@@ -5,7 +5,7 @@
                 <li style="margin-left:{{$index*10}}px" ng-repeat="tax in vm.parents">
                     <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
                     <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
-                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}">{{tax.canonicalName}}</a>
+                    <a href="/dataset/{{vm.datasetKey}}/taxonomy/{{tax.key}}">{{tax.scientificName}}</a>
                     <small class="rank">{{tax.rank}}</small>
                 </li>
                 <li style="margin-left:{{vm.parents.length*10}}px">
