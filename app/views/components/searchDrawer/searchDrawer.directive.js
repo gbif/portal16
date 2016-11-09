@@ -23,6 +23,7 @@ function searchDrawerDirective() {
 
     return directive;
 
+
     /** @ngInject */
     function searchDrawer($state) {
         var vm = this;
@@ -44,6 +45,7 @@ function searchDrawerDirective() {
         vm.clear = function () {
             $state.go('.', {}, {inherit: false, notify: true, reload: true});
         };
+
     }
 }
 

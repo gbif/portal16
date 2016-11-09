@@ -22,7 +22,7 @@ function routerConfig($stateProvider, $locationProvider) {
                 main: {
                     templateUrl: '/templates/pages/search/search.html',
                     controller: 'searchCtrl',
-                    controllerAs: 'omniSearch'
+                    controllerAs: 'rootSearch'
                 }
             }
         })

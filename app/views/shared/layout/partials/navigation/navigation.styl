@@ -604,10 +604,16 @@ main {
     max-width 100%
     position absolute
     top 0px
-    transition right 200ms ease;
+    //transition right 200ms ease;
+    transition width 200ms ease;
     height 100% //"calc(100vh - %s)" % $navBar_height
-    right -($filterDrawerWidth + 3)
+    //right -($filterDrawerWidth + 3)
+    right 0
+    width 0
     overflow hidden
+    .site-drawer__wrapper {
+        width $filterDrawerWidth
+    }
     .site-drawer__section {
         //height "calc(100vh - %s)" % vrBlock(6)
         height "calc(100vh - %s)" % vrBlock(4.5)
@@ -619,19 +625,22 @@ main {
     }
     &.is-active {
         right 0
+        width $filterDrawerWidth
     }
     &.site-drawer--wide {
-        width $filterDrawerWidth + 10px
-        right -($filterDrawerWidth + 13)
+        .site-drawer__wrapper {
+            width $filterDrawerWidth + 10px
+        }
         &.is-active {
-            right 0
+            width $filterDrawerWidth + 10px
         }
     }
 }
 
 forceShowDrawer() {
     transition initial
-    right 0
+    //right 0
+    width $filterDrawerWidth
     overflow visible
     ~ .site-content {
         padding-right $filterDrawerWidth
@@ -643,7 +652,8 @@ forceShowDrawer() {
 
 +isAbove($laptop) {
     .site-drawer {
-        right -($filterDrawerWidth + 3)
+        //right -($filterDrawerWidth + 3)
+        width 0
         position fixed
         top $navBar_height
         height "calc(100vh - %s)" % $navBar_height

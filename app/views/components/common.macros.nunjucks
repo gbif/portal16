@@ -1,6 +1,6 @@
 {# DOI formatter #}
 {% macro doi(label, URL) %}
-    <span class=""><a href="{$ URL $}">{$ label $}</a></span>
+    <a href="URL" class="doi"><span>DOI</span><span>label</span></a>
 {% endmacro %}
 
 {% macro parsedTaxonName(n) %}

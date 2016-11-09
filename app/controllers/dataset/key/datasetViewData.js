@@ -8,7 +8,12 @@ var _ = require('lodash'),
     taxonomicCoverage = require('./taxonomicCoverage/taxonomicCoverage'),
     processIdentifiers = require('./identifiers/identifiers'),
     composeSubmenu = require('./submenu'),
-    async = require('async');
+    translationsHelper = rootRequire('app/helpers/translations'),
+    async = require('async'),
+    markdownFiles = {
+        noDescription: 'dataset/key/noDescription/'
+    },
+    translations = {};
 
 function formatAsPercentage(part, total) {
     var percentage = part * 100 / total,
@@ -29,7 +34,7 @@ function formatAsPercentage(part, total) {
     return formatedPercentage;
 }
 
-function getDataset(datasetKey, cb) {
+function getDataset(datasetKey, cb, locale) {
     async.parallel(
         {
             expanded: function (cb) {
@@ -65,6 +70,17 @@ function getDataset(datasetKey, cb) {
             },
             downloads: function (callback) {
                 helper.getApiData(baseConfig.dataApi + 'occurrence/download/dataset/' + datasetKey + '?limit=0', callback);
+            },
+            translations: function(callback) {
+                if (typeof translations[locale] === 'undefined') {
+                    translations[locale] = translationsHelper.getTranslationPromise(markdownFiles, locale);
+                }
+                translations[locale].then(
+                    function(data) {
+                        callback(null, data);
+                    },
+                    callback
+                );
             }
         }, function (err, data) {
             if (err || _.isEmpty(data.expanded)) {
@@ -86,6 +102,8 @@ function getDataset(datasetKey, cb) {
                     data.expanded._occurrenceNoTaxonCount = data.occurrenceNoTaxonCount;
 
                     data.expanded.images._percentage = formatAsPercentage(data.expanded.images.count, data.occurrenceCount.count);
+
+                    data.expanded.translations = data.translations;
 
                     data.expanded = composeSubmenu(data.expanded);
                     cb(null, data.expanded);

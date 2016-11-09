@@ -19,14 +19,18 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
         vm.freeTextQuery = '';
     };
     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
-    hotkeys.add({
-        combo: 'alt+f',
-        description: 'Site search',
-        callback: function (event) {
-            vm.clearFreetextAndSetFocus();
-            event.preventDefault();
+    hotkeys.add(
+        {
+            combo: ['alt+f', 'alt+space'],
+            description: 'Site search',
+            callback: function (event) {
+                vm.isActive = true;
+                console.log('combo');
+                vm.clearFreetextAndSetFocus();
+                event.preventDefault();
+            }
         }
-    });
+    );
 
     vm.updateSearch = function () {
         vm.query.q = vm.freeTextQuery || '';
@@ -41,13 +45,28 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
         if (event.which === 13) {
             vm.updateSearch();
         }
+
     };
+
+    vm.closeOnEsc = function(event) {
+        console.log('close on escape');
+        if (event.which === 27) {
+            document.getElementById('siteSearch').blur();
+            vm.isActive = false;
+        }
+    };
+
 
     $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
         if (data.toggle) {
             vm.isActive = !vm.isActive;
         } else {
             vm.isActive = data.state;
+        }
+        if (vm.isActive) {
+            vm.clearFreetextAndSetFocus();
+        } else {
+            document.getElementById('siteSearch').blur();
         }
     });
 
