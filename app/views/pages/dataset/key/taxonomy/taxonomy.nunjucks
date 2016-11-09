@@ -15,10 +15,16 @@
         <section class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
-                    <p>The classification of all taxa in {$ dataset.record.title $} with their
-                        <span class="count-type">number of
-                        {% if dataset.record.type == 'CHECKLIST' %}descendant taxa{%  else %}occurrences{%  endif %}
-                        </span> indicated.
+                    <p>
+                    {% if dataset.record.type == 'CHECKLIST' %}
+                        The classification of all taxa in {$ dataset.record.title $} with their
+                        <span class="count-type">number of descendant taxa</span> indicated.
+
+                    {%  else %}
+                        The classification of all taxa derived from occurrences in {$ dataset.record.title $}
+                        after normalising against the GBIF backbone taxonomy with their
+                        <span class="count-type">number of occurrences</span> indicated.
+                    {%  endif %}
                     </p>
                 </div>
             </div>
