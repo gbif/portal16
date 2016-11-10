@@ -1,19 +1,17 @@
-{% if dataset._computedValues.contributors.all | isNotEmpty %}
-    <section class="horizontal-stripe white-background dataset-key__citation" style="height:calc(100vh - 15rem)">
-        <div class="anchor-block--tabs" id="citation">
-            <div class="container--narrow">
-                <span class="relative-anchor-offset"><a name="citation"></a></span>
-                <h3>Citation</h3>
-            </div>
+<section class="horizontal-stripe white-background dataset-key__citation" style="height:calc(100vh - 15rem)">
+    <div class="anchor-block--tabs" id="citation">
+        <div class="container--narrow">
+            <span class="relative-anchor-offset"><a name="citation"></a></span>
+            <h3>Citation</h3>
+        </div>
+        <div>
             <div>
-                <div>
-                    <div class="container--narrow">
-                        <div>
-                            {$ dataset.record.citation.text $}
-                        </div>
+                <div class="container--narrow">
+                    <div>
+                        {$ dataset.record.citation.text $}
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-{% endif %}
+    </div>
+</section>

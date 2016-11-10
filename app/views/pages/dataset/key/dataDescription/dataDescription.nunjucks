@@ -1,4 +1,4 @@
-{% if dataset._computedValues.contributors.all | isNotEmpty %}
+{% if dataset.record.dataLanguage or dataset.record.language or dataset.record.dataDescriptions | isNotEmpty %}
     <section class="horizontal-stripe white-background dataset-key__contributors">
         <div class="anchor-block--tabs" id="dataDescription">
             <div class="container--narrow">
@@ -28,16 +28,24 @@
                         {% endif %}
 
                         {% if dataset.record.dataDescriptions | isNotEmpty %}
-                            {% for descr in dataset.record.dataDescriptions %}
-                                <div>
-                                    <dt class="text-capitalize">{$ descr.name | prettifyEnum $}</dt>
-                                    <dd>
-                                        <a href="{$ descr.url $}">
-                                            {$ descr.url | truncateMiddle(50) $}
-                                        </a>
-                                    </dd>
-                                </div>
-                            {% endfor %}
+                            <div>
+                                <dt class="text-capitalize">External description</dt>
+                                <dd>
+                                    <ul class="inline-bullet-list">
+                                        {% for descr in dataset.record.dataDescriptions %}
+                                            <li>
+                                                <a href="{$ descr.url $}">
+                                                    {% if descr.name %}
+                                                        {$ descr.name | prettifyEnum $}
+                                                    {% else %}
+                                                        {$ descr.url | truncateMiddle(50) $}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                            </div>
                         {% endif %}
                     </dl>
                 </div>

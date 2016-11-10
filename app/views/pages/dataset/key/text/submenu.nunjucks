@@ -56,6 +56,12 @@
                     </li>
                 {% endif %}
 
+                {% if dataset.record.dataLanguage or dataset.record.language or dataset.record.dataDescriptions | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="dataDescription">
+                        <a href="#dataDescription">Data Description</a>
+                    </li>
+                {% endif %}
+
                 {% if dataset._computedValues.contributors.all | isNotEmpty %}
                     <li class="nav-chapter" du-scrollspy="contributors">
                         <a href="#contributors">Contributors</a>

@@ -16,16 +16,16 @@ function datasetKeyCtrl(localStorageService) {
     };
     vm.key = gb.datasetKey.key; //TODO what would be a better way to do this? an bootstraped constant possibly?
 
-    //vm.displayPreferences = localStorageService.get('displayPreferences');
-    //console.log(vm.displayPreferences);
-    //
-    //vm.displayPreferences = {
-    //    datasetKey: {
-    //        highlights: ['homepage']
-    //    }
-    //};
-    //
-    //localStorageService.set('displayPreferences', vm.displayPreferences);
+    vm.displayPreferences = localStorageService.get('displayPreferences');
+    console.log(vm.displayPreferences);
+
+    vm.displayPreferences = {
+        datasetKey: {
+            highlights: ['homepage']
+        }
+    };
+
+    localStorageService.set('displayPreferences', vm.displayPreferences);
 }
 
 module.exports = datasetKeyCtrl;
