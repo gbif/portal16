@@ -1,0 +1,53 @@
+<h3>{$ __('validation.issues') $}</h3>
+<div>
+    <div class="scrollable-y" ng-repeat="(issueCategory, issueBlockList) in resultPerResource.issuesMap">
+        <h4 translate="validation.category.{{issueCategory}}"></h4>
+        <div class="table-container" ng-repeat="issueBlock in issueBlockList">
+            <a href="" ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
+
+            <span ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'" translate="interpretationRemarks.{{issueBlock.issue}}"></span>
+            <span ng-if="issueCategory !== 'OCC_INTERPRETATION_BASED'" translate="validation.issueType.{{issueBlock.issue}}"></span>
+            : {{ issueBlock.count }}</a>
+
+            <table ng-if="issueBlock.sample" class="table table-bordered table-striped" ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+                <thead>
+                <tr>
+                    <th ng-repeat="(key, val) in issueBlock.sample[0].issueData">
+                        {{ key }}
+                    </th>
+                    <th ng-repeat="(key, val) in issueBlock.sample[0].relatedData">
+                        {{ key }}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="issueSample in issueBlock.sample">
+                    <td ng-repeat="issueLine in issueSample.issueData" class="table-cell--wide">
+                     {{ issueLine }}
+                     </td>
+                    <td ng-repeat="issueLine in issueSample.relatedData" class="table-cell--wide">
+                        {{ issueLine }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table ng-if="!issueBlock.sample" class="table table-bordered table-striped" ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+                <thead>
+                <tr>
+                    <th ng-repeat="(key, val) in issueBlock">
+                        {{ key }}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ng-repeat="(key, val) in issueBlock" class="table-cell--wide">
+                     {{ val }}
+                     </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1761,6 +1761,9 @@
       "OCC_INTERPRETATION_BASED" :"GBIF Occurrence Interpretation"
     },
     "issueType" : {
+      "DWCA_UNREADABLE": "Darwin Core Archive unreadable",
+      "DWCA_META_XML_NOT_FOUND": "meta.xml file not found",
+      "DWCA_META_XML_SCHEMA": "meta.xml schema validation failed",
       "COLUMN_MISMATCH": "Column mismatch"
     },
     "fileFormat" : {

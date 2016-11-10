@@ -13,6 +13,8 @@ angular
 function dataValidatorCtrl($http, $scope) {
     var vm = this;
 
+    vm.resourceToValidate = {};
+
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
 
@@ -33,6 +35,22 @@ function dataValidatorCtrl($http, $scope) {
         });
     };
 
+    vm.handleFileUrl = function(params) {
+
+        var postParams = {params: {}};
+        _.merge(postParams.params, params);
+
+        var url = devApiUrl + 'validator/validate/file';
+
+        $http.post(url, null, postParams)
+            .success(function (data, status, headers, config) {
+                handleValidationResult(data);
+            })
+            .error(function (data, status, headers, config) {
+                handleWSError(data);
+            });
+    };
+
     vm.getEvaluationCategory = function(params) {
         $http({
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
@@ -43,41 +61,49 @@ function dataValidatorCtrl($http, $scope) {
         });
     }(); //run now
 
-    //to be reviewed
+
     function handleValidationResult(data) {
 
-        vm.validationResults = data;
-        //the order of the evaluationCategory is important
-        //FIXME we should not use results[0] but iterate
-        var resourceResult = vm.validationResults.results[0];
-        vm.validationResults.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
+        vm.validationResults = {
+            summary: _.omit(data, 'results'),
+            results: []
+        };
 
-        //prepare terms frequency
-        vm.termsFrequency = {};
-        var termFreqData;
-        angular.forEach(resourceResult.termsFrequency, function(value, key) {
-            termFreqData = {};
-            termFreqData.count = value;
-            termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
-            this[key] = termFreqData;
-        }, vm.termsFrequency);
+        angular.forEach(data.results, function(resourceResult) {
+            var vmResourceResult = _.omit(resourceResult, 'issues');
+            //the order of the evaluationCategory is important
+            vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
 
-        var issueBlock, issueSample;
-        angular.forEach(vm.validationResults.issues, function(value) {
-            this[value.issueCategory] = this[value.issueCategory] || [];
+            //prepare terms frequency
+            vmResourceResult.termsFrequency = {};
+            angular.forEach(resourceResult.termsFrequency, function(value, key) {
+                var termFreqData = {};
+                termFreqData.count = value;
+                termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
+                this[key] = termFreqData;
+            }, vmResourceResult.termsFrequency);
 
-            //rewrite sample to exclude redundant information (e.g. evaluationType)
-            issueBlock = _.omit(value, 'sample');
-            angular.forEach(value.sample, function(sample) {
-                this.sample = this.sample || [];
-                issueSample = {};
-                issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
-                issueSample.relatedData = sample.relatedData;
-                this.sample.push(issueSample);
-            }, issueBlock);
+            vmResourceResult.issuesMap = {};
+            var issueBlock, issueSample;
+            angular.forEach(resourceResult.issues, function(value) {
+                this[value.issueCategory] = this[value.issueCategory] || [];
 
-            this[value.issueCategory].push(issueBlock);
-        }, vm.issuesMap);
+                //rewrite sample to exclude redundant information (e.g. evaluationType)
+                //TODO to the same thing for issues with non sample
+                issueBlock = _.omit(value, 'sample');
+                angular.forEach(value.sample, function(sample) {
+                    this.sample = this.sample || [];
+                    issueSample = {};
+                    issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
+                    issueSample.relatedData = sample.relatedData;
+                    this.sample.push(issueSample);
+                }, issueBlock);
+
+                this[value.issueCategory].push(issueBlock);
+            }, vmResourceResult.issuesMap);
+
+            this.push(vmResourceResult);
+        }, vm.validationResults.results);
     }
 
     function handleWSError(data) {

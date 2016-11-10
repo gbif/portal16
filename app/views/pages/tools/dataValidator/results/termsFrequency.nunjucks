@@ -1,0 +1,19 @@
+<h3>{$ __('validation.termsFrequency.title') $}</h3>
+<div class="table-container">
+    <table class="table table-bordered table-striped" ng-if="resultPerResource.termsFrequency">
+        <thead>
+        <tr>
+            <th>{$ __('validation.termsFrequency.term') $}</th>
+            <th>{$ __('validation.termsFrequency.count') $}</th>
+            <th>{$ __('validation.termsFrequency.percentage') $}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(k,v) in resultPerResource.termsFrequency">
+            <td>{{ k }}</td>
+            <td>{{ v.count }}</td>
+            <td>{{ v.percentage }} %</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
