@@ -507,6 +507,13 @@ sub {
     }
 }
 
+.relative-anchor-offset--tabs {
+    @extends .relative-anchor-offset
+    > a {
+        top -($navBar_height + vrBlock(3))
+    }
+}
+
 .anchor-block {
     &:before {
         display block

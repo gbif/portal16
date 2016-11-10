@@ -3,7 +3,7 @@
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">{$ __('dataset.longType.' + dataset.record.type) $}</span>
+                    <span class="article-header__category__upper"><a href="{$ gb.locales.urlPrefix $}/dataset/search?type=OCCURRENCE">{$ __('dataset.longType.' + dataset.record.type) $}</a></span>
                     <span class="article-header__category__lower">{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</span>
                 </nav>
 
@@ -18,10 +18,10 @@
 
                 {% if dataset._computedValues.contributors.highlighted.length > 0 %}
                     <div>
-                        <ol class="inline-bullet-list">
+                        <ol class="inline-bullet-list text-light">
                             {% for contributor in dataset._computedValues.contributors.highlighted %}
                                 <li>
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin#contributor_{$ contributor._id $}"
+                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}#contributor_{$ contributor._id $}"
                                        class="inherit"
                                        tooltip-placement="bottom"
                                        tooltip-popup-delay="300"

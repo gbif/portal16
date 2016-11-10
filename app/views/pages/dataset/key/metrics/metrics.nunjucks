@@ -50,8 +50,8 @@
                                             </dd>
                                         </div>
                                         <div>
+                                            <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span>Citation</span></a>
                                             <a href="{$ dataset.record.doi $}" class="doi"><span>DOI</span><span>{$ dataset.record.doi $}</span></a>
-                                            <a href="./{$ dataset.record.key $}/origin" class="doi"><span class="gb-icon-quote"></span><span>Citation</span></a>
                                         </div>
                                     </dl>
                                 </div>
@@ -68,9 +68,9 @@
                                        class="card__stripe inherit">
                                         <div class="card__content">
                                             <div style="z-index:0;position:absolute; right: -80px;top:-70px;height:200px;width:200px; border-radius:50%;background-color:rgba(0,0,0,0.05)"></div>
-                                            <div style="z-index:1; position:relative;min-width:200px">
+                                            <div style="z-index:1; position:relative;min-width:200px;line-height:25px">
                                                 <span class="h3">{$ dataset._occurrenceCount.count | localizeInteger(gb.locales.current) $}</span>
-                                                <p>occurrences</p>
+                                                <div>occurrences</div>
                                             </div>
                                         </div>
                                     </a>
@@ -170,7 +170,7 @@
                             {% if dataset._speciesTaxonCount.count > 0 %}
                                 <div class="card dataset-key__visual-summary__counts__group"
                                      style="position:relative;">
-                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}"
+                                    <a href="../species/search?dataset_key={$ dataset.record.key $}&advanced=1"
                                        class="card__stripe inherit">
                                         <div class="card__content">
                                             <div style="z-index:0;position:absolute; right: -80px;top:-70px;height:200px;width:200px; border-radius:50%;background-color:rgba(0,0,0,0.05)"></div>
@@ -185,7 +185,7 @@
                             {% if dataset._speciesTaxonCount.facets.SPECIES | isDefined %}
                                 <div class="card dataset-key__visual-summary__counts__group"
                                      style="position:relative;">
-                                    <a href="../occurrence/search?dataset_key={$ dataset.record.key $}"
+                                    <a href="../species/search?dataset_key={$ dataset.record.key $}&rank=SPECIES&advanced=1"
                                        class="card__stripe inherit">
                                         <div class="card__content">
                                             <div style="z-index:0;position:absolute; right: -80px;top:-70px;height:200px;width:200px; border-radius:50%;background-color:rgba(0,0,0,0.05)"></div>

@@ -28,7 +28,7 @@
                     <h3>Description</h3>
                     <div>
                         <p>
-                            {$ dataset.record.description | safe $}
+                            {$ dataset.record.description | sanitize | safe $}
                         </p>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <h3>Purpose</h3>
                 <div>
                     <p>
-                        {$ dataset.record.purpose | safe $}
+                        {$ dataset.record.purpose | sanitize | safe $}
                     </p>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                                 {$ period.period | formatDate(gb.locales.current) $}
                             {% endif %}
                             {% if period["@type"] == "verbatim" %}
-                                {$ period.period $}
+                                {$ period.period | sanitize | safe $}
                             {% endif %}
                         </p>
                     {% endfor %}
@@ -86,7 +86,7 @@
                     {% for geographicCoverage in dataset.record.geographicCoverages %}
                         {% if geographicCoverage.description %}
                             <p>
-                                {$ geographicCoverage.description $}
+                                {$ geographicCoverage.description | sanitize | safe $}
                             </p>
                             <!-- {% if geographicCoverage.boundingBox %}
                                 <p>
@@ -115,7 +115,7 @@
                             <div id="id_{$ field $}">
                                 <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
                                 <h4 style="margin-top:30px">{$ field |prettifyEnum | capitalize $}</h4>
-                                <p>{$ dataset.record.samplingDescription[field] | safe $}</p>
+                                <p>{$ dataset.record.samplingDescription[field] | sanitize | safe $}</p>
                             </div>
                         {% endif %}
 
@@ -131,12 +131,27 @@
                                         <div>
                                             <span class="badge badge--white">{$ loop.index $}</span>
                                         </div>
-                                        <div>{$ step | safe $}</div>
+                                        <div>{$ step | sanitize | safe $}</div>
                                     </li>
                                 {% endfor %}
                             </ol>
                         </div>
                     {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+{% if dataset.record.additionalInfo %}
+    <section class="horizontal-stripe white-background dataset-key__text">
+        <div class="container--narrow">
+            <div class="anchor-block--tabs" id="additionalInfo">
+                <h3>Additional Info</h3>
+                <div>
+                    <p>
+                        {$ dataset.record.additionalInfo | sanitize | safe $}
+                    </p>
                 </div>
             </div>
         </div>
