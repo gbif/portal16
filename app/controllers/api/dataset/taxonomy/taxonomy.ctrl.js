@@ -62,7 +62,7 @@ function getSynonyms(req, res, next) {
             callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacetsSynonymsOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit="+limit, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/synonyms?limit="+limit, prunePage);
     }
 };
 
@@ -165,7 +165,7 @@ function _pruneTaxa(taxa, idsToIgnore) {
             })
             , function(tax) {
                 return _.pick(
-                    tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'numDescendants', 'numOccurrences']
+                    tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
                 );
             });
 }

@@ -26,11 +26,12 @@ function taxBrowserDirective() {
     return directive;
 
     /** @ngInject */
-    function taxBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomyParents) {
+    function taxBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
         var vm = this;
         vm.taxon;
         vm.parents;
         vm.children;
+        vm.synonyms;
         vm.taxonNumOccurrences;
         vm.linkPrefix = keys.nubKey == vm.datasetKey ? '/species/' : '/dataset/' + vm.datasetKey + '/taxonomy/';
         vm.linkSuffix = keys.nubKey == vm.datasetKey ? '/taxonomy' : '';
@@ -40,44 +41,60 @@ function taxBrowserDirective() {
             TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey,
-
             }, function (data) {
                 vm.taxon = data;
 
+                TaxonomyParents.query({
+                    datasetKey: vm.datasetKey,
+                    taxonKey: vm.taxonKey,
+                    occ: vm.occ
+                }, function (parents) {
+                    if (vm.taxon.synonym) {
+                        // also add accepted taxon as parent
+                        TaxonomyDetail.query({
+                            datasetKey: vm.datasetKey,
+                            taxonKey: vm.taxon.acceptedKey,
+                        }, function (acc) {
+                            parents.push(acc);
+                            vm.parents = parents;
+                        }, function () {
+                        });
+                    } else {
+                        vm.parents = parents;
+                    }
+                }, function () {
+                });
+
+                if (!vm.taxon.synonym) {
+                    TaxonomySynonyms.query({
+                        datasetKey: vm.datasetKey,
+                        taxonKey: vm.taxonKey,
+                        occ: vm.occ
+                    }, function (data) {
+                        vm.synonyms = data.results;
+                        vm.taxonNumOccurrences = data.numOccurrences;
+                    }, function () {
+                    })
+
+                    TaxonomyChildren.query({
+                        datasetKey: vm.datasetKey,
+                        taxonKey: vm.taxonKey,
+                        occ: vm.occ
+                    }, function (data) {
+                        vm.children = data.results;
+                        vm.taxonNumOccurrences = data.numOccurrences;
+                    }, function () {
+                    })
+                }
+
             }, function () {
             });
-
-            TaxonomyParents.query({
-                datasetKey: vm.datasetKey,
-                taxonKey: vm.taxonKey,
-                occ: vm.occ
-
-            }, function (data) {
-                vm.parents = data;
-
-            }, function () {
-            });
-
-            TaxonomyChildren.query({
-                datasetKey: vm.datasetKey,
-                taxonKey: vm.taxonKey,
-                occ: vm.occ,
-                limit: 100
-
-            }, function (data) {
-                vm.children = data.results;
-                vm.taxonNumOccurrences = data.numOccurrences;
-
-            }, function () {
-            })
 
         } else {
             TaxonomyRoot.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey,
-                occ: vm.occ,
-                limit: 100
-
+                occ: vm.occ
             }, function (data) {
                 vm.children = data.results;
 

@@ -1,4 +1,42 @@
 <section id="taxonomy-browser" class="horizontal-stripe white-background">
+    <div class="container taxon-detail">
+        <dl class="dl-horizontal">
+            <dt>ScientificName</dt>
+            <dd><span class="name">{{vm.taxon.scientificName}}</span> <a ng-show="vm.taxon.nubKey" href="/species/{{vm.taxon.nubKey}}">in the GBIF Backbone</a></dd>
+
+            <dt>TaxonID</dt>
+            <dd>{{vm.taxon.taxonID}}</dd>
+
+            <dt>Status & Rank</dt>
+            <dd>{{vm.taxon.taxonomicStatus}} {{vm.taxon.rank}}</dd>
+
+            <dt>PublishedIn</dt>
+            <dd>{{vm.taxon.publishedIn}}</dd>
+
+            <dt>Nomenclatural Status</dt>
+            <dd>{{vm.taxon.nomenclaturalStatus}}</dd>
+
+            <dt>Original Name</dt>
+            <dd>{{vm.taxon.basionym}}</dd>
+
+            <dt>References</dt>
+            <dd><a ng-href="{{vm.taxon.references}}">{{vm.taxon.references}}</a></dd>
+
+            <dt>Last Indexed</dt>
+            <dd>{{vm.taxon.lastCrawled}}</dd>
+
+            <dt>Issues</dt>
+            <dd ng-repeat="iss in vm.taxon.issues">
+                {{iss}} ah
+            </dd>
+
+            <dt>Remarks</dt>
+            <dd>{{vm.taxon.remarks}}</dd>
+        </dl>
+
+        <a href="#">Show all details</a>
+    </div>
+
     <div class="container">
         <div class="row col-md-12">
             <ul class="list-unstyled">
@@ -11,9 +49,18 @@
                 <li style="margin-left:{{vm.parents.length*10}}px">
                     <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{vm.taxon.key}}">{{vm.taxonNumOccurrences}}</a></small>
                     <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{vm.taxon.key}}">{{vm.taxon.numDescendants}}</a></small>
+                    <span ng-show="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                     <span class="current">{{vm.taxon.scientificName}}</span>
                     <small class="rank">{{vm.taxon.rank}}</small>
                 </li>
+                <li style="margin-left:{{(vm.parents.length+1)*10}}px" ng-repeat="tax in vm.synonyms">
+                    <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
+                    <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
+                    <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
+                    <a href="{{vm.linkPrefix}}{{tax.key}}{{vm.linkSuffix}}">{{tax.scientificName}}</a>
+                    <small class="rank">{{tax.rank}}</small>
+                </li>
+                <li ng-show="vm.synonyms.length > 0 && vm.children.length > 0"></li>
                 <li style="margin-left:{{(vm.parents.length+1)*10}}px" ng-repeat="tax in vm.children">
                     <small ng-show="vm.isOcc" class="counts"><a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a></small>
                     <small ng-show="!vm.isOcc" class="counts"><a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a></small>
@@ -24,3 +71,4 @@
         </div>
     </div>
 </section>
+
