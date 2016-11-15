@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     _ = require('lodash'),
+    keys = require('../../../../../helpers/constants').keys,
     nsMap = require('../../../../../helpers/namespaces');
 
 angular
@@ -31,6 +32,8 @@ function taxBrowserDirective() {
         vm.parents;
         vm.children;
         vm.taxonNumOccurrences;
+        vm.linkPrefix = keys.nubKey == vm.datasetKey ? '/species/' : '/dataset/' + vm.datasetKey + '/taxonomy/';
+        vm.linkSuffix = keys.nubKey == vm.datasetKey ? '/taxonomy' : '';
         vm.isOcc = vm.occ == 'true';
 
         if (vm.taxonKey) {

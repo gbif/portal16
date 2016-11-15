@@ -27,16 +27,16 @@ function render(req, res, next, page, lookups) {
     try {
         getTaxon(req.params.key, res.locals.gb.locales.current, lookups).then(function (taxon) {
             if (!taxon.isNub()) {
-                console.error("No backbone taxon: " + taxon.key);
-                next();
+                redirectToDatasetTaxon(res, taxon);
+            } else {
+                res.render('pages/species/key/'+page, {
+                    key: taxon.record.key,
+                    taxon: taxon,
+                    _meta: {
+                        title: taxon.record.scientificName
+                    }
+                });
             }
-            res.render('pages/species/key/'+page, {
-                key: taxon.record.key,
-                taxon: taxon,
-                _meta: {
-                    title: taxon.record.scientificName
-                }
-            });
         });
     } catch (e) {
         console.error(e);
@@ -44,11 +44,17 @@ function render(req, res, next, page, lookups) {
     }
 }
 
+function redirectToDatasetTaxon(res, taxon) {
+    //console.log("No backbone taxon: " + taxon.record.key);
+    res.redirect('/dataset/' + taxon.record.datasetKey + '/taxonomy/' + taxon.record.key);
+}
+
 function getTaxon(key, lang, lookups) {
     var deferred = Q.defer();
     var getOptions = {
         //TODO: replace occ counts with solr facets
-        expand: lookups
+        expand: lookups,
+        expandBackboneOnly: true
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {
