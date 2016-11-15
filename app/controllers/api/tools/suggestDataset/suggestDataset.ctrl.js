@@ -37,7 +37,6 @@ router.post('/', function (req, res) {
 
 function isValid(data) {
     if (_.isEmpty(data.title)) return false;
-    if (_.isEmpty(data.datasetLink)) return false;
     if (_.isEmpty(data.region)) return false;
     if (_.isEmpty(data.taxon)) return false;
     return true;

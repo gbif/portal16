@@ -129,7 +129,7 @@ TODO: might be worth quantifying terms such as "rarely", "few" etc.
 
 * luxury: used by few people that could get that information by other means. Or used rarely and not essential to usage.
 * useful: the site can be used just fine without it, but it would improve the experience significantly. users are expected to notice on a daily basis
-* blocker: Essential to site usage. The experience would improve for the majority of our users. Or something that is a nuisance to users on a daily basis
+* blocker: Essential to site usage. The experience would improve for the majority of our users. Or something that is a nuisance to users on a daily basis.
 
 **cost**
 hours, days, 3days+
@@ -146,6 +146,7 @@ these should be self explanatory, but a few words on some of them
 * infrastructure: e.g. build process, logging, firewalls etc.
 * api: requires work on the api to complete the task
 * usability: not a bug per se, but an improvement related to the interface and typically not in new functionality
+* enhancement: new functionality
 
 ## Attribution
 This project is possible due to the many people that share their work under CC.
