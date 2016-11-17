@@ -22,6 +22,10 @@ Dataset.get = function (key, options) {
     }
 };
 
+Dataset.prototype.isChecklist = function () {
+    return this.record.type != 'OCCURRENCE';
+};
+
 Dataset.prototype.expand = function (fieldNames) {
     // TODO check whether the process endpoint shows the status in real-time.
     var resources = [],

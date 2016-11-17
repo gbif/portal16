@@ -1,10 +1,10 @@
-<section id="combinations" class="white-background" ng-show="vm.combinations">
+<section id="combinations" class="white-background" ng-show="vm.combinations.length">
     <div class="container--narrow anchor-block">
         <div class="row">
             <h3>Combinations</h3>
             <ul>
                 <li ng-repeat="tax in vm.combinations">
-                    <span class="scientific_name"><a ng-href="{{tax.key}}">{{tax.scientificName}}</a></span>
+                    a <span class="scientific_name"><a ng-href="{{tax.key}}">{{tax.scientificName}}</a></span>
                 </li>
             </ul>
         </div>

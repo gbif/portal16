@@ -1,0 +1,42 @@
+<section id="core" class="horizontal-stripe white-background term-block">
+    <div class="scrollable">
+        <div class="term-block__header">
+            <h3 class="text-capitalize">Taxon</h3>
+        </div>
+        <div class="term-block__terms">
+            <table class="table table--compact">
+                {% for k,v in taxon.verbatim %}
+                    {% if k != 'extensions' %}
+                        <tr>
+                            <td>{$ k $}</td>
+                            <td>{$ v $}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+
+{% for ext,records in taxon.verbatim.extensions %}
+<section id="ext-{$ ext $}" class="horizontal-stripe white-background term-block">
+    <div class="scrollable">
+        <div class="term-block__header">
+            <h3 class="text-capitalize">{$ ext $}</h3>
+        </div>
+
+        {% for rec in records %}
+        <div id="ext-{$ ext $}-rec{$ loop.index $}" class="term-block__terms">
+            <table class="table table--compact">
+                {% for k,v in rec %}
+                    <tr>
+                        <td>{$ k $}</td>
+                        <td>{$ v $}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}

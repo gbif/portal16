@@ -11,25 +11,17 @@ module.exports = function (app) {
 router.get('/species/:key(\\d+)\.:ext?', taxonRoute);
 router.get('/taxon/:key(\\d+)\.:ext?', taxonRoute);
 
-router.get('/species/:key(\\d+)/taxonomy', taxonomyRoute);
-router.get('/taxon/:key(\\d+)/taxonomy', taxonomyRoute);
-
 function taxonRoute(req, res, next) {
-    render(req, res, next, 'speciesKey', ['name', 'dataset', 'constituent', 'homonyms', 'typification', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular', 'info']);
+    render(req, res, next, ['name', 'dataset', 'constituent', 'homonyms', 'typification', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular', 'info']);
 }
 
-function taxonomyRoute(req, res, next) {
-    render(req, res, next, 'speciesTaxonomy', ['name', 'dataset', 'constituent']);
-}
-
-
-function render(req, res, next, page, lookups) {
+function render(req, res, next, lookups) {
     try {
         getTaxon(req.params.key, res.locals.gb.locales.current, lookups).then(function (taxon) {
             if (!taxon.isNub()) {
                 redirectToDatasetTaxon(res, taxon);
             } else {
-                res.render('pages/species/key/'+page, {
+                res.render('pages/species/key/speciesKey', {
                     key: taxon.record.key,
                     taxon: taxon,
                     _meta: {
@@ -45,7 +37,6 @@ function render(req, res, next, page, lookups) {
 }
 
 function redirectToDatasetTaxon(res, taxon) {
-    //console.log("No backbone taxon: " + taxon.record.key);
     res.redirect('/dataset/' + taxon.record.datasetKey + '/taxonomy/' + taxon.record.key);
 }
 

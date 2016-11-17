@@ -22,8 +22,6 @@
 
         {% include "./header.nunjucks" %}
 
-        {$ spm.speciesTabs(key, 'info', __) $}
-
         <section id="highlights" class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
@@ -59,33 +57,26 @@
                                 {% endif %}
                             </div>
 
-                            {% if taxon.isNub() %}
                             <div>
                                 <dt>Occurrences</dt>
                                 <dd><a href="/occurrence/search?taxon_key={$ taxon.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
                             </div>
-                            {% endif %}
 
                             <div>
-                                {% if taxon.isNub() %}
-                                    <dt class="text-capitalize">Source</dt>
-                                    <dd>
-                                        {% if taxon.record.origin == 'SOURCE' %}
-                                            Reference taxon in
-                                            {% if taxon.record.sourceTaxonExists %}
-                                                <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
-                                            {% else %}
-                                                <a href="{$ gb.locales.urlPrefix $}/species/search?advanced=1&dataset_key={$ taxon.constituent.key $}&rank={$ taxon.record.rank $}&q={$ taxon.record.scientificName $}">{$ taxon.constituent.title $}</a>
-                                                {# (taxon has since been removed) #}
-                                            {% endif %}
+                                <dt class="text-capitalize">Source</dt>
+                                <dd>
+                                    {% if taxon.record.origin == 'SOURCE' %}
+                                        Reference taxon in
+                                        {% if taxon.record.sourceTaxonExists %}
+                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
                                         {% else %}
-                                            {$ taxon.record.origin $}
+                                            <a href="{$ gb.locales.urlPrefix $}/species/search?advanced=1&dataset_key={$ taxon.constituent.key $}&rank={$ taxon.record.rank $}&q={$ taxon.record.scientificName $}">{$ taxon.constituent.title $}</a>
+                                            {# (taxon has since been removed) #}
                                         {% endif %}
-                                    </dd>
-                                {% elseif taxon.record.publishedIn %}
-                                    <dt class="text-capitalize">Publication</dt>
-                                    <dd>{$ taxon.record.publishedIn $}</dd>
-                                {% endif %}
+                                    {% else %}
+                                        {$ taxon.record.origin $}
+                                    {% endif %}
+                                </dd>
                             </div>
 
                             {% if taxon.record.issues | isNotEmpty %}
@@ -103,7 +94,6 @@
 
                     <div class="col-md-4">
                         <dl class="inline">
-                            {% if taxon.isNub() %}
                             <div>
                                 <dt class="text-capitalize">IUCN category</dt>
                                 <dd>
@@ -117,7 +107,6 @@
                                     <cites name="{$ taxon.record.canonicalName $}"></cites>
                                 </dd>
                             </div>
-                            {% endif %}
 
                             <div>
                                 <dt class="text-capitalize">Fossil range</dt>
@@ -138,43 +127,20 @@
 
         </section>
 
-        {% if not taxon.isNub() %}
-            <section id="no-nub-warning" class="alert-stripe alert-background">
-                <div class="container">
-                    <div class="row">
-                        <h3 class="text-center">Checklist specific taxon view!</h3>
-                        <p>You are viewing the details of <em>{$ taxon.record.scientificName $}</em> treated in <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}">{$taxon.dataset.title $}</a>.
-                           Checklist taxon views are under development and highly experimental at this stage!
-                        {% if taxon.record.nubKey %}
-                        The name is also available in the <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.nubKey $}">GBIF Backbone</a>
-                        {% endif %}
-                        </p>
-                    </div>
-                </div>
+        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+
+            <section id="taxonomy" class="submenu">
+                <a href="" class="h3">Taxonomy</a>
+                <p>
+                    The classification of all taxa with their
+                    <span class="count-type">number of descendant taxa</span> indicated.
+                </p>
+
+                <tax-browser occ="false" taxon-key="{$ key $}"></tax-browser>
 
             </section>
-        {% endif %}
 
-        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-            <span class="relative-anchor-offset"><a name="menu"></a></span>
 
-            <nav class="submenu developer-submenu" id="submenu">
-                <ul class="nav-parts">
-                    <li class="part-name">
-                        <a href="" class="h3">Content</a>
-                        <ul class="nav-chapters">
-                            {% set sections = ['abstract', 'type-specimen', 'synonymy', 'combinations', 'vernacular', 'datasets', 'references'] %}
-                            {% for sect in sections %}
-                                <li class="nav-chapter" du-scrollspy="{$ id $}">
-                                    <a href="#{$ sect $}">{$ sect | capitalize $}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-            {% if taxon.isNub() %}
             <section id="abstract" class="white-background">
                 <div class="container--narrow anchor-block">
                     <div class="row">
@@ -182,9 +148,8 @@
                     </div>
                 </div>
             </section>
-            {% endif %}
 
-            {% if taxon.isNub() and taxon.occurrenceGeoRefCount > 0 or true %}
+            {% if taxon.occurrenceGeoRefCount > 0 or true %}
                 <section id="occurrence" class="white-background dataset-key__visual-summary anchor-block">
                     <div class="container--narrow">
                         <div class="row">
@@ -201,8 +166,6 @@
             {% if taxon.name.specificEpithet %}
             <type-specimen key="{$ key $}"></type-specimen>
             {% endif %}
-
-            <synonyms key="{$ key $}"></synonyms>
 
             <combinations key="{$ key $}"></combinations>
 
@@ -248,6 +211,21 @@
 
             <references key="{$ key $}"></references>
 
+            <section id="description" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <div class="row">
+                        <h3>Description</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section id="media" class="white-background">
+                <div class="container--narrow anchor-block">
+                    <div class="row">
+                        <h3>Images</h3>
+                    </div>
+                </div>
+            </section>
         </div>
     </article>
 
