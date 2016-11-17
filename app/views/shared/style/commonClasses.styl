@@ -32,33 +32,31 @@
     max-width $contentWidth--narrow
 }
 
+.wrapper-horizontal-stripes {
+    >.horizontal-stripe, >.horizontal-stripe--paddingless {
+        border-top 1px solid $stripeBorderColor
+        &.article-header {
+            border none
+        }
+        &.white-background + .white-background {
+            border none
+        }
+        &.light-background + .light-background {
+            border none
+        }
+        > *:last-of-type {
+            margin-bottom 0
+        }
+    }
+}
 .horizontal-stripe {
     padding vrBlock(1) 0
-    border-top 1px solid $stripeBorderColor
-    &.article-header {
-        border none
-    }
-    &.white-background + .white-background {
-        border none
-    }
-    &.light-background + .light-background {
-        border none
-    }
-    > *:last-of-type {
-        margin-bottom 0
-    }
 }
 
 .horizontal-stripe--paddingless {
-    @extends .horizontal-stripe
     padding 0
 }
 
-.horizontal-stripe--top-borderless {
-    @extends .horizontal-stripe
-    padding 0
-    border-top none
-}
 
 /*
  * Header area styles
