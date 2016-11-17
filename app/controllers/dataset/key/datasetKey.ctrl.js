@@ -3,6 +3,8 @@
 var express = require('express'),
     _ = require('lodash'),
     dataset = require('./datasetViewData'),
+    taxjs = require('./taxon'),
+    Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     utils = rootRequire('app/helpers/utils'),
     router = express.Router();
 
@@ -28,32 +30,60 @@ router.get('/dataset/:key/origin\.:ext?', function (req, res, next) {
 });
 
 router.get('/dataset/:key/taxonomy/:taxonKey?', function (req, res, next) {
-    buildModelAndRender(req, res, next, 'pages/dataset/key/taxonomy/taxonomy');
+    buildDatasetAndTaxonAndRender(req, res, next, 'pages/dataset/key/taxonomy/taxonomy');
 });
+
+function buildDatasetAndTaxonAndRender(req, res, next, template) {
+    var datasetKey = req.params.key;
+    var taxonKey = req.params.taxonKey;
+    if (!utils.isGuid(datasetKey)) {
+        next();
+    } else {
+        dataset.getDataset(datasetKey, function (err, dataset) {
+            if (err) {
+                next(err);
+            } else if(taxonKey) {
+                var options = {expand: ['name']};
+                if (dataset.isChecklist()){
+                    // nub taxa do not have verbatim data and return 404s
+                    options.expand.push('verbatim');
+                }
+                Taxon.get(taxonKey, options).then(function (taxon) {
+                    if (dataset.isChecklist()){
+                        taxon.verbatim = taxjs.cleanupVerbatim(taxon.verbatim);
+                    }
+                    renderPage(req, res, next, template, dataset, taxon);
+                })
+            } else {
+                renderPage(req, res, next, template, dataset);
+            }
+        })
+    }
+}
 
 function buildModelAndRender(req, res, next, template) {
     var datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
         next();
     } else {
-        dataset.getDataset(datasetKey, function (err, viewData) {
+        dataset.getDataset(datasetKey, function (err, dataset) {
             if (err) {
                 next(err);
             } else {
-                _.merge(viewData, {"taxonKey":req.params.taxonKey});
-                renderPage(req, res, next, template, viewData);
+                renderPage(req, res, next, template, dataset);
             }
         })
     }
 }
 
-function renderPage(req, res, next, template, dataset) {
+function renderPage(req, res, next, template, dataset, taxon) {
     try {
         if (req.params.ext == 'debug') {
             res.json(dataset);
         } else {
             res.render(template, {
                 dataset: dataset,
+                taxon: taxon,
                 _meta: {
                     title: dataset.record.title
                 }
@@ -63,3 +93,4 @@ function renderPage(req, res, next, template, dataset) {
         next(e);
     }
 }
+

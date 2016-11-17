@@ -1,10 +1,10 @@
 {% extends "../../../../shared/layout/html/html.nunjucks" %}
+{% import "../tabs.macro.nunjucks" as tabsMacro %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes datasetKey page--data">
         {% include('../header/header.nunjucks') %}
 
-        {% import "../tabs.macro.nunjucks" as tabsMacro %}
         <div id="tabsScrollable">
             {$ tabsMacro.datasetTabs(dataset, 'taxonomy', __) $}
         </div>
@@ -12,25 +12,90 @@
             {$ tabsMacro.datasetTabs(dataset, 'taxonomy', __) $}
         </div>
 
-        <section class="horizontal-stripe light-background">
-            <div class="container">
-                <div class="row">
+        <div class="taxonomy-wrapper horizontal-stripe">
+            <div class="container--desktop row">
+
+                <div class="taxonomy col-md-4">
+                    <h3>Taxonomy</h3>
                     <p>
-                    {% if dataset.record.type == 'CHECKLIST' %}
-                        The classification of all taxa in {$ dataset.record.title $} with their
-                        <span class="count-type">number of descendant taxa</span> indicated.
+                        {% if dataset.isChecklist() %}
+                            The classification of all taxa in {$ dataset.record.title $} with their
+                            <span class="count-type">number of descendant taxa</span> indicated.
 
-                    {%  else %}
-                        The classification of all taxa derived from occurrences in {$ dataset.record.title $}
-                        after normalising against the GBIF backbone taxonomy with their
-                        <span class="count-type">number of occurrences</span> indicated.
-                    {%  endif %}
+                        {%  else %}
+                            The classification of all taxa derived from occurrences in {$ dataset.record.title $}
+                            after normalising against the GBIF backbone taxonomy with their
+                            <span class="count-type">number of occurrences</span> indicated.
+                        {%  endif %}
                     </p>
-                </div>
-            </div>
-        </section>
 
-        <tax-browser occ="{$ dataset.record.type == 'OCCURRENCE' $}" dataset-key="{$ dataset.record.key $}" taxon-key="{$ dataset.taxonKey $}"></tax-browser>
+                    <tax-browser occ="{$ not dataset.isChecklist() $}" dataset-key="{$ dataset.record.key $}" taxon-key="{$ taxon.record.key $}"></tax-browser>
+                </div>
+
+                <div class="taxonomy-content col-md-8">
+                    {% if taxon %}
+                        <section id="taxon-details">
+                            <h3>{$ taxon.record.scientificName $}
+                                {% if taxon.record.nubKey %}
+                                    <small><a href="/species/{$ taxon.record.nubKey $}"> in GBIF Backbone</a></small>
+                                {% endif %}
+                            </h3>
+
+                            {% if taxon.record.publishedIn %}
+                                <p>Published in {$ taxon.record.publishedIn $}</p>
+                            {% endif %}
+
+                            <dl class="dl-horizontal">
+                                {% if taxon.record.origin == 'SOURCE' %}
+                                    <dt>TaxonID</dt>
+                                    <dd>{$ taxon.record.taxonID $}</dd>
+                                {% else %}
+                                    <dt>Origin</dt>
+                                    <dd>{$ taxon.record.origin $}</dd>
+                                {% endif %}
+
+                                <dt>Status & Rank</dt>
+                                <dd>{$ taxon.record.taxonomicStatus $} {$ taxon.record.rank $}</dd>
+
+                                <dt>According To</dt>
+                                <dd>{$ taxon.record.accordingTo $}</dd>
+
+                                <dt>Nomenclatural Status</dt>
+                                <dd>{$ taxon.record.nomenclaturalStatus $}</dd>
+
+                                <dt>Original Name</dt>
+                                <dd>{$ taxon.record.basionym $}</dd>
+
+                                <dt>References</dt>
+                                <dd><a href="{$ taxon.record.references $}">{$ taxon.record.references $}</a></dd>
+
+                                <dt>Last Indexed</dt>
+                                <dd>{$ taxon.record.lastCrawled $}</dd>
+
+                                <dt>Issues</dt>
+                                {% for iss in taxon.record.issues %}
+                                    <dd>{$ iss $}</dd>
+                                {% endfor %}
+
+                                <dt>Remarks</dt>
+                                <dd>{$ taxon.record.remarks $}</dd>
+                            </dl>
+                        </section>
+
+                        {% if dataset.isChecklist() %}
+                        {% include('./verbatim.nunjucks') %}
+                        {%  endif %}
+
+                        <section id="media" class="white-background">
+                            <h3>Images</h3>
+                            <p>Bla bla bla bla bla</p>
+                        </section>
+                    {%  endif %}
+
+                </div>
+
+            </div>
+        </div>
 
     </article>
 {% endblock %}
