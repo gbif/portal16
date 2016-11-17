@@ -72,10 +72,10 @@ function parseXml(body, path, cb) {
         xmlParser(body, function (err, result) {
             if (err) {
                 cb(err);
+                log.error('failed to parse XML response ' + path);
             }
             else {
                 cb(null, result);
-                log.error('failed to parse XML response ' + path);
             }
         });
     } catch (err) {
@@ -118,7 +118,7 @@ function getApiData(path, callback, options) {
                 if (options.failHard) {
                     callback(err, null);
                 } else {
-                    callback(err, {
+                    callback(null, {
                         errorType: err
                     });
                 }
