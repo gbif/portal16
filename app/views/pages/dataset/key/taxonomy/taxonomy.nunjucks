@@ -71,9 +71,9 @@
                                 <p>
                                 {% if taxon.record.origin == 'SOURCE' %}
                                     {% if taxon.record.references %}
-                                        Source taxonID <a href="{$ taxon.record.references $}">{$ taxon.record.taxonID | d(taxon.record.references) $}</a>
+                                        Origin <a href="{$ taxon.record.references $}">{$ taxon.record.referencesDomain | d (taxon.record.references) $}</a>
                                     {% else %}
-                                        Source taxonID {$ taxon.record.taxonID $}
+                                        Origin taxonID {$ taxon.record.taxonID $}
                                     {% endif %}
                                 {% else %}
                                     Origin {$ taxon.record.origin $}
