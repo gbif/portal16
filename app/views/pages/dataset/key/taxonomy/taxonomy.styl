@@ -1,5 +1,7 @@
 #taxonomy-browser
     font-weight 300
+    margin-top: 20px
+    
     .paragraph-list li
         display inline
         margin-right 10px
@@ -11,8 +13,10 @@
     .parent
         margin-left 0px
     .current-name
+        margin-top 6px
+        margin-top 6px
         margin-left 10px
-        font-weight 400
+        font-weight 500
     .synonym
         margin-left 20px
         .sciname
@@ -21,9 +25,29 @@
         margin-left 20px
     a:hover
         text-decoration underline
-    
-    
+    li
+        margin-bottom 3px
+        text-indent -25px
+        padding-left 25px
+
+#taxon-details
+    h2
+        text-align: center
+    table tr td:first-child
+        white-space: nowrap
+        padding-right 20px
+
+$taxonomyWidth := 280px
 .taxonomy-wrapper
     overflow visible
     .taxonomy
         padding 0 20px 0 0
+        width $taxonomyWidth
+        float left
+        position relative
+        
+        a
+            color: inherit;
+    .taxonomy-content
+        margin-left $taxonomyWidth
+        width "calc(%s - 2 * %s)" % ($desktop $taxonomyWidth)

@@ -1,5 +1,6 @@
 {% extends "../../../../shared/layout/html/html.nunjucks" %}
 {% import "../tabs.macro.nunjucks" as tabsMacro %}
+{% import "../../../../components/common.macros.nunjucks" as commonMacros %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes datasetKey page--data">
@@ -15,7 +16,7 @@
         <div class="taxonomy-wrapper horizontal-stripe">
             <div class="container--desktop row">
 
-                <div class="taxonomy col-md-4">
+                <div class="taxonomy">
                     <h3>Taxonomy</h3>
                     <p>
                         {% if dataset.isChecklist() %}
@@ -32,54 +33,73 @@
                     <tax-browser occ="{$ not dataset.isChecklist() $}" dataset-key="{$ dataset.record.key $}" taxon-key="{$ taxon.record.key $}"></tax-browser>
                 </div>
 
-                <div class="taxonomy-content col-md-8">
+                <div class="taxonomy-content">
                     {% if taxon %}
                         <section id="taxon-details">
-                            <h3>{$ taxon.record.scientificName $}
-                                {% if taxon.record.nubKey %}
-                                    <small><a href="/species/{$ taxon.record.nubKey $}"> in GBIF Backbone</a></small>
-                                {% endif %}
-                            </h3>
+                            <h2>{$ commonMacros.parsedTaxonName(taxon.name) $}</h2>
+                            {% if taxon.record.nubKey %}
+                                <p>view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a></p>
+                            {% endif %}
 
                             {% if taxon.record.publishedIn %}
                                 <p>Published in {$ taxon.record.publishedIn $}</p>
                             {% endif %}
 
-                            <dl class="dl-horizontal">
-                                {% if taxon.record.origin == 'SOURCE' %}
-                                    <dt>TaxonID</dt>
-                                    <dd>{$ taxon.record.taxonID $}</dd>
-                                {% else %}
-                                    <dt>Origin</dt>
-                                    <dd>{$ taxon.record.origin $}</dd>
-                                {% endif %}
+                            <table class="table table--compact">
+                                <tr>
+                                    {% if taxon.record.origin == 'SOURCE' %}
+                                        <td>TaxonID</td>
+                                        <td>{$ taxon.record.taxonID $}</td>
+                                    {% else %}
+                                        <td>Origin</td>
+                                        <td>{$ taxon.record.origin $}</td>
+                                    {% endif %}
+                                </tr>
 
-                                <dt>Status & Rank</dt>
-                                <dd>{$ taxon.record.taxonomicStatus $} {$ taxon.record.rank $}</dd>
+                                <tr>
+                                    <td>Status & Rank</td>
+                                    <td>{$ taxon.record.taxonomicStatus $} {$ taxon.record.rank $}</td>
+                                </tr>
 
-                                <dt>According To</dt>
-                                <dd>{$ taxon.record.accordingTo $}</dd>
+                                <tr>
+                                    <td>According To</td>
+                                    <td>{$ taxon.record.accordingTo $}</td>
+                                </tr>
 
-                                <dt>Nomenclatural Status</dt>
-                                <dd>{$ taxon.record.nomenclaturalStatus $}</dd>
+                                <tr>
+                                    <td>Nomenclatural Status</td>
+                                    <td>{$ taxon.record.nomenclaturalStatus $}</td>
+                                </tr>
 
-                                <dt>Original Name</dt>
-                                <dd>{$ taxon.record.basionym $}</dd>
+                                <tr>
+                                    <td>Original Name</td>
+                                    <td>{$ taxon.record.basionym $}</td>
+                                </tr>
 
-                                <dt>References</dt>
-                                <dd><a href="{$ taxon.record.references $}">{$ taxon.record.references $}</a></dd>
+                                <tr>
+                                    <td>References</td>
+                                    <td><a href="{$ taxon.record.references $}">{$ taxon.record.references $}</a></td>
+                                </tr>
 
-                                <dt>Last Indexed</dt>
-                                <dd>{$ taxon.record.lastCrawled $}</dd>
+                                <tr>
+                                    <td>Last Indexed</td>
+                                    <td>{$ taxon.record.lastCrawled $}</td>
+                                </tr>
 
-                                <dt>Issues</dt>
-                                {% for iss in taxon.record.issues %}
-                                    <dd>{$ iss $}</dd>
-                                {% endfor %}
+                                <tr>
+                                    <td>Issues</td>
+                                    <td>
+                                    {% for iss in taxon.record.issues %}
+                                        {$ iss $}
+                                    {% endfor %}
+                                    </td>
+                                </tr>
 
-                                <dt>Remarks</dt>
-                                <dd>{$ taxon.record.remarks $}</dd>
-                            </dl>
+                                <tr>
+                                <td>Remarks</td>
+                                <td>{$ taxon.record.remarks $}</td>
+                                </tr>
+                            </table>
                         </section>
 
                         {% if dataset.isChecklist() %}
@@ -88,7 +108,7 @@
 
                         <section id="media" class="white-background">
                             <h3>Images</h3>
-                            <p>Bla bla bla bla bla</p>
+                            <p>Coming soon ...</p>
                         </section>
                     {%  endif %}
 
