@@ -52,11 +52,6 @@ function buildDatasetAndTaxonAndRender(req, res, next, template) {
                     if (dataset.isChecklist()){
                         taxon.verbatim = taxjs.cleanupVerbatim(taxon.verbatim);
                     }
-                    if (taxon.record.references){
-                        var matches = taxon.record.references.match(/^(?:https?\:\/\/)?(?:www\.)?([^\/?#:]+)/i);
-                        console.log(matches[1]);
-                        taxon.record.referencesDomain = matches && matches[1];
-                    }
                     renderPage(req, res, next, template, dataset, taxon);
                 })
             } else {
