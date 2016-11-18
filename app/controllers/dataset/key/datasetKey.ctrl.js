@@ -43,7 +43,7 @@ function buildDatasetAndTaxonAndRender(req, res, next, template) {
             if (err) {
                 next(err);
             } else if(taxonKey) {
-                var options = {expand: ['name']};
+                var options = {expand: ['name', 'constituent']};
                 if (dataset.isChecklist()){
                     // nub taxa do not have verbatim data and return 404s
                     options.expand.push('verbatim');

@@ -37,79 +37,82 @@
                     {% if taxon %}
                         <section id="taxon-details">
                             <h2>{$ commonMacros.parsedTaxonName(taxon.name) $}</h2>
-                            {% if taxon.record.nubKey %}
-                                <p>view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a></p>
+
+                            {% if taxon.record.basionym %}
+                                <p>Original name: {$ taxon.record.basionym $}</p>
                             {% endif %}
 
-                            {% if taxon.record.publishedIn %}
-                                <p>Published in {$ taxon.record.publishedIn $}</p>
+                            <p>
+                                {% if taxon.record.synonym %}
+                                    {$ taxon.record.rank | capitalize  $} {$ taxon.record.taxonomicStatus | lower $}
+                                    of <a href="/species/{$ taxon.record.acceptedKey $}">{$ taxon.record.accepted $}</a>
+                                {% else %}
+                                    {$ taxon.record.taxonomicStatus | capitalize $} {$ taxon.record.rank | lower $}
+                                {% endif %}
+                                {% if taxon.isNub() %}
+                                    sensu <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                                {% elif taxon.record.accordingTo %}
+                                    sensu {$ taxon.record.accordingTo $}
+                                {% endif %}
+                            </p>
+
+                            {% if taxon.record.nomenclaturalStatus or taxon.record.publishedIn %}
+                                <p>
+                                {% if taxon.record.nomenclaturalStatus %}
+                                    {$ taxon.record.nomenclaturalStatus $}
+                                {% endif %}
+                                {% if taxon.record.publishedIn %}
+                                    Published in {$ taxon.record.publishedIn $}
+                                {% endif %}
+                                </p>
                             {% endif %}
 
-                            <table class="table table--compact">
-                                <tr>
-                                    {% if taxon.record.origin == 'SOURCE' %}
-                                        <td>TaxonID</td>
-                                        <td>{$ taxon.record.taxonID $}</td>
+                            {% if not taxon.isNub() %}
+                                <p>Origin
+                                {% if taxon.record.origin == 'SOURCE' %}
+                                    {% if taxon.record.references %}
+                                        <a href="{$ taxon.record.references $}">{$ taxon.record.taxonID | d(taxon.record.references) $}</a>
                                     {% else %}
-                                        <td>Origin</td>
-                                        <td>{$ taxon.record.origin $}</td>
+                                        {$ taxon.record.taxonID $}
                                     {% endif %}
-                                </tr>
+                                {% else %}
+                                    {$ taxon.record.origin $}
+                                {% endif %}
 
-                                <tr>
-                                    <td>Status & Rank</td>
-                                    <td>{$ taxon.record.taxonomicStatus $} {$ taxon.record.rank $}</td>
-                                </tr>
+                                {% if taxon.record.nubKey %}
+                                    - view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                                {% endif %}
+                                </p>
+                            {% endif %}
 
-                                <tr>
-                                    <td>According To</td>
-                                    <td>{$ taxon.record.accordingTo $}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Nomenclatural Status</td>
-                                    <td>{$ taxon.record.nomenclaturalStatus $}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Original Name</td>
-                                    <td>{$ taxon.record.basionym $}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>References</td>
-                                    <td><a href="{$ taxon.record.references $}">{$ taxon.record.references $}</a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Last Indexed</td>
-                                    <td>{$ taxon.record.lastCrawled $}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Issues</td>
-                                    <td>
+                            {% if taxon.record.issues %}
+                                <p>
                                     {% for iss in taxon.record.issues %}
-                                        {$ iss $}
+                                    <span class="badge badge--warning">{$ iss | lower | replace("_", " ") $}</span>
                                     {% endfor %}
-                                    </td>
-                                </tr>
+                                </p>
+                            {% endif %}
 
-                                <tr>
-                                <td>Remarks</td>
-                                <td>{$ taxon.record.remarks $}</td>
-                                </tr>
-                            </table>
+                            {% if taxon.record.remarks %}
+                                <p>{$ taxon.record.remarks $}</p>
+                            {% endif %}
+
+                            {% if taxon.record.lastCrawled %}
+                                <p class="modified-date">{$ __('date.modified') $} {$ taxon.record.lastCrawled | formatDate(gb.locales.current) $}</p>
+                            {% endif %}
                         </section>
 
+
                         {% if dataset.isChecklist() %}
-                        {% include('./verbatim.nunjucks') %}
+                            {% include('./verbatim.nunjucks') %}
                         {%  endif %}
 
+                        <!--
                         <section id="media" class="white-background">
                             <h3>Images</h3>
                             <p>Coming soon ...</p>
                         </section>
+                        -->
                     {%  endif %}
 
                 </div>
