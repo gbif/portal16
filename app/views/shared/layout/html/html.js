@@ -118,6 +118,8 @@ require('../../../pages/about/programme/programme.ctrl');
 require('../../../pages/about/project/project.ctrl');
 require('../../../pages/about/directory/directory.ctrl');
 
+require('../../../pages/country/key/countryKey.ctrl');
+
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
 require('../../../pages/publisher/search/publisher.ctrl');

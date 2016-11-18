@@ -1,6 +1,6 @@
 {% if dataset._occurrenceCount.count > 0 or dataset._speciesTaxonCount.count > 0 %}
 <div class="anchor-block--tabs" id="summary">
-    <section class="horizontal-stripe light-background dataset-key__visual-summary">
+    <section class="horizontal-stripe light-background dataset-key__visual-summary seperator--b">
         <div class="container--desktop">
             <div class="row">
                 <div class="dataset-key__visual-summary__wrapper dashboard">

@@ -19,6 +19,14 @@ router.get('/dataset/search', function (req, res, next) {
             query: req.query,
             expandList: [
                 {
+                    fromKey: 'key',
+                    type: {
+                        type: 'KEY',
+                        endpoint: apiConfig.dataset.url
+                    },
+                    fields: ['title', 'pubDate', 'modified', 'created']
+                },
+                {
                     fromKey: 'publishingOrganizationKey',
                     type: expandConfig.PUBLISHING_ORG
                 },

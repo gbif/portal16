@@ -12,7 +12,7 @@ module.exports = function (app) {
     app.use('/api/count', router);
 };
 
-router.get('/country/:iso/publishing-countries', function (req, res, next) {
+router.get('/country/:iso/about/countries', function (req, res, next) {
     var iso = req.params.iso;
     let query = {
         facet: 'publishing_country',
@@ -24,7 +24,51 @@ router.get('/country/:iso/publishing-countries', function (req, res, next) {
     search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
         let facets = _.get(data, 'facets[0].counts', []);
         res.json({
-            count: facets.length
+            count: facets.length,
+            limit: 10,
+            results: facets.slice(0, 10)
+        });
+    }, function (err) {
+        next(err);
+    });
+});
+
+router.get('/country/:iso/from/countries', function (req, res, next) {
+    var iso = req.params.iso;
+    let query = {
+        facet: 'country',
+        publishingCountry: iso,
+        'country.facetLimit': 1000,
+        limit: 0
+    };
+    //res.json(query);
+    search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
+        let facets = _.get(data, 'facets[0].counts', []);
+        res.json({
+            count: facets.length,
+            limit: 10,
+            results: facets.slice(0, 10)
+        });
+    }, function (err) {
+        next(err);
+    });
+});
+
+router.get('/country/:iso/about/datasets', function (req, res, next) {
+    var iso = req.params.iso;
+    let query = {
+        facet: 'datasetKey',
+        country: iso,
+        'publishing_country.facetLimit': 1000,
+        limit: 0
+    };
+    //res.json(query);
+    search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
+        let facets = _.get(data, 'facets[0].counts', []);
+        res.json({
+            count: facets.length,
+            limit: 10,
+            results: facets.slice(0, 10)
         });
     }, function (err) {
         next(err);

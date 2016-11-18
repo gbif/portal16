@@ -75,5 +75,10 @@ const expandConfig = {
     BASIS_OF_RECORD: {
         type: 'ENUM',
         translationPath: 'basisOfRecord.'
-    }
+    },
+    KINGDOM_KEY: {
+        type: 'KEY',
+        endpoint: apiConfig.taxon.url,
+        fromKey: 'scientificName'
+    },
 };

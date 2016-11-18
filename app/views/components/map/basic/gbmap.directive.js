@@ -19,6 +19,9 @@ function gbmapDirective() {
         scope: {
             datasetKey: '=',
             taxonKey: '=',
+            publisherKey: '=',
+            country: '=',
+            publishingCountry: '=',
             mapstyle: '='
         },
         link: mapLink,
@@ -195,10 +198,13 @@ function gbmapDirective() {
             }
 
             //only show one key. if more are supplied then ignore the remaining. at a later time it could be two layers styled differently to compare them
-            if (vm.datasetKey) {
-                query.datasetKey = vm.datasetKey;
-            } else if (vm.taxonKey) {
-                query.taxonKey = vm.taxonKey;
+            var possibleKeys = ['taxonKey', 'datasetKey', 'publisherKey', 'country', 'publishingCountry'];
+            for (var i = 0; i < possibleKeys.length; i++) {
+                var key = possibleKeys[i];
+                if (vm[key]) {
+                    query[key] = vm[key];
+                    break;
+                }
             }
 
             return query;
