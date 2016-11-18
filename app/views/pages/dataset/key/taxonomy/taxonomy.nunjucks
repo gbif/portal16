@@ -68,15 +68,15 @@
                             {% endif %}
 
                             {% if not taxon.isNub() %}
-                                <p>Origin
+                                <p>
                                 {% if taxon.record.origin == 'SOURCE' %}
                                     {% if taxon.record.references %}
-                                        <a href="{$ taxon.record.references $}">{$ taxon.record.taxonID | d(taxon.record.references) $}</a>
+                                        Source taxonID <a href="{$ taxon.record.references $}">{$ taxon.record.taxonID | d(taxon.record.references) $}</a>
                                     {% else %}
-                                        {$ taxon.record.taxonID $}
+                                        Source taxonID {$ taxon.record.taxonID $}
                                     {% endif %}
                                 {% else %}
-                                    {$ taxon.record.origin $}
+                                    Origin {$ taxon.record.origin $}
                                 {% endif %}
 
                                 {% if taxon.record.nubKey %}
