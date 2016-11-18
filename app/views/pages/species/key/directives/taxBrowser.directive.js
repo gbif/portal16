@@ -12,7 +12,7 @@ angular
 function taxBrowserDirective() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/dataset/key/taxonomy/taxBrowser.html',
+        templateUrl: '/templates/pages/species/key/directives/taxBrowser.html',
         scope: {},
         controller: taxBrowserCtrl,
         controllerAs: 'vm',

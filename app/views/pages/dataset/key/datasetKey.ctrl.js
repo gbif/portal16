@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 require('./text/submenu');
-require('./taxonomy/taxBrowser.directive.js');
+require('./../../species/key/directives/taxBrowser.directive.js');
 
 angular
     .module('portal')

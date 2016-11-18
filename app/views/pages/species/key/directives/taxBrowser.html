@@ -1,12 +1,12 @@
 <ul id="taxonomy-browser" class="list-unstyled">
     <li ng-repeat="tax in vm.parents">
-        <span class="sciname"><a href="{{vm.linkPrefix}}{{tax.key}}">{{tax.scientificName}}</a></span>
+        <span class="sciname"><a href="{{vm.linkPrefix}}{{tax.key}}">{{tax.canonicalName}}</a></span>
         <small class="rank">{{tax.rank}}</small>
         <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
             <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
         </span>
-        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-ellipsis">
-            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">… {{tax.numDescendants}}</a>
+        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
+            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
         </span>
     </li>
     <li class="current-name">
@@ -21,8 +21,8 @@
         <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
             <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
         </span>
-        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-ellipsis">
-            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">… {{tax.numDescendants}}</a>
+        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
+            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
         </span>
     </li>
     <li class="taxonchild" ng-repeat="tax in vm.children">
@@ -31,8 +31,8 @@
         <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
             <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
         </span>
-        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-ellipsis">
-            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">… {{tax.numDescendants}}</a>
+        <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
+            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
         </span>
     </li>
 </ul>

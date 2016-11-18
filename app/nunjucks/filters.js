@@ -133,6 +133,16 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('domain', function (url) {
+            if (!_.isString(url)) {
+                return url;
+            }
+            var matches = url.match(/^(?:https?\:\/\/)?(?:www\.)?([^\/?#:]+)/i);
+            return matches ? matches[1] : url;
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('minTableWidth', function (data, div, max) {
             div = div || 1;
             max = max || 200;

@@ -1,13 +1,9 @@
 <section id="references" class="white-background" ng-show="vm.references.length">
-    <div class="container--narrow anchor-block">
-        <div class="row">
-            <h3>References</h3>
-            <ul>
-                <li ng-repeat="ref in vm.references">
-                    <a ng-if="ref.doi" href="{{ref.doi}}">{{ ref.citation }}</a>
-                    <span ng-if="!ref.doi" class="reference">{{ ref.citation }}</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <h3>References</h3>
+    <ul>
+        <li ng-repeat="ref in vm.references">
+            <a ng-if="ref.doi" href="{{ref.doi}}">{{ ref.citation }}</a>
+            <span ng-if="!ref.doi" class="reference">{{ ref.citation }}</span>
+        </li>
+    </ul>
 </section>
