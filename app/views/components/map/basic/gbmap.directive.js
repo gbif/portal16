@@ -350,7 +350,7 @@ function addOverLays(map, query) {
     //optionsB.style = "orange.marker";
 
     var overlays = [];
-    var overlayA = L.gbifSimpleLayer('//api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
+    var overlayA = L.gbifSimpleLayer('//{s}-api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
     overlayA.addTo(map);
     overlays.push(overlayA);
 

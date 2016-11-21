@@ -22,7 +22,7 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         console.log($httpParamSerializer(query));
         var overlay = {
             name: 'gb',
-            url: "http://api.gbif-uat.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&" + toCamelCase($httpParamSerializer(query)),
+            url: "http://{s}-api.gbif-uat.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&" + toCamelCase($httpParamSerializer(query)),
             type: 'xyz',
             visible: true,
             layerParams: {
