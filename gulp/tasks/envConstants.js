@@ -8,10 +8,10 @@ var gulp = require('gulp'),
     g = require('gulp-load-plugins')();
 
 gulp.task('env-constants', [], function () {
-    var DATA_URL = configEnv.dataApi,
-        TILE_URL = configEnv.tileApi,
-        CMS_URL = configEnv.cmsApi,
-        ANALYTICS_IMG = configEnv.analyticsImg;
+    var DATA_URL = configEnv.clientProtocol + configEnv.dataApi,
+        TILE_URL = configEnv.clientProtocol + configEnv.tileApi,
+        CMS_URL = configEnv.clientProtocol + configEnv.cmsApi,
+        ANALYTICS_IMG = configEnv.clientProtocol + configEnv.analyticsImg;
 
     return gulp.src(config.envConstants.path)
         .pipe(g.replace('{{DATA_URL}}', DATA_URL))

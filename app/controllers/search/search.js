@@ -5,7 +5,8 @@
  * @type {exports|module.exports}
  */
 var helper = require('../../models/util/util'),
-    baseConfig = require('../../../config/config'),
+    apiConfig = require('../../models/gbifdata/apiConfig'),
+    cmsConfig = require('../../models/cmsData/apiConfig'),
     _ = require('lodash'),
     async = require('async');
 
@@ -17,21 +18,21 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
     async.auto(
         {
             info: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'species/' + key, callback);
+                helper.getApiData(apiConfig.taxon.url + key, callback);
             },
             name: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'species/' + key + '/name', callback);
+                helper.getApiData(apiConfig.taxon.url + key + '/name', callback);
             },
             occurrences: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&taxonKey=' + key, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=10&taxonKey=' + key, callback);
             },
             images: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=10&mediatype=stillimage&taxonKey=' + key, callback);
             },
             holotypes: function (callback) {
                 //Only show holotypes if it is a species
                 if (taxon.rank == 'SPECIES' || taxon.rank == 'FAMILY' || taxon.rank == 'GENUS') {
-                    helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&typestatus=holotype&taxonKey=' + key, callback);
+                    helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=5&typestatus=holotype&taxonKey=' + key, callback);
                 } else {
                     callback(null, null);
                 }
@@ -41,7 +42,7 @@ function getAdditionalDataFromMatchedTaxon(taxon, cb) {
                     callback(null, null);
                 } else {
                     var publishingOrgKey = results.holotypes.results[0].publishingOrgKey;
-                    helper.getApiData(baseConfig.dataApi + 'organization/' + publishingOrgKey, callback);
+                    helper.getApiData(apiConfig.publisher.url + publishingOrgKey, callback);
                 }
             }]
         },
@@ -90,7 +91,7 @@ function getData(query, cb) {
     async.auto(
         {
             rawTaxaMatches: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'species/match?verbose=true&name=' + q, function (err, data) {
+                helper.getApiData(apiConfig.taxon.url + 'match?verbose=true&name=' + q, function (err, data) {
                     if (typeof data.errorType !== 'undefined') {
                         callback(err, data)
                     } else if (data) {
@@ -120,7 +121,7 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length != 0) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=5&catalogNumber=' + q, callback);
+                        helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=5&catalogNumber=' + q, callback);
                     }
                 }
             ],
@@ -129,7 +130,7 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0 || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0)) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=10&q=' + q, callback);
+                        helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=10&q=' + q, callback);
                     }
                 }
             ],
@@ -138,7 +139,7 @@ function getData(query, cb) {
                     if (typeof results.rawTaxaMatches.errorType !== 'undefined' || results.rawTaxaMatches.length > 0 || (results.catalogNumberOccurrences && results.catalogNumberOccurrences.count > 0)) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?HAS_COORDINATE=true&MEDIA_TYPE=StillImage&limit=10&q=' + q, callback);
+                        helper.getApiData(apiConfig.occurrenceSearch.url + '?HAS_COORDINATE=true&MEDIA_TYPE=StillImage&limit=10&q=' + q, callback);
                     }
                 }
             ],
@@ -152,16 +153,16 @@ function getData(query, cb) {
             //    }
             //],
             datasets: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'dataset/search?limit=3&hl=true&q=' + q, callback);
+                helper.getApiData(apiConfig.datasetSearch.url + '?limit=3&hl=true&q=' + q, callback);
             },
             publishers: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'organization?limit=3&q=' + q, callback);
+                helper.getApiData(apiConfig.publisher.url + '?limit=3&q=' + q, callback);
             },
             cms: function (callback) {
-                helper.getApiData(baseConfig.cmsApi + 'search/' + q + '?page[size]=10', callback);
+                helper.getApiData(cmsConfig.search.url + q + '?page[size]=10', callback);//TODO
             },
             country: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'directory/participant?q=' + q, function (err, data) {
+                helper.getApiData(apiConfig.directoryParticipant.url + '?q=' + q, function (err, data) {
                     if (err) {
                         callback(err, data);
                         return;
@@ -182,7 +183,7 @@ function getData(query, cb) {
                     if (!countryCode) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&country=' + countryCode, callback);
+                        helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&country=' + countryCode, callback);
                     }
                 }
             ],
@@ -192,7 +193,7 @@ function getData(query, cb) {
                     if (!countryCode) {
                         callback(null, null);
                     } else {
-                        helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&publishingCountry=' + countryCode, callback);
+                        helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&publishingCountry=' + countryCode, callback);
                     }
                 }
             ]

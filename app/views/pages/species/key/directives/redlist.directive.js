@@ -46,7 +46,7 @@ function redlistDirective() {
             var iucn = _.head(data.result);
             if (iucn) {
                 vm.category = iucn.category;
-                vm.link = 'http://apiv3.iucnredlist.org/api/v3/website/' + vm.name;
+                vm.link = '//apiv3.iucnredlist.org/api/v3/website/' + vm.name;
             } else {
                 vm.category = 'NE';
                 vm.link = '#';
