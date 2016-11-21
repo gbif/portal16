@@ -21,7 +21,7 @@ var apiConfig = {
         url: baseUrl + 'dataset/search/'
     },
     image: {
-        url: baseConfig.clientProtocol + baseConfig.dataApi + 'image/unsafe/'
+        url: baseConfig.dataApi + 'image/unsafe/'
     },
     installation: {
         url: baseUrl + 'installation/'
