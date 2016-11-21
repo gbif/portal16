@@ -1,12 +1,15 @@
 'use strict';
 
-var baseConfig = require('../../../config/config');
-var baseUrl = baseConfig.dataApi;
+var baseConfig = require('../../../config/config'),
+    baseUrl = baseConfig.serverProtocol + baseConfig.dataApi;
 
 // TODO Establish URL concatenation policy. Always no trailing slash?
 var apiConfig = {
     base: {
         url: baseUrl
+    },
+    search: {
+        url: baseUrl + 'search/'
     },
     country: {
         url: baseUrl + 'node/country/'
@@ -18,7 +21,7 @@ var apiConfig = {
         url: baseUrl + 'dataset/search/'
     },
     image: {
-        url: baseUrl + 'image/unsafe/'
+        url: baseConfig.dataApi + 'image/unsafe/'
     },
     installation: {
         url: baseUrl + 'installation/'

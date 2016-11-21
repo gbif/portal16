@@ -327,11 +327,11 @@ function createMap(element, projection) {
 
 
 function changeBaseMap(map) {
-    var baseMap = L.tileLayer('http://b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist', {
+    var baseMap = L.tileLayer('//b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist', {
         attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
     });
 
-    var arctic = L.tileLayer('http://{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
+    var arctic = L.tileLayer('//{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
         attribution: '&copy; <a href="http://arcticconnect.org/">ArcticConnect</a>. Data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     });
     baseMap.addTo(map);
@@ -350,7 +350,7 @@ function addOverLays(map, query) {
     //optionsB.style = "orange.marker";
 
     var overlays = [];
-    var overlayA = L.gbifSimpleLayer('http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
+    var overlayA = L.gbifSimpleLayer('//{s}-api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.png?' + queryParam, optionsA);
     overlayA.addTo(map);
     overlays.push(overlayA);
 

@@ -1,8 +1,8 @@
 'use strict';
 
-var baseConfig = require('../../../config/config');
+var baseConfig = require('../../../config/config'),
+    baseUrl = baseConfig.serverProtocol + baseConfig.cmsApi;
 
-var baseUrl = baseConfig.cmsApi;
 var apiConfig = {
     base: {
         url: baseUrl
