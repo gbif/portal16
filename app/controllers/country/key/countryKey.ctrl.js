@@ -11,29 +11,29 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/country/:key\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    Country.get(key, {expand: []}).then(function (country) {
-        try {
-            if (req.params.ext == 'debug') {
-                res.json(country);
-            } else {
-                res.render('pages/country/key/countryKey2', {
-                    country: country,
-                    _meta: {
-                        title: country.record.participantTitle
-                    }
-                });
-            }
-        } catch (e) {
-            next(e);
-        }
-    }, function (err) {
-        next(err);
-    });
-});
+//router.get('/country/:key\.:ext?', function (req, res, next) {
+//    var key = req.params.key;
+//    Country.get(key, {expand: []}).then(function (country) {
+//        try {
+//            if (req.params.ext == 'debug') {
+//                res.json(country);
+//            } else {
+//                res.render('pages/country/key/countryKey2', {
+//                    country: country,
+//                    _meta: {
+//                        title: country.record.participantTitle
+//                    }
+//                });
+//            }
+//        } catch (e) {
+//            next(e);
+//        }
+//    }, function (err) {
+//        next(err);
+//    });
+//});
 
-router.get('/country2/:key\.:ext?', function (req, res, next) {
+router.get('/country/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
     //renderPage(req, res, next, require('./test'));
     Country.get(key, {expand: ['news', 'events', 'dataUse']}).then(function (country) {
