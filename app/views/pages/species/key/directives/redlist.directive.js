@@ -51,8 +51,8 @@ function redlistDirective() {
         }, function (data) {
             var iucn = _.head(data.result);
             if (iucn) {
-                if (iucn.category in iucn.category) {
-                    iucn.category = iucn.category[iucn.category];
+                if (legacyCategories.hasOwnProperty(iucn.category)) {
+                    iucn.category = legacyCategories[iucn.category];
                 }
                 vm.category = iucn.category;
                 vm.link = 'http://apiv3.iucnredlist.org/api/v3/website/' + vm.name;
