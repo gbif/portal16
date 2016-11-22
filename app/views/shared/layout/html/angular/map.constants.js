@@ -18,8 +18,9 @@ var baseLayers = {
         },
         'classic-4326': {
             name: "Retro",  // alternative suggestions very welcome
-            // TODO: This url is temporary 
-            url: "//b.ashbu.cartocdn.com/timrobertson100/api/v1/map/fb250d3166967c63ba8a177dcea6ba83:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
+            // TODO: This url is temporary
+            // HTTP URL:               "//b.ashbu.cartocdn.com/timrobertson100/api/v1/map/fb250d3166967c63ba8a177dcea6ba83:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
+            url: "https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/fb250d3166967c63ba8a177dcea6ba83:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
             options: {},
             type: 'xyz',
             layerOptions: {
@@ -30,8 +31,9 @@ var baseLayers = {
         },
         'grey-4326': {
             name: "Retro",  // alternative suggestions very welcome
-            // TODO: This url is temporary 
-            url: "//b.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
+            // TODO: This url is temporary
+            // HTTP URL:        "http://{s}.ashbu.cartocdn.com/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
+            url: "https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/{z}/{x}/{y}.png?cache_policy=persist",
             options: {},
             type: 'xyz',
             layerOptions: {
