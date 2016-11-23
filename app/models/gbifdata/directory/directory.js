@@ -124,7 +124,7 @@ Directory.getContacts = function(res) {
         })
         .then(function(contacts){
             defer.resolve(contacts);
-            log.info(calls + 'calls have been made to complete the contacts page.');
+            log.info(calls + ' calls have been made to complete the contacts page.');
         })
         .catch(function(err){
             defer.reject(new Error(err));
@@ -418,7 +418,7 @@ function getNodeDetails(nodeId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + ' ingetNodeDetails()'));
+            deferred.reject(new Error(err + ' in getNodeDetails()'));
         });
     return deferred.promise;
 }
@@ -495,7 +495,7 @@ function getCommitteeContacts(group, contacts) {
             deferred.resolve(committee);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + ' in getCommitteeContacts() while requesting against ' + requestUrl));
+            deferred.reject(new Error(err + ' in getCommitteeContacts() while accessing ' + requestUrl));
         });
     return deferred.promise;
 }
