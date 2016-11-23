@@ -4,21 +4,27 @@
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">Search</span>
-                    <span class="article-header__category__lower">Occurrences</span>
+                    <span class="article-header__category__upper">Search occurrences</span>
+                    <span class="article-header__category__lower" ng-if="occGallery.count >= 0">
+                        {{occGallery.count | localNumber:occGallery.occurrenceState.query.locale }} with images
+                    </span>
+
+                    <span class="article-header__category__lower" ng-if="occGallery.count < 0">
+                        Loading ...
+                    </span>
                 </nav>
-                <div class="search-header__description">
-                    <span ng-if="occGallery.count >= 0">{{occGallery.occurrenceState.table.count | number}} occurrences. {{occGallery.count | number}} with images. <span
-                            ng-if="occGallery.failedImageCount > 0">{{occGallery.failedImageCount}} failed images</span></span>
-                </div>
+                <!--<div class="search-header__description">-->
+                    <!--<span ng-if="occGallery.count >= 0">{{occGallery.occurrenceState.table.count | number}} occurrences. {{occGallery.count | number}} with images. <span-->
+                            <!--ng-if="occGallery.failedImageCount > 0">{{occGallery.failedImageCount}} failed images</span></span>-->
+                <!--</div>-->
             </div>
         </div>
     </section>
 
     <section class="horizontal-stripe--paddingless white-background">
-        <div class="container--narrow">
+        <div class="container-fluid">
             <div class="row">
-                <nav class="tabs">
+                <nav class="tabs text-right">
                     <ul>
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchTable()">
@@ -48,9 +54,10 @@
         <div class="container-fluid">
             <div class="imageGallery">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}"
-                   ng-style="{'background-image':'url({{occGallery.imageCache}}1x1/{{image.media[0].identifier | encodeURIComponent}}'}">
-                    <img ng-src="{{occGallery.imageCache}}x260/{{image.media[0].identifier | encodeURIComponent}}"
+                   ng-style="{'background-image':'url({{occGallery.imageCache}}1x1/{{image._images[0].identifier | encodeURIComponent}}'}">
+                    <img ng-src="{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"
                          gallery-image on-img-error="occGallery.imageFailed">
+                     <div class="summary smaller">{{image.scientificName}}</div>
                 </a>
                 <div class="imageGallery__more" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>More</span>
                 </div>

@@ -1,5 +1,5 @@
 <section class="horizontal-stripe article-header white-background">
-    <div class="container--normal">
+    <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">

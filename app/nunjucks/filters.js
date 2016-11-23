@@ -47,6 +47,10 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('sanitizeTrusted', format.sanitizeTrusted);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('addPortalClasses', format.addPortalClasses);
     })();
 

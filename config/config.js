@@ -7,8 +7,7 @@ var path = require('path'),
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
-    analyticsImg = yargs.analyticsImg,
-    ghpw = yargs.ghpw;
+    analyticsImg = yargs.analyticsImg;
 
 var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
 
@@ -25,7 +24,7 @@ var config = {
         apidocs: apidocs,
         dataApi: dataApi || '//api.gbif.org/v1/', // NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/'
     },
