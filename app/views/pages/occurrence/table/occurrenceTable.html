@@ -7,7 +7,7 @@
                     <nav class="article-header__category article-header__category--deep">
                         <span class="article-header__category__upper">Search occurrences</span>
                         <span class="article-header__category__lower" ng-if="occTable.hasData()">
-                            {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
+                            {{occTable.occurrenceState.table.count | localNumber:occTable.occurrenceState.query.locale }} results
                         </span>
 
                         <span class="article-header__category__lower" ng-if="!occTable.hasData()">

@@ -12,7 +12,7 @@
                     </span>
                     <span class="article-header__category__lower">GBIF</span>
                 </nav>
-                <h1>
+                <h1 style="color:white">
                     Global Biodiversity Information Facility
                 </h1>
                 <p>Demonstration site, under active development</p>

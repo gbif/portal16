@@ -64,6 +64,9 @@
  * Header area styles
  */
 .article-header {
+    &.horizontal-stripe {
+        padding vrBlock(2.5)
+    }
     > * last-child {
         margin-bottom 0
     }
@@ -115,7 +118,7 @@ $articleCategorySeparatorSpacing = 6px
     font-weight bold
     font-size round(0.85 * $htmlFontSize)
     > *:last-child {
-        font-weight normal
+        font-weight 600
     }
     a {
         color inherit
@@ -198,16 +201,6 @@ $articleCategorySeparatorSpacing = 6px
         word-wrap break-word
         hyphens auto
         margin-bottom vrBlock(1)
-        figure {
-            overflow hidden
-            break-inside avoid-column
-            margin-bottom vrBlock(1)
-            figcaption {
-                font-size 0.9rem
-                font-weight 300
-                color $citationTextColor
-            }
-        }
         section {
             break-inside avoid-column
         }
@@ -262,6 +255,16 @@ $articleCategorySeparatorSpacing = 6px
     p {
         margin-bottom 1.5em
     }
+    figure {
+        overflow hidden
+        break-inside avoid-column
+        margin-bottom vrBlock(1)
+        figcaption {
+            font-size 0.9rem
+            font-weight 300
+            color $citationTextColor
+        }
+    }
 }
 
 .body-text--markdown {
@@ -284,7 +287,6 @@ $articleCategorySeparatorSpacing = 6px
         h4, .h4 {
             //font-weight 500
             margin-right 0.5em
-            margin-top 0
             margin-bottom 0.3em
             &:after {
                 content: ":"
