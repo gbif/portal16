@@ -21,7 +21,7 @@
                      ng-controller="searchCtrl as omniSearch">
                     <form action="/search" class="search-bar--home__term ng-pristine ng-valid"
                           ng-submit="omniSearch.updateSearch()">
-                        <input id="siteSearch" type="text" placeholder="Search" name="q" autocomplete="off" value=""
+                        <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off" value=""
                                ng-init="omniSearch.freeTextQuery == ''"
                                ng-model="omniSearch.freeTextQuery"
                                class="ng-pristine ng-untouched ng-valid ng-empty"

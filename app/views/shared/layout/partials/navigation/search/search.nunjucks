@@ -18,7 +18,7 @@
                     <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
                         <input type="text"
                                autocomplete="off"
-                               id="siteSearch"
+                               id="siteSearchInputDrawer"
                                ng-init="omniSearch.freeTextQuery == ''"
                                ng-model="omniSearch.freeTextQuery"
                                placeholder="Occurrences, species, news ..."
