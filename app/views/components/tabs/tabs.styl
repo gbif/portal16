@@ -1,40 +1,113 @@
-ul.tabs {
-    position relative
-    z-index 10
-    padding 0
-    > li {
-        float left
+//ul.tabs {
+//    position relative
+//    z-index 10
+//    padding 0
+//    > li {
+//        float left
+//        display inline-block
+//        margin 0 2px
+//        position relative
+//        a {
+//            display block
+//            padding 0px 12px
+//            text-transform capitalize
+//            color inherit
+//            height $searchTabBar-height
+//            line-height $searchTabBar-height
+//            &:hover {
+//                text-decoration none
+//            }
+//        }
+//        &.is-active {
+//            background $actionColor
+//            color white
+//            &:after { //arrow below
+//                top 100%
+//                left 50%
+//                border solid transparent
+//                content " "
+//                height 0
+//                width 0
+//                position absolute
+//                pointer-events none
+//                border-color rgba(58, 85, 99, 0)
+//                border-top-color $actionColor
+//                border-width 7px
+//                margin-left -8px
+//            }
+//        }
+//    }
+//}
+
+
+.tabs {
+    height $searchTabBar-height
+    ul {
+        display block
+        padding 0
+        max-width 100%
+        overflow auto
+        white-space nowrap
+    }
+    li {
         display inline-block
-        margin 0 2px
-        position relative
-        a {
-            display block
-            padding 0px 12px
-            text-transform capitalize
-            color inherit
-            height $searchTabBar-height
-            line-height $searchTabBar-height
-            &:hover {
-                text-decoration none
-            }
+    }
+    .tab > a, .tab > span {
+        display block
+        border-bottom 2px solid transparent
+        text-align center
+        padding 0 1rem
+        text-transform uppercase
+        font-size 12px
+        font-weight normal
+        color lighten($bodyTextColor, 20)
+        text-decoration none
+        line-height "calc(%s - 2px)" % $searchTabBar-height
+        &:hover {
+            text-decoration none
+            color $bodyTextColor
         }
-        &.is-active {
-            background $actionColor
-            color white
-            &:after { //arrow below
-                top 100%
-                left 50%
-                border solid transparent
-                content " "
-                height 0
-                width 0
-                position absolute
-                pointer-events none
-                border-color rgba(58, 85, 99, 0)
-                border-top-color $actionColor
-                border-width 7px
-                margin-left -8px
-            }
+    }
+    li.isActive {
+        a, span {
+            border-color $color_accent
+            color $bodyTextColor
+        }
+    }
+    .tab--seperator {
+        border-left 1px solid $stripeBorderColor
+    }
+}
+
++isAbove($laptop) {
+    .tabs {
+        ul {
+            white-space normal
+        }
+        .tab--seperator {
+            border-left none
+        }
+    }
+    .tab-right {
+        float right
+        a {
+            //text-transform none
+        }
+    }
+}
+
+
+.tabs-fixed-container {
+    position fixed
+    width 100%
+    top $navBar_height
+    z-index 50
+    display none
+}
++isAbove($laptop) {
+    .tabs-fixed-container {
+        &.is-visible {
+            display block
         }
     }
 }

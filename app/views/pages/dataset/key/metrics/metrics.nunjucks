@@ -154,7 +154,7 @@
                                                 <div>
                                                     <div class="summary-circle">
                                                         <span class="round-image"
-                                                              style="background-image:url('http://api.gbif.org/v1/image/unsafe/100x100/{$ image.media[0].identifier | encodeURI $}')"></span>
+                                                              style="background-image:url('{$_meta.imageCacheUrl $}100x100/{$ image.media[0].identifier | encodeURI $}')"></span>
                                                     </div>
                                                     <div class="summary-counts__percentage">
                                                         <span>{$ dataset.images._percentage $}%</span>

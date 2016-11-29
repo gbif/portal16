@@ -10,11 +10,13 @@
     @extend .container--normal
     max-width $desktop
 }
+
 .container--desktop--snap-to-edges {
     @extend .container--desktop
     padding-left 0
     padding-right 0
 }
+
 +isAbove($desktop) {
     .container--desktop--snap-to-edges {
         padding-left 15px
@@ -33,7 +35,7 @@
 }
 
 .wrapper-horizontal-stripes {
-    >.horizontal-stripe, >.horizontal-stripe--paddingless {
+    > .horizontal-stripe, > .horizontal-stripe--paddingless {
         border-top 1px solid $stripeBorderColor
         &.article-header {
             border none
@@ -49,20 +51,23 @@
         }
     }
 }
+
 .horizontal-stripe {
-    padding vrBlock(1) 0
+    padding vrBlock(1.5) 0
 }
 
 .horizontal-stripe--paddingless {
     padding 0
 }
 
-
 /*
  * Header area styles
  */
 .article-header {
-    >*last-child {
+    &.horizontal-stripe {
+        padding vrBlock(2.5)
+    }
+    > * last-child {
         margin-bottom 0
     }
     h1 {
@@ -111,8 +116,9 @@ $articleCategorySeparatorSpacing = 6px
     text-align center
     text-transform uppercase
     font-weight bold
+    font-size round(0.85 * $htmlFontSize)
     > *:last-child {
-        font-weight normal
+        font-weight 600
     }
     a {
         color inherit
@@ -195,16 +201,6 @@ $articleCategorySeparatorSpacing = 6px
         word-wrap break-word
         hyphens auto
         margin-bottom vrBlock(1)
-        figure {
-            overflow hidden
-            break-inside avoid-column
-            margin-bottom vrBlock(1)
-            figcaption {
-                font-size 0.9rem
-                font-weight 300
-                color $citationTextColor
-            }
-        }
         section {
             break-inside avoid-column
         }
@@ -232,12 +228,23 @@ $articleCategorySeparatorSpacing = 6px
 
 .body-text {
     font-size 16px
-    font-weight normal
-    h3 {
-        font-size 20px
-    }
+    line-height 1.75
     strong {
-        font-weight 600
+        font-weight bold
+    }
+    h2 {
+        //font-size 24px
+        margin-top 3em
+        margin-bottom 1em
+        &:first-child {
+            margin-top 1.5em
+        }
+    }
+    h3 {
+        //font-size 16px
+        //font-weight bold
+        margin-top 3em
+        margin-bottom 2em
     }
     ul {
         list-style disc
@@ -245,20 +252,23 @@ $articleCategorySeparatorSpacing = 6px
     ol {
         list-style decimal
     }
+    p {
+        margin-bottom 1.5em
+    }
+    figure {
+        overflow hidden
+        break-inside avoid-column
+        margin-bottom vrBlock(1)
+        figcaption {
+            font-size 0.9rem
+            font-weight 300
+            color $citationTextColor
+        }
+    }
 }
 
 .body-text--markdown {
-    font-size 16px
-    font-weight normal
-    strong {
-        font-weight 600
-    }
-    h2 {
-        font-size 24px
-    }
-    h3 {
-        font-size 20px
-    }
+    @extends .body-text
 }
 
 .article-auxiliary {
@@ -266,7 +276,7 @@ $articleCategorySeparatorSpacing = 6px
     margin-top vrBlock(2)
     margin-bottom -10px //to compensate for the bottom border on the sections.
     border-top 1px solid $stripeBorderColor
-    font-size 1rem
+    font-size round(0.85 * $htmlFontSize)
     color $gray63
 
     section {
@@ -275,9 +285,8 @@ $articleCategorySeparatorSpacing = 6px
             display inline-block
         }
         h4, .h4 {
-            font-weight bold
+            //font-weight 500
             margin-right 0.5em
-            margin-top 0
             margin-bottom 0.3em
             &:after {
                 content: ":"
@@ -523,6 +532,7 @@ sub {
         position relative
     }
 }
+
 .anchor-block--tabs {
     @extends .anchor-block
     &:before {
@@ -547,9 +557,9 @@ sub {
     overflow visible
 }
 
-.dashboard {
-    font-size 14px
-}
+//.dashboard {
+//    font-size 14px
+//}
 
 .discreet-comment {
     color $discreetInk

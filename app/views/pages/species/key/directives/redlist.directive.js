@@ -30,6 +30,12 @@ function redlistDirective() {
         'DD': 'Data Deficient',
         'NE': 'Not Evaluated'
     };
+    var legacyCategories = {
+        'LR/lc': 'LC',
+        'LR/cd': 'LC',
+        'LR/nt': 'NT'
+    };
+
     return directive;
 
     /** @ngInject */
@@ -45,8 +51,11 @@ function redlistDirective() {
         }, function (data) {
             var iucn = _.head(data.result);
             if (iucn) {
+                if (legacyCategories.hasOwnProperty(iucn.category)) {
+                    iucn.category = legacyCategories[iucn.category];
+                }
                 vm.category = iucn.category;
-                vm.link = 'http://apiv3.iucnredlist.org/api/v3/website/' + vm.name;
+                vm.link = '//apiv3.iucnredlist.org/api/v3/website/' + vm.name;
             } else {
                 vm.category = 'NE';
                 vm.link = '#';

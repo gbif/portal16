@@ -5,23 +5,30 @@
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search</span>
-                        <span class="article-header__category__lower">Occurrences</span>
-                    </nav>
-                    <div class="search-header__description">
-                        <span ng-if="occTable.hasData()">
-                            {{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results
+                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__lower" ng-if="occTable.hasData()">
+                            {{occTable.occurrenceState.table.count | localNumber:occTable.occurrenceState.query.locale }} results
                         </span>
-                    </div>
+
+                        <span class="article-header__category__lower" ng-if="!occTable.hasData()">
+                            Loading ...
+                        </span>
+
+                    </nav>
+                    <!--<div class="search-header__description">-->
+                        <!--<span ng-if="occTable.hasData()">-->
+                        <!--{{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results-->
+                        <!--</span>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="horizontal-stripe--paddingless white-background seperator--b">
-        <div class="container--narrow">
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container-fluid">
             <div class="row">
-                <nav class="tabs">
+                <nav class="tabs text-right">
                     <ul>
                         <li class="tab isActive">
                             <span>
@@ -46,12 +53,22 @@
         </div>
     </section>
 
-    <section class="horizontal-stripe white-background">
+    <section class="horizontal-stripe--paddingless lighter-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12 small">-->
+                    <!--<span ng-if="occTable.hasData()">-->
+                        <!--{{occTable.occurrenceState.data.count | localNumber:occTable.occurrenceState.query.locale }} results-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
         <div class="occurrence-search__table__area" ng-if="occTable.hasData()">
             <div class="scrollable-y">
                 <div class="table-container">
-                    <table class="table search-table">
+                    <table class="table search-table smaller">
                         <thead>
                         <tr>
                             <th class="text-capitalize"

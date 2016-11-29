@@ -27,6 +27,16 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         latestData = OccurrenceSearch.query(vm.query, function (data) {
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
+            data.results.forEach(function(e){
+                //select first image
+                e._images = [];
+                for (var i = 0; i < e.media.length; i++) {
+                    if (e.media[i].type == 'StillImage') {
+                        e._images.push(e.media[i]);
+                    }
+                }
+            });
+
             vm.results = vm.results.concat(data.results);
         }, function () {
             //TODO handle request error

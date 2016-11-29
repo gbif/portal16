@@ -5,7 +5,7 @@
     <article class="wrapper-horizontal-stripes country-key page--data" ng-controller="countryKeyCtrl as countryKey" ng-init="countryKey.init('{$ country.record.country $}')">
 
         <div class="horizontal-stripe article-header white-background p-b-0">
-            <div class="container">
+            <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12">
                         <nav class="article-header__category article-header__category--deep">

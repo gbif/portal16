@@ -4,20 +4,26 @@
         <div class="row">
             <div class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">Search</span>
-                    <span class="article-header__category__lower">Occurrences</span>
+                    <span class="article-header__category__upper">Search occurrences</span>
+                    <span class="article-header__category__lower" ng-if="occMap.count >= 0">
+                        {{occMap.count | localNumber:occMap.occurrenceState.query.locale }} with coordinates
+                    </span>
+
+                    <span class="article-header__category__lower" ng-if="occMap.count < 0">
+                        Loading ...
+                    </span>
                 </nav>
-                <div class="search-header__description">
-                    <span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>
-                </div>
+                <!--<div class="search-header__description">-->
+                    <!--<span ng-if="occMap.count >= 0">{{occMap.occurrenceState.data.count | number}} occurrences. {{occMap.count | number}} with coordinates</span>-->
+                <!--</div>-->
             </div>
         </div>
     </section>
 
     <section class="horizontal-stripe--paddingless white-background">
-        <div class="container--narrow">
+        <div class="container-fluid">
             <div class="row">
-                <nav class="tabs">
+                <nav class="tabs text-right">
                     <ul>
                         <li class="tab">
                             <a href="" ui-sref="occurrenceSearchTable()">
@@ -82,7 +88,7 @@
                                     </div>
                                     <div class="imageGallery__img img-round-thumb"
                                          ng-if="occurrence.media[0].identifier && occurrence.media[0].type=='StillImage'">
-                                        <img ng-src="https://http2-api-test.gbif-uat.org/v1/image?url={{occurrence.media[0].identifier | encodeURIComponent}}&size=S"
+                                        <img ng-src="//api.gbif-uat.org/v1/image?url={{occurrence.media[0].identifier | encodeURIComponent}}&size=S"
                                              gallery-image>
                                     </div>
                                 </a>

@@ -1587,10 +1587,15 @@
       "to": "to"
     },
     "projectStatus": {
-      "in_progress": "In progress",
       "approved": "Approved",
-      "undefined": "Not specified",
-      "closed": "Closed"
+      "cancelled": "Cancelled",
+      "closed": "Closed",
+      "in_progress": "In progress",
+      "delayed": "Delayed",
+      "pre_approved": "Pre-approved",
+      "under_evaluation": "Under evaluation",
+      "expression_of_interest": "Expression of interest",
+      "undefined": "Not specified"
     },
     "programme": {
       "projects": "Projects",

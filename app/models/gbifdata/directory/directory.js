@@ -124,7 +124,7 @@ Directory.getContacts = function(res) {
         })
         .then(function(contacts){
             defer.resolve(contacts);
-            log.info(calls + 'calls have been made to complete the contacts page.');
+            log.info(calls + ' calls have been made to complete the contacts page.');
         })
         .catch(function(err){
             defer.reject(new Error(err));
@@ -395,6 +395,7 @@ function getParticipantDetails(participantId) {
         })
         .catch(function(err){
             deferred.reject(err + ' in getParticipantDetails()');
+            log.info(err + ' in getParticipantDetails()');
         });
     return deferred.promise;
 }
@@ -418,7 +419,8 @@ function getNodeDetails(nodeId) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + ' ingetNodeDetails()'));
+            deferred.reject(new Error(err + ' in getNodeDetails()'));
+            log.info(err + ' in getNodeDetails()');
         });
     return deferred.promise;
 }
@@ -442,7 +444,8 @@ function getParticipantPeopleDetails(participant, contacts) {
             deferred.resolve(participant);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + 'getParticipantPeopleDetails()'));
+            deferred.reject(new Error(err + ' in getParticipantPeopleDetails()'));
+            log.info(err + ' in getParticipantPeopleDetails()');
         });
     return deferred.promise;
 }
@@ -495,7 +498,8 @@ function getCommitteeContacts(group, contacts) {
             deferred.resolve(committee);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + ' in getCommitteeContacts() while requesting against ' + requestUrl));
+            deferred.reject(new Error(err + ' in getCommitteeContacts() while accessing ' + requestUrl));
+            log.info(err + ' in getCommitteeContacts() while accessing ' + requestUrl);
         });
     return deferred.promise;
 }
@@ -560,7 +564,8 @@ function getPersonContact(personId, contacts) {
             deferred.resolve(data);
         })
         .catch(function(err){
-            deferred.reject(new Error(err + ' ingetPersonContact()'));
+            deferred.reject(new Error(err + ' in getPersonContact() while accessing ' + requestUrl));
+            log.info(err + ' in getPersonContact() while accessing ' + requestUrl);
         });
     return deferred.promise;
 }
@@ -600,7 +605,8 @@ function genericEndpointAccess(requestUrl, options) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err + ' while requesting against ' + requestUrl));
+            deferred.reject(new Error(err + ' while accessing ' + requestUrl));
+            log.info(err + ' while accessing ' + requestUrl);
         }
     }, options);
     return deferred.promise;

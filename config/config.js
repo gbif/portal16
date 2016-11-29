@@ -7,10 +7,9 @@ var path = require('path'),
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
-    analyticsImg = yargs.analyticsImg,
-    ghpw = yargs.ghpw;
+    analyticsImg = yargs.analyticsImg;
 
-var apidocs = "http://gbif.github.io/gbif-api/apidocs/org/gbif/api";
+var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
 
 var config = {
     local: {
@@ -21,12 +20,13 @@ var config = {
         },
         port: port || 3000,
         log: log,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/',
+        dataApi: dataApi || '//api.gbif.org/v1/', // NB not dev!
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png', // NB not dev!
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        domain: 'https://gbif-dev.org/'
     },
     dev: {
         env: env,
@@ -36,12 +36,13 @@ var config = {
         },
         port: port || 80,
         log: log,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
+        dataApi: dataApi || '//api.gbif.org/v1/', // NB not dev!
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png', // NB not dev!
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        domain: 'https://gbif-dev.org/'
     },
     uat: {
         env: env,
@@ -51,12 +52,13 @@ var config = {
         },
         port: port || 80,
         log: log,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/',
+        dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-uat.org/'
+        domain: 'https://gbif-uat.org/'
     },
     prod: {
         env: env,
@@ -66,12 +68,13 @@ var config = {
         },
         port: port || 80,
         log: log,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
-        tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/', // NB not prod!
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//cdn.gbif.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
-        domain: 'http://demo.gbif.org/'
+        domain: 'https://demo.gbif.org/'
     },
     test: {
         env: env,
@@ -81,12 +84,13 @@ var config = {
         },
         port: port || 3000,
         log: log,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
+        dataApi: dataApi || '//api.gbif-dev.org/v1/',
+        tileApi: tileApi || '//api.gbif-dev.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        domain: 'https://gbif-dev.org/'
     }
 };
 

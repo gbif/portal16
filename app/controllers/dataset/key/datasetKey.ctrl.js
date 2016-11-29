@@ -4,6 +4,7 @@ var express = require('express'),
     _ = require('lodash'),
     dataset = require('./datasetViewData'),
     taxjs = require('./taxon'),
+    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
     utils = rootRequire('app/helpers/utils'),
     router = express.Router();
@@ -85,7 +86,8 @@ function renderPage(req, res, next, template, dataset, taxon) {
                 dataset: dataset,
                 taxon: taxon,
                 _meta: {
-                    title: dataset.record.title
+                    title: dataset.record.title,
+                    imageCacheUrl: imageCacheUrl
                 }
             });
         }
