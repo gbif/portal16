@@ -7,7 +7,7 @@ let env = process.env.NODE_ENV || 'local',
 let cmsDomain;
 switch (env) {
     case 'local':
-        cmsDomain = 'bko.gbif.org';
+        cmsDomain = 'cms.gbif-dev.org';
         break;
     case 'dev':
         cmsDomain = 'cms.gbif-dev.org';

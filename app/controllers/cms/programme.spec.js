@@ -2,7 +2,8 @@
 
 let request = require('request'),
     cmsApi = require('../../models/cmsData/apiConfig'),
-    helper = require('../../models/util/util');
+    helper = require('../../models/util/util'),
+    commonTerms = require('../../../spec/commonTerms');
 
 describe('Programme content integrity', function(){
 
@@ -19,7 +20,7 @@ describe('Programme content integrity', function(){
     }, 5000);
 
     it('Programme title is correct', function(done){
-        expect(node82243.title).toBe('BID: Biodiversity Information for Development');
+        expect(node82243.title).toBe(commonTerms.bidProjectTitle);
         done();
     }, 5500);
 
