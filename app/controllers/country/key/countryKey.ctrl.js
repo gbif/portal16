@@ -38,7 +38,11 @@ router.get('/country2/:key\.:ext?', function (req, res, next) {
     //renderPage(req, res, next, require('./test'));
     Country.get(key, {expand: ['news', 'events', 'dataUse']}).then(function (country) {
         try {
-            var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
+            var latest = _.concat(
+                _.get(country, 'news.results', []),
+                _.get(country, 'dataUse.results', []),
+                _.get(country, 'country.results', [])
+                );
             country.latest = _.sortBy(latest, ['created']).reverse();
             appendFeed(country).then(function (data) {
                 country.feed = data;
