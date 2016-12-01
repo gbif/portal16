@@ -16,7 +16,7 @@
             </li> -->
 
             <li class="service-menu__feedback">
-                <a href="" ng-click="nav.toggleFilter()">
+                <a href="" ng-click="nav.toggleFeedback()">
                     <span class="service-menu__icon gb-icon-bubble"></span>
                     <span class="service-menu__text">Feedback</span>
                 </a>

@@ -1,31 +1,93 @@
-<aside id="feedback" class="site-drawer site-drawer--wide" ng-class="{'is-active': feedback.isActive}"
+<aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': feedback.isActive}"
        ng-controller="feedbackCtrl as feedback"
-       click-outside="feedback.isActive = false"
-       click-outside-unless="!feedback.isActive"
        >
-       <div class="site-drawer__wrapper">
-            <div class="site-drawer__content">
-                <div class="site-drawer__header">
-                    <div class="site-drawer__header__title">
+       <div class="menubox__wrapper">
+            <div class="menubox__top">
+                <a href="" ng-click="feedback.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                <div class="menubox__header">
+                    <div class="menubox__header__title">
                         <span class="text-center">Feedback</span>
                     </div>
+                    <div class="menubox__header__description text-center" ng-if="!feedback.selected">
+                        <span>Mistakes come in many forms, some has to do with wrong content and others with usability. Please select a feedback type so we can direct it at the appropriate party.</span>
+                    </div>
+                    <div class="menubox__header__description" ng-if="feedback.type.CONTENT == feedback.selected">
+                        <p>
+                            <strong>The content is wrong</strong>
+                        </p>
+                        <p>
+                            Example: Wrong species name, wrong coordinates, spelling mistakes
+                        </p>
+                    </div>
+                    <div class="menubox__header__description" ng-if="feedback.type.BUG == feedback.selected">
+                        <p>
+                            <strong>The site doesn't work properly</strong>
+                        </p>
+                        <p>
+                            Examples: the search button doesn't work and I can only see half the text on the page.
+                        </p>
+                    </div>
+                    <div class="menubox__header__description" ng-if="feedback.type.IDEA == feedback.selected">
+                        <p>
+                            <strong>I have a wonderful idea for GBIF</strong>
+                        </p>
+                        <p>
+                            Examples: I want GBIF for my smart watch and species from outer space
+                        </p>
+                    </div>
+                    <div class="menubox__header__description" ng-if="feedback.type.QUESTION == feedback.selected">
+                        <p>
+                            <strong>I have a question</strong>
+                        </p>
+                        <p>
+                            Examples: How do I download data? Could you please help me publish my data?
+                        </p>
+                    </div>
+                </div>
+                <div class="menubox__nav">
+                    <nav class="clearfix">
+                        <ul>
+                            <li ng-class="{isActive: feedback.type.CONTENT == feedback.selected}">
+                                <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">Content</a>
+                            </li>
+                            <li ng-class="{isActive: feedback.type.BUG == feedback.selected}">
+                                <a href="" ng-click="feedback.toggle(feedback.type.BUG)">Bug</a>
+                            </li>
+                            <li ng-class="{isActive: feedback.type.IDEA == feedback.selected}">
+                                <a href="" ng-click="feedback.toggle(feedback.type.IDEA)">Idea</a>
+                            </li>
+                            <li ng-class="{isActive: feedback.type.QUESTION == feedback.selected}">
+                                <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">Question</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="site-drawer__section">
-                <div class="site-drawer__section__content">
-                    <p>
-                        {{ feedback.test }}
-                        This is an early access release under active development and with many known issues.
-                    </p>
-                    <p>
-                        We value your feedback, but comments are premature at this stage as development has not stabilised
-                        enough yet.
-                    </p>
-                    <p>
-                        Please be aware that downloading and account creation are not currently possible through this site.
-                        Please use <a href="http://gbif.org">GBIF.org</a>
-                    </p>
-                    <div style="font-size:100px; color:#eee" class="gb-icon-bubble text-center"></div>
+            <div class="menubox__content">
+                <div class="menubox__section menubox__section--content">
+                    <div>
+                        <p>
+                            This dataset is actively maintained and was last changed [date].
+                            We suggest that you direct your feedback at the [dataset/publisher] contact. There are [2] registered contacts:
+                        </p>
+                    </div>
+                    <div class="menubox__card">
+                        <p>
+                            Contact information goes here
+                        </p>
+                    </div>
+                    <div class="menubox__card">
+                        <p>
+                            Contact information goes here
+                        </p>
+                    </div>
+                    <div class="card menubox__card">
+                        <div class="card__content">
+                            <p>
+                                Contact information goes here
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
        </div>
