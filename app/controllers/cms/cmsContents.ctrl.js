@@ -6,6 +6,7 @@ let express = require('express'),
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
     cmsData = require('../../models/cmsData/cmsData'),
+    dataApi = require('../../models/gbifdata/apiConfig'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
 md.use(require('markdown-it-video'), {
@@ -93,7 +94,7 @@ router.get([
                     }
 
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
-                        return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function (datasets) {
+                        return cmsData.cmsEndpointAccess(dataApi.datasetSearch.url + '?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;
                             renderPage(data, jsonOutput, next);
                         });
