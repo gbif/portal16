@@ -319,6 +319,13 @@ function closeMenusOnClickOutside(event) {
 document.addEventListener('click', closeMenusOnClickOutside);
 document.addEventListener('touchend', closeMenusOnClickOutside);
 
+//Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+window.gb = window.gb || {};
+window.gb.supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+if (window.gb.supportsTouch) {
+    document.body.classList.add('isTouch'); //could be useful to have in stylesheet. for example to make targets larger on touch devices
+}
+
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function () {

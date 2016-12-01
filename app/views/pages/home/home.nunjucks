@@ -1,48 +1,74 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
+{#
+## header
+name and search bar
+
+## news and ?events
+
+## what is gbif
+GBIF is a non profit organisation that aims to share biodiversity freely with the world ...
+video?
+
+## 700 million occurrences and counting
+map
+see occurrence search
+
+## gallery
+images of observations, speciemsn and holotypes
+background images
+see gallery
+
+## Featured datastories
+Allowing resarchers to understand how life on earth changes over time
+See featured stories
+
+## Data papers
+all of this is only possible because researchers and publishers all around the world is sharing their data.
+nature, PLOS, ... and 
+
+#}
+
+
 {# home page, or front page #}
 {% block page %}
-    <article class="wrapper-horizontal-stripes seperator--b home">
-        <div class="horizontal-stripe--paddingless article-header light-background"
-             style="overflow: hidden; text-align: center;">
-            <div class="hero">
-                <nav class="article-header__category article-header__category--deep" style="padding-top: 10px;">
-                    <span class="article-header__category__upper" style="font-size: 20px;">
-                        <span href="/" class="gb-icon-logo"></span>
-                    </span>
-                    <span class="article-header__category__lower">GBIF</span>
-                </nav>
-                <h1 style="color:white">
-                    Global Biodiversity Information Facility
-                </h1>
-                <p>Demonstration site, under active development</p>
-                <div class="search-bar--home__form"
-                     style="max-width: 400px;margin: auto; margin-top: 20px; padding-bottom:20px"
-                     ng-controller="searchCtrl as omniSearch">
-                    <form action="/search" class="search-bar--home__term ng-pristine ng-valid"
-                          ng-submit="omniSearch.updateSearch()">
-                        <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off" value=""
-                               ng-init="omniSearch.freeTextQuery == ''"
-                               ng-model="omniSearch.freeTextQuery"
-                               class="ng-pristine ng-untouched ng-valid ng-empty"
-                               aria-invalid="false" style="background-color: rgba(255,255,255,0.3);margin: 0;">
-                        <a ng-click="omniSearch.updateSearch()"
-                           class="gb-icon-search search-bar--home__search"
-                           href="" type="submit"
-                           style="border: 1px solid rgba(255,255,255,0.2);border-width: 1px 1px 1px 0;">
-                            <span class="sr-only">search</span>
-                        </a>
-                    </form>
+    <div class="wrapper-horizontal-stripes home">
+        <div class="home__header bg-attached">
+            <div class="container--normal">
+                <div class="home__header__hero-text">
+                    <div class="home__header__name">
+                        Global Biodiversity Information Facility
+                    </div>
+                    <h1>
+                        Free and open access to biodiversity data
+                    </h1>
+                    <!--p>
+                        700+ million species observations, spesimens and more
+                    </p-->
+                    <div class="home__header__search-bar search-box"
+                         ng-controller="searchCtrl as omniSearch">
+                        <form action="/search"
+                              ng-submit="omniSearch.updateSearch()">
+                            <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off" value=""
+                                   ng-init="omniSearch.freeTextQuery == ''"
+                                   ng-model="omniSearch.freeTextQuery"
+                                   aria-invalid="false" autofocus
+                                   focus-me="true">
+                            <a ng-click="omniSearch.updateSearch()"
+                               class="gb-icon-search"
+                               href="" type="submit">
+                                <span class="sr-only">search</span>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                <div class="caption">
+                    <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a
+                    href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe--paddingless light-background">
-            <div class="container-fluid" style="font-size: .9rem;font-weight: 300;color: #758082;">
-                <i>Arundinicola leucocephala</i> (Linnaeus, 1764) observed in Brazil. CC BY-NC 2016 <a
-                        href="/occurrence/1229923922">Scott Buckel via iNaturalist</a>
-            </div>
-        </div>
-        <div class="horizontal-stripe light-background">
+        <!--div class="horizontal-stripe light-background">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -78,7 +104,166 @@
                     </div>
                 </div>
             </div>
+        </div-->
+        <div class="horizontal-stripe white-background">
+            <div class="container--normal">
+                <div class="home__news">
+                    <div class="home__news__header text-center">
+                        <h2>News from the network</h2>
+                        <p class="home__news__header__intro">
+                            Stay up to date with what goes on in the network
+                        </p>
+                    </div>
+
+                    <div class="articles row">
+                        <a href="sdf" class="article-box col-xs-12 col-md-3">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_" alt="Ball_grid-fake2" class="article-thumb">
+                            <article class="article-box__details">
+                                <div class="article-box__tag">
+                                    <span>News</span>
+                                </div>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <span class="article-box__footer">Nov 29th, 2016</span>
+                            </article>
+                        </a>
+                        <a href="sdf" class="article-box col-xs-12 col-md-3">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/82854/16208759367_f191439217_k.jpg" alt="Ball_grid-fake2" class="article-thumb">
+                            <article class="article-box__details">
+                                <div class="article-box__tag">
+                                    <span>News</span>
+                                </div>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <span class="article-box__footer">Nov 29th, 2016</span>
+                            </article>
+                        </a>
+                        <a href="sdf" class="article-box col-xs-12 col-md-3">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82914/ruete-ignorance-map.png" alt="Ball_grid-fake2" class="article-thumb">
+                            <article class="article-box__details">
+                                <div class="article-box__tag">
+                                    <span>News</span>
+                                </div>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <span class="article-box__footer">Nov 29th, 2016</span>
+                            </article>
+                        </a>
+                        <a href="sdf" class="article-box col-xs-12 col-md-3">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82863/Red-crested_pochard.JPG" alt="Ball_grid-fake2" class="article-thumb">
+                            <article class="article-box__details">
+                                <div class="article-box__tag">
+                                    <span>News</span>
+                                </div>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <span class="article-box__footer">Nov 29th, 2016</span>
+                            </article>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
 
-    </article>
+        <article class="horizontal-stripe--paddingless home__featured bg-attached">
+            <div class="container--normal">
+                <div class="home__featured__text">
+                    <p>
+                        Data use
+                    </p>
+                    <div class="clearfix">
+                        <h1>
+                            <a class="inherit noUnderline" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change the most important cause of biodiversity loss?</a>
+                        </h1>
+                    </div>
+                    <p>
+                        <a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read more</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <div class="horizontal-stripe--paddingless white-background">
+            <div class="home__occurrences">
+                <div class="container--normal">
+                    <h2 count="//api.gbif.org/v1/occurrence/search">
+                    &nbsp;
+                    </h2>
+                    <p>
+                        Species observations and specimens
+                    </p>
+                    <p>
+                        Data distributed by GBIF is the result of thousands of researchers, publishers and and other that believe that data about life on our planet brings most value when shared.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="horizontal-stripe--paddingless home__map">
+            <gbmap dataset-key="'838e2626-f762-11e1-a439-00145eb45e9a'" mapstyle="'light'"></gbmap>
+        </div> -->
+
+
+        <article class="horizontal-stripe--paddingless white-background home__featured" style="color: black; box-shadow: inset 0  8px 8px -8px rgba(0,0,0,0.2);text-shadow: 0 0 10px rgba(255,255,255,0.4);position:relative;">
+            <div style="background-image: url('//api.gbif.org/v1/image/unsafe/1600x1000/http://www.florida.plantatlas.usf.edu/img/specimens/USF/288092.jpg');position:absolute;width:100%;height:100%;filter:blur(2px);background-size: cover;
+    background-position: center;
+    background-attachment: fixed;"></div>
+            <div class="container--normal" style="position:relative;">
+                <div class="home__featured__text">
+                    <p>
+                        Sharing
+                    </p>
+                    <div class="clearfix">
+                        <h1>
+                            <a class="inherit noUnderline" href="http://demo.gbif.org/generic/data-publishing">Learn all about the publishing flow</a>
+                        </h1>
+                    </div>
+                    <p><a class="inherit" href="http://demo.gbif.org/generic/data-publishing">Learn more</a></p>
+                </div>
+            </div>
+        </article>
+
+        <div class="horizontal-stripe--paddingless light-background" style="position:relative">
+            <div class="home__datapapers">
+                <div class="home__datapapers__bubble" style="background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNEI1RjgzIiBpZD0iY2lyY2xlIiByPSI2NCIvPjxnIGlkPSJpY29uIj48cG9seWxpbmUgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhcGVyIiBwb2ludHM9IjU0LDI5IDg5LDI5IDg5LDk5IDM5LDk5IDM5LDQ0ICAiLz48ZyBpZD0idGV4dCI+PHJlY3QgZmlsbD0iI0U2RTZFNiIgaGVpZ2h0PSI0IiBpZD0ibGluZV8yXyIgd2lkdGg9IjMwIiB4PSI0OSIgeT0iNjYiLz48cmVjdCBmaWxsPSIjRTZFNkU2IiBoZWlnaHQ9IjQiIGlkPSJsaW5lXzFfIiB3aWR0aD0iMzAiIHg9IjQ5IiB5PSI3NCIvPjxyZWN0IGZpbGw9IiNFNkU2RTYiIGhlaWdodD0iNCIgaWQ9ImxpbmUiIHdpZHRoPSIxNSIgeD0iNDkiIHk9IjU4Ii8+PC9nPjxwb2x5bGluZSBmaWxsPSIjQjNCM0IzIiBpZD0idHJpYW5nbGUiIHBvaW50cz0iNTQsMjkgNTQsNDQgMzksNDQgICIvPjwvZz48L3N2Zz4=')">
+                </div>
+                <div class="home__datapapers__header text-center">
+                    <h2>Data papers</h2>
+                    <p class="home__datapapers__header__intro">
+                        Data takes effort to prepare, curate and describe. Data papers provide recognition for this effort by means of a scholarly article.
+                    </p>
+                </div>
+                <div class="home__datapapers__journals text-center" >
+                    <img src="/img/jorunalmockicons.png" style="margin:auto">
+                </div>
+            </div>
+        </div>
+
+        <!--div class="horizontal-stripe--paddingless light-background">
+            <div class="container--normal">
+                <div class="home__activity">
+                    <div class="home__activity__tab-area">
+                        <h2>New from the network</h2>
+                    </div>
+                    <div class="home__activity__grid">
+                        <div class="article-box">
+                            <a href="">
+                                <div class="article-box__details">
+                                    <div class="article-box__tag">
+                                        <span>News</span>
+                                    </div>
+                                    <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                    <span class="article-box__footer">Nov 29th, 2016</span>
+                                </div>
+                                <img src="http://api.gbif.org/v1/image/unsafe/376x320/left/top/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_" alt="Ball_grid-fake2" width="376" height="320" class="article-thumb">
+                            </a>
+                        </div>
+                        <div class="grid-box">
+                        </div>
+                        <div class="grid-box">
+                        </div>
+                        <div class="grid-box">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+    </div>
 {% endblock %}

@@ -1,4 +1,6 @@
 'use strict';
+//feedback could be structured into several types
+// content/data feedback, web site feedback, questions, system status
 
 var angular = require('angular');
 

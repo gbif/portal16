@@ -38,13 +38,12 @@ function getContent() {
     "use strict";
     var deferred = Q.defer();
     helper.getApiData(cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=news', function (err, data) {
-        if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
-        } else if (data) {
+        if (err) {
+            deferred.reject(err);
+        } else if (typeof data.errorType !== 'undefined') {
+            deferred.reject(new Error(data.errorType));
+        } else {
             deferred.resolve(data);
-        }
-        else {
-            deferred.reject(new Error(err));
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});
     return deferred.promise;

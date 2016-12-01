@@ -114,9 +114,9 @@
 
                             <div>
                                 <dt class="text-capitalize">Environment</dt>
-                                <dd>{% if taxon.info.marine %}marine{% elseif taxon.info.marine == false %}<del>marine</del>{% endif %}
-                                    {% if taxon.info.freshwater %}freshwater{% elseif taxon.info.freshwater == false %}<del>freshwater</del>{% endif %}
-                                    {% if taxon.info.terrestrial %}terrestrial{% elseif taxon.info.terrestrial == false %}<del>terrestrial</del>{% endif %}
+                                <dd>{% if taxon.info.marine %}marine{% elif taxon.info.marine == false %}<del>marine</del>{% endif %}
+                                    {% if taxon.info.freshwater %}freshwater{% elif taxon.info.freshwater == false %}<del>freshwater</del>{% endif %}
+                                    {% if taxon.info.terrestrial %}terrestrial{% elif taxon.info.terrestrial == false %}<del>terrestrial</del>{% endif %}
                                 </dd>
                             </div>
                         </dl>
