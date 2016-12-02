@@ -2,20 +2,22 @@
 {% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes country-key page--data" ng-controller="countryKeyCtrl as countryKey" ng-init="countryKey.init('{$ country.record.country $}')">
+    <article class="wrapper-horizontal-stripes country-key page--data" ng-controller="countryKeyCtrl as countryKey" ng-init="countryKey.init('{$ country.code $}')">
 
         <div class="horizontal-stripe article-header white-background p-b-0">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12">
-                        <nav class="article-header__category article-header__category--deep">
+                        <nav class="article-header__category {% if country.node.participationStatus %} article-header__category--deep{% endif %}">
                             <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
+                            {% if country.node.participationStatus %}
                             <span class="article-header__category__lower">
-                                {$ __('participationStatus.' + country.record.participationStatus) $}
+                                {$ __('participationStatus.' + country.node.participationStatus) $}
                             </span>
+                            {% endif %}
                         </nav>
                         <h1 class="text-center">
-                            <span>{$ country.record.participantTitle $}</span>
+                            <span>{$ __('country.' + country.code) $}</span>
                         </h1>
                     </header>
                 </div>
@@ -36,13 +38,33 @@
 
                     {% include('./datasetBreakdown/datasetBreakdown.nunjucks') %}
 
+                    {#{% macro chart(title, imgfile, info) %}#}
+                    {#<div class="card">#}
+                        {#<div class="card__content">#}
+                            {#<div class="chart">#}
+                                {#<div class="info">#}
+                                    {#<h4>{$ title $}</h4>#}
+                                    {#<p>{$ info $}</p>#}
+                                {#</div>#}
+                                {#<div class="figure">#}
+                                    {#<img src="{$ thumbBase $}{$ imgfile $}.png" data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"#}
+                                         {#class="img-thumbnail">#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#{% endmacro %}#}
+                    {#{$ chart('Records by kingdom', 'occ_kingdom', 'The number of available records categorized by#}
+                    {#kingdom. "Unknown" includes records with taxonomic information that cannot be linked to available#}
+                    {#taxonomic checklists.') $}#}
+
                     {% include('./news/news.nunjucks') %}
 
                     {#occurrence counts#}
                     {#<div class="card country-key__occurrence-count">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0">Occurrences from#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_country={$ country.record.country $}"#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_country={$ country.code $}"#}
                                    {#class="gb-icon-right-arrow country-key__more-arrow"></a>#}
                             {#</h4>#}
                         {#</div>#}
@@ -50,10 +72,10 @@
                         {#<div class="card__content seperator">#}
                             {#<div class="country-key">#}
                                 {#<div class="h2"#}
-                                     {#count="//api.gbif.org/v1/occurrence/search?publishingCountry={$ country.record.country $}">#}
+                                     {#count="//api.gbif.org/v1/occurrence/search?publishingCountry={$ country.code $}">#}
                                     {#&nbsp;</div>#}
 
-                                {#<strong count="/api/count/country/{$ country.record.country $}/from/countries">#}
+                                {#<strong count="/api/count/country/{$ country.code $}/from/countries">#}
                                     {#&nbsp;</strong> countries covered#}
                             {#</div>#}
                         {#</div>#}
@@ -62,7 +84,7 @@
                     {#<div class="card country-key__occurrence-count">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0">Occurrences about#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search?country={$ country.record.country $}"#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search?country={$ country.code $}"#}
                                    {#class="gb-icon-right-arrow country-key__more-arrow"></a>#}
                             {#</h4>#}
                         {#</div>#}
@@ -70,10 +92,10 @@
                         {#<div class="card__content seperator">#}
                             {#<div class="country-key">#}
                                 {#<div class="h2"#}
-                                     {#count="//api.gbif.org/v1/occurrence/search?country={$ country.record.country $}">#}
+                                     {#count="//api.gbif.org/v1/occurrence/search?country={$ country.code $}">#}
                                     {#&nbsp;</div>#}
 
-                                {#<strong count="/api/count/country/{$ country.record.country $}/about/countries">#}
+                                {#<strong count="/api/count/country/{$ country.code $}/about/countries">#}
                                     {#&nbsp;</strong> countries contribute with data#}
                             {#</div>#}
                         {#</div>#}
@@ -82,7 +104,7 @@
                     {#covered countries#}
                     {#<div class="card country-key__datasets">#}
                         {#<div class="card__content">#}
-                            {#<h4 class="m0"> <span count="/api/count/country/{$ country.record.country $}/from/countries">&nbsp;</span> covered countries</h4>#}
+                            {#<h4 class="m0"> <span count="/api/count/country/{$ country.code $}/from/countries">&nbsp;</span> covered countries</h4>#}
                         {#</div>#}
 
                         {#<div class="card__content seperator">#}
@@ -94,7 +116,7 @@
 
                     {#<div class="card country-key__datasets">#}
                         {#<div class="card__content">#}
-                            {#<h4 class="m0"> <span count="/api/count/country/{$ country.record.country $}/about/countries">&nbsp;</span> publishing countries</h4>#}
+                            {#<h4 class="m0"> <span count="/api/count/country/{$ country.code $}/about/countries">&nbsp;</span> publishing countries</h4>#}
                         {#</div>#}
 
                         {#<div class="card__content seperator">#}
@@ -109,7 +131,7 @@
                     {#<div class="card country-key__datasets">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0">Largest datasets from#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.record.country $}"#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}"#}
                                    {#class="gb-icon-right-arrow country-key__more-arrow"></a>#}
                             {#</h4>#}
                         {#</div>#}
@@ -138,7 +160,7 @@
                     {#<div class="card country-key__datasets">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0">Datasets about<a#}
-                                        {#href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.record.country $}"#}
+                                        {#href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}"#}
                                         {#class="gb-icon-right-arrow country-key__more-arrow"></a></h4>#}
                         {#</div>#}
 
@@ -151,28 +173,28 @@
                     {#<div class="card">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0"><span#}
-                                        {#count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.record.country $}"></span>#}
+                                        {#count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.code $}"></span>#}
                                 {#<span> occurrences with coordinates and no location issues published by the country</span>#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.record.country $}"#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.code $}"#}
                                    {#class="gb-icon-right-arrow country-key__more-arrow"></a>#}
                             {#</h4>#}
                         {#</div>#}
                         {#<div>#}
-                            {#<gbmap style="height:300px" publishing-country="'{$ country.record.country $}'"></gbmap>#}
+                            {#<gbmap style="height:300px" publishing-country="'{$ country.code $}'"></gbmap>#}
                         {#</div>#}
                     {#</div>#}
 
                     {#<div class="card">#}
                         {#<div class="card__content">#}
                             {#<h4 class="m0"><span#}
-                                        {#count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.record.country $}"></span>#}
+                                        {#count="//api.gbif.org/v1/occurrence/search?has_coordinate=true&publishing_country={$ country.code $}"></span>#}
                                 {#<span> occurrences with coordinates and without location issues about the country</span>#}
-                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.record.country $}"#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/occurrence/map?publishing_country={$ country.code $}"#}
                                    {#class="gb-icon-right-arrow country-key__more-arrow"></a>#}
                             {#</h4>#}
                         {#</div>#}
                         {#<div>#}
-                            {#<gbmap style="height:300px" country="'{$ country.record.country $}'"></gbmap>#}
+                            {#<gbmap style="height:300px" country="'{$ country.code $}'"></gbmap>#}
                         {#</div>#}
                     {#</div>#}
 

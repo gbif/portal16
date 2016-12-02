@@ -1,12 +1,14 @@
-<div class="horizontal-stripe article-header white-background">
-    <div class="container">
+<div class="horizontal-stripe article-header white-background p-b-0">
+    <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12">
-                <nav class="article-header__category article-header__category--deep">
+                <nav class="article-header__category {% if country.node.participationStatus %} article-header__category--deep{% endif %}">
                     <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
-                            <span class="article-header__category__lower">
+                    {% if country.node.participationStatus %}
+                        <span class="article-header__category__lower">
                                 {$ __('participationStatus.' + country.node.participationStatus) $}
                             </span>
+                    {% endif %}
                 </nav>
                 <h1 class="text-center">
                     <span>{$ __('country.' + country.code) $}</span>

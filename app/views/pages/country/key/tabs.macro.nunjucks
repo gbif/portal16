@@ -1,30 +1,32 @@
 {% macro countryTabs(country, active, __) %}
-    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
-        <div class="container--desktop">
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="tabs">
                         <ul>
                             <li class="tab {% if active == 'activity' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.record.country $}">
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}">
                                     Activity
                                 </a>
                             </li>
 
-                            <li class="tab {% if active == 'project' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
-                                    Participant
-                                </a>
-                            </li>
+                            {% if country.node.participationStatus %}
+                                <li class="tab {% if active == 'participant' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">
+                                        Participant
+                                    </a>
+                                </li>
+                            {% endif %}
 
-                            <li class="tab {% if active == 'origin' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
+                            <li class="tab {% if active == 'trends' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/trends/about">
                                     Trends
                                 </a>
                             </li>
 
                             <li class="tab tab-right tab--seperator">
-                                <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.record.country $}/GBIF_CountryReport_{$ country.record.country $}.pdf">
+                                <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
                                     <span class="gb-icon-file-download gb-icon-button"></span>
                                 <span>
                                     Download report

@@ -43,7 +43,7 @@
             </div>
         {% endfor %}
 
-        {% if country.feed.rss.channel[0].item | isNotEmpty %}
+        {% if country.nodeFeed.rss.channel[0].item | isNotEmpty %}
             <div class="card country-key__news">
                 <a href="{$ country.feed.rss.channel[0].link $}"
                    class="card__stripe">
@@ -57,7 +57,7 @@
                 </a>
 
 
-                {% for item in country.feed.rss.channel[0].item | limit(2) %}
+                {% for item in country.nodeFeed.rss.channel[0].item | limit(2) %}
                     <a href="{$ gb.locales.urlPrefix $}/{$ item.targetUrl $}"
                        class="card__stripe">
                         <div class="card__content">

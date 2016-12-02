@@ -5,17 +5,17 @@
                 <div class="col-xs-6">
                     <div class="countryCoverage__count">
                         <div>
-                            <div href="" count="/api/count/country/{$ country.record.country $}/about/countries">&nbsp;</div>
+                            <div href="" count="/api/count/country/{$ country.code $}/about/countries">&nbsp;</div>
                         </div>
-                        <div>countries publish data about {$ country.record.participantTitle $}</div>
+                        <div>countries publish data about {$ __('country.' + country.code) $}</div>
                     </div>
                 </div>
                 <div class="col-xs-6">
                     <div class="countryCoverage__count">
                         <div>
-                            <div href="" count="/api/count/country/{$ country.record.country $}/from/countries">&nbsp;</div>
+                            <div href="" count="/api/count/country/{$ country.code $}/from/countries">&nbsp;</div>
                         </div>
-                        <div>countries covered by data published from {$ country.record.participantTitle $}</div>
+                        <div>countries covered by data published from {$ __('country.' + country.code) $}</div>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         {#<div class="countryCoverage container-fluid">#}
             {#<div class="row">#}
                 {#<div class="col-xs-12 col-md-4">#}
-                    {#<h4 class="m0"> <span count="/api/count/country/{$ country.record.country $}/about/countries">&nbsp;</span> publishing countries</h4>#}
+                    {#<h4 class="m0"> <span count="/api/count/country/{$ country.code $}/about/countries">&nbsp;</span> publishing countries</h4>#}
                     {#<div ng-repeat="country in countryKey.aboutCountries.results">#}
                         {#<span translate="country.{{ country.name }}">{{ country.name }}</span> <span>{{ country.count }}</span>#}
                     {#</div>#}
@@ -35,7 +35,7 @@
                     {#</div>#}
                 {#</div>#}
                 {#<div class="col-xs-12 col-md-4">#}
-                    {#<h4 class="m0"> <span count="/api/count/country/{$ country.record.country $}/from/countries">&nbsp;</span> covered countries</h4>#}
+                    {#<h4 class="m0"> <span count="/api/count/country/{$ country.code $}/from/countries">&nbsp;</span> covered countries</h4>#}
                     {#<div ng-repeat="country in countryKey.fromCountries.results">#}
                         {#<span translate="country.{{ country.name }}">{{ country.name }}</span> <span>{{ country.count }}</span>#}
                     {#</div>#}
