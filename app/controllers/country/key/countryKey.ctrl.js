@@ -19,7 +19,11 @@ router.get('/country/:key\.:ext?', function (req, res, next) {
             next(err)
         } else {
             country.code = key;
-            var latest = _.get(country, 'news.results', []).concat(_.get(country, 'dataUse.results', [])).concat(_.get(country, 'events.results', []));
+            var latest = _.concat(
+                _.get(country, 'news.results', []),
+                _.get(country, 'dataUse.results', []),
+                _.get(country, 'country.results', [])
+            );
             country.latest = _.sortBy(latest, ['created']).reverse();
             renderPage(req, res, next, country);
         }
@@ -34,8 +38,6 @@ router.get('/country/:key/participant\.:ext?', function (req, res, next) {
             next(err)
         } else {
             country.code = key;
-            var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
-            country.latest = _.sortBy(latest, ['created']).reverse();
             try {
                 if (req.params.ext == 'debug') {
                     res.json(country);

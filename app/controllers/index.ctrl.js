@@ -12,6 +12,7 @@ router.get('/', function (req, res, next) {
         render(req, res, next, {
             _meta: {
                 title: 'GBIF',
+                bodyClass: 'hasTransparentMenu',
                 hideSearchAction: true
             }
         });

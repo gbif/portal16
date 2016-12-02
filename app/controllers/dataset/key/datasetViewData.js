@@ -46,8 +46,9 @@ function getDataset(datasetKey, cb, locale) {
                     if (err) {
                         cb(err);
                     } else {
-                        var mapped = {};
-                        data.facets[0].counts.forEach(function (e) {
+                        var mapped = {},
+                            counts = _.get(data, 'facets[0].counts', []);
+                        counts.forEach(function (e) {
                             mapped[e.name] = e.count;
                         });
                         callback(null, {

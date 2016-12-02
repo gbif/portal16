@@ -1,0 +1,123 @@
+$feedbackPrimaryColor = #6599a2 //#1f8ceb //#398194
+$feedbackPrimaryInk = white
+
+.menubox {
+	display none
+	&.is-active {
+		display block
+		animation menuboxSlideIn .8s
+	}
+	position fixed
+	top 0
+	bottom 0
+	left 0 
+	right 0
+	z-index 1000
+	
+	&__wrapper {
+		display flex
+		height 100%
+		flex-direction column
+		overflow auto
+		overflow-x hidden
+		box-shadow 0 5px 40px rgba(0,0,0,.16)
+	    border-radius 8px
+	    position relative
+	}
+	&__top {
+		flex 0 0 auto
+		background $feedbackPrimaryColor
+		color white
+		font-weight 300
+	}
+	&__close {
+		position absolute
+		top 0
+		right 0
+		font-size 30px
+		margin 0 5px
+	}
+	&__header {
+		&__title {
+			text-align center
+			font-weight 400
+			padding vrBlock(1)
+		}
+		&__description {
+			height vrBlock(5)
+			padding 0 vrBlock(2.5)
+			font-size 12px
+			color rgba(255, 255, 255, 0.85)
+		}
+	}
+	nav {
+		ul {
+			padding 0
+		}
+		li {
+			display inline-block
+			float left
+			width 25%
+			&:first-of-type {
+				padding-left 10px
+			}
+			&:last-of-type {
+				padding-right 10px
+			}
+			a {
+				padding 10px 0
+				text-align center
+				display block
+				color darken($feedbackPrimaryColor, 20)
+				border-bottom 3px solid transparent
+				font-size 12px
+				font-weight bold
+			}
+			&.isActive {
+				a {
+					color $feedbackPrimaryInk
+					border-bottom 3px solid lighten($feedbackPrimaryColor, 25)
+				}
+			}
+		}
+	}
+	&__content {
+		flex 1 1 auto
+		background white
+	}
+	&__section {
+		padding vrBlock(1)
+	}
+	&__card {
+		margin vrBlock(0.5) 0
+	}
+}
+
++isAbove($tablet) {
+	.menubox {
+		top vrBlock(2)
+		right vrBlock(1)
+		left initial
+		bottom initial
+		height calc(100% - 100px)
+	    width 370px
+	    min-height 250px
+	    max-height 590px
+	    border-radius 8px
+	    box-shadow 0 5px 150px 20px rgba(0,0,0,0.15)
+	}
+}
+
+@keyframes menuboxSlideIn {
+    0% {
+    	top vrBlock(1)
+        opacity: 0;
+    }
+    50% {
+    	top vrBlock(2)
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

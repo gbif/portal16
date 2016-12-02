@@ -10,7 +10,7 @@ angular
 function navCtrl($rootScope, NAV_EVENTS) {
     var vm = this;
 
-    vm.toggleFilter = function () {
+    vm.toggleFeedback = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true});
     };

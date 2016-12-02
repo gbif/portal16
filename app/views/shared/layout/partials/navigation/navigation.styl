@@ -72,7 +72,7 @@ siteHeaderBar() {
         height $navBar_height
         width 100%
         overflow visible
-        position fixed
+        //position fixed //no fixed navigation
         > div > ul > li {
             > a {
                 menuTextShadow()
@@ -149,6 +149,10 @@ siteHeaderBar() {
             display relative
             > ul, > a {
                 float left
+            }
+            > ul {
+                float right
+                margin-right 150px
             }
             > ul > li > a {
                 .main-menu__icon {
@@ -448,7 +452,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                 .service-menu__icon {
                     position absolute
                     font-size 28px
-                    width 4rem
+                    width 3rem
                     display block
                     text-align center
                     overflow hidden
@@ -460,11 +464,11 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                     bottom vrBlock(0.25)
                     text-align center
                     left 0
-                    width 4rem
+                    width 3rem
                     display none
                 }
                 display inline-block
-                width 4rem
+                width 3rem
                 //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
                 relative()
                 font-size (100 /$majorThird) %
