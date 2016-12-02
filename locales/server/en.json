@@ -1320,8 +1320,10 @@
   "participationStatus": {
     "VOTING": "voting",
     "ASSOCIATE": "associate",
-    "undefined": "unknown",
-    "FORMER": "former"
+    "OBSERVER": "observer",
+    "AFFILIATE": "affiliate",
+    "FORMER": "former",
+    "undefined": "unknown"
   },
   "installation": {
     "type": {
