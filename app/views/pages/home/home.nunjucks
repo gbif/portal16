@@ -49,10 +49,11 @@ nature, PLOS, ... and
                          ng-controller="searchCtrl as omniSearch">
                         <form action="/search"
                               ng-submit="omniSearch.updateSearch()">
-                            <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off" value=""
+                            <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off"
+                                   value=""
                                    ng-init="omniSearch.freeTextQuery == ''"
                                    ng-model="omniSearch.freeTextQuery"
-                                   aria-invalid="false" 
+                                   aria-invalid="false"
                                    focus-me="true">
                             <a ng-click="omniSearch.updateSearch()"
                                class="gb-icon-search"
@@ -64,47 +65,62 @@ nature, PLOS, ... and
                 </div>
                 <div class="caption">
                     <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a
-                    href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
+                            href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
                 </div>
             </div>
         </div>
-        <!--div class="horizontal-stripe light-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card this-is-a-stub">
-                            <div class="card__stripe">
-                                <div class="card__content">
-                                    <h3 class="text-center m-0">Under development</h3>
-                                </div>
-                            </div>
-                            <div class="card__content">
-                                <p>
-                                    We are now actively engaged in redesigning <a href="http://gbif.org/">GBIF.org</a>.
-                                    This is still an early-access release with limited functionality. The content
-                                    exposed here is the same as that presented on the current site.
-                                </p>
-                                <p>
-                                    Our first release aims to address issues reported and observed since we launched the
-                                    current GBIF.org site in October 2013. Most common among these are a subpar search
-                                    experience and confusing navigation within a large site.
-                                </p>
-                                <p>
-                                    Significant improvements in our data processing and handling infrastructure now make
-                                    it possible to introduce site-wide cross-content search, and revisions to the
-                                    navigation reflect a much leaner site featuring a menu that encapsulates a simpler
-                                    overall structure.
-                                </p>
-                                <p>
-                                    Thanks for your interest, and your patience: we'll turn on feedback mechanisms to
-                                    get your comments soon.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div-->
+
+        {#<div class="horizontal-stripe light-background">#}
+            {#<div class="container">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12">#}
+                        {#<div class="card this-is-a-stub" style="max-width: 700px">#}
+                            {#<div class="card__stripe">#}
+                                {#<div class="card__content">#}
+                                    {#<h3 class="text-center m-0">Under development</h3>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="card__content">#}
+                                {#<p>This redesigned early-access version of GBIF.org is an active development site with#}
+                                    {#limited functionality. The content exposed here is the same as that presented on <a#}
+                                            {#href="http://www.gbif.org">the current site</a>.</p>#}
+
+                                {#<p>Get a feel for our new directions with a few examples:</p>#}
+
+                                {#<ul>#}
+                                    {#<li><a href="https://demo.gbif.org/occurrence/gallery?taxon_key=5190137">Gallery of#}
+                                            {#images associated with occurrences from a search result</a></li>#}
+                                    {#<li><a href="https://demo.gbif.org/occurrence/search?month=5&amp;taxon_key=3026341">Improved#}
+                                            {#faceted search of occurrences</a></li>#}
+                                    {#<li><a href="https://demo.gbif.org/data-use/2016-janssens-et-al">Improved visuals on#}
+                                            {#news and featured data use pages</a></li>#}
+                                    {#<li><a href="http://demo.gbif.org/occurrence/1233599085">Revised occurrence detail#}
+                                            {#pages</a></li>#}
+                                    {#<li><a href="https://demo.gbif.org/dataset/2488cd13-4f80-479c-ae54-257de312054e">Improved#}
+                                            {#dataset detail pages</a></li>#}
+                                    {#<li><a href="https://demo.gbif.org/programme/programme/capacity-support">Updated#}
+                                            {#programme and project pages</a></li>#}
+                                {#</ul>#}
+                                {#<br/>#}
+
+                                {#<p>Our first release aims to address issues reported and observed since we launched the#}
+                                    {#current GBIF.org site in October 2013. Most common among these are subpar search and#}
+                                    {#confusing navigation within a large site.</p>#}
+
+                                {#<p>Significant improvements in our data processing and handling infrastructure now make#}
+                                    {#it possible to introduce <a href="https://demo.gbif.org/search?q=argentina">site-wide#}
+                                        {#cross-content search</a>, while revisions to the navigation reflect a better#}
+                                    {#curated site and menu that represents a simpler structure.</p>#}
+
+                                {#<p>Thanks for your interest—and your patience! We’ll be ready for your comments and#}
+                                    {#feedback in early 2017.</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {##}
         <div class="horizontal-stripe white-background">
             <div class="container--normal">
                 <div class="home__news">
@@ -117,47 +133,55 @@ nature, PLOS, ... and
 
                     <div class="articles row">
                         <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_" alt="Ball_grid-fake2" class="article-thumb">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_"
+                                 alt="Ball_grid-fake2" class="article-thumb">
                             <article class="article-box__details">
                                 <div class="article-box__tag">
                                     <span>News</span>
                                 </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species
+                                    information</h3>
                                 <span class="article-box__footer">Nov 29th, 2016</span>
                             </article>
                         </a>
                         <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/82854/16208759367_f191439217_k.jpg" alt="Ball_grid-fake2" class="article-thumb">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/82854/16208759367_f191439217_k.jpg"
+                                 alt="Ball_grid-fake2" class="article-thumb">
                             <article class="article-box__details">
                                 <div class="article-box__tag">
                                     <span>News</span>
                                 </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species
+                                    information</h3>
                                 <span class="article-box__footer">Nov 29th, 2016</span>
                             </article>
                         </a>
                         <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82914/ruete-ignorance-map.png" alt="Ball_grid-fake2" class="article-thumb">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82914/ruete-ignorance-map.png"
+                                 alt="Ball_grid-fake2" class="article-thumb">
                             <article class="article-box__details">
                                 <div class="article-box__tag">
                                     <span>News</span>
                                 </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species
+                                    information</h3>
                                 <span class="article-box__footer">Nov 29th, 2016</span>
                             </article>
                         </a>
                         <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82863/Red-crested_pochard.JPG" alt="Ball_grid-fake2" class="article-thumb">
+                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82863/Red-crested_pochard.JPG"
+                                 alt="Ball_grid-fake2" class="article-thumb">
                             <article class="article-box__details">
                                 <div class="article-box__tag">
                                     <span>News</span>
                                 </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
+                                <h3 class="article-box__title">Experts outline strategy for improving alien species
+                                    information</h3>
                                 <span class="article-box__footer">Nov 29th, 2016</span>
                             </article>
                         </a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -170,11 +194,14 @@ nature, PLOS, ... and
                     </p>
                     <div class="clearfix">
                         <h1>
-                            <a class="inherit noUnderline" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change the most important cause of biodiversity loss?</a>
+                            <a class="inherit noUnderline"
+                               href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change
+                                the most important cause of biodiversity loss?</a>
                         </h1>
                     </div>
                     <p>
-                        <a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read more</a>
+                        <a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read
+                            more</a>
                     </p>
                 </div>
             </div>
@@ -184,13 +211,14 @@ nature, PLOS, ... and
             <div class="home__occurrences">
                 <div class="container--normal">
                     <h2 count="//api.gbif.org/v1/occurrence/search">
-                    &nbsp;
+                        &nbsp;
                     </h2>
                     <p>
                         Species observations and specimens
                     </p>
                     <p>
-                        Data distributed by GBIF is the result of thousands of researchers, publishers and and other that believe that data about life on our planet brings most value when shared.
+                        Data distributed by GBIF is the result of thousands of researchers, publishers and and other
+                        that believe that data about life on our planet brings most value when shared.
                     </p>
                 </div>
             </div>
@@ -200,7 +228,8 @@ nature, PLOS, ... and
         </div> -->
 
 
-        <article class="horizontal-stripe--paddingless white-background home__featured" style="color: black; box-shadow: inset 0  8px 8px -8px rgba(0,0,0,0.2);text-shadow: 0 0 10px rgba(255,255,255,0.4);position:relative;">
+        <article class="horizontal-stripe--paddingless white-background home__featured"
+                 style="color: black; box-shadow: inset 0  8px 8px -8px rgba(0,0,0,0.2);text-shadow: 0 0 10px rgba(255,255,255,0.4);position:relative;">
             <div style="background-image: url('//api.gbif.org/v1/image/unsafe/1600x1000/http://www.florida.plantatlas.usf.edu/img/specimens/USF/288092.jpg');position:absolute;width:100%;height:100%;filter:blur(2px);background-size: cover;
     background-position: center;
     background-attachment: fixed;"></div>
@@ -211,7 +240,8 @@ nature, PLOS, ... and
                     </p>
                     <div class="clearfix">
                         <h1>
-                            <a class="inherit noUnderline" href="http://demo.gbif.org/generic/data-publishing">Learn all about the publishing flow</a>
+                            <a class="inherit noUnderline" href="http://demo.gbif.org/generic/data-publishing">Learn all
+                                about the publishing flow</a>
                         </h1>
                     </div>
                     <p><a class="inherit" href="http://demo.gbif.org/generic/data-publishing">Learn more</a></p>
@@ -221,15 +251,17 @@ nature, PLOS, ... and
 
         <div class="horizontal-stripe--paddingless light-background" style="position:relative">
             <div class="home__datapapers">
-                <div class="home__datapapers__bubble" style="background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNEI1RjgzIiBpZD0iY2lyY2xlIiByPSI2NCIvPjxnIGlkPSJpY29uIj48cG9seWxpbmUgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhcGVyIiBwb2ludHM9IjU0LDI5IDg5LDI5IDg5LDk5IDM5LDk5IDM5LDQ0ICAiLz48ZyBpZD0idGV4dCI+PHJlY3QgZmlsbD0iI0U2RTZFNiIgaGVpZ2h0PSI0IiBpZD0ibGluZV8yXyIgd2lkdGg9IjMwIiB4PSI0OSIgeT0iNjYiLz48cmVjdCBmaWxsPSIjRTZFNkU2IiBoZWlnaHQ9IjQiIGlkPSJsaW5lXzFfIiB3aWR0aD0iMzAiIHg9IjQ5IiB5PSI3NCIvPjxyZWN0IGZpbGw9IiNFNkU2RTYiIGhlaWdodD0iNCIgaWQ9ImxpbmUiIHdpZHRoPSIxNSIgeD0iNDkiIHk9IjU4Ii8+PC9nPjxwb2x5bGluZSBmaWxsPSIjQjNCM0IzIiBpZD0idHJpYW5nbGUiIHBvaW50cz0iNTQsMjkgNTQsNDQgMzksNDQgICIvPjwvZz48L3N2Zz4=')">
+                <div class="home__datapapers__bubble"
+                     style="background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNEI1RjgzIiBpZD0iY2lyY2xlIiByPSI2NCIvPjxnIGlkPSJpY29uIj48cG9seWxpbmUgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhcGVyIiBwb2ludHM9IjU0LDI5IDg5LDI5IDg5LDk5IDM5LDk5IDM5LDQ0ICAiLz48ZyBpZD0idGV4dCI+PHJlY3QgZmlsbD0iI0U2RTZFNiIgaGVpZ2h0PSI0IiBpZD0ibGluZV8yXyIgd2lkdGg9IjMwIiB4PSI0OSIgeT0iNjYiLz48cmVjdCBmaWxsPSIjRTZFNkU2IiBoZWlnaHQ9IjQiIGlkPSJsaW5lXzFfIiB3aWR0aD0iMzAiIHg9IjQ5IiB5PSI3NCIvPjxyZWN0IGZpbGw9IiNFNkU2RTYiIGhlaWdodD0iNCIgaWQ9ImxpbmUiIHdpZHRoPSIxNSIgeD0iNDkiIHk9IjU4Ii8+PC9nPjxwb2x5bGluZSBmaWxsPSIjQjNCM0IzIiBpZD0idHJpYW5nbGUiIHBvaW50cz0iNTQsMjkgNTQsNDQgMzksNDQgICIvPjwvZz48L3N2Zz4=')">
                 </div>
                 <div class="home__datapapers__header text-center">
                     <h2>Data papers</h2>
                     <p class="home__datapapers__header__intro">
-                        Data takes effort to prepare, curate and describe. Data papers provide recognition for this effort by means of a scholarly article.
+                        Data takes effort to prepare, curate and describe. Data papers provide recognition for this
+                        effort by means of a scholarly article.
                     </p>
                 </div>
-                <div class="home__datapapers__journals text-center" >
+                <div class="home__datapapers__journals text-center">
                     <img src="/img/jorunalmockicons.png" style="margin:auto">
                 </div>
             </div>

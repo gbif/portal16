@@ -1,94 +1,162 @@
 <aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': feedback.isActive}"
        ng-controller="feedbackCtrl as feedback"
-       >
-       <div class="menubox__wrapper">
-            <div class="menubox__top">
-                <a href="" ng-click="feedback.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
-                <div class="menubox__header">
-                    <div class="menubox__header__title">
-                        <span class="text-center">Feedback</span>
-                    </div>
-                    <div class="menubox__header__description text-center" ng-if="!feedback.selected">
-                        <span>Mistakes come in many forms, some has to do with wrong content and others with usability. Please select a feedback type so we can direct it at the appropriate party.</span>
-                    </div>
-                    <div class="menubox__header__description" ng-if="feedback.type.CONTENT == feedback.selected">
-                        <p>
-                            <strong>The content is wrong</strong>
-                        </p>
-                        <p>
-                            Example: Wrong species name, wrong coordinates, spelling mistakes
-                        </p>
-                    </div>
-                    <div class="menubox__header__description" ng-if="feedback.type.BUG == feedback.selected">
-                        <p>
-                            <strong>The site doesn't work properly</strong>
-                        </p>
-                        <p>
-                            Examples: the search button doesn't work and I can only see half the text on the page.
-                        </p>
-                    </div>
-                    <div class="menubox__header__description" ng-if="feedback.type.IDEA == feedback.selected">
-                        <p>
-                            <strong>I have a wonderful idea for GBIF</strong>
-                        </p>
-                        <p>
-                            Examples: I want GBIF for my smart watch and species from outer space
-                        </p>
-                    </div>
-                    <div class="menubox__header__description" ng-if="feedback.type.QUESTION == feedback.selected">
-                        <p>
-                            <strong>I have a question</strong>
-                        </p>
-                        <p>
-                            Examples: How do I download data? Could you please help me publish my data?
-                        </p>
-                    </div>
+>
+    <div class="menubox__wrapper">
+        <div class="menubox__top">
+            <a href="" ng-click="feedback.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+            <div class="menubox__header">
+                <div class="menubox__header__title">
+                    <span class="text-center">Feedback</span>
                 </div>
-                <div class="menubox__nav">
-                    <nav class="clearfix">
-                        <ul>
-                            <li ng-class="{isActive: feedback.type.CONTENT == feedback.selected}">
-                                <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">Content</a>
-                            </li>
-                            <li ng-class="{isActive: feedback.type.BUG == feedback.selected}">
-                                <a href="" ng-click="feedback.toggle(feedback.type.BUG)">Bug</a>
-                            </li>
-                            <li ng-class="{isActive: feedback.type.IDEA == feedback.selected}">
-                                <a href="" ng-click="feedback.toggle(feedback.type.IDEA)">Idea</a>
-                            </li>
-                            <li ng-class="{isActive: feedback.type.QUESTION == feedback.selected}">
-                                <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">Question</a>
-                            </li>
-                        </ul>
-                    </nav>
+                <div class="menubox__header__description text-center" ng-if="!feedback.selected">
+                    <p>
+                        Errors happen. Sometimes it's the content. Sometimes the functionality. And others still
+                        information is missing.
+                        You can help us solve the issue by chossing a feedback type.
+                    </p>
+                </div>
+                <div class="menubox__header__description" ng-if="feedback.type.CONTENT == feedback.selected">
+                    <div>
+                        <strong>The content is wrong</strong>
+                    </div>
+                    <p>
+                        Example: The coordinates are wrong and this taxonomy is so 90'ies
+                    </p>
+                </div>
+                <div class="menubox__header__description" ng-if="feedback.type.FUNCTIONALITY == feedback.selected">
+                    <div>
+                        <strong>Things don't work or you have a good idea</strong>
+                    </div>
+                    <p>
+                        Examples: Search button is broken and I want GBIF for my smart watch.
+                    </p>
+                </div>
+                <div class="menubox__header__description" ng-if="feedback.type.QUESTION == feedback.selected">
+                    <div>
+                        <strong>I have a question</strong>
+                    </div>
+                    <p>
+                        Examples: How to download data? And why aren't there any species from outer space?
+                    </p>
                 </div>
             </div>
-            <div class="menubox__content">
-                <div class="menubox__section menubox__section--content">
-                    <div>
-                        <p>
-                            This dataset is actively maintained and was last changed [date].
-                            We suggest that you direct your feedback at the [dataset/publisher] contact. There are [2] registered contacts:
-                        </p>
-                    </div>
-                    <div class="menubox__card">
-                        <p>
-                            Contact information goes here
-                        </p>
-                    </div>
-                    <div class="menubox__card">
-                        <p>
-                            Contact information goes here
-                        </p>
-                    </div>
-                    <div class="card menubox__card">
-                        <div class="card__content">
-                            <p>
-                                Contact information goes here
+            <div class="menubox__nav">
+                <nav class="clearfix">
+                    <ul>
+                        <li ng-class="{isActive: feedback.type.CONTENT == feedback.selected}">
+                            <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">Content</a>
+                        </li>
+                        <li ng-class="{isActive: feedback.type.FUNCTIONALITY == feedback.selected}">
+                            <a href="" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">Functionality</a>
+                        </li>
+                        <li ng-class="{isActive: feedback.type.QUESTION == feedback.selected}">
+                            <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">Question</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="menubox__content">
+            <div class="menubox__section menubox__section--select" ng-if="!feedback.selected">
+                <ul>
+                    <li>
+                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.CONTENT)">
+                            <h4>
+                                The content is wrong
+                            </h4>
+                            <p class="small">
+                                Example: The coordinates are wrong and this taxonomy is so 90'ies
                             </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">
+                            <h4>
+                                Things don't work or you have a good idea
+                            </h4>
+                            <p class="small">
+                                Examples: Search button is broken and I want GBIF for my smart watch.
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.QUESTION)">
+                            <h4>
+                                I have a question
+                            </h4>
+                            <p class="small">
+                                Examples: How to download data? And why aren't there any species from outer space?
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menubox__section menubox__section--content" ng-if="feedback.type.CONTENT == feedback.selected">
+                <div>
+                    <p>
+                        This is the complicated one. Where to direct feedback depdends on the page. TODO create a
+                        service that returns the info about what and where depdening on page type, publisher,
+                        modification date etc.
+                    </p>
+
+                </div>
+            </div>
+            <div class="menubox__section menubox__section--issue"
+                 ng-if="feedback.type.FUNCTIONALITY == feedback.selected">
+                <form name="feedback.functionalityForm" novalidate>
+                    <div class="feedback-input">
+                        <label>
+                            <span>Title</span>
+                            <input type="text"
+                                   ng-model="feedback.issue.title"
+                                   placeholder="Summary">
+                        </label>
+                    </div>
+
+                    <div class="feedback-input--flex">
+                        <label>
+                            <span>Description</span>
+                                    <textarea rows="3"
+                                              ng-model="feedback.issue.description"
+                                              placeholder="Describe the problem"></textarea>
+                        </label>
+                    </div>
+
+                    <div class="feedback-input">
+                        <label>
+                            <span>Contact</span>
+                            <input type="text"
+                                   ng-model="feedback.issue.contact"
+                                   placeholder="Your email or Github username (optional)">
+                        </label>
+                    </div>
+
+                    <div class="feedback__send">
+                        <div class="small">All issues are visible to the public</div>
+                        <div class="clearfix">
+                            <button ng-disabled="!feedback.functionalityForm.$valid" type="submit"
+                                    ng-click="feedback.createIssue(feedback.issue)"
+                                    class="btn btn-default flat pull-right">{$
+                                __('tools.suggestDataset.form.submit') $}
+                            </button>
+                        </div>
+                        <div ng-if="feedback.state == 'FAILED'">
+                            We couldn't create the issue. Please send as mail or go straight to Github. Sorry for
+                            the trouble.
                         </div>
                     </div>
+
+
+                </form>
+            </div>
+            <div class="menubox__section menubox__section--content" ng-if="feedback.type.QUESTION == feedback.selected">
+                <div>
+                    <p>
+                        Just send a mail
+                    </p>
+
                 </div>
             </div>
-       </div>
+        </div>
+    </div>
 </aside>
