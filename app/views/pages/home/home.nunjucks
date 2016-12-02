@@ -52,7 +52,7 @@ nature, PLOS, ... and
                             <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off" value=""
                                    ng-init="omniSearch.freeTextQuery == ''"
                                    ng-model="omniSearch.freeTextQuery"
-                                   aria-invalid="false" autofocus
+                                   aria-invalid="false" 
                                    focus-me="true">
                             <a ng-click="omniSearch.updateSearch()"
                                class="gb-icon-search"
