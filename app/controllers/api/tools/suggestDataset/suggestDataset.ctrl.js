@@ -4,6 +4,7 @@ var express = require('express'),
     github = require('octonode'),
     fs = require('fs'),
     _ = require('lodash'),
+    sanitizeHtml = require('sanitize-html'),
     router = express.Router();
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
