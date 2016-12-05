@@ -5,4 +5,5 @@
 {% if __contact %}Reported by: {$ __contact | striptags $}{% endif %}
 
 {% if __agent %}System: {$ __agent $}{% endif %}
+{% if __referer %}System: {$ __referer $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}

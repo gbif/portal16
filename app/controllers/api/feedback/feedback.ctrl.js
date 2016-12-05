@@ -6,6 +6,7 @@ var express = require('express'),
     credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).portalFeedback,
     useragent = require('useragent'),
+    feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
     log = rootRequire('config/log'),
     router = express.Router();
@@ -13,10 +14,24 @@ var express = require('express'),
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
 
 module.exports = function (app) {
-    app.use('/api/feedback/bug', router);
+    app.use('/api/feedback', router);
 };
 
-router.post('/', function (req, res) {
+router.get('/template.html', function (req, res, next) {
+    try {
+        res.render('shared/layout/partials/feedback/feedbackDirective', {});
+    } catch (err) {
+        next(err);//TODO not ideal error handling for an angular template. What would be a better way?
+    }
+});
+
+router.get('/content', function (req, res, next) {
+    //var path = req.query.path,
+    //    feedbackType = getFeedbackContentType(path);
+    res.json('sdf');
+});
+
+router.post('/bug', function (req, res) {
     let formData = req.body.form;
     if (!formData || !isValid(formData)) {
         res.status(400);
@@ -47,12 +62,13 @@ function isValid(data) {
 }
 
 function createIssue(req, data, cb) {
-    let agent = useragent.parse(req.headers['user-agent']);
+    let agent = useragent.parse(req.headers['user-agent']),
+        referer = req.headers.referer;
     var description = '',
         labels = [];
 
     try {
-        description = getDescription(data, agent);
+        description = getDescription(data, agent, referer);
         labels = getLabels(data);
     } catch (err) {
         cb(err);
@@ -60,21 +76,21 @@ function createIssue(req, data, cb) {
     }
 
     var client = github.client({
-       username: credentials.user,
-       password: credentials.password
+        username: credentials.user,
+        password: credentials.password
     });
-    
+
     var ghrepo = client.repo(credentials.repository);
     ghrepo.issue({
-       "title": data.form.title,
-       "body": description,
-       "labels": labels
+        "title": data.form.title,
+        "body": description,
+        "labels": labels
     }, function (err, data) {
-       if (err) {
-           cb(err);
-       } else {
-           cb(null, data);
-       }
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, data);
+        }
     });
 }
 
@@ -84,17 +100,19 @@ function getLabels(data) {
 }
 
 
-function getDescription(data, agent) {
+function getDescription(data, agent, referer) {
     //add contact type
     var contact = data.form.contact;
     if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
         data.__contact = '@' + contact;
-    } else  {
+    } else {
         data.__contact = contact;
     }
 
     //add agent info
     data.__agent = agent.toString();
+
+    data.__referer = referer;
 
     var res = nunjucks.renderString(issueTemplateString, data);
     return res;

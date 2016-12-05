@@ -7,6 +7,7 @@ var path = require('path'),
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
+    credentials = yargs.credentials,
     analyticsImg = yargs.analyticsImg;
 
 var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
@@ -27,7 +28,7 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: '/users/Kristina/Documents/morten/credentials'
+        credentials: credentials || '/etc/portal16/credentials'
     },
     dev: {
         env: env,
@@ -44,7 +45,7 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials'
     },
     uat: {
         env: env,
@@ -61,7 +62,7 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-uat.org/',
-        credentials: '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials'
     },
     prod: {
         env: env,
@@ -78,7 +79,7 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'https://demo.gbif.org/',
-        credentials: '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials'
     },
     test: {
         env: env,
@@ -95,7 +96,7 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials'
     }
 };
 

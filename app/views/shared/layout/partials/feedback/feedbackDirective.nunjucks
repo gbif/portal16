@@ -1,21 +1,19 @@
-<aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': feedback.isActive}"
-       ng-controller="feedbackCtrl as feedback"
->
+<aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': vm.isActive}">
     <div class="menubox__wrapper">
         <div class="menubox__top">
-            <a href="" ng-click="feedback.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+            <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
             <div class="menubox__header">
                 <div class="menubox__header__title">
                     <span class="text-center">Feedback</span>
                 </div>
-                <div class="menubox__header__description text-center" ng-if="!feedback.selected">
+                <div class="menubox__header__description text-center" ng-if="!vm.selected">
                     <p>
                         Errors happen. Sometimes it's the content. Sometimes the functionality. And others still
                         information is missing.
                         You can help us solve the issue by chossing a feedback type.
                     </p>
                 </div>
-                <div class="menubox__header__description" ng-if="feedback.type.CONTENT == feedback.selected">
+                <div class="menubox__header__description" ng-if="vm.type.CONTENT == vm.selected">
                     <div>
                         <strong>Content is wrong</strong>
                     </div>
@@ -23,15 +21,16 @@
                         Example: That species don't exist. This taxonomy is so '90s
                     </p>
                 </div>
-                <div class="menubox__header__description" ng-if="feedback.type.FUNCTIONALITY == feedback.selected">
+                <div class="menubox__header__description" ng-if="vm.type.FUNCTIONALITY == vm.selected">
                     <div>
                         <strong>It's broken</strong>
                     </div>
                     <p>
-                        Examples: Search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond.
+                        Examples: Search button don't work. The content is displayed in the wrong way. The Gopher site
+                        doesn't respond.
                     </p>
                 </div>
-                <div class="menubox__header__description" ng-if="feedback.type.IDEA == feedback.selected">
+                <div class="menubox__header__description" ng-if="vm.type.IDEA == vm.selected">
                     <div>
                         <strong>I have a wonderful idea</strong>
                     </div>
@@ -39,7 +38,7 @@
                         Example: I want GBIF for my smart watch.
                     </p>
                 </div>
-                <div class="menubox__header__description" ng-if="feedback.type.QUESTION == feedback.selected">
+                <div class="menubox__header__description" ng-if="vm.type.QUESTION == vm.selected">
                     <div>
                         <strong>I have a question</strong>
                     </div>
@@ -51,26 +50,26 @@
             <div class="menubox__nav">
                 <nav class="clearfix">
                     <ul>
-                        <li ng-class="{isActive: feedback.type.CONTENT == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">
+                        <li ng-class="{isActive: vm.type.CONTENT == vm.selected}">
+                            <a href="" ng-click="vm.toggle(vm.type.CONTENT)">
                                 <span class="gb-icon-unicorn"></span>
                                 <!-- <div>Content</div> -->
                             </a>
                         </li>
-                        <li ng-class="{isActive: feedback.type.FUNCTIONALITY == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">
+                        <li ng-class="{isActive: vm.type.FUNCTIONALITY == vm.selected}">
+                            <a href="" ng-click="vm.toggle(vm.type.FUNCTIONALITY)">
                                 <span class="gb-icon-bug"></span>
                                 <!-- <div>It's broken</div> -->
                             </a>
                         </li>
-                        <li ng-class="{isActive: feedback.type.IDEA == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.IDEA)">
+                        <li ng-class="{isActive: vm.type.IDEA == vm.selected}">
+                            <a href="" ng-click="vm.toggle(vm.type.IDEA)">
                                 <span class="gb-icon-idea"></span>
                                 <!-- <div>Idea</div> -->
                             </a>
                         </li>
-                        <li ng-class="{isActive: feedback.type.QUESTION == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">
+                        <li ng-class="{isActive: vm.type.QUESTION == vm.selected}">
+                            <a href="" ng-click="vm.toggle(vm.type.QUESTION)">
                                 <span class="gb-icon-unknown"></span>
                                 <!-- <div>Question</div> -->
                             </a>
@@ -80,10 +79,10 @@
             </div>
         </div>
         <div class="menubox__content">
-            <div class="menubox__section menubox__section--select" ng-if="!feedback.selected">
+            <div class="menubox__section menubox__section--select" ng-if="!vm.selected">
                 <ul>
                     <li>
-                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.CONTENT)">
+                        <a href="" class="inherit nuUnderline" ng-click="vm.toggle(vm.type.CONTENT)">
                             <h4>
                                 Content
                             </h4>
@@ -93,7 +92,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">
+                        <a href="" class="inherit nuUnderline" ng-click="vm.toggle(vm.type.FUNCTIONALITY)">
                             <h4>
                                 It's broken
                             </h4>
@@ -103,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.IDEA)">
+                        <a href="" class="inherit nuUnderline" ng-click="vm.toggle(vm.type.IDEA)">
                             <h4>
                                 Idea
                             </h4>
@@ -113,7 +112,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.QUESTION)">
+                        <a href="" class="inherit nuUnderline" ng-click="vm.toggle(vm.type.QUESTION)">
                             <h4>
                                 Question
                             </h4>
@@ -124,35 +123,47 @@
                     </li>
                 </ul>
             </div>
-            <div class="menubox__section menubox__section--content" ng-if="feedback.type.CONTENT == feedback.selected">
+            <div class="menubox__section menubox__section--content" ng-if="vm.type.CONTENT == vm.selected">
                 <div>
                     <p>
-                        This is the complicated one. Where to direct feedback depdends on the page. TODO create a
-                        service that returns the info about what and where depdening on page type, publisher,
-                        modification date etc.
+                        The content on this page is published by iNaturalist. They have a feedback system of their own.
+                        For feedback about content we suggest use use that at <a href="sdf">iNaturalist.com</a></a>
                     </p>
+                    <div class="small discreet">
+                        <p>
+                            You can compare the original and GBIFs interpretaed version in the table
+                        </p>
+                        If you believe it has to do with GBIFs processing of the record, then please fill a <a href=""
+                                                                                                               ng-click="vm.toggle(vm.type.FUNCTIONALITY)">bug
+                            report</a>
+                    </div>
+                    {#<p>#}
+                    {#This is the complicated one. Where to direct feedback depdends on the page. TODO create a#}
+                    {#service that returns the info about what and where depdening on page type, publisher,#}
+                    {#modification date etc.#}
+                    {#</p>#}
 
                 </div>
             </div>
-            <div class="menubox__section menubox__section--issue"
-                 ng-if="feedback.type.FUNCTIONALITY == feedback.selected || feedback.type.IDEA == feedback.selected || feedback.type.CONTENT == feedback.selected">
-                <form name="feedback.functionalityForm" novalidate>
+            <div class="menubox__section menubox__section--issue seperator"
+                 ng-if="vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected">
+                <form name="vm.functionalityForm" novalidate>
                     <div class="feedback-input">
                         <label>
                             <span>Title</span>
-                            <input ng-if="feedback.type.FUNCTIONALITY == feedback.selected"
+                            <input ng-if="vm.type.FUNCTIONALITY == vm.selected"
                                    type="text"
-                                   ng-model="feedback.issue.title"
+                                   ng-model="vm.issue.title"
                                    placeholder="Summary"
                                    focus-me="true">
-                            <input ng-if="feedback.type.IDEA == feedback.selected"
+                            <input ng-if="vm.type.IDEA == vm.selected"
                                    type="text"
-                                   ng-model="feedback.issue.title"
+                                   ng-model="vm.issue.title"
                                    placeholder="Summary"
                                    focus-me="true">
-                            <input ng-if="feedback.type.CONTENT == feedback.selected"
+                            <input ng-if="vm.type.CONTENT == vm.selected"
                                    type="text"
-                                   ng-model="feedback.issue.title"
+                                   ng-model="vm.issue.title"
                                    placeholder="Summary"
                                    focus-me="true">
                         </label>
@@ -162,11 +173,13 @@
                         <label>
                             <span>Description</span>
                             <textarea rows="3"
-                                      ng-model="feedback.issue.description"
-                                      placeholder="Describe the {{feedback.selected}}" ng->
+                                      ng-model="vm.issue.description"
+                                      placeholder="Describe the {{ vm.selected }}" ng->
                             </textarea>
-                            <div class="feedback-input__info" ng-if="!(feedback.issue.description.length > 200)">
-                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="inherit">Markdown</a> support</div>
+                            <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
+                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
+                                   class="inherit">Markdown</a> support
+                            </div>
                         </label>
                     </div>
 
@@ -174,21 +187,24 @@
                         <label>
                             <span>Contact</span>
                             <input type="text"
-                                   ng-model="feedback.issue.contact"
+                                   ng-model="vm.issue.contact"
                                    placeholder="Your email or Github username (optional)">
                         </label>
                     </div>
 
                     <div class="feedback__send">
-                        <div class="small discreet">All issues are visible to the public at <a class="inherit" target="_blank" href="https://github.com/gbif/portal-feedback/issues"><u>Github</a></u></div>
+                        <div class="small discreet">All issues are visible to the public at <a class="inherit"
+                                                                                               target="_blank"
+                                                                                               href="https://github.com/gbif/portal-feedback/issues"><u>Github</a></u>
+                        </div>
                         <div class="clearfix">
-                            <button ng-disabled="!feedback.functionalityForm.$valid" type="submit"
-                                    ng-click="feedback.createIssue(feedback.issue)"
+                            <button ng-disabled="!vm.functionalityForm.$valid" type="submit"
+                                    ng-click="vm.createIssue(vm.issue)"
                                     class="btn btn-default flat pull-right">{$
                                 __('tools.suggestDataset.form.submit') $}
                             </button>
                         </div>
-                        <div ng-if="feedback.state == 'FAILED'">
+                        <div ng-if="vm.state == 'FAILED'">
                             We couldn't create the issue. Please send as mail or go straight to Github. Sorry for
                             the trouble.
                         </div>
@@ -197,13 +213,15 @@
 
                 </form>
             </div>
-            <div class="menubox__section menubox__section--content menubox__section--question" ng-if="feedback.type.QUESTION == feedback.selected">
+            <div class="menubox__section menubox__section--content menubox__section--question"
+                 ng-if="vm.type.QUESTION == vm.selected">
                 <div>
                     <p>
                         All questions are answered by our helpdesk at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>
                     </p>
                     <div class="small discreet">
-                        If your question is about lorem ipsum dolorem then you can help expediate the process by reaching us at <a href="mailto:info@gbif.org">info@gbif.org</a>
+                        If your question is about lorem ipsum dolorem then you can help expediate the process by
+                        reaching us at <a href="mailto:info@gbif.org">info@gbif.org</a>
                     </div>
                 </div>
             </div>

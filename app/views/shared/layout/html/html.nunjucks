@@ -36,7 +36,7 @@
                 </aside>
             {% endif %}
 
-            {% include "../partials/feedback/feedback.html" %}
+            {% include "../partials/feedback/feedback.nunjucks" %}
 
             {% include "../partials/navigation/search/search.nunjucks" %}
 

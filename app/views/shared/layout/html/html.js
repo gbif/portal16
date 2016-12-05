@@ -83,10 +83,11 @@ require('./angular/speciesFilter.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
 
+require('../partials/feedback/feedback.directive');
+//require('../partials/feedback/feedback.ctrl');
 
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');
-require('../partials/feedback/feedback.ctrl');
 require('../partials/popups/terms/terms.ctrl');
 
 
