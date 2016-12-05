@@ -11,15 +11,16 @@ angular
 /** @ngInject */
 function feedbackCtrl($scope, NAV_EVENTS, $http) {
     var vm = this;
-    vm.isActive = false;
+    vm.isActive = true;
     vm.issue = {};
     vm.type = {
         //0 left out to allow falsy test a la : if (vm.type) then ...
-        CONTENT: 1,
-        FUNCTIONALITY: 2,
-        QUESTION: 3
+        CONTENT: 'content',
+        FUNCTIONALITY: 'bug',
+        IDEA: 'idea',
+        QUESTION: 'question'
     };
-    vm.selected = undefined;
+    vm.selected = vm.type.IDEA;
 
     $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
         if (data.toggle) {
@@ -43,9 +44,13 @@ function feedbackCtrl($scope, NAV_EVENTS, $http) {
     };
 
     vm.createIssue = function (formData) {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        $http.post('/api/feedback/bug', {form: formData, width: w, height: h, type: 'Bug'}, {}).then(function (response) {
+        var issue = {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                type: vm.selected,
+                form: formData
+            };
+        $http.post('/api/feedback/bug', issue, {}).then(function (response) {
             vm.referenceId = response.data.referenceId;
             vm.state = 'SUCCESS';
         }, function () {

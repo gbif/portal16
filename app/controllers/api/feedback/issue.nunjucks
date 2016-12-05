@@ -1,9 +1,8 @@
 {% if form.title %}**{$ form.title | striptags $}**{% endif %}
 
-{% if form.description %}{$ form.description | striptags $}{% endif %}
+{% if form.description %}{$ form.description $}{% endif %}
 
-{% if form.contact %}Reported by: {$ form.contact | striptags $}{% endif %}
+{% if __contact %}Reported by: {$ __contact | striptags $}{% endif %}
 
 {% if __agent %}System: {$ __agent $}{% endif %}
-
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}

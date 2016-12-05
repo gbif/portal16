@@ -17,18 +17,26 @@
                 </div>
                 <div class="menubox__header__description" ng-if="feedback.type.CONTENT == feedback.selected">
                     <div>
-                        <strong>The content is wrong</strong>
+                        <strong>Content is wrong</strong>
                     </div>
                     <p>
-                        Example: The coordinates are wrong and this taxonomy is so 90'ies
+                        Example: That species don't exist. This taxonomy is so '90s
                     </p>
                 </div>
                 <div class="menubox__header__description" ng-if="feedback.type.FUNCTIONALITY == feedback.selected">
                     <div>
-                        <strong>Things don't work or you have a good idea</strong>
+                        <strong>It's broken</strong>
                     </div>
                     <p>
-                        Examples: Search button is broken and I want GBIF for my smart watch.
+                        Examples: Search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond.
+                    </p>
+                </div>
+                <div class="menubox__header__description" ng-if="feedback.type.IDEA == feedback.selected">
+                    <div>
+                        <strong>I have a wonderful idea</strong>
+                    </div>
+                    <p>
+                        Example: I want GBIF for my smart watch.
                     </p>
                 </div>
                 <div class="menubox__header__description" ng-if="feedback.type.QUESTION == feedback.selected">
@@ -36,7 +44,7 @@
                         <strong>I have a question</strong>
                     </div>
                     <p>
-                        Examples: How to download data? And why aren't there any species from outer space?
+                        Examples: How to download data? And what is GBIFs take on animals privacy?
                     </p>
                 </div>
             </div>
@@ -44,13 +52,28 @@
                 <nav class="clearfix">
                     <ul>
                         <li ng-class="{isActive: feedback.type.CONTENT == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">Content</a>
+                            <a href="" ng-click="feedback.toggle(feedback.type.CONTENT)">
+                                <span class="gb-icon-unicorn"></span>
+                                <!-- <div>Content</div> -->
+                            </a>
                         </li>
                         <li ng-class="{isActive: feedback.type.FUNCTIONALITY == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">Functionality</a>
+                            <a href="" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">
+                                <span class="gb-icon-bug"></span>
+                                <!-- <div>It's broken</div> -->
+                            </a>
+                        </li>
+                        <li ng-class="{isActive: feedback.type.IDEA == feedback.selected}">
+                            <a href="" ng-click="feedback.toggle(feedback.type.IDEA)">
+                                <span class="gb-icon-idea"></span>
+                                <!-- <div>Idea</div> -->
+                            </a>
                         </li>
                         <li ng-class="{isActive: feedback.type.QUESTION == feedback.selected}">
-                            <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">Question</a>
+                            <a href="" ng-click="feedback.toggle(feedback.type.QUESTION)">
+                                <span class="gb-icon-unknown"></span>
+                                <!-- <div>Question</div> -->
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -62,30 +85,40 @@
                     <li>
                         <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.CONTENT)">
                             <h4>
-                                The content is wrong
+                                Content
                             </h4>
                             <p class="small">
-                                Example: The coordinates are wrong and this taxonomy is so 90'ies
+                                Example: That species don't exist. This taxonomy is so '90s
                             </p>
                         </a>
                     </li>
                     <li>
                         <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.FUNCTIONALITY)">
                             <h4>
-                                Things don't work or you have a good idea
+                                It's broken
                             </h4>
                             <p class="small">
-                                Examples: Search button is broken and I want GBIF for my smart watch.
+                                Examples: Search button don't work. The Gopher site doesn't respond.
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.IDEA)">
+                            <h4>
+                                Idea
+                            </h4>
+                            <p class="small">
+                                Example: I want GBIF for my smart watch.
                             </p>
                         </a>
                     </li>
                     <li>
                         <a href="" class="inherit nuUnderline" ng-click="feedback.toggle(feedback.type.QUESTION)">
                             <h4>
-                                I have a question
+                                Question
                             </h4>
                             <p class="small">
-                                Examples: How to download data? And why aren't there any species from outer space?
+                                Examples: How to download data? And what is GBIFs take on animals privacy?
                             </p>
                         </a>
                     </li>
@@ -102,23 +135,38 @@
                 </div>
             </div>
             <div class="menubox__section menubox__section--issue"
-                 ng-if="feedback.type.FUNCTIONALITY == feedback.selected">
+                 ng-if="feedback.type.FUNCTIONALITY == feedback.selected || feedback.type.IDEA == feedback.selected || feedback.type.CONTENT == feedback.selected">
                 <form name="feedback.functionalityForm" novalidate>
                     <div class="feedback-input">
                         <label>
                             <span>Title</span>
-                            <input type="text"
+                            <input ng-if="feedback.type.FUNCTIONALITY == feedback.selected"
+                                   type="text"
                                    ng-model="feedback.issue.title"
-                                   placeholder="Summary">
+                                   placeholder="Summary"
+                                   focus-me="true">
+                            <input ng-if="feedback.type.IDEA == feedback.selected"
+                                   type="text"
+                                   ng-model="feedback.issue.title"
+                                   placeholder="Summary"
+                                   focus-me="true">
+                            <input ng-if="feedback.type.CONTENT == feedback.selected"
+                                   type="text"
+                                   ng-model="feedback.issue.title"
+                                   placeholder="Summary"
+                                   focus-me="true">
                         </label>
                     </div>
 
-                    <div class="feedback-input--flex">
+                    <div class="feedback__textarea">
                         <label>
                             <span>Description</span>
-                                    <textarea rows="3"
-                                              ng-model="feedback.issue.description"
-                                              placeholder="Describe the problem"></textarea>
+                            <textarea rows="3"
+                                      ng-model="feedback.issue.description"
+                                      placeholder="Describe the {{feedback.selected}}" ng->
+                            </textarea>
+                            <div class="feedback-input__info" ng-if="!(feedback.issue.description.length > 200)">
+                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="inherit">Markdown</a> support</div>
                         </label>
                     </div>
 
@@ -132,7 +180,7 @@
                     </div>
 
                     <div class="feedback__send">
-                        <div class="small">All issues are visible to the public</div>
+                        <div class="small discreet">All issues are visible to the public at <a class="inherit" target="_blank" href="https://github.com/gbif/portal-feedback/issues"><u>Github</a></u></div>
                         <div class="clearfix">
                             <button ng-disabled="!feedback.functionalityForm.$valid" type="submit"
                                     ng-click="feedback.createIssue(feedback.issue)"
@@ -149,12 +197,14 @@
 
                 </form>
             </div>
-            <div class="menubox__section menubox__section--content" ng-if="feedback.type.QUESTION == feedback.selected">
+            <div class="menubox__section menubox__section--content menubox__section--question" ng-if="feedback.type.QUESTION == feedback.selected">
                 <div>
                     <p>
-                        Just send a mail
+                        All questions are answered by our helpdesk at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>
                     </p>
-
+                    <div class="small discreet">
+                        If your question is about lorem ipsum dolorem then you can help expediate the process by reaching us at <a href="mailto:info@gbif.org">info@gbif.org</a>
+                    </div>
                 </div>
             </div>
         </div>

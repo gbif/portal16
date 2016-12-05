@@ -57,7 +57,7 @@ $menuboxBorderRadius = 4px;
         li {
             display inline-block
             float left
-            width 33%
+            width 25%
             &:first-of-type {
                 padding-left 10px
             }
@@ -65,13 +65,18 @@ $menuboxBorderRadius = 4px;
                 padding-right 10px
             }
             a {
-                padding 10px 0
+                line-height 1
                 text-align center
                 display block
                 color darken($feedbackPrimaryColor, 20)
                 border-bottom 3px solid transparent
-                font-size 12px
-                font-weight bold
+                span {
+                    font-size 30px
+                }
+                div {
+                    font-size 12px
+                    padding-bottom 5px
+                }
             }
             &.isActive {
                 a {
@@ -109,6 +114,13 @@ $menuboxBorderRadius = 4px;
                 }
             }
         }
+        &--question {
+            >div {
+                p {
+                    margin-bottom vrBlock(1)
+                }
+            }
+        }
         &--issue {
             form {
                 padding 0
@@ -130,14 +142,36 @@ $menuboxBorderRadius = 4px;
                     padding 20px
                     font-size 12px
                     background transparent
+                    transition background 200ms ease
                     &:focus {
                         outline none
                         background white
+                        + .feedback-input__info {
+                            display block
+                        }
                     }
                 }
                 textarea {
                     height 200px
                     resize none
+                }
+                .feedback__textarea {
+                    position relative
+                    >label>div {
+                        display none
+                        position absolute
+                        bottom 5px
+                        right 5px
+                        font-size 10px
+                        text-transform uppercase
+                        color $discreetInk
+                        a {
+                            text-decoration underline
+                        }
+                        &:hover {
+                            display block
+                        }
+                    }
                 }
                 .feedback__send {
                     padding 5px 20px
@@ -156,10 +190,9 @@ $menuboxBorderRadius = 4px;
         right vrBlock(1)
         left initial
         bottom initial
-        height calc(100% - 100px)
         width 370px
         min-height 250px
-        max-height 590px
+        max-height calc(100% - 100px)
         border-radius $menuboxBorderRadius
         box-shadow 0 5px 150px 20px rgba(0, 0, 0, 0.15)
         &__wrapper {

@@ -162,6 +162,9 @@ drop by José Campos from the Noun Project - https://thenounproject.com/search/?
 Funnel by David from the Noun Project - https://thenounproject.com/search/?q=funnel&i=430438
 Microscope by Alex Auda Samora from the Noun Project - https://thenounproject.com/search/?q=microscope&i=94605
 Quote by Yoshi from the Noun Project - https://thenounproject.com/search/?q=citation&i=450890
+Unicorn by Pieter J. Smits from the Noun Project - https://thenounproject.com/term/unicorn/78104/
+Bug by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=bug&i=198
+Idea by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=idea&i=762
 
 ### data
 ISO country codes - http://data.okfn.org/data/core/country-codes
