@@ -26,9 +26,10 @@ router.get('/template.html', function (req, res, next) {
 });
 
 router.get('/content', function (req, res, next) {
-    //var path = req.query.path,
-    //    feedbackType = getFeedbackContentType(path);
-    res.json('sdf');
+    var path = req.query.path;
+    feedbackContentType.getFeedbackContentType(path, function(feedbackType){
+        res.json(feedbackType);
+    });
 });
 
 router.post('/bug', function (req, res) {

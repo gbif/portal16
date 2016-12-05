@@ -124,15 +124,14 @@
                 </ul>
             </div>
             <div class="menubox__section menubox__section--content" ng-if="vm.type.CONTENT == vm.selected">
-                <div>
+                <div ng-if="vm.contentFeedback.type == 'CUSTOM'">
                     <p>
-                        The content on this page is published by iNaturalist. They have a feedback system of their own.
-                        For feedback about content we suggest use use that at <a href="sdf">iNaturalist.com</a></a>
+                        You can comment on this occurrence at
+                    </p>
+                    <p style="padding-left:20px">
+                        <a ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
                     </p>
                     <div class="small discreet">
-                        <p>
-                            You can compare the original and GBIFs interpretaed version in the table
-                        </p>
                         If you believe it has to do with GBIFs processing of the record, then please fill a <a href=""
                                                                                                                ng-click="vm.toggle(vm.type.FUNCTIONALITY)">bug
                             report</a>
@@ -144,9 +143,28 @@
                     {#</p>#}
 
                 </div>
+
+                <div ng-if="vm.contentFeedback.type == 'MAIL'">
+                    <p>
+                        Get in touch with the dataset contact
+                    </p>
+                    <p style="padding-left:20px">
+                        {{ vm.contentFeedback.contacts.firstContact.firstName }} {{ vm.contentFeedback.contacts.firstContact.lastName }}
+                        <br/>
+                        {{ vm.contentFeedback.contacts.firstContact.organization }}
+                        <br/>
+                        <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
+                    </p>
+                    <div class="small discreet">
+                        If you believe it has to do with GBIFs processing of the record, then please fill a <a href=""
+                                                                                                               ng-click="vm.toggle(vm.type.FUNCTIONALITY)">bug
+                            report</a>
+                    </div>
+                </div>
+
             </div>
             <div class="menubox__section menubox__section--issue seperator"
-                 ng-if="vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected">
+                 ng-if="vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || (!vm.contentFeedback.type && vm.type.CONTENT == vm.selected)">
                 <form name="vm.functionalityForm" novalidate>
                     <div class="feedback-input">
                         <label>
@@ -174,7 +192,7 @@
                             <span>Description</span>
                             <textarea rows="3"
                                       ng-model="vm.issue.description"
-                                      placeholder="Describe the {{ vm.selected }}" ng->
+                                      placeholder="Detailed description" ng->
                             </textarea>
                             <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
                                 <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
@@ -220,8 +238,8 @@
                         All questions are answered by our helpdesk at <a href="mailto:helpdesk@gbif.org">helpdesk@gbif.org</a>
                     </p>
                     <div class="small discreet">
-                        If your question is about lorem ipsum dolorem then you can help expediate the process by
-                        reaching us at <a href="mailto:info@gbif.org">info@gbif.org</a>
+                        If your question is not of a technical character then you can help expediate the process by
+                        reaching us at <a href="mailto:info@gbif.org">info@gbif.org</a> or at <a href="mailto:communication@gbif.org">communication@gbif.org</a> for press matters.
                     </div>
                 </div>
             </div>

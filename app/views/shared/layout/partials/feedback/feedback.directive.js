@@ -26,6 +26,7 @@ function feedbackDirective() {
         var vm = this;
         vm.location = $location.path();
         vm.isActive = false;
+        vm.contentFeedback = undefined;
         vm.issue = {};
         vm.type = {
             //0 left out to allow falsy test a la : if (vm.type) then ...
@@ -73,11 +74,15 @@ function feedbackDirective() {
         };
 
         vm.updateContentFeedbackType = function() {
-            $http.get('/api/feedback/content', function(data) {
-                console.log(data);
-            });
+            $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
+                .then(function(response) {
+                    vm.contentFeedback = response.data;
+                }, function(err){
+                    console.log(err);
+                });
         };
         vm.updateContentFeedbackType();
+
     }
 }
 
