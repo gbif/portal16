@@ -1520,7 +1520,8 @@
       "presentation": "presentation",
       "tool": "tool",
       "link": "link",
-      "generic": "generic"
+      "generic": "generic",
+      "literature": "literature"
     },
     "facet": {
       "language": "language",
@@ -1578,7 +1579,11 @@
       "gbif_history/overview": "GBIF history/overview",
       "public_stakeholders": "Public stakeholders",
       "data_analysis": "Data analysis",
-      "abundance_data": "Abundance data"
+      "abundance_data": "Abundance data",
+      "data_management": "Data management",
+      "data_paper": "Data paper",
+      "phylogenetics": "Phylogenetics",
+      "taxonomy": "Taxonomy"
     },
     "projectGrantType": {
       "regional": "Regional grant",
