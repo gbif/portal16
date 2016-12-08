@@ -1807,5 +1807,48 @@
     "description": "GBIF uses cookies and the like for the purposes of statistical analysis, improving the friendliness and usability of our website, tailoring content to your interests and engaging with social media. By visiting our website, you consent to our and third party use of cookies as described in our privacy and cookie policy.",
     "readTerms": "Read terms",
     "accept": "accept"
+  },
+  "feedback": {
+    "intro": {
+      "title": "Feedback",
+      "example": "You can help us solve the issue by chossing a feedback type."
+    },
+    "content": {
+      "title": "Content",
+      "example": "E.g. that species don't exist. This taxonomy is so '90s",
+      "annotate": "This publisher has a website for handling feedback. We recommend using that",
+      "contactPerMail": "Get in touch with the dataset contact"
+    },
+    "bug": {
+      "title": "Functionality",
+      "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
+    },
+    "idea": {
+      "title": "Idea",
+      "example": "E.g. I want GBIF for my smart watch."
+    },
+    "question": {
+      "title": "Question",
+      "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
+      "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
+      "comment": "If your question is not of a technical character then you can help expediate the process by reaching us at info@gbif.org or at communication@gbif.org for press matters."
+    },
+    "issues": {
+      "title": "Content issues",
+      "description": "Content issues reported by other users",
+      "create": "Leave feedback"
+    },
+    "placeholders": {
+      "summary": "Summary",
+      "description": "Detailed description",
+      "username": "Your email or Github username (optional)"
+    },
+    "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
+    "bugReport": "functionality issue",
+    "issueTracking": "All issues are visible to the public at {Github}",
+    "failure": "We couldn't create the issue. Please send as mail or go straight to {Github}. Sorry for the trouble.",
+    "commentsNone": "No comments",
+    "commentSingular": "{{commentCount}} comment",
+    "commentPlural": "{{commentCount}} comments"
   }
 }
