@@ -1,0 +1,508 @@
+[
+  {
+    "id": 82632,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/african-ant-atlas",
+    "title": "African Insect Atlas",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148965,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Giraffe_weevil.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Giraffe_weevil.jpg"
+      }
+    },
+    "status": "approved",
+    "fundingAllocated": 120000,
+    "estimatedCoFunding": 103234,
+    "grantType": "regional"
+  },
+  {
+    "id": 82643,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/cameroon-bee-data-mobilization",
+    "title": "Mobilization of diversity data on bees in Cameroon",
+    "duration": {
+      "start": 1464732000,
+      "end": 1509404400
+    },
+    "image": {
+      "id": 148363,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Apis_mellifera_Western_honey_bee.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Apis_mellifera_Western_honey_bee.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 4996,
+    "grantType": "small"
+  },
+  {
+    "id": 82661,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/ghana-node-capacity-enhancement",
+    "title": "Capacity enhancement for the Ghana node of GBIF",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148360,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Elephant_in_Mole_National_park_Ghana_by_Stig_Nygaard_CC_BY_2.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Elephant_in_Mole_National_park_Ghana_by_Stig_Nygaard_CC_BY_2.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 36500,
+    "estimatedCoFunding": 27010,
+    "grantType": "national"
+  },
+  {
+    "id": 82693,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/strengthening-togo-stakeholder-network",
+    "title": "Strengthening the biodiversity stakeholders network in Togo",
+    "duration": {
+      "start": 1464732000,
+      "end": 1483138800
+    },
+    "image": {
+      "id": 148395,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Kpime_waterfall_near_Kpalime_Togo_by_jbdodane.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Kpime_waterfall_near_Kpalime_Togo_by_jbdodane.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 60000,
+    "estimatedCoFunding": 91316,
+    "grantType": "national"
+  },
+  {
+    "id": 82698,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/managing-plant-data-cote-d-ivoire",
+    "title": "Development of a funding mechanism and efficient management of data on plant biodiversity in Côte d’Ivoire",
+    "duration": {
+      "start": 1464732000,
+      "end": 1543532400
+    },
+    "image": {
+      "id": 148397,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Napoleonaea_vogelii_in_the_Tai_National_Park_by_Yakovlev_Alexey.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Napoleonaea_vogelii_in_the_Tai_National_Park_by_Yakovlev_Alexey.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 59131,
+    "estimatedCoFunding": 124130,
+    "grantType": "national"
+  },
+  {
+    "id": 82703,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/benin-data-protected-areas-threatened-species",
+    "title": "Mobilization of biodiversity data on protected areas and threatened species  in Benin",
+    "duration": {
+      "start": 1464732000,
+      "end": 1514674800
+    },
+    "image": {
+      "id": 148398,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Afzelia_africana_seed_pod_by_Marco_Schmidt_via_Wikimedia.JPG",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Afzelia_africana_seed_pod_by_Marco_Schmidt_via_Wikimedia.JPG"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 4986,
+    "estimatedCoFunding": 3428,
+    "grantType": "small"
+  },
+  {
+    "id": 82706,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/mobilizing-kenya-wildlife-service-data",
+    "title": "Mobilizing biodiversity information from the Kenya Wildlife Service",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148400,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Grevy_Zebra_by_Gary_M_Stolz.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Grevy_Zebra_by_Gary_M_Stolz.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 60000,
+    "estimatedCoFunding": 70670,
+    "grantType": "national"
+  },
+  {
+    "id": 82715,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/gabon-plant-data-mobilization",
+    "title": "Support for data collection of plant biodiversity in Gabon",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148401,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Landscape_around_Awoua_Oyem_in_Gabon_by_jbdodane.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Landscape_around_Awoua_Oyem_in_Gabon_by_jbdodane.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 59959,
+    "estimatedCoFunding": 57985,
+    "grantType": "national"
+  },
+  {
+    "id": 82721,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/guinea-plant-red-list",
+    "title": "Towards a Red List of the globally threatened plants of Guinea",
+    "duration": {
+      "start": 1464732000,
+      "end": 1543532400
+    },
+    "image": {
+      "id": 148402,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Vitellaria_paradoxa_MS4195.JPG",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Vitellaria_paradoxa_MS4195.JPG"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 41826,
+    "estimatedCoFunding": 20286,
+    "grantType": "national"
+  },
+  {
+    "id": 82723,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/benin-bird-data-mobilization",
+    "title": "Gathering of biodiversity data on bird species for their sustainable management in Benin",
+    "duration": {
+      "start": 1464732000,
+      "end": 1514674800
+    },
+    "image": {
+      "id": 148403,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Northern_carmine_bee-eater_Merops_nubicus_in_Benin_by_Andrea_Moroni_via_flickr.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Northern_carmine_bee-eater_Merops_nubicus_in_Benin_by_Andrea_Moroni_via_flickr.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 1320,
+    "grantType": "small"
+  },
+  {
+    "id": 82725,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/kenya-freshwater-snails",
+    "title": "Mobilizing data on freshwater snails in Kenya",
+    "duration": {
+      "start": 1464732000,
+      "end": 1509404400
+    },
+    "image": {
+      "id": 148404,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Naivasha_lake_by_undeklinable-Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Naivasha_lake_by_undeklinable-Wikipedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 5499,
+    "grantType": "small"
+  },
+  {
+    "id": 82729,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/benin-forest-data-mobilization",
+    "title": "Mobilizing biodiversity data from the forest reserves of southern and central Benin",
+    "duration": {
+      "start": 1464732000,
+      "end": 1511996400
+    },
+    "image": {
+      "id": 148405,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Gingerbread_tree_Hyphaene_thebaica_in_Benin_by_Marco_Schmidt.JPG",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Gingerbread_tree_Hyphaene_thebaica_in_Benin_by_Marco_Schmidt.JPG"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 4995,
+    "estimatedCoFunding": 3290,
+    "grantType": "small"
+  },
+  {
+    "id": 82736,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/senegal-national-biodiversity-information-system",
+    "title": "Senegalese National Information System on Biodiversity - SENBIO-INFOS",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148406,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/River_gambia_Niokolokoba_National_Park_via_Wikimedia.gif",
+      "filemime": "image/gif",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/River_gambia_Niokolokoba_National_Park_via_Wikimedia.gif"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 60000,
+    "estimatedCoFunding": 42000,
+    "grantType": "national"
+  },
+  {
+    "id": 82741,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/health-and-food-priorities-benin",
+    "title": "Capacity building and biodiversity data mobilization to address health and food security priorities in Benin",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148407,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Dawadawa_tree_Parkia_biglobosa_by_TreeAid_via_Flickr.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Dawadawa_tree_Parkia_biglobosa_by_TreeAid_via_Flickr.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 35000,
+    "estimatedCoFunding": 39640,
+    "grantType": "national"
+  },
+  {
+    "id": 82750,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/data-mobilization-eight-african-countries",
+    "title": "Capacity building and biodiversity data mobilization for conservation, sustainable use, and decision making in Africa and Madagascar",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148410,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Lantana_by_Joaquim_Alves_Gaspar_via_Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Lantana_by_Joaquim_Alves_Gaspar_via_Wikipedia.jpg"
+      }
+    },
+    "status": "approved",
+    "fundingAllocated": 180000,
+    "estimatedCoFunding": 230641,
+    "grantType": "regional"
+  },
+  {
+    "id": 82753,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/tanzania-redd-plus-data",
+    "title": "Publishing metadata for biodiversity data generated from REDD+ projects in Tanzania",
+    "duration": {
+      "start": 1465941600,
+      "end": 1511996400
+    },
+    "image": {
+      "id": 148412,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Western_Usambara_by_David_Ashby_via_Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Western_Usambara_by_David_Ashby_via_Wikipedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 4758,
+    "estimatedCoFunding": 1079,
+    "grantType": "small"
+  },
+  {
+    "id": 82758,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/data-rescue-botswana-wildlife-management-association",
+    "title": "Data rescue for the records of the Botswana Wildlife Management Association",
+    "duration": {
+      "start": 1467324000,
+      "end": 1505426400
+    },
+    "image": {
+      "id": 148413,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Lechwe_in_Okavango_by_PanBK_via_Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Lechwe_in_Okavango_by_PanBK_via_Wikipedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 10795,
+    "grantType": "small"
+  },
+  {
+    "id": 82764,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/albertine-rift-data-mobilization",
+    "title": "Biodiversity data mobilization in the Albertine Rift region",
+    "duration": {
+      "start": 1464732000,
+      "end": 1514674800
+    },
+    "image": {
+      "id": 148414,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Uganda_rainforest_tree_by_JJ_via_flickr.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Uganda_rainforest_tree_by_JJ_via_flickr.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 90000,
+    "estimatedCoFunding": 15000,
+    "grantType": "regional"
+  },
+  {
+    "id": 82768,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/dr-congo-node-building",
+    "title": "Building capacity in the Democratic Republic of Congo (DRC) to establish an effective GBIF Participant node",
+    "duration": {
+      "start": 1464732000,
+      "end": 1532988000
+    },
+    "image": {
+      "id": 148415,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Bukima_Patrol_Post_Virunga_DRC_by_Cai_Tjeenk_Willing_via_Wikimedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Bukima_Patrol_Post_Virunga_DRC_by_Cai_Tjeenk_Willing_via_Wikimedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 60000,
+    "estimatedCoFunding": 35500,
+    "grantType": "national"
+  },
+  {
+    "id": 82771,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/zimbabwe-museum-zoology-collection",
+    "title": "Making the zoology collection of the Natural History Museum of Zimbabwe accessible through GBIF ",
+    "duration": {
+      "start": 1464732000,
+      "end": 1514674800
+    },
+    "image": {
+      "id": 148416,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Elephant_at_Lake_Kariba_Zimbabwe_by_Vince_Sullivan_via_Wikimedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Elephant_at_Lake_Kariba_Zimbabwe_by_Vince_Sullivan_via_Wikimedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 13000,
+    "grantType": "small"
+  },
+  {
+    "id": 82775,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/strengthening-angola-data-network",
+    "title": "Strengthening the institutional network in Angola to mobilize biodiversity data",
+    "duration": {
+      "start": 1464732000,
+      "end": 1546210800
+    },
+    "image": {
+      "id": 148418,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/View_from_Tundavala_Angola_by_jbdodane_via_Flickr.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/View_from_Tundavala_Angola_by_jbdodane_via_Flickr.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 60000,
+    "estimatedCoFunding": 21618,
+    "grantType": "national"
+  },
+  {
+    "id": 82779,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/kenya-small-carnivores",
+    "title": "Kenya’s other carnivores: harnessing biodiversity data for effective development of national conservation strategies",
+    "duration": {
+      "start": 1470434400,
+      "end": 1511996400
+    },
+    "image": {
+      "id": 148419,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Banded_Mongoose-Kenya_by_Sumeet_Moghe_via_Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Banded_Mongoose-Kenya_by_Sumeet_Moghe_via_Wikipedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 17110,
+    "grantType": "small"
+  },
+  {
+    "id": 82781,
+    "type": "node",
+    "targetUrl": "programme/bid/project/africa/2015/mobilizing-uganda-plant-diversity-training",
+    "title": "Mobilizing plant diversity data in Uganda through training",
+    "duration": {
+      "start": 1464732000,
+      "end": 1514674800
+    },
+    "image": {
+      "id": 148420,
+      "original": "http://cms.gbif-dev.org/sites/default/files/gbif_project/images/projects/Bujuku_valley_plants_Uganda_by_Manuel_Werner_via_Wikipedia.jpg",
+      "filemime": "image/jpeg",
+      "styles": {
+        "square_thumbnail": "http://cms.gbif-dev.org/sites/default/files/styles/square_thumbnail/public/gbif_project/images/projects/Bujuku_valley_plants_Uganda_by_Manuel_Werner_via_Wikipedia.jpg"
+      }
+    },
+    "status": "in_progress",
+    "fundingAllocated": 5000,
+    "estimatedCoFunding": 2631,
+    "grantType": "small"
+  }
+]
