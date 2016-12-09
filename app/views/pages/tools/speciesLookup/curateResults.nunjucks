@@ -1,5 +1,5 @@
 <!-- Lookup keys -->
-<div class="horizontal-stripe white-background ng-cloak" ng-if="speciesLookup.species && speciesLookup.processing">
+<div class="horizontal-stripe--paddingless white-background ng-cloak" ng-if="speciesLookup.species && speciesLookup.processing">
     <div class="occurrence-search__table__area">
         <div class="scrollable-y">
             <div class="table-container">

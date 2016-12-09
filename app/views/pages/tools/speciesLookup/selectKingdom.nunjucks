@@ -1,7 +1,7 @@
 <div class="ng-cloak" ng-if="speciesLookup.species && !speciesLookup.processing">
 
     <!-- Lookup keys -->
-    <div class="horizontal-stripe white-background speciesLookup__raw-table">
+    <div class="horizontal-stripe--paddingless white-background speciesLookup__raw-table">
 
         <!-- <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"> </ng-include> -->
 
