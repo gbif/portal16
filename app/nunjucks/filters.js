@@ -111,6 +111,14 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('linkify', format.linkify);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('insertLinks', format.insertLinks);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;

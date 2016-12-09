@@ -1,5 +1,6 @@
 var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
+    linkTools = require('./links/links'),
     defaultLanguage = 'en';
 
 // GBIF/UN date style
@@ -145,5 +146,7 @@ module.exports = {
     prettifyLicense: prettifyLicense,
     sanitize: sanitize,
     sanitizeTrusted: sanitizeTrusted,
-    addPortalClasses: addPortalClasses
+    addPortalClasses: addPortalClasses,
+    insertLinks: linkTools.insertLinks,
+    linkify: linkTools.linkify
 };

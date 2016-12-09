@@ -1838,6 +1838,11 @@
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "If your question is not of a technical character then you can help expediate the process by reaching us at info@gbif.org or at communication@gbif.org for press matters."
     },
+    "confirmation": {
+      "title": "Thank you",
+      "example": "",
+      "seeIssue": "See issue"
+    },
     "issues": {
       "title": "Content issues",
       "description": "Content issues reported by other users",
@@ -1851,7 +1856,7 @@
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "functionality issue",
     "issueTracking": "All issues are visible to the public at {Github}",
-    "failure": "We couldn't create the issue. Please send as mail or go straight to {Github}. Sorry for the trouble.",
+    "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
     "commentSingular": "{{commentCount}} comment",
     "commentPlural": "{{commentCount}} comments"

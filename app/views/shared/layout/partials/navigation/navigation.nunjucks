@@ -15,44 +15,55 @@
                 <a href="#search">Search</a>
             </li> -->
 
-            <li class="service-menu__feedback">
-                <a href="" ng-click="nav.toggleFeedback()">
-                    <span class="service-menu__icon gb-icon-bubble"></span>
-                    <span class="service-menu__text">Feedback</span>
+            {% if not meta.hideFeedback %}
+                <li class="service-menu__feedback">
+                    <a href="" ng-click="nav.toggleFeedback()">
+                        <span class="service-menu__icon gb-icon-bubble"></span>
+                        <span class="service-menu__text">Feedback</span>
+                    </a>
+                    <span class="badge badge--error menu-notification ng-cloak"
+                          ng-if="nav.issuesCount">{{ nav.issuesCount }}</span>
+                </li>
+            {% endif %}
+
+            <li class="service-menu__notifications">
+                <a href="" ng-click="nav.toggleNotifications()">
+                    <span class="service-menu__icon gb-icon-notifications"></span>
+                    <span class="service-menu__text">Notifications</span>
                 </a>
-                <span class="badge badge--error menu-notification">1</span>
+                <span class="badge badge--error menu-notification ng-cloak">1</span>
             </li>
 
             <li class="service-menu__profile is-category">
-               <a href="">
+                <a href="">
                     <span class="service-menu__icon gb-icon-account"></span>
                     <span class="service-menu__text">Account</span>
-               </a>
-               <ul>
-                  <li>
-                     <a href="">Not implemented yet</a>
-                  </li>
-                  <!--li>
-                     <a href="#2">Register</a>
-                  </li>
-                  <li>
-                     <a href="#3">Sign out</a>
-                  </li>
-                  <li>
-                     <a href="#4">My datasets</a>
-                  </li-->
-               </ul>
+                </a>
+                <ul>
+                    <li>
+                        <a href="">Not implemented yet</a>
+                    </li>
+                    <!--li>
+                       <a href="#2">Register</a>
+                    </li>
+                    <li>
+                       <a href="#3">Sign out</a>
+                    </li>
+                    <li>
+                       <a href="#4">My datasets</a>
+                    </li-->
+                </ul>
             </li>
 
-            {% if not _meta.hideSearchAction %}
-                <li class="service-menu__search">
-                    <a href="" ng-click="nav.toggleSearch()">
-                        <span class="service-menu__icon gb-icon-search2"></span>
-                        <span class="service-menu__text">Search</span>
-                    </a>
-                </li>
-            {% endif %}
-            
+            {#{% if not _meta.hideSearchAction %}#}
+            <li class="service-menu__search {% if _meta.hideSearchAction %} invisible {% endif %}">
+                <a href="" ng-click="nav.toggleSearch()">
+                    <span class="service-menu__icon gb-icon-search2"></span>
+                    <span class="service-menu__text">Search</span>
+                </a>
+            </li>
+            {#{% endif %}#}
+
             <!-- <li class="service-menu__language is-category">
                <a href="#" class="gb-icon-global">Language</a>
                <ul>
@@ -86,7 +97,7 @@
 
 
     <div class="main-menu">
-        <a href="/" class="main-menu__home">
+        <a href="{$ gb.locales.urlPrefix $}/" class="main-menu__home">
             <span class="main-menu__icon gb-icon-home"></span>
             <span class="main-menu__icon gb-icon-logo"></span>
             <span class="main-menu__home__text">{$ __('menu.home') $}</span>

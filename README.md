@@ -110,6 +110,12 @@ More options at [http://trentm.com/node-bunyan/bunyan.1.html](http://trentm.com/
 ### Image caching, cropping and resizing
 We use [Thumbor](http://thumbor.org), see [image caching](./image_caching.md) for more details.
 
+### Translations
+backend done using https://github.com/mashpie/i18n-node
+frontend using https://github.com/angular-translate/angular-translate
+currently the same file is shared. That only works partly since the two formats are not identical
+We should probably have to files, one for backend, one for frontend and then copy values that are identical (so that translators won't have to edit two places)
+It would be sensible to extend angular translate with angular-translate-interpolation-messageformat to allow easier pluralization and gender.
 
 ## Project overview
 See [project structure](project_structure.md)
@@ -165,6 +171,7 @@ Quote by Yoshi from the Noun Project - https://thenounproject.com/search/?q=cita
 Unicorn by Pieter J. Smits from the Noun Project - https://thenounproject.com/term/unicorn/78104/
 Bug by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=bug&i=198
 Idea by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=idea&i=762
+User by Viktor Vorobyev from the Noun Project - https://thenounproject.com/search/?q=user&i=415727
 
 ### data
 ISO country codes - http://data.okfn.org/data/core/country-codes

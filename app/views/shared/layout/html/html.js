@@ -84,7 +84,7 @@ require('./angular/map.constants');
 require('./angular/enums.constants');
 
 require('../partials/feedback/feedback.directive');
-//require('../partials/feedback/feedback.ctrl');
+require('../partials/notifications/notifications.directive');
 
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');

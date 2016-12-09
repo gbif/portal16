@@ -31,7 +31,7 @@ function parseOccurrence(path, cb) {
             expand: ['publisher', 'dataset']
         }
     ).then(
-        function(occurrence) {
+        function (occurrence) {
             // occurrence resolved
 
             // has custom annotation system?
@@ -49,7 +49,7 @@ function parseOccurrence(path, cb) {
 
             cb(contentType);
         },
-        function(err){
+        function (err) {
             //failed to get occurrence. Fall back to gbif github report
             cb();
         }
@@ -58,7 +58,7 @@ function parseOccurrence(path, cb) {
 
 function getContacts(occurrence) {
     var contacts = _.get(occurrence, 'dataset.contacts', []),
-        adminContacts = contacts.filter(function(contact){
+        adminContacts = contacts.filter(function (contact) {
             return contact.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && !_.isEmpty(contact.email);
         });
 
@@ -73,7 +73,7 @@ function getContacts(occurrence) {
 
         //get list of administrative contact mails
         var allMails = [];
-        adminContacts.forEach(function(e){
+        adminContacts.forEach(function (e) {
             allMails = allMails.concat(e.email);
         });
         return {

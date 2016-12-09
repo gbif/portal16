@@ -2,8 +2,9 @@
 
 {% if form.description %}{$ form.description $}{% endif %}
 
+-----
+{% if __fbitem %}{$ __fbitem $}{% endif %}
 {% if __contact %}Reported by: {$ __contact | striptags $}{% endif %}
-
 {% if __agent %}System: {$ __agent $}{% endif %}
-{% if __referer %}System: {$ __referer $}{% endif %}
+{% if __referer %}Referer: {$ __referer $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}

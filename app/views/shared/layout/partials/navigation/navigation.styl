@@ -72,7 +72,7 @@ siteHeaderBar() {
         height $navBar_height
         width 100%
         overflow visible
-        //position fixed //no fixed navigation
+        position fixed //use fixed navifation on laptop and above
         > div > ul > li {
             > a {
                 menuTextShadow()
@@ -152,7 +152,6 @@ siteHeaderBar() {
             }
             > ul {
                 float right
-                margin-right 150px
             }
             > ul > li > a {
                 .main-menu__icon {
@@ -417,16 +416,19 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 
 .service-menu {
     .menu-notification {
+        float right
         position absolute
         top vrBlock(0.25)
         right 0
+        font-size 10px
     }
 }
 
 +isAbove($laptop) {
     .service-menu {
-        position absolute
-        right 0
+        float right
+        //position absolute
+        //right 0
         li {
             display inline-block
         }

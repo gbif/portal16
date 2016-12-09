@@ -9,25 +9,72 @@ var express = require('express'),
     feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
     log = rootRequire('config/log'),
+    feedbackHelper = require('./feedbackHelper'),
     router = express.Router();
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
+
 
 module.exports = function (app) {
     app.use('/api/feedback', router);
 };
 
+router.get('/issues', function (req, res, next) {
+    var queryItem = req.query.item || req.headers.referer;
+    var item = feedbackHelper.extractIdentifer(queryItem);
+
+    //if no item is provided or is is the root in default language then do not show comments
+    if (!item) {
+        res.json({
+            incomplete_results: false,
+            total_count: 0,
+            item: []
+        });
+    } else {
+
+        var client = github.client({
+            username: credentials.user,
+            password: credentials.password
+        });
+        var ghsearch = client.search();
+
+        //query github for issues with the extracted page identifier in the title
+        ghsearch.issues({
+            q: item + ' is:issue is:open label:content -label:"Needs validation" in:body+repo:' + credentials.repository,
+            sort: 'created', //'reactions-+1',
+            order: 'desc',
+            per_page: 5
+        }, function (err, data, headers) {
+            if (err) {
+                res.status(500);
+                res.json();
+            } else {
+                //trim list of issues to send less info to the client
+                data.items = _.map(data.items, function (o) {
+                    return {url: o.html_url, title: o.title.replace(item, '').trim(), created_at: o.created_at, comments: o.comments}
+                });
+                //link to all the issues for this page item
+                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:content -label:"Needs validation" in:body');
+                res.json(data);
+            }
+        });
+    }
+
+});
+
 router.get('/template.html', function (req, res, next) {
+    //once promise has been resolved then
     try {
-        res.render('shared/layout/partials/feedback/feedbackDirective', {});
+        res.render('shared/layout/partials/feedback/feedbackDirective');
     } catch (err) {
         next(err);//TODO not ideal error handling for an angular template. What would be a better way?
     }
+
 });
 
 router.get('/content', function (req, res, next) {
     var path = req.query.path;
-    feedbackContentType.getFeedbackContentType(path, function(feedbackType){
+    feedbackContentType.getFeedbackContentType(path, function (feedbackType) {
         res.json(feedbackType);
     });
 });
@@ -56,9 +103,8 @@ router.post('/bug', function (req, res) {
     }
 });
 
-function isValid(data) {
-    if (_.isEmpty(data.description)) return false;
-    if (_.isEmpty(data.title)) return false;
+function isValid(formData) {
+    if (_.isEmpty(formData.title)) return false;
     return true;
 }
 
@@ -66,10 +112,17 @@ function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
         referer = req.headers.referer;
     var description = '',
+        title,
         labels = [];
+
+
+    console.log('issues before', referer);
+    var item = feedbackHelper.extractIdentifer(referer);
+    console.log('issues after', item);
 
     try {
         description = getDescription(data, agent, referer);
+        title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data);
     } catch (err) {
         cb(err);
@@ -83,9 +136,9 @@ function createIssue(req, data, cb) {
 
     var ghrepo = client.repo(credentials.repository);
     ghrepo.issue({
-        "title": data.form.title,
-        "body": description,
-        "labels": labels
+        title: title,
+        body: description,
+        labels: labels
     }, function (err, data) {
         if (err) {
             cb(err);
@@ -93,6 +146,10 @@ function createIssue(req, data, cb) {
             cb(null, data);
         }
     });
+}
+
+function getTitle(title, type, referer) {
+    return title;
 }
 
 function getLabels(data) {
@@ -114,6 +171,8 @@ function getDescription(data, agent, referer) {
     data.__agent = agent.toString();
 
     data.__referer = referer;
+
+    data.__fbitem = feedbackHelper.extractIdentifer(referer);
 
     var res = nunjucks.renderString(issueTemplateString, data);
     return res;
