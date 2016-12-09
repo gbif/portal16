@@ -29,8 +29,9 @@
                                             <h5>{$ funder.title $}</h5>
                                         {% endif %}
                                         {% if funder.title != 'GBIF' %}
-                                            <a href="{$ funder.url.url $}"><img
-                                                        ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}"></a>
+                                            <a href="{$ funder.url.url $}">
+                                                {% if funder.image | isNotEmpty %}<img ng-src="{$ _meta.imageCacheUrl $}{$ funder.image.styles.funder_image | encodeURI $}">{% endif %}
+                                            </a>
                                         {% endif %}
                                     </div>
                                 {% endfor %}
