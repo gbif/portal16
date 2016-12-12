@@ -24,7 +24,7 @@ router.get('/:requestedPath(*)', function (req, res, next) {
                 else {
                     redirectedUrl = '/' + contentTypeUrlPrefix + '/' + body.data[0].targetUrl;
                 }
-                res.redirect(301, redirectedUrl);
+                res.redirect(307, redirectedUrl);
             }
             else {
                 next();
