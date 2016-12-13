@@ -29,26 +29,43 @@
 
                         <article class="search-results__list__item cms-list-item--cms-search"
                                  ng-repeat="row in cmsTable.state.data.results">
-                            <span class="search-results__list__item__tag"><span>GBIF Network</span><span
-                                    translate="cms.contentType.{{row.type}}">{{row.type}}</span></span>
+                            <span class="search-results__list__item__tag">
+                                <span translate="cms.contentType.{{row.type}}">{{row.type}}</span>
+                                <span ng-if="row.literatureType" translate="cms.literatureType.{{row.literatureType}}"></span>
+                            </span>
                             <img ng-if="row.images.length > 0"
                                  ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
+                            <div ng-if="row.authors.length > 0">
+                                <span ng-repeat="author in row.authors">{{ author.last_name }} {{ author.first_name | authorFirstName }}{{ $last ? '' : ', '}}</span>
+                                <span ng-if="row.literatureYear.length !== 0">({{ row.literatureYear }})</span>
+                            </div>
+
                             <h4 class="search-results__list__item__title">
-                                <a ng-if="row.type !== 'dataset'" href="/{{ row.targetUrl }}">{{ row.title | limitTo:150
-                                    }}</a>
-                                <a ng-if="row.type == 'dataset'" href="/dataset/{{ row.datasetUuid }}">{{ row.title |
-                                    limitTo:150 }}</a>
+                                <a ng-if="row.type !== 'dataset' && row.type !== 'literature'" href="/{{ row.targetUrl }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <a ng-if="row.type == 'dataset' && row.type !== 'literature'" href="/dataset/{{ row.datasetUuid }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <a ng-if="row.type == 'literature' && row.literatureWebsites.length > 0" href="{{ row.literatureWebsites[0] }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <span ng-if="row.type == 'literature' && row.literatureWebsites == null" ng-bind-html="row.title | limitTo:150"></span>
                             </h4>
+                            <div class="search-results__list__item__citation" ng-if="row.type == 'literature'">
+                                <span class="citation__journal-title" ng-bind="row.literatureSource"></span>
+                                <span ng-if="row.literatureVolume.length !== 0">{{ row.literatureVolume }}</span>
+                                <span ng-if="row.literatureIssue.length !== 0">({{ row.literatureIssue }})</span>
+                                <span ng-if="row.literaturePages.length !== 0">{{ row.literaturePages }}</span>
+                            </div>
                             <div class="search-results__list__item__summary"
                                  ng-show="row.summary.value !== undefined && row.type !== 'dataset'"
                                  ng-bind-html="row.summary.value"></div>
                             <div class="search-results__list__item__summary"
                                  ng-show="row.summary.value == undefined && row.type !== 'dataset'"
-                                 ng-bind-html="row.summary"></div>
+                                 ng-bind-html="row.summary | truncate:600"></div>
                             <div class="search-results__list__item__summary" ng-show="row.type == 'dataset'"
-                                 ng-bind-html="row.body"></div>
-                            <div class="search-results__list__item__time">{{ row.created * 1000 | date:'longDate' }}
+                                 ng-bind-html="row.body | truncate:600"></div>
+                            <div class="search-results__list__item__summary" ng-show="row.type == 'literature'"
+                                 ng-bind-html="row.abstract | truncate:600"></div>
+                            <div class="search-results__list__item__keywords" ng-if="row.keywords.length > 0">
+                                <span translate="cms.literature.keywords"></span>: <span ng-repeat="keyword in row.keywords">{{ keyword.name }}{{ $last ? '' : ', '}}</span>
                             </div>
+                            <div ng-if="row.type !== 'literature'" class="search-results__list__item__time">{{ row.created * 1000 | date:'longDate' }}</div>
                         </article>
 
                         <uib-pagination

@@ -1523,6 +1523,28 @@
       "generic": "generic",
       "literature": "literature"
     },
+    "literatureType": {
+      "journal": "journal",
+      "book": "book",
+      "generic": "generic",
+      "book_section": "book section",
+      "conference_proceedings": "conference proceedings",
+      "working_paper": "working paper",
+      "report": "report",
+      "web_page": "web page",
+      "thesis": "thesis",
+      "magazine_article": "magazine article",
+      "statute": "statute",
+      "patent": "patent",
+      "newspaper_article": "newspaper article",
+      "computer_program": "computer program",
+      "hearing": "hearing",
+      "television_broadcast": "television broadcast",
+      "encyclopedia_article": "encyclopedia article",
+      "case": "case",
+      "film": "film",
+      "bill": "bill"
+      },
     "facet": {
       "language": "language",
       "type": "content type",
@@ -1648,7 +1670,10 @@
         "datasets": "Datasets"
       }
     },
-    "about": "about"
+    "about": "about",
+    "literature": {
+      "keywords": "Keywords"
+    }
   },
   "directory": {
     "title": "Directory of Contacts",
