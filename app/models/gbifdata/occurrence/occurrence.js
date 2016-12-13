@@ -55,12 +55,12 @@ Occurrence.prototype.expand = function (fieldNames) {
             }
         };
 
-        if (!_.isUndefined(this.record.taxonKey)) {
-            resourceLookup.taxonName = {
-                resource: api.taxon.url + this.record.taxonKey + '/name',
-                extendToField: 'taxonName'
-            };
-        }
+    if (!_.isUndefined(this.record.taxonKey)) {
+        resourceLookup.taxonName = {
+            resource: api.taxon.url + this.record.taxonKey + '/name',
+            extendToField: 'taxonName'
+        };
+    }
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });

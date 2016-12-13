@@ -18,10 +18,12 @@
                     </th>
                     <th ng-click="sortField = 'participantName'; sortReverse = !sortReverse">
                         <a>{$ __('directory.participant') $}</a>
-                        <span ng-show="sortField == 'participantName' && !sortReverse" class="gb-icon-angle-down"></span>
+                        <span ng-show="sortField == 'participantName' && !sortReverse"
+                              class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'participantName' && sortReverse" class="gb-icon-angle-up"></span>
                     </th>
-                    <th ng-show="committee.enum == 'nodes_committee'" ng-click="sortField = 'membershipType'; sortReverse = !sortReverse">
+                    <th ng-show="committee.enum == 'nodes_committee'"
+                        ng-click="sortField = 'membershipType'; sortReverse = !sortReverse">
                         <a>{$ __('directory.membershipType') $}</a>
                         <span ng-show="sortField == 'membershipType' && !sortReverse" class="gb-icon-angle-down"></span>
                         <span ng-show="sortField == 'membershipType' && sortReverse" class="gb-icon-angle-up"></span>
@@ -29,7 +31,8 @@
                 </tr>
                 </thead>
                 <tbody class="{{ committee.enum | underscoreToHyphen }}">
-                <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse" ng-click="vm.toggleDetail(committee.enum + '_' + person.id)">
+                <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse"
+                    ng-click="vm.toggleDetail(committee.enum + '_' + person.id)">
                     <td class="gbif-role"> {# role #}
                         <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
                     </td>
@@ -45,7 +48,8 @@
                                     <div ng-if="person.address.length > 0">
                                         <span ng-bind="person.address"></span><br>
                                     </div>
-                                    <span ng-if="person.countryCode" translate="country.{{ person.countryCode }}"></span><br>
+                                    <span ng-if="person.countryCode"
+                                          translate="country.{{ person.countryCode }}"></span><br>
                                     <div class="clearfix">
                                     <span ng-if="person.phone" class="contact__phone">
                                         <i class="gb-icon-phone2"></i>
@@ -61,7 +65,9 @@
                         </address>
                     </td>
                     <td ng-bind="person.participantName"></td> {# participant #}
-                    <td ng-show="committee.enum == 'nodes_committee'"><span ng-if="person.membershipType.length > 0" translate="directory.{{ person.membershipType }}"></span></td> {# participant #}
+                    <td ng-show="committee.enum == 'nodes_committee'"><span ng-if="person.membershipType.length > 0"
+                                                                            translate="directory.{{ person.membershipType }}"></span>
+                    </td> {# participant #}
                 </tr>
                 </tbody>
             </table>

@@ -14,8 +14,10 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         show: false,
         occurrences: {}
     };
-    var toCamelCase = function(str){
-        return str.replace(/_([a-z])/g, function (g) { return g[1].toUpperCase(); });
+    var toCamelCase = function (str) {
+        return str.replace(/_([a-z])/g, function (g) {
+            return g[1].toUpperCase();
+        });
     };
 
     var getOverlay = function (query) {

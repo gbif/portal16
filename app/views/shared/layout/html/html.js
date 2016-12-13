@@ -40,7 +40,7 @@ require('angular-svg-round-progressbar');
     /** @ngInject */
     function runBlock(amMoment, $translate, $http) { //$log
         //$log.debug('runBlock end');
-        if (location.pathname.substr(0,4) == '/da/') {
+        if (location.pathname.substr(0, 4) == '/da/') {
             $translate.use('da');
             amMoment.changeLocale('da');
         } else {

@@ -46,23 +46,23 @@ function getParents(req, res, next) {
 
 function getChildren(req, res, next) {
     if (isOccurrence(req)) {
-        Taxon.get(req.params.taxonKey).then(function(tax) {
+        Taxon.get(req.params.taxonKey).then(function (tax) {
             //use occ solr facets
             callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacetsAcceptedOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit="+limit, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=" + limit, prunePage);
     }
 };
 
 function getSynonyms(req, res, next) {
     if (isOccurrence(req)) {
-        Taxon.get(req.params.taxonKey).then(function(tax) {
+        Taxon.get(req.params.taxonKey).then(function (tax) {
             //use occ solr facets
             callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacetsSynonymsOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/synonyms?limit="+limit, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/synonyms?limit=" + limit, prunePage);
     }
 };
 
@@ -70,20 +70,20 @@ function nextLowerRank(rank) {
     if (rank) {
         var idx = _.indexOf(ranks, rank);
         if (idx >= 0) {
-            return rank == 'species' ? 'taxon' : ranks[idx+1];
+            return rank == 'species' ? 'taxon' : ranks[idx + 1];
         }
         return '';
     }
     return 'kingdom';
 }
 
-function buildSolrQuery(req, rank, limit){
+function buildSolrQuery(req, rank, limit) {
     if (rank) {
         rank = rank.toLowerCase();
     }
-    var url = apiConfig.occurrenceSearch.url + "?limit=0&facetLimit="+limit+"&datasetKey="+req.params.datasetKey+"&facet="+nextLowerRank(rank)+"Key";
+    var url = apiConfig.occurrenceSearch.url + "?limit=0&facetLimit=" + limit + "&datasetKey=" + req.params.datasetKey + "&facet=" + nextLowerRank(rank) + "Key";
     if (req.params.taxonKey && rank) {
-        url = url + "&"+rank+"Key="+req.params.taxonKey;
+        url = url + "&" + rank + "Key=" + req.params.taxonKey;
     }
     return url;
 }
@@ -94,7 +94,7 @@ function callApi(res, next, path, transform, taxonKey) {
             next(new Error(err));
         } else if (data) {
             if (transform) {
-                transform(data, taxonKey).then(function(resolvedData) {
+                transform(data, taxonKey).then(function (resolvedData) {
                     res.json(resolvedData);
                 });
             } else {
@@ -107,40 +107,40 @@ function callApi(res, next, path, transform, taxonKey) {
 };
 
 function convertFacetsAcceptedOnly(page, parentKey) {
-    return convertFacets(page, function(rec) {
+    return convertFacets(page, function (rec) {
         return rec.record.parentKey == parentKey;
     })
 }
 
 function convertFacetsSynonymsOnly(page, acceptedKey) {
-    return convertFacets(page, function(rec) {
+    return convertFacets(page, function (rec) {
         return rec.record.acceptedKey == acceptedKey;
     })
 }
 
 function convertFacets(page, filterFunc) {
     var promises = [];
-    page.numOccurrences=page.count;
-    page.count=page.facets.length;
-    page.endOfRecords=true;
-    _.each(page.facets[0].counts, function (fc){
+    page.numOccurrences = page.count;
+    page.count = page.facets.length;
+    page.endOfRecords = true;
+    _.each(page.facets[0].counts, function (fc) {
         var key = Number(fc.name);
-        promises.push(Taxon.get(key).then(function(t){
+        promises.push(Taxon.get(key).then(function (t) {
             t.record.numOccurrences = fc.count;
             return t;
         }));
     });
     delete page.facets;
     // finally return combined promise
-    return new Promise(function(resolve, reject) {
-        Promise.all(promises).then(function (ps){
+    return new Promise(function (resolve, reject) {
+        Promise.all(promises).then(function (ps) {
             page.results = _pruneTaxa(
                 utils.sortByRankThenAlpha(
                     _.map(
                         _.filter(ps, filterFunc)
-                    , function(rec){
-                        return rec.record;
-                    })
+                        , function (rec) {
+                            return rec.record;
+                        })
                 )
             );
             resolve(page);
@@ -160,13 +160,13 @@ function pruneTaxa(taxa, idsToIgnore) {
 function _pruneTaxa(taxa, idsToIgnore) {
     idsToIgnore = idsToIgnore || [];
     return _.map(
-            _.remove(taxa, function (t) {
-                return _.indexOf(idsToIgnore, t.key) < 0
-            })
-            , function(tax) {
-                return _.pick(
-                    tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
-                );
-            });
+        _.remove(taxa, function (t) {
+            return _.indexOf(idsToIgnore, t.key) < 0
+        })
+        , function (tax) {
+            return _.pick(
+                tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
+            );
+        });
 }
 

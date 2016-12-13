@@ -1,43 +1,43 @@
 <div ng-controller="searchCtrl as rootSearch">
 
     <aside class="omnisearch-bar--static omnisearch-bar is-active">
-      <div>
         <div>
-          <form class="search-box" ng-submit="rootSearch.updateSearch()">
-                <input type="text"
-                       autocomplete="off"
-                       ng-init="rootSearch.freeTextQuery == ''"
-                       ng-model="rootSearch.freeTextQuery"
-                       placeholder="Occurrences, species, news ..."
-                       ng-keydown="rootSearch.closeOnEsc($event)">
-                <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
-                   ng-click="rootSearch.updateSearch()">
-                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                </a>
-            </form>
+            <div>
+                <form class="search-box" ng-submit="rootSearch.updateSearch()">
+                    <input type="text"
+                           autocomplete="off"
+                           ng-init="rootSearch.freeTextQuery == ''"
+                           ng-model="rootSearch.freeTextQuery"
+                           placeholder="Occurrences, species, news ..."
+                           ng-keydown="rootSearch.closeOnEsc($event)">
+                    <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
+                       ng-click="rootSearch.updateSearch()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
+            <div class="omnisearch-bar__filters">
+                <div>
+                    <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                        Occurrence
+                    </a>
+                    <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                        Species
+                    </a>
+                    <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                        Dataset
+                    </a>
+                    <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                        Publisher
+                    </a>
+                    <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'news'})" class="gb-button--primary">
+                        GBIF Network
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="omnisearch-bar__filters">
-          <div>
-            <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                Occurrence
-            </a>
-            <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                Species
-            </a>
-            <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                Dataset
-            </a>
-            <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                Publisher
-            </a>
-            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'news'})" class="gb-button--primary">
-                GBIF Network
-            </a>
-          </div>
-        </div>
-      </div>
     </aside>
-    
+
     <!-- <aside class="site-drawer is-locked" id="site-search"
            ng-class="{'is-active': rootSearch.isActive}"
            click-outside="rootSearch.isActive = false"
@@ -143,27 +143,27 @@
 
                 <div ui-view>
 
-                    <div class="horizontal-stripe--paddingless white-background search-header"
-                         ng-click="rootSearch.clearFreetextAndSetFocus();">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <nav class="article-header__category">
-                                        <strong class="article-header__category__upper">Search</strong>
-                                    </nav>
-                                    <div class="search-header__description">
-                                        <span ng-if="rootSearch.query.q">
-                                            <span ng-if="loaded">Showing results for <i>{{rootSearch.query.q}}</i></span>
-                                            <span ng-if="!loaded">Searching for <i>{{rootSearch.query.q}}</i></span>
-                                        </span>
-                                        <span ng-if="!rootSearch.query.q">
-                                            Search for species, articles and more
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-header"-->
+                    <!--ng-click="rootSearch.clearFreetextAndSetFocus();">-->
+                    <!--<div class="container-fluid">-->
+                    <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                    <!--<nav class="article-header__category">-->
+                    <!--<strong class="article-header__category__upper">Search</strong>-->
+                    <!--</nav>-->
+                    <!--<div class="search-header__description">-->
+                    <!--<span ng-if="rootSearch.query.q">-->
+                    <!--<span ng-if="loaded">Showing results for <i>{{rootSearch.query.q}}</i></span>-->
+                    <!--<span ng-if="!loaded">Searching for <i>{{rootSearch.query.q}}</i></span>-->
+                    <!--</span>-->
+                    <!--<span ng-if="!rootSearch.query.q">-->
+                    <!--Search for species, articles and more-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
                     <ng-include src="'/templates/components/loader/loader.html'"
                                 ng-if="rootSearch.query.q && !loaded"></ng-include>

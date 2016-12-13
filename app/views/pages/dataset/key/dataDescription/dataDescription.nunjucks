@@ -22,7 +22,7 @@
                             <div>
                                 <dt class="text-capitalize">Data language</dt>
                                 <dd>
-                                    {$  __('language.' + dataset.record.dataLanguage) $}
+                                    {$ __('language.' + dataset.record.dataLanguage) $}
                                 </dd>
                             </div>
                         {% endif %}

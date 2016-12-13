@@ -19,7 +19,7 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    res.redirect(301, './species/search');
+    res.redirect(307, './species/search');
 });
 
 router.get('/search', function (req, res) {

@@ -43,14 +43,14 @@ function buildDatasetAndTaxonAndRender(req, res, next, template) {
         dataset.getDataset(datasetKey, function (err, dataset) {
             if (err) {
                 next(err);
-            } else if(taxonKey) {
+            } else if (taxonKey) {
                 var options = {expand: ['name', 'constituent']};
-                if (dataset.isChecklist()){
+                if (dataset.isChecklist()) {
                     // nub taxa do not have verbatim data and return 404s
                     options.expand.push('verbatim');
                 }
                 Taxon.get(taxonKey, options).then(function (taxon) {
-                    if (dataset.isChecklist()){
+                    if (dataset.isChecklist()) {
                         taxon.verbatim = taxjs.cleanupVerbatim(taxon.verbatim);
                     }
                     renderPage(req, res, next, template, dataset, taxon);

@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-          _ = require('lodash');
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -35,7 +35,9 @@ function typeSpecimenDirective() {
             // sort by type
             vm.specimen = _.sortBy(
                 _.filter(data.results, function (o) {
-                    return !_.find(o.issues, function(o) { return o == 'TAXON_MATCH_HIGHERRANK'; });
+                    return !_.find(o.issues, function (o) {
+                        return o == 'TAXON_MATCH_HIGHERRANK';
+                    });
                 }), ['typeStatus', 'year', 'occurrenceID']);
 
         }, function () {

@@ -189,7 +189,7 @@ module.exports = function (nunjucksConfiguration, config) {
     (function () {
         nunjucksConfiguration.addFilter('flag', function (countryCode) {
             if (countryCode) {
-                return '/img/flags/' + _.toUpper(countryCode)+ ".png";
+                return '/img/flags/' + _.toUpper(countryCode) + ".png";
             }
         });
     })();
@@ -207,7 +207,7 @@ module.exports = function (nunjucksConfiguration, config) {
         var revFile = 'public/rev-manifest.json';
         if (fs.existsSync(revFile)) {
             revManifest = JSON.parse(fs.readFileSync(revFile, 'utf8'));
-            console.log("Loaded asset versioning manifest at "+revFile+" with "+Object.keys(revManifest).length+" entries.");
+            console.log("Loaded asset versioning manifest at " + revFile + " with " + Object.keys(revManifest).length + " entries.");
         } else {
             revManifest = {};
         }

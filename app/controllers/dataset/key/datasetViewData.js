@@ -119,7 +119,7 @@ function getDataset(datasetKey, cb, locale) {
 
 function getOriginalDarwinCoreArchive(endpoints) {
     endpoints = endpoints || [];
-    return endpoints.find(function(e){
+    return endpoints.find(function (e) {
         return e.type == 'DWC_ARCHIVE';
     });
 }

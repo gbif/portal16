@@ -12,20 +12,22 @@
                         {% for contributor in dataset._computedValues.contributors.all %}
                             <div class="dataset-key__contributors__item relative-anchor-offset--tabs">
                                 {#<span class="relative-anchor-offset contributor-anchor"><a#}
-                                            {#name="contributor_{$ contributor._id $}"></a></span>#}
+                                {#name="contributor_{$ contributor._id $}"></a></span>#}
                                 <a class="contributor-anchor" name="contributor_{$ contributor._id $}"></a>
                                 <address>
 
                                     {% if contributor._person %}
                                         {#{% if contributor._primaryContact %}#}
-                                            {#<i class="gb-icon-mail"></i>#}
+                                        {#<i class="gb-icon-mail"></i>#}
                                         {#{% endif %}#}
-                                        <span class="dataset-key__contributors__name"><strong>{$ contributor.firstName $} {$ contributor.lastName $}</strong></span>
+                                        <span class="dataset-key__contributors__name"><strong>{$ contributor.firstName
+                                                $} {$ contributor.lastName $}</strong></span>
                                         <br>
                                     {% endif %}
                                     {% if not contributor._person %}
                                         <i class="gb-icon-institution"></i>
-                                        <span class="dataset-key__contributors__title"><strong>{$ contributor.organization $}</strong></span><br>
+                                        <span class="dataset-key__contributors__title"><strong>{$
+                                                contributor.organization $}</strong></span><br>
                                     {% endif %}
 
                                     {% if contributor.roles.length > 0 %}
@@ -70,7 +72,8 @@
                                         {% if contributor.email.length > 0 and contributor.email[0] %}
                                             <span class="dataset-key__contributors__mail">
                                         <i class="gb-icon-mail"></i>
-                                        <a href="mailto:{$ contributor.email[0] $}" class="inherit">{$ contributor.email[0]
+                                        <a href="mailto:{$ contributor.email[0] $}" class="inherit">{$
+                                            contributor.email[0]
                                             $}</a>
                                     </span>
                                         {% endif %}

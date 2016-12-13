@@ -23,14 +23,15 @@
                             The classification of all taxa in {$ dataset.record.title $} with their
                             <span class="count-type">number of descendant taxa</span> indicated.
 
-                        {%  else %}
+                        {% else %}
                             The classification of all taxa derived from occurrences in {$ dataset.record.title $}
                             after normalising against the GBIF backbone taxonomy with their
                             <span class="count-type">number of occurrences</span> indicated.
-                        {%  endif %}
+                        {% endif %}
                     </p>
 
-                    <tax-browser occ="{$ not dataset.isChecklist() $}" dataset-key="{$ dataset.record.key $}" taxon-key="{$ taxon.record.key $}"></tax-browser>
+                    <tax-browser occ="{$ not dataset.isChecklist() $}" dataset-key="{$ dataset.record.key $}"
+                                 taxon-key="{$ taxon.record.key $}"></tax-browser>
                 </div>
 
                 <div class="taxonomy-content">
@@ -51,44 +52,45 @@
                                 {% endif %}
                                 {% if taxon.isNub() %}
                                     sensu <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
-                                {% elif taxon.record.accordingTo %}
+                                    {% elif taxon.record.accordingTo %}
                                     sensu {$ taxon.record.accordingTo $}
                                 {% endif %}
                             </p>
 
                             {% if taxon.record.nomenclaturalStatus or taxon.record.publishedIn %}
                                 <p>
-                                {% if taxon.record.nomenclaturalStatus %}
-                                    {$ taxon.record.nomenclaturalStatus $}
-                                {% endif %}
-                                {% if taxon.record.publishedIn %}
-                                    Published in {$ taxon.record.publishedIn $}
-                                {% endif %}
+                                    {% if taxon.record.nomenclaturalStatus %}
+                                        {$ taxon.record.nomenclaturalStatus $}
+                                    {% endif %}
+                                    {% if taxon.record.publishedIn %}
+                                        Published in {$ taxon.record.publishedIn $}
+                                    {% endif %}
                                 </p>
                             {% endif %}
 
                             {% if not taxon.isNub() %}
                                 <p>
-                                {% if taxon.record.origin == 'SOURCE' %}
-                                    {% if taxon.record.references %}
-                                        Origin <a href="{$ taxon.record.references $}">{$ taxon.record.references | domain $}</a>
+                                    {% if taxon.record.origin == 'SOURCE' %}
+                                        {% if taxon.record.references %}
+                                            Origin <a href="{$ taxon.record.references $}">{$ taxon.record.references |
+                                            domain $}</a>
+                                        {% else %}
+                                            Origin taxonID {$ taxon.record.taxonID $}
+                                        {% endif %}
                                     {% else %}
-                                        Origin taxonID {$ taxon.record.taxonID $}
+                                        Origin {$ taxon.record.origin $}
                                     {% endif %}
-                                {% else %}
-                                    Origin {$ taxon.record.origin $}
-                                {% endif %}
 
-                                {% if taxon.record.nubKey %}
-                                    - view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
-                                {% endif %}
+                                    {% if taxon.record.nubKey %}
+                                        - view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                                    {% endif %}
                                 </p>
                             {% endif %}
 
                             {% if taxon.record.issues %}
                                 <p>
                                     {% for iss in taxon.record.issues %}
-                                    <span class="badge badge--warning">{$ iss | lower | replace("_", " ") $}</span>
+                                        <span class="badge badge--warning">{$ iss | lower | replace("_", " ") $}</span>
                                     {% endfor %}
                                 </p>
                             {% endif %}
@@ -98,14 +100,15 @@
                             {% endif %}
 
                             {% if taxon.record.lastCrawled %}
-                                <p class="modified-date">{$ __('date.modified') $} {$ taxon.record.lastCrawled | formatDate(gb.locales.current) $}</p>
+                                <p class="modified-date">{$ __('date.modified') $} {$ taxon.record.lastCrawled |
+                                    formatDate(gb.locales.current) $}</p>
                             {% endif %}
                         </section>
 
 
                         {% if dataset.isChecklist() %}
                             {% include('./verbatim.nunjucks') %}
-                        {%  endif %}
+                        {% endif %}
 
                         <!--
                         <section id="media" class="white-background">
@@ -113,7 +116,7 @@
                             <p>Coming soon ...</p>
                         </section>
                         -->
-                    {%  endif %}
+                    {% endif %}
 
                 </div>
 

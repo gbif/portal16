@@ -6,18 +6,18 @@ var _ = require('lodash'),
 function cleanupVerbatim(v) {
     var v2 = {};
     if (v) {
-        _.forOwn(v, function(val, key) {
+        _.forOwn(v, function (val, key) {
             if (_.startsWith(key, 'http')) {
-                v2[simpleName(key)]=val;
+                v2[simpleName(key)] = val;
             }
         });
-        v2.extensions={};
-        _.forOwn(v.extensions, function(records, eterm){
+        v2.extensions = {};
+        _.forOwn(v.extensions, function (records, eterm) {
             var records2 = [];
-            _.forEach(records, function(rec){
+            _.forEach(records, function (rec) {
                 var rec2 = {};
-                _.forOwn(rec, function(value, term){
-                    rec2[simpleName(term)]=value;
+                _.forOwn(rec, function (value, term) {
+                    rec2[simpleName(term)] = value;
                 });
                 if (!_.isEmpty(rec2)) {
                     records2.push(rec2);
@@ -32,18 +32,18 @@ function cleanupVerbatim(v) {
 
     function simpleName(term) {
         var index = term.lastIndexOf('/');
-        return term.substr(index+1);
+        return term.substr(index + 1);
     }
 
     function normTerm(term) {
         var index = term.lastIndexOf('/');
-        var ns    = term.slice(0, index);
-        var name  = term.substr(index+1);
+        var ns = term.slice(0, index);
+        var name = term.substr(index + 1);
 
         if (ns in nsMap) {
-            ns = nsMap[ns]+":";
+            ns = nsMap[ns] + ":";
         } else {
-            ns=ns+"/";
+            ns = ns + "/";
         }
         return ns + name;
     }

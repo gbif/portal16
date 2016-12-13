@@ -14,7 +14,7 @@ module.exports = function (app) {
 router.get('/country/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
 
-    countryData.getCountryData(key, function(err, country){
+    countryData.getCountryData(key, function (err, country) {
         if (err) {
             next(err)
         } else {
@@ -33,7 +33,7 @@ router.get('/country/:key\.:ext?', function (req, res, next) {
 router.get('/country/:key/participant\.:ext?', function (req, res, next) {
     var key = req.params.key;
 
-    countryData.getCountryData(key, function(err, country){
+    countryData.getCountryData(key, function (err, country) {
         if (err) {
             next(err)
         } else {
@@ -59,7 +59,7 @@ router.get('/country/:key/participant\.:ext?', function (req, res, next) {
 
 router.get('/country/:key/trends/about\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    countryData.getCountryData(key, function(err, country){
+    countryData.getCountryData(key, function (err, country) {
         if (err) {
             next(err)
         } else {
@@ -71,7 +71,7 @@ router.get('/country/:key/trends/about\.:ext?', function (req, res, next) {
 
 router.get('/country/:key/trends/published\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    countryData.getCountryData(key, function(err, country){
+    countryData.getCountryData(key, function (err, country) {
         if (err) {
             next(err)
         } else {

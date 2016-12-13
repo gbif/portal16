@@ -51,7 +51,12 @@ router.get('/issues', function (req, res, next) {
             } else {
                 //trim list of issues to send less info to the client
                 data.items = _.map(data.items, function (o) {
-                    return {url: o.html_url, title: o.title.replace(item, '').trim(), created_at: o.created_at, comments: o.comments}
+                    return {
+                        url: o.html_url,
+                        title: o.title.replace(item, '').trim(),
+                        created_at: o.created_at,
+                        comments: o.comments
+                    }
                 });
                 //link to all the issues for this page item
                 data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:content -label:"Needs validation" in:body');

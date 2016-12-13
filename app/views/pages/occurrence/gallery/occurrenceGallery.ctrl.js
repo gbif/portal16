@@ -27,7 +27,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         latestData = OccurrenceSearch.query(vm.query, function (data) {
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
-            data.results.forEach(function(e){
+            data.results.forEach(function (e) {
                 //select first image
                 e._images = [];
                 for (var i = 0; i < e.media.length; i++) {
@@ -74,7 +74,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         vm.filter(vm.occurrenceState.query);
     });
 
-    vm.getSubDomain = function(index) {
+    vm.getSubDomain = function (index) {
         var i = index % 5;
         return '//' + String.fromCharCode(97 + i) + '-';
     };

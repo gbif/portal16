@@ -27,10 +27,10 @@
                     <div class="col-md-8">
                         <dl class="inline">
                             {% if taxon.record.synonym %}
-                            <div>
-                                <dt>Accepted Name</dt>
-                                <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
-                            </div>
+                                <div>
+                                    <dt>Accepted Name</dt>
+                                    <dd>{$ taxonLink(taxon.record.acceptedKey, taxon.record.accepted) $}</dd>
+                                </div>
                             {% endif %}
 
                             {% if taxon.record.basionym %}
@@ -41,10 +41,10 @@
                             {% endif %}
 
                             {% if taxon.record.vernacularName %}
-                            <div>
-                                <dt class="text-capitalize">Vernacular name</dt>
-                                <dd>{$ taxon.record.vernacularName $}</dd>
-                            </div>
+                                <div>
+                                    <dt class="text-capitalize">Vernacular name</dt>
+                                    <dd>{$ taxon.record.vernacularName $}</dd>
+                                </div>
                             {% endif %}
 
                             <div>
@@ -58,7 +58,8 @@
 
                             <div>
                                 <dt>Occurrences</dt>
-                                <dd><a href="/occurrence/search?taxon_key={$ taxon.record.key $}">{$ taxon.occurrenceCount $}</a></dd>
+                                <dd><a href="/occurrence/search?taxon_key={$ taxon.record.key $}">{$
+                                        taxon.occurrenceCount $}</a></dd>
                             </div>
 
                             <div>
@@ -67,9 +68,11 @@
                                     {% if taxon.record.origin == 'SOURCE' %}
                                         Reference taxon in
                                         {% if taxon.record.sourceTaxonExists %}
-                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title $}</a>
+                                            <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record.sourceTaxonKey $}">{$taxon.constituent.title
+                                                $}</a>
                                         {% else %}
-                                            <a href="{$ gb.locales.urlPrefix $}/species/search?advanced=1&dataset_key={$ taxon.constituent.key $}&rank={$ taxon.record.rank $}&q={$ taxon.record.scientificName $}">{$ taxon.constituent.title $}</a>
+                                            <a href="{$ gb.locales.urlPrefix $}/species/search?advanced=1&dataset_key={$ taxon.constituent.key $}&rank={$ taxon.record.rank $}&q={$ taxon.record.scientificName $}">{$
+                                                taxon.constituent.title $}</a>
                                             {# (taxon has since been removed) #}
                                         {% endif %}
                                     {% else %}
@@ -114,9 +117,12 @@
 
                             <div>
                                 <dt class="text-capitalize">Environment</dt>
-                                <dd>{% if taxon.info.marine %}marine{% elif taxon.info.marine == false %}<del>marine</del>{% endif %}
-                                    {% if taxon.info.freshwater %}freshwater{% elif taxon.info.freshwater == false %}<del>freshwater</del>{% endif %}
-                                    {% if taxon.info.terrestrial %}terrestrial{% elif taxon.info.terrestrial == false %}<del>terrestrial</del>{% endif %}
+                                <dd>{% if taxon.info.marine %}marine{% elif taxon.info.marine == false %}
+                                        <del>marine</del>{% endif %}
+                                    {% if taxon.info.freshwater %}freshwater{% elif taxon.info.freshwater == false %}
+                                        <del>freshwater</del>{% endif %}
+                                    {% if taxon.info.terrestrial %}terrestrial{% elif taxon.info.terrestrial == false %}
+                                        <del>terrestrial</del>{% endif %}
                                 </dd>
                             </div>
                         </dl>
@@ -167,9 +173,13 @@
                             <ul>
                                 {% for tax in taxon.homonyms.results %}
                                     <li>
-                                        <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$ tax.scientificName $}</a> <small>{$ tax.rank $}</small></span>
+                                        <span class="scientific_name"><a
+                                                    href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.key $}">{$
+                                                tax.scientificName $}</a> <small>{$ tax.rank $}</small></span>
                                         {% if tax.acceptedKey %}
-                                            {$ tax.status $} for <span class="scientific_name"><a href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.acceptedKey $}">{$ tax.accepted $}</a></span>
+                                            {$ tax.status $} for <span class="scientific_name"><a
+                                                    href="{$ gb.locales.urlPrefix $}/taxon/{$ tax.acceptedKey $}">{$
+                                                tax.accepted $}</a></span>
                                         {% endif %}
                                     </li>
                                 {% endfor %}

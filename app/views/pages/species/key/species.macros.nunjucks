@@ -7,7 +7,8 @@
                         {% set pages = ["info", "taxonomy"] %}
                         {% for page in pages %}
                             <li class="tab {% if active == page %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/species/{$ key $}{% if page != 'info' %}/{$ page $}{% endif %}">{$ page | capitalize $}</a>
+                                <a href="{$ gb.locales.urlPrefix $}/species/{$ key $}{% if page != 'info' %}/{$ page $}{% endif %}">{$
+                                    page | capitalize $}</a>
                             </li>
                         {% endfor %}
                     </ul>

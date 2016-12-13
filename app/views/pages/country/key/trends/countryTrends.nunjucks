@@ -1,7 +1,8 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes country-trends" ng-controller="countryKeyCtrl as countryKey" ng-init="countryKey.init('{$ country.code $}')">
+    <article class="wrapper-horizontal-stripes country-trends" ng-controller="countryKeyCtrl as countryKey"
+             ng-init="countryKey.init('{$ country.code $}')">
 
         {% include('./header.nunjucks') %}
 
@@ -12,7 +13,8 @@
 
         {% import "./trends.macro.nunjucks" as trends %}
         {# About #}
-        <div class="page--analytics horizontal-stripe--paddingless light-background" ng-show="countryKey.showAbout" ng-init="countryKey.showAbout = {$ isAbout $}">
+        <div class="page--analytics horizontal-stripe--paddingless light-background" ng-show="countryKey.showAbout"
+             ng-init="countryKey.showAbout = {$ isAbout $}">
             <div class="container--normal">
                 <div class="row">
                     <div class="col-xs-12">
@@ -24,7 +26,8 @@
 
 
         {# from #}
-        <div class="page--analytics horizontal-stripe--paddingless light-background ng-cloak" ng-show="!countryKey.showAbout">
+        <div class="page--analytics horizontal-stripe--paddingless light-background ng-cloak"
+             ng-show="!countryKey.showAbout">
             <div class="container--normal">
                 <div class="row">
                     <div class="col-xs-12">

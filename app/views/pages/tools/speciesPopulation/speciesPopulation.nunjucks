@@ -1,0 +1,31 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes speciesPopulation"
+             ng-controller="speciesPopulationCtrl as speciesPopulation">
+
+        <div id="speciesPopulationMap" class="fillHeight">
+
+        </div>
+
+
+    </article>
+
+    <aside class="site-drawer is-locked">
+        <div class="site-drawer__content">
+            <div class="site-drawer__header">
+                sdfg
+            </div>
+        </div>
+    </aside>
+{% endblock %}
+
+
+{% block scripts %}
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.css'
+          type='text/css'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.js'></script>
+    <script src="/js/base/pages/speciesPopulation.js"></script>
+{% endblock %}

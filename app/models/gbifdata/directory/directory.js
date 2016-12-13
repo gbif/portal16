@@ -13,7 +13,7 @@ var Directory = {};
 var calls = 0;
 var language;
 
-Directory.getContacts = function(res) {
+Directory.getContacts = function (res) {
     var deferFs = Q.defer();
     var defer = Q.defer();
     var groups = [
@@ -40,23 +40,23 @@ Directory.getContacts = function(res) {
     deferFs.promise
         .then((exists) => {
             if (exists) {
-                return Q.all(groups.map(function(group){
+                return Q.all(groups.map(function (group) {
                     return getCommitteeContacts(group, contacts)
-                        .then(function(results){
+                        .then(function (results) {
                             var committee = {
                                 'enum': group,
                                 'members': results
                             };
                             return committee;
                         })
-                        .then(function(committee){
+                        .then(function (committee) {
                             // insert group intro
                             return getGroupIntro(committee)
-                                .then(function(committee){
+                                .then(function (committee) {
                                     return committee;
                                 });
                         })
-                        .then(function(committee){
+                        .then(function (committee) {
                             return contacts.committees.push(committee);
                         });
                 }))
@@ -65,19 +65,19 @@ Directory.getContacts = function(res) {
                 throw new Error('No credential available.');
             }
         })
-        .then(function(){
-            return getParticipantsContacts(contacts).then(function(groupedP){
+        .then(function () {
+            return getParticipantsContacts(contacts).then(function (groupedP) {
                 contacts.participants = groupedP;
 
                 // Make sure the country code comes from Participant entity
                 var participantPeople = [];
-                groupedP.forEach(function(p){
+                groupedP.forEach(function (p) {
                     var memberObj = {
                         'enum': p.enum,
                         'people': []
                     };
-                    p.members.forEach(function(member){
-                        member.people.forEach(function(person){
+                    p.members.forEach(function (member) {
+                        member.people.forEach(function (person) {
                             if (member.hasOwnProperty('countryCode')) person.participantCountry = member.countryCode;
                             if (member.hasOwnProperty('countryCode') && !person.hasOwnProperty('countryCode')) {
                                 person.countryCode = member.countryCode;
@@ -97,7 +97,7 @@ Directory.getContacts = function(res) {
                 contacts.people = _.orderBy(contacts.people, [person => person.surname.toLowerCase(), ['asc']]);
 
                 // 2) strip people details
-                contacts.people.forEach(function(p, i){
+                contacts.people.forEach(function (p, i) {
                     var strippedP = {};
                     strippedP.name = p.firstName + ' ' + p.surname;
                     contacts.people[i] = strippedP;
@@ -107,48 +107,48 @@ Directory.getContacts = function(res) {
                 return contacts;
             });
         })
-        .then(function(contacts){
+        .then(function (contacts) {
             // get gbif_secretariat contacts
             return getCommitteeContacts('gbif_secretariat', contacts)
-                .then(function(members){
+                .then(function (members) {
                     var obj = {
                         'enum': 'gbif_secretariat',
                         'members': members
                     };
                     return getGroupIntro(obj);
                 })
-                .then(function(group){
+                .then(function (group) {
                     contacts.gbif_secretariat.push(group);
                     return contacts;
                 });
         })
-        .then(function(contacts){
+        .then(function (contacts) {
             defer.resolve(contacts);
             log.info(calls + ' calls have been made to complete the contacts page.');
         })
-        .catch(function(err){
+        .catch(function (err) {
             defer.reject(new Error(err));
         });
     return defer.promise;
 };
 
-Directory.postProcessContacts = function(contacts, __) {
+Directory.postProcessContacts = function (contacts, __) {
     // process data
-    contacts.peopleByParticipants.forEach(function(p){
-        p.people.forEach(function(person){
+    contacts.peopleByParticipants.forEach(function (p) {
+        p.people.forEach(function (person) {
             // insert countryName if missing
             if (!person.hasOwnProperty('countryName')) person.countryName = __('country.' + person.participantCountry);
             // insert role name
             if (person.hasOwnProperty('roles')) {
-                person.roles.forEach(function(role){
+                person.roles.forEach(function (role) {
                     role.translatedLabel = __('role.' + role.role);
                 });
             }
         });
     });
-    contacts.committees.forEach(function(committee){
-        committee.members.forEach(function(member){
-            member.roles.forEach(function(role){
+    contacts.committees.forEach(function (committee) {
+        committee.members.forEach(function (member) {
+            member.roles.forEach(function (role) {
                 role.translatedLabel = __('role.' + role.role);
             });
         });
@@ -159,7 +159,7 @@ function processContacts(contacts) {
 
     // sort committees
     var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_steering_group', 'nodes_committee', 'gbif_secretariat'];
-    contacts.committees.sort(function(x, y){
+    contacts.committees.sort(function (x, y) {
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
 
@@ -236,20 +236,20 @@ function processContacts(contacts) {
     };
 
     // committee specific processing
-    contacts.committees.forEach(function(committee){
+    contacts.committees.forEach(function (committee) {
         // reduce roles to one according to committee
-        committee.members.forEach(function(member){
+        committee.members.forEach(function (member) {
             if (member.roles.length > 1) {
-                member.roles = member.roles.filter(function(role){
+                member.roles = member.roles.filter(function (role) {
                     if (committee.enum != 'gbif_secretariat') return committeeRoles[committee.enum].indexOf(role.role) != -1;
                 });
             }
         });
 
         if (committee.enum == 'nodes_committee') {
-            committee.members.forEach(function(member){
+            committee.members.forEach(function (member) {
                 if (member.nodes.length > 0) {
-                    member.nodes.forEach(function(node){
+                    member.nodes.forEach(function (node) {
                         if (node.role == 'NODE_MANAGER') {
                             member.membershipType = node.membershipType;
                         }
@@ -261,7 +261,7 @@ function processContacts(contacts) {
         // Sort by defined order as committeeRoles above.
         if (committee.enum == 'nodes_steering_group') {
             var nsgRoles = committeeRoles[committee.enum];
-            committee.members = committee.members.sort(function(a, b){
+            committee.members = committee.members.sort(function (a, b) {
                 return nsgRoles.indexOf(a.roles[0].role) - nsgRoles.indexOf(b.roles[0].role)
             });
         }
@@ -269,7 +269,7 @@ function processContacts(contacts) {
     });
 
     // sort peopleByParticipants by participant name
-    contacts.peopleByParticipants.forEach(function(pGroup){
+    contacts.peopleByParticipants.forEach(function (pGroup) {
         pGroup.people = _.orderBy(pGroup.people, [p => p.participantName.toLowerCase()], ['asc']);
     });
     return contacts;
@@ -280,11 +280,11 @@ function getGroupIntro(group) {
     // insert intro text for each group.
     let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
     translationsHelper.getTranslations(groupIntroFile, language)
-        .then(function(translation){
+        .then(function (translation) {
             group.intro = translation[0];
             deferred.resolve(group);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(err.message + ' in getGroupIntro()');
         });
     return deferred.promise;
@@ -305,79 +305,79 @@ function getParticipantsContacts(contacts) {
     ];
 
     genericEndpointAccess(requestUrl, options)
-        .then(function(data){
+        .then(function (data) {
             // Insert participant details
             var detailsTasks = [];
-            data.results.forEach(function(p){
+            data.results.forEach(function (p) {
                 detailsTasks.push(getParticipantDetails(p.id));
             });
             return Q.all(detailsTasks);
         })
-        .then(function(data){
+        .then(function (data) {
             // Insert people details
             var contactTasks = [];
-            data.forEach(function(p){
+            data.forEach(function (p) {
                 contactTasks.push(getParticipantPeopleDetails(p, contacts));
             });
             return Q.all(contactTasks);
         })
-        .then(function(data){
+        .then(function (data) {
 
             // Sort participants by name, case insensitive
             const sortedData = _.orderBy(data, [p => p.name.toLowerCase()], ['asc']);
 
             // group participants according to their participation status.
-            sortedData.forEach(function(p){
+            sortedData.forEach(function (p) {
                 if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'voting_participants') group.members.push(p);
                     });
                 }
                 else if (p.type == 'COUNTRY' && p.participationStatus == 'ASSOCIATE') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'associate_country_participants') group.members.push(p);
                     });
                 }
                 else if (p.type == 'OTHER' && p.participationStatus == 'ASSOCIATE') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'other_associate_participants') group.members.push(p);
                     });
                 }
                 else if (p.type == 'OTHER' && p.participationStatus == 'AFFILIATE') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'gbif_affiliate') group.members.push(p);
                     });
                 }
                 else if (p.participationStatus == 'FORMER') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'former_participants') group.members.push(p);
                     });
                 }
                 else if (p.participationStatus == 'OBSERVER') {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'observer') group.members.push(p);
                     });
                 }
                 else {
-                    groups.forEach(function(group){
+                    groups.forEach(function (group) {
                         if (group.enum == 'others') group.members.push(p);
                     });
                 }
             });
 
             var translationTasks = [];
-            groups.forEach(function(group){
+            groups.forEach(function (group) {
                 translationTasks.push(getGroupIntro(group));
             });
             return Q.all(translationTasks)
-                .then(function(groups){
+                .then(function (groups) {
                     return groups;
                 });
         })
-        .then(function(groups){
+        .then(function (groups) {
             deferred.resolve(groups);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(err + 'line 403.');
         });
 
@@ -390,10 +390,10 @@ function getParticipantDetails(participantId) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
-        .then(function(data){
+        .then(function (data) {
             deferred.resolve(data);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(err + ' in getParticipantDetails()');
             log.info(err + ' in getParticipantDetails()');
         });
@@ -406,19 +406,19 @@ function getNodeDetails(nodeId) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
-        .then(function(data){
+        .then(function (data) {
             return getParticipantDetails(data.participantId)
-                .then(function(result){
+                .then(function (result) {
                     data.participantName = result.name;
                     setMembership(result);
                     data.membershipType = result.membershipType;
                     return data;
                 });
         })
-        .then(function(data){
+        .then(function (data) {
             deferred.resolve(data);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(new Error(err + ' in getNodeDetails()'));
             log.info(err + ' in getNodeDetails()');
         });
@@ -428,13 +428,13 @@ function getNodeDetails(nodeId) {
 function getParticipantPeopleDetails(participant, contacts) {
     var deferred = Q.defer();
     var peopleTasks = [];
-    participant.people.forEach(function(person){
+    participant.people.forEach(function (person) {
         peopleTasks.push(getPersonContact(person.personId, contacts));
     });
     Q.all(peopleTasks)
-        .then(function(peopleDetails){
+        .then(function (peopleDetails) {
             // merge original person info about the participant and newly retrieved person details
-            participant.people.forEach(function(person, i){
+            participant.people.forEach(function (person, i) {
                 for (var attr in peopleDetails[i]) {
                     if (!person.hasOwnProperty(attr)) {
                         person[attr] = peopleDetails[i][attr];
@@ -443,7 +443,7 @@ function getParticipantPeopleDetails(participant, contacts) {
             });
             deferred.resolve(participant);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(new Error(err + ' in getParticipantPeopleDetails()'));
             log.info(err + ' in getParticipantPeopleDetails()');
         });
@@ -456,9 +456,9 @@ function getCommitteeContacts(group, contacts) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
-        .then(function(results){
+        .then(function (results) {
             var personsTasks = [];
-            results.forEach(function(person){
+            results.forEach(function (person) {
                 if (group == 'gbif_secretariat') {
                     personsTasks.push(getPersonContact(person.id, contacts));
                 }
@@ -468,9 +468,9 @@ function getCommitteeContacts(group, contacts) {
             });
             return Q.all(personsTasks);
         })
-        .then(function(committee){
+        .then(function (committee) {
             // determine the role to show
-            committee.forEach(function(member){
+            committee.forEach(function (member) {
                 if (!member.hasOwnProperty('participantName')) {
                     if (member.participants.length > 0) {
                         member.participantName = member.participants[0].participantName;
@@ -481,13 +481,13 @@ function getCommitteeContacts(group, contacts) {
                         member.roles = [];
                     }
                     if (member.nodes.length > 0) {
-                        member.nodes.forEach(function(node){
-                            member.roles.push({'nodeId':node.nodeId, 'role':node.role});
+                        member.nodes.forEach(function (node) {
+                            member.roles.push({'nodeId': node.nodeId, 'role': node.role});
                         });
                     }
                     // if member is from Nodes Committee, get their participant name from Node object.
                     if (member.nodes.length > 0) {
-                        member.nodes.forEach(function(node){
+                        member.nodes.forEach(function (node) {
                             if (node.role == 'NODE_MANAGER') {
                                 member.participantName = node.participantName;
                             }
@@ -497,7 +497,7 @@ function getCommitteeContacts(group, contacts) {
             });
             deferred.resolve(committee);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(new Error(err + ' in getCommitteeContacts() while accessing ' + requestUrl));
             log.info(err + ' in getCommitteeContacts() while accessing ' + requestUrl);
         });
@@ -510,17 +510,17 @@ function getPersonContact(personId, contacts) {
     var options = authorizeApiCall(requestUrl);
 
     genericEndpointAccess(requestUrl, options)
-        .then(function(data){
+        .then(function (data) {
             // get node name and/or participant name
             var participantTasks = [];
             if (data.hasOwnProperty('participants') && data.participants.length > 0) {
-                data.participants.forEach(function(p){
+                data.participants.forEach(function (p) {
                     if (p.hasOwnProperty('participantId')) {
                         participantTasks.push(getParticipantDetails(p.participantId));
                     }
                 });
-                return Q.all(participantTasks).then(function(results){
-                    results.forEach(function(result, i){
+                return Q.all(participantTasks).then(function (results) {
+                    results.forEach(function (result, i) {
                         data.participants[i].participantName = result.name;
                         // merge properties
                         for (var attr in result) {
@@ -529,7 +529,7 @@ function getPersonContact(personId, contacts) {
                             }
                         }
                     });
-                    data.participants.forEach(function(p){
+                    data.participants.forEach(function (p) {
                         setMembership(p);
                     });
                     return data;
@@ -539,17 +539,17 @@ function getPersonContact(personId, contacts) {
                 return data;
             }
         })
-        .then(function(data){
+        .then(function (data) {
             var nodeTasks = [];
             if (data.hasOwnProperty('nodes') && data.nodes.length > 0) {
-                data.nodes.forEach(function(n){
+                data.nodes.forEach(function (n) {
                     if (n.hasOwnProperty('nodeId')) {
                         nodeTasks.push(getNodeDetails(n.nodeId));
                     }
                 });
             }
-            return Q.all(nodeTasks).then(function(results){
-                results.forEach(function(result, i){
+            return Q.all(nodeTasks).then(function (results) {
+                results.forEach(function (result, i) {
                     for (var attr in result) {
                         if (!data.nodes[i].hasOwnProperty(attr)) {
                             data.nodes[i][attr] = result[attr];
@@ -559,11 +559,11 @@ function getPersonContact(personId, contacts) {
                 return data;
             });
         })
-        .then(function(data){
+        .then(function (data) {
             contacts.people.push(data);
             deferred.resolve(data);
         })
-        .catch(function(err){
+        .catch(function (err) {
             deferred.reject(new Error(err + ' in getPersonContact() while accessing ' + requestUrl));
             log.info(err + ' in getPersonContact() while accessing ' + requestUrl);
         });

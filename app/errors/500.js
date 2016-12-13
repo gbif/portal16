@@ -28,7 +28,7 @@ module.exports = function (app) {
                     message: err.message,
                     stack: err.stack
                 }
-            }, '505'
+            }, err.status || 500
         );
         res.status(err.status || 500);
         res.render('error/500/500', {

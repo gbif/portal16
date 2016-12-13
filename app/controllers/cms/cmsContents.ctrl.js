@@ -86,7 +86,7 @@ router.get([
                             data.data[0].body.value = cmsUrlEncode.extractAndEncodeUriMarkdown(data.data[0].body.value);
                         }
                         else {
-                            data.data[0].body = {'value':'Pending content.'};
+                            data.data[0].body = {'value': 'Pending content.'};
                         }
                     }
                     else if (data.data[0].hasOwnProperty('body') && data.data[0].type !== 'generic') {

@@ -51,9 +51,9 @@ function getTaxon(key, lang, lookups) {
     Taxon.get(key, getOptions).then(function (taxon) {
         // this should be done server side in the future: http://dev.gbif.org/issues/browse/POR-307
         if (taxon.vernacular) {
-            uniqPageResult(taxon.vernacular, function(v){
+            uniqPageResult(taxon.vernacular, function (v) {
                 return v.vernacularName + "|" + (v.language || '');
-            }, function(v){
+            }, function (v) {
                 return v.language;
             });
             // pick one vernacular name of requested language
@@ -71,17 +71,17 @@ function getTaxon(key, lang, lookups) {
         mergeInfos(taxon);
         // remove self from homonyms
         if (taxon.homonyms) {
-            _.remove(taxon.homonyms.results, function(tax) {
+            _.remove(taxon.homonyms.results, function (tax) {
                 return tax.key == key;
             });
         }
         // verify source usage actually exists
         if (taxon.record.sourceTaxonKey > 0) {
             Taxon.get(taxon.record.sourceTaxonKey).then(function (srcTaxon) {
-                taxon.record.sourceTaxonExists=true;
+                taxon.record.sourceTaxonExists = true;
                 deferred.resolve(taxon);
             }, function (err) {
-                taxon.record.sourceTaxonExists=false;
+                taxon.record.sourceTaxonExists = false;
                 deferred.resolve(taxon);
             }).done();
         } else {
@@ -102,7 +102,7 @@ function getTaxon(key, lang, lookups) {
 
 // aggregates all species infos into 1 object
 //TODO: do in backbone & server see http://dev.gbif.org/issues/browse/POR-358
-function mergeInfos (taxon) {
+function mergeInfos(taxon) {
     var info = {};
     if (taxon.info) {
         _.each(taxon.info.results, function (i) {

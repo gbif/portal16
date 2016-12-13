@@ -59,24 +59,26 @@
                                             Download
                                         </span>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">
+                                    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu"
+                                        aria-labelledby="btn-append-to-body">
                                         <li role="menuitem"><a href="#">GBIF Processed</a></li>
-                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Original</a></li>
+                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Original</a>
+                                        </li>
                                     </ul>
                                 </li>
-                            {#{% else %}#}
+                                {#{% else %}#}
                                 {#<li class="tab tab-right">#}
-                                    {#<a href="{$ endpoint.url $}" uib-dropdown-toggle>#}
-                                    {#<a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>#}
-                                        {#<span class="gb-icon-file-download gb-icon-button"></span>#}
-                                        {#<span>#}
-                                            {#Download#}
-                                        {#</span>#}
-                                    {#</a>#}
-                                    {#<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">#}
-                                        {#<li role="menuitem"><a href="#">GBIF version</a></li>#}
-                                        {#<li role="menuitem"><a href="{$ dataset.record._computedValues.originalArchive.url $}">Original {$ dataset.record._computedValues.originalArchive.type $}</a></li>#}
-                                    {#</ul>#}
+                                {#<a href="{$ endpoint.url $}" uib-dropdown-toggle>#}
+                                {#<a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>#}
+                                {#<span class="gb-icon-file-download gb-icon-button"></span>#}
+                                {#<span>#}
+                                {#Download#}
+                                {#</span>#}
+                                {#</a>#}
+                                {#<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">#}
+                                {#<li role="menuitem"><a href="#">GBIF version</a></li>#}
+                                {#<li role="menuitem"><a href="{$ dataset.record._computedValues.originalArchive.url $}">Original {$ dataset.record._computedValues.originalArchive.type $}</a></li>#}
+                                {#</ul>#}
                                 {#</li>#}
                             {% endif %}
 

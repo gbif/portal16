@@ -18,7 +18,7 @@ function dataValidatorCtrl($http, $scope) {
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
 
-    vm.handleUploadFile = function(params) {
+    vm.handleUploadFile = function (params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
 
@@ -35,7 +35,7 @@ function dataValidatorCtrl($http, $scope) {
         });
     };
 
-    vm.handleFileUrl = function(params) {
+    vm.handleFileUrl = function (params) {
 
         var postParams = {params: {}};
         _.merge(postParams.params, params);
@@ -51,7 +51,7 @@ function dataValidatorCtrl($http, $scope) {
             });
     };
 
-    vm.getEvaluationCategory = function(params) {
+    vm.getEvaluationCategory = function (params) {
         $http({
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function (data, status, headers, config) {
@@ -69,29 +69,31 @@ function dataValidatorCtrl($http, $scope) {
             results: []
         };
 
-        angular.forEach(data.results, function(resourceResult) {
+        angular.forEach(data.results, function (resourceResult) {
             var vmResourceResult = _.omit(resourceResult, 'issues');
             //the order of the evaluationCategory is important
-            vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
+            vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {
+                return _.indexOf(vm.evaluationCategory, value.issueCategory)
+            });
 
             //prepare terms frequency
             vmResourceResult.termsFrequency = {};
-            angular.forEach(resourceResult.termsFrequency, function(value, key) {
+            angular.forEach(resourceResult.termsFrequency, function (value, key) {
                 var termFreqData = {};
                 termFreqData.count = value;
-                termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
+                termFreqData.percentage = Math.round((value / resourceResult.numberOfLines) * 100);
                 this[key] = termFreqData;
             }, vmResourceResult.termsFrequency);
 
             vmResourceResult.issuesMap = {};
             var issueBlock, issueSample;
-            angular.forEach(resourceResult.issues, function(value) {
+            angular.forEach(resourceResult.issues, function (value) {
                 this[value.issueCategory] = this[value.issueCategory] || [];
 
                 //rewrite sample to exclude redundant information (e.g. evaluationType)
                 //TODO to the same thing for issues with non sample
                 issueBlock = _.omit(value, 'sample');
-                angular.forEach(value.sample, function(sample) {
+                angular.forEach(value.sample, function (sample) {
                     this.sample = this.sample || [];
                     issueSample = {};
                     issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);

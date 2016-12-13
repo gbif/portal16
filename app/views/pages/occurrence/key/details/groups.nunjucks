@@ -21,18 +21,18 @@
                 {% for term in occurrence.terms.groups[group] %}
                     {# only show if the interpreted version has data. #}
                     <tr
-                        {#{% if occurrence.record[term.simpleName] | isUndefined %}#}
+                            {#{% if occurrence.record[term.simpleName] | isUndefined %}#}
                             {#ng-if="!occurrence.hideDetails"#}
                             {#data-ng-cloak="true"#}
-                        {#{% endif %}#}
-                        {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
+                            {#{% endif %}#}
+                            {% if occurrence.fieldsWithDifferences[term.simpleName] %} class="isDifferent" {% endif %}>
                         <td>
                             {$ __('ocurrenceFieldNames.' + term.simpleName) $}
                         </td>
                         <td>
                             {% if occurrence.record[term.simpleName] | isDefined %}
                                 {$ shorten.shorten(occurrence.record[term.simpleName]) $}
-                            {#{% else %}#}
+                                {#{% else %}#}
                                 {#<span class="small">{$ __('interpretationRemarks.comments.EXCLUDED') $}</span>#}
                             {% endif %}
                         </td>

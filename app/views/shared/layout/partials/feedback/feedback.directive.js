@@ -75,7 +75,7 @@ function feedbackDirective() {
             });
         };
 
-        vm.gotoRoot = function() {
+        vm.gotoRoot = function () {
             vm.selected = undefined;
             vm.forceShowForm = false;
         };

@@ -1,4 +1,5 @@
-<aside id="notifications" class="notifications menubox ng-cloak" ng-class="{'is-active': vm.isActive}" click-outside="vm.isActive = false">
+<aside id="notifications" class="notifications menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
     <div class="menubox__wrapper">
         <div class="menubox__top">
             <div class="menubox__header">
@@ -8,7 +9,8 @@
                 </div>
                 <div class="menubox__header__description text-center">
                     <p>This redesigned early-access version of GBIF.org is an active development site with
-                        limited functionality. The content exposed here is the same as that presented on <a class="inherit"
+                        limited functionality. The content exposed here is the same as that presented on <a
+                                class="inherit"
                                 href="http://www.gbif.org">the current site</a>.</p>
                 </div>
             </div>

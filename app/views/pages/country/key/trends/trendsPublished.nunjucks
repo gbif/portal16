@@ -1,7 +1,8 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes country-trends" ng-controller="countryKeyCtrl as countryKey" ng-init="countryKey.init('{$ country.code $}')">
+    <article class="wrapper-horizontal-stripes country-trends" ng-controller="countryKeyCtrl as countryKey"
+             ng-init="countryKey.init('{$ country.code $}')">
 
         {% include('./header.nunjucks') %}
 

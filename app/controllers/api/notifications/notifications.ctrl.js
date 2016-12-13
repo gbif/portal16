@@ -1,9 +1,9 @@
 "use strict";
 var express = require('express'),
-    //github = require('octonode'),
-    //credentialsPath = rootRequire('config/config').credentials,
-    //credentials = require(credentialsPath).portalFeedback,
-    //log = rootRequire('config/log'),
+//github = require('octonode'),
+//credentialsPath = rootRequire('config/config').credentials,
+//credentials = require(credentialsPath).portalFeedback,
+//log = rootRequire('config/log'),
     router = express.Router();
 
 module.exports = function (app) {

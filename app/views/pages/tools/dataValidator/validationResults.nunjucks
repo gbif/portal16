@@ -1,29 +1,31 @@
 <div ng-if="dataValidator.validationResults.summary" class="horizontal-stripe white-background ng-cloak">
 
-    <h2 >{$ __('validation.summary') $}</h2>
+    <h2>{$ __('validation.summary') $}</h2>
     <div class="table-container">
         <table>
             <tbody>
-                <tr>
-                    <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.indexeable }}</td>
-                </tr>
-                <tr ng-if="dataValidator.validationResults.summary.errorCode">
-                    <td class="table-cell--wide">{$ __('validation.error') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.errorCode }}</td>
-                </tr>
-                <tr ng-if="dataValidator.validationResults.summary.fileFormat">
-                    <td class="table-cell--wide">{$ __('validation.fileFormat.title') $}</td>
-                    <td class="table-cell--wide" translate="validation.fileFormat.{{ dataValidator.validationResults.summary.fileFormat }}"></td>
-                </tr>
-                <tr ng-if="dataValidator.validationResults.summary.validationProfile">
-                    <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
-                    <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.summary.validationProfile }}"></td>
-                </tr>
-                <tr ng-if="dataValidator.validationResults.summary.fileName">
-                    <td class="table-cell--wide">File name</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.fileName}}</td>
-                </tr>
+            <tr>
+                <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
+                <td class="table-cell--wide">{{ dataValidator.validationResults.summary.indexeable }}</td>
+            </tr>
+            <tr ng-if="dataValidator.validationResults.summary.errorCode">
+                <td class="table-cell--wide">{$ __('validation.error') $}</td>
+                <td class="table-cell--wide">{{ dataValidator.validationResults.summary.errorCode }}</td>
+            </tr>
+            <tr ng-if="dataValidator.validationResults.summary.fileFormat">
+                <td class="table-cell--wide">{$ __('validation.fileFormat.title') $}</td>
+                <td class="table-cell--wide"
+                    translate="validation.fileFormat.{{ dataValidator.validationResults.summary.fileFormat }}"></td>
+            </tr>
+            <tr ng-if="dataValidator.validationResults.summary.validationProfile">
+                <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
+                <td class="table-cell--wide"
+                    translate="validation.validationProfile.{{ dataValidator.validationResults.summary.validationProfile }}"></td>
+            </tr>
+            <tr ng-if="dataValidator.validationResults.summary.fileName">
+                <td class="table-cell--wide">File name</td>
+                <td class="table-cell--wide">{{ dataValidator.validationResults.summary.fileName }}</td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -31,30 +33,30 @@
     <div ng-repeat="resultPerResource in dataValidator.validationResults.results">
         <h3>{{ resultPerResource.fileName }}</h3>
         <div class="table-container">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td class="table-cell--wide">rowType</td>
-                            <td class="table-cell--wide">{{ resultPerResource.rowType }}</td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
-                            <td class="table-cell--wide">{{ resultPerResource.numberOfLines}}</td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
-                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
-                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
-                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="table-cell--wide">rowType</td>
+                    <td class="table-cell--wide">{{ resultPerResource.rowType }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
+                    <td class="table-cell--wide">{{ resultPerResource.numberOfLines }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
+                    <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
+                    <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>
+                </tr>
+                <tr>
+                    <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
+                    <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         {% include('./results/termsFrequency.nunjucks') %}
         {% include('./results/issues.nunjucks') %}
