@@ -5,3 +5,61 @@
 .fillHeight {
     height "calc(100vh - %s)" % $navBar_height
 }
+
+.site-drawer {
+    &__header {
+        background lighten($navBar_background_color, 10)
+        color white
+    }
+    &__tabs {
+        display flex
+        overflow auto
+        a {
+            display inline-block
+            flex 1 0 auto
+            text-align center
+            padding 5px
+            div {
+                font-size 20px
+            }
+            span {
+                font-size 10px
+            }
+        }
+    }
+
+    &__section {
+        &__content {
+        }
+    }
+}
+
+.gb-select {
+    @extends .hoverBox
+    position relative
+    background white
+    label {
+        width 100%
+        font-weight normal
+        display block
+        outline none
+    }
+    span {
+        position absolute
+        right 0
+        top 0
+        pointer-events none
+        margin 6px
+        font-size 18px
+    }
+    select {
+        outline none
+        border none
+        background transparent
+        padding 12px 20px
+        appearance none
+        width 100%
+    }
+}
+
+

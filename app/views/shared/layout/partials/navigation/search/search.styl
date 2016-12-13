@@ -47,18 +47,13 @@
 }
 
 .search-box {
+    @extends .hoverBox
     background white
     color #444
     padding 12px 20px
     position relative
-    overflow hidden
     width 500px
     max-width 100%
-    transition box-shadow 200ms ease
-    box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
-    &:hover {
-        box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
-    }
     input {
         border none
         padding-right vrBlock(4)
@@ -73,7 +68,7 @@
             font-weight light
         }
     }
-    a {
+    .search-box__submit {
         position absolute
         right 0
         margin 6px 15px

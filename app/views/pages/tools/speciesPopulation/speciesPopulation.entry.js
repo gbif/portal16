@@ -1,6 +1,7 @@
 'use strict';
 
-//var mapboxgl = require('mapbox-gl');
+var _ = require('lodash');
+var mapHelper = require('./map');
 
 
 angular
@@ -8,153 +9,65 @@ angular
     .controller('speciesPopulationCtrl', speciesPopulationCtrl);
 
 /** @ngInject */
-function speciesPopulationCtrl() {
+function speciesPopulationCtrl($http, suggestEndpoints) {
     var vm = this;
-    vm.test = 'hej';
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
+    vm.lowerTaxon;
+    vm.higherTaxonArray = [];
+    vm.minimumYears = '10';
+    vm.suggestTemplate = '/templates/components/filterTaxon/suggestTaxonTemplate.html';
 
-
-    //var Draw = new MapboxDraw({
-    //    displayControlsDefault: false,
-    //    controls: {
-    //        polygon: true,
-    //        trash: true
-    //    }
-    //});
-
-    //map.addControl(Draw);
-
-    var colors = [
-        '#a50f15',
-        '#de2d26',
-        '#fb6a4a',
-        '#fcae91',
-        '#fee5d9',
-        '#edf8e9',
-        '#bae4b3',
-        '#74c476',
-        '#31a354',
-        '#006d2c'
-    ];
-
-    var paintFill = {
-        "fill-color": "#0F0",
-        "fill-opacity": 0.4
-    };
-
-    var mapStyle = {
-        "version": 8,
-        "name": "Light",
-        "sources": {
-            "mapbox": {
-                "type": "vector",
-                "url": "mapbox://mapbox.mapbox-streets-v6"
-            },
-            "gbif": {
-                "type": "vector",
-                //"tiles": ["http://localhost:7001/map/occurrence/regression/{z}/{x}/{y}.mvt?taxonKey=1898286&higherTaxonKey=797"]
-                "tiles": ["http://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?taxonKey=1898286&higherTaxonKey=797"]
-                //"tiles": ["http://localhost:7001/map/occurrence/regression/{z}/{x}/{y}.mvt?taxonKey=212&higherTaxonKey=1&srs=EPSG:4326&year=1990,2000"]
-
-                // taxonKey=4989904&higherTaxonKey=7782
-            }
+    mapHelper.createMap();
+    mapHelper.addMapEvents({
+        onCreate: function(e) {
+            console.log('draw creation event triggered from directive');
+            console.log(e);
         },
-        "sprite": "mapbox://sprites/mapbox/light-v9",
-        "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
-        "layers": [
-            {
-                "id": "background",
-                "type": "background",
-                "paint": {"background-color": "#ededed"}
-            },
-            {
-                "id": "water",
-                "source": "mapbox",
-                "source-layer": "water",
-                "type": "fill",
-                "paint": {"fill-color": "#d6d6d6"}
-            },
-            {
-                "id": "gbifOccurrence",
-                "source": "gbif",
-                "source-layer": "occurrence",
-                "type": "fill",
-                "paint": {"fill-color": "#2c2c2c"}
+        onUpdate: function(e) {
+            console.log('drawn polygon updates');
+        },
+        onDelete: function(e) {
+            console.log('draw deletion');
+        }
+    });
+
+    vm.getSuggestions = function (val) {
+        return $http.get(suggestEndpoints.taxon, {
+            params: {
+                q: val.toLowerCase(),
+                limit: 10
             }
-        ]
+        }).then(function (response) {
+            return response.data;
+        });
     };
 
-    var map = new mapboxgl.Map({
-        container: 'speciesPopulationMap',
-        style: mapStyle,
-        center: [10, 50],
-        zoom: 3,
-        hash: false
-    });
+    vm.updateMap = function() {
+        mapHelper.updateOverlays(vm.higherTaxon.key, vm.lowerTaxon.key, vm.minimumYears);
+    };
 
-    map.on('style.load', function () {
-        var breakpoints = colors.reverse().map(function (e, i) {
-            return [(colors.length - 6 - i) * 0.0002, e];
-        });
+    vm.setLowerTaxon = function (item) {
+        //if nothing selected then do not do anything
+        if (angular.isUndefined(item)) return;
+        vm.lowerTaxon = item;
 
-        map.addLayer({
-            "id": "regression",
-            "type": "line",
-            "source": "gbif",
-            "source-layer": "regression",
-            "paint": {
-                "line-color": "#7b7b7b",
-                "line-width": 0.5,
-                "line-opacity": 0.5
-            }
-        });
+        if (item.rank == 'KINGDOM') {
+            //it doesn't make sense to choose a kingdom. And maybe we should even set the bar lower
+            return;
+        } else {
 
-        map.addLayer({
-            "id": "regression-fill",
-            "type": "fill",
-            "source": "gbif",
-            "source-layer": "regression",
-            "paint": {
-                "fill-color": {
-                    property: 'slope',
-                    stops: [
-                        [-0.005, 'green'],
-                        [-0.002, 'yellow'],
-                        [0, 'white'],
-                        [0.002, 'blue'],
-                        [0.005, 'red']
-                    ]
-                },
-                "fill-opacity": 0.4
-            }
-        });
+            //transform higherClassificationMap to array and sort it by key. select largest key - the assumption being that it is the lowest rank
+            var higherArray = _.map(vm.lowerTaxon.higherClassificationMap, function (name, key) {
+                return {key: parseInt(key), name: name};
+            });
+            higherArray = _.sortBy(higherArray, 'key');
+            vm.higherTaxonArray = higherArray;
+            vm.higherTaxon = higherArray[higherArray.length - 1];
 
-        //a layer that activates only on a hover over a feature (a cell)
-        map.addLayer({
-            "id": "regression-fill-hover",
-            "type": "fill",
-            "source": "gbif",
-            "source-layer": "regression",
-            "paint": {
-                "fill-color": "#FCA107",
-                "fill-opacity": 0.6
-            },
-            "filter": ['==', "id", ""]
-        });
-
-        map.on('mousemove', function (e) {
-            if (!map.getLayer('regression-fill-hover')) return;
-            var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
-            map.getCanvas().style.cursor = (features.length > 0) ? 'pointer' : '';
-            if (features.length > 0) {
-                map.setFilter("regression-fill-hover", ["==", "id", features[0].properties.id]);
-            } else {
-                map.setFilter("regression-fill-hover", ["==", "id", ""]);
-            }
-        });
-
-    });
-
+            //update the map to reflect the new selection
+            vm.updateMap();
+        }
+    };
 }
+
 
 module.exports = speciesPopulationCtrl;

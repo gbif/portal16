@@ -1,23 +1,110 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes speciesPopulation"
-             ng-controller="speciesPopulationCtrl as speciesPopulation">
+    <div ng-controller="speciesPopulationCtrl as speciesPopulation">
+        <article class="wrapper-horizontal-stripes speciesPopulation">
 
-        <div id="speciesPopulationMap" class="fillHeight">
+            <div id="speciesPopulationMap" class="fillHeight">
 
-        </div>
-
-
-    </article>
-
-    <aside class="site-drawer is-locked">
-        <div class="site-drawer__content">
-            <div class="site-drawer__header">
-                sdfg
             </div>
-        </div>
-    </aside>
+
+
+        </article>
+
+        <aside class="site-drawer is-locked">
+            <div class="site-drawer__content">
+                <div class="site-drawer__header">
+                    <div class="site-drawer__bar">
+                        <div class="site-drawer__bar__title">
+                            <span>Species population</span>
+                        </div>
+                    </div>
+                    <div class="site-drawer__tabs">
+                        <a href="">
+                            <div class="gb-icon-microscope"></div>
+                            <span>Explore</span>
+                        </a>
+                        <a href="">
+                            <div class="gb-icon-info"></div>
+                            <span>Info</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="site-drawer__section" id="speciesPopulation_scrollContainer">
+                <div class="site-drawer__section__content">
+                    <div>
+                        <h4>
+                            Select species
+                        </h4>
+                        <div class="search-box">
+                            <input type="text"
+                                   focus-me="true"
+                                   placeholder="Search"
+                                   name="lowerTaxon"
+                                   autocomplete="off"
+                                   class="fit-suggestions"
+                                   ng-model="speciesPopulation.lowerTaxonStr"
+                                   placeholder="search"
+                                   uib-typeahead="suggestion.scientificName for suggestion in speciesPopulation.getSuggestions($viewValue)"
+                                   typeahead-on-select="speciesPopulation.setLowerTaxon($item)"
+                                   typeahead-focus-first="true"
+                                   typeahead-template-url="{{ speciesPopulation.suggestTemplate }}"
+                                   typeahead-focus-first="true">
+                        </div>
+
+                    </div>
+                    <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
+                        <h4>
+                            Select higher taxon
+                        </h4>
+                        <div class="gb-select">
+                            <label><span class="gb-icon-angle-down"></span>
+                                <select ng-options="taxon as taxon.name for taxon in speciesPopulation.higherTaxonArray"
+                                        ng-model="speciesPopulation.higherTaxon"
+                                        ng-change="speciesPopulation.updateMap()"></select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
+                        <h4>
+                            Select minimum number of years
+                        </h4>
+                        <div class="gb-select">
+                            <label><span class="gb-icon-angle-down"></span>
+                                <select ng-model="speciesPopulation.minimumYears" ng-change="speciesPopulation.updateMap()">
+                                    <option ng-repeat="year in [2,5,10,15,25]" value="{{year}}">{{year}}</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="tester" ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
+                        <h4>
+                            Select an area
+                        </h4>
+
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>Relative abundance of {{ speciesPopulation.lowerTaxon.scientificName}} per year</h5>
+                            </div>
+                            <div class="ct-chart"></div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__content">
+                                <h5>{{ speciesPopulation.higherTaxon.name }} per year</h5>
+                            </div>
+                            <div class="ct-chart2"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </aside>
+    </div>
 {% endblock %}
 
 

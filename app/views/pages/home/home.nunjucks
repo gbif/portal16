@@ -42,9 +42,6 @@ nature, PLOS, ... and
                     <h1>
                         Free and open access to biodiversity data
                     </h1>
-                    <!--p>
-                        700+ million species observations, spesimens and more
-                    </p-->
                     <div class="home__header__search-bar search-box"
                          ng-controller="searchCtrl as omniSearch">
                         <form action="/search"
@@ -56,7 +53,7 @@ nature, PLOS, ... and
                                    aria-invalid="false"
                                    focus-me="true">
                             <a ng-click="omniSearch.updateSearch()"
-                               class="gb-icon-search"
+                               class="search-box__submit gb-icon-search"
                                href="" type="submit">
                                 <span class="sr-only">search</span>
                             </a>
