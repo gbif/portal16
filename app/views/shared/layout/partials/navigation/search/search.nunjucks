@@ -1,3 +1,48 @@
+<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch">
+  <div>
+    <div>
+      <form class="search-box" ng-submit="omniSearch.updateSearch()">
+            <input type="text"
+                   autocomplete="off"
+                   ng-init="omniSearch.freeTextQuery == ''"
+                   ng-model="omniSearch.freeTextQuery"
+                   placeholder="Occurrences, species, news ..."
+                   ng-keydown="omniSearch.closeOnEsc($event)">
+            <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
+               ng-click="omniSearch.updateSearch()">
+                <span class="sr-only">{$ __('stdTerms.search') $}</span>
+            </a>
+        </form>
+    </div>
+    <div class="omnisearch-bar__filters">
+      <div>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            Occurrences
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            Species
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            Datasets
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            Publishers
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            GBIF network
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            Publishers
+        </a>
+        <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--primary">
+            GBIF network
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+{#
 <aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}"
        ng-controller="searchCtrl as omniSearch"
        click-outside="omniSearch.isActive = false"
@@ -64,3 +109,4 @@
     </div>
 
 </aside>
+#}

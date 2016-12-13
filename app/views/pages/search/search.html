@@ -1,5 +1,44 @@
 <div ng-controller="searchCtrl as rootSearch">
-    <aside class="site-drawer is-locked" id="site-search"
+
+    <aside class="omnisearch-bar--static omnisearch-bar is-active">
+      <div>
+        <div>
+          <form class="search-box" ng-submit="rootSearch.updateSearch()">
+                <input type="text"
+                       autocomplete="off"
+                       ng-init="rootSearch.freeTextQuery == ''"
+                       ng-model="rootSearch.freeTextQuery"
+                       placeholder="Occurrences, species, news ..."
+                       ng-keydown="rootSearch.closeOnEsc($event)">
+                <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
+                   ng-click="rootSearch.updateSearch()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
+        <div class="omnisearch-bar__filters">
+          <div>
+            <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                Occurrence
+            </a>
+            <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                Species
+            </a>
+            <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                Dataset
+            </a>
+            <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                Publisher
+            </a>
+            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'news'})" class="gb-button--primary">
+                GBIF Network
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- <aside class="site-drawer is-locked" id="site-search"
            ng-class="{'is-active': rootSearch.isActive}"
            click-outside="rootSearch.isActive = false"
            click-outside-unless="!rootSearch.isActive"
@@ -11,13 +50,6 @@
                         <span class="text-center">Search</span>
                     </div>
                 </div>
-                <!--<div style="position: absolute;-->
-                <!--background: deepskyblue;-->
-                <!--width: 200px;-->
-                <!--left: -200px;-->
-                <!--height: 60px;-->
-                <!--padding: 10px;-->
-                <!--color: white;">Search here</div>-->
                 <div class="site-drawer__section">
 
                     <div class="search-bar filter-group">
@@ -95,6 +127,7 @@
             </div>
         </div>
     </aside>
+     -->
 
     <div class="site-content">
 

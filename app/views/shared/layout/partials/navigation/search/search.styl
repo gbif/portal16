@@ -1,5 +1,90 @@
 //SEARCH
 
+
+
+.omnisearch-bar {
+    position fixed
+    //#4aca7a
+    // top 0
+    // padding-top $navBar_height
+    width 100%
+    background #aeceba
+    z-index 50
+    box-shadow 0 2px 3px rgba(0,0,0,0.2)
+    max-height 0
+    overflow hidden
+    transition max-height 300ms ease
+    &.is-active {
+        max-height 200px
+    }
+    form {
+        margin 10px auto
+    }
+    &__filters {
+        margin 10px auto
+        text-align center
+        >div {
+            margin -5px
+        }
+        a {
+            margin 5px
+        }
+    }
+}
+.omnisearch-bar--static {
+    position relative
+}
++isAbove($desktop) {
+    .omnisearch-bar {
+        form {
+            margin-left 200px//$filterDrawerWidth + 20px
+        }
+        &__filters {
+            margin-left 200px//$filterDrawerWidth + 20px
+            text-align left
+        }
+    }
+}
+
+.search-box {
+    background white
+    color #444
+    padding 12px 20px
+    position relative
+    overflow hidden
+    width 500px
+    max-width 100%
+    transition box-shadow 200ms ease
+    box-shadow 0 2px 2px 0 rgba(0,0,0,0.16)
+    &:hover {
+        box-shadow 0 3px 8px 0 rgba(0,0,0,0.16)
+    }
+    input {
+        border none
+        padding-right vrBlock(4)
+        width 100%
+        overflow hidden
+        text-overflow ellipsis
+        &:focus {
+            outline none
+        }
+        &::placeholder {
+            color #ddd
+            font-weight light
+        }    
+    }
+    a {
+        position absolute
+        right 0
+        margin 6px 15px
+        top 0
+        font-size vrBlock(1.125)
+    }
+}
+
+
+
+
 //layout
 .search {
     position fixed

@@ -651,7 +651,7 @@ forceShowDrawer() {
     width $filterDrawerWidth
     overflow visible
     ~ .site-content {
-        padding-right $filterDrawerWidth
+        padding-left $filterDrawerWidth
     }
     //&:target ~ .site-content {
     //	right 0
@@ -660,7 +660,8 @@ forceShowDrawer() {
 
 +isAbove($laptop) {
     .site-drawer {
-        //right -($filterDrawerWidth + 3)
+        //left -($filterDrawerWidth + 3)
+        left 0
         width 0
         position fixed
         top $navBar_height
