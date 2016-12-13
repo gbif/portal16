@@ -20,10 +20,14 @@ moment.updateLocale('en', {
 });
 
 function date(date, locale, format) {
+    var day;
     locale = locale || defaultLanguage;
     format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
-    var day = moment(date).locale(locale);
-    if (!isNaN(Number(date))) day = moment.unix(date).locale(locale);
+    if (!isNaN(Number(date))) {
+        day = moment.unix(date).locale(locale);
+    } else {
+        day = moment(date, 'YYYY-MM-DD').locale(locale);
+    }
     return day.format(format);
 }
 
