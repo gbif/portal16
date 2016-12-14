@@ -1,12 +1,12 @@
 'use strict';
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
     format = require('../../helpers/format'),
-    env = process.env.NODE_ENV || 'local',
+    cmsUrlEncode = require('../../helpers/cmsUrlEncode'),
     config = require('../../../config/config'),
     cmsApi = require('../../models/cmsData/apiConfig'),
-    imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     cmsData = require('../../models/cmsData/cmsData'),
+    dataApi = require('../../models/gbifdata/apiConfig'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 
 md.use(require('markdown-it-video'), {
@@ -32,7 +32,7 @@ router.get([
         '/resource/:requestedPath(*)'
     ],
     function (req, res, next) {
-        var originalUrl,
+        let originalUrl,
             requestedPath,
             jsonOutput = false;
 
@@ -83,18 +83,18 @@ router.get([
                     // markdown/html inline URL extracting and prefixing
                     if (data.data[0].hasOwnProperty('body') && data.data[0].type == 'generic') {
                         if (data.data[0].body) {
-                            data.data[0].body.value = extractAndEncodeUriMarkdown(data.data[0].body.value);
+                            data.data[0].body.value = cmsUrlEncode.extractAndEncodeUriMarkdown(data.data[0].body.value);
                         }
                         else {
-                            data.data[0].body = {'value':'Pending content.'};
+                            data.data[0].body = {'value': 'Pending content.'};
                         }
                     }
                     else if (data.data[0].hasOwnProperty('body') && data.data[0].type !== 'generic') {
-                        data.data[0].body = extractAndEncodeUriHtml(data.data[0].body);
+                        data.data[0].body = cmsUrlEncode.extractAndEncodeUriHtml(data.data[0].body);
                     }
 
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
-                        return cmsData.cmsEndpointAccess('http://api.gbif-dev.org/v1/dataset/search?project_id=' + data.data[0].projectId).then(function (datasets) {
+                        return cmsData.cmsEndpointAccess(dataApi.datasetSearch.url + '?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;
                             renderPage(data, jsonOutput, next);
                         });
@@ -152,7 +152,7 @@ router.get([
                         hasTools: true,
                         originalUrl: req.originalUrl,
                         domain: config.domain,
-                        imageCacheUrl: imageCacheUrl
+                        imageCacheUrl: cmsUrlEncode.imageCacheUrl
                     }
                 };
 
@@ -169,62 +169,3 @@ router.get([
         }
     }
 );
-
-function appendImgCachePrefix(url) {
-    return imageCacheUrl + url;
-}
-
-function extractAndEncodeUriMarkdown(text) {
-    var regex;
-    switch (env) {
-        case 'local':
-            regex = /\]\(http\:\/\/bko\.gbif\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'dev':
-            regex = /\]\(http\:\/\/cms\.gbif-dev\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'uat':
-            regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'prod':
-            regex = /\]\(http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/documents\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-    }
-
-    return text.replace(regex, function (match) {
-        return '](' + appendImgCachePrefix(encodeURIComponent(match.substring(2)));
-    });
-}
-
-// @todo merge in one function with extractAndEncodeUriMarkdown()
-function extractAndEncodeUriHtml(text) {
-    var regex;
-    switch (env) {
-        case 'local':
-            regex = /src\=\"http\:\/\/bko\.gbif\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'dev':
-            regex = /src\=\"http\:\/\/cms\.gbif-dev\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'uat':
-            regex = /src\=\"http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-        case 'prod':
-            regex = /src\=\"http\:\/\/cms\.gbif-uat\.org\/sites\/default\/files\/.*\.(png|PNG|jpg|JPG|jpeg|JPEG|pdf|PDF)/g;
-            break;
-    }
-
-    return text.replace(regex, function (match) {
-        return 'src="' + appendImgCachePrefix(encodeURIComponent(match.substring(5)));
-    });
-}
-
-function processEncodedUrl(url) {
-    var count = 0;
-    while (count < 3 && url != decodeURIComponent(url)) {
-        url = decodeURIComponent(url);
-        count++;
-    }
-    var final = encodeURIComponent(url);
-    return appendImgCachePrefix(final)
-}

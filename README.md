@@ -103,19 +103,76 @@ More options at [http://trentm.com/node-bunyan/bunyan.1.html](http://trentm.com/
 
 ## Technologies
 
-### Templating
-is done using [Nunjucks](https://mozilla.github.io/nunjucks/)
-
-### Server
-The server is [Express](http://expressjs.com/)
-
-### CSS
-The CSS is build using the [Stylus](http://stylus-lang.com/) precompiler and [PostCSS](https://github.com/postcss/postcss) plugins
+* Templating is done using [Nunjucks](https://mozilla.github.io/nunjucks/)
+* The server is [Express](http://expressjs.com/)
+* The CSS is build using the [Stylus](http://stylus-lang.com/) precompiler and [PostCSS](https://github.com/postcss/postcss) plugins
 
 ### Image caching, cropping and resizing
 We use [Thumbor](http://thumbor.org), see [image caching](./image_caching.md) for more details.
 
+### Translations
+backend done using https://github.com/mashpie/i18n-node
+frontend using https://github.com/angular-translate/angular-translate
+currently the same file is shared. That only works partly since the two formats are not identical
+We should probably have to files, one for backend, one for frontend and then copy values that are identical (so that translators won't have to edit two places)
+It would be sensible to extend angular translate with angular-translate-interpolation-messageformat to allow easier pluralization and gender.
 
 ## Project overview
 See [project structure](project_structure.md)
 Some folders have a readme describing the content of that folder.
+
+
+## Issues
+Which labels to use for issues
+
+**page group**
+All groups include tabs. More can come if there arise a need for other sensible groups
+dataset, occurrence, species, publisher, country, cms, homepage, search, tools, download, user mangement
+
+**impact**
+luxury, useful, blocker
+TODO: might be worth quantifying terms such as "rarely", "few" etc.
+
+* luxury: used by few people that could get that information by other means. Or used rarely and not essential to usage.
+* useful: the site can be used just fine without it, but it would improve the experience significantly. users are expected to notice on a daily basis
+* blocker: Essential to site usage. The experience would improve for the majority of our users. Or something that is a nuisance to users on a daily basis.
+
+**cost**
+hours, days, 3days+
+
+* hours: expected to be completed in less than a day. could be 10 minutes, could be 7 hours.
+* days: less than 3 days
+* 3days+: more than 3 days
+
+**type**
+bug, enhancement, usability, editorial, duplicate, invalid, won't fix, infrastructure, api
+these should be self explanatory, but a few words on some of them
+
+* editorial: is a content issue in the cms or translations. Content issues related to the published data doesn't belong in this project.
+* infrastructure: e.g. build process, logging, firewalls etc.
+* api: requires work on the api to complete the task
+* usability: not a bug per se, but an improvement related to the interface and typically not in new functionality
+* enhancement: new functionality
+
+## Attribution
+This project is possible due to the many people that share their work under CC.
+Attributing everyone in the interface where e.g. icons and libraries are used, isn't feasible. 
+
+### Libraries
+
+### Images
+
+### Icons
+Butterfly by Marcela Almeida  from the Noun Project - https://thenounproject.com/search/?q=butterfly&i=39183
+drop by José Campos from the Noun Project - https://thenounproject.com/search/?q=drop&i=55403
+Funnel by David from the Noun Project - https://thenounproject.com/search/?q=funnel&i=430438
+Microscope by Alex Auda Samora from the Noun Project - https://thenounproject.com/search/?q=microscope&i=94605
+Quote by Yoshi from the Noun Project - https://thenounproject.com/search/?q=citation&i=450890
+Unicorn by Pieter J. Smits from the Noun Project - https://thenounproject.com/term/unicorn/78104/
+Bug by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=bug&i=198
+Idea by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=idea&i=762
+User by Viktor Vorobyev from the Noun Project - https://thenounproject.com/search/?q=user&i=415727
+
+### data
+ISO country codes - http://data.okfn.org/data/core/country-codes
+

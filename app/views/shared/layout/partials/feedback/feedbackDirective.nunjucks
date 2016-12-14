@@ -1,0 +1,223 @@
+<aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+    <div class="menubox__wrapper">
+        <div class="menubox__top">
+            <div class="menubox__header">
+                <a href="" ng-click="vm.gotoRoot()" class="inherit noUnderline menubox__back gb-icon-angle-left"
+                   ng-if="vm.selected"></a>
+                <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                <div class="menubox__header__title text-center">
+                    <span ng-if="!vm.selected">{$ __('feedback.intro.title') $}</span>
+                    <span ng-if="vm.selected" translate="feedback.{{ vm.selected }}.title"></span>
+                </div>
+                <div class="menubox__header__description text-center">
+                    <p ng-if="!vm.selected">
+                        {$ __('feedback.intro.example') $}
+                    </p>
+                    <p ng-if="vm.selected && vm.selected != vm.ISSUES"
+                       translate="feedback.{{ vm.selected }}.example"></p>
+                    <p ng-if="vm.selected == vm.ISSUES">
+                        {#{$ __('feedback.issues.description') $}#}
+                        {#<br/>#}
+                        <a href="" class="gb-button--primary text-uppercase" ng-click="vm.gotoRoot()">{$
+                            __('feedback.issues.create') $}</a>
+                    </p>
+
+                    <p ng-if="vm.selected == vm.CONFIRMATION">
+                        <a ng-href="{{ vm.referenceId }}" class="gb-button--primary text-uppercase inherit"
+                           ng-if="vm.referenceId">{$
+                            __('feedback.confirmation.seeIssue') $}</a>
+                        <a href="" class="gb-button--primary text-uppercase" ng-click="vm.gotoRoot()">{$
+                            __('feedback.issues.create') $}</a>
+                    </p>
+                </div>
+
+            </div>
+            {#<div class="menubox__nav">#}
+            {#<nav class="clearfix">#}
+            {#<ul>#}
+            {#<li ng-repeat="type in vm.type" ng-class="{isActive: type == vm.selected}">#}
+            {#<a href="" ng-click="vm.toggle(type)">#}
+            {#<span class="gb-icon-unicorn" ng-if="type == vm.type.CONTENT"></span>#}
+            {#<span class="gb-icon-bug" ng-if="type == vm.type.FUNCTIONALITY"></span>#}
+            {#<span class="gb-icon-idea" ng-if="type == vm.type.IDEA"></span>#}
+            {#<span class="gb-icon-unknown" ng-if="type == vm.type.QUESTION"></span>#}
+            {#</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</nav>#}
+            {#</div>#}
+            {#<div class="menubox__nav">#}
+            {#<nav class="clearfix">#}
+            {#<a href="" class="feedback__issuesToggle pull-right" ng-class="{isActive: vm.selected == vm.ISSUES}"#}
+            {#ng-if="vm.issues.total_count" ng-click="vm.selected = vm.ISSUES">#}
+            {#<div class="comment-bubble">{{ vm.issues.total_count }}</div>#}
+            {#</a>#}
+            {#</nav>#}
+            {#</div>#}
+        </div>
+        <div class="menubox__content">
+
+            {# LIST OF ISSUES FROM OTHER USERS #}
+            <div class="menubox__section menubox__section--issues" ng-if="vm.selected == vm.ISSUES">
+
+                <ul>
+                    <li ng-repeat="item in vm.issues.items">
+                        <article class="card menubox__card">
+                            <a class="card__stripe inherit noUnderline" ng-href="{{ item.url }}" target="_blank">
+                                <div class="card__content">
+                                    <h5>{{ item.title }}</h5>
+                                    <div class="feedback__comment">
+                                        <time am-time-ago="item.created_at"></time>
+                                        <span class="pull-right">
+                                            <span ng-if="!item.comments" translate="feedback.commentsNone"
+                                                  translate-values="{commentCount: item.comments}"></span>
+                                            <span ng-if="item.comments==1" translate="feedback.commentSingular"
+                                                  translate-values="{commentCount: item.comments}"></span>
+                                            <span ng-if="item.comments>1" translate="feedback.commentPlural"
+                                                  translate-values="{commentCount: item.comments}"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+                <div class="menubox__section__content clearfix" ng-if="vm.issues.total_count > vm.issues.items.length">
+                    <a ng-href="{{ vm.issues.issuesUrl }}" target="_blank" class="btn btn-default flat pull-right">{$
+                        __('stdTerms.seeAll') $}
+                    </a>
+                </div>
+            </div>
+
+            {# LIST OF FEEDBACK OPTIONS #}
+            <div class="menubox__section menubox__section--select" ng-if="!vm.selected">
+                <ul>
+                    <li ng-repeat="type in vm.type">
+                        <a ng-if="type == vm.type.CONTENT && vm.issues.total_count" href=""
+                           class="feedback__issuesToggle pull-right"
+                           ng-class="{isActive: vm.selected == vm.ISSUES}"
+                           ng-if="vm.issues.total_count" ng-click="vm.selected = vm.ISSUES">
+                            <div class="comment-bubble">{{ vm.issues.total_count }}</div>
+                        </a>
+                        <a href="" class="inherit" ng-click="vm.toggle(type)">
+                            <h4 translate="feedback.{{ type }}.title"></h4>
+                            <p class="small" translate="feedback.{{ type }}.example"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            {# CONTENT TYPE FEEDBACK OPTIONS #}
+            <div class="menubox__section" ng-if="vm.type.CONTENT == vm.selected">
+                <div ng-if="vm.contentFeedback.type == 'CUSTOM'" class="menubox__section__content">
+                    <div ng-if="!vm.forceShowForm">
+                        <p translate="feedback.content.annotate"></p>
+                        <p class="menubox__section__content__annotate">
+                            <a class="gb-button--primary inherit"
+                               target="_blank"
+                               ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
+                        </p>
+                        <div class="text-center">
+                            <a href="" class="inherit gg-button--flat" ng-click="vm.forceShowForm = true">
+                                use GBIF <span class="gb-icon-angle-down large"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend using <a
+                                ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
+                    </div>
+                </div>
+
+                <div ng-if="vm.contentFeedback.type == 'MAIL'">
+                    <p translate="feedback.content.contactPerMail"></p>
+                    <p style="padding-left:20px">
+                        <span class="gb-icon-user"></span>{{ vm.contentFeedback.contacts.firstContact.firstName }} {{ vm.contentFeedback.contacts.firstContact.lastName }}
+                        <br/>
+                        <span class="gb-icon-institution"></span>{{ vm.contentFeedback.contacts.firstContact.organization }}
+                        <br/>
+                        <span>@</span><a
+                                ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
+                    </p>
+                    <div class="feedback__comment">
+                        {$ __('feedback.bugRedirect', '<a href="" ng-click="vm.forceShowForm = true">' +
+                            __('feedback.bugReport') + '</a>') | safe $}
+                    </div>
+                </div>
+            </div>
+
+            {# GITHUB FEEDBACK FORM FOR GBIF CONTENT, BUGS AND IDEAS #}
+            <div class="menubox__section menubox__section--issue seperator"
+                 ng-if="vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || ( (!vm.contentFeedback.type || vm.forceShowForm) && vm.type.CONTENT == vm.selected)">
+                <form name="vm.functionalityForm" novalidate>
+                    <div class="feedback-input">
+                        <label>
+                            <span>{$ __('feedback.placeholders.summary') $}</span>
+                            <input type="text"
+                                   ng-model="vm.issue.title"
+                                   placeholder="{$ __('feedback.placeholders.summary') $}"
+                                   focus-me="true">
+                        </label>
+                    </div>
+
+                    <div class="feedback__textarea">
+                        <label>
+                            <span>{$ __('feedback.placeholders.description') $}</span>
+                            <textarea rows="3"
+                                      ng-model="vm.issue.description"
+                                      placeholder="{$ __('feedback.placeholders.description') $}" ng->
+                            </textarea>
+                            <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
+                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
+                                   tabindex="-1"
+                                   class="inherit">Markdown</a> support
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="feedback-input">
+                        <label>
+                            <span>{$ __('feedback.placeholders.username') $}</span>
+                            <input type="text"
+                                   ng-model="vm.issue.contact"
+                                   placeholder="{$ __('feedback.placeholders.username') $}">
+                        </label>
+                    </div>
+
+                    <div class="menubox__section__content p-t-05">
+
+                        <div class="feedback__comment">
+                            {$ __('feedback.issueTracking') |
+                            insertLinks('https://github.com/gbif/portal-feedback/issues', '_blank') | safe $}
+                        </div>
+                        <div class="clearfix">
+                            <button ng-disabled="!vm.functionalityForm.$valid" type="submit"
+                                    ng-click="vm.createIssue(vm.issue)"
+                                    class="btn btn-default flat pull-right">{$
+                                __('tools.suggestDataset.form.submit') $}
+                            </button>
+                        </div>
+                        <div ng-if="vm.state == 'FAILED'" class="feedback__failure">
+                            {$ __('feedback.failure') | insertLinks('https://github.com/gbif/portal-feedback/issues',
+                            '_blank') | safe $}
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            {# QUESTIONS #}
+            <div class="menubox__section menubox__section__content menubox__section--question"
+                 ng-if="vm.type.QUESTION == vm.selected">
+                <div>
+                    <p>
+                        {$ __('feedback.question.description') | linkify | safe $}
+                    </p>
+                    <div class="feedback__comment">{$ __('feedback.question.comment') | linkify | safe $}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</aside>

@@ -7,6 +7,7 @@ var ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
     API_ERROR: 'API_ERROR',
     NOT_FOUND: 'NOT_FOUND',
+    UNAUTHORIZED: 'UNAUTHORIZED',
     INVALID_RESPONSE: 'INVALID_RESPONSE'
 });
 
@@ -37,17 +38,15 @@ function getData(cb, path, options) {
             switch (response.statusCode) {
                 case 404:
                     cb(ERRORS.NOT_FOUND, null);
-                    log.error('got 404 ' + path); //TODO might be okay dependent on caller context
                     break;
                 case 401:
-                    cb('UNAUTHORIZED', null);
-                    log.error('got 401 ' + path); //TODO might be okay dependent on caller context
+                    cb(ERRORS.UNAUTHORIZED, null);
                     break;
                 default:
                     cb(ERRORS.INVALID_RESPONSE, null);
-                    log.error('didnt get status code 200, but ' + response.statusCode + ' from ' + path);
                     break;
             }
+            log.error(response.statusCode + ' ' + response.statusMessage + ' while accessing ' + path);
         }
 
         //if no response data
@@ -72,10 +71,10 @@ function parseXml(body, path, cb) {
         xmlParser(body, function (err, result) {
             if (err) {
                 cb(err);
+                log.error('failed to parse XML response ' + path);
             }
             else {
                 cb(null, result);
-                log.error('failed to parse XML response ' + path);
             }
         });
     } catch (err) {
@@ -118,7 +117,7 @@ function getApiData(path, callback, options) {
                 if (options.failHard) {
                     callback(err, null);
                 } else {
-                    callback(err, {
+                    callback(null, {
                         errorType: err
                     });
                 }

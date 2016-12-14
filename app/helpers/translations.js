@@ -42,7 +42,7 @@ function getTranslations(fileMap, language, callback) {
 
 function getTranslationPromise(fileMap, language) {
     var deferred = Q.defer();
-    getTranslations(fileMap, language, function(err, data){
+    getTranslations(fileMap, language, function (err, data) {
         if (err) {
             deferred.reject(new Error(err));
         } else {

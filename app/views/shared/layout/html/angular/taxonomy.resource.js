@@ -25,6 +25,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('TaxonomySynonyms', function ($resource) {
+            return $resource('/api/taxonomy/:datasetKey/:taxonKey/synonyms', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('TaxonomyChildren', function ($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey/children', null, {
                     'query': {

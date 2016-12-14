@@ -74,6 +74,6 @@ function buildStylus(hashed) {
         .pipe(g.cleanCss())
         .pipe(rename(function (path) {
             path.basename += '-' + hashed;
-          }))
+        }))
         .pipe(gulp.dest(path.join(config.paths.dist, '/css/base/users/')));
 }

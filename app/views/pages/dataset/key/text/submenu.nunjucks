@@ -3,7 +3,7 @@
 <nav class="submenu submenu--tabs" id="submenu">
     <ul class="nav-parts">
         <li class="part-name">
-            <h3>Content</h3>
+            <h3><a href="#" class="inherit">Content</a></h3>
             <ul class="nav-chapters">
                 <li class="nav-chapter" du-scrollspy="summary">
                     <a href="#summary">Summary</a>
@@ -44,11 +44,33 @@
                     </li>
                 {% endif %}
 
+                {% if dataset.record.additionalInfo | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="additionalInfo">
+                        <a href="#additionalInfo">Additional Info</a>
+                    </li>
+                {% endif %}
+
                 {% if dataset.record.bibliographicCitations | isNotEmpty %}
                     <li class="nav-chapter" du-scrollspy="bibliography">
                         <a href="#bibliography">Bibliography</a>
                     </li>
                 {% endif %}
+
+                {% if dataset.record.dataLanguage or dataset.record.language or dataset.record.dataDescriptions | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="dataDescription">
+                        <a href="#dataDescription">Data Description</a>
+                    </li>
+                {% endif %}
+
+                {% if dataset._computedValues.contributors.all | isNotEmpty %}
+                    <li class="nav-chapter" du-scrollspy="contributors">
+                        <a href="#contributors">Contributors</a>
+                    </li>
+                {% endif %}
+
+                <li class="nav-chapter" du-scrollspy="citation">
+                    <a href="#citation">Citation</a>
+                </li>
 
             </ul>
         </li>

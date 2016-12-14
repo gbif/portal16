@@ -1,34 +1,41 @@
-{% macro datasetTabs(dataset, active, __) %}
-    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
-        <div class="container">
+{% macro countryTabs(country, active, __) %}
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container--normal">
             <div class="row">
-                <nav class="tabs">
-                    <ul>
-                        <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}">
-                                Activity
-                            </a>
-                        </li>
+                <div class="col-xs-12">
+                    <nav class="tabs">
+                        <ul>
+                            <li class="tab {% if active == 'activity' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}">
+                                    Activity
+                                </a>
+                            </li>
 
-                        <li class="tab {% if active == 'project' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/project">
-                                Participant
-                            </a>
-                        </li>
+                            {% if country.node.participationStatus %}
+                                <li class="tab {% if active == 'participant' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">
+                                        Participant
+                                    </a>
+                                </li>
+                            {% endif %}
 
-                        <li class="tab {% if active == 'origin' %}isActive{% endif %}">
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
-                                Trends
-                            </a>
-                        </li>
+                            <li class="tab {% if active == 'trends' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/trends/about">
+                                    Trends
+                                </a>
+                            </li>
 
-                        <li class="tab tab-right">
-                            <a href="{$ endpoint.url $}">
-                                <span class="gb-button">Download report</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                            <li class="tab tab-right tab--seperator">
+                                <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                                    <span class="gb-icon-file-download gb-icon-button"></span>
+                                <span>
+                                    Download report
+                                </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>

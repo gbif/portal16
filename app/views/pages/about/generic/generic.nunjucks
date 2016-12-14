@@ -38,7 +38,7 @@
         <div class="horizontal-stripe white-background">
             <div class="container--narrow body-text">
                 <div class="body-text--markdown">
-                    {$ data.body.markdown | sanitize | addPortalClasses | safe $}
+                    {$ data.body.markdown | sanitizeTrusted | addPortalClasses | safe $}
                 </div>
             </div>
         </div>

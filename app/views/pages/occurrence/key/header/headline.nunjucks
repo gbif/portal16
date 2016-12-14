@@ -6,10 +6,10 @@
     {% else %}
         <span>{$ commonMacros.parsedTaxonName(occurrence.taxonName) $}</span>
     {% endif %}
-    <div class="h3 article-header__sub">
-        {% if occurrence.record.individualCount > 1 %}
-            <span class="badge">{$ occurrence.record.individualCount $}</span>
-        {% endif %}
-        {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
-    </div>
 </h1>
+<div class="h4 article-header__sub">
+    {% if occurrence.record.individualCount > 1 %}
+        <span class="badge">{$ occurrence.record.individualCount $}</span>
+    {% endif %}
+    {$ occurrence.computedFields.title.verb $} {$ occurrence.computedFields.title.location $}
+</div>

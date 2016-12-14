@@ -1,10 +1,8 @@
-<section id="gbif-registration-info" class="horizontal-stripe bare-background">
+<section id="gbif-registration-info" class="horizontal-stripe light-background">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <input class="stripe-collapse" id="gbif-registration-info-toggle" type="checkbox">
-                <label for="gbif-registration-info-toggle"><h3>GBIF Registration Information</h3>
-                </label>
+                <h3>GBIF Registration Information</h3>
                 <div>
                     {# This template is included in datasetDetails.nunjucks. #}
                     <div class="row">

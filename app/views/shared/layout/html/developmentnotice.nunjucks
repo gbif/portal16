@@ -10,9 +10,11 @@
                     </div>
                     <div class="card__content">
                         <p>
-                            We are now actively engaged in redesigning <a href="http://gbif.org/">GBIF.org</a>. This is
-                            still an early-access release with limited functionality. The content exposed here is the
-                            same as that presented on the current site.
+                            We are now actively engaged in redesigning <a href="http://www.gbif.org/">GBIF.org</a>. This
+                            is
+                            still an early-access release with limited functionality. <strong>The content exposed here
+                                is the
+                                same as that presented on the current site.</strong>
                         </p>
                         <p>
                             Our first release aims to address issues reported and observed since we launched the current

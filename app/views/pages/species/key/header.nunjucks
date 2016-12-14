@@ -15,9 +15,10 @@
 
                 {% if not taxon.isNub() %}
                     <div class="published-in article-header__intro">
-                        sensu <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}" class="inherit"><u>{$ taxon.dataset.title $}</u></a>
+                        sensu <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}"
+                                 class="inherit"><u>{$ taxon.dataset.title $}</u></a>
                     </div>
-                {% elseif taxon.record.publishedIn %}
+                    {% elif taxon.record.publishedIn %}
                     <div class="published-in article-header__intro">
                         <a href="#" class="inherit"><u>{$ taxon.record.publishedIn $}</u></a>
                     </div>

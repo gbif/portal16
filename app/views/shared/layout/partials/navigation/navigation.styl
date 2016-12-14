@@ -5,10 +5,12 @@ siteHeaderBar() {
     border-bottom $navBar_borderWidth solid $navBar_borderColor
     z-index 200
     color $navBar_textColor
+    box-shadow $navBar_boxShadow
 }
 
 //navigation layout
 .site-nav {
+    font-weight $navBar_fontWeight
     position absolute
     top 0
     overflow-y auto
@@ -56,7 +58,7 @@ siteHeaderBar() {
                 position relative
                 &:after {
                     position absolute
-                    top vrBlock(2.5)
+                    top ($navBar_height - vrBlock(0.5))
                     left 50%
                     margin-left -(vrBlock(0.25) * 2)
                     content ''
@@ -70,7 +72,7 @@ siteHeaderBar() {
         height $navBar_height
         width 100%
         overflow visible
-        position fixed
+        position fixed //use fixed navifation on laptop and above
         > div > ul > li {
             > a {
                 menuTextShadow()
@@ -148,6 +150,9 @@ siteHeaderBar() {
             > ul, > a {
                 float left
             }
+            > ul {
+                float right
+            }
             > ul > li > a {
                 .main-menu__icon {
                     display none
@@ -168,7 +173,7 @@ siteHeaderBar() {
                     left -9999px
                 }
                 .main-menu__icon {
-                    font-size vrBlock(2)
+                    font-size vrBlock(1.5)
                     position absolute
                     line-height ($navBar_height - $navBar_borderWidth)
                     text-align center
@@ -411,16 +416,19 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
 
 .service-menu {
     .menu-notification {
+        float right
         position absolute
         top vrBlock(0.25)
         right 0
+        font-size 10px
     }
 }
 
 +isAbove($laptop) {
     .service-menu {
-        position absolute
-        right 0
+        float right
+        //position absolute
+        //right 0
         li {
             display inline-block
         }
@@ -446,7 +454,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                 .service-menu__icon {
                     position absolute
                     font-size 28px
-                    width 4rem
+                    width 3rem
                     display block
                     text-align center
                     overflow hidden
@@ -458,11 +466,11 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                     bottom vrBlock(0.25)
                     text-align center
                     left 0
-                    width 4rem
+                    width 3rem
                     display none
                 }
                 display inline-block
-                width 4rem
+                width 3rem
                 //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
                 relative()
                 font-size (100 /$majorThird) %
@@ -643,7 +651,7 @@ forceShowDrawer() {
     width $filterDrawerWidth
     overflow visible
     ~ .site-content {
-        padding-right $filterDrawerWidth
+        padding-left $filterDrawerWidth
     }
     //&:target ~ .site-content {
     //	right 0
@@ -652,7 +660,8 @@ forceShowDrawer() {
 
 +isAbove($laptop) {
     .site-drawer {
-        //right -($filterDrawerWidth + 3)
+        //left -($filterDrawerWidth + 3)
+        left 0
         width 0
         position fixed
         top $navBar_height

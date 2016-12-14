@@ -23,7 +23,7 @@ router.get('/tools/suggest-dataset', function (req, res, next) {
 
     //once promise has been resolved then
     translations[res.locals.gb.locales.current].then(
-        function(data) {
+        function (data) {
             render(req, res, next, {
                 _meta: {
                     title: 'Suggest dataset'
@@ -31,7 +31,7 @@ router.get('/tools/suggest-dataset', function (req, res, next) {
                 translations: data
             });
         },
-        function(err) {
+        function (err) {
             next(err);
         }
     );

@@ -47,6 +47,10 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('sanitizeTrusted', format.sanitizeTrusted);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('addPortalClasses', format.addPortalClasses);
     })();
 
@@ -107,6 +111,14 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('linkify', format.linkify);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('insertLinks', format.insertLinks);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;
@@ -129,6 +141,16 @@ module.exports = function (nunjucksConfiguration, config) {
                 return '';
             }
             return truncate(htmlText, len);
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('domain', function (url) {
+            if (!_.isString(url)) {
+                return url;
+            }
+            var matches = url.match(/^(?:https?\:\/\/)?(?:www\.)?([^\/?#:]+)/i);
+            return matches ? matches[1] : url;
         });
     })();
 
@@ -167,7 +189,7 @@ module.exports = function (nunjucksConfiguration, config) {
     (function () {
         nunjucksConfiguration.addFilter('flag', function (countryCode) {
             if (countryCode) {
-                return '/img/flags/' + _.toUpper(countryCode)+ ".png";
+                return '/img/flags/' + _.toUpper(countryCode) + ".png";
             }
         });
     })();
@@ -185,7 +207,7 @@ module.exports = function (nunjucksConfiguration, config) {
         var revFile = 'public/rev-manifest.json';
         if (fs.existsSync(revFile)) {
             revManifest = JSON.parse(fs.readFileSync(revFile, 'utf8'));
-            console.log("Loaded asset versioning manifest at "+revFile+" with "+Object.keys(revManifest).length+" entries.");
+            console.log("Loaded asset versioning manifest at " + revFile + " with " + Object.keys(revManifest).length + " entries.");
         } else {
             revManifest = {};
         }

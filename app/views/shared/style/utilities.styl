@@ -46,6 +46,10 @@
     }
 }
 
+.text-light {
+    font-weight 300
+}
+
 .p-t-1 {
     padding-top vrBlock(1) !important
 }
@@ -58,6 +62,10 @@
     padding-bottom 0 !important
 }
 
+.p-0 {
+    padding 0 !important
+}
+
 .m-0 {
     margin 0 !important
 }
@@ -65,8 +73,21 @@
 .m-t-05 {
     margin-top vrBlock(.5) !important
 }
+
 .m-b-05 {
     margin-bottom vrBlock(.5) !important
+}
+
+.invisible {
+    visibility hidden
+}
+
+.hoverBox {
+    transition box-shadow 200ms ease
+    box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+    &:hover {
+        box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
+    }
 }
 
 for num in 0 1 2 3 {

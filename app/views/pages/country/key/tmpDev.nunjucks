@@ -10,11 +10,11 @@
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">{$ __('stdTerms.country') $}</span>
                             <span class="article-header__category__lower">
-                                {$ __('participationStatus.' + country.record.participationStatus) $}
+                                {$ __('participationStatus.' + country.node.participationStatus) $}
                             </span>
                         </nav>
                         <h1 class="text-center">
-                            <span>{$ country.record.participantTitle $}</span>
+                            <span>{$ __('country.' + country.code) $}</span>
                         </h1>
                     </header>
                 </div>

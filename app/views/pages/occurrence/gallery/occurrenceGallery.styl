@@ -11,6 +11,7 @@ $mobileGalleryHeight = 100px
         background #eee
         display block
         flex 1 1 auto
+        position relative
         width $mobileGalleryHeight //asummed square
         &[data-width="thinner"] {
             width $mobileGalleryHeight* 0.6
@@ -48,6 +49,14 @@ $mobileGalleryHeight = 100px
             &.isInValid {
                 background-size initial
             }
+        }
+        .summary {
+            background rgba(0, 0, 0, 0.3)
+            color white
+            position absolute
+            bottom 0
+            width 100%
+            padding 5px
         }
     }
     > div {

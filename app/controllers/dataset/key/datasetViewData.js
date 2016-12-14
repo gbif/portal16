@@ -2,6 +2,7 @@
 var _ = require('lodash'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
     baseConfig = require('../../../../config/config'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
     helper = require('../../../models/util/util'),
     contributors = require('./contributors/contributors'),
     bibliography = require('./bibliography/bibliography'),
@@ -41,12 +42,13 @@ function getDataset(datasetKey, cb, locale) {
                 getExpanded(datasetKey, cb);
             },
             speciesTaxonCount: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'species/search?limit=0&facet=rank&dataset_key=' + datasetKey, function (err, data) {
+                helper.getApiData(apiConfig.taxonSearch.url + '?limit=0&facet=rank&dataset_key=' + datasetKey, function (err, data) {
                     if (err) {
                         cb(err);
                     } else {
-                        var mapped = {};
-                        data.facets[0].counts.forEach(function (e) {
+                        var mapped = {},
+                            counts = _.get(data, 'facets[0].counts', []);
+                        counts.forEach(function (e) {
                             mapped[e.name] = e.count;
                         });
                         callback(null, {
@@ -57,26 +59,26 @@ function getDataset(datasetKey, cb, locale) {
                 });
             },
             occurrenceCount: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&dataset_key=' + datasetKey, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&dataset_key=' + datasetKey, callback);
             },
             occurrenceGeoreferencedCount: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&has_coordinate=true&has_geospatial_issue=false&dataset_key=' + datasetKey, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&has_coordinate=true&has_geospatial_issue=false&dataset_key=' + datasetKey, callback);
             },
             occurrenceDatedCount: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&year=*,3000&dataset_key=' + datasetKey, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&year=*,3000&dataset_key=' + datasetKey, callback);
             },
             occurrenceNoTaxonCount: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/search?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
+                helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
             },
             downloads: function (callback) {
-                helper.getApiData(baseConfig.dataApi + 'occurrence/download/dataset/' + datasetKey + '?limit=0', callback);
+                helper.getApiData(apiConfig.occurrenceDownloadDataset.url + datasetKey + '?limit=0', callback);
             },
-            translations: function(callback) {
+            translations: function (callback) {
                 if (typeof translations[locale] === 'undefined') {
                     translations[locale] = translationsHelper.getTranslationPromise(markdownFiles, locale);
                 }
                 translations[locale].then(
-                    function(data) {
+                    function (data) {
                         callback(null, data);
                     },
                     callback
@@ -115,6 +117,12 @@ function getDataset(datasetKey, cb, locale) {
     );
 }
 
+function getOriginalDarwinCoreArchive(endpoints) {
+    endpoints = endpoints || [];
+    return endpoints.find(function (e) {
+        return e.type == 'DWC_ARCHIVE';
+    });
+}
 function transformBaseResult(dataset) {
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
@@ -131,6 +139,7 @@ function transformBaseResult(dataset) {
     }
 
     dataset._computedValues.identifiers = processIdentifiers(dataset.record.identifiers);
+    dataset._computedValues.originalArchive = getOriginalDarwinCoreArchive(dataset.record.endpoints);
 
     return dataset;
 }

@@ -36,7 +36,7 @@ function rollUpCounts(downloads) {
     }
 
     //filterCounts to sorted list
-    filterCounts.keys = _.flatMap(filterCounts.keys, function(value, key){
+    filterCounts.keys = _.flatMap(filterCounts.keys, function (value, key) {
         return {
             field: key,
             value: value
@@ -79,7 +79,7 @@ function getPredicates(predicate) {
 
 function translateFields(data) {
     var helper = require('../../../helpers/format');
-    data.filterCounts.keys.forEach(function(e){
+    data.filterCounts.keys.forEach(function (e) {
         e.displayName = helper.prettifyEnum(e.field);
     });
 }

@@ -11,32 +11,24 @@ module.exports = function (app) {
 router.get('/species/:key(\\d+)\.:ext?', taxonRoute);
 router.get('/taxon/:key(\\d+)\.:ext?', taxonRoute);
 
-router.get('/species/:key(\\d+)/taxonomy', taxonomyRoute);
-router.get('/taxon/:key(\\d+)/taxonomy', taxonomyRoute);
-
 function taxonRoute(req, res, next) {
-    render(req, res, next, 'speciesKey', ['name', 'dataset', 'constituent', 'homonyms', 'typification', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular', 'info']);
+    render(req, res, next, ['name', 'dataset', 'constituent', 'homonyms', 'typification', 'occurrenceGeoRefCount', 'occurrenceCount', 'vernacular', 'info']);
 }
 
-function taxonomyRoute(req, res, next) {
-    render(req, res, next, 'speciesTaxonomy', ['name', 'dataset', 'constituent']);
-}
-
-
-function render(req, res, next, page, lookups) {
+function render(req, res, next, lookups) {
     try {
         getTaxon(req.params.key, res.locals.gb.locales.current, lookups).then(function (taxon) {
             if (!taxon.isNub()) {
-                console.error("No backbone taxon: " + taxon.key);
-                next();
+                redirectToDatasetTaxon(res, taxon);
+            } else {
+                res.render('pages/species/key/speciesKey', {
+                    key: taxon.record.key,
+                    taxon: taxon,
+                    _meta: {
+                        title: taxon.record.scientificName
+                    }
+                });
             }
-            res.render('pages/species/key/'+page, {
-                key: taxon.record.key,
-                taxon: taxon,
-                _meta: {
-                    title: taxon.record.scientificName
-                }
-            });
         });
     } catch (e) {
         console.error(e);
@@ -44,19 +36,24 @@ function render(req, res, next, page, lookups) {
     }
 }
 
+function redirectToDatasetTaxon(res, taxon) {
+    res.redirect('/dataset/' + taxon.record.datasetKey + '/taxonomy/' + taxon.record.key);
+}
+
 function getTaxon(key, lang, lookups) {
     var deferred = Q.defer();
     var getOptions = {
         //TODO: replace occ counts with solr facets
-        expand: lookups
+        expand: lookups,
+        expandBackboneOnly: true
     };
 
     Taxon.get(key, getOptions).then(function (taxon) {
         // this should be done server side in the future: http://dev.gbif.org/issues/browse/POR-307
         if (taxon.vernacular) {
-            uniqPageResult(taxon.vernacular, function(v){
+            uniqPageResult(taxon.vernacular, function (v) {
                 return v.vernacularName + "|" + (v.language || '');
-            }, function(v){
+            }, function (v) {
                 return v.language;
             });
             // pick one vernacular name of requested language
@@ -74,17 +71,17 @@ function getTaxon(key, lang, lookups) {
         mergeInfos(taxon);
         // remove self from homonyms
         if (taxon.homonyms) {
-            _.remove(taxon.homonyms.results, function(tax) {
+            _.remove(taxon.homonyms.results, function (tax) {
                 return tax.key == key;
             });
         }
         // verify source usage actually exists
         if (taxon.record.sourceTaxonKey > 0) {
             Taxon.get(taxon.record.sourceTaxonKey).then(function (srcTaxon) {
-                taxon.record.sourceTaxonExists=true;
+                taxon.record.sourceTaxonExists = true;
                 deferred.resolve(taxon);
             }, function (err) {
-                taxon.record.sourceTaxonExists=false;
+                taxon.record.sourceTaxonExists = false;
                 deferred.resolve(taxon);
             }).done();
         } else {
@@ -105,7 +102,7 @@ function getTaxon(key, lang, lookups) {
 
 // aggregates all species infos into 1 object
 //TODO: do in backbone & server see http://dev.gbif.org/issues/browse/POR-358
-function mergeInfos (taxon) {
+function mergeInfos(taxon) {
     var info = {};
     if (taxon.info) {
         _.each(taxon.info.results, function (i) {

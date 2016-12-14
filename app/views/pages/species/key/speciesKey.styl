@@ -33,16 +33,18 @@
     .cites
         background-color MediumTurquoise
         color black
+
 .verbatim-terms
     dt
         text-transform: none
-        
+
 small.rank
     font-size 65%
+
 .alert-stripe
     margin 0
     border-top: 1px solid #dbe3e7;
-    
+
 .redlist-category-EX
     background-color black
     color white
@@ -79,3 +81,51 @@ small.rank
     background-color white
     color black
     border solid 1px
+
+#taxonomy-browser
+    font-weight 300
+    margin-top: 20px
+    
+    .paragraph-list li
+        display inline
+        margin-right 10px
+    .search-link
+        font-size 65%
+        color #ccc;
+    .parent
+        margin-left 0px
+    .current-name
+        margin-top 6px
+        margin-top 6px
+        margin-left 10px
+        font-weight 500
+        text-decoration underline
+    .synonym
+        margin-left 20px
+        .sciname
+            font-style italic
+    .taxonchild
+        margin-left 20px
+    a:hover
+        text-decoration underline
+    li
+        margin-bottom 3px
+        text-indent -25px
+        padding-left 25px
+
+$taxonomyWidth := 280px
+.taxonomy-wrapper
+    overflow visible
+    .taxonomy
+        padding 0 20px 0 0
+        width $taxonomyWidth
+        float left
+        position relative
+        a
+            color: inherit
+    .taxonomy-content
+        margin-left $taxonomyWidth
+        width "calc(%s - 2 * %s)" % ($desktop $taxonomyWidth)
+
+.speciesKey .taxonomy h3
+    margin-top 0

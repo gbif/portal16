@@ -6,6 +6,7 @@
 
 // Sans-serif
 // we use $helvetica
+$openSans = 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
 $roboto = 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'
 $calibri = 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
 $candara = 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif'
@@ -40,11 +41,11 @@ $palatino = 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 
 // Settings
 $htmlFontSize = 14px
 $headerRatio = $golden
-$headerFont = $roboto
-$headerFontWeight = 300
-$bodyFont = $roboto
-$bodyFontWeight = normal
-$lineHeightRatio = 1.42857143
+$headerFont = $openSans
+$headerFontWeight = 600
+$bodyFont = $openSans
+$bodyFontWeight = 400
+$lineHeightRatio = 1.42857142857
 $baseLineHeight = ($lineHeightRatio) rem
 
 // Color
@@ -140,6 +141,10 @@ typographic() {
         color $bodyTextColor
     }
 
+    h1 {
+        font-weight 400
+    }
+
     .table {
         th {
             font-weight normal
@@ -148,6 +153,12 @@ typographic() {
 
     a[href=""], a[href=""]:hover, a[href=""]:focus {
         text-decoration none
+        color inherit
+    }
+
+    .smaller {
+        //font-weight 600
+        font-size 12px
     }
 
 }

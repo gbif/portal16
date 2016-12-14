@@ -1,7 +1,7 @@
 "use strict";
 
 var ranks = require('./constants').allRanks,
-        _ = require('lodash');
+    _ = require('lodash');
 
 function isGuid(stringToTest) {
     var regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
@@ -40,10 +40,10 @@ function rankOrder(rank) {
  */
 function sortByRankThenAlpha(taxa) {
     return _.sortBy(taxa, [
-        function(t) {
+        function (t) {
             return rankOrder(t.rank);
         },
-        function(t) {
+        function (t) {
             return t.scientificName;
         }
     ]);

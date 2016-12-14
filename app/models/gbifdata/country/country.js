@@ -1,7 +1,10 @@
 "use strict";
 
 var resource = require('../resource'),
-    cmsSearchUrl = require('../../cmsData/apiConfig').search.url,
+    cmsConfig = require('../../cmsData/apiConfig'),
+    _ = require('lodash'),
+    participantDump = require('./participant-dump'),
+    countryCodeToDrupalId = _.keyBy(participantDump, 'Participant ISO 3166-2 code'),//temporary solution because the Drupal api do not allow for getting participants by their ISO code. Instead we do a map between ISO and internal Drupal node id
     api = require('../apiConfig');
 
 var Country = function (record) {
@@ -23,21 +26,33 @@ Country.get = function (key, options) {
 };
 
 Country.prototype.expand = function (fieldNames) {
+    var participantId,
+        participant = countryCodeToDrupalId[this.record.country.toUpperCase()];//use temporary mapping object as Drupal do not allow search by ISO
+
+    if (typeof participant !== 'undefined') {
+        participantId = participant.Nid;
+    }
+
     var resources = [],
         resourceLookup = {
             news: {
-                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=news&filter[category_country]=' + this.record.country,
+                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=news&filter[category_country]=' + this.record.country,
                 extendToField: 'news'
             },
             events: {
-                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=event&filter[category_country]=' + this.record.country,
+                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=event&filter[category_country]=' + this.record.country,
                 extendToField: 'events'
             },
             dataUse: {
-                resource: cmsSearchUrl + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
+                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
                 extendToField: 'dataUse'
+            },
+            participant: {
+                resource: cmsConfig.participant.url + participantId,
+                extendToField: 'participant'
             }
         };
+
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });

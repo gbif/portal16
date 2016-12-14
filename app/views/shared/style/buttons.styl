@@ -6,7 +6,6 @@
     display inline-block
     text-decoration none
     color inherit
-    text-transform uppercase
     &:hover {
         text-decoration none
     }
@@ -25,12 +24,15 @@
 
 .gb-button--primary {
     @extends .gb-button
-    background #55afce
     color white
-    transition background 200ms ease
+    background #8ab9c1
+    transition box-shadow 200ms ease //, background 200ms ease
+    box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+    border none
+    font-weight 500
     &:hover {
-        background darken(#55afce, 5)
-        color white
+        box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
+        //background darken(#8ab9c1, 35)
     }
 }
 
@@ -53,7 +55,7 @@
         top -1px;
     }
 }
+
 a:hover .gb-icon-button, .gb-icon-button:hover {
     background darken($linkColor, 20)
 }
-

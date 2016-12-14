@@ -40,7 +40,7 @@ require('angular-svg-round-progressbar');
     /** @ngInject */
     function runBlock(amMoment, $translate, $http) { //$log
         //$log.debug('runBlock end');
-        if (location.pathname.substr(0,4) == '/da/') {
+        if (location.pathname.substr(0, 4) == '/da/') {
             $translate.use('da');
             amMoment.changeLocale('da');
         } else {
@@ -49,7 +49,7 @@ require('angular-svg-round-progressbar');
 
         $http({
             method: 'GET',
-            url: 'http://timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
+            url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
         });
     }
 
@@ -83,10 +83,11 @@ require('./angular/speciesFilter.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
 
+require('../partials/feedback/feedback.directive');
+require('../partials/notifications/notifications.directive');
 
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');
-require('../partials/feedback/feedback.ctrl');
 require('../partials/popups/terms/terms.ctrl');
 
 
@@ -117,6 +118,8 @@ require('../../../pages/cms/search/table/cmsTable.ctrl');
 require('../../../pages/about/programme/programme.ctrl');
 require('../../../pages/about/project/project.ctrl');
 require('../../../pages/about/directory/directory.ctrl');
+
+require('../../../pages/country/key/countryKey.ctrl');
 
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
@@ -316,6 +319,13 @@ function closeMenusOnClickOutside(event) {
 }
 document.addEventListener('click', closeMenusOnClickOutside);
 document.addEventListener('touchend', closeMenusOnClickOutside);
+
+//Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+window.gb = window.gb || {};
+window.gb.supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+if (window.gb.supportsTouch) {
+    document.body.classList.add('isTouch'); //could be useful to have in stylesheet. for example to make targets larger on touch devices
+}
 
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;

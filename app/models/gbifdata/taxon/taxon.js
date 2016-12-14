@@ -11,6 +11,12 @@ var Taxon = function (record) {
 
 Taxon.prototype.record = {};
 
+/**
+ *
+ * @param key
+ * @param options with expand and expandBackboneOnly settings
+ * @returns {*}
+ */
 Taxon.get = function (key, options) {
     options = options || {};
     var promise = resource.get(api.taxon.url + key).as(Taxon);
@@ -18,8 +24,11 @@ Taxon.get = function (key, options) {
         return promise
     } else {
         return promise.then(function (taxon) {
-            // the verbatim resource only exists for origin=SOURCE
-            if (taxon.record.origin != 'SOURCE') {
+            // check expandBackboneOnly option
+            if (!typeof options.expandBackboneOnly === 'undefined') {
+                options.expand = [];
+            } else if (taxon.record.origin != 'SOURCE') {
+                // the verbatim resource only exists for origin=SOURCE
                 _.pull(options.expand, 'verbatim');
             }
             return taxon.expand(options.expand)
