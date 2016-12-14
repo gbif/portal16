@@ -10,7 +10,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $scope) {
+function dataValidatorCtrl($http, $window) {
     var vm = this;
 
     vm.resourceToValidate = {};
@@ -23,46 +23,66 @@ function dataValidatorCtrl($http, $scope) {
         formData.append('file', params.files[0]);
 
         $http({
-            url: devApiUrl + 'validator/validate/file',
+            url: devApiUrl + 'validator/jobserver/submit',
             method: "POST",
             data: formData,
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
-        }).success(function (data, status, headers, config) {
-            handleValidationResult(data);
-        }).error(function (data, status, headers, config) {
+        }).success(function (data, status) {
+            handleValidationSubmitResponse(data, status);
+        }).error(function (data) {
             handleWSError(data);
         });
     };
 
     vm.handleFileUrl = function(params) {
-
         var postParams = {params: {}};
         _.merge(postParams.params, params);
 
-        var url = devApiUrl + 'validator/validate/file';
-
+        var url = devApiUrl + 'validator/jobserver/submiturl';
         $http.post(url, null, postParams)
-            .success(function (data, status, headers, config) {
-                handleValidationResult(data);
+            .success(function (data, status) {
+                handleValidationSubmitResponse(data, status);
             })
-            .error(function (data, status, headers, config) {
+            .error(function (data) {
                 handleWSError(data);
             });
     };
 
-    vm.getEvaluationCategory = function(params) {
+    vm.getValidationResults = function(jobid) {
+
+        loadEvaluationCategory();
+
+        $http({
+            url: devApiUrl + 'validator/jobserver/status/' + jobid
+        }).success(function (data) {
+            handleValidationResult(data);
+        }).error(function (data, status, headers, config) {
+            // handle error things
+        });
+    };
+
+    function loadEvaluationCategory() {
         $http({
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
-        }).success(function (data, status, headers, config) {
+        }).success(function (data) {
             vm.evaluationCategory = data;
         }).error(function (data, status, headers, config) {
             // handle error things
         });
-    }(); //run now
+    }
 
+    function handleValidationSubmitResponse(data) {
+        //TODO validate that there is a jobId and if not display error message
+        $window.location.href = '/tools/data-validator-test/' + data.jobId;
+    }
 
-    function handleValidationResult(data) {
+    function handleValidationResult(responseData) {
+
+        vm.jobId = responseData.jobId;
+        vm.jobStatus = responseData.status;
+
+        var data = responseData.result;
 
         vm.validationResults = {
             summary: _.omit(data, 'results'),

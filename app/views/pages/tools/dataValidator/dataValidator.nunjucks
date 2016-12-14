@@ -1,7 +1,7 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes speciesLookup page--data"
+    <article class="wrapper-horizontal-stripes page--data"
              ng-controller="dataValidatorCtrl as dataValidator">
 
         <div class="container-fluid white-background search-header">
@@ -16,8 +16,6 @@
         </div>
 
         {% include "./upload.nunjucks" %}
-        {% include "./validationResults.nunjucks" %}
-
     </article>
 {% endblock %}
 

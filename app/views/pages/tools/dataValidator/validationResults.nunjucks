@@ -1,6 +1,10 @@
+<div ng-if="dataValidator.jobId">
+ {{ dataValidator.jobId }} - {{ dataValidator.jobStatus }}
+</div>
+
 <div ng-if="dataValidator.validationResults.summary" class="horizontal-stripe white-background ng-cloak">
 
-    <h2 >{$ __('validation.summary') $}</h2>
+    <h2>{$ __('validation.summary') $}</h2>
     <div class="table-container">
         <table>
             <tbody>
@@ -41,15 +45,15 @@
                             <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
                             <td class="table-cell--wide">{{ resultPerResource.numberOfLines}}</td>
                         </tr>
-                        <tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
                             <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
                             <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>
                         </tr>
-                        <tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
                             <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
                             <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>
                         </tr>
-                        <tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
                             <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
                             <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
                         </tr>
