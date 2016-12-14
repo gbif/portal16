@@ -25,7 +25,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
      *   2) create an object below;
      *   3) add a div with filter-cms directive in cms.html
      *   4) add corresponding translations.
-     *   5) update app/models/cmsData/expandFacets.js
+     *   5) add facets to routerConfig state for CmsSearch.
+     *   6) update app/models/cmsData/expandFacets.js
      * @type {{queryKey: string, filter: *, showAll: boolean, singleSelect: boolean, facets: {hasFacets: boolean, hideBar: boolean, facetKey: string}}}
      */
     vm.filters.type = {

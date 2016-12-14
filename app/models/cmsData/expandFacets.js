@@ -118,15 +118,17 @@ const resource_type = {
 function expandFacets(facets, __) {
     facets.forEach(function (facetType) {
         let ftc = facetTypeConfig[facetType.field];
-        facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
-        facetType.counts.forEach(function (e) {
-            e.translatedLabel = __(ftc.translationPath + e.enum);
-            if (ftc.type == 'enum') {
-                e.key = e.enum;
-            } else if (ftc.type == 'id') {
-                e.key = e.id;
-            }
-        });
+        if (ftc) {
+            facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
+            facetType.counts.forEach(function (e) {
+                e.translatedLabel = __(ftc.translationPath + e.enum);
+                if (ftc.type == 'enum') {
+                    e.key = e.enum;
+                } else if (ftc.type == 'id') {
+                    e.key = e.id;
+                }
+            });
+        }
     });
 
     // merge category_resource_type filters with type filters
