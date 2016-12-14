@@ -80,6 +80,31 @@ const facetTypeConfig = {
         type: 'id',
         translationPath: 'cms.filter.',
         show: false
+    },
+    category_literature_type: {
+        type: 'enum',
+        translationPath: 'cms.literatureType.',
+        show: true
+    },
+    category_gbif_literature_annotation: {
+        type: 'id',
+        translationPath: 'cms.gbifLiterature.',
+        show: true
+    },
+    category_author_from_country: {
+        type: 'id',
+        translationPath: 'country.',
+        show: true
+    },
+    category_biodiversity_about_country: {
+        type: 'id',
+        translationPath: 'country.',
+        show: true
+    },
+    category_literature_year: {
+        type: 'id',
+        translationPath: 'cms.filter.',
+        show: true
     }
 };
 

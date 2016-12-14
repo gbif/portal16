@@ -1544,7 +1544,17 @@
       "case": "case",
       "film": "film",
       "bill": "bill"
-      },
+    },
+    "gbifLiterature": {
+      "gbif_used": "GBIF used",
+      "gbif_cited": "GBIF cited",
+      "gbif_vip": "GBIF VIP",
+      "gbif_discussed": "GBIF discussed",
+      "gbif_primary": "GBIF primary",
+      "gbif_acknowledged": "GBIF acknowledged",
+      "gbif_author": "GBIF author",
+      "gbif_published": "GBIF published"
+    },
     "facet": {
       "language": "language",
       "type": "content type",
@@ -1557,7 +1567,11 @@
       "category_audience": "audience",
       "category_purpose": "purpose",
       "category_data_type": "data type",
-      "category_country": "country"
+      "category_country": "country",
+      "category_gbif_literature_annotation": "GBIF literature",
+      "category_literature_type": "literature type",
+      "category_author_from_country": "Authors from country",
+      "category_biodiversity_about_country": "Biodiversity about country"
     },
     "filter": {
       "invasives": "Invasives",
@@ -1605,7 +1619,9 @@
       "data_management": "Data management",
       "data_paper": "Data paper",
       "phylogenetics": "Phylogenetics",
-      "taxonomy": "Taxonomy"
+      "taxonomy": "Taxonomy",
+      "biodiversity_science": "Biodiversity science",
+      "web_services": "Web services"
     },
     "projectGrantType": {
       "regional": "Regional grant",

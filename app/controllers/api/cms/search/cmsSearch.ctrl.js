@@ -56,7 +56,21 @@ function cmsSearch(query) {
     queryUrl += '&sort=-created';
 
     // Converting facets in the array notation that the CMS API consumes.
-    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_country', 'category_topic'];
+    var availableFacets = [
+        'type',
+        'language',
+        'category_data_use',
+        'category_capacity_enhancement',
+        'category_about_gbif',
+        'category_audience',
+        'category_purpose',
+        'category_country',
+        'category_topic',
+        'category_literature_type',
+        'category_gbif_literature_annotation',
+        'category_author_from_country',
+        'category_biodiversity_about_country'
+    ];
     var resource_type_id = {
         'document': '895',
         'presentation': '987',
@@ -115,6 +129,11 @@ function transformFacetsToMap(data) {
     data.facets = facets;
 
     let facetMap = {};
+    let countryFields = [
+        'category_country',
+        'category_biodiversity_about_country',
+        'category_author_from_country'
+      ];
     Object.keys(data.facets).forEach(function (key) {
         let facetType = data.facets[key];
         facetMap[key] = {};
@@ -125,7 +144,7 @@ function transformFacetsToMap(data) {
                 count: e.count,
                 fraction: e.count / data.count,
                 translatedLabel: e.translatedLabel,
-                key: key == 'category_country' ? e.enum : e.key
+                key: countryFields.indexOf(key) !== -1 ? e.enum : e.key
             });
             max = e.count > max ? e.count : max;
         });
@@ -139,7 +158,7 @@ function transformFacetsToMap(data) {
             if (a.translatedLabel > b.translatedLabel) return 1;
             if (a.translatedLabel < b.translatedLabel) return -1;
         });
-        if (key == 'category_country') {
+        if (countryFields.indexOf(key) !== -1) {
             facetMap[key].counts.sort(function (a, b) {
                 if (a.count > b.count) return -1;
                 if (a.count < b.count) return 1;
