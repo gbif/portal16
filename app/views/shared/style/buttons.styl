@@ -60,3 +60,31 @@
 a:hover .gb-icon-button, .gb-icon-button:hover {
     background darken($linkColor, 20)
 }
+
+.gb-select {
+    @extends .hoverBox
+    position relative
+    background white
+    label {
+        width 100%
+        font-weight normal
+        display block
+        outline none
+    }
+    span {
+        position absolute
+        right 0
+        top 0
+        pointer-events none
+        margin 6px
+        font-size 18px
+    }
+    select {
+        outline none
+        border none
+        background transparent
+        padding 12px 20px
+        appearance none
+        width 100%
+    }
+}

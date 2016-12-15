@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#4c9e45">
 
     <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css">
-    <link rel="stylesheet" type="text/css" href="/css/base/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">

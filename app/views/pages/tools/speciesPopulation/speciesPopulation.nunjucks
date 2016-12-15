@@ -173,3 +173,8 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.js'></script>
     <script src="/js/base/pages/speciesPopulation.js"></script>
 {% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/speciesPopulation/speciesPopulation.css">
+{% endblock %}
+

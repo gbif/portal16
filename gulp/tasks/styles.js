@@ -81,7 +81,7 @@ function buildStylus() {
         path.join(config.paths.src, '/**/*.second.styl'),
         path.join(config.paths.src, '/**/*.third.styl'),
         path.join(config.paths.src, '/**/*.styl'),
-        path.join('!' + config.paths.src, '/shared/style/index.styl'),
+        path.join('!' + config.paths.src, '/**/*.entry.styl'),
         path.join('!' + config.paths.src, '/**/_*.styl')
     ], {
         read: false
@@ -103,7 +103,8 @@ function buildStylus() {
 
     var dest = 'css/base';
     return gulp.src([
-            path.join(config.paths.src, '/shared/style/index.styl')
+            //path.join(config.paths.src, '/shared/style/index.entry.styl')
+            path.join(config.paths.src, '/**/*.entry.styl')
         ])
         // .pipe(g.plumber())
         .pipe(g.inject(injectFiles, injectOptions))
@@ -114,6 +115,9 @@ function buildStylus() {
         .pipe(g.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
         .pipe(g.postcss(processors))
         .pipe(g.cleanCss())
+        .pipe(rename(function (path) {
+            path.basename = path.basename.replace('.entry', '');
+        }))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulpif(config.isProd, revReplace({
             manifest: gulp.src(config.rev.manifest)
@@ -121,7 +125,7 @@ function buildStylus() {
         .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
-            path.dirname += "/" + dest
+            path.dirname += "/" + dest;
         }))
         .pipe(gulpif(config.isProd, rev.manifest({
             path: config.rev.manifest,

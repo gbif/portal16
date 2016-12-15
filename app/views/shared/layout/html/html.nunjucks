@@ -10,13 +10,13 @@
 
 {# <head> #}
 {% include "../partials/head/head.nunjucks" %}
-
+{% block styles %}{% endblock %}
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
 
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
-
+        <div class="snow"></div>
         {# Navigation #}
         {% include "../partials/navigation/navigation.nunjucks" %}
         {% include "../partials/popups/terms/terms.html" %}
