@@ -38,6 +38,28 @@ npm run local
 ```
 Logs end up in `user/.forever/` if nothing else is specified
 
+## Credentials
+The portal expects a json file with credentials to github repositories etc. You can point to a test github repository for testing.
+The file is expected to be located at `/etc/portal16/credentials.json` alternatively the location can be defined with `gulp --credentials=your/path//and/filename`
+The format is:
+```
+{
+  "directory": {
+    "appKey": "user",
+    "secret": "password"
+  },
+  "portalFeedback": {
+    "repository": "your/githubTestRepository",
+    "user": "user",
+    "password": "password"
+  },
+  "suggestDataset": {
+  	"repository": "your/githubTestRepository",
+    "user": "user",
+    "password": "password"
+  }
+}
+```
 
 
 

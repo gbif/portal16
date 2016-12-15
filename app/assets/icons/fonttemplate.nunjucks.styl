@@ -1,8 +1,8 @@
 /*The icon font stylus file is templated. Changes to the compiled file will be overwritten. Make sure to edit on the nunjucks file /app/assets/icons/fontteplate.nunjucks.styl*/
 @font-face {
     font-family: '{{fontName}}';
-    src: url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}');
-    src: url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}#iefix') format('embedded-opentype'),
+    src:url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}');
+    src:url('{{fontPath}}{{fontName}}.eot?v={{timestamp}}#iefix') format('embedded-opentype'),
     url('{{fontPath}}{{fontName}}.ttf?v={{timestamp}}') format('truetype'),
     url('{{fontPath}}{{fontName}}.woff?v={{timestamp}}') format('woff');
     font-weight: normal;
@@ -25,18 +25,10 @@
 
 {% for glyph in glyphs %}
 
-$icon-string- {
-    {glyph.name}
-}
+$icon-string-{{glyph.name}} = "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}"
 
-= "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}"
-
-.gb-icon- {
-    {glyph.name}
-}
-
-:before {
-    content: "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}";
-}
+.gb-icon-{{glyph.name}}:before {
+                           content: "\{{glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}}";
+                       }
 
 {% endfor %}

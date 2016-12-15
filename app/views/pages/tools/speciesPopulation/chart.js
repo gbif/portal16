@@ -18,8 +18,8 @@ function showStats(data) {
 
     for (var i = minYear; i < maxYear; i++) {
         labels.push(i);
-        if (speciesCounts.hasOwnProperty(i.toString())) {
-            var s = speciesCounts[i];
+        if (groupCounts.hasOwnProperty(i.toString())) {
+            var s = speciesCounts[i] || 0;
             var g = groupCounts[i];
             var val = s/g;
             points.push(val);
@@ -56,7 +56,7 @@ function showStats(data) {
     var interval = (maxYear-minYear) > 100 ? 25: 10;
 
 
-    var chart = new Chartist.Line('.ct-chart', {
+    var chart = new Chartist.Line('.regression-chart', {
         labels: labels,
         // Naming the series with the series object array notation
         series: [
@@ -77,6 +77,11 @@ function showStats(data) {
             },
             showGrid: false
         },
+        axisY: {
+            labelInterpolationFnc: function(value, index) {
+                return +value.toFixed(5);
+            }
+        },
         low: 0,
         series: {
             'line': {
@@ -95,7 +100,7 @@ function showStats(data) {
         }
     });
 
-    var chart = new Chartist.Line('.ct-chart2', {
+    var chart = new Chartist.Line('.count-chart', {
         labels: labels,
         // Naming the series with the series object array notation
         series: [

@@ -29,13 +29,13 @@
         <main id="main" class="main" role="main" ui-view>
 
             {# Drawer block is contextual, therefore is a part of the <main> #}
-            {% if _meta.hasDrawer %}
-                <aside id="filter" class="site-drawer">
-                    <div>
-                        {% block drawer %}{% endblock %}
-                    </div>
-                </aside>
-            {% endif %}
+            {#{% if _meta.hasDrawer %}#}
+                {#<aside id="filter" class="site-drawer">#}
+                    {#<div>#}
+                        {#{% block drawer %}{% endblock %}#}
+                    {#</div>#}
+                {#</aside>#}
+            {#{% endif %}#}
 
             {% include "../partials/navigation/search/search.nunjucks" %}
 

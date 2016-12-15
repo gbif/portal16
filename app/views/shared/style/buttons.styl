@@ -26,13 +26,14 @@
     @extends .gb-button
     color white
     background #8ab9c1
-    transition box-shadow 200ms ease //, background 200ms ease
+    transition box-shadow 200ms ease, background 200ms ease
     box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
     border none
     font-weight 500
-    &:hover {
+    &:hover, &:focus {
         box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
-        //background darken(#8ab9c1, 35)
+        background darken(#8ab9c1, 35)
+        color white
     }
 }
 

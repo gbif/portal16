@@ -10,7 +10,7 @@
                            ng-model="rootSearch.freeTextQuery"
                            placeholder="Occurrences, species, news ..."
                            ng-keydown="rootSearch.closeOnEsc($event)">
-                    <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
+                    <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2"
                        ng-click="rootSearch.updateSearch()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>
@@ -30,7 +30,7 @@
                     <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
                         Publisher
                     </a>
-                    <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'news'})" class="gb-button--primary">
+                    <a ui-sref="cmsSearchTable({q: rootSearch.query.q})" class="gb-button--primary">
                         GBIF Network
                     </a>
                 </div>

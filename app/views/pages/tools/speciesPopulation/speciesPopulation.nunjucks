@@ -1,14 +1,37 @@
 {% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <div ng-controller="speciesPopulationCtrl as speciesPopulation">
-        <article class="wrapper-horizontal-stripes speciesPopulation">
-
-            <div id="speciesPopulationMap" class="fillHeight">
-
+    <div ng-controller="speciesPopulationCtrl as speciesPopulation" class="speciesPopulation">
+        <article class="wrapper-horizontal-stripes">
+            <div>
+                <div id="speciesPopulationMap" class="speciesPopulationMap fillHeight"></div>
             </div>
-
-
+            <div class="time-slider time-slider__card ng-cloak">
+                <div class="gb-btn-group time-slider__buttons">
+                    <label class="active">
+                        <span class="time-slider__years">{{ speciesPopulation.yearRange.start }}
+                            - {{ speciesPopulation.yearRange.end }}</span>
+                    </label>
+                </div>
+                <div class="time-slider__container">
+                    <div ya-no-ui-slider='speciesPopulation.sliderOptions'
+                         ya-no-ui-slider-events='speciesPopulation.eventHandlers'
+                         class="time-slider__slider is-active"></div>
+                </div>
+            </div>
+            <div class="speciesPopulation__mapTools">
+                <ul>
+                    <li class="is-active speciesPopulation__mapTools__info">
+                        <a href="" class="inherit noUnderline gb-icon-info"></a>
+                        <div class="is-active">
+                            <a href="./species-population/about" class="inherit title">What is this?</a>
+                        </div>
+                    </li>
+                    {#<li>#}
+                        {#<a href="" class="inherit noUnderline gb-icon-drop"></a>#}
+                    {#</li>#}
+                </ul>
+            </div>
         </article>
 
         <aside class="site-drawer is-locked">
@@ -19,20 +42,21 @@
                             <span>Species population</span>
                         </div>
                     </div>
-                    <div class="site-drawer__tabs">
-                        <a href="">
-                            <div class="gb-icon-microscope"></div>
-                            <span>Explore</span>
-                        </a>
-                        <a href="">
-                            <div class="gb-icon-info"></div>
-                            <span>Info</span>
-                        </a>
-                    </div>
+                    {#<div class="site-drawer__tabs">#}
+                    {#<a href="">#}
+                    {#<div class="gb-icon-microscope"></div>#}
+                    {#<span>Explore</span>#}
+                    {#</a>#}
+                    {#<a href="">#}
+                    {#<div class="gb-icon-info"></div>#}
+                    {#<span>Info</span>#}
+                    {#</a>#}
+                    {#</div>#}
                 </div>
             </div>
             <div class="site-drawer__section" id="speciesPopulation_scrollContainer">
                 <div class="site-drawer__section__content">
+
                     <div>
                         <h4>
                             Select species
@@ -73,30 +97,63 @@
                         </h4>
                         <div class="gb-select">
                             <label><span class="gb-icon-angle-down"></span>
-                                <select ng-model="speciesPopulation.minimumYears" ng-change="speciesPopulation.updateMap()">
-                                    <option ng-repeat="year in [2,5,10,15,25]" value="{{year}}">{{year}}</option>
+                                <select ng-model="speciesPopulation.minimumYears"
+                                        ng-change="speciesPopulation.updateMap()">
+                                    <option ng-repeat="year in [2,5,10,15,25]" value="{{ year }}">{{ year }}</option>
                                 </select>
                             </label>
                         </div>
                     </div>
 
-                    <div id="tester" ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
+                    <div ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
                         <h4>
                             Select an area
                         </h4>
+                        <p>
+                            Select an area by clicking on a hexagon or drawing an area
+                        </p>
+                    </div>
 
+                    <div class="ng-cloak speciesPopulation__results" ng-if="speciesPopulation.tableData.years.length > 0">
+                        <h4>
+                            Change in relative abundance for the selected area
+                        </h4>
                         <div class="card">
                             <div class="card__content">
-                                <h5>Relative abundance of {{ speciesPopulation.lowerTaxon.scientificName}} per year</h5>
+                                <h5>Relative abundance of "{{ speciesPopulation.lowerTaxon.scientificName }}" per
+                                    year</h5>
                             </div>
-                            <div class="ct-chart"></div>
+                            <div class="regression-chart"></div>
                         </div>
 
                         <div class="card">
                             <div class="card__content">
-                                <h5>{{ speciesPopulation.higherTaxon.name }} per year</h5>
+                                <h5>"{{ speciesPopulation.higherTaxon.name }}" per year</h5>
                             </div>
-                            <div class="ct-chart2"></div>
+                            <div class="count-chart"></div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__content">
+                                <div>
+                                    <table class="table table-hover table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th class="text-right">Higher taxon</th>
+                                            <th class="text-right">Species</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="year in speciesPopulation.tableData.years">
+                                            <td>{{ year }}</td>
+                                            <td class="text-right">{{ speciesPopulation.tableData.groupCounts[year] }}</td>
+                                            <td class="text-right">{{ speciesPopulation.tableData.speciesCounts[year] || 0 }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

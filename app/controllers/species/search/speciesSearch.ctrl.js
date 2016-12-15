@@ -10,7 +10,6 @@ function renderSearch(req, res) {
         title: 'Ocurrences',
         _meta: {
             hideSearchAction: false,
-            hasDrawer: true,
             hasTools: true,
             hideFooter: true,
             title: res.__('stdTerms.search')

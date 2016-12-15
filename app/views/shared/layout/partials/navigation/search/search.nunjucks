@@ -1,14 +1,15 @@
-<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch">
+<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch" click-outside="omniSearch.isActive = false">
     <div>
         <div>
             <form class="search-box" ng-submit="omniSearch.updateSearch()">
                 <input type="text"
+                       id="siteSearch"
                        autocomplete="off"
                        ng-init="omniSearch.freeTextQuery == ''"
                        ng-model="omniSearch.freeTextQuery"
                        placeholder="Occurrences, species, news ..."
                        ng-keydown="omniSearch.closeOnEsc($event)">
-                <a href="" type="submit" style="cursor:pointer" class="gb-icon-search2"
+                <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2"
                    ng-click="omniSearch.updateSearch()">
                     <span class="sr-only">{$ __('stdTerms.search') $}</span>
                 </a>

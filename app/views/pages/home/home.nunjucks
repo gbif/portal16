@@ -33,7 +33,7 @@ nature, PLOS, ... and
 {# home page, or front page #}
 {% block page %}
     <div class="wrapper-horizontal-stripes home">
-        <div class="home__header bg-attached">
+        <div class="home__header">
             <div class="container--normal">
                 <div class="home__header__hero-text">
                     <div class="home__header__name">
@@ -53,7 +53,7 @@ nature, PLOS, ... and
                                    aria-invalid="false"
                                    focus-me="true">
                             <a ng-click="omniSearch.updateSearch()"
-                               class="search-box__submit gb-icon-search"
+                               class="search-box__submit gb-icon-search2"
                                href="" type="submit">
                                 <span class="sr-only">search</span>
                             </a>
@@ -61,8 +61,8 @@ nature, PLOS, ... and
                     </div>
                 </div>
                 <div class="caption">
-                    <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a
-                            href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
+                    <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
+                    {#<i>Abies balsamea</i> (L.) Mill. observed in United States. CC BY-NC 2016 <a href="/occurrence/1144979922">Emily Stone via iNaturalist</a>#}
                 </div>
             </div>
         </div>
