@@ -45,6 +45,7 @@ breakpoints = [
     [0.001, '#91bd91'],
     [0.002, '#72ab72']
 ];
+
 var outlineBreakpoints = [
     [-100000, '#ededed'],
     //[-0.001, 'tomato'],
@@ -86,7 +87,7 @@ function createMap(callbacks) {
     callbacks = callbacks || {};
     map = new mapboxgl.Map({
         container: 'speciesPopulationMap',
-        style: mapStyle,
+        style: 'mapbox://styles/mapbox/light-v9',//mapStyle,
         center: [10, 50],
         zoom: 3,
         bearing: 0,
@@ -139,9 +140,9 @@ function removeOverlays() {
 
 function updateOverlays(query) {
     removeOverlays();
-    var regressionTiles = 'http://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;//'http://tiletest.gbif.org/' + key + '/{z}/{x}/{y}/' + type + ".pbf?minYear=" + minYear + "&maxYear=" + maxYear + "&yearThreshold=" + yearThreshold + "&radius=" + hexRadius;
+    var regressionTiles = '//api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;//'http://tiletest.gbif.org/' + key + '/{z}/{x}/{y}/' + type + ".pbf?minYear=" + minYear + "&maxYear=" + maxYear + "&yearThreshold=" + yearThreshold + "&radius=" + hexRadius;
 
-    var groupPointTiles = 'http://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&taxonKey=7017';
+    var groupPointTiles = '//api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&taxonKey=7017';
     map.addSource('groupPoints', {
         type: 'vector',
         "tiles": [groupPointTiles]
@@ -152,9 +153,9 @@ function updateOverlays(query) {
         "source": "groupPoints",
         "source-layer": "occurrence",
         "paint": {
-            "circle-radius": 1,
-            'circle-color': '#555',
-            "circle-opacity": 0.5
+            "circle-radius": 1.5,
+            'circle-color': '#444',
+            "circle-opacity": 0.1
             //'circle-opacity': {
             //    property: 'total',
             //    stops: [
@@ -267,6 +268,7 @@ function addMapEvents(listeners) {
 function selectFeatureAtPoint(e) {
     if (!map.getLayer('regression-fill')) return;
     var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
+    console.log(features);
     if (features.length > 0) {
         var feature = features[0];
         var selectedHexagon = Draw.set({type: 'FeatureCollection', features: [{

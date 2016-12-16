@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var mapHelper = require('./map');
 var chart = require('./chart');
-
+var wellknown = require('wellknown');
 
 angular
     .module('portal')
@@ -20,6 +20,9 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     vm.selectedArea = {
         apiData: {}
     };
+
+    console.log(JSON.stringify(wellknown.parse('POINT(1 2)')));
+    console.log(wellknown.stringify({"type":"Point","coordinates":[1,2]}));
     vm.tableData = {
         years: [],
         groupCounts: [],
@@ -125,29 +128,22 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         }
     };
 
-    function getPolygonAsWKT(coordinates) {
-        if (coordinates[0]) {
-            var geometry = coordinates[0]
-                .map(function (pair) {
-                    return pair[0].toFixed(5) + ' ' + pair[1].toFixed(5);
-                })
-                .join();
-            return 'POLYGON((' + geometry + '))';
-        }
+    function getPolygonAsWKT(geometry) {
+        return wellknown.stringify(geometry);
     }
 
     vm.applyUpdateResults = function(properties) {
         $scope.$apply(function() {
             transformData(properties);
             vm.selectedArea.apiData = properties;
-            chart.showStats(properties); //TODO use angular charist directive instead
+            //chart.showStats(properties); //TODO use angular charist directive instead
         });
     };
 
     vm.updateResults = function(properties) {
         transformData(properties);
         vm.selectedArea.apiData = properties;
-        chart.showStats(properties); //TODO use angular charist directive instead
+        //chart.showStats(properties); //TODO use angular charist directive instead
     };
 
     function getRegression() {
@@ -179,12 +175,12 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     mapHelper.addMapEvents({
         onCreate: function(e) {
             console.log('draw creation event triggered from directive');
-            vm.geometry = getPolygonAsWKT(e.features[0].geometry.coordinates);
+            vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
         onUpdate: function(e) {
             console.log('drawn polygon updates');
-            vm.geometry = getPolygonAsWKT(e.features[0].geometry.coordinates);
+            vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
         onDelete: function(e) {
