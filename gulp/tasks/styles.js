@@ -125,7 +125,7 @@ function buildStylus() {
         .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
-            path.dirname += "/" + dest;
+            path.dirname = dest + "/" + path.dirname;
         }))
         .pipe(gulpif(config.isProd, rev.manifest({
             path: config.rev.manifest,
