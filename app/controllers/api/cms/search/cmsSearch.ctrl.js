@@ -66,10 +66,10 @@ function cmsSearch(query) {
         'category_purpose',
         'category_country',
         'category_topic',
-        'category_literature_type',
+        'category_literature_year',
         'category_gbif_literature_annotation',
         'category_author_from_country',
-        'category_biodiversity_about_country'
+        'category_author_surname'
     ];
     var resource_type_id = {
         'document': '895',
@@ -131,7 +131,6 @@ function transformFacetsToMap(data) {
     let facetMap = {};
     let countryFields = [
         'category_country',
-        'category_biodiversity_about_country',
         'category_author_from_country'
       ];
     Object.keys(data.facets).forEach(function (key) {
@@ -154,10 +153,20 @@ function transformFacetsToMap(data) {
 
         // CMS API by default has filters sorted by counts,
         // we sort them by name here, except country, so it behaves closer to GBIF Data API.
+        /*
         facetMap[key].counts.sort(function (a, b) {
             if (a.translatedLabel > b.translatedLabel) return 1;
             if (a.translatedLabel < b.translatedLabel) return -1;
         });
+        */
+        // Year is sorted by label
+        if (key == 'category_literature_year') {
+            facetMap[key].counts.sort(function (a, b) {
+                if (a.translatedLabel > b.translatedLabel) return -1;
+                if (a.translatedLabel < b.translatedLabel) return 1;
+            });
+        }
+
         if (countryFields.indexOf(key) !== -1) {
             facetMap[key].counts.sort(function (a, b) {
                 if (a.count > b.count) return -1;

@@ -36,7 +36,8 @@
                             <img ng-if="row.images.length > 0"
                                  ng-src="{{cmsTable.imageCache}}{{row.images[0].styles.square_thumbnail | encodeURIComponent}}">
                             <div ng-if="row.authors.length > 0">
-                                <span ng-repeat="author in row.authors">{{ author.last_name }} {{ author.first_name | authorFirstName }}{{ $last ? '' : ', '}}</span>
+                                <span ng-repeat="author in row.authors | limitTo:6">{{ author.last_name }} {{ author.first_name | authorFirstName }}{{ $last ? '' : ', '}}</span>
+                                <span ng-if="row.authors.length > 6">et al. </span>
                                 <span ng-if="row.literatureYear.length !== 0">({{ row.literatureYear }})</span>
                             </div>
 

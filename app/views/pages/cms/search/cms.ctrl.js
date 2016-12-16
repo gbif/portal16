@@ -146,14 +146,14 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         }
     };
 
-    vm.filters.category_literature_type = {
-        queryKey: 'category_literature_type',
+    vm.filters.category_literature_year = {
+        queryKey: 'category_literature_year',
         filter: CmsFilter,
         showAll: false,
         facets: {
             hasFacets: true,
             hideBar: true,
-            facetKey: 'category_literature_type'
+            facetKey: 'category_literature_year'
         }
     };
 
@@ -180,21 +180,6 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
             hasFacets: true,
             hideBar: true,
             facetKey: 'category_author_from_country'
-        }
-    };
-    vm.filters.category_biodiversity_about_country = {
-        queryKey: 'category_biodiversity_about_country',
-        filter: CmsFilter,
-        showAll: false,
-        search: {
-            isSearchable: true,
-            placeholder: 'country',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
-        },
-        facets: {
-            hasFacets: true,
-            hideBar: true,
-            facetKey: 'category_biodiversity_about_country'
         }
     };
 

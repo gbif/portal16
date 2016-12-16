@@ -1546,14 +1546,14 @@
       "bill": "bill"
     },
     "gbifLiterature": {
-      "gbif_used": "GBIF used",
-      "gbif_cited": "GBIF cited",
-      "gbif_vip": "GBIF VIP",
-      "gbif_discussed": "GBIF discussed",
-      "gbif_primary": "GBIF primary",
+      "gbif_used": "GBIF-mediated data used",
+      "gbif_cited": "GBIF-authored paper cited",
+      "gbif_vip": "Featured by GBIF",
+      "gbif_discussed": "GBIF is discussed",
+      "gbif_primary": "GBIF as main source of data",
       "gbif_acknowledged": "GBIF acknowledged",
-      "gbif_author": "GBIF author",
-      "gbif_published": "GBIF published"
+      "gbif_author": "Authored by GBIF",
+      "gbif_published": "About data published in GBIF"
     },
     "facet": {
       "language": "language",
@@ -1568,10 +1568,9 @@
       "category_purpose": "purpose",
       "category_data_type": "data type",
       "category_country": "country",
-      "category_gbif_literature_annotation": "GBIF literature",
-      "category_literature_type": "literature type",
-      "category_author_from_country": "Authors from country",
-      "category_biodiversity_about_country": "Biodiversity about country"
+      "category_gbif_literature_annotation": "GBIF annotation",
+      "category_literature_year": "literature year",
+      "category_author_from_country": "Country of literature author"
     },
     "filter": {
       "invasives": "Invasives",

@@ -96,13 +96,12 @@ const facetTypeConfig = {
         translationPath: 'country.',
         show: true
     },
-    category_biodiversity_about_country: {
-        type: 'id',
-        translationPath: 'country.',
+    category_literature_year: {
+        type: 'enum',
         show: true
     },
-    category_literature_year: {
-        type: 'id',
+    category_author_surname: {
+        type: 'enum',
         translationPath: 'cms.filter.',
         show: true
     }
@@ -121,7 +120,7 @@ function expandFacets(facets, __) {
         if (ftc) {
             facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
             facetType.counts.forEach(function (e) {
-                e.translatedLabel = __(ftc.translationPath + e.enum);
+                e.translatedLabel = typeof ftc.translationPath === 'undefined' ? e.enum : __(ftc.translationPath + e.enum);
                 if (ftc.type == 'enum') {
                     e.key = e.enum;
                 } else if (ftc.type == 'id') {
