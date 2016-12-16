@@ -17,12 +17,33 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     vm.minimumYears = '10';
     vm.suggestTemplate = '/templates/components/filterTaxon/suggestTaxonTemplate.html';
     vm.yearRange = {};
+    vm.hexagonMode = true;
     vm.selectedArea = {
         apiData: {}
     };
 
-    console.log(JSON.stringify(wellknown.parse('POINT(1 2)')));
-    console.log(wellknown.stringify({"type":"Point","coordinates":[1,2]}));
+    vm.clear = function() {
+        vm.selectedArea.apiData = undefined;
+        vm.tableData.years = [];
+    };
+
+    vm.startDraw = function() {
+        vm.clear();
+        mapHelper.startDraw();
+        vm.hexagonMode = false;
+    };
+
+    vm.startHexagon = function() {
+        vm.clear();
+        mapHelper.startHexagonSelection();
+        vm.hexagonMode = true;
+    };
+
+    vm.clearSelection = function() {
+        vm.clear();
+        mapHelper.clearSelection(vm.hexagonMode);
+    };
+
     vm.tableData = {
         years: [],
         groupCounts: [],
@@ -61,7 +82,6 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         change: function (values) { //values, handle, unencoded
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
-            mapHelper.removeHoverEventListener();
             vm.updateMap();
         }
     };
@@ -88,7 +108,10 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     };
 
     vm.updateMap = function() {
-        var year = vm.yearRange.start + ',' + vm.yearRange.end;
+        var year;
+        if (vm.yearRange.start || vm.yearRange.end) {
+            year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
+        }
         var query = $httpParamSerializer(
             {
                 higherTaxonKey: _.get(vm, 'higherTaxon.key', 7017),
@@ -136,18 +159,21 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         $scope.$apply(function() {
             transformData(properties);
             vm.selectedArea.apiData = properties;
-            //chart.showStats(properties); //TODO use angular charist directive instead
+            chart.showStats(properties); //TODO use angular charist directive instead
         });
     };
 
     vm.updateResults = function(properties) {
         transformData(properties);
         vm.selectedArea.apiData = properties;
-        //chart.showStats(properties); //TODO use angular charist directive instead
+        chart.showStats(properties); //TODO use angular charist directive instead
     };
 
     function getRegression() {
-        var year = vm.yearRange.start + ',' + vm.yearRange.end;
+        var year;
+        if (vm.yearRange.start || vm.yearRange.end) {
+            year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
+        }
         var query = $httpParamSerializer(
             {
                 higherTaxonKey: vm.higherTaxon.key,
@@ -158,10 +184,10 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             }
         );
         $http.get('//api.gbif-uat.org/v2/map/occurrence/regression?' + query, {}).then(function(response){
-            console.log(response);
             vm.updateResults(response.data);
         }, function(err){
-            console.log(err);
+            vm.clearSelection();
+            alert('We couldn\'t process your query. Be aware that geometries may not overlap with them self');
         });
     }
 
@@ -169,6 +195,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         {
             onStyleLoad: function(){
                 vm.updateMap();
+                vm.startHexagon();
             }
         }
     );
@@ -188,13 +215,9 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         },
         onHexagonSelect: function(properties, feature) {
             console.log('hexagon selected');
-            console.log(properties);
             vm.applyUpdateResults(properties);
         }
     });
-
-    //mapHelper.addHoverEventListener();
-
 
 }
 

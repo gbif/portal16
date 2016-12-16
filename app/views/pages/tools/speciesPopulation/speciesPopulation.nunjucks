@@ -109,12 +109,14 @@
                         <h4>
                             Select an area
                         </h4>
-                        <p>
-                            Select an area by clicking on a hexagon or drawing an area
-                        </p>
+                        <div class="speciesPopulation__mode">
+                            <a href="" ng-click="speciesPopulation.startHexagon()" ng-class="{active: speciesPopulation.hexagonMode}">Hexagon</a>
+                            <a href="" ng-click="speciesPopulation.startDraw()" ng-class="{active: !speciesPopulation.hexagonMode}">Draw</a>
+                            <a href="" ng-click="speciesPopulation.clearSelection()">Clear</a>
+                        </div>
                     </div>
 
-                    <div class="ng-cloak speciesPopulation__results" ng-if="speciesPopulation.tableData.years.length > 0">
+                    <div class="ng-cloak speciesPopulation__results" ng-show="speciesPopulation.tableData.years.length > 0">
                         <h4>
                             Change in relative abundance for the selected area
                         </h4>

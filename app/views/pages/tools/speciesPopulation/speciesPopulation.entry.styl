@@ -5,6 +5,24 @@
 $speciesPopulation_sitedrawerWidth = 420px
 
 .speciesPopulation {
+
+    //map style
+    .speciesPopulationMap {
+        .mapboxgl-ctrl-group {
+            display none
+        }
+        &.active {
+            .mapboxgl-ctrl-group {
+                display block
+            }
+        }
+    }
+    .mapboxgl-ctrl-group>button.active{
+        background-color #e4e4e4
+    }
+    .mapboxgl-ctrl-group>button.active{
+        background-color #e4e4e4
+    }
     article {
         z-index 10
         position relative
@@ -16,6 +34,22 @@ $speciesPopulation_sitedrawerWidth = 420px
     aside.site-drawer {
         max-width 100%
         width $speciesPopulation_sitedrawerWidth
+    }
+    &__mode {
+        margin -5px
+        >a {
+            display inline-block
+            width calc(33% - 15px)
+            padding 5px
+            margin 5px
+            background darken($lightBackground, 10)
+            text-align center
+            transition background 200ms ease
+            &.active {
+                background #7597a2
+                color white
+            }
+        }
     }
     &__results {
         .card {

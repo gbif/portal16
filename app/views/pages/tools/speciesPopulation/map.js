@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 var map, Draw;
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
@@ -12,15 +10,6 @@ var breakpoints = [
     [0.001, '#91bd91'],
     [0.002, '#72ab72']
 ];
-
-var outlineBreakpoints = [
-    [-100000, '#ededed'],
-    [-0.001, '#ededed'],
-    [0.001, '#ededed']
-];
-
-console.log(breakpoints);
-
 //var mapStyle = {
 //    "version": 8,
 //    "name": "Light",
@@ -84,19 +73,12 @@ function createMap(callbacks) {
     });
 
 
-
-    /**
-     * Set up the details when a user clicks a cell.
-     */
-    map.on('click', function (e) {
-        selectFeatureAtPoint(e);
-    });
 }
+
 
 function removeOverlays() {
     if (map.getLayer('regression')) map.removeLayer('regression');
     if (map.getLayer('regression-fill')) map.removeLayer('regression-fill');
-    if (map.getLayer('regression-fill-hover')) map.removeLayer('regression-fill-hover');
     if (map.getSource('gbifRegression')) map.removeSource('gbifRegression');
 
     if (map.getLayer('groupPoints')) map.removeLayer('groupPoints');
@@ -105,9 +87,9 @@ function removeOverlays() {
 
 function updateOverlays(query) {
     removeOverlays();
-    var regressionTiles = 'https://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;//'http://tiletest.gbif.org/' + key + '/{z}/{x}/{y}/' + type + ".pbf?minYear=" + minYear + "&maxYear=" + maxYear + "&yearThreshold=" + yearThreshold + "&radius=" + hexRadius;
+    var regressionTiles = 'https://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;
 
-    var groupPointTiles = 'https://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&taxonKey=7017';
+    var groupPointTiles = 'https://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&' + query;
     map.addSource('groupPoints', {
         type: 'vector',
         "tiles": [groupPointTiles]
@@ -141,39 +123,16 @@ function updateOverlays(query) {
                 "type": "interval",
                 stops: breakpoints
             },
-            "fill-outline-color": {
-                property: 'slope',
-                "type": "interval",
-                stops: outlineBreakpoints
-            },
+            "fill-outline-color": '#ededed',
             "fill-opacity": 0.6
         }
-    });
-
-    //a layer that activates only on a hover over a feature (a cell)
-    map.addLayer({
-        "id": "regression-fill-hover",
-        "type": "fill",
-        "source": "gbifRegression",
-        "source-layer": "regression",
-        "paint": {
-            "fill-color": "#FCA107",
-            "fill-opacity": 0.4
-        },
-        "filter": ['==', "id", ""]
     });
 
 }
 
 function hoverEventListener(e) {
-    if (!map.getLayer('regression-fill-hover')) return;
     var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
     map.getCanvas().style.cursor = (features.length > 0) ? 'pointer' : '';
-    if (features.length > 0) {
-        map.setFilter("regression-fill-hover", ["==", "id", features[0].properties.id]);
-    } else {
-        map.setFilter("regression-fill-hover", ["==", "id", ""]);
-    }
 }
 
 function addHoverEventListener() {
@@ -182,6 +141,14 @@ function addHoverEventListener() {
 
 function removeHoverEventListener() {
     map.off('mousemove', hoverEventListener);
+}
+
+function addHexagonSelection() {
+    map.on('click', selectFeatureAtPoint);
+}
+
+function removeHexagonSelection() {
+    map.off('click', selectFeatureAtPoint);
 }
 
 var eventListeners = {
@@ -204,16 +171,41 @@ function addMapEvents(listeners) {
     }
 }
 
+function startDraw() {
+    Draw.deleteAll();
+    Draw.changeMode('draw_polygon');
+    removeHexagonSelection();
+    removeHoverEventListener();
+}
+
+function startHexagonSelection() {
+    Draw.deleteAll();
+    Draw.changeMode('simple_select');
+    addHoverEventListener();
+    addHexagonSelection();
+}
+
+function clearSelection(hexagon) {
+    if (hexagon) {
+        startHexagonSelection();
+    } else {
+        startDraw();
+    }
+    //Draw.deleteAll();
+    //Draw.changeMode('simple_select');
+    //removeHexagonSelection();
+    //removeHoverEventListener();
+}
+
 /**
- *  Create the hover over effects on mouse moving.
+ *  Select feature from point and notify listener
  */
 function selectFeatureAtPoint(e) {
     if (!map.getLayer('regression-fill')) return;
     var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
-    console.log(features);
     if (features.length > 0) {
         var feature = features[0];
-        var selectedHexagon = Draw.set({type: 'FeatureCollection', features: [{
+        Draw.set({type: 'FeatureCollection', features: [{
             type: 'Feature',
             properties: feature.properties,
             id: 'selected-hexagon',
@@ -222,7 +214,6 @@ function selectFeatureAtPoint(e) {
         if (eventListeners.onHexagonSelect) {
             eventListeners.onHexagonSelect(feature.properties, feature);
         }
-        //chart.showStats(feature.properties);
     }
 }
 
@@ -230,6 +221,7 @@ module.exports = {
     createMap: createMap,
     updateOverlays: updateOverlays,
     addMapEvents: addMapEvents,
-    addHoverEventListener: addHoverEventListener,
-    removeHoverEventListener: removeHoverEventListener
+    startDraw: startDraw,
+    startHexagonSelection: startHexagonSelection,
+    clearSelection: clearSelection
 };
