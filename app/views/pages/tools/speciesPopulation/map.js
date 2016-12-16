@@ -5,40 +5,7 @@
 var map, Draw;
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
-//var colors = [
-//    '#a50f15',
-//    '#de2d26',
-//    '#fb6a4a',
-//    '#fcae91',
-//    '#fee5d9',
-//    '#edf8e9',
-//    '#bae4b3',
-//    '#74c476',
-//    '#31a354',
-//    '#006d2c'
-//];
-
-var colors = [
-    '#fc354c',
-    '#bf5868',
-    '#e8e8e8',
-    '#459da1',
-    '#0bbebb'
-];
-
-colors = [
-    //'#30af30',
-    '#91bd91',
-    //'#499849',
-    'black',
-    //'#e8bc2f',
-    'tomato'
-].reverse();
-
-var breakpoints = colors.reverse().map(function (e, i) {
-    return [(colors.length - 6 - i) * 0.0002, e];
-}).reverse();
-breakpoints = [
+var breakpoints = [
     [-100000, 'tomato'],
     [-0.002, '#ffa047'],
     [-0.001, '#aecec3'],
@@ -48,40 +15,38 @@ breakpoints = [
 
 var outlineBreakpoints = [
     [-100000, '#ededed'],
-    //[-0.001, 'tomato'],
     [-0.001, '#ededed'],
-    //[0.0003, '#91bd91'],
     [0.001, '#ededed']
 ];
 
 console.log(breakpoints);
 
-var mapStyle = {
-    "version": 8,
-    "name": "Light",
-    "sources": {
-        "mapbox": {
-            "type": "vector",
-            "url": "mapbox://mapbox.mapbox-streets-v6"
-        }
-    },
-    "sprite": "mapbox://sprites/mapbox/light-v9",
-    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
-    "layers": [
-        {
-            "id": "background",
-            "type": "background",
-            "paint": {"background-color": "#ededed"}//
-        },
-        {
-            "id": "water",
-            "source": "mapbox",
-            "source-layer": "water",
-            "type": "fill",
-            "paint": {"fill-color": "#cdd5d8"}//d6d6d6
-        }
-    ]
-};
+//var mapStyle = {
+//    "version": 8,
+//    "name": "Light",
+//    "sources": {
+//        "mapbox": {
+//            "type": "vector",
+//            "url": "mapbox://mapbox.mapbox-streets-v6"
+//        }
+//    },
+//    "sprite": "mapbox://sprites/mapbox/light-v9",
+//    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+//    "layers": [
+//        {
+//            "id": "background",
+//            "type": "background",
+//            "paint": {"background-color": "#ededed"}//
+//        },
+//        {
+//            "id": "water",
+//            "source": "mapbox",
+//            "source-layer": "water",
+//            "type": "fill",
+//            "paint": {"fill-color": "#cdd5d8"}//d6d6d6
+//        }
+//    ]
+//};
 
 function createMap(callbacks) {
     callbacks = callbacks || {};
@@ -140,9 +105,9 @@ function removeOverlays() {
 
 function updateOverlays(query) {
     removeOverlays();
-    var regressionTiles = '//api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;//'http://tiletest.gbif.org/' + key + '/{z}/{x}/{y}/' + type + ".pbf?minYear=" + minYear + "&maxYear=" + maxYear + "&yearThreshold=" + yearThreshold + "&radius=" + hexRadius;
+    var regressionTiles = 'https://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;//'http://tiletest.gbif.org/' + key + '/{z}/{x}/{y}/' + type + ".pbf?minYear=" + minYear + "&maxYear=" + maxYear + "&yearThreshold=" + yearThreshold + "&radius=" + hexRadius;
 
-    var groupPointTiles = '//api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&taxonKey=7017';
+    var groupPointTiles = 'https://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&taxonKey=7017';
     map.addSource('groupPoints', {
         type: 'vector',
         "tiles": [groupPointTiles]
@@ -156,15 +121,6 @@ function updateOverlays(query) {
             "circle-radius": 1.5,
             'circle-color': '#444',
             "circle-opacity": 0.1
-            //'circle-opacity': {
-            //    property: 'total',
-            //    stops: [
-            //        [100, 0.5],
-            //        [1000, 0.6],
-            //        [10000, 0.7],
-            //        [100000, 0.8]]
-            //}
-            //"circle-color": 'red'
         }
     });
 
@@ -180,7 +136,6 @@ function updateOverlays(query) {
         "source": "gbifRegression",
         "source-layer": "regression",
         "paint": {
-            //"fill-pattern": 'circle-11',
             "fill-color": {
                 property: 'slope',
                 "type": "interval",
@@ -190,7 +145,7 @@ function updateOverlays(query) {
                 property: 'slope',
                 "type": "interval",
                 stops: outlineBreakpoints
-            },//'#ededed',
+            },
             "fill-opacity": 0.6
         }
     });
@@ -207,19 +162,6 @@ function updateOverlays(query) {
         },
         "filter": ['==', "id", ""]
     });
-
-    //map.addLayer({
-    //    "id": "regression",
-    //    "type": "line",
-    //    "source": "gbifRegression",
-    //    "source-layer": "regression",
-    //    "paint": {
-    //        "line-color": "#f6f6f4",//7b7b7b
-    //        "line-width": 0.5,
-    //        "line-opacity": 0.7
-    //    }
-    //});
-
 
 }
 
