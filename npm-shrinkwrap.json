@@ -8307,6 +8307,11 @@
         }
       }
     },
+    "wellknown": {
+      "version": "0.5.0",
+      "from": "wellknown@latest",
+      "resolved": "https://registry.npmjs.org/wellknown/-/wellknown-0.5.0.tgz"
+    },
     "wgs84": {
       "version": "0.0.0",
       "from": "wgs84@0.0.0",
