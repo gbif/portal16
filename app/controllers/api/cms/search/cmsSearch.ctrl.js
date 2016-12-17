@@ -183,6 +183,13 @@ function transformFacetsToMap(data) {
                 }
             });
         }
+        // Sort content type filters by count
+        if (key == 'type') {
+            facetMap[key].counts.sort(function (a, b) {
+                if (a.count > b.count) return -1;
+                if (a.count < b.count) return 1;
+            });
+        }
     });
     data.facets = facetMap;
 }
