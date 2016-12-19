@@ -104,18 +104,18 @@ function updateOverlays(query, slopeStdErrThreshold) {
                 stops: breakpoints
             },
             "fill-outline-color": '#ededed',
-            //"fill-opacity": 0.6
-             "fill-opacity": {
-                 property: 'slopeStdErr',
-                 "type": "interval",
-                 stops: [
-                     [-1, 0.7],
-                     [slopeStdErrThreshold, 0.05]
-                 ]
-             }
-        }
+            "fill-opacity": 0.6
+             // "fill-opacity": {
+             //     property: 'slopeStdErr',
+             //     "type": "interval",
+             //     stops: [
+             //         [-1, 0.7],
+             //         [slopeStdErrThreshold, 0.05]
+             //     ]
+             // }
+        },
+        "filter": ['<=', "slopeStdErr", slopeStdErrThreshold]
     });
-
 }
 
 function hoverEventListener(e) {
