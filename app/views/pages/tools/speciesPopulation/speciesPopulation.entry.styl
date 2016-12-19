@@ -2,7 +2,6 @@
 @import "./../../../shared/style/_variables"
 @import "./../../../shared/style/typography/_typography"
 @import "./../../../shared/style/_mediaQueryBlocks"
-$speciesPopulation_sitedrawerWidth = 420px
 
 .speciesPopulation {
 
@@ -26,14 +25,9 @@ $speciesPopulation_sitedrawerWidth = 420px
     article {
         z-index 10
         position relative
-        margin-left $speciesPopulation_sitedrawerWidth
     }
     .speciesPopulationMap {
         z-index 10
-    }
-    aside.site-drawer {
-        max-width 100%
-        width $speciesPopulation_sitedrawerWidth
     }
     &__mode {
         margin -5px
@@ -64,7 +58,7 @@ $speciesPopulation_sitedrawerWidth = 420px
         z-index 10
         position absolute
         bottom vrBlock(1)
-        right vrBlock(1)
+        right vrBlock(1.5)
     }
     &__mapTools {
         position absolute
@@ -156,33 +150,11 @@ $speciesPopulation_sitedrawerWidth = 420px
     }
 }
 
-
-.fillHeight {
-    height "calc(100vh - %s)" % $navBar_height
-}
-
-.site-drawer {
-    &__tabs {
-        display flex
-        overflow auto
-        a {
-            display inline-block
-            flex 1 0 auto
-            text-align center
-            padding 5px
-            div {
-                font-size 20px
-            }
-            span {
-                font-size 10px
-            }
-        }
-    }
-
-    &__section {
-        &__content {
++isAbove($laptop) {
+    .speciesPopulation {
+        article {
+            margin-left $filterDrawerWidth
         }
     }
 }
-
 

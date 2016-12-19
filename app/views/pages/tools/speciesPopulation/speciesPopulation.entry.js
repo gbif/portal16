@@ -10,7 +10,7 @@ angular
     .controller('speciesPopulationCtrl', speciesPopulationCtrl);
 
 /** @ngInject */
-function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch) {
+function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
     var vm = this;
     vm.lowerTaxon;
     vm.loading = false;
@@ -20,6 +20,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     vm.suggestTemplate = '/templates/components/filterTaxon/suggestTaxonTemplate.html';
     vm.yearRange = {};
     vm.hexagonMode = true;
+    vm.isActive = false;
     vm.mapTool = {
         info: false,
         style: false
@@ -27,6 +28,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     vm.selectedArea = {
         apiData: {}
     };
+    vm.regressionQuery = {};
 
     vm.toggleMapTool = function(tool) {
         //toggle key
@@ -44,6 +46,10 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     vm.clear = function() {
         vm.selectedArea.apiData = undefined;
         vm.tableData.years = [];
+        if (vm.regressionQuery.$cancelRequest) {
+             vm.regressionQuery.$cancelRequest();
+             vm.loading = false;
+        }
     };
 
     vm.startDraw = function() {
@@ -60,6 +66,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
 
     vm.clearSelection = function() {
         vm.clear();
+        vm.geometry = undefined;
         mapHelper.clearSelection(vm.hexagonMode);
     };
 
@@ -97,7 +104,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
             vm.updateMap();
-            vm.getTotalSpeciesCountInTimeSpan();
+            getRegression();
         }
     };
 
@@ -142,18 +149,24 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
 
     vm.updateMap = function() {
         var year;
-        if (vm.yearRange.start || vm.yearRange.end) {
-            year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
-        }
-        var query = $httpParamSerializer(
-            {
-                higherTaxonKey: _.get(vm, 'higherTaxon.key', 7017),
-                taxonKey: _.get(vm, 'lowerTaxon.key', 1898286),
-                minYears: vm.minimumYears,
-                year: year
+        var taxonKey = _.get(vm, 'lowerTaxon.key'),
+            higherKey = _.get(vm, 'higherTaxon.key');
+        if (!taxonKey || !higherKey) {
+            mapHelper.removeOverlays();
+        } else {
+            if (vm.yearRange.start || vm.yearRange.end) {
+                year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
             }
-        );
-        mapHelper.updateOverlays(query, vm.slopeStdErrThreshold);
+            var query = $httpParamSerializer(
+                {
+                    taxonKey: taxonKey,
+                    higherTaxonKey: higherKey,
+                    minYears: vm.minimumYears,
+                    year: year
+                }
+            );
+            mapHelper.updateOverlays(query, vm.slopeStdErrThreshold);
+        }
     };
 
     vm.updateHigherTaxon = function() {
@@ -196,6 +209,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
 
     vm.applyUpdateResults = function(properties) {
         $scope.$apply(function() {
+            vm.isActive = true;
             transformData(properties);
             vm.selectedArea.apiData = properties;
             chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); //TODO use angular charist directive instead
@@ -209,36 +223,44 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     };
 
     function getRegression() {
-        var year;
+        var year,
+            taxonKey = _.get(vm, 'lowerTaxon.key'),
+            higherKey = _.get(vm, 'higherTaxon.key');
         if (vm.yearRange.start || vm.yearRange.end) {
             year = (vm.yearRange.start || '*' ) + ',' + (vm.yearRange.end || '*');
         }
-        var query = $httpParamSerializer(
-            {
+        
+        if (taxonKey && higherKey && year && vm.geometry) {
+            
+            var query = {
                 higherTaxonKey: vm.higherTaxon.key,
                 taxonKey: vm.lowerTaxon.key,
                 minYears: vm.minimumYears,
                 year: year,
                 geometry: vm.geometry
             }
-        );
-        vm.loading = true;
-        vm.clear();
-        $http.get(env.dataApiV2 + 'map/occurrence/regression?' + query, {}).then(function(response){
-            vm.updateResults(response.data);
-            vm.loading = false;
-        }, function(err){
-            vm.clearSelection();
-            vm.loading = false;
-            alert('We couldn\'t process your query. Be aware that geometries may not overlap with them self');
-        });
+            
+            vm.clear();
+            vm.loading = true;
+            vm.regressionQuery = Regression.query(query, function(response){
+                vm.updateResults(response);
+                vm.loading = false;
+            }, function(err){
+                if (err.status === -1) {
+                    //canceled request do nothing
+                } else {
+                    vm.clearSelection();
+                    vm.loading = false;
+                    alert('We couldn\'t process your query. Be aware that geometries may not overlap with them self');
+                }
+            });
+        }
     }
 
     mapHelper.createMap(
         {
             dataapiv2: env.dataApiV2,
             onStyleLoad: function(){
-                vm.updateMap();
                 vm.startHexagon();
             }
         }
@@ -248,6 +270,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         onCreate: function(e) {
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
+            vm.isActive = true;//show drawer after having drawn
         },
         onUpdate: function(e) {
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
@@ -256,6 +279,11 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         onDelete: function(e) {
         },
         onHexagonSelect: function(properties, feature) {
+            if (vm.regressionQuery.$cancelRequest) {
+                 vm.regressionQuery.$cancelRequest();
+                 vm.loading = false;
+            }
+            vm.geometry = getPolygonAsWKT(feature.geometry);
             vm.applyUpdateResults(properties);
         }
     });

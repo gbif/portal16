@@ -105,22 +105,17 @@ function updateOverlays(query, slopeStdErrThreshold) {
             },
             "fill-outline-color": '#ededed',
             "fill-opacity": 0.6
-             // "fill-opacity": {
-             //     property: 'slopeStdErr',
-             //     "type": "interval",
-             //     stops: [
-             //         [-1, 0.7],
-             //         [slopeStdErrThreshold, 0.05]
-             //     ]
-             // }
         },
         "filter": ['<=', "slopeStdErr", slopeStdErrThreshold]
     });
 }
 
 function hoverEventListener(e) {
-    var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
-    map.getCanvas().style.cursor = (features.length > 0) ? 'pointer' : '';
+    var features;
+    if (map.getLayer('regression-fill')) {
+        features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
+        map.getCanvas().style.cursor = (features.length > 0) ? 'pointer' : '';
+    }
 }
 
 function addHoverEventListener() {
@@ -207,5 +202,6 @@ module.exports = {
     addMapEvents: addMapEvents,
     startDraw: startDraw,
     startHexagonSelection: startHexagonSelection,
-    clearSelection: clearSelection
+    clearSelection: clearSelection,
+    removeOverlays: removeOverlays
 };

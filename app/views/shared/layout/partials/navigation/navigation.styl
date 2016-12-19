@@ -609,7 +609,7 @@ main {
 .site-drawer {
     z-index 100
     width $filterDrawerWidth
-    max-width 100%
+    max-width calc(100% - 25px) //todo parameterizs drawer toggle width
     position absolute
     top 0px
     //transition right 200ms ease;
@@ -618,13 +618,19 @@ main {
     //right -($filterDrawerWidth + 3)
     right 0
     width 0
-    overflow hidden
-    .site-drawer__wrapper {
+    
+    &__wrapper {
         width $filterDrawerWidth
+        max-width 100%
+        overflow hidden
+    }
+    &__wrapped-content {
+        overflow hidden
+        width 100%// $filterDrawerWidth
     }
     .site-drawer__section {
         //height "calc(100vh - %s)" % vrBlock(6)
-        height "calc(100vh - %s)" % vrBlock(4.5)
+        height "calc(100vh - %s - %s)" % ( $navBar_height vrBlock(1) )
         overflow-y auto
         -webkit-overflow-scrolling touch
         //&--bottom-panel {
@@ -634,22 +640,26 @@ main {
     &.is-active {
         right 0
         width $filterDrawerWidth
+        // max-width 100%
     }
-    &.site-drawer--wide {
-        .site-drawer__wrapper {
-            width $filterDrawerWidth + 10px
-        }
-        &.is-active {
-            width $filterDrawerWidth + 10px
-        }
-    }
+    // &.site-drawer--wide {
+    //     .site-drawer__wrapper {
+    //         width $filterDrawerWidthWide
+    //     }
+    //     .site-drawer__wrapped-content {
+    //         width $filterDrawerWidthWide
+    //     }
+    //     &.is-active {
+    //         width $filterDrawerWidthWide
+    //     }
+    // }
 }
 
 forceShowDrawer() {
     transition initial
     //right 0
     width $filterDrawerWidth
-    overflow visible
+    // overflow visible
     ~ .site-content {
         padding-left $filterDrawerWidth
     }
