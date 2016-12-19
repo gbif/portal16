@@ -4,6 +4,7 @@ var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'local',
     port = yargs.port,
+    dataApiV2 = yargs.dataapiv2,
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
@@ -23,6 +24,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/', // NB not dev!
         dataApi: dataApi || '//api.gbif.org/v1/', // NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png', // NB not dev!
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
@@ -40,6 +42,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/', // NB not dev!
         dataApi: dataApi || '//api.gbif.org/v1/', // NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png', // NB not dev!
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',
@@ -57,6 +60,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif-uat.org/v1/',
         tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
@@ -74,6 +78,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//cdn.gbif.org/v1/map/density/tile.png',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
@@ -91,6 +96,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api.gbif-dev.org/v2/',
         dataApi: dataApi || '//api.gbif-dev.org/v1/',
         tileApi: tileApi || '//api.gbif-dev.org/v1/map/density/tile.png',
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/',

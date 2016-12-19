@@ -10,16 +10,35 @@ angular
     .controller('speciesPopulationCtrl', speciesPopulationCtrl);
 
 /** @ngInject */
-function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerializer) {
+function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch) {
     var vm = this;
     vm.lowerTaxon;
+    vm.loading = false;
     vm.higherTaxonArray = [];
+    vm.slopeStdErrThreshold = 1;
     vm.minimumYears = '10';
     vm.suggestTemplate = '/templates/components/filterTaxon/suggestTaxonTemplate.html';
     vm.yearRange = {};
     vm.hexagonMode = true;
+    vm.mapTool = {
+        info: false,
+        style: false
+    };
     vm.selectedArea = {
         apiData: {}
+    };
+
+    vm.toggleMapTool = function(tool) {
+        //toggle key
+        vm.mapTool[tool] = !vm.mapTool[tool];
+        //close other items
+        for (var key in vm.mapTool) {
+            if (vm.mapTool.hasOwnProperty(key)) {
+                if (key != tool) {
+                    vm.mapTool[key] = false;
+                }
+            }
+        }
     };
 
     vm.clear = function() {
@@ -51,11 +70,11 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
     };
 
     vm.sliderOptions = {
-        start: [1900, 2017],
+        start: [1970, 2015],
         range: {
             'min': [1900, 1],
             '50%': [1970, 1],
-            'max': [2016]
+            'max': [2017]
         },
         format: {
             to: function (value) {
@@ -74,16 +93,30 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
         },
-        //slide: function (values) { //values, handle, unencoded
-        //    console.log(values);
-        //},
-        //set: function(values, handle, unencoded) {
-        //},
         change: function (values) { //values, handle, unencoded
             vm.yearRange.start = Math.floor(values[0]);
             vm.yearRange.end = Math.floor(values[1]);
             vm.updateMap();
+            vm.getTotalSpeciesCountInTimeSpan();
         }
+    };
+
+
+    vm.getTotalSpeciesCountInTimeSpan = function() {
+        if (!vm.lowerTaxon.key) {
+            vm.lowerTaxon.countSince1900 = 0;
+            return;
+        }
+        OccurrenceSearch.query({
+            limit: 0,
+            taxon_key: vm.lowerTaxon.key,
+            has_coordinate: true,
+            has_geospatial_issue: false,
+            year: '1900,*'
+        }, function(response){
+            vm.lowerTaxon.countSince1900 = response.count;
+        }, function(err){
+        });
     };
 
 
@@ -120,19 +153,25 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
                 year: year
             }
         );
-        mapHelper.updateOverlays(query);
+        mapHelper.updateOverlays(query, vm.slopeStdErrThreshold);
+    };
+
+    vm.updateHigherTaxon = function() {
+        vm.clearSelection();
+        vm.updateMap();
     };
 
     vm.setLowerTaxon = function (item) {
         //if nothing selected then do not do anything
         if (angular.isUndefined(item)) return;
+        vm.clearSelection();
         vm.lowerTaxon = item;
 
         if (item.rank == 'KINGDOM') {
             //it doesn't make sense to choose a kingdom. And maybe we should even set the bar lower
             return;
         } else {
-
+            vm.getTotalSpeciesCountInTimeSpan();
             //transform higherClassificationMap to array and sort it by key. select largest key - the assumption being that it is the lowest rank
             var higherArray = _.map(vm.lowerTaxon.higherClassificationMap, function (name, key) {
                 return {key: parseInt(key), name: name};
@@ -183,38 +222,40 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
                 geometry: vm.geometry
             }
         );
-        $http.get('//api.gbif-uat.org/v2/map/occurrence/regression?' + query, {}).then(function(response){
+        vm.loading = true;
+        vm.clear();
+        $http.get(env.dataApiV2 + 'map/occurrence/regression?' + query, {}).then(function(response){
             vm.updateResults(response.data);
+            vm.loading = false;
         }, function(err){
             vm.clearSelection();
+            vm.loading = false;
             alert('We couldn\'t process your query. Be aware that geometries may not overlap with them self');
         });
     }
 
     mapHelper.createMap(
         {
+            dataapiv2: env.dataApiV2,
             onStyleLoad: function(){
                 vm.updateMap();
                 vm.startHexagon();
             }
         }
     );
+
     mapHelper.addMapEvents({
         onCreate: function(e) {
-            console.log('draw creation event triggered from directive');
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
         onUpdate: function(e) {
-            console.log('drawn polygon updates');
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
         onDelete: function(e) {
-            console.log('draw deletion');
         },
         onHexagonSelect: function(properties, feature) {
-            console.log(properties);
             vm.applyUpdateResults(properties);
         }
     });

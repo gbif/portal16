@@ -46,7 +46,7 @@ $speciesPopulation_sitedrawerWidth = 420px
             text-align center
             transition background 200ms ease
             &.active {
-                background #7597a2
+                background #444
                 color white
             }
         }
@@ -54,8 +54,12 @@ $speciesPopulation_sitedrawerWidth = 420px
     &__results {
         .card {
             margin-top vrBlock(1)
+            table {
+                font-size 12px
+            }
         }
     }
+
     .time-slider__card {
         z-index 10
         position absolute
@@ -110,6 +114,45 @@ $speciesPopulation_sitedrawerWidth = 420px
                 }
             }
         }
+        &__style {
+            >div {
+                width 300px
+                max-width 100vw
+                padding 10px
+                .gb-select select, .search-box {
+                    padding 6px 10px
+                    color #444
+                }
+                input {
+                    padding-right 0
+                }
+            }
+        }
+    }
+    .ct-series-b .ct-line {
+        stroke #3bb2d0
+    }
+
+    .ct-line {
+        stroke-width 2px
+    }
+
+    .ct-series-a .ct-point {
+        stroke #555
+    }
+    .ct-series-a .ct-area {
+        fill #555//#4d94a5
+        fill-opacity 0.5
+    }
+
+    .ct-point{
+        stroke-width 5px
+        stroke-linecap round
+        transition all 0.2s linear
+    }
+
+    .error {
+        color tomato
     }
 }
 

@@ -1,45 +1,23 @@
 "use strict";
 
-var map, Draw;
+var map, Draw, mapApi;
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
 var breakpoints = [
     [-100000, 'tomato'],
     [-0.002, '#fd7620'],
     [-0.001, '#ffa047'],
-    [0, '#aecec3'],
+    [0, '#9bc7a8'],
     [0.001, '#91bd91'],
     [0.002, '#72ab72']
 ];
-//var mapStyle = {
-//    "version": 8,
-//    "name": "Light",
-//    "sources": {
-//        "mapbox": {
-//            "type": "vector",
-//            "url": "mapbox://mapbox.mapbox-streets-v6"
-//        }
-//    },
-//    "sprite": "mapbox://sprites/mapbox/light-v9",
-//    "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
-//    "layers": [
-//        {
-//            "id": "background",
-//            "type": "background",
-//            "paint": {"background-color": "#ededed"}//
-//        },
-//        {
-//            "id": "water",
-//            "source": "mapbox",
-//            "source-layer": "water",
-//            "type": "fill",
-//            "paint": {"fill-color": "#cdd5d8"}//d6d6d6
-//        }
-//    ]
-//};
 
-function createMap(callbacks) {
-    callbacks = callbacks || {};
+function createMap(options) {
+    options = options || {};
+    if (!options.dataapiv2) {
+        return;
+    }
+    mapApi = 'https:' + options.dataapiv2 + 'map/';
     map = new mapboxgl.Map({
         container: 'speciesPopulationMap',
         style: 'mapbox://styles/mapbox/light-v9',//mapStyle,
@@ -62,14 +40,14 @@ function createMap(callbacks) {
     map.addControl(Draw);
 
     map.on('load', function() {
-        if (callbacks.onLoad) {
-            callbacks.onLoad();
+        if (options.onLoad) {
+            options.onLoad();
         }
     });
 
     map.on('style.load', function () {
-        if (callbacks.onStyleLoad) {
-            callbacks.onStyleLoad();
+        if (options.onStyleLoad) {
+            options.onStyleLoad();
         }
     });
 
@@ -86,11 +64,12 @@ function removeOverlays() {
     if (map.getSource('groupPoints')) map.removeSource('groupPoints');
 }
 
-function updateOverlays(query) {
+function updateOverlays(query, slopeStdErrThreshold) {
+    slopeStdErrThreshold = slopeStdErrThreshold || 2; //show all per default
     removeOverlays();
-    var regressionTiles = 'https://api.gbif-uat.org/v2/map/occurrence/regression/{z}/{x}/{y}.mvt?' + query;
+    var regressionTiles = mapApi + 'occurrence/regression/{z}/{x}/{y}.mvt?' + query;
 
-    var groupPointTiles = 'https://api.gbif-uat.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&' + query;
+    var groupPointTiles = mapApi + 'occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:3857&basisOfRecord=OBSERVATION&basisOfRecord=HUMAN_OBSERVATION&basisOfRecord=MACHINE_OBSERVATION&basisOfRecord=MATERIAL_SAMPLE&basisOfRecord=PRESERVED_SPECIMEN&' + query;
     map.addSource('groupPoints', {
         type: 'vector',
         "tiles": [groupPointTiles]
@@ -125,17 +104,15 @@ function updateOverlays(query) {
                 stops: breakpoints
             },
             "fill-outline-color": '#ededed',
-            "fill-opacity": 0.6
-            // "fill-opacity": {
-            //     property: 'slopeStdErr',
-            //     "type": "interval",
-            //     stops: [
-            //         [-1, 0.6],
-            //         [0.001, 0.45],
-            //         [0.01, 0.3],
-            //         [0.05, 0.2]
-            //     ]
-            // }
+            //"fill-opacity": 0.6
+             "fill-opacity": {
+                 property: 'slopeStdErr',
+                 "type": "interval",
+                 stops: [
+                     [-1, 0.7],
+                     [slopeStdErrThreshold, 0.05]
+                 ]
+             }
         }
     });
 
@@ -202,10 +179,6 @@ function clearSelection(hexagon) {
     } else {
         startDraw();
     }
-    //Draw.deleteAll();
-    //Draw.changeMode('simple_select');
-    //removeHexagonSelection();
-    //removeHoverEventListener();
 }
 
 /**
