@@ -39,26 +39,6 @@ function navCtrl($http, $location, $rootScope, NAV_EVENTS) {
     };
     vm.getIssues();
 
-    var isOn = false;
-    var xmasId = window.setInterval(myCallback, 2000);
-
-    var s = '<link rel="stylesheet" type="text/css" href="/css/base/shared/style/deleteme.css">'; // HTML string
-    var xmasDiv;
-    xmasDiv = document.createElement('div');
-    document.body.appendChild(xmasDiv);
-    function myCallback() {
-        $http.get('/api/speciespopulation/ison?cachgebuste=' + new Date(), {}).then(function(response){//TODO christmas delete
-            if (!vm.isOn && response.data.on) {
-                vm.isOn = true;
-                xmasDiv.innerHTML = s;
-            } else if (!response.data.on){
-                vm.isOn = false;
-                xmasDiv.innerHTML = '';
-            }
-        }, function(err){
-            
-        });
-    }
 }
 
 module.exports = navCtrl;
