@@ -1,0 +1,21 @@
+
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+<div ng-controller="speciesPopulationCtrl as deleteme" >
+
+	<button ng-click="deleteme.on()">on</button>  
+
+	<button ng-click="deleteme.off()">off</button>    
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="/js/base/pages/speciesPopulation.js"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/speciesPopulation/speciesPopulation.css">
+{% endblock %}
+

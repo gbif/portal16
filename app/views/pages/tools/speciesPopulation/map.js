@@ -5,8 +5,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM
 
 var breakpoints = [
     [-100000, 'tomato'],
-    [-0.002, '#ffa047'],
-    [-0.001, '#aecec3'],
+    [-0.002, '#fd7620'],
+    [-0.001, '#ffa047'],
+    [0, '#aecec3'],
     [0.001, '#91bd91'],
     [0.002, '#72ab72']
 ];
@@ -125,6 +126,16 @@ function updateOverlays(query) {
             },
             "fill-outline-color": '#ededed',
             "fill-opacity": 0.6
+            // "fill-opacity": {
+            //     property: 'slopeStdErr',
+            //     "type": "interval",
+            //     stops: [
+            //         [-1, 0.6],
+            //         [0.001, 0.45],
+            //         [0.01, 0.3],
+            //         [0.05, 0.2]
+            //     ]
+            // }
         }
     });
 

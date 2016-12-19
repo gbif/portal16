@@ -159,14 +159,14 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
         $scope.$apply(function() {
             transformData(properties);
             vm.selectedArea.apiData = properties;
-            chart.showStats(properties); //TODO use angular charist directive instead
+            chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); //TODO use angular charist directive instead
         });
     };
 
     vm.updateResults = function(properties) {
         transformData(properties);
         vm.selectedArea.apiData = properties;
-        chart.showStats(properties); //TODO use angular charist directive instead
+        chart.showStats(properties, vm.yearRange.start, vm.yearRange.end); //TODO use angular charist directive instead
     };
 
     function getRegression() {
@@ -214,7 +214,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             console.log('draw deletion');
         },
         onHexagonSelect: function(properties, feature) {
-            console.log('hexagon selected');
+            console.log(properties);
             vm.applyUpdateResults(properties);
         }
     });
