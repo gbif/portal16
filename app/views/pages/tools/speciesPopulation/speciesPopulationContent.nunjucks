@@ -1,4 +1,7 @@
 <div ng-controller="speciesPopulationCtrl as speciesPopulation" class="speciesPopulation">
+    <div class="ieWarning">
+        IE isn't support at this point
+    </div>
         <article class="wrapper-horizontal-stripes">
             <div>
                 <div id="speciesPopulationMap" class="speciesPopulationMap fillHeight"></div>

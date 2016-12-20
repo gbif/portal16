@@ -1,7 +1,6 @@
 "use strict";
 
 var map, Draw, mapApi;
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
 var breakpoints = [
     [-100000, 'tomato'],
@@ -14,6 +13,7 @@ var breakpoints = [
 ];
 
 function createMap(options) {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
     options = options || {};
     if (!options.dataapiv2) {
         return;

@@ -1,4 +1,3 @@
-
 @import "./../../../shared/style/_variables"
 @import "./../../../shared/style/typography/_typography"
 @import "./../../../shared/style/_mediaQueryBlocks"
@@ -16,10 +15,10 @@
             }
         }
     }
-    .mapboxgl-ctrl-group>button.active{
+    .mapboxgl-ctrl-group > button.active {
         background-color #e4e4e4
     }
-    .mapboxgl-ctrl-group>button.active{
+    .mapboxgl-ctrl-group > button.active {
         background-color #e4e4e4
     }
     article {
@@ -34,7 +33,7 @@
     }
     &__mode {
         margin -5px
-        >a {
+        > a {
             display inline-block
             width calc(33% - 15px)
             padding 5px
@@ -68,11 +67,11 @@
         z-index 20
         top 0
         left 0
-        >ul {
+        > ul {
             padding 0
-            >li {
+            > li {
                 position relative
-                >a {
+                > a {
                     border-bottom 1px solid #3c3c3c
                     background #444
                     color #888
@@ -86,7 +85,7 @@
                         color white
                     }
                 }
-                >div {
+                > div {
                     .title {
                         white-space nowrap
                         height $searchTabBar-height
@@ -105,14 +104,14 @@
                     a {
                         color white
                     }
-                    >div {
+                    > div {
                         display block
                     }
                 }
             }
         }
         &__style {
-            >div {
+            > div {
                 width 300px
                 max-width 100vw
                 padding 10px
@@ -138,11 +137,11 @@
         stroke #555
     }
     .ct-series-a .ct-area {
-        fill #555//#4d94a5
+        fill #555 //#4d94a5
         fill-opacity 0.5
     }
 
-    .ct-point{
+    .ct-point {
         stroke-width 5px
         stroke-linecap round
         transition all 0.2s linear
@@ -160,4 +159,26 @@
         }
     }
 }
+.IE {
+    .speciesPopulation {
+        article {
+            display none
+        }
+    }
+}
+.ieWarning {
+    display none
+}
 
+.IE {
+    .ieWarning {
+        display block
+        position fixed
+        top $navBar_height
+        bottom 0
+        left 0
+        right 0
+        z-index 100000
+        background white
+    }
+}
