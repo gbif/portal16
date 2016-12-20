@@ -81,9 +81,8 @@ const facetTypeConfig = {
         translationPath: 'cms.filter.',
         show: false
     },
-    category_literature_type: {
+    category_literature_year: {
         type: 'enum',
-        translationPath: 'cms.literatureType.',
         show: true
     },
     category_gbif_literature_annotation: {
@@ -96,13 +95,14 @@ const facetTypeConfig = {
         translationPath: 'country.',
         show: true
     },
-    category_literature_year: {
-        type: 'enum',
-        show: true
-    },
     category_author_surname: {
         type: 'enum',
         translationPath: 'cms.filter.',
+        show: true
+    },
+    category_literature_type: {
+        type: 'enum',
+        translationPath: 'cms.literatureType.',
         show: true
     }
 };
@@ -152,6 +152,11 @@ function expandFacets(facets, __) {
         facets[index_type].counts = facets[index_type].counts.concat(facets[index_category_resource_type].counts);
         facets.splice(index_category_resource_type, 1);
     }
+    // Sort by count after merging
+    facets[index_type].counts.sort(function (a, b) {
+        if (a.count > b.count) return -1;
+        if (a.count < b.count) return 1;
+    });
 
     // use enum as resource type key, and exclude dataset from content types
     facets.forEach(function (facet) {

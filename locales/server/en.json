@@ -572,7 +572,15 @@
     "en": "English",
     "fr": "French",
     "pt": "Portuguese",
-    "es": "Spanish"
+    "es": "Spanish",
+    "zh-hant": "Chinese, Traditional",
+    "zh-hans": "Chinese, Simplified",
+    "ja": "Japanese",
+    "ko": "Korean",
+    "ar": "Arabic",
+    "ca": "Catalan",
+    "de": "German",
+    "ru": "Russian"
   },
   "country": {
     "AF": "Afghanistan",
@@ -1568,6 +1576,7 @@
       "category_purpose": "purpose",
       "category_data_type": "data type",
       "category_country": "country",
+      "category_literature_type": "literature type",
       "category_gbif_literature_annotation": "GBIF annotation",
       "category_literature_year": "literature year",
       "category_author_from_country": "Country of literature author"

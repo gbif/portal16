@@ -78,6 +78,7 @@ function cmsSearch(query) {
         'link': '1076'
     };
 
+    // Convert resource_type to type.
     availableFacets.forEach(function (facet) {
         if (typeof query[facet] !== 'undefined') {
             if (facet == 'type' && ['document', 'presentation', 'tool', 'link'].indexOf(query[facet]) !== -1) {
