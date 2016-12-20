@@ -13,7 +13,8 @@ router.get('/tools/species-population', function (req, res, next) {
             _meta: {
                 title: 'Species Population',
                 hideFooter: true
-            }
+            },
+            aboutUrl: 'tools/species-population/about'
         });
     } catch (err) {
         next(err);
