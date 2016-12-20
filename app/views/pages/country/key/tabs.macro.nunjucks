@@ -11,13 +11,13 @@
                                 </a>
                             </li>
 
-                            {% if country.node.participationStatus %}
-                                <li class="tab {% if active == 'participant' %}isActive{% endif %}">
-                                    <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">
-                                        Participant
-                                    </a>
-                                </li>
-                            {% endif %}
+                            {#{% if country.node.participationStatus %}#}
+                                {#<li class="tab {% if active == 'participant' %}isActive{% endif %}">#}
+                                    {#<a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">#}
+                                        {#Participant#}
+                                    {#</a>#}
+                                {#</li>#}
+                            {#{% endif %}#}
 
                             <li class="tab {% if active == 'trends' %}isActive{% endif %}">
                                 <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/trends/about">
