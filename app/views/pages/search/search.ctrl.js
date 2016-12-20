@@ -49,7 +49,6 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
     };
 
     vm.closeOnEsc = function (event) {
-        console.log('close on escape');
         if (event.which === 27) {
             document.getElementById('siteSearch').blur();
             vm.isActive = false;
