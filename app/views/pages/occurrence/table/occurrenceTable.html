@@ -55,6 +55,12 @@
 
     <section class="horizontal-stripe--paddingless lighter-background">
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
+
+        <div ng-if="occTable.occurrenceState.failedRequest">
+            <p>
+                Hmm, something went wrong. The issue should have been logged. You are welcome to file an issue using the feedback form. We are sorry for the inconvenience.
+            </p>
+        </div>
         <!--<div class="container-fluid">-->
         <!--<div class="row">-->
         <!--<div class="col-xs-12 small">-->
