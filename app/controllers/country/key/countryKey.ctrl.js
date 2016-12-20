@@ -12,7 +12,7 @@ module.exports = function (app) {
 };
 
 router.get('/country/:key\.:ext?', function (req, res, next) {
-    var key = req.params.key;
+    var key = req.params.key.toUpperCase();
 
     countryData.getCountryData(key, function (err, country) {
         if (err) {
