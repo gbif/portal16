@@ -154,6 +154,12 @@ require('./angular/translate');
 
 var menu = require('../partials/navigation/navigation.js');
 
+var isIE = require('./ieDetection.js')();
+console.log(isIE);
+if (isIE) {
+    document.body.className += 'IE IE' + isIE;
+}
+
 (function () {
     function appendScript(conditionalScript) {
         var el = document.createElement('script');
