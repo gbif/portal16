@@ -8,18 +8,28 @@ module.exports = function (app) {
 };
 
 router.get('/tools/species-population', function (req, res, next) {
-    render(req, res, next, {
-        _meta: {
-            title: 'Species Population',
-            hideFooter: true
-        }
-    });
-});
-
-function render(req, res, next, data) {
     try {
-        res.render('pages/tools/speciesPopulation/speciesPopulation', data);
+        res.render('pages/tools/speciesPopulation/speciesPopulation', {
+            _meta: {
+                title: 'Species Population',
+                hideFooter: true
+            }
+        });
     } catch (err) {
         next(err);
     }
-}
+});
+
+router.get('/embed/species-population', function (req, res, next) {
+    try {
+        res.render('pages/tools/speciesPopulation/speciesPopulationEmbed', {
+            _meta: {
+                title: 'Species Population',
+                hideFooter: true,
+                removeMenu: true
+            }
+        });
+    } catch (err) {
+        next(err);
+    }
+});

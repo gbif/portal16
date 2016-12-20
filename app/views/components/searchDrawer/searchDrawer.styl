@@ -127,6 +127,53 @@ $filterEmphasisColor = $bodyTextColor
             padding 10px 20px
         }
     }
+    &__tabs {
+        display flex
+        overflow auto
+        a {
+            display inline-block
+            flex 1 0 auto
+            text-align center
+            padding 5px
+            div {
+                font-size 20px
+            }
+            span {
+                font-size 10px
+            }
+        }
+    }
+
+    &__section {
+        &__content {
+        }
+    }
+    &__toggle {
+        position absolute
+        display block
+        width 25px
+        height $searchTabBar-height
+        right 100%
+        top $searchTabBar-height
+        background #6eb3e0
+        box-shadow -2px 2px 3px rgba(0,0,0,0.2)
+        &:before {
+            display block
+            content ''
+            triangle 'left' 5px #fff
+            position relative
+            top 18px
+            right -11px
+        }
+    }
+    &.is-active {
+        .site-drawer__toggle {
+            &:before {
+                border none
+                triangle 'right' 5px #fff
+            }
+        }
+    }
 
 }
 
@@ -364,6 +411,9 @@ $filterEmphasisColor = $bodyTextColor
                 visibility none
             }
         }
+    }
+    .site-drawer__toggle {
+        display none
     }
 }
 

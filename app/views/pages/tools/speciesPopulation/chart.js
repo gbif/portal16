@@ -1,11 +1,7 @@
 
-function showStats(data) {
-
-    //tmp values
-    var minYear = minYear || 1900;
-    var maxYear = maxYear || 2016;
-
-
+function showStats(data, minYear, maxYear) {
+    minYear = minYear || 1900;
+    maxYear = maxYear || 2016;
 
     var labels = [];
     var points = [];

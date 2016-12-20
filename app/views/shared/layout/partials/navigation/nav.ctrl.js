@@ -38,6 +38,7 @@ function navCtrl($http, $location, $rootScope, NAV_EVENTS) {
             });
     };
     vm.getIssues();
+
 }
 
 module.exports = navCtrl;

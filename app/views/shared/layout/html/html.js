@@ -251,35 +251,36 @@ function getAncestors(el, stopEl) {
 
 //collapse and expand menu items
 var siteNav = document.getElementById('nav');
-var SiteNavCategoryItems = siteNav.querySelectorAll('.is-category');
-gb.util.addEventListenerAll('.is-category>a', 'click', function (event) {
-    var ancestors = getAncestors(this, siteNav),
-        child, i;
+if (siteNav) {
+    var SiteNavCategoryItems = siteNav.querySelectorAll('.is-category');
+    gb.util.addEventListenerAll('.is-category>a', 'click', function (event) {
+        var ancestors = getAncestors(this, siteNav),
+            child, i;
 
-    //collpase all items that are not parents
-    for (i = 0; i < SiteNavCategoryItems.length; i++) {
-        child = SiteNavCategoryItems[i];
-        if (ancestors.indexOf(child) == -1) {
-            child.classList.remove('is-expanded');
+        //collpase all items that are not parents
+        for (i = 0; i < SiteNavCategoryItems.length; i++) {
+            child = SiteNavCategoryItems[i];
+            if (ancestors.indexOf(child) == -1) {
+                child.classList.remove('is-expanded');
+            }
         }
-    }
 
-    if (!siteNav.classList.contains('is-expanded')) {
-        //for horizontal layout. When changing from laptop to mobile this means that the first menu click is ignored
-        this.parentNode.classList.add('is-expanded');
-    }
-    else {
-        this.parentNode.classList.toggle('is-expanded');
-    }
-    siteNav.classList.add('is-expanded');//use for horizontal layout
-    event.preventDefault(); //do not scroll to top
-});
+        if (!siteNav.classList.contains('is-expanded')) {
+            //for horizontal layout. When changing from laptop to mobile this means that the first menu click is ignored
+            this.parentNode.classList.add('is-expanded');
+        }
+        else {
+            this.parentNode.classList.toggle('is-expanded');
+        }
+        siteNav.classList.add('is-expanded');//use for horizontal layout
+        event.preventDefault(); //do not scroll to top
+    });
 
-//collapse expand service menu
-gb.util.addEventListenerAll('.service-menu__teaser>a', 'click', function () {
-    this.parentNode.parentNode.classList.toggle('is-expanded');
-});
-
+    //collapse expand service menu
+    gb.util.addEventListenerAll('.service-menu__teaser>a', 'click', function () {
+        this.parentNode.parentNode.classList.toggle('is-expanded');
+    });
+}
 
 //Search toggling
 function toggleSearchDrawer() {

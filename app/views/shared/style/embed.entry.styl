@@ -1,0 +1,38 @@
+@import "bootstrap/.build/bootstrap.css"
+@import "fonts/gb_iconfont"
+
+@import "_variables"
+
+// userVariablesInjectHere
+$navBar_height = 0px
+
+@import "bootstrap/overwrite/bootstrap.styl"
+/*global-reset()*/
+//normalize-css()
+//border-box-html()
+//fluid-media()
+//print-styles()
+
+@import "typography/_typography"
+@import "_mediaQueryBlocks"
+typographic()
+@import "utilities"
+
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  stylus dependencies when defined in the bower.json of your dependencies
+ */
+// bower:styl
+// endbower
+
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  your stylus files automatically. To see which filters that are applied see the build script 'style' task
+ */
+// injector
+// endinjector
+
+
+// .speciesPopulation__mapTools__info {
+// 	display none
+// }
