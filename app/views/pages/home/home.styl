@@ -77,7 +77,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     &__news {
         margin vrBlock(4) 0
         &__header {
-            margin-bottom vrBlock(2)
+            //margin-bottom vrBlock(2)
             h2 {
                 font-style italic
                 font-family 'PT Serif', serif
@@ -88,34 +88,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
                 font-size 12px
                 font-weight normal
                 color #888
-            }
-        }
-        .article-box {
-            color black
-            &:hover {
-                text-decoration none
-                .article-box__title {
-                    color $linkColor
-                }
-            }
-            &__details {
-                background white
-                padding 10px 0
-            }
-            &__tag {
-                font-size 12px
-                margin-bottom 3px
-                font-weight bold
-            }
-            &__title {
-                font-weight 200
-                line-height $lineHeightRatio
-                margin 0
-            }
-            &__footer {
-                font-size 12px
-                font-weight normal
-                color #aaa
             }
         }
     }
@@ -217,3 +189,68 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     }
 }
 
+.articles {
+    .article-box {
+        width 300px
+        max-width 100%
+        color black
+        margin $halfGutter auto
+        //&:hover {
+        //    text-decoration none
+        //    .article-box__title {
+        //        color $linkColor
+        //    }
+        //}
+        &__details {
+            background white
+            padding 10px 0
+        }
+        &__tag {
+            font-size 12px
+            margin-bottom 3px
+            font-weight bold
+        }
+        &__title {
+            font-weight 300
+            line-height $lineHeightRatio
+            margin 0
+        }
+        &__footer {
+            font-size 12px
+            font-weight normal
+            color #aaa
+        }
+    }
+}
++isAbove(500px) {
+    .articles {
+        margin 0 $halfGutter
+        display flex
+        flex-wrap wrap
+        justify-content center
+        .article-box {
+            margin $halfGutter
+            flex 1 1 auto
+            width "calc(100% / 2 - %s)" % ($halfGutter*2)
+            max-width 300px
+        }
+    }
+}
+
++isAbove(1000px) {
+    .articles {
+        .article-box {
+            width 200px
+            flex 1 1 auto
+            max-width 300px
+        }
+    }
+}
+
+//+isAbove(1300px) {
+//    .articles {
+//        .article-box {
+//            width 300px
+//        }
+//    }
+//}

@@ -32,7 +32,7 @@ nature, PLOS, ... and
 
 {# home page, or front page #}
 {% block page %}
-    <div class="wrapper-horizontal-stripes home">
+    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
         <div class="home__header">
             <div class="container--normal">
                 <div class="home__header__hero-text">
@@ -52,9 +52,8 @@ nature, PLOS, ... and
                                    ng-model="omniSearch.freeTextQuery"
                                    aria-invalid="false"
                                    focus-me="true">
-                            <a ng-click="omniSearch.updateSearch()"
-                               class="search-box__submit gb-icon-search2"
-                               href="" type="submit">
+                            <a class="search-box__submit gb-icon-search2 inherit noUnderline"
+                               ng-href="/search?q={{ omniSearch.freeTextQuery }}" type="submit">
                                 <span class="sr-only">search</span>
                             </a>
                         </form>
@@ -119,71 +118,74 @@ nature, PLOS, ... and
         {#</div>#}
 
 
-        <div class="horizontal-stripe white-background">
-            <div class="container--normal">
+        <div class="horizontal-stripe--paddingless white-background">
+            <div class="container--wide">
                 <div class="home__news">
                     <div class="home__news__header text-center">
                         <h2>News from the network</h2>
                         <p class="home__news__header__intro">
                             Stay up to date with what goes on in the network
                         </p>
+                        <div>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=event" class="gb-button--primary">Events</a>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=news" class="gb-button--primary">News</a>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=data_use" class="gb-button--primary">Data use</a>
+                        </div>
                     </div>
 
-                    <div class="articles row">
-                        <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_"
-                                 alt="Ball_grid-fake2" class="article-thumb">
-                            <article class="article-box__details">
-                                <div class="article-box__tag">
-                                    <span>News</span>
-                                </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species
-                                    information</h3>
-                                <span class="article-box__footer">Nov 29th, 2016</span>
-                            </article>
-                        </a>
-                        <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/82854/16208759367_f191439217_k.jpg"
-                                 alt="Ball_grid-fake2" class="article-thumb">
-                            <article class="article-box__details">
-                                <div class="article-box__tag">
-                                    <span>News</span>
-                                </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species
-                                    information</h3>
-                                <span class="article-box__footer">Nov 29th, 2016</span>
-                            </article>
-                        </a>
-                        <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82914/ruete-ignorance-map.png"
-                                 alt="Ball_grid-fake2" class="article-thumb">
-                            <article class="article-box__details">
-                                <div class="article-box__tag">
-                                    <span>News</span>
-                                </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species
-                                    information</h3>
-                                <span class="article-box__footer">Nov 29th, 2016</span>
-                            </article>
-                        </a>
-                        <a href="sdf" class="article-box col-xs-12 col-md-3">
-                            <img src="http://api.gbif.org/v1/image/unsafe/320x180/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-October/82863/Red-crested_pochard.JPG"
-                                 alt="Ball_grid-fake2" class="article-thumb">
-                            <article class="article-box__details">
-                                <div class="article-box__tag">
-                                    <span>News</span>
-                                </div>
-                                <h3 class="article-box__title">Experts outline strategy for improving alien species
-                                    information</h3>
-                                <span class="article-box__footer">Nov 29th, 2016</span>
-                            </article>
-                        </a>
+                    <div class="articles">
+                        <article class="card article-box hoverBox ng-cloak" ng-repeat="newsStory in home.latest track by $index">
+                            <div ng-if="newsStory">
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe" ng-if="newsStory.images[0].self">
+                                    <img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
+                                         alt="" class="article-thumb">
+                                </a>
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
+                                    <div class="card__content">
+                                        <div class="article-box__tag">
+                                            <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
+                                        </div>
+                                        <h3 class="article-box__title">{{ newsStory.title }}</h3>
+                                        <span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            {#<div ng-if="newsStory.type == 'event'">#}
+                                {#<a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">#}
+                                    {#<div class="card__content">#}
+                                        {#<div class="article-box__tag">#}
+                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
+                                        {#</div>#}
+                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                        {#<span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>#}
+                                    {#</div>#}
+                                    {#<div class="card__content">#}
+                                        {#<div class="article-box__tag">#}
+                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
+                                        {#</div>#}
+                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                    {#</div>#}
+                                {#</a>#}
+                            {#</div>#}
+                        </article>
+                        {#<a ng-href="/{{ newsStory.targetUrl }}" class="article-box col-xs-12 col-md-3" ng-repeat="newsStory in home.latest" ng-if="home.latest.length == 4">#}
+                            {#<img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"#}
+                                 {#alt="Ball_grid-fake2" class="article-thumb" ng-if="newsStory.images[0].self">#}
+                            {#<article class="article-box__details">#}
+                                {#<div class="article-box__tag">#}
+                                    {#<span>{{ newsStory.type }}</span>#}
+                                {#</div>#}
+                                {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                {#<span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>#}
+                            {#</article>#}
+                        {#</a>#}
                     </div>
 
                 </div>
             </div>
         </div>
-
+{#
         <article class="horizontal-stripe--paddingless home__featured bg-attached">
             <div class="container--normal">
                 <div class="home__featured__text">
@@ -264,36 +266,11 @@ nature, PLOS, ... and
                 </div>
             </div>
         </div>
-
-        <!--div class="horizontal-stripe--paddingless light-background">
-            <div class="container--normal">
-                <div class="home__activity">
-                    <div class="home__activity__tab-area">
-                        <h2>New from the network</h2>
-                    </div>
-                    <div class="home__activity__grid">
-                        <div class="article-box">
-                            <a href="">
-                                <div class="article-box__details">
-                                    <div class="article-box__tag">
-                                        <span>News</span>
-                                    </div>
-                                    <h3 class="article-box__title">Experts outline strategy for improving alien species information</h3>
-                                    <span class="article-box__footer">Nov 29th, 2016</span>
-                                </div>
-                                <img src="http://api.gbif.org/v1/image/unsafe/376x320/left/top/http://www.gbif.org/sites/default/files/styles/focal_point_for_news/public/gbif_scaled_contents/news/2016-November/83005/16478456275_da9a891e80_k.jpg?itok=6fvyVUo_" alt="Ball_grid-fake2" width="376" height="320" class="article-thumb">
-                            </a>
-                        </div>
-                        <div class="grid-box">
-                        </div>
-                        <div class="grid-box">
-                        </div>
-                        <div class="grid-box">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div-->
+#}
 
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/js/base/pages/home.js"></script>
 {% endblock %}
