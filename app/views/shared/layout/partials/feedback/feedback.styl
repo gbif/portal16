@@ -9,10 +9,6 @@ $menuboxBorderRadius = 4px;
         animation menuboxSlideIn .5s
     }
     position fixed
-    top 0
-    bottom 0
-    left 0
-    right 0
     z-index 1000
 
     &__wrapper {
@@ -287,6 +283,14 @@ $menuboxBorderRadius = 4px;
     }
 }
 
++isBelow($mobile) {
+    .menubox {
+        top 0
+        bottom 0
+        left 0
+        right 0
+    }
+}
 +isAbove($mobile) {
     .menubox {
         top vrBlock(2)
