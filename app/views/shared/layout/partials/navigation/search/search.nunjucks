@@ -37,14 +37,6 @@
                    class="gb-button--primary">
                     GBIF network
                 </a>
-                <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
-                    Publishers
-                </a>
-                <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
-                    GBIF network
-                </a>
             </div>
         </div>
     </div>
