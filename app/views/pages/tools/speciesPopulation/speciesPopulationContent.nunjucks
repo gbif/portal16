@@ -21,7 +21,7 @@
                     <li class="is-active speciesPopulation__mapTools__info">
                         <a href="" class="inherit noUnderline gb-icon-unknown" ng-click="speciesPopulation.toggleMapTool('info')"></a>
                         <div ng-show="speciesPopulation.mapTool.info">
-                            <a href="./species-population/about" class="inherit title" id="speciesPopulation__mapTools__info__link">What is this?</a>
+                            <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title" id="speciesPopulation__mapTools__info__link">What is this?</a>
                         </div>
                     </li>
                     <li class="is-active speciesPopulation__mapTools__style" ng-show="speciesPopulation.lowerTaxon">
