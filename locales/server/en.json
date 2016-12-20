@@ -1749,6 +1749,19 @@
         "followIssue": "see suggestion on github",
         "suggestAnother": "suggest another dataset"
       }
+    },
+    "speciesPopulation": {
+      "drawerTitle": "species population trends",
+      "intro": "A pilot to explore if GBIF data supports <b>inference</b> of population trends",
+      "aboutLink": "Read all about this tool",
+      "selectSpecies": "Select species",
+      "noData": "We have no georeferenced data about the selected species after year 1900",
+      "selectHigherTaxa": "Select higher taxon",
+      "selectArea": "Select an area",
+      "hexagon": "Hexagon",
+      "draw": "Draw",
+      "clear": "Clear",
+      "resultIntro": "Change in relative abundance for the selected area"
     }
   },
   "menu": {

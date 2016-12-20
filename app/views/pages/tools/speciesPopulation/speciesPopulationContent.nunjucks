@@ -21,7 +21,7 @@
                     <li class="is-active speciesPopulation__mapTools__info">
                         <a href="" class="inherit noUnderline gb-icon-unknown" ng-click="speciesPopulation.toggleMapTool('info')"></a>
                         <div ng-show="speciesPopulation.mapTool.info">
-                            <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title" id="speciesPopulation__mapTools__info__link">What is this?</a>
+                            <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title" id="speciesPopulation__mapTools__info__link">{$ __('tools.speciesPopulation.aboutLink') $}</a>
                         </div>
                     </li>
                     <li class="is-active speciesPopulation__mapTools__style" ng-show="speciesPopulation.lowerTaxon">
@@ -62,7 +62,7 @@
                         <div class="site-drawer__header">
                             <div class="site-drawer__bar">
                                 <div class="site-drawer__bar__title">
-                                    <span>Species population</span>
+                                    <span>{$ __('tools.speciesPopulation.drawerTitle') $}</span>
                                 </div>
                             </div>
                             {#<div class="site-drawer__tabs">#}
@@ -82,7 +82,7 @@
 
                             <div>
                                 <h4>
-                                    Select species
+                                    {$ __('tools.speciesPopulation.selectSpecies')  $}
                                 </h4>
                                 <div class="search-box">
                                     <input type="text"
@@ -98,11 +98,13 @@
                                            typeahead-template-url="{{ speciesPopulation.suggestTemplate }}"
                                            typeahead-focus-first="true">
                                 </div>
-
+                            </div>
+                            <div ng-if="!speciesPopulation.lowerTaxon" class="speciesPopulation__intro">
+                                {$ __('tools.speciesPopulation.intro') | safe $}
                             </div>
                             <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
                                 <h4>
-                                    Select higher taxon
+                                    {$ __('tools.speciesPopulation.selectHigherTaxa')  $}
                                 </h4>
                                 <div class="gb-select">
                                     <label><span class="gb-icon-angle-down"></span>
@@ -114,17 +116,17 @@
                             </div>
 
                             <div ng-if="speciesPopulation.lowerTaxon.countSince1900 == 0" class="error ng-cloak">
-                                We have no georeferenced data about the selected species after year 1900
+                                {$ __('tools.speciesPopulation.noData')  $}
                             </div>
 
                             <div ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
                                 <h4>
-                                    Select an area
+                                    {$ __('tools.speciesPopulation.selectArea')  $}
                                 </h4>
                                 <div class="speciesPopulation__mode">
-                                    <a href="" ng-click="speciesPopulation.startHexagon()" ng-class="{active: speciesPopulation.hexagonMode}">Hexagon</a>
-                                    <a href="" ng-click="speciesPopulation.startDraw()" ng-class="{active: !speciesPopulation.hexagonMode}">Draw</a>
-                                    <a href="" ng-click="speciesPopulation.clearSelection()">Clear</a>
+                                    <a href="" ng-click="speciesPopulation.startHexagon()" ng-class="{active: speciesPopulation.hexagonMode}">{$ __('tools.speciesPopulation.hexagon')  $}</a>
+                                    <a href="" ng-click="speciesPopulation.startDraw()" ng-class="{active: !speciesPopulation.hexagonMode}">{$ __('tools.speciesPopulation.draw')  $}</a>
+                                    <a href="" ng-click="speciesPopulation.clearSelection()">{$ __('tools.speciesPopulation.clear')  $}</a>
                                 </div>
                             </div>
 
@@ -132,7 +134,7 @@
 
                             <div class="ng-cloak speciesPopulation__results" ng-show="speciesPopulation.tableData.years.length > 0">
                                 <h4>
-                                    Change in relative abundance for the selected area
+                                    {$ __('tools.speciesPopulation.resultIntro')  $}
                                 </h4>
                                 <div class="card">
                                     <div class="card__content">
