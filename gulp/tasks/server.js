@@ -42,7 +42,7 @@ gulp.task('server', ['server-lint'], function (cb) {
             tasks: ['server-lint'],
             watch: ['app.js', 'config/', 'app/'], //, 'app/views/**/*.nunjucks'
             env: {
-                'NODE_ENV': 'local'
+                'NODE_ENV': serverConfig.env
             },
             stdout: false
         })
