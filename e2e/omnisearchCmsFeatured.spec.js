@@ -3,18 +3,24 @@
 var commonTerms = require('../spec/commonTerms');
 
 describe('Featured term search', function() {
+    var homePage, omniSearch, prosePage;
+
+    beforeEach(function() {
+        homePage = require('./po/homePage.po.js');
+        omniSearch = require('./po/omniSearch.po.js');
+        prosePage = require('./po/prosePage.po.js');
+    });
 
     it('BID should show BID programme as programme', function(){
         browser.get('/');
-        element(by.css('#siteSearchInputHome')).sendKeys('bid');
-        element(by.css('.search-box a')).click();
-        expect(element.all(by.css('.article-card')).count()).toEqual(1);
-        expect(element(by.css('.card__content__title')).element(by.tagName('a')).getText()).toBe(commonTerms.bidProjectTitle);
-        element(by.css('.card__content__title')).element(by.tagName('a')).click();
+        homePage.searchInput.sendKeys('bid');
+        homePage.searchSubmit.click();
+        expect(omniSearch.articleCards.count()).toEqual(1);
+        expect(omniSearch.articleCardTitle.getText()).toBe(commonTerms.bidProjectTitle);
+        omniSearch.articleCardTitle.click();
 
         var EC = protractor.ExpectedConditions;
-        var inlineImage = element(by.css('.prose-columns')).element(by.tagName('img'));
-        browser.wait(EC.presenceOf(inlineImage), 3000);
-        expect(inlineImage.getAttribute('complete')).toEqual('true');
+        browser.wait(EC.presenceOf(prosePage.proseInlineImage), 3000);
+        expect(prosePage.proseInlineImage.getAttribute('complete')).toEqual('true');
     });
 });
