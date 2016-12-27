@@ -89,8 +89,8 @@
                                     <figure>
                                         <div class="resource-image">
                                             {% if data.file[0] %}<a href="{$ data.file[0].original $}">{% endif %}
-                                                <img src="{$ data.images[0].original $}"
-                                                     alt="{$ data.images[0].original $}">
+                                                <img src="{$ data.images[0].urlForImageCache $}"
+                                                     alt="{$ data.images[0].urlForImageCache $}">
                                                 {% if data.file[0] %}</a>{% endif %}
                                         </div>
                                     </figure>

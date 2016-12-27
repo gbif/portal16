@@ -92,7 +92,18 @@ router.get([
                     else if (data.data[0].hasOwnProperty('body') && data.data[0].type !== 'generic') {
                         data.data[0].body = cmsUrlEncode.extractAndEncodeUriHtml(data.data[0].body);
                     }
+                    else if (data.data[0].hasOwnProperty('description') && data.data[0].type === 'resource') {
+                        data.data[0].description = cmsUrlEncode.extractAndEncodeUriHtml(data.data[0].description);
+                    }
 
+                    // resource image field URL
+                    if (data.data[0].type == 'resource' && data.data[0].images.length > 0) {
+                        data.data[0].images.forEach(function(image){
+                            image.urlForImageCache = cmsUrlEncode.appendImgCachePrefix(image.urlForImageCache);
+                        });
+                    }
+
+                    // attach relatedDatasets via associated project_id.
                     if (data.data[0].type == 'project' && data.data[0].projectId) {
                         return cmsData.cmsEndpointAccess(dataApi.datasetSearch.url + '?project_id=' + data.data[0].projectId).then(function (datasets) {
                             data.data[0].relatedDatasets = datasets.results;

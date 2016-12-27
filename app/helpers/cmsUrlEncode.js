@@ -26,5 +26,6 @@ function extractAndEncodeUriHtml(text) {
 module.exports = {
     extractAndEncodeUriMarkdown: extractAndEncodeUriMarkdown,
     extractAndEncodeUriHtml: extractAndEncodeUriHtml,
-    imageCacheUrl: imageCacheUrl
+    imageCacheUrl: imageCacheUrl,
+    appendImgCachePrefix: appendImgCachePrefix
 };
