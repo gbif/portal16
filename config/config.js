@@ -46,8 +46,8 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',// NB not dev!
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
-        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not dev!
-        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',// NB not dev!
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
+        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials'
     },
