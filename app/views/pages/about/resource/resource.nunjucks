@@ -34,7 +34,7 @@
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.citation %}
                                 <section class="no-break">
-                                    <h5>Citation</h5>
+                                    <h5>{$ __('cms.auxiliary.citation') $}</h5>
                                     <ul class="list-citations">
                                         <li class="no-break">{$ data.citation | safe $}</li>
                                     </ul>
@@ -43,16 +43,14 @@
 
                             {% if data.resourceType[0] %}
                                 <section class="no-break">
-                                    <h5>Resource type</h5>
-                                    <ul class="list-links">
-                                        <li>{$ data.resourceType[0].name $}</li>
-                                    </ul>
+                                    <h5>{$ __('cms.auxiliary.resourceType') $}</h5>
+                                        {$ data.resourceType[0].name $}
                                 </section>
                             {% endif %}
 
                             {% if data.resourceLanguage[0] %}
                                 <section class="no-break">
-                                    <h5>Language</h5>
+                                    <h5>{$ __('cms.auxiliary.language') $}</h5>
                                     <ul class="list-chips">
                                         <li>{$ data.resourceLanguage[0].name $}</li>
                                     </ul>
@@ -61,7 +59,7 @@
 
                             {% if data.author %}
                                 <section class="no-break">
-                                    <h5>Author</h5>
+                                    <h5>{$ __('cms.auxiliary.author') $}</h5>
                                     <ul class="list-chips">
                                         <li>{$ data.author | striptags $}</li>
                                     </ul>
@@ -70,7 +68,7 @@
 
                             {% if data.rights %}
                                 <section class="no-break">
-                                    <h5>Rights</h5>
+                                    <h5>{$ __('cms.auxiliary.rights') $}</h5>
                                     <ul class="list-chips">
                                         <li>{$ data.rights | striptags $}</li>
                                     </ul>
@@ -79,7 +77,7 @@
 
                             {% if data.rightsHolder %}
                                 <section class="no-break">
-                                    <h5>Rights holder</h5>
+                                    <h5>{$ __('cms.auxiliary.rightsHolder') $}</h5>
                                     <ul class="list-chips">
                                         <li>{$ data.rightsHolder | striptags $}</li>
                                     </ul>
@@ -98,9 +96,15 @@
                                     </figure>
                                     {% if data.file[0] %}
                                         <div>
-                                            <a href="{$ data.file[0].original $}">Download{% if data.file[0].filesize %} ({$ data.file[0].filesize $}){% endif %}</a>
+                                            <a href="{$ data.file[0].original $}">{$ __('cms.auxiliary.download') $}{% if data.file[0].filesize %} ({$ data.file[0].filesize $}){% endif %}</a>
                                         </div>
                                     {% endif %}
+                                </section>
+                            {% endif %}
+
+                            {% if data.resourceUrl %}
+                                <section class="no-break">
+                                    <a href="{$ data.resourceUrl $}">{$ __('cms.auxiliary.goToResource') $}e</a>
                                 </section>
                             {% endif %}
                         </div>

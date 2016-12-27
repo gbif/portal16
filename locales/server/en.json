@@ -1680,7 +1680,15 @@
         "one": "subject",
         "other": "subjects"
       },
-      "publishedOn": "published on"
+      "publishedOn": "published on",
+      "resourceType" : "resource type",
+      "citation": "citation",
+      "language": "language",
+      "author": "author(s)",
+      "rights": "rights",
+      "rightsHolder": "rights holder",
+      "download": "download",
+      "goToResource": "Go to resource"
     },
     "heading": {
       "primary": {
