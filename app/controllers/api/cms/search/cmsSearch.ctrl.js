@@ -53,7 +53,12 @@ function cmsSearch(query) {
     queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
     queryUrl += '?range=' + query.range;
     queryUrl += '&page=' + query.page;
-    queryUrl += '&sort=-created';
+    if (query.type && query.type === 'event') {
+        queryUrl += '&sort=-dateStart';
+    }
+    else {
+        queryUrl += '&sort=-created';
+    }
 
     // Converting facets in the array notation that the CMS API consumes.
     var availableFacets = [
