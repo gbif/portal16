@@ -142,7 +142,7 @@ function transformFacetsToMap(data) {
         facetType.forEach(function (e) {
             facetMap[key].counts.push({
                 count: e.count,
-                fraction: e.count / data.count,
+                fraction: e.count / data.count === 0 ? 1 : data.count,
                 translatedLabel: e.translatedLabel,
                 key: countryFields.indexOf(key) !== -1 ? e.enum : e.key
             });

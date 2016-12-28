@@ -119,7 +119,7 @@ function expandFacets(facets, __) {
         let ftc = facetTypeConfig[facetType.field];
         if (ftc) {
             facetType.translatedLabel = __('cms.facet.' + facetType.field);
-            facetType.counts.forEach(function (e) {
+            facetType.counts.forEach(function(e) {
                 e.translatedLabel = typeof ftc.translationPath === 'undefined' ? e.enum : __(ftc.translationPath + e.enum);
                 if (ftc.type == 'enum') {
                     e.key = e.enum;
