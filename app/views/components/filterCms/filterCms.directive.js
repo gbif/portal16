@@ -57,7 +57,7 @@ function filterCmsDirective() {
                 if (vm.query.length > 0 && vm.filterState.facetMultiselect.$promise) {
                     vm.filterState.facetMultiselect.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
-                        if (data.hasOwnProperty('facets')) {
+                        if (data.hasOwnProperty('facets') && typeof data.facets[vm.filterConfig.facets.facetKey] !== 'undefined') {
                             vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
                             vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
                         }
@@ -65,7 +65,8 @@ function filterCmsDirective() {
                 } else {
                     vm.filterState.data.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
-                        if (data.hasOwnProperty('facets')) {
+                        // not all facets will present from CMS API.
+                        if (data.hasOwnProperty('facets') && typeof data.facets[vm.filterConfig.facets.facetKey] !== 'undefined') {
                             vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
                             vm.facetTitle = data.facets[vm.filterConfig.facets.facetKey].translatedLabel;
                         }
