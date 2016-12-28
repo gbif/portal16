@@ -148,15 +148,18 @@ function expandFacets(facets, __) {
             }
         });
     });
+    if (typeof index_type !== 'undefined' && typeof index_category_resource_type !== 'undefined') {
+    }
     if (!isNaN(index_type) && !isNaN(index_category_resource_type)) {
         facets[index_type].counts = facets[index_type].counts.concat(facets[index_category_resource_type].counts);
         facets.splice(index_category_resource_type, 1);
+
+        // Sort by count after merging
+        facets[index_type].counts.sort(function (a, b) {
+            if (a.count > b.count) return -1;
+            if (a.count < b.count) return 1;
+        });
     }
-    // Sort by count after merging
-    facets[index_type].counts.sort(function (a, b) {
-        if (a.count > b.count) return -1;
-        if (a.count < b.count) return 1;
-    });
 
     // use enum as resource type key, and exclude dataset from content types
     facets.forEach(function (facet) {
