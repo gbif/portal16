@@ -124,7 +124,7 @@ function transformFacetsToMap(data) {
     let facets = {};
     data.facets.forEach(function (e) {
         facets[e.field] = e.counts;
-        facets[e.field]['translatedLabel'] = e.tranlsatedLabel;
+        facets[e.field]['translatedLabel'] = e.translatedLabel;
         facets[e.field]['fieldKey'] = e.field;
     });
     data.facets = facets;
