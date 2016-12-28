@@ -1657,12 +1657,12 @@
     },
     "project": {
       "project": "Project",
+      "projectId": "Project ID",
       "grantType": "Grant type",
       "duration": "Duration",
       "fundingAllocated": "Funding allocated",
       "estCoFunding": "Est. co-funding",
       "status": "Status",
-      "relatedNews": "Related news",
       "programme": "programme",
       "call": "call",
       "partner": {
@@ -1673,7 +1673,23 @@
         "one": "funder",
         "other": "funders"
       },
-      "relatedDatasets": "related datasets"
+      "relatedDataset": {
+        "one": "dataset",
+        "other": "datasets"
+      },
+      "relatedNews": "related news",
+      "relatedEvent": {
+        "one": "related event",
+        "other": "related events"
+      },
+      "relatedProject": {
+        "one": "related project",
+        "other": "related projects"
+      },
+      "relatedResource": {
+        "one": "related information",
+        "other": "related documents and information"
+      }
     },
     "auxiliary": {
       "subject": {
