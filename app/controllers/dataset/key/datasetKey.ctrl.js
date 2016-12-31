@@ -1,7 +1,6 @@
 "use strict";
 
 var express = require('express'),
-    _ = require('lodash'),
     dataset = require('./datasetViewData'),
     taxjs = require('./taxon'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,

@@ -1,6 +1,3 @@
-// Get IE or Edge browser version
-var version = detectIE();
-
 /**
  * detect IE
  * returns version of IE or false, if browser is not Internet Explorer

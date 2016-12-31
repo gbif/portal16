@@ -2,8 +2,6 @@
 var express = require('express'),
     Country = rootRequire('app/models/gbifdata/gbifdata').Country,
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
-    _ = require('lodash'),
-    countryData = require('../countryData'),
     router = express.Router();
 
 module.exports = function (app) {

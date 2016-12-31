@@ -1,7 +1,6 @@
 "use strict";
 var express = require('express'),
     cfg = rootRequire('config/config'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     _ = require('lodash'),
     countryData = require('./countryData'),

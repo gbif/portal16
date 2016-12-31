@@ -32,17 +32,18 @@ function showStats(data, minYear, maxYear) {
         return Math.max.apply(null, numArray);
     }
 
-    for (var i = minYear; i < maxYear; i++) {
-        if (groupCounts.hasOwnProperty(i.toString())) {
-            var g = groupCounts[i];
-            groupLine.push(g);
+    for (var j = minYear; j < maxYear; j++) {
+        if (groupCounts.hasOwnProperty(j.toString())) {
+            var h = groupCounts[j];
+            groupLine.push(h);
         }
         else {
             groupLine.push(null);
         }
     }
-    var maximumPercentage = getMaxOfArray(points);
-    var maximumGroupCount = getMaxOfArray(groupLine);
+
+    // var maximumPercentage = getMaxOfArray(points);
+    // var maximumGroupCount = getMaxOfArray(groupLine);
     //groupLine = groupLine.map(function(e){
     //    return maximumPercentage*e/maximumGroupCount
     //});

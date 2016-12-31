@@ -12,7 +12,7 @@ L.GBIFSimple = L.TileLayer.extend({
 
     defaultGBIFParams: {
         style: "classic",
-        srs: "EPSG:4326",
+        srs: "EPSG:4326"
     },
 
     initialize: function (url, options) {

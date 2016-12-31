@@ -33,7 +33,7 @@ function gbmapDirective() {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element, attrs, ctrl) {
+    function mapLink(scope, element) { // (scope, element, attrs, ctrl)
         scope.create(element);
     }
 
