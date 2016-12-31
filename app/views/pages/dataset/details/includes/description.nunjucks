@@ -1,2 +1,0 @@
-{# The coverages have been processed in the model #}
-<p>{$ element.values | safe $}</p>

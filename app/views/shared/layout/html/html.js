@@ -109,9 +109,6 @@ require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/dataset/key/usage/datasetUsage.ctrl');
 
-require('../../../pages/dataset/details/datasetDetailsDownloadEventsTable.ctrl');
-require('../../../pages/dataset/details/datasetDetailsScrollSpy.ctrl');
-
 require('./angular/cmsFilter.service');
 require('../../../pages/cms/search/cms.ctrl');
 require('../../../pages/cms/search/table/cmsTable.ctrl');

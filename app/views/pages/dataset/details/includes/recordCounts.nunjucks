@@ -1,4 +1,0 @@
-{% if occurrenceCount %}
-    <p class="record-count"><span class="drop-cap">{$ occurrenceCount $}</span>occurrence records<br>{$
-        occurrenceGeoRefCount $} georeferenced.</p>
-{% endif %}
