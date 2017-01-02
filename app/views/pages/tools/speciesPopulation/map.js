@@ -40,7 +40,7 @@ function createMap(options) {
     });
     map.addControl(Draw);
 
-    map.on('load', function() {
+    map.on('load', function () {
         if (options.onLoad) {
             options.onLoad();
         }
@@ -135,8 +135,7 @@ function removeHexagonSelection() {
     map.off('click', selectFeatureAtPoint);
 }
 
-var eventListeners = {
-};
+var eventListeners = {};
 function addMapEvents(listeners) {
     eventListeners = listeners;
     if (!map) {
@@ -185,12 +184,14 @@ function selectFeatureAtPoint(e) {
     var features = map.queryRenderedFeatures(e.point, {layers: ["regression-fill"]});
     if (features.length > 0) {
         var feature = features[0];
-        Draw.set({type: 'FeatureCollection', features: [{
-            type: 'Feature',
-            properties: feature.properties,
-            id: 'selected-hexagon',
-            geometry: feature.geometry
-        }]});
+        Draw.set({
+            type: 'FeatureCollection', features: [{
+                type: 'Feature',
+                properties: feature.properties,
+                id: 'selected-hexagon',
+                geometry: feature.geometry
+            }]
+        });
         if (eventListeners.onHexagonSelect) {
             eventListeners.onHexagonSelect(feature.properties, feature);
         }

@@ -2,224 +2,241 @@
     <div class="ieWarning">
         IE isn't support at this point
     </div>
-        <article class="wrapper-horizontal-stripes">
-            <div>
-                <div id="speciesPopulationMap" class="speciesPopulationMap fillHeight"></div>
-            </div>
-            <div class="time-slider time-slider__card ng-cloak" ng-show="speciesPopulation.lowerTaxon">
-                <div class="gb-btn-group time-slider__buttons">
-                    <label class="active">
+    <article class="wrapper-horizontal-stripes">
+        <div>
+            <div id="speciesPopulationMap" class="speciesPopulationMap fillHeight"></div>
+        </div>
+        <div class="time-slider time-slider__card ng-cloak" ng-show="speciesPopulation.lowerTaxon">
+            <div class="gb-btn-group time-slider__buttons">
+                <label class="active">
                         <span class="time-slider__years">{{ speciesPopulation.yearRange.start }}
                             - {{ speciesPopulation.yearRange.end }}</span>
-                    </label>
-                </div>
-                <div class="time-slider__container">
-                    <div ya-no-ui-slider='speciesPopulation.sliderOptions'
-                         ya-no-ui-slider-events='speciesPopulation.eventHandlers'
-                         class="time-slider__slider is-active"></div>
-                </div>
+                </label>
             </div>
-            <div class="speciesPopulation__mapTools ng-cloak">
-                <ul>
-                    <li class="is-active speciesPopulation__mapTools__info">
-                        <a href="" class="inherit noUnderline gb-icon-unknown" ng-click="speciesPopulation.toggleMapTool('info')"></a>
-                        <div ng-show="speciesPopulation.mapTool.info">
-                            <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title" id="speciesPopulation__mapTools__info__link">{$ __('tools.speciesPopulation.aboutLink') $}</a>
-                        </div>
-                    </li>
-                    <li class="is-active speciesPopulation__mapTools__style" ng-show="speciesPopulation.lowerTaxon">
-                        <a href="" class="inherit noUnderline gb-icon-drop" ng-click="speciesPopulation.toggleMapTool('style')"></a>
-                        <div ng-show="speciesPopulation.mapTool.style">
-                            <div>
-                                <h5>
-                                    Select the minimum years of data per hexagon
-                                </h5>
-                                <div class="gb-select">
-                                    <label><span class="gb-icon-angle-down"></span>
-                                        <select ng-model="speciesPopulation.minimumYears"
-                                                ng-change="speciesPopulation.updateMap()">
-                                            <option ng-repeat="year in [2,5,10,15,25]" value="{{ year }}">{{ year }} years</option>
-                                        </select>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <h5>
-                                    Filter hexagons by slope standard error. Range: 0.0 - 1.0.
-                                </h5>
-                                <div class="search-box">
-                                    <input type="number" step="0.00001" ng-model="speciesPopulation.slopeStdErrThreshold" ng-change="speciesPopulation.updateMap()">
-                                </div>
+            <div class="time-slider__container">
+                <div ya-no-ui-slider='speciesPopulation.sliderOptions'
+                     ya-no-ui-slider-events='speciesPopulation.eventHandlers'
+                     class="time-slider__slider is-active"></div>
+            </div>
+        </div>
+        <div class="speciesPopulation__mapTools ng-cloak">
+            <ul>
+                <li class="is-active speciesPopulation__mapTools__info">
+                    <a href="" class="inherit noUnderline gb-icon-unknown"
+                       ng-click="speciesPopulation.toggleMapTool('info')"></a>
+                    <div ng-show="speciesPopulation.mapTool.info">
+                        <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title"
+                           id="speciesPopulation__mapTools__info__link">{$ __('tools.speciesPopulation.aboutLink')
+                            $}</a>
+                    </div>
+                </li>
+                <li class="is-active speciesPopulation__mapTools__style" ng-show="speciesPopulation.lowerTaxon">
+                    <a href="" class="inherit noUnderline gb-icon-drop"
+                       ng-click="speciesPopulation.toggleMapTool('style')"></a>
+                    <div ng-show="speciesPopulation.mapTool.style">
+                        <div>
+                            <h5>
+                                Select the minimum years of data per hexagon
+                            </h5>
+                            <div class="gb-select">
+                                <label><span class="gb-icon-angle-down"></span>
+                                    <select ng-model="speciesPopulation.minimumYears"
+                                            ng-change="speciesPopulation.updateMap()">
+                                        <option ng-repeat="year in [2,5,10,15,25]" value="{{ year }}">{{ year }}years
+                                        </option>
+                                    </select>
+                                </label>
                             </div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </article>
-
-        <aside class="site-drawer is-locked" ng-class="{'is-active': speciesPopulation.isActive}">
-            <a href="" class="site-drawer__toggle" ng-click="speciesPopulation.isActive = !speciesPopulation.isActive"></a>
-            <div class="site-drawer__wrapper">
-                <div class="site-drawer__wrapped-content">
-                    <div class="site-drawer__content">
-                        <div class="site-drawer__header">
-                            <div class="site-drawer__bar">
-                                <a href="https://gbif.org" target="_blank" class="gb-icon-logo site-drawer__bar__icon inherit embeded-only"></a>
-                                <div class="site-drawer__bar__title">
-                                    <span>{$ __('tools.speciesPopulation.drawerTitle') $}</span>
-                                </div>
-                                <span class="site-drawer__bar__icon inherit invisible embeded-only"></span>
+                        <div>
+                            <h5>
+                                Filter hexagons by slope standard error. Range: 0.0 - 1.0.
+                            </h5>
+                            <div class="search-box">
+                                <input type="number" step="0.00001" ng-model="speciesPopulation.slopeStdErrThreshold"
+                                       ng-change="speciesPopulation.updateMap()">
                             </div>
-                            {#<div class="site-drawer__tabs">#}
-                            {#<a href="">#}
-                            {#<div class="gb-icon-microscope"></div>#}
-                            {#<span>Explore</span>#}
-                            {#</a>#}
-                            {#<a href="">#}
-                            {#<div class="gb-icon-info"></div>#}
-                            {#<span>Info</span>#}
-                            {#</a>#}
-                            {#</div>#}
                         </div>
                     </div>
-                    <div class="site-drawer__section" id="speciesPopulation_scrollContainer">
-                        <div class="site-drawer__section__content">
+                </li>
+            </ul>
+        </div>
+    </article>
 
-                            <div>
-                                <h4>
-                                    {$ __('tools.speciesPopulation.selectSpecies')  $}
-                                </h4>
-                                <div class="search-box">
-                                    <input type="text"
-                                           focus-me="true"
-                                           placeholder="Search"
-                                           name="lowerTaxon"
-                                           autocomplete="off"
-                                           class="fit-suggestions"
-                                           ng-model="speciesPopulation.lowerTaxonStr"
-                                           uib-typeahead="suggestion.scientificName for suggestion in speciesPopulation.getSuggestions($viewValue)"
-                                           typeahead-on-select="speciesPopulation.setLowerTaxon($item)"
-                                           typeahead-focus-first="true"
-                                           typeahead-template-url="{{ speciesPopulation.suggestTemplate }}"
-                                           typeahead-focus-first="true">
-                                </div>
+    <aside class="site-drawer is-locked" ng-class="{'is-active': speciesPopulation.isActive}">
+        <a href="" class="site-drawer__toggle" ng-click="speciesPopulation.isActive = !speciesPopulation.isActive"></a>
+        <div class="site-drawer__wrapper">
+            <div class="site-drawer__wrapped-content">
+                <div class="site-drawer__content">
+                    <div class="site-drawer__header">
+                        <div class="site-drawer__bar">
+                            <a href="https://gbif.org" target="_blank"
+                               class="gb-icon-logo site-drawer__bar__icon inherit embeded-only"></a>
+                            <div class="site-drawer__bar__title">
+                                <span>{$ __('tools.speciesPopulation.drawerTitle') $}</span>
                             </div>
-                            <div ng-if="!speciesPopulation.lowerTaxon" class="speciesPopulation__intro">
-                                <p>
-                                    {$ __('tools.speciesPopulation.intro') | safe $}
-                                </p>
+                            <span class="site-drawer__bar__icon inherit invisible embeded-only"></span>
+                        </div>
+                        {#<div class="site-drawer__tabs">#}
+                        {#<a href="">#}
+                        {#<div class="gb-icon-microscope"></div>#}
+                        {#<span>Explore</span>#}
+                        {#</a>#}
+                        {#<a href="">#}
+                        {#<div class="gb-icon-info"></div>#}
+                        {#<span>Info</span>#}
+                        {#</a>#}
+                        {#</div>#}
+                    </div>
+                </div>
+                <div class="site-drawer__section" id="speciesPopulation_scrollContainer">
+                    <div class="site-drawer__section__content">
+
+                        <div>
+                            <h4>
+                                {$ __('tools.speciesPopulation.selectSpecies') $}
+                            </h4>
+                            <div class="search-box">
+                                <input type="text"
+                                       focus-me="true"
+                                       placeholder="Search"
+                                       name="lowerTaxon"
+                                       autocomplete="off"
+                                       class="fit-suggestions"
+                                       ng-model="speciesPopulation.lowerTaxonStr"
+                                       uib-typeahead="suggestion.scientificName for suggestion in speciesPopulation.getSuggestions($viewValue)"
+                                       typeahead-on-select="speciesPopulation.setLowerTaxon($item)"
+                                       typeahead-focus-first="true"
+                                       typeahead-template-url="{{ speciesPopulation.suggestTemplate }}"
+                                       typeahead-focus-first="true">
                             </div>
-                            <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
-                                <h4>
-                                    {$ __('tools.speciesPopulation.selectHigherTaxa')  $}
-                                </h4>
-                                <div class="gb-select">
-                                    <label><span class="gb-icon-angle-down"></span>
-                                        <select ng-options="taxon as taxon.name for taxon in speciesPopulation.higherTaxonArray"
-                                                ng-model="speciesPopulation.higherTaxon"
-                                                ng-change="speciesPopulation.updateHigherTaxon()"></select>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div ng-if="speciesPopulation.lowerTaxon.countSince1900 == 0" class="error ng-cloak">
-                                {$ __('tools.speciesPopulation.noData')  $}
-                            </div>
-
-                            <div ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
-                                <h4>
-                                    {$ __('tools.speciesPopulation.selectArea')  $}
-                                </h4>
-                                <div class="speciesPopulation__mode">
-                                    <a href="" ng-click="speciesPopulation.startHexagon()" ng-class="{active: speciesPopulation.hexagonMode}">{$ __('tools.speciesPopulation.hexagon')  $}</a>
-                                    <a href="" ng-click="speciesPopulation.startDraw()" ng-class="{active: !speciesPopulation.hexagonMode}">{$ __('tools.speciesPopulation.draw')  $}</a>
-                                    <a href="" ng-click="speciesPopulation.clearSelection()">{$ __('tools.speciesPopulation.clear')  $}</a>
-                                </div>
-                            </div>
-
-                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="speciesPopulation.loading"></ng-include>
-
-                            <div class="ng-cloak speciesPopulation__results" ng-show="speciesPopulation.tableData.years.length > 0">
-                                <h4>
-                                    {$ __('tools.speciesPopulation.resultIntro')  $}
-                                </h4>
-                                <div class="card">
-                                    <div class="card__content">
-                                        <h5>Relative abundance of "{{ speciesPopulation.lowerTaxon.scientificName }}" per
-                                            year.</h5>
-                                        <h5>(species/higher taxon)</h5>
-                                    </div>
-                                    <div class="regression-chart"></div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card__content">
-                                        <dl class="inline">
-                                            <div>
-                                                <dt class="text-capitalize">Slope</dt>
-                                                <dd>{{ speciesPopulation.selectedArea.apiData.slope | number : 5 }}</dd>
-                                            </div>
-                                            <div>
-                                                <dt class="text-capitalize" title="Sum of squared errors of prediction">SSE</dt>
-                                                <dd>{{ speciesPopulation.selectedArea.apiData.SSE | number : 5 }}</dd>
-                                            </div>
-                                            <div>
-                                                <dt class="text-capitalize">Mean square error</dt>
-                                                <dd>{{ speciesPopulation.selectedArea.apiData.meanSquareError | number : 5 }}</dd>
-                                            </div>
-                                            <div>
-                                                <dt class="text-capitalize">Significance</dt>
-                                                <dd>{{ speciesPopulation.selectedArea.apiData.significance | number : 5 }}</dd>
-                                            </div>
-                                            <div>
-                                                <dt class="text-capitalize">Slope standard error</dt>
-                                                <dd>{{ speciesPopulation.selectedArea.apiData.slopeStdErr | number : 5 }}</dd>
-                                            </div>
-                                            <div>
-                                                <dt class="text-capitalize">Years with data</dt>
-                                                <dd>{{ speciesPopulation.tableData.years.length }}</dd>
-                                            </div>
-                                        </dl>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card__content">
-                                        <h5>"{{ speciesPopulation.higherTaxon.name }}" per year</h5>
-                                    </div>
-                                    <div class="count-chart"></div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card__content">
-                                        <div>
-                                            <table class="table table-hover table-condensed">
-                                                <thead>
-                                                <tr>
-                                                    <th>Year</th>
-                                                    <th class="text-right">Higher taxon</th>
-                                                    <th class="text-right">Species</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr ng-repeat="year in speciesPopulation.tableData.years">
-                                                    <td>{{ year }}</td>
-                                                    <td class="text-right">{{ speciesPopulation.tableData.groupCounts[year] }}</td>
-                                                    <td class="text-right">{{ speciesPopulation.tableData.speciesCounts[year] || 0 }}</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="m-t-1 embeded-only">
-                                {$ __('tools.speciesPopulation.embedIntro') | insertLinks('https://gbif.org', '_blank') | safe $}
+                        </div>
+                        <div ng-if="!speciesPopulation.lowerTaxon" class="speciesPopulation__intro">
+                            <p>
+                                {$ __('tools.speciesPopulation.intro') | safe $}
                             </p>
                         </div>
+                        <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
+                            <h4>
+                                {$ __('tools.speciesPopulation.selectHigherTaxa') $}
+                            </h4>
+                            <div class="gb-select">
+                                <label><span class="gb-icon-angle-down"></span>
+                                    <select ng-options="taxon as taxon.name for taxon in speciesPopulation.higherTaxonArray"
+                                            ng-model="speciesPopulation.higherTaxon"
+                                            ng-change="speciesPopulation.updateHigherTaxon()"></select>
+                                </label>
+                            </div>
+                        </div>
 
+                        <div ng-if="speciesPopulation.lowerTaxon.countSince1900 == 0" class="error ng-cloak">
+                            {$ __('tools.speciesPopulation.noData') $}
+                        </div>
+
+                        <div ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
+                            <h4>
+                                {$ __('tools.speciesPopulation.selectArea') $}
+                            </h4>
+                            <div class="speciesPopulation__mode">
+                                <a href="" ng-click="speciesPopulation.startHexagon()"
+                                   ng-class="{active: speciesPopulation.hexagonMode}">{$
+                                    __('tools.speciesPopulation.hexagon') $}</a>
+                                <a href="" ng-click="speciesPopulation.startDraw()"
+                                   ng-class="{active: !speciesPopulation.hexagonMode}">{$
+                                    __('tools.speciesPopulation.draw') $}</a>
+                                <a href="" ng-click="speciesPopulation.clearSelection()">{$
+                                    __('tools.speciesPopulation.clear') $}</a>
+                            </div>
+                        </div>
+
+                        <ng-include src="'/templates/components/loader/loader.html'"
+                                    ng-if="speciesPopulation.loading"></ng-include>
+
+                        <div class="ng-cloak speciesPopulation__results"
+                             ng-show="speciesPopulation.tableData.years.length > 0">
+                            <h4>
+                                {$ __('tools.speciesPopulation.resultIntro') $}
+                            </h4>
+                            <div class="card">
+                                <div class="card__content">
+                                    <h5>Relative abundance of "{{ speciesPopulation.lowerTaxon.scientificName }}" per
+                                        year.</h5>
+                                    <h5>(species/higher taxon)</h5>
+                                </div>
+                                <div class="regression-chart"></div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card__content">
+                                    <dl class="inline">
+                                        <div>
+                                            <dt class="text-capitalize">Slope</dt>
+                                            <dd>{{ speciesPopulation.selectedArea.apiData.slope | number : 5 }}</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize" title="Sum of squared errors of prediction">
+                                                SSE
+                                            </dt>
+                                            <dd>{{ speciesPopulation.selectedArea.apiData.SSE | number : 5 }}</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">Mean square error</dt>
+                                            <dd>{{ speciesPopulation.selectedArea.apiData.meanSquareError | number : 5 }}</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">Significance</dt>
+                                            <dd>{{ speciesPopulation.selectedArea.apiData.significance | number : 5 }}</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">Slope standard error</dt>
+                                            <dd>{{ speciesPopulation.selectedArea.apiData.slopeStdErr | number : 5 }}</dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">Years with data</dt>
+                                            <dd>{{ speciesPopulation.tableData.years.length }}</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card__content">
+                                    <h5>"{{ speciesPopulation.higherTaxon.name }}" per year</h5>
+                                </div>
+                                <div class="count-chart"></div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card__content">
+                                    <div>
+                                        <table class="table table-hover table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th>Year</th>
+                                                <th class="text-right">Higher taxon</th>
+                                                <th class="text-right">Species</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="year in speciesPopulation.tableData.years">
+                                                <td>{{ year }}</td>
+                                                <td class="text-right">{{ speciesPopulation.tableData.groupCounts[year] }}</td>
+                                                <td class="text-right">{{ speciesPopulation.tableData.speciesCounts[year] || 0 }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="m-t-1 embeded-only">
+                            {$ __('tools.speciesPopulation.embedIntro') | insertLinks('https://gbif.org', '_blank') |
+                            safe $}
+                        </p>
                     </div>
+
                 </div>
             </div>
-        </aside>
-    </div>
+        </div>
+    </aside>
+</div>
