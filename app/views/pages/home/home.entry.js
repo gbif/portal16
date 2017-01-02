@@ -7,8 +7,7 @@ angular
 /** @ngInject */
 function homeCtrl(CmsSearch) {
     var vm = this;
-    vm.latest = new Array(4);;//show placeholder loader until the actual news return
-    vm.test = 'HEJ sdf';
+    vm.latest = new Array(4);//show placeholder loader until the actual news return
 
     function getLatest() {
         CmsSearch.query({
@@ -17,8 +16,8 @@ function homeCtrl(CmsSearch) {
             }, function(data){
                 vm.latest[0] = data.results[0];
                 vm.latest[1] = data.results[1];
-            }, function(err){
-                console.log(err);
+            }, function(){
+                //TODO handle missing cms news
             });
         CmsSearch.query({
                 limit: 2,
@@ -26,8 +25,8 @@ function homeCtrl(CmsSearch) {
             }, function(data){
                 vm.latest[2] = data.results[0];
                 vm.latest[3] = data.results[1];
-            }, function(err){
-                console.log(err);
+            }, function(){
+                //TODO handle missing cms news
             });
         //CmsSearch.query({
         //        limit: 1,

@@ -48,7 +48,7 @@ function countryKeyCtrl($http, OccurrenceTableSearch) {
             limit: 0
         }, function (response) {
             vm.kingdomsAbout = response.facets.KINGDOM_KEY.counts;
-        }, function (response) {
+        }, function () {
             //TODO couldn't get the data
         });
 
@@ -58,7 +58,7 @@ function countryKeyCtrl($http, OccurrenceTableSearch) {
             limit: 0
         }, function (response) {
             vm.kingdomsFrom = response.facets.KINGDOM_KEY.counts;
-        }, function (response) {
+        }, function () {
             //TODO couldn't get the data
         });
     }

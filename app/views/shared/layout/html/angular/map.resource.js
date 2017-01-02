@@ -17,7 +17,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('OccurrenceBbox', function ($resource, $http) {
+        .factory('OccurrenceBbox', function ($resource) {
             return $resource('//cdn.gbif.org/v1/map/density/tile.json?resolution=1&x=0&y=0&z=0', null, {
                     'query': {
                         method: 'GET',

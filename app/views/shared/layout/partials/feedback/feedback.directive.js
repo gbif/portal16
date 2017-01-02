@@ -84,8 +84,8 @@ function feedbackDirective() {
             $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
                 .then(function (response) {
                     vm.contentFeedback = response.data;
-                }, function (err) {
-                    console.log(err);
+                }, function () {
+                    //TODO failed to get page type
                 });
         };
         vm.updateContentFeedbackType();

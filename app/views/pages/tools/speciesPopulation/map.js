@@ -13,13 +13,13 @@ var breakpoints = [
 ];
 
 function createMap(options) {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ'; // eslint-disable-line no-undef
     options = options || {};
     if (!options.dataapiv2) {
         return;
     }
     mapApi = 'https:' + options.dataapiv2 + 'map/';
-    map = new mapboxgl.Map({
+    map = new mapboxgl.Map({ // eslint-disable-line no-undef
         container: 'speciesPopulationMap',
         style: 'mapbox://styles/mapbox/light-v9',//mapStyle,
         center: [10, 50],
@@ -31,7 +31,7 @@ function createMap(options) {
     });
 
     //to change draw styles see https://github.com/mapbox/mapbox-gl-draw/blob/master/EXAMPLES.md
-    Draw = new MapboxDraw({
+    Draw = new MapboxDraw({ // eslint-disable-line no-undef
         displayControlsDefault: false,
         controls: {
             polygon: true,

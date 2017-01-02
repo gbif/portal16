@@ -33,12 +33,12 @@ function gbmapDirective() {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element, attrs, ctrl) {
+    function mapLink(scope, element) {//, attrs, ctrl
         scope.create(element);
     }
 
     /** @ngInject */
-    function gbmap(enums, $httpParamSerializer, OccurrenceBbox, mapConstants, env, $scope, $timeout) {
+    function gbmap(enums, $httpParamSerializer, $scope) {
         var vm = this,
             overlays = [],
             map
@@ -254,19 +254,19 @@ function gbmapDirective() {
 }
 
 
-function createMap(element, projection) {
+function createMap(element) {
     var globe,
         mapElement = element[0].querySelector('.map-area'),
         globeCanvas = element[0].querySelector('.globe');
 
-    var crs3575 = new L.Proj.CRS('EPSG:3575',
-        '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
-        {
-            //resolutions: [
-            //    8192, 4096, 2048, 1024, 512, 256, 128
-            //],
-            origin: [0, 0]
-        });
+    //var crs3575 = new L.Proj.CRS('EPSG:3575',
+    //    '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs',
+    //    {
+    //        //resolutions: [
+    //        //    8192, 4096, 2048, 1024, 512, 256, 128
+    //        //],
+    //        origin: [0, 0]
+    //    });
 
     var map = L.map(mapElement, {
         crs: L.CRS.EPSG4326,
@@ -279,7 +279,7 @@ function createMap(element, projection) {
             focus: 'deepskyblue'
         });
     }
-    map.on('move', function (e) {
+    map.on('move', function () {
         globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
     });
     map.fitWorld().zoomIn();
@@ -332,9 +332,9 @@ function changeBaseMap(map) {
         attribution: "&copy; <a href='https://www.cartodb.com/'>CartoDB</a> <a href='http://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap contributors</a>"
     });
 
-    var arctic = L.tileLayer('//{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
-        attribution: '&copy; <a href="http://arcticconnect.org/">ArcticConnect</a>. Data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    });
+    //var arctic = L.tileLayer('//{s}.tiles.arcticconnect.org/osm_3575/{z}/{x}/{y}.png ', {
+    //    attribution: '&copy; <a href="http://arcticconnect.org/">ArcticConnect</a>. Data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    //});
     baseMap.addTo(map);
 }
 

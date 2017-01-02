@@ -25,7 +25,6 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
             description: 'Site search',
             callback: function (event) {
                 vm.isActive = true;
-                console.log('combo');
                 vm.clearFreetextAndSetFocus();
                 event.preventDefault();
             }

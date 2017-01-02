@@ -13,7 +13,7 @@ module.exports = (function () {
             window.addEventListener('scroll', positionSubmenu);
             window.addEventListener('resize', positionSubmenu);
 
-            function positionSubmenu() {
+            function positionSubmenu() { // eslint-disable-line no-inner-declarations
                 var submenuWrapper = document.getElementById('submenuWrapper');
                 var submenu = document.getElementById('submenu');
                 var subMenuWrapperPosition = submenuWrapper.getBoundingClientRect();
@@ -45,7 +45,7 @@ module.exports = (function () {
             window.addEventListener('scroll', positionTabsBar);
             window.addEventListener('resize', positionTabsBar);
 
-            function positionTabsBar() {
+            function positionTabsBar() { // eslint-disable-line no-inner-declarations
                 tabsFixedContainer = document.getElementById('tabsFixedContainer');
                 tabsScrollable = document.getElementById('tabsScrollable');
                 var tabsScrollablePosition = tabsScrollable.getBoundingClientRect();
