@@ -64,9 +64,11 @@
                     <div class="site-drawer__content">
                         <div class="site-drawer__header">
                             <div class="site-drawer__bar">
+                                <a href="https://gbif.org" target="_blank" class="gb-icon-logo site-drawer__bar__icon inherit embeded-only"></a>
                                 <div class="site-drawer__bar__title">
                                     <span>{$ __('tools.speciesPopulation.drawerTitle') $}</span>
                                 </div>
+                                <span class="site-drawer__bar__icon inherit invisible embeded-only"></span>
                             </div>
                             {#<div class="site-drawer__tabs">#}
                             {#<a href="">#}
@@ -103,7 +105,9 @@
                                 </div>
                             </div>
                             <div ng-if="!speciesPopulation.lowerTaxon" class="speciesPopulation__intro">
-                                {$ __('tools.speciesPopulation.intro') | safe $}
+                                <p>
+                                    {$ __('tools.speciesPopulation.intro') | safe $}
+                                </p>
                             </div>
                             <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
                                 <h4>
@@ -209,6 +213,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="m-t-1 embeded-only">
+                                {$ __('tools.speciesPopulation.embedIntro') | insertLinks('https://gbif.org', '_blank') | safe $}
+                            </p>
                         </div>
 
                     </div>

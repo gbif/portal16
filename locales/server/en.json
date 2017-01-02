@@ -1794,7 +1794,8 @@
       "hexagon": "Hexagon",
       "draw": "Draw",
       "clear": "Clear",
-      "resultIntro": "Change in relative abundance for the selected area"
+      "resultIntro": "Change in relative abundance for the selected area",
+      "embedIntro": "All data mediated through the {GBIF network}"
     }
   },
   "menu": {
