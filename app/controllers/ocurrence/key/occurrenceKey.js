@@ -150,9 +150,9 @@ function getOccurrenceModel(occurrenceKey, __) {
         occurrence.usedExtensionFields = getUsedExtensionTerms(occurrence.verbatim);
         deferred.resolve(occurrence);
     }, function (err) {
-        deferred.reject(new Error(err));
+        deferred.reject(err);
     }).fail(function (err) {
-        deferred.reject(new Error(err));
+        deferred.reject(err);
     }).done();
 
     return deferred.promise;
