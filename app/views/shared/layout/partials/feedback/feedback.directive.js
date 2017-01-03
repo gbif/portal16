@@ -6,7 +6,7 @@ angular
     .directive('feedback', feedbackDirective);
 
 /** @ngInject */
-function feedbackDirective() {
+function feedbackDirective($state) {
     var directive = {
         restrict: 'A',
         transclude: true,
@@ -103,6 +103,10 @@ function feedbackDirective() {
                 });
         };
         vm.getIssues();
+
+        vm.getUrl = function() {
+            return window.location.href;
+        }
 
     }
 }
