@@ -175,7 +175,7 @@
                         params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","hl","facet","facetMincount","facetMultiselect"],
                         description="Full text search across all datasets. Results are ordered by relevance.") $}
                         {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE",
-                        params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent"],
+                        params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","project_id"],
                         description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
                         $}
                         </tbody>
@@ -551,6 +551,7 @@
             "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use
             with dataset search, but will eventually search on the countries within the geospatial coverage of the
             dataset.",
+            "project_id": "Filter or facet based on the <a href='{$ apiBase $}dataset/search?project_id=AA003-AA003311F' target='_blank'>project ID</a> of a given dataset. A dataset can have a project id if it is the result of a project. multiple datasets can have the same project id.",
             "type": "For datasets, filters by dataset type as given in our <a
                     href='{$ api.apidocs $}/vocabulary/DatasetType.html' target='_blank'>DatasetType enum</a>. For
             metadata documents, filters by the metadata type as given in our <a
