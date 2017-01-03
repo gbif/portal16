@@ -4,6 +4,7 @@ var Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     _ = require('lodash');
 
 function getFeedbackContentType(path, cb) {
+    path = path || '';
     //parse path
     //if occurrence then get occurrence and dataset
     //if select list of annotatable datasets, then refer to their site.
@@ -47,6 +48,7 @@ function parseOccurrence(path, cb) {
                 contentType.type = 'MAIL';
             }
 
+            //add related keys to allow data providers to search for issues related to them
             contentType.datasetKey = occurrence.record.datasetKey;
             contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
 
