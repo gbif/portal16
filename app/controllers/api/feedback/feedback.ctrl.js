@@ -10,6 +10,7 @@ var express = require('express'),
     _ = require('lodash'),
     log = rootRequire('config/log'),
     feedbackHelper = require('./feedbackHelper'),
+    moment = require("moment"),
     router = express.Router();
 
 let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
@@ -174,6 +175,17 @@ function getDescription(data, agent, referer) {
     data.__referer = referer;
 
     data.__fbitem = feedbackHelper.extractIdentifer(referer);
+
+    //get timestamps
+    var now = moment();
+
+    //date math example
+    data.__timestamp = {};
+    data.__timestamp.before = now.subtract(5, 'minutes').toISOString();
+    data.__timestamp.after = now.add(6, 'minutes').toISOString();
+
+//time math example
+    console.log(now.add(6, 'minutes').toISOString());
 
     var res = nunjucks.renderString(issueTemplateString, data);
     return res;
