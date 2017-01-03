@@ -64,7 +64,9 @@ function feedbackDirective($state) {
                 width: window.innerWidth,
                 height: window.innerHeight,
                 type: vm.selected,
-                form: formData
+                form: formData,
+                datasetKey: vm.associatedDatasetKey,
+                publishingOrgKey: vm.associatedPublishingOrgKey
             };
             $http.post('/api/feedback/bug', issue, {}).then(function (response) {
                 vm.referenceId = response.data.referenceId;
@@ -84,6 +86,8 @@ function feedbackDirective($state) {
             $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
                 .then(function (response) {
                     vm.contentFeedback = response.data;
+                    vm.associatedDatasetKey = response.data.datasetKey;
+                    vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
                 }, function () {
                     //TODO failed to get page type
                 });

@@ -150,7 +150,7 @@ function createIssue(req, data, cb) {
     });
 }
 
-function getTitle(title, type, referer) {
+function getTitle(title) {
     return title;
 }
 
@@ -179,13 +179,10 @@ function getDescription(data, agent, referer) {
     //get timestamps
     var now = moment();
 
-    //date math example
+    //set timestamps 5 minuttes before and 1 minute after for linking to relevant logs
     data.__timestamp = {};
     data.__timestamp.before = now.subtract(5, 'minutes').toISOString();
     data.__timestamp.after = now.add(6, 'minutes').toISOString();
-
-//time math example
-    console.log(now.add(6, 'minutes').toISOString());
 
     var res = nunjucks.renderString(issueTemplateString, data);
     return res;

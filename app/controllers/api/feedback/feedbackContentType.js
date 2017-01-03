@@ -47,6 +47,9 @@ function parseOccurrence(path, cb) {
                 contentType.type = 'MAIL';
             }
 
+            contentType.datasetKey = occurrence.record.datasetKey;
+            contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
+
             cb(contentType);
         },
         function (err) {
