@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Occurrence search', function () {
+describe('E2E_01_Occurrence_Search', function () {
     var searchDrawer, searchOccurrence, occurrenceTable;
 
     beforeEach(function () {

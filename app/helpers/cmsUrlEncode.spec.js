@@ -15,7 +15,7 @@ let cmsUrlEncode = require('./cmsUrlEncode'),
     apiConfig = require('../models/gbifdata/apiConfig'),
     mock = require('./cmsUrlEncode.mock.json');
 
-describe('TC_03_CMS_Inline_Image_Cache_Link', function () {
+describe('TC_Model_01_Inline_Image_Cache_Link', function () {
     it('Inline image URLs in markdown are converted correctly', function () {
         expect(cmsUrlEncode.extractAndEncodeUriMarkdown(mock.markdownRaw)).toEqual(mock.markdownResult);
     });
