@@ -293,7 +293,7 @@ function getGroupIntro(group) {
 function getParticipantsContacts(contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryParticipants.url;
-    var options = authorizeApiCall(requestUrl);
+    var options = Directory.authorizeApiCall(requestUrl);
     var groups = [
         {'enum': 'voting_participants', 'members': []},
         {'enum': 'associate_country_participants', 'members': []},
@@ -387,7 +387,7 @@ function getParticipantsContacts(contacts) {
 function getParticipantDetails(participantId) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
-    var options = authorizeApiCall(requestUrl);
+    var options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
@@ -403,7 +403,7 @@ function getParticipantDetails(participantId) {
 function getNodeDetails(nodeId) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryNode.url + '/' + nodeId;
-    var options = authorizeApiCall(requestUrl);
+    var options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
@@ -453,7 +453,7 @@ function getParticipantPeopleDetails(participant, contacts) {
 function getCommitteeContacts(group, contacts) {
     var deferred = Q.defer();
     var requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
-    var options = authorizeApiCall(requestUrl);
+    var options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (results) {
@@ -507,7 +507,7 @@ function getCommitteeContacts(group, contacts) {
 function getPersonContact(personId, contacts) {
     var deferred = Q.defer();
     var requestUrl = dataApi.directoryPerson.url + '/' + personId;
-    var options = authorizeApiCall(requestUrl);
+    var options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
@@ -595,13 +595,13 @@ function setMembership(p) {
     }
 }
 
-function authorizeApiCall(requestUrl) {
+Directory.authorizeApiCall = requestUrl => {
     let credential = require('/etc/portal16/credentials.json');
 
-    var appKey = credential.directory.appKey;
-    var secret = credential.directory.secret;
+    let appKey = credential.directory.appKey;
+    let secret = credential.directory.secret;
 
-    var options = {
+    let options = {
         url: requestUrl,
         retries: 5,
         method: 'GET',
@@ -611,10 +611,10 @@ function authorizeApiCall(requestUrl) {
         }
     };
 
-    var stringToSign = options.method + '\n' + requestUrl + '\n' + appKey;
-    var signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
+    let stringToSign = options.method + '\n' + requestUrl + '\n' + appKey;
+    let signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
     options.headers.Authorization = 'GBIF' + ' ' + appKey + ':' + signature;
     return options;
-}
+};
 
 module.exports = Directory;
