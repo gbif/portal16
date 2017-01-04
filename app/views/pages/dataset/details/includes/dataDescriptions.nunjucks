@@ -1,8 +1,0 @@
-{# For the rendering in Struts, see https://github.com/gbif/portal-web/blob/master/src/main/webapp/WEB-INF/pages/dataset/detail.ftl#L260 #}
-<ul>
-    {% for desc in element.values %}
-        <li>
-            <a href="{$ desc.url $}">{$ desc.name $}</a> {$ desc.format $} {$ desc.charset $}
-        </li>
-    {% endfor %}
-</ul>
