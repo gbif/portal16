@@ -24,18 +24,20 @@ function homeCtrl(CmsSearch) {
                 type: 'data_use'
             }, function(data){
                 vm.latest[2] = data.results[0];
-                vm.latest[3] = data.results[1];
+                //vm.latest[3] = data.results[1];
             }, function(){
-                //TODO handle missing cms news
+                //TODO handle missing cms data
             });
-        //CmsSearch.query({
-        //        limit: 1,
-        //        type: 'event'
-        //    }, function(data){
-        //        vm.latest[3] = data.results[0];
-        //    }, function(err){
-        //        console.log(err);
-        //    });
+        CmsSearch.query({
+                limit: 1,
+                type: 'event'
+            }, function(data){
+                vm.latest[3] = data.results[0];
+                console.log(data.results[0]);
+                //TODO handle missing events
+            }, function(err){
+                //TODO handle failing queries
+            });
     }
     getLatest();
 }

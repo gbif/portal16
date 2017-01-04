@@ -88,7 +88,7 @@ nature, PLOS, ... and
 
                     <div class="articles">
                         <article class="card article-box hoverBox ng-cloak" ng-repeat="newsStory in home.latest track by $index">
-                            <div ng-if="newsStory">
+                            <div ng-if="newsStory && newsStory.type != 'event'">
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe" ng-if="newsStory.images[0].self">
                                     <img ng-src="//api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
                                          alt="" class="article-thumb">
@@ -98,29 +98,29 @@ nature, PLOS, ... and
                                         <div class="article-box__tag">
                                             <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
                                         </div>
-                                        <h3 class="article-box__title">{{ newsStory.title }}</h3>
+                                        <h4 class="article-box__title">{{ newsStory.title }}</h4>
                                         <span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>
                                     </div>
                                 </a>
                             </div>
 
-                            {#<div ng-if="newsStory.type == 'event'">#}
-                                {#<a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">#}
-                                    {#<div class="card__content">#}
-                                        {#<div class="article-box__tag">#}
-                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
-                                        {#</div>#}
-                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
-                                        {#<span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>#}
-                                    {#</div>#}
-                                    {#<div class="card__content">#}
-                                        {#<div class="article-box__tag">#}
-                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
-                                        {#</div>#}
-                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
-                                    {#</div>#}
-                                {#</a>#}
-                            {#</div>#}
+                            <div ng-if="newsStory.type == 'event'">
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
+                                    <div class="card__content date-box">
+                                        <div>
+                                            <span>{{newsStory.created * 1000 | date:'MMM' }}</span>
+                                            <div>{{newsStory.created * 1000 | date:'d' }}</div>
+                                            <span>{{newsStory.created * 1000 | date:'yyyy' }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="card__content">
+                                        <div class="article-box__tag">
+                                            <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
+                                        </div>
+                                        <h4 class="article-box__title">{{ newsStory.title }}</h4>
+                                    </div>
+                                </a>
+                            </div>
                         </article>
                         {#<a ng-href="/{{ newsStory.targetUrl }}" class="article-box col-xs-12 col-md-3" ng-repeat="newsStory in home.latest" ng-if="home.latest.length == 4">#}
                             {#<img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"#}
@@ -138,7 +138,7 @@ nature, PLOS, ... and
                 </div>
             </div>
         </div>
-{#
+
         <article class="horizontal-stripe--paddingless home__featured bg-attached">
             <div class="container--normal">
                 <div class="home__featured__text">
@@ -220,7 +220,7 @@ nature, PLOS, ... and
             </div>
         </div>
 
-#}
+
     </div>
 {% endblock %}
 

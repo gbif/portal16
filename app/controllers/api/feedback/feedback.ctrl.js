@@ -117,8 +117,7 @@ function isValid(formData) {
 
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
-        referer = req.headers.referer,
-        item = feedbackHelper.extractIdentifer(referer);
+        referer = req.headers.referer;
     var description = '',
         title,
         labels = [];
