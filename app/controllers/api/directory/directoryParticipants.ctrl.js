@@ -1,19 +1,19 @@
 'use strict';
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
     DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
     log = require('../../../../config/log');
 
-module.exports = function (app) {
+module.exports = app => {
     app.use('/api', router);
 };
 
-router.get('/directory/participants', function (req, res, next) {
+router.get('/directory/participants', (req, res, next) => {
     DirectoryParticipants.groupBy(req.query)
-        .then(function (data) {
+        .then(data => {
             res.json(data);
         })
-        .catch(function (err) {
+        .catch(err => {
             log.error('Error in /api/directory/participants controller: ' + err.message);
             next(err)
         });
