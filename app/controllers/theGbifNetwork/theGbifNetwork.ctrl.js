@@ -1,12 +1,20 @@
 let express = require('express'),
     router = express.Router(),
     TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork');
+let DirectoryParticipants = require('../../models/gbifdata/directory/directoryParticipants');
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
 router.get('/the-gbif-network', function (req, res, next) {
+    // the landing page needs
+    // 1) all country objects decorated by their membership status
+    // 2) count of data publishers
+    // 3) count of countries of authors
+    // 4) count of authors
+    // 5) count of total literature
+
     let jsonOutput = false;
     let countries;
     let context = {};
@@ -14,10 +22,14 @@ router.get('/the-gbif-network', function (req, res, next) {
     TheGbifNetwork.get(res)
         .then(data => {
             context.intro = data;
-            return TheGbifNetwork.getCountries();
+            return DirectoryParticipants.groupByRegion();
+            //return TheGbifNetwork.getCountries();
         })
         .then(data => {
             context.countries = data;
+            return DirectoryParticipants.groupByRegion();
+        })
+        .then(data => {
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {
                 data: context,
                 hasTitle: true
