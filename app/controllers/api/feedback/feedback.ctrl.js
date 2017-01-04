@@ -41,7 +41,7 @@ router.get('/issues', function (req, res, next) {
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
-            q: item + ' is:issue is:open label:content -label:"Needs validation" in:body+repo:' + credentials.repository,
+            q: item + ' is:issue is:open label:content -label:"Under review" in:body+repo:' + credentials.repository,
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
@@ -60,13 +60,14 @@ router.get('/issues', function (req, res, next) {
                     }
                 });
                 //link to all the issues for this page item
-                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:content -label:"Needs validation" in:body');
+                data.issuesUrl = 'https://github.com/' + credentials.repository + '/issues?utf8=✓&q=' + encodeURIComponent(item) + encodeURIComponent(' is:issue is:open label:content -label:"Under review" in:body');
                 res.json(data);
             }
         });
     }
 
 });
+
 
 router.get('/template.html', function (req, res, next) {
     //once promise has been resolved then
@@ -155,7 +156,7 @@ function getTitle(title) {
 }
 
 function getLabels(data) {
-    var labels = _.union(['Needs validation'], _.intersection(['bug', 'idea', 'content'], [data.type]));
+    var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content'], [data.type]));
     return _.uniq(labels);
 }
 
