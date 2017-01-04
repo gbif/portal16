@@ -410,7 +410,7 @@ function getNodeDetails(nodeId) {
             return getParticipantDetails(data.participantId)
                 .then(function (result) {
                     data.participantName = result.name;
-                    setMembership(result);
+                    Directory.setMembership(result);
                     data.membershipType = result.membershipType;
                     return data;
                 });
@@ -530,7 +530,7 @@ function getPersonContact(personId, contacts) {
                         }
                     });
                     data.participants.forEach(function (p) {
-                        setMembership(p);
+                        Directory.setMembership(p);
                     });
                     return data;
                 });
@@ -570,7 +570,7 @@ function getPersonContact(personId, contacts) {
     return deferred.promise;
 }
 
-function setMembership(p) {
+Directory.setMembership = p => {
     // determine membership type
     if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
         p.membershipType = 'voting_participant';
@@ -593,7 +593,7 @@ function setMembership(p) {
     else {
         p.membershipType = 'not_specified';
     }
-}
+};
 
 Directory.authorizeApiCall = requestUrl => {
     let credential = require('/etc/portal16/credentials.json');
