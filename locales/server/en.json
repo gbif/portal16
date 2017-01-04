@@ -1903,7 +1903,8 @@
   },
   "participation": {
     "title": "participation",
-    "heading": "The GBIF Network",
+    "heading": "The GBIF Network"
+  },
   "feedback": {
     "intro": {
       "title": "Feedback",
