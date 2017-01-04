@@ -6,7 +6,7 @@ var crypto = require('crypto'),
     helper = require('../../util/util'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
-    translationsHelper = rootRequire('app/helpers/translationsPromise'),
+    translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
 var Directory = {};
@@ -279,7 +279,7 @@ function getGroupIntro(group) {
     var deferred = Q.defer();
     // insert intro text for each group.
     let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
-    translationsHelper.getTranslations(groupIntroFile, language)
+    translationsHelper.getTranslationPromise(groupIntroFile, language)
         .then(function (translation) {
             group.intro = translation[0];
             deferred.resolve(group);

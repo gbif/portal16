@@ -6,7 +6,7 @@ let helper = require('../../util/util'),
     Q = require('q'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
-    translationsHelper = rootRequire('app/helpers/translationsPromise'),
+    translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
 let calls = 0;
@@ -62,7 +62,7 @@ function getIntro(language) {
     let deferred = Q.defer();
     // insert intro text for each group.
     let introFile = ['theGbifNetwork/landing/'];
-    translationsHelper.getTranslations(introFile, language)
+    translationsHelper.getTranslationPromise(introFile, language)
         .then(function(translation){
             deferred.resolve(translation);
         })
@@ -228,28 +228,6 @@ function genericEndpointAccess(requestUrl, options) {
         }
     }, options);
     return deferred.promise;
-}
-
-function authorizeApiCall(requestUrl) {
-    let credential = require('/etc/portal16/credentials.json');
-
-    let appKey = credential.directory.appKey;
-    let secret = credential.directory.secret;
-
-    let options = {
-        url: requestUrl,
-        retries: 5,
-        method: 'GET',
-        headers: {
-            'x-gbif-user': appKey,
-            'x-url': requestUrl
-        }
-    };
-
-    let stringToSign = options.method + '\n' + requestUrl + '\n' + appKey;
-    let signature = crypto.createHmac('sha1', secret).update(stringToSign).digest('base64');
-    options.headers.Authorization = 'GBIF' + ' ' + appKey + ':' + signature;
-    return options;
 }
 
 module.exports = theGbifNetwork;
