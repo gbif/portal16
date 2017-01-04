@@ -82,7 +82,7 @@ theGbifNetwork.getCountries = () => {
     let deferred = Q.defer();
     let requestUrl = dataApi.countryEnumeration.url;
     let options = {};
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(countries => {
             let countryTasks = [];
             countries.forEach(country => {
@@ -125,7 +125,7 @@ function getDataCount(country) {
         {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='}
     ];
     calls.forEach(call => {
-        callTasks.push(genericEndpointAccess(call.urlTemplate + country.iso2)
+        callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)
             .then(result => {
                 return processCountResult(call.name, result);
             })
@@ -181,7 +181,7 @@ function getChecklistMetrics(results) {
     let usagesCount = 0;
     let metricsTask = [];
     results.forEach(result => {
-        metricsTask.push(genericEndpointAccess(dataApi.dataset.url + result.key + '/metrics')
+        metricsTask.push(helper.getApiDataPromise(dataApi.dataset.url + result.key + '/metrics')
             .then(metrics => {
                 usagesCount += metrics.usagesCount;
             })
@@ -210,24 +210,6 @@ function getParticipantSummary(participant) {
         numCoveringCountries: 0,
         numPublications: 0
     };
-}
-
-function genericEndpointAccess(requestUrl, options) {
-
-    let deferred = Q.defer();
-    helper.getApiData(requestUrl, function (err, data) {
-        calls++;
-        if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
-        } else if (data) {
-            deferred.resolve(data);
-        }
-        else {
-            deferred.reject(new Error(err + ' while accessing ' + requestUrl));
-            log.info(err + ' while accessing ' + requestUrl);
-        }
-    }, options);
-    return deferred.promise;
 }
 
 module.exports = theGbifNetwork;

@@ -304,7 +304,7 @@ function getParticipantsContacts(contacts) {
         {'enum': 'others', 'members': []}
     ];
 
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             // Insert participant details
             var detailsTasks = [];
@@ -389,7 +389,7 @@ function getParticipantDetails(participantId) {
     var requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
     var options = authorizeApiCall(requestUrl);
 
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             deferred.resolve(data);
         })
@@ -405,7 +405,7 @@ function getNodeDetails(nodeId) {
     var requestUrl = dataApi.directoryNode.url + '/' + nodeId;
     var options = authorizeApiCall(requestUrl);
 
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             return getParticipantDetails(data.participantId)
                 .then(function (result) {
@@ -455,7 +455,7 @@ function getCommitteeContacts(group, contacts) {
     var requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
     var options = authorizeApiCall(requestUrl);
 
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(function (results) {
             var personsTasks = [];
             results.forEach(function (person) {
@@ -509,7 +509,7 @@ function getPersonContact(personId, contacts) {
     var requestUrl = dataApi.directoryPerson.url + '/' + personId;
     var options = authorizeApiCall(requestUrl);
 
-    genericEndpointAccess(requestUrl, options)
+    helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             // get node name and/or participant name
             var participantTasks = [];
@@ -593,23 +593,6 @@ function setMembership(p) {
     else {
         p.membershipType = 'not_specified';
     }
-}
-
-function genericEndpointAccess(requestUrl, options) {
-    var deferred = Q.defer();
-    helper.getApiData(requestUrl, function (err, data) {
-        calls++;
-        if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
-        } else if (data) {
-            deferred.resolve(data);
-        }
-        else {
-            deferred.reject(new Error(err + ' while accessing ' + requestUrl));
-            log.info(err + ' while accessing ' + requestUrl);
-        }
-    }, options);
-    return deferred.promise;
 }
 
 function authorizeApiCall(requestUrl) {
