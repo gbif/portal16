@@ -25,7 +25,6 @@ function isOccurrence(req) {
     return req.query.occ == "true";
 }
 
-
 function getRoot(req, res, next) {
     if (isOccurrence(req)) {
         //use occ solr facets
@@ -34,15 +33,15 @@ function getRoot(req, res, next) {
     } else {
         callApi(res, next, apiConfig.taxonRoot.url + req.params.datasetKey, prunePage);
     }
-};
+}
 
 function getTaxon(req, res, next) {
     callApi(res, next, apiConfig.taxon.url + req.params.taxonKey);
-};
+}
 
 function getParents(req, res, next) {
     callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/parents", pruneTaxa);
-};
+}
 
 function getChildren(req, res, next) {
     if (isOccurrence(req)) {
@@ -53,7 +52,7 @@ function getChildren(req, res, next) {
     } else {
         callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=" + limit, prunePage);
     }
-};
+}
 
 function getSynonyms(req, res, next) {
     if (isOccurrence(req)) {
@@ -64,7 +63,7 @@ function getSynonyms(req, res, next) {
     } else {
         callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/synonyms?limit=" + limit, prunePage);
     }
-};
+}
 
 function nextLowerRank(rank) {
     if (rank) {
@@ -104,7 +103,7 @@ function callApi(res, next, path, transform, taxonKey) {
             next(new Error(err));
         }
     }, {retries: 2, timeoutMilliSeconds: 10000});
-};
+}
 
 function convertFacetsAcceptedOnly(page, parentKey) {
     return convertFacets(page, function (rec) {

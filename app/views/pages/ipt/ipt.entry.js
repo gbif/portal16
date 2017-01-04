@@ -32,9 +32,9 @@ function iptCtrl($http, leafletData, mapConstants) {
     };
     vm.installations = [];
 
-    $http.get('//api.gbif.org/v1/installation/location/IPT_INSTALLATION').success(function (data, status) {
+    $http.get('//api.gbif.org/v1/installation/location/IPT_INSTALLATION').success(function (data) {
         L.geoJson(data, {
-            onEachFeature: function (feature, layer) {
+            onEachFeature: function (feature) {
                 //get phrase in site language in plural or singular
                 var publisherUrl = '/publisher/';
                 //Create popup html

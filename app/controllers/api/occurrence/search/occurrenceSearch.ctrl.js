@@ -80,5 +80,5 @@ const expandConfig = {
         type: 'KEY',
         endpoint: apiConfig.taxon.url,
         fromKey: 'scientificName'
-    },
+    }
 };

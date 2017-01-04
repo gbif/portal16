@@ -7,7 +7,7 @@ angular
 /** @ngInject */
 function homeCtrl(CmsSearch) {
     var vm = this;
-    vm.latest = new Array(4);;//show placeholder loader until the actual news return
+    vm.latest = new Array(4);//show placeholder loader until the actual news return
     vm.test = 'HEJ sdf';
 
     function getLatest() {
@@ -39,7 +39,6 @@ function homeCtrl(CmsSearch) {
         //    });
     }
     getLatest();
-
 }
 
 module.exports = homeCtrl;

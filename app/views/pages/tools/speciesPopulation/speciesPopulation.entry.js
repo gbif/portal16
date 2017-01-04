@@ -122,7 +122,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             year: '1900,*'
         }, function(response){
             vm.lowerTaxon.countSince1900 = response.count;
-        }, function(err){
+        }, function(){ // (err)
         });
     };
 
@@ -276,7 +276,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
-        onDelete: function(e) {
+        onDelete: function() { // (e)
         },
         onHexagonSelect: function(properties, feature) {
             if (vm.regressionQuery.$cancelRequest) {

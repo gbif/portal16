@@ -1,11 +1,9 @@
 "use strict";
 var _ = require('lodash'),
-    baseConfig = rootRequire('config/config'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     cmsConfig = rootRequire('app/models/cmsData/apiConfig'),
     helper = rootRequire('app/models/util/util'),
     async = require('async'),
-    _ = require('lodash'),
     participantDump = require('./participant-dump'),
     countryCodeToDrupalId = _.keyBy(participantDump, 'Participant ISO 3166-2 code'); //temporary solution because the Drupal api do not allow for getting participants by their ISO code. Instead we do a map between ISO and internal Drupal node id
 

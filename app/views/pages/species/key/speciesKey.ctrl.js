@@ -16,7 +16,7 @@ angular
     .controller('speciesKeyCtrl', speciesKeyCtrl);
 
 /** @ngInject */
-function speciesKeyCtrl(env) {
+function speciesKeyCtrl() { // (env)
     var vm = this;
 
     vm.key = gb.taxon.key;

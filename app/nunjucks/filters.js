@@ -4,7 +4,7 @@ var format = require('../helpers/format'),
     truncate = require('html-truncate'),
     fs = require('fs');
 
-module.exports = function (nunjucksConfiguration, config) {
+module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('rawJson', function (data) {

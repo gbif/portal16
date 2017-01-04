@@ -1,7 +1,6 @@
 'use strict';
 
 var angular = require('angular'),
-    _ = require('lodash'),
     keys = require('../../../../../helpers/constants').keys;
 
 angular
@@ -40,7 +39,7 @@ function taxBrowserDirective() {
         if (vm.taxonKey) {
             TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
-                taxonKey: vm.taxonKey,
+                taxonKey: vm.taxonKey
             }, function (data) {
                 vm.taxon = data;
 
@@ -53,7 +52,7 @@ function taxBrowserDirective() {
                         // also add accepted taxon as parent
                         TaxonomyDetail.query({
                             datasetKey: vm.datasetKey,
-                            taxonKey: vm.taxon.acceptedKey,
+                            taxonKey: vm.taxon.acceptedKey
                         }, function (acc) {
                             parents.push(acc);
                             vm.parents = parents;

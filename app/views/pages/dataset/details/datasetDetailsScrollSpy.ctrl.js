@@ -27,13 +27,11 @@ function scrollSpyCtrl() {
         offsetHeightMetaNavOccupied = 80 + metaNav.offsetHeight + metaNavBottomSpacing,
         offsetHeightMetadataStrip = metadataStrip.offsetHeight,
         offsetTopMetadataStripHighest = offsetHeightMetadataStrip - offsetHeightMetaNavOccupied,
-        rectMetadataStrip,
-        rectMetaNav;
+        rectMetadataStrip;
 
     EventUtil.addHandler(window, 'scroll', function () {
         if (document.compatMode == 'CSS1Compat') {
             rectMetadataStrip = metadataStrip.getBoundingClientRect();
-            rectMetaNav = metaNav.getBoundingClientRect();
 
             if (rectMetadataStrip.top < 70 && rectMetadataStrip.top > -offsetTopMetadataStripHighest) {
                 metaNav.style.position = 'fixed';
