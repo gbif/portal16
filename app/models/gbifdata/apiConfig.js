@@ -73,6 +73,9 @@ var apiConfig = {
     },
     directoryReport: {
         url: baseUrl + 'directory/report'
+    },
+    countryEnumeration: {
+        url: baseUrl + 'enumeration/country'
     }
 };
 

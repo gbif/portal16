@@ -12,7 +12,7 @@
                         <h1>{$ __('menu.GbifNetwork') $}</h1>
                         <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
-                            {$ data.content $}
+                            {$ data.content | safe $}
                         </div>
                     </header>
                 </div>
