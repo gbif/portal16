@@ -104,7 +104,7 @@
 
                             {% if data.resourceUrl %}
                                 <section class="no-break">
-                                    <a href="{$ data.resourceUrl $}">{$ __('cms.auxiliary.goToResource') $}e</a>
+                                    <a href="{$ data.resourceUrl $}">{$ __('cms.auxiliary.goToResource') $}</a>
                                 </section>
                             {% endif %}
                         </div>
