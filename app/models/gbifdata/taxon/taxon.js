@@ -1,6 +1,8 @@
 "use strict";
 
 var resource = require('../resource'),
+    keys = rootRequire('app/helpers/constants').keys,
+    _ = require('lodash'),
     api = require('../apiConfig');
 
 var Taxon = function (record) {
@@ -9,6 +11,12 @@ var Taxon = function (record) {
 
 Taxon.prototype.record = {};
 
+/**
+ *
+ * @param key
+ * @param options with expand and expandBackboneOnly settings
+ * @returns {*}
+ */
 Taxon.get = function (key, options) {
     options = options || {};
     var promise = resource.get(api.taxon.url + key).as(Taxon);
@@ -16,13 +24,20 @@ Taxon.get = function (key, options) {
         return promise
     } else {
         return promise.then(function (taxon) {
+            // check expandBackboneOnly option
+            if (typeof options.expandBackboneOnly !== 'undefined') {
+                options.expand = [];
+            } else if (taxon.record.origin != 'SOURCE') {
+                // the verbatim resource only exists for origin=SOURCE
+                _.pull(options.expand, 'verbatim');
+            }
             return taxon.expand(options.expand)
         });
     }
 };
 
 Taxon.prototype.isNub = function () {
-    return this.record.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c';
+    return this.record.datasetKey == keys.nubKey;
 };
 
 Taxon.prototype.expand = function (fieldNames) {
@@ -72,9 +87,21 @@ Taxon.prototype.expand = function (fieldNames) {
                 resource: api.taxon.url + this.record.key + '/related?limit=50',
                 extendToField: 'related'
             },
+            homonyms: {
+                resource: api.taxon.url + '?datasetKey=' + this.record.datasetKey + "&name=" + this.record.canonicalName,
+                extendToField: 'homonyms'
+            },
+            info: {
+                resource: api.taxon.url + this.record.key + '/speciesProfiles?limit=50',
+                extendToField: 'info'
+            },
             typification: {
                 resource: api.taxon.url + this.record.key + '/typeSpecimens',
                 extendToField: 'typification'
+            },
+            verbatim: {
+                resource: api.taxon.url + this.record.key + '/verbatim',
+                extendToField: 'verbatim'
             },
             vernacular: {
                 resource: api.taxon.url + this.record.key + '/vernacularNames?limit=50',

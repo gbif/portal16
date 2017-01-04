@@ -8,7 +8,7 @@
 
         {% include "./downloadOverlay.nunjucks" %}
 
-        <div class="container-fluid white-background search-header">
+        <div class="horizontal-stripe article-header white-background">
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="article-header__category article-header__category--deep">

@@ -1,60 +1,112 @@
-<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}"
-       ng-controller="searchCtrl as omniSearch">
-
-    <div class="site-drawer__content">
-        <div class="site-drawer__header">
-            <div class="site-drawer__header__title">
-                <span class="text-center">Search</span>
+<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch" click-outside="omniSearch.isActive = false">
+    <div>
+        <div>
+            <form class="search-box" ng-submit="omniSearch.updateSearch()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       ng-init="omniSearch.freeTextQuery == ''"
+                       ng-model="omniSearch.freeTextQuery"
+                       placeholder="Occurrences, species, news ..."
+                       ng-keydown="omniSearch.closeOnEsc($event)">
+                <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2"
+                   ng-click="omniSearch.updateSearch()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+        </div>
+        <div class="omnisearch-bar__filters">
+            <div>
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--primary">
+                    Occurrences
+                </a>
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--primary">
+                    Species
+                </a>
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--primary">
+                    Datasets
+                </a>
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--primary">
+                    Publishers
+                </a>
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--primary">
+                    GBIF network
+                </a>
             </div>
         </div>
-        <div class="site-drawer__section">
+    </div>
+</aside>
 
-            <div class="search-bar filter-group">
+{#
+<aside class="site-drawer" id="site-search" ng-class="{'is-active': omniSearch.isActive}"
+       ng-controller="searchCtrl as omniSearch"
+       click-outside="omniSearch.isActive = false"
+       click-outside-unless="!omniSearch.isActive"
+       >
 
-                <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
-                    <input type="text"
-                           autocomplete="off"
-                           id="siteSearch"
-                           ng-init="omniSearch.freeTextQuery == ''"
-                           ng-model="omniSearch.freeTextQuery"
-                           placeholder="Occurrences, species, news ...">
-                    <a href="" type="submit" style="cursor:pointer" class="gb-icon-search search-bar__search"
-                       ng-click="omniSearch.updateSearch()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                    </a>
-                </form>
-
-            </div>
-
-            <div class="filter-group--links">
-                <h4>
-                    Filter by
-                </h4>
-                <div>
-                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">
-                        Occurrences
-                    </a>
-                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">
-                        Species
-                    </a>
-                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">
-                        Datasets
-                    </a>
+    <div class="site-drawer__wrapper">
+        <div class="site-drawer__content">
+            <div class="site-drawer__header">
+                <div class="site-drawer__header__title">
+                    <span class="text-center">Search</span>
                 </div>
-                <div class="seperator">
-                    <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">
-                        Publishers
-                    </a>
-                    {% for type in ['news', 'data_use', 'programme', 'project', 'document', 'presentation', 'tool'] %}
-                        <a href=""
-                           ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}">
-                            {$ __('cms.contentType.' + type) | capitalize $}
+            </div>
+            <div class="site-drawer__section">
+
+                <div class="search-bar filter-group">
+
+                    <form class="search-bar__term" ng-submit="omniSearch.updateSearch()">
+                        <input type="text"
+                               autocomplete="off"
+                               id="siteSearch"
+                               ng-init="omniSearch.freeTextQuery == ''"
+                               ng-model="omniSearch.freeTextQuery"
+                               placeholder="Occurrences, species, news ..."
+                               ng-keydown="omniSearch.closeOnEsc($event)">
+                        <a href="" type="submit" style="cursor:pointer" class="gb-icon-search search-bar__search"
+                           ng-click="omniSearch.updateSearch()">
+                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
                         </a>
-                    {% endfor %}
-                </div>
-            </div>
+                    </form>
 
+                </div>
+
+                <div class="filter-group--links">
+                    <h4>
+                        Filter by
+                    </h4>
+                    <div>
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">
+                            Occurrences
+                        </a>
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">
+                            Species
+                        </a>
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">
+                            Datasets
+                        </a>
+                    </div>
+                    <div class="seperator">
+                        <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">
+                            Publishers
+                        </a>
+                        {% for type in ['news', 'data_use', 'programme', 'project', 'document', 'presentation', 'tool'] %}
+                            <a href=""
+                               ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}&type={$ type $}">
+                                {$ __('cms.contentType.' + type) | capitalize $}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
 </aside>
+#}

@@ -14,11 +14,17 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         show: false,
         occurrences: {}
     };
+    var toCamelCase = function (str) {
+        return str.replace(/_([a-z])/g, function (g) {
+            return g[1].toUpperCase();
+        });
+    };
 
     var getOverlay = function (query) {
+        console.log($httpParamSerializer(query));
         var overlay = {
             name: 'gb',
-            url: env.dataApi + "map/occurrence/tile.png?x={x}&y={y}&z={z}&srs=EPSG:4326&" + $httpParamSerializer(query),
+            url: "//{s}-api.gbif-uat.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&" + toCamelCase($httpParamSerializer(query)),
             type: 'xyz',
             visible: true,
             layerParams: {

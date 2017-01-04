@@ -42,10 +42,18 @@
                                     {# programme #}
                                     {% if data.programme | isNotEmpty %}
                                         <section>
-                                            <div class="h4">{$ __('cms.project.programme') $}</div>
+                                            <div class="h4">{$ __('cms.project.programme') $}</div class="h4">
                                             {% for name in data.programme %}
                                                 <a href="/{$ name.targetUrl $}">{$ name.title $}</a>
                                             {% endfor %}
+                                        </section>
+                                    {% endif %}
+
+                                    {# project ID #}
+                                    {% if data.projectId | isNotEmpty %}
+                                        <section>
+                                            <div class="h4">{$ __('cms.project.projectId') $}</div>
+                                                {$ data.projectId $}
                                         </section>
                                     {% endif %}
 
@@ -120,9 +128,9 @@
                                     {# partners #}
                                     {% if data.partners | isNotEmpty %}
                                         <section>
-                                            <h4>{$ __n('cms.project.partner', 'cms.project.partners',
+                                            <div class="h4">{$ __n('cms.project.partner', 'cms.project.partners',
                                                 data.partners.length)
-                                                $}</h4>
+                                                $}</div>
                                             <ul class="list-style-none">
                                                 {% for name in data.partners %}
                                                     <li class="no-break"><a href="{$ name.url.url $}">{$ name.title
@@ -135,8 +143,8 @@
 
                                     {% if data.funder | isNotEmpty %}
                                         <section>
-                                            <h4>{$ __n('cms.project.funder', 'cms.project.funders', data.funder.length)
-                                                $}</h4>
+                                            <div class="h4">{$ __n('cms.project.funder', 'cms.project.funders', data.funder.length)
+                                                $}</div>
                                             <ul class="list-style-none">
                                                 {% for name in data.funder %}
                                                     <li class="no-break"><a href="{$ name.url.url $}">{$ name.title
@@ -158,7 +166,74 @@
                                 #}
                             </div>
                         </div>
-                    </div>
+
+                        <div class="article-auxiliary prose-columns">
+                            <div class="block-non-breaking">
+                                {# related news #}
+                                {% if data.relatedNews | isNotEmpty %}
+                                    <section>
+                                        <div class="h4">{$ __('cms.project.relatedNews') $}</div>
+                                        <ul class="list-style-none">
+                                            {% for news in data.relatedNews %}
+                                                <li class="no-break"><a href="/{$ news.targetUrl $}">{$ news.title $}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
+                            <div class="block-non-breaking">
+                                {# related events #}
+                                {% if data.relatedEvents | isNotEmpty %}
+                                    <section>
+                                        <div class="h4">{$ __n('cms.project.relatedEvent', 'cms.project.relatedEvents',
+                                            data.relatedEvents.length)
+                                            $}</div>
+                                        <ul class="list-style-none">
+                                            {% for event in data.relatedEvents %}
+                                                <li class="no-break"><a href="/{$ event.targetUrl $}">{$ event.title
+                                                        $}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
+                            <div class="block-non-breaking">
+                                {# related projects #}
+                                {% if data.relatedProjects | isNotEmpty %}
+                                    <section>
+                                        <div class="h4">{$ __n('cms.project.relatedProject', 'cms.project.relatedProjects',
+                                            data.relatedProjects.length)
+                                            $}</div>
+                                        <ul class="list-style-none">
+                                            {% for project in data.relatedProjects %}
+                                                <li class="no-break"><a href="/{$ project.targetUrl $}">{$ project.title
+                                                        $}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
+                            <div class="block-non-breaking">
+                                {# related resources #}
+                                {% if data.relatedResources | isNotEmpty %}
+                                    <section>
+                                        <div class="h4">{$ __n('cms.project.relatedResource', 'cms.project.relatedResources',
+                                            data.relatedResources.length)
+                                            $}</div>
+                                        <ul class="list-style-none">
+                                            {% for resource in data.relatedResources %}
+                                                <li class="no-break"><a href="{$ resource.url $}">{$ resource.title
+                                                        $}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </section>
+                                {% endif %}
+                            </div>
+                        </div>
                 </div>
             </div>
             {% if data.relatedDatasets.length > 0 %}

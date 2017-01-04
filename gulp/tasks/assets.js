@@ -18,3 +18,8 @@ gulp.task('assets', [], function () {
         })))
         .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
+
+gulp.task('vendorAssets', [], function () {
+    return gulp.src(config.vendorAssets.paths)
+        .pipe(gulp.dest(config.vendorAssets.dest));
+});

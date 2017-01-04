@@ -75,4 +75,9 @@
                 return r;
             }
         })
+        .filter('authorFirstName', function(){
+            return function(text) {
+                return (text) ? text.charAt(0).toUpperCase() + '.' : '';
+            }
+        })
 })();

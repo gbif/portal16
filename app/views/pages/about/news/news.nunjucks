@@ -17,9 +17,11 @@
                                 {# fulltext html already wrapped by p tag from Content API #}
                                 {$ data.summary | safe $}
                             </div>
-                            <p class="article-header__meta">
-                                {$ data.numResourceUsed $}
-                            </p>
+                            {% if data.numResourceUsed | isNotEmpty %}
+                                <span class="article-header__meta">
+                                {$ data.numResourceUsed | striptags $}
+                                </span>
+                            {% endif %}
                         </header>
                     </div>
                 </div>

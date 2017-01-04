@@ -8,7 +8,7 @@ var angular = require('angular');
     angular
         .module('portal')
         .factory('RedlistSpecies', function ($resource, token) {
-            return $resource('http://apiv3.iucnredlist.org/api/v3/species/:name', null, {
+            return $resource('//apiv3.iucnredlist.org/api/v3/species/:name', null, {
                     'query': {
                         method: 'GET',
                         params: {

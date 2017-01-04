@@ -1,84 +1,276 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
+{#
+## header
+name and search bar
+
+## news and ?events
+
+## what is gbif
+GBIF is a non profit organisation that aims to share biodiversity freely with the world ...
+video?
+
+## 700 million occurrences and counting
+map
+see occurrence search
+
+## gallery
+images of observations, speciemsn and holotypes
+background images
+see gallery
+
+## Featured datastories
+Allowing resarchers to understand how life on earth changes over time
+See featured stories
+
+## Data papers
+all of this is only possible because researchers and publishers all around the world is sharing their data.
+nature, PLOS, ... and 
+
+#}
+
+
 {# home page, or front page #}
 {% block page %}
-    <article class="wrapper-horizontal-stripes seperator--b home">
-        <div class="horizontal-stripe--paddingless article-header light-background"
-             style="overflow: hidden; text-align: center;">
-            <div class="hero">
-                <nav class="article-header__category article-header__category--deep" style="padding-top: 10px;">
-                    <span class="article-header__category__upper" style="font-size: 20px;">
-                        <span href="/" class="gb-icon-logo"></span>
-                    </span>
-                    <span class="article-header__category__lower">GBIF</span>
-                </nav>
-                <h1>
-                    Global Biodiversity Information Facility
-                </h1>
-                <p>Demonstration site, under active development</p>
-                <div class="search-bar--home__form"
-                     style="max-width: 400px;margin: auto; margin-top: 20px; padding-bottom:20px"
-                     ng-controller="searchCtrl as omniSearch">
-                    <form action="/search" class="search-bar--home__term ng-pristine ng-valid"
-                          ng-submit="omniSearch.updateSearch()">
-                        <input id="siteSearch" type="text" placeholder="Search" name="q" autocomplete="off" value=""
-                               ng-init="omniSearch.freeTextQuery == ''"
-                               ng-model="omniSearch.freeTextQuery"
-                               class="ng-pristine ng-untouched ng-valid ng-empty"
-                               aria-invalid="false" style="background-color: rgba(255,255,255,0.3);margin: 0;">
-                        <a ng-click="omniSearch.updateSearch()"
-                           class="gb-icon-search search-bar--home__search"
-                           href="" type="submit"
-                           style="border: 1px solid rgba(255,255,255,0.2);border-width: 1px 1px 1px 0;">
-                            <span class="sr-only">search</span>
-                        </a>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="horizontal-stripe--paddingless light-background">
-            <div class="container-fluid" style="font-size: .9rem;font-weight: 300;color: #758082;">
-                Arundinicola leucocephala (Linnaeus, 1764) observed in Brazil. CC BY-NC 2016 <a
-                        href="/occurrence/1229923922">Scott Buckel via iNaturalist</a>
-            </div>
-        </div>
-        <div class="horizontal-stripe light-background">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="card this-is-a-stub">
-                            <div class="card__stripe">
-                                <div class="card__content">
-                                    <h3 class="text-center m-0">Under development</h3>
-                                </div>
-                            </div>
-                            <div class="card__content">
-                                <p>
-                                    We are now actively engaged in redesigning <a href="http://gbif.org/">GBIF.org</a>.
-                                    This is still an early-access release with limited functionality. The content
-                                    exposed here is the same as that presented on the current site.
-                                </p>
-                                <p>
-                                    Our first release aims to address issues reported and observed since we launched the
-                                    current GBIF.org site in October 2013. Most common among these are a subpar search
-                                    experience and confusing navigation within a large site.
-                                </p>
-                                <p>
-                                    Significant improvements in our data processing and handling infrastructure now make
-                                    it possible to introduce site-wide cross-content search, and revisions to the
-                                    navigation reflect a much leaner site featuring a menu that encapsulates a simpler
-                                    overall structure.
-                                </p>
-                                <p>
-                                    Thanks for your interest, and your patience: we'll turn on feedback mechanisms to
-                                    get your comments soon.
-                                </p>
-                            </div>
-                        </div>
+    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
+        <div class="home__header">
+            <div class="container--normal">
+                <div class="home__header__hero-text">
+                    <div class="home__header__name">
+                        Global Biodiversity Information Facility
                     </div>
+                    <h1>
+                        Free and open access to biodiversity data
+                    </h1>
+                    <div class="home__header__search-bar search-box"
+                         ng-controller="searchCtrl as omniSearch">
+                        <form action="/search"
+                              ng-submit="omniSearch.updateSearch()">
+                            <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off"
+                                   value=""
+                                   ng-init="omniSearch.freeTextQuery == ''"
+                                   ng-model="omniSearch.freeTextQuery"
+                                   aria-invalid="false"
+                                   focus-me="true">
+                            <a class="search-box__submit gb-icon-search2 inherit noUnderline"
+                               ng-href="/search?q={{ omniSearch.freeTextQuery }}" type="submit">
+                                <span class="sr-only">search</span>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                <div class="caption">
+                    <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
+                    {#<i>Abies balsamea</i> (L.) Mill. observed in United States. CC BY-NC 2016 <a href="/occurrence/1144979922">Emily Stone via iNaturalist</a>#}
                 </div>
             </div>
         </div>
 
-    </article>
+        {#<div class="horizontal-stripe light-background">#}
+        {#<div class="container">#}
+        {#<div class="row">#}
+        {#<div class="col-xs-12">#}
+        {#<div class="card this-is-a-stub" style="max-width: 700px">#}
+        {#<div class="card__stripe">#}
+        {#<div class="card__content">#}
+        {#<h3 class="text-center m-0">Under development</h3>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="card__content">#}
+        {#<p>This redesigned early-access version of GBIF.org is an active development site with#}
+        {#limited functionality. The content exposed here is the same as that presented on <a#}
+        {#href="http://www.gbif.org">the current site</a>.</p>#}
+
+        {#<p>Get a feel for our new directions with a few examples:</p>#}
+
+        {#<ul>#}
+        {#<li><a href="https://demo.gbif.org/occurrence/gallery?taxon_key=5190137">Gallery of#}
+        {#images associated with occurrences from a search result</a></li>#}
+        {#<li><a href="https://demo.gbif.org/occurrence/search?month=5&amp;taxon_key=3026341">Improved#}
+        {#faceted search of occurrences</a></li>#}
+        {#<li><a href="https://demo.gbif.org/data-use/2016-janssens-et-al">Improved visuals on#}
+        {#news and featured data use pages</a></li>#}
+        {#<li><a href="http://demo.gbif.org/occurrence/1233599085">Revised occurrence detail#}
+        {#pages</a></li>#}
+        {#<li><a href="https://demo.gbif.org/dataset/2488cd13-4f80-479c-ae54-257de312054e">Improved#}
+        {#dataset detail pages</a></li>#}
+        {#<li><a href="https://demo.gbif.org/programme/programme/capacity-support">Updated#}
+        {#programme and project pages</a></li>#}
+        {#</ul>#}
+        {#<br/>#}
+
+        {#<p>Our first release aims to address issues reported and observed since we launched the#}
+        {#current GBIF.org site in October 2013. Most common among these are subpar search and#}
+        {#confusing navigation within a large site.</p>#}
+
+        {#<p>Significant improvements in our data processing and handling infrastructure now make#}
+        {#it possible to introduce <a href="https://demo.gbif.org/search?q=argentina">site-wide#}
+        {#cross-content search</a>, while revisions to the navigation reflect a better#}
+        {#curated site and menu that represents a simpler structure.</p>#}
+
+        {#<p>Thanks for your interest—and your patience! We’ll be ready for your comments and#}
+        {#feedback in early 2017.</p>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+
+
+        <div class="horizontal-stripe--paddingless white-background">
+            <div class="container--wide">
+                <div class="home__news">
+                    <div class="home__news__header text-center">
+                        <h2>News from the network</h2>
+                        <p class="home__news__header__intro">
+                            Stay up to date with what goes on in the network
+                        </p>
+                        <div>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=event" class="gb-button--primary">Events</a>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=news" class="gb-button--primary">News</a>
+                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=data_use" class="gb-button--primary">Data use</a>
+                        </div>
+                    </div>
+
+                    <div class="articles">
+                        <article class="card article-box hoverBox ng-cloak" ng-repeat="newsStory in home.latest track by $index">
+                            <div ng-if="newsStory">
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe" ng-if="newsStory.images[0].self">
+                                    <img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
+                                         alt="" class="article-thumb">
+                                </a>
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
+                                    <div class="card__content">
+                                        <div class="article-box__tag">
+                                            <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
+                                        </div>
+                                        <h3 class="article-box__title">{{ newsStory.title }}</h3>
+                                        <span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            {#<div ng-if="newsStory.type == 'event'">#}
+                                {#<a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">#}
+                                    {#<div class="card__content">#}
+                                        {#<div class="article-box__tag">#}
+                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
+                                        {#</div>#}
+                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                        {#<span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>#}
+                                    {#</div>#}
+                                    {#<div class="card__content">#}
+                                        {#<div class="article-box__tag">#}
+                                            {#<span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>#}
+                                        {#</div>#}
+                                        {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                    {#</div>#}
+                                {#</a>#}
+                            {#</div>#}
+                        </article>
+                        {#<a ng-href="/{{ newsStory.targetUrl }}" class="article-box col-xs-12 col-md-3" ng-repeat="newsStory in home.latest" ng-if="home.latest.length == 4">#}
+                            {#<img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"#}
+                                 {#alt="Ball_grid-fake2" class="article-thumb" ng-if="newsStory.images[0].self">#}
+                            {#<article class="article-box__details">#}
+                                {#<div class="article-box__tag">#}
+                                    {#<span>{{ newsStory.type }}</span>#}
+                                {#</div>#}
+                                {#<h3 class="article-box__title">{{ newsStory.title }}</h3>#}
+                                {#<span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>#}
+                            {#</article>#}
+                        {#</a>#}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+{#
+        <article class="horizontal-stripe--paddingless home__featured bg-attached">
+            <div class="container--normal">
+                <div class="home__featured__text">
+                    <p>
+                        Data use
+                    </p>
+                    <div class="clearfix">
+                        <h1>
+                            <a class="inherit noUnderline"
+                               href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change
+                                the most important cause of biodiversity loss?</a>
+                        </h1>
+                    </div>
+                    <p>
+                        <a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read
+                            more</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <div class="horizontal-stripe--paddingless white-background">
+            <div class="home__occurrences">
+                <div class="container--normal">
+                    <h2 count="//api.gbif.org/v1/occurrence/search">
+                        &nbsp;
+                    </h2>
+                    <p>
+                        Species observations and specimens
+                    </p>
+                    <p>
+                        Data distributed by GBIF is the result of thousands of researchers, publishers and and other
+                        that believe that data about life on our planet brings most value when shared.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="horizontal-stripe--paddingless home__map">
+            <gbmap dataset-key="'838e2626-f762-11e1-a439-00145eb45e9a'" mapstyle="'light'"></gbmap>
+        </div> -->
+
+
+        <article class="horizontal-stripe--paddingless white-background home__featured"
+                 style="color: black; box-shadow: inset 0  8px 8px -8px rgba(0,0,0,0.2);text-shadow: 0 0 10px rgba(255,255,255,0.4);position:relative;">
+            <div style="background-image: url('//api.gbif.org/v1/image/unsafe/1600x1000/http://www.florida.plantatlas.usf.edu/img/specimens/USF/288092.jpg');position:absolute;width:100%;height:100%;filter:blur(2px);background-size: cover;
+    background-position: center;
+    background-attachment: fixed;"></div>
+            <div class="container--normal" style="position:relative;">
+                <div class="home__featured__text">
+                    <p>
+                        Sharing
+                    </p>
+                    <div class="clearfix">
+                        <h1>
+                            <a class="inherit noUnderline" href="http://demo.gbif.org/generic/data-publishing">Learn all
+                                about the publishing flow</a>
+                        </h1>
+                    </div>
+                    <p><a class="inherit" href="http://demo.gbif.org/generic/data-publishing">Learn more</a></p>
+                </div>
+            </div>
+        </article>
+
+        <div class="horizontal-stripe--paddingless light-background" style="position:relative">
+            <div class="home__datapapers">
+                <div class="home__datapapers__bubble"
+                     style="background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNEI1RjgzIiBpZD0iY2lyY2xlIiByPSI2NCIvPjxnIGlkPSJpY29uIj48cG9seWxpbmUgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhcGVyIiBwb2ludHM9IjU0LDI5IDg5LDI5IDg5LDk5IDM5LDk5IDM5LDQ0ICAiLz48ZyBpZD0idGV4dCI+PHJlY3QgZmlsbD0iI0U2RTZFNiIgaGVpZ2h0PSI0IiBpZD0ibGluZV8yXyIgd2lkdGg9IjMwIiB4PSI0OSIgeT0iNjYiLz48cmVjdCBmaWxsPSIjRTZFNkU2IiBoZWlnaHQ9IjQiIGlkPSJsaW5lXzFfIiB3aWR0aD0iMzAiIHg9IjQ5IiB5PSI3NCIvPjxyZWN0IGZpbGw9IiNFNkU2RTYiIGhlaWdodD0iNCIgaWQ9ImxpbmUiIHdpZHRoPSIxNSIgeD0iNDkiIHk9IjU4Ii8+PC9nPjxwb2x5bGluZSBmaWxsPSIjQjNCM0IzIiBpZD0idHJpYW5nbGUiIHBvaW50cz0iNTQsMjkgNTQsNDQgMzksNDQgICIvPjwvZz48L3N2Zz4=')">
+                </div>
+                <div class="home__datapapers__header text-center">
+                    <h2>Data papers</h2>
+                    <p class="home__datapapers__header__intro">
+                        Data takes effort to prepare, curate and describe. Data papers provide recognition for this
+                        effort by means of a scholarly article.
+                    </p>
+                </div>
+                <div class="home__datapapers__journals text-center">
+                    <img src="/img/jorunalmockicons.png" style="margin:auto">
+                </div>
+            </div>
+        </div>
+#}
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/js/base/pages/home.js"></script>
 {% endblock %}

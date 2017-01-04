@@ -20,7 +20,8 @@ module.exports = function (app) {
             title: '404',
             message: 'Page missing and some content for navigation. everything is expected to work',
             meta: {
-                title: 'Page Not Found'
+                title: 'Page Not Found',
+                hideFeedback: true
             }
         });
     });

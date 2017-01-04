@@ -10,7 +10,6 @@ function renderSearch(req, res) {
         title: 'Ocurrences',
         _meta: {
             hideSearchAction: false,
-            hasDrawer: true,
             hasTools: true,
             hideFooter: true,
             title: res.__('stdTerms.search')
@@ -19,7 +18,7 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    res.redirect(301, './species/search');
+    res.redirect(307, './species/search');
 });
 
 router.get('/search', function (req, res) {

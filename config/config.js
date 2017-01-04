@@ -4,14 +4,16 @@ var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'local',
     port = yargs.port,
+    dataApiV2 = yargs.dataapiv2,
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
-    analyticsImg = yargs.analyticsImg,
-    ghpw = yargs.ghpw;
+    credentials = yargs.credentials,
+    analyticsImg = yargs.analyticsImg;
 
-var apidocs = "http://gbif.github.io/gbif-api/apidocs/org/gbif/api";
+var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
 
+// NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 var config = {
     local: {
         env: 'dev',
@@ -21,13 +23,15 @@ var config = {
         },
         port: port || 3000,
         log: log,
-        githubPassword: ghpw,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
+        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
+        domain: 'https://gbif-dev.org/',
+        credentials: credentials || '/etc/portal16/credentials'
     },
     dev: {
         env: env,
@@ -37,13 +41,15 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/', // NB not dev!
-        tileApi: tileApi || 'http://api.gbif.org/v1/map/density/tile.png', // NB not dev!
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',// NB not dev!
+        dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
+        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        domain: 'https://gbif-dev.org/',
+        credentials: credentials || '/etc/portal16/credentials'
     },
     uat: {
         env: env,
@@ -53,13 +59,15 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif-uat.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-uat.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/',
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not uat!
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-uat.org/'
+        domain: 'https://gbif-uat.org/',
+        credentials: credentials || '/etc/portal16/credentials'
     },
     prod: {
         env: env,
@@ -69,13 +77,15 @@ var config = {
         },
         port: port || 80,
         log: log,
-        githubPassword: ghpw,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif.org/v1/',
-        tileApi: tileApi || 'http://cdn.gbif.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-uat.org/api/', // NB not prod!
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
-        domain: 'http://demo.gbif.org/'
+        domain: 'https://demo.gbif.org/',
+        credentials: credentials || '/etc/portal16/credentials'
     },
     test: {
         env: env,
@@ -85,13 +95,15 @@ var config = {
         },
         port: port || 3000,
         log: log,
-        githubPassword: ghpw,
+        serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApi: dataApi || 'http://api.gbif-dev.org/v1/',
-        tileApi: tileApi || 'http://api.gbif-dev.org/v1/map/density/tile.png',
-        cmsApi: cmsApi || 'http://cms-api.gbif-dev.org/api/',
-        analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'http://gbif-dev.org/'
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApi: dataApi || '//api.gbif.org/v1/',
+        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
+        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
+        analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
+        domain: 'https://gbif-dev.org/',
+        credentials: credentials || '/etc/portal16/credentials'
     }
 };
 

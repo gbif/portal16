@@ -17,10 +17,11 @@
             </li>
             <li>
                 <a href="https://twitter.com/intent/tweet?text={$ data.title | remove("'") | slice(0,80) | encodeURI $}"
-                   onclick="window.open('https://twitter.com/intent/tweet?text={$ data.title | remove("'") | slice(0,80) | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
-                   class="action-flow btn btn-lg btn-highlight btn-circle"
-                   tooltip="twitter">
-                    <i class="gb-icon-twitter"></i>
+                onclick="window.open('https://twitter.com/intent/tweet?text={$ data.title | remove("'") | slice(0,80) |
+                encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
+                class="action-flow btn btn-lg btn-highlight btn-circle"
+                tooltip="twitter">
+                <i class="gb-icon-twitter"></i>
                 </a>
             </li>
             <li>

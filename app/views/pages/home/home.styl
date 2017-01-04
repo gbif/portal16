@@ -1,51 +1,163 @@
 $home_overlay_opacity = 0.3
-$home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
+$dark_overlay_opacity = 0.4
+$home_overlay_color_from = rgba(0, 0, 0, $home_overlay_opacity)
+$home_overlay_color_to = rgba(0, 0, 0, 0)
+$dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
+
+// .search-box {
+//     background white
+//     color #444
+//     padding 10px 20px
+//     border 1px solid rgba(255, 255, 255, 0.3)
+//     position relative
+//     overflow hidden
+//     input {
+//         border none
+//         padding-right vrBlock(4)
+//         width 100%
+//         overflow hidden
+//         text-overflow ellipsis
+//         &:focus {
+//             outline none
+//         }
+//         &::placeholder {
+//             color #ddd
+//             font-weight light
+//         }    
+//     }
+//     a {
+//         position absolute
+//         right 0
+//         margin 5px 15px
+//         top 0
+//         font-size vrBlock(1.125)
+//     }
+
+//     box-shadow 1px 2px 3px rgba(0,0,0,0.3)
+//     width 500px
+//     max-width 100%
+// }
 
 .home {
-    .hero {
-        background-color $color_main
-        text-align center
-        position relative
-        padding 0 vrBlock(1)
-        transition padding-bottom 200ms ease
-        background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('http://api.gbif.org/v1/image/unsafe/1200x400/left/top/http://static.inaturalist.org/photos/2883643/original.jpg')
-        //background-image linear-gradient(to right, $home_overlay_color, $home_overlay_color), url('http://api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2883643/original.jpg')
+    font-size 16px
+    font-weight 300
+    &__header {
+        background-color $olivine
+        background-attachment fixed
+        background-image linear-gradient(to right, $home_overlay_color_from, $home_overlay_color_to), url('//api.gbif.org/v1/image/unsafe/1600x1000/left/top/http://static.inaturalist.org/photos/3400549/original.JPG?1460949098')
         background-size cover
         background-position center
-        width 100%
         color white
+        position relative
+        &__hero-text {
+            padding vrBlock(7) 0
+        }
         h1 {
-            max-width 500px
-            margin auto
+            max-width 700px
             margin-top 0
-            margin-bottom 0
-            padding vrBlock(.5) 0 vrBlock(.5) 0
-            font-weight bold
+            margin-bottom vrBlock(1)
         }
-        h4 {
-            setType(1)
-        }
-        input {
-            border 1px solid rgba(255, 255, 255, 0.3)
-            &::placeholder {
-                color #ddd
-                font-weight light
-            }
-        }
-        &__license {
+        .caption {
+            font-size 12px
             position absolute
-            top 0
             right 0
+            bottom 0
             padding 5px 10px
-            color rgba(255, 255, 255, 0.8)
+            color rgba(255, 255, 255, 0.5)
+            a {
+                color inherit
+                text-decoration underline
+            }
             &:hover {
                 color white
-                text-decoration none
+                background rgba(0, 0, 0, 0.3)
             }
         }
-        &:hover {
-            .hero__license {
-                color white
+    }
+    &__news {
+        margin vrBlock(4) 0
+        &__header {
+            //margin-bottom vrBlock(2)
+            h2 {
+                font-style italic
+                font-family 'PT Serif', serif
+                font-weight 400
+            }
+            &__intro {
+                text-transform uppercase
+                font-size 12px
+                font-weight normal
+                color #888
+            }
+        }
+    }
+    
+    &__featured {
+        background-image linear-gradient(to right, $dark_overlay_color, $dark_overlay_color), url('//api.gbif.org/v1/image/unsafe/1600x1000/left/top/http%3A%2F%2Fcms.gbif-uat.org%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fheader_image%2Fpublic%2Fgbif_scaled_contents%2Fdata_use%2F2016-November%2F82995%2F14201651585_2a9517b21b_k.jpg')
+        background-size cover
+        background-position center
+        color white
+        &__text {
+            padding vrBlock(4) 0
+            text-align right
+            h1 {
+                float right
+                max-width 700px
+                font-size 30px
+                margin 0
+            }
+        }
+    }
+    
+    &__occurrences {
+        background-color white
+        background-image url('https://a0.muscache.com/airbnb/static/engagement/p1/large/posters_sm.jpg')
+        background-position center bottom
+        background-repeat repeat-x, no-repeat
+        padding vrBlock(3) 0 vrBlock(18) 0
+        color black
+        h2 {
+            font-size 50px
+            font-weight 300
+        }
+        p {
+            max-width 300px
+            &:first-of-type {
+                font-weight bold
+            }
+        }
+    }
+    &__map {
+        height 80vh
+        gbmap {
+            height 100%
+            width 100%
+        }
+    }
+    
+    &__datapapers {
+        &__bubble {
+            width 160px
+            height 160px
+            border-radius 80px
+            margin 0 auto
+            margin-top -80px
+            background-size cover
+        }
+        &__header {
+            max-width 500px
+            margin auto
+            margin-bottom vrBlock(2)
+            h2 {
+                font-style italic
+                font-family 'PT Serif', serif
+                font-weight 400
+            }
+            &__intro {
+                text-transform uppercase
+                font-size 12px
+                font-weight normal
+                color #888
             }
         }
     }
@@ -53,29 +165,92 @@ $home_overlay_color = rgba(0, 0, 0, $home_overlay_opacity)
 
 //LAPTOPS
 +isAbove($laptop) {
-    .home .hero {
+    .home {
         //height 0
         //padding-bottom 30%
-        h1 {
-            font-size 50px
+        &__header {
+            h1 {
+                font-size 50px
+            }
         }
     }
 }
 
-+isAbove($desktop) {
-    .home .hero {
-        //padding-bottom 25%
-        h1 {
-            margin-top 1vw
++isAbove($laptop) {
+    .hasTransparentMenu {
+        main {
+            padding-top 0
+        }
+        .site-nav {
+            background none
+            box-shadow none
+            position absolute
         }
     }
 }
 
-+isAbove($desktop) {
-    .home .hero {
-        //padding-bottom 25%
-        h1 {
-            margin-top 1vw
+.articles {
+    .article-box {
+        width 300px
+        max-width 100%
+        color black
+        margin $halfGutter auto
+        //&:hover {
+        //    text-decoration none
+        //    .article-box__title {
+        //        color $linkColor
+        //    }
+        //}
+        &__details {
+            background white
+            padding 10px 0
+        }
+        &__tag {
+            font-size 12px
+            margin-bottom 3px
+            font-weight bold
+        }
+        &__title {
+            font-weight 300
+            line-height $lineHeightRatio
+            margin 0
+        }
+        &__footer {
+            font-size 12px
+            font-weight normal
+            color #aaa
         }
     }
 }
++isAbove(500px) {
+    .articles {
+        margin 0 $halfGutter
+        display flex
+        flex-wrap wrap
+        justify-content center
+        .article-box {
+            margin $halfGutter
+            flex 1 1 auto
+            width "calc(100% / 2 - %s)" % ($halfGutter*2)
+            max-width 300px
+        }
+    }
+}
+
++isAbove(1000px) {
+    .articles {
+        .article-box {
+            width 200px
+            flex 1 1 auto
+            max-width 300px
+        }
+    }
+}
+
+//+isAbove(1300px) {
+//    .articles {
+//        .article-box {
+//            width 300px
+//        }
+//    }
+//}

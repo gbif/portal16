@@ -1,0 +1,21 @@
+<section id="type-specimen" class="white-background" ng-show="vm.specimen">
+    <h3>Type Specimen</h3>
+    <ul>
+        <li ng-repeat="occ in vm.specimen">
+            <small>{{occ.typeStatus}}:</small>
+            <span ng-show="occ.recordedBy">
+            {{occ.recordedBy}}<span ng-show="occ.year"> ({{occ.year}})</span><span ng-show="occ.country"> {{occ.country}}</span>.
+            </span>
+            <a ng-href="/occurrence/{{occ.key}}">
+                <span ng-show="occ.catalogNumber">
+                {{occ.institutionCode}}
+                {{occ.collectionCode}}
+                {{occ.catalogNumber}}
+                </span>
+                <span ng-hide="occ.catalogNumber">
+                {{occ.occurrenceID}}
+                </span>
+            </a>
+        </li>
+    </ul>
+</section>

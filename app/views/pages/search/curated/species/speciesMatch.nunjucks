@@ -29,9 +29,9 @@
         {% endif %}
 
         {% if taxon.info.rank and taxon.info.rank != 'KINGDOM' %}
-        <div class="card__stripe card__stripe--expandable">
-            <div class="card__content">
-                <div class="text-center">
+            <div class="card__stripe card__stripe--expandable">
+                <div class="card__content">
+                    <div class="text-center">
                     <span class="classification-list discreet">
                         {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
                             {% if taxon.info[taxa] and taxa != taxon.info.rank | lower %}
@@ -40,9 +40,9 @@
                             {% endif %}
                         {% endfor %}
                     </span>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endif %}
 
         {% if taxon.synonym %}

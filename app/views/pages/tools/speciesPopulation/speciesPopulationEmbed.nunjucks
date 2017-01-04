@@ -1,0 +1,24 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    {% include "./speciesPopulationContent.nunjucks" %}
+{% endblock %}
+
+
+{% block scripts %}
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.css'
+          type='text/css'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.js'></script>
+    <script src="/js/base/pages/speciesPopulation.js"></script>
+    <script>
+        document.getElementById('speciesPopulation__mapTools__info__link').target = '_blank';
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/speciesPopulation/speciesPopulation.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/embed.css">
+{% endblock %}
+

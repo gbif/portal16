@@ -23,6 +23,7 @@ function searchDrawerDirective() {
 
     return directive;
 
+
     /** @ngInject */
     function searchDrawer($state) {
         var vm = this;
@@ -37,17 +38,14 @@ function searchDrawerDirective() {
                 if (typeof v !== 'undefined' && v != '' && ignoreParams.indexOf(e) == -1 && e.indexOf('.facetLimit') == -1) {
                     c += [].concat(v).length;
                 }
-                // if (e === 'hasCoordinate') {
-                //     if (v=="TRUE") c--;
-                // }
             });
-            // if (typeof vm.filter.query.hasCoordinate === 'undefined') c++;
             return c;
         };
 
         vm.clear = function () {
             $state.go('.', {}, {inherit: false, notify: true, reload: true});
         };
+
     }
 }
 

@@ -1,7 +1,6 @@
 var express = require('express'),
     cfg = require('../../../config/config'),
     apiCfg = require('../../models/gbifdata/apiConfig'),
-    Country = require('../../models/gbifdata/gbifdata').Country,
     router = express.Router();
 
 module.exports = function (app) {
@@ -19,11 +18,11 @@ router.get('/country/:country/about', function (req, res, next) {
 
 router.get('/country/:country/published', function (req, res, next) {
     //TODO: make sure publishing country exists in GBIF
-    renderPage(req, res, next, 'country/' + req.params.country + '/publishedBy', req.params.country, false);
+    renderPage(res, next, 'country/' + req.params.country + '/publishedBy', req.params.country, false);
 });
 
 
-function renderPage(req, res, next, path, country, about) {
+function renderPage(res, next, path, country, about) {
     try {
         res.render('pages/analytics/analytics', {
             country: country,

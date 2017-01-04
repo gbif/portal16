@@ -1,0 +1,55 @@
+{% if dataset.record.dataLanguage or dataset.record.language or dataset.record.dataDescriptions | isNotEmpty %}
+    <section class="horizontal-stripe white-background dataset-key__contributors">
+        <div class="anchor-block--tabs" id="dataDescription">
+            <div class="container--narrow">
+                <span class="relative-anchor-offset--tabs"><a name="dataDescription"></a></span>
+                <h3>Data description</h3>
+            </div>
+            <div class="container--narrow">
+                <div>
+                    <dl class="inline">
+
+                        {% if dataset.record.language %}
+                            <div>
+                                <dt class="text-capitalize">Metadata language</dt>
+                                <dd>
+                                    {$ __('language.' + dataset.record.language) $}
+                                </dd>
+                            </div>
+                        {% endif %}
+
+                        {% if dataset.record.dataLanguage %}
+                            <div>
+                                <dt class="text-capitalize">Data language</dt>
+                                <dd>
+                                    {$ __('language.' + dataset.record.dataLanguage) $}
+                                </dd>
+                            </div>
+                        {% endif %}
+
+                        {% if dataset.record.dataDescriptions | isNotEmpty %}
+                            <div>
+                                <dt class="text-capitalize">External description</dt>
+                                <dd>
+                                    <ul class="inline-bullet-list">
+                                        {% for descr in dataset.record.dataDescriptions %}
+                                            <li>
+                                                <a href="{$ descr.url $}">
+                                                    {% if descr.name %}
+                                                        {$ descr.name | prettifyEnum $}
+                                                    {% else %}
+                                                        {$ descr.url | truncateMiddle(50) $}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

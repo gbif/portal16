@@ -11,10 +11,15 @@ $newsCardWidth = 250px
         &__counts {
             display flex
             flex-wrap wrap
-            > div {
+            > a {
                 flex 1 1 auto
-                min-width 100px
-                padding vrBlock(1) 10px
+                min-width 50%
+                padding 5px 10px
+                //border-left 2px solid transparent
+                &:hover {
+                    background $lightBackground
+                    //border-color deepskyblue
+                }
             }
         }
     }
@@ -38,6 +43,7 @@ $newsCardWidth = 250px
     .card-container--stats {
         display flex
         flex-wrap wrap
+        margin 0 (-($halfGutter))
     }
     .card-container--news {
         display flex

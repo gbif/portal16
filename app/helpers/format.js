@@ -1,5 +1,6 @@
 var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
+    linkTools = require('./links/links'),
     defaultLanguage = 'en';
 
 // GBIF/UN date style
@@ -19,10 +20,14 @@ moment.updateLocale('en', {
 });
 
 function date(date, locale, format) {
+    var day;
     locale = locale || defaultLanguage;
     format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
-    var day = moment(date).locale(locale);
-    if (!isNaN(Number(date))) day = moment.unix(date).locale(locale);
+    if (!isNaN(Number(date))) {
+        day = moment.unix(date).locale(locale);
+    } else {
+        day = moment(date, 'YYYY-MM-DD').locale(locale);
+    }
     return day.format(format);
 }
 
@@ -73,10 +78,47 @@ function formatBytes(bytes, decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function sanitize(dirty) {
+function sanitizeTrusted(dirty) {
     dirty = dirty || '';
+    var allowedTags = ['img', 'h2', 'iframe'];
     let clean = sanitizeHtml(dirty, {
-            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h2']),
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
+            allowedAttributes: {
+                '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen']
+            },
+            exclusiveFilter: function (frame) {
+                return frame.tag === 'p' && !frame.text.trim();
+            }
+            //transformTags: {
+            //    'iframe': function (tagName, attr) {
+            //        // My own custom magic goes here
+            //        var innerElement = '<iframe src="' + attr.src + '"/>';
+            //        var w = parseInt(attr.width),
+            //            h = parseInt(attr.height);
+            //        var ratio = w / h;
+            //        return {
+            //            tagName: 'div',
+            //            attribs: {
+            //                class: 'video-container',
+            //                style: 'padding-bottom:60%'
+            //            },
+            //            text: innerElement
+            //        };
+            //    }
+            //}
+        }
+    );
+    return clean;
+}
+
+function sanitize(dirty, additionalAllowedTags) {
+    dirty = dirty || '';
+    var allowedTags = additionalAllowedTags ? ['img', 'h2'].concat(additionalAllowedTags) : ['img', 'h2'];
+    let clean = sanitizeHtml(dirty, {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
+            allowedAttributes: {
+                '*': ['href', 'name', 'target', 'src', 'class']
+            },
             exclusiveFilter: function (frame) {
                 return frame.tag === 'p' && !frame.text.trim();
             }
@@ -90,7 +132,7 @@ function addPortalClasses(raw) {
     let clean = sanitizeHtml(raw, {
             allowedTags: false,
             allowedAttributes: {
-                '*': [ 'href', 'name', 'target', 'src', 'class' ]
+                '*': ['href', 'name', 'target', 'src', 'class', 'frameborder', 'width', 'height', 'allowfullscreen']
             },
             transformTags: {
                 'table': sanitizeHtml.simpleTransform('table', {class: 'table table-bordered table-striped'})
@@ -107,5 +149,8 @@ module.exports = {
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,
     sanitize: sanitize,
-    addPortalClasses: addPortalClasses
+    sanitizeTrusted: sanitizeTrusted,
+    addPortalClasses: addPortalClasses,
+    insertLinks: linkTools.insertLinks,
+    linkify: linkTools.linkify
 };

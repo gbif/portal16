@@ -2,31 +2,39 @@
 
 var express = require('express'),
     translationsHelper = rootRequire('app/helpers/translations'),
-    router = express.Router();
+    router = express.Router(),
+    markdownFiles = {
+        description: 'tools/suggestDataset/description/',
+        thankyou: 'tools/suggestDataset/thankyou/',
+        failure: 'tools/suggestDataset/failure/'
+    },
+    translations = {};
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
 router.get('/tools/suggest-dataset', function (req, res, next) {
-    //get text content
-    let markdownFiles = {
-        description: 'tools/suggestDataset/description/',
-        thankyou: 'tools/suggestDataset/thankyou/',
-        failure: 'tools/suggestDataset/failure/'
-    };
-    translationsHelper.getTranslations(markdownFiles, res.locals.gb.locales.current, function (err, translations) {
-        if (err) {
-            next(err);
-        } else {
+
+    //if the text hasn't already been read from disk, then get it
+    if (typeof translations[res.locals.gb.locales.current] === 'undefined') {
+        translations[res.locals.gb.locales.current] = translationsHelper.getTranslationPromise(markdownFiles, res.locals.gb.locales.current);
+    }
+
+    //once promise has been resolved then
+    translations[res.locals.gb.locales.current].then(
+        function (data) {
             render(req, res, next, {
                 _meta: {
                     title: 'Suggest dataset'
                 },
-                translations: translations
+                translations: data
             });
+        },
+        function (err) {
+            next(err);
         }
-    });
+    );
 });
 
 function render(req, res, next, data) {

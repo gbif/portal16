@@ -11,7 +11,7 @@ function directoryCtrl(DirectoryContacts) {
     var vm = this;
     vm.state = {'loaded': false};
 
-    DirectoryContacts.get().$promise.then(function(response){
+    DirectoryContacts.get().$promise.then(function (response) {
         vm.state.loaded = true;
         return vm.contacts = response;
     }, function (error) {
@@ -22,7 +22,7 @@ function directoryCtrl(DirectoryContacts) {
     vm.searchResults = [];
 
     vm.toggleStatus = {};
-    vm.toggleDetail = function(personId) {
+    vm.toggleDetail = function (personId) {
         // true means show
         if (vm.toggleStatus[personId] && vm.toggleStatus[personId] == 'contact--show') {
             vm.toggleStatus[personId] = false;

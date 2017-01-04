@@ -1,8 +1,10 @@
 var format = require('../helpers/format'),
     _ = require('lodash'),
+    urlRegex = require('url-regex'),
+    truncate = require('html-truncate'),
     fs = require('fs');
 
-module.exports = function (nunjucksConfiguration, config) {
+module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('rawJson', function (data) {
@@ -27,6 +29,12 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('length', function (data) {
+            return data && (data.constructor === Array || typeof(data) === 'string') ? data.length : undefined;
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 
@@ -36,6 +44,10 @@ module.exports = function (nunjucksConfiguration, config) {
 
     (function () {
         nunjucksConfiguration.addFilter('sanitize', format.sanitize);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('sanitizeTrusted', format.sanitizeTrusted);
     })();
 
     (function () {
@@ -68,6 +80,12 @@ module.exports = function (nunjucksConfiguration, config) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('isEmpty', function (data) {
+            return _.isEmpty(data);
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('prettifyEnum', format.prettifyEnum);
     })();
 
@@ -85,14 +103,19 @@ module.exports = function (nunjucksConfiguration, config) {
 
     (function () {
         nunjucksConfiguration.addFilter('isLink', function (data) {
-            if (!data) {
+            if (typeof data !== 'string') {
                 return false;
             }
-            //var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-            var expression = /^(http)(s)?(:\/\/)[^ ]*$/gi;
-            var regex = new RegExp(expression);
-            return !!data.toString().match(regex);
+            return urlRegex({exact: true}).test(data);
         });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('linkify', format.linkify);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('insertLinks', format.insertLinks);
     })();
 
     (function () {
@@ -109,6 +132,25 @@ module.exports = function (nunjucksConfiguration, config) {
             }
             var splitLength = (len / 2) - 3;
             return data.slice(0, splitLength) + '...' + data.slice(data.length - splitLength)
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('truncateHtml', function (htmlText, len) {
+            if (!_.isString(htmlText)) {
+                return '';
+            }
+            return truncate(htmlText, len);
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('domain', function (url) {
+            if (!_.isString(url)) {
+                return url;
+            }
+            var matches = url.match(/^(?:https?\:\/\/)?(?:www\.)?([^\/?#:]+)/i);
+            return matches ? matches[1] : url;
         });
     })();
 
@@ -147,7 +189,7 @@ module.exports = function (nunjucksConfiguration, config) {
     (function () {
         nunjucksConfiguration.addFilter('flag', function (countryCode) {
             if (countryCode) {
-                return '/img/flags/' + _.toUpper(countryCode)+ ".png";
+                return '/img/flags/' + _.toUpper(countryCode) + ".png";
             }
         });
     })();
@@ -165,13 +207,12 @@ module.exports = function (nunjucksConfiguration, config) {
         var revFile = 'public/rev-manifest.json';
         if (fs.existsSync(revFile)) {
             revManifest = JSON.parse(fs.readFileSync(revFile, 'utf8'));
-            console.log("Loaded asset versioning manifest at "+revFile+" with "+Object.keys(revManifest).length+" entries.");
+            console.log("Loaded asset versioning manifest at " + revFile + " with " + Object.keys(revManifest).length + " entries.");
         } else {
             revManifest = {};
         }
         nunjucksConfiguration.addFilter('rev', function (location) {
             location = _.trimStart(location, '/');
-            console.log(location);
             if (location in revManifest) {
                 return "/" + revManifest[location];
             }

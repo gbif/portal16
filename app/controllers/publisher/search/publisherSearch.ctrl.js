@@ -10,7 +10,6 @@ function renderSearch(req, res) {
         title: 'Publishers',
         _meta: {
             hideSearchAction: true,
-            hasDrawer: true,
             hasTools: true,
             hideFooter: true,
             title: res.__('stdTerms.search')
@@ -19,7 +18,7 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    res.redirect(301, './publisher/search');
+    res.redirect(307, './publisher/search');
 });
 
 router.get('/search', function (req, res) {

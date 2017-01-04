@@ -1,0 +1,19 @@
+{% macro speciesTabs(key, active, __) %}
+    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary">
+        <div class="container">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        {% set pages = ["info", "taxonomy"] %}
+                        {% for page in pages %}
+                            <li class="tab {% if active == page %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/species/{$ key $}{% if page != 'info' %}/{$ page $}{% endif %}">{$
+                                    page | capitalize $}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+{% endmacro %}

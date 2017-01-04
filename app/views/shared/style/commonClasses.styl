@@ -11,6 +11,19 @@
     max-width $desktop
 }
 
+.container--desktop--snap-to-edges {
+    @extend .container--desktop
+    padding-left 0
+    padding-right 0
+}
+
++isAbove($desktop) {
+    .container--desktop--snap-to-edges {
+        padding-left 15px
+        padding-right 15px
+    }
+}
+
 .container--wide {
     @extend .container--normal
     max-width $contentWidth--wide
@@ -21,38 +34,42 @@
     max-width $contentWidth--narrow
 }
 
+.wrapper-horizontal-stripes {
+    > .horizontal-stripe, > .horizontal-stripe--paddingless {
+        border-top 1px solid $stripeBorderColor
+        &.article-header {
+            border none
+        }
+        &.white-background + .white-background {
+            border none
+        }
+        &.light-background + .light-background {
+            border none
+        }
+        > *:last-of-type {
+            margin-bottom 0
+        }
+    }
+}
+
 .horizontal-stripe {
-    padding vrBlock(1) 0
-    border-top 1px solid $stripeBorderColor
-    &.article-header {
-        border none
-    }
-    &.white-background + .white-background {
-        border none
-    }
-    &.light-background + .light-background {
-        border none
-    }
-    > *:last-of-type {
-        margin-bottom 0
-    }
+    padding vrBlock(1.5) 0
 }
 
 .horizontal-stripe--paddingless {
-    @extends .horizontal-stripe
     padding 0
-}
-
-.horizontal-stripe--top-borderless {
-    @extends .horizontal-stripe
-    padding 0
-    border-top none
 }
 
 /*
  * Header area styles
  */
 .article-header {
+    &.horizontal-stripe {
+        padding vrBlock(2.5) 0
+    }
+    > * last-child {
+        margin-bottom 0
+    }
     h1 {
         text-align center
         margin-top vrBlock(0.4)
@@ -61,22 +78,19 @@
         }
     }
     &__intro {
-        font-size 1.2rem
+        font-size 18px
         font-style italic
         font-family $didot
         max-width 700px
-        margin 0 auto
-        p {
-            margin-bottom 0
-        }
+        text-align center
+        margin 0 auto vrBlock(0.5) auto
     }
     &__meta {
         font-weight bold
         display inline-block
-        margin-top vrBlock(0.5)
-        > * {
-            margin 0 //necessary because the drupal api sometimes returns a paragraph tag
-        }
+        //> * {
+        //    margin 0 //necessary because the drupal api sometimes returns a paragraph tag ; we aren't safe printing. this shouldn't matter. have uncommented
+        //}
     }
     &__sub {
         margin-top vrBlock(0.5)
@@ -98,12 +112,20 @@ $articleCategorySeparatorSpacing = 6px
     overflow hidden
     white-space nowrap
     text-overflow ellipsis
-    margin vrBlock(0.5) auto -vrBlock(0.5) auto
+    margin 0 auto
     text-align center
     text-transform uppercase
     font-weight bold
-    > span:last-of-type {
-        font-weight normal
+    font-size round(0.85 * $htmlFontSize)
+    > *:last-child {
+        font-weight 600
+    }
+    a {
+        color inherit
+        &:hover {
+            color $orangePeel
+            text-decoration none
+        }
     }
     .article-header__category__lower {
         border-left 2px solid $orangePeel
@@ -179,16 +201,6 @@ $articleCategorySeparatorSpacing = 6px
         word-wrap break-word
         hyphens auto
         margin-bottom vrBlock(1)
-        figure {
-            overflow hidden
-            break-inside avoid-column
-            margin-bottom vrBlock(1)
-            figcaption {
-                font-size 0.9rem
-                font-weight 300
-                color $citationTextColor
-            }
-        }
         section {
             break-inside avoid-column
         }
@@ -216,12 +228,23 @@ $articleCategorySeparatorSpacing = 6px
 
 .body-text {
     font-size 16px
-    font-weight normal
-    h3 {
-        font-size 20px
-    }
+    line-height 1.75
     strong {
-        font-weight 600
+        font-weight bold
+    }
+    h2 {
+        //font-size 24px
+        margin-top 3em
+        margin-bottom 1em
+        &:first-child {
+            margin-top 1.5em
+        }
+    }
+    h3 {
+        //font-size 16px
+        //font-weight bold
+        margin-top 3em
+        margin-bottom 2em
     }
     ul {
         list-style disc
@@ -229,20 +252,23 @@ $articleCategorySeparatorSpacing = 6px
     ol {
         list-style decimal
     }
+    p {
+        margin-bottom 1.5em
+    }
+    figure {
+        overflow hidden
+        break-inside avoid-column
+        margin-bottom vrBlock(1)
+        figcaption {
+            font-size 0.9rem
+            font-weight 300
+            color $citationTextColor
+        }
+    }
 }
 
 .body-text--markdown {
-    font-size 16px
-    font-weight normal
-    strong {
-        font-weight 600
-    }
-    h2 {
-        font-size 24px
-    }
-    h3 {
-        font-size 20px
-    }
+    @extends .body-text
 }
 
 .article-auxiliary {
@@ -250,7 +276,7 @@ $articleCategorySeparatorSpacing = 6px
     margin-top vrBlock(2)
     margin-bottom -10px //to compensate for the bottom border on the sections.
     border-top 1px solid $stripeBorderColor
-    font-size 1rem
+    font-size round(0.85 * $htmlFontSize)
     color $gray63
 
     section {
@@ -258,16 +284,16 @@ $articleCategorySeparatorSpacing = 6px
         div {
             display inline-block
         }
-        h4, .h4 {
-            font-weight bold
+        div.h4 {
+            text-transform capitalize
+        }
+        h5 {
+            //font-weight 500
             margin-right 0.5em
-            margin-top 0
             margin-bottom 0.3em
+            text-transform capitalize
             &:after {
                 content: ":"
-            }
-            &:first-letter {
-                text-transform capitalize
             }
         }
     }
@@ -277,7 +303,7 @@ $articleCategorySeparatorSpacing = 6px
 $headerImageMaxFullWidth = $desktop
 .heading-image {
     max-width $headerImageMaxFullWidth
-    margin 0 auto 20px auto
+    margin 0 auto
     figcaption {
         font-size 0.9rem
         font-weight 300
@@ -489,6 +515,13 @@ sub {
     }
 }
 
+.relative-anchor-offset--tabs {
+    @extends .relative-anchor-offset
+    > a {
+        top -($navBar_height + vrBlock(3))
+    }
+}
+
 .anchor-block {
     &:before {
         display block
@@ -498,6 +531,14 @@ sub {
         visibility hidden
         z-index -999
         position relative
+    }
+}
+
+.anchor-block--tabs {
+    @extends .anchor-block
+    &:before {
+        height $navBar_height + 4rem //todo parameterize tab bar?
+        margin-top -($navBar_height + 4rem)
     }
 }
 
@@ -515,4 +556,21 @@ sub {
 
 .ct-chart > svg:not(:root) {
     overflow visible
+}
+
+//.dashboard {
+//    font-size 14px
+//}
+
+.discreet-comment {
+    color $discreetInk
+    font-style italic
+}
+
+.bg-attached {
+    background-attachment fixed
+}
+
+.isTouch .bg-attached {
+    background-attachment initial
 }

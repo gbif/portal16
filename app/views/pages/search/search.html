@@ -1,144 +1,185 @@
-<aside class="site-drawer is-locked" id="site-search" ng-class="{'is-active': omniSearch.isActive}">
+<div ng-controller="searchCtrl as rootSearch">
 
-    <div class="site-drawer__content">
-        <div class="site-drawer__header">
-            <div class="site-drawer__header__title">
-                <span class="text-center">Search</span>
-            </div>
-        </div>
-        <!--<div style="position: absolute;-->
-    <!--background: deepskyblue;-->
-    <!--width: 200px;-->
-    <!--left: -200px;-->
-    <!--height: 60px;-->
-    <!--padding: 10px;-->
-    <!--color: white;">Search here</div>-->
-        <div class="site-drawer__section">
-
-            <div class="search-bar filter-group">
-
-                <form class="search-bar__term" ng-submit="omniSearch.updateSearch()"
-                      ng-controller="searchCtrl as omniSearch">
+    <aside class="omnisearch-bar--static omnisearch-bar is-active">
+        <div>
+            <div>
+                <form class="search-box" ng-submit="rootSearch.updateSearch()">
                     <input type="text"
                            autocomplete="off"
-                           id="siteSearch"
-                           ng-model="omniSearch.freeTextQuery"
-                           placeholder="Occurrences, species, news ...">
-                    <a href="" type="submit" class="gb-icon-search search-bar__search"
-                       ng-click="omniSearch.updateSearch()">
+                           ng-init="rootSearch.freeTextQuery == ''"
+                           ng-model="rootSearch.freeTextQuery"
+                           placeholder="Occurrences, species, news ..."
+                           ng-keydown="rootSearch.closeOnEsc($event)">
+                    <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2"
+                       ng-click="rootSearch.updateSearch()">
                         <span class="sr-only">{$ __('stdTerms.search') $}</span>
                     </a>
                 </form>
-
             </div>
-
-            <div class="filter-group--links">
-                <h4>
-                    Filter by
-                </h4>
+            <div class="omnisearch-bar__filters">
                 <div>
-                    <a href="" ui-sref="occurrenceSearchTable({q:omniSearch.freeTextQuery})">
+                    <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
                         Occurrence
                     </a>
-                    <a href="" ui-sref="speciesSearchList({q:omniSearch.freeTextQuery})">
+                    <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--primary">
                         Species
                     </a>
-                    <a href="" ui-sref="datasetSearchTable({q:omniSearch.freeTextQuery})">
+                    <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
                         Dataset
                     </a>
-                </div>
-                <div class="seperator">
-                    <a href="" ui-sref="publisherSearchTable({q:omniSearch.freeTextQuery})">
+                    <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
                         Publisher
                     </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'news'})" translate="cms.contentType.news">
-                        News
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'data_use'})"
-                       translate="cms.contentType.data_use">
-                        Data use
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'event'})"
-                       translate="cms.contentType.event">
-                        Event
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'programme'})"
-                       translate="cms.contentType.programme">
-                        Programme
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'project'})"
-                       translate="cms.contentType.project">
-                        Project
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'document'})"
-                       translate="cms.contentType.document">
-                        Document
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'presentation'})"
-                       translate="cms.contentType.presentation">
-                        Presentation
-                    </a>
-                    <a ui-sref="cmsSearchTable({q: omniSearch.query.q, type: 'tool'})" translate="cms.contentType.tool">
-                        Tool
+                    <a ui-sref="cmsSearchTable({q: rootSearch.query.q})" class="gb-button--primary">
+                        GBIF Network
                     </a>
                 </div>
             </div>
-
         </div>
-    </div>
+    </aside>
 
-</aside>
-
-<ng-include src="'/templates/shared/layout/partials/feedback/feedback.html'"></ng-include>
-
-<div class="site-content">
-
-    <!--<div class="fab" fab>-->
-    <!--<div class="fab__trigger">-->
-    <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter"-->
-    <!--ng-click="omniSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <div class="site-content__page">
-        <div class="dataset-search-results">
-
-            <div ui-view>
-
-                <div class="horizontal-stripe--paddingless white-background search-header" ng-click="omniSearch.clearFreetextAndSetFocus();">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <nav class="article-header__category">
-                                    <strong class="article-header__category__upper">Search</strong>
-                                </nav>
-                                <div class="search-header__description">
-                                    <span ng-if="omniSearch.query.q">
-                                        <span ng-if="loaded">Showing results for <i>{{omniSearch.query.q}}</i></span>
-                                        <span ng-if="!loaded">Searching for <i>{{omniSearch.query.q}}</i></span>
-                                    </span>
-                                    <span ng-if="!omniSearch.query.q">
-                                        Search for species, articles and more
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- <aside class="site-drawer is-locked" id="site-search"
+           ng-class="{'is-active': rootSearch.isActive}"
+           click-outside="rootSearch.isActive = false"
+           click-outside-unless="!rootSearch.isActive"
+           >
+        <div class="site-drawer__wrapper">
+            <div class="site-drawer__content">
+                <div class="site-drawer__header">
+                    <div class="site-drawer__header__title">
+                        <span class="text-center">Search</span>
                     </div>
                 </div>
+                <div class="site-drawer__section">
 
-                <ng-include src="'/templates/components/loader/loader.html'"
-                            ng-if="omniSearch.query.q && !loaded"></ng-include>
-                <ng-include src="'/search/partial?q=' + omniSearch.query.q + '&locale=' + omniSearch.locale"
-                            onload="loaded = true" ng-show="omniSearch.query.q"></ng-include>
+                    <div class="search-bar filter-group">
 
+                        <form class="search-bar__term" ng-submit="rootSearch.updateSearch()">
+                            <input type="text"
+                                   autocomplete="off"
+                                   id="siteSearch"
+                                   ng-model="rootSearch.freeTextQuery"
+                                   placeholder="Occurrences, species, news ..."
+                                   ng-keydown="rootSearch.closeOnEsc($event)">
+                            <a href="" type="submit" class="gb-icon-search search-bar__search"
+                               ng-click="rootSearch.updateSearch()">
+                                <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                            </a>
+                        </form>
 
-                <div class="country-key seperator--b seperator">
-                    <ng-include src="'/search/defaultsearch'"
-                                onload="loaded = true" ng-show="!omniSearch.query.q"></ng-include>
+                    </div>
+
+                    <div class="filter-group--links">
+                        <h4>
+                            Filter by
+                        </h4>
+                        <div>
+                            <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})">
+                                Occurrence
+                            </a>
+                            <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})">
+                                Species
+                            </a>
+                            <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})">
+                                Dataset
+                            </a>
+                        </div>
+                        <div class="seperator">
+                            <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})">
+                                Publisher
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'news'})"
+                               translate="cms.contentType.news">
+                                News
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'data_use'})"
+                               translate="cms.contentType.data_use">
+                                Data use
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'event'})"
+                               translate="cms.contentType.event">
+                                Event
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'programme'})"
+                               translate="cms.contentType.programme">
+                                Programme
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'project'})"
+                               translate="cms.contentType.project">
+                                Project
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'document'})"
+                               translate="cms.contentType.document">
+                                Document
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'presentation'})"
+                               translate="cms.contentType.presentation">
+                                Presentation
+                            </a>
+                            <a ui-sref="cmsSearchTable({q: rootSearch.query.q, type: 'tool'})"
+                               translate="cms.contentType.tool">
+                                Tool
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
+        </div>
+    </aside>
+     -->
+
+    <div class="site-content">
+
+        <!--<div class="fab" fab>-->
+        <!--<div class="fab__trigger">-->
+        <!--<a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Filter"-->
+        <!--ng-click="rootSearch.showDrawer = true"><i class="gb-icon-filter"></i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="site-content__page">
+            <div class="dataset-search-results">
+
+                <div ui-view>
+
+                    <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-header"-->
+                    <!--ng-click="rootSearch.clearFreetextAndSetFocus();">-->
+                    <!--<div class="container-fluid">-->
+                    <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                    <!--<nav class="article-header__category">-->
+                    <!--<strong class="article-header__category__upper">Search</strong>-->
+                    <!--</nav>-->
+                    <!--<div class="search-header__description">-->
+                    <!--<span ng-if="rootSearch.query.q">-->
+                    <!--<span ng-if="loaded">Showing results for <i>{{rootSearch.query.q}}</i></span>-->
+                    <!--<span ng-if="!loaded">Searching for <i>{{rootSearch.query.q}}</i></span>-->
+                    <!--</span>-->
+                    <!--<span ng-if="!rootSearch.query.q">-->
+                    <!--Search for species, articles and more-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <ng-include src="'/templates/components/loader/loader.html'"
+                                ng-if="rootSearch.query.q && !loaded"></ng-include>
+                    <ng-include src="'/search/partial?q=' + rootSearch.query.q + '&locale=' + rootSearch.locale"
+                                onload="loaded = true" ng-show="rootSearch.query.q"></ng-include>
 
 
+                    <div class="country-key seperator--b seperator">
+                        <ng-include src="'/search/defaultsearch'"
+                                    onload="loaded = true" ng-show="!rootSearch.query.q"></ng-include>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!--</div>-->

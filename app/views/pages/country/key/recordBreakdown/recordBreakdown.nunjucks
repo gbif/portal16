@@ -1,0 +1,87 @@
+<div class="card country-key__datasets" style="width:1200px">
+    <div class="card__content">
+        <h4 class="m0 inline-block" ng-if="countryKey.showAbout">
+            <span class="h3"
+                  count="//api.gbif.org/v1/occurrence/search?publishingCountry={$ country.code $}">
+                &nbsp;</span>
+            <span>occurrence records about {$ __('country.' + country.code) $}</span>
+        </h4>
+        <h4 class="m0 inline-block ng-cloak" ng-if="!countryKey.showAbout">
+            <span class="h3"
+                  count="//api.gbif.org/v1/occurrence/search?country={$ country.code $}">
+                &nbsp;</span>
+            <span>occurrence records from {$ __('country.' + country.code) $}</span>
+        </h4>
+        <div class="gb-btn-group inline-block pull-right">
+            <label ng-model="countryKey.showAbout" uib-btn-radio="true"
+                   ng-change="countryKey.toggle()">About</label>
+            <label ng-model="countryKey.showAbout" uib-btn-radio="false"
+                   ng-change="countryKey.toggle()">From</label>
+        </div>
+    </div>
+
+    <div ng-show="countryKey.showAbout">
+        <div class="seperator">
+            <gbmap style="height:500px" country="'{$ country.code $}'"></gbmap>
+        </div>
+        <div class="card__content seperator">
+            <div class="taxonBreakdown">
+                <div>
+                    <a ng-href="../occurrence/search?country={$ country.code $}&taxon_key={{ kingdomKey }}"
+                       class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdomKey in [1,6,5,2,3,4,7,8]">
+                        <div class="taxon-icon gb-icon-{{ countryKey.kingdomsAbout[kingdomKey].title | lowercase }}"></div>
+                        <div>
+                            <div class="small">{{ countryKey.kingdomsAbout[kingdomKey].title }}</div>
+                            <strong>{{ countryKey.kingdomsAbout[kingdomKey].count | localNumber }}</strong>
+                            <div class="small">occurrences</div>
+                        </div>
+                    </a>
+                    <a ng-href="../occurrence/search?country={$ country.code $}&taxon_key=0"
+                       class="taxonBreakdown__taxon inherit noUnderline">
+                        <div class="taxon-icon gb-icon-unknown"></div>
+                        <div>
+                            <div>{{ countryKey.kingdomsAbout[0].title }}</div>
+                            <strong>{{ countryKey.kingdomsAbout[0].count | localNumber }}</strong>
+                            <div>occurrences</div>
+                        </div>
+                    </a>
+                </div>
+                <a href="../occurrence/search?country={$ country.code $}" class="pull-right gb-button--flat">Explore
+                    data about {$ __('country.' + country.code) $}</a>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!countryKey.showAbout" class="ng-cloak">
+        <div class="seperator">
+            <gbmap style="height:500px" publishing-country="'{$ country.code $}'"></gbmap>
+        </div>
+        <div class="card__content seperator">
+            <div class="taxonBreakdown">
+                <div>
+                    <a ng-href="../occurrence/search?publishing_country={$ country.code $}&taxon_key={{ kingdomKey }}"
+                       class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdomKey in [1,6,5,2,3,4,7,8]">
+                        <div class="taxon-icon gb-icon-{{ countryKey.kingdomsFrom[kingdomKey].title | lowercase }}"></div>
+                        <div>
+                            <div class="small">{{ countryKey.kingdomsFrom[kingdomKey].title }}</div>
+                            <strong>{{ countryKey.kingdomsFrom[kingdomKey].count | localNumber }}</strong>
+                            <div class="small">occurrences</div>
+                        </div>
+                    </a>
+                    <a ng-href="../occurrence/search?country={$ country.code $}&taxon_key=0"
+                       class="taxonBreakdown__taxon inherit noUnderline">
+                        <div class="taxon-icon gb-icon-unknown"></div>
+                        <div>
+                            <div>{{ countryKey.kingdomsFrom[0].title }}</div>
+                            <strong>{{ countryKey.kingdomsFrom[0].count | localNumber }}</strong>
+                            <div>occurrences</div>
+                        </div>
+                    </a>
+                </div>
+                <a href="../occurrence/search?country={$ country.code $}" class="pull-right gb-button--flat">Explore
+                    data from {$ __('country.' + country.code) $}</a>
+            </div>
+        </div>
+    </div>
+
+</div>

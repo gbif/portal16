@@ -25,6 +25,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesCombinations', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/combinations', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
         .factory('SpeciesChildren', function ($resource, env) {
             return $resource(env.dataApi + 'species/:id/children', null, {
                     'query': {
@@ -39,6 +48,24 @@ var angular = require('angular');
                     'query': {
                         method: 'GET',
                         isArray: true
+                    }
+                }
+            );
+        })
+        .factory('SpeciesRelated', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/related', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('SpeciesReferences', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/references', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
                     }
                 }
             );

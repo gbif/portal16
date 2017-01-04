@@ -5,21 +5,25 @@
     <div>
         <article class="wrapper-horizontal-stripes">
             <div class="horizontal-stripe article-header white-background">
-                <div class="container">
+                <div class="container--desktop">
                     <div class="row">
                         <header class="col-xs-12 text-center">
                             <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">{$ __('cms.contentType.data_use') $}</span>
+                                <span class="article-header__category__upper"><a
+                                            href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use">{$
+                                        __('cms.contentType.data_use') $}</a></span>
                                 <span class="article-header__category__lower">{$ data.created | formatDate(gb.locales.current) $}</span>
                             </nav>
                             <h1>{$ data.title $}</h1>
                             <div class="article-header__intro">
                                 {# fulltext html already wrapped by <p> from Content API #}
-                                {$ data.summary | safe $}
+                                {$ data.summary | striptags $}
                             </div>
-                            <span class="article-header__meta">
-                                {$ data.numResourceUsed $}
+                            {% if data.numResourceUsed | isNotEmpty %}
+                                <span class="article-header__meta">
+                                {$ data.numResourceUsed | striptags $}
                             </span>
+                            {% endif %}
                         </header>
                     </div>
                 </div>
@@ -36,7 +40,7 @@
 
                     </div>
 
-                    <div class="article-auxiliary prose-columns">
+                    <div class="article-auxiliary prose-columns smaller">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
                             {% if data.citationInformation %}
                                 <section class="{% if data.citationInformation.length == 1 %}no-break{% endif %}">

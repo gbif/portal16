@@ -1,0 +1,127 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+{% import "../tabs.macro.nunjucks" as tabsMacro %}
+{% import "../../../../components/common.macros.nunjucks" as commonMacros %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes datasetKey page--data">
+        {% include('../header/header.nunjucks') %}
+
+        <div id="tabsScrollable">
+            {$ tabsMacro.datasetTabs(dataset, 'taxonomy', __) $}
+        </div>
+        <div class="tabs-fixed-container" id="tabsFixedContainer">
+            {$ tabsMacro.datasetTabs(dataset, 'taxonomy', __) $}
+        </div>
+
+        <div class="taxonomy-wrapper horizontal-stripe">
+            <div class="container--desktop row">
+
+                <div class="taxonomy">
+                    <h3>Taxonomy</h3>
+                    <p>
+                        {% if dataset.isChecklist() %}
+                            The classification of all taxa in {$ dataset.record.title $} with their
+                            <span class="count-type">number of descendant taxa</span> indicated.
+
+                        {% else %}
+                            The classification of all taxa derived from occurrences in {$ dataset.record.title $}
+                            after normalising against the GBIF backbone taxonomy with their
+                            <span class="count-type">number of occurrences</span> indicated.
+                        {% endif %}
+                    </p>
+
+                    <tax-browser occ="{$ not dataset.isChecklist() $}" dataset-key="{$ dataset.record.key $}"
+                                 taxon-key="{$ taxon.record.key $}"></tax-browser>
+                </div>
+
+                <div class="taxonomy-content">
+                    {% if taxon %}
+                        <section id="taxon-details">
+                            <h2>{$ commonMacros.parsedTaxonName(taxon.name) $}</h2>
+
+                            {% if taxon.record.basionym %}
+                                <p>Original name: {$ taxon.record.basionym $}</p>
+                            {% endif %}
+
+                            <p>
+                                {% if taxon.record.synonym %}
+                                    {$ taxon.record.rank | capitalize  $} {$ taxon.record.taxonomicStatus | lower $}
+                                    of <a href="/species/{$ taxon.record.acceptedKey $}">{$ taxon.record.accepted $}</a>
+                                {% else %}
+                                    {$ taxon.record.taxonomicStatus | capitalize $} {$ taxon.record.rank | lower $}
+                                {% endif %}
+                                {% if taxon.isNub() %}
+                                    sensu <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                                    {% elif taxon.record.accordingTo %}
+                                    sensu {$ taxon.record.accordingTo $}
+                                {% endif %}
+                            </p>
+
+                            {% if taxon.record.nomenclaturalStatus or taxon.record.publishedIn %}
+                                <p>
+                                    {% if taxon.record.nomenclaturalStatus %}
+                                        {$ taxon.record.nomenclaturalStatus $}
+                                    {% endif %}
+                                    {% if taxon.record.publishedIn %}
+                                        Published in {$ taxon.record.publishedIn $}
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+
+                            {% if not taxon.isNub() %}
+                                <p>
+                                    {% if taxon.record.origin == 'SOURCE' %}
+                                        {% if taxon.record.references %}
+                                            Origin <a href="{$ taxon.record.references $}">{$ taxon.record.references |
+                                            domain $}</a>
+                                        {% else %}
+                                            Origin taxonID {$ taxon.record.taxonID $}
+                                        {% endif %}
+                                    {% else %}
+                                        Origin {$ taxon.record.origin $}
+                                    {% endif %}
+
+                                    {% if taxon.record.nubKey %}
+                                        - view in <a href="/species/{$ taxon.record.nubKey $}">GBIF Backbone</a>
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+
+                            {% if taxon.record.issues %}
+                                <p>
+                                    {% for iss in taxon.record.issues %}
+                                        <span class="badge badge--warning">{$ iss | lower | replace("_", " ") $}</span>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+
+                            {% if taxon.record.remarks %}
+                                <p>{$ taxon.record.remarks $}</p>
+                            {% endif %}
+
+                            {% if taxon.record.lastCrawled %}
+                                <p class="modified-date">{$ __('date.modified') $} {$ taxon.record.lastCrawled |
+                                    formatDate(gb.locales.current) $}</p>
+                            {% endif %}
+                        </section>
+
+
+                        {% if dataset.isChecklist() %}
+                            {% include('./verbatim.nunjucks') %}
+                        {% endif %}
+
+                        <!--
+                        <section id="media" class="white-background">
+                            <h3>Images</h3>
+                            <p>Coming soon ...</p>
+                        </section>
+                        -->
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+
+    </article>
+{% endblock %}

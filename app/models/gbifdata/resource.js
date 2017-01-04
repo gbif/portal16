@@ -50,7 +50,7 @@ Resource.getReources = function (resources, callback) {
     var tasks = {};
     resources.forEach(function (e) {
         tasks[e.extendToField] = function (cb) {
-            helper.getApiData(e.resource, cb);
+            helper.getApiData(e.resource, cb, e.options);
         };
     });
     async.parallel(tasks, callback);

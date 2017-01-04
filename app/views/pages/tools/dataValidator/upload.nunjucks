@@ -6,4 +6,15 @@
             <a href="">Select file</a>
         </div>
     </div>
+
+    <div class="text-center">
+        <form name="fileUrlForm" novalidate>
+            <label for="fileurl">URL:</label>
+            <input type="text" name="fileurl" ng-model="resourceToValidate.fileUrl"/><br/>
+            <br/>
+            <button type="submit"
+                    ng-click="dataValidator.handleFileUrl(resourceToValidate)">Submit
+            </button>
+        </form>
+    </div>
 </div>

@@ -7,7 +7,7 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, $filter) {
+function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) { // ($filter)
     var vm = this,
         limit = 100,
         offset = 0;
@@ -16,17 +16,27 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
     vm.failedImageCount = 0;
     vm.results = [];
 
-    vm.imageCache = env.imageCache;
+    vm.imageCache = env.imageCache.replace('//', '');
 
     var latestData = {};
 
     var search = function (query) {
-        query.mediaType = 'stillImage';//$filter('unique')($filter('unique')(query.mediaType).concat('stillImage'));
+        query.mediaType = 'stillImage'; // $filter('unique')($filter('unique')(query.mediaType).concat('stillImage'));
         vm.endOfRecords = true;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
         latestData = OccurrenceSearch.query(vm.query, function (data) {
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
+            data.results.forEach(function (e) {
+                //select first image
+                e._images = [];
+                for (var i = 0; i < e.media.length; i++) {
+                    if (e.media[i].type == 'StillImage') {
+                        e._images.push(e.media[i]);
+                    }
+                }
+            });
+
             vm.results = vm.results.concat(data.results);
         }, function () {
             //TODO handle request error
@@ -63,6 +73,11 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter, 
         offset = 0;
         vm.filter(vm.occurrenceState.query);
     });
+
+    vm.getSubDomain = function (index) {
+        var i = index % 5;
+        return '//' + String.fromCharCode(97 + i) + '-';
+    };
 
 }
 

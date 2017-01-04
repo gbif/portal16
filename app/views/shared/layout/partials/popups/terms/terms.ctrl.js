@@ -10,7 +10,7 @@ angular
 function termsCtrl(localStorageService) {
     var vm = this;
     vm.userAcceptance = localStorageService.get('userAcceptance');
-    vm.accept = function() {
+    vm.accept = function () {
         localStorageService.set('userAcceptance', true);
         vm.userAcceptance = true;
     }

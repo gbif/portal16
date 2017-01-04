@@ -53,6 +53,14 @@ angular
 
         //when in not advanced mode then remove parameters from URL that are filled with default values
         state.query = $stateParams;
+
+        // for country iso code should be uppercase to catch translation.
+        var countryFacets = ['category_country', 'category_author_from_country'];
+        countryFacets.forEach(function(facet){
+            if (state.query.hasOwnProperty(facet) && typeof state.query[facet] !== 'undefined') {
+                state.query[facet] = state.query[facet].toUpperCase();
+            }
+        });
         refreshData(state.query);
 
         return {

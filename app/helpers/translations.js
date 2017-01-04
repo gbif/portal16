@@ -2,6 +2,7 @@
 
 var marked = require('marked'),
     async = require('async'),
+    Q = require('q'),
     fs = require('fs');
 
 function parseMarkdown(data, cb) {
@@ -39,6 +40,19 @@ function getTranslations(fileMap, language, callback) {
     async.parallel(tasks, callback);
 }
 
+function getTranslationPromise(fileMap, language) {
+    var deferred = Q.defer();
+    getTranslations(fileMap, language, function (err, data) {
+        if (err) {
+            deferred.reject(new Error(err));
+        } else {
+            deferred.resolve(data);
+        }
+    });
+    return deferred.promise;
+}
+
 module.exports = {
-    getTranslations: getTranslations
+    getTranslations: getTranslations,
+    getTranslationPromise: getTranslationPromise
 };

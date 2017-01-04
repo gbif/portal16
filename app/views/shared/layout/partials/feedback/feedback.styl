@@ -1,0 +1,322 @@
+$feedbackPrimaryColor = #6599a2 //#1f8ceb //#398194
+$feedbackPrimaryInk = white
+$menuboxBorderRadius = 4px;
+
+.menubox {
+    display none
+    &.is-active {
+        display block
+        animation menuboxSlideIn .5s
+    }
+    position fixed
+    z-index 1000
+
+    &__wrapper {
+        display flex
+        height 100%
+        flex-direction column
+        overflow auto
+        overflow-x hidden
+        box-shadow 0 5px 40px rgba(0, 0, 0, .16)
+        position relative
+    }
+    &__top {
+        flex 0 0 auto
+        background $feedbackPrimaryColor
+        color white
+        font-weight 300
+
+    }
+    &__header {
+        &__title {
+            text-align center
+            font-weight 400
+            padding vrBlock(0.5)
+        }
+        &__description {
+            padding vrBlock(1) vrBlock(1.5)
+            font-size 12px
+            min-height vrBlock(4)
+            color rgba(255, 255, 255, 0.85)
+        }
+        > a {
+            position absolute
+            top 0
+            font-size 30px
+            margin 0 5px
+            width 33%
+            &:before {
+                transition background 100ms ease
+                border-radius 50%
+            }
+            &:hover:before {
+                background rgba(0, 0, 0, 0.2)
+            }
+        }
+    }
+    &__close {
+        right 0
+        text-align right
+    }
+    &__back {
+        left 0
+    }
+    nav {
+        .feedback__issuesToggle {
+            margin 0 10px 7px 0
+            height 1.5rem
+            &.isActive {
+                visibility hidden
+            }
+        }
+    }
+    //nav {
+    //    ul {
+    //        padding 0
+    //    }
+    //    li {
+    //        display inline-block
+    //        float left
+    //        width 25%
+    //        &:first-of-type {
+    //            padding-left 10px
+    //        }
+    //        &:last-of-type {
+    //            padding-right 10px
+    //        }
+    //        a {
+    //            line-height 1
+    //            text-align center
+    //            display block
+    //            color darken($feedbackPrimaryColor, 20)
+    //            border-bottom 3px solid transparent
+    //            span {
+    //                font-size 30px
+    //            }
+    //            div {
+    //                font-size 12px
+    //                padding-bottom 5px
+    //            }
+    //        }
+    //        &.isHovered, &:hover {
+    //            a {
+    //                color darken($feedbackPrimaryColor, 30)
+    //            }
+    //        }
+    //        &.isActive {
+    //            a {
+    //                color $feedbackPrimaryInk
+    //                border-bottom 3px solid lighten($feedbackPrimaryColor, 25)
+    //            }
+    //        }
+    //    }
+    //}
+    &__content {
+        flex 1 1 auto
+        background #f7f7f7
+    }
+    &__section {
+        //> div {
+        //    padding 20px
+        //}
+        &__content {
+            &__annotate {
+                text-align center
+                padding 10px 0
+                color $feedbackPrimaryInk
+                //a {
+                //    padding 10px 20px
+                //    background $feedbackPrimaryColor
+                //    color $feedbackPrimaryInk
+                //    box-shadow 1px 2px 3px rgba(0, 0, 0, 0.2)
+                //}
+            }
+        }
+        &--issues {
+            ul {
+                padding 0
+            }
+        }
+        &--select {
+            ul {
+                padding 0
+                li {
+                    display block
+                    border-bottom 1px solid $stripeBorderColor
+                    a {
+                        display block
+                        padding 10px 20px
+                        transition background 200ms ease
+                    }
+                    &:hover {
+                        a {
+                            background white
+                        }
+                    }
+                }
+            }
+        }
+        &--question {
+            > div {
+                p {
+                    margin-bottom vrBlock(1)
+                }
+            }
+        }
+        &--issue {
+            form {
+                padding 0
+                label {
+                    display block
+                    margin 0
+                    width 100%
+                    font-weight normal
+                    border-bottom 1px solid $stripeBorderColor
+                    > span {
+                        display none
+                    }
+                }
+
+                input, textarea {
+                    width 100%
+                    display block
+                    border none
+                    padding 20px
+                    font-size 12px
+                    background transparent
+                    transition background 200ms ease
+                    &:focus {
+                        outline none
+                        background white
+                        + .feedback-input__info {
+                            opacity 1
+                        }
+                    }
+                }
+                textarea {
+                    height 200px
+                    resize none
+                }
+                .feedback__textarea {
+                    position relative
+                    > label > div {
+                        position absolute
+                        bottom 5px
+                        right 5px
+                        font-size 10px
+                        text-transform uppercase
+                        color $discreetInk
+                        opacity 0.4
+                        a {
+                            text-decoration underline
+                        }
+                        &:hover {
+                            opacity 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__section__content {
+        padding vrBlock(1)
+        //.is-collapsable {
+        //    max-height 1500px
+        //    transition max-height 2000ms ease
+        //    overflow hidden
+        //    max-height 0
+        //}
+    }
+    .feedback__failure {
+        border-left 5px solid tomato
+        padding-left 10px
+    }
+    &__card {
+        margin vrBlock(0.5)
+        transition box-shadow 200ms ease
+        box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+        &:hover {
+            box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
+        }
+        div.feedback__comment {
+            color #aaa
+        }
+    }
+    .feedback__comment {
+        font-size 12px
+        color $discreetInk
+        a:not([href=""]) {
+            color inherit
+            text-decoration underline
+        }
+        p:last-of-type {
+            margin-bottom 0
+        }
+    }
+}
+
+.comment-bubble {
+    margin auto
+    background $feedbackPrimaryColor
+    padding 2px 5px
+    min-width 20px
+    display inline-block
+    text-align center
+    font-size 9px
+    position relative
+    color white
+    &:after {
+        content ' '
+        position absolute
+        triangle: 'down' 3px $feedbackPrimaryColor
+        bottom -3px
+        right 3px
+    }
+    &:hover {
+        box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+        background darken($feedbackPrimaryColor, 25)
+        color white
+        &:after {
+            triangle: 'down' 3px darken($feedbackPrimaryColor, 25)
+            box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+        }
+    }
+}
+
++isBelow($mobile) {
+    .menubox {
+        top 0
+        bottom 0
+        left 0
+        right 0
+    }
+}
++isAbove($mobile) {
+    .menubox {
+        top vrBlock(2)
+        right vrBlock(1)
+        left initial
+        bottom initial
+        width 370px
+        max-height calc(100% - 100px)
+        border-radius $menuboxBorderRadius
+        box-shadow 0 5px 150px 20px rgba(0, 0, 0, 0.15)
+        &__wrapper {
+            border-radius $menuboxBorderRadius
+        }
+    }
+}
+
+@keyframes menuboxSlideIn {
+    0% {
+        top vrBlock(1)
+        opacity: 0;
+    }
+    50% {
+        top vrBlock(2)
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

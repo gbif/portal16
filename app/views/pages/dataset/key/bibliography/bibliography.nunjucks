@@ -1,10 +1,12 @@
 {% if dataset.record.bibliographicCitations.length > 0 %}
     <section
-            class="horizontal-stripe dataset-key__bibliography white-background is-fade-expandable {% if dataset.record.bibliographicCitations.length <= 5 %} is-fade-expanded {% endif %}"
-            {% if dataset.record.bibliographicCitations.length > 5 %}
-        ng-class="{'is-fade-expanded': datasetKey.bibExpand.isExpanded}"
-            {% endif %}>
-        <div class="container--narrow anchor-block" id="bibliography">
+            class="horizontal-stripe dataset-key__bibliography white-background is-fade-expandable is-fade-expanded"
+            {#{% if dataset.record.bibliographicCitations.length <= 5 %} is-fade-expanded {% endif %}#}
+            {#{% if dataset.record.bibliographicCitations.length > 5 %}#}
+            {#ng-class="{'is-fade-expanded': datasetKey.bibExpand.isExpanded}"#}
+            {#{% endif %}#}
+    >
+        <div class="container--narrow anchor-block--tabs" id="bibliography">
             <h3>Bibliography</h3>
             <div class="dataset-key__bibliography__list">
                 <ol>
@@ -53,13 +55,13 @@
                     {% endfor %}
                 </ol>
             </div>
-            {% if dataset.record.bibliographicCitations.length > 5 %}
-                <div class="fade-expand">
-                    <a href="" class="gb-icon-angle-down"
-                       ng-class="{'gb-icon-angle-down': !datasetKey.bibExpand.isExpanded, 'gb-icon-angle-up': datasetKey.bibExpand.isExpanded}"
-                       ng-click="datasetKey.bibExpand.isExpanded = !datasetKey.bibExpand.isExpanded"></a>
-                </div>
-            {% endif %}
+            {#{% if dataset.record.bibliographicCitations.length > 5 %}#}
+            {#<div class="fade-expand">#}
+            {#<a href="" class="gb-icon-angle-down"#}
+            {#ng-class="{'gb-icon-angle-down': !datasetKey.bibExpand.isExpanded, 'gb-icon-angle-up': datasetKey.bibExpand.isExpanded}"#}
+            {#ng-click="datasetKey.bibExpand.isExpanded = !datasetKey.bibExpand.isExpanded"></a>#}
+            {#</div>#}
+            {#{% endif %}#}
         </div>
     </section>
 {% endif %}

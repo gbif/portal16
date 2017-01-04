@@ -1,37 +1,3 @@
-.tabs {
-    ul {
-        padding 0
-        max-width 100%
-        overflow auto
-        white-space nowrap
-    }
-    li {
-        display inline-block
-    }
-    .tab > a, .tab > span {
-        display block
-        border-bottom 2px solid transparent
-        text-align center
-        padding 0 1rem
-        text-transform uppercase
-        font-size 12px
-        font-weight normal
-        color lighten($bodyTextColor, 20)
-        text-decoration none
-        line-height 3rem
-        &:hover {
-            text-decoration none
-            color $bodyTextColor
-        }
-    }
-    li.isActive {
-        a, span {
-            border-color $color_accent
-            color $bodyTextColor
-        }
-    }
-}
-
 .icon-button-circle {
     width vrBlock(1.5)
     height vrBlock(1.5)
@@ -40,18 +6,4 @@
     background #e2e1dc
     display inline-block
     font-size 18px
-}
-
-+isAbove($laptop) {
-    .tabs {
-        ul {
-            white-space normal
-        }
-    }
-    .tab-right {
-        float right
-        a {
-            //text-transform none
-        }
-    }
 }

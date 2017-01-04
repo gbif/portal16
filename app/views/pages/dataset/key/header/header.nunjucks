@@ -1,19 +1,21 @@
-<div class="horizontal-stripe article-header white-background p-b-0">
-    <div class="container--normal">
+<div class="horizontal-stripe article-header white-background">
+    <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">{$ __('dataset.longType.' + dataset.record.type) $}</span>
+                    <span class="article-header__category__upper"><a
+                                href="{$ gb.locales.urlPrefix $}/dataset/search?type=OCCURRENCE">{$
+                            __('dataset.longType.' + dataset.record.type) $}</a></span>
                     <span class="article-header__category__lower">{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</span>
                 </nav>
 
                 <h1 class="text-center">
                     <span>{$ dataset.record.title $}</span>
                 </h1>
-                <div class="article-header__intro">
-                    Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"
-                                    class="inherit"><u>{$ dataset.publisher.title $}</u></a>
-                </div>
+                {#<div class="article-header__intro">#}
+                {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"#}
+                {#class="inherit"><u>{$ dataset.publisher.title $}</u></a>#}
+                {#</div>#}
 
 
                 {% if dataset._computedValues.contributors.highlighted.length > 0 %}
@@ -21,7 +23,7 @@
                         <ol class="inline-bullet-list">
                             {% for contributor in dataset._computedValues.contributors.highlighted %}
                                 <li>
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin#contributor_{$ contributor._id $}"
+                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}#contributor_{$ contributor._id $}"
                                        class="inherit"
                                        tooltip-placement="bottom"
                                        tooltip-popup-delay="300"
@@ -39,7 +41,6 @@
                         </ol>
                         {$ contributor.roles $}
                     </div>
-                    <p></p>
                 {% endif %}
 
                 {#<div>#}

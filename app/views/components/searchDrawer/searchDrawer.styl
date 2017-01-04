@@ -31,8 +31,10 @@ $filterEmphasisColor = $bodyTextColor
         background white
     }
     &__header {
-        border-bottom 1px solid $stripeBorderColor
-        background white
+        //border-bottom 1px solid $stripeBorderColor
+        box-shadow 0 2px 3px rgba(0,0,0,0.2)
+        background $searchBar_backgroundColor
+        color $searchBar_color
         //padding 0 20px
         position relative
         &__title {
@@ -125,6 +127,53 @@ $filterEmphasisColor = $bodyTextColor
             padding 10px 20px
         }
     }
+    &__tabs {
+        display flex
+        overflow auto
+        a {
+            display inline-block
+            flex 1 0 auto
+            text-align center
+            padding 5px
+            div {
+                font-size 20px
+            }
+            span {
+                font-size 10px
+            }
+        }
+    }
+
+    &__section {
+        &__content {
+        }
+    }
+    &__toggle {
+        position absolute
+        display block
+        width 25px
+        height $searchTabBar-height
+        right 100%
+        top $searchTabBar-height
+        background #6eb3e0
+        box-shadow -2px 2px 3px rgba(0,0,0,0.2)
+        &:before {
+            display block
+            content ''
+            triangle 'left' 5px #fff
+            position relative
+            top 18px
+            right -11px
+        }
+    }
+    &.is-active {
+        .site-drawer__toggle {
+            &:before {
+                border none
+                triangle 'right' 5px #fff
+            }
+        }
+    }
 
 }
 
@@ -134,7 +183,6 @@ $filterEmphasisColor = $bodyTextColor
         padding 0
         &__action, &__title, &__icon {
             flex 1 1 auto
-            text-transform uppercase
             text-align center
             height $searchTabBar-height
             line-height $searchTabBar-height
@@ -146,6 +194,7 @@ $filterEmphasisColor = $bodyTextColor
         }
         &__action {
             max-width 50%
+            text-transform uppercase
         }
         &__icon {
             width vrBlock(1.5)
@@ -207,8 +256,10 @@ $filterEmphasisColor = $bodyTextColor
     }
 
     h4 {
-        font-weight bold
-        padding 0 20px
+        font-weight 600
+        padding 12px 20px
+        font-size 12px
+        margin 0
         [class^="gb-icon-"], [class*=" gb-icon-"] {
             font-size 20px
             position relative
@@ -309,7 +360,8 @@ $filterEmphasisColor = $bodyTextColor
         display block
         margin -5px 20px 10px 20px
         //line-height vrBlock(1.25)
-        font-size 14px
+        color inherit
+        font-size 12px
         &::first-letter {
             text-transform uppercase
         }
@@ -353,11 +405,15 @@ $filterEmphasisColor = $bodyTextColor
 
 +isAbove($laptop) {
     .site-drawer {
+        box-shadow 2px 1px 2px rgba(0, 0, 0, 0.2)
         &__header {
             &__close {
                 visibility none
             }
         }
+    }
+    .site-drawer__toggle {
+        display none
     }
 }
 

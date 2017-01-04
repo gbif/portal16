@@ -2,6 +2,9 @@
 var express = require('express'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
+    credentialsPath = rootRequire('config/config').credentials,
+    credentials = require(credentialsPath).suggestDataset,
+    log = rootRequire('config/log'),
     fs = require('fs'),
     _ = require('lodash'),
     router = express.Router();
@@ -22,6 +25,7 @@ router.post('/', function (req, res) {
     } else {
         createIssue(req.body.form, function (err, data) {
             if (err) {
+                log.error('Could not write feedback to Github issue: ' + err);
                 res.status(400);
                 res.json({
                     error: 'could not write to github for some reason'
@@ -37,23 +41,21 @@ router.post('/', function (req, res) {
 
 function isValid(data) {
     if (_.isEmpty(data.title)) return false;
-    if (_.isEmpty(data.datasetLink)) return false;
     if (_.isEmpty(data.region)) return false;
     if (_.isEmpty(data.taxon)) return false;
     return true;
 }
 
 function createIssue(data, cb) {
-    let credentials = require('/etc/portal16/credentials');
     let description = '',
         labels = [];
 
     var client = github.client({
-        username: credentials.github.user,
-        password: credentials.github.password
+        username: credentials.user,
+        password: credentials.password
     });
 
-    var ghrepo = client.repo('gbif/data-mobilization');
+    var ghrepo = client.repo(credentials.repository);
 
     try {
         description = getDescription(data);

@@ -22,7 +22,7 @@ function routerConfig($stateProvider, $locationProvider) {
                 main: {
                     templateUrl: '/templates/pages/search/search.html',
                     controller: 'searchCtrl',
-                    controllerAs: 'omniSearch'
+                    controllerAs: 'rootSearch'
                 }
             }
         })
@@ -133,7 +133,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('cmsSearch', {
             parent: 'localization',
-            url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type',
+            url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type&category_literature_year&category_gbif_literature_annotation&category_author_from_country',
             views: {
                 main: {
                     templateUrl: '/templates/pages/cms/search/cms.html',

@@ -33,8 +33,8 @@
                 </div>
             {% endif %}
 
-            <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-            <div class='altmetric-embed' data-badge-popover='bottom' data-doi='{$ dataset.record.doi $}'></div>
+            {#<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>#}
+            {#<div class='altmetric-embed' data-badge-popover='bottom' data-doi='{$ dataset.record.doi $}'></div>#}
 
         </div>
     </div>

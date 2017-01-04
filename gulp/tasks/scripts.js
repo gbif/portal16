@@ -11,10 +11,11 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     rev = require('gulp-rev'),
     revReplace = require("gulp-rev-replace"),
+    replace = require('gulp-replace'),
+    fs = require('fs'),
     gulpif = require('gulp-if'),
     notifier = require('node-notifier'),
     g = require('gulp-load-plugins')();
-
 
 gulp.task('scripts-reload', function () {
     return buildScripts()
@@ -58,8 +59,14 @@ gulp.task('speciesLookup', function () {
 gulp.task('dataValidator', function () {
     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
 });
+gulp.task('speciesPopulation', function () {
+    return build('./app/views/pages/tools/speciesPopulation/speciesPopulation.entry.js', 'pages/speciesPopulation.js');
+});
 gulp.task('ipt', function () {
     return build('./app/views/pages/ipt/ipt.entry.js', 'pages/ipt.js');
+});
+gulp.task('home', function () {
+    return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
 //gulp.task('buildOccurrenceKey', function() {
@@ -68,6 +75,7 @@ gulp.task('ipt', function () {
 //});
 
 function build(entry, name) {
+    var revision = config.loadRevision();
     var dest = 'js/base';
     return browserify({
         entries: entry,
@@ -99,6 +107,7 @@ function build(entry, name) {
             manifest: gulp.src(config.rev.manifest)
         })))
         .pipe(gulpif(config.isProd, rev()))
+        .pipe(replace('/templates/', '/templates/' + revision + '/'))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);

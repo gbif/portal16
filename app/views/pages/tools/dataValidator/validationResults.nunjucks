@@ -1,106 +1,66 @@
-<div class="horizontal-stripe white-background ng-cloak">
+<div ng-if="dataValidator.jobId">
+ {{ dataValidator.jobId }} - {{ dataValidator.jobStatus }}
+</div>
 
-    <h2 ng-if="dataValidator.validationResults">{$ __('validation.summary') $}</h2>
+<div ng-if="dataValidator.validationResults.summary" class="horizontal-stripe white-background ng-cloak">
+
+    <h2>{$ __('validation.summary') $}</h2>
     <div class="table-container">
-        <table ng-if="dataValidator.validationResults">
+        <table>
             <tbody>
                 <tr>
                     <td class="table-cell--wide">{$ __('validation.indexeable') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.indexeable }}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.indexeable }}</td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.summary.errorCode">
+                    <td class="table-cell--wide">{$ __('validation.error') $}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.errorCode }}</td>
+                </tr>
+                <tr ng-if="dataValidator.validationResults.summary.fileFormat">
                     <td class="table-cell--wide">{$ __('validation.fileFormat.title') $}</td>
-                    <td class="table-cell--wide" translate="validation.fileFormat.{{ dataValidator.validationResults.fileFormat }}"></td>
+                    <td class="table-cell--wide" translate="validation.fileFormat.{{ dataValidator.validationResults.summary.fileFormat }}"></td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.summary.validationProfile">
                     <td class="table-cell--wide">{$ __('validation.validationProfile.title') $}</td>
-                    <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.validationProfile }}"></td>
+                    <td class="table-cell--wide" translate="validation.validationProfile.{{ dataValidator.validationResults.summary.validationProfile }}"></td>
                 </tr>
-                <tr>
+                <tr ng-if="dataValidator.validationResults.summary.fileName">
                     <td class="table-cell--wide">File name</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.fileName}}</td>
-                </tr>
-                <tr>
-                    <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
-                    <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].numberOfLines}}</td>
+                    <td class="table-cell--wide">{{ dataValidator.validationResults.summary.fileName}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="table-container">
-            <table ng-if="dataValidator.validationResults">
-                <tbody>
-                    <tr>
-                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['dwc:year'] }}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['gbif:taxonKey'] }}</td>
-                    </tr>
-                    <tr>
-                        <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
-                        <td class="table-cell--wide">{{ dataValidator.validationResults.results[0].interpretedValueCounts['dwc:decimalLatitude'] }}</td>
-                    </tr>
-                </tbody>
-            </table>
-     </div>
-
-    <h3 ng-if="dataValidator.validationResults">{$ __('validation.termsFrequency.title') $}</h3>
-    <div class="table-container">
-        <table class="table table-bordered table-striped" ng-if="dataValidator.termsFrequency">
-            <thead>
-            <tr>
-                <th>{$ __('validation.termsFrequency.term') $}</th>
-                <th>{$ __('validation.termsFrequency.count') $}</th>
-                <th>{$ __('validation.termsFrequency.percentage') $}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="(k,v) in dataValidator.termsFrequency">
-                <td>{{ k }}</td>
-                <td>{{ v.count }}</td>
-                <td>{{ v.percentage }} %</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h3 ng-if="dataValidator.validationResults">{$ __('validation.issues') $}</h3>
-    <div ng-if="dataValidator.validationResults">
-        <div class="scrollable-y" ng-repeat="(issueCategory, issueBlockList) in dataValidator.issuesMap">
-            <h4 translate="validation.category.{{issueCategory}}"></h4>
-            <div class="table-container" ng-repeat="issueBlock in issueBlockList">
-                <a href="" ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
-
-                <span ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'" translate="interpretationRemarks.{{issueBlock.issue}}"></span>
-                <span ng-if="issueCategory !== 'OCC_INTERPRETATION_BASED'" translate="validation.issueType.{{issueBlock.issue}}"></span>
-                : {{ issueBlock.count }}</a>
-
-                <table class="table table-bordered table-striped" ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
-                    <thead>
-                    <tr>
-                        <th ng-repeat="(key, val) in issueBlock.sample[0].issueData">
-                            {{ key }}
-                        </th>
-                        <th ng-repeat="(key, val) in issueBlock.sample[0].relatedData">
-                            {{ key }}
-                        </th>
-                    </tr>
-                    </thead>
+    <div ng-repeat="resultPerResource in dataValidator.validationResults.results">
+        <h3>{{ resultPerResource.fileName }}</h3>
+        <div class="table-container">
+                <table>
                     <tbody>
-                    <tr ng-repeat="issueSample in issueBlock.sample">
-                        <td ng-repeat="issueLine in issueSample.issueData" class="table-cell--wide">
-                         {{ issueLine }}
-                         </td>
-                        <td ng-repeat="issueLine in issueSample.relatedData" class="table-cell--wide">
-                            {{ issueLine }}
-                        </td>
-                    </tr>
+                        <tr>
+                            <td class="table-cell--wide">rowType</td>
+                            <td class="table-cell--wide">{{ resultPerResource.rowType }}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell--wide">{$ __('validation.numberOfLines') $}</td>
+                            <td class="table-cell--wide">{{ resultPerResource.numberOfLines}}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
+                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.date') $}</td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
+                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.taxon') $}</td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
+                            <td class="table-cell--wide">{$ __('validation.interpretedCounts.location') $}</td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
         </div>
+        {% include('./results/termsFrequency.nunjucks') %}
+        {% include('./results/issues.nunjucks') %}
     </div>
 </div>

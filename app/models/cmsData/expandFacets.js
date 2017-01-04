@@ -80,6 +80,30 @@ const facetTypeConfig = {
         type: 'id',
         translationPath: 'cms.filter.',
         show: false
+    },
+    category_literature_year: {
+        type: 'enum',
+        show: true
+    },
+    category_gbif_literature_annotation: {
+        type: 'id',
+        translationPath: 'cms.gbifLiterature.',
+        show: true
+    },
+    category_author_from_country: {
+        type: 'id',
+        translationPath: 'country.',
+        show: true
+    },
+    category_author_surname: {
+        type: 'enum',
+        translationPath: 'cms.filter.',
+        show: true
+    },
+    category_literature_type: {
+        type: 'enum',
+        translationPath: 'cms.literatureType.',
+        show: true
     }
 };
 
@@ -93,15 +117,17 @@ const resource_type = {
 function expandFacets(facets, __) {
     facets.forEach(function (facetType) {
         let ftc = facetTypeConfig[facetType.field];
-        facetType.tranlsatedLabel = __('cms.facet.' + facetType.field);
-        facetType.counts.forEach(function (e) {
-            e.translatedLabel = __(ftc.translationPath + e.enum);
-            if (ftc.type == 'enum') {
-                e.key = e.enum;
-            } else if (ftc.type == 'id') {
-                e.key = e.id;
-            }
-        });
+        if (ftc) {
+            facetType.translatedLabel = __('cms.facet.' + facetType.field);
+            facetType.counts.forEach(function(e) {
+                e.translatedLabel = typeof ftc.translationPath === 'undefined' ? e.enum : __(ftc.translationPath + e.enum);
+                if (ftc.type == 'enum') {
+                    e.key = e.enum;
+                } else if (ftc.type == 'id') {
+                    e.key = e.id;
+                }
+            });
+        }
     });
 
     // merge category_resource_type filters with type filters
@@ -122,9 +148,26 @@ function expandFacets(facets, __) {
             }
         });
     });
+    // if only category_resource_type presents, it should be converted to type.
     if (!isNaN(index_type) && !isNaN(index_category_resource_type)) {
         facets[index_type].counts = facets[index_type].counts.concat(facets[index_category_resource_type].counts);
         facets.splice(index_category_resource_type, 1);
+
+        // Sort by count after merging
+        facets[index_type].counts.sort(function (a, b) {
+            if (a.count > b.count) return -1;
+            if (a.count < b.count) return 1;
+        });
+    }
+    else if (typeof index_type === 'undefined' && !isNaN(index_category_resource_type)) {
+        facets[index_category_resource_type].field = 'type';
+        facets[index_category_resource_type].translatedLabel = __('cms.facet.' + 'type');
+
+        // Sort by count after merging
+        facets[index_category_resource_type].counts.sort(function (a, b) {
+            if (a.count > b.count) return -1;
+            if (a.count < b.count) return 1;
+        });
     }
 
     // use enum as resource type key, and exclude dataset from content types

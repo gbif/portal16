@@ -36,10 +36,12 @@ requireDir('./gulp/tasks', {
 gulp.task('prod', function (callback) {
     runSequence(
         ['clean-all'],
+        ['revision'],
         ['env-constants'],
         // these produce rev'ed files
         // We avoid parallel tasks that could overwrite the rev-manifest.json
         ['assets'],
+        ['vendorAssets'],
         ['vendor-styles'],
         ['vendor-scripts'],
         // styles & scripts need the rev'ed assets already but also produce new rev entries.
@@ -47,8 +49,10 @@ gulp.task('prod', function (callback) {
         ['scripts'],
         ['speciesLookup'],
         ['dataValidator'],
+        ['speciesPopulation'],
+        ['home'],
         ['ipt'],
-        ['templates'], // needs to come after all files have been rev'ed
+        ['templates'],
         ['ieStyle'],
         callback);
 });
@@ -69,7 +73,7 @@ gulp.task('watch', ['browser-sync'], function () {
     ], ['styles-reload']);
 
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
-    gulp.watch([config.js.client.watch], ['scripts-reload', 'speciesLookup', 'dataValidator', 'ipt', 'client-lint']);
+    gulp.watch([config.js.client.watch], ['scripts-reload', 'client-lint', 'home']); //, 'speciesLookup', 'dataValidator', 'ipt', 'speciesPopulation', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
 
     gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
 
@@ -79,8 +83,9 @@ gulp.task('watch', ['browser-sync'], function () {
 gulp.task('dev', [], function (callback) {
     runSequence(
         ['clean-all'],
+        ['revision'],
         ['env-constants'],
-        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'speciesLookup', 'dataValidator', 'ipt'],
+        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'dataValidator', 'ipt', 'speciesPopulation', 'home'],
         ['templates'],
         ['ieStyle'],
         ['watch'],

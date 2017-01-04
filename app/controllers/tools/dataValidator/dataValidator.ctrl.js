@@ -20,3 +20,12 @@ router.get('/tools/data-validator-test', function (req, res) {
         }
     });
 });
+
+router.get('/tools/data-validator-test/:jobid', function (req, res) {
+    res.render('pages/tools/dataValidator/dataValidatorResults', {
+        _meta: {
+            title: 'Data validator'
+        },
+        jobId: req.params.jobid
+    });
+});

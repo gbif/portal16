@@ -1,9 +1,9 @@
 'use strict';
 
-var Utilities = function() {
+var Utilities = function () {
 };
 
-Utilities.queryTransform = function(query) {
+Utilities.queryTransform = function (query) {
     if (query && query.hasOwnProperty('limit')) {
         query.range = query.limit;
         delete query.limit;

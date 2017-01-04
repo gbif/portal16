@@ -10,35 +10,41 @@
 
 {# <head> #}
 {% include "../partials/head/head.nunjucks" %}
-
+{% block styles %}{% endblock %}
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
 
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
-
+        <div class="snow"></div>
         {# Navigation #}
-        {% include "../partials/navigation/navigation.nunjucks" %}
-        {% include "../partials/popups/terms/terms.html" %}
-        {#{% include "../partials/navigation/search/search.nunjucks" %}#}
+        {% if not _meta.removeMenu %}
+            {% include "../partials/navigation/navigation.nunjucks" %}
+        {% endif %}
         {# Navigation end #}
 
+        {% include "../partials/popups/terms/terms.html" %}
+        
+        {% if not _meta.removeMenu %}
+            {% include "../partials/feedback/feedback.nunjucks" %}
+            {% include "../partials/notifications/notifications.nunjucks" %}
+        {% endif %}
         {# Main layout cont #}
         {# http://html5doctor.com/the-main-element/ #}
         <main id="main" class="main" role="main" ui-view>
 
             {# Drawer block is contextual, therefore is a part of the <main> #}
-            {% if _meta.hasDrawer %}
-                <aside id="filter" class="site-drawer">
-                    <div>
-                        {% block drawer %}{% endblock %}
-                    </div>
-                </aside>
+            {#{% if _meta.hasDrawer %}#}
+                {#<aside id="filter" class="site-drawer">#}
+                    {#<div>#}
+                        {#{% block drawer %}{% endblock %}#}
+                    {#</div>#}
+                {#</aside>#}
+            {#{% endif %}#}
+
+            {% if not _meta.removeMenu %}
+                {% include "../partials/navigation/search/search.nunjucks" %}
             {% endif %}
-
-            {% include "../partials/feedback/feedback.html" %}
-
-            {% include "../partials/navigation/search/search.nunjucks" %}
 
             <div class="site-content">
 

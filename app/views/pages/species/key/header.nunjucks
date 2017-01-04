@@ -1,0 +1,48 @@
+<div class="overlay"></div>
+
+<div class="horizontal-stripe article-header white-background">
+    <div class="container">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">{% if taxon.info.extinct %}† {% endif %}{$ __('taxonRank.' + taxon.record.rank) $}</span>
+                    <span class="article-header__category__lower">{$ __('taxonomicStatus.' + taxon.record.taxonomicStatus) $}</span>
+                </nav>
+
+                <h1 class="text-center">
+                    {$ commonMacros.parsedTaxonName(taxon.name) $}
+                </h1>
+
+                {% if not taxon.isNub() %}
+                    <div class="published-in article-header__intro">
+                        sensu <a href="{$ gb.locales.urlPrefix $}/dataset/{$ taxon.record.datasetKey $}"
+                                 class="inherit"><u>{$ taxon.dataset.title $}</u></a>
+                    </div>
+                    {% elif taxon.record.publishedIn %}
+                    <div class="published-in article-header__intro">
+                        <a href="#" class="inherit"><u>{$ taxon.record.publishedIn $}</u></a>
+                    </div>
+                {% endif %}
+
+                <div class="text-center">
+                            <span class="classification-list discreet">
+                                {% for taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'] %}
+                                    {% if taxon.record[taxa] and taxa != taxon.record.taxonRank | lower %}
+                                        <a href="{$ gb.locales.urlPrefix $}/taxon/{$ taxon.record[taxa + 'Key'] $}"
+                                           class="{$ taxa $}">{$ taxon.record[taxa] $}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                </div>
+            </header>
+        </div>
+        <div class="stripe-comment">
+            {% if taxon.record.lastInterpreted %}
+                <div>
+                    {$ __('date.modified') $} {$ taxon.record.lastInterpreted | formatDate(gb.locales.current)
+                    $}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

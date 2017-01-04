@@ -1,10 +1,9 @@
 "use strict";
 var express = require('express'),
-    Q = require('q'),
-    Country = require('../../../models/gbifdata/gbifdata').Country,
-    helper = rootRequire('app/models/util/util'),
+    cfg = rootRequire('config/config'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
     _ = require('lodash'),
+    countryData = require('./countryData'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -12,48 +11,103 @@ module.exports = function (app) {
 };
 
 router.get('/country/:key\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    Country.get(key, {expand: []}).then(function (country) {
-        try {
-            if (req.params.ext == 'debug') {
-                res.json(country);
-            } else {
-                res.render('pages/country/key/countryKey2', {
-                    country: country,
-                    _meta: {
-                        title: country.record.participantTitle
-                    }
-                });
-            }
-        } catch (e) {
-            next(e);
+    var key = req.params.key.toUpperCase();
+
+    countryData.getCountryData(key, function (err, country) {
+        if (err) {
+            next(err)
+        } else {
+            country.code = key;
+            var latest = _.concat(
+                _.get(country, 'news.results', []),
+                _.get(country, 'dataUse.results', []),
+                _.get(country, 'country.results', [])
+            );
+            country.latest = _.sortBy(latest, ['created']).reverse();
+            renderPage(req, res, next, country);
         }
-    }, function (err) {
-        next(err);
     });
 });
 
-router.get('/country2/:key\.:ext?', function (req, res, next) {
+router.get('/country/:key/participant\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    //renderPage(req, res, next, require('./test'));
-    Country.get(key, {expand: ['news', 'events', 'dataUse']}).then(function (country) {
-        try {
-            var latest = country.news.results.concat(country.dataUse.results).concat(country.events.results);
-            country.latest = _.sortBy(latest, ['created']).reverse();
-            appendFeed(country).then(function (data) {
-                country.feed = data;
-                renderPage(req, res, next, country);
-            }, function () {
-                //ignore error and render page without participants news feed
-                renderPage(req, res, next, country);
-            });
-        } catch (err) {
+
+    countryData.getCountryData(key, function (err, country) {
+        if (err) {
             next(err)
+        } else {
+            country.code = key;
+            try {
+                if (req.params.ext == 'debug') {
+                    res.json(country);
+                } else {
+                    res.render('pages/country/key/participant/countryParticipant', {
+                        country: country,
+                        _meta: {
+                            title: res.__('country.' + country.code),
+                            imageCacheUrl: imageCacheUrl
+                        }
+                    });
+                }
+            } catch (e) {
+                next(e);
+            }
         }
-    }, function (err) {
-        next(err);
     });
 });
+
+router.get('/country/:key/trends/about\.:ext?', function (req, res, next) {
+    var key = req.params.key;
+    countryData.getCountryData(key, function (err, country) {
+        if (err) {
+            next(err)
+        } else {
+            country.code = key;
+            renderTrendsPage(req, res, next, country, true);
+        }
+    });
+});
+
+router.get('/country/:key/trends/published\.:ext?', function (req, res, next) {
+    var key = req.params.key;
+    countryData.getCountryData(key, function (err, country) {
+        if (err) {
+            next(err)
+        } else {
+            country.code = key;
+            renderTrendsPage(req, res, next, country, false);
+        }
+    });
+});
+
+function renderTrendsPage(req, res, next, country, isAbout) {
+    try {
+        if (req.params.ext == 'debug') {
+            res.json(country);
+        } else {
+            res.render('pages/country/key/trends/countryTrends', {
+                country: country,
+                isAbout,
+                imgUrls: {//TODO more or less just copied from Markus' initial implemetation. Not translatable
+                    from: {
+                        thumbBase: imageCacheUrl + "fit-in/300x250/http://" + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/',
+                        imgBase: imageCacheUrl + "http://" + cfg.analyticsImg + 'country/' + country.code + '/publishedBy/figure/'
+                    },
+                    about: {
+                        thumbBase: imageCacheUrl + "fit-in/300x250/http://" + cfg.analyticsImg + 'country/' + country.code + '/about/figure/',
+                        imgBase: imageCacheUrl + "http://" + cfg.analyticsImg + 'country/' + country.code + '/about/figure/'
+                    }
+                },
+                _meta: {
+                    title: res.__('country.' + country.code),
+                    imageCacheUrl: imageCacheUrl
+                }
+            });
+        }
+    } catch (e) {
+        next(e);
+    }
+}
 
 
 function renderPage(req, res, next, country) {
@@ -64,42 +118,12 @@ function renderPage(req, res, next, country) {
             res.render('pages/country/key/countryKey', {
                 country: country,
                 _meta: {
-                    title: country.record.participantTitle,
+                    title: res.__('country.' + country.code),
                     imageCacheUrl: imageCacheUrl
                 }
             });
         }
     } catch (e) {
         next(e);
-    }
-}
-
-function appendFeed(country) {
-    try {
-        let deferred = Q.defer(),
-            endpoints = country.record.endpoints,
-            feed;
-        endpoints.forEach(function (e) {
-            if (e.type == 'FEED' && e.url) {
-                feed = e;
-            }
-        });
-        if (feed) {
-            helper.getApiData(feed.url, function (err, data) {
-                if (typeof data.errorType !== 'undefined') {
-                    deferred.reject(new Error(err));
-                } else if (data) {
-                    deferred.resolve(data);
-                }
-                else {
-                    deferred.reject(new Error(err));
-                }
-            }, {retries: 1, timeoutMilliSeconds: 3000, type: 'XML'});
-        } else {
-            deferred.resolve(undefined);
-        }
-        return deferred.promise;
-    } catch (err) {
-        return err;
     }
 }

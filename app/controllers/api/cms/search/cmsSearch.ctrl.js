@@ -53,10 +53,29 @@ function cmsSearch(query) {
     queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
     queryUrl += '?range=' + query.range;
     queryUrl += '&page=' + query.page;
-    queryUrl += '&sort=-created';
+    if (query.type && query.type === 'event') {
+        queryUrl += '&sort=-dateStart';
+    }
+    else {
+        queryUrl += '&sort=-created';
+    }
 
     // Converting facets in the array notation that the CMS API consumes.
-    var availableFacets = ['type', 'language', 'category_data_use', 'category_capacity_enhancement', 'category_about_gbif', 'category_audience', 'category_purpose', 'category_country', 'category_topic'];
+    var availableFacets = [
+        'type',
+        'language',
+        'category_data_use',
+        'category_capacity_enhancement',
+        'category_about_gbif',
+        'category_audience',
+        'category_purpose',
+        'category_country',
+        'category_topic',
+        'category_literature_year',
+        'category_gbif_literature_annotation',
+        'category_author_from_country',
+        'category_author_surname'
+    ];
     var resource_type_id = {
         'document': '895',
         'presentation': '987',
@@ -64,6 +83,7 @@ function cmsSearch(query) {
         'link': '1076'
     };
 
+    // Convert resource_type to type.
     availableFacets.forEach(function (facet) {
         if (typeof query[facet] !== 'undefined') {
             if (facet == 'type' && ['document', 'presentation', 'tool', 'link'].indexOf(query[facet]) !== -1) {
@@ -109,12 +129,16 @@ function transformFacetsToMap(data) {
     let facets = {};
     data.facets.forEach(function (e) {
         facets[e.field] = e.counts;
-        facets[e.field]['translatedLabel'] = e.tranlsatedLabel;
+        facets[e.field]['translatedLabel'] = e.translatedLabel;
         facets[e.field]['fieldKey'] = e.field;
     });
     data.facets = facets;
 
     let facetMap = {};
+    let countryFields = [
+        'category_country',
+        'category_author_from_country'
+      ];
     Object.keys(data.facets).forEach(function (key) {
         let facetType = data.facets[key];
         facetMap[key] = {};
@@ -123,9 +147,9 @@ function transformFacetsToMap(data) {
         facetType.forEach(function (e) {
             facetMap[key].counts.push({
                 count: e.count,
-                fraction: e.count / data.count,
+                fraction: e.count / data.count === 0 ? 1 : data.count,
                 translatedLabel: e.translatedLabel,
-                key: key == 'category_country' ? e.enum : e.key
+                key: countryFields.indexOf(key) !== -1 ? e.enum : e.key
             });
             max = e.count > max ? e.count : max;
         });
@@ -135,11 +159,21 @@ function transformFacetsToMap(data) {
 
         // CMS API by default has filters sorted by counts,
         // we sort them by name here, except country, so it behaves closer to GBIF Data API.
+        /*
         facetMap[key].counts.sort(function (a, b) {
             if (a.translatedLabel > b.translatedLabel) return 1;
             if (a.translatedLabel < b.translatedLabel) return -1;
         });
-        if (key == 'category_country') {
+        */
+        // Year is sorted by label
+        if (key == 'category_literature_year') {
+            facetMap[key].counts.sort(function (a, b) {
+                if (a.translatedLabel > b.translatedLabel) return -1;
+                if (a.translatedLabel < b.translatedLabel) return 1;
+            });
+        }
+
+        if (countryFields.indexOf(key) !== -1) {
             facetMap[key].counts.sort(function (a, b) {
                 if (a.count > b.count) return -1;
                 if (a.count < b.count) return 1;
@@ -153,6 +187,13 @@ function transformFacetsToMap(data) {
                 if (count.key == 'und') {
                     facetMap[key].counts = facetMap[key].counts.concat(facetMap[key].counts.splice(i, 1));
                 }
+            });
+        }
+        // Sort content type filters by count
+        if (key == 'type') {
+            facetMap[key].counts.sort(function (a, b) {
+                if (a.count > b.count) return -1;
+                if (a.count < b.count) return 1;
             });
         }
     });

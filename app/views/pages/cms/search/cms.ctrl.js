@@ -19,6 +19,16 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
 
     vm.filters = {};
 
+    /**
+     * To surface a facet:
+     *   1) first include the field name of the facet in app/controllers/api/cms/search/cmsSearch.ctrl.js;
+     *   2) create an object below;
+     *   3) add a div with filter-cms directive in cms.html
+     *   4) add corresponding translations.
+     *   5) add facets to routerConfig state for CmsSearch.
+     *   6) update app/models/cmsData/expandFacets.js
+     * @type {{queryKey: string, filter: *, showAll: boolean, singleSelect: boolean, facets: {hasFacets: boolean, hideBar: boolean, facetKey: string}}}
+     */
     vm.filters.type = {
         queryKey: 'type',
         filter: CmsFilter,
@@ -133,6 +143,43 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
             hasFacets: true,
             hideBar: true,
             facetKey: 'category_topic'
+        }
+    };
+
+    vm.filters.category_literature_year = {
+        queryKey: 'category_literature_year',
+        filter: CmsFilter,
+        showAll: false,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_literature_year'
+        }
+    };
+
+    vm.filters.category_gbif_literature_annotation = {
+        queryKey: 'category_gbif_literature_annotation',
+        filter: CmsFilter,
+        showAll: false,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_gbif_literature_annotation'
+        }
+    };
+    vm.filters.category_author_from_country = {
+        queryKey: 'category_author_from_country',
+        filter: CmsFilter,
+        showAll: false,
+        search: {
+            isSearchable: true,
+            placeholder: 'country',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+        },
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_author_from_country'
         }
     };
 

@@ -22,5 +22,5 @@ describe('Occurrence search', function () {
         searchDrawer.apply.click();
         expect(occurrenceTable.rowEls.count()).toEqual(0);
     });
-
 });
+

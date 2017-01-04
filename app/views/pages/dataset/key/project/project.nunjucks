@@ -11,7 +11,12 @@
         {% include('../header/header.nunjucks') %}
 
         {% import "../tabs.macro.nunjucks" as tabsMacro %}
-        {$ tabsMacro.datasetTabs(dataset, 'project', __) $}
+        <div id="tabsScrollable">
+            {$ tabsMacro.datasetTabs(dataset, 'project', __) $}
+        </div>
+        <div class="tabs-fixed-container" id="tabsFixedContainer">
+            {$ tabsMacro.datasetTabs(dataset, 'project', __) $}
+        </div>
 
         {% include('./projectSection.nunjucks') %}
 

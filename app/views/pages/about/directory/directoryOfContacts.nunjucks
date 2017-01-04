@@ -47,36 +47,42 @@
                             <nav id="contacts-nav" class="contacts-nav">
                                 <ul>
                                     {% if contacts.participants.length > 0 %}
-                                    <li>
-                                        <div class="h3">{$ __('directory.governingBoard') $}</div>
-                                        <ul class="nav-chapters">
-                                            {% for participant in contacts.participants %}
-                                                {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
-                                                    {% if participant.members.length > 0 %}
-                                                        <li class="nav-chapter" du-scrollspy="{$ participant.enum $}"><a href="#{$ participant.enum $}">{$ __('directory.' + participant.enum) $}</a></li>
+                                        <li>
+                                            <div class="h3">{$ __('directory.governingBoard') $}</div>
+                                            <ul class="nav-chapters">
+                                                {% for participant in contacts.participants %}
+                                                    {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
+                                                        {% if participant.members.length > 0 %}
+                                                            <li class="nav-chapter"
+                                                                du-scrollspy="{$ participant.enum $}"><a
+                                                                        href="#{$ participant.enum $}">{$
+                                                                    __('directory.' + participant.enum) $}</a></li>
+                                                        {% endif %}
                                                     {% endif %}
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
                                     {% endif %}
 
                                     {% if contacts.committees.length > 0 %}
-                                    <li>
-                                        <div class="h3">{$ __('directory.committees') $}</div>
-                                        <ul class="nav-chapters">
-                                            {% for committee in contacts.committees %}
-                                                {% if committee.members.length > 0 %}
-                                                    <li class="nav-chapter" du-scrollspy="{$ committee.enum $}"><a href="#{$ committee.enum $}">{$ __('directory.' + committee.enum) $}</a></li>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
+                                        <li>
+                                            <div class="h3">{$ __('directory.committees') $}</div>
+                                            <ul class="nav-chapters">
+                                                {% for committee in contacts.committees %}
+                                                    {% if committee.members.length > 0 %}
+                                                        <li class="nav-chapter" du-scrollspy="{$ committee.enum $}"><a
+                                                                    href="#{$ committee.enum $}">{$ __('directory.' +
+                                                                committee.enum) $}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
                                     {% endif %}
 
                                     {% if contacts.gbif_secretariat.length > 0 %}
                                         <li class="nav-chapter--orphan" du-scrollspy="gbif_secretariat">
-                                            <a class="h3" href="#gbif_secretariat">{$ __('directory.gbif_secretariat') $}</a>
+                                            <a class="h3" href="#gbif_secretariat">{$ __('directory.gbif_secretariat')
+                                                $}</a>
                                         </li>
                                     {% endif %}
 
