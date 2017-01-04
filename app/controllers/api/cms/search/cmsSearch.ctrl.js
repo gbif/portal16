@@ -60,6 +60,9 @@ function cmsSearch(query) {
         queryUrl += '&sort=-created';
     }
 
+    // @todo handling event filtering queries, e.g.
+    // http://cms.gbif-dev.org/api/v2/search?filter[type]=event&filter[ge_date_ical:value][value]=1470000000&filter[ge_date_ical:value][operator]=">"
+
     // Converting facets in the array notation that the CMS API consumes.
     var availableFacets = [
         'type',
