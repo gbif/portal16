@@ -72,6 +72,7 @@ function getHigestRankingLowerClasses(children) {
 
 module.exports = {
     getApiData: apirequest.getApiData,
+    getApiDataPromise: apirequest.getApiDataPromise,
     getMatchesByConfidence: getMatchesByConfidence,
     filterByMatchType: filterByMatchType,
     getSynonymKey: getSynonymKey,

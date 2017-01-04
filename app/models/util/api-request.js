@@ -1,7 +1,8 @@
 var request = require('request'),
     async = require('async'),
     xmlParser = require('xml2js').parseString,
-    log = require('../../../config/log');
+    log = require('../../../config/log'),
+    Q = require('q');
 
 var ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
@@ -129,7 +130,24 @@ function getApiData(path, callback, options) {
     );
 }
 
+function getApiDataPromise(requestUrl, options) {
+    let deferred = Q.defer();
+    getApiData(requestUrl, function (err, data) {
+        if (typeof data.errorType !== 'undefined') {
+            deferred.reject(new Error(err));
+        } else if (data) {
+            deferred.resolve(data);
+        }
+        else {
+            deferred.reject(new Error(err + ' while accessing ' + requestUrl));
+            log.info(err + ' while accessing ' + requestUrl);
+        }
+    }, options);
+    return deferred.promise;
+}
+
 module.exports = {
     getApiData: getApiData,
+    getApiDataPromise: getApiDataPromise,
     ERRORS: ERRORS
 };
