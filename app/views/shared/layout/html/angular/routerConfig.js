@@ -66,7 +66,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('datasetSearch', {
             parent: 'localization',
-            url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade',
+            url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade&taxon_key',
             views: {
                 main: {
                     templateUrl: '/templates/pages/dataset/search/dataset.html',
