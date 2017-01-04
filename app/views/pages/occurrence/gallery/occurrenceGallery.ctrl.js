@@ -55,7 +55,6 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         search(vm.query);
     };
 
-
     vm.filter = function (query) {
         vm.query = angular.copy(query);
         vm.query.limit = limit;

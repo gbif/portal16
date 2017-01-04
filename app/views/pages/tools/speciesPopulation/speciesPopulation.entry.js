@@ -277,11 +277,7 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
             vm.geometry = getPolygonAsWKT(e.features[0].geometry);
             getRegression();
         },
-<<<<<<< HEAD
-        onDelete: function() { // (e)
-=======
         onDelete: function () {
->>>>>>> master
         },
         onHexagonSelect: function (properties, feature) {
             if (vm.regressionQuery.$cancelRequest) {

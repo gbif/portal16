@@ -77,4 +77,4 @@ module.exports = {
     getSynonymKey: getSynonymKey,
     getHigestRankingLowerClasses: getHigestRankingLowerClasses,
     filterByExactQuery: filterByExactQuery
-}
+};
