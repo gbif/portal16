@@ -1794,7 +1794,8 @@
       "hexagon": "Hexagon",
       "draw": "Draw",
       "clear": "Clear",
-      "resultIntro": "Change in relative abundance for the selected area"
+      "resultIntro": "Change in relative abundance for the selected area",
+      "embedIntro": "All data mediated through the {GBIF network}"
     }
   },
   "menu": {
@@ -1923,7 +1924,7 @@
       "title": "Question",
       "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
-      "comment": "If your question is not of a technical character then you can help expediate the process by reaching us at info@gbif.org or at communication@gbif.org for press matters."
+      "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
     },
     "confirmation": {
       "title": "Thank you",

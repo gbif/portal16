@@ -8,3 +8,7 @@
 {% if __agent %}System: {$ __agent $}{% endif %}
 {% if __referer %}Referer: {$ __referer $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}
+[API log](http://elk.gbif.org:5601/app/kibana#/discover/UAT-Varnish-403s?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'{$ __timestamp.before $}',mode:absolute,to:'{$ __timestamp.after $}'))&_a=(columns:!(request,response,clientip),filters:!(),index:'prod-varnish-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'response:%3E499%20AND%20(request:%22%2F%2Fapi.gbif.org%22)')),sort:!('@timestamp',desc))&indexPattern=uat-varnish-*&type=histogram)
+[Site log](http://elk.gbif.org:5601/app/kibana#/discover/UAT-Varnish-403s?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'{$ __timestamp.before $}',mode:absolute,to:'{$ __timestamp.after $}'))&_a=(columns:!(request,response,clientip),filters:!(),index:'prod-varnish-*',interval:auto,query:(query_string:(analyze_wildcard:!t,query:'response:%3E399%20AND%20(request:%22%2F%2Fdemo.gbif.org%22)')),sort:!('@timestamp',desc))&indexPattern=uat-varnish-*&type=histogram)
+{% if datasetKey %}datasetKey: {$ datasetKey $}{% endif %}
+{% if publishingOrgKey %}publishingOrgKey: {$ publishingOrgKey $}{% endif %}

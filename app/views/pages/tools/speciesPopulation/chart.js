@@ -1,61 +1,42 @@
-
 function showStats(data, minYear, maxYear) {
     minYear = minYear || 1900;
     maxYear = maxYear || 2016;
 
-    var labels = [];
-    var points = [];
-    //var normalized = [];
-    var line = [];
-    var groupLine = [];
+    var labels = [],
+        points = [],
+        line = [],
+        groupLine = [],
+        i;
 
+    // parse the data attached to the vector tile
     var speciesCounts = typeof data.speciesCounts === 'string' ? JSON.parse(data.speciesCounts) : data.speciesCounts;
     var groupCounts = typeof data.groupCounts === 'string' ? JSON.parse(data.groupCounts) : data.groupCounts;
 
-    for (var i = minYear; i < maxYear; i++) {
+    //transform data to the format the Chartist library expects
+    for (i = minYear; i < maxYear; i++) {
         labels.push(i);
         if (groupCounts.hasOwnProperty(i.toString())) {
+            //Calculate the relative amount of the species in relation to the group
             var s = speciesCounts[i] || 0;
             var g = groupCounts[i];
-            var val = s/g;
+            var val = s / g;
             points.push(val);
+
+            // group counts for drawing the area graph so that the user can easily see how much data was available that year
+            groupLine.push(g);
         }
         else {
             points.push(null);
-        }
-        line.push( data.slope*i + data.intercept );
-    }
-
-
-
-    function getMaxOfArray(numArray) {
-        return Math.max.apply(null, numArray);
-    }
-
-    for (var j = minYear; j < maxYear; j++) {
-        if (groupCounts.hasOwnProperty(j.toString())) {
-            var h = groupCounts[j];
-            groupLine.push(h);
-        }
-        else {
             groupLine.push(null);
         }
+        //draw the regression line
+        line.push(data.slope * i + data.intercept);
     }
 
-    // var maximumPercentage = getMaxOfArray(points);
-    // var maximumGroupCount = getMaxOfArray(groupLine);
-    //groupLine = groupLine.map(function(e){
-    //    return maximumPercentage*e/maximumGroupCount
-    //});
+    var interval = (maxYear - minYear) > 100 ? 25 : 10;
 
-
-
-    var interval = (maxYear-minYear) > 100 ? 25: 10;
-
-
-    var chart = new Chartist.Line('.regression-chart', {
+    new Chartist.Line('.regression-chart', {
         labels: labels,
-        // Naming the series with the series object array notation
         series: [
             {
                 name: 'points',
@@ -69,13 +50,13 @@ function showStats(data, minYear, maxYear) {
     }, {
         fullWidth: true,
         axisX: {
-            labelInterpolationFnc: function(value, index) {
+            labelInterpolationFnc: function (value, index) {
                 return index % interval === 0 ? value : '';
             },
             showGrid: false
         },
         axisY: {
-            labelInterpolationFnc: function(value, index) {
+            labelInterpolationFnc: function (value) {
                 return +value.toFixed(5);
             }
         },
@@ -97,9 +78,8 @@ function showStats(data, minYear, maxYear) {
         }
     });
 
-    var chart = new Chartist.Line('.count-chart', {
+    new Chartist.Line('.count-chart', {
         labels: labels,
-        // Naming the series with the series object array notation
         series: [
             {
                 name: 'groupLine',
@@ -109,7 +89,7 @@ function showStats(data, minYear, maxYear) {
     }, {
         fullWidth: true,
         axisX: {
-            labelInterpolationFnc: function(value, index) {
+            labelInterpolationFnc: function (value, index) {
                 return index % interval === 0 ? value : '';
             },
             showGrid: false
@@ -117,36 +97,14 @@ function showStats(data, minYear, maxYear) {
         low: 0,
         series: {
             'groupLine': {
-                //lineSmooth: Chartist.Interpolation.none({
-                //    fillHoles: true
-                //}),
                 showArea: true,
                 showLine: false,
                 showPoint: false
             }
         }
     });
-
-    //$('.charts').show();
-    //$('#stats').show();
-    //
-    //
-    //$('.statsHighlight .statsHighlight__year>div').attr('title', data.slope);
-    //$('.statsHighlight .statsHighlight__year>div').html( (Math.round(1000000*data.slope)/100) + ' ‱');
-    //if (data.slope < 0) $('.statsHighlight .statsHighlight__year').addClass('negative');
-    //else $('.statsHighlight .statsHighlight__year').removeClass('negative');
-    //
-    //if (line[0] > 0 && line[line.length-1] > 0) {
-    //    var estChange = Math.round(100*line[line.length-1]/line[0]);
-    //    $('.statsHighlight .statsHighlight__yearspan>div').html(estChange + ' %');
-    //    if (data.slope < 0) $('.statsHighlight .statsHighlight__yearspan').addClass('negative');
-    //    else $('.statsHighlight .statsHighlight__yearspan').removeClass('negative');
-    //    $('.statsHighlight .statsHighlight__yearspan').show();
-    //} else {
-    //    $('.statsHighlight .statsHighlight__yearspan').hide();
-    //}
 }
 
 module.exports = {
     showStats: showStats
-}
+};

@@ -27,7 +27,8 @@ router.get('/embed/species-population', function (req, res, next) {
             _meta: {
                 title: 'Species Population',
                 hideFooter: true,
-                removeMenu: true
+                removeMenu: true,
+                useEmbeddedStyleSheet: true
             },
             aboutUrl: 'tools/species-population/about'
         });

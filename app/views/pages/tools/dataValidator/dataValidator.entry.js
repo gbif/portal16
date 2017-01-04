@@ -57,8 +57,8 @@ function dataValidatorCtrl($http, $window) {
             url: devApiUrl + 'validator/jobserver/status/' + jobid
         }).success(function (data) {
             handleValidationResult(data);
-        }).error(function () { // (data, status, headers, config)
-            // handle error things
+        }).error(function () { //data, status, headers, config
+            // TODO handle error things
         });
     };
 
@@ -67,8 +67,8 @@ function dataValidatorCtrl($http, $window) {
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function (data) {
             vm.evaluationCategory = data;
-        }).error(function () { // (data, status, headers, config)
-            // handle error things
+        }).error(function () { //data, status, headers, config
+            // TODO handle error things
         });
     }
 

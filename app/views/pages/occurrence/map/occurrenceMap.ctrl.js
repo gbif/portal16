@@ -21,7 +21,6 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
     };
 
     var getOverlay = function (query) {
-        console.log($httpParamSerializer(query));
         var overlay = {
             name: 'gb',
             url: "//{s}-api.gbif-uat.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&" + toCamelCase($httpParamSerializer(query)),

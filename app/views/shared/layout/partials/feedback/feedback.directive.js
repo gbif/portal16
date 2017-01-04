@@ -6,7 +6,7 @@ angular
     .directive('feedback', feedbackDirective);
 
 /** @ngInject */
-function feedbackDirective() {
+function feedbackDirective($state) {
     var directive = {
         restrict: 'A',
         transclude: true,
@@ -64,7 +64,9 @@ function feedbackDirective() {
                 width: window.innerWidth,
                 height: window.innerHeight,
                 type: vm.selected,
-                form: formData
+                form: formData,
+                datasetKey: vm.associatedDatasetKey,
+                publishingOrgKey: vm.associatedPublishingOrgKey
             };
             $http.post('/api/feedback/bug', issue, {}).then(function (response) {
                 vm.referenceId = response.data.referenceId;
@@ -84,8 +86,10 @@ function feedbackDirective() {
             $http.get('/api/feedback/content?path=' + encodeURIComponent($location.path()), {})
                 .then(function (response) {
                     vm.contentFeedback = response.data;
-                }, function (err) {
-                    console.log(err);
+                    vm.associatedDatasetKey = response.data.datasetKey;
+                    vm.associatedPublishingOrgKey = response.data.publishingOrgKey;
+                }, function () {
+                    //TODO failed to get page type
                 });
         };
         vm.updateContentFeedbackType();
@@ -103,6 +107,10 @@ function feedbackDirective() {
                 });
         };
         vm.getIssues();
+
+        vm.getUrl = function() {
+            return window.location.href;
+        }
 
     }
 }

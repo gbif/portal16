@@ -147,34 +147,36 @@ Some folders have a readme describing the content of that folder.
 ## Issues
 Which labels to use for issues
 
-**page group**
-All groups include tabs. More can come if there arise a need for other sensible groups
-dataset, occurrence, species, publisher, country, cms, homepage, search, tools, download, user mangement
-
 **impact**
-luxury, useful, blocker
 TODO: might be worth quantifying terms such as "rarely", "few" etc.
 
-* luxury: used by few people that could get that information by other means. Or used rarely and not essential to usage.
-* useful: the site can be used just fine without it, but it would improve the experience significantly. users are expected to notice on a daily basis
-* blocker: Essential to site usage. The experience would improve for the majority of our users. Or something that is a nuisance to users on a daily basis.
+* low impact: used by few people that could get that information by other means. Or used rarely and not essential to usage.
+* medium impact: the site can be used just fine without it, but it would improve the experience significantly. users are expected to notice on a daily basis
+* high impact: The experience would improve for the majority of our users. Or something that is a nuisance to users on a daily basis.
+* release blocker: Essential to site usage. Should be fixed before release
 
 **cost**
-hours, days, 3days+
+hours, days, 3days+, week+
 
 * hours: expected to be completed in less than a day. could be 10 minutes, could be 7 hours.
 * days: less than 3 days
 * 3days+: more than 3 days
+weeks: more than a weeks work
 
 **type**
-bug, enhancement, usability, editorial, duplicate, invalid, won't fix, infrastructure, api
+bug, improvement, usability, editorial, duplicate, invalid, won't fix, infrastructure, api, cms
 these should be self explanatory, but a few words on some of them
 
 * editorial: is a content issue in the cms or translations. Content issues related to the published data doesn't belong in this project.
 * infrastructure: e.g. build process, logging, firewalls etc.
 * api: requires work on the api to complete the task
+* cms: requires work on cms api or cms content model and interface
 * usability: not a bug per se, but an improvement related to the interface and typically not in new functionality
-* enhancement: new functionality
+* improvement: new functionality
+
+**page group**
+All groups include tabs. More can come if there arise a need for other sensible groups
+dataset, occurrence, species, publisher, country, articles, homepage, search, tools, download, user mangement
 
 ## Attribution
 This project is possible due to the many people that share their work under CC.

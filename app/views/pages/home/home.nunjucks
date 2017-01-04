@@ -137,7 +137,7 @@ nature, PLOS, ... and
                         <article class="card article-box hoverBox ng-cloak" ng-repeat="newsStory in home.latest track by $index">
                             <div ng-if="newsStory">
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe" ng-if="newsStory.images[0].self">
-                                    <img ng-src="http://api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
+                                    <img ng-src="//api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
                                          alt="" class="article-thumb">
                                 </a>
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">

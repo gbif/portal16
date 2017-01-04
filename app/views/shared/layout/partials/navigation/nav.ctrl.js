@@ -32,7 +32,7 @@ function navCtrl($http, $location, $rootScope, NAV_EVENTS) {
         $http.get('/api/feedback/issues?item=' + encodeURIComponent($location.path()), {})
             .then(function (response) {
                 vm.issuesCount = response.data.total_count;
-            }, function () { // (err)
+            }, function () {
                 vm.issuesCount = undefined;
                 //TODO mark as failure or simply hide
             });

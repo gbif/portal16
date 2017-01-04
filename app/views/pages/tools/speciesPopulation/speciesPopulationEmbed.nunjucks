@@ -19,6 +19,5 @@
 
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/speciesPopulation/speciesPopulation.css">
-    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/embed.css">
 {% endblock %}
 
