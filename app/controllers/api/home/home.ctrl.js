@@ -1,20 +1,19 @@
 "use strict";
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
     Q = require('q'),
     helper = rootRequire('app/models/util/util'),
-    cmsBaseUrl = rootRequire('app/models/cmsData/apiConfig').base.url;
-
-const querystring = require('querystring');
+    cmsSearchUrl = rootRequire('app/models/cmsData/apiConfig').search.url;
 
 module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/home/latest', function (req, res, next) {
-    var request = req.originalUrl.substr(14);
+router.get('/home/upcomingEvents', function (req, res, next) {
+    let now = Math.floor(Date.now() / 1000),
+        upcomingEventsUrl = cmsSearchUrl + '?filter[type]=event&filter[ge_date_ical:value][value]=' + now + '&filter[ge_date_ical:value][operator]=%22%3E%22&sort=dateStart&range=3';
 
-    cmsSearch(requestedUrl).then(function (data) {
+    cmsSearch(upcomingEventsUrl).then(function (data) {
         res.json(data);
     }, function (err) {
         next(err);
@@ -24,7 +23,7 @@ router.get('/home/latest', function (req, res, next) {
 function cmsSearch(requestedUrl) {
     "use strict";
     var deferred = Q.defer();
-    helper.getApiData(cmsBaseUrl + requestedUrl, function (err, data) {
+    helper.getApiData(requestedUrl, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
         } else if (data) {

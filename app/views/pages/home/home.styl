@@ -75,9 +75,9 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         }
     }
     &__news {
-        margin vrBlock(4) 0
+        padding vrBlock(3) 0
         &__header {
-            //margin-bottom vrBlock(2)
+            margin-bottom vrBlock(1)
             h2 {
                 font-style italic
                 font-family 'PT Serif', serif
@@ -211,7 +211,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             font-weight bold
         }
         &__title {
-        font-weight 400
+            font-weight 400
             font-size 16px
             line-height $lineHeightRatio
             margin 0
@@ -223,6 +223,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         }
     }
 }
+
 +isAbove(500px) {
     .articles {
         margin 0 $halfGutter
@@ -232,7 +233,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         .article-box {
             margin $halfGutter
             flex 1 1 auto
-            width "calc(100% / 2 - %s)" % ($halfGutter*2)
+            width "calc(100% / 2 - %s)" % ($halfGutter* 2)
             max-width 300px
         }
     }
@@ -264,7 +265,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     height 0
     padding 0
     padding-bottom 56%
-    >div {
+    > div {
         padding-top vrBlock(0.5)
         div {
             font-size 40px

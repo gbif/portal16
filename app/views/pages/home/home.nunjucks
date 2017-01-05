@@ -71,7 +71,7 @@ nature, PLOS, ... and
         </div>
 
 
-        <div class="horizontal-stripe--paddingless white-background">
+        <div class="horizontal-stripe--paddingless light-background">
             <div class="container--wide">
                 <div class="home__news">
                     <div class="home__news__header text-center">
@@ -108,9 +108,9 @@ nature, PLOS, ... and
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
                                     <div class="card__content date-box">
                                         <div>
-                                            <span>{{newsStory.created * 1000 | date:'MMM' }}</span>
-                                            <div>{{newsStory.created * 1000 | date:'d' }}</div>
-                                            <span>{{newsStory.created * 1000 | date:'yyyy' }}</span>
+                                            <span>{{newsStory.dateStart * 1000 | date:'MMM' }}</span>
+                                            <div>{{newsStory.dateStart * 1000 | date:'d' }}</div>
+                                            <span>{{newsStory.dateStart * 1000 | date:'yyyy' }}</span>
                                         </div>
                                     </div>
                                     <div class="card__content">
@@ -139,26 +139,26 @@ nature, PLOS, ... and
             </div>
         </div>
 
-        <article class="horizontal-stripe--paddingless home__featured bg-attached">
-            <div class="container--normal">
-                <div class="home__featured__text">
-                    <p>
-                        Data use
-                    </p>
-                    <div class="clearfix">
-                        <h1>
-                            <a class="inherit noUnderline"
-                               href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change
-                                the most important cause of biodiversity loss?</a>
-                        </h1>
-                    </div>
-                    <p>
-                        <a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read
-                            more</a>
-                    </p>
-                </div>
-            </div>
-        </article>
+        {#<article class="horizontal-stripe--paddingless home__featured bg-attached">#}
+            {#<div class="container--normal">#}
+                {#<div class="home__featured__text">#}
+                    {#<p>#}
+                        {#Data use#}
+                    {#</p>#}
+                    {#<div class="clearfix">#}
+                        {#<h1>#}
+                            {#<a class="inherit noUnderline"#}
+                               {#href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change#}
+                                {#the most important cause of biodiversity loss?</a>#}
+                        {#</h1>#}
+                    {#</div>#}
+                    {#<p>#}
+                        {#<a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read#}
+                            {#more</a>#}
+                    {#</p>#}
+                {#</div>#}
+            {#</div>#}
+        {#</article>#}
 
         <div class="horizontal-stripe--paddingless white-background">
             <div class="home__occurrences">
