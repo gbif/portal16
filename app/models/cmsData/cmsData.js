@@ -18,7 +18,21 @@ function cmsEndpointAccess(path) {
     return deferred.promise;
 }
 
+function verifyCmsFacets(facets) {
+    return facets.every(facet => {
+        if (facet.hasOwnProperty('field') && facet.hasOwnProperty('counts')) {
+            return facet.counts.every(count => {
+                return count.hasOwnProperty('enum') && count.hasOwnProperty('count');
+            });
+        }
+        else {
+            return false;
+        }
+    });
+}
+
 module.exports = {
     expandFacets: expandFacets,
-    cmsEndpointAccess: cmsEndpointAccess
+    cmsEndpointAccess: cmsEndpointAccess,
+    verifyCmsFacets: verifyCmsFacets
 };

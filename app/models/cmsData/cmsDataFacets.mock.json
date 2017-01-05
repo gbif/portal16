@@ -1,0 +1,2264 @@
+{
+  "valid": [
+    {
+      "field": "language",
+      "counts": [
+        {
+          "count": 76,
+          "enum": "en"
+        },
+        {
+          "count": 10,
+          "enum": "es"
+        }
+      ]
+    },
+    {
+      "field": "type",
+      "counts": [
+        {
+          "count": 48,
+          "enum": "literature"
+        },
+        {
+          "count": 12,
+          "enum": "event"
+        },
+        {
+          "count": 12,
+          "enum": "resource"
+        },
+        {
+          "count": 8,
+          "enum": "news"
+        },
+        {
+          "count": 3,
+          "enum": "generic"
+        },
+        {
+          "count": 2,
+          "enum": "project"
+        },
+        {
+          "count": 1,
+          "enum": "gbif_participant"
+        }
+      ]
+    },
+    {
+      "field": "category_un_region",
+      "counts": []
+    },
+    {
+      "field": "category_purpose",
+      "counts": [
+        {
+          "count": 3,
+          "id": 955,
+          "label": "Data publishing",
+          "enum": "data_publishing"
+        },
+        {
+          "count": 3,
+          "id": 991,
+          "label": "Data access",
+          "enum": "data_access"
+        },
+        {
+          "count": 1,
+          "id": 871,
+          "label": "Data digitization",
+          "enum": "data_digitization"
+        },
+        {
+          "count": 1,
+          "id": 938,
+          "label": "Data curation & quality",
+          "enum": "data_curation_&_quality"
+        }
+      ]
+    },
+    {
+      "field": "category_author_from_country",
+      "counts": [
+        {
+          "count": 23,
+          "id": 302,
+          "label": "Argentina",
+          "enum": "AR"
+        },
+        {
+          "count": 14,
+          "id": 525,
+          "label": "United States",
+          "enum": "US"
+        },
+        {
+          "count": 5,
+          "id": 498,
+          "label": "Spain",
+          "enum": "ES"
+        },
+        {
+          "count": 4,
+          "id": 524,
+          "label": "United Kingdom",
+          "enum": "GB"
+        },
+        {
+          "count": 3,
+          "id": 305,
+          "label": "Australia",
+          "enum": "AU"
+        },
+        {
+          "count": 3,
+          "id": 322,
+          "label": "Brazil",
+          "enum": "BR"
+        },
+        {
+          "count": 3,
+          "id": 330,
+          "label": "Canada",
+          "enum": "CA"
+        },
+        {
+          "count": 3,
+          "id": 339,
+          "label": "Colombia",
+          "enum": "CO"
+        },
+        {
+          "count": 2,
+          "id": 435,
+          "label": "Mexico",
+          "enum": "MX"
+        },
+        {
+          "count": 2,
+          "id": 335,
+          "label": "Chile",
+          "enum": "CL"
+        },
+        {
+          "count": 2,
+          "id": 465,
+          "label": "Peru",
+          "enum": "PE"
+        },
+        {
+          "count": 2,
+          "id": 505,
+          "label": "Switzerland",
+          "enum": "CH"
+        },
+        {
+          "count": 2,
+          "id": 373,
+          "label": "Germany",
+          "enum": "DE"
+        },
+        {
+          "count": 1,
+          "id": 448,
+          "label": "Netherlands",
+          "enum": "NL"
+        },
+        {
+          "count": 1,
+          "id": 450,
+          "label": "New Zealand",
+          "enum": "NZ"
+        },
+        {
+          "count": 1,
+          "id": 462,
+          "label": "Panama",
+          "enum": "PA"
+        },
+        {
+          "count": 1,
+          "id": 336,
+          "label": "China",
+          "enum": "CN"
+        },
+        {
+          "count": 1,
+          "id": 355,
+          "label": "Ecuador",
+          "enum": "EC"
+        },
+        {
+          "count": 1,
+          "id": 396,
+          "label": "Iran, Islamic Republic of",
+          "enum": "IR"
+        },
+        {
+          "count": 1,
+          "id": 527,
+          "label": "Uruguay",
+          "enum": "UY"
+        },
+        {
+          "count": 1,
+          "id": 401,
+          "label": "Italy",
+          "enum": "IT"
+        }
+      ]
+    },
+    {
+      "field": "category_data_type",
+      "counts": [
+        {
+          "count": 2,
+          "id": 834,
+          "label": "Occurrence data",
+          "enum": "occurrence_data"
+        }
+      ]
+    },
+    {
+      "field": "category_area",
+      "counts": [
+        {
+          "count": 3,
+          "id": 1225,
+          "label": "Latin America",
+          "enum": "latin_america"
+        },
+        {
+          "count": 2,
+          "id": 1220,
+          "label": "Oceania",
+          "enum": "oceania"
+        },
+        {
+          "count": 2,
+          "id": 1231,
+          "label": "Europe",
+          "enum": "europe"
+        }
+      ]
+    },
+    {
+      "field": "category_content_stream",
+      "counts": [
+        {
+          "count": 4,
+          "id": 1238,
+          "label": "GBits",
+          "enum": "gbits"
+        },
+        {
+          "count": 1,
+          "id": 1239,
+          "label": "Annual report",
+          "enum": "annual_report"
+        },
+        {
+          "count": 1,
+          "id": 1241,
+          "label": "none",
+          "enum": "none"
+        }
+      ]
+    },
+    {
+      "field": "category_author_surname",
+      "counts": [
+        {
+          "count": 6,
+          "enum": "wetterer"
+        },
+        {
+          "count": 3,
+          "enum": "ward"
+        },
+        {
+          "count": 3,
+          "enum": "miyashiro"
+        },
+        {
+          "count": 3,
+          "enum": "gonzález"
+        },
+        {
+          "count": 3,
+          "enum": "mazzanti"
+        },
+        {
+          "count": 3,
+          "enum": "villares"
+        },
+        {
+          "count": 3,
+          "enum": "russo"
+        },
+        {
+          "count": 2,
+          "enum": "miller"
+        },
+        {
+          "count": 2,
+          "enum": "aguilar"
+        },
+        {
+          "count": 2,
+          "enum": "milano"
+        },
+        {
+          "count": 2,
+          "enum": "rodríguez"
+        },
+        {
+          "count": 2,
+          "enum": "costa"
+        },
+        {
+          "count": 2,
+          "enum": "smith"
+        },
+        {
+          "count": 2,
+          "enum": "kumar"
+        },
+        {
+          "count": 2,
+          "enum": "álvarez"
+        },
+        {
+          "count": 2,
+          "enum": "sánchez"
+        },
+        {
+          "count": 2,
+          "enum": "lo"
+        },
+        {
+          "count": 2,
+          "enum": "sosa"
+        },
+        {
+          "count": 2,
+          "enum": "martínez"
+        },
+        {
+          "count": 2,
+          "enum": "garcía"
+        },
+        {
+          "count": 2,
+          "enum": "pastor"
+        },
+        {
+          "count": 2,
+          "enum": "cuesta"
+        },
+        {
+          "count": 2,
+          "enum": "fernández"
+        },
+        {
+          "count": 2,
+          "enum": "silva"
+        },
+        {
+          "count": 1,
+          "enum": "buckup"
+        },
+        {
+          "count": 1,
+          "enum": "da"
+        },
+        {
+          "count": 1,
+          "enum": "flores"
+        },
+        {
+          "count": 1,
+          "enum": "hernández"
+        },
+        {
+          "count": 1,
+          "enum": "linares"
+        },
+        {
+          "count": 1,
+          "enum": "pascual"
+        },
+        {
+          "count": 1,
+          "enum": "ronquist"
+        },
+        {
+          "count": 1,
+          "enum": "stephen"
+        },
+        {
+          "count": 1,
+          "enum": "xia"
+        },
+        {
+          "count": 1,
+          "enum": "breinholt"
+        },
+        {
+          "count": 1,
+          "enum": "cuervo"
+        },
+        {
+          "count": 1,
+          "enum": "figuerola"
+        },
+        {
+          "count": 1,
+          "enum": "he"
+        },
+        {
+          "count": 1,
+          "enum": "lencinas"
+        },
+        {
+          "count": 1,
+          "enum": "papeş"
+        },
+        {
+          "count": 1,
+          "enum": "sotelo"
+        },
+        {
+          "count": 1,
+          "enum": "willis"
+        },
+        {
+          "count": 1,
+          "enum": "bousquets"
+        },
+        {
+          "count": 1,
+          "enum": "ferreira"
+        },
+        {
+          "count": 1,
+          "enum": "haan"
+        },
+        {
+          "count": 1,
+          "enum": "lee"
+        },
+        {
+          "count": 1,
+          "enum": "menezes"
+        },
+        {
+          "count": 1,
+          "enum": "palaoro"
+        },
+        {
+          "count": 1,
+          "enum": "ribeiro"
+        }
+      ]
+    },
+    {
+      "field": "category_literature_type",
+      "counts": [
+        {
+          "count": 48,
+          "enum": "journal"
+        }
+      ]
+    },
+    {
+      "field": "category_literature_year",
+      "counts": [
+        {
+          "count": 15,
+          "id": 2014,
+          "label": "2014",
+          "enum": "2014"
+        },
+        {
+          "count": 9,
+          "id": 2015,
+          "label": "2015",
+          "enum": "2015"
+        },
+        {
+          "count": 7,
+          "id": 2016,
+          "label": "2016",
+          "enum": "2016"
+        },
+        {
+          "count": 6,
+          "id": 2013,
+          "label": "2013",
+          "enum": "2013"
+        },
+        {
+          "count": 4,
+          "id": 2012,
+          "label": "2012",
+          "enum": "2012"
+        },
+        {
+          "count": 3,
+          "id": 2011,
+          "label": "2011",
+          "enum": "2011"
+        },
+        {
+          "count": 2,
+          "id": 2009,
+          "label": "2009",
+          "enum": "2009"
+        },
+        {
+          "count": 1,
+          "id": 2008,
+          "label": "2008",
+          "enum": "2008"
+        },
+        {
+          "count": 1,
+          "id": 2010,
+          "label": "2010",
+          "enum": "2010"
+        }
+      ]
+    },
+    {
+      "field": "category_gbif_literature_annotation",
+      "counts": [
+        {
+          "count": 37,
+          "id": 1341,
+          "label": "GBIF_used",
+          "enum": "gbif_used"
+        },
+        {
+          "count": 5,
+          "id": 1338,
+          "label": "GBIF_VIP",
+          "enum": "gbif_vip"
+        },
+        {
+          "count": 5,
+          "id": 1340,
+          "label": "GBIF_cited",
+          "enum": "gbif_cited"
+        },
+        {
+          "count": 3,
+          "id": 1344,
+          "label": "GBIF_published",
+          "enum": "gbif_published"
+        },
+        {
+          "count": 1,
+          "id": 1342,
+          "label": "GBIF_primary",
+          "enum": "gbif_primary"
+        },
+        {
+          "count": 1,
+          "id": 1343,
+          "label": "GBIF_discussed",
+          "enum": "gbif_discussed"
+        }
+      ]
+    },
+    {
+      "field": "category_country",
+      "counts": [
+        {
+          "count": 24,
+          "id": 302,
+          "label": "Argentina",
+          "enum": "AR"
+        },
+        {
+          "count": 5,
+          "id": 498,
+          "label": "Spain",
+          "enum": "ES"
+        },
+        {
+          "count": 5,
+          "id": 305,
+          "label": "Australia",
+          "enum": "AU"
+        },
+        {
+          "count": 5,
+          "id": 527,
+          "label": "Uruguay",
+          "enum": "UY"
+        },
+        {
+          "count": 4,
+          "id": 335,
+          "label": "Chile",
+          "enum": "CL"
+        },
+        {
+          "count": 4,
+          "id": 322,
+          "label": "Brazil",
+          "enum": "BR"
+        },
+        {
+          "count": 3,
+          "id": 339,
+          "label": "Colombia",
+          "enum": "CO"
+        },
+        {
+          "count": 3,
+          "id": 344,
+          "label": "Costa Rica",
+          "enum": "CR"
+        },
+        {
+          "count": 3,
+          "id": 469,
+          "label": "Portugal",
+          "enum": "PT"
+        },
+        {
+          "count": 2,
+          "id": 464,
+          "label": "Paraguay",
+          "enum": "PY"
+        },
+        {
+          "count": 2,
+          "id": 393,
+          "label": "India",
+          "enum": "IN"
+        },
+        {
+          "count": 2,
+          "id": 366,
+          "label": "France",
+          "enum": "FR"
+        },
+        {
+          "count": 2,
+          "id": 435,
+          "label": "Mexico",
+          "enum": "MX"
+        },
+        {
+          "count": 1,
+          "id": 441,
+          "label": "Montserrat",
+          "enum": "MS"
+        },
+        {
+          "count": 1,
+          "id": 513,
+          "label": "Tokelau",
+          "enum": "TK"
+        },
+        {
+          "count": 1,
+          "id": 296,
+          "label": "American Samoa",
+          "enum": "AS"
+        },
+        {
+          "count": 1,
+          "id": 355,
+          "label": "Ecuador",
+          "enum": "EC"
+        },
+        {
+          "count": 1,
+          "id": 534,
+          "label": "Wallis and Futuna",
+          "enum": "WF"
+        },
+        {
+          "count": 1,
+          "id": 313,
+          "label": "Belgium",
+          "enum": "BE"
+        },
+        {
+          "count": 1,
+          "id": 391,
+          "label": "Hungary",
+          "enum": "HU"
+        },
+        {
+          "count": 1,
+          "id": 490,
+          "label": "Sint Maarten (Dutch Part)",
+          "enum": "SX"
+        },
+        {
+          "count": 1,
+          "id": 336,
+          "label": "China",
+          "enum": "CN"
+        },
+        {
+          "count": 1,
+          "id": 442,
+          "label": "Morocco",
+          "enum": "MA"
+        },
+        {
+          "count": 1,
+          "id": 514,
+          "label": "Tonga",
+          "enum": "TO"
+        },
+        {
+          "count": 1,
+          "id": 298,
+          "label": "Angola",
+          "enum": "AO"
+        },
+        {
+          "count": 1,
+          "id": 364,
+          "label": "Fiji",
+          "enum": "FJ"
+        },
+        {
+          "count": 1,
+          "id": 465,
+          "label": "Peru",
+          "enum": "PE"
+        },
+        {
+          "count": 1,
+          "id": 1264,
+          "label": "Saint Barthélemy",
+          "enum": null
+        },
+        {
+          "count": 1,
+          "id": 314,
+          "label": "Belize",
+          "enum": "BZ"
+        },
+        {
+          "count": 1,
+          "id": 491,
+          "label": "Slovakia",
+          "enum": "SK"
+        },
+        {
+          "count": 1,
+          "id": 446,
+          "label": "Nauru",
+          "enum": "NR"
+        },
+        {
+          "count": 1,
+          "id": 515,
+          "label": "Trinidad and Tobago",
+          "enum": "TT"
+        },
+        {
+          "count": 1,
+          "id": 299,
+          "label": "Anguilla",
+          "enum": "AI"
+        },
+        {
+          "count": 1,
+          "id": 466,
+          "label": "Philippines",
+          "enum": "PH"
+        },
+        {
+          "count": 1,
+          "id": 1317,
+          "label": "Taiwan",
+          "enum": null
+        },
+        {
+          "count": 1,
+          "id": 315,
+          "label": "Benin",
+          "enum": "BJ"
+        },
+        {
+          "count": 1,
+          "id": 399,
+          "label": "Isle of Man",
+          "enum": "IM"
+        },
+        {
+          "count": 1,
+          "id": 492,
+          "label": "Slovenia",
+          "enum": "SI"
+        },
+        {
+          "count": 1,
+          "id": 343,
+          "label": "Cook Islands",
+          "enum": "CK"
+        },
+        {
+          "count": 1,
+          "id": 449,
+          "label": "New Caledonia",
+          "enum": "NC"
+        },
+        {
+          "count": 1,
+          "id": 517,
+          "label": "Turkey",
+          "enum": "TR"
+        },
+        {
+          "count": 1,
+          "id": 300,
+          "label": "Antarctica",
+          "enum": "AQ"
+        },
+        {
+          "count": 1,
+          "id": 368,
+          "label": "French Polynesia",
+          "enum": "PF"
+        },
+        {
+          "count": 1,
+          "id": 467,
+          "label": "Pitcairn",
+          "enum": "PN"
+        },
+        {
+          "count": 1,
+          "id": 316,
+          "label": "Bermuda",
+          "enum": "BM"
+        },
+        {
+          "count": 1,
+          "id": 402,
+          "label": "Jamaica",
+          "enum": "JM"
+        },
+        {
+          "count": 1,
+          "id": 493,
+          "label": "Solomon Islands",
+          "enum": "SB"
+        }
+      ]
+    },
+    {
+      "field": "category_topic",
+      "counts": [
+        {
+          "count": 11,
+          "id": 1327,
+          "label": "Biodiversity science",
+          "enum": "biodiversity_science"
+        },
+        {
+          "count": 10,
+          "id": 968,
+          "label": "Invasives",
+          "enum": "invasives"
+        },
+        {
+          "count": 6,
+          "id": 826,
+          "label": "Conservation",
+          "enum": "conservation"
+        },
+        {
+          "count": 6,
+          "id": 836,
+          "label": "Ecology",
+          "enum": "ecology"
+        },
+        {
+          "count": 6,
+          "id": 928,
+          "label": "taxonomy",
+          "enum": "taxonomy"
+        },
+        {
+          "count": 5,
+          "id": 1048,
+          "label": "Biogeography",
+          "enum": "biogeography"
+        },
+        {
+          "count": 5,
+          "id": 1330,
+          "label": "data paper",
+          "enum": "data_paper"
+        },
+        {
+          "count": 2,
+          "id": 1329,
+          "label": "phylogenetics",
+          "enum": "phylogenetics"
+        },
+        {
+          "count": 1,
+          "id": 887,
+          "label": "Freshwater",
+          "enum": "freshwater"
+        },
+        {
+          "count": 1,
+          "id": 951,
+          "label": "Evolution",
+          "enum": "evolution"
+        },
+        {
+          "count": 1,
+          "id": 970,
+          "label": "Climate change",
+          "enum": "climate_change"
+        }
+      ]
+    },
+    {
+      "field": "category_tags",
+      "counts": [
+        {
+          "count": 14,
+          "id": 1345,
+          "label": "2014",
+          "enum": "2014"
+        },
+        {
+          "count": 9,
+          "id": 1872,
+          "label": "2015",
+          "enum": "2015"
+        },
+        {
+          "count": 7,
+          "id": 2026,
+          "label": "2016",
+          "enum": "2016"
+        },
+        {
+          "count": 6,
+          "id": 1553,
+          "label": "2013",
+          "enum": "2013"
+        },
+        {
+          "count": 4,
+          "id": 1403,
+          "label": "2012",
+          "enum": "2012"
+        },
+        {
+          "count": 3,
+          "id": 1451,
+          "label": "2011",
+          "enum": "2011"
+        },
+        {
+          "count": 2,
+          "id": 1987,
+          "label": "2009",
+          "enum": "2009"
+        },
+        {
+          "count": 1,
+          "id": 875,
+          "label": "Data papers",
+          "enum": "data_papers"
+        },
+        {
+          "count": 1,
+          "id": 1008,
+          "label": "Data publishers",
+          "enum": "data_publishers"
+        },
+        {
+          "count": 1,
+          "id": 7171,
+          "label": "Argentina",
+          "enum": "argentina"
+        },
+        {
+          "count": 1,
+          "id": 1071,
+          "label": "Field biologists",
+          "enum": "field_biologists"
+        },
+        {
+          "count": 1,
+          "id": 1602,
+          "label": "2010",
+          "enum": "2010"
+        },
+        {
+          "count": 1,
+          "id": 1651,
+          "label": "2008",
+          "enum": "2008"
+        }
+      ]
+    },
+    {
+      "field": "category_informatics",
+      "counts": [
+        {
+          "count": 1,
+          "id": 893,
+          "label": "node portals",
+          "enum": "node_portals"
+        }
+      ]
+    },
+    {
+      "field": "category_resource_type",
+      "counts": [
+        {
+          "count": 11,
+          "id": 987,
+          "label": "Presentation",
+          "enum": "presentation"
+        },
+        {
+          "count": 1,
+          "id": 895,
+          "label": "Document",
+          "enum": "document"
+        }
+      ]
+    },
+    {
+      "field": "category_about_gbif",
+      "counts": [
+        {
+          "count": 2,
+          "id": 586,
+          "label": "GBIF partnerships",
+          "enum": "gbif_partnerships"
+        },
+        {
+          "count": 1,
+          "id": 583,
+          "label": "GBIF history/overview",
+          "enum": "gbif_history/overview"
+        },
+        {
+          "count": 1,
+          "id": 584,
+          "label": "GBIF governance",
+          "enum": "gbif_governance"
+        },
+        {
+          "count": 1,
+          "id": 585,
+          "label": "GBIF nodes",
+          "enum": "gbif_nodes"
+        },
+        {
+          "count": 1,
+          "id": 587,
+          "label": "GBIF awards",
+          "enum": "gbif_awards"
+        },
+        {
+          "count": 1,
+          "id": 1235,
+          "label": "GBIF.org",
+          "enum": "gbif.org"
+        }
+      ]
+    },
+    {
+      "field": "category_data_use",
+      "counts": [
+        {
+          "count": 1,
+          "id": 1035,
+          "label": "GBIF.org",
+          "enum": "gbif.org"
+        }
+      ]
+    },
+    {
+      "field": "category_capacity_enhancement",
+      "counts": []
+    },
+    {
+      "field": "category_audience",
+      "counts": [
+        {
+          "count": 1,
+          "id": 852,
+          "label": "Data users",
+          "enum": "data_users"
+        },
+        {
+          "count": 1,
+          "id": 997,
+          "label": "GBIF network",
+          "enum": "gbif_network"
+        },
+        {
+          "count": 1,
+          "id": 1054,
+          "label": "Data holders",
+          "enum": "data_holders"
+        }
+      ]
+    }
+  ],
+  "inValid": [
+    {
+      "field": "language",
+      "counts": [
+        {
+          "count": 76,
+          "enum": "en"
+        },
+        {
+          "count": 10,
+          "enum": "es"
+        }
+      ]
+    },
+    {
+      "field": "type",
+      "counts": [
+        {
+          "count": 48,
+          "enum": "literature"
+        },
+        {
+          "count": 12,
+          "enum": "event"
+        },
+        {
+          "count": 12,
+          "enum": "resource"
+        },
+        {
+          "count": 8,
+          "enum": "news"
+        },
+        {
+          "count": 3,
+          "enum": "generic"
+        },
+        {
+          "count": 2,
+          "enum": "project"
+        },
+        {
+          "count": 1,
+          "enum": "gbif_participant"
+        }
+      ]
+    },
+    {
+      "field": "category_un_region",
+      "counts": []
+    },
+    {
+      "field": "category_purpose",
+      "counts": [
+        {
+          "count": 3,
+          "id": 955,
+          "label": "Data publishing",
+          "enum": "data_publishing"
+        },
+        {
+          "count": 3,
+          "id": 991,
+          "label": "Data access",
+          "enum": "data_access"
+        },
+        {
+          "count": 1,
+          "id": 871,
+          "label": "Data digitization",
+          "enum": "data_digitization"
+        },
+        {
+          "count": 1,
+          "id": 938,
+          "label": "Data curation & quality",
+          "enum": "data_curation_&_quality"
+        }
+      ]
+    },
+    {
+      "field": "category_author_from_country",
+      "counts": [
+        {
+          "count": 23,
+          "id": 302,
+          "label": "Argentina",
+          "enum": "AR"
+        },
+        {
+          "count": 14,
+          "id": 525,
+          "label": "United States"
+        },
+        {
+          "count": 5,
+          "id": 498,
+          "label": "Spain",
+          "enum": "ES"
+        },
+        {
+          "count": 4,
+          "id": 524,
+          "label": "United Kingdom",
+          "enum": "GB"
+        },
+        {
+          "count": 3,
+          "id": 305,
+          "label": "Australia",
+          "enum": "AU"
+        },
+        {
+          "count": 3,
+          "id": 322,
+          "label": "Brazil",
+          "enum": "BR"
+        },
+        {
+          "count": 3,
+          "id": 330,
+          "label": "Canada",
+          "enum": "CA"
+        },
+        {
+          "count": 3,
+          "id": 339,
+          "label": "Colombia",
+          "enum": "CO"
+        },
+        {
+          "count": 2,
+          "id": 435,
+          "label": "Mexico",
+          "enum": "MX"
+        },
+        {
+          "count": 2,
+          "id": 335,
+          "label": "Chile",
+          "enum": "CL"
+        },
+        {
+          "count": 2,
+          "id": 465,
+          "label": "Peru",
+          "enum": "PE"
+        },
+        {
+          "count": 2,
+          "id": 505,
+          "label": "Switzerland",
+          "enum": "CH"
+        },
+        {
+          "count": 2,
+          "id": 373,
+          "label": "Germany",
+          "enum": "DE"
+        },
+        {
+          "count": 1,
+          "id": 448,
+          "label": "Netherlands",
+          "enum": "NL"
+        },
+        {
+          "count": 1,
+          "id": 450,
+          "label": "New Zealand",
+          "enum": "NZ"
+        },
+        {
+          "count": 1,
+          "id": 462,
+          "label": "Panama",
+          "enum": "PA"
+        },
+        {
+          "count": 1,
+          "id": 336,
+          "label": "China",
+          "enum": "CN"
+        },
+        {
+          "count": 1,
+          "id": 355,
+          "label": "Ecuador",
+          "enum": "EC"
+        },
+        {
+          "count": 1,
+          "id": 396,
+          "label": "Iran, Islamic Republic of",
+          "enum": "IR"
+        },
+        {
+          "count": 1,
+          "id": 527,
+          "label": "Uruguay",
+          "enum": "UY"
+        },
+        {
+          "count": 1,
+          "id": 401,
+          "label": "Italy",
+          "enum": "IT"
+        }
+      ]
+    },
+    {
+      "field": "category_data_type",
+      "counts": [
+        {
+          "count": 2,
+          "id": 834,
+          "label": "Occurrence data",
+          "enum": "occurrence_data"
+        }
+      ]
+    },
+    {
+      "field": "category_area",
+      "counts": [
+        {
+          "count": 3,
+          "id": 1225,
+          "label": "Latin America",
+          "enum": "latin_america"
+        },
+        {
+          "count": 2,
+          "id": 1220,
+          "label": "Oceania",
+          "enum": "oceania"
+        },
+        {
+          "count": 2,
+          "id": 1231,
+          "label": "Europe",
+          "enum": "europe"
+        }
+      ]
+    },
+    {
+      "field": "category_content_stream",
+      "counts": [
+        {
+          "count": 4,
+          "id": 1238,
+          "label": "GBits",
+          "enum": "gbits"
+        },
+        {
+          "count": 1,
+          "id": 1239,
+          "label": "Annual report",
+          "enum": "annual_report"
+        },
+        {
+          "count": 1,
+          "id": 1241,
+          "label": "none",
+          "enum": "none"
+        }
+      ]
+    },
+    {
+      "field": "category_author_surname",
+      "counts": [
+        {
+          "count": 6,
+          "enum": "wetterer"
+        },
+        {
+          "count": 3,
+          "enum": "ward"
+        },
+        {
+          "count": 3,
+          "enum": "miyashiro"
+        },
+        {
+          "count": 3,
+          "enum": "gonzález"
+        },
+        {
+          "count": 3,
+          "enum": "mazzanti"
+        },
+        {
+          "count": 3,
+          "enum": "villares"
+        },
+        {
+          "count": 3,
+          "enum": "russo"
+        },
+        {
+          "count": 2,
+          "enum": "miller"
+        },
+        {
+          "count": 2,
+          "enum": "aguilar"
+        },
+        {
+          "count": 2,
+          "enum": "milano"
+        },
+        {
+          "count": 2,
+          "enum": "rodríguez"
+        },
+        {
+          "count": 2,
+          "enum": "costa"
+        },
+        {
+          "count": 2,
+          "enum": "smith"
+        },
+        {
+          "count": 2,
+          "enum": "kumar"
+        },
+        {
+          "count": 2,
+          "enum": "álvarez"
+        },
+        {
+          "count": 2,
+          "enum": "sánchez"
+        },
+        {
+          "count": 2,
+          "enum": "lo"
+        },
+        {
+          "count": 2,
+          "enum": "sosa"
+        },
+        {
+          "count": 2,
+          "enum": "martínez"
+        },
+        {
+          "count": 2,
+          "enum": "garcía"
+        },
+        {
+          "count": 2,
+          "enum": "pastor"
+        },
+        {
+          "count": 2,
+          "enum": "cuesta"
+        },
+        {
+          "count": 2,
+          "enum": "fernández"
+        },
+        {
+          "count": 2,
+          "enum": "silva"
+        },
+        {
+          "count": 1,
+          "enum": "buckup"
+        },
+        {
+          "count": 1,
+          "enum": "da"
+        },
+        {
+          "count": 1,
+          "enum": "flores"
+        },
+        {
+          "count": 1,
+          "enum": "hernández"
+        },
+        {
+          "count": 1,
+          "enum": "linares"
+        },
+        {
+          "count": 1,
+          "enum": "pascual"
+        },
+        {
+          "count": 1,
+          "enum": "ronquist"
+        },
+        {
+          "count": 1,
+          "enum": "stephen"
+        },
+        {
+          "count": 1,
+          "enum": "xia"
+        },
+        {
+          "count": 1,
+          "enum": "breinholt"
+        },
+        {
+          "count": 1,
+          "enum": "cuervo"
+        },
+        {
+          "count": 1,
+          "enum": "figuerola"
+        },
+        {
+          "count": 1,
+          "enum": "he"
+        },
+        {
+          "count": 1,
+          "enum": "lencinas"
+        },
+        {
+          "count": 1,
+          "enum": "papeş"
+        },
+        {
+          "count": 1,
+          "enum": "sotelo"
+        },
+        {
+          "count": 1,
+          "enum": "willis"
+        },
+        {
+          "count": 1,
+          "enum": "bousquets"
+        },
+        {
+          "count": 1,
+          "enum": "ferreira"
+        },
+        {
+          "count": 1,
+          "enum": "haan"
+        },
+        {
+          "count": 1,
+          "enum": "lee"
+        },
+        {
+          "count": 1,
+          "enum": "menezes"
+        },
+        {
+          "count": 1,
+          "enum": "palaoro"
+        },
+        {
+          "count": 1,
+          "enum": "ribeiro"
+        }
+      ]
+    },
+    {
+      "field": "category_literature_type",
+      "counts": [
+        {
+          "count": 48,
+          "enum": "journal"
+        }
+      ]
+    },
+    {
+      "field": "category_literature_year",
+      "counts": [
+        {
+          "count": 15,
+          "id": 2014,
+          "enum": "2014"
+        },
+        {
+          "count": 9,
+          "id": 2015,
+          "label": "2015",
+          "enum": "2015"
+        },
+        {
+          "count": 7,
+          "id": 2016,
+          "label": "2016",
+          "enum": "2016"
+        },
+        {
+          "count": 6,
+          "id": 2013,
+          "label": "2013",
+          "enum": "2013"
+        },
+        {
+          "count": 4,
+          "id": 2012,
+          "label": "2012",
+          "enum": "2012"
+        },
+        {
+          "count": 3,
+          "id": 2011,
+          "label": "2011",
+          "enum": "2011"
+        },
+        {
+          "count": 2,
+          "id": 2009,
+          "label": "2009",
+          "enum": "2009"
+        },
+        {
+          "count": 1,
+          "id": 2008,
+          "label": "2008",
+          "enum": "2008"
+        },
+        {
+          "count": 1,
+          "id": 2010,
+          "label": "2010",
+          "enum": "2010"
+        }
+      ]
+    },
+    {
+      "field": "category_gbif_literature_annotation",
+      "counts": [
+        {
+          "count": 37,
+          "id": 1341,
+          "label": "GBIF_used",
+          "enum": "gbif_used"
+        },
+        {
+          "count": 5,
+          "id": 1338,
+          "label": "GBIF_VIP",
+          "enum": "gbif_vip"
+        },
+        {
+          "count": 5,
+          "id": 1340,
+          "label": "GBIF_cited",
+          "enum": "gbif_cited"
+        },
+        {
+          "count": 3,
+          "id": 1344,
+          "label": "GBIF_published",
+          "enum": "gbif_published"
+        },
+        {
+          "count": 1,
+          "id": 1342,
+          "label": "GBIF_primary",
+          "enum": "gbif_primary"
+        },
+        {
+          "count": 1,
+          "id": 1343,
+          "label": "GBIF_discussed",
+          "enum": "gbif_discussed"
+        }
+      ]
+    },
+    {
+      "field": "category_country",
+      "counts": [
+        {
+          "count": 24,
+          "id": 302,
+          "label": "Argentina",
+          "enum": "AR"
+        },
+        {
+          "count": 5,
+          "id": 498,
+          "label": "Spain",
+          "enum": "ES"
+        },
+        {
+          "count": 5,
+          "id": 305,
+          "label": "Australia",
+          "enum": "AU"
+        },
+        {
+          "count": 5,
+          "id": 527,
+          "label": "Uruguay",
+          "enum": "UY"
+        },
+        {
+          "count": 4,
+          "id": 335,
+          "label": "Chile",
+          "enum": "CL"
+        },
+        {
+          "count": 4,
+          "id": 322,
+          "label": "Brazil",
+          "enum": "BR"
+        },
+        {
+          "count": 3,
+          "id": 339,
+          "label": "Colombia",
+          "enum": "CO"
+        },
+        {
+          "count": 3,
+          "id": 344,
+          "label": "Costa Rica",
+          "enum": "CR"
+        },
+        {
+          "count": 3,
+          "id": 469,
+          "label": "Portugal",
+          "enum": "PT"
+        },
+        {
+          "count": 2,
+          "id": 464,
+          "label": "Paraguay",
+          "enum": "PY"
+        },
+        {
+          "count": 2,
+          "id": 393,
+          "label": "India",
+          "enum": "IN"
+        },
+        {
+          "count": 2,
+          "id": 366,
+          "label": "France",
+          "enum": "FR"
+        },
+        {
+          "count": 2,
+          "id": 525,
+          "label": "United States",
+          "enum": "US"
+        },
+        {
+          "count": 2,
+          "id": 351,
+          "label": "Denmark",
+          "enum": "DK"
+        },
+        {
+          "count": 2,
+          "id": 330,
+          "label": "Canada",
+          "enum": "CA"
+        },
+        {
+          "count": 2,
+          "id": 435,
+          "label": "Mexico",
+          "enum": "MX"
+        },
+        {
+          "count": 1,
+          "id": 441,
+          "label": "Montserrat",
+          "enum": "MS"
+        },
+        {
+          "count": 1,
+          "id": 513,
+          "label": "Tokelau",
+          "enum": "TK"
+        },
+        {
+          "count": 1,
+          "id": 296,
+          "label": "American Samoa",
+          "enum": "AS"
+        },
+        {
+          "count": 1,
+          "id": 355,
+          "label": "Ecuador",
+          "enum": "EC"
+        },
+        {
+          "count": 1,
+          "id": 534,
+          "label": "Wallis and Futuna",
+          "enum": "WF"
+        },
+        {
+          "count": 1,
+          "id": 313,
+          "label": "Belgium",
+          "enum": "BE"
+        },
+        {
+          "count": 1,
+          "id": 391,
+          "label": "Hungary",
+          "enum": "HU"
+        },
+        {
+          "count": 1,
+          "id": 490,
+          "label": "Sint Maarten (Dutch Part)",
+          "enum": "SX"
+        },
+        {
+          "count": 1,
+          "id": 336,
+          "label": "China",
+          "enum": "CN"
+        },
+        {
+          "count": 1,
+          "id": 442,
+          "label": "Morocco",
+          "enum": "MA"
+        },
+        {
+          "count": 1,
+          "id": 514,
+          "label": "Tonga",
+          "enum": "TO"
+        },
+        {
+          "count": 1,
+          "id": 298,
+          "label": "Angola",
+          "enum": "AO"
+        },
+        {
+          "count": 1,
+          "id": 364,
+          "label": "Fiji",
+          "enum": "FJ"
+        },
+        {
+          "count": 1,
+          "id": 465,
+          "label": "Peru",
+          "enum": "PE"
+        },
+        {
+          "count": 1,
+          "id": 1264,
+          "label": "Saint Barthélemy",
+          "enum": null
+        },
+        {
+          "count": 1,
+          "id": 314,
+          "label": "Belize",
+          "enum": "BZ"
+        },
+        {
+          "count": 1,
+          "id": 491,
+          "label": "Slovakia",
+          "enum": "SK"
+        },
+        {
+          "count": 1,
+          "id": 446,
+          "label": "Nauru",
+          "enum": "NR"
+        },
+        {
+          "count": 1,
+          "id": 515,
+          "label": "Trinidad and Tobago",
+          "enum": "TT"
+        },
+        {
+          "count": 1,
+          "id": 299,
+          "label": "Anguilla",
+          "enum": "AI"
+        },
+        {
+          "count": 1,
+          "id": 466,
+          "label": "Philippines",
+          "enum": "PH"
+        },
+        {
+          "count": 1,
+          "id": 1317,
+          "label": "Taiwan",
+          "enum": null
+        },
+        {
+          "count": 1,
+          "id": 315,
+          "label": "Benin",
+          "enum": "BJ"
+        },
+        {
+          "count": 1,
+          "id": 399,
+          "label": "Isle of Man",
+          "enum": "IM"
+        },
+        {
+          "count": 1,
+          "id": 492,
+          "label": "Slovenia",
+          "enum": "SI"
+        },
+        {
+          "count": 1,
+          "id": 343,
+          "label": "Cook Islands",
+          "enum": "CK"
+        },
+        {
+          "count": 1,
+          "id": 449,
+          "label": "New Caledonia",
+          "enum": "NC"
+        },
+        {
+          "count": 1,
+          "id": 517,
+          "label": "Turkey",
+          "enum": "TR"
+        },
+        {
+          "count": 1,
+          "id": 300,
+          "label": "Antarctica",
+          "enum": "AQ"
+        },
+        {
+          "count": 1,
+          "id": 368,
+          "label": "French Polynesia",
+          "enum": "PF"
+        },
+        {
+          "count": 1,
+          "id": 467,
+          "label": "Pitcairn",
+          "enum": "PN"
+        },
+        {
+          "count": 1,
+          "id": 316,
+          "label": "Bermuda",
+          "enum": "BM"
+        },
+        {
+          "count": 1,
+          "id": 402,
+          "label": "Jamaica",
+          "enum": "JM"
+        },
+        {
+          "count": 1,
+          "id": 493,
+          "label": "Solomon Islands",
+          "enum": "SB"
+        }
+      ]
+    },
+    {
+      "field": "category_topic",
+      "counts": [
+        {
+          "count": 11,
+          "id": 1327,
+          "label": "Biodiversity science",
+          "enum": "biodiversity_science"
+        },
+        {
+          "count": 10,
+          "id": 968,
+          "label": "Invasives",
+          "enum": "invasives"
+        },
+        {
+          "count": 6,
+          "id": 826,
+          "label": "Conservation",
+          "enum": "conservation"
+        },
+        {
+          "count": 6,
+          "id": 836,
+          "label": "Ecology",
+          "enum": "ecology"
+        },
+        {
+          "count": 6,
+          "id": 928,
+          "label": "taxonomy",
+          "enum": "taxonomy"
+        },
+        {
+          "count": 5,
+          "id": 1048,
+          "label": "Biogeography",
+          "enum": "biogeography"
+        },
+        {
+          "count": 5,
+          "id": 1330,
+          "label": "data paper",
+          "enum": "data_paper"
+        },
+        {
+          "count": 2,
+          "id": 1329,
+          "label": "phylogenetics",
+          "enum": "phylogenetics"
+        },
+        {
+          "count": 1,
+          "id": 887,
+          "label": "Freshwater",
+          "enum": "freshwater"
+        },
+        {
+          "count": 1,
+          "id": 951,
+          "label": "Evolution",
+          "enum": "evolution"
+        },
+        {
+          "count": 1,
+          "id": 970,
+          "label": "Climate change",
+          "enum": "climate_change"
+        }
+      ]
+    },
+    {
+      "field": "category_tags",
+      "counts": [
+        {
+          "count": 14,
+          "id": 1345,
+          "label": "2014",
+          "enum": "2014"
+        },
+        {
+          "count": 9,
+          "id": 1872,
+          "label": "2015",
+          "enum": "2015"
+        },
+        {
+          "count": 7,
+          "id": 2026,
+          "label": "2016",
+          "enum": "2016"
+        },
+        {
+          "count": 6,
+          "id": 1553,
+          "label": "2013",
+          "enum": "2013"
+        },
+        {
+          "count": 4,
+          "id": 1403,
+          "label": "2012",
+          "enum": "2012"
+        },
+        {
+          "count": 3,
+          "id": 1451,
+          "label": "2011",
+          "enum": "2011"
+        },
+        {
+          "count": 2,
+          "id": 1987,
+          "label": "2009",
+          "enum": "2009"
+        },
+        {
+          "count": 1,
+          "id": 875,
+          "label": "Data papers",
+          "enum": "data_papers"
+        },
+        {
+          "count": 1,
+          "id": 1008,
+          "label": "Data publishers",
+          "enum": "data_publishers"
+        },
+        {
+          "count": 1,
+          "id": 7171,
+          "label": "Argentina",
+          "enum": "argentina"
+        },
+        {
+          "count": 1,
+          "id": 1071,
+          "label": "Field biologists",
+          "enum": "field_biologists"
+        },
+        {
+          "count": 1,
+          "id": 1602,
+          "label": "2010",
+          "enum": "2010"
+        },
+        {
+          "count": 1,
+          "id": 1651,
+          "label": "2008",
+          "enum": "2008"
+        }
+      ]
+    },
+    {
+      "field": "category_informatics",
+      "counts": [
+        {
+          "count": 1,
+          "id": 893,
+          "label": "node portals",
+          "enum": "node_portals"
+        }
+      ]
+    },
+    {
+      "field": "category_resource_type",
+      "counts": [
+        {
+          "count": 11,
+          "id": 987,
+          "label": "Presentation",
+          "enum": "presentation"
+        },
+        {
+          "count": 1,
+          "id": 895,
+          "label": "Document",
+          "enum": "document"
+        }
+      ]
+    },
+    {
+      "field": "category_about_gbif",
+      "counts": [
+        {
+          "count": 2,
+          "id": 586,
+          "label": "GBIF partnerships",
+          "enum": "gbif_partnerships"
+        },
+        {
+          "count": 1,
+          "id": 583,
+          "label": "GBIF history/overview",
+          "enum": "gbif_history/overview"
+        },
+        {
+          "count": 1,
+          "id": 584,
+          "label": "GBIF governance",
+          "enum": "gbif_governance"
+        },
+        {
+          "count": 1,
+          "id": 585,
+          "label": "GBIF nodes",
+          "enum": "gbif_nodes"
+        },
+        {
+          "count": 1,
+          "id": 587,
+          "label": "GBIF awards",
+          "enum": "gbif_awards"
+        },
+        {
+          "count": 1,
+          "id": 1235,
+          "label": "GBIF.org",
+          "enum": "gbif.org"
+        }
+      ]
+    },
+    {
+      "field": "category_data_use",
+      "counts": [
+        {
+          "count": 1,
+          "id": 1035,
+          "label": "GBIF.org",
+          "enum": "gbif.org"
+        }
+      ]
+    },
+    {
+      "field": "category_capacity_enhancement",
+      "counts": []
+    },
+    {
+      "field": "category_audience",
+      "counts": [
+        {
+          "count": 1,
+          "id": 852,
+          "label": "Data users",
+          "enum": "data_users"
+        },
+        {
+          "count": 1,
+          "id": 997,
+          "label": "GBIF network",
+          "enum": "gbif_network"
+        },
+        {
+          "count": 1,
+          "id": 1054,
+          "label": "Data holders",
+          "enum": "data_holders"
+        }
+      ]
+    }
+  ]
+}

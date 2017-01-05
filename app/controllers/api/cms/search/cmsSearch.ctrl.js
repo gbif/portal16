@@ -27,6 +27,15 @@ router.get('/cms/search', function (req, res, next) {
                 next('Neither facets nor filters exists.');
             }
         })
+        .then(function(data){
+            // verifying data before passing along
+            if (cmsData.verifyCmsFacets(data.facets)) {
+                return data;
+            }
+            else {
+                next('Facets not in the correct format.');
+            }
+        })
         .then(function (data) {
             try {
                 cmsData.expandFacets(data.facets, res.__);
