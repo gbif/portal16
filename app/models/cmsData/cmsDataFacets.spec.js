@@ -11,7 +11,7 @@
 let cmsData = require('./cmsData');
 let mock = require('./cmsDataFacets.mock.json');
 
-describe('TC_Model_02_CMS_Search_Facet_Integrity', function () {
+describe('TC_Model_02_CMS_Search_Facets_Verification', function () {
     it('Can verify all facets has correct enum and key', function () {
         expect(cmsData.verifyCmsFacets(mock.valid)).toBe(true);
     });

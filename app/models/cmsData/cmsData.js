@@ -18,6 +18,7 @@ function cmsEndpointAccess(path) {
     return deferred.promise;
 }
 
+// @todo group CMS API assessment functions as a test project with Drupal.
 function verifyCmsFacets(facets) {
     return facets.every(facet => {
         if (facet.hasOwnProperty('field') && facet.hasOwnProperty('counts')) {

@@ -18,6 +18,7 @@ let DirectoryParticipants = function (record) {
 DirectoryParticipants.prototype.record = {};
 
 // accepts gbifRegion & membershipType as params
+// /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
 DirectoryParticipants.groupBy = (query) => {
     let deferred = Q.defer();
     let requestUrl = dataApi.directoryParticipants.url;

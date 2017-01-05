@@ -9,6 +9,8 @@
  * The pattern assumes the text has been already escaped and come in from the
  *  API endpoint (JSON), therefore the URLs already starts with
  *  http://cms.gbif-{env}.org/.
+ *
+ *  @todo preconditions of the function
  */
 
 let cmsUrlEncode = require('./cmsUrlEncode'),
