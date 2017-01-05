@@ -1,5 +1,5 @@
 "use strict";
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
     Q = require('q'),
     helper = require('../../../../models/util/util'),

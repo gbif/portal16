@@ -1,5 +1,5 @@
 "use strict";
-var express = require('express'),
+let express = require('express'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
     fs = require('fs'),
@@ -11,18 +11,21 @@ var express = require('express'),
     log = rootRequire('config/log'),
     feedbackHelper = require('./feedbackHelper'),
     moment = require("moment"),
-    router = express.Router();
-
-let issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
-
+    router = express.Router(),
+    issueTemplateString = fs.readFileSync(__dirname + '/issue.nunjucks', "utf8");
 
 module.exports = function (app) {
     app.use('/api/feedback', router);
 };
 
 router.get('/issues', function (req, res, next) {
-    var queryItem = req.query.item || req.headers.referer;
-    var item = feedbackHelper.extractIdentifer(queryItem);
+    let queryItem = req.query.item || req.headers.referer,
+        item = feedbackHelper.extractIdentifer(queryItem),
+        client = github.client({
+            username: credentials.user,
+            password: credentials.password
+        }),
+        ghsearch = client.search();
 
     //if no item is provided or is is the root in default language then do not show comments
     if (!item) {
@@ -32,12 +35,6 @@ router.get('/issues', function (req, res, next) {
             item: []
         });
     } else {
-
-        var client = github.client({
-            username: credentials.user,
-            password: credentials.password
-        });
-        var ghsearch = client.search();
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
@@ -80,7 +77,7 @@ router.get('/template.html', function (req, res, next) {
 });
 
 router.get('/content', function (req, res, next) {
-    var path = req.query.path;
+    let path = req.query.path;
     feedbackContentType.getFeedbackContentType(path, function (feedbackType) {
         res.json(feedbackType);
     });
@@ -117,8 +114,8 @@ function isValid(formData) {
 
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
-        referer = req.headers.referer;
-    var description = '',
+        referer = req.headers.referer,
+        description = '',
         title,
         labels = [];
 
@@ -162,7 +159,9 @@ function getLabels(data) {
 
 function getDescription(data, agent, referer) {
     //add contact type
-    var contact = data.form.contact;
+    let contact = data.form.contact,
+        now = moment();
+
     if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
         data.__contact = '@' + contact;
     } else {
@@ -176,16 +175,12 @@ function getDescription(data, agent, referer) {
 
     data.__fbitem = feedbackHelper.extractIdentifer(referer);
 
-    //get timestamps
-    var now = moment();
-
     //set timestamps 5 minuttes before and 1 minute after for linking to relevant logs
     data.__timestamp = {};
     data.__timestamp.before = now.subtract(5, 'minutes').toISOString();
     data.__timestamp.after = now.add(6, 'minutes').toISOString();
 
-    var res = nunjucks.renderString(issueTemplateString, data);
-    return res;
+    return nunjucks.renderString(issueTemplateString, data);
 }
 
 

@@ -1,5 +1,5 @@
 "use strict";
-var express = require('express'),
+let express = require('express'),
     router = express.Router(),
     Q = require('q'),
     _ = require('lodash'),
@@ -34,14 +34,14 @@ router.get('/country/:iso/about/countries', function (req, res, next) {
 });
 
 router.get('/country/:iso/from/countries', function (req, res, next) {
-    var iso = req.params.iso;
-    let query = {
-        facet: 'country',
-        publishingCountry: iso,
-        'country.facetLimit': 1000,
-        limit: 0
-    };
-    //res.json(query);
+    let iso = req.params.iso,
+        query = {
+            facet: 'country',
+            publishingCountry: iso,
+            'country.facetLimit': 1000,
+            limit: 0
+        };
+
     search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
         let facets = _.get(data, 'facets[0].counts', []);
         res.json({
@@ -55,14 +55,14 @@ router.get('/country/:iso/from/countries', function (req, res, next) {
 });
 
 router.get('/country/:iso/about/datasets', function (req, res, next) {
-    var iso = req.params.iso;
-    let query = {
-        facet: 'datasetKey',
-        country: iso,
-        'publishing_country.facetLimit': 1000,
-        limit: 0
-    };
-    //res.json(query);
+    let iso = req.params.iso,
+        query = {
+            facet: 'datasetKey',
+            country: iso,
+            'publishing_country.facetLimit': 1000,
+            limit: 0
+        };
+
     search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
         let facets = _.get(data, 'facets[0].counts', []);
         res.json({
@@ -77,7 +77,7 @@ router.get('/country/:iso/about/datasets', function (req, res, next) {
 
 function search(url) {
     "use strict";
-    var deferred = Q.defer();
+    let deferred = Q.defer();
     helper.getApiData(url, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(new Error(err));
