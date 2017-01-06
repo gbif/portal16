@@ -33,7 +33,7 @@ DirectoryParticipants.groupBy = (query) => {
                 Directory.setMembership(p);
             });
 
-            if (Object.keys(query).length === 0 && query.constructor === Object) {
+            if (typeof query === 'undefined' || (Object.keys(query).length === 0 && query.constructor === Object)) {
                 output = result.results;
             }
             else {
