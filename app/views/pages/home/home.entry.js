@@ -5,7 +5,7 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl(CmsSearch, $http) {
+function homeCtrl(CmsSearch, $http, OccurrenceSearch) {
     var vm = this;
     vm.latest = new Array(4);//show placeholder loader until the actual news return
 
@@ -36,6 +36,64 @@ function homeCtrl(CmsSearch, $http) {
             });
     }
     getLatest();
+
+
+    // var shuffle = function(a) {
+    //     var j, x, i;
+    //     for (i = a.length; i; i--) {
+    //         j = Math.floor(Math.random() * i);
+    //         x = a[i - 1];
+    //         a[i - 1] = a[j];
+    //         a[j] = x;
+    //     }
+    //     return a;
+    // }
+
+    // vm.images = [];
+    // var search = function (query, a) {
+    //     query.mediaType = 'stillImage';
+    //     query.limit=10;
+    //     OccurrenceSearch.query(query, function (data) {
+    //         vm.count = data.count;
+    //         vm.endOfRecords = data.endOfRecords;
+    //         data.results.forEach(function (e) {
+    //             //select first image
+    //             e._images = [];
+    //             for (var i = 0; i < e.media.length; i++) {
+    //                 if (e.media[i].type == 'StillImage') {
+    //                     e._images.push(e.media[i]);
+    //                 }
+    //             }
+    //         });
+
+    //         vm.images = shuffle(vm.images.concat(data.results));
+    //     }, function () {
+    //         //TODO handle request error
+    //     });
+    // };
+    // search({
+    //     dataset_key: 'e635240a-3cb1-4d26-ab87-57d8c7afdfdb',
+    //     basis_of_record: 'PRESERVED_SPECIMEN'
+    // });
+    // search({
+    //     dataset_key: 'cd6e21c8-9e8a-493a-8a76-fbf7862069e5',
+    //     basis_of_record: 'PRESERVED_SPECIMEN'
+    // });
+    // search({
+    //     dataset_key: '3c9e2297-bf20-4827-928e-7c7eefd9432c',
+    //     basis_of_record: 'PRESERVED_SPECIMEN'
+    // });
+
+    // search({
+    //     dataset_key: '4bfac3ea-8763-4f4b-a71a-76a6f5f243d3',
+    //     basis_of_record: 'PRESERVED_SPECIMEN'
+    // });
+
+    // search({
+    //     dataset_key: '50c9509d-22c7-4a22-a47d-8c48425ef4a7',
+    //     q: 'Ryan Brooks'
+    // });
+
 }
 
 module.exports = homeCtrl;

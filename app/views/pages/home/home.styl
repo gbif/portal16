@@ -39,7 +39,8 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 // }
 
 .home {
-    font-size 16px
+    font-size 18px
+    line-height 1.66667 //30px
     font-weight 300
     &__header {
         background-color $olivine
@@ -272,4 +273,79 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             font-weight normal
         }
     }
+}
+
+.features {
+    &__intro {
+        text-align center
+        padding vrBlock(5) 0
+    }
+}
+$featureIllustrationSize = 300px
+.feature-band {
+    margin 10px
+    >div {
+        padding vrBlock(5) vrBlock(2)
+        margin 0 -vrBlock(2)
+        position relative
+    }
+    &__admiral>div {
+        //background radial-gradient(farthest-corner at 30% 20%, #FF9077 20%, #F63C46 60%, #5C0030)
+        background radial-gradient(farthest-corner at 30% 20%,#6cc7af 20%,#4a9c86 60%,#3e737d)
+        color white
+    }
+    &__salmon>div {
+        background radial-gradient(farthest-corner at 30% 20%, #FFEEC7 20%, #FFD2C4 60%, #FFA58C)
+        //background radial-gradient(farthest-corner at 30% 20%, #FF9077 20%, #F63C46 60%, #5C0030)
+        color #666
+    }
+    &__summary {
+        //max-width 420px
+    }
+    &__illustration {
+        border-radius 50%
+        width $featureIllustrationSize
+        height $featureIllustrationSize
+        overflow hidden
+        //position absolute
+        &--left {
+            @extends .feature-band__illustration
+        }
+        &--right {
+            @extends .feature-band__illustration
+            margin-left auto
+        }
+        
+    }
+}
+
+
+.hexagon {
+  position: relative;
+  width: 300px; 
+  height: 173.21px;
+  margin: 86.60px 0;
+  >div {
+    background-image: url('//api.gbif.org/v1/image/unsafe/500x500/http://static.inaturalist.org/photos/2882189/original.jpg?1452806119');
+  }
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 86.60px solid #64C7CC;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 86.60px solid #64C7CC;
 }
