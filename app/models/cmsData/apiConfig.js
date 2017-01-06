@@ -1,9 +1,9 @@
 'use strict';
 
-var baseConfig = require('../../../config/config'),
+let baseConfig = require('../../../config/config'),
     baseUrl = baseConfig.serverProtocol + baseConfig.cmsApi;
 
-var apiConfig = {
+let apiConfig = {
     base: {
         url: baseUrl
     },
