@@ -1,17 +1,23 @@
-var express = require('express'),
+let express = require('express'),
     glob = require('glob'),
 // favicon = require('serve-favicon'),
     cookieParser = require('cookie-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
     i18n = require("i18n"),
+    requestIp = require('request-ip'),
     bodyparser = require('body-parser');
 //log = rootRequire('config/log'),
 
 module.exports = function (app, config) {
-    var env = config.env || 'dev';
+    let env = config.env || 'dev';
     app.locals.ENV = env;
     app.locals.ENV_DEVELOPMENT = env == 'dev';
+
+    /**
+     * add middleware to add ip address to request.
+     */
+    app.use(requestIp.mw());
 
     /**
      * Create and configure our templating engine
@@ -29,8 +35,8 @@ module.exports = function (app, config) {
     //});
 
 
-    var locales = ['en', 'da'];
-    var defaultLocale = 'en';
+    let locales = ['en', 'da'],
+        defaultLocale = 'en';
 
     i18n.configure({
         locales: locales,
@@ -70,7 +76,7 @@ module.exports = function (app, config) {
     /**
      require all route controllers
      */
-    var controllers = glob.sync(config.root + '/app/controllers/**/*.ctrl.js');
+    let controllers = glob.sync(config.root + '/app/controllers/**/*.ctrl.js');
     controllers.forEach(function (controller) {
         require(controller)(app);
     });
