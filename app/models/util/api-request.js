@@ -19,6 +19,7 @@ function getData(cb, path, options) {
     };
 
     if (options.headers) requestOptions.headers = options.headers;
+    if (options.qs) requestOptions.qs = options.qs;
 
     request.get(requestOptions, function (err, response, body) {
         // if timeout
