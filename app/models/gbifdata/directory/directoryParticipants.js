@@ -40,6 +40,7 @@ DirectoryParticipants.groupBy = (query) => {
                     participantsByRegion = _.groupBy(result.results, p => {
                         return (p.hasOwnProperty('gbifRegion')) ? p.gbifRegion : 'NON_ACTIVE';
                     });
+                    participantsByRegion.GLOBAL = result.results;
                     if (typeof query.gbifRegion !== 'undefined' && participantsByRegion.hasOwnProperty(query.gbifRegion)) {
                         output = participantsByRegion[query.gbifRegion];
                     }

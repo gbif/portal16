@@ -1,7 +1,15 @@
-// @file This script collects information for use in /the-gbif-network landing page.
-
 'use strict';
 
+/*
+ * @file This script collects information for use in /the-gbif-network landing page.
+ * It gives:
+ * 1) all country objects decorated by their membership status
+ * 2) count of data publishers
+ * 3) count of countries of authors
+ * 4) count of authors
+ * 5) count of total literature
+ * And accepts region param to return results of a given GBIF defined region.
+ */
 let helper = require('../../util/util'),
     Q = require('q'),
     fs = require('fs'),
@@ -12,7 +20,6 @@ let helper = require('../../util/util'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
-let calls = 0;
 let language;
 
 let theGbifNetwork = function (record) {
@@ -51,12 +58,11 @@ function getIntro(language) {
 }
 
 theGbifNetwork.counts = region => {
+    let deferred = Q.defer();
     let count = {},
-        query = {},
-        participantTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'],
-        tasks = [];
+        query = {};
 
-    if (region !== 'GLOBAL' || typeof region !== 'undefined' || region !== null) {
+    if (region !== 'GLOBAL' || typeof region !== 'undefined' || region !== null || region !== 'undefined') {
         query.gbifRegion = region;
     }
 
@@ -70,26 +76,31 @@ theGbifNetwork.counts = region => {
         .then(result => {
             count[query.membershipType] = result.length;
             query.membershipType = 'other_associate_participant';
-            // regional publishers
             return DirectoryParticipants.groupBy(query);
         })
         .then(result => {
             count[query.membershipType] = result.length;
+
+            // add regional publishers
             return PublisherRegional.groupBy(region);
         })
         .then(publishers => {
             count['publisher'] = publishers.length;
+
+            // add literature authored by regional scholars
             return Literature.groupBy(region);
         })
         .then(literatureRegional => {
             count['literature'] = literatureRegional.literature.length;
             count['literatureAuthorCountries'] = literatureRegional.countries.length;
             count['literatureAuthors'] = literatureRegional.authorsCount;
-            return count;
+            deferred.resolve(count);
         })
         .catch(e => {
             log.info(e + ' at count().');
+            deferred.reject(e + ' at count().');
         });
+    return deferred.promise;
 };
 
 /**

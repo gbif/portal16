@@ -25,7 +25,7 @@ PublisherRegional.groupBy = (region) => {
     let deferred = Q.defer(),
         publishers = [],
         requestUrl = dataApi.publisher.url,
-        gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
+        gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'GLOBAL'];
 
     helper.getApiDataPromise(requestUrl, {'qs': {'limit': 50}})
         .then(result => {
@@ -33,10 +33,11 @@ PublisherRegional.groupBy = (region) => {
             let tasks = [],
                 limit = 50,
                 offset = 0;
+
             publishers = publishers.concat(result.results);
 
+            // iterate and collect publishers
             do {
-
                 offset += 50;
                 let qs = {
                     'limit': limit,
@@ -50,7 +51,6 @@ PublisherRegional.groupBy = (region) => {
                         log.info(e);
                     })
                 );
-
             } while (offset < result.count);
 
             return Q.all(tasks)

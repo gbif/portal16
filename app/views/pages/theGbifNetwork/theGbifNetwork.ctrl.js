@@ -9,6 +9,7 @@ angular
 /** @ngInject */
 function theGbifNetworkCtrl() {
     angular.element(document).ready(function(){
+        /*
         var map = d3.geomap
             .choropleth()
             .geofile('https://d3-geomap.github.io//d3-geomap/topojson/world/countries.json')
@@ -23,6 +24,7 @@ function theGbifNetworkCtrl() {
                 .datum(data)
                 .call(map.draw, map);
         });
+        */
     });
 }
 

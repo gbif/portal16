@@ -12,7 +12,7 @@
                         <h1>{$ __('menu.GbifNetwork') $}</h1>
                         <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
-                            {$ data.content | safe $}
+                            {$ data.intro | safe $}
                         </div>
                     </header>
                 </div>
@@ -29,6 +29,17 @@
             <div class="container">
                 <div class="row">
                     <div id="tabs"></div>
+                </div>
+                <div class="row">
+                    <div>
+                        <p>Voting participant: {$ data.count.voting_participant $}</p>
+                        <p>Associate country participant: {$ data.count.associate_country_participant $}</p>
+                        <p>Other associate participant: {$ data.count.other_associate_participant $}</p>
+                        <p>Publisher: {$ data.count.publisher $}</p>
+                        <p>Literature: {$ data.count.literature $}</p>
+                        <p>Literature author countries: {$ data.count.literatureAuthorCountries $}</p>
+                        <p>Literature authros: {$ data.count.literatureAuthors $}</p>
+                    </div>
                 </div>
             </div>
         </div>

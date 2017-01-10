@@ -29,7 +29,11 @@ Literature.groupBy = (region) => {
         authors = 0;
 
     // First get participants of the region, then concat literature results by country.
-    DirectoryParticipants.groupBy({'gbifRegion':region})
+    let query = {};
+    if (region !== 'undefined') {
+        query.gbifRegion = region;
+    }
+    DirectoryParticipants.groupBy(query)
         .then(result => {
             let tasks = [];
             result.forEach(p => {
@@ -45,6 +49,7 @@ Literature.groupBy = (region) => {
                     })
                     .catch(e => {
                         log.info(e);
+                        deferred.reject(e);
                     })
                 );
             });

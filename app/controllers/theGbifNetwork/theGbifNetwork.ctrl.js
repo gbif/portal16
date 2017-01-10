@@ -8,28 +8,22 @@ module.exports = function (app) {
 };
 
 router.get('/the-gbif-network', function (req, res, next) {
-    // the landing page needs
-    // 1) all country objects decorated by their membership status
-    // 2) count of data publishers
-    // 3) count of countries of authors
-    // 4) count of authors
-    // 5) count of total literature
 
-    let jsonOutput = false;
-    let countries;
-    let context = {};
+    let context = {},
+        gbifRegion = 'GLOBAL',
+        validRegions = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
+
+    if (req.query.hasOwnProperty('gbifRegion') && req.query.gbifRegion !== 'undefined' && validRegions.indexOf(req.query.gbifRegion) !== -1) {
+        gbifRegion = req.query.gbifRegion;
+    }
 
     TheGbifNetwork.get(res)
-        /*
         .then(data => {
-            context.intro = data;
-            return DirectoryParticipants.groupBy();
+            context.intro = data[0];
+            return TheGbifNetwork.counts(gbifRegion);
         })
-        */
-        .then(data => {
-            return TheGbifNetwork.counts('AFRICA');
-        })
-        .then(data => {
+        .then(count => {
+            context.count = count;
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {
                 data: context,
                 hasTitle: true
