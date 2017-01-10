@@ -81,10 +81,10 @@ theGbifNetwork.counts = region => {
             count['publisher'] = publishers.length;
             return Literature.groupBy(region);
         })
-        .then(literature => {
-            count['literature'] = literature.length;
+        .then(literatureRegional => {
+            count['literature'] = literatureRegional.literature.length;
+            count['literatureAuthorCountries'] = literatureRegional.countries.length;
             return count;
-
         })
         .catch(e => {
             log.info(e + ' at count().');

@@ -20,6 +20,11 @@ Literature.prototype.record = {};
 
 Literature.groupBy = (region) => {
     let deferred = Q.defer(),
+        literatureRegional = {
+            'literature': [],
+            'countries': []
+        },
+        countries = [],
         literature = [];
 
     // First get participants of the region, then concat literature results by country.
@@ -29,7 +34,10 @@ Literature.groupBy = (region) => {
             result.forEach(p => {
                 tasks.push(helper.getApiDataPromise(cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]=' + p.countryCode)
                     .then(result => {
-                        literature = literature.concat(result.results);
+                        if (result.count > 0) {
+                            countries = countries.concat([p.countryCode]);
+                            literature = literature.concat(result.results);
+                        }
                     })
                     .catch(e => {
                         log.info(e);
@@ -51,7 +59,9 @@ Literature.groupBy = (region) => {
                             return b.literatureMonth - a.literatureMonth;
                         }
                     });
-                    deferred.resolve(literature);
+                    literatureRegional.countries = countries;
+                    literatureRegional.literature = literature;
+                    deferred.resolve(literatureRegional);
                 })
                 .catch(e => {
                     deferred.reject(e + ' in literature.groupBy().');
