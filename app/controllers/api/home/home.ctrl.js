@@ -16,7 +16,11 @@ router.get('/home/upcomingEvents', function (req, res, next) {
     cmsSearch(upcomingEventsUrl).then(function (data) {
         res.json(data);
     }, function (err) {
-        next(err);
+        res.status(500);
+        res.json({
+            error: 'unable to process request'
+        });
+        //TODO log this error
     });
 });
 
