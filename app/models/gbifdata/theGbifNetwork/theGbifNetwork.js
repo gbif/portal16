@@ -84,6 +84,7 @@ theGbifNetwork.counts = region => {
         .then(literatureRegional => {
             count['literature'] = literatureRegional.literature.length;
             count['literatureAuthorCountries'] = literatureRegional.countries.length;
+            count['literatureAuthors'] = literatureRegional.authorsCount;
             return count;
         })
         .catch(e => {

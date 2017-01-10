@@ -25,7 +25,8 @@ Literature.groupBy = (region) => {
             'countries': []
         },
         countries = [],
-        literature = [];
+        literature = [],
+        authors = 0;
 
     // First get participants of the region, then concat literature results by country.
     DirectoryParticipants.groupBy({'gbifRegion':region})
@@ -37,6 +38,9 @@ Literature.groupBy = (region) => {
                         if (result.count > 0) {
                             countries = countries.concat([p.countryCode]);
                             literature = literature.concat(result.results);
+                            result.results.forEach(l => {
+                                authors += l.authors.length;
+                            });
                         }
                     })
                     .catch(e => {
@@ -61,6 +65,7 @@ Literature.groupBy = (region) => {
                     });
                     literatureRegional.countries = countries;
                     literatureRegional.literature = literature;
+                    literatureRegional.authorsCount = authors;
                     deferred.resolve(literatureRegional);
                 })
                 .catch(e => {
