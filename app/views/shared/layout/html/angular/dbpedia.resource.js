@@ -8,7 +8,7 @@ var angular = require('angular');
     angular
         .module('portal')
         .factory('DbPedia', function ($resource) {
-            return $resource('//dbpedia.org/data/:name.json', null, {
+            return $resource('http://dbpedia.org/data/:name.json', null, {
                     'query': {
                         method: 'GET',
                         params: {},

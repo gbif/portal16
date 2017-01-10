@@ -31,11 +31,11 @@ function dbpediaDirective() {
             name: vm._name
 
         }, function (data) {
-            var dbPediaResource = "//dbpedia.org/resource/" + vm._name;
+            var dbPediaResource = "http://dbpedia.org/resource/" + vm._name;
             if (data && dbPediaResource in data) {
                 var res = data[dbPediaResource];
                 var abstractEn;
-                _.some(res['//www.w3.org/2000/01/rdf-schema#comment'], function (abstr) {
+                _.some(res['http://www.w3.org/2000/01/rdf-schema#comment'], function (abstr) {
                     if (abstr.lang == vm.lang) {
                         vm.abstract = abstr.value;
                     }
