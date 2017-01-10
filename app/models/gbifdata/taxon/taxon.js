@@ -25,7 +25,7 @@ Taxon.get = function (key, options) {
     } else {
         return promise.then(function (taxon) {
             // check expandBackboneOnly option
-            if (typeof options.expandBackboneOnly !== 'undefined') {
+            if (!typeof options.expandBackboneOnly === 'undefined') {//TODO @marcus this doesn't look meaningful. ! binds to the part before the comparison
                 options.expand = [];
             } else if (taxon.record.origin != 'SOURCE') {
                 // the verbatim resource only exists for origin=SOURCE
@@ -115,7 +115,6 @@ Taxon.prototype.expand = function (fieldNames) {
             extendToField: 'constituent'
         }
     }
-
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
