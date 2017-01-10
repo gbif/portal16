@@ -20,14 +20,14 @@ router.get('/the-gbif-network', function (req, res, next) {
     let context = {};
 
     TheGbifNetwork.get(res)
+        /*
         .then(data => {
             context.intro = data;
-            return DirectoryParticipants.groupByRegion();
-            //return TheGbifNetwork.getCountries();
+            return DirectoryParticipants.groupBy();
         })
+        */
         .then(data => {
-            context.countries = data;
-            return DirectoryParticipants.groupByRegion();
+            return TheGbifNetwork.counts('AFRICA');
         })
         .then(data => {
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {

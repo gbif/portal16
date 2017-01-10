@@ -1,7 +1,6 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    //jsonexport = require('jsonexport'),
     fs = require('fs'),
     helper = require('../../../models/util/util'),
     dataApi = require('../../../models/gbifdata/apiConfig'),
@@ -23,8 +22,25 @@ router.get('/directory/participants', (req, res, next) => {
         });
 });
 
+// utility code to generate CSV list of countries by region.
 /*
+let jsonexport = require('jsonexport');
 router.get('/directory/non-participants', (req, res, next) => {
+    let regions = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
+    regions.forEach(region => {
+        DirectoryParticipants.groupBy({'gbifRegion': region})
+            .then(data => {
+                jsonexport(data, {}, (err, csv) => {
+                    if (err) return new Error(err.message);
+                    return fs.writeFile('/tmp/participants-' + region + '.csv', csv, (err) => {
+                        if (err) throw err;
+                    })
+                });
+            })
+
+    });
+
+
     DirectoryParticipants.groupBy()
         .then(data => {
             let options = {};

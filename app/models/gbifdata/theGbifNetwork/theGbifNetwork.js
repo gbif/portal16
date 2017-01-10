@@ -6,36 +6,13 @@ let helper = require('../../util/util'),
     Q = require('q'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
+    DirectoryParticipants = require('../directory/directoryParticipants'),
+    PublisherRegional = require('../publisher/publisherRegional'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
 let calls = 0;
 let language;
-let data = {
-        global: {
-            totalDatasets: 0,
-            totalSpecies: 0,
-            totalOccurrence: 0,
-            vp: [],
-            acp: [],
-            oap: [],
-            publishers: []
-        },
-        africa: {},
-        asia: {},
-        europe: {
-            totalDatasets: 0,
-            totalSpecies: 0,
-            totalOccurrence: 0,
-            vp: [],
-            acp: [],
-            oap: [],
-            representatives: []
-        },
-        latin_america: {},
-        north_america: {},
-        oceania: {}
-    };
 
 let theGbifNetwork = function (record) {
     this.record = record;
@@ -71,6 +48,42 @@ function getIntro(language) {
         });
     return deferred.promise;
 }
+
+theGbifNetwork.counts = region => {
+    let count = {},
+        query = {},
+        participantTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'],
+        tasks = [];
+
+    if (region !== 'GLOBAL' || typeof region !== 'undefined' || region !== null) {
+        query.gbifRegion = region;
+    }
+
+    query.membershipType = 'voting_participant';
+    DirectoryParticipants.groupBy(query)
+        .then(result => {
+            count[query.membershipType] = result.length;
+            query.membershipType = 'associate_country_participant';
+            return DirectoryParticipants.groupBy(query);
+        })
+        .then(result => {
+            count[query.membershipType] = result.length;
+            query.membershipType = 'other_associate_participant';
+            // regional publishers
+            return DirectoryParticipants.groupBy(query);
+        })
+        .then(result => {
+            count[query.membershipType] = result.length;
+            return PublisherRegional.groupBy(region);
+        })
+        .then(publishers => {
+            count['publisher'] = publishers.length;
+            return count;
+        })
+        .catch(e => {
+            log.info(e + ' at count().');
+        });
+};
 
 /**
  * 1) Get country objects from our country enumeration.
@@ -193,23 +206,6 @@ function getChecklistMetrics(results) {
         .then(() => {
             return usagesCount;
         });
-}
-
-function getParticipantSummary(participant) {
-    let summary = {
-        headOfDelegation: {},
-        nodeManager: {},
-        numEndorsedPublishers: 0,
-        numOccDatasets: 0,
-        numOccRecords: 0,
-        numChecklistDatasets: 0,
-        numChecklistRecords: 0,
-        numSampleDatasets: 0,
-        numSampleRecords: 0,
-        numMetaDatasets: 0,
-        numCoveringCountries: 0,
-        numPublications: 0
-    };
 }
 
 module.exports = theGbifNetwork;
