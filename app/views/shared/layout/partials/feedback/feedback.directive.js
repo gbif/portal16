@@ -72,6 +72,7 @@ function feedbackDirective($state) {
                 vm.referenceId = response.data.referenceId;
                 vm.selected = vm.CONFIRMATION;
                 vm.state = 'SUCCESS';
+                vm.issue = {};
             }, function () {
                 vm.state = 'FAILED';
             });
