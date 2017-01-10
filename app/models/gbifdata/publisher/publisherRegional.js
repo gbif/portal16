@@ -12,20 +12,20 @@ let helper = require('../../util/util'),
     log = require('../../../../config/log'),
     _ = require('lodash');
 
-let publisherRegional = function (record) {
+let PublisherRegional = function (record) {
     this.record = record;
 };
 
-publisherRegional.prototype.record = {};
+PublisherRegional.prototype.record = {};
 
 /**
  * @param region GBIF region enumeration
  */
-publisherRegional.groupBy = (region) => {
+PublisherRegional.groupBy = (region) => {
     let deferred = Q.defer(),
         publishers = [],
         requestUrl = dataApi.publisher.url,
-        gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
+        gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'GLOBAL'];
 
     helper.getApiDataPromise(requestUrl, {'qs': {'limit': 50}})
         .then(result => {
@@ -33,10 +33,11 @@ publisherRegional.groupBy = (region) => {
             let tasks = [],
                 limit = 50,
                 offset = 0;
+
             publishers = publishers.concat(result.results);
 
+            // iterate and collect publishers
             do {
-
                 offset += 50;
                 let qs = {
                     'limit': limit,
@@ -50,14 +51,13 @@ publisherRegional.groupBy = (region) => {
                         log.info(e);
                     })
                 );
-
             } while (offset < result.count);
 
             return Q.all(tasks)
                 .then(() => {
                     return publishers;
                 })
-                .catch((e) => {
+                .catch(e => {
                     deferred.reject(e + ' in publisherRegional.groupBy().')
                 });
         })
@@ -93,4 +93,4 @@ publisherRegional.groupBy = (region) => {
 
 
 
-module.exports = publisherRegional;
+module.exports = PublisherRegional;

@@ -1,15 +1,13 @@
 'use strict';
 
-// @todo get participants and group by region
-// @todo get participants and group by membership types
 // @todo merge with directory.js after readability refactor
 
-let helper = require('../../util/util');
-let dataApi = require('../apiConfig');
-let log = require('../../../../config/log');
-let Directory = require('./directory');
-let Q = require('q');
-let _ = require('lodash');
+let helper = require('../../util/util'),
+    dataApi = require('../apiConfig'),
+    log = require('../../../../config/log'),
+    Directory = require('./directory'),
+    Q = require('q'),
+    _ = require('lodash');
 
 let DirectoryParticipants = function (record) {
     this.record = record;
@@ -42,6 +40,7 @@ DirectoryParticipants.groupBy = (query) => {
                     participantsByRegion = _.groupBy(result.results, p => {
                         return (p.hasOwnProperty('gbifRegion')) ? p.gbifRegion : 'NON_ACTIVE';
                     });
+                    participantsByRegion.GLOBAL = result.results;
                     if (typeof query.gbifRegion !== 'undefined' && participantsByRegion.hasOwnProperty(query.gbifRegion)) {
                         output = participantsByRegion[query.gbifRegion];
                     }
