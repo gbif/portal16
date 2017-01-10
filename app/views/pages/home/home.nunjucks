@@ -97,7 +97,7 @@ nature, PLOS, ... and
                         <article class="card article-box hoverBox ng-cloak" ng-repeat="newsStory in home.latest track by $index">
                             <div ng-if="newsStory && newsStory.type != 'event'">
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe" ng-if="newsStory.images[0].self">
-                                    <img ng-src="//api.gbif.org/v1/image/unsafe/320x180/{{ newsStory.images[0].self | encodeURIComponent }}"
+                                    <img ng-src="//api.gbif.org/v1/image/unsafe/500x330/{{ newsStory.images[0].self | encodeURIComponent }}"
                                          alt="" class="article-thumb">
                                 </a>
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
@@ -112,6 +112,11 @@ nature, PLOS, ... and
                             </div>
 
                             <div ng-if="newsStory.type == 'event'">
+                                {#<a class="card__stripe">#}
+                                    {#<img ng-src="//api.gbif.org/v1/image/unsafe/500x330/https://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"#}
+                                         {#alt="" class="article-thumb">#}
+                                {#</a>#}
+
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
                                     <div class="card__content date-box">
                                         <div>
@@ -156,7 +161,7 @@ nature, PLOS, ... and
                 {#</div>#}
             {#</div>#}
         {#</article>#}
-
+{#
         <div class="horizontal-stripe--paddingless white-background">
             <div class="home__occurrences">
                 <div class="container--normal">
@@ -285,7 +290,7 @@ nature, PLOS, ... and
         </section>
 
         
-        
+        #}
 
 
 
@@ -331,9 +336,9 @@ nature, PLOS, ... and
 
 
 
-        <div class="horizontal-stripe--paddingless home__map">
-            <gbmap dataset-key="'838e2626-f762-11e1-a439-00145eb45e9a'" mapstyle="'light'"></gbmap>
-        </div>
+        {#<div class="horizontal-stripe--paddingless home__map">#}
+            {#<gbmap dataset-key="'838e2626-f762-11e1-a439-00145eb45e9a'" mapstyle="'light'"></gbmap>#}
+        {#</div>#}
 
 
     </div>
