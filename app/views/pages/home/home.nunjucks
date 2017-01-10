@@ -34,7 +34,7 @@ nature, PLOS, ... and
 {% block page %}
     <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
         <div class="home__header">
-            <div class="container--normal">
+            <div class="container--desktop">
                 <div class="home__header__hero-text">
                     <div class="home__header__name">
                         Global Biodiversity Information Facility
@@ -79,7 +79,7 @@ nature, PLOS, ... and
 
         
         <div class="horizontal-stripe--paddingless light-background">
-            <div class="container--wide">
+            <div class="container--desktop">
                 <div class="home__news">
                     <div class="text-center">
                         <h1>News from the network</h1>
@@ -113,18 +113,20 @@ nature, PLOS, ... and
 
                             <div ng-if="newsStory.type == 'event'">
                                 <a class="card__stripe">
-                                    <img ng-src="//api.gbif.org/v1/image/unsafe/500x330/http://demo.gbif.org/img/spacer.gif"
-                                         alt="" class="article-thumb">
+                                    <div class="card__content date-box">
+                                        <img ng-src="//api.gbif.org/v1/image/unsafe/500x330/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
+                                             alt="" class="article-thumb invisible">
+                                        <div>
+                                            <div>
+                                                <span>{{newsStory.dateStart * 1000 | date:'MMM' }}</span>
+                                                <div>{{newsStory.dateStart * 1000 | date:'d' }}</div>
+                                                <span>{{newsStory.dateStart * 1000 | date:'yyyy' }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
-                                    <div class="card__content date-box">
-                                        <div>
-                                            <span>{{newsStory.dateStart * 1000 | date:'MMM' }}</span>
-                                            <div>{{newsStory.dateStart * 1000 | date:'d' }}</div>
-                                            <span>{{newsStory.dateStart * 1000 | date:'yyyy' }}</span>
-                                        </div>
-                                    </div>
                                     <div class="card__content">
                                         <div class="article-box__tag">
                                             <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
@@ -162,182 +164,137 @@ nature, PLOS, ... and
             {#</div>#}
         {#</article>#}
 
-        <div class="horizontal-stripe--paddingless white-background">
-            <div class="home__occurrences">
-                <div class="container--normal">
-                    <h2 count="//api.gbif.org/v1/occurrence/search">
-                        &nbsp;
-                    </h2>
-                    <p>
-                        Species observations and specimens
-                    </p>
-                    <p>
-                        Data distributed by GBIF is the result of thousands of researchers, publishers and and other
-                        that believe that data about life on our planet brings most value when shared.
-                    </p>
-                </div>
-            </div>
-        </div>
+        {#<div class="horizontal-stripe--paddingless white-background">#}
+            {#<div class="home__occurrences">#}
+                {#<div class="container--desktop">#}
+                    {#<h1 count="//api.gbif.org/v1/occurrence/search">#}
+                        {#&nbsp;#}
+                    {#</h1>#}
+                    {#<p>#}
+                        {#Species observations and specimens#}
+                    {#</p>#}
+                    {#<p>#}
+                        {#Data distributed by GBIF is the result of thousands of researchers, publishers and and other#}
+                        {#that believe that data about life on our planet brings most value when shared.#}
+                    {#</p>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+
         <section class="horizontal-stripe--paddingless seperator features">
-            <!-- <div class="features__intro container--normal">
+            <div class="features__intro container--normal">
                 <h1>What is GBIF?</h1>
                 <p>
                     A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
                 </p>
-            </div> -->
-            <div class="feature-band feature-band__admiral">
-                <div class="container--normal">
-                    <div class="row">
-                        <div class="feature-band__summary col-xs-12 col-sm-6">
-                            <h2>
-                                A tool for science and society
-                            </h2>
-                            <p>
-                                Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
-                            </p>
-                            <a href="">Explore featured data usages</a>
-                        </div>
-                        <div class=" col-xs-12 col-sm-6">
-                            <div class="feature-band__illustration--right">
-                                <img src="//api.gbif.org/v1/image/unsafe/500x500/http://static.inaturalist.org/photos/2882189/original.jpg?1452806119">
+            </div>
+            <div class="container--desktop">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2104216/original.jpg?1436381798')">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="feature__summary col-xs-12 col-sm-6">
+                                        <h2>
+                                            A tool for science and society
+                                        </h2>
+                                        <p>
+                                            Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
+                                        </p>
+                                        <a href="">Explore featured data usages</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="feature-band feature-band__salmon">
-                <div class="container--normal">
-                    <div class="row">
-                        <div class=" col-xs-12 col-sm-6">
-                            <div class="feature-band__illustration--left">
-                                <img src="//api.gbif.org/v1/image/unsafe/500x500/http://static.inaturalist.org/photos/1904139/original.jpg?1432482592">
-                            </div>
-                        </div>
-                        <div class="feature-band__summary col-xs-12 col-sm-6">
-                            <h2>
-                                An informatics infrastructure
-                            </h2>
-                            <p>
-                                GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.
-                            </p>
-                            <a href="">Explore featured data usages</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-band feature-band__admiral">
-                <div class="container--normal">
-                    <div class="row">
-                        <div class="feature-band__summary col-xs-12 col-sm-6">
-                            <h2>
-                                A window on biodiversity
-                            </h2>
-                            <p>
-                                Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.
-                            </p>
-                            <a href="">Explore featured data usages</a>
-                        </div>
-                        <div class=" col-xs-12 col-sm-6">
-                            <div class="feature-band__illustration--right">
-                                <img src="//api.gbif.org/v1/image/unsafe/500x500/http://www.florida.plantatlas.usf.edu/img/specimens/USF/282622.jpg">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/1670392/original.jpg?1427736194')">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="feature__summary col-xs-12">
+                                        <h2>
+                                            A connected community
+                                        </h2>
+                                        <p>
+                                            GBIF’s Participants collaborate by sharing skills, experience and technology to mobilize and use data about biodiversity for the public good.
+                                        </p>
+                                        <a href="">Explore featured data usages</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="feature-band feature-band__salmon">
-                <div class="container--normal">
-                    <div class="row">
-                        <div class=" col-xs-12 col-sm-6">
-                            <div class="feature-band__illustration--left">
-                                <img src="//api.gbif.org/v1/image/unsafe/500x500/http://static.inaturalist.org/photos/2937780/original.jpg?1453949614">
-                            </div>
-                        </div>
-                        <div class="feature-band__summary col-xs-12 col-sm-6">
-                            <h2>
-                                A window on biodiversity
-                            </h2>
-                            <p>
-                                Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.
-                            </p>
-                            <a href="">Explore featured data usages</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-band">
-                <div class="container--normal">
-                    <div class="row">
-                        <div class="feature-band__summary col-xs-12 col-sm-6">
-                            <h2>
-                                The GBIF history
-                            </h2>
-                            <p>
-                                Established in 2004 with the vision of a world in which biodiversity information is freely and universally available for science, society and a sustainable future.
-                            </p>
-                            <p>
-                                Get the full account straight from the horse's mouth as our director Donald Hobern tells the story of where we were and where we are going.
-                            </p>
-                        </div>
-                        <div class=" col-xs-12 col-sm-6">
-                            <div>
-                                <img src="/img/donaldTmp.png">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2253573/original.jpg?1439318676')">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="feature__summary col-xs-12">
+                                        <h2>
+                                            A window on biodiversity
+                                        </h2>
+                                        <p>
+                                            Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.
+                                        </p>
+                                        <a href="">Explore featured data usages</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-xs-12">
+                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/4140961/original.JPG?1467258661')">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="feature__summary col-xs-12 col-sm-6">
+                                        <h2>
+                                            An informatics infrastructure
+                                        </h2>
+                                        <p>
+                                            GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.
+                                        </p>
+                                        <a href="">Explore featured data usages</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="padding:50px 0">
+                        <div class="feature feature--blank">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="feature__summary col-xs-12 col-sm-6">
+                                        <h2>
+                                            The GBIF history
+                                        </h2>
+                                        <p>
+                                            Established in 2004 with the vision of a world in which biodiversity information is freely and universally available for science, society and a sustainable future.
+                                        </p>
+                                        <p>
+                                            Get the full account straight from the horse's mouth as our director Donald Hobern tells the story of where we were and where we are going.
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div>
+                                            <img src="/img/donaldTmp.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <gbmap taxon-key="'1'" mapstyle="'light'" style="height:500px"></gbmap>
+                    </div>
+
                 </div>
             </div>
+
         </section>
 
-        
-
-
-
-
-        {#<article class="horizontal-stripe--paddingless white-background home__featured"
-                 style="color: black; box-shadow: inset 0  8px 8px -8px rgba(0,0,0,0.2);text-shadow: 0 0 10px rgba(255,255,255,0.4);position:relative;">
-            <div style="background-image: url('//api.gbif.org/v1/image/unsafe/1600x1000/http://www.florida.plantatlas.usf.edu/img/specimens/USF/288092.jpg');position:absolute;width:100%;height:100%;filter:blur(2px);background-size: cover;
-    background-position: center;
-    background-attachment: fixed;"></div>
-            <div class="container--normal" style="position:relative;">
-                <div class="home__featured__text">
-                    <p>
-                        Sharing
-                    </p>
-                    <div class="clearfix">
-                        <h1>
-                            <a class="inherit noUnderline" href="http://demo.gbif.org/generic/data-publishing">Learn all
-                                about the publishing flow</a>
-                        </h1>
-                    </div>
-                    <p><a class="inherit" href="http://demo.gbif.org/generic/data-publishing">Learn more</a></p>
-                </div>
-            </div>
-        </article>
-
-        <div class="horizontal-stripe--paddingless light-background" style="position:relative">
-            <div class="home__datapapers">
-                <div class="home__datapapers__bubble"
-                     style="background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNEI1RjgzIiBpZD0iY2lyY2xlIiByPSI2NCIvPjxnIGlkPSJpY29uIj48cG9seWxpbmUgZmlsbD0iI0ZGRkZGRiIgaWQ9InBhcGVyIiBwb2ludHM9IjU0LDI5IDg5LDI5IDg5LDk5IDM5LDk5IDM5LDQ0ICAiLz48ZyBpZD0idGV4dCI+PHJlY3QgZmlsbD0iI0U2RTZFNiIgaGVpZ2h0PSI0IiBpZD0ibGluZV8yXyIgd2lkdGg9IjMwIiB4PSI0OSIgeT0iNjYiLz48cmVjdCBmaWxsPSIjRTZFNkU2IiBoZWlnaHQ9IjQiIGlkPSJsaW5lXzFfIiB3aWR0aD0iMzAiIHg9IjQ5IiB5PSI3NCIvPjxyZWN0IGZpbGw9IiNFNkU2RTYiIGhlaWdodD0iNCIgaWQ9ImxpbmUiIHdpZHRoPSIxNSIgeD0iNDkiIHk9IjU4Ii8+PC9nPjxwb2x5bGluZSBmaWxsPSIjQjNCM0IzIiBpZD0idHJpYW5nbGUiIHBvaW50cz0iNTQsMjkgNTQsNDQgMzksNDQgICIvPjwvZz48L3N2Zz4=')">
-                </div>
-                <div class="home__datapapers__header text-center">
-                    <h2>Data papers</h2>
-                    <p class="home__datapapers__header__intro">
-                        Data takes effort to prepare, curate and describe. Data papers provide recognition for this
-                        effort by means of a scholarly article.
-                    </p>
-                </div>
-                <div class="home__datapapers__journals text-center">
-                    <img src="/img/jorunalmockicons.png" style="margin:auto">
-                </div>
-            </div>
-        </div>#}
-
-
-
-
         {#<div class="horizontal-stripe--paddingless home__map">#}
-            {#<gbmap dataset-key="'838e2626-f762-11e1-a439-00145eb45e9a'" mapstyle="'light'"></gbmap>#}
+            {#<gbmap taxon-key="'1'" mapstyle="'light'"></gbmap>#}
         {#</div>#}
 
 

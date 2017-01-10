@@ -77,20 +77,20 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     }
     &__news {
         padding vrBlock(3) 0
-        &__header {
-            margin-bottom vrBlock(1)
-            h2 {
-                font-style italic
-                font-family 'PT Serif', serif
-                font-weight 400
-            }
-            &__intro {
-                text-transform uppercase
-                font-size 12px
-                font-weight normal
-                color #888
-            }
-        }
+        //&__header {
+        //    margin-bottom vrBlock(1)
+        //    h2 {
+        //        font-style italic
+        //        font-family 'PT Serif', serif
+        //        font-weight 400
+        //    }
+        //    &__intro {
+        //        text-transform uppercase
+        //        font-size 12px
+        //        font-weight normal
+        //        color #888
+        //    }
+        //}
     }
     
     &__featured {
@@ -227,12 +227,12 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 
 +isAbove(500px) {
     .articles {
-        margin 0 $halfGutter
+        margin $halfGutter -($halfGutter)
         display flex
         flex-wrap wrap
         justify-content center
         .article-box {
-            margin $halfGutter
+            margin $halfGutter ($halfGutter/ 2)
             flex 1 1 auto
             width "calc(100% / 2 - %s)" % ($halfGutter* 2)
             max-width 300px
@@ -243,7 +243,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 +isAbove(1000px) {
     .articles {
         .article-box {
-            width 200px
+            width "calc(100% / 4 - %s)" % ($halfGutter* 2)
             flex 1 1 auto
             max-width 300px
         }
@@ -259,18 +259,32 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 //}
 
 .date-box {
-    background darkseagreen
+    //background darkseagreen
+    background radial-gradient(farthest-corner at 30% 20%, #6cc7af 20%, #4a9c86 60%, #3e737d)
     color white
     text-align center
     width 100%
-    height 0
+    //height 0
     padding 0
-    padding-bottom 66%
+    //padding-bottom 66%
+    position relative
     > div {
-        padding-top vrBlock(1.5)
-        div {
-            font-size 40px
-            font-weight normal
+        position absolute
+        top 0
+        bottom 0
+        width 100%
+        height 100%
+        > div {
+            vertically-align()
+            //width 126px
+            //height 126px
+            //border-radius 50%
+            //background $olivine
+            //margin auto
+            div {
+                font-size 40px
+                font-weight normal
+            }
         }
     }
 }
@@ -281,71 +295,26 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         padding vrBlock(5) 0
     }
 }
+
 $featureIllustrationSize = 300px
-.feature-band {
-    margin 10px
-    >div {
-        padding vrBlock(5) vrBlock(2)
-        margin 0 -vrBlock(2)
-        position relative
+.feature {
+    background-size cover
+    background-position center
+    margin $halfGutter 0
+
+    &--blank {
+        .feature__summary {
+            padding vrBlock(1)
+            color #444
+            background none
+        }
     }
-    &__admiral>div {
-        //background radial-gradient(farthest-corner at 30% 20%, #FF9077 20%, #F63C46 60%, #5C0030)
-        background radial-gradient(farthest-corner at 30% 20%,#6cc7af 20%,#4a9c86 60%,#3e737d)
-        color white
-    }
-    &__salmon>div {
-        background radial-gradient(farthest-corner at 30% 20%, #FFEEC7 20%, #FFD2C4 60%, #FFA58C)
-        //background radial-gradient(farthest-corner at 30% 20%, #FF9077 20%, #F63C46 60%, #5C0030)
-        color #666
-    }
+
     &__summary {
-        //max-width 420px
-    }
-    &__illustration {
-        border-radius 50%
-        width $featureIllustrationSize
-        height $featureIllustrationSize
-        overflow hidden
-        //position absolute
-        &--left {
-            @extends .feature-band__illustration
-        }
-        &--right {
-            @extends .feature-band__illustration
-            margin-left auto
-        }
-        
+        padding vrBlock(5) vrBlock(2)
+        position relative
+        color white
+        background rgba(0, 0, 0, 0.6)
     }
 }
 
-
-.hexagon {
-  position: relative;
-  width: 300px; 
-  height: 173.21px;
-  margin: 86.60px 0;
-  >div {
-    background-image: url('//api.gbif.org/v1/image/unsafe/500x500/http://static.inaturalist.org/photos/2882189/original.jpg?1452806119');
-  }
-}
-
-.hexagon:before,
-.hexagon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-}
-
-.hexagon:before {
-  bottom: 100%;
-  border-bottom: 86.60px solid #64C7CC;
-}
-
-.hexagon:after {
-  top: 100%;
-  width: 0;
-  border-top: 86.60px solid #64C7CC;
-}
