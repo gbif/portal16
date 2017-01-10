@@ -8,6 +8,7 @@ let helper = require('../../util/util'),
     dataApi = require('../apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
+    Literature = require('../../cmsData/literature/literature'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
@@ -78,7 +79,12 @@ theGbifNetwork.counts = region => {
         })
         .then(publishers => {
             count['publisher'] = publishers.length;
+            return Literature.groupBy(region);
+        })
+        .then(literature => {
+            count['literature'] = literature.length;
             return count;
+
         })
         .catch(e => {
             log.info(e + ' at count().');

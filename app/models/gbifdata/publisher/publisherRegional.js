@@ -12,16 +12,16 @@ let helper = require('../../util/util'),
     log = require('../../../../config/log'),
     _ = require('lodash');
 
-let publisherRegional = function (record) {
+let PublisherRegional = function (record) {
     this.record = record;
 };
 
-publisherRegional.prototype.record = {};
+PublisherRegional.prototype.record = {};
 
 /**
  * @param region GBIF region enumeration
  */
-publisherRegional.groupBy = (region) => {
+PublisherRegional.groupBy = (region) => {
     let deferred = Q.defer(),
         publishers = [],
         requestUrl = dataApi.publisher.url,
@@ -57,7 +57,7 @@ publisherRegional.groupBy = (region) => {
                 .then(() => {
                     return publishers;
                 })
-                .catch((e) => {
+                .catch(e => {
                     deferred.reject(e + ' in publisherRegional.groupBy().')
                 });
         })
@@ -93,4 +93,4 @@ publisherRegional.groupBy = (region) => {
 
 
 
-module.exports = publisherRegional;
+module.exports = PublisherRegional;
