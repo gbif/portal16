@@ -36,7 +36,7 @@ Resource.extendWith = function (dataInstance, resources) {
      }]
      */
     var deferred = Q.defer();
-    Resource.getReources(resources, function (err, results) {
+    Resource.getResources(resources, function (err, results) {
         if (err) {
             deferred.reject(new Error(err));
         }
@@ -48,7 +48,7 @@ Resource.extendWith = function (dataInstance, resources) {
     return deferred.promise;
 };
 
-Resource.getReources = function (resources, callback) {
+Resource.getResources = function (resources, callback) {
     var tasks = {};
     resources.forEach(function (e) {
         tasks[e.extendToField] = function (cb) {
