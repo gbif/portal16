@@ -138,6 +138,20 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
         }
     };
 
+    vm.filters.projectId = {
+        titleTranslation: 'dataset.terms.projectId',
+        queryKey: 'project_id',
+        filter: DatasetFilter,
+        facets: {
+            hasFacets: true,
+            facetKey: 'PROJECT_ID'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'dataset.terms.projectId'
+        }
+    };
+
 
     vm.search = function () {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});

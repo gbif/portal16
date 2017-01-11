@@ -1417,7 +1417,8 @@
       "type": "type",
       "publishingOrg": "publisher",
       "hostingOrg": "host",
-      "publishingCountry": "publishing country"
+      "publishingCountry": "publishing country",
+      "projectId": "project"
     },
     "title": "title",
     "publishedBy": "Published by",
