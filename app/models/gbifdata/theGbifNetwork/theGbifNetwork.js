@@ -57,13 +57,12 @@ function getIntro(language) {
     return deferred.promise;
 }
 
-theGbifNetwork.counts = region => {
+theGbifNetwork.counts = query => {
     let deferred = Q.defer();
-    let count = {},
-        query = {};
+    let count = {};
 
-    if (region !== 'GLOBAL' || typeof region !== 'undefined' || region !== null || region !== 'undefined') {
-        query.gbifRegion = region;
+    if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === 'undefined') {
+        query.gbifRegion = 'GLOBAL';
     }
 
     query.membershipType = 'voting_participant';
@@ -82,13 +81,13 @@ theGbifNetwork.counts = region => {
             count[query.membershipType] = result.length;
 
             // add regional publishers
-            return PublisherRegional.groupBy(region);
+            return PublisherRegional.groupBy(query);
         })
         .then(publishers => {
             count['publisher'] = publishers.length;
 
             // add literature authored by regional scholars
-            return Literature.groupBy(region);
+            return Literature.groupBy(query);
         })
         .then(literatureRegional => {
             count['literature'] = literatureRegional.literature.length;

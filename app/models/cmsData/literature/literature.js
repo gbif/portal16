@@ -18,7 +18,7 @@ let Literature = function (record) {
 
 Literature.prototype.record = {};
 
-Literature.groupBy = (region) => {
+Literature.groupBy = query => {
     let deferred = Q.defer(),
         literatureRegional = {
             'literature': [],
@@ -29,29 +29,30 @@ Literature.groupBy = (region) => {
         authors = 0;
 
     // First get participants of the region, then concat literature results by country.
-    let query = {};
-    if (region !== 'undefined') {
-        query.gbifRegion = region;
+    if (query === 'undefined' || !query.hasOwnProperty('gbifRegion' || query.gbifRegion === 'undefined')) {
+        query.gbifRegion = 'GLOBAL';
     }
     DirectoryParticipants.groupBy(query)
         .then(result => {
             let tasks = [];
             result.forEach(p => {
-                tasks.push(helper.getApiDataPromise(cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]=' + p.countryCode)
-                    .then(result => {
-                        if (result.count > 0) {
-                            countries = countries.concat([p.countryCode]);
-                            literature = literature.concat(result.results);
-                            result.results.forEach(l => {
-                                authors += l.authors.length;
-                            });
-                        }
-                    })
-                    .catch(e => {
-                        log.info(e);
-                        deferred.reject(e);
-                    })
-                );
+                if (p.hasOwnProperty('countryCode') && p.countryCode !== 'undefined') {
+                    tasks.push(helper.getApiDataPromise(cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]=' + p.countryCode)
+                        .then(result => {
+                            if (result.count > 0) {
+                                countries = countries.concat([p.countryCode]);
+                                literature = literature.concat(result.results);
+                                result.results.forEach(l => {
+                                    authors += l.authors.length;
+                                });
+                            }
+                        })
+                        .catch(e => {
+                            log.info(e);
+                            deferred.reject(e);
+                        })
+                    );
+                }
             });
 
             return Q.all(tasks)
@@ -68,6 +69,7 @@ Literature.groupBy = (region) => {
                             return b.literatureMonth - a.literatureMonth;
                         }
                     });
+                    literatureRegional.region = query.gbifRegion;
                     literatureRegional.countries = countries;
                     literatureRegional.literature = literature;
                     literatureRegional.authorsCount = authors;
@@ -77,6 +79,11 @@ Literature.groupBy = (region) => {
                     deferred.reject(e + ' in literature.groupBy().');
                 });
 
+        })
+        .catch(e => {
+            let reason = e + ' in literature.groupBy().';
+            log.info(reason);
+            deferred.reject(reason);
         });
 
     return deferred.promise;
