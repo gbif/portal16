@@ -181,7 +181,7 @@ nature, PLOS, ... and
             {#</div>#}
         {#</div>#}
 
-
+{#
         <section class="horizontal-stripe--paddingless seperator features">
             <div class="features__intro container--normal">
                 <h1>What is GBIF?</h1>
@@ -259,7 +259,17 @@ nature, PLOS, ... and
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12" style="padding:50px 0">
+                </div>
+            </div>
+            <div class="features__intro container--normal">
+                <h1>Start exploring</h1>
+                <p>
+                    A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
+                </p>
+            </div>
+            <div class="container--desktop">
+                <div class="row">
+                    <!--div class="col-xs-12" style="padding:50px 0">
                         <div class="feature feature--blank">
                             <div class="container-fluid">
                                 <div class="row">
@@ -282,17 +292,15 @@ nature, PLOS, ... and
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    </div-->
                     <div class="col-xs-12">
-                        <gbmap taxon-key="'1'" mapstyle="'light'" style="height:500px"></gbmap>
+                        <gbmap mapstyle="'light'" style="height:500px"></gbmap>
                     </div>
-
                 </div>
             </div>
 
         </section>
-
+#}
         {#<div class="horizontal-stripe--paddingless home__map">#}
             {#<gbmap taxon-key="'1'" mapstyle="'light'"></gbmap>#}
         {#</div>#}
