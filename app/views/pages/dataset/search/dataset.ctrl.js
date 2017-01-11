@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
     var vm = this;
     vm.state = DatasetFilter.getState();
 
@@ -95,6 +95,32 @@ function datasetCtrl($state, DatasetFilter, $http) {
     //        facetKey: 'HOSTING_ORG'
     //    }
     //};
+
+    vm.filters.taxonKey = {
+        titleTranslation: 'ocurrenceFieldNames.scientificName',
+        queryKey: 'taxon_key',
+        filter: DatasetFilter,
+        expand: {
+            resource: Species,
+            expandedTitle: 'scientificName'
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'TAXON_KEY'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.taxon,
+            defaultParams: {
+                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+            },
+            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+            suggestTitle: 'canonicalName',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
 
 
     vm.search = function () {

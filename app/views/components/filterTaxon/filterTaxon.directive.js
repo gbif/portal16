@@ -25,7 +25,7 @@ function filterTaxonDirective() {
     return directive;
 
     /** @ngInject */
-    function filterTaxon($scope, $http, $filter, OccurrenceFilter) {
+    function filterTaxon($scope, $http, $filter) {
         var vm = this;
 
         vm.filterConfig.titleTranslation;
@@ -162,7 +162,7 @@ function filterTaxonDirective() {
         };
 
         vm.apply = function () {
-            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
+            vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
         };
 
         vm.searchOnEnter = function (event) {
