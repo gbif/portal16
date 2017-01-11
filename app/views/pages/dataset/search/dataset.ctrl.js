@@ -45,13 +45,13 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
         translationPrefix: 'dataset.terms',
         filter: DatasetFilter
     };
-    vm.filters.publishingCountry = {
-        queryKey: 'publishing_country',
-        facetKey: 'PUBLISHING_COUNTRY',
-        title: 'publishingCountry',
-        translationPrefix: 'dataset.terms',
-        filter: DatasetFilter
-    };
+    // vm.filters.publishingCountry = {
+    //     queryKey: 'publishing_country',
+    //     facetKey: 'PUBLISHING_COUNTRY',
+    //     title: 'publishingCountry',
+    //     translationPrefix: 'dataset.terms',
+    //     filter: DatasetFilter
+    // };
 
 
     //vm.filters.publishingCountry = {
@@ -119,6 +119,22 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
             suggestTitle: 'canonicalName',
             suggestShortName: 'title',
             suggestKey: 'key'
+        }
+    };
+
+    vm.filters.publishingCountry = {
+        titleTranslation: 'dataset.terms.publishingCountry',
+        queryKey: 'publishing_country',
+        filter: DatasetFilter,
+        enumTranslationPath: 'country.',
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.TRANSLATE',
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'PUBLISHING_COUNTRY'
         }
     };
 
