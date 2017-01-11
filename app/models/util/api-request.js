@@ -9,7 +9,8 @@ var ERRORS = Object.freeze({
     API_ERROR: 'API_ERROR',
     NOT_FOUND: 'NOT_FOUND',
     UNAUTHORIZED: 'UNAUTHORIZED',
-    INVALID_RESPONSE: 'INVALID_RESPONSE'
+    INVALID_RESPONSE: 'INVALID_RESPONSE',
+    BACKEND_FETCH_FAILED: 'BACKEND_FETCH_FAILED'
 });
 
 function getData(cb, path, options) {
@@ -43,6 +44,9 @@ function getData(cb, path, options) {
                     break;
                 case 401:
                     cb(ERRORS.UNAUTHORIZED, null);
+                    break;
+                case 503:
+                    cb(ERRORS.BACKEND_FETCH_FAILED, null);
                     break;
                 default:
                     cb(ERRORS.INVALID_RESPONSE, null);
@@ -135,7 +139,7 @@ function getApiDataPromise(requestUrl, options) {
     let deferred = Q.defer();
     getApiData(requestUrl, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(new Error(data.errorType));
         } else if (data) {
             deferred.resolve(data);
         }
