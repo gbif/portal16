@@ -1,11 +1,10 @@
 'use strict';
 let express = require('express'),
     router = express.Router(),
-    fs = require('fs'),
-    helper = require('../../../models/util/util'),
-    dataApi = require('../../../models/gbifdata/apiConfig'),
     DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
-    log = require('../../../../config/log');
+    _ = require('lodash'),
+    log = require('../../../../config/log'),
+    membershipTypeToShow = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
 
 module.exports = app => {
     app.use('/api', router);
@@ -22,9 +21,48 @@ router.get('/directory/participants', (req, res, next) => {
         });
 });
 
-// utility code to generate CSV list of countries by region.
+// param membershipType is not allowed here.
+router.get('/directory/participants/count', (req, res, next) => {
+    DirectoryParticipants.groupBy(req.query)
+        .then(results => {
+            let participantsByMembership;
+            participantsByMembership = _.groupBy(results, p => {
+                return (p.hasOwnProperty('membershipType')) ? p.membershipType : 'NOT_SPECIFIED';
+            });
+            let count = {};
+            count.region = req.query.gbifRegion;
+            membershipTypeToShow.forEach(type => {
+                count[type] = participantsByMembership[type].length;
+            });
+            res.json(count);
+        })
+        .catch(err => {
+            log.error('Error in /api/directory/participants controller: ' + err.message);
+            next(err)
+        });
+});
+
+
 /*
-let jsonexport = require('jsonexport');
+// Utility code to get country iso2 in a file.
+router.get('/country-enumeration', (req, res, next) => {
+    helper.getApiDataPromise('http://api.gbif.org/v1/enumeration/country', {})
+        .then(result => {
+            let file = fs.createWriteStream('/tmp/countries.txt');
+            file.on('error', err => { console.log(err)});
+            result.forEach(country => { file.write(country.iso2 + '\n')});
+            file.end();
+        })
+        .catch(e => {
+            console.log(e);
+        });
+});
+
+ //let  helper = require('../../../models/util/util'),
+ //     dataApi = require('../../../models/gbifdata/apiConfig'),
+ //     fs = require('fs'),
+ //     jsonexport = require('jsonexport');
+ // utility code to generate CSV list of countries by region.
 router.get('/directory/non-participants', (req, res, next) => {
     let regions = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     regions.forEach(region => {

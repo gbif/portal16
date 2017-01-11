@@ -19,9 +19,9 @@ let PublisherRegional = function (record) {
 PublisherRegional.prototype.record = {};
 
 /**
- * @param region GBIF region enumeration
+ * @param query
  */
-PublisherRegional.groupBy = (region) => {
+PublisherRegional.groupBy = (query) => {
     let deferred = Q.defer(),
         publishers = [],
         requestUrl = dataApi.publisher.url,
@@ -63,11 +63,11 @@ PublisherRegional.groupBy = (region) => {
         })
         .then(publishers => {
             // Breakdown to region if param exists
-            if (!region) {
+            if (query === 'undefined' || !query.hasOwnProperty('gbifRegion') || query.gbifRegion === 'undefined') {
                 return deferred.resolve(publishers);
             }
-            else if (gbifRegionEnum.indexOf(region) !== -1) {
-                DirectoryParticipants.groupBy({'gbifRegion': region})
+            else if (gbifRegionEnum.indexOf(query.gbifRegion) !== -1) {
+                DirectoryParticipants.groupBy(query)
                     .then(participants => {
                         let participantsIso2ByRegion = participants.map(participant => { return participant.countryCode; });
                         let publishersInRegion = publishers.filter(publisher => {
