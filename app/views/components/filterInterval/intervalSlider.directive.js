@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+
 angular
     .module('portal')
     .directive('intervalSlider', intervalSliderDirective);
@@ -20,22 +21,24 @@ function intervalSliderDirective() {
         bindToController: true
     };
 
+
     return directive;
 
     /** @ngInject */
     function intervalSlider($scope) {
         var vm = this;
         vm.form = {};
+        vm.currentYear = new Date().getFullYear();
         vm.options = ['between', 'is', 'lessThan', 'largerThan'];
         vm.selected = vm.options[0];
 
         vm.sliderOptions = {
-            start: [1000, 2016],
+            start: [1000, vm.currentYear],
             range: {
                 'min': [1000, 1],
                 '10%': [1700, 1],
                 '50%': [1960, 1],
-                'max': [2016]
+                'max': [vm.currentYear]
             },
             format: {
                 to: function (value) {
