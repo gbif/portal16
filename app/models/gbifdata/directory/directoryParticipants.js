@@ -2,12 +2,12 @@
 
 // @todo merge with directory.js after readability refactor
 
-let helper = require('../../util/util'),
-    dataApi = require('../apiConfig'),
-    log = require('../../../../config/log'),
-    Directory = require('./directory'),
-    Q = require('q'),
-    _ = require('lodash');
+const Q = require('q'),
+      _ = require('lodash'),
+      helper = require('../../util/util'),
+      dataApi = require('../apiConfig'),
+      log = require('../../../../config/log'),
+      Directory = require('./directory');
 
 let DirectoryParticipants = function (record) {
     this.record = record;

@@ -43,6 +43,10 @@ theGbifNetwork.get = function(res){
     return deferred.promise;
 };
 
+/**
+ * Get introduction text for The GBIF Network page.
+ * @param language
+ */
 function getIntro(language) {
     let deferred = Q.defer();
     // insert intro text for each group.
@@ -57,11 +61,15 @@ function getIntro(language) {
     return deferred.promise;
 }
 
+/**
+ * Get only counts of network entities (participants, publishers, literature).
+ * @param query
+ */
 theGbifNetwork.counts = query => {
     let deferred = Q.defer();
     let count = {};
 
-    if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === 'undefined') {
+    if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
         query.gbifRegion = 'GLOBAL';
     }
 
@@ -139,6 +147,10 @@ theGbifNetwork.getCountries = () => {
     return deferred.promise;
 };
 
+/**
+ * Gather specified API calls to digest for counts.
+ * @param country
+ */
 function getDataCount(country) {
     let countCollection = {};
     let callTasks = [];
@@ -175,6 +187,11 @@ function getDataCount(country) {
         });
 }
 
+/**
+ * Digest dataset/record counts from various formats of API result.
+ * @param name
+ * @param result
+ */
 function processCountResult(name, result) {
     let deferred = Q.defer();
     let countObj = {};
@@ -207,6 +224,9 @@ function processCountResult(name, result) {
     return deferred.promise;
 }
 
+/**
+ * collect the usage count of given checklist datasets.
+ */
 function getChecklistMetrics(results) {
     let usagesCount = 0;
     let metricsTask = [];

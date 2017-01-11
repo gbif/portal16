@@ -1,13 +1,16 @@
 'use strict';
 
 /**
- * @fileoverview Proxy endpoint to return literature count for a given region.
+ * @fileOverview Proxy endpoint to return literature count for a given region.
  */
 
-let express = require('express'),
-    router = express.Router(),
-    Literature = require('../../../../models/cmsData/literature/literature'),
-    log = require('../../../../../config/log');
+const express = require('express'),
+      router = express.Router(),
+      //apicache = require('apicache'),
+      log = require('../../../../../config/log'),
+      Literature = require('../../../../models/cmsData/literature/literature');
+
+//let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
