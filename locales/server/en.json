@@ -1257,6 +1257,7 @@
     "basisOfRecord": "basis of record",
     "dataset": "dataset",
     "publisher": "publisher",
+    "dataPublisher": "data publisher",
     "issues": "issues",
     "reference": "reference",
     "Occurrence": "occurrence",
@@ -1298,6 +1299,7 @@
     "nMore": "%s more",
     "publishedBy": "published by",
     "publishers": "publishers",
+    "dataPublishers": "data publishers",
     "nPublishedDatasets": {
       "one": "%s published dataset",
       "other": "%s published datasets"

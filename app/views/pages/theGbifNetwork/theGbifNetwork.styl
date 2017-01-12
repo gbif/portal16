@@ -1,7 +1,34 @@
-.horizontal-tabs {
-  ul {
-    li {
-      display inline-block
+.tabs--emphasized {
+    .tab>a {
+        font-size inherit
     }
-  }
+}
+
+.entity-counts {
+    vertical-align middle
+    .entity-count {
+        display inline-block
+        vertical-align middle
+        
+        > div {
+            display inline-block
+        }
+        .count-number {
+            font-size 4em
+            font-weight lighter
+        }
+        .count-label {
+            text-align left
+            font-size 1.6em
+            max-width 130px
+            font-weight lighter
+            line-height 1.2em
+            text-transform capitalize
+        }
+        .extra-long-label {
+            max-width 200px
+        }
+        
+        
+    }
 }

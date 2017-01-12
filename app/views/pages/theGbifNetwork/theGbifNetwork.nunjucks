@@ -25,11 +25,11 @@
                 </div>
             </div>
         </div>
-        <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary seperator--b">
-            <div class="container-fluid">
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container-desktop">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="horizontal-tabs">
+                        <div class="tabs text-center tabs--emphasized">
                             <ul>
                                 <li class="tab">
                                     <a href="#">
@@ -72,16 +72,35 @@
                 </div>
             </div>
         </section>
-        <div class="row">
-            <div>
-                <p>Voting participant: {$ data.count.voting_participant $}</p>
-                <p>Associate country participant: {$ data.count.associate_country_participant $}</p>
-                <p>Other associate participant: {$ data.count.other_associate_participant $}</p>
-                <p>Publisher: {$ data.count.publisher $}</p>
-                <p>Literature: {$ data.count.literature $}</p>
-                <p>Literature author countries: {$ data.count.literatureAuthorCountries $}</p>
-                <p>Literature authros: {$ data.count.literatureAuthors $}</p>
+        <section>
+            <div class="container--desktop">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="entity-counts text-center">
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.voting_participant $}</div>
+                                <div class="count-label">{$ __('directory.voting_participant') $}</div>
+                            </div>
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.associate_country_participant $}</div>
+                                <div class="count-label extra-long-label">{$ __('directory.associate_country_participant') $}</div>
+                            </div>
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.other_associate_participant $}</div>
+                                <div class="count-label extra-long-label">{$ __('directory.other_associate_participant') $}</div>
+                            </div>
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.publisher $}</div>
+                                <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
+                            </div>
+                        </div>
+                        <p>Literature: {$ data.count.literature $}</p>
+                        <p>Literature author countries: {$ data.count.literatureAuthorCountries $}</p>
+                        <p>Literature authros: {$ data.count.literatureAuthors $}</p>
+
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </article>
 {% endblock %}
