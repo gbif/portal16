@@ -3,6 +3,7 @@
 var _ = require('lodash'),
     emailRegex = require('email-regex'),
     urlRegex = require('url-regex'),
+    Autolinker = require('autolinker'),
     linkTemplateTarget = '<a href="%s1" target="%s2">%s3</a>',
     linkTemplate = '<a href="%s1">%s3</a>';
 //anything looking like a internal link /[a-z0-9]*\/[a-z0-9\/]*/ fx occurrence/goes/234
@@ -33,24 +34,11 @@ function insertLinks(text, links, target) {
     return res;
 }
 
-function linkify(text, target) {
-    var template = target ? linkTemplateTarget : linkTemplate;
-
-    if (typeof text !== 'string') return '';
-
-    //first replace mails with mailto links
-    var linkedText = text.replace(emailRegex(), function (match) {
-        return '<a href="mailto:' + match + '">' + match + '</a>';
-    });
-
-    linkedText = linkedText.replace(urlRegex(), function (match) {
-        return template
-            .replace('%s1', match)
-            .replace('%s2', target)
-            .replace('%s3', match);
-    });
-
-    return linkedText;
+function linkify(text, options) {
+    options = options || {};
+    options.newWindow = options.newWindow || false;
+    options.phone = options.phone || false;
+    return Autolinker.link(text, options);
 }
 
 module.exports = {
