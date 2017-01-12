@@ -100,7 +100,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     };
 
     //create globe
-    if (!globe) {
+    if (!globe && globeCanvas) {
         globe = globeCreator(globeCanvas, {
             land: '#4d5258',
             focus: 'deepskyblue'
@@ -223,10 +223,12 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             //    display: 'block'
             //};
             //attach globe to map
-            globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
-            map.on('move', function () {
+            if (globe) {
                 globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
-            });
+                map.on('move', function () {
+                    globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
+                });
+            }
             //only enable scroll zoom once the map has been clicked
             map.once('focus', function () {
                 map.scrollWheelZoom.enable();
