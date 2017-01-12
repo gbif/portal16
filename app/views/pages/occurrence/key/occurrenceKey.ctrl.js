@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    globeCreator = require('../../../components/map/basic/globe');
 
 angular
     .module('portal')
@@ -8,7 +9,9 @@ angular
 
 /** @ngInject */
 function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
-    var vm = this;
+    var vm = this,
+        globe,
+        globeCanvas = document.querySelector('.occurrenceKey__map .globe');
     vm.mediaExpand = {
         isExpanded: false
     };
@@ -20,7 +23,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
     vm.hideDetails = true;
 
     //vm.SimilarOccurrence = SimilarOccurrence;//.getSimilar({TAXONKEY: 2435146});
-    vm.center = {zoom: 9, lat: 0, lng: 0};
+    vm.center = {zoom: 7, lat: 0, lng: 0};
     vm.markers = {};
     var accessToken = 'pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ';
 
@@ -95,6 +98,15 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             vm.markers.taxon.message = message;
         }
     };
+
+    //create globe
+    if (!globe) {
+        globe = globeCreator(globeCanvas, {
+            land: '#4d5258',
+            focus: 'deepskyblue'
+        });
+    }
+
 
     //vm.tilePosStyle = {};
     vm.data;
@@ -184,7 +196,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             focus: false
         };
         vm.center = {
-            zoom: 10,
+            zoom: 7,
             lat: data.decimalLatitude,
             lng: data.decimalLongitude
         };
@@ -210,6 +222,12 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             //    top: projPos.y/2.56 + '%',
             //    display: 'block'
             //};
+            //attach globe to map
+            globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
+            map.on('move', function () {
+                globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
+            });
+            //only enable scroll zoom once the map has been clicked
             map.once('focus', function () {
                 map.scrollWheelZoom.enable();
             });

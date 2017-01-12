@@ -15,6 +15,9 @@
                         event-broadcast="occurrence.mapEvents"
                         controls="occurrence.controls"
                 ></leaflet>
+                <div class="globe-context">
+                    <canvas class="globe"></canvas>
+                </div>
             </div>
         </div>
     </div>
