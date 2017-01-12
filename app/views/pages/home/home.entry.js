@@ -5,10 +5,13 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl(CmsSearch, $http, OccurrenceSearch) {
+function homeCtrl(CmsSearch, $http, OccurrenceSearch, $state) {
     var vm = this;
     vm.latest = new Array(4);//show placeholder loader until the actual news return
-
+    console.log($state);
+    if (window.location.search.indexOf('underDevelopment') >= 0 ) {
+        vm.underDevelopment = true;
+    }
     function getLatest() {
         CmsSearch.query({
                 limit: 1,
@@ -29,7 +32,6 @@ function homeCtrl(CmsSearch, $http, OccurrenceSearch) {
             });
         $http.get('/api/home/upcomingEvents', {}).then(function(response){
                 vm.latest[3] = response.data.results[0];
-                console.log(response.data.results[0]);
                 //TODO handle missing events
             }, function(err){
                 //TODO handle failing queries

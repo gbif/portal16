@@ -196,7 +196,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
             focus: false
         };
         vm.center = {
-            zoom: 7,
+            zoom: 6,
             lat: data.decimalLatitude,
             lng: data.decimalLongitude
         };

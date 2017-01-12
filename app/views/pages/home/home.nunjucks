@@ -87,9 +87,9 @@ nature, PLOS, ... and
                             Stay up to date with what goes on in the network
                         </p>
                         <div>
-                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=event" class="gb-button--primary">Events</a>
-                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=news" class="gb-button--primary">News</a>
-                            <a href="{$ gb.locales.urlPrefix $}cms/search?type=data_use" class="gb-button--primary">Data use</a>
+                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=event" class="gb-button--primary">Events</a>
+                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=news" class="gb-button--primary">News</a>
+                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="gb-button--primary">Data use</a>
                         </div>
                     </div>
 
@@ -181,8 +181,7 @@ nature, PLOS, ... and
             {#</div>#}
         {#</div>#}
 
-{#
-        <section class="horizontal-stripe--paddingless seperator features">
+        <section class="horizontal-stripe--paddingless seperator features ng-cloak" ng-if="home.underDevelopment">
             <div class="features__intro container--normal">
                 <h1>What is GBIF?</h1>
                 <p>
@@ -202,7 +201,7 @@ nature, PLOS, ... and
                                         <p>
                                             Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
                                         </p>
-                                        <a href="">Explore featured data usages</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="inherit underline">Explore featured data usages</a>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +218,7 @@ nature, PLOS, ... and
                                         <p>
                                             GBIF’s Participants collaborate by sharing skills, experience and technology to mobilize and use data about biodiversity for the public good.
                                         </p>
-                                        <a href="">Explore featured data usages</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/gbif-network" class="inherit underline">Learn more about the GBIF network</a>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +235,7 @@ nature, PLOS, ... and
                                         <p>
                                             Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.
                                         </p>
-                                        <a href="">Explore featured data usages</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit underline">Explore occurrences</a>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +252,7 @@ nature, PLOS, ... and
                                         <p>
                                             GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.
                                         </p>
-                                        <a href="">Explore featured data usages</a>
+                                        <a href="{$ gb.locales.urlPrefix $}/informatics-infratructure" class="inherit underline">Read all about the technical infrastructure</a>
                                     </div>
                                 </div>
                             </div>
@@ -263,9 +262,12 @@ nature, PLOS, ... and
             </div>
             <div class="features__intro container--normal">
                 <h1>Start exploring</h1>
-                <p>
-                    A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
-                </p>
+                <div>
+                    <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="gb-button--primary">Occurrences</a>
+                    <a href="{$ gb.locales.urlPrefix $}/species/search" class="gb-button--primary">Species</a>
+                    <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="gb-button--primary">Datasets</a>
+                    <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="gb-button--primary">Publishers</a>
+                </div>
             </div>
             <div class="container--desktop">
                 <div class="row">
@@ -300,7 +302,7 @@ nature, PLOS, ... and
             </div>
 
         </section>
-#}
+
         {#<div class="horizontal-stripe--paddingless home__map">#}
             {#<gbmap taxon-key="'1'" mapstyle="'light'"></gbmap>#}
         {#</div>#}
