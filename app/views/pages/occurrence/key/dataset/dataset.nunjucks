@@ -4,7 +4,6 @@
             <div class="container--prose description">
                 <h3 class="m-t-0">{$ __('stdTerms.aboutTheDataset') $}</h3>
                 {% if occurrence.dataset.description | striptags | length < 300 %}
-                    {$ occurrence.dataset.description | safe $}
                     <div class="prose-columns prose-columns--single-col">
                         {$ occurrence.dataset.description | linkify | safe $}
                     </div>
