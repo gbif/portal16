@@ -390,6 +390,11 @@
       "from": "atob@>=1.1.0 <1.2.0",
       "resolved": "https://registry.npmjs.org/atob/-/atob-1.1.3.tgz"
     },
+    "autolinker": {
+      "version": "1.4.0",
+      "from": "autolinker@latest",
+      "resolved": "https://registry.npmjs.org/autolinker/-/autolinker-1.4.0.tgz"
+    },
     "autoprefixer": {
       "version": "6.5.4",
       "from": "autoprefixer@>=6.0.0 <7.0.0",
