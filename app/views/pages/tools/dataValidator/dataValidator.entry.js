@@ -3,7 +3,7 @@ var _ = require('lodash');
 require('../../../components/fileUpload/fileUpload.directive');
 
 //only available on dev for now
-var devApiUrl = 'http://api.gbif-dev.org/v1/';
+var devApiUrl = '//api.gbif-dev.org/v1/';
 
 angular
     .module('portal')
