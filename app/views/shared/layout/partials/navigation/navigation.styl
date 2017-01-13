@@ -630,7 +630,7 @@ main {
     }
     .site-drawer__section {
         //height "calc(100vh - %s)" % vrBlock(6)
-        height "calc(100vh - %s - %s)" % ( $navBar_height vrBlock(1) )
+        height "calc(100vh - %s - %s)" % ( $navBar_height $searchTabBar-height )
         overflow-y auto
         -webkit-overflow-scrolling touch
         //&--bottom-panel {

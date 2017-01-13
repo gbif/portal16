@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var parseIntervalQuery = require('./parseIntervalQuery');
 
 angular
     .module('portal')
@@ -28,18 +29,19 @@ function intervalSliderDirective() {
     function intervalSlider($scope) {
         var vm = this;
         vm.form = {};
-        vm.currentYear = new Date().getFullYear();
         vm.options = ['between', 'is', 'lessThan', 'largerThan'];
         vm.selected = vm.options[0];
 
+        vm.intervalOptions.range = vm.intervalOptions.range || {
+            'min': [1000, 1],
+            '10%': [1700, 1],
+            '50%': [1960, 1],
+            'max': [new Date().getFullYear()]
+        };
+
         vm.sliderOptions = {
-            start: [1000, vm.currentYear],
-            range: {
-                'min': [1000, 1],
-                '10%': [1700, 1],
-                '50%': [1960, 1],
-                'max': [vm.currentYear]
-            },
+            start: [vm.intervalOptions.range.min, vm.intervalOptions.range.max],
+            range: vm.intervalOptions.range,
             format: {
                 to: function (value) {
                     return parseInt(value)
@@ -62,32 +64,25 @@ function intervalSliderDirective() {
             },
             //set: function(values, handle, unencoded) {
             //},
-            change: function () { //values, handle, unencoded
+            change: function () { //, handle, unencoded
                 vm.apply();
             }
         };
 
         vm.parseQueryString = function (str) {
-            str = str || '';
-            if (str.toString() == '') return;
-
-            var parts = str.toString().split(',');
-            if (parts.length == 1 && isFinite(parts[0])) {
-                //is
-                vm.sliderOptions.start = [parts[0]];
-                vm.setType(vm.options[1])
-            } else if (parts.length == 2) {
-                if (isFinite(parts[0]) && isFinite(parts[1])) {
-                    //between
-                    vm.sliderOptions.start = parts;
+            var interval = parseIntervalQuery(str);
+            if (interval) {
+                if (interval.type == 'is') {
+                    vm.sliderOptions.start = interval.values;
+                    vm.setType(vm.options[1])
+                } else if (interval.type == 'between') {
+                    vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[0])
-                } else if (parts[0] === '*' && isFinite(parts[1])) {
-                    //less than
-                    vm.sliderOptions.start = [undefined, parts[1]];
+                } else if (interval.type == 'lessThan') {
+                    vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[2])
-                } else if (isFinite(parts[0]) && parts[1] === '*') {
-                    //greater than
-                    vm.sliderOptions.start = [parts[0], undefined];
+                } else if (interval.type == 'largerThan') {
+                    vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[3])
                 }
             }
@@ -163,14 +158,14 @@ function intervalSliderDirective() {
         //};
 
         vm.changeFrom = function () {
-            if (!vm.form.from.$valid) {
+            if (vm.form.from && !vm.form.from.$valid) {
                 vm.sliderOptions.start[0] = parseInt(vm.sliderOptions.range.min);
             } else {
                 vm.sliderOptions.start[0] = vm.from;
             }
         };
         vm.changeTo = function () {
-            if (!vm.form.to.$valid) {
+            if (vm.form.to && !vm.form.to.$valid) {
                 vm.sliderOptions.start[1] = parseInt(vm.sliderOptions.range.max);
             } else {
                 vm.sliderOptions.start[1] = vm.to;
@@ -200,6 +195,8 @@ function intervalSliderDirective() {
         vm.apply = function () {
             var stateString = '';
             vm.intervalOptions.inActive = undefined;
+            vm.changeFrom();
+            vm.changeTo();
             switch (vm.selected) {
                 case 'between':
                     stateString = vm.sliderOptions.start[0] + ',' + vm.sliderOptions.start[1];

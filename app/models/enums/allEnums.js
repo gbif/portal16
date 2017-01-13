@@ -8,5 +8,6 @@ module.exports = {
     "rank": require('./basic/rank.json'),
     "occurrenceIssue": require('./basic/occurrenceIssue.json'),
     "license": require('./basic/license.json'),
-    "datasetType": require('./basic/datasetType.json')
+    "datasetType": require('./basic/datasetType.json'),
+    "protocol": require('./basic/protocol.json')
 };

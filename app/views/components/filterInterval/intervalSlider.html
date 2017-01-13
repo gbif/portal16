@@ -2,12 +2,12 @@
     <div uib-dropdown on-toggle="toggled(open)" class="filter-group__filter__interval__option-trigger">
         <a href="" uib-dropdown-toggle>
             <span ng-if="vm.intervalOptions.inActive">No filter</span>
-            <span ng-if="!vm.intervalOptions.inActive">{{vm.selected}}</span>
+            <span ng-if="!vm.intervalOptions.inActive" translate="{{vm.intervalOptions.intervalTranslation}}select.{{vm.selected}}">{{vm.selected}}</span>
             <i></i>
         </a>
         <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
             <li ng-repeat="choice in vm.options">
-                <a href="" ng-click="vm.selectType(choice)" class="small">{{choice}}</a>
+                <a href="" ng-click="vm.selectType(choice)" class="small" translate="{{vm.intervalOptions.intervalTranslation}}select.{{choice}}">{{choice}}</a>
             </li>
         </ul>
         <a href="" ng-click="vm.remove()" class="gb-icon-close pull-right"></a>
@@ -16,10 +16,10 @@
         <!--<input required type="text" ng-blur="vm.blurTo" ng-keyup="vm.changeTo()" placeholder="2016" ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{4}$/" name="to" class="">-->
     </div>
     <form class="filter-group__filter__interval__input" name="vm.form">
-        <input required type="text" ng-blur="vm.blurFrom()" ng-keyup="vm.changeFrom()" placeholder="1000"
-               ng-model="vm.from" ng-pattern="/^[0-9]{4}$/" name="from">
-        <input required type="text" ng-blur="vm.blurTo()" ng-keyup="vm.changeTo()" placeholder="{{vm.currentYear}}"
-               ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{4}$/" name="to"
+        <input required type="text" ng-blur="vm.blurFrom()" ng-keyup="vm.changeFrom()" placeholder="{{vm.intervalOptions.range.min[0]}}"
+               ng-model="vm.from" ng-pattern="/^[0-9]{0,4}$/" name="from">
+        <input required type="text" ng-blur="vm.blurTo()" ng-keyup="vm.changeTo()" placeholder="{{vm.intervalOptions.range.max[0]}}"
+               ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{0,4}$/" name="to"
                class="pull-right text-right">
         <div ya-no-ui-slider='vm.sliderOptions'
              ya-no-ui-slider-events='vm.eventHandlers'

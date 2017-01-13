@@ -135,25 +135,6 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
-    vm.filters.recordNumber = {
-        title: 'recordNumber',
-        queryKey: 'record_number',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.occurrenceId = {
-        title: 'occurrenceId',
-        queryKey: 'occurrence_id',
-        filter: OccurrenceFilter
-    };
-
-    vm.filters.catalogNumber = {
-        title: 'catalogNumber',
-        queryKey: 'catalog_number',
-        filter: OccurrenceFilter
-    };
-
-
     vm.filters.occurrenceId = {
         titleTranslation: 'ocurrenceFieldNames.occurrenceId',
         queryKey: 'occurrence_id',
@@ -166,6 +147,21 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         facets: {
             hasFacets: false,
             facetKey: 'OCCURRENCE_ID'
+        }
+    };
+
+    vm.filters.recordNumber = {
+        titleTranslation: 'ocurrenceFieldNames.recordNumber',
+        queryKey: 'record_number',
+        filter: OccurrenceFilter,
+        search: {
+            isSearchable: true,
+            placeholder: 'ocurrenceFieldNames.recordNumber',
+            suggestEndpoint: suggestEndpoints.recordNumber
+        },
+        facets: {
+            hasFacets: false,
+            facetKey: 'RECORD_NUMBER'
         }
     };
 
@@ -320,6 +316,19 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
+    vm.filters.protocol = {
+        titleTranslation: 'ocurrenceFieldNames.protocol',
+        queryKey: 'protocol',
+        filter: OccurrenceFilter,
+        enumTranslationPath: 'protocol.',
+        showAll: true,
+        enums: enums.protocol,
+        facets: {
+            hasFacets: true,
+            facetKey: 'PROTOCOL'
+        }
+    };
+
     vm.filters.month = {
         titleTranslation: 'ocurrenceFieldNames.month',
         queryKey: 'month',
@@ -390,8 +399,40 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     //intervals
     vm.filters.year = {
+        titleTranslation: 'ocurrenceFieldNames.year',
+        intervalTranslation: 'intervals.year.',
         queryKey: 'year',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        range: {
+            'min': [1000, 1],
+            '10%': [1700, 1],
+            '50%': [1960, 1],
+            'max': [new Date().getFullYear()]
+        }
+    };
+
+    vm.filters.elevation = {
+        titleTranslation: 'ocurrenceFieldNames.elevation',
+        intervalTranslation: 'intervals.elevation.',
+        queryKey: 'elevation',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [2500, 1],
+            'max': [9999, 1]
+        }
+    };
+
+    vm.filters.depth = {
+        titleTranslation: 'ocurrenceFieldNames.depth',
+        intervalTranslation: 'intervals.depth.',
+        queryKey: 'depth',
+        filter: OccurrenceFilter,
+        range: {
+            'min': [0, 1],
+            '50%': [2500, 1],
+            'max': [9999, 1]
+        }
     };
 
     vm.toggleAdvanced = function () {

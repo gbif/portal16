@@ -2,6 +2,8 @@
 
 var angular = require('angular');
 require('./intervalSlider.directive');
+var parseIntervalQuery = require('./parseIntervalQuery');
+
 
 angular
     .module('portal')
@@ -54,7 +56,9 @@ function filterIntervalDirective() {
                     change: function () {
                         vm.apply();
                     },
-                    remove: vm.remove
+                    remove: vm.remove,
+                    range: vm.filterConfig.range,
+                    intervalTranslation: vm.filterConfig.intervalTranslation
                 }
             );
         };
@@ -86,6 +90,11 @@ function filterIntervalDirective() {
             vm.intervalQuery = [];
             vm.add();
             vm.apply();
+        };
+
+        vm.getParsedQuery = function(query) {
+            var interval = parseIntervalQuery(query);
+            return interval;
         };
 
         vm.apply = function () {

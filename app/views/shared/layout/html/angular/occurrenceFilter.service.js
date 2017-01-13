@@ -27,7 +27,7 @@ angular
         };
 
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
-        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license'];
+        var exhaustiveFacetsKeys = ['basis_of_record', 'month', 'type_status', 'issue', 'dataset_key', 'institution_code', 'country', 'media_type', 'license', 'protocol'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function (facet) {
             exhaustiveFacets.push(facet);

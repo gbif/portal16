@@ -82,6 +82,9 @@
         <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+        <div filter-suggest filter-config="occurrence.filters.recordNumber" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
         <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
@@ -89,13 +92,22 @@
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
 
-        <!--<div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
+        <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
         <div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
         <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+
+        <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <!--<div filter-enum filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->

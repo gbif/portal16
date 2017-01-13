@@ -57,6 +57,21 @@
     "SYNTYPE": "syntype",
     "TOPOTYPE": "topotype"
   },
+  "protocol": {
+    "EML": "EML",
+    "FEED": "RSS feed",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "Darwin Core Archive",
+    "DIGIR": "DIGIR",
+    "DIGIR_MANIS": "DIGIR MaNIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASE",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "Other"
+  },
   "occurrence": {
     "title": {
       "verb": {
@@ -1373,7 +1388,7 @@
     "EXECUTIVE_SECRETARY": "executive secretary",
     "GOVERNING_BOARD_1ST_VICE_CHAIR": "governing board 1st vice chair",
     "GOVERNING_BOARD_2ND_VICE_CHAIR": "governing board 2nd vice chair",
-    "GOVERNING_BOARD_3RD_VICE_CHAIR": "governing board 3rd vice chair",      
+    "GOVERNING_BOARD_3RD_VICE_CHAIR": "governing board 3rd vice chair",
     "GOVERNING_BOARD_CHAIR": "governing board chair",
     "GOVERNING_BOARD_OBSERVER": "governing board observer",
     "HEAD_OF_DELEGATION": "head of delegation",
@@ -1698,7 +1713,7 @@
         "other": "subjects"
       },
       "publishedOn": "published on",
-      "resourceType" : "resource type",
+      "resourceType": "resource type",
       "citation": "citation",
       "language": "language",
       "author": "author(s)",
@@ -1722,6 +1737,47 @@
     "about": "about",
     "literature": {
       "keywords": "Keywords"
+    }
+  },
+  "intervals": {
+    "elevation": {
+      "is": "is {{from}}m",
+      "between": "between {{from}} and {{to}}m",
+      "lessThan": "below {{to}}m",
+      "largerThan": "above {{from}}m",
+      "invalid": "invalid",
+      "select": {
+        "is": "is",
+        "between": "between",
+        "lessThan": "below",
+        "largerThan": "above"
+      }
+    },
+    "depth": {
+      "is": "is {{from}}m",
+      "between": "between {{from}} and {{to}}m",
+      "lessThan": "above {{to}}m depth",
+      "largerThan": "deeper than {{from}}m",
+      "invalid": "invalid",
+      "select": {
+        "is": "is",
+        "between": "between",
+        "lessThan": "less than",
+        "largerThan": "deeper than"
+      }
+    },
+    "year": {
+      "is": "is from {{from}}",
+      "between": "between {{from}} and {{to}}",
+      "lessThan": "before {{to}}",
+      "largerThan": "after {{from}}",
+      "invalid": "invalid",
+      "select": {
+        "is": "is",
+        "between": "between",
+        "lessThan": "before",
+        "largerThan": "after"
+      }
     }
   },
   "directory": {
@@ -1856,25 +1912,25 @@
     "funders": "Funders"
   },
   "validation": {
-    "category" : {
-      "RESOURCE_STRUCTURE" :"Resource Structure",
-      "RECORD_STRUCTURE" :"Record Structure",
-      "OCC_INTERPRETATION_BASED" :"GBIF Occurrence Interpretation"
+    "category": {
+      "RESOURCE_STRUCTURE": "Resource Structure",
+      "RECORD_STRUCTURE": "Record Structure",
+      "OCC_INTERPRETATION_BASED": "GBIF Occurrence Interpretation"
     },
-    "issueType" : {
+    "issueType": {
       "DWCA_UNREADABLE": "Darwin Core Archive unreadable",
       "DWCA_META_XML_NOT_FOUND": "meta.xml file not found",
       "DWCA_META_XML_SCHEMA": "meta.xml schema validation failed",
       "COLUMN_MISMATCH": "Column mismatch",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Record referential integrity violation"
     },
-    "fileFormat" : {
+    "fileFormat": {
       "title": "File format",
       "DWCA": "Darwin Core Archive",
       "TABULAR": "Tabular File (.csv, .tsv)",
       "SPREADSHEET": "Spreadsheet (.xlsx)"
     },
-    "validationProfile" : {
+    "validationProfile": {
       "title": "Validation Profile",
       "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
     },
@@ -1888,9 +1944,9 @@
       "percentage": "Percentage"
     },
     "interpretedCounts": {
-      "date" : "Number of interpreted date",
-      "taxon" : "Number of interpreted taxon",
-      "location" : "Number of interpreted coordinates"
+      "date": "Number of interpreted date",
+      "taxon": "Number of interpreted taxon",
+      "location": "Number of interpreted coordinates"
     },
     "status": "Status",
     "indexeable": "Can be indexed by GBIF?",
