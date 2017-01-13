@@ -18,6 +18,9 @@
     "undefined": "unknown"
   },
   "typeStatus": {
+    "TYPE": "type",
+    "TYPE_SPECIES": "type species",
+    "TYPE_GENUS": "type genus",
     "ALLOLECTOTYPE": "allolectotype",
     "ALLONEOTYPE": "alloneotype",
     "ALLOTYPE": "allotype",
@@ -40,8 +43,6 @@
     "ISOTYPE": "isotype",
     "LECTOTYPE": "lectotype",
     "NEOTYPE": "neotype",
-    "NOTATYPE": "not a type",
-    "ORIGINALMATERIAL": "original material",
     "PARALECTOTYPE": "paralectotype",
     "PARANEOTYPE": "paraneotype",
     "PARATYPE": "paratype",
@@ -52,10 +53,12 @@
     "PLASTOPARATYPE": "plastoparatype",
     "PLASTOSYNTYPE": "plastosyntype",
     "PLASTOTYPE": "plastotype",
-    "SECONDARYTYPE": "secondarytype",
-    "SUPPLEMENTARYTYPE": "supplementarytype",
+    "SECONDARYTYPE": "secondary type",
+    "SUPPLEMENTARYTYPE": "supplementary type",
     "SYNTYPE": "syntype",
-    "TOPOTYPE": "topotype"
+    "TOPOTYPE": "topotype",
+    "ORIGINALMATERIAL": "original material",
+    "NOTATYPE": "not a type"
   },
   "protocol": {
     "EML": "EML",
