@@ -17,16 +17,25 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/the-gbif-network', (req, res, next) => {
+router.get('/the-gbif-network/:region?', (req, res, next) => {
 
     let context = {},
         query = {},
-        gbifRegion = 'GLOBAL',
-        validRegions = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
+        validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'],
+        participantTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'],
+        region;
 
-    if (req.query.hasOwnProperty('gbifRegion') && req.query.gbifRegion !== 'undefined' && validRegions.indexOf(req.query.gbifRegion) !== -1) {
-        query.gbifRegion = req.query.gbifRegion;
+    if (typeof req.params.region !== 'undefined') region = req.params.region.toUpperCase().replace('-', '_');
+
+    if (typeof req.params.region !== 'undefined' && validRegions.indexOf(region) !== -1) {
+        query.gbifRegion = region;
     }
+    else {
+        query.gbifRegion = 'GLOBAL';
+    }
+
+    context.validRegions = validRegions;
+    context.participantTypes = participantTypes;
 
     TheGbifNetwork.get(res)
         .then(data => {

@@ -35,7 +35,7 @@ router.get('/directory/participants/count', (req, res, next) => {
             let count = {};
             count.region = req.query.gbifRegion;
             membershipTypeToShow.forEach(type => {
-                count[type] = participantsByMembership[type].length;
+                if (participantsByMembership[type]) count[type] = participantsByMembership[type].length;
             });
             res.json(count);
         })

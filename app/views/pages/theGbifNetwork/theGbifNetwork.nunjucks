@@ -31,41 +31,13 @@
                     <div class="col-xs-12">
                         <div class="tabs text-center tabs--emphasized">
                             <ul>
-                                <li class="tab">
-                                    <a href="#">
-                                        Global
+                                {% for region in data.validRegions %}
+                                <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
+                                    <a href="#" ng-click="vm.selectRegion('{$ region $}')">
+                                        {$ __('region.' + region) $}
                                     </a>
                                 </li>
-                                <li class="tab">
-                                    <a href="#">
-                                        Africa
-                                    </a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#">
-                                        Asia
-                                    </a>
-                                </li>
-                                <li class="tab isActive">
-                                    <a href="#">
-                                        Europe
-                                    </a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#">
-                                        Latin America
-                                    </a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#">
-                                        North America
-                                    </a>
-                                </li>
-                                <li class="tab">
-                                    <a href="#">
-                                        Oceania
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -77,18 +49,15 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="entity-counts text-center">
+                            {% for pType in data.participantTypes %}
+                            {% if data.count[pType] > 0 %}
                             <div class="entity-count">
-                                <div class="count-number">{$ data.count.voting_participant $}</div>
-                                <div class="count-label">{$ __('directory.voting_participant') $}</div>
+                                <div class="count-number">{$ data.count[pType] $}</div>
+                                <div class="count-label {% if pType in ['associate_country_participant', 'other_associate_participant'] %}extra-long-label{% endif %}">
+                                {$ __n('directory.' + pType, data.count[pType]) $}</div>
                             </div>
-                            <div class="entity-count">
-                                <div class="count-number">{$ data.count.associate_country_participant $}</div>
-                                <div class="count-label extra-long-label">{$ __('directory.associate_country_participant') $}</div>
-                            </div>
-                            <div class="entity-count">
-                                <div class="count-number">{$ data.count.other_associate_participant $}</div>
-                                <div class="count-label extra-long-label">{$ __('directory.other_associate_participant') $}</div>
-                            </div>
+                            {% endif %}
+                            {% endfor %}
                             <div class="entity-count">
                                 <div class="count-number">{$ data.count.publisher $}</div>
                                 <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
@@ -97,11 +66,11 @@
                         <div class="entity-counts text-center">
                             <div class="entity-count">
                                 <div class="count-number">{$ data.count.literature $}</div>
-                                <div class="count-label extra-long-label">Peer-reviewed publications by</div>
+                                <div class="count-label medium-long-label">Peer-reviewed publications by</div>
                             </div>
                             <div class="entity-count">
                                 <div class="count-number">{$ data.count.literatureAuthors $}</div>
-                                <div class="count-label extra-long-label">authors from</div>
+                                <div class="count-label">authors from</div>
                             </div>
                             <div class="entity-count">
                                 <div class="count-number">{$ data.count.literatureAuthorFromCountries $}</div>

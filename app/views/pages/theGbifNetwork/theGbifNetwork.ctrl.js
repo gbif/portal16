@@ -7,7 +7,7 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl() {
+function theGbifNetworkCtrl($http, $location) {
     angular.element(document).ready(function(){
         /*
         var map = d3.geomap
@@ -26,6 +26,23 @@ function theGbifNetworkCtrl() {
         });
         */
     });
+    var vm = this;
+    vm.currentRegion = $location.path().split('/')[2].toUpperCase().replace('-', '_');
+    vm.count = {
+        'voting_participant': 0,
+        'associate_country_participant': 0,
+        'other_associate_participant': 0,
+        'publisher': 0,
+        'literature': 0,
+        'literatureAuthors': 0,
+        'literatureAuthorFromCountries': 0
+    };
+
+    vm.selectRegion = function(region) {
+        vm.currentRegion = region;
+        region = region.toLowerCase().replace('_', '-');
+        $location.path('/the-gbif-network/' + region);
+    };
 }
 
 module.exports = theGbifNetworkCtrl;

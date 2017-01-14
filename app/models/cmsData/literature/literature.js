@@ -16,6 +16,10 @@ let Literature = function (record) {
 
 Literature.prototype.record = {};
 
+/**
+ * Use CMS API count endpoint to retrieve relevant literature counts by region.
+ * @param query
+ */
 Literature.countBy = query => {
     let deferred = Q.defer();
     // First get participants of the region, then concat literature results by country.
@@ -34,6 +38,10 @@ Literature.countBy = query => {
     return deferred.promise;
 };
 
+/**
+ * Retrieve documents by region.
+ * @param query
+ */
 Literature.groupBy = query => {
     let deferred = Q.defer(),
         literatureRegional = {
