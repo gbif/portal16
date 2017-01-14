@@ -94,10 +94,20 @@
                                 <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
                             </div>
                         </div>
-                        <p>Literature: {$ data.count.literature $}</p>
-                        <p>Literature author countries: {$ data.count.literatureAuthorCountries $}</p>
-                        <p>Literature authros: {$ data.count.literatureAuthors $}</p>
-
+                        <div class="entity-counts text-center">
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.literature $}</div>
+                                <div class="count-label extra-long-label">Peer-reviewed publications by</div>
+                            </div>
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.literatureAuthors $}</div>
+                                <div class="count-label extra-long-label">authors from</div>
+                            </div>
+                            <div class="entity-count">
+                                <div class="count-number">{$ data.count.literatureAuthorFromCountries $}</div>
+                                <div class="count-label">countries</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

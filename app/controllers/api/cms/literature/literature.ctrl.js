@@ -17,13 +17,13 @@ module.exports = app => {
 };
 
 router.get('/literature/count', (req, res, next) => {
-    Literature.groupBy(req.query)
+    Literature.countBy(req.query)
         .then(literatureRegional => {
             let count = {};
             count['region'] = literatureRegional.region;
-            count['literature'] = literatureRegional.literature.length;
-            count['literatureAuthorCountries'] = literatureRegional.countries.length;
-            count['literatureAuthors'] = literatureRegional.authorsCount;
+            count['literature'] = literatureRegional.literature;
+            count['literatureAuthorFromCountries'] = literatureRegional.literatureAuthorFromCountries;
+            count['literatureAuthors'] = literatureRegional.literatureAuthors;
             res.json(count);
         })
         .catch(err => {
