@@ -28,7 +28,7 @@ Literature.countBy = query => {
     }
     helper.getApiDataPromise(cmsApi.count.url + 'literature/' + query.gbifRegion)
         .then(result => {
-            deferred.resolve(result.data[0]);
+            deferred.resolve(result);
         })
         .catch(e => {
             let reason = e + ' in Literature.countBy().';
