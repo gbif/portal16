@@ -6041,6 +6041,18 @@
       "from": "no-case@>=2.2.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/no-case/-/no-case-2.3.0.tgz"
     },
+    "node-cache": {
+      "version": "4.1.1",
+      "from": "node-cache@latest",
+      "resolved": "https://registry.npmjs.org/node-cache/-/node-cache-4.1.1.tgz",
+      "dependencies": {
+        "clone": {
+          "version": "2.1.0",
+          "from": "clone@>=2.0.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/clone/-/clone-2.1.0.tgz"
+        }
+      }
+    },
     "node-dev": {
       "version": "2.7.1",
       "from": "node-dev@>=2.6.0 <3.0.0",

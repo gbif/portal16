@@ -4,6 +4,10 @@
     }
 }
 
+.main-counts {
+    min-height 160px
+}
+
 .entity-counts {
     vertical-align middle
     .entity-count {
@@ -36,5 +40,43 @@
         }
         
         
+    }
+}
+
+.status-hover {
+    position relative
+    z-index 200;
+}
+
+.participant-list__columned {
+    header {
+        margin vrBlock(2) auto vrBlock(1)
+        max-width 350px
+        border-bottom 1px solid $gray
+    }
+
+    h3 {
+        margin vrBlock(1) auto
+        text-transform uppercase
+    }
+
+    ol {
+        margin vrBlock(2) auto
+        column-count 4
+        column-gap 30px
+
+        li {
+            margin-left 15px
+            list-style-type decimal
+            text-align left
+            margin-bottom 5px
+        }
+    }
+
+    footer {
+        margin vrBlock(1) auto vrBlock(2)
+        content "&nbsp;"
+        width 200px
+        border-bottom 1px solid $gray
     }
 }

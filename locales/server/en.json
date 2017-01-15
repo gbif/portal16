@@ -1922,7 +1922,11 @@
   },
   "participation": {
     "title": "participation",
-    "heading": "The GBIF Network"
+    "heading": "The GBIF Network",
+    "nonCountryParticipant": {
+      "one": "non-country participant",
+      "other": "non-country participants"
+    }
   },
   "feedback": {
     "intro": {

@@ -36,6 +36,7 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
 
     context.validRegions = validRegions;
     context.participantTypes = participantTypes;
+    context.locale = req.locale;
 
     TheGbifNetwork.get(res)
         .then(data => {
