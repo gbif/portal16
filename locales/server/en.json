@@ -3,7 +3,11 @@
     "partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what is available at the moment.",
     "placeholder": "search",
     "taxonSearchPlaceholder": "search species ... kingdom",
-    "datasetSearchPlaceholder": "search datasets"
+    "datasetSearchPlaceholder": "search datasets",
+    "repatriation": {
+      "repatriationFilter": "repatriated data",
+      "description": "Data is said to be repatriated when it is published by an institution in one country but relates to biodiversity occurring in another country"
+    }
   },
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "preserved specimen",
