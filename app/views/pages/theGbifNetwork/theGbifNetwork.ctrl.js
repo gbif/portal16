@@ -7,25 +7,7 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $stateParams, $location) {
-    angular.element(document).ready(function(){
-        /*
-        var map = d3.geomap
-            .choropleth()
-            .geofile('https://d3-geomap.github.io//d3-geomap/topojson/world/countries.json')
-            .colors(['#F6CD00','#9ABC7C'])
-            .column('status')
-            .domain([0.5,1])
-            .legend(false)
-            .unitId('country');
-
-        d3.csv('https://dl.dropboxusercontent.com/u/608155/transient/participants.csv', function(error, data) {
-            d3.select('#map')
-                .datum(data)
-                .call(map.draw, map);
-        });
-        */
-    });
+function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, LiteratureYearly, $stateParams, $location) {
     var vm = this;
 
     vm.currentRegion = $location.path().split('/')[2];
@@ -40,13 +22,13 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     vm.participantTypes = [
         'voting_participant',
         'associate_country_participant',
-        'other_associate_participant',
+        'other_associate_participant'
     ];
     var literatureCounts = [
-            'literature',
-            'literatureAuthors',
-            'literatureAuthorFromCountries'
-        ];
+        'literature',
+        'literatureAuthors',
+        'literatureAuthorFromCountries'
+    ];
 
     vm.query = $stateParams;
     vm.updatedCounts = 3;
@@ -64,7 +46,6 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     vm.selectRegion = function(region) {
         vm.updatedCounts = 0;
         vm.currentRegion = region;
-        console.log(region + ' selected.');
         DirectoryParticipantsCount.get({'gbifRegion': region}).$promise
             .then(function (response) {
                 vm.participantTypes.forEach(function(pType){
@@ -96,6 +77,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             }, function (error){
                 return error;
             });
+
         var regionLower = region.toLowerCase().replace('_', '-');
         $location.path('/the-gbif-network/' + regionLower);
     };

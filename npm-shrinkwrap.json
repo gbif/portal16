@@ -1527,6 +1527,18 @@
       "from": "d3-shape@1.0.4",
       "resolved": "https://registry.npmjs.org/d3-shape/-/d3-shape-1.0.4.tgz"
     },
+    "d3-svg": {
+      "version": "0.2.0",
+      "from": "d3-svg@latest",
+      "resolved": "https://registry.npmjs.org/d3-svg/-/d3-svg-0.2.0.tgz",
+      "dependencies": {
+        "d3-selection": {
+          "version": "0.6.12",
+          "from": "d3-selection@>=0.6.10 <0.7.0",
+          "resolved": "https://registry.npmjs.org/d3-selection/-/d3-selection-0.6.12.tgz"
+        }
+      }
+    },
     "d3-time": {
       "version": "1.0.4",
       "from": "d3-time@1.0.4",

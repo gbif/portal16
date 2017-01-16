@@ -48,51 +48,55 @@
             <div class="container--desktop">
                 <div class="row main-counts">
                     <div class="col-xs-12">
-                        <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
-                        <div ng-if="vm.updatedCounts === 3">
-                            <div class="entity-counts text-center">
-                                {% for pType in data.participantTypes %}
-                                    {% if data.count[pType] > 0 %}
-                                        <div class="entity-count">
-                                            <div class="count-number"
-                                                 ng-bind="vm.count['{$ pType $}'] ? vm.count['{$ pType $}'] : '{$ data.count[pType] $}'">
-                                                {$ data.count[pType] $}
+                        <div class="update-region">
+                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
+                            <div ng-if="vm.updatedCounts === 3">
+                                <div class="entity-counts text-center">
+                                    {% for pType in data.participantTypes %}
+                                        {% if data.count[pType] > 0 %}
+                                            <div class="entity-count">
+                                                <div class="count-number"
+                                                     ng-bind="vm.count['{$ pType $}'] ? vm.count['{$ pType $}'] : '{$ data.count[pType] $}'">
+                                                    {$ data.count[pType] $}
+                                                </div>
+                                                <div class="count-label {% if pType in ['associate_country_participant', 'other_associate_participant'] %}extra-long-label{% endif %}">
+                                                    {$ __n('directory.' + pType, data.count[pType]) $}</div>
                                             </div>
-                                            <div class="count-label {% if pType in ['associate_country_participant', 'other_associate_participant'] %}extra-long-label{% endif %}">
-                                                {$ __n('directory.' + pType, data.count[pType]) $}</div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.publisher ? vm.count.publisher : '{$ data.count.publisher | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.publisher | localizeInteger(gb.locales.current) $}
                                         </div>
-                                    {% endif %}
-                                {% endfor %}
-                                <div class="entity-count">
-                                    <div class="count-number"
-                                         ng-bind="vm.count.publisher ? vm.count.publisher : '{$ data.count.publisher | localizeInteger(gb.locales.current) $}'">
-                                        {$ data.count.publisher | localizeInteger(gb.locales.current) $}
+                                        <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
                                     </div>
-                                    <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
                                 </div>
-                            </div>
-                            <div class="entity-counts text-center">
-                                <div class="entity-count">
-                                    <div class="count-number"
-                                         ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
-                                        {$ data.count.literature | localizeInteger(gb.locales.current) $}
-                                    </div>
-                                    <div class="count-label medium-long-label">Peer-reviewed publications by</div>
+                                <div id="chart-literature-yearly" class="chart-literature text-center">
+                                    <literature-bar-chart-yearly region="vm.currentRegion"></literature-bar-chart-yearly>
                                 </div>
-                                <div class="entity-count">
-                                    <div class="count-number"
-                                         ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors
-                                     : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
-                                        {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
+                                <div class="entity-counts text-center">
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.literature | localizeInteger(gb.locales.current) $}
+                                        </div>
+                                        <div class="count-label medium-long-label">Peer-reviewed publications by</div>
                                     </div>
-                                    <div class="count-label">authors from</div>
-                                </div>
-                                <div class="entity-count">
-                                    <div class="count-number"
-                                         ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
-                                        {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
+                                        </div>
+                                        <div class="count-label">authors from</div>
                                     </div>
-                                    <div class="count-label">countries</div>
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
+                                            {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
+                                        </div>
+                                        <div class="count-label">countries</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

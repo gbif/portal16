@@ -51,6 +51,18 @@ var angular = require('angular');
                 })
                 ;
         })
+        .factory('LiteratureYearly', function ($resource) {
+            return $resource('/api/literature-yearly/count',
+                {gbifRegion: 'GLOBAL'},
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {gbifRegion: '@gbifRegion'},
+                        isArray: true
+                    }
+                })
+                ;
+        })
         ;
 })();
 

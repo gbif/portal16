@@ -23,7 +23,7 @@ Literature.prototype.record = {};
 Literature.countBy = query => {
     let deferred = Q.defer();
     // First get participants of the region, then concat literature results by country.
-    if (query === undefined || !query.hasOwnProperty('gbifRegion' || query.gbifRegion === undefined)) {
+    if (query === undefined || !query.hasOwnProperty('gbifRegion') || !query.gbifRegion) {
         query.gbifRegion = 'GLOBAL';
     }
     helper.getApiDataPromise(cmsApi.count.url + 'literature/' + query.gbifRegion)
@@ -32,6 +32,24 @@ Literature.countBy = query => {
         })
         .catch(e => {
             let reason = e + ' in Literature.countBy().';
+            log.info(reason);
+            deferred.reject(reason);
+        });
+    return deferred.promise;
+};
+
+Literature.yearly = query => {
+    let deferred = Q.defer();
+    // First get participants of the region, then concat literature results by country.
+    if (query === undefined || !query.hasOwnProperty('gbifRegion') || !query.gbifRegion) {
+        query.gbifRegion = 'GLOBAL';
+    }
+    helper.getApiDataPromise(cmsApi.count.url + 'literature-yearly/' + query.gbifRegion)
+        .then(result => {
+            deferred.resolve(result);
+        })
+        .catch(e => {
+            let reason = e + ' in Literature.yearly().';
             log.info(reason);
             deferred.reject(reason);
         });

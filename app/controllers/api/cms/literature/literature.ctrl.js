@@ -31,3 +31,20 @@ router.get('/literature/count', (req, res, next) => {
             next(err)
         });
 });
+
+router.get('/literature-yearly/count', (req, res, next) => {
+    Literature.yearly(req.query)
+        .then(literatureByYear => {
+            if (Array.isArray(literatureByYear)) {
+                res.json(literatureByYear);
+            }
+            else {
+                let reason = 'Data format issue: not expected array';
+                throw new Error(reason);
+            }
+        })
+        .catch(err => {
+            log.error('Error in /api/literature/count controller: ' + err.message);
+            next(err)
+        });
+});

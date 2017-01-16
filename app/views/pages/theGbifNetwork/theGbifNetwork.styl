@@ -8,6 +8,9 @@
     min-height 160px
 }
 
+.update-region {
+    min-height 465px
+}
 .entity-counts {
     vertical-align middle
     .entity-count {
@@ -78,5 +81,29 @@
         content "&nbsp;"
         width 200px
         border-bottom 1px solid $gray
+    }
+}
+
+.chart-literature {
+    literature-bar-chart-yearly {
+        height 0
+    }
+    .bar {
+        fill $orange3
+    }
+
+    .bar:hover {
+        fill $orange1
+    }
+
+    .axis {
+        font 12px sans-serif
+    }
+
+    .axis path,
+    .axis line {
+        fill none
+        stroke #000
+        shape-rendering crispEdges
     }
 }
