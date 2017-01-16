@@ -435,10 +435,17 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         }
     };
 
+    //ternary "all, yes, no" aka optional boolean
+    vm.filters.repatriated = {
+        titleTranslation: 'search.repatriation.repatriationFilter',
+        descriptionTranslation: "search.repatriation.description",
+        queryKey: 'repatriated',
+        filter: OccurrenceFilter
+    };
+
     vm.toggleAdvanced = function () {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };
-
 
     vm.search = function () {
         $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});

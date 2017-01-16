@@ -19,12 +19,12 @@
         <!--<div class="filter-group__filter">-->
         <div class="seperator--b"
              ng-if="occurrence.showFreeTextSpeciesSuggestion && occurrence.freeTextSpeciesSuggestion">
-            <div>
-                Did you mean
-                <div>
+            <div class="m-05">
+                <span>Did you mean</span>
+                <p>
                     {{occurrence.freeTextSpeciesSuggestion.scientificName}} the <span
                         translate="taxonRank.{{occurrence.freeTextSpeciesSuggestion.rank}}"></span>?
-                </div>
+                </p>
             </div>
             <div class="site-drawer__bar">
                 <a href="" class="site-drawer__bar__action"
@@ -45,6 +45,9 @@
                        ng-change="occurrence.toggleAdvanced()">Advanced</label>
             </div>
         </div>
+
+        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"></div>
+
 
         <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
 
@@ -109,6 +112,8 @@
 
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
+
+
 
         <!--<div filter-enum filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
 
