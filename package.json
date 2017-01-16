@@ -144,7 +144,8 @@
     "vinyl-transform": "^1.0.0",
     "watchify": "^3.7.0",
     "wellknown": "^0.5.0",
-    "wiredep": "^4.0.0"
+    "wiredep": "^4.0.0",
+    "yargs": "^6.6.0"
   },
   "devDependencies": {},
   "repository": {
