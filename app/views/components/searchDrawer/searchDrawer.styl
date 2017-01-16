@@ -195,6 +195,7 @@ $filterEmphasisColor = $bodyTextColor
         &__action {
             max-width 50%
             text-transform uppercase
+            color $linkColor
         }
         &__icon {
             width vrBlock(1.5)
@@ -292,6 +293,11 @@ $filterEmphasisColor = $bodyTextColor
         label {
             width 100%
         }
+        .gb-btn-group {
+            label {
+                width auto
+            }
+        }
         &__search {
             position relative
             padding 0
@@ -383,7 +389,6 @@ $filterEmphasisColor = $bodyTextColor
     border 25px
     border-radius 25px
     display block
-    text-align center
     > label {
         border none
         box-shadow none
