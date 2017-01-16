@@ -45,7 +45,7 @@ function literatureBarChartYearly(LiteratureYearly) {
             LiteratureYearly.get({'gbifRegion': scope.region}).$promise
                 .then(function(response){
 
-                    let data = response;
+                    var data = response;
 
                     data.forEach(function(d) {
                         d.year = d.year;
