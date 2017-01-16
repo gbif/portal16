@@ -7,7 +7,7 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, LiteratureYearly, $stateParams, $location) {
+function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $filter, $stateParams, $location) {
     var vm = this;
 
     vm.currentRegion = $location.path().split('/')[2];
@@ -57,7 +57,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             });
         PublisherCount.get({'gbifRegion': region}).$promise
             .then(function(response){
-                if (response.publisher) vm.count.publisher = response.publisher;
+                if (response.publisher) vm.count.publisher = $filter('localNumber')(response.publisher, gb.locale);
                 vm.updatedCounts += 1;
             }, function(error){
                 return error;
@@ -65,7 +65,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         LiteratureCount.get({'gbifRegion': region}).$promise
             .then(function(response){
                 literatureCounts.forEach(function(count){
-                    if(response[count]) vm.count[count] = response[count];
+                    if(response[count]) vm.count[count] = $filter('localNumber')(response[count], gb.locale);
                 });
                 vm.updatedCounts += 1;
             }, function(error){
