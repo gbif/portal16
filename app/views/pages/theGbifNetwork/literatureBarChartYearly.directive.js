@@ -17,9 +17,9 @@ function literatureBarChartYearly(LiteratureYearly) {
         },
         link: function(scope, element, attrs) {
 
-            var margin = {top: 20, right: 20, bottom: 70, left: 40},
+            var margin = {top: 40, right: 20, bottom: 50, left: 40},
                 width = 600 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
+                height = 250 - margin.top - margin.bottom;
 
             // set the ranges
             var x = d3.scaleBand().rangeRound([0, width], .05);
@@ -63,8 +63,9 @@ function literatureBarChartYearly(LiteratureYearly) {
                         .call(xAxis)
                         .selectAll("text")
                         .style("text-anchor", "end")
-                        .attr("dx", "-.8em")
-                        .attr("dy", "-.55em")
+                        .attr("class", "axis-text")
+                        .attr("dx", "-.62em")
+                        .attr("dy", "-.5em")
                         .attr("transform", "rotate(-90)" );
 
                     /*
@@ -93,15 +94,18 @@ function literatureBarChartYearly(LiteratureYearly) {
                         .selectAll("text")
                         .data(data)
                         .enter().append("text")
-                        .text(function(d){
-                            return d.literature_number;
-                        })
+                        .text(function(d){ return d.literature_number; })
                         .attr("x", function(d) { return x(d.year) + x.step() / 2; })
                         .attr("y", function(d) { return y(d.literature_number) -7; })
-                        .attr("font-family", "sans-serif")
-                        .attr("font-size", "14px")
-                        .attr("fill", "black")
+                        .attr("class", "text")
                         .attr("text-anchor", "middle");
+
+                    svg.append("text")
+                        .attr("x", 10)
+                        .attr("y", 10)
+                        .attr("text-anchor", "left")
+                        .attr("class", "chart-title")
+                        .text("Yearly trend of peer-reviewed publications");
 
                 }, function(error){
                     return error;
