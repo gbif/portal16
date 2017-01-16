@@ -1,7 +1,7 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes" ng-controller="theGbifNetworkCtrl as vm">
+    <article class="wrapper-horizontal-stripes" ng-controller="theGbifNetworkCtrl as vm" ng-init="locale = '{$ data.locale $}'">
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
                 <div class="row">
@@ -25,23 +25,105 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe">
-            <div class="container">
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container-desktop">
                 <div class="row">
-                    <div id="tabs"></div>
-                </div>
-                <div class="row">
-                    <div>
-                        <p>Voting participant: {$ data.count.voting_participant $}</p>
-                        <p>Associate country participant: {$ data.count.associate_country_participant $}</p>
-                        <p>Other associate participant: {$ data.count.other_associate_participant $}</p>
-                        <p>Publisher: {$ data.count.publisher $}</p>
-                        <p>Literature: {$ data.count.literature $}</p>
-                        <p>Literature author countries: {$ data.count.literatureAuthorCountries $}</p>
-                        <p>Literature authros: {$ data.count.literatureAuthors $}</p>
+                    <div class="col-xs-12">
+                        <div class="tabs text-center tabs--emphasized">
+                            <ul>
+                                {% for region in data.validRegions %}
+                                <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
+                                    <a href="#" ng-click="vm.selectRegion('{$ region $}')">
+                                        {$ __('region.' + region) $}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section>
+            <div class="container--desktop">
+                <div class="row main-counts">
+                    <div class="col-xs-12">
+                        <div class="update-region">
+                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
+                            <div ng-if="vm.updatedCounts === 3">
+                                <div class="entity-counts text-center">
+                                    {% for pType in data.participantTypes %}
+                                        {% if data.count[pType] > 0 %}
+                                            <div class="entity-count">
+                                                <div class="count-number"
+                                                     ng-bind="vm.count['{$ pType $}'] ? vm.count['{$ pType $}'] : '{$ data.count[pType] $}'">
+                                                    {$ data.count[pType] $}
+                                                </div>
+                                                <div class="count-label {% if pType in ['associate_country_participant', 'other_associate_participant'] %}extra-long-label{% endif %}">
+                                                    {$ __n('directory.' + pType, data.count[pType]) $}</div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.publisher ? vm.count.publisher : '{$ data.count.publisher | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.publisher | localizeInteger(gb.locales.current) $}
+                                        </div>
+                                        <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
+                                    </div>
+                                </div>
+                                <div id="chart-literature-yearly" class="chart-literature text-center">
+                                    <literature-bar-chart-yearly region="vm.currentRegion"></literature-bar-chart-yearly>
+                                </div>
+                                <div class="entity-counts text-center">
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.literature | localizeInteger(gb.locales.current) $}
+                                        </div>
+                                        <div class="count-label medium-long-label">Peer-reviewed publications by</div>
+                                    </div>
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
+                                            {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
+                                        </div>
+                                        <div class="count-label">authors from</div>
+                                    </div>
+                                    <div class="entity-count">
+                                        <div class="count-number"
+                                             ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
+                                            {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
+                                        </div>
+                                        <div class="count-label">countries</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container--desktop">
+                <div class="row participant-list__columned">
+                    <div class="col-xs-12 text-center">
+                        <header>
+                            <h3>{$ __n('participation.nonCountryParticipant', data.count.other_associate_participant) $}</h3>
+                        </header>
+                        <ol class="">
+                            <li ng-repeat="p in vm.nonCountryParticipants">
+                                <p>
+                                    <span ng-if="p.hasOwnProperty('abbreviatedName')"><strong ng-bind="p.abbreviatedName"></strong>: </span>
+                                    <span ng-bind="p.name"></span>
+                                </p>
+                            </li>
+                        </ol>
+                        <footer></footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </article>
 {% endblock %}

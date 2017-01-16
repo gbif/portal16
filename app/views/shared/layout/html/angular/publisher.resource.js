@@ -25,7 +25,20 @@ var angular = require('angular');
                 }
             );
         })
-    ;
-
+        // Accepting gbifRegion as param
+        // return number of publishers in the region
+        .factory('PublisherCount', function ($resource) {
+            return $resource('/api/publisher/count',
+                {gbifRegion: 'GLOBAL'},
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {gbifRegion: '@gbifRegion'},
+                        isArray: false
+                    }
+                })
+                ;
+        })
+        ;
 })();
 

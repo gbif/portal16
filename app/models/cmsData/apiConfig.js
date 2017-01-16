@@ -43,6 +43,9 @@ let apiConfig = {
     tag: {
         url: baseUrl + 'v1/tag/'
     },
+    count: {
+        url: baseUrl + 'v1/count/'
+    },
     urlLookup: {
         url: baseUrl + 'v1/url-lookup/'
     },

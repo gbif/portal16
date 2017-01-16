@@ -51,12 +51,12 @@
                                             <div class="h3">{$ __('directory.governingBoard') $}</div>
                                             <ul class="nav-chapters">
                                                 {% for participant in contacts.participants %}
-                                                    {% if participant.enum in ['voting_participants', 'associate_country_participants', 'other_associate_participants'] %}
+                                                    {% if participant.enum in ['voting_participant', 'associate_country_participant', 'other_associate_participant'] %}
                                                         {% if participant.members.length > 0 %}
                                                             <li class="nav-chapter"
                                                                 du-scrollspy="{$ participant.enum $}"><a
                                                                         href="#{$ participant.enum $}">{$
-                                                                    __('directory.' + participant.enum) $}</a></li>
+                                                                    __n('directory.' + participant.enum, participant.members.length) $}</a></li>
                                                         {% endif %}
                                                     {% endif %}
                                                 {% endfor %}

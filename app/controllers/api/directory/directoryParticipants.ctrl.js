@@ -1,10 +1,13 @@
 'use strict';
-let express = require('express'),
-    router = express.Router(),
-    DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
-    _ = require('lodash'),
-    log = require('../../../../config/log'),
-    membershipTypeToShow = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
+const express = require('express'),
+      router = express.Router(),
+      //apicache = require('apicache'),
+      DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
+      _ = require('lodash'),
+      log = require('../../../../config/log'),
+      membershipTypeToShow = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
+
+//let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
@@ -32,7 +35,7 @@ router.get('/directory/participants/count', (req, res, next) => {
             let count = {};
             count.region = req.query.gbifRegion;
             membershipTypeToShow.forEach(type => {
-                count[type] = participantsByMembership[type].length;
+                if (participantsByMembership[type]) count[type] = participantsByMembership[type].length;
             });
             res.json(count);
         })

@@ -137,17 +137,24 @@ function getApiData(path, callback, options) {
 
 function getApiDataPromise(requestUrl, options) {
     let deferred = Q.defer();
+
     getApiData(requestUrl, function (err, data) {
+        if (err) {
+            let reason = err + ' while accessing ' + requestUrl;
+            deferred.reject(new Error(reason));
+            log.info(reason);
+            return deferred.promise;
+        }
+
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(data.errorType));
+            let reason = data.errorType + ' while accessing ' + requestUrl;
+            deferred.reject(new Error(reason));
+            log.info(reason);
         } else if (data) {
             deferred.resolve(data);
         }
-        else {
-            deferred.reject(new Error(err + ' while accessing ' + requestUrl));
-            log.info(err + ' while accessing ' + requestUrl);
-        }
     }, options);
+
     return deferred.promise;
 }
 
