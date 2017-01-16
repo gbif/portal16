@@ -46,9 +46,6 @@
             </div>
         </div>
 
-        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"></div>
-
-
         <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
@@ -98,9 +95,11 @@
         <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
@@ -108,11 +107,12 @@
              ng-if="occurrence.occurrenceState.query.advanced"></div>
         <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
-
+        
+        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
-
 
 
         <!--<div filter-enum filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>-->
