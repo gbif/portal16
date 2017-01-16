@@ -1338,10 +1338,14 @@
   },
   "taxonomicStatus": {
     "ACCEPTED": "accepted",
-    "undefined": "unknown",
     "DOUBTFUL": "doubtful",
     "SYNONYM": "synonym",
-    "MISAPPLIED": "misapplied"
+    "HETEROTYPIC_SYNONYM": "heterotypic synonym",
+    "HOMOTYPIC_SYNONYM": "homotypic synonym",
+    "PROPARTE_SYNONYM": "proparte synonym",
+    "MISAPPLIED": "misapplied",
+    "INTERMEDIATE_RANK_SYNONYM": "intermediate rank synonym",
+    "DETERMINATION_SYNONYM": "determination synonym"
   },
   "participationStatus": {
     "VOTING": "voting",
