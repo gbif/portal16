@@ -145,6 +145,7 @@ require('../../../components/count/count.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');
+require('../../../components/filterDate/filterDate.directive');
 require('../../../components/filterCms/filterCms.directive');
 
 require('../../../components/focusMe/focusMe.directive');

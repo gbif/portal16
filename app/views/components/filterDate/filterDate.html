@@ -1,0 +1,27 @@
+<div class="filter-group filter-group--search">
+    <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
+        <h4>
+            <span class="text-capitalize">Date selector under development</span>
+            <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
+        </h4>
+    </a>
+
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
+        <div ng-if="vm.query.length > 0 && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
+            <div class="checkbox" ng-repeat="key in vm.query">
+                {{key}}
+            </div>
+        </div>
+
+        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded">
+            <input type="number">
+            <select>
+                <option>January</option>
+                <option>February</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+
