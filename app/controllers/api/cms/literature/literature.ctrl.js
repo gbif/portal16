@@ -1,27 +1,47 @@
 'use strict';
 
 /**
- * @fileoverview Proxy endpoint to return literature count for a given region.
+ * @fileOverview Proxy endpoint to return literature count for a given region.
  */
 
-let express = require('express'),
-    router = express.Router(),
-    Literature = require('../../../../models/cmsData/literature/literature'),
-    log = require('../../../../../config/log');
+const express = require('express'),
+      router = express.Router(),
+      //apicache = require('apicache'),
+      log = require('../../../../../config/log'),
+      Literature = require('../../../../models/cmsData/literature/literature');
+
+//let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
 };
 
 router.get('/literature/count', (req, res, next) => {
-    Literature.groupBy(req.query)
+    Literature.countBy(req.query)
         .then(literatureRegional => {
             let count = {};
             count['region'] = literatureRegional.region;
-            count['literature'] = literatureRegional.literature.length;
-            count['literatureAuthorCountries'] = literatureRegional.countries.length;
-            count['literatureAuthors'] = literatureRegional.authorsCount;
+            count['literature'] = literatureRegional.literature;
+            count['literatureAuthorFromCountries'] = literatureRegional.literatureAuthorFromCountries;
+            count['literatureAuthors'] = literatureRegional.literatureAuthors;
             res.json(count);
+        })
+        .catch(err => {
+            log.error('Error in /api/literature/count controller: ' + err.message);
+            next(err)
+        });
+      });
+
+router.get('/literature-yearly/count', (req, res, next) => {
+    Literature.yearly(req.query)
+        .then(literatureByYear => {
+            if (Array.isArray(literatureByYear)) {
+                res.json(literatureByYear);
+            }
+            else {
+                let reason = 'Data format issue: not expected array';
+                throw new Error(reason);
+            }
         })
         .catch(err => {
             log.error('Error in /api/literature/count controller: ' + err.message);

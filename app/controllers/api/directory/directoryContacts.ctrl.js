@@ -1,20 +1,24 @@
 'use strict';
-var express = require('express'),
-    router = express.Router(),
-    directory = require('../../../models/gbifdata/directory/directory'),
-    log = require('../../../../config/log');
 
-module.exports = function (app) {
+const express = require('express'),
+      router = express.Router(),
+      apicache = require('apicache'),
+      Directory = require('../../../models/gbifdata/directory/directory'),
+      log = require('../../../../config/log');
+
+let cache = apicache.middleware;
+
+module.exports = app => {
     app.use('/api', router);
 };
 
-router.get('/directory/contacts', function (req, res, next) {
-    directory.getContacts(res)
-        .then(function (data) {
-            directory.postProcessContacts(data, res.__);
+router.get('/directory/contacts', cache('10 minutes'), (req, res, next) => {
+    Directory.getContacts(res)
+        .then(data => {
+            Directory.postProcessContacts(data, res.__);
             res.json(data);
         })
-        .catch(function (err) {
+        .catch(err => {
             log.error('Error in /api/directory/contacts controller: ' + err.message);
             next(err)
         });

@@ -295,11 +295,11 @@ function getParticipantsContacts(contacts) {
     var requestUrl = dataApi.directoryParticipants.url;
     var options = Directory.authorizeApiCall(requestUrl);
     var groups = [
-        {'enum': 'voting_participants', 'members': []},
-        {'enum': 'associate_country_participants', 'members': []},
-        {'enum': 'other_associate_participants', 'members': []},
+        {'enum': 'voting_participant', 'members': []},
+        {'enum': 'associate_country_participant', 'members': []},
+        {'enum': 'other_associate_participant', 'members': []},
         {'enum': 'gbif_affiliate', 'members': []},
-        {'enum': 'former_participants', 'members': []},
+        {'enum': 'former_participant', 'members': []},
         {'enum': 'observer', 'members': []},
         {'enum': 'others', 'members': []}
     ];
@@ -330,17 +330,17 @@ function getParticipantsContacts(contacts) {
             sortedData.forEach(function (p) {
                 if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {
                     groups.forEach(function (group) {
-                        if (group.enum == 'voting_participants') group.members.push(p);
+                        if (group.enum == 'voting_participant') group.members.push(p);
                     });
                 }
                 else if (p.type == 'COUNTRY' && p.participationStatus == 'ASSOCIATE') {
                     groups.forEach(function (group) {
-                        if (group.enum == 'associate_country_participants') group.members.push(p);
+                        if (group.enum == 'associate_country_participant') group.members.push(p);
                     });
                 }
                 else if (p.type == 'OTHER' && p.participationStatus == 'ASSOCIATE') {
                     groups.forEach(function (group) {
-                        if (group.enum == 'other_associate_participants') group.members.push(p);
+                        if (group.enum == 'other_associate_participant') group.members.push(p);
                     });
                 }
                 else if (p.type == 'OTHER' && p.participationStatus == 'AFFILIATE') {
@@ -350,7 +350,7 @@ function getParticipantsContacts(contacts) {
                 }
                 else if (p.participationStatus == 'FORMER') {
                     groups.forEach(function (group) {
-                        if (group.enum == 'former_participants') group.members.push(p);
+                        if (group.enum == 'former_participant') group.members.push(p);
                     });
                 }
                 else if (p.participationStatus == 'OBSERVER') {

@@ -1275,6 +1275,7 @@
     "basisOfRecord": "basis of record",
     "dataset": "dataset",
     "publisher": "publisher",
+    "dataPublisher": "data publisher",
     "issues": "issues",
     "reference": "reference",
     "Occurrence": "occurrence",
@@ -1316,6 +1317,7 @@
     "nMore": "%s more",
     "publishedBy": "published by",
     "publishers": "publishers",
+    "dataPublishers": "data publishers",
     "nPublishedDatasets": {
       "one": "%s published dataset",
       "other": "%s published datasets"
@@ -1791,15 +1793,23 @@
     "title": "Directory of Contacts",
     "contact": "contact",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
-    "voting_participants": "Voting participants",
-    "associate_country_participants": "Associate country participants",
-    "other_associate_participants": "Other associate participants",
-    "voting_participant": "Voting participant",
-    "associate_country_participant": "Associate country participant",
-    "other_associate_participant": "Other associate participant",
+    "voting_participant": {
+      "one": "Voting participant",
+      "other": "Voting participants"
+    },
+    "associate_country_participant": {
+      "one": "Associate country participant",
+      "other": "Associate country participants"
+    },
+    "other_associate_participant": {
+      "one": "Other associate participant",
+      "other": "Other associate participants"
+    },
+    "former_participant": {
+      "one": "Former participant",
+      "other": "Former participants"
+    },
     "gbif_affiliate": "GBIF affiliate",
-    "former_participants": "Former participants",
-    "former_participant": "Former participant",
     "observer": "Observer",
     "others": "Other",
     "participant": "participant",
@@ -1817,6 +1827,15 @@
     "governingBoard": "Governing Board",
     "committees": "Committees",
     "name": "name"
+  },
+  "region": {
+    "GLOBAL": "global",
+    "AFRICA": "Africa",
+    "ASIA": "Asia",
+    "EUROPE": "Europe",
+    "LATIN_AMERICA": "Latin America",
+    "NORTH_AMERICA": "North America",
+    "OCEANIA": "Oceania"
   },
   "tools": {
     "categoryTitle": "tools",
@@ -1967,7 +1986,11 @@
   },
   "participation": {
     "title": "participation",
-    "heading": "The GBIF Network"
+    "heading": "The GBIF Network",
+    "nonCountryParticipant": {
+      "one": "non-country participant",
+      "other": "non-country participants"
+    }
   },
   "feedback": {
     "intro": {

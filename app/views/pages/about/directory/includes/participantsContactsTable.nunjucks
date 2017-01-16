@@ -1,8 +1,8 @@
 <div class="contacts__table">
     <div ng-repeat="(index, participant) in vm.contacts.peopleByParticipants">
         <div id="{{ participant.enum }}" class="anchor-block"
-             ng-if="['voting_participants', 'associate_country_participants', 'other_associate_participants'].indexOf(participant.enum) != -1">
-            <h2 translate="directory.{{ participant.enum }}"></h2>
+             ng-if="['voting_participant', 'associate_country_participant', 'other_associate_participant'].indexOf(participant.enum) != -1">
+            <h2 translate="directory.{{ participant.enum }}.one"></h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -29,10 +29,10 @@
                 </thead>
                 <tbody class="{{ participant.enum | underscoreToHyphen }}">
                 <tr ng-repeat="(index, person) in participant.people | orderBy:sortField:sortReverse">
-                    <td ng-if="participant.enum !== 'other_associate_participants'"><a
+                    <td ng-if="participant.enum !== 'other_associate_participant'"><a
                                 href="/country/{{ person.participantCountry }}" ng-bind="person.participantName"></a>
                     </td> {# participant #}
-                    <td ng-if="participant.enum === 'other_associate_participants'" ng-bind="person.participantName"
+                    <td ng-if="participant.enum === 'other_associate_participant'" ng-bind="person.participantName"
                         ng-click="vm.toggleDetail(person.id)"></td> {# participant #}
                     <td ng-click="vm.toggleDetail(person.id)"> {# role #}
                         <span translate="role.{{ person.role }}"></span>
@@ -66,9 +66,9 @@
                             </div>
                         </address>
                     </td>
-                    <td ng-click="vm.toggleDetail(person.id)" ng-if="participant.enum != 'other_associate_participants'"
+                    <td ng-click="vm.toggleDetail(person.id)" ng-if="participant.enum != 'other_associate_participant'"
                         ng-bind="person.institutionName | truncate:38"></td> {# status #}
-                    <td ng-click="vm.toggleDetail(person.id)" ng-if="participant.enum == 'other_associate_participants'"
+                    <td ng-click="vm.toggleDetail(person.id)" ng-if="participant.enum == 'other_associate_participant'"
                         ng-bind="person.institutionName | truncate:33"></td> {# status #}
                 </tr>
                 </tbody>

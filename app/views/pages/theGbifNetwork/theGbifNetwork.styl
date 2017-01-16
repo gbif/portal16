@@ -1,0 +1,125 @@
+.tabs--emphasized {
+    .tab>a {
+        font-size inherit
+    }
+}
+
+.main-counts {
+    min-height 160px
+}
+
+.update-region {
+    min-height 410px
+}
+.entity-counts {
+    vertical-align middle
+    .entity-count {
+        display inline-block
+        vertical-align middle
+        margin-left vrBlock(1)
+        
+        > div {
+            display inline-block
+        }
+        .count-number {
+            font-size 4em
+            font-weight lighter
+        }
+        .count-label {
+            text-align left
+            font-size 1.6em
+            max-width 100px
+            font-weight lighter
+            line-height 1.2em
+            text-transform capitalize
+        }
+
+        .medium-long-label {
+            max-width 150px
+        }
+
+        .extra-long-label {
+            max-width 200px
+        }
+    }
+}
+
+.status-hover {
+    position relative
+    z-index 200;
+}
+
+.participant-list__columned {
+    header {
+        margin vrBlock(2) auto vrBlock(1)
+        max-width 350px
+        border-bottom 1px solid $gray
+    }
+
+    h3 {
+        margin vrBlock(1) auto
+        text-transform uppercase
+    }
+
+    ol {
+        margin vrBlock(2) auto
+        column-count 4
+        column-gap 30px
+
+        li {
+            margin-left 15px
+            list-style-type decimal
+            text-align left
+            margin-bottom 5px
+        }
+    }
+
+    footer {
+        margin vrBlock(1) auto vrBlock(2)
+        content "&nbsp;"
+        width 200px
+        border-bottom 1px solid $gray
+    }
+}
+
+.chart-literature {
+    literature-bar-chart-yearly {
+        margin-top vrBlock(1)
+    }
+    .bar {
+        fill $orange3
+    }
+
+    .bar:hover {
+        fill $orange1
+    }
+
+    .axis {
+        font 12px sans-serif
+    }
+
+    .axis path,
+    .axis line {
+        fill none
+        stroke #000
+        shape-rendering crispEdges
+    }
+    
+    .text {
+        font-family sans-serif
+        font-size 14px
+        fill $blueTintedBlack
+    }
+    
+    .chart-title {
+        font-family sans-serif
+        font-size 14px
+        fill $blueTintedBlack
+    }
+    
+    .axis-text {
+        font-family sans-serif
+        font-size 11px
+        fill $blueTintedBlack
+    }
+}

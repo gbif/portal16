@@ -37,7 +37,32 @@ var angular = require('angular');
                 }
             });
         })
-    ;
-
+        // Accepting gbifRegion as param
+        // return number of publishers in the region
+        .factory('LiteratureCount', function ($resource) {
+            return $resource('/api/literature/count',
+                {gbifRegion: 'GLOBAL'},
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {gbifRegion: '@gbifRegion'},
+                        isArray: false
+                    }
+                })
+                ;
+        })
+        .factory('LiteratureYearly', function ($resource) {
+            return $resource('/api/literature-yearly/count',
+                {gbifRegion: 'GLOBAL'},
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {gbifRegion: '@gbifRegion'},
+                        isArray: true
+                    }
+                })
+                ;
+        })
+        ;
 })();
 

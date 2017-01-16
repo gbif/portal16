@@ -63,7 +63,7 @@ PublisherRegional.groupBy = (query) => {
         })
         .then(publishers => {
             // Breakdown to region if param exists
-            if (query === 'undefined' || !query.hasOwnProperty('gbifRegion') || query.gbifRegion === 'undefined') {
+            if (query === undefined || !query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
                 return deferred.resolve(publishers);
             }
             else if (gbifRegionEnum.indexOf(query.gbifRegion) !== -1) {
