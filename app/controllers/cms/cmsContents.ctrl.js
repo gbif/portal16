@@ -34,6 +34,7 @@ router.get([
     ],
     function (req, res, next) {
         let originalUrl,
+            originalUrlForLookup,
             requestedPath,
             jsonOutput = false;
 
@@ -51,7 +52,7 @@ router.get([
         }
 
         if (originalUrl.substring(0, 1) == '/') {
-            let originalUrlForLookup = originalUrl.slice(1);
+            originalUrlForLookup = originalUrl.slice(1);
         }
 
         // Many old URLs start with the content type prefix so we need to handle the redirection here if
