@@ -21,7 +21,9 @@
         <div class="horizontal-stripe">
             <div class="container">
                 <div class="row">
-                    <div id="map"></div>
+                    <div id="map" class="text-center">
+                        <the-gbif-network-map region="vm.currentRegion"></the-gbif-network-map>
+                    </div>
                 </div>
             </div>
         </div>

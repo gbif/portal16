@@ -41,10 +41,26 @@ router.get('/directory/participants/count', (req, res, next) => {
         })
         .catch(err => {
             log.error('Error in /api/directory/participants controller: ' + err.message);
-            next(err)
+            next(err);
         });
 });
 
+router.get('/directory/participants/active', (req, res, next) => {
+    DirectoryParticipants.groupBy(req.query)
+        .then(results => {
+            let slicedActive = [];
+            results.forEach((result) => {
+                if (membershipTypeToShow.indexOf(result.membershipType) !== -1) {
+                    slicedActive.push(result);
+                }
+            });
+            res.json(slicedActive);
+        })
+        .catch(err => {
+            log.err('Error in /api/directory/participants/active: ' + err.message);
+            next(err);
+        });
+});
 
 /*
 // Utility code to get country iso2 in a file.
