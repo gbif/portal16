@@ -1,6 +1,8 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    parseDateQuery = require('./parseDateIntervalQuery');
+
 angular
     .module('portal')
     .directive('filterDate', filterDateDirective);
@@ -24,13 +26,19 @@ function filterDateDirective() {
     return directive;
 
     /** @ngInject */
-    function filterDate($scope, $filter) {
+    function filterDate($scope, $filter, enums) {
         var vm = this;
+        vm.months = enums.month;
+        vm.options = ['between', 'is', 'lessThan', 'largerThan'];
+        vm.selected = vm.options[0];
 
         vm.filterConfig.titleTranslation;
         vm.queryKey = vm.filterConfig.queryKey;
-        console.log(vm.filterState.query[vm.queryKey]);
-        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+
+        var dates = parseDateQuery(vm.filterState.query[vm.queryKey]);
+        vm.type = dates.type;
+        vm.fromDate = dates.values[0] || {};
+        vm.toDate = dates.values[1] || {}
 
         //$scope.$watch(function () {
         //    return vm.filterState.query[vm.queryKey]
@@ -42,9 +50,10 @@ function filterDateDirective() {
         //    vm.apply();
         //};
         //
-        //vm.apply = function () {
-        //    vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
-        //};
+        
+        vm.apply = function () {
+           vm.filterConfig.filter.updateParam(vm.queryKey, vm.query);
+        };
 
     }
 }

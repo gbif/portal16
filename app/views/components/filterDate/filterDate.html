@@ -6,7 +6,6 @@
             <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
     </a>
-
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
         <div ng-if="vm.query.length > 0 && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
             <div class="checkbox" ng-repeat="key in vm.query">
@@ -14,12 +13,31 @@
             </div>
         </div>
 
-        <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded">
-            <input type="number">
-            <select>
-                <option>January</option>
-                <option>February</option>
+        <div class="is-padded" ng-if="vm.filterConfig.expanded">
+            
+            <div uib-dropdown on-toggle="toggled(open)" class="filter-group__filter__interval__option-trigger">
+                <a href="" uib-dropdown-toggle>
+                    <span Xng-if="vm.intervalOptions.inActive">No filter</span>
+                    <!-- <span ng-if="!vm.intervalOptions.inActive" translate="{{vm.intervalOptions.intervalTranslation}}select.{{vm.selected}}">{{vm.selected}}</span> -->
+                    <i></i>
+                </a>
+                <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                    <li ng-repeat="choice in vm.options">
+                        <a href="" ng-click="vm.selectType(choice)" class="small" translate="{{vm.intervalOptions.intervalTranslation}}select.{{choice}}">{{choice}}</a>
+                    </li>
+                </ul>
+                <a href="" ng-click="vm.remove()" class="gb-icon-close pull-right"></a>
+                <!--<input required type="text" ng-blur="vm.blurFrom()" ng-keyup="vm.changeFrom()" placeholder="1700" ng-model="vm.from" ng-pattern="/^[0-9]{4}$/" name="from">-->
+                <!--and-->
+                <!--<input required type="text" ng-blur="vm.blurTo" ng-keyup="vm.changeTo()" placeholder="2016" ng-if="vm.selected == 'between'" ng-model="vm.to" ng-pattern="/^[0-9]{4}$/" name="to" class="">-->
+            </div>
+
+            <input type="number" ng-model="vm.fromDate.year">
+            <select ng-model="vm.fromDate.month">
+                <option value="{{month}}" ng-repeat="month in vm.months" translate="month.{{month}}">{{month}}</option>
             </select>
+            {{vm.fromDate.year}}
+            {{vm.fromDate.month}}
         </div>
 
     </div>
