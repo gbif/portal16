@@ -15,15 +15,21 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
-            typeStatus: undefined,
-            recordedBy: undefined,
-            occurrenceId: undefined,
-            organismId: undefined,
-            publishingCountry: undefined,
+            type_status: undefined,
+            occurrence_id: undefined,
+            organism_id: undefined,
+            publishing_country: undefined,
             locality: undefined,
-            waterBody: undefined,
+            water_body: undefined,
             recorded_by: undefined,
-            establishmentMeans: undefined
+            establishment_means: undefined,
+            state_province: undefined,
+            protocol: undefined,
+            record_number: undefined,
+            elevation: undefined,
+            depth: undefined,
+            last_interpreted: undefined,
+            repatriated: undefined
         };
 
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
@@ -123,7 +129,7 @@ angular
         state.query = $stateParams;
         if (!state.query.advanced) {
             for (var key in advancedDefaults) {
-                if (advancedDefaults.hasOwnProperty(key) && typeof state.query[key] !== 'undefined') {
+                if (advancedDefaults.hasOwnProperty(key) && typeof state.query[key] !== 'undefined' && state.query[key] != '') {
                     state.query.advanced = true;
                     $state.go('.', state.query, {inherit: false, notify: false, reload: false});
                 }

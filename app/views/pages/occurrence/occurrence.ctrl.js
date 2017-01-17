@@ -443,6 +443,14 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         filter: OccurrenceFilter
     };
 
+    //dates
+    vm.filters.lastInterpreted = {
+        titleTranslation: 'search.repatriation.repatriationFilter',
+        descriptionTranslation: "search.repatriation.description",
+        queryKey: 'last_interpreted',
+        filter: OccurrenceFilter
+    };
+
     vm.toggleAdvanced = function () {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
     };

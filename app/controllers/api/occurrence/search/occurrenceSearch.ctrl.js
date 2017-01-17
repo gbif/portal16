@@ -41,7 +41,7 @@ router.get('/occurrence/search', function (req, res, next) {
         });
 
     }, function (err) {
-        next(err);
+        next(err);//TODO throw more informative error to client
     });
 });
 

@@ -1,7 +1,7 @@
 'use strict';
 
-var angular = require('angular');
-var parseIntervalQuery = require('./parseIntervalQuery');
+var angular = require('angular'),
+    parseIntervalQuery = require('./parseIntervalQuery');
 
 angular
     .module('portal')

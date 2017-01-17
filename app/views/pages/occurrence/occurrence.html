@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"></div>
+        <!-- <div filter-date filter-config="occurrence.filters.lastInterpreted" filter-state="occurrence.occurrenceState"></div> -->
 
 
         <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
@@ -54,7 +54,7 @@
         <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-enum filter-config="occurrence.filters.basisOfRecord"
-             filter-state="occurrence.occurrenceState"></div>
+            filter-state="occurrence.occurrenceState"></div>
 
         <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
 
@@ -66,7 +66,6 @@
 
         <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
 
-
         <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-suggest filter-config="occurrence.filters.institutionCode"
@@ -77,7 +76,6 @@
 
         <div filter-suggest filter-config="occurrence.filters.catalogNumber"
              filter-state="occurrence.occurrenceState"></div>
-
 
         <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
@@ -94,21 +92,26 @@
         <div filter-suggest filter-config="occurrence.filters.organismId" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-
         <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState" ng-if="occurrence.occurrenceState.query.advanced"></div>
+        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
+
         <div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
+
         <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
 
         <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
