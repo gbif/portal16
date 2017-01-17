@@ -1328,6 +1328,7 @@
     },
     "invert": "reverse",
     "clear": "clear",
+    "add": "add",
     "cms": "GBIF network",
     "yes": "yes",
     "no": "no",
