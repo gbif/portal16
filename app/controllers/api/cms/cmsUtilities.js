@@ -24,4 +24,17 @@ Utilities.queryTransform = function (query) {
     return query;
 };
 
+Utilities.literatureUrl = function (results) {
+    results.forEach(result => {
+        if (result.type === 'literature') {
+            if (result.literatureIdentifiers && result.literatureIdentifiers.hasOwnProperty('doi')) {
+                result.literatureUrl = 'https://doi.org/' + result.literatureIdentifiers.doi;
+            }
+            else if (result.literatureWebsites && result.literatureWebsites.length > 0) {
+                result.literatureUrl = result.literatureWebsites[0];
+            }
+        }
+    });
+};
+
 module.exports = Utilities;
