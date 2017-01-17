@@ -445,11 +445,21 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     //dates
     vm.filters.lastInterpreted = {
-        titleTranslation: 'search.repatriation.repatriationFilter',
-        descriptionTranslation: "search.repatriation.description",
+        titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
+        intervalTranslation: 'intervals.year.',
         queryKey: 'last_interpreted',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        expanded: true
     };
+
+    vm.filters.eventDate = {
+        titleTranslation: 'ocurrenceFieldNames.eventDate',
+        intervalTranslation: 'intervals.year.',
+        queryKey: 'event_date',
+        filter: OccurrenceFilter,
+        expanded: true
+    };
+
 
     vm.toggleAdvanced = function () {
         OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
