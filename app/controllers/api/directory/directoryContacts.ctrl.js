@@ -2,17 +2,14 @@
 
 const express = require('express'),
       router = express.Router(),
-      apicache = require('apicache'),
       Directory = require('../../../models/gbifdata/directory/directory'),
       log = require('../../../../config/log');
-
-let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
 };
 
-router.get('/directory/contacts', cache('10 minutes'), (req, res, next) => {
+router.get('/directory/contacts', (req, res, next) => {
     Directory.getContacts(res)
         .then(data => {
             Directory.postProcessContacts(data, res.__);
