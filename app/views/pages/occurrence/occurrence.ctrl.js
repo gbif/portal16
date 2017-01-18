@@ -527,9 +527,9 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
-    }
-
+    };
 
 }
 
 module.exports = occurrenceCtrl;
+

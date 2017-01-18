@@ -103,11 +103,11 @@ function build(entry, name) {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
+        .pipe(replace('/templates/', '/templates/' + revision + '/'))
         .pipe(gulpif(config.isProd, revReplace({
             manifest: gulp.src(config.rev.manifest)
         })))
         .pipe(gulpif(config.isProd, rev()))
-        .pipe(replace('/templates/', '/templates/' + revision + '/'))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
