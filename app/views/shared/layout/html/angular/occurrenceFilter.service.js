@@ -29,6 +29,7 @@ angular
             elevation: undefined,
             depth: undefined,
             last_interpreted: undefined,
+            event_date: undefined,
             repatriated: undefined
         };
 
@@ -73,17 +74,24 @@ angular
             state.data = OccurrenceTableSearch.query(apiQuery, function () {
                 state.failedRequest = false;
                 //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
-            }, function () {
-                state.failedRequest = true;
+            }, function (err) {
+                if (err.status > 399) {
+                    state.failedRequest = true;
+                    state.error = err;
+                }
             });
 
             //test get only table without facets
             if (state.table.$cancelRequest) state.table.$cancelRequest();
             state.table = OccurrenceTableSearch.query(tableQuery, function () {
                 state.failedRequest = false;
-            }, function () {
-                state.failedRequest = true;
+            }, function (err) {
+                if (err.status > 399) {
+                    state.failedRequest = true;
+                    state.error = err;
+                }
             });
+
 
             //get multiselect facets only for keys that is filtered since we have already asked without multiselect and hence would get the same result twice
             apiQuery.facetMultiselect = true;
