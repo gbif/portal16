@@ -69,7 +69,7 @@ function occurrenceTableCtrl($scope, $filter, hotkeys, OccurrenceFilter) {
     });
 
     vm.hasData = function () {
-        return typeof vm.occurrenceState.table.count !== 'undefined'
+        return typeof vm.occurrenceState.table.count !== 'undefined';
     }
 
 }

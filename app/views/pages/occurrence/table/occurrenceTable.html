@@ -54,11 +54,20 @@
     </section>
 
     <section class="horizontal-stripe--paddingless lighter-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData()"></ng-include>
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
 
         <div ng-if="occTable.occurrenceState.failedRequest">
             <p>
-                Hmm, something went wrong. The issue should have been logged. You are welcome to file an issue using the feedback form. We are sorry for the inconvenience.
+                Hmm, we couldn't process your request.
+            </p>
+            <div>
+                {{occTable.occurrenceState.error.data.body}}
+                <div>
+                    The query is invalid. Try resetting your filters.
+                </div>
+            </div>
+            <p>
+                If you believe this should have worked, then please report this as an issue. Thank you for your patience.
             </p>
         </div>
         <!--<div class="container-fluid">-->
