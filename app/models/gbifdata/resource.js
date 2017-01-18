@@ -14,7 +14,7 @@ Resource.getResource = function (resourceIdentifier, DataType) {
     var deferred = Q.defer();
     helper.getApiData(resourceIdentifier, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            var error = new Error(data.errorType);
+            var error = new Error(data);
             error.type = data.errorType;
             deferred.reject(error);
         } else if (data) {

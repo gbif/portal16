@@ -10,12 +10,12 @@ function search(url) {
     var deferred = Q.defer();
     helper.getApiData(url, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});
     return deferred.promise;

@@ -2,6 +2,7 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
+    _ = require('lodash'),
     Q = require('q'),
     helper = rootRequire('app/models/util/util'),
     cmsConfig = rootRequire('app/models/cmsData/apiConfig');
@@ -18,7 +19,10 @@ router.get('/ipt\.:ext?', function (req, res, next) {
         };
         render(req, res, next, data);
     }, function (err) {
-        next(err)
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -39,12 +43,12 @@ function getIptContent() {
     var deferred = Q.defer();
     helper.getApiData(cmsConfig.base.url + 'generic/82906', function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});
     return deferred.promise;

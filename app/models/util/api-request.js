@@ -7,6 +7,7 @@ var request = require('request'),
 var ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
     API_ERROR: 'API_ERROR',
+    BAD_REQUEST: 'BAD_REQUEST',
     NOT_FOUND: 'NOT_FOUND',
     UNAUTHORIZED: 'UNAUTHORIZED',
     INVALID_RESPONSE: 'INVALID_RESPONSE',
@@ -26,38 +27,57 @@ function getData(cb, path, options) {
         // if timeout
         if (err) {
             if (err.code === 'ETIMEDOUT') {
-                cb(ERRORS.API_TIMEOUT, null);
+                cb({
+                    errorType: ERRORS.API_TIMEOUT,
+                    errorResponse: err
+                }, null);
                 log.error('timed out while connecting to ' + path);
             } else if (err.connect === true) {
-                cb(ERRORS.API_TIMEOUT, null);
+                cb({
+                    errorType: ERRORS.API_TIMEOUT,
+                    errorResponse: err
+                }, null);
                 log.error('timed out getting data from ' + path);
             } else {
-                cb(ERRORS.API_ERROR, null);
+                cb({
+                    errorType: ERRORS.API_TIMEOUT,
+                    errorResponse: err
+                }, null);
                 log.error('error while talking to ' + path + ' ' + err);
             }
         }
         //if not found or not status code 200
         else if (response && response.statusCode !== 200) {
+            let error = {
+                errorResponse: response
+            };
             switch (response.statusCode) {
+                case 400:
+                    error.errorType = ERRORS.BAD_REQUEST;
+                    break;
                 case 404:
-                    cb(ERRORS.NOT_FOUND, null);
+                    error.errorType = ERRORS.NOT_FOUND;
                     break;
                 case 401:
-                    cb(ERRORS.UNAUTHORIZED, null);
+                    error.errorType = ERRORS.UNAUTHORIZED;
                     break;
                 case 503:
-                    cb(ERRORS.BACKEND_FETCH_FAILED, null);
+                    error.errorType = ERRORS.BACKEND_FETCH_FAILED;
                     break;
                 default:
-                    cb(ERRORS.INVALID_RESPONSE, null);
+                    error.errorType = ERRORS.INVALID_RESPONSE;
                     break;
             }
+            cb(error, null);
             log.error(response.statusCode + ' ' + response.statusMessage + ' while accessing ' + path);
         }
 
         //if no response data
         else if (!body) {
-            cb(ERRORS.INVALID_RESPONSE, null);
+            cb({
+                errorType: ERRORS.INVALID_RESPONSE,
+                errorResponse: err
+            }, null);
             log.error('no response data ' + path);
         }
         else {
@@ -85,7 +105,10 @@ function parseXml(body, path, cb) {
         });
     } catch (err) {
         //if invalid response
-        cb(ERRORS.INVALID_RESPONSE, null);
+        cb({
+            errorType: ERRORS.INVALID_RESPONSE,
+            errorResponse: err
+        }, null);
         log.error('invalid xml response ' + path);
     }
 }
@@ -98,8 +121,10 @@ function parseJson(body, path, cb) {
         cb(null, data);
     } catch (err) {
         //if invalid response
-        cb(ERRORS.INVALID_RESPONSE, null);
-        console.log(err);
+        cb({
+            errorType: ERRORS.INVALID_RESPONSE,
+            errorResponse: err
+        }, null);
         log.error('invalid json response ' + path);
     }
 }
@@ -123,9 +148,7 @@ function getApiData(path, callback, options) {
                 if (options.failHard) {
                     callback(err, null);
                 } else {
-                    callback(null, {
-                        errorType: err
-                    });
+                    callback(null, err);
                 }
             } else {
                 //got useful response back

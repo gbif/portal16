@@ -1,6 +1,7 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
+    _ = require('lodash'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
@@ -35,15 +36,18 @@ router.get('/species/search', function (req, res, next) {
         gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
+                res.status(500);
                 res.json(data);
             } else {
-
                 res.json(data);
             }
         });
 
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -62,12 +66,12 @@ function speciesSearch(query) {
     var deferred = Q.defer();
     helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, {retries: 3, timeoutMilliSeconds: 10000});
     return deferred.promise;

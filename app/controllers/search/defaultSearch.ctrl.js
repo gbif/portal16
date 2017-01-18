@@ -41,7 +41,7 @@ function getContent() {
         if (err) {
             deferred.reject(err);
         } else if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(data.errorType));
+            deferred.reject(data);
         } else {
             deferred.resolve(data);
         }

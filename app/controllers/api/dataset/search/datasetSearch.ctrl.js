@@ -1,6 +1,7 @@
 "use strict";
 let express = require('express'),
     router = express.Router(),
+    _ = require('lodash'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
@@ -40,6 +41,7 @@ router.get('/dataset/search', function (req, res, next) {
         gbifData.expand.expand(data, settings, res.__, function (err) {
             if (err) {
                 //TODO handle expansion errors
+                res.status(500);
                 res.json(data);
             } else {
                 res.json(data);
@@ -47,7 +49,10 @@ router.get('/dataset/search', function (req, res, next) {
         });
 
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -57,12 +62,12 @@ function datasetSearch(query) {
     var deferred = Q.defer();
     helper.getApiData(apiConfig.datasetSearch.url + '?' + querystring.stringify(query), function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     });
     return deferred.promise;

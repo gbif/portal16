@@ -48,7 +48,7 @@ router.get('/cms/search', function (req, res, next) {
             }
         })
         .catch(function (err) {
-            log.error('Error in /api/cms/search controller: ' + err.message);
+            log.error('Error in /api/cms/search controller: ' + err);
             next(err)
         });
 
@@ -114,12 +114,12 @@ function cmsSearch(query) {
 
     helper.getApiData(queryUrl, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     });
     return deferred.promise;

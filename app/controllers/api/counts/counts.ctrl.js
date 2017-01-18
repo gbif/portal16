@@ -29,7 +29,10 @@ router.get('/country/:iso/about/countries', function (req, res, next) {
             results: facets.slice(0, 10)
         });
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -50,7 +53,10 @@ router.get('/country/:iso/from/countries', function (req, res, next) {
             results: facets.slice(0, 10)
         });
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -71,7 +77,10 @@ router.get('/country/:iso/about/datasets', function (req, res, next) {
             results: facets.slice(0, 10)
         });
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
 
@@ -80,12 +89,12 @@ function search(url) {
     let deferred = Q.defer();
     helper.getApiData(url, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, {retries: 2, timeoutMilliSeconds: 30000});
     return deferred.promise;
