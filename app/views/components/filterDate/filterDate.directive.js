@@ -31,6 +31,7 @@ function filterDateDirective() {
         vm.months = [1,2,3,4,5,6,7,8,9,10,11,12];
         vm.options = ['between', 'is', 'lessThan', 'largerThan'];
         vm.intervals = [];
+        vm.collapsed = vm.filterConfig.collapsed !== false;
 
         vm.filterConfig.titleTranslation;
         vm.queryKey = vm.filterConfig.queryKey;
