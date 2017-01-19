@@ -54,6 +54,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
                 } else {
                     if (result.every(function(e){return e.scientificName})) {
                         result.forEach(function (e) {
+                            e.originalId = e.id;
                             e.originalName = e.scientificName;
                             e.preferedKingdom = e.kingdom;
                             e.scientificName = undefined;
@@ -163,7 +164,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     };
 
     vm.generateCsv = function () {
-        var fields = ['scientificName', 'key', 'originalName', 'matchType', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+        var fields = ['originalId', 'originalName', 'scientificName', 'key', 'matchType', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         var csvContent = '';
 
         //write column names

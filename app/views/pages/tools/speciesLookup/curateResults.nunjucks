@@ -9,11 +9,11 @@
                     <thead>
                     <tr>
                         <th class="text-capitalize"
-                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'originalId']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
                                 	<span class="inline-block">
-                                		{{ col }}
+                                		{{ col }} <span ng-if="col == 'scientificName'" class="discreet">(editable)</span>
                                         <span ng-show="speciesLookup.state.sortType == col && !speciesLookup.state.sortReverse"
                                               class="sortReverse">&#x25B2;</span>
                 						<span ng-show="speciesLookup.state.sortType == col && speciesLookup.state.sortReverse"
@@ -71,6 +71,10 @@
 
                         <td class="table-cell--widder">
                             <a ng-href="../species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
+                        </td>
+
+                        <td class="table-cell--widder">
+                            <span>{{ species.originalId }}</span>
                         </td>
 
                         <!-- <td class="table-cell--wide">
