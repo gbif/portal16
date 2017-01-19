@@ -21,6 +21,15 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     };
     vm.error;
 
+    window.onbeforeunload = function(e) {
+        if (vm.species && vm.species.length > 0) {
+            var dialogText = 'By leaving the page you loose your data.';
+            e.returnValue = dialogText;
+            return dialogText;
+        }
+    };
+
+
     vm.handleDrop = function (e) {
         var file = e.dataTransfer.files[0];
         parseFile(file);
