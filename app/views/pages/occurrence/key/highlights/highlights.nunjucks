@@ -76,7 +76,7 @@
                             <dd class="issue-summary__list">
                                 {% for type in ['ERROR', 'WARNING', 'INFO'] %}
                                     {% for issue in occurrence.issueSummary[type] %}
-                                        <span class="badge badge--{$ type | lower $}">{$ __('interpretationRemarks.' + issue.type) $}</span>
+                                        <span class="badge badge--{$ type | lower $}">{$ __('occurrenceIssue.' + issue.type) $}</span>
                                     {% endfor %}
                                 {% endfor %}
                             </dd>

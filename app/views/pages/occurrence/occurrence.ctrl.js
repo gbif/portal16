@@ -71,7 +71,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'ocurrenceFieldNames.issue',
         queryKey: 'issue',
         filter: OccurrenceFilter,
-        enumTranslationPath: 'interpretationRemarks.',
+        enumTranslationPath: 'occurrenceIssue.',
         showAll: true,
         enums: enums.occurrenceIssue,
         facets: {

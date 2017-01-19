@@ -52,13 +52,13 @@ function getSummary(occurrenceIssues, remarks) {
         if (_.isUndefined(remark)) {
 
             // Dummy remark: show remarks that isn't known as warnings. Translations is likely to be missing
-            //remark = { type: name,
-            //    severity: 'WARNING',
-            //        relatedTerms: [],
-            //        relatedSimpleTerms: []
-            //};
+            remark = { type: e,
+                severity: 'WARNING',
+                    relatedTerms: [],
+                    relatedSimpleTerms: []
+            };
 
-            return; //don't show remarks that are not listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation
+            //return; //don't show remarks that are not listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation. that means that
         }
         if (remark.severity == 'INFO') return;
         summary = summary || {};

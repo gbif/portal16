@@ -7,7 +7,7 @@
                ng-click="dataValidator.issueSampleExpanded[issueBlock.issue] = !dataValidator.issueSampleExpanded[issueBlock.issue]">
 
                 <span ng-if="issueCategory === 'OCC_INTERPRETATION_BASED'"
-                      translate="interpretationRemarks.{{ issueBlock.issue }}"></span>
+                      translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span ng-if="issueCategory !== 'OCC_INTERPRETATION_BASED'"
                       translate="validation.issueType.{{ issueBlock.issue }}"></span>
                 : {{ issueBlock.count }}</a>
