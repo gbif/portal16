@@ -6,7 +6,6 @@
 
 const express = require('express'),
       router = express.Router(),
-      request = require('request'),
       //apicache = require('apicache'),
       helper = require('../../models/util/util'),
       TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork');

@@ -43,8 +43,8 @@
                             <h4 class="search-results__list__item__title">
                                 <a ng-if="row.type !== 'dataset' && row.type !== 'literature'" href="/{{ row.targetUrl }}" ng-bind-html="row.title | limitTo:150"></a>
                                 <a ng-if="row.type == 'dataset' && row.type !== 'literature'" href="/dataset/{{ row.datasetUuid }}" ng-bind-html="row.title | limitTo:150"></a>
-                                <a ng-if="row.type == 'literature' && row.literatureWebsites.length > 0" href="{{ row.literatureWebsites[0] }}" ng-bind-html="row.title | limitTo:150"></a>
-                                <span ng-if="row.type == 'literature' && row.literatureWebsites == null" ng-bind-html="row.title | limitTo:150"></span>
+                                <a ng-if="row.type == 'literature' && row.hasOwnProperty('literatureUrl')" href="{{ row.literatureUrl }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <span ng-if="row.type == 'literature' && !row.hasOwnProperty('literatureUrl')" ng-bind-html="row.title | limitTo:150"></span>
                             </h4>
                             <div class="search-results__list__item__citation" ng-if="row.type == 'literature'">
                                 <span class="citation__journal-title" ng-bind="row.literatureSource"></span>

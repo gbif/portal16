@@ -70,7 +70,6 @@ Literature.groupBy = query => {
         literature = [],
         authors = 0;
 
-
         // First get participants of the region, then concat literature results by country.
         if (query === undefined || !query.hasOwnProperty('gbifRegion' || query.gbifRegion === undefined)) {
             query.gbifRegion = 'GLOBAL';

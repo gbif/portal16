@@ -42,6 +42,9 @@ router.get('/cms/search', function (req, res, next) {
                 transformFacetsToMap(data);
                 // Add URL prefix
                 addContentTypeUrlPrefix(data);
+                if (data.results.length > 0) {
+                    Utilities.literatureUrl(data.results);
+                }
                 res.json(data);
             } catch (e) {
                 next(e);

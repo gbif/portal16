@@ -448,7 +448,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
         intervalTranslation: 'intervals.year.',
         queryKey: 'last_interpreted',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        expanded: true
     };
 
     vm.filters.eventDate = {

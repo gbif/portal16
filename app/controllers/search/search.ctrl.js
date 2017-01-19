@@ -3,6 +3,7 @@ var express = require('express'),
     highlights = require('./highlights'),
     baseConfig = require('../../../config/config'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
+    Utilities = require('../api/cms/cmsUtilities'),
     _ = require('lodash'),
     router = express.Router();
 
@@ -40,9 +41,8 @@ function searchHandler(req, res, next) {
 
     search.search(searchString, function (results) {
         try {
-            // handling type-url conversion for CMS contents
-            // @todo use a node module to handle all possible cases once more content types are ready.
             if (_.has(results, 'cms.results.length')) {
+                // handling type-url conversion for CMS contents
                 results.cms.results.forEach(function (result) {
                     switch (result.type) {
                         case 'data_use':
@@ -56,6 +56,8 @@ function searchHandler(req, res, next) {
                             break;
                     }
                 });
+                // decorate with literature URL according to content type
+                Utilities.literatureUrl(results.cms.results);
             }
             results.highlights = highlights.getHighlights(searchString, results);
 

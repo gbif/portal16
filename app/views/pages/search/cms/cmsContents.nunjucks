@@ -25,9 +25,8 @@
                             {% if result.type !== 'literature' %}
                                 <a href="{$ gb.locales.urlPrefix $}/{$ result.type $}/{$ result.targetUrl $}">
                                 {$ result.title | striptags | truncate(120) | safe $}</a>
-                            {% elseif result.type === 'literature' and result.literatureWebsites.length > 0 %}
-                                <a href="{$ result.literatureWebsites[0] $}">
-                                {$ result.title | striptags | truncate(120) | safe $}</a>
+                            {% elseif result.type === 'literature' and result.literatureUrl | isNotEmpty %}
+                                <a href="{$ result.literatureUrl $}">{$ result.title | striptags | truncate(120) | safe $}</a>
                             {% else %}
                                 {$ result.title | striptags | truncate(120) | safe $}
                             {% endif %}
