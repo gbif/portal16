@@ -71,7 +71,7 @@ function getDataset(datasetKey, cb, locale) {
                 helper.getApiData(apiConfig.occurrenceSearch.url + '?limit=0&issue=TAXON_MATCH_NONE&dataset_key=' + datasetKey, callback);
             },
             downloads: function (callback) {
-                helper.getApiData(apiConfig.occurrenceDownloadDataset.url + datasetKey + '?limit=0', callback);
+                helper.getApiData(apiConfig.occurrenceDownloadDataset.url + datasetKey + '?limit=0', callback, {timeoutMilliSeconds: 30000});
             },
             translations: function (callback) {
                 if (typeof translations[locale] === 'undefined') {
