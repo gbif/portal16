@@ -18,7 +18,26 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe">
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container-desktop">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="tabs text-center tabs--emphasized">
+                            <ul>
+                                {% for region in data.validRegions %}
+                                    <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
+                                        <a href="#" ng-click="vm.selectRegion('{$ region $}')">
+                                            {$ __('region.' + region) $}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="horizontal-stripe--paddingless">
             <div class="container">
                 <div class="row">
                     <div id="map" class="text-center">
@@ -27,25 +46,6 @@
                 </div>
             </div>
         </div>
-        <section class="horizontal-stripe--paddingless white-background">
-            <div class="container-desktop">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="tabs text-center tabs--emphasized">
-                            <ul>
-                                {% for region in data.validRegions %}
-                                <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
-                                    <a href="#" ng-click="vm.selectRegion('{$ region $}')">
-                                        {$ __('region.' + region) $}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section>
             <div class="container--desktop">
                 <div class="row main-counts">

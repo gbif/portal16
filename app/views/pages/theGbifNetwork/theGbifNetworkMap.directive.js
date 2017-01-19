@@ -20,6 +20,11 @@ function theGbifNetworkMap() {
     };
 
     function drawMap(scope, element, attrs) {
+        var color = {
+            'voting_participant': '#4E9F37',
+            'associate_country_participant': '#58BAE9'
+        };
+
         var margin = {top: 40, right: 20, bottom: 50, left: 40},
             width = 960 - margin.left - margin.right,
             height = 480 - margin.top - margin.bottom;
@@ -37,8 +42,13 @@ function theGbifNetworkMap() {
                 .selectAll("path")
                 .data(topojson.feature(topology, topology.objects.tracts).features)
                 .enter().append("path")
-                .attr("d", path);
-
+                .attr("d", path)
+                .attr("fill", function(d){
+                    if (d.properties.hasOwnProperty('membershipType')) {
+                        return color[d.properties.membershipType];
+                    }
+                    return '#DFDDCF';
+                });
         });
     }
 }
