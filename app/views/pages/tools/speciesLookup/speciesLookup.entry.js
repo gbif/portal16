@@ -19,6 +19,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         currentPage: 1,
         pageSize: 20
     };
+    vm.error;
 
     vm.handleDrop = function (e) {
         var file = e.dataTransfer.files[0];
@@ -30,29 +31,41 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     };
 
     var isValidFile = function (file) {
-        return file && file.type == 'text/csv';
+        return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
     };
 
     var parseFile = function (file) {
+        console.log(file);
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
-            alert("invalid file format");
+            vm.error = 'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
             return;
         }
         var reader = new FileReader();
         reader.onload = function () {
             var converter = new Converter({});
             var csvString = reader.result;
+            vm.error = undefined;
             converter.fromString(csvString, function (err, result) {
-                result.forEach(function (e) {
-                    e.originalName = e.scientificName;
-                    e.preferedKingdom = e.kingdom;
-                    e.scientificName = undefined;
-                    e.kingdom = undefined;
-                });
-                vm.species = result;
-                $scope.$apply();
+                if (err) {
+                    vm.error = err;
+                    $scope.$apply();
+                } else {
+                    if (result.every(function(e){return e.scientificName})) {
+                        result.forEach(function (e) {
+                            e.originalName = e.scientificName;
+                            e.preferedKingdom = e.kingdom;
+                            e.scientificName = undefined;
+                            e.kingdom = undefined;
+                        });
+                        vm.species = result;
+                        $scope.$apply();
+                    } else {
+                        vm.error = 'all rows must have a scientificName - see example file for the required format';
+                        $scope.$apply();
+                    }
+                }
             });
         };
         reader.readAsText(file);

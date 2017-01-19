@@ -18,4 +18,8 @@
     <!-- <p ng-if="speciesLookup.invalidFileFormat">
     	Invalid file format
     </p> -->
+    <div class="text-center m-t-2" ng-if="speciesLookup.error">
+        <p>Cannot read file</p>
+        <span class="badge badge--error ng-cloak">{{ speciesLookup.error }}</span>
+    </div>
 </div>
