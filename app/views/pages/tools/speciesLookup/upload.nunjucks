@@ -3,8 +3,10 @@
     <p class="text-center">
         Normalize species names from a csv file against the GBIF backbone.</br>
         The file is expected to be have a column called 'scientificName' and an optional column 'kingdom'. See <a
-                download="example.csv"
-                href="data:application/octet-stream,id,scientificName,kingdom%0A397-234,puma%20concolor,animalia%0Aabies%20alba%0A">example.csv</a>.
+                download="simpleExample.csv"
+                href="data:application/octet-stream,scientificName,kingdom%0Apuma%20concolor%0Aabies%20alba%0A">simpleExample.csv</a> or <a
+                download="advancedExample.csv"
+                href="data:application/octet-stream,id,scientificName,kingdom%0A397-234,puma%20concolor,animalia%0A23,abies%20alba%0A">advancedExample.csv</a>.
     </p>
     <div class="text-center">
         <div class="speciesLookup__input-file">
