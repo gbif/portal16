@@ -30,13 +30,11 @@ function createMap(options) {
         hash: false
     });
 
+    map.addControl(new mapboxgl.NavigationControl());
+
     //to change draw styles see https://github.com/mapbox/mapbox-gl-draw/blob/master/EXAMPLES.md
     Draw = new MapboxDraw({ // eslint-disable-line no-undef
-        displayControlsDefault: false,
-        controls: {
-            polygon: true,
-            trash: true
-        }
+        displayControlsDefault: false
     });
     map.addControl(Draw);
 
