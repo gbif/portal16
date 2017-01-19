@@ -32,7 +32,7 @@
                             {% endif %}
 
                             {#At this point we do not have any sensible metrics to show. TODO we should display some, but further discussion needed https://github.com/gbif/portal16/issues/138#}
-                            {% if dataset.record.type == 'OCCURRENCE' %}
+                            {% if dataset.record.type != 'CHECKLIST' %}
                                 <li class="tab {% if active == 'usage' %}isActive{% endif %}">
                                     <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/metrics">
                                         Metrics
