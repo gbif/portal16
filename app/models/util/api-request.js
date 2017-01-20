@@ -1,6 +1,7 @@
 var request = require('request'),
     async = require('async'),
     xmlParser = require('xml2js').parseString,
+    isDevMode = require('../../../config/config').env == 'dev',
     log = require('../../../config/log'),
     Q = require('q');
 
@@ -31,19 +32,19 @@ function getData(cb, path, options) {
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                log.error('timed out while connecting to ' + path);
+                //log.error('timed out while connecting to ' + path);
             } else if (err.connect === true) {
                 cb({
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                log.error('timed out getting data from ' + path);
+                //log.error('timed out getting data from ' + path);
             } else {
                 cb({
                     errorType: ERRORS.API_TIMEOUT,
                     errorResponse: err
                 }, null);
-                log.error('error while talking to ' + path + ' ' + err);
+                //log.error('error while talking to ' + path + ' ' + err);
             }
         }
         //if not found or not status code 200
@@ -63,13 +64,14 @@ function getData(cb, path, options) {
                     break;
                 case 503:
                     error.errorType = ERRORS.BACKEND_FETCH_FAILED;
+                    log.error(response.statusCode + ' ' + path + ' ' + response.body);
                     break;
                 default:
                     error.errorType = ERRORS.INVALID_RESPONSE;
+                    log.error(response.statusCode + ' ' + path + ' ' + response.body);
                     break;
             }
             cb(error, null);
-            log.error(response.statusCode + ' ' + response.statusMessage + ' while accessing ' + path);
         }
 
         //if no response data
@@ -145,6 +147,11 @@ function getApiData(path, callback, options) {
                 //failed after all attempts
                 //if fail hard, then return explicit error. This will break async requests
                 //else return result marked as error
+
+                //log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
+                if (isDevMode) {
+                    log.error('api request failed at: ' + path, err);
+                }
                 if (options.failHard) {
                     callback(err, null);
                 } else {
