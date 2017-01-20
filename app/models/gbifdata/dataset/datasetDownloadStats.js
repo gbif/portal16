@@ -52,15 +52,15 @@ function getDownloads(key, limit) {
     var deferred = Q.defer();
     helper.getApiData(apiConfig.occurrenceDownloadDataset.url + key + '?limit=' + limit, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(new Error(err));
+            deferred.reject(data);
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, {
-        timeoutMilliSeconds: 30000
+        timeoutMilliSeconds: 60000
     });
     return deferred.promise;
 }
@@ -95,10 +95,10 @@ function getStats(datasetKey, limit) {
             translateFields(summaryData);
             deferred.resolve(summaryData);
         } catch (err) {
-            deferred.reject(new Error(err));
+            deferred.reject(err);
         }
     }, function (err) {
-        deferred.reject(new Error(err));
+        deferred.reject(err);
     });
     return deferred.promise;
 }

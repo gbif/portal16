@@ -1,6 +1,7 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
+    _ = require('lodash'),
     getDownloadStats = require('../../../../../models/gbifdata/gbifdata').getDownloadStats;
 
 module.exports = function (app) {
@@ -12,6 +13,9 @@ router.get('/dataset/stats/download/:key', function (req, res, next) {
     getDownloadStats(datasetKey, 200).then(function (data) {
         res.json(data);
     }, function (err) {
-        next(err);
+        res.status(_.get(err, 'errorResponse.statusCode', 500));
+        res.json({
+            body: _.get(err, 'errorResponse.body', err)
+        });
     });
 });
