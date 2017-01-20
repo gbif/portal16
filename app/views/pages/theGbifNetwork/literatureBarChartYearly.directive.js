@@ -21,7 +21,9 @@ function literatureBarChartYearly(LiteratureYearly) {
     function drawChart(scope, element, attrs) {
         var margin = {top: 40, right: 20, bottom: 50, left: 40},
             width = 600 - margin.left - margin.right,
-            height = 250 - margin.top - margin.bottom;
+            height = 250 - margin.top - margin.bottom,
+            svgWidth = width + margin.left + margin.right,
+            svgHeight = height + margin.top + margin.bottom;
 
         // set the ranges
         var x = d3.scaleBand().rangeRound([0, width], .05);
@@ -32,14 +34,15 @@ function literatureBarChartYearly(LiteratureYearly) {
         var xAxis = d3.axisBottom()
             .scale(x);
 
-        var yAxis = d3.axisLeft()
-            .scale(y)
-            .ticks(10);
+        // var yAxis = d3.axisLeft().scale(y).ticks(10);
 
         // add the SVG element
         var svg = d3.select(element[0]).append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            //.attr("width", svgWidth)
+            //.attr("height", svgHeight)
+            .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
+            .attr('preserveAspectRatio', 'xMidYMid meet')
+            .classed('svg-content', true)
             .append("g")
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");

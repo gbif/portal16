@@ -10,6 +10,8 @@ angular
 function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $filter, $stateParams, $location) {
     var vm = this;
 
+    vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA']
+
     vm.currentRegion = $location.path().split('/')[2];
     if (vm.currentRegion) {
         vm.currentRegion = vm.currentRegion.toUpperCase().replace('-', '_');

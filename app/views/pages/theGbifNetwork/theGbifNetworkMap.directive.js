@@ -27,11 +27,17 @@ function theGbifNetworkMap() {
 
         var margin = {top: 40, right: 20, bottom: 50, left: 40},
             width = 960 - margin.left - margin.right,
-            height = 480 - margin.top - margin.bottom;
+            height = 480 - margin.top - margin.bottom,
+            svgWidth = width + margin.left + margin.right,
+            svgHeight = height + margin.top + margin.bottom;
 
         var svg = d3.select(element[0]).append("svg")
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom);
+            .attr('id', 'theGbifNetworkMap')
+            //.attr('width', svgWidth)
+            //.attr('height', svgHeight)
+            .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
+            .attr('preserveAspectRatio', 'xMidYMid meet')
+            .classed('svg-content', true);
 
         var path = d3.geoPath();
 

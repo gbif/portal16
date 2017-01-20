@@ -6,9 +6,6 @@
             <div class="container">
                 <div class="row">
                     <header class="col-xs-12 text-center article-header">
-                        <nav class="article-header__category">
-                            <span class="article-header__category__upper">draft page</span>
-                        </nav>
                         <h1>{$ __('menu.GbifNetwork') $}</h1>
                         <div class="article-header__intro anchor-block__above">
                             {# fulltext html already wrapped by <p> from Content API #}
@@ -22,7 +19,13 @@
             <div class="container-desktop">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="tabs text-center tabs--emphasized">
+                        <div class="text-center region-selector-select">
+                            <label for="regionSelect">{$ __('region.' + 'select_region') $}: </label>
+                            <select id="regionSelect" ng-model="vm.currentRegion" ng-change="vm.selectRegion(vm.currentRegion)">
+                                <option ng-repeat="region in vm.validRegions" value="{{ region }}" translate="region.{{ region }}"></option>
+                            </select>
+                        </div>
+                        <div class="tabs text-center tabs--emphasized region-selector-tabs">
                             <ul>
                                 {% for region in data.validRegions %}
                                     <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
@@ -37,27 +40,27 @@
                 </div>
             </div>
         </section>
-        <div class="horizontal-stripe--paddingless">
+        <div class="horizontal-stripe--paddingless light-background">
             <div class="container">
                 <div class="row">
-                    <div id="map" class="text-center">
+                    <div id="map" class="text-center svg-container">
                         <the-gbif-network-map region="vm.currentRegion"></the-gbif-network-map>
                     </div>
                 </div>
             </div>
         </div>
-        <section>
+        <section class="horizontal-stripe--paddingless">
             <div class="container--desktop">
                 <div class="row main-counts">
                     <div class="col-xs-12">
                         <div class="update-region">
                             <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
                             <div ng-if="vm.updatedCounts === 3">
-                                <div class="entity-counts text-center">
+                                <div class="entity-counts">
                                     {% for pType in data.participantTypes %}
                                         {% if data.count[pType] > 0 %}
                                             <div class="entity-count">
-                                                <div class="count-number"
+                                                <div class="count-number" ng-class="'{$ pType $}'"
                                                      ng-bind="vm.count['{$ pType $}'] ? vm.count['{$ pType $}'] : '{$ data.count[pType] $}'">
                                                     {$ data.count[pType] $}
                                                 </div>
@@ -67,7 +70,7 @@
                                         {% endif %}
                                     {% endfor %}
                                     <div class="entity-count">
-                                        <div class="count-number"
+                                        <div class="count-number data-publisher"
                                              ng-bind="vm.count.publisher ? vm.count.publisher : '{$ data.count.publisher | localizeInteger(gb.locales.current) $}'">
                                             {$ data.count.publisher | localizeInteger(gb.locales.current) $}
                                         </div>
@@ -77,27 +80,27 @@
                                 <div id="chart-literature-yearly" class="chart-literature text-center">
                                     <literature-bar-chart-yearly region="vm.currentRegion"></literature-bar-chart-yearly>
                                 </div>
-                                <div class="entity-counts text-center">
+                                <div class="entity-counts">
                                     <div class="entity-count">
-                                        <div class="count-number"
+                                        <div class="count-number count-literature"
                                              ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
                                             {$ data.count.literature | localizeInteger(gb.locales.current) $}
                                         </div>
-                                        <div class="count-label medium-long-label">Peer-reviewed publications by</div>
+                                        <div class="count-label medium-long-label">{$ __('theGbifNetWork.peerReviewedPublicationBy') $}</div>
                                     </div>
                                     <div class="entity-count">
-                                        <div class="count-number"
+                                        <div class="count-number count-literature"
                                              ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
                                             {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
                                         </div>
-                                        <div class="count-label">authors from</div>
+                                        <div class="count-label">{$ __('theGbifNetWork.authorsFrom') $}</div>
                                     </div>
                                     <div class="entity-count">
-                                        <div class="count-number"
+                                        <div class="count-number count-literature"
                                              ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
                                             {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
                                         </div>
-                                        <div class="count-label">countries</div>
+                                        <div class="count-label">{$ __('theGbifNetWork.countries') $}</div>
                                     </div>
                                 </div>
                             </div>

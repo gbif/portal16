@@ -1841,14 +1841,20 @@
     "committees": "Committees",
     "name": "name"
   },
+  "theGbifNetWork": {
+    "peerReviewedPublicationBy": "Peer-reviewed publications by",
+    "authorsFrom": "Authors from",
+    "countries": "Countries"
+  },
   "region": {
-    "GLOBAL": "global",
+    "GLOBAL": "Global",
     "AFRICA": "Africa",
     "ASIA": "Asia",
     "EUROPE": "Europe",
     "LATIN_AMERICA": "Latin America",
     "NORTH_AMERICA": "North America",
-    "OCEANIA": "Oceania"
+    "OCEANIA": "Oceania",
+    "select_region": "Select a region"
   },
   "tools": {
     "categoryTitle": "tools",
