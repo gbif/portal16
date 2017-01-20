@@ -1,6 +1,7 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
+    log = rootRequire('config/log'),
     _ = require('lodash'),
     getDownloadStats = require('../../../../../models/gbifdata/gbifdata').getDownloadStats;
 
@@ -17,5 +18,6 @@ router.get('/dataset/stats/download/:key', function (req, res, next) {
         res.json({
             body: _.get(err, 'errorResponse.body', err)
         });
+        log.error('/dataset/stats/download/' + datasetKey + ', errorType ' + _.get(err, 'errorType', 'UNSPECIFIED'));
     });
 });
