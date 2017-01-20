@@ -18,6 +18,7 @@ window.Chartist = require('chartist');
 require('angular-chartist.js');
 require('chartist-plugin-axistitle');
 require('angular-local-storage');
+require('angular-toastr');
 
 
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
@@ -27,7 +28,7 @@ require('angular-svg-round-progressbar');
 (function () {
     'use strict';
     angular
-        .module('portal', ['LocalStorageModule', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar']);
+        .module('portal', ['LocalStorageModule', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
 })();
 
 (function () {
@@ -54,11 +55,26 @@ require('angular-svg-round-progressbar');
     }
 
     /** @ngInject */
-    function configBlock(localStorageServiceProvider) {
+    function configBlock(localStorageServiceProvider, toastrConfig) {
         localStorageServiceProvider
             .setPrefix('p16')
             .setStorageType('localStorage')
             .setDefaultToCookie(false);
+
+        angular.extend(toastrConfig, {
+            autoDismiss: false,
+            containerId: 'toast-container',
+            maxOpened: 3,
+            progressBar: false,
+            newestOnTop: true,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: true,
+            tapToDismiss: true,
+            target: 'body',
+            timeOut: "10000",
+            extendedTimeOut: "10000"
+        });
     }
 })();
 
@@ -80,6 +96,7 @@ require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');
 require('./angular/speciesFilter.service');
+require('./angular/toast.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
 

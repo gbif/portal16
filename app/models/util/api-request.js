@@ -150,7 +150,7 @@ function getApiData(path, callback, options) {
 
                 //log failed request if in development mode - otherwise leave it to the using function to decide if this is a problem. could well be a simple timeout or a wrong query
                 if (isDevMode) {
-                    log.error('api request failed at: ' + path, err);
+                    log.error('api request failed at: ' + path, err.errorType);
                 }
                 if (options.failHard) {
                     callback(err, null);

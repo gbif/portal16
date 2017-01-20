@@ -15,13 +15,6 @@
                     <div ng-if="datasetUsage.state == 'LOADING'">
                         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                     </div>
-                    <div ng-if="datasetUsage.state == 'FAILED'">
-                        <p>
-                            {#TODO link and possibly check system status#}
-                            We couldn't compile the stats for this dataset. You're are welcome to
-                            <a href="mailto:helpdesk@gbif.org">get in touch</a>.
-                        </p>
-                    </div>
                     <div ng-if="datasetUsage.state == 'LOADED'">
                         <h5>Frequency of used filters in downloads</h5>
                         <div style="max-width: 800px">

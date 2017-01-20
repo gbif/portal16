@@ -8,7 +8,7 @@ angular
     .controller('datasetUsageCtrl', datasetUsageCtrl);
 
 /** @ngInject */
-function datasetUsageCtrl(DatasetDownloadStats) {
+function datasetUsageCtrl(DatasetDownloadStats, toastService) {
     var vm = this;
     vm.key = gb.datasetKey.key; //TODO what would be a better way to do this? an bootstraped constant possibly?
     vm.stats = {hej: 5};
@@ -82,8 +82,10 @@ function datasetUsageCtrl(DatasetDownloadStats) {
         vm.state = 'LOADED';
     }, function () {
         vm.state = 'FAILED';
-        //TODO log error
+        toastService.error();
     });
+
 }
 
 module.exports = datasetUsageCtrl;
+
