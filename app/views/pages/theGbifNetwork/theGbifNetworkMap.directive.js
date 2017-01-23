@@ -96,12 +96,6 @@ function theGbifNetworkMap() {
                 .enter().append("path")
                 .attr("d", path)
                 .on('click', clicked)
-                .attr("fill", function(d){
-                    if (d.properties.hasOwnProperty('membershipType')) {
-                        return color[d.properties.membershipType];
-                    }
-                    return '#DFDDCF';
-                })
                 .attr('class', 'boundary');
 
             zoomToRegion(scope.region);
@@ -119,6 +113,20 @@ function theGbifNetworkMap() {
                 y = (bounds[0][1] + bounds[1][1]) / 2,
                 scale = 1 / Math.max(dx / width, dy / height),
                 translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+            g.selectAll('path')
+                .attr("fill", function(d){
+                    var p = d.properties;
+                    if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
+                        if (scope.region == 'GLOBAL') {
+                            return color[d.properties.membershipType];
+                        }
+                        else if (p.gbifRegion == scope.region) {
+                            return color[d.properties.membershipType];
+                        }
+                    }
+                    return '#DFDDCF';
+                });
 
             g.transition()
                 .duration(750)
