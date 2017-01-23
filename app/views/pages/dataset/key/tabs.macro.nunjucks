@@ -59,7 +59,7 @@
                                             Download
                                         </span>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu"
+                                    <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                         aria-labelledby="btn-append-to-body">
                                         <li role="menuitem"><a href="#">GBIF Processed</a></li>
                                         <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Original</a>

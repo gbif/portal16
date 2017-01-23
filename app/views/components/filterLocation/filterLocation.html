@@ -1,36 +1,55 @@
-<div class="filter-group" ng-mouseover="vm.isHovered = true">
-    <a href="" class="inherit" ng-click="vm.collapsed = !vm.collapsed">
+<div class="filter-group">
+    <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
             <span class="text-capitalize">Location</span>
-            <span class="gb-icon-angle-down pull-right" ng-if="vm.collapsed"></span>
-            <span class="gb-icon-angle-up pull-right" ng-if="!vm.collapsed"></span>
+            <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
         </h4>
     </a>
 
-    <div class="filter-group__filter--radio">
+    <div class="filter-group__filter filter-group__filter--radio" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
 
-        <div class="is-padded">
-            <div>Is georeferenced</div>
-            <label class="radio-inline">
-                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="">Either
-            </label>
-            <label class="radio-inline">
-                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="true">Yes
-            </label>
-            <label class="radio-inline">
-                <input type="radio" ng-model="vm.georeferenced" name="optradio" value="false">No
-            </label>
-            <div>
-                description goes here about the filter
+        <div ng-if="vm.query.length && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
+            <div class="checkbox" ng-repeat="q in vm.query">
+                <label>
+                    <input type="checkbox" checklist-model="vm.query" checklist-value="q" ng-change="vm.change(q, checked)">
+                    <span class="filter-group__filter__name">
+                        <span class="filter-group__filter__name__title text-capitalize">{{q}}</span>
+                    </span>
+                </label>
             </div>
         </div>
 
-
-        <div class="site-drawer__bar seperator">
-            <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()"><span translate="stdTerms.clear">Clear</span></a>
-            <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()"><span
-                    translate="stdTerms.invert">Invert</span></a>
+        <div class="is-padded" ng-if="vm.filterConfig.expanded">
+            <div class="gb-radio">
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="''"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Doesn't matter</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="'true'"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Has a location</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="'false'"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Without location</span></label>
+            </div>
         </div>
+        <div ng-if="vm.filterConfig.expanded" class="is-padded">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox">
+                    <span>
+                        Include suspicious locations
+                    </span>
+                </label>
+            </div>
+            <div>
+                map
+            </div>
+            <div class="is-padded">
+                input manually
+                <textarea ng-model="vm.geometryString">
+
+                </textarea>
+                <a href="" ng-click="vm.addString()">ADD</a>
+                {{vm.geometryString}}
+                {{vm.geojson}}
+            </div>
+        </div>
+
     </div>
 </div>
 

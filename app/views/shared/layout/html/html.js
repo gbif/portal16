@@ -65,7 +65,7 @@ require('angular-svg-round-progressbar');
             autoDismiss: false,
             containerId: 'toast-container',
             maxOpened: 3,
-            progressBar: false,
+            progressBar: true,
             newestOnTop: true,
             positionClass: 'toast-bottom-right',
             preventDuplicates: false,
@@ -73,7 +73,7 @@ require('angular-svg-round-progressbar');
             tapToDismiss: true,
             target: 'body',
             timeOut: "10000",
-            extendedTimeOut: "10000"
+            extendedTimeOut: "3000"
         });
     }
 })();
@@ -156,7 +156,7 @@ require('../../../components/searchDrawer/searchDrawer.directive');
 require('../../../components/enumFilter/enumFilter.directive');
 require('../../../components/filterTaxon/filterTaxon.directive');
 require('../../../components/filterSuggest/filterSuggest.directive');
-//require('../../../components/filterLocation/filterLocation.directive');
+require('../../../components/filterLocation/filterLocation.directive');
 require('../../../components/filterInterval/filterInterval.directive');
 require('../../../components/filterFacet/filterFacet.directive');
 require('../../../components/count/count.directive');

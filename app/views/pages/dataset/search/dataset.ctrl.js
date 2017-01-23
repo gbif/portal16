@@ -116,7 +116,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
             },
             suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
-            suggestTitle: 'canonicalName',
+            suggestTitle: 'scientificName',
             suggestShortName: 'title',
             suggestKey: 'key'
         }
@@ -137,6 +137,36 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
             facetKey: 'PUBLISHING_COUNTRY'
         }
     };
+
+    //vm.filters.publishingOrg = {
+    //    titleTranslation: 'dataset.terms.publishingOrg',
+    //    queryKey: 'publishing_org',
+    //    filter: DatasetFilter,
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'PUBLISHING_ORG'
+    //    },
+    //    search: {
+    //        isSearchable: true,
+    //        placeholder: 'dataset.terms.publishingOrg',
+    //        suggestEndpoint: suggestEndpoints.publishingOrg
+    //    }
+    //};
+    //
+    //vm.filters.hostingOrg = {
+    //    titleTranslation: 'dataset.terms.hostingOrg',
+    //    queryKey: 'hosting_org',
+    //    filter: DatasetFilter,
+    //    facets: {
+    //        hasFacets: true,
+    //        facetKey: 'HOSTING_ORG'
+    //    },
+    //    search: {
+    //        isSearchable: true,
+    //        placeholder: 'dataset.terms.hostingOrg',
+    //        suggestEndpoint: suggestEndpoints.publishingOrg
+    //    }
+    //};
 
     vm.filters.projectId = {
         titleTranslation: 'dataset.terms.projectId',

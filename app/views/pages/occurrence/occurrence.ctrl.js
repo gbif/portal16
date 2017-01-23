@@ -448,8 +448,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'ocurrenceFieldNames.lastInterpreted',
         intervalTranslation: 'intervals.year.',
         queryKey: 'last_interpreted',
-        filter: OccurrenceFilter,
-        expanded: true
+        filter: OccurrenceFilter
     };
 
     vm.filters.eventDate = {
@@ -462,7 +461,9 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     //location
     vm.filters.location = {
         titleTranslation: 'ocurrenceFieldNames.location',
-        filter: OccurrenceFilter
+        filter: OccurrenceFilter,
+        queryKey: 'geometry',
+        expanded: true
     };
 
 
