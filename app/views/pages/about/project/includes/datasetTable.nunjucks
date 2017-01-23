@@ -1,7 +1,7 @@
 <div class="projects__table" ng-controller="projectCtrl as project">
     <div class="table-container--project"
          ng-init="project.projectId = '{$ data.projectId $}'; project.nodeType = '{$ data.type $}'; project.getRelatedDatasets()">
-        <h3>{$ __('cms.project.relatedDatasets') $}</h3>
+        <h3>{$ __n('cms.project.relatedDataset', project.relatedDatasets.length) $}</h3>
         <table class="table">
             <thead>
             <tr>
