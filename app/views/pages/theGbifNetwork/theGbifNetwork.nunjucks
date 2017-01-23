@@ -86,21 +86,21 @@
                                              ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
                                             {$ data.count.literature | localizeInteger(gb.locales.current) $}
                                         </div>
-                                        <div class="count-label medium-long-label">{$ __('theGbifNetWork.peerReviewedPublicationBy') $}</div>
+                                        <div class="count-label medium-long-label">{$ __('theGbifNetwork.peerReviewedPublicationBy') $}</div>
                                     </div>
                                     <div class="entity-count">
                                         <div class="count-number count-literature"
                                              ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
                                             {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
                                         </div>
-                                        <div class="count-label">{$ __('theGbifNetWork.authorsFrom') $}</div>
+                                        <div class="count-label">{$ __('theGbifNetwork.authorsFrom') $}</div>
                                     </div>
                                     <div class="entity-count">
                                         <div class="count-number count-literature"
                                              ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
                                             {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
                                         </div>
-                                        <div class="count-label">{$ __('theGbifNetWork.countries') $}</div>
+                                        <div class="count-label">{$ __('theGbifNetwork.countries') $}</div>
                                     </div>
                                 </div>
                             </div>

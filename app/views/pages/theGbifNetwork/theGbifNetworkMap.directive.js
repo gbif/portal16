@@ -9,7 +9,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap() {
+function theGbifNetworkMap($translate) {
     return {
         restrict: 'E',
         replace: 'false',
@@ -82,6 +82,35 @@ function theGbifNetworkMap() {
             'NORTH_AMERICA': [[100,40],[350,200]],
             'OCEANIA': [[760,270],[1000,420]]
         };
+
+        var legendWidth = 250,
+            legendHeight = 200,
+            legendX = 0,
+            legendY = svgHeight - legendHeight;
+
+        var legendBox = svg.append('g');
+        legendBox.append('rect')
+            .attr('x', legendX)
+            .attr('y', legendY)
+            .attr('width', legendWidth)
+            .attr('height', legendHeight)
+            .attr('class', 'legend-box');
+        legendBox.append('rect')
+            .attr('x', legendX)
+            .attr('y', legendY)
+            .attr('width', legendWidth)
+            .attr('height', legendHeight)
+            .attr('class', 'legend-box');
+
+        $translate('theGbifNetwork.legend')
+            .then(function(translation){
+                legendBox.append("text")
+                    .attr("x", legendWidth / 2)
+                    .attr("y", legendY + 20)
+                    .attr("text-anchor", "middle")
+                    .attr("class", "legend-title")
+                    .text(translation);
+            });
 
         d3.json("/api/topojson/world-robinson", function(error, topology) {
             if (error) throw error;
@@ -172,6 +201,9 @@ function theGbifNetworkMap() {
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                     .style("stroke-width", 1.5 / k + "px");
             }
+        }
+
+        function toggleLegend() {
         }
     }
 }

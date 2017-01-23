@@ -1841,11 +1841,12 @@
     "committees": "Committees",
     "name": "name"
   },
-  "theGbifNetWork": {
+  "theGbifNetwork": {
     "peerReviewedPublicationBy": "Peer-reviewed publications by",
     "authorsFrom": "Authors from",
     "countries": "Countries",
-    "chartPublicationYearly": "Yearly trend of peer-reviewed publications"
+    "chartPublicationYearly": "Yearly trend of peer-reviewed publications",
+    "legend": "Legend"
   },
   "region": {
     "GLOBAL": "Global",
