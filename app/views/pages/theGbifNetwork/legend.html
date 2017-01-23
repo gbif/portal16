@@ -1,0 +1,21 @@
+<div>
+    <div id="map" class="svg-container"></div>
+    <div id="mapLegend" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
+        <header ng-click="vm.expanded = !vm.expanded">
+            <h4 translate="theGbifNetwork.legend"></h4>
+            <span class="gb-icon-angle-up" ng-show="!vm.expanded"></span>
+            <span class="gb-icon-angle-down" ng-show="vm.expanded"></span>
+        </header>
+
+        <ul>
+            <li>
+                <input id="vp-toggle" type="checkbox"/>
+                <label for="vp-toggle" translate="directory.voting_participant.one"></label>
+            </li>
+            <li>
+                <input id="acp-toggle" type="checkbox"/>
+                <label for="acp-toggle" translate="directory.associate_country_participant.one"></label>
+            </li>
+        </ul>
+    </div>
+</div>

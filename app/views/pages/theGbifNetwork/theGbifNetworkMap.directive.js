@@ -11,13 +11,25 @@ angular
 /** @ngInject */
 function theGbifNetworkMap($translate) {
     return {
-        restrict: 'E',
+        restrict: 'A',
         replace: 'false',
         scope: {
             region: '='
         },
-        link: drawMap
+        link: drawMap,
+        templateUrl: '/templates/pages/theGbifNetwork/legend.html',
+        controller: svgMap,
+        controllerAs: 'vm'
     };
+
+    function svgMap($scope) {
+        var vm = this;
+
+        vm.expanded = true;
+        vm.toggleParticipant = function (pType, checked) {
+
+        };
+    }
 
     function drawMap(scope, element, attrs) {
         var color = {
@@ -32,7 +44,7 @@ function theGbifNetworkMap($translate) {
             svgHeight = height + margin.top + margin.bottom,
             centered;
 
-        var svg = d3.select(element[0]).append("svg")
+        var svg = d3.select('#map').append("svg")
             .attr('id', 'theGbifNetworkMap')
             //.attr('width', svgWidth)
             //.attr('height', svgHeight)
@@ -83,35 +95,6 @@ function theGbifNetworkMap($translate) {
             'OCEANIA': [[760,270],[1000,420]]
         };
 
-        var legendWidth = 250,
-            legendHeight = 200,
-            legendX = 0,
-            legendY = svgHeight - legendHeight;
-
-        var legendBox = svg.append('g');
-        legendBox.append('rect')
-            .attr('x', legendX)
-            .attr('y', legendY)
-            .attr('width', legendWidth)
-            .attr('height', legendHeight)
-            .attr('class', 'legend-box');
-        legendBox.append('rect')
-            .attr('x', legendX)
-            .attr('y', legendY)
-            .attr('width', legendWidth)
-            .attr('height', legendHeight)
-            .attr('class', 'legend-box');
-
-        $translate('theGbifNetwork.legend')
-            .then(function(translation){
-                legendBox.append("text")
-                    .attr("x", legendWidth / 2)
-                    .attr("y", legendY + 20)
-                    .attr("text-anchor", "middle")
-                    .attr("class", "legend-title")
-                    .text(translation);
-            });
-
         d3.json("/api/topojson/world-robinson", function(error, topology) {
             if (error) throw error;
 
@@ -131,7 +114,7 @@ function theGbifNetworkMap($translate) {
         });
 
         scope.$watch('region', function(){
-            zoomToRegion(scope.region)
+            zoomToRegion(scope.region);
         });
 
         function zoomToRegion(region) {
@@ -201,9 +184,6 @@ function theGbifNetworkMap($translate) {
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                     .style("stroke-width", 1.5 / k + "px");
             }
-        }
-
-        function toggleLegend() {
         }
     }
 }

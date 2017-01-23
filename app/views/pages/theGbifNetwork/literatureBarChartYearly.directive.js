@@ -10,7 +10,7 @@ angular
 /** @ngInject */
 function literatureBarChartYearly(LiteratureYearly) {
     return {
-        restrict: 'E',
+        restrict: 'A',
         replace: 'false',
         scope: {
             region: '='

@@ -42,10 +42,8 @@
         </section>
         <div class="horizontal-stripe--paddingless light-background">
             <div class="container">
-                <div class="row">
-                    <div id="map" class="text-center svg-container">
-                        <the-gbif-network-map region="vm.currentRegion"></the-gbif-network-map>
-                    </div>
+                <div class="row text-center">
+                    <div the-gbif-network-map region="vm.currentRegion" class="svg-map-container"></div>
                 </div>
             </div>
         </div>
@@ -78,7 +76,7 @@
                                     </div>
                                 </div>
                                 <div id="chart-literature-yearly" class="chart-literature text-center">
-                                    <literature-bar-chart-yearly region="vm.currentRegion"></literature-bar-chart-yearly>
+                                    <div literature-bar-chart-yearly region="vm.currentRegion"></div>
                                 </div>
                                 <div class="entity-counts">
                                     <div class="entity-count">
