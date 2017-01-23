@@ -231,6 +231,10 @@
     pointer-events all
 }
 
+.map-shadow {
+    fill $white
+}
+
 .svg-container {
     position relative
     padding-bottom 49%
@@ -243,15 +247,16 @@
     left 0
 }
 
-.graticule {
-    fill: none;
-    stroke: #777;
-    stroke-opacity: .5;
-    stroke-width: .5px;
+.boundary {
+    stroke #fff
+    stroke-width 0.3px
 }
 
-.boundary {
-    fill: none;
-    stroke: #fff;
-    stroke-width: .5px;
+.active-polygon {
+    stroke #fff
+    stroke-width 0.8px
+}
+.region-box {
+    fill $orangePeelLight
+    opacity 0.2
 }

@@ -62,16 +62,34 @@ function theGbifNetworkMap() {
         feMerge.append("feMergeNode");
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
+
         svg.append('rect')
             .attr('class', 'map-background')
             .attr('width', svgWidth)
             .attr('height', svgHeight)
             .on('click', clicked);
 
+        var shadow = svg.append('path');
+
         var g = svg.append('g');
+
+        var regionBoxes = {
+            'GLOBAL': [[0,0],[width,height]],
+            'ASIA': [[540,105],[870,305]],
+            'AFRICA': [[420,150],[640,390]],
+            'EUROPE': [[420,50],[850,160]],
+            'LATIN_AMERICA': [[155,160],[395,450]],
+            'NORTH_AMERICA': [[100,40],[350,200]],
+            'OCEANIA': [[760,270],[1000,420]]
+        };
 
         d3.json("/api/topojson/world-robinson", function(error, topology) {
             if (error) throw error;
+
+            shadow.datum(topojson.merge(topology, topology.objects.tracts.geometries))
+                .attr('d', path)
+                .attr('class', 'map-shadow')
+                .style('filter', 'url(#dropShadow)');
 
             g.selectAll("path")
                 .data(topojson.feature(topology, topology.objects.tracts).features)
@@ -84,31 +102,68 @@ function theGbifNetworkMap() {
                     }
                     return '#DFDDCF';
                 })
-                .style('filter', 'url(#dropShadow)');
+                .attr('class', 'boundary');
+
+            zoomToRegion(scope.region);
         });
 
-        function clicked(d) {
-            var x, y, k;
-            if (d && centered !== d) {
-                var centroid = path.centroid(d);
-                x = centroid[0];
-                y = centroid[1];
-                k = 4;
-                centered = d;
-            } else {
-                x = width / 2;
-                y = height / 2;
-                k = 1;
-                centered = null;
-            }
+        scope.$watch('region', function(){
+            zoomToRegion(scope.region)
+        });
 
-            g.selectAll("path")
-                .classed("active", centered && function(d) { return d === centered; });
+        function zoomToRegion(region) {
+            var bounds = regionBoxes[region],
+                dx = bounds[1][0] - bounds[0][0],
+                dy = bounds[1][1] - bounds[0][1],
+                x = (bounds[0][0] + bounds[1][0]) / 2,
+                y = (bounds[0][1] + bounds[1][1]) / 2,
+                scale = 1 / Math.max(dx / width, dy / height),
+                translate = [width / 2 - scale * x, height / 2 - scale * y];
 
             g.transition()
                 .duration(750)
-                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                .style("stroke-width", 1.5 / k + "px");
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+            shadow.transition()
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+        }
+
+        function clicked(d) {
+            if (typeof d === 'undefined') {
+                zoomToRegion(scope.region);
+            }
+            else {
+                var x, y, k;
+                if (d && centered !== d) {
+                    var centroid = path.centroid(d);
+                    x = centroid[0];
+                    y = centroid[1];
+                    k = 4;
+                    centered = d;
+                } else {
+                    x = width / 2;
+                    y = height / 2;
+                    k = 1;
+                    centered = null;
+                }
+
+                g.selectAll("path")
+                    .classed("active-polygon", centered && function(d) { return d === centered; });
+
+                g.transition()
+                    .duration(750)
+                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+                    .style("stroke-width", 1.5 / k + "px");
+
+                shadow.transition()
+                    .duration(750)
+                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+                    .style("stroke-width", 1.5 / k + "px");
+            }
         }
     }
 }
