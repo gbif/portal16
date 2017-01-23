@@ -391,7 +391,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
             },
             suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
-            suggestTitle: 'canonicalName',
+            suggestTitle: 'scientificName',
             suggestShortName: 'title',
             suggestKey: 'key'
         }
@@ -456,6 +456,12 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'ocurrenceFieldNames.eventDate',
         intervalTranslation: 'intervals.year.',
         queryKey: 'event_date',
+        filter: OccurrenceFilter
+    };
+
+    //location
+    vm.filters.location = {
+        titleTranslation: 'ocurrenceFieldNames.location',
         filter: OccurrenceFilter
     };
 
