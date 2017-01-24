@@ -120,7 +120,7 @@ angular
         }
 
         function updateParams(params) {
-            angular.merge(state.query, params);
+            angular.extend(state.query, state.query, params);
             refresh();
         }
 

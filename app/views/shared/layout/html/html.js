@@ -57,7 +57,7 @@ require('angular-svg-round-progressbar');
     /** @ngInject */
     function configBlock(localStorageServiceProvider, toastrConfig) {
         localStorageServiceProvider
-            .setPrefix('p16')
+            .setPrefix('gbif')
             .setStorageType('localStorage')
             .setDefaultToCookie(false);
 
