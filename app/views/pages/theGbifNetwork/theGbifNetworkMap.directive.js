@@ -197,25 +197,24 @@ function theGbifNetworkMap($translate) {
                     y = centroid[1];
                     k = 4;
                     centered = d;
+                    g.selectAll("path")
+                        .classed("active-polygon", centered && function(d) { return d === centered; });
+
+                    g.transition()
+                        .duration(750)
+                        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+                        .style("stroke-width", 1.5 / k + "px");
+
+                    shadow.transition()
+                        .duration(750)
+                        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+                        .style("stroke-width", 1.5 / k + "px");
+
                 } else {
-                    x = width / 2;
-                    y = height / 2;
-                    k = 1;
                     centered = null;
+                    zoomToRegion(scope.region);
                 }
 
-                g.selectAll("path")
-                    .classed("active-polygon", centered && function(d) { return d === centered; });
-
-                g.transition()
-                    .duration(750)
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                    .style("stroke-width", 1.5 / k + "px");
-
-                shadow.transition()
-                    .duration(750)
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                    .style("stroke-width", 1.5 / k + "px");
             }
         }
     }

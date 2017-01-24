@@ -32,6 +32,13 @@
 
 .update-region {
     min-height 410px
+    padding-top vrBlock(1)
+}
++isAbove($tablet) {
+    .update-region {
+        min-height 410px
+        padding-top 0
+    }
 }
 
 .entity-counts {
@@ -107,12 +114,12 @@
         max-width 350px
         border-bottom 1px solid $gray
     }
-    
+
     h3 {
         margin vrBlock(1) auto
         text-transform uppercase
     }
-    
+
     ol {
         margin 0
         padding 0 vrBlock(1)
@@ -123,7 +130,7 @@
             margin-bottom 5px
         }
     }
-    
+
     footer {
         margin vrBlock(1) auto vrBlock(2)
         content "&nbsp;"
@@ -176,15 +183,15 @@
     .bar {
         fill $orange3
     }
-    
+
     .bar:hover {
         fill $orange1
     }
-    
+
     .axis {
         font 12px sans-serif
     }
-    
+
     .axis path,
     .axis line {
         fill none
@@ -259,4 +266,16 @@
 
 .svg-map-container {
     position relative
+}
++isAbove($tablet){
+    .svg-map-container {
+    }
+}
++isAbove($laptop){
+    .svg-map-container {
+    }
+}
++isAbove($desktop){
+    .svg-map-container {
+    }
 }
