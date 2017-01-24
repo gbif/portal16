@@ -20,6 +20,8 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         vm.currentRegion = 'GLOBAL';
     }
 
+    vm.membershipType = 'active';
+
     vm.count = {};
     vm.participantTypes = [
         'voting_participant',

@@ -14,10 +14,11 @@ function theGbifNetworkMap($translate) {
         restrict: 'A',
         replace: 'false',
         scope: {
-            region: '='
+            region: '=',
+            membershipType: '='
         },
         link: drawMap,
-        templateUrl: '/templates/pages/theGbifNetwork/legend.html',
+        templateUrl: '/templates/pages/theGbifNetwork/legend/legend.html',
         controller: svgMap,
         controllerAs: 'vm'
     };
@@ -25,10 +26,28 @@ function theGbifNetworkMap($translate) {
     function svgMap($scope) {
         var vm = this;
 
+        // default status of the legend pane
         vm.expanded = true;
-        vm.toggleParticipant = function (pType, checked) {
 
+        // membership type toggle
+        vm.vpChecked = false;
+        vm.acpChecked = false;
+
+        vm.toggleParticipant = function () {
+            if (!vm.vpChecked && !vm.acpChecked) {
+                $scope.membershipType = 'none';
+            }
+            else if (vm.vpChecked && !vm.acpChecked) {
+                $scope.membershipType = 'voting_participant';
+            }
+            else if (!vm.vpChecked && vm.acpChecked) {
+                $scope.membershipType = 'associate_country_participant';
+            }
+            else {
+                $scope.membershipType = 'active';
+            }
         };
+
     }
 
     function drawMap(scope, element, attrs) {
@@ -88,11 +107,11 @@ function theGbifNetworkMap($translate) {
         var regionBoxes = {
             'GLOBAL': [[0,0],[width,height]],
             'ASIA': [[540,105],[870,305]],
-            'AFRICA': [[420,150],[640,390]],
-            'EUROPE': [[420,50],[850,160]],
-            'LATIN_AMERICA': [[155,160],[395,450]],
-            'NORTH_AMERICA': [[100,40],[350,200]],
-            'OCEANIA': [[760,270],[1000,420]]
+            'AFRICA': [[420,140],[640,350]],
+            'EUROPE': [[380,80],[750,100]],
+            'LATIN_AMERICA': [[155,160],[395,400]],
+            'NORTH_AMERICA': [[100,50],[350,170]],
+            'OCEANIA': [[760,250],[1000,400]]
         };
 
         d3.json("/api/topojson/world-robinson", function(error, topology) {
@@ -111,9 +130,15 @@ function theGbifNetworkMap($translate) {
                 .attr('class', 'boundary');
 
             zoomToRegion(scope.region);
+
+            scope.mapLoaded = true;
         });
 
         scope.$watch('region', function(){
+            zoomToRegion(scope.region);
+        });
+
+        scope.$watch('membershipType', function(){
             zoomToRegion(scope.region);
         });
 
@@ -131,10 +156,18 @@ function theGbifNetworkMap($translate) {
                     var p = d.properties;
                     if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
                         if (scope.region == 'GLOBAL') {
-                            return color[d.properties.membershipType];
+                            if (scope.membershipType !== 'none') {
+                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
+                                    return color[d.properties.membershipType];
+                                }
+                            }
                         }
                         else if (p.gbifRegion == scope.region) {
-                            return color[d.properties.membershipType];
+                            if (scope.membershipType !== 'none') {
+                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
+                                    return color[d.properties.membershipType];
+                                }
+                            }
                         }
                     }
                     return '#DFDDCF';
