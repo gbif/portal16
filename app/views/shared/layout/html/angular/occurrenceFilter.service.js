@@ -119,6 +119,11 @@ angular
             refresh();
         }
 
+        function updateParams(params) {
+            angular.merge(state.query, params);
+            refresh();
+        }
+
         function refresh() {
             state.query.offset = undefined;
 
@@ -149,6 +154,7 @@ angular
             getOccurrenceData: getOccurrenceState,
             update: update,
             updateParam: updateParam,
+            updateParams: updateParams,
             refresh: refresh
         };
 

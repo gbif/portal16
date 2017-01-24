@@ -28,14 +28,22 @@ function filterLocationDirective() {
     /** @ngInject */
     function filterLocation($scope, $filter, OccurrenceFilter) {
         var vm = this;
+        vm.hasCoordinate;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
         vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.title;
         vm.filterAutoUpdate = vm.filterConfig.filterAutoUpdate !== false;
         vm.collapsed = vm.filterConfig.collapsed !== false;
 
-        vm.tester = $filter('unique')(vm.filterState.query[vm.queryKey]);
-
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
+        vm.hasCoordinate = vm.filterState.query.has_coordinate;
+        if (vm.hasCoordinate === 'true' || (vm.query && vm.query.length)) {
+            vm.hasCoordinate = true;
+        } else if(vm.hasCoordinate === 'false') {
+            vm.hasCoordinate = false;
+        } else {
+            vm.hasCoordinate = undefined;
+        }
 
         vm.addString = function() {
             console.log('parse');
@@ -74,6 +82,12 @@ function filterLocationDirective() {
             vm.apply();
         };
 
+        vm.hasCoordinateChange = function() {
+            vm.query = [];
+            vm.includeSuspicious = false;
+            vm.apply();
+        };
+
         //vm.getLocationNames = function() {
         //    for (var i = 0; i < vm.query; i++) {
         //        $http.get('http://localhost:3003/geometry-description', {});
@@ -84,6 +98,9 @@ function filterLocationDirective() {
             return vm.filterState.query[vm.queryKey]
         }, function (newQuery) {
             vm.query = $filter('unique')(newQuery);
+            if (vm.query && vm.query.length) {
+                vm.hasCoordinate = true;
+            }
         });
 
         vm.change = function (e, checked) {
@@ -101,8 +118,16 @@ function filterLocationDirective() {
 
         };
         vm.apply = function () {
-            console.log('apply');
-            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
+            console.log('apply'); 
+            var filters = {
+                has_coordinate: vm.hasCoordinate,
+                has_geospatial_issue: undefined,
+                geometry: vm.query
+            };
+            if (vm.hasCoordinate && !vm.includeSuspicious) {
+                filters.has_geospatial_issue = false;
+            }
+            OccurrenceFilter.updateParams(filters);
         }
     }
 }

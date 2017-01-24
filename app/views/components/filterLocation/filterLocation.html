@@ -1,4 +1,4 @@
-<div class="filter-group">
+<div class="filter-group filter-group--location">
     <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
         <h4>
             <span class="text-capitalize">Location</span>
@@ -7,46 +7,63 @@
         </h4>
     </a>
 
-    <div class="filter-group__filter filter-group__filter--radio" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
-
-        <div ng-if="vm.query.length && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
-            <div class="checkbox" ng-repeat="q in vm.query">
-                <label>
-                    <input type="checkbox" checklist-model="vm.query" checklist-value="q" ng-change="vm.change(q, checked)">
-                    <span class="filter-group__filter__name">
-                        <span class="filter-group__filter__name__title text-capitalize">{{q}}</span>
-                    </span>
-                </label>
-            </div>
-        </div>
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
 
         <div class="is-padded" ng-if="vm.filterConfig.expanded">
             <div class="gb-radio">
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="''"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Doesn't matter</span></label>
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="'true'"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Has a location</span></label>
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="'false'"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Without location</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Doesn't matter</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="true" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Has a location</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="false" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Without location</span></label>
             </div>
         </div>
-        <div ng-if="vm.filterConfig.expanded" class="is-padded">
-            <div class="checkbox">
+
+        <div class="is-padded overflow-hidden">
+            <div ng-if="vm.query.length">
+                <div class="checkbox" ng-repeat="q in vm.query">
+                    <label>
+                        <input type="checkbox" checklist-model="vm.query" checklist-value="q" ng-change="vm.change(q, checked)">
+                        <span class="filter-group__filter__name">
+                            <span class="filter-group__filter__name__title text-capitalize">{{q}}</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="checkbox" ng-if="!vm.query.length && vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" ng-click="vm.hasCoordinate=undefined; vm.hasCoordinateChange();" checked>
+                    <span ng-if="vm.hasCoordinate">
+                        Has a location
+                    </span>
+                    <span ng-if="vm.hasCoordinate===false">
+                        Without location
+                    </span>
+                </label>
+            </div>
+            <div class="checkbox" ng-if="vm.hasCoordinate && (vm.includeSuspicious || vm.filterConfig.expanded)">
+                <label>
+                    <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()">
                     <span>
                         Include suspicious locations
                     </span>
                 </label>
             </div>
+        </div>
+
+        <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate" class="is-padded">
             <div>
-                map
+                show on map and allow for drawing and deleting. drawing on the large map should also be possible.
             </div>
             <div class="is-padded">
-                input manually
-                <textarea ng-model="vm.geometryString">
+                input in text field as either wkt or geojson
+                <textarea ng-model="vm.geometryString" class="vert" placeholder="WKT or geoJson - multipolygons currently not supported">
 
                 </textarea>
                 <a href="" ng-click="vm.addString()">ADD</a>
-                {{vm.geometryString}}
-                {{vm.geojson}}
+            </div>
+            <div class="is-padded">
+                slides and input fields for creating a bounding box geometry. this can also be used to do an easy latitude below x
+                <br/>
+                consider visualizing the query when creating
             </div>
         </div>
 
