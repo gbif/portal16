@@ -20,7 +20,7 @@ function gbmapDirective() {
         scope: {
             datasetKey: '=',
             taxonKey: '=',
-            publisherKey: '=',
+            publishingOrg: '=',
             country: '=',
             publishingCountry: '=',
             mapstyle: '='
@@ -42,7 +42,7 @@ function gbmapDirective() {
     function gbmap(enums, $httpParamSerializer, $scope) {
         var vm = this,
             overlays = [],
-            map
+            map;
 
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
@@ -199,7 +199,7 @@ function gbmapDirective() {
             }
 
             //only show one key. if more are supplied then ignore the remaining. at a later time it could be two layers styled differently to compare them
-            var possibleKeys = ['taxonKey', 'datasetKey', 'publisherKey', 'country', 'publishingCountry'];
+            var possibleKeys = ['taxonKey', 'datasetKey', 'publishingOrg', 'country', 'publishingCountry'];
             for (var i = 0; i < possibleKeys.length; i++) {
                 var key = possibleKeys[i];
                 if (vm[key]) {
@@ -207,7 +207,8 @@ function gbmapDirective() {
                     break;
                 }
             }
-
+            console.log(query);
+            console.log(query);
             return query;
         }
 
