@@ -19,9 +19,9 @@ function literatureBarChartYearly(LiteratureYearly) {
     };
 
     function drawChart(scope, element, attrs) {
-        var margin = {top: 40, right: 20, bottom: 50, left: 40},
+        var margin = {top: 50, right: 20, bottom: 80, left: 40},
             width = 600 - margin.left - margin.right,
-            height = 250 - margin.top - margin.bottom,
+            height = 280 - margin.top - margin.bottom,
             svgWidth = width + margin.left + margin.right,
             svgHeight = height + margin.top + margin.bottom;
 
@@ -45,7 +45,8 @@ function literatureBarChartYearly(LiteratureYearly) {
             .classed('svg-content', true)
             .append("g")
             .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
+                "translate(" + margin.left + "," + margin.top + ")")
+            ;
 
         LiteratureYearly.get({'gbifRegion': scope.region}).$promise
             .then(function(response){
@@ -54,7 +55,7 @@ function literatureBarChartYearly(LiteratureYearly) {
 
                 data.forEach(function(d) {
                     d.year = d.year;
-                    d.literature_number = +d.literature_number;
+                    d.literature_number = + d.literature_number;
                 });
 
                 // scale the range of the data
@@ -69,21 +70,19 @@ function literatureBarChartYearly(LiteratureYearly) {
                     .selectAll("text")
                     .style("text-anchor", "end")
                     .attr("class", "axis-text")
-                    .attr("dx", "-.62em")
-                    .attr("dy", "-.5em")
-                    .attr("transform", "rotate(-90)" );
+                    .attr("dx", "1.1em")
+                    .attr("dy", "1.4em");
+                    //.attr("transform", "rotate(-90)" );
 
-                /*
-                svg.append("g")
-                    .attr("class", "y axis")
-                    .call(yAxis)
-                    .append("text")
-                    .attr("transform", "rotate(-90)")
-                    .attr("y", 5)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("Frequency");
-                */
+                //svg.append("g")
+                //    .attr("class", "y axis")
+                //    .call(yAxis)
+                //    .append("text")
+                //    .attr("transform", "rotate(-90)")
+                //    .attr("y", 5)
+                //    .attr("dy", ".71em")
+                //    .style("text-anchor", "end")
+                //    .text("Frequency");
 
                 // Add bar chart
                 svg.selectAll("bar")
@@ -95,8 +94,9 @@ function literatureBarChartYearly(LiteratureYearly) {
                     .attr("y", function(d) { return y(d.literature_number); })
                     .attr("height", function(d) { return height - y(d.literature_number); });
 
-                svg.append("g")
-                    .selectAll("text")
+                var xAxisText = svg.append('g');
+
+                xAxisText.selectAll("text")
                     .data(data)
                     .enter().append("text")
                     .text(function(d){ return d.literature_number; })
@@ -105,10 +105,11 @@ function literatureBarChartYearly(LiteratureYearly) {
                     .attr("class", "text")
                     .attr("text-anchor", "middle");
 
-                svg.append("text")
-                    .attr("x", 10)
-                    .attr("y", 10)
-                    .attr("text-anchor", "left")
+                svg.append('g')
+                    .append("text")
+                    .attr("x", width / 2)
+                    .attr("y", height + margin.top + 5)
+                    .attr("text-anchor", "middle")
                     .attr("class", "chart-title")
                     .text("Yearly trend of peer-reviewed publications");
 

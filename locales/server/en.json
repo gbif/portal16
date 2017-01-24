@@ -1844,7 +1844,8 @@
   "theGbifNetWork": {
     "peerReviewedPublicationBy": "Peer-reviewed publications by",
     "authorsFrom": "Authors from",
-    "countries": "Countries"
+    "countries": "Countries",
+    "chartPublicationYearly": "Yearly trend of peer-reviewed publications"
   },
   "region": {
     "GLOBAL": "Global",

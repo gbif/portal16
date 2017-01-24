@@ -36,7 +36,15 @@ router.get('/literature-yearly/count', (req, res, next) => {
     Literature.yearly(req.query)
         .then(literatureByYear => {
             if (Array.isArray(literatureByYear)) {
-                res.json(literatureByYear);
+                // strip out the results prior to 2008
+                let literatureByYearFrom2008 = [];
+                literatureByYear.forEach(y => {
+                    if (y.year >= 2008) {
+                        literatureByYearFrom2008.push(y);
+                    }
+                });
+
+                res.json(literatureByYearFrom2008);
             }
             else {
                 let reason = 'Data format issue: not expected array';

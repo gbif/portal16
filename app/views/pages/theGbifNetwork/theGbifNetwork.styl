@@ -36,12 +36,11 @@
 .entity-counts {
     vertical-align middle
     text-align left
-    
     .entity-count {
         display inline-block
         vertical-align middle
         margin-left vrBlock(1)
-        
+
         > div {
             display inline-block
         }
@@ -116,7 +115,6 @@
     ol {
         margin 0
         padding 0 vrBlock(1)
-        
         li {
             margin-left 15px
             list-style-type decimal
@@ -171,7 +169,6 @@
     padding-bottom 40%
     max-width 600px
     margin 0 auto
-    
     literature-bar-chart-yearly {
         margin-top vrBlock(1)
     }
@@ -193,22 +190,22 @@
         stroke #000
         shape-rendering crispEdges
     }
-    
+
     .text {
         font-family sans-serif
         font-size 14px
         fill $blueTintedBlack
     }
-    
+
     .chart-title {
         font-family sans-serif
         font-size 14px
         fill $blueTintedBlack
     }
-    
+
     .axis-text {
         font-family sans-serif
-        font-size 11px
+        font-size 12px
         fill $blueTintedBlack
     }
 
@@ -229,6 +226,11 @@
     }
 }
 
+.map-background {
+    fill none
+    pointer-events all
+}
+
 .svg-container {
     position relative
     padding-bottom 49%
@@ -241,3 +243,15 @@
     left 0
 }
 
+.graticule {
+    fill: none;
+    stroke: #777;
+    stroke-opacity: .5;
+    stroke-width: .5px;
+}
+
+.boundary {
+    fill: none;
+    stroke: #fff;
+    stroke-width: .5px;
+}
