@@ -8,7 +8,7 @@ angular
     .directive('literatureBarChartYearly', literatureBarChartYearly);
 
 /** @ngInject */
-function literatureBarChartYearly(LiteratureYearly) {
+function literatureBarChartYearly(LiteratureYearly, $translate) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -105,13 +105,15 @@ function literatureBarChartYearly(LiteratureYearly) {
                     .attr("class", "text")
                     .attr("text-anchor", "middle");
 
-                svg.append('g')
-                    .append("text")
-                    .attr("x", width / 2)
-                    .attr("y", height + margin.top + 5)
-                    .attr("text-anchor", "middle")
-                    .attr("class", "chart-title")
-                    .text("Yearly trend of peer-reviewed publications");
+                $translate('theGbifNetwork.chartPublicationYearly').then(function (translation){
+                    svg.append('g')
+                        .append("text")
+                        .attr("x", width / 2)
+                        .attr("y", height + margin.top + 5)
+                        .attr("text-anchor", "middle")
+                        .attr("class", "chart-title")
+                        .text(translation);
+                });
 
             }, function(error){
                 return error;

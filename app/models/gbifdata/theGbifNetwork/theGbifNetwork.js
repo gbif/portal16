@@ -116,13 +116,21 @@ theGbifNetwork.counts = query => {
  * 3) Decorate objects with literature counts.
  * 4) Decorate objects with participant details.
  */
-theGbifNetwork.getCountries = () => {
+theGbifNetwork.getCountries = (iso2) => {
     let deferred = Q.defer();
     let requestUrl = dataApi.countryEnumeration.url;
     let options = {};
     helper.getApiDataPromise(requestUrl, options)
         .then(countries => {
             let countryTasks = [];
+
+            // if iso2 is specified, reduce the countries array.
+            if (typeof iso2 !== 'undefined') {
+                countries = countries.filter(country => {
+                    return country.iso2 === iso2;
+                });
+            }
+
             countries.forEach(country => {
                 countryTasks.push(getDataCount(country)
                     .then(() => {
@@ -149,6 +157,7 @@ theGbifNetwork.getCountries = () => {
 
 /**
  * Gather specified API calls to digest for counts.
+ * @todo add Sample datasets
  * @param country
  */
 function getDataCount(country) {
@@ -164,7 +173,7 @@ function getDataCount(country) {
         {'name': 'occurrenceAbout', 'urlTemplate': dataApi.occurrence.url + 'count?country='},
         {'name': 'occurrenceFrom', 'urlTemplate': dataApi.occurrence.url + 'search?limit=0&publishingCountry='},
         {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
-        {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='}
+        {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
     ];
     calls.forEach(call => {
         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)

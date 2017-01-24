@@ -570,6 +570,81 @@ function getPersonContact(personId, contacts) {
     return deferred.promise;
 }
 
+Directory.getPersonDetail = personId => {
+    var deferred = Q.defer();
+    var requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    var options = Directory.authorizeApiCall(requestUrl);
+
+    helper.getApiDataPromise(requestUrl, options)
+        .then(detail => {
+            deferred.resolve(detail);
+        })
+        .catch(e => {
+            let reason = e + ' in getPersonDetail().';
+            deferred.reject(new Error(reason));
+            log.info(reason);
+        });
+
+    return deferred.promise;
+};
+
+Directory.getParticipantHeads = pid => {
+    var deferred = Q.defer(),
+        heads = {'HEAD_OF_DELEGATION': {}, 'NODE_MANAGER':{}},
+        pDetail = {};
+
+    getParticipantDetails(pid)
+        .then(participant => {
+            pDetail.id = participant.id;
+            pDetail.name = participant.name;
+            pDetail.type = participant.type;
+            pDetail.participationStatus = participant.participationStatus;
+            pDetail.participantUrl = participant.participantUrl;
+            pDetail.membershipStart = participant.membershipStart;
+            pDetail.gbifRegion = participant.gbifRegion;
+            pDetail.countryCode = participant.countryCode;
+            Directory.setMembership(pDetail);
+
+            if (participant.hasOwnProperty('people') && participant.people.length > 0) {
+                let hod = participant.people.filter(person => {
+                    return person.role === 'HEAD_OF_DELEGATION';
+                });
+                heads.HEAD_OF_DELEGATION = hod[0];
+            }
+            if (participant.hasOwnProperty('nodes') && participant.nodes.length > 0) {
+                return getNodeDetails(participant.nodes[0].id)
+            } else {
+                return null;
+            }
+        })
+        .then(node => {
+            if (node !== null && node.hasOwnProperty('people') && node.people.length > 0) {
+                let nm = node.people.filter(person => {
+                    return person.role === 'NODE_MANAGER';
+                });
+                heads.NODE_MANAGER = nm[0];
+            }
+            let tasks = [];
+            Object.keys(heads).forEach(role => {
+                tasks.push(Directory.getPersonDetail(heads[role].personId)
+                    .then(person => {
+                        heads[role] = person;
+                    }));
+            });
+            return Q.all(tasks)
+                .then(() => {
+                    heads.participantInfo = pDetail;
+                    deferred.resolve(heads);
+                })
+        })
+        .catch(e => {
+            let reason = e + ' in getParticipantHeads().';
+            deferred.reject(new Error(reason));
+            log.info(reason);
+        });
+    return deferred.promise;
+};
+
 Directory.setMembership = p => {
     // determine membership type
     if (p.type == 'COUNTRY' && p.participationStatus == 'VOTING') {

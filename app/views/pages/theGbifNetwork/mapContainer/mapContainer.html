@@ -1,0 +1,46 @@
+<div>
+    <div id="map" class="svg-container"></div>
+        <div id="infoPane" ng-class="infoPaneStatus ? 'map-info-overlay': 'map-info-overlay--none'">
+        <h1 ng-bind="vm.heads.participantInfo.name"></h1>
+        <ul class="info-pane__header">
+            <li>
+                <strong translate="directory.{{vm.heads.participantInfo.membershipType}}.one"></strong>
+                <strong translate="theGbifNetwork.since"></strong>
+                <strong ng-bind="vm.heads.participantInfo.membershipStart"></strong>
+            </li>
+            <li>
+                <span class="text-capitalize" translate="role.HEAD_OF_DELEGATION"></span>
+                <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.firstName"></strong>
+                <strong ng-bind="vm.heads.HEAD_OF_DELEGATION.surname"></strong>
+            </li>
+            <li>
+                <span class="text-capitalize" translate="role.NODE_MANAGER"></span>
+                <strong ng-bind="vm.heads.NODE_MANAGER.firstName"></strong>
+                <strong ng-bind="vm.heads.NODE_MANAGER.surname"></strong>
+            </li>
+        </ul>
+        <ul class="info-pane__digest">
+            <li><strong ng-bind=""></strong></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="mapLegend" class="map-legend-toggle" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
+        <header ng-click="vm.expanded = !vm.expanded">
+            <h4 translate="theGbifNetwork.legend"></h4>
+            <span class="gb-icon-angle-up" ng-show="!vm.expanded"></span>
+            <span class="gb-icon-angle-down" ng-show="vm.expanded"></span>
+        </header>
+        <ul>
+            <li ng-click="vm.vpChecked = !vm.vpChecked; vm.toggleParticipant()">
+                <div ng-class="vm.vpChecked ? 'square-vp--checked': 'square-vp--unchecked'"></div>
+                <label translate="directory.voting_participant.one"></label>
+            </li>
+            <li ng-click="vm.acpChecked = !vm.acpChecked; vm.toggleParticipant()">
+                <div ng-class="vm.acpChecked ? 'square-acp--checked':'square-acp--unchecked'"></div>
+                <label translate="directory.associate_country_participant.one"></label>
+            </li>
+        </ul>
+    </div>
+</div>

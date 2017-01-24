@@ -1846,7 +1846,8 @@
     "authorsFrom": "Authors from",
     "countries": "Countries",
     "chartPublicationYearly": "Yearly trend of peer-reviewed publications",
-    "legend": "Legend"
+    "legend": "Legend",
+    "since": "since"
   },
   "region": {
     "GLOBAL": "Global",

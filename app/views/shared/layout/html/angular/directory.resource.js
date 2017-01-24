@@ -46,6 +46,19 @@ var angular = require('angular');
                 })
                 ;
         })
+        .factory('ParticipantHeads', function ($resource) {
+            return $resource('/api/participant/heads/:participantId', null,
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {
+                            participantId: '@participantId'
+                        },
+                        isArray: false
+                    }
+                })
+                ;
+        })
         ;
 
 })();

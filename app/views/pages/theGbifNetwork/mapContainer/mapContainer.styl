@@ -51,11 +51,11 @@
 }
 
 /*
-.map-legend-toggle {
+.map-mapContainer-toggle {
     visibility hidden
 }
 +isAbove($tablet) {
-    .map-legend-toggle {
+    .map-mapContainer-toggle {
         visibility visible
     }
 }
@@ -94,4 +94,33 @@
     @extend .square-acp
     background-color $associateCountryParticipantDimmed
     border 1px solid $associateCountryParticipant
+}
+
+.map-info-overlay {
+    position absolute
+    text-align left
+    top 40px
+    left 450px
+    width 450px
+    height 400px
+    padding 0 20px
+    border-radius 5px
+    background-color $lightOverlayOpacity
+    z-index 1000
+
+    ul {
+        padding-left 0
+        li {
+            font-size 18px
+        }
+    }
+}
+
+.map-info-overlay--none {
+    display none
+}
+
+.info-pane__title {
+    font-size 36px
+    fill $gray80
 }

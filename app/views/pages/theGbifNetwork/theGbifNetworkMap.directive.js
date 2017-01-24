@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     d3 = require('d3'),
+    moment = require('moment'),
     topojson = require('topojson');
 
 angular
@@ -9,7 +10,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap($translate) {
+function theGbifNetworkMap(ParticipantHeads, CountryDataDigest) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -17,8 +18,7 @@ function theGbifNetworkMap($translate) {
             region: '=',
             membershipType: '='
         },
-        link: drawMap,
-        templateUrl: '/templates/pages/theGbifNetwork/legend/legend.html',
+        templateUrl: '/templates/pages/theGbifNetwork/mapContainer/mapContainer.html',
         controller: svgMap,
         controllerAs: 'vm'
     };
@@ -26,7 +26,7 @@ function theGbifNetworkMap($translate) {
     function svgMap($scope) {
         var vm = this;
 
-        // default status of the legend pane
+        // default status of the mapContainer pane
         vm.expanded = true;
 
         // membership type toggle
@@ -48,9 +48,39 @@ function theGbifNetworkMap($translate) {
             }
         };
 
-    }
+        $scope.infoPaneStatus = false;
+        $scope.$watch('infoPaneStatus', function(){
+            if ($scope.infoPaneStatus === true) {
+                if ($scope.participantId && $scope.ISO2) {
+                    ParticipantHeads.get({participantId: $scope.participantId}, function(result){
+                        vm.heads = result;
 
-    function drawMap(scope, element, attrs) {
+                        // convert membershipStart to just year
+                        vm.heads.participantInfo.membershipStart
+                            = moment(vm.heads.participantInfo.membershipStart, 'MMMM YYYY').format('YYYY');
+
+                    });
+                    CountryDataDigest.get({iso2: $scope.ISO2}, function(result){
+                        vm.digest = result[0];
+                    });
+                }
+            }
+        });
+
+        $scope.$watch('region', function(){
+            zoomToRegion($scope.region);
+        });
+
+        $scope.$watch('membershipType', function(){
+            if (centered) {
+                zoomToPolygon(centered);
+            }
+            else {
+                zoomToRegion($scope.region);
+            }
+        });
+
+        // Draw map
         var color = {
             'voting_participant': '#4E9F37',
             'associate_country_participant': '#58BAE9'
@@ -94,8 +124,8 @@ function theGbifNetworkMap($translate) {
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-        svg.append('rect')
-            .attr('class', 'map-background')
+        var background = svg.append('rect');
+        background.attr('class', 'map-background')
             .attr('width', svgWidth)
             .attr('height', svgHeight)
             .on('click', clicked);
@@ -126,23 +156,14 @@ function theGbifNetworkMap($translate) {
                 .data(topojson.feature(topology, topology.objects.tracts).features)
                 .enter().append("path")
                 .attr("d", path)
-                .on('click', clicked)
-                .attr('class', 'boundary');
+                .attr('class', 'boundary')
+                .on('click', clicked);
 
-            zoomToRegion(scope.region);
-
-            scope.mapLoaded = true;
-        });
-
-        scope.$watch('region', function(){
-            zoomToRegion(scope.region);
-        });
-
-        scope.$watch('membershipType', function(){
-            zoomToRegion(scope.region);
+            zoomToRegion($scope.region);
         });
 
         function zoomToRegion(region) {
+            centered = null;
             var bounds = regionBoxes[region],
                 dx = bounds[1][0] - bounds[0][0],
                 dy = bounds[1][1] - bounds[0][1],
@@ -152,26 +173,7 @@ function theGbifNetworkMap($translate) {
                 translate = [width / 2 - scale * x, height / 2 - scale * y];
 
             g.selectAll('path')
-                .attr("fill", function(d){
-                    var p = d.properties;
-                    if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
-                        if (scope.region == 'GLOBAL') {
-                            if (scope.membershipType !== 'none') {
-                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
-                                    return color[d.properties.membershipType];
-                                }
-                            }
-                        }
-                        else if (p.gbifRegion == scope.region) {
-                            if (scope.membershipType !== 'none') {
-                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
-                                    return color[d.properties.membershipType];
-                                }
-                            }
-                        }
-                    }
-                    return '#DFDDCF';
-                });
+                .attr("fill", colorParticipant);
 
             g.transition()
                 .duration(750)
@@ -185,38 +187,77 @@ function theGbifNetworkMap($translate) {
 
         }
 
+        function zoomToPolygon(d) {
+            centered = d;
+
+            var bounds = path.bounds(d),
+                dx = bounds[1][0] - bounds[0][0],
+                dy = bounds[1][1] - bounds[0][1],
+                x = (bounds[0][0] + bounds[1][0]) / 2,
+                y = (bounds[0][1] + bounds[1][1]) / 2,
+                scale = 0.9 / Math.max(dx / width, dy / height),
+                translate = [width / 3 - scale * x, height / 1.6 - scale * y];
+
+            g.selectAll('path')
+                .attr("fill", colorParticipant);
+
+            g.transition()
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+            shadow.transition()
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+            participantDigest(d);
+        }
+
+        function colorParticipant(d) {
+            var p = d.properties;
+            if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
+                if ($scope.region == 'GLOBAL') {
+                    if ($scope.membershipType !== 'none') {
+                        if ($scope.membershipType === 'active' || $scope.membershipType === p.membershipType) {
+                            return color[d.properties.membershipType];
+                        }
+                    }
+                }
+                else if (p.gbifRegion == $scope.region) {
+                    if ($scope.membershipType !== 'none') {
+                        if ($scope.membershipType === 'active' || $scope.membershipType === p.membershipType) {
+                            return color[d.properties.membershipType];
+                        }
+                    }
+                }
+            }
+            return '#DFDDCF';
+        }
+
         function clicked(d) {
             if (typeof d === 'undefined') {
-                zoomToRegion(scope.region);
+                $scope.infoPaneStatus = false;
+                zoomToRegion($scope.region);
             }
             else {
-                var x, y, k;
                 if (d && centered !== d) {
-                    var centroid = path.centroid(d);
-                    x = centroid[0];
-                    y = centroid[1];
-                    k = 4;
-                    centered = d;
-                    g.selectAll("path")
-                        .classed("active-polygon", centered && function(d) { return d === centered; });
-
-                    g.transition()
-                        .duration(750)
-                        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                        .style("stroke-width", 1.5 / k + "px");
-
-                    shadow.transition()
-                        .duration(750)
-                        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                        .style("stroke-width", 1.5 / k + "px");
-
+                    $scope.infoPaneStatus = true;
+                    zoomToPolygon(d);
                 } else {
                     centered = null;
-                    zoomToRegion(scope.region);
+                    $scope.infoPaneStatus = false;
+                    zoomToRegion($scope.region);
                 }
-
             }
+            $scope.$apply();
         }
+
+        function participantDigest(d) {
+            $scope.participantId = d.properties.id;
+            $scope.ISO2 = d.properties.ISO2;
+        }
+
     }
 }
 

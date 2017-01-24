@@ -235,7 +235,8 @@
 }
 
 .map-background {
-    fill none
+    // This has to be filled or the background won't accept clicking.
+    fill $lightBackground
 }
 
 .map-shadow {
@@ -266,16 +267,4 @@
 
 .svg-map-container {
     position relative
-}
-+isAbove($tablet){
-    .svg-map-container {
-    }
-}
-+isAbove($laptop){
-    .svg-map-container {
-    }
-}
-+isAbove($desktop){
-    .svg-map-container {
-    }
 }
