@@ -7,7 +7,7 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $filter, $stateParams, $location) {
+function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope, $filter, $stateParams, $location) {
     var vm = this;
 
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA']

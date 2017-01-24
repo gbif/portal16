@@ -1,6 +1,6 @@
 <div>
     <div id="map" class="svg-container"></div>
-    <div id="mapLegend" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
+    <div id="mapLegend" class="map-legend-toggle" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
         <header ng-click="vm.expanded = !vm.expanded">
             <h4 translate="theGbifNetwork.legend"></h4>
             <span class="gb-icon-angle-up" ng-show="!vm.expanded"></span>

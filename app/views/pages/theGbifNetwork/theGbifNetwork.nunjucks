@@ -51,6 +51,7 @@
             <div class="container--desktop">
                 <div class="row main-counts">
                     <div class="col-xs-12">
+                        <div class="map-selector-spacing"></div>
                         <div class="update-region">
                             <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
                             <div ng-if="vm.updatedCounts === 3">

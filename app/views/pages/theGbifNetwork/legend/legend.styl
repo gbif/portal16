@@ -1,7 +1,7 @@
 .map-legend {
     position absolute
     padding 0 20px 0 20px
-    margin-left 70px
+    margin 0 auto
     bottom 0
     background-color rgba(173,203,220,0.2)
     box-shadow -1px -1px 2px 2px rgba(235,235,235,0.2)
@@ -20,39 +20,46 @@
         padding-left 0
         padding-bottom 10px
         text-align left
-        visibility visible
         height auto
         transition height 1s ease-out
+        label {
+            margin-left 8px
+        }
+        li {
+            outline none
+            >div {
+                cursor pointer
+            }
+        }
     }
 }
 
 .map-legend-folded {
-    position absolute
-    padding 0 20px 0 20px
-    margin-left 70px
-    bottom 0
-    background-color rgba(173,203,220,0.2)
-    box-shadow -1px -1px 2px 2px rgba(235,235,235,0.2)
-
-    header {
-        outline none
-    }
-    h4 {
-        text-align center
-        display inline-block
-    }
-    span {
-        font-size 20px
-    }
+    @extend .map-legend
     ul {
-        padding-left 0
-        padding-bottom 0
-        text-align left
-        visibility hidden
         height 0
+        overflow hidden
+        padding-bottom 0
         transition height 1s ease-out
     }
 }
+
++isAbove($toggle) {
+    .map-legend {
+        left 70px
+    }
+}
+
+/*
+.map-legend-toggle {
+    visibility hidden
+}
++isAbove($tablet) {
+    .map-legend-toggle {
+        visibility visible
+    }
+}
+*/
 
 .square-vp {
     display inline-block
@@ -87,19 +94,4 @@
     @extend .square-acp
     background-color $associateCountryParticipantDimmed
     border 1px solid $associateCountryParticipant
-}
-
-.map-legend {
-    input[type=checkbox] {
-
-    }
-    label {
-        margin-left 8px
-    }
-    li {
-        outline none
-        >div {
-            cursor pointer
-        }
-    }
 }
