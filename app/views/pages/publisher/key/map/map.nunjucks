@@ -10,9 +10,10 @@
                             The map shows georeferenced data for all published datasets.
                         </p>
                         <iframe id="mapframe" name="mapframe"
-                                src="http://api.gbif.org/v1/map/index.html?type=PUBLISHER&key={$ publisher.record.key $}&style=classic&resolution=4"
+                                src="//api.gbif.org/v1/map/index.html?type=PUBLISHER&key={$ publisher.record.key $}&style=classic&resolution=4"
                                 allowfullscreen height="360px" width="100%" frameborder="0"/>
                         </iframe>
+                        {#<gbmap publishing-org="'{$ publisher.record.key $}'" mapstyle="'light'" style="height:400px"></gbmap>#}
                     </div>
                 </div>
 
