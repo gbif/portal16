@@ -53,7 +53,7 @@
                                             <div>
                                                 <a href="#citation" class="doi"><span
                                                             class="gb-icon-quote"></span><span>Citation</span></a>
-                                                <a href="{$ dataset.record.doi $}" class="doi"><span>DOI</span><span>{$ dataset.record.doi $}</span></a>
+                                                <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ dataset.record.doi | readableDOI $}</span></a>
                                             </div>
                                         </dl>
                                     </div>

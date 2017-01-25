@@ -48,7 +48,7 @@ function getBibliographicReference(ref) {
 function formatDoi(doi) {
     return {
         type: 'DOI',
-        ref: 'http://dx.doi.org/' + doi,
+        ref: 'https://doi.org/' + doi,
         text: doi
     }
 }

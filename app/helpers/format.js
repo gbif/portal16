@@ -152,5 +152,7 @@ module.exports = {
     sanitizeTrusted: sanitizeTrusted,
     addPortalClasses: addPortalClasses,
     insertLinks: linkTools.insertLinks,
-    linkify: linkTools.linkify
+    linkify: linkTools.linkify,
+    getDOILink: linkTools.getDOILink,
+    readableDOI: linkTools.readableDOI
 };

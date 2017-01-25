@@ -119,6 +119,14 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('getDOILink', format.getDOILink);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('readableDOI', format.readableDOI);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;
