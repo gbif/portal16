@@ -36,8 +36,19 @@ var angular = require('angular');
                         params: {gbifRegion: '@gbifRegion'},
                         isArray: false
                     }
-                })
-                ;
+                });
+        })
+        // Accepting iso2 as param
+        // return number of endorsed publishers
+        .factory('PublisherEndorsedBy', function ($resource) {
+            return $resource('/api/publisher/endorsed-by/:iso2', null,
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {iso2: '@iso2'},
+                        isArray: false
+                    }
+                });
         })
         ;
 })();

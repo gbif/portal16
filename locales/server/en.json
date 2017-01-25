@@ -1847,7 +1847,8 @@
     "countries": "Countries",
     "chartPublicationYearly": "Yearly trend of peer-reviewed publications",
     "legend": "Legend",
-    "since": "since"
+    "since": "since",
+    "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}"
   },
   "region": {
     "GLOBAL": "Global",

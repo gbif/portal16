@@ -89,7 +89,22 @@ PublisherRegional.groupBy = (query) => {
     return deferred.promise;
 };
 
+PublisherRegional.numberEndorsedBy = (iso2) => {
+    let deferred = Q.defer(),
+        requestUrl = dataApi.publisher.url + '?country=' + iso2;
 
+    helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}})
+        .then(result => {
+            deferred.resolve(result);
+        })
+        .catch(e => {
+            let reason = e + ' in publisherRegional.numberEndorsedBy().';
+            log.info(reason);
+            return deferred.reject(reason);
+        });
+
+    return deferred.promise;
+};
 
 
 

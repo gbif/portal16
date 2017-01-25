@@ -29,3 +29,14 @@ router.get('/publisher/count', (req, res, next) => {
             next(err)
         });
 });
+
+router.get('/publisher/endorsed-by/:iso2?', (req, res, next) => {
+    PublisherRegional.numberEndorsedBy(req.params.iso2)
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            log.error('Error in /api/publisher/endorsed-by/:iso2 controller: ' + err.message);
+            next(err)
+        });
+});

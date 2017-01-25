@@ -10,7 +10,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap(ParticipantHeads, CountryDataDigest) {
+function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -27,7 +27,7 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest) {
         var vm = this;
 
         // default status of the mapContainer pane
-        vm.expanded = true;
+        vm.expanded = false;
 
         // membership type toggle
         vm.vpChecked = false;
@@ -58,10 +58,13 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest) {
                         // convert membershipStart to just year
                         vm.heads.participantInfo.membershipStart
                             = moment(vm.heads.participantInfo.membershipStart, 'MMMM YYYY').format('YYYY');
-
                     });
                     CountryDataDigest.get({iso2: $scope.ISO2}, function(result){
                         vm.digest = result[0];
+                    });
+                    PublisherEndorsedBy.get({iso2: $scope.ISO2}, function(result){
+                        vm.endorsedPublisher = result.count;
+                        vm.endorsedPublisherForm = result.count === 1 ? 'one' : 'other';
                     });
                 }
             }

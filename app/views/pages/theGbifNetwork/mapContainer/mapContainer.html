@@ -20,7 +20,12 @@
             </li>
         </ul>
         <ul class="info-pane__digest">
-            <li><strong ng-bind=""></strong></li>
+            <li ng-if="vm.endorsedPublisher > 0">
+                <strong ng-bind="vm.endorsedPublisher"></strong>
+                <span translate="theGbifNetwork.endorsedDataPublisher"
+                      translate-values="{ NUMBER: vm.endorsedPublisherForm }"
+                      translate-interpolation="messageformat"></span>
+            </li>
             <li></li>
             <li></li>
             <li></li>
