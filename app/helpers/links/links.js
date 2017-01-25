@@ -35,7 +35,7 @@ function insertLinks(text, links, target) {
     return res;
 }
 
-function linkify(text) {
+function linkify(text, options) {
     options = options || {};
     options.newWindow = options.newWindow || false;
     options.phone = options.phone || false;
