@@ -157,6 +157,7 @@ require('../../../components/enumFilter/enumFilter.directive');
 require('../../../components/filterTaxon/filterTaxon.directive');
 require('../../../components/filterSuggest/filterSuggest.directive');
 require('../../../components/filterLocation/filterLocation.directive');
+require('../../../components/filterLocation/filterLocationMap.directive');
 require('../../../components/filterInterval/filterInterval.directive');
 require('../../../components/filterFacet/filterFacet.directive');
 require('../../../components/count/count.directive');

@@ -18,7 +18,7 @@
         </div>
 
         <div class="is-padded overflow-hidden">
-            <div class="checkbox" ng-if="!vm.geometryOptions.length && vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
+            <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
                     <input type="checkbox" ng-click="vm.hasCoordinate=undefined; vm.hasCoordinateChange();" checked>
                     <span ng-if="vm.hasCoordinate">
@@ -29,25 +29,41 @@
                     </span>
                 </label>
             </div>
-            <div class="checkbox" ng-if="vm.hasCoordinate && (vm.includeSuspicious || vm.filterConfig.expanded)">
+            <div class="checkbox" ng-if="vm.includeSuspicious || vm.filterConfig.expanded">
                 <label>
-                    <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()">
+                    <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()" ng-disabled="!vm.hasCoordinate">
                     <span>
                         Include suspicious locations
                     </span>
                 </label>
             </div>
-            <div ng-if="vm.query.length">
-                <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
-                    <label>
-                        <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
+            <div class="checkbox p-l-05" ng-repeat="geometry in vm.geometryOptions" ng-if="!vm.filterConfig.expanded && vm.hasCoordinate !== false && vm.geometryOptions.length > 0">
+                <label>
+                    <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
                         <span class="filter-group__filter__name">
                             <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                         </span>
-                    </label>
+                </label>
+            </div>
+
+            <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false" class="card">
+                <div class="card__stripe" ng-class="{fadeImages: !vm.hasCoordinate}">
+                    <filter-location-map></filter-location-map>
+                </div>
+                <div class="card__stripe" ng-if="vm.query.length">
+                    <div class="card__content">
+                        <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
+                            <label>
+                                <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
+                                <span class="filter-group__filter__name">
+                                    <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded" class="seperator">
+            <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded && vm.hasCoordinate !== false" class="seperator">
                 <div class="checkbox" ng-repeat="geometry in vm.geometrySuggestions | limitTo:5 ">
                     <label>
                         <input type="checkbox" ng-model="geometry.active" ng-change="vm.addToList($index, geometry)">
@@ -60,10 +76,7 @@
 
         </div>
 
-        <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate" class="is-padded">
-            <div>
-                show on map and allow for drawing and deleting. drawing on the large map should also be possible.
-            </div>
+        <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false " class="is-padded">
             <div class="is-padded">
                 input in text field as either wkt or geojson
                 <textarea ng-model="vm.geometryString" class="vert" placeholder="WKT or geoJson - multipolygons currently not supported">

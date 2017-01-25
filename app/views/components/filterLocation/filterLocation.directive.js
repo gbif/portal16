@@ -153,6 +153,7 @@ function filterLocationDirective() {
         };
 
         vm.addToList = function (index, geom) {
+            vm.hasCoordinate = true;
             addGeometryOption(vm.geometryOptions, geom.q, true);
             if (geom.valid) {
                 addGeometrySuggestion(geom.q);

@@ -152,7 +152,7 @@ config.assets = {
  * Static assets from vendors. fx. leaflet icon images
  */
 config.vendorAssets = {
-    paths: [loc('bower_components/leaflet/dist/images/**/*.png')],
+    paths: [loc('bower_components/leaflet/dist/images/**/*.png'), loc('bower_components/leaflet-draw/dist/images/**/*.png')],
     dest: config.paths.dist + '/img'
 };
 
