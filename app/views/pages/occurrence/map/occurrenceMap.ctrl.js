@@ -14,6 +14,9 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
         show: false,
         occurrences: {}
     };
+
+    var adhocTileApi = env.dataApiV2.replace('//', ''); //TODO this becomes an issue everywhere we use subdomains. If not http2 then this should be done differently
+
     var toCamelCase = function (str) {
         return str.replace(/_([a-z])/g, function (g) {
             return g[1].toUpperCase();
@@ -23,7 +26,7 @@ function occurrenceMapCtrl($state, $scope, leafletData, mapConstants, $httpParam
     var getOverlay = function (query) {
         var overlay = {
             name: 'gb',
-            url: "//{s}-api.gbif-uat.org/v2/map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&" + toCamelCase($httpParamSerializer(query)),
+            url: '//{s}-' + adhocTileApi + 'map/occurrence/adhoc/{z}/{x}/{y}.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&' + toCamelCase($httpParamSerializer(query)),
             type: 'xyz',
             visible: true,
             layerParams: {
