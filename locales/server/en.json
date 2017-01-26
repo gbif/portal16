@@ -1848,7 +1848,15 @@
     "chartPublicationYearly": "Yearly trend of peer-reviewed publications",
     "legend": "Legend",
     "since": "since",
-    "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}"
+    "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
+    "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
+    "record": "{NUMBER, select, one{record} other{records}}",
+    "checklistDatasetWith": "checklist {NUMBER, select, one{dataset} other{datasets}} with",
+    "metadataDataset": "metadata-only {NUMBER, select, one{dataset} other{datasets}}",
+    "sampleEventDatasetWith": "sample event {NUMBER, select, one{dataset} other{datasets}} with",
+    "publishesDataCovering": "Publishes data covering",
+    "countriesTerritoriesAndIslands": "countries, territories and islands",
+    "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}"
   },
   "region": {
     "GLOBAL": "Global",

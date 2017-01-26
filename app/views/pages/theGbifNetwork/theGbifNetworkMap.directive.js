@@ -49,7 +49,23 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
         };
 
         $scope.infoPaneStatus = false;
-        $scope.$watch('infoPaneStatus', function(){
+        $scope.$watch('infoPaneStatus', updateCountryDigest);
+        $scope.$watch('participantId', updateCountryDigest);
+        $scope.$watch('ISO2', updateCountryDigest);
+        $scope.$watch('region', function(){
+            zoomToRegion($scope.region);
+        });
+
+        $scope.$watch('membershipType', function(){
+            if (centered) {
+                zoomToPolygon(centered);
+            }
+            else {
+                zoomToRegion($scope.region);
+            }
+        });
+
+        function updateCountryDigest() {
             if ($scope.infoPaneStatus === true) {
                 if ($scope.participantId && $scope.ISO2) {
                     ParticipantHeads.get({participantId: $scope.participantId}, function(result){
@@ -68,20 +84,16 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
                     });
                 }
             }
-        });
-
-        $scope.$watch('region', function(){
-            zoomToRegion($scope.region);
-        });
-
-        $scope.$watch('membershipType', function(){
-            if (centered) {
-                zoomToPolygon(centered);
-            }
             else {
-                zoomToRegion($scope.region);
+                // clean up all variables so un-updated values won't show
+                var propertiesToDelete = ['heads', 'digest', 'endorsedPublisher', 'endorsedPublisherForm'];
+                propertiesToDelete.forEach(function(p){
+                    if (vm.hasOwnProperty(p) === true) {
+                        delete vm[p];
+                    }
+                });
             }
-        });
+        }
 
         // Draw map
         var color = {

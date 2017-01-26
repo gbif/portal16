@@ -9,7 +9,7 @@ module.exports = app => {
 };
 
 router.get('/country/digest/:iso2?', (req, res, next) => {
-    TheGbifNetwork.getCountries(req.params.iso2)
+    TheGbifNetwork.getCountries(req.params.iso2.toUpperCase())
         .then(data => {
             res.json(data);
         })

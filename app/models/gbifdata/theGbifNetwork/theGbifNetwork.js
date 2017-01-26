@@ -14,6 +14,7 @@ let helper = require('../../util/util'),
     Q = require('q'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
+    cmsApi = require('../../cmsData/apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
     Literature = require('../../cmsData/literature/literature'),
@@ -167,13 +168,14 @@ function getDataCount(country) {
         {'name': 'checklistDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=CHECKLIST&country='},
         {'name': 'checklistDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=CHECKLIST&publishingCountry='},
         {'name': 'datasetAbout', 'urlTemplate': dataApi.occurrence.url + 'counts/datasets?country='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + '/search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
         {'name': 'metadataDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=METADATA&country='},
         {'name': 'metadataDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=METADATA&publishingCountry='},
         {'name': 'occurrenceAbout', 'urlTemplate': dataApi.occurrence.url + 'count?country='},
         {'name': 'occurrenceFrom', 'urlTemplate': dataApi.occurrence.url + 'search?limit=0&publishingCountry='},
         {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
         {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
+        {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='},
     ];
     calls.forEach(call => {
         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)
