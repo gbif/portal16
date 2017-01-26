@@ -41,7 +41,6 @@ function filterLocationMapDirective() {
             return vm.state.query.geometry
         }, function (newQuery) {
             var query = $filter('unique')(newQuery);
-            console.log('update map');
             map.update(query);
         });
     }

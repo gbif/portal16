@@ -172,7 +172,6 @@ function filterLocationDirective() {
         };
 
         vm.apply = function () {
-            console.log('apply');
             var filters = {
                 has_coordinate: vm.hasCoordinate,
                 has_geospatial_issue: undefined,
@@ -195,7 +194,6 @@ function filterLocationDirective() {
 module.exports = filterLocationDirective;
 
 function parseStringToWKTs(str) {
-    console.log('parse');
     var leafletGeoJson, wktGeometries = [];
     //assume geojson
     try {
@@ -223,7 +221,6 @@ function parseStringToWKTs(str) {
                 throw 'Not valid wkt';
             }
         } catch(err) {
-            console.log('NOT A VALID WKT OR GEOJSON');
             return {
                 error: 'FAILED_PARSING'
             }

@@ -17,6 +17,13 @@
             </div>
         </div>
 
+
+        <div class="is-padded">
+            <bbox-filter></bbox-filter>
+        </div>
+
+
+
         <div class="is-padded overflow-hidden">
             <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
@@ -50,15 +57,20 @@
                 <div class="card__stripe" ng-class="{fadeImages: !vm.hasCoordinate}">
                     <filter-location-map></filter-location-map>
                 </div>
-                <div class="card__stripe" ng-if="vm.query.length">
-                    <div class="card__content">
-                        <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
-                            <label>
-                                <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
-                                <span class="filter-group__filter__name">
-                                    <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
-                                </span>
-                            </label>
+                <div class="card__stripe">
+                    <div class="card__content" style="min-height:80px">
+                        <div ng-if="vm.query.length">
+                            <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
+                                <label>
+                                    <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
+                                    <span class="filter-group__filter__name">
+                                        <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div ng-if="!vm.query.length">
+                            No area filters added
                         </div>
                     </div>
                 </div>
@@ -78,7 +90,6 @@
 
         <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false " class="is-padded">
             <div class="is-padded">
-                input in text field as either wkt or geojson
                 <textarea ng-model="vm.geometryString" class="vert" placeholder="WKT or geoJson - multipolygons currently not supported">
 
                 </textarea>
@@ -89,6 +100,13 @@
                 slides and input fields for creating a bounding box geometry. this can also be used to do an easy latitude below x
                 <br/>
                 consider visualizing the query when creating
+                <div>
+                    <div>Globe</div>
+                    <div>
+                        Latitude
+                        <bbox-filter></bbox-filter>
+                    </div>
+                </div>
             </div>
         </div>
 

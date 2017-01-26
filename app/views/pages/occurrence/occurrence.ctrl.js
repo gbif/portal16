@@ -463,7 +463,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         titleTranslation: 'ocurrenceFieldNames.location',
         filter: OccurrenceFilter,
         queryKey: 'geometry',
-        expanded: false
+        expanded: true
     };
 
 
