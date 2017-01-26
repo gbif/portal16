@@ -21,14 +21,14 @@
             <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
             <a href="">Select file</a>
         </div>
-        <p>or</p>
+        <p class="ng-cloak">or</p>
     </div>
-    <p class="speciesLookup__dropArea text-uppercase" droppable drop="speciesLookup.handleDrop">Drop here</p>
+    <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="speciesLookup.handleDrop">Drop here</p>
     <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
     <!-- <p ng-if="speciesLookup.invalidFileFormat">
     	Invalid file format
     </p> -->
-    <div class="text-center m-t-2" ng-if="speciesLookup.error">
+    <div class="text-center m-t-2 ng-cloak" ng-if="speciesLookup.error">
         <p>Cannot read file</p>
         <span class="badge badge--error ng-cloak">{{ speciesLookup.error }}</span>
     </div>
