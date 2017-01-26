@@ -7,7 +7,7 @@
         {% include "./matchOverlay.nunjucks" %}
 
         {% include "./downloadOverlay.nunjucks" %}
-
+        <a href="" class="speciesLookup__back" onclick="location.reload();return false;"><span class="h1 gb-icon-left-arrow"></span></a>
         <div class="horizontal-stripe article-header white-background">
             <div class="row">
                 <div class="col-xs-12">

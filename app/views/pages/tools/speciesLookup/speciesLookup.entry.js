@@ -21,14 +21,13 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     };
     vm.error;
 
-    window.onbeforeunload = function(e) {
-        if (vm.species && vm.species.length > 0) {
-            var dialogText = 'By leaving the page you loose your data.';
-            e.returnValue = dialogText;
-            return dialogText;
-        }
-    };
-
+    //window.onbeforeunload = function(e) {
+    //    if (vm.species && vm.species.length > 0) {
+    //        var dialogText = 'By leaving the page you loose your data.';
+    //        e.returnValue = dialogText;
+    //        return dialogText;
+    //    }
+    //};
 
     vm.handleDrop = function (e) {
         var file = e.dataTransfer.files[0];
@@ -43,8 +42,18 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         return !!file && (file.type == '' || file.type == 'text/csv' || file.type == 'text/plain' || file.name.indexOf('.csv') > 1);
     };
 
+    function getLowerKeysObj(obj) {
+        var key, keys = Object.keys(obj);
+        var n = keys.length;
+        var newobj={};
+        while (n--) {
+            key = keys[n];
+            newobj[key.toLowerCase()] = obj[key];
+        }
+        return newobj;
+    }
+
     var parseFile = function (file) {
-        console.log(file);
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
@@ -53,29 +62,35 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         }
         var reader = new FileReader();
         reader.onload = function () {
-            var converter = new Converter({});
+            var converter = new Converter({
+                delimiter:  [',', ';', '$', '|', '\t']
+            });
             var csvString = reader.result;
             vm.error = undefined;
             converter.fromString(csvString, function (err, result) {
                 if (err) {
                     vm.error = err;
-                    $scope.$apply();
+                } else if(result.length == 0) {
+                    vm.error = 'There are no rows in the data.';
                 } else {
-                    if (result.every(function(e){return e.scientificName})) {
+                //make all keys lower to avoid casing issues
+                    result = result.map(function (e) {
+                        return getLowerKeysObj(e);
+                    });
+                    if (result.every(function(e){return e.scientificname})) {
                         result.forEach(function (e) {
                             e.originalId = e.id;
-                            e.originalName = e.scientificName;
+                            e.originalName = e.scientificname;
                             e.preferedKingdom = e.kingdom;
                             e.scientificName = undefined;
                             e.kingdom = undefined;
                         });
                         vm.species = result;
-                        $scope.$apply();
                     } else {
                         vm.error = 'all rows must have a scientificName - see example file for the required format';
-                        $scope.$apply();
                     }
                 }
+                $scope.$apply();
             });
         };
         reader.readAsText(file);
