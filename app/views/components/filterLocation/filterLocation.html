@@ -17,13 +17,6 @@
             </div>
         </div>
 
-
-        <div class="is-padded">
-            <bbox-filter></bbox-filter>
-        </div>
-
-
-
         <div class="is-padded overflow-hidden">
             <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
@@ -36,7 +29,7 @@
                     </span>
                 </label>
             </div>
-            <div class="checkbox" ng-if="vm.includeSuspicious || vm.filterConfig.expanded">
+            <div class="checkbox" ng-if="vm.hasCoordinate !== false && (vm.includeSuspicious || vm.filterConfig.expanded)">
                 <label>
                     <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()" ng-disabled="!vm.hasCoordinate">
                     <span>
@@ -58,7 +51,7 @@
                     <filter-location-map></filter-location-map>
                 </div>
                 <div class="card__stripe">
-                    <div class="card__content" style="min-height:80px">
+                    <div class="card__content" style="min-height:60px">
                         <div ng-if="vm.query.length">
                             <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
                                 <label>
@@ -75,40 +68,57 @@
                     </div>
                 </div>
             </div>
-            <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded && vm.hasCoordinate !== false" class="seperator">
-                <div class="checkbox" ng-repeat="geometry in vm.geometrySuggestions | limitTo:5 ">
-                    <label>
-                        <input type="checkbox" ng-model="geometry.active" ng-change="vm.addToList($index, geometry)">
-                        <span class="filter-group__filter__name">
-                            <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
-                        </span>
-                    </label>
-                </div>
-            </div>
 
-        </div>
-
-        <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false " class="is-padded">
-            <div class="is-padded">
-                <textarea ng-model="vm.geometryString" class="vert" placeholder="WKT or geoJson - multipolygons currently not supported">
-
-                </textarea>
-                <a href="" ng-click="vm.addString()" ng-if="vm.geometryString.length > 0">ADD</a>
-                <div ng-if="vm.invalidTextInput && vm.geometryString.length > 0">Invalid wkt or geojson</div>
-            </div>
-            <div class="is-padded">
-                slides and input fields for creating a bounding box geometry. this can also be used to do an easy latitude below x
-                <br/>
-                consider visualizing the query when creating
-                <div>
-                    <div>Globe</div>
-                    <div>
-                        Latitude
-                        <bbox-filter></bbox-filter>
+            <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false " class="is-padded">
+                <div class="filter-group--location__input-types">
+                    <div class="card">
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <div class="gb-btn-group">
+                                    <label ng-model="vm.inputType" uib-btn-radio="'BBOX'"
+                                           ng-change="vm.changeInputType()">Range</label>
+                                    <label ng-model="vm.inputType" uib-btn-radio="'GEOJSON'"
+                                           ng-change="vm.changeInputType()">GeoJson</label>
+                                    <label ng-model="vm.inputType" uib-btn-radio="'PAST'"
+                                           ng-change="vm.changeInputType()">Past</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__stripe--light" ng-if="vm.inputType=='BBOX'">
+                            <div class="card__content">
+                                <bbox-filter></bbox-filter>
+                            </div>
+                        </div>
+                        <div class="card__stripe--light" ng-if="vm.inputType=='GEOJSON'">
+                            <div class="card__content">
+                                <div class="clear-fix">
+                                    <textarea ng-model="vm.geometryString" class="noResize" placeholder="WKT or geoJson - multipolygons currently not supported" ng-change="vm.invalidTextInput = false"></textarea>
+                                    <span ng-class="{invisible: !vm.invalidTextInput}" class="badge--error badge">Invalid wkt or geojson</span>
+                                    <a href="" ng-click="vm.addString()" class="pull-right">ADD</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__stripe--light" ng-if="vm.inputType=='PAST'">
+                            <div class="card__content">
+                                <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded && vm.hasCoordinate !== false">
+                                    <div class="checkbox" ng-repeat="geometry in vm.geometrySuggestions | limitTo:5 ">
+                                        <label>
+                                            <input type="checkbox" ng-model="geometry.active" ng-change="vm.addToList($index, geometry)">
+                                        <span class="filter-group__filter__name">
+                                            <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                        </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+
 
     </div>
 </div>

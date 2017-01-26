@@ -41,29 +41,21 @@ function bboxFilterDirective() {
 
         };
 
-        /**
-         * cap latitude (north south) to be within -90 to 90. no wrapping as we do not do that when displaying the map
-         * @param n
-         * @returns {number} -110 will return -90. 92 will return 90
-         */
-        function capBounds(n) {
-            var m = typeof n === 'number' ? n : 0;
-            m = Math.min(90, m);
-            m = Math.max(-90, m);
-            return m;
-        }
-
-        /**
-         * get as wkt, but cap latitude to +-90
-         */
         function getWKT() {
-            var N = capBounds(vm.north),
-                S = capBounds(vm.south),
+            var N = vm.north,
+                S = vm.south,
                 W = vm.west,
                 E = vm.east;
+
             if (Math.abs(E-W) >= 360) {
                 W = -180;
                 E = 180;
+            }
+
+            var hasUndefined = angular.isUndefined(N) || angular.isUndefined(S) || angular.isUndefined(W) || angular.isUndefined(E);
+            if (hasUndefined || W >= E || S >= N || Math.abs(N) > 90 || Math.abs(S) > 90) {
+                vm.invalidInput = true;
+                return false;
             }
 
             var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
@@ -76,8 +68,10 @@ function bboxFilterDirective() {
 
         vm.add = function() {
             var rectangle = getWKT();
-            var geometries = $filter('unique')([rectangle].concat(vm.state.query.geometry));
-            OccurrenceFilter.updateParams({geometry: geometries});
+            if (rectangle) {
+                var geometries = $filter('unique')([rectangle].concat(vm.state.query.geometry));
+                OccurrenceFilter.updateParams({geometry: geometries});
+            }
         };
 
         var format = {
@@ -94,7 +88,7 @@ function bboxFilterDirective() {
             margin: 0.001,
             behaviour: 'drag',
             range: {
-                'min': [-359, 1],
+                'min': [-359],
                 'max': [359]
             },
             format: format,
@@ -107,7 +101,7 @@ function bboxFilterDirective() {
             margin: 0.001,
             behaviour: 'drag',
             range: {
-                'min': [-90, 1],
+                'min': [-90],
                 'max': [90]
             },
             format: format,
@@ -115,21 +109,31 @@ function bboxFilterDirective() {
             connect: true
         };
 
-        vm.longitudeSliderHandlers = {
-            change: function () { //, handle, unencoded
-                vm.snapInput();
-            }
-        };
-        vm.latitudeSliderHandlers = {
-            change: function () { //, handle, unencoded
-                vm.snapInput();
+        vm.latSliderHandlers = {
+            slide: function (values, handle, unencoded) {
+                vm.south = parseInt(unencoded[0]);
+                vm.north = parseInt(unencoded[1]);
+                vm.invalidInput = false;
             }
         };
 
-        vm.snapInput = function() {
-            vm.sliderLongitude.start[0] = parseInt(vm.sliderLongitude.start[0]);
-            vm.sliderLongitude.start[1] = parseInt(vm.sliderLongitude.start[1]);
-        }
+        vm.lngSliderHandlers = {
+            slide: function (values, handle, unencoded) {
+                vm.west = parseInt(unencoded[0]);
+                vm.east = parseInt(unencoded[1]);
+                vm.invalidInput = false;
+            }
+        };
+
+        vm.updateSliders = function() {
+            vm.sliderLongitude.start[0] = vm.west;
+            vm.sliderLongitude.start[1] = vm.east;
+
+            vm.sliderLatitude.start[0] = vm.south;
+            vm.sliderLatitude.start[1] = vm.north;
+            vm.invalidInput = false;
+        };
+
     }
 }
 

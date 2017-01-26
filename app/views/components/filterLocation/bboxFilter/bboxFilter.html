@@ -1,19 +1,42 @@
 <div>
-    <form class="bbox-filter" name="vm.form">
-        <div>Latitude</div>
-        <input required type="number" placeholder="-90" ng-model="vm.sliderLatitude.start[0]" step="0.001" min="-90" max="90" name="south">
-        <input required type="number" placeholder="90" ng-model="vm.sliderLatitude.start[1]" step="0.001" min="-90" max="90" name="north">
-        <div ya-no-ui-slider='vm.sliderLatitude'
-             ya-no-ui-slider-events='vm.latitudeSliderHandlers'>
+    <form class="bbox-filter clear-fix" name="vm.form">
+        <div class="bbox-filter__latlng container-fluid">
+            <div class="row">
+                <div class="col-xs-6">South
+                    <input required type="number" placeholder="-90" ng-change="vm.updateSliders()" ng-model="vm.south" step="0.001" min="-90" max="90" name="south">
+                </div>
+                <div class="col-xs-6">North {{vm.north}}
+                    <input required type="number" placeholder="90" ng-change="vm.updateSliders()" ng-model="vm.north" step="0.001" min="-90" max="90" name="north">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bbox-filter__latlng__slider" ya-no-ui-slider='vm.sliderLatitude'
+                         ya-no-ui-slider-events='vm.latSliderHandlers'>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div>Longitude</div>
-        <input required type="number" placeholder="-180" ng-model="vm.sliderLongitude.start[0]" step="0.001" min="-359" max="359" name="west">
-        <input required type="number" placeholder="180" ng-model="vm.sliderLongitude.start[1]" step="0.001" max="359" name="east">
-        <div ya-no-ui-slider='vm.sliderLongitude'
-             ya-no-ui-slider-events='vm.longitudeSliderHandlers'>
+        <div class="bbox-filter__latlng container-fluid">
+            <div class="row">
+                <div class="col-xs-6">West
+                    <input required type="number" placeholder="-180" ng-change="vm.updateSliders()" ng-model="vm.west" step="0.001" min="-359" max="359" name="west">
+                </div>
+                <div class="col-xs-6">East
+                    <input required type="number" placeholder="180" ng-change="vm.updateSliders()" ng-model="vm.east" step="0.001" max="359" name="east">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="bbox-filter__latlng__slider" ya-no-ui-slider='vm.sliderLongitude'
+                         ya-no-ui-slider-events='vm.lngSliderHandlers'>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <a href="" class="gb-button--flat" ng-click="vm.add()">ADD</a>
+        <span ng-class="{invisible: !vm.invalidInput}" class="badge--error badge">Invalid input</span>
+        <a href="" ng-click="vm.add()" class="gb-button--flat pull-right">ADD</a>
     </form>
 </div>

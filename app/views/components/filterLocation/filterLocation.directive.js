@@ -28,6 +28,7 @@ function filterLocationDirective() {
     /** @ngInject */
     function filterLocation($scope, $filter, OccurrenceFilter, localStorageService) {
         var vm = this;
+        vm.inputType = 'BBOX';
         vm.hasCoordinate;
         vm.title = vm.filterConfig.title;
         vm.queryKey = vm.filterConfig.queryKey || vm.filterConfig.title;
