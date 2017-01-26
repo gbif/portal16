@@ -10,6 +10,7 @@ angular
             data: {},
             facetMultiselect: {},
             failedRequest: false,
+            failedFacetRequest: false,
             query: $stateParams
         };
 
@@ -72,12 +73,12 @@ angular
 
             if (state.data.$cancelRequest) state.data.$cancelRequest();
             state.data = OccurrenceTableSearch.query(apiQuery, function () {
-                state.failedRequest = false;
+                state.failedFacetRequest = false;
                 //state.data.facets = facetArrayToMap(state.data.facets, state.data.count);
             }, function (err) {
                 if (err.status > 399) {
-                    state.failedRequest = true;
-                    state.error = err;
+                    state.failedFacetRequest = true;
+                    state.facetError = err;
                 }
             });
 
