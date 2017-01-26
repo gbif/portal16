@@ -185,8 +185,7 @@ config.rev = {
 
 config.loadRevision = function () {
     var revision = JSON.parse(fs.readFileSync('config/revision.json', 'utf8')).revision;
-    //return revision;
-    return config.isProd ? revision : 'development';
+    return revision;
 };
 
 /**
