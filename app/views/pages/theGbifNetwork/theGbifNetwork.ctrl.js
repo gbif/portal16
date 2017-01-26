@@ -100,6 +100,36 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
                 return error;
             });
     }
+
+    // Nav fix
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + type, handler);
+            } else {
+                element['on' + type] = handler;
+            }
+        }
+    };
+
+    var topClass = 'region-selector-fixed',
+        regionNav = document.getElementById('region-nav'),
+        offsetTop = regionNav.getBoundingClientRect().top;
+
+    EventUtil.addHandler(window, 'scroll', function () {
+        if (document.compatMode == 'CSS1Compat') {
+
+            if (document.body.scrollTop >= offsetTop - 50) {
+                regionNav.classList.add(topClass);
+            } else {
+                regionNav.classList.remove(topClass);
+            }
+
+        }
+    });
+
 }
 
 module.exports = theGbifNetworkCtrl;
