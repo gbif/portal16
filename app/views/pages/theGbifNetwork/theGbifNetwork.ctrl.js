@@ -7,7 +7,7 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope, $filter, $stateParams, $location) {
+function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope, $filter, $stateParams, $location, ParticipantDigest) {
     var vm = this;
 
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA']
@@ -37,6 +37,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     vm.query = $stateParams;
     vm.updatedCounts = 3;
 
+    // list non-country participants
     vm.nonCountryParticipants = [];
     if (vm.nonCountryParticipants.length == 0) {
         DirectoryParticipants.get({'gbifRegion': vm.currentRegion, 'membershipType': 'other_associate_participant'}).$promise
@@ -81,10 +82,24 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             }, function (error){
                 return error;
             });
+        loadParticipantsDigest(vm.currentRegion);
 
         var regionLower = region.toLowerCase().replace('_', '-');
         $location.path('/the-gbif-network/' + regionLower);
     };
+
+    vm.tableLoaded = false;
+    loadParticipantsDigest(vm.currentRegion);
+    function loadParticipantsDigest(region) {
+        vm.tableLoaded = false;
+        ParticipantDigest.get({'gbifRegion': region}).$promise
+            .then(function(response){
+                vm.activeParticipantsDigest = response;
+                vm.tableLoaded = true;
+            }, function(error) {
+                return error;
+            });
+    }
 }
 
 module.exports = theGbifNetworkCtrl;

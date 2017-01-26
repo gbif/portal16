@@ -59,6 +59,19 @@ var angular = require('angular');
                 })
                 ;
         })
+        .factory('ParticipantDigest', function ($resource) {
+            return $resource('/api/participants/digest', null,
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {
+                            gbifRegion: '@gbifRegion',
+                        },
+                        isArray: true
+                    }
+                })
+                ;
+        })
         ;
 
 })();

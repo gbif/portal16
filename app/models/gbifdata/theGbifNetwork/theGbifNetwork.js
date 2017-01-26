@@ -133,12 +133,12 @@ theGbifNetwork.getCountries = (iso2) => {
             }
 
             countries.forEach(country => {
-                countryTasks.push(getDataCount(country)
+                countryTasks.push(theGbifNetwork.getDataCount(country)
                     .then(() => {
                         return country;
                     })
                     .catch(e => {
-                        log.info(e + ' at getCountries().')
+                        log.info(e + ' at getDataCount().')
                     }));
             });
             return Q.all(countryTasks)
@@ -161,7 +161,7 @@ theGbifNetwork.getCountries = (iso2) => {
  * @todo add Sample datasets
  * @param country
  */
-function getDataCount(country) {
+theGbifNetwork.getDataCount = country => {
     let countCollection = {};
     let callTasks = [];
     let calls = [
@@ -195,8 +195,9 @@ function getDataCount(country) {
     return Q.all(callTasks)
         .then(() => {
             country.counts = countCollection;
+            return country;
         });
-}
+};
 
 /**
  * Digest dataset/record counts from various formats of API result.
@@ -212,6 +213,9 @@ function processCountResult(name, result) {
             .then(usageCount => {
                 countObj.recordCount = usageCount;
                 return countObj;
+            })
+            .catch(e => {
+                deferred.reject(e);
             });
     }
     else if (['datasetAbout', 'occurrenceContributedBy', 'occurrenceContributingTo'].indexOf(name) !== -1) {

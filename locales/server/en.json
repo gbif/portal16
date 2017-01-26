@@ -1856,7 +1856,11 @@
     "sampleEventDatasetWith": "sample event {NUMBER, select, one{dataset} other{datasets}} with",
     "publishesDataCovering": "Publishes data covering",
     "countriesTerritoriesAndIslands": "countries, territories and islands",
-    "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}"
+    "peerReviewedPublication": "peer-reviewed {NUMBER, select, one{publication} other{publications}}",
+    "participant": "{NUMBER, select, one{participant} other{participants}}",
+    "voting_participant": "Voting participant",
+    "associate_country_participant": "Associate country participant",
+    "other_associate_participant": "Other associate participant"
   },
   "region": {
     "GLOBAL": "Global",

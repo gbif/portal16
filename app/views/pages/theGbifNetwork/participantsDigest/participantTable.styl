@@ -1,0 +1,178 @@
+.participants__table {
+    > div {
+        padding 0 15px
+    }
+    h3 {
+        text-transform capitalize
+    }
+    table.table {
+        thead, tbody, tr, th, td {
+            display block
+        }
+        thead tr th {
+            position absolute
+            text-transform capitalize
+            top -9999px
+            left -9999px
+        }
+        tr {
+            border-top 1px solid #ccc
+        }
+        tbody {
+            tr {
+                th, td {
+                    border none
+                    border-bottom 1px solid #eee
+                    position relative
+                    display inline-block
+                    width 49%
+                }
+                td:nth-of-type(1) {
+                    width 100%
+                    padding-left 6px
+                    background $lightBackground
+                }
+                td:nth-of-type(2) {
+                    display none
+                }
+                td:nth-of-type(3) {
+                    display none
+                }
+            }
+        }
+    }
+}
+
++isAbove($tablet) {
+    .participants__table {
+
+        .table-container--participant {
+            max-width 960px
+            margin 0 auto
+        }
+
+        table.table {
+            font-size 13px
+            display table
+            thead {
+                display table-header-group
+            }
+            tbody {
+                display table-row-group
+            }
+            tr {
+                display table-row
+                border-top none
+            }
+            th {
+                display table-cell
+            }
+            thead tr {
+                th {
+                    font-weight bold
+                    position relative
+                    white-space nowrap
+                    top 0
+                    left 0
+
+                    a {
+                        display inline-block
+                        color inherit
+                        padding-right 0
+                        white-space normal
+                    }
+                    a:hover {
+                        text-decoration none
+                    }
+                    div {
+                        display inline-block
+                        font-size 18px
+                        width 18px
+                        margin-top -8px
+                        height 20px
+                        vertical-align middle
+                    }
+                }
+                th:nth-of-type(4) {
+                    a {
+                        width 55px
+                    }
+                }
+                th:nth-of-type(5) {
+                    a {
+                        width 45px
+                    }
+                }
+                th:hover {
+                    cursor pointer
+                }
+
+            }
+            tbody {
+                tr {
+                    cursor pointer
+
+                    td {
+                        border-bottom none
+                        display table-cell
+                        width auto
+                        vertical-align middle
+                    }
+                    td:nth-of-type(1) {
+                        padding-left 10px
+                        background none
+                    }
+                    td:nth-of-type(2) {
+                        display table-cell
+                    }
+                    td:nth-of-type(3) {
+                        display table-cell
+                    }
+                    td:nth-of-type(6) {
+                        display table-cell
+                    }
+                    th {
+                        display none
+                    }
+                }
+                tr:nth-of-type(even) {
+                    background alpha($alternativeTableRow, 1)
+                }
+                tr:hover {
+                    background darken($lightBackground, 5)
+                }
+                .currency-allocated {
+                    text-align right
+                }
+                .currency-estimated {
+                    text-align right
+                }
+            }
+        }
+    }
+}
+
++isAbove(900px) {
+    .participants__table {
+        .table {
+            thead tr {
+                th:nth-of-type(4) {
+                    a {
+                    }
+                }
+                th:nth-of-type(5) {
+                    a {
+                    }
+                }
+            }
+            tbody tr {
+                td:nth-of-type(4) {
+                    padding-right 22px
+                }
+                td:nth-of-type(5) {
+                    padding-right 22px
+                }
+            }
+        }
+    }
+}

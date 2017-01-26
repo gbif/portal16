@@ -56,7 +56,7 @@
                     {#</div>#}
                     {#{% endmacro %}#}
                     {#{$ chart('Records by kingdom', 'occ_kingdom', 'The number of available records categorized by#}
-                    {#kingdom. "Unknown" includes records with taxonomic information that cannot be linked to available#}
+                    {#kingdom. "Unknown" participantsDigest records with taxonomic information that cannot be linked to available#}
                     {#taxonomic checklists.') $}#}
 
                     {% include('./news/news.nunjucks') %}

@@ -17,6 +17,8 @@ let DirectoryParticipants = function (record) {
 
 DirectoryParticipants.prototype.record = {};
 
+DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
+
 // accepts gbifRegion & membershipType as params
 // /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
 DirectoryParticipants.groupBy = (query) => {

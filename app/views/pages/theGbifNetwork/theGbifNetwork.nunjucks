@@ -107,7 +107,16 @@
                 </div>
             </div>
         </section>
-        <section class="horizontal-stripe--paddingless white-background">
+        {% if data.activeParticipants.length > 0 %}
+        <section ng-if="vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
+            <div class="container-fluid">
+                <div class="row">
+                    {% include "./participantsDigest/participantTable.nunjucks" %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        <section ng-if="vm.currentRegion === 'GLOBAL'" class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
                 <div class="row participant-list__columned">
                     <div class="col-xs-12 text-center">

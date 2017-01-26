@@ -1,0 +1,74 @@
+<ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false"></ng-include>
+
+<div class="participants__table" ng-if="vm.tableLoaded === true">
+    <div class="table-container--participant" ng-init="sort = {field: '', reverse: false };">
+        <h3 translate="theGbifNetwork.participant"
+                  translate-values="{NUMBER: vm.activeParticipantsDigest.length}"
+                  translate-interpolation="messageformat"></h3>
+
+        <table class="table card">
+            <thead>
+            <tr>
+                <th><a ng-click="sort.field = 'name'; sort.Reverse = !sort.Reverse"
+                       translate="theGbifNetwork.participant"
+                       translate-values="{NUMBER: 'one'}"
+                       translate-interpolation="messageformat"></a>
+                    <div ng-show="sort.field == 'name' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'name' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+                <th>
+                    <a ng-click="sort.field = 'membershipType'; sort.Reverse = !sort.Reverse"
+                       translate="directory.membershipType"
+                       translate-values="{NUMBER: 'one'}"
+                       translate-interpolation="messageformat">
+                    </a>
+                    <div ng-show="sort.field == 'membershipType' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'membershipType' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+                <th>
+                    <a ng-click="sort.field = 'memberSince'; sort.Reverse = !sort.Reverse">
+                        <span translate="theGbifNetwork.since"></span>
+                    </a>
+                    <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse">temp
+                    </a>
+                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse">
+                        temp
+                    </a>
+                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse">
+                        temp</a>
+                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(index, participant) in vm.activeParticipantsDigest | orderBy:sort.field:sort.Reverse">
+                <td>
+                    <a ng-bind="participant.name" href=""></a>
+                </td>
+                <th>MembershipType</th>
+                <td>
+                <span ng-if="participant.membershipType" class="text-nowrap"
+                      translate="theGbifNetwork.{{ participant.membershipType}}"></span>
+                </td>
+                <th>MemberSince</th>
+                <td>
+                    <span ng-bind="participant.memberSince"></span>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

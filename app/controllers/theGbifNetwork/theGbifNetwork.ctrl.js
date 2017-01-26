@@ -55,6 +55,10 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
         })
         .then(count => {
             context.count = Object.assign(context.count, count);
+            let url = 'http://' + req.get('host') + '/api/participants/digest';
+            return helper.getApiDataPromise(url, {'qs': query});        })
+        .then(activeParticipants => {
+            context.activeParticipants = activeParticipants;
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {
                 data: context,
                 hasTitle: true
