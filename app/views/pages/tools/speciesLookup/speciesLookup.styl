@@ -87,6 +87,7 @@ $speciesLookupActiveColor = #55afce
             width 500px
             max-width 100%
             max-height 100%
+            overflow auto
             margin auto
             position fixed
             left calc(50% - 250px)
@@ -97,6 +98,8 @@ $speciesLookupActiveColor = #55afce
                 text-align center
             }
             &__suggestions {
+                overflow auto
+                max-height 60vh
                 > div {
                     padding 10px 20px
                     &:nth-of-type(even) {

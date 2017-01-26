@@ -9,7 +9,7 @@
                     <thead>
                     <tr>
                         <th class="text-capitalize"
-                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'originalId']">
+                            ng-repeat="col in ['originalName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'originalId']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
                                 	<span class="inline-block">
@@ -36,6 +36,10 @@
 
                         <td class="table-cell--narrow">
                             <span ng-class="speciesLookup.getMatchTypeClass(species.matchType)">{{ species.matchType }}</span>
+                        </td>
+
+                        <td class="table-cell--narrow">
+                            <span>{{ species.confidence }}</span>
                         </td>
 
                         <td class="table-cell--widder" ng-click="speciesLookup.itemToEdit = species">

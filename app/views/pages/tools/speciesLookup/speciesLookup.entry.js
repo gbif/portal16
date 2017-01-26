@@ -19,6 +19,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         currentPage: 1,
         pageSize: 20
     };
+    vm.itemToEdit = undefined;
     vm.error;
 
     window.onbeforeunload = function(e) {
@@ -136,7 +137,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     }
 
     vm.setItem = function (item, selected) {
-        var fields = ['scientificName', 'key', 'matchType', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey'];
+        var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey'];
         fields.forEach(function (field) {
             item[field] = selected[field];
         });
@@ -151,7 +152,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
         }
     };
 
-    vm.itemToEdit = undefined;
+    //vm.itemToEdit = undefined;
 
     vm.selectAlternative = function (item, selected) {
         item.userEdited = true;
@@ -188,7 +189,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
     };
 
     vm.generateCsv = function () {
-        var fields = ['originalId', 'originalName', 'scientificName', 'key', 'matchType', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+        var fields = ['originalId', 'originalName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
         var csvContent = '';
 
         //write column names
@@ -260,6 +261,15 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, specie
             if (vm.pagination.currentPage > 1) {
                 vm.pagination.currentPage -= 1;
             }
+        }
+    });
+
+    hotkeys.add({
+        combo: 'esc',
+        description: 'close',
+        allowIn: ['INPUT'],
+        callback: function () {
+            vm.itemToEdit = undefined;
         }
     });
 
