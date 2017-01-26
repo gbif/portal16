@@ -52,7 +52,7 @@
                 if (!Array.isArray(a)) return [];
                 var n = {}, r = [];
                 for (var i = 0; i < a.length; i++) {
-                    if (!n[a[i]]) {
+                    if (!n[a[i]] && typeof a[i] !== 'undefined') {
                         n[a[i]] = true;
                         r.push(a[i]);
                     }
