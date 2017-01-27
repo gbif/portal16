@@ -59,9 +59,6 @@ function createMap(element, OccurrenceFilter) {
     //TODO get other projection with decent basemap
     L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    map.on('move', function () {
-
-    });
     map.fitWorld().zoomIn();
 
     var editableLayers = new L.FeatureGroup();
@@ -84,8 +81,8 @@ function createMap(element, OccurrenceFilter) {
             circle: false, // Turns off this drawing tool
             rectangle: {
                 shapeOptions: {
-                    clickable: true
-                    //color: 'deepskyblue'
+                    clickable: true,
+                    color: 'deepskyblue'
                 }
             },
             marker: false // Turns off this drawing tool
@@ -106,8 +103,7 @@ function createMap(element, OccurrenceFilter) {
     map.addControl(drawControl);
 
     map.on(L.Draw.Event.CREATED, function (e) {
-        var type = e.layerType,
-            layer = e.layer;
+        var layer = e.layer;
         editableLayers.addLayer(layer);
         updateQuery();
     });

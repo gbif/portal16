@@ -2,16 +2,18 @@
     <form class="bbox-filter clear-fix" name="vm.form">
         <div class="bbox-filter__latlng container-fluid">
             <div class="row">
-                <div class="col-xs-6">South
+                <div class="col-xs-6">
+                    <span translate="filters.location.south"></span>
                     <input required type="number" placeholder="-90" ng-change="vm.updateSliders()" ng-model="vm.south" step="0.001" min="-90" max="90" name="south">
                 </div>
-                <div class="col-xs-6">North {{vm.north}}
+                <div class="col-xs-6">
+                    <span translate="filters.location.north"></span>
                     <input required type="number" placeholder="90" ng-change="vm.updateSliders()" ng-model="vm.north" step="0.001" min="-90" max="90" name="north">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="bbox-filter__latlng__slider" ya-no-ui-slider='vm.sliderLatitude'
+                    <div class="bbox-filter__latlng__slider is-active" ya-no-ui-slider='vm.sliderLatitude'
                          ya-no-ui-slider-events='vm.latSliderHandlers'>
                     </div>
                 </div>
@@ -20,23 +22,25 @@
 
         <div class="bbox-filter__latlng container-fluid">
             <div class="row">
-                <div class="col-xs-6">West
+                <div class="col-xs-6">
+                    <span translate="filters.location.west"></span>
                     <input required type="number" placeholder="-180" ng-change="vm.updateSliders()" ng-model="vm.west" step="0.001" min="-359" max="359" name="west">
                 </div>
-                <div class="col-xs-6">East
+                <div class="col-xs-6">
+                    <span translate="filters.location.east"></span>
                     <input required type="number" placeholder="180" ng-change="vm.updateSliders()" ng-model="vm.east" step="0.001" max="359" name="east">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="bbox-filter__latlng__slider" ya-no-ui-slider='vm.sliderLongitude'
+                    <div class="bbox-filter__latlng__slider is-active" ya-no-ui-slider='vm.sliderLongitude'
                          ya-no-ui-slider-events='vm.lngSliderHandlers'>
                     </div>
                 </div>
             </div>
         </div>
 
-        <span ng-class="{invisible: !vm.invalidInput}" class="badge--error badge">Invalid input</span>
-        <a href="" ng-click="vm.add()" class="gb-button--flat pull-right">ADD</a>
+        <span ng-class="{invisible: !vm.invalidInput}" class="badge--error badge" translate="filters.location.invalidRange">Invalid bounding box</span>
+        <a href="" ng-click="vm.add()" class="gb-button--flat text-uppercase pull-right" translate="stdTerms.add">add</a>
     </form>
 </div>

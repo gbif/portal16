@@ -87,6 +87,7 @@ function bboxFilterDirective() {
             start: [-180, 180],
             margin: 0.001,
             behaviour: 'drag',
+            limit: 360,
             range: {
                 'min': [-359],
                 'max': [359]

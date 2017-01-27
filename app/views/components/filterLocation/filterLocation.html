@@ -11,9 +11,15 @@
 
         <div class="is-padded" ng-if="vm.filterConfig.expanded">
             <div class="gb-radio">
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Doesn't matter</span></label>
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="true" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Has a location</span></label>
-                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="false" ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span class="gb-radio__name">Without location</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio=""
+                       ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span
+                        class="gb-radio__name" translate="filters.noPreference">No reference</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="true"
+                       ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span
+                        class="gb-radio__name" translate="filters.location.withCoordinates">Has a location</span></label>
+                <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio="false"
+                       ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span
+                        class="gb-radio__name" translate="filters.location.withoutCoordinates">Without location</span></label>
             </div>
         </div>
 
@@ -21,27 +27,31 @@
             <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
                     <input type="checkbox" ng-click="vm.hasCoordinate=undefined; vm.hasCoordinateChange();" checked>
-                    <span ng-if="vm.hasCoordinate">
+                    <span ng-if="vm.hasCoordinate" translate="filters.location.withCoordinates">
                         Has a location
                     </span>
-                    <span ng-if="vm.hasCoordinate===false">
+                    <span ng-if="vm.hasCoordinate===false" translate="filters.location.withoutCoordinates">
                         Without location
                     </span>
                 </label>
             </div>
-            <div class="checkbox" ng-if="vm.hasCoordinate !== false && (vm.includeSuspicious || vm.filterConfig.expanded)">
+            <div class="checkbox"
+                 ng-if="vm.hasCoordinate !== false && (vm.includeSuspicious || vm.filterConfig.expanded)">
                 <label>
-                    <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()" ng-disabled="!vm.hasCoordinate">
-                    <span>
+                    <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()"
+                           ng-disabled="!vm.hasCoordinate">
+                    <span translate="filters.location.includeFlaggedAsSuspicious">
                         Include suspicious locations
                     </span>
                 </label>
             </div>
-            <div class="checkbox p-l-05" ng-repeat="geometry in vm.geometryOptions" ng-if="!vm.filterConfig.expanded && vm.hasCoordinate !== false && vm.geometryOptions.length > 0">
+            <div class="checkbox p-l-05" ng-repeat="geometry in vm.geometryOptions"
+                 ng-if="!vm.filterConfig.expanded && vm.hasCoordinate !== false && vm.geometryOptions.length > 0">
                 <label>
                     <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
                         <span class="filter-group__filter__name">
-                            <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                            <span class="filter-group__filter__name__title text-capitalize"
+                                  ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                         </span>
                 </label>
             </div>
@@ -51,19 +61,21 @@
                     <filter-location-map></filter-location-map>
                 </div>
                 <div class="card__stripe">
-                    <div class="card__content" style="min-height:60px">
+                    <div class="card__content">
                         <div ng-if="vm.query.length">
                             <div class="checkbox" ng-repeat="geometry in vm.geometryOptions">
                                 <label>
-                                    <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
+                                    <input type="checkbox" ng-model="geometry.active"
+                                           ng-change="vm.removeFromList($index, geometry)">
                                     <span class="filter-group__filter__name">
-                                        <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                        <span class="filter-group__filter__name__title text-capitalize"
+                                              ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                                     </span>
                                 </label>
                             </div>
                         </div>
-                        <div ng-if="!vm.query.length">
-                            No area filters added
+                        <div ng-if="!vm.query.length" translate="filters.location.noFiltersAdded">
+                            Not filtered on area
                         </div>
                     </div>
                 </div>
@@ -76,11 +88,14 @@
                             <div class="card__content">
                                 <div class="gb-btn-group">
                                     <label ng-model="vm.inputType" uib-btn-radio="'BBOX'"
-                                           ng-change="vm.changeInputType()">Range</label>
+                                           ng-change="vm.changeInputType()"
+                                           translate="filters.location.range">Range</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'GEOJSON'"
-                                           ng-change="vm.changeInputType()">GeoJson</label>
+                                           ng-change="vm.changeInputType()"
+                                           translate="filters.location.geojson">GeoJson</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'PAST'"
-                                           ng-change="vm.changeInputType()">Past</label>
+                                           ng-change="vm.changeInputType()"
+                                           translate="filters.location.past">Past</label>
                                 </div>
                             </div>
                         </div>
@@ -92,9 +107,14 @@
                         <div class="card__stripe--light" ng-if="vm.inputType=='GEOJSON'">
                             <div class="card__content">
                                 <div class="clear-fix">
-                                    <textarea ng-model="vm.geometryString" class="noResize" placeholder="WKT or geoJson - multipolygons currently not supported" ng-change="vm.invalidTextInput = false"></textarea>
-                                    <span ng-class="{invisible: !vm.invalidTextInput}" class="badge--error badge">Invalid wkt or geojson</span>
-                                    <a href="" ng-click="vm.addString()" class="pull-right">ADD</a>
+                                    <textarea ng-model="vm.geometryString" class="noResize"
+                                              placeholder="{{ 'filters.location.wktPlaceholder' | translate }}"
+                                              ng-change="vm.invalidTextInput = false"></textarea>
+                                    <span ng-class="{invisible: !vm.invalidTextInput}" class="badge--error badge"
+                                          translate="filters.location.invalidTextInput">Invalid wkt or geojson</span>
+                                    <a href="" ng-click="vm.addString()"
+                                       class="pull-right gb-button--flat text-uppercase"
+                                       translate="stdTerms.add">add</a>
                                 </div>
                             </div>
                         </div>
@@ -103,9 +123,11 @@
                                 <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded && vm.hasCoordinate !== false">
                                     <div class="checkbox" ng-repeat="geometry in vm.geometrySuggestions | limitTo:5 ">
                                         <label>
-                                            <input type="checkbox" ng-model="geometry.active" ng-change="vm.addToList($index, geometry)">
+                                            <input type="checkbox" ng-model="geometry.active"
+                                                   ng-change="vm.addToList($index, geometry)">
                                         <span class="filter-group__filter__name">
-                                            <span class="filter-group__filter__name__title text-capitalize" ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
+                                            <span class="filter-group__filter__name__title text-capitalize"
+                                                  ng-class="{invalid: !geometry.valid}">{{geometry.q}}</span>
                                         </span>
                                         </label>
                                     </div>
@@ -117,7 +139,6 @@
             </div>
 
         </div>
-
 
 
     </div>
