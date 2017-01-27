@@ -437,8 +437,8 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 
     //ternary "all, yes, no" aka optional boolean
     vm.filters.repatriated = {
-        titleTranslation: 'search.repatriation.repatriationFilter',
-        descriptionTranslation: "search.repatriation.description",
+        titleTranslation: 'filters.repatriation.repatriationFilter',
+        descriptionTranslation: "filters.repatriation.description",
         queryKey: 'repatriated',
         filter: OccurrenceFilter
     };
