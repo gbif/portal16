@@ -57,7 +57,7 @@ function createMap(element, OccurrenceFilter) {
     });
 
     //TODO get other projection with decent basemap
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     map.on('move', function () {
 
@@ -75,7 +75,7 @@ function createMap(element, OccurrenceFilter) {
                 allowIntersection: false, // Restricts shapes to simple polygons
                 drawError: {
                     color: 'tomato', // Color the shape will turn when intersects
-                    message: '<strong>Oh snap!<strong> you can\'t draw that!' // Message that will show when intersect
+                    message: 'No intersections allowed!' // Message that will show when intersect
                 },
                 shapeOptions: {
                     color: 'deepskyblue'
