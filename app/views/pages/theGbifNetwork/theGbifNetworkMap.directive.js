@@ -67,14 +67,16 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
 
         function updateCountryDigest() {
             if ($scope.infoPaneStatus === true) {
-                if ($scope.participantId && $scope.ISO2) {
-                    ParticipantHeads.get({participantId: $scope.participantId}, function(result){
+                if ($scope.participantId) {
+                    ParticipantHeads.get({participantId: $scope.participantId}, function (result) {
                         vm.heads = result;
 
                         // convert membershipStart to just year
                         vm.heads.participantInfo.membershipStart
                             = moment(vm.heads.participantInfo.membershipStart, 'MMMM YYYY').format('YYYY');
                     });
+                }
+                if ($scope.ISO2) {
                     CountryDataDigest.get({iso2: $scope.ISO2}, function(result){
                         vm.digest = result[0];
                     });
@@ -179,6 +181,8 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
 
         function zoomToRegion(region) {
             centered = null;
+            $scope.infoPaneStatus = false;
+
             var bounds = regionBoxes[region],
                 dx = bounds[1][0] - bounds[0][0],
                 dy = bounds[1][1] - bounds[0][1],
@@ -271,6 +275,7 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
         function participantDigest(d) {
             $scope.participantId = d.properties.id;
             $scope.ISO2 = d.properties.ISO2;
+            updateCountryDigest();
         }
 
     }

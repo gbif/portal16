@@ -1,7 +1,13 @@
 <div>
     <div id="map" class="svg-container"></div>
-        <div id="infoPane" ng-class="infoPaneStatus ? 'map-info-overlay': 'map-info-overlay--none'">
-        <h1><a ng-href="/country/{{ISO2}}" ng-bind="vm.heads.participantInfo.name"></a></h1>
+    <div id="infoPane"
+    ng-class="infoPaneStatus ? 'map-info-overlay': 'map-info-overlay--none'">
+        <a ng-href="/country/{{ISO2}}">
+            <header style="background-image:url('//api.gbif.org/v1/image/unsafe/http%3A%2F%2Fcms.gbif-dev.org%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Finline_header_image%2Fpublic%2Fgbif_scaled_contents%2Fdata_use%2F2017-January%2F83089%2FDatura_inoxia.jpg')">
+                <h1 class="highlight" ng-if="vm.heads.participantInfo.name" ng-bind="vm.heads.participantInfo.name"></h1>
+                <h1 class="highlight" ng-if="!vm.heads.participantInfo.name" translate="country.{{ISO2}}"></h1>
+            </header>
+        </a>
         <ul class="info-pane__header">
             <li ng-if="vm.heads.participantInfo.membershipType">
                 <strong translate="directory.{{vm.heads.participantInfo.membershipType}}.one"></strong>
@@ -68,6 +74,9 @@
                       translate-interpolation="messageformat"></span>
             </li>
         </ul>
+        <footer>
+
+        </footer>
     </div>
     <div id="mapLegend" class="map-legend-toggle" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
         <header ng-click="vm.expanded = !vm.expanded">

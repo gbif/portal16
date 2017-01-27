@@ -100,16 +100,34 @@
     position absolute
     text-align left
     top 40px
-    left 450px
-    width 450px
-    height 400px
-    padding 0 20px
-    border-radius 5px
+    left calc(50% + 50px)
+    padding 0
+    max-width 400px
     background-color $lightOverlayOpacity
-    z-index 1000
+    z-index 500
 
+    header {
+        min-height 100px
+        position relative
+        box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
+    }
+    a {
+        color $blueTintedBlack
+        .highlight {
+            color $white
+        }
+    }
+    a:hover {
+        text-decoration none
+    }
+    h1 {
+        margin 0
+        position absolute
+        bottom 5px
+        left 5px
+    }
     ul {
-        padding-left 0
+        padding 0 20px
         li {
             font-size 18px
         }
@@ -121,6 +139,7 @@
 }
 
 .info-pane__header {
+    margin-top vrBlock(0.5)
     a {
         color $discreetInk
     }
