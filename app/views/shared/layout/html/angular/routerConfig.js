@@ -70,6 +70,13 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'occurrenceGalleryCtrl',
             controllerAs: 'occGallery'
         })
+        .state('occurrenceSearchDownload', {
+            parent: 'occurrenceSearch',
+            url: '/download',
+            templateUrl: '/templates/pages/occurrence/download/occurrenceDownload.html',
+            controller: 'occurrenceDownloadCtrl',
+            controllerAs: 'occDownload'
+        })
         .state('datasetSearch', {
             parent: 'localization',
             url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade&taxon_key&project_id',

@@ -33,4 +33,8 @@ router.get('/map', function (req, res) {
     renderSearch(req, res);
 });
 
+router.get('/download', function (req, res) {
+    renderSearch(req, res);
+});
+
 
