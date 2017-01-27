@@ -10,7 +10,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy) {
+function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy, $q) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -49,9 +49,6 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
         };
 
         $scope.infoPaneStatus = false;
-        $scope.$watch('infoPaneStatus', updateCountryDigest);
-        $scope.$watch('participantId', updateCountryDigest);
-        $scope.$watch('ISO2', updateCountryDigest);
         $scope.$watch('region', function(){
             zoomToRegion($scope.region);
         });
@@ -65,35 +62,54 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
             }
         });
 
-        function updateCountryDigest() {
-            if ($scope.infoPaneStatus === true) {
-                if ($scope.participantId) {
-                    ParticipantHeads.get({participantId: $scope.participantId}, function (result) {
-                        vm.heads = result;
-
-                        // convert membershipStart to just year
-                        vm.heads.participantInfo.membershipStart
-                            = moment(vm.heads.participantInfo.membershipStart, 'MMMM YYYY').format('YYYY');
-                    });
+        function updateCountryDigest(d) {
+            $scope.infoPaneStatus = true;
+            $scope.digestLoaded = false;
+            // clean up all variables so un-updated values won't show
+            var propertiesToDelete = ['selectedHeaderClass','heads', 'digest', 'endorsedPublisher', 'endorsedPublisherForm'];
+            propertiesToDelete.forEach(function(p){
+                if (vm.hasOwnProperty(p) === true) {
+                    delete vm[p];
                 }
-                if ($scope.ISO2) {
-                    CountryDataDigest.get({iso2: $scope.ISO2}, function(result){
-                        vm.digest = result[0];
-                    });
-                    PublisherEndorsedBy.get({iso2: $scope.ISO2}, function(result){
-                        vm.endorsedPublisher = result.count;
-                        vm.endorsedPublisherForm = result.count === 1 ? 'one' : 'other';
-                    });
+            });
+
+            var tasks = {};
+            if ($scope.participantId) {
+                tasks.heads = ParticipantHeads.get({participantId: $scope.participantId}).$promise;
+                tasks.endorsement = PublisherEndorsedBy.get({participantId: $scope.participantId}).$promise;
+            }
+            if ($scope.ISO2) {
+                tasks.digest = CountryDataDigest.get({iso2: $scope.ISO2}).$promise;
+            }
+
+            $q.all(tasks).then(function(results){
+                if (results.hasOwnProperty('heads')) {
+                    var mStart = results.heads.participantInfo.membershipStart;
+                    results.heads.participantInfo.membershipStart = moment(mStart, 'MMMM YYYY').format('YYYY');
+                    vm.heads = results.heads;
+                }
+                if (results.hasOwnProperty('endorsement') && results.endorsement.hasOwnProperty('count')) {
+                    vm.endorsedPublisher = results.endorsement.count;
+                }
+                if (results.hasOwnProperty('digest') && results.digest.length > 0) {
+                    vm.digest = results.digest[0];
+                }
+                $scope.digestLoaded = true;
+            });
+
+            // determine header class
+            if (d.properties.hasOwnProperty('membershipType')) {
+                switch (d.properties.membershipType) {
+                    case 'voting_participant':
+                        vm.headerClass = 'vp-background';
+                        break;
+                    case 'associate_country_participant':
+                        vm.headerClass = 'acp-background';
+                        break;
                 }
             }
             else {
-                // clean up all variables so un-updated values won't show
-                var propertiesToDelete = ['heads', 'digest', 'endorsedPublisher', 'endorsedPublisherForm'];
-                propertiesToDelete.forEach(function(p){
-                    if (vm.hasOwnProperty(p) === true) {
-                        delete vm[p];
-                    }
-                });
+                vm.headerClass = 'p-background';
             }
         }
 
@@ -108,7 +124,8 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
             height = 480 - margin.top - margin.bottom,
             svgWidth = width + margin.left + margin.right,
             svgHeight = height + margin.top + margin.bottom,
-            centered;
+            centered,
+            activePolygon = d3.select(null);
 
         var svg = d3.select('#map').append("svg")
             .attr('id', 'theGbifNetworkMap')
@@ -230,7 +247,9 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
                 .style("stroke-width", 1.5 / scale + "px")
                 .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-            participantDigest(d);
+            $scope.participantId = d.properties.id;
+            $scope.ISO2 = d.properties.ISO2;
+            updateCountryDigest(d);
         }
 
         function colorParticipant(d) {
@@ -255,29 +274,30 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
         }
 
         function clicked(d) {
+            $scope.infoPaneStatus = false;
+
             if (typeof d === 'undefined') {
-                $scope.infoPaneStatus = false;
                 zoomToRegion($scope.region);
+                reset();
             }
             else {
                 if (d && centered !== d) {
-                    $scope.infoPaneStatus = true;
                     zoomToPolygon(d);
+                    reset();
+                    activePolygon = d3.select(this).classed("active-polygon", true);
                 } else {
                     centered = null;
-                    $scope.infoPaneStatus = false;
                     zoomToRegion($scope.region);
+                    reset();
                 }
             }
             $scope.$apply();
         }
 
-        function participantDigest(d) {
-            $scope.participantId = d.properties.id;
-            $scope.ISO2 = d.properties.ISO2;
-            updateCountryDigest();
+        function reset() {
+            activePolygon.classed('active-polygon', false);
+            activePolygon = d3.select(null);
         }
-
     }
 }
 

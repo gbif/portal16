@@ -5,7 +5,7 @@
 const Q = require('q'),
       _ = require('lodash'),
       NodeCache = require('node-cache'),
-      directoryCache = new NodeCache(),
+      directoryParticipantsCache = new NodeCache(),
       helper = require('../../util/util'),
       dataApi = require('../apiConfig'),
       log = require('../../../../config/log'),
@@ -27,7 +27,7 @@ DirectoryParticipants.groupBy = (query) => {
         options = Directory.authorizeApiCall(requestUrl),
         allParticipants;
 
-    directoryCache.get('allParticipants', (err, value) => {
+    directoryParticipantsCache.get('allParticipants', (err, value) => {
         if (err) {
             return deferred.reject(err);
         }
@@ -35,7 +35,7 @@ DirectoryParticipants.groupBy = (query) => {
         if (value == undefined) {
             helper.getApiDataPromise(requestUrl, options)
                 .then(result => {
-                    directoryCache.set('allParticipants', result.results, 3600, (err, success) => {
+                    directoryParticipantsCache.set('allParticipants', result.results, 3600, (err, success) => {
                         if (!err && success) {
                             log.info('Variable allParticipants cached, valid for 3600 seconds.');
                         }

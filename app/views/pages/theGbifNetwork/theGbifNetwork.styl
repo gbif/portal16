@@ -32,8 +32,12 @@
     width 100%
     background-color $white
     box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
-    z-index 1000
+    z-index 200
     text-align center
+}
+
+.selected-fixed-padding {
+    margin-top 45px
 }
 
 .main-counts {
@@ -111,11 +115,6 @@
             }
         }
     }
-}
-
-.status-hover {
-    position relative
-    z-index 200;
 }
 
 .participant-list__columned {
@@ -259,10 +258,15 @@
     overflow hidden
 }
 
+.svg-map-container {
+    position relative
+}
+
 .svg-content {
     position absolute
     top 0
     left 0
+    z-index 50
 }
 
 .boundary {
@@ -272,9 +276,6 @@
 
 .active-polygon {
     stroke #fff
-    stroke-width 0.8px
+    stroke-width 1px
 }
 
-.svg-map-container {
-    position relative
-}

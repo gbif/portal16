@@ -1,4 +1,4 @@
-<div class="contacts__table">
+<div class="contacts__table ng-cloak">
     <div ng-repeat="(index, participant) in vm.contacts.peopleByParticipants">
         <div id="{{ participant.enum }}" class="anchor-block"
              ng-if="['voting_participant', 'associate_country_participant', 'other_associate_participant'].indexOf(participant.enum) != -1">

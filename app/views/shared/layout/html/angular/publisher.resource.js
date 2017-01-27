@@ -38,14 +38,14 @@ var angular = require('angular');
                     }
                 });
         })
-        // Accepting iso2 as param
+        // Accepting participantId as param
         // return number of endorsed publishers
         .factory('PublisherEndorsedBy', function ($resource) {
-            return $resource('/api/publisher/endorsed-by/:iso2', null,
+            return $resource('/api/publisher/endorsed-by/:participantId', null,
                 {
                     'get': {
                         method: 'GET',
-                        params: {iso2: '@iso2'},
+                        params: {participantId: '@participantId'},
                         isArray: false
                     }
                 });

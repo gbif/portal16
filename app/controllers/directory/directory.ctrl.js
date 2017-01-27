@@ -18,7 +18,7 @@ router.get('/directory/:requestedPath', function (req, res, next) {
     Directory.getContacts(res)
         .then(function (data) {
             if (data) {
-                Directory.postProcessContacts(data, res.__);
+                Directory.applyTranslation(data, res.__);
 
                 var pageContent = {
                     category: 'Contact Us',

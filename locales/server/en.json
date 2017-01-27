@@ -1860,7 +1860,9 @@
     "participant": "{NUMBER, select, one{participant} other{participants}}",
     "voting_participant": "Voting participant",
     "associate_country_participant": "Associate country participant",
-    "other_associate_participant": "Other associate participant"
+    "other_associate_participant": "Other associate participant",
+    "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
+    "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
   },
   "region": {
     "GLOBAL": "Global",

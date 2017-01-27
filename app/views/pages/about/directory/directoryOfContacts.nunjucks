@@ -94,13 +94,13 @@
                     <div class="contacts__table col-md-9 col-md-offset-0">
                         <div class="table-container--contacts">
                             {% if contacts.participants.length > 0 %}
-                                {% include('./participantsDigest/participantsContactsTable.nunjucks') %}
+                                {% include('./includes/participantsContactsTable.nunjucks') %}
                             {% endif %}
                             {% if contacts.committees.length > 0 %}
-                                {% include('./participantsDigest/committeesContactsTable.nunjucks') %}
+                                {% include('./includes/committeesContactsTable.nunjucks') %}
                             {% endif %}
                             {% if contacts.gbif_secretariat.length > 0 %}
-                                {% include('./participantsDigest/gbifSecretariatContactsTable.nunjucks') %}
+                                {% include('./includes/gbifSecretariatContactsTable.nunjucks') %}
                             {% endif %}
                         </div>
                     </div>

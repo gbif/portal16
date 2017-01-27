@@ -5,6 +5,7 @@
     bottom 0
     background-color rgba(173,203,220,0.2)
     box-shadow -1px -1px 2px 2px rgba(235,235,235,0.2)
+    z-index 100
 
     header {
         outline none
@@ -102,15 +103,32 @@
     top 40px
     left calc(50% + 50px)
     padding 0
+    min-width 300px
     max-width 400px
     background-color $lightOverlayOpacity
-    z-index 500
+    z-index 180
 
     header {
         min-height 100px
+        min-width 300px
         position relative
         box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
     }
+    footer {
+        content " "
+        margin-top vrBlock(0.5)
+    }
+
+    .vp-background {
+        background radial-gradient(farthest-corner at 30% 20%, #75C05F 20%, #57B23C 60%, #50A237)
+    }
+    .acp-background {
+        background radial-gradient(farthest-corner at 30% 20%, #23B5E8 20%, #5080C1 60%, #5080C1)
+    }
+    .p-background {
+        background radial-gradient(farthest-corner at 30% 20%, #DBC787 20%, #DFDDCF 60%, #C7C193)
+    }
+
     a {
         color $blueTintedBlack
         .highlight {
@@ -123,8 +141,9 @@
     h1 {
         margin 0
         position absolute
-        bottom 5px
-        left 5px
+        bottom 10px
+        left 10px
+        text-shadow 1px 1px 2px $gray20
     }
     ul {
         padding 0 20px
@@ -132,18 +151,18 @@
             font-size 18px
         }
     }
+    .info-pane__header {
+        margin-top vrBlock(0.5)
+        a {
+            color $discreetInk
+        }
+    }
+    .info-pane__digest {
+        margin-top vrBlock(0.5)
+    }
 }
 
 .map-info-overlay--none {
     display none
 }
 
-.info-pane__header {
-    margin-top vrBlock(0.5)
-    a {
-        color $discreetInk
-    }
-}
-.info-pane__digest {
-    margin-bottom vrBlock(0.5)
-}

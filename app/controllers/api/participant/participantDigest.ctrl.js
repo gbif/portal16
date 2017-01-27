@@ -4,7 +4,6 @@ const express = require('express'),
     Q = require('q'),
     moment = require('moment'),
     Directory = require('../../../models/gbifdata/directory/directory'),
-    DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
     TheGbifNetwork = require('../../../models/gbifdata/theGbifNetwork/theGbifNetwork'),
     helper = require('../../../models/util/util'),
     log = require('../../../../config/log');
@@ -24,45 +23,79 @@ router.get('/participant/heads/:participantId?', (req, res, next) => {
         });
 });
 
+/**
+ * This function iterates through active participants to get relevant data counts
+ * or registry information.
+ *
+ * Counts are retrieved differently depending on the participant type.
+ */
 router.get('/participants/digest', (req, res, next) => {
     let url = 'http://' + req.get('host') + '/api/directory/participants/active',
         query = req.query,
         participants = [];
 
-    // @todo decide whether it's necessary to calculate for GLOBAL.
+    // For the GLOBAL view, we don't proceed to extract numbers.
     if (query.gbifRegion === 'GLOBAL' || typeof query.gbifRegion === 'undefined') {
         res.json(participants);
     }
     else {
         helper.getApiDataPromise(url, {'qs': query})
             .then(data => {
+
                 data.forEach(datum => {
                     datum.iso2 = datum.countryCode;
                 });
-                let tasks = [];
+                let participantTasks = [];
 
-                data.forEach(country => {
-                    if (country.type === 'COUNTRY') {
-                        tasks.push(TheGbifNetwork.getDataCount(country)
-                            .then(country => {
-                                return country;
-                            })
-                            .catch(e => {
-                                log.info(e + ' at getDataCount().');
-                            }));
-                    }
-                    else {
-                        participants.push(country);
-                    }
+                data.forEach(participant => {
+                    participantTasks.push(TheGbifNetwork.getDataCount(participant)
+                        .then(participant => {
+                            return participant;
+                        })
+                        .catch(e => {
+                            throw new Error(e);
+                        }));
                 });
 
-                return Q.all(tasks)
-                    .then(digestedParticipants => {
-                        return digestedParticipants;
+                return Q.all(participantTasks)
+                    .then(countedParticipants => {
+                        return countedParticipants;
                     })
+                    .catch(e => {
+                        throw new Error(e);
+                    });
             })
-            .then(digestedParticipants => {
-                participants = participants.concat(digestedParticipants);
+            .then(countedParticipants => {
+                participants = participants.concat(countedParticipants);
+                if (TheGbifNetwork.validateParticipants(participants)) {
+                    let endorsedCountTasks = [];
+                    participants.forEach(p => {
+                        let url = 'http://' + req.get('host') + '/api/publisher/endorsed-by/' + p.id;
+                        endorsedCountTasks.push(helper.getApiDataPromise(url, {})
+                            .then(result => {
+                                if (result.hasOwnProperty('count')) {
+                                    p.endorsedPublishers = result.count;
+                                }
+                                return p;
+                            })
+                            .catch(e => {
+                                throw new Error(e);
+                            }));
+                    });
+
+                    return Q.all(endorsedCountTasks)
+                        .then(participants => {
+                            return participants;
+                        })
+                        .catch(e => {
+                            throw new Error(e);
+                        });
+                }
+                else {
+                    throw new Error('One or more participants have no id. Abort.');
+                }
+            })
+            .then(participants => {
                 participants.forEach(p => {
                     p.memberSince = moment(p.membershipStart, 'MMMM YYYY').format('YYYY');
                 });
@@ -79,7 +112,6 @@ router.get('/participants/digest', (req, res, next) => {
                 res.json(participants);
             })
             .catch(err => {
-                log.error('Error in /api/participants/digest controller: ' + err.message);
                 next(err)
             });
     }

@@ -7,10 +7,10 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope, $filter, $stateParams, $location, ParticipantDigest) {
+function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope, $filter, $stateParams, $location, ParticipantsDigest, DirectoryNsgContacts) {
     var vm = this;
 
-    vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA']
+    vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
 
     vm.currentRegion = $location.path().split('/')[2];
     if (vm.currentRegion) {
@@ -21,6 +21,12 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     }
 
     vm.membershipType = 'active';
+    vm.showChart = false;
+    vm.tableLoaded = false;
+
+    $scope.$watch($scope.showChart, function(){
+        vm.showchart = $scope.showChart;
+    });
 
     vm.count = {};
     vm.participantTypes = [
@@ -83,16 +89,17 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
                 return error;
             });
         loadParticipantsDigest(vm.currentRegion);
+        loadRegionalReps(vm.currentRegion);
 
         var regionLower = region.toLowerCase().replace('_', '-');
         $location.path('/the-gbif-network/' + regionLower);
     };
 
-    vm.tableLoaded = false;
+    // For participant table.
     loadParticipantsDigest(vm.currentRegion);
     function loadParticipantsDigest(region) {
         vm.tableLoaded = false;
-        ParticipantDigest.get({'gbifRegion': region}).$promise
+        ParticipantsDigest.get({'gbifRegion': region}).$promise
             .then(function(response){
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
@@ -101,7 +108,42 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             });
     }
 
-    // Nav fix
+    // For regional representative.
+    loadRegionalReps(vm.currentRegion);
+    function loadRegionalReps(region) {
+        vm.repTableLoaded = false;
+        DirectoryNsgContacts.get().$promise
+            .then(function(contacts) {
+                var reps = contacts.filter(function(contact){
+                    var picked = false;
+                    contact.roles.forEach(function(role){
+                        if (region === 'GLOBAL') {
+                            picked = role.role.indexOf('CHAIR') !== -1;
+                        }
+                        else {
+                            picked = role.role.indexOf(region) !== -1;
+                        }
+                    });
+                    return picked;
+                });
+                vm.reps = reps;
+                vm.repTableLoaded = true;
+            }, function(error){
+                return error;
+            });
+    }
+    vm.toggleStatus = {};
+    vm.toggleDetail = function (personId) {
+        // true means show
+        if (vm.toggleStatus[personId] && vm.toggleStatus[personId] == 'contact--show') {
+            vm.toggleStatus[personId] = false;
+        }
+        else {
+            vm.toggleStatus[personId] = 'contact--show';
+        }
+    };
+
+    // Nav fix.
     var EventUtil = {
         addHandler: function (element, type, handler) {
             if (element.addEventListener) {
@@ -115,7 +157,9 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     };
 
     var topClass = 'region-selector-fixed',
+        paddingClass = 'selected-fixed-padding',
         regionNav = document.getElementById('region-nav'),
+        mapStrip = document.getElementById('map-strip'),
         offsetTop = regionNav.getBoundingClientRect().top;
 
     EventUtil.addHandler(window, 'scroll', function () {
@@ -123,8 +167,10 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
 
             if (document.body.scrollTop >= offsetTop - 50) {
                 regionNav.classList.add(topClass);
+                mapStrip.classList.add(paddingClass);
             } else {
                 regionNav.classList.remove(topClass);
+                mapStrip.classList.remove(paddingClass);
             }
 
         }

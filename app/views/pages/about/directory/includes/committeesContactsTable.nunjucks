@@ -1,4 +1,4 @@
-<div class="contacts__table">
+<div class="contacts__table ng-cloak">
     <div ng-repeat="(index, committee) in vm.contacts.committees">
         <div id="{{ committee.enum }}" class="anchor-block">
             <h2 translate="directory.{{ committee.enum }}"></h2>
@@ -32,7 +32,8 @@
                 </thead>
                 <tbody class="{{ committee.enum | underscoreToHyphen }}">
                 <tr ng-repeat="(index, person) in committee.members | orderBy:sortField:sortReverse"
-                    ng-click="vm.toggleDetail(committee.enum + '_' + person.id)">
+                    ng-click="vm.toggleDetail(committee.enum + '_' + person.id)"
+                    id="{{ committee.enum }}_{{ person.id }}">
                     <td class="gbif-role"> {# role #}
                         <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
                     </td>

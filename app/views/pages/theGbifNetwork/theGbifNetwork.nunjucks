@@ -40,7 +40,7 @@
                 </div>
             </div>
         </section>
-        <div class="horizontal-stripe--paddingless light-background">
+        <div id="map-strip" class="horizontal-stripe--paddingless light-background">
             <div class="container">
                 <div class="row text-center">
                     <div the-gbif-network-map region="vm.currentRegion" membership-type="vm.membershipType" class="svg-map-container"></div>
@@ -107,15 +107,14 @@
                 </div>
             </div>
         </section>
-        {% if data.activeParticipants.length > 0 %}
         <section ng-if="vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
             <div class="container-fluid">
                 <div class="row">
+                    {% include "./participantsDigest/regionalReps.nunjucks" %}
                     {% include "./participantsDigest/participantTable.nunjucks" %}
                 </div>
             </div>
         </section>
-        {% endif %}
         <section ng-if="vm.currentRegion === 'GLOBAL'" class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
                 <div class="row participant-list__columned">

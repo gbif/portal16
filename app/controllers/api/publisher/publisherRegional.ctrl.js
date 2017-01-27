@@ -30,13 +30,13 @@ router.get('/publisher/count', (req, res, next) => {
         });
 });
 
-router.get('/publisher/endorsed-by/:iso2?', (req, res, next) => {
-    PublisherRegional.numberEndorsedBy(req.params.iso2)
+router.get('/publisher/endorsed-by/:participantId?', (req, res, next) => {
+    PublisherRegional.numberEndorsedBy(req.params.participantId)
         .then(result => {
             res.json(result);
         })
         .catch(err => {
-            log.error('Error in /api/publisher/endorsed-by/:iso2 controller: ' + err.message);
+            log.error('Error in /api/publisher/endorsed-by/:participantId controller: ' + err.message);
             next(err)
         });
 });
