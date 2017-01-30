@@ -7,7 +7,7 @@ module.exports = function (app) {
     if (app.locals.ENV_DEVELOPMENT) {
         app.use(function (err, req, res, next) { //eslint-disable-line no-unused-vars
             // TODO needs implementation
-            // res.status(err.status || 500);
+            res.status(err.status || 500);
             res.render('error/error', {
                 error: err,
                 title: 'Error'
