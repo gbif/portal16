@@ -13,7 +13,10 @@
 let helper = require('../../util/util'),
     Q = require('q'),
     fs = require('fs'),
+    NodeCache = require('node-cache'),
+    theGbifNetworkCache = new NodeCache(),
     dataApi = require('../apiConfig'),
+    cmsApi = require('../../cmsData/apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
     Literature = require('../../cmsData/literature/literature'),
@@ -67,46 +70,72 @@ function getIntro(language) {
  */
 theGbifNetwork.counts = query => {
     let deferred = Q.defer();
-    let count = {};
-
     if (!query.hasOwnProperty('gbifRegion') || query.gbifRegion === undefined) {
         query.gbifRegion = 'GLOBAL';
     }
 
-    query.membershipType = 'voting_participant';
-    DirectoryParticipants.groupBy(query)
-        .then(result => {
-            count[query.membershipType] = result.length;
-            query.membershipType = 'associate_country_participant';
-            return DirectoryParticipants.groupBy(query);
-        })
-        .then(result => {
-            count[query.membershipType] = result.length;
-            query.membershipType = 'other_associate_participant';
-            return DirectoryParticipants.groupBy(query);
-        })
-        .then(result => {
-            count[query.membershipType] = result.length;
+    let cacheId = 'majorCounts' + query.gbifRegion;
 
-            // add regional publishers
-            return PublisherRegional.groupBy(query);
-        })
-        .then(publishers => {
-            count['publisher'] = publishers.length;
+    theGbifNetworkCache.get(cacheId, (err, value) => {
+        if (err) {
+            deferred.reject(err);
+        }
 
-            // add literature authored by regional scholars
-            return Literature.groupBy(query);
-        })
-        .then(literatureRegional => {
-            count['literature'] = literatureRegional.literature.length;
-            count['literatureAuthorCountries'] = literatureRegional.countries.length;
-            count['literatureAuthors'] = literatureRegional.authorsCount;
-            deferred.resolve(count);
-        })
-        .catch(e => {
-            log.info(e + ' at count().');
-            deferred.reject(e + ' at count().');
-        });
+        if (typeof value === 'object' && value.hasOwnProperty('literatureAuthorCountries')) {
+            deferred.resolve(value);
+        }
+        else {
+
+            // retrieve counts
+            let count = {};
+
+            query.membershipType = 'voting_participant';
+            DirectoryParticipants.groupBy(query)
+                .then(result => {
+                    count[query.membershipType] = result.length;
+                    query.membershipType = 'associate_country_participant';
+                    return DirectoryParticipants.groupBy(query);
+                })
+                .then(result => {
+                    count[query.membershipType] = result.length;
+                    query.membershipType = 'other_associate_participant';
+                    return DirectoryParticipants.groupBy(query);
+                })
+                .then(result => {
+                    count[query.membershipType] = result.length;
+
+                    // add regional publishers
+                    return PublisherRegional.groupBy(query);
+                })
+                .then(publishers => {
+                    count['publisher'] = publishers.length;
+
+                    // add literature authored by regional scholars
+                    return Literature.groupBy(query);
+                })
+                .then(literatureRegional => {
+                    count['literature'] = literatureRegional.literature.length;
+                    count['literatureAuthorCountries'] = literatureRegional.countries.length;
+                    count['literatureAuthors'] = literatureRegional.authorsCount;
+
+                    theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
+                        if (!err && success) {
+                            log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
+                        }
+                        else {
+                            log.error('Variable ' + cacheId + ' failed to cache.');
+                        }
+                    });
+                    deferred.resolve(count);
+                })
+                .catch(e => {
+                    log.info(e + ' at count().');
+                    deferred.reject(e + ' at count().');
+                });
+        }
+
+    });
+
     return deferred.promise;
 };
 
@@ -116,29 +145,38 @@ theGbifNetwork.counts = query => {
  * 3) Decorate objects with literature counts.
  * 4) Decorate objects with participant details.
  */
-theGbifNetwork.getCountries = () => {
+theGbifNetwork.getCountries = (iso2) => {
     let deferred = Q.defer();
     let requestUrl = dataApi.countryEnumeration.url;
-    let options = {};
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true
+    };
     helper.getApiDataPromise(requestUrl, options)
         .then(countries => {
             let countryTasks = [];
-            countries.forEach(country => {
-                countryTasks.push(getDataCount(country)
-                    .then(() => {
-                        return country;
+
+            // if iso2 is specified, reduce the countries array.
+            if (typeof iso2 !== 'undefined') {
+                countries = countries.filter(country => {
+                    return country.iso2 === iso2;
+                });
+            }
+
+            countries.forEach((country, i) => {
+                countryTasks.push(theGbifNetwork.getDataCount(country)
+                    .then(countryWCount => {
+                        countries[i] = countryWCount;
                     })
                     .catch(e => {
-                        log.info(e + ' at getCountries().')
+                        log.info(e + ' at getDataCount().')
                     }));
             });
             return Q.all(countryTasks)
                 .then(() => {
-                    return countries;
+                    deferred.resolve(countries);
                 });
-        })
-        .then(countries => {
-            deferred.resolve(countries);
         })
         .catch(err => {
             deferred.reject(err + ' getCountries().');
@@ -149,22 +187,67 @@ theGbifNetwork.getCountries = () => {
 
 /**
  * Gather specified API calls to digest for counts.
- * @param country
+ * @param participant
  */
-function getDataCount(country) {
+theGbifNetwork.getDataCount = participant => {
+    let deferred = Q.defer();
+    let cacheId;
+    if (participant.hasOwnProperty('type') && participant.type === 'OTHER') {
+        cacheId = 'participant' + participant.id;
+    }
+    else if (participant.hasOwnProperty('type') && participant.type === 'COUNTRY') {
+        cacheId = 'country' + participant.iso2;
+    }
+    else {
+        cacheId = 'non_participant_' + participant.iso2;
+    }
+
+    let functionName = participant.type === 'OTHER' ? 'getOapDataCount' : 'getCountryDataCount';
+
+    theGbifNetworkCache.get(cacheId, (err, value) => {
+        if (err) {
+            deferred.reject(err);
+        }
+        if (typeof value === 'object' && value.hasOwnProperty('counts')) {
+            deferred.resolve(value);
+        }
+        else {
+            return theGbifNetwork[functionName](participant)
+                .then(participant => {
+                    if (participant.hasOwnProperty('counts')) {
+                        theGbifNetworkCache.set(cacheId, participant, 3600, (err, success) => {
+                            if (!err && success) {
+                                log.info('Variable ' + cacheId + ' cached, valid for 3600 seconds.');
+                            }
+                            else {
+                                log.error('Variable ' + cacheId + ' failed to cache.');
+                            }
+                        });
+                    }
+                    deferred.resolve(participant);
+                });
+        }
+    });
+    return deferred.promise;
+};
+
+theGbifNetwork.getCountryDataCount = country => {
+    //  @todo include Sampling event datasets
     let countCollection = {};
     let callTasks = [];
     let calls = [
         {'name': 'checklistDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=CHECKLIST&country='},
         {'name': 'checklistDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=CHECKLIST&publishingCountry='},
         {'name': 'datasetAbout', 'urlTemplate': dataApi.occurrence.url + 'counts/datasets?country='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + '/search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
         {'name': 'metadataDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=METADATA&country='},
         {'name': 'metadataDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=METADATA&publishingCountry='},
-        {'name': 'occurrenceAbout', 'urlTemplate': dataApi.occurrence.url + 'count?country='},
+        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
         {'name': 'occurrenceFrom', 'urlTemplate': dataApi.occurrence.url + 'search?limit=0&publishingCountry='},
         {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
-        {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='}
+        {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
+        {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='},
     ];
     calls.forEach(call => {
         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)
@@ -184,8 +267,148 @@ function getDataCount(country) {
     return Q.all(callTasks)
         .then(() => {
             country.counts = countCollection;
+            return country;
         });
-}
+};
+
+theGbifNetwork.getOapDataCount = participant => {
+    let deferred = Q.defer();
+    let occurrenceFromCount = 0,
+        datasetFromCount = 0;
+    theGbifNetwork.getNodes(participant.id)
+        .then(nodes => {
+            let publishers = [];
+            let publisherTasks = [];
+            nodes.forEach(node => {
+                publisherTasks.push(theGbifNetwork.getAllPublishers(node.key)
+                    .then(nodesPublishers => {
+                        publishers = publishers.concat(nodesPublishers);
+                    })
+                    .catch(e => {
+                        throw new Error(e);
+                    })
+                );
+            });
+            return Q.all(publisherTasks)
+                .then(() => {
+                    return publishers;
+                })
+                .catch(e => {
+                    throw new Error(e);
+                });
+        })
+        .then(publishers => {
+            let tasks = [];
+            let options = {
+                timeoutMilliSeconds: 10000,
+                retries: 5,
+                failHard: true
+            };
+
+            // add up both dataset and occurrence count.
+            publishers.forEach(pub => {
+                let url = dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key;
+                tasks.push(helper.getApiDataPromise(url, options)
+                    .then(result => {
+                        occurrenceFromCount += result.count;
+                        url = dataApi.datasetSearch.url + '?publishingOrg=' + pub.key;
+                        return helper.getApiDataPromise(url, options)
+                    })
+                    .then(result => {
+                        datasetFromCount += result.count;
+                    })
+                    .catch(e => {
+                        throw new Error(e);
+                    })
+                );
+            });
+            return Q.all(tasks)
+                .then(() => {
+                    participant.counts = {
+                        'occurrenceFromCount': occurrenceFromCount,
+                        'datasetFromCount': datasetFromCount
+                    };
+                    return participant;
+                })
+                .catch(e => {
+                    throw new Error(e);
+                })
+        })
+        .then(participant => {
+            deferred.resolve(participant);
+        })
+        .catch(e => {
+            throw new Error(e);
+        });
+    return deferred.promise;
+};
+
+theGbifNetwork.getNodes = participantId => {
+    let deferred = Q.defer();
+    let url = dataApi.node.url;
+    helper.getApiDataPromise(url, {'qs': {'identifier': participantId}})
+        .then(result => {
+            deferred.resolve(result.results);
+        })
+        .catch(e => {
+            deferred.reject(e);
+        });
+    return deferred.promise;
+};
+
+theGbifNetwork.getAllPublishers = nodeUuid => {
+    let deferred = Q.defer(),
+        publishers = [],
+        limit = 20;
+
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true,
+        qs: {
+            'limit': limit
+        }
+    };
+
+    let url = dataApi.node.url + nodeUuid + '/organization';
+    helper.getApiDataPromise(url, options)
+        .then(result => {
+            publishers = publishers.concat(result.results);
+
+            if (publishers.length === result.count) {
+                deferred.resolve(publishers);
+            }
+            else {
+                let tasks = [],
+                    offset = 0;
+
+                do {
+                    offset += 20;
+                    options.qs.offset = offset;
+                    tasks.push(helper.getApiDataPromise(url, options)
+                        .then(result => {
+                            publishers = publishers.concat(result.results);
+                        })
+                        .catch(e => {
+                            deferred.reject(e);
+                        })
+                    );
+                } while (publishers.length < result.count);
+
+                return Q.all(tasks)
+                    .then(() => {
+                        deferred.resolve(publishers);
+                    })
+                    .catch(e => {
+                        deferred.reject(e);
+                    });
+            }
+        })
+        .catch(e => {
+            deferred.reject(e);
+        });
+    return deferred.promise;
+};
 
 /**
  * Digest dataset/record counts from various formats of API result.
@@ -201,6 +424,9 @@ function processCountResult(name, result) {
             .then(usageCount => {
                 countObj.recordCount = usageCount;
                 return countObj;
+            })
+            .catch(e => {
+                deferred.reject(e);
             });
     }
     else if (['datasetAbout', 'occurrenceContributedBy', 'occurrenceContributingTo'].indexOf(name) !== -1) {
@@ -228,21 +454,33 @@ function processCountResult(name, result) {
  * collect the usage count of given checklist datasets.
  */
 function getChecklistMetrics(results) {
+    let deferred = Q.defer();
     let usagesCount = 0;
     let metricsTask = [];
     results.forEach(result => {
         metricsTask.push(helper.getApiDataPromise(dataApi.dataset.url + result.key + '/metrics')
             .then(metrics => {
                 usagesCount += metrics.usagesCount;
-            })
-            .catch(e => {
-                log.info(e + ' at getChecklistMetrics().')
             }));
     });
-    return Q.all(metricsTask)
+    Q.all(metricsTask)
         .then(() => {
-            return usagesCount;
+            deferred.resolve(usagesCount);
+        })
+        .catch(e => {
+            deferred.reject(e);
         });
+    return deferred.promise;
 }
+
+theGbifNetwork.validateParticipants = participants => {
+    let valid = true;
+    participants.forEach(p => {
+        if (!p.hasOwnProperty('id')) {
+            valid = false;
+        }
+    });
+    return valid;
+};
 
 module.exports = theGbifNetwork;

@@ -202,6 +202,18 @@
       "from": "angular-translate@2.13.0",
       "resolved": "https://registry.npmjs.org/angular-translate/-/angular-translate-2.13.0.tgz"
     },
+    "angular-translate-interpolation-messageformat": {
+      "version": "2.13.1",
+      "from": "angular-translate-interpolation-messageformat@latest",
+      "resolved": "https://registry.npmjs.org/angular-translate-interpolation-messageformat/-/angular-translate-interpolation-messageformat-2.13.1.tgz",
+      "dependencies": {
+        "angular-translate": {
+          "version": "2.13.1",
+          "from": "angular-translate@>=2.13.1 <2.14.0",
+          "resolved": "https://registry.npmjs.org/angular-translate/-/angular-translate-2.13.1.tgz"
+        }
+      }
+    },
     "angular-translate-loader-url": {
       "version": "2.13.0",
       "from": "angular-translate-loader-url@2.13.0",
@@ -1471,11 +1483,6 @@
       "version": "1.4.0",
       "from": "d3-geo@1.4.0",
       "resolved": "https://registry.npmjs.org/d3-geo/-/d3-geo-1.4.0.tgz"
-    },
-    "d3-geo-projection": {
-      "version": "0.2.16",
-      "from": "d3-geo-projection@>=0.2.0 <0.3.0",
-      "resolved": "https://registry.npmjs.org/d3-geo-projection/-/d3-geo-projection-0.2.16.tgz"
     },
     "d3-hierarchy": {
       "version": "1.0.3",
@@ -8164,6 +8171,11 @@
           "version": "3.5.17",
           "from": "d3@>=3.0.0 <4.0.0",
           "resolved": "https://registry.npmjs.org/d3/-/d3-3.5.17.tgz"
+        },
+        "d3-geo-projection": {
+          "version": "0.2.16",
+          "from": "d3-geo-projection@>=0.2.0 <0.3.0",
+          "resolved": "https://registry.npmjs.org/d3-geo-projection/-/d3-geo-projection-0.2.16.tgz"
         },
         "d3-queue": {
           "version": "2.0.3",

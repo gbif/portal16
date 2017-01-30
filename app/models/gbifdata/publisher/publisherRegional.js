@@ -39,11 +39,16 @@ PublisherRegional.groupBy = (query) => {
             // iterate and collect publishers
             do {
                 offset += 50;
-                let qs = {
-                    'limit': limit,
-                    'offset': offset
+                let options = {
+                    timeoutMilliSeconds: 10000,
+                    retries: 5,
+                    failHard: true,
+                    qs: {
+                        'limit': limit,
+                        'offset': offset
+                    }
                 };
-                tasks.push(helper.getApiDataPromise(requestUrl, {'qs': qs})
+                tasks.push(helper.getApiDataPromise(requestUrl, options)
                     .then(result => {
                         publishers = publishers.concat(result.results);
                     })
@@ -89,8 +94,31 @@ PublisherRegional.groupBy = (query) => {
     return deferred.promise;
 };
 
+PublisherRegional.numberEndorsedBy = (participantId) => {
+    let deferred = Q.defer(),
+        requestUrl = dataApi.node.url + '?identifier=' + participantId;
 
+    helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}})
+        .then(result => {
+            if (result.count === 1 && result.results.length === 1) {
+                let node = result.results[0];
+                requestUrl = dataApi.node.url + node.key + '/organization';
+                return helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}});
+            }
+            else {
+                throw new Error('More than one nodes returned.');
+            }
+        })
+        .then(result => {
+            deferred.resolve(result);
+        })
+        .catch(e => {
+            let reason = e + ' in publisherRegional.numberEndorsedBy().';
+            log.info(reason);
+            return deferred.reject(reason);
+        });
 
-
+    return deferred.promise;
+};
 
 module.exports = PublisherRegional;

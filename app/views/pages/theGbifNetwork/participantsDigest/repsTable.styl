@@ -1,0 +1,151 @@
+.reps__table {
+    > div {
+        padding 0 15px
+    }
+    h3 {
+        text-transform capitalize
+    }
+    table.table {
+        thead, tbody, tr, th, td {
+            display block
+            outline none
+        }
+        thead tr th {
+            position absolute
+            text-transform capitalize
+            top -9999px
+            left -9999px
+        }
+        tr {
+            border-top 1px solid #ccc
+        }
+        tbody {
+            tr {
+                th, td {
+                    border none
+                    border-bottom 1px solid #eee
+                    position relative
+                    display inline-block
+                    width 49%
+                }
+                th {
+                    font-weight bold
+                    text-transform capitalize
+                }
+                td:nth-of-type(1) {
+                    text-transform capitalize
+                    padding-left 6px
+                    width 100%
+                    background $lightBackground
+                }
+                td:nth-of-type(2) {
+                    width 100%
+                    address {
+                        margin-bottom 0
+                    }
+                }
+                td:nth-of-type(3) {
+                    display none
+                }
+            }
+        }
+    }
+}
+
++isAbove($tablet) {
+    .reps__table {
+
+        .table-container--participant {
+            max-width 960px
+            margin 0 auto
+        }
+
+        table.table {
+            font-size 13px
+            display table
+            thead {
+                display table-header-group
+            }
+            tbody {
+                display table-row-group
+            }
+            tr {
+                display table-row
+                border-top none
+            }
+            th {
+                display table-cell
+            }
+            thead tr {
+                th {
+                    font-weight bold
+                    position relative
+                    white-space nowrap
+                    top 0
+                    left 0
+
+                    a {
+                        display inline-block
+                        color inherit
+                        padding-right 0
+                        white-space normal
+                    }
+                    a:hover {
+                        text-decoration none
+                    }
+                    div {
+                        display inline-block
+                        font-size 18px
+                        width 18px
+                        margin-top -8px
+                        height 20px
+                        vertical-align middle
+                    }
+                }
+                th:hover {
+                    cursor pointer
+                }
+
+            }
+            tbody {
+                tr {
+                    cursor pointer
+
+                    td {
+                        border-bottom none
+                        display table-cell
+                        width auto
+                        vertical-align middle
+                    }
+                    td:nth-of-type(1) {
+                        width 40%
+                        padding-left 10px
+                        background none
+                    }
+                    td:nth-of-type(2) {
+                        width 30%
+                        display table-cell
+                    }
+                    td:nth-of-type(3) {
+                        width 30%
+                        display table-cell
+                    }
+                    th {
+                        display none
+                    }
+                }
+                tr:nth-of-type(even) {
+                    background alpha($alternativeTableRow, 1)
+                }
+                tr:hover {
+                    background darken($lightBackground, 5)
+                }
+            }
+        }
+    }
+}
+
++isAbove(900px) {
+    .reps__table {
+    }
+}

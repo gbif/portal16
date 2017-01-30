@@ -22,11 +22,16 @@ Literature.prototype.record = {};
  */
 Literature.countBy = query => {
     let deferred = Q.defer();
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true
+    };
     // First get participants of the region, then concat literature results by country.
     if (query === undefined || !query.hasOwnProperty('gbifRegion') || !query.gbifRegion) {
         query.gbifRegion = 'GLOBAL';
     }
-    helper.getApiDataPromise(cmsApi.count.url + 'literature/' + query.gbifRegion)
+    helper.getApiDataPromise(cmsApi.count.url + 'literature/' + query.gbifRegion, options)
         .then(result => {
             deferred.resolve(result);
         })
@@ -40,11 +45,17 @@ Literature.countBy = query => {
 
 Literature.yearly = query => {
     let deferred = Q.defer();
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true
+    };
+
     // First get participants of the region, then concat literature results by country.
     if (query === undefined || !query.hasOwnProperty('gbifRegion') || !query.gbifRegion) {
         query.gbifRegion = 'GLOBAL';
     }
-    helper.getApiDataPromise(cmsApi.count.url + 'literature-yearly/' + query.gbifRegion)
+    helper.getApiDataPromise(cmsApi.count.url + 'literature-yearly/' + query.gbifRegion, options)
         .then(result => {
             deferred.resolve(result);
         })
@@ -70,6 +81,12 @@ Literature.groupBy = query => {
         literature = [],
         authors = 0;
 
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: false
+    };
+
         // First get participants of the region, then concat literature results by country.
         if (query === undefined || !query.hasOwnProperty('gbifRegion' || query.gbifRegion === undefined)) {
             query.gbifRegion = 'GLOBAL';
@@ -79,7 +96,7 @@ Literature.groupBy = query => {
                 let tasks = [];
                 result.forEach(p => {
                     if (p.hasOwnProperty('countryCode') && p.countryCode !== undefined) {
-                        tasks.push(helper.getApiDataPromise(cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]=' + p.countryCode)
+                        tasks.push(helper.getApiDataPromise(cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]=' + p.countryCode, options)
                             .then(result => {
                                 if (result.count > 0) {
                                     countries = countries.concat([p.countryCode]);

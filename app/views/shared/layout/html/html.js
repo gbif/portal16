@@ -99,6 +99,7 @@ require('./angular/speciesFilter.service');
 require('./angular/toast.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
+require('./angular/country.resource');
 
 require('../partials/feedback/feedback.directive');
 require('../partials/notifications/notifications.directive');

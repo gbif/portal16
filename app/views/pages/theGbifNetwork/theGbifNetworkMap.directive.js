@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     d3 = require('d3'),
+    moment = require('moment'),
     topojson = require('topojson');
 
 angular
@@ -9,7 +10,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap($translate) {
+function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy, $q) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -17,8 +18,7 @@ function theGbifNetworkMap($translate) {
             region: '=',
             membershipType: '='
         },
-        link: drawMap,
-        templateUrl: '/templates/pages/theGbifNetwork/legend/legend.html',
+        templateUrl: '/templates/pages/theGbifNetwork/mapContainer/mapContainer.html',
         controller: svgMap,
         controllerAs: 'vm'
     };
@@ -26,8 +26,8 @@ function theGbifNetworkMap($translate) {
     function svgMap($scope) {
         var vm = this;
 
-        // default status of the legend pane
-        vm.expanded = true;
+        // default status of the mapContainer pane
+        vm.expanded = false;
 
         // membership type toggle
         vm.vpChecked = false;
@@ -48,9 +48,72 @@ function theGbifNetworkMap($translate) {
             }
         };
 
-    }
+        $scope.infoPaneStatus = false;
+        $scope.$watch('region', function(){
+            zoomToRegion($scope.region);
+        });
 
-    function drawMap(scope, element, attrs) {
+        $scope.$watch('membershipType', function(){
+            if (centered) {
+                zoomToPolygon(centered);
+            }
+            else {
+                zoomToRegion($scope.region);
+            }
+        });
+
+        function updateCountryDigest(d) {
+            $scope.infoPaneStatus = true;
+            $scope.digestLoaded = false;
+            // clean up all variables so un-updated values won't show
+            var propertiesToDelete = ['selectedHeaderClass','heads', 'digest', 'endorsedPublisher', 'endorsedPublisherForm'];
+            propertiesToDelete.forEach(function(p){
+                if (vm.hasOwnProperty(p) === true) {
+                    delete vm[p];
+                }
+            });
+
+            var tasks = {};
+            if ($scope.participantId) {
+                tasks.heads = ParticipantHeads.get({participantId: $scope.participantId}).$promise;
+                tasks.endorsement = PublisherEndorsedBy.get({participantId: $scope.participantId}).$promise;
+            }
+            if ($scope.ISO2) {
+                tasks.digest = CountryDataDigest.get({iso2: $scope.ISO2}).$promise;
+            }
+
+            $q.all(tasks).then(function(results){
+                if (results.hasOwnProperty('heads')) {
+                    var mStart = results.heads.participantInfo.membershipStart;
+                    results.heads.participantInfo.membershipStart = moment(mStart, 'MMMM YYYY').format('YYYY');
+                    vm.heads = results.heads;
+                }
+                if (results.hasOwnProperty('endorsement') && results.endorsement.hasOwnProperty('count')) {
+                    vm.endorsedPublisher = results.endorsement.count;
+                }
+                if (results.hasOwnProperty('digest') && results.digest.length > 0) {
+                    vm.digest = results.digest[0];
+                }
+                $scope.digestLoaded = true;
+            });
+
+            // determine header class
+            if (d.properties.hasOwnProperty('membershipType')) {
+                switch (d.properties.membershipType) {
+                    case 'voting_participant':
+                        vm.headerClass = 'vp-background';
+                        break;
+                    case 'associate_country_participant':
+                        vm.headerClass = 'acp-background';
+                        break;
+                }
+            }
+            else {
+                vm.headerClass = 'p-background';
+            }
+        }
+
+        // Draw map
         var color = {
             'voting_participant': '#4E9F37',
             'associate_country_participant': '#58BAE9'
@@ -61,7 +124,8 @@ function theGbifNetworkMap($translate) {
             height = 480 - margin.top - margin.bottom,
             svgWidth = width + margin.left + margin.right,
             svgHeight = height + margin.top + margin.bottom,
-            centered;
+            centered,
+            activePolygon = d3.select(null);
 
         var svg = d3.select('#map').append("svg")
             .attr('id', 'theGbifNetworkMap')
@@ -94,8 +158,8 @@ function theGbifNetworkMap($translate) {
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-        svg.append('rect')
-            .attr('class', 'map-background')
+        var background = svg.append('rect');
+        background.attr('class', 'map-background')
             .attr('width', svgWidth)
             .attr('height', svgHeight)
             .on('click', clicked);
@@ -126,23 +190,16 @@ function theGbifNetworkMap($translate) {
                 .data(topojson.feature(topology, topology.objects.tracts).features)
                 .enter().append("path")
                 .attr("d", path)
-                .on('click', clicked)
-                .attr('class', 'boundary');
+                .attr('class', 'boundary')
+                .on('click', clicked);
 
-            zoomToRegion(scope.region);
-
-            scope.mapLoaded = true;
-        });
-
-        scope.$watch('region', function(){
-            zoomToRegion(scope.region);
-        });
-
-        scope.$watch('membershipType', function(){
-            zoomToRegion(scope.region);
+            zoomToRegion($scope.region);
         });
 
         function zoomToRegion(region) {
+            centered = null;
+            $scope.infoPaneStatus = false;
+
             var bounds = regionBoxes[region],
                 dx = bounds[1][0] - bounds[0][0],
                 dy = bounds[1][1] - bounds[0][1],
@@ -152,26 +209,7 @@ function theGbifNetworkMap($translate) {
                 translate = [width / 2 - scale * x, height / 2 - scale * y];
 
             g.selectAll('path')
-                .attr("fill", function(d){
-                    var p = d.properties;
-                    if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
-                        if (scope.region == 'GLOBAL') {
-                            if (scope.membershipType !== 'none') {
-                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
-                                    return color[d.properties.membershipType];
-                                }
-                            }
-                        }
-                        else if (p.gbifRegion == scope.region) {
-                            if (scope.membershipType !== 'none') {
-                                if (scope.membershipType === 'active' || scope.membershipType === p.membershipType) {
-                                    return color[d.properties.membershipType];
-                                }
-                            }
-                        }
-                    }
-                    return '#DFDDCF';
-                });
+                .attr("fill", colorParticipant);
 
             g.transition()
                 .duration(750)
@@ -185,38 +223,80 @@ function theGbifNetworkMap($translate) {
 
         }
 
+        function zoomToPolygon(d) {
+            centered = d;
+
+            var bounds = path.bounds(d),
+                dx = bounds[1][0] - bounds[0][0],
+                dy = bounds[1][1] - bounds[0][1],
+                x = (bounds[0][0] + bounds[1][0]) / 2,
+                y = (bounds[0][1] + bounds[1][1]) / 2,
+                scale = 0.9 / Math.max(dx / width, dy / height),
+                translate = [width / 3 - scale * x, height / 1.6 - scale * y];
+
+            g.selectAll('path')
+                .attr("fill", colorParticipant);
+
+            g.transition()
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+            shadow.transition()
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+            $scope.participantId = d.properties.id;
+            $scope.ISO2 = d.properties.ISO2;
+            updateCountryDigest(d);
+        }
+
+        function colorParticipant(d) {
+            var p = d.properties;
+            if (p.hasOwnProperty('membershipType') && p.hasOwnProperty('gbifRegion')) {
+                if ($scope.region == 'GLOBAL') {
+                    if ($scope.membershipType !== 'none') {
+                        if ($scope.membershipType === 'active' || $scope.membershipType === p.membershipType) {
+                            return color[d.properties.membershipType];
+                        }
+                    }
+                }
+                else if (p.gbifRegion == $scope.region) {
+                    if ($scope.membershipType !== 'none') {
+                        if ($scope.membershipType === 'active' || $scope.membershipType === p.membershipType) {
+                            return color[d.properties.membershipType];
+                        }
+                    }
+                }
+            }
+            return '#DFDDCF';
+        }
+
         function clicked(d) {
+            $scope.infoPaneStatus = false;
+
             if (typeof d === 'undefined') {
-                zoomToRegion(scope.region);
+                zoomToRegion($scope.region);
+                reset();
             }
             else {
-                var x, y, k;
                 if (d && centered !== d) {
-                    var centroid = path.centroid(d);
-                    x = centroid[0];
-                    y = centroid[1];
-                    k = 4;
-                    centered = d;
+                    zoomToPolygon(d);
+                    reset();
+                    activePolygon = d3.select(this).classed("active-polygon", true);
                 } else {
-                    x = width / 2;
-                    y = height / 2;
-                    k = 1;
                     centered = null;
+                    zoomToRegion($scope.region);
+                    reset();
                 }
-
-                g.selectAll("path")
-                    .classed("active-polygon", centered && function(d) { return d === centered; });
-
-                g.transition()
-                    .duration(750)
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                    .style("stroke-width", 1.5 / k + "px");
-
-                shadow.transition()
-                    .duration(750)
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                    .style("stroke-width", 1.5 / k + "px");
             }
+            $scope.$apply();
+        }
+
+        function reset() {
+            activePolygon.classed('active-polygon', false);
+            activePolygon = d3.select(null);
         }
     }
 }

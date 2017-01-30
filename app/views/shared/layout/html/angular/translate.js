@@ -1,6 +1,7 @@
 var angular = require('angular');
 require('angular-translate');
 require('angular-translate-loader-url');
+require('angular-translate-interpolation-messageformat');
 
 angular
     .module('portal')
@@ -12,6 +13,8 @@ angular
 /** @ngInject */
 function translaterConfig($translateProvider) {
     $translateProvider.useUrlLoader('/api/translation.json');
+    // https://angular-translate.github.io/docs/#/guide/14_pluralization
+    $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.preferredLanguage('en');
     $translateProvider.useSanitizeValueStrategy('escape'); // http://angular-translate.github.io/docs/#/guide/19_security
 }

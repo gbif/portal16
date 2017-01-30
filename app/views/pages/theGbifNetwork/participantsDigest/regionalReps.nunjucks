@@ -1,0 +1,69 @@
+<ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.repTableLoaded === false"></ng-include>
+
+<div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true">
+    <div class="table-container--participant" ng-init="sort = {field: '', reverse: false };">
+        <h3 translate="theGbifNetwork.regionalRepresentative"
+            translate-values="{NUMBER: vm.reps.length}"
+            translate-interpolation="messageformat"></h3>
+
+        <table class="table card">
+            <thead>
+            <tr>
+                <th ng-click="sortField = 'role'; sortReverse = !sortReverse">
+                    <a>{$ __('directory.role') $}</a>
+                    <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
+                    <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
+                </th>
+                <th ng-click="sortField = 'surname'; sortReverse = !sortReverse">
+                    <a>{$ __('directory.name') $}</a>
+                    <span ng-show="sortField == 'surname' && !sortReverse" class="gb-icon-angle-down"></span>
+                    <span ng-show="sortField == 'surname' && sortReverse" class="gb-icon-angle-up"></span>
+                </th>
+                <th ng-click="sortField = 'participantName'; sortReverse = !sortReverse">
+                    <a>{$ __('directory.participant') $}</a>
+                    <span ng-show="sortField == 'participantName' && !sortReverse" class="gb-icon-angle-down"></span>
+                    <span ng-show="sortField == 'participantName' && sortReverse" class="gb-icon-angle-up"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody ng-if="vm.reps.length > 0">
+            <tr ng-repeat="(index, person) in vm.reps | orderBy:sortField:sortReverse"
+                ng-click="vm.toggleDetail('nodes_steering_group' + '_' + person.id)">
+                <td class="gbif-role"> {# role #}
+                    <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
+                </td>
+                <td> {# delegation member #}
+                    <address class="contacts__item" id="contact_{$ person.id $}">
+                        <div class="contact__heading">
+                            <span class="relative-anchor-offset"><a name="contact_{{ person.id }}"></a></span>
+                            <span><strong ng-bind="person.surname + ', ' + person.firstName"></strong></span>
+                        </div>
+                        <div class="contact__body" ng-class="vm.toggleStatus['nodes_steering_group' + '_' + person.id]">
+                            <div class="stop-propagation" ng-click="vm.selectAddress($event)">
+                                <span ng-if="person.institutionName" ng-bind="person.institutionName"></span><br>
+                                <div ng-if="person.address.length > 0">
+                                    <span ng-bind="person.address"></span><br>
+                                </div>
+                                <span ng-if="person.countryCode"
+                                      translate="country.{{ person.countryCode }}"></span><br>
+                                <div class="clearfix">
+                            <span ng-if="person.phone" class="contact__phone">
+                                <i class="gb-icon-phone2"></i>
+                                <a href="tel:{{ person.phone }}" class="inherit" ng-bind="person.phone"></a>
+                            </span>
+                                    <span ng-if="person.email" class="contact__mail">
+                                <i class="gb-icon-mail"></i>
+                                <a href="mailto:{{ person.email }}" class="inherit" ng-bind="person.email"></a>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </address>
+                </td>
+                <td ng-bind="person.participantName"></td> {# participant #}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -26,12 +26,33 @@
     }
 }
 
+.region-selector-fixed {
+    position fixed
+    top 50px
+    width 100%
+    background-color $white
+    box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
+    z-index 200
+    text-align center
+}
+
+.selected-fixed-padding {
+    margin-top 45px
+}
+
 .main-counts {
     min-height 160px
 }
 
 .update-region {
     min-height 410px
+    padding-top vrBlock(1)
+}
++isAbove($tablet) {
+    .update-region {
+        min-height 410px
+        padding-top 0
+    }
 }
 
 .entity-counts {
@@ -96,23 +117,18 @@
     }
 }
 
-.status-hover {
-    position relative
-    z-index 200;
-}
-
 .participant-list__columned {
     header {
         margin vrBlock(2) auto vrBlock(1)
         max-width 350px
         border-bottom 1px solid $gray
     }
-    
+
     h3 {
         margin vrBlock(1) auto
         text-transform uppercase
     }
-    
+
     ol {
         margin 0
         padding 0 vrBlock(1)
@@ -123,7 +139,7 @@
             margin-bottom 5px
         }
     }
-    
+
     footer {
         margin vrBlock(1) auto vrBlock(2)
         content "&nbsp;"
@@ -176,15 +192,15 @@
     .bar {
         fill $orange3
     }
-    
+
     .bar:hover {
         fill $orange1
     }
-    
+
     .axis {
         font 12px sans-serif
     }
-    
+
     .axis path,
     .axis line {
         fill none
@@ -228,7 +244,8 @@
 }
 
 .map-background {
-    fill none
+    // This has to be filled or the background won't accept clicking.
+    fill $lightBackground
 }
 
 .map-shadow {
@@ -241,10 +258,15 @@
     overflow hidden
 }
 
+.svg-map-container {
+    position relative
+}
+
 .svg-content {
     position absolute
     top 0
     left 0
+    z-index 50
 }
 
 .boundary {
@@ -254,9 +276,6 @@
 
 .active-polygon {
     stroke #fff
-    stroke-width 0.8px
+    stroke-width 1px
 }
 
-.svg-map-container {
-    position relative
-}
