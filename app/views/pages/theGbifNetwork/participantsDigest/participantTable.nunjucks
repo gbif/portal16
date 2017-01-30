@@ -1,7 +1,8 @@
 <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false"></ng-include>
 
 <div class="participants__table ng-cloak" ng-if="vm.tableLoaded === true">
-    <div class="table-container--participant">
+    <div class="table-container--participant"
+        ng-init="sort = {field: '', reverse: false };">
         <h3 translate="theGbifNetwork.participant"
                   translate-values="{NUMBER: vm.activeParticipantsDigest.length}"
                   translate-interpolation="messageformat"></h3>
@@ -32,27 +33,27 @@
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse"
+                <th><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
                        translate="theGbifNetwork.dataset"
                        translate-values="{NUMBER: 'one'}"
                        translate-interpolation="messageformat">
                     </a>
-                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'datasetFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'datasetFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse"
+                <th><a ng-click="sort.field = 'occurrenceFromCountSort'; sort.Reverse = !sort.Reverse"
                        translate="theGbifNetwork.record"
                        translate-values="{NUMBER: 'one'}"
                        translate-interpolation="messageformat">
                     </a>
-                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'occurrenceFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'occurrenceFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th><a ng-click="sort.field = ''; sort.Reverse = !sort.Reverse"
+                <th><a ng-click="sort.field = 'endorsedPublishersSort'; sort.Reverse = !sort.Reverse"
                        translate="stdTerms.publisher">
                     </a>
-                    <div ng-show="sort.field == '' && !sort.Reverse" class="gb-icon-angle-down"></div>
-                    <div ng-show="sort.field == '' && sort.Reverse" class="gb-icon-angle-up"></div>
+                    <div ng-show="sort.field == 'endorsedPublishersSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
+                    <div ng-show="sort.field == 'endorsedPublishersSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
             </tr>
             </thead>
@@ -74,18 +75,18 @@
                     translate-interpolation="messageformat"></th>
                 <td>
                     <a ng-if="participant.type === 'COUNTRY'"
-                       ng-bind="participant.counts.datasetFromCount | localNumber:gb.locale"
+                       ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"
                        href="/dataset/search?type=OCCURRENCE&publishing_country={{ participant.iso2 }}"></a>
-                    <span ng-if="participant.type === 'OTHER'" ng-bind="participant.counts.datasetFromCount | localNumber:gb.locale"></span>
+                    <span ng-if="participant.type === 'OTHER'" ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"></span>
                 </td>
                 <th translate="theGbifNetwork.record"
                     translate-values="{NUMBER: 'one'}"
                     translate-interpolation="messageformat"></th>
                 <td>
                     <a ng-if="participant.type === 'COUNTRY'"
-                       ng-bind="participant.counts.occurrenceFromCount | localNumber:gb.locale"
+                       ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"
                        href="/occurrence/search?publishing_country={{ participant.iso2 }}&advanced=1"></a>
-                    <span ng-if="participant.type === 'OTHER'" ng-bind="participant.counts.occurrenceFromCount | localNumber:gb.locale"></span>
+                    <span ng-if="participant.type === 'OTHER'" ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"></span>
                 </td>
                 <td ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td>
             </tr>

@@ -148,7 +148,11 @@ theGbifNetwork.counts = query => {
 theGbifNetwork.getCountries = (iso2) => {
     let deferred = Q.defer();
     let requestUrl = dataApi.countryEnumeration.url;
-    let options = {};
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true
+    };
     helper.getApiDataPromise(requestUrl, options)
         .then(countries => {
             let countryTasks = [];
@@ -295,14 +299,20 @@ theGbifNetwork.getOapDataCount = participant => {
         })
         .then(publishers => {
             let tasks = [];
+            let options = {
+                timeoutMilliSeconds: 10000,
+                retries: 5,
+                failHard: true
+            };
+
             // add up both dataset and occurrence count.
             publishers.forEach(pub => {
                 let url = dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key;
-                tasks.push(helper.getApiDataPromise(url, {})
+                tasks.push(helper.getApiDataPromise(url, options)
                     .then(result => {
                         occurrenceFromCount += result.count;
                         url = dataApi.datasetSearch.url + '?publishingOrg=' + pub.key;
-                        return helper.getApiDataPromise(url, {})
+                        return helper.getApiDataPromise(url, options)
                     })
                     .then(result => {
                         datasetFromCount += result.count;
@@ -351,8 +361,17 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
         publishers = [],
         limit = 20;
 
+    let options = {
+        timeoutMilliSeconds: 10000,
+        retries: 5,
+        failHard: true,
+        qs: {
+            'limit': limit
+        }
+    };
+
     let url = dataApi.node.url + nodeUuid + '/organization';
-    helper.getApiDataPromise(url, {'qs': {'limit': limit}})
+    helper.getApiDataPromise(url, options)
         .then(result => {
             publishers = publishers.concat(result.results);
 
@@ -365,11 +384,8 @@ theGbifNetwork.getAllPublishers = nodeUuid => {
 
                 do {
                     offset += 20;
-                    let qs = {
-                        'limit': limit,
-                        'offset': offset
-                    };
-                    tasks.push(helper.getApiDataPromise(url, {'qs': qs})
+                    options.qs.offset = offset;
+                    tasks.push(helper.getApiDataPromise(url, options)
                         .then(result => {
                             publishers = publishers.concat(result.results);
                         })

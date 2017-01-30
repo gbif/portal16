@@ -39,11 +39,16 @@ PublisherRegional.groupBy = (query) => {
             // iterate and collect publishers
             do {
                 offset += 50;
-                let qs = {
-                    'limit': limit,
-                    'offset': offset
+                let options = {
+                    timeoutMilliSeconds: 10000,
+                    retries: 5,
+                    failHard: true,
+                    qs: {
+                        'limit': limit,
+                        'offset': offset
+                    }
                 };
-                tasks.push(helper.getApiDataPromise(requestUrl, {'qs': qs})
+                tasks.push(helper.getApiDataPromise(requestUrl, options)
                     .then(result => {
                         publishers = publishers.concat(result.results);
                     })

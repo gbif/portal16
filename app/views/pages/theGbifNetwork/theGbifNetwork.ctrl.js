@@ -101,6 +101,17 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         vm.tableLoaded = false;
         ParticipantsDigest.get({'gbifRegion': region}).$promise
             .then(function(response){
+                // duplicate some counts for sorting.
+                response.forEach(function(r){
+                    ['occurrenceFromCount', 'datasetFromCount'].forEach(function(c){
+                        if (r.counts.hasOwnProperty(c)) {
+                            r[c + 'Sort'] = r.counts[c];
+                        }
+                    });
+                    if (r.hasOwnProperty('endorsedPublishers')) {
+                        r.endorsedPublishersSort = r.endorsedPublishers;
+                    }
+                });
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
             }, function(error) {
