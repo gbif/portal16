@@ -41,6 +41,8 @@ function filterLocationDirective() {
         vm.geometryOptions = [];
         vm.geometrySuggestions = [];
 
+
+
         function addGeometryOption(arr, str, active) {
             arr.push({
                 q: str,
@@ -96,13 +98,53 @@ function filterLocationDirective() {
             addGeometryOption(vm.geometryOptions, q, true);
         });
 
-        vm.hasCoordinate = vm.filterState.query.has_coordinate;
-        if (vm.hasCoordinate === 'true' || (vm.query && vm.query.length)) {
+        vm.getQuery = function() {
+            var geometries = vm.geometryOptions.filter(function(geo){
+                return geo.active;
+            }).map(function(geo){
+                return geo.q;
+            });
+            geometries = $filter('unique')(geometries);
+            return geometries;
+        };
+
+        vm.apply = function () {
+            var filters = {
+                has_coordinate: vm.hasCoordinate,
+                has_geospatial_issue: undefined,
+                geometry: vm.getQuery()
+            };
+            if (!filters.geometry || filters.geometry.length == 0) {
+                filters.geometry = undefined;
+            }
+            if (vm.hasCoordinate && !vm.includeSuspicious) {
+                filters.has_geospatial_issue = false;
+            } else if (!vm.hasCoordinate) {
+                vm.geometryOptions = [];
+                filters.geometry = undefined;
+            }
+            OccurrenceFilter.updateParams(filters);
+        };
+
+        function getOptionalBoolean(key) {
+            if (key === 'false') return false;
+            if (key === 'true') return true;
+            return undefined;
+        }
+        vm.includeSuspicious = getOptionalBoolean(vm.filterState.query.has_geospatial_issue);
+        vm.hasCoordinate = getOptionalBoolean(vm.filterState.query.has_coordinate);
+        if (vm.query && vm.query.length) {
             vm.hasCoordinate = true;
-        } else if(vm.hasCoordinate === 'false') {
-            vm.hasCoordinate = false;
+        } else if(vm.hasCoordinate === false) {
+            //vm.hasCoordinate = false;
+            //if (vm.includeSuspicious) {
+            //    vm.apply();
+            //}
         } else {
-            vm.hasCoordinate = undefined;
+            //vm.hasCoordinate = undefined;
+            //if (vm.includeSuspicious) {
+            //    vm.apply();
+            //}
         }
 
         vm.addString = function() {
@@ -162,33 +204,7 @@ function filterLocationDirective() {
             vm.apply();
         };
 
-        vm.getQuery = function() {
-            var geometries = vm.geometryOptions.filter(function(geo){
-                return geo.active;
-            }).map(function(geo){
-                return geo.q;
-            });
-            geometries = $filter('unique')(geometries);
-            return geometries;
-        };
 
-        vm.apply = function () {
-            var filters = {
-                has_coordinate: vm.hasCoordinate,
-                has_geospatial_issue: undefined,
-                geometry: vm.getQuery()
-            };
-            if (!filters.geometry || filters.geometry.length == 0) {
-                filters.geometry = undefined;
-            }
-            if (vm.hasCoordinate && !vm.includeSuspicious) {
-                filters.has_geospatial_issue = false;
-            } else if (!vm.hasCoordinate) {
-                vm.geometryOptions = [];
-                filters.geometry = undefined;
-            }
-            OccurrenceFilter.updateParams(filters);
-        }
     }
 }
 
