@@ -89,8 +89,31 @@ PublisherRegional.groupBy = (query) => {
     return deferred.promise;
 };
 
+PublisherRegional.numberEndorsedBy = (participantId) => {
+    let deferred = Q.defer(),
+        requestUrl = dataApi.node.url + '?identifier=' + participantId;
 
+    helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}})
+        .then(result => {
+            if (result.count === 1 && result.results.length === 1) {
+                let node = result.results[0];
+                requestUrl = dataApi.node.url + node.key + '/organization';
+                return helper.getApiDataPromise(requestUrl, {'qs': {'limit': 20}});
+            }
+            else {
+                throw new Error('More than one nodes returned.');
+            }
+        })
+        .then(result => {
+            deferred.resolve(result);
+        })
+        .catch(e => {
+            let reason = e + ' in publisherRegional.numberEndorsedBy().';
+            log.info(reason);
+            return deferred.reject(reason);
+        });
 
-
+    return deferred.promise;
+};
 
 module.exports = PublisherRegional;

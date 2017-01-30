@@ -15,6 +15,14 @@ var angular = require('angular');
                 }
             });
         })
+        .factory('DirectoryNsgContacts', function ($resource) {
+            return $resource('/api/directory/nsg/contacts', null, {
+                'get': {
+                    method: 'GET',
+                    isArray: true
+                }
+            });
+        })
         // Accepts gbifRegion as param
         // return counts of each type of participants
         .factory('DirectoryParticipantsCount', function ($resource) {
@@ -40,6 +48,32 @@ var angular = require('angular');
                         params: {
                             gbifRegion: '@gbifRegion',
                             membershipType: '@membershipType'
+                        },
+                        isArray: true
+                    }
+                })
+                ;
+        })
+        .factory('ParticipantHeads', function ($resource) {
+            return $resource('/api/participant/heads/:participantId', null,
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {
+                            participantId: '@participantId'
+                        },
+                        isArray: false
+                    }
+                })
+                ;
+        })
+        .factory('ParticipantsDigest', function ($resource) {
+            return $resource('/api/participants/digest', null,
+                {
+                    'get': {
+                        method: 'GET',
+                        params: {
+                            gbifRegion: '@gbifRegion',
                         },
                         isArray: true
                     }

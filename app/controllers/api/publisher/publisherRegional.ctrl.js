@@ -29,3 +29,14 @@ router.get('/publisher/count', (req, res, next) => {
             next(err)
         });
 });
+
+router.get('/publisher/endorsed-by/:participantId?', (req, res, next) => {
+    PublisherRegional.numberEndorsedBy(req.params.participantId)
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            log.error('Error in /api/publisher/endorsed-by/:participantId controller: ' + err.message);
+            next(err)
+        });
+});

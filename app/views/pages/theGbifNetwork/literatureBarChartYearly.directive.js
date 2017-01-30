@@ -8,17 +8,22 @@ angular
     .directive('literatureBarChartYearly', literatureBarChartYearly);
 
 /** @ngInject */
-function literatureBarChartYearly(LiteratureYearly) {
+function literatureBarChartYearly(LiteratureYearly, $translate) {
     return {
         restrict: 'A',
         replace: 'false',
         scope: {
             region: '='
         },
-        link: drawChart
+        templateUrl: '/templates/pages/theGbifNetwork/chartContainer/chartContainer.html',
+        controller: svgChart,
+        controllerAs: 'vm'
     };
 
-    function drawChart(scope, element, attrs) {
+    function svgChart($scope) {
+        let vm = this;
+        vm.showChart = false;
+
         var margin = {top: 50, right: 20, bottom: 80, left: 40},
             width = 600 - margin.left - margin.right,
             height = 280 - margin.top - margin.bottom,
@@ -37,7 +42,7 @@ function literatureBarChartYearly(LiteratureYearly) {
         // var yAxis = d3.axisLeft().scale(y).ticks(10);
 
         // add the SVG element
-        var svg = d3.select(element[0]).append("svg")
+        var svg = d3.select('#chart').append("svg")
             //.attr("width", svgWidth)
             //.attr("height", svgHeight)
             .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
@@ -48,13 +53,12 @@ function literatureBarChartYearly(LiteratureYearly) {
                 "translate(" + margin.left + "," + margin.top + ")")
             ;
 
-        LiteratureYearly.get({'gbifRegion': scope.region}).$promise
+        LiteratureYearly.get({'gbifRegion': $scope.region}).$promise
             .then(function(response){
 
                 var data = response;
 
                 data.forEach(function(d) {
-                    d.year = d.year;
                     d.literature_number = + d.literature_number;
                 });
 
@@ -105,20 +109,22 @@ function literatureBarChartYearly(LiteratureYearly) {
                     .attr("class", "text")
                     .attr("text-anchor", "middle");
 
-                svg.append('g')
-                    .append("text")
-                    .attr("x", width / 2)
-                    .attr("y", height + margin.top + 5)
-                    .attr("text-anchor", "middle")
-                    .attr("class", "chart-title")
-                    .text("Yearly trend of peer-reviewed publications");
+                $translate('theGbifNetwork.chartPublicationYearly').then(function (translation){
+                    svg.append('g')
+                        .append("text")
+                        .attr("x", width / 2)
+                        .attr("y", height + margin.top + 5)
+                        .attr("text-anchor", "middle")
+                        .attr("class", "chart-title")
+                        .text(translation);
+                });
+
+                vm.showChart = true;
 
             }, function(error){
                 return error;
             });
     }
-
-
 }
 
 module.exports = literatureBarChartYearly;

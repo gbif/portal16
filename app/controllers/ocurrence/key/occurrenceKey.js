@@ -128,7 +128,7 @@ function getUsedExtensionTerms(verbatim) {
 
 function getOccurrenceModel(occurrenceKey, __) {
     var deferred = Q.defer();
-    var getOptions = {
+    var getOpions = {
         expand: ['publisher', 'dataset', 'datasetProcess', 'verbatim', 'taxonName']
     };
 

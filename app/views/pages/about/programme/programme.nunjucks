@@ -74,8 +74,8 @@
                                 <li><a href="{$ resource.url $}" target="_blank">{$ resource.title | safe $}</a></li>
                             {% endfor %}
                             {% for file in data.file %}
-                                <li><a href="{$ file.original $}" download>{$ file.filename
-                                        $}</a>{% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
+                                <li><a href="{$ file.original $}" download>{$ file.filename $}</a>
+                                {% if file.filesize > 5000000 %} ({$ file.filesize | formatByte $}){% endif %}
                                 </li>
                             {% endfor %}
                         </ul>

@@ -4,8 +4,7 @@ const express = require('express'),
       //apicache = require('apicache'),
       DirectoryParticipants = require('../../../models/gbifdata/directory/directoryParticipants'),
       _ = require('lodash'),
-      log = require('../../../../config/log'),
-      membershipTypeToShow = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
+      log = require('../../../../config/log');
 
 //let cache = apicache.middleware;
 
@@ -34,7 +33,7 @@ router.get('/directory/participants/count', (req, res, next) => {
             });
             let count = {};
             count.region = req.query.gbifRegion;
-            membershipTypeToShow.forEach(type => {
+            DirectoryParticipants.activeMembershipTypes.forEach(type => {
                 if (participantsByMembership[type]) count[type] = participantsByMembership[type].length;
             });
             res.json(count);
@@ -50,7 +49,7 @@ router.get('/directory/participants/active', (req, res, next) => {
         .then(results => {
             let slicedActive = [];
             results.forEach((result) => {
-                if (membershipTypeToShow.indexOf(result.membershipType) !== -1) {
+                if (DirectoryParticipants.activeMembershipTypes.indexOf(result.membershipType) !== -1) {
                     slicedActive.push(result);
                 }
             });

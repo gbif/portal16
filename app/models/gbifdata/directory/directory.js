@@ -1,22 +1,58 @@
 'use strict';
 
-var crypto = require('crypto'),
+let crypto = require('crypto'),
     _ = require('lodash'),
     Q = require('q'),
+    NodeCache = require('node-cache'),
+    directoryCache = new NodeCache(),
     helper = require('../../util/util'),
     fs = require('fs'),
     dataApi = require('../apiConfig'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
-var Directory = {};
-var calls = 0;
-var language;
+let Directory = {};
+let calls = 0;
+let language;
+
+Directory.checkCredentials = () => {
+    let deferred = Q.defer();
+    // First check whether we have the credential to complete all the calls to
+    // the directory.
+    fs.exists('/etc/portal16/credentials.json', deferred.resolve);
+    return deferred.promise;
+};
 
 Directory.getContacts = function (res) {
-    var deferFs = Q.defer();
-    var defer = Q.defer();
-    var groups = [
+    let deferred = Q.defer();
+    directoryCache.get('directoryAllContacts', (err, value) => {
+        if (err) {
+            return deferred.reject(err);
+        }
+
+        if (typeof value === 'object' && value.hasOwnProperty('peopleByParticipants')) {
+            deferred.resolve(value);
+        }
+        else {
+            Directory.retrieveContacts(res)
+                .then(contacts => {
+                    deferred.resolve(contacts);
+                })
+                .catch(e => {
+                    deferred.reject(e);
+                });
+        }
+    });
+
+    return deferred.promise;
+};
+
+Directory.retrieveContacts = (res) => {
+    language = res.locals.gb.locales.current;
+
+    let defer = Q.defer();
+
+    let groups = [
         'executive_committee',
         'science_committee',
         'budget_committee',
@@ -24,7 +60,7 @@ Directory.getContacts = function (res) {
         'nodes_committee'
     ];
 
-    var contacts = {
+    let contacts = {
         'participants': [],
         'committees': [],
         'gbif_secretariat': [],
@@ -32,18 +68,13 @@ Directory.getContacts = function (res) {
         'people': []
     };
 
-    language = res.locals.gb.locales.current;
-    // First check whether we have the credential to complete all the calls to
-    // the directory.
-    fs.exists('/etc/portal16/credentials.json', deferFs.resolve);
-
-    deferFs.promise
+    Directory.checkCredentials()
         .then((exists) => {
             if (exists) {
                 return Q.all(groups.map(function (group) {
-                    return getCommitteeContacts(group, contacts)
+                    return Directory.getCommitteeContacts(group, contacts)
                         .then(function (results) {
-                            var committee = {
+                            let committee = {
                                 'enum': group,
                                 'members': results
                             };
@@ -70,9 +101,9 @@ Directory.getContacts = function (res) {
                 contacts.participants = groupedP;
 
                 // Make sure the country code comes from Participant entity
-                var participantPeople = [];
+                let participantPeople = [];
                 groupedP.forEach(function (p) {
-                    var memberObj = {
+                    let memberObj = {
                         'enum': p.enum,
                         'people': []
                     };
@@ -98,7 +129,7 @@ Directory.getContacts = function (res) {
 
                 // 2) strip people details
                 contacts.people.forEach(function (p, i) {
-                    var strippedP = {};
+                    let strippedP = {};
                     strippedP.name = p.firstName + ' ' + p.surname;
                     contacts.people[i] = strippedP;
                 });
@@ -109,9 +140,9 @@ Directory.getContacts = function (res) {
         })
         .then(function (contacts) {
             // get gbif_secretariat contacts
-            return getCommitteeContacts('gbif_secretariat', contacts)
+            return Directory.getCommitteeContacts('gbif_secretariat', contacts)
                 .then(function (members) {
-                    var obj = {
+                    let obj = {
                         'enum': 'gbif_secretariat',
                         'members': members
                     };
@@ -123,6 +154,15 @@ Directory.getContacts = function (res) {
                 });
         })
         .then(function (contacts) {
+            directoryCache.set('directoryAllContacts', contacts, 3600, (err, success) => {
+                if (!err && success) {
+                    log.info('Variable allParticipants cached, valid for 3600 seconds.');
+                }
+                else {
+                    log.error('Variable allParticipants failed to cache.');
+                }
+            });
+
             defer.resolve(contacts);
             log.info(calls + ' calls have been made to complete the contacts page.');
         })
@@ -132,38 +172,42 @@ Directory.getContacts = function (res) {
     return defer.promise;
 };
 
-Directory.postProcessContacts = function (contacts, __) {
-    // process data
-    contacts.peopleByParticipants.forEach(function (p) {
-        p.people.forEach(function (person) {
-            // insert countryName if missing
-            if (!person.hasOwnProperty('countryName')) person.countryName = __('country.' + person.participantCountry);
-            // insert role name
-            if (person.hasOwnProperty('roles')) {
-                person.roles.forEach(function (role) {
-                    role.translatedLabel = __('role.' + role.role);
-                });
-            }
-        });
-    });
-    contacts.committees.forEach(function (committee) {
-        committee.members.forEach(function (member) {
-            member.roles.forEach(function (role) {
-                role.translatedLabel = __('role.' + role.role);
+Directory.applyTranslation = function (contacts, __) {
+    // apply translation
+    if (contacts.hasOwnProperty('peopleByParticipants')) {
+        contacts.peopleByParticipants.forEach(function (p) {
+            p.people.forEach(function (person) {
+                // insert countryName if missing
+                if (!person.hasOwnProperty('countryName')) person.countryName = __('country.' + person.participantCountry);
+                // insert role name
+                if (person.hasOwnProperty('roles')) {
+                    person.roles.forEach(function (role) {
+                        role.translatedLabel = __('role.' + role.role);
+                    });
+                }
             });
         });
-    });
+    }
+    if (contacts.hasOwnProperty('committees')) {
+        contacts.committees.forEach(function (committee) {
+            committee.members.forEach(function (member) {
+                member.roles.forEach(function (role) {
+                    role.translatedLabel = __('role.' + role.role);
+                });
+            });
+        });
+    }
 };
 
 function processContacts(contacts) {
 
     // sort committees
-    var committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_steering_group', 'nodes_committee', 'gbif_secretariat'];
+    let committeeOrder = ['executive_committee', 'science_committee', 'budget_committee', 'nodes_steering_group', 'nodes_committee', 'gbif_secretariat'];
     contacts.committees.sort(function (x, y) {
         return committeeOrder.indexOf(x.enum) - committeeOrder.indexOf(y.enum);
     });
 
-    var committeeRoles = {
+    let committeeRoles = {
         'executive_committee': [
             'GOVERNING_BOARD_CHAIR',
             'GOVERNING_BOARD_1ST_VICE_CHAIR',
@@ -260,7 +304,7 @@ function processContacts(contacts) {
 
         // Sort by defined order as committeeRoles above.
         if (committee.enum == 'nodes_steering_group') {
-            var nsgRoles = committeeRoles[committee.enum];
+            let nsgRoles = committeeRoles[committee.enum];
             committee.members = committee.members.sort(function (a, b) {
                 return nsgRoles.indexOf(a.roles[0].role) - nsgRoles.indexOf(b.roles[0].role)
             });
@@ -276,7 +320,7 @@ function processContacts(contacts) {
 }
 
 function getGroupIntro(group) {
-    var deferred = Q.defer();
+    let deferred = Q.defer();
     // insert intro text for each group.
     let groupIntroFile = ['directory/contactUs/' + group.enum + '/'];
     translationsHelper.getTranslationPromise(groupIntroFile, language)
@@ -291,10 +335,10 @@ function getGroupIntro(group) {
 }
 
 function getParticipantsContacts(contacts) {
-    var deferred = Q.defer();
-    var requestUrl = dataApi.directoryParticipants.url;
-    var options = Directory.authorizeApiCall(requestUrl);
-    var groups = [
+    let deferred = Q.defer();
+    let requestUrl = dataApi.directoryParticipants.url;
+    let options = Directory.authorizeApiCall(requestUrl);
+    let groups = [
         {'enum': 'voting_participant', 'members': []},
         {'enum': 'associate_country_participant', 'members': []},
         {'enum': 'other_associate_participant', 'members': []},
@@ -307,7 +351,7 @@ function getParticipantsContacts(contacts) {
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             // Insert participant details
-            var detailsTasks = [];
+            let detailsTasks = [];
             data.results.forEach(function (p) {
                 detailsTasks.push(getParticipantDetails(p.id));
             });
@@ -315,7 +359,7 @@ function getParticipantsContacts(contacts) {
         })
         .then(function (data) {
             // Insert people details
-            var contactTasks = [];
+            let contactTasks = [];
             data.forEach(function (p) {
                 contactTasks.push(getParticipantPeopleDetails(p, contacts));
             });
@@ -365,7 +409,7 @@ function getParticipantsContacts(contacts) {
                 }
             });
 
-            var translationTasks = [];
+            let translationTasks = [];
             groups.forEach(function (group) {
                 translationTasks.push(getGroupIntro(group));
             });
@@ -385,9 +429,9 @@ function getParticipantsContacts(contacts) {
 }
 
 function getParticipantDetails(participantId) {
-    var deferred = Q.defer();
-    var requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
-    var options = Directory.authorizeApiCall(requestUrl);
+    let deferred = Q.defer();
+    let requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
+    let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
@@ -401,9 +445,9 @@ function getParticipantDetails(participantId) {
 }
 
 function getNodeDetails(nodeId) {
-    var deferred = Q.defer();
-    var requestUrl = dataApi.directoryNode.url + '/' + nodeId;
-    var options = Directory.authorizeApiCall(requestUrl);
+    let deferred = Q.defer();
+    let requestUrl = dataApi.directoryNode.url + '/' + nodeId;
+    let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
@@ -426,8 +470,8 @@ function getNodeDetails(nodeId) {
 }
 
 function getParticipantPeopleDetails(participant, contacts) {
-    var deferred = Q.defer();
-    var peopleTasks = [];
+    let deferred = Q.defer();
+    let peopleTasks = [];
     participant.people.forEach(function (person) {
         peopleTasks.push(getPersonContact(person.personId, contacts));
     });
@@ -435,7 +479,7 @@ function getParticipantPeopleDetails(participant, contacts) {
         .then(function (peopleDetails) {
             // merge original person info about the participant and newly retrieved person details
             participant.people.forEach(function (person, i) {
-                for (var attr in peopleDetails[i]) {
+                for (let attr in peopleDetails[i]) {
                     if (!person.hasOwnProperty(attr)) {
                         person[attr] = peopleDetails[i][attr];
                     }
@@ -450,14 +494,14 @@ function getParticipantPeopleDetails(participant, contacts) {
     return deferred.promise;
 }
 
-function getCommitteeContacts(group, contacts) {
-    var deferred = Q.defer();
-    var requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
-    var options = Directory.authorizeApiCall(requestUrl);
+Directory.getCommitteeContacts = (group, contacts) => {
+    let deferred = Q.defer();
+    let requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
+    let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (results) {
-            var personsTasks = [];
+            let personsTasks = [];
             results.forEach(function (person) {
                 if (group == 'gbif_secretariat') {
                     personsTasks.push(getPersonContact(person.id, contacts));
@@ -502,17 +546,17 @@ function getCommitteeContacts(group, contacts) {
             log.info(err + ' in getCommitteeContacts() while accessing ' + requestUrl);
         });
     return deferred.promise;
-}
+};
 
 function getPersonContact(personId, contacts) {
-    var deferred = Q.defer();
-    var requestUrl = dataApi.directoryPerson.url + '/' + personId;
-    var options = Directory.authorizeApiCall(requestUrl);
+    let deferred = Q.defer();
+    let requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
         .then(function (data) {
             // get node name and/or participant name
-            var participantTasks = [];
+            let participantTasks = [];
             if (data.hasOwnProperty('participants') && data.participants.length > 0) {
                 data.participants.forEach(function (p) {
                     if (p.hasOwnProperty('participantId')) {
@@ -523,7 +567,7 @@ function getPersonContact(personId, contacts) {
                     results.forEach(function (result, i) {
                         data.participants[i].participantName = result.name;
                         // merge properties
-                        for (var attr in result) {
+                        for (let attr in result) {
                             if (!data.participants[i].hasOwnProperty(attr)) {
                                 data.participants[i][attr] = result[attr];
                             }
@@ -540,7 +584,7 @@ function getPersonContact(personId, contacts) {
             }
         })
         .then(function (data) {
-            var nodeTasks = [];
+            let nodeTasks = [];
             if (data.hasOwnProperty('nodes') && data.nodes.length > 0) {
                 data.nodes.forEach(function (n) {
                     if (n.hasOwnProperty('nodeId')) {
@@ -550,7 +594,7 @@ function getPersonContact(personId, contacts) {
             }
             return Q.all(nodeTasks).then(function (results) {
                 results.forEach(function (result, i) {
-                    for (var attr in result) {
+                    for (let attr in result) {
                         if (!data.nodes[i].hasOwnProperty(attr)) {
                             data.nodes[i][attr] = result[attr];
                         }
@@ -569,6 +613,85 @@ function getPersonContact(personId, contacts) {
         });
     return deferred.promise;
 }
+
+Directory.getPersonDetail = personId => {
+    let deferred = Q.defer();
+    let requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    let options = Directory.authorizeApiCall(requestUrl);
+
+    helper.getApiDataPromise(requestUrl, options)
+        .then(detail => {
+            deferred.resolve(detail);
+        })
+        .catch(e => {
+            let reason = e + ' in getPersonDetail().';
+            deferred.reject(new Error(reason));
+            log.info(reason);
+        });
+
+    return deferred.promise;
+};
+
+Directory.getParticipantHeads = pid => {
+    let deferred = Q.defer(),
+        heads = {},
+        pDetail = {};
+
+    getParticipantDetails(pid)
+        .then(participant => {
+            pDetail.id = participant.id;
+            pDetail.name = participant.name;
+            pDetail.type = participant.type;
+            pDetail.participationStatus = participant.participationStatus;
+            pDetail.participantUrl = participant.participantUrl;
+            pDetail.membershipStart = participant.membershipStart;
+            pDetail.gbifRegion = participant.gbifRegion;
+            pDetail.countryCode = participant.countryCode;
+            Directory.setMembership(pDetail);
+
+            if (participant.hasOwnProperty('people') && participant.people.length > 0) {
+                let hod = participant.people.filter(person => {
+                    return person.role === 'HEAD_OF_DELEGATION';
+                });
+                if (hod.length > 0) {
+                    heads.HEAD_OF_DELEGATION = hod[0];
+                }
+            }
+            if (participant.hasOwnProperty('nodes') && participant.nodes.length > 0) {
+                return getNodeDetails(participant.nodes[0].id)
+            } else {
+                return null;
+            }
+        })
+        .then(node => {
+            if (node !== null && node.hasOwnProperty('people') && node.people.length > 0) {
+                let nm = node.people.filter(person => {
+                    return person.role === 'NODE_MANAGER';
+                });
+                if (nm.length > 0) {
+                    heads.NODE_MANAGER = nm[0];
+                }
+            }
+            let tasks = [];
+            Object.keys(heads).forEach(role => {
+                tasks.push(Directory.getPersonDetail(heads[role].personId)
+                    .then(person => {
+                        heads[role] = person;
+                    }));
+            });
+            return Q.all(tasks)
+                .then(() => {
+                    heads.participantInfo = pDetail;
+                    deferred.resolve(heads);
+                })
+        })
+        .catch(e => {
+            let reason = e + ' in getParticipantHeads().';
+            deferred.reject(new Error(reason));
+            log.info(reason);
+        });
+    return deferred.promise;
+};
 
 Directory.setMembership = p => {
     // determine membership type
