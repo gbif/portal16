@@ -21,7 +21,7 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
     };
 
     function svgChart($scope) {
-        let vm = this;
+        var vm = this;
         vm.showChart = false;
 
         var margin = {top: 50, right: 20, bottom: 80, left: 40},
