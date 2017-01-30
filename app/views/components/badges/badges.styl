@@ -11,6 +11,12 @@
 }
 
 .badge--info {
+    background #aaa
+    color $bodyTextColor //darken(#756216, 50)
+    font-weight inherit
+}
+
+.badge--edited {
     background deepskyblue
     color $bodyTextColor //darken(#756216, 50)
     font-weight inherit
@@ -26,4 +32,56 @@
     background white
     border 1px solid $bodyTextColor
     color $bodyTextColor
+}
+
+
+.badge-composite {
+    display inline-block
+    group()
+    .badge {
+        float left
+    }
+    .badge:first-of-type {
+        border-radius 10px 0 0 10px
+        display inline-block
+    }
+    .badge:last-of-type {
+        border-radius 0 10px 10px 0
+        display inline-block
+    }
+}
+.badge-composite--error {
+    @extends .badge-composite
+    .badge {
+        background tomato
+        color white
+        font-weight inherit
+    }
+    .badge:first-of-type {
+        background darken(tomato, 10%)
+        border-right 1px solid darken(tomato, 15%)
+    }
+    .badge:last-of-type {
+        border-radius 0 10px 10px 0
+        display inline-block
+        border-left 1px solid lighten(tomato, 5%)
+    }
+}
+
+.badge-composite--warning {
+    @extends .badge-composite
+    .badge {
+        background #F5CC27
+        color $bodyTextColor
+        font-weight inherit
+    }
+    .badge:first-of-type {
+        background darken(#F5CC27, 10%)
+        border-right 1px solid darken(#F5CC27, 15%)
+    }
+    .badge:last-of-type {
+        border-radius 0 10px 10px 0
+        display inline-block
+        border-left 1px solid lighten(#F5CC27, 5%)
+    }
 }
