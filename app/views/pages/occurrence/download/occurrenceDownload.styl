@@ -1,0 +1,28 @@
+.download-report {
+    display flex
+    flex-wrap wrap
+    justify-content center
+    >div {
+        margin vrBlock(0.5)
+        flex 1 1 256px
+        &:first-of-type {
+            flex 0 0 256px
+        }
+    }
+    &__summary {
+        &__download {
+            margin-top vrBlock(1)
+            >div {
+                margin-bottom vrBlock(2)
+            }
+            a.gb-button--primary {
+                width 100%
+            }
+        }
+    }
+    &__notifications {
+        .badge-composite--warning, .badge-composite--error {
+            margin-right 5px
+        }
+    }
+}

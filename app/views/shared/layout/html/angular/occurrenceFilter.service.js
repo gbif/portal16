@@ -61,8 +61,8 @@ angular
             apiQuery = angular.copy(state.query);
             apiQuery.facet = exhaustiveFacets;
             apiQuery['month.facetLimit'] = 12;
-            apiQuery['type_status.facetLimit'] = 30;
-            apiQuery['issue.facetLimit'] = 30;
+            apiQuery['type_status.facetLimit'] = 1000;
+            apiQuery['issue.facetLimit'] = 1000;
 
             //when in not advanced mode then prefill parameters with default values
             if (!state.query.advanced) {

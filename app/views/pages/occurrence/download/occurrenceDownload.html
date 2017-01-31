@@ -1,4 +1,4 @@
-<div class="wrapper-horizontal-stripes occurrence-search__table">
+<div class="wrapper-horizontal-stripes occurrence-search__download">
 
     <section class="horizontal-stripe--paddingless white-background search-header">
         <div class="container-fluid">
@@ -7,19 +7,12 @@
                     <nav class="article-header__category article-header__category--deep">
                         <span class="article-header__category__upper">Search occurrences</span>
                         <span class="article-header__category__lower" ng-if="occDownload.hasData()">
-                            {{occDownload.occurrenceState.table.count | localNumber:occDownload.occurrenceState.query.locale }} results
+                            {{occDownload.state.table.count | localNumber:occDownload.state.query.locale }} results
                         </span>
-
                         <span class="article-header__category__lower" ng-if="!occDownload.hasData()">
                             Loading ...
                         </span>
-
                     </nav>
-                    <!--<div class="search-header__description">-->
-                    <!--<span ng-if="occDownload.hasData()">-->
-                    <!--{{occDownload.occurrenceState.data.count | localNumber:occDownload.occurrenceState.query.locale }} results-->
-                    <!--</span>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -67,77 +60,144 @@
         <div class="container--narrow">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="card m-t-2">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <h4>Download report</h4>
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-6">
-                                            Occurrences in total: {{occDownload.state.data.count | localNumber:occDownload.state.query.locale }}
-                                            <div ng-if="occDownload.state.data.facets.LICENSE.counts">
-                                                {{ occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}
-                                            </div>
+
+                    <div class="download-report m-t-2">
+                        <div class="download-report__summary">
+                            <div class="card">
+                                <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
+                                    <img ng-src="{{occDownload.getTile('/0/0/0')}}"
+                                         style="width:256px;height:256px; float:left; margin-top:-64px"/>
+                                </div>
+                                <div class="card__content">
+                                    <dl class="inline">
+                                        <div>
+                                            <dt class="text-capitalize">Total</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.hasData()" class="loading"></span>
+                                                <span ng-if="occDownload.hasData()">{{occDownload.state.data.count | localNumber:occDownload.state.query.locale }}</span>
+                                            </dd>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6">
-                                            <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
-                                                <img ng-src="{{occDownload.getTile('/0/0/0')}}" style="width:256px;height:256px; float:left; margin-top:-64px"/>
-                                            </div>
+                                        <div>
+                                            <dt class="text-capitalize">License</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.hasData()" class="loading"></span>
+                                                <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">Year range</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.showRange" class="loading"></span>
+                                                <span ng-if="occDownload.showRange">{{occDownload.minYear}} - {{occDownload.maxYear}}</span>
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">With year</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.showYears" class="loading"></span>
+                                                <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">with coordinates</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.showCoordinates" class="loading"></span>
+                                                <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt class="text-capitalize">with taxon match</dt>
+                                            <dd>
+                                                <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
+                                                <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="download-report__summary__download" ng-if="occDownload.hasData()">
+                                <h2>
+                                    Download not implemented yet - please use the existing site
+                                </h2>
+                                <div>
+                                    <p>
+                                        <a href="" class="gb-button--primary">DOWNLOAD .CSV</a>
+                                    </p>
+                                    <div class="text-center discreet">
+                                        <div>
+                                            Estimated size: {{ occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                            formatBytes:occDownload.state.query.locale }}
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>
+                                        <a href="" class="gb-button--primary">DOWNLOAD .DwCA</a>
+                                    </p>
+                                    <div class="text-center discreet">
+                                        <div>
+                                            Estimated size: {{ occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                            formatBytes:occDownload.state.query.locale }} DwcA
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="discreet">
+                                    <p>
+                                        If you are unfamiliar with these file formats you might want to read <a href="">about
+                                        download formats</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="download-report__notifications">
+                            <div class="card">
+                                <div class="card__content">
+                                    <h4>Known issues</h4>
+                                    <div ng-if="!occDownload.showTaxonMatch">
+                                        Hang on while we analyze your download for issues
+                                    </div>
+                                    <div ng-if="occDownload.showTaxonMatch">
+                                        <div>
+                                            <span class="badge-composite--error"
+                                                  ng-repeat="issue in occDownload.state.data.facets.ISSUE.counts"
+                                                  ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'ERROR'">
+                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
+                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
+                                            </span>
+                                        </div>
+                                        <!--<div ng-if="!occDownload.showIssueDetails">-->
+                                            <!--<p>-->
+                                                <!--<a href="" class="pull-right"-->
+                                                   <!--ng-click="occDownload.showIssueDetails = true">Show warnings</a>-->
+                                            <!--</p>-->
+                                        <!--</div>-->
+                                        <div xng-if="occDownload.showIssueDetails">
+                                            <span class="badge-composite--warning"
+                                                  ng-repeat="issue in occDownload.issues"
+                                                  ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'WARNING'">
+                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
+                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
+                                            </span>
+
+                                            <!--<p>-->
+                                                <!--<a href="" class="pull-right"-->
+                                                   <!--ng-click="occDownload.showIssueDetails = false">Hide warnings</a>-->
+                                            <!--</p>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <h4>Known issues</h4>
-                                <div>
-                                    <span class="badge-composite--error" ng-repeat="issue in occDownload.state.data.facets.ISSUE.counts" ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'ERROR'">
-                                        <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
-                                        <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
-                                    </span>
-                                </div>
-                                <div ng-if="!occDownload.showIssueDetails">
-                                    <p>
-                                        <a href="" ng-click="occDownload.showIssueDetails = true">Show warnings</a>
-                                    </p>
-                                </div>
-                                <div ng-if="occDownload.showIssueDetails">
-                                    <span class="badge-composite--warning" ng-repeat="issue in occDownload.state.data.facets.ISSUE.counts" ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'WARNING'">
-                                        <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
-                                        <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
-                                    </span>
-                                    <p>
-                                        <a href="" ng-click="occDownload.showIssueDetails = false">Hide warnings</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <h4>Notifications</h4>
-                                <div ng-if="occDownload.showFossilWarning()">
+                            <div class="card m-t-1" ng-if="occDownload.showFossilWarning()">
+                                <div class="card__content">
                                     <h4>Fossils</h4>
-                                    There are fossils among you results. That can mean species occurrences at unexpected locations. Be aware that publishers label fossil dates differently. Some use discovery date while others use estimated living period.
+                                    There are fossils among you results. That can mean species occurrences at unexpected
+                                    locations. Be aware that publishers label fossil dates differently. Some use
+                                    discovery date
+                                    while others use estimated living period.
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content text-center">
-                            how to cite
-                                <a href="" class="gb-button--primary">DOWNLOAD AS .CSV</a>
-                                <a href="" class="gb-button--primary">DOWNLOAD AS .DrwC</a>
-                            </div>
-                            <div>
-                                {{ occDownload.estKbDwcA*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} DwcA
-                            </div>
-                            <div>
-                                {{ occDownload.estKbCsv*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} CSV
                             </div>
                         </div>
                     </div>
@@ -147,3 +207,5 @@
         </div>
     </section>
 </div>
+
+

@@ -14,7 +14,7 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl(OccurrenceFilter, Remarks, env, $httpParamSerializer) {
+function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer) {
     var vm = this;
     vm.remarks = {};
     vm.state = OccurrenceFilter.getOccurrenceData();
@@ -56,6 +56,104 @@ function occurrenceDownloadCtrl(OccurrenceFilter, Remarks, env, $httpParamSerial
         });
     });
 
+    vm.getYearSpan = function () {
+        vm.showRange = false;
+        var yearQuery = angular.copy(vm.state.query);
+        yearQuery.facet = 'year';
+        yearQuery['year.facetLimit'] = 10000;
+        yearQuery.limit = 0;
+        OccurrenceTableSearch.query(yearQuery, function (response) {
+            var counts = _.get(response, 'facets.YEAR.counts', []);
+            vm.minYear = _.min(Object.keys(counts));
+            vm.maxYear = _.max(Object.keys(counts));
+            vm.showRange = true;
+        }, function (err) {
+            //TODO inform user that count failed by showing failed instead of loader
+            vm.showRange = false;
+        });
+    };
+
+    vm.getWithDate = function () {
+        vm.showYears = false;
+        var yearQuery = angular.copy(vm.state.query);
+        if (typeof yearQuery.year !== 'undefined') {
+            vm.withDate = 1;
+            vm.showYears = true;
+        } else {
+            yearQuery.year = '*,3000';
+            yearQuery.limit = 0;
+            OccurrenceTableSearch.query(yearQuery, function (response) {
+                vm.state.table.$promise.then(function(){
+                    vm.withDate = response.count / vm.state.table.count;
+                    vm.showYears = true;
+                });
+            }, function () {
+                //TODO inform user that count failed by showing failed instead of loader
+                vm.showYears = false;
+            });
+        }
+    };
+
+    vm.getTaxonMatchCount = function() {
+        vm.showTaxonMatch = false;
+        vm.state.data.$promise.then(function () {
+            vm.withTaxonMatch = (vm.state.data.count - _.get(vm.state, 'data.facets.ISSUE.counts.TAXON_MATCH_NONE.count', 0)) / vm.state.data.count;
+            vm.showTaxonMatch = true;
+        });
+    };
+
+    vm.analyzeCoordinates = function () {
+        vm.showCoordinates = false;
+        var locationQuery = angular.copy(vm.state.query);
+        locationQuery.facet = ['has_coordinate', 'has_geospatial_issue'];
+        OccurrenceTableSearch.query(locationQuery, function (response) {
+            var hasCoordinateCounts = _.get(response, 'facets.HAS_COORDINATE.counts', []);
+            var hasIssuesCounts = _.get(response, 'facets.HAS_GEOSPATIAL_ISSUE.counts', []);
+            console.log(hasCoordinateCounts, hasIssuesCounts);
+            vm.hasCoordinates = _.get(hasCoordinateCounts, 'true.fraction', 0);
+            vm.showCoordinates = true;
+        }, function () {
+            //TODO inform user that count failed by showing failed instead of loader
+            vm.showCoordinates = false;
+        });
+    };
+
+    vm.sortIssues = function() {
+        //$q.all(vm.state.data.$promise, Remarks).then(function(){
+        //    var issues = _.get(vm.state, 'data.facets.ISSUE.counts', {});
+        //    issues = _.sortBy(_.values(issues), function(e){
+        //        return -e.count;
+        //    });
+        //    vm.issues = issues;
+        //});
+        vm.state.data.$promise.then(function(){
+            var issues = _.get(vm.state, 'data.facets.ISSUE.counts', {});
+            issues = _.sortBy(_.values(issues), function(e){
+                return -e.count;
+            });
+            vm.issues = issues;
+        });
+    };
+
+    vm.hasData = function () {
+        return typeof vm.state.table.count !== 'undefined';
+    };
+
+    vm.updateCounts = function() {
+        vm.getWithDate();
+        vm.getTaxonMatchCount();
+        vm.analyzeCoordinates();
+        vm.getYearSpan();
+        vm.sortIssues();
+    };
+    vm.updateCounts();
+
+    $scope.$watch(function () {
+        return vm.state.data;
+    }, function () {
+        vm.updateCounts();
+    });
 }
 
 module.exports = occurrenceDownloadCtrl;
+
