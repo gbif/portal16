@@ -77,10 +77,10 @@ function getTaxon(key, lang, lookups) {
         }
         // verify source usage actually exists
         if (taxon.record.sourceTaxonKey > 0) {
-            Taxon.get(taxon.record.sourceTaxonKey).then(function (srcTaxon) {
+            Taxon.get(taxon.record.sourceTaxonKey).then(function () {
                 taxon.record.sourceTaxonExists = true;
                 deferred.resolve(taxon);
-            }, function (err) {
+            }, function () {
                 taxon.record.sourceTaxonExists = false;
                 deferred.resolve(taxon);
             }).done();

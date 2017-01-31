@@ -175,7 +175,6 @@ require('../../../components/focusMe/focusMe.directive');
 
 require('./angular/translate');
 
-
 var menu = require('../partials/navigation/navigation.js');
 
 var isIE = require('./ieDetection.js')();

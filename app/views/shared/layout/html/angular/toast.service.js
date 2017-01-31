@@ -6,8 +6,8 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .service('toastService', function (NAV_EVENTS, toastr, $rootScope, $translate) {
-
+        .service('toastService', function (NAV_EVENTS, toastr, $rootScope) {
+            //TODO errors needs translating
             var defaultError = {
                 feedback: true,
                 status: true,

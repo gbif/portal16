@@ -24,16 +24,10 @@ function filterTernaryDirective() {
     return directive;
 
     /** @ngInject */
-    function filterTernary($scope) {
+    function filterTernary() {
         var optionalBooleanRegEx = /(^true$)|(^false$)|^$/g;
         var vm = this;
         vm.queryKey = vm.filterConfig.queryKey;
-
-        //$scope.$watch(function () {
-        //    return vm.filterState.query[vm.queryKey]
-        //}, function (newQuery) {
-        //    updateQuery(newQuery);
-        //});
 
         vm.change = function () {
             vm.apply();
@@ -51,9 +45,8 @@ function filterTernaryDirective() {
                 vm.apply();
             }
         }
+
         updateQuery(vm.filterState.query[vm.queryKey]);
-
-
     }
 }
 

@@ -9,7 +9,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/stats/download/:key', function (req, res, next) {
+router.get('/dataset/stats/download/:key', function (req, res) {
     var datasetKey = req.params.key;
     getDownloadStats(datasetKey, 200).then(function (data) {
         res.json(data);

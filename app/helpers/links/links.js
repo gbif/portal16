@@ -1,13 +1,10 @@
 "use strict";
 
 var _ = require('lodash'),
-    emailRegex = require('email-regex'),
-    urlRegex = require('url-regex'),
     doiRegex = require("doi-regex"),
     Autolinker = require('autolinker'),
     linkTemplateTarget = '<a href="%s1" target="%s2">%s3</a>',
     linkTemplate = '<a href="%s1">%s3</a>';
-//anything looking like a internal link /[a-z0-9]*\/[a-z0-9\/]*/ fx occurrence/goes/234
 
 function insertLinks(text, links, target) {
     if (typeof text !== 'string') return '';

@@ -131,20 +131,11 @@ function filterLocationDirective() {
             if (key === 'true') return true;
             return undefined;
         }
-        vm.includeSuspicious = getOptionalBoolean(vm.filterState.query.has_geospatial_issue);
+        vm.includeSuspicious = typeof vm.filterState.query.has_geospatial_issue === 'undefined';
+        vm.suspiciousOnly = vm.filterState.query.has_geospatial_issue === 'true';
         vm.hasCoordinate = getOptionalBoolean(vm.filterState.query.has_coordinate);
         if (vm.query && vm.query.length) {
             vm.hasCoordinate = true;
-        } else if(vm.hasCoordinate === false) {
-            //vm.hasCoordinate = false;
-            //if (vm.includeSuspicious) {
-            //    vm.apply();
-            //}
-        } else {
-            //vm.hasCoordinate = undefined;
-            //if (vm.includeSuspicious) {
-            //    vm.apply();
-            //}
         }
 
         vm.addString = function() {
@@ -189,9 +180,8 @@ function filterLocationDirective() {
             updateGeometrySuggestions();
         });
 
-        vm.removeFromList = function (index, geom) {
+        vm.removeFromList = function (index) {
             vm.geometryOptions.splice(index, 1);
-            //filter suggestions
             vm.apply();
         };
 
@@ -211,15 +201,15 @@ function filterLocationDirective() {
 module.exports = filterLocationDirective;
 
 function parseStringToWKTs(str) {
-    var leafletGeoJson, wktGeometries = [];
+    var i, geojson, feature, wktGeom, leafletGeoJson, wktGeometries = [];
     //assume geojson
     try {
         var geojsonGeometry = JSON.parse(str);
         leafletGeoJson = L.geoJson(geojsonGeometry);
-        var geojson = leafletGeoJson.toGeoJSON();
-        for (var i = 0; i < geojson.features.length; i++) {
-            var feature = geojson.features[i];
-            var wktGeom = parseGeometry.stringify(feature);
+        geojson = leafletGeoJson.toGeoJSON();
+        for (i = 0; i < geojson.features.length; i++) {
+            feature = geojson.features[i];
+            wktGeom = parseGeometry.stringify(feature);
             wktGeometries.push(wktGeom);
         }
     } catch(e) {
@@ -228,10 +218,10 @@ function parseStringToWKTs(str) {
             geojsonGeometry = parseGeometry(str);
             if (geojsonGeometry) {
                 leafletGeoJson = L.geoJson(geojsonGeometry);
-                var geojson = leafletGeoJson.toGeoJSON();
-                for (var i = 0; i < geojson.features.length; i++) {
-                    var feature = geojson.features[i];
-                    var wktGeom = parseGeometry.stringify(feature);
+                geojson = leafletGeoJson.toGeoJSON();
+                for (i = 0; i < geojson.features.length; i++) {
+                    feature = geojson.features[i];
+                    wktGeom = parseGeometry.stringify(feature);
                     wktGeometries.push(wktGeom);
                 }
             } else {

@@ -3,8 +3,7 @@ var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
-    helper = rootRequire('app/models/util/util'),
-    cmsBaseUrl = rootRequire('app/models/cmsData/apiConfig').base.url;
+    helper = rootRequire('app/models/util/util');
 
 module.exports = function (app) {
     app.use('/api', router);

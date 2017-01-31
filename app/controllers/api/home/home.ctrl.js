@@ -9,13 +9,13 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/home/upcomingEvents', function (req, res, next) {
+router.get('/home/upcomingEvents', function (req, res) {
     let now = Math.floor(Date.now() / 1000),
         upcomingEventsUrl = cmsSearchUrl + '?filter[type]=event&filter[ge_date_ical:value][value]=' + now + '&filter[ge_date_ical:value][operator]=%22%3E%22&sort=dateStart&range=3';
 
     cmsSearch(upcomingEventsUrl).then(function (data) {
         res.json(data);
-    }, function (err) {
+    }, function () {
         res.status(500);
         res.json({
             error: 'unable to process request'

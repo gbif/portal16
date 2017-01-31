@@ -30,7 +30,7 @@ function createMap(options) {
         hash: false
     });
 
-    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.NavigationControl());// eslint-disable-line no-undef
 
     //to change draw styles see https://github.com/mapbox/mapbox-gl-draw/blob/master/EXAMPLES.md
     Draw = new MapboxDraw({ // eslint-disable-line no-undef
@@ -49,7 +49,6 @@ function createMap(options) {
             options.onStyleLoad();
         }
     });
-
 
 }
 

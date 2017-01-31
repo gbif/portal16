@@ -12,7 +12,7 @@ function getFeedbackContentType(path, cb) {
 
     //if not occurrence then simply show github form in frontend
     var occurrenceRegEx = /^(\/)?occurrence\/[0-9]+$/gi;
-    if (!!path.match(occurrenceRegEx)) {
+    if (path.match(occurrenceRegEx)) {
         //is occurrence - extract id
         parseOccurrence(path, cb);
     } else {
@@ -54,7 +54,7 @@ function parseOccurrence(path, cb) {
 
             cb(contentType);
         },
-        function (err) {
+        function () {
             //failed to get occurrence. Fall back to gbif github report
             cb();
         }

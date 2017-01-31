@@ -22,7 +22,6 @@
                         class="gb-radio__name" translate="filters.location.withoutCoordinates">Without location</span></label>
             </div>
         </div>
-
         <div class="is-padded overflow-hidden">
             <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
                 <label>
@@ -42,6 +41,14 @@
                            ng-disabled="!vm.hasCoordinate">
                     <span translate="filters.location.includeFlaggedAsSuspicious">
                         Include suspicious locations
+                    </span>
+                </label>
+            </div>
+            <div class="checkbox" ng-if="vm.suspiciousOnly">
+                <label>
+                    <input type="checkbox" ng-model="vm.suspiciousOnly" ng-change="vm.apply()">
+                    <span>
+                        Only show suspicious
                     </span>
                 </label>
             </div>

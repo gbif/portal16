@@ -1,7 +1,7 @@
 "use strict";
 
-var _ = require('lodash'),
-    nsMap = require('../../../helpers/namespaces');
+var _ = require('lodash');
+    //nsMap = require('../../../helpers/namespaces');
 
 function cleanupVerbatim(v) {
     var v2 = {};
@@ -35,18 +35,18 @@ function cleanupVerbatim(v) {
         return term.substr(index + 1);
     }
 
-    function normTerm(term) {
-        var index = term.lastIndexOf('/');
-        var ns = term.slice(0, index);
-        var name = term.substr(index + 1);
-
-        if (ns in nsMap) {
-            ns = nsMap[ns] + ":";
-        } else {
-            ns = ns + "/";
-        }
-        return ns + name;
-    }
+    //function normTerm(term) {
+    //    var index = term.lastIndexOf('/');
+    //    var ns = term.slice(0, index);
+    //    var name = term.substr(index + 1);
+    //
+    //    if (ns in nsMap) {
+    //        ns = nsMap[ns] + ":";
+    //    } else {
+    //        ns = ns + "/";
+    //    }
+    //    return ns + name;
+    //}
 }
 
 module.exports = {

@@ -18,7 +18,7 @@ module.exports = function (app) {
     app.use('/api/feedback', router);
 };
 
-router.get('/issues', function (req, res, next) {
+router.get('/issues', function (req, res) {
     let queryItem = req.query.item || req.headers.referer,
         item = feedbackHelper.extractIdentifer(queryItem),
         client = github.client({
@@ -42,7 +42,7 @@ router.get('/issues', function (req, res, next) {
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
-        }, function (err, data, headers) {
+        }, function (err, data) {
             if (err) {
                 res.status(500);
                 res.json();
@@ -76,7 +76,7 @@ router.get('/template.html', function (req, res, next) {
 
 });
 
-router.get('/content', function (req, res, next) {
+router.get('/content', function (req, res) {
     let path = req.query.path;
     feedbackContentType.getFeedbackContentType(path, function (feedbackType) {
         res.json(feedbackType);

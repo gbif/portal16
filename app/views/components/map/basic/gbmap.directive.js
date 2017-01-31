@@ -207,8 +207,6 @@ function gbmapDirective() {
                     break;
                 }
             }
-            console.log(query);
-            console.log(query);
             return query;
         }
 

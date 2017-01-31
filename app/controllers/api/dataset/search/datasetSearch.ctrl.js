@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/dataset/search', function (req, res, next) {
+router.get('/dataset/search', function (req, res) {
     datasetSearch(req.query).then(function (data) {
         let settings = {
             facets: true,

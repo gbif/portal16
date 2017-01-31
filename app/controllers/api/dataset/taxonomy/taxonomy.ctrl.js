@@ -131,7 +131,7 @@ function convertFacets(page, filterFunc) {
     });
     delete page.facets;
     // finally return combined promise
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
         Promise.all(promises).then(function (ps) {
             page.results = _pruneTaxa(
                 utils.sortByRankThenAlpha(

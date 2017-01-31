@@ -1,7 +1,6 @@
 "use strict";
 var _ = require('lodash'),
     Dataset = require('../../../models/gbifdata/gbifdata').Dataset,
-    baseConfig = require('../../../../config/config'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     helper = require('../../../models/util/util'),
     contributors = require('./contributors/contributors'),

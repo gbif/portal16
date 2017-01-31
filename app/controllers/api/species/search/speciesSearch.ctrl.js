@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/species/search', function (req, res, next) {
+router.get('/species/search', function (req, res) {
     speciesSearch(req.query).then(function (data) {
         data = prune(data, ['descriptions']);
         let settings = {

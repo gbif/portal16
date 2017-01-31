@@ -29,7 +29,6 @@ function combinationsDirective() {
             id: vm.key
 
         }, function (data) {
-            console.log(data);
             vm.combinations = data;
 
         }, function () {

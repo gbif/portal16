@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/occurrence/search', function (req, res, next) {
+router.get('/occurrence/search', function (req, res) {
     delete req.query.locale;
     delete req.query.advanced;
     occurrenceSearch(req.query).then(function (data) {

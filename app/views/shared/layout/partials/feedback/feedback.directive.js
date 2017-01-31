@@ -6,7 +6,7 @@ angular
     .directive('feedback', feedbackDirective);
 
 /** @ngInject */
-function feedbackDirective($state) {
+function feedbackDirective() {
     var directive = {
         restrict: 'A',
         transclude: true,

@@ -5,10 +5,9 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl(CmsSearch, $http, OccurrenceSearch, $state) {
+function homeCtrl(CmsSearch, $http) {
     var vm = this;
     vm.latest = new Array(4);//show placeholder loader until the actual news return
-    console.log($state);
     if (window.location.search.indexOf('underDevelopment') >= 0 ) {
         vm.underDevelopment = true;
     }
@@ -33,7 +32,7 @@ function homeCtrl(CmsSearch, $http, OccurrenceSearch, $state) {
         $http.get('/api/home/upcomingEvents', {}).then(function(response){
                 vm.latest[3] = response.data.results[0];
                 //TODO handle missing events
-            }, function(err){
+            }, function(){
                 //TODO handle failing queries
             });
     }

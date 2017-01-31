@@ -1,7 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
-    parseGeometry = require('wellknown');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -14,7 +13,6 @@ function bboxFilterDirective() {
         transclude: true,
         templateUrl: '/templates/components/filterLocation/bboxFilter/bboxFilter.html',
         scope: {},
-        link: mapLink,
         controller: bboxFilter,
         controllerAs: 'vm',
         bindToController: true
@@ -23,12 +21,7 @@ function bboxFilterDirective() {
     return directive;
 
     /** @ngInject */
-    function mapLink(scope, element) {//, attrs, ctrl
-        scope.create(element);
-    }
-
-    /** @ngInject */
-    function bboxFilter($scope, OccurrenceFilter, $filter) {
+    function bboxFilter(OccurrenceFilter, $filter) {
         var vm = this;
         vm.north = 90;
         vm.south = -90;
@@ -37,9 +30,6 @@ function bboxFilterDirective() {
 
         vm.state = OccurrenceFilter.getOccurrenceData();
         vm.form = 'bboxFilter';
-        $scope.create = function (element) {
-
-        };
 
         function getWKT() {
             var N = vm.north,

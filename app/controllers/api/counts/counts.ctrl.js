@@ -12,7 +12,7 @@ module.exports = function (app) {
     app.use('/api/count', router);
 };
 
-router.get('/country/:iso/about/countries', function (req, res, next) {
+router.get('/country/:iso/about/countries', function (req, res) {
     var iso = req.params.iso;
     let query = {
         facet: 'publishing_country',
@@ -20,7 +20,7 @@ router.get('/country/:iso/about/countries', function (req, res, next) {
         'publishing_country.facetLimit': 1000,
         limit: 0
     };
-    //res.json(query);
+
     search(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query)).then(function (data) {
         let facets = _.get(data, 'facets[0].counts', []);
         res.json({
@@ -36,7 +36,7 @@ router.get('/country/:iso/about/countries', function (req, res, next) {
     });
 });
 
-router.get('/country/:iso/from/countries', function (req, res, next) {
+router.get('/country/:iso/from/countries', function (req, res) {
     let iso = req.params.iso,
         query = {
             facet: 'country',
@@ -60,7 +60,7 @@ router.get('/country/:iso/from/countries', function (req, res, next) {
     });
 });
 
-router.get('/country/:iso/about/datasets', function (req, res, next) {
+router.get('/country/:iso/about/datasets', function (req, res) {
     let iso = req.params.iso,
         query = {
             facet: 'datasetKey',

@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
-router.get('/publisher/search', function (req, res, next) {
+router.get('/publisher/search', function (req, res) {
     publisherSearch(req.query).then(function (data) {
         data = prune(data, ['description', 'contacts', 'comments']);
         let settings = {

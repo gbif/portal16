@@ -10,7 +10,7 @@ module.exports = function (app) {
     app.use('/api/notifications', router);
 };
 
-router.get('/announcements', function (req, res, next) {
+router.get('/announcements', function (req, res) {
     res.json(
         {
             total_count: 1,

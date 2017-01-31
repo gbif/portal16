@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.use('/developer', router);
 };
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     res.redirect('/developer/summary');
 });
 

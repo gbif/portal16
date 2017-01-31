@@ -1,7 +1,6 @@
 "use strict";
 let maxmind = require('maxmind'),
     express = require('express'),
-    log = rootRequire('config/log'),
     router = express.Router(),
     cityLookup = maxmind.openSync(__dirname + '/GeoLite2-Country.mmdb'); //sync startup
 
