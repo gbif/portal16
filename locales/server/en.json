@@ -1929,6 +1929,7 @@
       "withCoordinates": "Including coordinates",
       "withoutCoordinates": "Without coordinates",
       "includeFlaggedAsSuspicious": "Include records where coordinates are flagged as suspicious",
+      "onlyShowFlagged": "Only show records that are flagged as suspicious",
       "past": "Recently used",
       "geojson": "GeoJSON",
       "range": "Range",

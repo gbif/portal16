@@ -137,6 +137,9 @@ function filterLocationDirective() {
         if (vm.query && vm.query.length) {
             vm.hasCoordinate = true;
         }
+        if (!vm.hasCoordinate) {
+            vm.includeSuspicious = false;
+        }
 
         vm.addString = function() {
             var parsingResult = parseStringToWKTs(vm.geometryString);
