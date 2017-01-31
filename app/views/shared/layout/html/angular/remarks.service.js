@@ -7,8 +7,8 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .service('Remarks', function ($http) {
-            var remarks = $http.get('http://api.gbif.org/v1/occurrence/interpretation');
+        .service('Remarks', function ($http, env) {
+            var remarks = $http.get(env.dataApi + 'occurrence/interpretation');
             return remarks;
         });
 })();
