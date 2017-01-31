@@ -70,26 +70,31 @@
                     <div class="card m-t-2">
                         <div class="card__stripe">
                             <div class="card__content">
-                                Occurrences
+                                <h4>Download report</h4>
                             </div>
                         </div>
                         <div class="card__stripe">
                             <div class="card__content">
-                                <div>
-                                    <div ng-if="occDownload.state.data.facets.LICENSE.counts">
-                                        {{ occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            Occurrences in total: {{occDownload.state.data.count | localNumber:occDownload.state.query.locale }}
+                                            <div ng-if="occDownload.state.data.facets.LICENSE.counts">
+                                                {{ occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
+                                                <img ng-src="{{occDownload.getTile('/0/0/0')}}" style="width:256px;height:256px; float:left; margin-top:-64px"/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                Occurrences in total: {{occDownload.state.data.count | localNumber:occDownload.state.query.locale }}
-                                <div>
-                                    {{ occDownload.estKbDwcA*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} DwcA
-                                </div>
-                                <div>
-                                    {{ occDownload.estKbCsv*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} CSV
-                                </div>
-                                <div>
-                                    <strong>Known issues</strong>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <h4>Known issues</h4>
                                 <div>
                                     <span class="badge-composite--error" ng-repeat="issue in occDownload.state.data.facets.ISSUE.counts" ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'ERROR'">
                                         <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
@@ -110,28 +115,15 @@
                                         <a href="" ng-click="occDownload.showIssueDetails = false">Hide warnings</a>
                                     </p>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <h4>Notifications</h4>
                                 <div ng-if="occDownload.showFossilWarning()">
                                     <h4>Fossils</h4>
                                     There are fossils among you results. That can mean species occurrences at unexpected locations. Be aware that publishers label fossil dates differently. Some use discovery date while others use estimated living period.
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
-                                    <div class="clearfix">
-                                        <img ng-src="{{occDownload.getTile('/2/0/1')}}" style="width:64px;height:64px; float:left;"/>
-                                        <img ng-src="{{occDownload.getTile('/2/1/1')}}" style="width:64px;height:64px;float:left;" />
-                                        <img ng-src="{{occDownload.getTile('/2/2/1')}}" style="width:64px;height:64px; float:left;"/>
-                                        <img ng-src="{{occDownload.getTile('/2/3/1')}}" style="width:64px;height:64px;float:left;" />
-                                    </div>
-                                    <div>
-                                        <img ng-src="{{occDownload.getTile('/2/0/2')}}" style="width:64px;height:64px; float:left;"/>
-                                        <img ng-src="{{occDownload.getTile('/2/1/2')}}" style="width:64px;height:64px;float:left;" />
-                                        <img ng-src="{{occDownload.getTile('/2/2/2')}}" style="width:64px;height:64px; float:left;"/>
-                                        <img ng-src="{{occDownload.getTile('/2/3/2')}}" style="width:64px;height:64px;float:left;" />
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +132,12 @@
                             how to cite
                                 <a href="" class="gb-button--primary">DOWNLOAD AS .CSV</a>
                                 <a href="" class="gb-button--primary">DOWNLOAD AS .DrwC</a>
+                            </div>
+                            <div>
+                                {{ occDownload.estKbDwcA*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} DwcA
+                            </div>
+                            <div>
+                                {{ occDownload.estKbCsv*occDownload.state.data.count*1024 | formatBytes:occDownload.state.query.locale }} CSV
                             </div>
                         </div>
                     </div>

@@ -32,7 +32,7 @@ function occurrenceDownloadCtrl(OccurrenceFilter, Remarks, env, $httpParamSerial
 
     vm.getTile = function (tileKey) {
         tileKey = tileKey || '/0/0/0';
-        return vm.adhocTileApi + 'map/occurrence/adhoc' + tileKey + '.png?srs=EPSG:4326&style=classic.poly&bin=hex&hexPerTile=17&' + toCamelCase($httpParamSerializer(vm.state.query));
+        return vm.adhocTileApi + 'map/occurrence/adhoc' + tileKey + '.png?srs=EPSG:4326&style=classic.poly&' + toCamelCase($httpParamSerializer(vm.state.query));
     };
 
     vm.getMostRestrictiveLicense = function (licenseCounts) {
