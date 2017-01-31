@@ -186,7 +186,6 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
 
         }
     });
-
 }
 
 module.exports = theGbifNetworkCtrl;

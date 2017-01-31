@@ -122,8 +122,8 @@
                         <header>
                             <h3>{$ __n('participation.nonCountryParticipant', data.count.other_associate_participant) $}</h3>
                         </header>
-                        <ol class="">
-                            <li ng-repeat="p in vm.nonCountryParticipants">
+                        <ol>
+                            <li class="ng-cloak" ng-repeat="p in vm.nonCountryParticipants" ng-if="vm.nonCountryParticipants">
                                 <p>
                                     <span ng-if="p.hasOwnProperty('abbreviatedName')"><strong ng-bind="p.abbreviatedName"></strong>: </span>
                                     <span ng-bind="p.name"></span>

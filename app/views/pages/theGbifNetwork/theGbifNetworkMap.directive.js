@@ -10,7 +10,7 @@ angular
     .directive('theGbifNetworkMap', theGbifNetworkMap);
 
 /** @ngInject */
-function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy, $q) {
+function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorsedBy, $q, hotkeys) {
     return {
         restrict: 'A',
         replace: 'false',
@@ -59,6 +59,15 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
             }
             else {
                 zoomToRegion($scope.region);
+            }
+        });
+
+        hotkeys.add({
+            combo: 'esc',
+            description: 'Zoom out',
+            callback: function (event) {
+                zoomToRegion($scope.region);
+                event.preventDefault();
             }
         });
 
