@@ -6,11 +6,8 @@
 
 const express = require('express'),
       router = express.Router(),
-      //apicache = require('apicache'),
       helper = require('../../models/util/util'),
       TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork');
-
-//let cache = apicache.middleware;
 
 module.exports = function (app) {
     app.use('/', router);

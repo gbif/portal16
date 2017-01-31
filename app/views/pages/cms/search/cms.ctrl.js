@@ -56,7 +56,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_data_use = {
         queryKey: 'category_data_use',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -67,7 +68,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_capacity_enhancement = {
         queryKey: 'category_capacity_enhancement',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -78,7 +80,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_about_gbif = {
         queryKey: 'category_about_gbif',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -89,7 +92,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_audience = {
         queryKey: 'category_audience',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -100,7 +104,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_purpose = {
         queryKey: 'category_purpose',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -111,7 +116,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_country = {
         queryKey: 'category_country',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         search: {
             isSearchable: true,
             placeholder: 'country',
@@ -127,7 +133,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_about_gbif = {
         queryKey: 'category_about_gbif',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -138,7 +145,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_topic = {
         queryKey: 'category_topic',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -149,7 +157,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_literature_year = {
         queryKey: 'category_literature_year',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -160,7 +169,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_gbif_literature_annotation = {
         queryKey: 'category_gbif_literature_annotation',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         facets: {
             hasFacets: true,
             hideBar: true,
@@ -170,7 +180,8 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     vm.filters.category_author_from_country = {
         queryKey: 'category_author_from_country',
         filter: CmsFilter,
-        showAll: false,
+        showAll: true,
+        singleSelect: true,
         search: {
             isSearchable: true,
             placeholder: 'country',

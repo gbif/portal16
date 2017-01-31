@@ -91,8 +91,8 @@
                                     </div>
                                     <div class="entity-count">
                                         <div class="count-number count-literature"
-                                             ng-bind="vm.count.literatureAuthorFromCountries ? vm.count.literatureAuthorFromCountries : '{$ data.count.literatureAuthorFromCountries $}'">
-                                            {$ data.count.literatureAuthorFromCountries | localizeInteger(gb.locales.current)$}
+                                             ng-bind="vm.count.countriesLiteratureAuthorsFrom ? vm.count.countriesLiteratureAuthorsFrom : '{$ data.count.countriesLiteratureAuthorsFrom $}'">
+                                            {$ data.count.countriesLiteratureAuthorsFrom | localizeInteger(gb.locales.current)$}
                                         </div>
                                         <div class="count-label">{$ __('theGbifNetwork.countries') $}</div>
                                     </div>

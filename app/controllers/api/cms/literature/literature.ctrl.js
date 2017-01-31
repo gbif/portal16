@@ -6,11 +6,8 @@
 
 const express = require('express'),
       router = express.Router(),
-      //apicache = require('apicache'),
       log = require('../../../../../config/log'),
       Literature = require('../../../../models/cmsData/literature/literature');
-
-//let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
@@ -22,7 +19,7 @@ router.get('/literature/count', (req, res, next) => {
             let count = {};
             count['region'] = literatureRegional.region;
             count['literature'] = literatureRegional.literature;
-            count['literatureAuthorFromCountries'] = literatureRegional.literatureAuthorFromCountries;
+            count['countriesLiteratureAuthorsFrom'] = literatureRegional.countriesLiteratureAuthorsFrom;
             count['literatureAuthors'] = literatureRegional.literatureAuthors;
             res.json(count);
         })
