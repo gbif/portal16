@@ -40,13 +40,9 @@
                 </div>
             </div>
         </section>
-        <div id="map-strip" class="horizontal-stripe--paddingless light-background">
-            <div class="container">
-                <div class="row text-center">
-                    <div the-gbif-network-map region="vm.currentRegion" membership-type="vm.membershipType" class="svg-map-container"></div>
-                </div>
-            </div>
-        </div>
+        <section id="map-strip" class="horizontal-stripe--paddingless light-background svg-map-container__aspect-fix">
+            <div the-gbif-network-map region="vm.currentRegion" membership-type="vm.membershipType" class="svg-map-container"></div>
+        </section>
         <section class="horizontal-stripe--paddingless">
             <div class="container--desktop">
                 <div class="row main-counts">

@@ -99,6 +99,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     loadParticipantsDigest(vm.currentRegion);
     function loadParticipantsDigest(region) {
         vm.tableLoaded = false;
+        delete vm.activeParticipantsDigest;
         ParticipantsDigest.get({'gbifRegion': region}).$promise
             .then(function(response){
                 // duplicate some counts for sorting.
@@ -123,6 +124,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     loadRegionalReps(vm.currentRegion);
     function loadRegionalReps(region) {
         vm.repTableLoaded = false;
+        delete vm.reps;
         DirectoryNsgContacts.get().$promise
             .then(function(contacts) {
                 var reps = contacts.filter(function(contact){

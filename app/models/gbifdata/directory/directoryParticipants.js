@@ -27,6 +27,9 @@ DirectoryParticipants.groupBy = (query) => {
         options = Directory.authorizeApiCall(requestUrl),
         allParticipants;
 
+    options.timeoutMilliSeconds = 10000;
+    options.retries = 5;
+
     directoryParticipantsCache.get('allParticipants', (err, value) => {
         if (err) {
             return deferred.reject(err);

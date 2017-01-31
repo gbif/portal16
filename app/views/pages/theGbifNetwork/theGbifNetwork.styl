@@ -4,6 +4,19 @@
     }
 }
 
+.region-selector-fixed {
+    position fixed
+    top 50px
+    width 100%
+    background-color $white
+    box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
+    z-index 200
+    text-align center
+}
+.selected-fixed-padding {
+    margin-top 45px
+}
+
 .region-selector-select {
     margin-bottom vrBlock(1)
     select {
@@ -26,19 +39,6 @@
     }
 }
 
-.region-selector-fixed {
-    position fixed
-    top 50px
-    width 100%
-    background-color $white
-    box-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
-    z-index 200
-    text-align center
-}
-
-.selected-fixed-padding {
-    margin-top 45px
-}
 
 .main-counts {
     min-height 160px
@@ -252,20 +252,22 @@
     fill $white
 }
 
+.svg-map-container {
+    position relative
+}
+
 .svg-container {
     position relative
     padding-bottom 49%
     overflow hidden
 }
 
-.svg-map-container {
-    position relative
-}
-
 .svg-content {
     position absolute
     top 0
     left 0
+    bottom 0
+    right 0
     z-index 50
 }
 
