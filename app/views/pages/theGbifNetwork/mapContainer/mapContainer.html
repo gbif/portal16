@@ -9,7 +9,7 @@
             </header>
         </a>
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="digestLoaded === false"></ng-include>
-        <div ng-if="digestLoaded === true">
+        <section class="info-pane__content" ng-if="digestLoaded === true">
             <ul class="info-pane__header">
                 <li ng-if="vm.heads.participantInfo.membershipType">
                     <strong translate="directory.{{vm.heads.participantInfo.membershipType}}.one"></strong>
@@ -56,7 +56,7 @@
                           translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromCount}"
                           translate-interpolation="messageformat"></span>
                     <strong ng-bind="vm.digest.counts.checklistDatasetFromRecordCount | localNumber:gb.locale"></strong>
-                    <span translate="theGbifNetwork.record"
+                    <span translate="theGbifNetwork.usage"
                           translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromRecordCount}"
                           translate-interpolation="messageformat"></span>
                 </li>
@@ -91,7 +91,7 @@
             <footer>
 
             </footer>
-        </div>
+        </section>
     </div>
     <div id="mapLegend" class="map-legend-toggle" ng-class="vm.expanded ? 'map-legend' : 'map-legend-folded'">
         <header ng-click="vm.expanded = !vm.expanded">

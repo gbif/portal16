@@ -1847,6 +1847,7 @@
     "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
     "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
     "record": "{NUMBER, select, one{record} other{records}}",
+    "usage": "{NUMBER, select, one{usage} other{usages}}",
     "checklistDatasetWith": "checklist {NUMBER, select, one{dataset} other{datasets}} with",
     "metadataDataset": "metadata-only {NUMBER, select, one{dataset} other{datasets}}",
     "sampleEventDatasetWith": "sample event {NUMBER, select, one{dataset} other{datasets}} with",
