@@ -28,7 +28,7 @@
                     <h3>Description</h3>
                     <div>
                         <p>
-                            {$ dataset.record.description | sanitize | safe $}
+                            {$ dataset.record.description | decodeHtml | linkify | sanitize | safe $}
                         </p>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 <h3>Purpose</h3>
                 <div>
                     <p>
-                        {$ dataset.record.purpose | sanitize | safe $}
+                        {$ dataset.record.purpose | decodeHtml | linkify | sanitize | safe $}
                     </p>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     {% for geographicCoverage in dataset.record.geographicCoverages %}
                         {% if geographicCoverage.description %}
                             <p>
-                                {$ geographicCoverage.description | sanitize | safe $}
+                                {$ geographicCoverage.description | decodeHtml | linkify | sanitize | safe $}
                             </p>
                             <!-- {% if geographicCoverage.boundingBox %}
                                 <p>
@@ -115,7 +115,7 @@
                             <div id="id_{$ field $}">
                                 <span class="relative-anchor-offset"><a name="{$ field $}"></a></span>
                                 <h4 style="margin-top:30px">{$ field |prettifyEnum | capitalize $}</h4>
-                                <p>{$ dataset.record.samplingDescription[field] | sanitize | safe $}</p>
+                                <p>{$ dataset.record.samplingDescription[field] | decodeHtml | linkify | sanitize | safe $}</p>
                             </div>
                         {% endif %}
 
@@ -131,7 +131,7 @@
                                         <div>
                                             <span class="badge badge--white">{$ loop.index $}</span>
                                         </div>
-                                        <div>{$ step | sanitize | safe $}</div>
+                                        <div>{$ step | decodeHtml | linkify | sanitize | safe $}</div>
                                     </li>
                                 {% endfor %}
                             </ol>
@@ -150,7 +150,7 @@
                 <h3>Additional Info</h3>
                 <div>
                     <p>
-                        {$ dataset.record.additionalInfo | sanitize | safe $}
+                        {$ dataset.record.additionalInfo | decodeHtml | linkify | sanitize | safe $}
                     </p>
                 </div>
             </div>

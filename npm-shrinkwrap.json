@@ -4263,6 +4263,11 @@
       "from": "html-comment-regex@>=1.1.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/html-comment-regex/-/html-comment-regex-1.1.1.tgz"
     },
+    "html-entities": {
+      "version": "1.2.0",
+      "from": "html-entities@latest",
+      "resolved": "https://registry.npmjs.org/html-entities/-/html-entities-1.2.0.tgz"
+    },
     "html-minifier": {
       "version": "2.1.7",
       "from": "html-minifier@>=2.1.0 <3.0.0",

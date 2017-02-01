@@ -10,9 +10,9 @@
                                     <div class="col-sm-6">
                                         {% if dataset.record.description | isDefined %}
                                             {% if dataset.record.description | striptags | length < 350 %}
-                                                {$ dataset.record.description | safe $}
+                                                {$ dataset.record.description | decodeHtml | linkify | sanitize | safe $}
                                             {% else %}
-                                                {$ dataset.record.description | sanitize | truncateHtml(220) | safe $}
+                                                {$ dataset.record.description | decodeHtml | linkify | sanitize | truncateHtml(220) | safe $}
                                                 <a href="#description">more</a>
                                             {% endif %}
                                         {% else %}

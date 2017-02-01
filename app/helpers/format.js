@@ -1,5 +1,7 @@
 var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
+    Entities = require('html-entities').AllHtmlEntities,
+    entities = new Entities(),
     linkTools = require('./links/links'),
     defaultLanguage = 'en';
 
@@ -44,6 +46,10 @@ function prettifyEnum(text) {
     }
     text = text.substr(text.lastIndexOf('/') + 1);
     return text.replace(/([A-Z][a-z])/g, ' $1').trim().replace(/_/g, ' ').toLowerCase();
+}
+
+function decodeHtml(text) {
+    return entities.decode(text);
 }
 
 function prettifyLicense(text) {
@@ -154,5 +160,6 @@ module.exports = {
     insertLinks: linkTools.insertLinks,
     linkify: linkTools.linkify,
     getDOILink: linkTools.getDOILink,
-    readableDOI: linkTools.readableDOI
+    readableDOI: linkTools.readableDOI,
+    decodeHtml: decodeHtml
 };

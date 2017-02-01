@@ -36,8 +36,19 @@ function linkify(text, options) {
     options = options || {};
     options.newWindow = options.newWindow || false;
     options.phone = options.phone || false;
+    options.email = options.email || true;
+    options = {
+        urls: {
+            tldMatches: false,
+            schemeMatches: true,
+            wwwMatches: true
+        },
+        phone: false,
+        email: true
+    };
     return Autolinker.link(text, options);
 }
+
 
 function getDOILink(text, throwOnMissing) {
     var doi;

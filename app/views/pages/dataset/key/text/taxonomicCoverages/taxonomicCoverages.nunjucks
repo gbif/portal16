@@ -6,7 +6,7 @@
                 {% for taxonomicCoverage in dataset._computedValues.taxonomicCoverages %}
                     {% if taxonomicCoverage.description %}
                         <div>
-                            <div>{$ taxonomicCoverage.description | safe $}</div>
+                            <div>{$ taxonomicCoverage.description | decodeHtml | linkify | sanitize | safe $}</div>
                         </div>
                     {% endif %}
 

@@ -127,6 +127,10 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('decodeHtml', format.decodeHtml);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;
