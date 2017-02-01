@@ -32,7 +32,12 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
     };
 
     vm.setThumbnail = function () {
+        vm.loadingThumbnail = true;
         vm.thumbnail = vm.adhocTileApi + 'map/occurrence/adhoc/0/0/0.png?srs=EPSG:4326&style=classic.poly&' + toCamelCase($httpParamSerializer(vm.state.query));
+    };
+
+    vm.onThumbLoad = function() {
+        vm.loadingThumbnail = false;
     };
 
     vm.getMostRestrictiveLicense = function (licenseCounts) {
@@ -109,7 +114,6 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
         OccurrenceTableSearch.query(locationQuery, function (response) {
             var hasCoordinateCounts = _.get(response, 'facets.HAS_COORDINATE.counts', []);
             var hasIssuesCounts = _.get(response, 'facets.HAS_GEOSPATIAL_ISSUE.counts', []);
-            console.log(hasCoordinateCounts, hasIssuesCounts);
             vm.hasCoordinates = _.get(hasCoordinateCounts, 'true.fraction', 0);
             vm.showCoordinates = true;
         }, function () {

@@ -101,6 +101,8 @@ require('./angular/map.constants');
 require('./angular/enums.constants');
 require('./angular/country.resource');
 
+require('./angular/directives/onload.directive');
+
 require('../partials/feedback/feedback.directive');
 require('../partials/notifications/notifications.directive');
 
