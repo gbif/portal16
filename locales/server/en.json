@@ -1336,7 +1336,8 @@
     "cms": "GBIF network",
     "yes": "yes",
     "no": "no",
-    "dataType": "data type"
+    "dataType": "data type",
+    "result": "{NUMBER, select, one{result} other{results}}"
   },
   "continent": {
     "NORTH_AMERICA": "North America",

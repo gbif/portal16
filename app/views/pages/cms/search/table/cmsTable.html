@@ -8,11 +8,12 @@
                         <span class="article-header__category__upper" translate="stdTerms.search"></span>
                         <span class="article-header__category__lower" translate="stdTerms.cms"></span>
                     </nav>
-                    <div class="search-header__description">
-                        <span ng-if="cmsTable.hasData()">
-                            {{cmsTable.state.data.count | localNumber:cmsTable.state.query.locale }} results
-                            <!--<span>Showing page {{cmsTable.currentPage}} of {{vm.totalPages}}</span>-->
-                        </span>
+                    <div class="search-header__description" ng-if="cmsTable.hasData()">
+                        <span ng-bind="cmsTable.state.data.count | localNumber:cmsTable.state.query.locale"></span>
+                        <span translate="stdTerms.result"
+                              translate-values="{NUMBER: cmsTable.state.data.count}"
+                              translate-interpolation="messageformat"></span>
+                        <!-- <span>page {{cmsTable.currentPage}} of {{cmsTable.totalPages}}</span> -->
                     </div>
                 </div>
             </div>

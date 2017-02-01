@@ -65,11 +65,17 @@ function cmsSearch(query) {
     queryUrl += (typeof query.q === 'undefined') ? '' : query.q;
     queryUrl += '?range=' + query.range;
     queryUrl += '&page=' + query.page;
-    if (query.type && query.type === 'event') {
+
+    // sorting
+    if (typeof query.q !== 'undefined') {
+        // If a term is provided then the result will be sorted by relevance,
+        // we do nothing here.
+    }
+    else if (query.type && query.type === 'event') {
         queryUrl += '&sort=-dateStart';
     }
     else {
-        queryUrl += '&sort=-created';
+        queryUrl += '&sort=-sticky,-created';
     }
 
     // @todo handling event filtering queries, e.g.

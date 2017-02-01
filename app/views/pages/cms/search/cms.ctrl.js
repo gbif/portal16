@@ -207,6 +207,11 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
     };
 
     vm.search = function () {
+        // When the search term gets submitted, we don't know how many results
+        // will return, so we reset offset if any.
+        if (vm.state.query.hasOwnProperty('offset')) {
+            delete vm.state.query.offset;
+        }
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});
     };
 
