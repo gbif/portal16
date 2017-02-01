@@ -87,6 +87,7 @@ function cmsSearch(query) {
         'category_country',
         'category_topic',
         'category_literature_year',
+        'category_gbif_region',
         'category_gbif_literature_annotation',
         'category_author_from_country',
         'category_author_surname'

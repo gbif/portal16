@@ -166,6 +166,18 @@ function cmsCtrl($state, hotkeys, CmsFilter) {
         }
     };
 
+    vm.filters.category_gbif_region = {
+        queryKey: 'category_gbif_region',
+        filter: CmsFilter,
+        showAll: true,
+        singleSelect: true,
+        facets: {
+            hasFacets: true,
+            hideBar: true,
+            facetKey: 'category_gbif_region'
+        }
+    };
+
     vm.filters.category_gbif_literature_annotation = {
         queryKey: 'category_gbif_literature_annotation',
         filter: CmsFilter,

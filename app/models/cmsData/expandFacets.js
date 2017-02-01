@@ -85,6 +85,10 @@ const facetTypeConfig = {
         type: 'enum',
         show: true
     },
+    category_gbif_region: {
+        type: 'enum',
+        show: false
+    },
     category_gbif_literature_annotation: {
         type: 'id',
         translationPath: 'cms.gbifLiterature.',
