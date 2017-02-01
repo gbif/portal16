@@ -29,11 +29,11 @@ router.get('/cms/search', function (req, res, next) {
         })
         .then(function(data){
             // verifying data before passing along
-            if (cmsData.verifyCmsFacets(data.facets)) {
+            try {
+                cmsData.verifyCmsFacets(data.facets);
                 return data;
-            }
-            else {
-                next('Facets not in the correct format.');
+            } catch (e) {
+                next(e);
             }
         })
         .then(function (data) {
