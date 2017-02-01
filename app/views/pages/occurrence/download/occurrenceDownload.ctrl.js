@@ -14,12 +14,14 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer) {
+function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums) {
     var vm = this;
+    vm.downloadFormats = enums.downloadFormats;
     vm.remarks = {};
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.hasFossils = false;
-    vm.issueLimit = 7;
+    vm.defaultIssueLimit = 10;
+    vm.issueLimit = 10;
     vm.estKbDwcA = 0.165617009; //based on 111GB for 702777671 occurrences in “DWCA"
     vm.estKbCsv = 0.065414979; //based on 44GB for 705302432 occurrences in CSV
 
@@ -123,7 +125,7 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
     };
 
     vm.sortIssues = function() {
-        $q.all([vm.state.data.$promise, Remarks]).then(function(results){
+        $q.all([vm.state.data.$promise, Remarks]).then(function(){
             var issues = _.get(vm.state, 'data.facets.ISSUE.counts', {});
             issues = _.values(issues);
             issues.forEach(function(e){
@@ -136,7 +138,7 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
             vm.issueLimit = issues.filter(function(e){
                 return e.severity === 'ERROR';
             }).length + 2;
-            vm.issueLimit = Math.max(vm.issueLimit, 5);
+            vm.issueLimit = Math.max(vm.issueLimit, vm.defaultIssueLimit);
             vm.issues = issues;
         });
     };
@@ -160,7 +162,77 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
     }, function () {
         vm.updateCounts();
     });
+
+
+
+
+    vm.open = function (format) {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl'
+            //resolve: {
+            //    format: function () {
+            //        return format;
+            //    }
+            //}
+        });
+
+        modalInstance.result.then(function (downloadOptions) {
+            console.log(downloadOptions);
+            vm.startDownload('SIMPLE_CSV', downloadOptions.username, downloadOptions.password);
+        }, function () {
+            //user clicked cancel
+        });
+    };
+
+    vm.startDownload = function(format, username, password) {
+        var query = _.omitBy(angular.copy(vm.state.query), _.isEmpty);
+        var downloadUrl = '//api.gbif-dev.org/v1/occurrence/search/download?notification_address=none@gbif.org&' + $httpParamSerializer(query) + '&format=' + format;
+        var auth = btoa(username + ':' + password),
+            headers = {"Authorization": "Basic " + auth};
+
+        var req = {
+            method: 'GET',
+            url: downloadUrl,
+            transformResponse: undefined,
+            headers: headers
+        };
+
+        $http(req).then(function (response) {
+            console.log(response);
+            window.location.href = 'download/' + response.data;
+        }, function(err) {
+            console.log(err);
+            //TODO alert user of failure
+        });
+    };
+
 }
+
+
+angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance) {
+    var $ctrl = this;
+    $ctrl.username;
+    $ctrl.password;
+
+    $ctrl.ok = function () {
+        $uibModalInstance.close({
+            username: $ctrl.username,
+            password: $ctrl.password
+        });
+    };
+
+    $ctrl.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+});
+
+
+
 
 module.exports = occurrenceDownloadCtrl;
 

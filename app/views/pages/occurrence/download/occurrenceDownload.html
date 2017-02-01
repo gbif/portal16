@@ -59,16 +59,14 @@
         <div class="container--narrow">
             <div class="row">
                 <div class="col-xs-12">
-
                     <div class="download-report m-t-2">
                         <div class="download-report__summary">
                             <div class="card">
-                                <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
-                                    <div ng-if="occDownload.loadingThumbnail" style="padding:30px 0; text-align: center;">
-                                        <div class="loading" style="color:white;"></div>
+                                <div class="download-report__map">
+                                    <div ng-if="occDownload.loadingThumbnail">
+                                        <div class="loading"></div>
                                     </div>
-                                    <img ng-src="{{occDownload.thumbnail}}"
-                                         style="width:256px;height:256px; float:left; margin-top:-64px" gb-load="occDownload.onThumbLoad()" ng-class="{invisible:occDownload.loadingThumbnail}"/>
+                                    <img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()" ng-class="{invisible:occDownload.loadingThumbnail}"/>
                                 </div>
                                 <div class="card__content">
                                     <dl class="inline">
@@ -118,34 +116,33 @@
                                 </div>
                             </div>
 
-                            <div class="download-report__summary__download" ng-if="occDownload.hasData()">
+                            <div class="download-report__summary__download" ng-class="{invisible: !occDownload.hasData()}">
                                 <div>
                                     <p>
-                                        <a href="" class="gb-button--primary">DOWNLOAD .CSV</a>
+                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('SIMPLE_CSV')">
+                                            <span class="gb-icon-file-download"></span> CSV
+                                        </a>
                                     </p>
-                                    <div class="text-center discreet">
-                                        <div>
-                                            Estimated size: {{ occDownload.estKbCsv*occDownload.state.table.count*1024 |
-                                            formatBytes:occDownload.state.query.locale }}
-                                        </div>
-
-                                    </div>
+                                    <p class="discreet small">
+                                        <span>Tab delimited csv. Only contains the data after GBIF interpretation.</span>
+                                        <a href="">Learn more</a>
+                                        <br/>
+                                        Estimated size <strong>{{ occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                        formatBytes:occDownload.state.query.locale }}</strong>
+                                    </p>
                                 </div>
                                 <div>
                                     <p>
-                                        <a href="" class="gb-button--primary">DOWNLOAD .DwCA</a>
+                                        <a href="" class="gb-button--primary" ng-click="occDownload.open('DWCA')">
+                                            <span class="gb-icon-file-download"></span> Darwin Core Archive
+                                        </a>
                                     </p>
-                                    <div class="text-center discreet">
-                                        <div>
-                                            Estimated size: {{ occDownload.estKbDwcA*occDownload.state.table.count*1024 |
-                                            formatBytes:occDownload.state.query.locale }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="discreet">
-                                    <p>
-                                        If you are unfamiliar with these file formats you might want to read <a href="">about
-                                        download formats</a>
+                                    <p class="discreet small">
+                                        <span>The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.</span>
+                                        <a href="">Learn more</a>
+                                        <br/>
+                                        Estimated size <strong>{{ occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                        formatBytes:occDownload.state.query.locale }}</strong>
                                     </p>
                                 </div>
                             </div>
@@ -153,13 +150,13 @@
                         </div>
                         <div class="download-report__notifications">
                             <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
-                                <div class="m-b-1">
+                                <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
+                                <div class="m-b-1 discreet">
                                     Hang on while we analyze your download for issues
                                 </div>
-                                <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
                             </div>
-                            <div class="card" ng-if="occDownload.showTaxonMatch">
-                                <div class="card__content">
+                            <div class="m-t-2" ng-if="occDownload.showTaxonMatch">
+                                <div>
                                     <h4>Known issues</h4>
                                     <div>
                                         <div xng-if="occDownload.showIssueDetails">
@@ -179,8 +176,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card m-t-1" ng-if="occDownload.showFossilWarning()">
-                                <div class="card__content">
+                            <div class="xcard" ng-if="occDownload.showFossilWarning()">
+                                <div class="xcard__content">
                                     <h4>Fossils</h4>
                                     There are fossils among you results. That can mean species occurrences at unexpected
                                     locations. Be aware that publishers label fossil dates differently. Some use
@@ -190,11 +187,36 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
+    <script type="text/ng-template" id="myModalContent.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
+        <div class="gb-modal-header">
+            <span class="modal-title body-text" id="modal-title">Free of cost - not free of responsibilities</span>
+        </div>
+        <div class="gb-modal-body" id="modal-body">
+            <p>
+                The data in GBIF is the work of thousands. Proper attribution helps ensure that data like this will also be available in the future. Thank you for your understanding.
+            </p>
+            <input type="text" ng-model="$ctrl.username">
+            {{occDownload.username}}
+            <input type="password" ng-model="$ctrl.password">
+            {{occDownload.password}}
+            <!--<ul>-->
+                <!--<li ng-repeat="item in $ctrl.issues">-->
+                    <!--<a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item.title }}</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--Selected: <b>{{ $ctrl.selected.item.title }}</b>-->
+        </div>
+        <div class="gb-modal-footer">
+            <a href="" class="gb-button--flat" type="button" ng-click="$ctrl.cancel()">Cancel</a>
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood</a>
+
+        </div>
+    </script>
 </div>
 
 

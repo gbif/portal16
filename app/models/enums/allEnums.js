@@ -9,5 +9,6 @@ module.exports = {
     "occurrenceIssue": require('./basic/occurrenceIssue.json'),
     "license": require('./basic/license.json'),
     "datasetType": require('./basic/datasetType.json'),
+    "downloadFormats": require('./basic/downloadFormats.json'),
     "protocol": require('./basic/protocol.json')
 };
