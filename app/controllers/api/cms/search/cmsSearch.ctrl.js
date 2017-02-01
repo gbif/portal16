@@ -71,8 +71,11 @@ function cmsSearch(query) {
         // If a term is provided then the result will be sorted by relevance,
         // we do nothing here.
     }
-    else if (query.type && query.type === 'event') {
+    else if (query.hasOwnProperty('type') && query.type === 'event') {
         queryUrl += '&sort=-dateStart';
+    }
+    else if (query.hasOwnProperty('type') && query.type === 'literature') {
+        queryUrl += '&sort=-literatureYear';
     }
     else {
         queryUrl += '&sort=-sticky,-created';
