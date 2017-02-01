@@ -32,13 +32,10 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
 
         // set the ranges
         var x = d3.scaleBand().rangeRound([0, width], .05);
-
         var y = d3.scaleLinear().range([height, 0]);
 
         // define the axis
-        var xAxis = d3.axisBottom()
-            .scale(x);
-
+        var xAxis = d3.axisBottom().scale(x);
         // var yAxis = d3.axisLeft().scale(y).ticks(10);
 
         // add the SVG element
@@ -49,9 +46,7 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
             .attr('preserveAspectRatio', 'xMidYMid meet')
             .classed('svg-content', true)
             .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")")
-            ;
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         LiteratureYearly.get({'gbifRegion': $scope.region}).$promise
             .then(function(response){
@@ -69,24 +64,23 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
                 // add axis
                 svg.append("g")
                     .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
+                    .attr("transform", "translate(0," + (height + 1) + ")")
                     .call(xAxis)
                     .selectAll("text")
                     .style("text-anchor", "end")
                     .attr("class", "axis-text")
                     .attr("dx", "1.1em")
                     .attr("dy", "1.4em");
-                    //.attr("transform", "rotate(-90)" );
 
-                //svg.append("g")
-                //    .attr("class", "y axis")
-                //    .call(yAxis)
-                //    .append("text")
-                //    .attr("transform", "rotate(-90)")
-                //    .attr("y", 5)
-                //    .attr("dy", ".71em")
-                //    .style("text-anchor", "end")
-                //    .text("Frequency");
+                // svg.append("g")
+                //     .attr("class", "y axis")
+                //     .call(yAxis)
+                //     .append("text")
+                //     .attr("transform", "rotate(-90)")
+                //     .attr("y", 5)
+                //     .attr("dy", ".71em")
+                //     .style("text-anchor", "end")
+                //     .text("Frequency");
 
                 // Add bar chart
                 svg.selectAll("bar")
@@ -99,6 +93,7 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
                             url += '&category_gbif_region=' + $scope.region;
                         }
                         url += '&category_literature_year=' + d.year;
+                        url += '&category_gbif_literature_annotation=1341'; // tid of GBIF_used
                         return url;
                     })
                     .append("rect")

@@ -1842,7 +1842,7 @@
     "peerReviewedPublicationBy": "Peer-reviewed publications by",
     "authorsFrom": "Authors from",
     "countries": "Countries",
-    "chartPublicationYearly": "Yearly trend of peer-reviewed publications",
+    "chartPublicationYearly": "Yearly trend of peer-reviewed publications using GBIF-mediated data",
     "legend": "Legend",
     "since": "since",
     "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
