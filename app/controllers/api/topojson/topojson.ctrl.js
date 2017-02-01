@@ -7,7 +7,6 @@
 const express = require('express'),
       router = express.Router(),
       helper = require('../../../models/util/util'),
-      topojson = require('topojson'),
       worldRobinson = require('./c-robinson-quantized-topo.json');
       //apicache = require('apicache');
 

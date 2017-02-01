@@ -9,8 +9,7 @@ let helper = require('../../util/util'),
     Q = require('q'),
     dataApi = require('../apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
-    log = require('../../../../config/log'),
-    _ = require('lodash');
+    log = require('../../../../config/log');
 
 let PublisherRegional = function (record) {
     this.record = record;

@@ -12,7 +12,6 @@
  */
 let helper = require('../../util/util'),
     Q = require('q'),
-    fs = require('fs'),
     NodeCache = require('node-cache'),
     theGbifNetworkCache = new NodeCache(),
     dataApi = require('../apiConfig'),
@@ -247,7 +246,7 @@ theGbifNetwork.getCountryDataCount = country => {
         {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
         {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
         {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='},
+        {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='}
     ];
     calls.forEach(call => {
         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)

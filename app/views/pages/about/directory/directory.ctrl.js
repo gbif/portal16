@@ -7,7 +7,7 @@ angular
     .controller('directoryCtrl', directoryCtrl);
 
 /** @ngInject */
-function directoryCtrl(DirectoryContacts, $stateParams) {
+function directoryCtrl(DirectoryContacts) {
     var vm = this;
     vm.state = {'loaded': false};
 
@@ -17,8 +17,6 @@ function directoryCtrl(DirectoryContacts, $stateParams) {
     }, function (error) {
         return error;
     });
-
-    var params = $stateParams;
 
     vm.searchTerm = '';
     vm.searchResults = [];

@@ -73,7 +73,7 @@ var angular = require('angular');
                     'get': {
                         method: 'GET',
                         params: {
-                            gbifRegion: '@gbifRegion',
+                            gbifRegion: '@gbifRegion'
                         },
                         isArray: true
                     }

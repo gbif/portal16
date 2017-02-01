@@ -6,11 +6,8 @@
 
 const express = require('express'),
       router = express.Router(),
-      //apicache = require('apicache'),
       PublisherRegional = require('../../../models/gbifdata/publisher/publisherRegional'),
       log = require('../../../../config/log');
-
-//let cache = apicache.middleware;
 
 module.exports = app => {
     app.use('/api', router);
