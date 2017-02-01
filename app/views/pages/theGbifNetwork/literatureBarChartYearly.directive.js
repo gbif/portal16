@@ -91,7 +91,17 @@ function literatureBarChartYearly(LiteratureYearly, $translate) {
                 // Add bar chart
                 svg.selectAll("bar")
                     .data(data)
-                    .enter().append("rect")
+                    .enter()
+                    .append('a')
+                    .attr('xlink:href', function(d){
+                        var url = '/cms/search?type=literature';
+                        if ($scope.region !== 'GLOBAL') {
+                            url += '&category_gbif_region=' + $scope.region;
+                        }
+                        url += '&category_literature_year=' + d.year;
+                        return url;
+                    })
+                    .append("rect")
                     .attr("class", "bar")
                     .attr("x", function(d) { return x(d.year) + 4; })
                     .attr("width", x.step() - 8)
