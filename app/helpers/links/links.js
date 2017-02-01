@@ -34,10 +34,8 @@ function insertLinks(text, links, target) {
 
 function linkify(text, options) {
     options = options || {};
-    options.newWindow = options.newWindow || false;
-    options.phone = options.phone || false;
-    options.email = options.email || true;
-    options = {
+    var defaults = {
+        newWindow: false,
         urls: {
             tldMatches: false,
             schemeMatches: true,
@@ -46,7 +44,8 @@ function linkify(text, options) {
         phone: false,
         email: true
     };
-    return Autolinker.link(text, options);
+    var newOptions = _.merge(defaults, options);
+    return Autolinker.link(text, newOptions);
 }
 
 
