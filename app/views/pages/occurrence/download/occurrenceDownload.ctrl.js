@@ -19,6 +19,7 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
     vm.remarks = {};
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.hasFossils = false;
+    vm.issueLimit = 7;
     vm.estKbDwcA = 0.165617009; //based on 111GB for 702777671 occurrences in “DWCA"
     vm.estKbCsv = 0.065414979; //based on 44GB for 705302432 occurrences in CSV
 
@@ -30,9 +31,8 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
         });
     };
 
-    vm.getTile = function (tileKey) {
-        tileKey = tileKey || '/0/0/0';
-        return vm.adhocTileApi + 'map/occurrence/adhoc' + tileKey + '.png?srs=EPSG:4326&style=classic.poly&' + toCamelCase($httpParamSerializer(vm.state.query));
+    vm.setThumbnail = function () {
+        vm.thumbnail = vm.adhocTileApi + 'map/occurrence/adhoc/0/0/0.png?srs=EPSG:4326&style=classic.poly&' + toCamelCase($httpParamSerializer(vm.state.query));
     };
 
     vm.getMostRestrictiveLicense = function (licenseCounts) {
@@ -119,18 +119,20 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
     };
 
     vm.sortIssues = function() {
-        //$q.all(vm.state.data.$promise, Remarks).then(function(){
-        //    var issues = _.get(vm.state, 'data.facets.ISSUE.counts', {});
-        //    issues = _.sortBy(_.values(issues), function(e){
-        //        return -e.count;
-        //    });
-        //    vm.issues = issues;
-        //});
-        vm.state.data.$promise.then(function(){
+        $q.all([vm.state.data.$promise, Remarks]).then(function(results){
             var issues = _.get(vm.state, 'data.facets.ISSUE.counts', {});
-            issues = _.sortBy(_.values(issues), function(e){
-                return -e.count;
+            issues = _.values(issues);
+            issues.forEach(function(e){
+                e.severity = _.get(vm.remarks, e.title + '.severity', 'INFO')
             });
+            issues = issues.filter(function(e){
+                return e.severity === 'ERROR' || e.severity === 'WARNING';
+            });
+            issues = _.orderBy(issues, ['severity', 'count'], ['asc', 'desc']);
+            vm.issueLimit = issues.filter(function(e){
+                return e.severity === 'ERROR';
+            }).length + 2;
+            vm.issueLimit = Math.max(vm.issueLimit, 5);
             vm.issues = issues;
         });
     };
@@ -145,11 +147,12 @@ function occurrenceDownloadCtrl($scope, $q, OccurrenceFilter, OccurrenceTableSea
         vm.analyzeCoordinates();
         vm.getYearSpan();
         vm.sortIssues();
+        vm.setThumbnail();
     };
     vm.updateCounts();
 
     $scope.$watch(function () {
-        return vm.state.data;
+        return vm.state.table;
     }, function () {
         vm.updateCounts();
     });

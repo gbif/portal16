@@ -56,7 +56,6 @@
     </section>
 
     <section class="horizontal-stripe--paddingless lighter-background">
-        <!--<ng-include src="'/templates/components/loader/loader.html'" ng-if="!occDownload.hasData() && !occDownload.occurrenceState.failedRequest"></ng-include>-->
         <div class="container--narrow">
             <div class="row">
                 <div class="col-xs-12">
@@ -65,8 +64,8 @@
                         <div class="download-report__summary">
                             <div class="card">
                                 <div style="width:256px;height:128px;overflow: hidden;background-color:#28282d;background-image:url('https://cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist');background-position: center; background-size: cover;">
-                                    <img ng-src="{{occDownload.getTile('/0/0/0')}}"
-                                         style="width:256px;height:256px; float:left; margin-top:-64px"/>
+                                    <img ng-src="{{occDownload.thumbnail}}"
+                                         style="width:256px;height:256px; float:left; margin-top:-64px" />
                                 </div>
                                 <div class="card__content">
                                     <dl class="inline">
@@ -74,7 +73,7 @@
                                             <dt class="text-capitalize">Total</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
-                                                <span ng-if="occDownload.hasData()">{{occDownload.state.data.count | localNumber:occDownload.state.query.locale }}</span>
+                                                <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
                                             </dd>
                                         </div>
                                         <div>
@@ -117,9 +116,6 @@
                             </div>
 
                             <div class="download-report__summary__download" ng-if="occDownload.hasData()">
-                                <h2>
-                                    Download not implemented yet - please use the existing site
-                                </h2>
                                 <div>
                                     <p>
                                         <a href="" class="gb-button--primary">DOWNLOAD .CSV</a>
@@ -139,7 +135,7 @@
                                     <div class="text-center discreet">
                                         <div>
                                             Estimated size: {{ occDownload.estKbDwcA*occDownload.state.table.count*1024 |
-                                            formatBytes:occDownload.state.query.locale }} DwcA
+                                            formatBytes:occDownload.state.query.locale }}
                                         </div>
                                     </div>
                                 </div>
@@ -153,21 +149,16 @@
 
                         </div>
                         <div class="download-report__notifications">
-                            <div class="card">
+                            <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
+                                <div class="m-b-1">
+                                    Hang on while we analyze your download for issues
+                                </div>
+                                <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
+                            </div>
+                            <div class="card" ng-if="occDownload.showTaxonMatch">
                                 <div class="card__content">
                                     <h4>Known issues</h4>
-                                    <div ng-if="!occDownload.showTaxonMatch">
-                                        Hang on while we analyze your download for issues
-                                    </div>
-                                    <div ng-if="occDownload.showTaxonMatch">
-                                        <div>
-                                            <span class="badge-composite--error"
-                                                  ng-repeat="issue in occDownload.state.data.facets.ISSUE.counts"
-                                                  ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'ERROR'">
-                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
-                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
-                                            </span>
-                                        </div>
+                                    <div>
                                         <!--<div ng-if="!occDownload.showIssueDetails">-->
                                             <!--<p>-->
                                                 <!--<a href="" class="pull-right"-->
@@ -175,17 +166,18 @@
                                             <!--</p>-->
                                         <!--</div>-->
                                         <div xng-if="occDownload.showIssueDetails">
-                                            <span class="badge-composite--warning"
-                                                  ng-repeat="issue in occDownload.issues"
-                                                  ng-if="issue.count > 0 && occDownload.remarks[issue.title].severity === 'WARNING'">
+                                            <span class="badge-composite--{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
                                                 <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
                                                 <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
                                             </span>
-
-                                            <!--<p>-->
-                                                <!--<a href="" class="pull-right"-->
-                                                   <!--ng-click="occDownload.showIssueDetails = false">Hide warnings</a>-->
-                                            <!--</p>-->
+                                            <span class="badge-composite--{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:100:occDownload.issueLimit" ng-if="occDownload.showAllIssues">
+                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
+                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
+                                            </span>
+                                        </div>
+                                        <div ng-if="occDownload.issues.length > occDownload.issueLimit">
+                                            <a href="" class="pull-right" ng-click="occDownload.showAllIssues = true" ng-if="!occDownload.showAllIssues">Show all</a>
+                                            <a href="" class="pull-right" ng-click="occDownload.showAllIssues = false" ng-if="occDownload.showAllIssues">Show fewer</a>
                                         </div>
                                     </div>
                                 </div>
