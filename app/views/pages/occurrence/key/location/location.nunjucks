@@ -1,4 +1,4 @@
-{% if occurrence.record.decimalLatitude and occurrence.record.decimalLongitude %}
+{% if occurrence.record.decimalLatitude | isDefined and occurrence.record.decimalLongitude | isDefined %}
     {% include('./map/map.nunjucks') %}
 {% else %}
     {% include('./description/description.nunjucks') %}
