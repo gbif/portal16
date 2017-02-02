@@ -1,4 +1,4 @@
-<div class="filter-group filter-group--search" ng-show="vm.suggestions.counts.length > 0">
+<div id="{{vm.filterConfig.facets.facetKey}}" class="filter-group filter-group--search" ng-show="vm.suggestions.counts.length > 0">
     <a href="" class="inherit" ng-click="vm.expanded = !vm.expanded">
         <h4>
             <span ng-bind="vm.facetTitle" class="text-capitalize"></span>
