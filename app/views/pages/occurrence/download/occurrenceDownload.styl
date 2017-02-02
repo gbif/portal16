@@ -48,6 +48,11 @@
                 color white
             }
         }
+        &.isInvalid {
+            >img {
+                display none
+             }
+        }
         > img {
             width 256px
             height 256px
@@ -62,7 +67,10 @@
         padding 30px
     }
     .gb-modal-body {
-        padding 0 30px
+        &__content {
+            padding-left 30px
+            padding-right 30px
+        }
     }
     .gb-modal-footer {
         padding 15px

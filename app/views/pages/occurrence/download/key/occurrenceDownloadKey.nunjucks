@@ -1,0 +1,11 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes downloadKey">
+
+        download key
+
+    </article>
+
+{% endblock %}
+

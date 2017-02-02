@@ -56,17 +56,31 @@
     </section>
 
     <section class="horizontal-stripe--paddingless lighter-background">
-        <div class="container--narrow">
+        <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
+
                     <div class="download-report m-t-2">
-                        <div class="download-report__summary">
+                        <div ng-if="!occDownload.hasData()" class="discreet text-center">
+                            <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                            <div class="discreet">
+                                <em>Hang on while we analyze your download</em>
+                            </div>
+                        </div>
+                        <div ng-if="occDownload.state.table.count === 0">
+                            <p>
+                                no data no download
+                            </p>
+                        </div>
+                        <div class="download-report__summary" ng-show="occDownload.state.table.count > 0">
                             <div class="card">
                                 <div class="download-report__map">
                                     <div ng-if="occDownload.loadingThumbnail">
                                         <div class="loading"></div>
                                     </div>
-                                    <img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()" ng-class="{invisible:occDownload.loadingThumbnail}"/>
+
+                                    <img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()"
+                                         ng-class="{invisible:occDownload.loadingThumbnail}"/>
                                 </div>
                                 <div class="card__content">
                                     <dl class="inline">
@@ -116,7 +130,8 @@
                                 </div>
                             </div>
 
-                            <div class="download-report__summary__download" ng-class="{invisible: !occDownload.hasData()}">
+                            <div class="download-report__summary__download"
+                                 ng-class="{invisible: !occDownload.hasData()}">
                                 <div>
                                     <p>
                                         <a href="" class="gb-button--primary" ng-click="occDownload.open('SIMPLE_CSV')">
@@ -127,7 +142,8 @@
                                         <span>Tab delimited csv. Only contains the data after GBIF interpretation.</span>
                                         <a href="">Learn more</a>
                                         <br/>
-                                        Estimated size <strong>{{ occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                        Estimated size <strong>{{
+                                        occDownload.estKbCsv*occDownload.state.table.count*1024 |
                                         formatBytes:occDownload.state.query.locale }}</strong>
                                     </p>
                                 </div>
@@ -141,48 +157,64 @@
                                         <span>The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.</span>
                                         <a href="">Learn more</a>
                                         <br/>
-                                        Estimated size <strong>{{ occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                        Estimated size <strong>{{
+                                        occDownload.estKbDwcA*occDownload.state.table.count*1024 |
                                         formatBytes:occDownload.state.query.locale }}</strong>
                                     </p>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="download-report__notifications">
+                        <div class="download-report__notifications" ng-show="occDownload.state.table.count > 0">
                             <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
-                                <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
+                                <ng-include src="'/templates/components/loader/loader.html'"
+                                            ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
                                 <div class="m-b-1 discreet">
-                                    Hang on while we analyze your download for issues
+                                    <em>Hang on while we analyze your download</em>
                                 </div>
                             </div>
                             <div class="m-t-2" ng-if="occDownload.showTaxonMatch">
                                 <div>
                                     <h4>Known issues</h4>
+                                    <p class="discreet">A part of the GBIF processing is to flag occurrences that seem
+                                        off lorem ipsum something goes here written by coms</p>
                                     <div>
                                         <div xng-if="occDownload.showIssueDetails">
-                                            <span class="badge-composite--{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
+                                            <span class="badge-composite--{{issue.severity | lowercase }}"
+                                                  ng-repeat="issue in occDownload.issues | limitTo:occDownload.issueLimit">
                                                 <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
                                                 <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
                                             </span>
-                                            <span class="badge-composite--{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:100:occDownload.issueLimit" ng-if="occDownload.showAllIssues">
-                                                <span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>
-                                                <span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>
-                                            </span>
+                                            <!--<span class="badge-composite&#45;&#45;{{issue.severity | lowercase }}" ng-repeat="issue in occDownload.issues | limitTo:100:occDownload.issueLimit" ng-if="occDownload.showAllIssues">-->
+                                            <!--<span class="badge">{{issue.count | localNumber:occDownload.state.query.locale }}</span>-->
+                                            <!--<span class="badge">{{'occurrenceIssue.' + issue.title | translate}}</span>-->
+                                            <!--</span>-->
                                         </div>
-                                        <div ng-if="occDownload.issues.length > occDownload.issueLimit">
-                                            <a href="" class="pull-right" ng-click="occDownload.showAllIssues = true" ng-if="!occDownload.showAllIssues">Show all</a>
-                                            <a href="" class="pull-right" ng-click="occDownload.showAllIssues = false" ng-if="occDownload.showAllIssues">Show fewer</a>
-                                        </div>
+                                        <!--<div ng-if="occDownload.issues.length > occDownload.issueLimit">-->
+                                        <!--<a href="" ng-click="occDownload.showAllIssues = true" ng-if="!occDownload.showAllIssues">Show all</a>-->
+                                        <!--<a href="" ng-click="occDownload.showAllIssues = false" ng-if="occDownload.showAllIssues">Show fewer</a>-->
+                                        <!--</div>-->
                                     </div>
                                 </div>
                             </div>
-                            <div class="xcard" ng-if="occDownload.showFossilWarning()">
-                                <div class="xcard__content">
+                            <div class="m-t-2" ng-if="occDownload.showFossilWarning()">
+                                <div>
                                     <h4>Fossils</h4>
-                                    There are fossils among you results. That can mean species occurrences at unexpected
-                                    locations. Be aware that publishers label fossil dates differently. Some use
-                                    discovery date
-                                    while others use estimated living period.
+                                    <p class="discreet">
+                                        There are fossils among you results. That can mean species occurrences at
+                                        unexpected
+                                        locations.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="m-t-2" ng-if="occDownload.showLivingWarning()">
+                                <div>
+                                    <h4>Living specimens</h4>
+                                    <p class="discreet">
+                                        You search includes living specimens such as occurrences in botanical and
+                                        zoological gardens.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -197,23 +229,35 @@
             <span class="modal-title body-text" id="modal-title">Free of cost - not free of responsibilities</span>
         </div>
         <div class="gb-modal-body" id="modal-body">
-            <p>
-                The data in GBIF is the work of thousands. Proper attribution helps ensure that data like this will also be available in the future. Thank you for your understanding.
-            </p>
-            <input type="text" ng-model="$ctrl.username">
-            {{occDownload.username}}
-            <input type="password" ng-model="$ctrl.password">
-            {{occDownload.password}}
-            <!--<ul>-->
-                <!--<li ng-repeat="item in $ctrl.issues">-->
-                    <!--<a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item.title }}</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--Selected: <b>{{ $ctrl.selected.item.title }}</b>-->
+            <div class="gb-modal-body__content horizontal-stripe white-background">
+
+                <p>
+                    The data in GBIF is the work of thousands. Proper attribution helps ensure that data like this will
+                    also be available in the future. Thank you for your understanding.
+                </p>
+            </div>
+            <div class="horizontal-stripe light-background seperator seperator--b">
+                <div class="gb-modal-body__content">
+                    <p>
+                        Please enter your credentials. Don't have any? You need to <a
+                            href="http://www.gbif.org/user/register">create an account first</a>.
+                    </p>
+                    <div class="search-box">
+                        <input type="text" placeholder="username" ng-model="$ctrl.username">
+                    </div>
+                    <div class="search-box m-t-1">
+                        <input type="password" placeholder="password" ng-model="$ctrl.password">
+                    </div>
+                    <div class="search-box m-t-1">
+                        <input type="text" placeholder="notification e-mail address" ng-model="$ctrl.email">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="gb-modal-footer">
-            <a href="" class="gb-button--flat" type="button" ng-click="$ctrl.cancel()">Cancel</a>
-            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood</a>
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Cancel</a>
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()"
+               ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>
 
         </div>
     </script>

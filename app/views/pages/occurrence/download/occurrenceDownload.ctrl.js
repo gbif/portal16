@@ -14,14 +14,14 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums) {
+function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums, toastService) {
     var vm = this;
     vm.downloadFormats = enums.downloadFormats;
     vm.remarks = {};
     vm.state = OccurrenceFilter.getOccurrenceData();
     vm.hasFossils = false;
-    vm.defaultIssueLimit = 10;
-    vm.issueLimit = 10;
+    vm.defaultIssueLimit = 1000;
+    vm.issueLimit = 1000;
     vm.estKbDwcA = 0.165617009; //based on 111GB for 702777671 occurrences in “DWCA"
     vm.estKbCsv = 0.065414979; //based on 44GB for 705302432 occurrences in CSV
 
@@ -54,6 +54,11 @@ function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceT
     vm.showFossilWarning = function () {
         vm.hasFossils = _.get(vm.state, 'data.facets.BASIS_OF_RECORD.counts.FOSSIL_SPECIMEN.count', 0) > 0;
         return vm.hasFossils;
+    };
+
+    vm.showLivingWarning = function () {
+        vm.hasLivingSpecimens = _.get(vm.state, 'data.facets.BASIS_OF_RECORD.counts.LIVING_SPECIMEN.count', 0) > 0;
+        return vm.hasLivingSpecimens;
     };
 
     Remarks.then(function (response) {
@@ -173,25 +178,27 @@ function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceT
             ariaDescribedBy: 'modal-body',
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
-            controllerAs: '$ctrl'
-            //resolve: {
-            //    format: function () {
-            //        return format;
-            //    }
-            //}
+            controllerAs: '$ctrl',
+            resolve: {
+                format: function () {
+                    return format;
+                }
+            }
         });
 
         modalInstance.result.then(function (downloadOptions) {
             console.log(downloadOptions);
-            vm.startDownload('SIMPLE_CSV', downloadOptions.username, downloadOptions.password);
+            vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
         }, function () {
             //user clicked cancel
         });
     };
 
-    vm.startDownload = function(format, username, password) {
+    vm.startDownload = function(format, username, password, email) {
         var query = _.omitBy(angular.copy(vm.state.query), _.isEmpty);
-        var downloadUrl = '//api.gbif-dev.org/v1/occurrence/search/download?notification_address=none@gbif.org&' + $httpParamSerializer(query) + '&format=' + format;
+        query.format = format;
+        query.notification_address = email;
+        var downloadUrl = '//api.gbif-dev.org/v1/occurrence/search/download?' + $httpParamSerializer(query);
         var auth = btoa(username + ':' + password),
             headers = {"Authorization": "Basic " + auth};
 
@@ -208,21 +215,35 @@ function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceT
         }, function(err) {
             console.log(err);
             //TODO alert user of failure
+            if (err.status == 401) {
+                //unauthorized
+                toastService.error({
+                    message: 'Login failed - if you created your account recently it might not work on this demo site yet.'
+                });
+            } else {
+                toastService.error({
+                    message: 'We currently cannot process your download request. Please report the error and try the production site instead at <a href="http://www.gbif.org/occurrence/search">GBIF.org</a>'
+                });
+            }
         });
     };
 
 }
 
 
-angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance) {
+angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, format) {
     var $ctrl = this;
     $ctrl.username;
     $ctrl.password;
+    $ctrl.email;
+    $ctrl.format = format;
 
     $ctrl.ok = function () {
         $uibModalInstance.close({
             username: $ctrl.username,
-            password: $ctrl.password
+            password: $ctrl.password,
+            email: $ctrl.email,
+            format: $ctrl.format
         });
     };
 
