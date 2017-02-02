@@ -21,7 +21,7 @@ function cmsEndpointAccess(path) {
 // @todo group CMS API assessment functions as a test project with Drupal.
 function verifyCmsFacets(facets) {
     return facets.every(facet => {
-        if (facet.hasOwnProperty('field') && facet.hasOwnProperty('counts') && facet.counts.length > 0) {
+        if (facet.hasOwnProperty('field') && facet.hasOwnProperty('counts') && facet.counts.length >= 0) {
             return facet.counts.every(count => {
                 return count.hasOwnProperty('enum') && count.hasOwnProperty('count');
             });
