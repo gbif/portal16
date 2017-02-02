@@ -13,7 +13,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter) {
     var vm = this;
 
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
@@ -472,12 +472,14 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
     };
 
     vm.search = function () {
+        vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
 
     vm.updateSearch = function () {
         vm.occurrenceState.query.offset = undefined;
         vm.occurrenceState.query.limit = undefined;
+        vm.occurrenceState.query.q = vm.freeTextQuery;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
     };
     vm.searchOnEnter = function (event) {
@@ -524,6 +526,7 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         });
     };
     vm.testFreeTextForSpeciesName();
+    vm.freeTextQuery = vm.occurrenceState.query.q;
 
     vm.addTaxon = function (taxon) {
         vm.occurrenceState.query.q = '';
@@ -534,6 +537,12 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
         vm.occurrenceState.query.limit = undefined;
         $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
     };
+
+    $scope.$watch(function () {
+        return vm.occurrenceState.query.q;
+    }, function () {
+        vm.freeTextQuery = vm.occurrenceState.query.q;
+    });
 
 }
 

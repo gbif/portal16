@@ -95,6 +95,19 @@
     },
     "occurrence": "Occurrence"
   },
+  "occurrenceDownload": {
+    "csvDescription": "Tab delimited csv. Only contains the data after GBIF interpretation.",
+    "dwcaDescription": "The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
+    "estimatedSize": "est size",
+    "knownIssues": "Known issues",
+    "knownIssuesDescription": "A part of the GBIF processing is to flag occurrences that have suspicious fields",
+    "FossilsIncluded": "Fossils",
+    "FossilsIncludedDescription": "There are fossils among you results. That can mean species occurrences at unexpected locations",
+    "livingSpecimensIncluded": "Living specimens",
+    "livingSpecimensIncludedDescription": "You search includes living specimens such as occurrences in botanical and zoological gardens.",
+    "loaderText": "Please hang on while we analyze your download",
+    "authorizationFailed": "Auth failed"
+  },
   "date": {
     "synced": "synced",
     "modified": "modified",
@@ -1273,6 +1286,10 @@
       "UNKNOWN": "Unknown"
     }
   },
+  "downloadFormat": {
+    "SIMPLE_CSV": "CSV",
+    "DWCA": "Darwin Core Archive"
+  },
   "mediaType": {
     "StillImage": "image",
     "Sound": "audio",
@@ -1337,7 +1354,16 @@
     "yes": "yes",
     "no": "no",
     "dataType": "data type",
-    "result": "{NUMBER, select, one{result} other{results}}"
+    "result": "{NUMBER, select, one{result} other{results}}",
+    "withCoordinates": "with coordinates",
+    "withYear": "with year",
+    "withTaxonMatch": "with taxon match",
+    "yearRange": "year range",
+    "total": "total",
+    "download": "download",
+    "license": "license",
+    "learnMore": "learn more"
+
   },
   "continent": {
     "NORTH_AMERICA": "North America",

@@ -17,5 +17,3 @@ function renderSearch(req, res) {
 router.get('/download/:key', function (req, res) {
     renderSearch(req, res);
 });
-
-

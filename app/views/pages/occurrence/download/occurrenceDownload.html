@@ -55,24 +55,33 @@
         </div>
     </section>
 
+
     <section class="horizontal-stripe--paddingless lighter-background">
         <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
-
                     <div class="download-report m-t-2">
-                        <div ng-if="!occDownload.hasData()" class="discreet text-center">
+                        <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                             <div class="discreet">
-                                <em>Hang on while we analyze your download</em>
+                                <em translate="occurrenceDownload.loaderText">Please hang on while we analyze your results</em>
                             </div>
                         </div>
-                        <div ng-if="occDownload.state.table.count === 0">
-                            <p>
-                                no data no download
+
+                        <div ng-show="occDownload.stateParams.params.q" class="download-report__empty">
+                            <h2>
+                                Download is only supported for structured search - not for free text queries.
+                            </h2>
+                            <p class="m-t-2">
+                                <a href="" class="gb-button--primary" ng-click="occDownload.clearFreeText()">Remove "{{occDownload.stateParams.params.q}}" from query</a>
                             </p>
                         </div>
-                        <div class="download-report__summary" ng-show="occDownload.state.table.count > 0">
+                        <div ng-if="occDownload.state.table.count === 0 && !occDownload.stateParams.params.q" class="download-report__empty">
+                            <h2>
+                                Nothing to download
+                            </h2>
+                        </div>
+                        <div class="download-report__summary" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                             <div class="card">
                                 <div class="download-report__map">
                                     <div ng-if="occDownload.loadingThumbnail">
@@ -85,42 +94,42 @@
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
-                                            <dt class="text-capitalize">Total</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.total">Total</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.state.table.count | localNumber:occDownload.state.query.locale }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">License</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.license">License</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.hasData()" class="loading"></span>
                                                 <span ng-if="occDownload.hasData()">{{occDownload.getMostRestrictiveLicense(occDownload.state.data.facets.LICENSE.counts) | translate }}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">Year range</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.yearRange">Year range</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showRange" class="loading"></span>
                                                 <span ng-if="occDownload.showRange">{{occDownload.minYear}} - {{occDownload.maxYear}}</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">With year</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.withYear">With year</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showYears" class="loading"></span>
                                                 <span ng-if="occDownload.showYears">{{ occDownload.withDate | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">with coordinates</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.withCoordinates">With coordinates</dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showCoordinates" class="loading"></span>
                                                 <span ng-if="occDownload.showCoordinates">{{ occDownload.hasCoordinates | formatAsPercentage }} %</span>
                                             </dd>
                                         </div>
                                         <div>
-                                            <dt class="text-capitalize">with taxon match</dt>
+                                            <dt class="text-capitalize" translate="stdTerms.withTaxonMatch"></dt>
                                             <dd>
                                                 <span ng-if="!occDownload.showTaxonMatch" class="loading"></span>
                                                 <span ng-if="occDownload.showTaxonMatch">{{ occDownload.withTaxonMatch | formatAsPercentage }} %</span>
@@ -135,49 +144,52 @@
                                 <div>
                                     <p>
                                         <a href="" class="gb-button--primary" ng-click="occDownload.open('SIMPLE_CSV')">
-                                            <span class="gb-icon-file-download"></span> CSV
+                                            <span class="gb-icon-file-download"></span>
+                                            <span translate="downloadFormat.SIMPLE_CSV"></span>
                                         </a>
                                     </p>
                                     <p class="discreet small">
-                                        <span>Tab delimited csv. Only contains the data after GBIF interpretation.</span>
-                                        <a href="">Learn more</a>
+                                        <span translate="occurrenceDownload.csvDescription"></span>
+                                        <a href="" translate="stdTerms.learnMore"></a>
                                         <br/>
-                                        Estimated size <strong>{{
-                                        occDownload.estKbCsv*occDownload.state.table.count*1024 |
-                                        formatBytes:occDownload.state.query.locale }}</strong>
+                                        <span translate="occurrenceDownload.estimatedSize"></span>
+                                        <strong>{{
+                                            occDownload.estKbCsv*occDownload.state.table.count*1024 |
+                                            formatBytes:occDownload.state.query.locale }}</strong>
                                     </p>
                                 </div>
                                 <div>
                                     <p>
                                         <a href="" class="gb-button--primary" ng-click="occDownload.open('DWCA')">
-                                            <span class="gb-icon-file-download"></span> Darwin Core Archive
+                                            <span class="gb-icon-file-download"></span>
+                                            <span translate="downloadFormat.DWCA"></span>
                                         </a>
                                     </p>
                                     <p class="discreet small">
-                                        <span>The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.</span>
-                                        <a href="">Learn more</a>
+                                        <span translate="occurrenceDownload.dwcaDescription"></span>
+                                        <a href="" translate="stdTerms.learnMore"></a>
                                         <br/>
-                                        Estimated size <strong>{{
-                                        occDownload.estKbDwcA*occDownload.state.table.count*1024 |
-                                        formatBytes:occDownload.state.query.locale }}</strong>
+                                        <span translate="occurrenceDownload.estimatedSize"></span>
+                                        <strong>{{
+                                            occDownload.estKbDwcA*occDownload.state.table.count*1024 |
+                                            formatBytes:occDownload.state.query.locale }}</strong>
                                     </p>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="download-report__notifications" ng-show="occDownload.state.table.count > 0">
+                        <div class="download-report__notifications" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                             <div ng-if="!occDownload.showTaxonMatch" class="discreet text-center">
                                 <ng-include src="'/templates/components/loader/loader.html'"
                                             ng-if="!occTable.hasData() && !occTable.occurrenceState.failedRequest"></ng-include>
                                 <div class="m-b-1 discreet">
-                                    <em>Hang on while we analyze your download</em>
+                                    <em translate="occurrenceDownload.loaderText"></em>
                                 </div>
                             </div>
                             <div class="m-t-2" ng-if="occDownload.showTaxonMatch">
                                 <div>
-                                    <h4>Known issues</h4>
-                                    <p class="discreet">A part of the GBIF processing is to flag occurrences that seem
-                                        off lorem ipsum something goes here written by coms</p>
+                                    <h4 translate="occurrenceDownload.knownIssues"></h4>
+                                    <p class="discreet" translate="occurrenceDownload.knownIssuesDescription"></p>
                                     <div>
                                         <div xng-if="occDownload.showIssueDetails">
                                             <span class="badge-composite--{{issue.severity | lowercase }}"
@@ -199,21 +211,16 @@
                             </div>
                             <div class="m-t-2" ng-if="occDownload.showFossilWarning()">
                                 <div>
-                                    <h4>Fossils</h4>
-                                    <p class="discreet">
-                                        There are fossils among you results. That can mean species occurrences at
-                                        unexpected
-                                        locations.
+                                    <h4 translate="occurrenceDownload.FossilsIncluded"></h4>
+                                    <p class="discreet" translate="occurrenceDownload.FossilsIncludedDescription">
                                     </p>
                                 </div>
                             </div>
 
                             <div class="m-t-2" ng-if="occDownload.showLivingWarning()">
                                 <div>
-                                    <h4>Living specimens</h4>
-                                    <p class="discreet">
-                                        You search includes living specimens such as occurrences in botanical and
-                                        zoological gardens.
+                                    <h4 translate="occurrenceDownload.livingSpecimensIncluded"></h4>
+                                    <p class="discreet" translate="occurrenceDownload.livingSpecimensIncludedDescription">
                                     </p>
                                 </div>
                             </div>
@@ -240,7 +247,7 @@
                 <div class="gb-modal-body__content">
                     <p>
                         Please enter your credentials. Don't have any? You need to <a
-                            href="http://www.gbif.org/user/register">create an account first</a>.
+                                href="http://www.gbif.org/user/register">create an account first</a>.
                     </p>
                     <div class="search-box">
                         <input type="text" placeholder="username" ng-model="$ctrl.username">

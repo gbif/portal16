@@ -14,8 +14,9 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums, toastService) {
+function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums, toastService) {
     var vm = this;
+    vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
     vm.remarks = {};
     vm.state = OccurrenceFilter.getOccurrenceData();
@@ -40,6 +41,11 @@ function occurrenceDownloadCtrl($scope, $q, $http, OccurrenceFilter, OccurrenceT
 
     vm.onThumbLoad = function() {
         vm.loadingThumbnail = false;
+    };
+
+    vm.clearFreeText = function() {
+        vm.state.query.q = undefined;
+        $state.go($state.current, vm.state.query, {inherit: false, notify: true, reload: false});
     };
 
     vm.getMostRestrictiveLicense = function (licenseCounts) {

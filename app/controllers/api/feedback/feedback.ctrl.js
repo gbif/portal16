@@ -73,7 +73,6 @@ router.get('/template.html', function (req, res, next) {
     } catch (err) {
         next(err);//TODO not ideal error handling for an angular template. What would be a better way?
     }
-
 });
 
 router.get('/content', function (req, res) {
