@@ -35,7 +35,7 @@ angular
                         'background-image': 'url("/img/brokenDoc.png")'
                     });
                     element.parent().attr('data-width', 'wide');
-                    element.parent().addClass('isInValid');
+                    element.parent().addClass('isInvalid');
                     // element.parent().html('<span></span>');
                     scope.$apply(function (scope) {
                         var fn = scope.onImgError();
