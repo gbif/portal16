@@ -29,9 +29,9 @@ function transformRemarks(remarks, terms) {
     var nameMap = getQualifiedToSimple(terms),
         remarksMap = {};
 
-    remarks.remarks.forEach(function (remark) {
+    remarks.forEach(function (remark) {
         remark.relatedSimpleTerms = remark.relatedTerms.map(x => nameMap[x]);
-        remarksMap[remark.type] = remark;
+        remarksMap[remark.id] = remark;
     });
 
     return remarksMap;

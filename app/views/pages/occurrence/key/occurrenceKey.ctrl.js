@@ -125,7 +125,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
 
     vm.setData = function () {
         //TODO find a better way to parse required data to controller from server without seperate calls
-        vm.occurrenceCoreTerms = gb.occurrenceCoreTerms;
+        //vm.occurrenceCoreTerms = gb.occurrenceCoreTerms;
         vm.verbatim = gb.occurrenceRecordVerbatim;
         vm.data = gb.occurrenceRecord;
         setMap(vm.data);

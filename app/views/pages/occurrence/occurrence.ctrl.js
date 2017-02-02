@@ -538,4 +538,3 @@ function occurrenceCtrl($state, hotkeys, enums, OccurrenceFilter, suggestEndpoin
 }
 
 module.exports = occurrenceCtrl;
-
