@@ -1,13 +1,13 @@
 var express = require('express'),
-    async = require('async'),
-    hash = require('object-hash'),
-    _ = require('lodash'),
-    Q = require('q'),
-    apiConfig = require('../../../../models/gbifdata/apiConfig'),
-    helper = require('../../../../models/util/util'),
-    github = require('octonode'),
-    router = express.Router(),
-    querystring = require('querystring');
+    //async = require('async'),
+    //hash = require('object-hash'),
+    //_ = require('lodash'),
+    //Q = require('q'),
+    //apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    //helper = require('../../../../models/util/util'),
+    //github = require('octonode'),
+    //querystring = require('querystring'),
+    router = express.Router();
 
 module.exports = function (app) {
     app.use('/api/tools/species-count', router);
@@ -17,9 +17,7 @@ router.post('/count', function (req, res) {
 
     //just return error for now and disable en browser
     res.status = 500;
-    res.json({
-        referenceId: referenceId
-    });
+    res.json({error: 'NOT IMPLEMENTED YET'});
 
     //if (!isValidIdList(req.body.taxonKeys)) {
     //    //respond with error message
@@ -125,28 +123,28 @@ router.post('/count', function (req, res) {
 //    return csvContent;
 //}
 
-function isValidIdList(taxonList) {
-    //expect an array of integers
-    if (!_.isArray(taxonList)) {
-        return false;
-    }
-    for (var i = 0; i < taxonList.lenght; i++) {
-        if (!_.isSafeInteger(taxonList[i])) {
-            return false;
-        }
-    }
-    return true;
-}
-
-function isValidNameList(nameList) {
-    //expect an array of strings
-    if (!_.isArray(nameList)) {
-        return false;
-    }
-    for (var i = 0; i < nameList.lenght; i++) {
-        if (!_.isString(nameList[i])) {
-            return false;
-        }
-    }
-    return true;
-}
+//function isValidIdList(taxonList) {
+//    //expect an array of integers
+//    if (!_.isArray(taxonList)) {
+//        return false;
+//    }
+//    for (var i = 0; i < taxonList.lenght; i++) {
+//        if (!_.isSafeInteger(taxonList[i])) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+//
+//function isValidNameList(nameList) {
+//    //expect an array of strings
+//    if (!_.isArray(nameList)) {
+//        return false;
+//    }
+//    for (var i = 0; i < nameList.lenght; i++) {
+//        if (!_.isString(nameList[i])) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
