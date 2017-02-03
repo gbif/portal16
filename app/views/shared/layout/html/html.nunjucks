@@ -9,14 +9,15 @@
 <![endif]-->
 
 {# <head> #}
-{% include "../partials/head/head.nunjucks" %}
-{% block styles %}{% endblock %}
+<head>
+    {% include "../partials/head/head.nunjucks" %}
+    {% block head %}{% endblock %}
+    {% block styles %}{% endblock %}
+</head>
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
-
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
-        <div class="snow"></div>
         {# Navigation #}
         {% if not _meta.removeMenu %}
             {% include "../partials/navigation/navigation.nunjucks" %}

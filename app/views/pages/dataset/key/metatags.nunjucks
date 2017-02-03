@@ -1,0 +1,32 @@
+{% if dataset.record.doi %}
+    <meta name="DC.identifier" content="{$ dataset.record.doi $}" />
+    <meta name="citation_doi" content="{$ dataset.record.doi $}" />
+{% endif %}
+
+{% if dataset.publisher.title %}
+    <meta name="DC.publisher" content="{$ dataset.publisher.title $}" />
+    <meta name="citation_publisher" content="{$ dataset.publisher.title $}" />
+{% endif %}
+
+{# TODO align citation title with printed page version #}
+{% if dataset.record.title %}
+    <meta name="DC.title" content="{$ dataset.record.title $}" />
+    <meta name="citation_title" content="{$ dataset.record.title $}" />
+{% endif %}
+
+{# list all contributors independint of role #}
+{% for contributor in dataset._computedValues.contributors.all %}
+    {% if contributor.firstName and contributor.lastName %}
+        <meta name="DC.creator" content="{$ contributor.firstName $} {$ contributor.lastName $}" />
+        <meta name="citation_author" content="{$ contributor.firstName $} {$ contributor.lastName $}" />
+    {% endif %}
+{% endfor %}
+
+{# what format should language code be in? en or eng #}
+{% if dataset.record.language %}
+    <meta name="DC.language" content="{$ dataset.record.language $}" />
+{% endif %}
+
+{% if dataset.record.license %}
+    <meta name="DC.rights" content="{$ dataset.record.license $}" />
+{% endif %}

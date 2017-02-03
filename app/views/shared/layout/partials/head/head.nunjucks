@@ -1,4 +1,4 @@
-<head>
+
 
     <title>{$ _meta.title $}</title>
     <meta charset="UTF-8">
@@ -64,4 +64,3 @@
     #}
     <![endif]-->
 
-</head>
