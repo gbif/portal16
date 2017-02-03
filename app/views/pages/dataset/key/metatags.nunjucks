@@ -15,7 +15,7 @@
 {% endif %}
 
 {# list all contributors independint of role #}
-{% for contributor in dataset._computedValues.contributors.all %}
+{% for contributor in dataset._computedValues.contributors.highlighted %}
     {% if contributor.firstName and contributor.lastName %}
         <meta name="DC.creator" content="{$ contributor.firstName $} {$ contributor.lastName $}" />
         <meta name="citation_author" content="{$ contributor.firstName $} {$ contributor.lastName $}" />
