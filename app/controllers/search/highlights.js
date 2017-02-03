@@ -11,7 +11,7 @@ function getCuratedCmsContents(q, data) {
         for (let i = 0; i < data.cms.results.length; i++) {
             if (Array.isArray(data.cms.results[i].featuredSearchTerms) && data.cms.results[i].featuredSearchTerms.length > 0) {
                 data.cms.results[i].featuredSearchTerms.forEach(function (term) {
-                    if (term.name.toLowerCase() == q) {
+                    if (term.name.toLowerCase() == q.toLowerCase()) {
                         var highlighted_item = data.cms.results.splice(i, 1);
                         featuredContents.push(highlighted_item[0]);
                     }
