@@ -2,6 +2,7 @@ var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
     Entities = require('html-entities').AllHtmlEntities,
     entities = new Entities(),
+    _ = require('lodash'),
     linkTools = require('./links/links'),
     defaultLanguage = 'en';
 
@@ -49,6 +50,9 @@ function prettifyEnum(text) {
 }
 
 function decodeHtml(text) {
+    if (!_.isString(text)) {
+        return '';
+    }
     return entities.decode(text);
 }
 
