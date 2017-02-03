@@ -1,0 +1,23 @@
+{% if title %}## {$ title | striptags $}{% endif %}
+
+{% if datasetLink %}Dataset link: {$ datasetLink | striptags $}{% endif %}
+
+{% if region %}Region: {$ region | striptags  $}{% endif %}
+
+{% if taxon %}Taxon: {$ taxon | striptags  $}{% endif %}
+
+{% if type %}Type: {$ type | striptags  $}{% endif %}
+
+{% if datasetImportance %}Why is this important: {$ datasetImportance | striptags  $}{% endif %}
+
+{% if priority %}Priority: {$ priority | striptags  $}{% endif %}
+
+{% if license %}License: {$ license | striptags  $}{% endif %}
+
+{% if datasetBibliographicDoi %}Bibliographic reference: {$ datasetBibliographicDoi | striptags  $}{% endif %}
+
+{% if comments %}Comments: {$ comments | striptags(true) $}{% endif %}
+
+{% if datasetHolderContact %}Dataholders contact information: {$ datasetHolderContact | striptags $}{% endif %}
+
+{% if userEmail %}Users contact info: {$ userEmail | striptags $}{% endif %}
