@@ -1,0 +1,49 @@
+.card__header {
+    padding 30px
+    font-size 16px
+}
+
+.storyline {
+    &__chapter {
+        position relative
+    }
+    &__block {
+        padding-bottom 75px
+        padding-left 100px
+    }
+    &__bullet {
+        position absolute
+        top 0
+        left 0
+        width 50px
+        height 50px
+        border 2px solid #888
+        border-radius 25px
+        text-align center
+        > span {
+            color #888
+            font-size 30px
+            line-height 45px
+            //width 50px
+            //height 50px
+        }
+    }
+    &__pipe {
+        background-color gray
+        padding-top 2px
+        position absolute
+        top 50px
+        bottom 0
+        left 24px
+        width 2px
+        margin-top -1px
+    }
+}
+
+.empty-box {
+    border 3px dashed $stripeBorderColor
+    border-radius 8px
+    padding 30px
+    color $stripeBorderColor
+    text-align center
+}

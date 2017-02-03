@@ -2,9 +2,90 @@
 
 {% block page %}
     <article class="wrapper-horizontal-stripes downloadKey">
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container--desktop">
+                <div class="row">
+                    <header class="col-xs-12 text-center">
+                        <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Download</span>
+                            <span class="article-header__category__lower">{$ download.record.created | formatDate(gb.locales.current) $}</span>
+                        </nav>
 
-        download key
-
+                        <h1 class="text-center">
+                            <span>Occurrence download</span>
+                        </h1>
+                        <div class="m-t-1">
+                            <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-stripe light-background">
+            <div class="container--narrow">
+                <div class="storyline">
+                    <div class="storyline__chapter">
+                        <div class="storyline__bullet"><span class="gb-icon-logo"></span></div>
+                        <div class="storyline__block">
+                            <div class="small discreet">
+                                <p class="text-uppercase">
+                                    {$ download.record.created | formatDate(gb.locales.current) $}
+                                </p>
+                                <p>
+                                The data in the download is based on the state og GBIF.org at the time of the download
+                                </p>
+                            </div>
+                            {#<div class="card">#}
+                                {#<div class="card__header">#}
+                                    {#{$ download.record.created | formatDate(gb.locales.current) $}#}
+                                {#</div>#}
+                            {#</div>#}
+                        </div>
+                        <div class="storyline__pipe"></div>
+                    </div>
+                    <div class="storyline__chapter">
+                        <div class="storyline__bullet"><span class="gb-icon-filter"></span></div>
+                        <div class="storyline__block">
+                            <p class="small discreet text-uppercase">Applied filter</p>
+                            <div class="card">
+                                <div class="card__header">
+                                    Display filter here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="storyline__pipe"></div>
+                    </div>
+                    <div class="storyline__chapter">
+                        <div class="storyline__bullet"><span class="gb-icon-file-download"></span></div>
+                        <div class="storyline__block">
+                            <div class="card">
+                                <div class="card__header">
+                                    Download ready in this format - rerun
+                                </div>
+                            </div>
+                        </div>
+                        <div class="storyline__pipe"></div>
+                    </div>
+                    <div class="storyline__chapter">
+                        <div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>
+                        <div class="storyline__block">
+                            <div class="empty-box body-text">
+                                No cleaned versions shared
+                            </div>
+                        </div>
+                        <div class="storyline__pipe"></div>
+                    </div>
+                    <div class="storyline__chapter">
+                        <div class="storyline__bullet"><span class="gb-icon-quote"></span></div>
+                        <div class="storyline__block">
+                            <div class="empty-box body-text">
+                                No known litterature usages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </article>
 
 {% endblock %}

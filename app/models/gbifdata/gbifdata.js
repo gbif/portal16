@@ -4,6 +4,7 @@ var Country = require('./country/country'),
     Publisher = require('./publisher/publisher'),
     Taxon = require('./taxon/taxon'),
     getDownloadStats = require('./dataset/datasetDownloadStats'),
+    Download = require('./download/download'),
     Dataset = require('./dataset/dataset');
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
     Publisher: Publisher,
     Taxon: Taxon,
     Dataset: Dataset,
+    Download: Download,
     getDownloadStats: getDownloadStats,
     expand: require('./expand')
 };
