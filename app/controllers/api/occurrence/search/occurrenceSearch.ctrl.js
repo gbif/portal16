@@ -28,6 +28,10 @@ router.get('/occurrence/search', function (req, res) {
                 {
                     fromKey: 'publishingOrgKey',
                     type: expandConfig.PUBLISHING_ORG
+                },
+                {
+                    fromKey: 'speciesKey',
+                    type: expandConfig.SPECIES_KEY
                 }
             ],
             expandConfig: expandConfig

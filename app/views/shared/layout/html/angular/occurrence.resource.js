@@ -45,6 +45,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('OccurrenceTaxonSearch', function ($resource) {
+            return $resource('/api/occurrence/taxon', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         // This service connects to a proxy which returns processed result from /occurrence/download/dataset/:id.
         .factory('DownloadEventsService', function ($resource) {
             return $resource('/occurrence-download-dataset/:id');
