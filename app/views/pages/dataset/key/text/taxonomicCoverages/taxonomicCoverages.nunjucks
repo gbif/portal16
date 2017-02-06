@@ -12,21 +12,23 @@
 
 
                     {% for rank in taxonomicCoverage._ranks %}
-                        <div class="dataset-key__taxonomicCoverages__rank">
-                            <h4>{$ __('taxonRank.' + rank.rank) | capitalize $}</h4>
-                            <div class="dataset-key__taxonomicCoverages__columns">
-                                {% if rank.taxa.length < 6 %}
-                                <div class="no-break">
+                        {% if rank.taxa %}
+                            <div class="dataset-key__taxonomicCoverages__rank">
+                                <h4>{$ __('taxonRank.' + rank.rank) | capitalize $}</h4>
+                                <div class="dataset-key__taxonomicCoverages__columns">
+                                    {% if rank.taxa.length < 6 %}
+                                        <div class="no-break">
                                     {% endif %}
                                     {% for name in rank.taxa %}
                                         <a href="../occurrence/search?dataset_key={$ dataset.record.key $}&q={$ name.scientificName $}">{$
                                             name.scientificName $}</a>
                                     {% endfor %}
                                     {% if rank.taxa.length < 6 %}
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                {% endif %}
                             </div>
-                        </div>
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
             </div>
