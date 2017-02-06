@@ -36,7 +36,7 @@ module.exports = (function () {
 
 module.exports = (function () {
     if (document.compatMode == 'CSS1Compat') {
-        var navbarHeight = 0; //TODO should build stylus variables to js navbar + tabbar height
+        var navbarHeight = 46; //TODO should build stylus variables to js navbar + tabbar height
         var tabsFixedContainer = document.getElementById('tabsFixedContainer');
         var tabsScrollable = document.getElementById('tabsScrollable');
 
