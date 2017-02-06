@@ -70,6 +70,13 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'occurrenceGalleryCtrl',
             controllerAs: 'occGallery'
         })
+        .state('occurrenceSearchSpecies', {
+            parent: 'occurrenceSearch',
+            url: '/species',
+            templateUrl: '/templates/pages/occurrence/species/occurrenceSpecies.html',
+            controller: 'occurrenceSpeciesCtrl',
+            controllerAs: 'occSpecies'
+        })
         .state('occurrenceSearchDownload', {
             parent: 'occurrenceSearch',
             url: '/download',

@@ -118,6 +118,7 @@ require('../../../pages/occurrence/occurrence.ctrl');
 require('../../../pages/occurrence/table/occurrenceTable.ctrl');
 require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
+require('../../../pages/occurrence/species/occurrenceSpecies.ctrl');
 require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
 
 require('../../../pages/species/key/speciesKey.ctrl');

@@ -1,0 +1,157 @@
+<div class="wrapper-horizontal-stripes occurrence-search__table">
+
+    <section class="horizontal-stripe--paddingless white-background search-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper">Search occurrences</span>
+                        <span class="article-header__category__lower" ng-if="occSpecies.hasTableData()">
+                            {{occSpecies.state.table.count | localNumber:occSpecies.state.query.locale }} results
+                        </span>
+
+                        <span class="article-header__category__lower" ng-if="!occSpecies.hasTableData()">
+                            Loading ...
+                        </span>
+
+                    </nav>
+                    <!--<div class="search-header__description">-->
+                    <!--<span ng-if="occSpecies.hasData()">-->
+                    <!--{{occSpecies.occurrenceState.data.count | localNumber:occSpecies.occurrenceState.query.locale }} results-->
+                    <!--</span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless white-background">
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="tabs">
+                    <ul>
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchTable()">
+                                Table
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchGallery()">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchMap()">
+                                Map
+                            </a>
+                        </li>
+
+                        <li class="tab isActive">
+                            <span>
+                                Species
+                            </span>
+                        </li>
+
+                        <!--<li class="tab tab-right">-->
+                            <!--<a href="" ui-sref="occurrenceSearchDownload()">-->
+                                <!--<span class="gb-icon-file-download"></span>-->
+                                <!--<span>-->
+                                    <!--Download-->
+                                <!--</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="horizontal-stripe--paddingless lighter-background">
+
+        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occSpecies.hasData() && !occSpecies.occurrenceState.failedRequest"></ng-include>
+
+        <div ng-if="occSpecies.occurrenceState.failedRequest">
+            <p>
+                Hmm, we couldn't process your request.
+            </p>
+            <div>
+                {{occSpecies.occurrenceState.error.data.body}}
+                <div>
+                    The query is invalid. Try resetting your filters.
+                </div>
+            </div>
+            <p>
+                If you believe this should have worked, then please report this as an issue. Thank you for your patience.
+            </p>
+        </div>
+        <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+        <!--<div class="col-xs-12 small">-->
+        <!--<span ng-if="occSpecies.hasData()">-->
+        <!--{{occSpecies.occurrenceState.data.count | localNumber:occSpecies.occurrenceState.query.locale }} results-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="occurrence-search__table__area" ng-if="occSpecies.hasData()">
+            <div class="scrollable-y">
+                <div class="table-container">
+                    <!--<div class="table-container__overlay" ng-if="!occSpecies.hasData()"></div>-->
+                    <table class="table search-table smaller">
+                        <thead>
+                        <tr>
+                            <th class="text-capitalize"
+                                ng-repeat="field in ['amount', 'scientificName', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                                {{ field }}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="taxon in occSpecies.checklist.results">
+                            <td class="table-cell--narrow">
+                                <a ng-href="../species/{{taxon.key}}">{{taxon._count | localNumber:occSpecies.state.query.locale}}</a>
+                            </td>
+                            <td class="table-cell--wide">
+                                <a ng-href="../species/{{taxon.key}}">{{taxon.scientificName}}</a>
+                            </td>
+                            <td class="table-cell--narrow"
+                                ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
+                                <a ng-href="../species/{{taxon.key}}">{{taxon[t]}}</a>
+                            </td>
+                            <td class="table-cell--wide">
+                                <a ng-href="../species/{{taxon.key}}">{{taxon.species}}</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-fluid" ng-if="occSpecies.hasData()">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <uib-pagination
+                                total-items="occSpecies.totalItems()"
+                                ng-model="occSpecies.currentPage"
+                                max-size="1"
+                                items-per-page="occSpecies.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="occSpecies.pageChanged()"
+                                ng-show="occSpecies.checklist.offset || occSpecies.checklist.results.length == occSpecies.limit">
+                        </uib-pagination>
+                        <!--<ul class="pagination-sm pagination">-->
+                            <!--<li class="pagination-prev"><a href="" ng-click="selectPage(page - 1, $event)" class="ng-binding">Previous</a></li>-->
+                            <!--<li class="pagination-next"><a href="" ng-click="selectPage(page + 1, $event)" class="ng-binding">Next</a></li>-->
+                        <!--</ul>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
