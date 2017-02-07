@@ -21,15 +21,16 @@ moment.updateLocale('en', {
         LLLL: "LT, dddd Do MMMM YYYY"
     }
 });
+var dateFormats = ['YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
 
 function date(date, locale, format) {
     var day;
     locale = locale || defaultLanguage;
-    format = format || 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
+    format = _.isUndefined(format) ? format : 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
     if (!isNaN(Number(date))) {
         day = moment.unix(date).locale(locale);
     } else {
-        day = moment(date, 'YYYY-MM-DD').locale(locale);
+        day = moment(date, dateFormats).locale(locale);
     }
     return day.format(format);
 }
@@ -121,6 +122,16 @@ function sanitizeTrusted(dirty) {
     return clean;
 }
 
+function removeHtml(dirty) {
+    dirty = dirty || '';
+    let clean = sanitizeHtml(dirty, {
+            allowedTags: [],
+            allowedAttributes: []
+        }
+    );
+    return clean;
+}
+
 function sanitize(dirty, additionalAllowedTags) {
     dirty = dirty || '';
     var allowedTags = additionalAllowedTags ? ['img', 'h2'].concat(additionalAllowedTags) : ['img', 'h2'];
@@ -158,6 +169,7 @@ module.exports = {
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,
+    removeHtml: removeHtml,
     sanitize: sanitize,
     sanitizeTrusted: sanitizeTrusted,
     addPortalClasses: addPortalClasses,
@@ -167,3 +179,4 @@ module.exports = {
     readableDOI: linkTools.readableDOI,
     decodeHtml: decodeHtml
 };
+
