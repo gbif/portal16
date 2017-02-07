@@ -1,8 +1,7 @@
 "use strict";
-let maxmind = require('maxmind'),
-    express = require('express'),
+let express = require('express'),
     router = express.Router(),
-    cityLookup = maxmind.openSync(__dirname + '/GeoLite2-Country.mmdb'); //sync startup
+    getGeoIp = rootRequire('app/helpers/utils').getGeoIp;
 
 module.exports = function (app) {
     app.use('/api/utils', router);
@@ -10,6 +9,6 @@ module.exports = function (app) {
 
 router.get('/geoip', function (req, res) {
     let ip = req.clientIp,
-        country = cityLookup.get(ip);
+        country = getGeoIp(ip);
     res.json({country: country});
 });

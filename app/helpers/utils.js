@@ -1,7 +1,18 @@
 "use strict";
 
 var ranks = require('./constants').allRanks,
+    maxmind = require('maxmind'),
+    cityLookup = maxmind.openSync(__dirname + '/GeoLite2-Country.mmdb'),
     _ = require('lodash');
+
+
+function getGeoIp(ip) {
+    if (_.isString(ip)) {
+        return cityLookup.get(ip);
+    } else {
+        return undefined;
+    }
+}
 
 function isGuid(stringToTest) {
     var regexGuid = /^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/gi;
@@ -70,5 +81,6 @@ module.exports = {
     sortByRankThenAlpha: sortByRankThenAlpha,
     rankOrder: rankOrder,
     isGuid: isGuid,
-    renderPage: renderPage
+    renderPage: renderPage,
+    getGeoIp: getGeoIp
 };
