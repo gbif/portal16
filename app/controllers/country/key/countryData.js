@@ -23,23 +23,7 @@ function getCountryData(countryCode, cb) {
         },
         node: function (callback) {
             helper.getApiData(apiConfig.country.url + countryCode, callback);
-        },
-        nodeFeed: [
-            'node', function (results, callback) {
-                var feed,
-                    endpoints = _.get(results, 'node.endpoints', []);
-                endpoints.forEach(function (e) {
-                    if (e.type == 'FEED' && e.url) {
-                        feed = e;
-                    }
-                });
-                if (typeof results.node.errorType !== 'undefined' || !feed) {
-                    callback(null, null);
-                } else {
-                    helper.getApiData(feed.url, callback, {retries: 1, timeoutMilliSeconds: 1000, type: 'XML'});
-                }
-            }
-        ]
+        }
     };
 
     if (typeof participant !== 'undefined') {
@@ -47,6 +31,16 @@ function getCountryData(countryCode, cb) {
         tasks.participant = function (callback) {
             helper.getApiData(cmsConfig.participant.url + participantId, callback);
         };
+        tasks.nodeFeed = [
+            'participant', function (results, callback) {
+                var rssFeed = _.get(results, 'participant.data[0].rssFeed[0].url');
+                if (typeof results.participant.errorType !== 'undefined' || !rssFeed) {
+                    callback(null, null);
+                } else {
+                    helper.getApiData(rssFeed, callback, {retries: 1, timeoutMilliSeconds: 1000, type: 'XML'});
+                }
+            }
+        ];
     }
     async.auto(tasks, cb);
 }
@@ -54,4 +48,3 @@ function getCountryData(countryCode, cb) {
 module.exports = {
     getCountryData: getCountryData
 };
-
