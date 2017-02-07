@@ -35,6 +35,15 @@ function homeCtrl(CmsSearch, $http) {
             }, function(){
                 //TODO handle failing queries
             });
+        //$http.get('/api/home/localrss?mockip=89.114.136.105', {}).then(function(response){
+        //    vm.latest[2] = response.data;
+        //    vm.latest[2].title = vm.latest[2].title;
+        //    vm.latest[2].created = vm.latest[2].pubDate;
+        //    vm.latest[2].targetUrl = vm.latest[2].link;
+        //    //TODO handle missing events
+        //}, function(){
+        //    //TODO handle failing queries
+        //});
     }
     getLatest();
 
