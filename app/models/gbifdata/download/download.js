@@ -1,7 +1,6 @@
 "use strict";
 
 var resource = require('../resource'),
-    _ = require('lodash'),
     api = require('../apiConfig');
 
 var Download = function (record) {
@@ -22,30 +21,8 @@ Download.get = function (key, options) {
     }
 };
 
-Download.prototype.expand = function (fieldNames) {
-    var resources = [],
-        resourceLookup = {
-            news: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=news&filter[category_Download]=' + this.record.Download,
-                extendToField: 'news'
-            },
-            events: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=event&filter[category_Download]=' + this.record.Download,
-                extendToField: 'events'
-            },
-            dataUse: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_Download]=' + this.record.Download,
-                extendToField: 'dataUse'
-            },
-            participant: {
-                resource: cmsConfig.participant.url + participantId,
-                extendToField: 'participant'
-            }
-        };
-
-    //fieldNames.forEach(function (e) {
-    //    if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
-    //});
+Download.prototype.expand = function () {
+    var resources = [];
     return resource.extend(this).with(resources);
 };
 

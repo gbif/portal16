@@ -1295,6 +1295,12 @@
     "Sound": "audio",
     "MovingImage": "video"
   },
+  "download": {
+    "nOccurrencesDownloaded": {
+      "one": "{{count}} occurrence downloaded",
+      "other": "{{count}} occurrences downloaded"
+    }
+  },
   "stdTerms": {
     "location": "location",
     "basisOfRecord": "basis of record",

@@ -85,7 +85,7 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
             vm.minYear = _.min(Object.keys(counts));
             vm.maxYear = _.max(Object.keys(counts));
             vm.showRange = true;
-        }, function (err) {
+        }, function () {
             //TODO inform user that count failed by showing failed instead of loader
             vm.showRange = false;
         });
@@ -126,7 +126,6 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
         locationQuery.facet = ['has_coordinate', 'has_geospatial_issue'];
         OccurrenceTableSearch.query(locationQuery, function (response) {
             var hasCoordinateCounts = _.get(response, 'facets.HAS_COORDINATE.counts', []);
-            var hasIssuesCounts = _.get(response, 'facets.HAS_GEOSPATIAL_ISSUE.counts', []);
             vm.hasCoordinates = _.get(hasCoordinateCounts, 'true.fraction', 0);
             vm.showCoordinates = true;
         }, function () {
@@ -193,7 +192,6 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
         });
 
         modalInstance.result.then(function (downloadOptions) {
-            console.log(downloadOptions);
             vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
         }, function () {
             //user clicked cancel
@@ -216,10 +214,8 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
         };
 
         $http(req).then(function (response) {
-            console.log(response);
             window.location.href = 'download/' + response.data;
         }, function(err) {
-            console.log(err);
             //TODO alert user of failure
             if (err.status == 401) {
                 //unauthorized

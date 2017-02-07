@@ -2,7 +2,7 @@
 
 {% block page %}
     <article class="wrapper-horizontal-stripes downloadKey">
-        <div class="horizontal-stripe article-header white-background">
+        <div class="horizontal-stripe article-header article-header--tabbed white-background">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12 text-center">
@@ -12,7 +12,7 @@
                         </nav>
 
                         <h1 class="text-center">
-                            <span>Occurrence download</span>
+                            <span>{$ __n('download.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
                         </h1>
                         <div class="m-t-1">
                             <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
@@ -20,33 +20,49 @@
                     </header>
                 </div>
             </div>
+            <div class="container--normal">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <nav class="tabs">
+                            <ul>
+                                <li class="tab tab-right">
+                                    <a href="{$ download.record.downloadLink $}" class="gb-button--flat pull-right">DOWNLOAD</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="horizontal-stripe light-background">
-            <div class="container--narrow">
+            <div class="container--normal">
                 <div class="storyline">
-                    <div class="storyline__chapter">
-                        <div class="storyline__bullet"><span class="gb-icon-logo"></span></div>
-                        <div class="storyline__block">
-                            <div class="small discreet">
-                                <p class="text-uppercase">
-                                    {$ download.record.created | formatDate(gb.locales.current) $}
-                                </p>
-                                <p>
-                                The data in the download is based on the state og GBIF.org at the time of the download
-                                </p>
-                            </div>
+                    {#<div class="storyline__chapter">#}
+                        {#<div class="storyline__bullet"><span class="gb-icon-logo"></span></div>#}
+                        {#<div class="storyline__block">#}
+                            {#<div class="small discreet">#}
+                                {#<p class="text-uppercase">#}
+                                    {#{$ download.record.created | formatDate(gb.locales.current) $}#}
+                                {#</p>#}
+                                {#<p>#}
+                                {#The data in the download is based on the state og GBIF.org at the time of the download#}
+                                {#</p>#}
+                            {#</div>#}
                             {#<div class="card">#}
                                 {#<div class="card__header">#}
                                     {#{$ download.record.created | formatDate(gb.locales.current) $}#}
                                 {#</div>#}
                             {#</div>#}
-                        </div>
-                        <div class="storyline__pipe"></div>
-                    </div>
+                        {#</div>#}
+                        {#<div class="storyline__pipe"></div>#}
+                    {#</div>#}
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-filter"></span></div>
                         <div class="storyline__block">
-                            <p class="small discreet text-uppercase">Applied filter</p>
+                            <p class="small discreet text-uppercase">
+                                Filter applied {$ download.record.created | formatDate(gb.locales.current) $}
+                                <span class="pull-right">Rerun query <span class="gb-icon-filter"></span></span>
+                            </p>
                             <div class="card">
                                 <div class="card__header">
                                     Display filter here
@@ -58,9 +74,24 @@
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-file-download"></span></div>
                         <div class="storyline__block">
+                            <p class="small discreet text-uppercase">
+                                Archive created
+                                <span class="pull-right">Download <span class="gb-icon-file-download"></span></span>
+                            </p>
                             <div class="card">
                                 <div class="card__header">
-                                    Download ready in this format - rerun
+                                    Archive ready for download
+                                </div>
+                                <div class="card__stripe">
+                                    <div class="card__content">
+                                        <div>
+                                            GBIF.org (24th January 2017) GBIF Occurrence Download http://doi.org/10.15468/dl.n5twu3
+                                        </div>
+                                        <strong>Format</strong><span>: .csv</span>
+                                        <br/>
+                                        <strong>Size</strong><span>: 15.2kb</span>
+                                        <br/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +114,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe bare-background">
+            <div class="container--normal">
+                <h4>Constituent datasets</h4>
+                <div class="card">
+                    <p>sdf</p>
+                    <p>sdf</p>
+                    <p>sdf</p>
                 </div>
             </div>
         </div>
