@@ -33,7 +33,7 @@ router.get('/home/upcomingEvents', function (req, res) {
 
 router.get('/home/localrss', function (req, res) {
         //endpoint allows for mocking ip queries eg http://localhost:7000/api/utils/localrss?mockip=89.114.136.105 is portugal
-        let ip = req.query.mockip || req.params.ip || '',
+        let ip = req.query.mockip || req.clientIp || '',
         country = getGeoIp(ip), //look up ip in max mind database to get geoip info
         isoCode = _.get(country, 'country.iso_code');
 
