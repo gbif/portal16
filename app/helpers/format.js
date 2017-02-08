@@ -26,7 +26,7 @@ var dateFormats = ['YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, D
 function date(date, locale, format) {
     var day;
     locale = locale || defaultLanguage;
-    format = _.isUndefined(format) ? format : 'LL'; // localized format http://momentjs.com/docs/#/displaying/format/
+    format = _.isUndefined(format) ? 'LL' : format; // localized format http://momentjs.com/docs/#/displaying/format/
     if (!isNaN(Number(date))) {
         day = moment.unix(date).locale(locale);
     } else {
