@@ -13,8 +13,10 @@
             <ul class="info-pane__header">
                 <li ng-if="vm.heads.participantInfo.membershipType">
                     <strong translate="directory.{{vm.heads.participantInfo.membershipType}}.one"></strong>
-                    <strong translate="theGbifNetwork.since"></strong>
-                    <strong ng-bind="vm.heads.participantInfo.membershipStart"></strong>
+                </li>
+                <li ng-if="vm.heads.participantInfo.membershipStart">
+                    <span translate="theGbifNetwork.memberSince"></span>
+                    <span ng-bind="vm.heads.participantInfo.membershipStart"></span>
                 </li>
                 <li ng-if="vm.heads.HEAD_OF_DELEGATION.firstName">
                     <span class="text-capitalize" translate="role.HEAD_OF_DELEGATION"></span>

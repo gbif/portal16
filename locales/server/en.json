@@ -1876,7 +1876,7 @@
     "countries": "Countries",
     "chartPublicationYearly": "Yearly trend of peer-reviewed publications using GBIF-mediated data",
     "legend": "Legend",
-    "since": "since",
+    "memberSince": "Member since",
     "endorsedDataPublisher": "endorsed data {NUMBER, select, one{publisher} other{publishers}}",
     "occurrenceDatasetWith": "occurrence {NUMBER, select, one{dataset} other{datasets}} with",
     "record": "{NUMBER, select, one{record} other{records}}",
