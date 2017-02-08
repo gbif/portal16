@@ -28,7 +28,7 @@
                 </th>
                 <th>
                     <a ng-click="sort.field = 'memberSince'; sort.Reverse = !sort.Reverse">
-                        <span translate="theGbifNetwork.since"></span>
+                        <span translate="theGbifNetwork.memberSince"></span>
                     </a>
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
