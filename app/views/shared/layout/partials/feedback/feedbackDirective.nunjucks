@@ -121,7 +121,7 @@
                                 <div>
                                     <span><strong>{{ vm.contentFeedback.contacts.firstContact.firstName }} {{ vm.contentFeedback.contacts.firstContact.lastName }}</strong></span><br>
                                     <span>{{ vm.contentFeedback.contacts.firstContact.organization }}</span><br>
-                                    <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
+                                    <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +131,8 @@
                             </a>
                         </div>
                     </div>
-                    <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend sending a mail to <a
-                                ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
+                    <div ng-if="vm.forceShowForm" class="feedback__comment">We recommend sending a mail to
+                        <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">{{ vm.contentFeedback.contacts.firstContact.email }}</a>
                     </div>
 
 
