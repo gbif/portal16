@@ -8,6 +8,7 @@ let express = require('express'),
     useragent = require('useragent'),
     feedbackContentType = require('./feedbackContentType'),
     _ = require('lodash'),
+    getGeoIp = rootRequire('app/helpers/utils').getGeoIp,
     log = rootRequire('config/log'),
     feedbackHelper = require('./feedbackHelper'),
     moment = require("moment"),
@@ -114,6 +115,8 @@ function isValid(formData) {
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
         referer = req.headers.referer,
+        ip = req.clientIp,
+        country = getGeoIp(ip),
         description = '',
         title,
         labels = [];
@@ -121,7 +124,7 @@ function createIssue(req, data, cb) {
     try {
         description = getDescription(data, agent, referer);
         title = getTitle(data.form.title, data.type, referer);
-        labels = getLabels(data);
+        labels = getLabels(data, country);
     } catch (err) {
         cb(err);
         return;
@@ -150,8 +153,11 @@ function getTitle(title) {
     return title;
 }
 
-function getLabels(data) {
-    var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content'], [data.type]));
+function getLabels(data, country) {
+    var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content', 'question'], [data.type]));
+    if (country) {
+        labels.push(country);
+    }
     return _.uniq(labels);
 }
 
