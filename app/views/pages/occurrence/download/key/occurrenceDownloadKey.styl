@@ -49,3 +49,84 @@
     color $stripeBorderColor
     text-align center
 }
+
+
+
+.predicates {
+    ul {
+        padding 5px
+        ul:hover {
+            background rgba(0,0,0,.02)
+        }
+    }
+    .join {
+        display inline-block
+        background #666
+        color white
+        padding 0px 10px
+        &:before {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #aaa;
+            width: 35px;
+            position: absolute;
+            top: 15px;
+            left: 0px;
+        }
+    }
+    .leaf {
+        &:before {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #aaa;
+            width: 25px;
+            position: absolute;
+            top: 9px;
+            left: 0px;
+        }
+    }
+    li {
+        position: relative;
+        padding-left: 30px;
+        margin-left: 10px;
+        margin-top: 10px;
+        &:before {
+            content: '';
+            display: block;
+            border-radius: 50%;
+            height: 10px;
+            width: 10px;
+            border: 2px solid #aaa;
+            background: #fff;
+            position: absolute;
+            left: -4px;
+            top: 5px;
+            z-index 2
+        } 
+        &.hasChildren {
+            &:before {
+                top 11px
+            }
+        }
+        .pipe {
+            width: 2px;
+            background: #aaa;
+            position: absolute;
+            left: 0;
+            top: 15px;
+            bottom: -22px;
+        }
+        &:first-of-type {
+            > .pipe {
+                top: -10px;
+            }
+        }
+        &:last-of-type {
+            >.pipe {
+                display: none;
+            }
+        }
+    }
+}

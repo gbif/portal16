@@ -1,0 +1,20 @@
+{% macro print(p) %}
+    {% if p.type == 'and' or p.type == 'or' %}
+    <ul>
+    	<span class="join">
+    		{$ p.type $}
+    	</span>
+
+		{% for predicate in p.predicates %}
+		<li {% if predicate.predicates | isDefined %} class="hasChildren" {% endif %}>
+			{$ print(predicate) $}
+			<div class="pipe"></div>
+		</li>
+		{% endfor %}
+    </ul>
+    {% else %}
+    <div class="leaf">
+    	<span>{$ p.key $}</span><span>{$ p.type $} {$ p.value $}</span>
+    </div>
+    {% endif %}
+{% endmacro %}
