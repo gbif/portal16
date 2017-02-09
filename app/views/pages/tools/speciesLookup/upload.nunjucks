@@ -12,7 +12,7 @@
         </a>
         <a class="gb-button--primary"
             download="advancedExample.csv"
-            href="data:application/octet-stream,id,scientificName,kingdom%0A397-234,puma%20concolor,animalia%0A23,abies%20alba%0A">
+            href="/tools/speciesMatching/advancedExample.csv">
             advancedExample.csv
         </a>
     </p>
