@@ -35,6 +35,10 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('toCamelCase', format.toCamelCase);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 

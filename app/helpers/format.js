@@ -2,6 +2,7 @@ var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
     Entities = require('html-entities').AllHtmlEntities,
     entities = new Entities(),
+    camelCase = require('camelcase'),
     _ = require('lodash'),
     linkTools = require('./links/links'),
     defaultLanguage = 'en';
@@ -33,6 +34,13 @@ function date(date, locale, format) {
         day = moment(date, dateFormats).locale(locale);
     }
     return day.format(format);
+}
+
+function toCamelCase(text) {
+    if (!_.isString(text)) {
+        return '';
+    }
+    return camelCase(text);
 }
 
 function localizeInteger(number, locale) {
@@ -177,6 +185,7 @@ module.exports = {
     linkify: linkTools.linkify,
     getDOILink: linkTools.getDOILink,
     readableDOI: linkTools.readableDOI,
+    toCamelCase: toCamelCase,
     decodeHtml: decodeHtml
 };
 

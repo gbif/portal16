@@ -55,7 +55,14 @@
         "yargs": {
           "version": "3.10.0",
           "from": "yargs@>=3.10.0 <3.11.0",
-          "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz"
+          "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz",
+          "dependencies": {
+            "camelcase": {
+              "version": "1.2.1",
+              "from": "camelcase@>=1.0.2 <2.0.0",
+              "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
+            }
+          }
         }
       }
     },
@@ -920,9 +927,9 @@
       "resolved": "https://registry.npmjs.org/camel-case/-/camel-case-3.0.0.tgz"
     },
     "camelcase": {
-      "version": "1.2.1",
-      "from": "camelcase@>=1.2.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
+      "version": "4.0.0",
+      "from": "camelcase@latest",
+      "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-4.0.0.tgz"
     },
     "camelcase-keys": {
       "version": "2.1.0",
@@ -4101,7 +4108,14 @@
             "yargs": {
               "version": "3.10.0",
               "from": "yargs@~3.10.0",
-              "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz"
+              "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz",
+              "dependencies": {
+                "camelcase": {
+                  "version": "1.2.1",
+                  "from": "camelcase@>=1.0.2 <2.0.0",
+                  "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
+                }
+              }
             }
           }
         },
@@ -4291,7 +4305,14 @@
             "yargs": {
               "version": "3.10.0",
               "from": "yargs@>=3.10.0 <3.11.0",
-              "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz"
+              "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz",
+              "dependencies": {
+                "camelcase": {
+                  "version": "1.2.1",
+                  "from": "camelcase@>=1.0.2 <2.0.0",
+                  "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
+                }
+              }
             }
           }
         },
@@ -8357,7 +8378,14 @@
         "yargs": {
           "version": "3.10.0",
           "from": "yargs@>=3.10.0 <3.11.0",
-          "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz"
+          "resolved": "https://registry.npmjs.org/yargs/-/yargs-3.10.0.tgz",
+          "dependencies": {
+            "camelcase": {
+              "version": "1.2.1",
+              "from": "camelcase@>=1.0.2 <2.0.0",
+              "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
+            }
+          }
         }
       }
     },
