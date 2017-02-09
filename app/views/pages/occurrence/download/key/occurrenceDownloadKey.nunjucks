@@ -68,7 +68,7 @@
                             <div class="card">
                                 <div class="card__header">
                                     <div class="predicates">
-                                        {$ predicate.print(download.record.request.predicate) $}
+                                        {$ predicate.print(download.record.request.predicate, __) $}
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,145 @@
+{
+  "creator":"mhoefft",
+  "notification_address": ["mhoefft@gbif.org"],
+  "predicate": {
+    "type": "or",
+    "predicates": [
+      {
+        "type": "and",
+        "predicates": [
+          {
+            "type": "or",
+            "predicates": [
+              {
+                "type": "equals",
+                "key": "MONTH",
+                "value": "1"
+              },
+              {
+                "type": "equals",
+                "key": "MONTH",
+                "value": "2"
+              },
+              {
+                "type":"not",
+                "predicate":
+                {
+                  "type":"equals",
+                  "key":"CATALOG_NUMBER",
+                  "value":"cat1"
+                }
+              },
+              {
+                "type":"not",
+                "predicate":
+                {
+                  "type":"in",
+                  "key":"MONTH",
+                  "values":["7","8","9","10","10"]
+                }
+              },
+              {
+                "type":"not",
+                "predicate":
+                {
+                  "type": "and",
+                  "predicates": [
+                    {
+                      "type": "greaterThanOrEquals",
+                      "key": "YEAR",
+                      "value": "1785"
+                    },
+                    {
+                      "type": "lessThanOrEquals",
+                      "key": "YEAR",
+                      "value": "1853"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "or",
+                "predicates": [
+                  {
+                    "type": "and",
+                    "predicates": [
+                      {
+                        "type": "greaterThanOrEquals",
+                        "key": "YEAR",
+                        "value": "1785"
+                      },
+                      {
+                        "type": "lessThanOrEquals",
+                        "key": "YEAR",
+                        "value": "1853"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "and",
+                    "predicates": [
+                      {
+                        "type": "greaterThanOrEquals",
+                        "key": "YEAR",
+                        "value": "1994"
+                      },
+                      {
+                        "type": "lessThanOrEquals",
+                        "key": "YEAR",
+                        "value": "2007"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "lessThanOrEquals",
+                    "key": "YEAR",
+                    "value": "1702"
+                  },
+                  {
+                    "type": "equals",
+                    "key": "YEAR",
+                    "value": "1979"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "equals",
+            "key": "COUNTRY",
+            "value": "AZ"
+          }
+        ]
+      },
+      {
+        "type": "equals",
+        "key": "TAXON_KEY",
+        "value": "3238935"
+      },
+      {
+        "type": "and",
+        "predicates": [
+          {
+            "type": "lessThanOrEquals",
+            "key": "ELEVATION",
+            "value": "1000"
+          },
+          {
+            "type": "equals",
+            "key": "TAXON_KEY",
+            "value": "7333412"
+          },
+          {
+            "type":"in",
+            "key":"CATALOG_NUMBER",
+            "values":["cat1","cat2","cat3"]
+          },
+          {
+            "type":"within",
+            "geometry":"POLYGON((-130.78125 51.179342, -130.78125 22.593726,-62.578125 22.593726, -62.578125 51.179342,-130.78125 51.179342))"
+          }
+        ]
+      }
+    ]
+  }
+}

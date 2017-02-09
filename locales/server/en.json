@@ -106,7 +106,11 @@
     "livingSpecimensIncluded": "Living specimens",
     "livingSpecimensIncludedDescription": "You search includes living specimens such as occurrences in botanical and zoological gardens.",
     "loaderText": "Please hang on while we analyze your download",
-    "authorizationFailed": "Auth failed"
+    "authorizationFailed": "Auth failed",
+    "joinDescriptions": {
+      "and": "All must apply",
+      "or": "At least one must apply"
+    }
   },
   "date": {
     "synced": "synced",

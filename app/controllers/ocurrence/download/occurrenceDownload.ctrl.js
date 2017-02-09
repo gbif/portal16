@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express'),
     Download = require('../../../models/gbifdata/gbifdata').Download,
     router = express.Router();
@@ -30,5 +32,18 @@ function renderPage(req, res, next, download) {
         }
     } catch (e) {
         next(e);
+    }
+}
+
+function getResolvedKeys(predicate) {
+    var keyResolver = {
+        taxonKey: {
+            type: 'ENDPOINT',
+            fields: ['scientificName']
+        },
+        country: {
+            type: 'ENUM',
+            translationTemplate: 'country.{{value}}'
+        }
     }
 }

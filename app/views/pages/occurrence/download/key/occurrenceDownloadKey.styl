@@ -25,8 +25,6 @@
             color #888
             font-size 30px
             line-height 45px
-            //width 50px
-            //height 50px
         }
     }
     &__pipe {
@@ -50,21 +48,22 @@
     text-align center
 }
 
-
-
 .predicates {
+    font-size 14px
     ul {
         padding 5px
-        ul:hover {
-            background rgba(0,0,0,.02)
+        ul {
+            transition background-color 300ms ease
+            &:hover {
+                background-color rgba(0, 0, 0, .02)
+            }
         }
     }
-    .join {
-        display inline-block
-        background #666
-        color white
-        padding 0px 10px
-        &:before {
+    ul.not {
+        padding 0
+    }
+    ul ul .join, .leaf {
+        &:after {
             content: '';
             display: block;
             height: 2px;
@@ -73,18 +72,48 @@
             position: absolute;
             top: 15px;
             left: 0px;
+            z-index 1
         }
     }
-    .leaf {
-        &:before {
-            content: '';
-            display: block;
-            height: 2px;
-            background: #aaa;
-            width: 25px;
-            position: absolute;
+    ul ul.not .join, .leaf {
+        &:after {
             top: 9px;
-            left: 0px;
+        }
+    }
+    ul.not>li>ul {
+        padding-top 0
+    }
+
+    ul {
+        > .join {
+            > .discreet {
+                opacity 0
+                transition opacity 300ms ease
+            }
+        }
+        &:hover {
+            > .join {
+                > .discreet {
+                    opacity 1
+                }
+            }
+        }
+    }
+    .node {
+        display inline-block
+        background #666
+        color white
+        padding 0px 10px
+        margin-right 10px
+        z-index 20
+        position: relative
+    }
+    .not .leaf .node {
+        background tomato
+    }
+    .leaf {
+        .node {
+            background $olivine
         }
     }
     li {
@@ -104,7 +133,7 @@
             left: -4px;
             top: 5px;
             z-index 2
-        } 
+        }
         &.hasChildren {
             &:before {
                 top 11px
@@ -124,9 +153,14 @@
             }
         }
         &:last-of-type {
-            >.pipe {
+            > .pipe {
                 display: none;
             }
+        }
+        &:only-of-type > .pipe {
+            display block
+            bottom initial
+            height 20px
         }
     }
 }

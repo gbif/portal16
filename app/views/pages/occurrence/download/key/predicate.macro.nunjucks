@@ -1,20 +1,41 @@
-{% macro print(p) %}
+{% macro print(p, __) %}
     {% if p.type == 'and' or p.type == 'or' %}
-    <ul>
-    	<span class="join">
-    		{$ p.type $}
-    	</span>
+        <ul>
+            <div class="join">
+                <span class="node">{$ p.type | capitalize $}</span>
+                <span class="discreet">{$ __('occurrenceDownload.joinDescriptions.' + p.type) $}</span>
+            </div>
 
-		{% for predicate in p.predicates %}
-		<li {% if predicate.predicates | isDefined %} class="hasChildren" {% endif %}>
-			{$ print(predicate) $}
-			<div class="pipe"></div>
-		</li>
-		{% endfor %}
-    </ul>
+            {% for predicate in p.predicates %}
+                <li {% if predicate.predicates | isDefined %} class="hasChildren" {% endif %}>
+                    <div class="pipe"></div>
+                    {$ print(predicate, __) $}
+                </li>
+            {% endfor %}
+        </ul>
+    {% elseif p.type == 'not' %}
+        <ul class="not">
+            <div class="join">
+                <span class="node">{$ p.type | capitalize $}</span>
+                <span class="discreet">None must be included</span>
+            </div>
+            <li>
+                <div class="pipe"></div>
+                {$ print(p.predicate, __) $}
+            </li>
+        </ul>
+    {% elseif p.type == 'in' %}
+        <div class="leaf">
+            <span class="node">{$ __('ocurrenceFieldNames.' + (p.key | toCamelCase)) | capitalize $}</span>
+            {% for option in p.values %}
+                <span>{$ option | capitalize $}</span>,
+            {% endfor %}
+        </div>
     {% else %}
-    <div class="leaf">
-    	<span>{$ p.key $}</span><span>{$ p.type $} {$ p.value $}</span>
-    </div>
+        <div class="leaf">
+            <span class="node">{$ __('ocurrenceFieldNames.' + (p.key | toCamelCase)) | capitalize $}</span> {$ p.type $}
+            <span>{$ __( (p.key | toCamelCase ) + '.' + p.value) | capitalize $}</span>
+        </div>
     {% endif %}
 {% endmacro %}
+

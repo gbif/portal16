@@ -14,7 +14,7 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, $httpParamSerializer, $uibModal, enums, toastService) {
+function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -202,7 +202,7 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
         var query = _.omitBy(angular.copy(vm.state.query), _.isEmpty);
         query.format = format;
         query.notification_address = email;
-        var downloadUrl = '//api.gbif-dev.org/v1/occurrence/search/download?' + $httpParamSerializer(query);
+        var downloadUrl = endpoints.download + '?' + $httpParamSerializer(query);
         var auth = btoa(username + ':' + password),
             headers = {"Authorization": "Basic " + auth};
 
