@@ -26,8 +26,8 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
     function svgMap($scope) {
         var vm = this;
 
-        // default status of the mapContainer pane
-        vm.expanded = false;
+        // default status of the mapContainer pane, using defined laptop width.
+        vm.expanded = document.getElementById('map').offsetWidth > 992;
 
         // membership type toggle
         vm.vpChecked = false;
