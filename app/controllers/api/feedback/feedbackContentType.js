@@ -1,5 +1,6 @@
 "use strict";
 var Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
+    Node = require('../../../models/gbifdata/gbifdata').Node,
     getAnnotation = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     _ = require('lodash');
 
@@ -35,36 +36,41 @@ function parseOccurrence(path, cb) {
         function (occurrence) {
             // occurrence resolved
 
-            // has custom annotation system?
-            contentType.annotation = getAnnotation(occurrence.record);
+            //get endorsing node as node managers want to be cc'ed
+            Node.get(occurrence.publisher.endorsingNodeKey, {}).then(function(node){
+                contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
+                // has custom annotation system?
+                contentType.annotation = getAnnotation(occurrence.record);
 
-            // get administrative contacts
-            contentType.contacts = getContacts(occurrence);
+                // get administrative contacts
+                contentType.contacts = getContacts(_.get(occurrence, 'dataset.contacts', []));
 
-            // add the feedback contenttype
-            if (contentType.annotation) {
-                contentType.type = 'CUSTOM';
-            } else if (contentType.contacts) {
-                contentType.type = 'MAIL';
-            }
+                // add the feedback contenttype
+                if (contentType.annotation) {
+                    contentType.type = 'CUSTOM';
+                } else if (contentType.contacts) {
+                    contentType.type = 'MAIL';
+                }
 
-            //add related keys to allow data providers to search for issues related to them
-            contentType.datasetKey = occurrence.record.datasetKey;
-            contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
+                //add related keys to allow data providers to search for issues related to them
+                contentType.datasetKey = occurrence.record.datasetKey;
+                contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
 
-            cb(contentType);
+                cb(contentType);
+            }, function(err){
+                //fail silently. If there is no endorsing node or the call fails, then simply ignore it. It isn't essential for usage.
+            });
         },
-        function () {
+        function (err) {
             //failed to get occurrence. Fall back to gbif github report
             cb();
         }
     );
 }
 
-function getContacts(occurrence) {
-    var contacts = _.get(occurrence, 'dataset.contacts', []),
-        adminContacts = contacts.filter(function (contact) {
-            return contact.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' && !_.isEmpty(contact.email);
+function getContacts(contacts) {
+    var adminContacts = contacts.filter(function (contact) {
+            return (contact.type == 'ADMINISTRATIVE_POINT_OF_CONTACT' || contact.type == 'NODE_MANAGER') && !_.isEmpty(contact.email);
         });
 
     if (adminContacts.length > 0) {

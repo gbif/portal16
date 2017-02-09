@@ -1,5 +1,6 @@
 var Country = require('./country/country'),
     Installation = require('./installation/installation'),
+    Node = require('./country/node'),
     Occurrence = require('./occurrence/occurrence'),
     Publisher = require('./publisher/publisher'),
     Taxon = require('./taxon/taxon'),
@@ -14,6 +15,7 @@ module.exports = {
     Publisher: Publisher,
     Taxon: Taxon,
     Dataset: Dataset,
+    Node: Node,
     Download: Download,
     getDownloadStats: getDownloadStats,
     expand: require('./expand')
