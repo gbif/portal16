@@ -3,7 +3,7 @@
 {% import "./predicate.macro.nunjucks" as predicate %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes downloadKey">
+    <article class="wrapper-horizontal-stripes downloadKey" ng-controller="occurrenceDownloadKeyCtrl as downloadKey">
         <div class="horizontal-stripe article-header article-header--tabbed white-background">
             <div class="container--desktop">
                 <div class="row">
@@ -63,44 +63,42 @@
                         <div class="storyline__block">
                             <p class="small discreet text-uppercase">
                                 Filter applied {$ download.record.created | formatDate(gb.locales.current) $}
-                                <span class="pull-right">Rerun query <span class="gb-icon-filter"></span></span>
+                                {% if download.isSimple %}
+                                <a href="/occurrence/search?{$ download.isSimple $}" class="pull-right inherit discreet p-r-1">Rerun query</a>
+                                {% endif %}
                             </p>
                             <div class="card">
-                                <div class="card__header">
-                                    <div class="predicates">
-                                        {$ predicate.print(download.record.request.predicate, __) $}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="storyline__pipe"></div>
-                    </div>
-                    <div class="storyline__chapter">
-                        <div class="storyline__bullet"><span class="gb-icon-file-download"></span></div>
-                        <div class="storyline__block">
-                            <p class="small discreet text-uppercase">
-                                Archive created
-                                <span class="pull-right">Download <span class="gb-icon-file-download"></span></span>
-                            </p>
-                            <div class="card">
-                                <div class="card__header">
-                                    Archive ready for download
-                                </div>
                                 <div class="card__stripe">
                                     <div class="card__content">
-                                        <div>
-                                            GBIF.org (24th January 2017) GBIF Occurrence Download http://doi.org/10.15468/dl.n5twu3
-                                        </div>
+                                        <strong>Citation</strong><span>: GBIF.org (24th January 2017) GBIF Occurrence Download http://doi.org/10.15468/dl.n5twu3</span>
+                                        <br/>
                                         <strong>Format</strong><span>: .csv</span>
                                         <br/>
                                         <strong>Size</strong><span>: 15.2kb</span>
                                         <br/>
                                     </div>
                                 </div>
+                                <div class="card__content predicateContainer">
+                                    {% if not download.noFilters %}
+                                        <div class="toggle small">
+                                            <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN" ng-click="downloadKey.HUMAN = false">JSON</a>
+                                            <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN" ng-click="downloadKey.HUMAN = true">HUMAN</a>
+                                        </div>
+                                        <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}" ng-show="downloadKey.HUMAN">
+                                            {$ predicate.print(download.record.request.predicate, __) $}
+                                        </div>
+                                        <pre class="ng-cloak" ng-show="!downloadKey.HUMAN"><code>
+{$ download.predicateString | safe $}
+                                        </code></pre>
+                                    {% else %}
+                                    No filters applied
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="storyline__pipe"></div>
                     </div>
+                    
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>
                         <div class="storyline__block">
@@ -113,9 +111,7 @@
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-quote"></span></div>
                         <div class="storyline__block">
-                            <div class="empty-box body-text">
-                                No known litterature usages
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -126,9 +122,25 @@
             <div class="container--normal">
                 <h4>Constituent datasets</h4>
                 <div class="card">
-                    <p>sdf</p>
-                    <p>sdf</p>
-                    <p>sdf</p>
+                    <div class="card__stripe">
+                        <div class="stripeList">
+                            <ul>
+                                {% for dataset in download.datasets.results %}
+                                <li>
+                                    <a href="/dataset/{$ dataset.datasetKey $}">
+                                        <div class="pull-right">
+                                            <span class="numberBadge">{$ dataset.numberRecords | compactInteger $}</span>
+                                        </div>
+                                        <div class="title">
+                                            {$ dataset.datasetTitle $}
+                                        </div>
+                                        
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

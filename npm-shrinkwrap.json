@@ -4062,6 +4062,11 @@
       "from": "header-case@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/header-case/-/header-case-1.0.0.tgz"
     },
+    "highlight": {
+      "version": "0.2.4",
+      "from": "highlight@latest",
+      "resolved": "https://registry.npmjs.org/highlight/-/highlight-0.2.4.tgz"
+    },
     "highlight.js": {
       "version": "9.9.0",
       "from": "highlight.js@>=9.7.0 <10.0.0",

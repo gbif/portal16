@@ -42,6 +42,15 @@
                 "type":"not",
                 "predicate":
                 {
+                  "type":"in",
+                  "key":"TAXON_KEY",
+                  "values":["1","2","3","4","5"]
+                }
+              },
+              {
+                "type":"not",
+                "predicate":
+                {
                   "type": "and",
                   "predicates": [
                     {

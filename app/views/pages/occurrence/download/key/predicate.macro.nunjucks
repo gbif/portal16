@@ -7,7 +7,7 @@
             </div>
 
             {% for predicate in p.predicates %}
-                <li {% if predicate.predicates | isDefined %} class="hasChildren" {% endif %}>
+                <li {% if predicate.type == 'or' or predicate.type == 'and' %} class="hasChildren" {% endif %}>
                     <div class="pipe"></div>
                     {$ print(predicate, __) $}
                 </li>
@@ -26,15 +26,24 @@
         </ul>
     {% elseif p.type == 'in' %}
         <div class="leaf">
-            <span class="node">{$ __('ocurrenceFieldNames.' + (p.key | toCamelCase)) | capitalize $}</span>
-            {% for option in p.values %}
-                <span>{$ option | capitalize $}</span>,
-            {% endfor %}
+            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>
+            <ol class="inline-bullet-list">
+                {% for option in p.values %}
+                    <li class="node-value" tooltip-placement="bottom"
+                                       tooltip-popup-delay="200"
+                                       uib-tooltip="OR - at least one must apply"><span>{$ option | capitalize $}</span></li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% elseif p.type == 'within' %}
+        <div class="leaf">
+            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>
+            <span class="node-value">{$ p.geometry | capitalize $}</span>
         </div>
     {% else %}
         <div class="leaf">
-            <span class="node">{$ __('ocurrenceFieldNames.' + (p.key | toCamelCase)) | capitalize $}</span> {$ p.type $}
-            <span>{$ __( (p.key | toCamelCase ) + '.' + p.value) | capitalize $}</span>
+            <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>
+            <span class="node-value">{$ p.value | capitalize $}</span>
         </div>
     {% endif %}
 {% endmacro %}

@@ -48,7 +48,30 @@
     text-align center
 }
 
+.predicateContainer {
+    background-color #f5f5f5
+    position relative
+    .toggle {
+        position absolute
+        top 0
+        right 0
+        margin vrBlock(.5)
+        text-transform uppercase
+        color #aaa
+    }
+    pre {
+        border none
+        background transparent
+    }
+}
 .predicates {
+    &.isSimplePredicate {
+        .leaf {
+            .node {
+                min-width 170px
+            }
+        }
+    }
     font-size 14px
     ul {
         padding 5px
@@ -108,15 +131,20 @@
         z-index 20
         position: relative
     }
+    .node-value {
+        span {
+            padding 0 3px
+        }
+    }
     .not .leaf .node {
         background tomato
     }
     .leaf {
         .node {
-            background $olivine
+            background $navBar_background_color
         }
     }
-    li {
+    ul>li {
         position: relative;
         padding-left: 30px;
         margin-left: 10px;
@@ -163,4 +191,39 @@
             height 20px
         }
     }
+}
+
+.stripeList {
+    ul {
+        padding 0
+        li {
+            >a {
+                display block
+                color $bodyTextColor
+                text-decoration none
+                padding vrBlock(1.5)
+                .title {
+                    white-space nowrap
+                    text-overflow ellipsis
+                    overflow hidden
+                    max-width calc(100% - 80px)
+                }
+                &:hover {
+                    .title {
+                        text-decoration underline
+                    }
+                }
+            }
+            border-bottom 1px solid $stripeBorderColor
+        }
+    }
+}
+
+.numberBadge {
+    display inline-block
+    padding 3px
+    width 60px
+    background $navBar_background_color
+    color white
+    text-align center
 }

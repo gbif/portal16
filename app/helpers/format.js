@@ -4,6 +4,7 @@ var moment = require('moment'),
     entities = new Entities(),
     camelCase = require('camelcase'),
     _ = require('lodash'),
+    Humanize = require('humanize-plus'),
     linkTools = require('./links/links'),
     defaultLanguage = 'en';
 
@@ -97,6 +98,10 @@ function formatBytes(bytes, decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
+function compactInteger(nr) {
+    return Humanize.compactInteger(nr, 0);
+}
+
 function sanitizeTrusted(dirty) {
     dirty = dirty || '';
     var allowedTags = ['img', 'h2', 'iframe'];
@@ -186,6 +191,7 @@ module.exports = {
     getDOILink: linkTools.getDOILink,
     readableDOI: linkTools.readableDOI,
     toCamelCase: toCamelCase,
-    decodeHtml: decodeHtml
+    decodeHtml: decodeHtml,
+    compactInteger: compactInteger
 };
 

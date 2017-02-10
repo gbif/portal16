@@ -121,6 +121,8 @@ require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/species/occurrenceSpecies.ctrl');
 require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
 
+require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
+
 require('../../../pages/species/key/speciesKey.ctrl');
 
 require('../../../pages/dataset/search/dataset.ctrl');

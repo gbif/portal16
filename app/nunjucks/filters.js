@@ -43,6 +43,10 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('compactInteger', format.compactInteger);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('prettifyLicense', format.prettifyLicense);
     })();
 
