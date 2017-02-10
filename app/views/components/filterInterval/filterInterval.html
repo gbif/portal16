@@ -8,22 +8,24 @@
     </a>
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{seperator: $index > 0}"
+        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{Xseperator: $index > 0}"
              ng-if="!vm.collapsed">
             <div interval-slider interval-options="q">
             </div>
         </div>
-
-        <div class="checkbox is-padded" ng-repeat="q in vm.intervalQuery" ng-if="vm.collapsed && q.queryString">
-            <label>
-                <input type="checkbox" checked="true" ng-click="vm.remove(q)">
-                <span>
-                    <!--<span class="text-capitalize">{{ vm.getParsedQuery(q.queryString) }}</span>-->
-                    <span translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q.queryString).type }}" translate-values="{ from: vm.getParsedQuery(q.queryString).values[0], to: vm.getParsedQuery(q.queryString).values[1]}"></span>
-                </span>
-            </label>
+        <div class="is-padded">
+            <div class="checkbox" ng-repeat="q in vm.intervalQuery" ng-if="vm.collapsed && q.queryString">
+                <label>
+                    <input type="checkbox" checked="true" ng-click="vm.remove(q)">
+                    <span>
+                        <!--<span class="text-capitalize">{{ vm.getParsedQuery(q.queryString) }}</span>-->
+                        <span   translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q.queryString).type }}" 
+                                translate-values="{ from: vm.getParsedQuery(q.queryString).values[0], to: vm.getParsedQuery(q.queryString).values[1]}"translate-interpolation="messageformat"></span>
+                    </span>
+                </label>
+            </div>
         </div>
-        <div class="site-drawer__bar seperator" ng-if="!vm.collapsed">
+        <div class="site-drawer__bar" ng-if="!vm.collapsed">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()"
                ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
             <a href="" class="site-drawer__bar__action" ng-click="vm.add()"
