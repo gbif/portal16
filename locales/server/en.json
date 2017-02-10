@@ -1798,40 +1798,40 @@
     "elevation": {
       "is": "is {from}m",
       "between": "between {from} and {to}m",
-      "lessThan": "below {to}m",
-      "largerThan": "above {from}m",
+      "lessThanOrEquals": "below {to}m",
+      "greaterThanOrEquals": "above {from}m",
       "invalid": "invalid",
       "select": {
         "is": "is",
         "between": "between",
-        "lessThan": "below",
-        "largerThan": "above"
+        "lessThanOrEquals": "below",
+        "greaterThanOrEquals": "above"
       }
     },
     "depth": {
       "is": "is {from}m",
       "between": "between {from} and {to}m",
-      "lessThan": "above {to}m depth",
-      "largerThan": "deeper than {from}m",
+      "lessThanOrEquals": "above {to}m depth",
+      "greaterThanOrEquals": "deeper than {from}m",
       "invalid": "invalid",
       "select": {
         "is": "is",
         "between": "between",
-        "lessThan": "less than",
-        "largerThan": "deeper than"
+        "lessThanOrEquals": "less than",
+        "greaterThanOrEquals": "deeper than"
       }
     },
     "year": {
       "is": "is from {from}",
       "between": "between {from} and {to}",
-      "lessThan": "before {to}",
-      "largerThan": "after {from}",
+      "lessThanOrEquals": "before {to}",
+      "greaterThanOrEquals": "after {from}",
       "invalid": "invalid",
       "select": {
         "is": "is",
         "between": "between",
-        "lessThan": "before",
-        "largerThan": "after"
+        "lessThanOrEquals": "before",
+        "greaterThanOrEquals": "after"
       }
     }
   },

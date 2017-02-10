@@ -8,7 +8,7 @@
     </a>
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': vm.collapsed}">
-        <div ng-repeat="q in vm.intervalQuery" class="is-padded" ng-class="{Xseperator: $index > 0}"
+        <div ng-repeat="q in vm.intervalQuery" class="is-padded"
              ng-if="!vm.collapsed">
             <div interval-slider interval-options="q">
             </div>
@@ -20,7 +20,7 @@
                     <span>
                         <!--<span class="text-capitalize">{{ vm.getParsedQuery(q.queryString) }}</span>-->
                         <span   translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q.queryString).type }}" 
-                                translate-values="{ from: vm.getParsedQuery(q.queryString).values[0], to: vm.getParsedQuery(q.queryString).values[1]}"translate-interpolation="messageformat"></span>
+                                translate-values="{ from: vm.getParsedQuery(q.queryString).values[0], to: vm.getParsedQuery(q.queryString).values[1]}" translate-interpolation="messageformat"></span>
                     </span>
                 </label>
             </div>

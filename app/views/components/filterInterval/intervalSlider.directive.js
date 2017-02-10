@@ -29,7 +29,7 @@ function intervalSliderDirective() {
     function intervalSlider($scope) {
         var vm = this;
         vm.form = {};
-        vm.options = ['between', 'is', 'lessThan', 'largerThan'];
+        vm.options = ['between', 'is', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.selected = vm.options[0];
 
         vm.intervalOptions.range = vm.intervalOptions.range || {
@@ -78,10 +78,10 @@ function intervalSliderDirective() {
                 } else if (interval.type == 'between') {
                     vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[0])
-                } else if (interval.type == 'lessThan') {
+                } else if (interval.type == 'lessThanOrEquals') {
                     vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[2])
-                } else if (interval.type == 'largerThan') {
+                } else if (interval.type == 'greaterThanOrEquals') {
                     vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[3])
                 }
@@ -118,7 +118,7 @@ function intervalSliderDirective() {
                         vm.sliderOptions.start = [parseInt(vm.sliderOptions.range.min)];
                     }
                     break;
-                case 'lessThan':
+                case 'lessThanOrEquals':
                     vm.sliderOptions.connect = 'lower';
                     if (isFinite(vm.sliderOptions.start[1])) {
                         vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[1])];
@@ -128,7 +128,7 @@ function intervalSliderDirective() {
                         vm.sliderOptions.start = [parseInt(vm.sliderOptions.range.max)];
                     }
                     break;
-                case 'largerThan':
+                case 'greaterThanOrEquals':
                     vm.sliderOptions.connect = 'upper';
                     if (isFinite(vm.sliderOptions.start[0])) {
                         vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[0])];
@@ -204,10 +204,10 @@ function intervalSliderDirective() {
                 case 'is':
                     stateString = vm.sliderOptions.start[0];
                     break;
-                case 'lessThan':
+                case 'lessThanOrEquals':
                     stateString = '*,' + vm.sliderOptions.start[0];
                     break;
-                case 'largerThan':
+                case 'greaterThanOrEquals':
                     stateString = vm.sliderOptions.start[0] + ',*';
                     break;
                 default:

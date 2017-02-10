@@ -18,12 +18,12 @@ module.exports = function (str) {
         } else if (parts[0] === '*' && parts[1] !== '*') {
             return {
                 values: [undefined, parts[1]],
-                type: 'lessThan'
+                type: 'lessThanOrEquals'
             };
         } else if (parts[0] !== '*' && parts[1] === '*') {
             return {
                 values: [parts[0], undefined],
-                type: 'largerThan'
+                type: 'greaterThanOrEquals'
             };
         }
     }

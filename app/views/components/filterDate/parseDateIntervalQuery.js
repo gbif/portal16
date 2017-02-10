@@ -7,14 +7,14 @@ module.exports = function (q) {
         return invalidResponse();
     }
 
-    if (interval.type === 'between' || interval.type === 'largerThan' || interval.type === 'is') {
+    if (interval.type === 'between' || interval.type === 'greaterThanOrEquals' || interval.type === 'is') {
         if (!isDate(interval.values[0])) {
             return invalidResponse();
         } else {
             interval.from = parseDate(interval.values[0]);
         }
     }
-    if (interval.type === 'between' || interval.type === 'lessThan') {
+    if (interval.type === 'between' || interval.type === 'lessThanOrEquals') {
         if (!isDate(interval.values[1])) {
             return invalidResponse();
         } else {
