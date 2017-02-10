@@ -29,7 +29,7 @@ function intervalSliderDirective() {
     function intervalSlider($scope) {
         var vm = this;
         vm.form = {};
-        vm.options = ['between', 'is', 'lessThanOrEquals', 'greaterThanOrEquals'];
+        vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.selected = vm.options[0];
 
         vm.intervalOptions.range = vm.intervalOptions.range || {
@@ -72,7 +72,7 @@ function intervalSliderDirective() {
         vm.parseQueryString = function (str) {
             var interval = parseIntervalQuery(str);
             if (interval) {
-                if (interval.type == 'is') {
+                if (interval.type == 'equals') {
                     vm.sliderOptions.start = interval.values;
                     vm.setType(vm.options[1])
                 } else if (interval.type == 'between') {
@@ -108,7 +108,7 @@ function intervalSliderDirective() {
                         vm.sliderOptions.start[1] = vm.sliderOptions.range.max;
                     }
                     break;
-                case 'is':
+                case 'equals':
                     vm.sliderOptions.connect = false;
                     if (isFinite(vm.sliderOptions.start[1])) {
                         vm.sliderOptions.start = [parseInt(vm.sliderOptions.start[1])];
@@ -201,7 +201,7 @@ function intervalSliderDirective() {
                 case 'between':
                     stateString = vm.sliderOptions.start[0] + ',' + vm.sliderOptions.start[1];
                     break;
-                case 'is':
+                case 'equals':
                     stateString = vm.sliderOptions.start[0];
                     break;
                 case 'lessThanOrEquals':

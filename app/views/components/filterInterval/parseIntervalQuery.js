@@ -7,7 +7,7 @@ module.exports = function (str) {
         //is
         return {
             values: [parts[0]],
-            type: 'is'
+            type: 'equals'
         };
     } else if (parts.length == 2) {
         if (parts[0] !== '*' && parts[1] !== '*') {

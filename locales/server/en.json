@@ -1796,39 +1796,39 @@
   },
   "intervals": {
     "elevation": {
-      "is": "is {from}m",
+      "equals": "is {from}m",
       "between": "between {from} and {to}m",
       "lessThanOrEquals": "below {to}m",
       "greaterThanOrEquals": "above {from}m",
       "invalid": "invalid",
       "select": {
-        "is": "is",
+        "equals": "is",
         "between": "between",
         "lessThanOrEquals": "below",
         "greaterThanOrEquals": "above"
       }
     },
     "depth": {
-      "is": "is {from}m",
+      "equals": "is {from}m",
       "between": "between {from} and {to}m",
       "lessThanOrEquals": "above {to}m depth",
       "greaterThanOrEquals": "deeper than {from}m",
       "invalid": "invalid",
       "select": {
-        "is": "is",
+        "equals": "is",
         "between": "between",
         "lessThanOrEquals": "less than",
         "greaterThanOrEquals": "deeper than"
       }
     },
     "year": {
-      "is": "is from {from}",
+      "equals": "is from {from}",
       "between": "between {from} and {to}",
       "lessThanOrEquals": "before {to}",
       "greaterThanOrEquals": "after {from}",
       "invalid": "invalid",
       "select": {
-        "is": "is",
+        "equals": "is",
         "between": "between",
         "lessThanOrEquals": "before",
         "greaterThanOrEquals": "after"

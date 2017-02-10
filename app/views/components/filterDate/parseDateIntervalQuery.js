@@ -7,7 +7,7 @@ module.exports = function (q) {
         return invalidResponse();
     }
 
-    if (interval.type === 'between' || interval.type === 'greaterThanOrEquals' || interval.type === 'is') {
+    if (interval.type === 'between' || interval.type === 'greaterThanOrEquals' || interval.type === 'equals') {
         if (!isDate(interval.values[0])) {
             return invalidResponse();
         } else {

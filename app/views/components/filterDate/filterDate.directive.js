@@ -29,7 +29,7 @@ function filterDateDirective() {
     function filterDate($scope, $filter) {
         var vm = this;
         vm.months = [1,2,3,4,5,6,7,8,9,10,11,12];
-        vm.options = ['between', 'is', 'lessThanOrEquals', 'greaterThanOrEquals'];
+        vm.options = ['between', 'equals', 'lessThanOrEquals', 'greaterThanOrEquals'];
         vm.intervals = [];
         vm.collapsed = vm.filterConfig.collapsed !== false;
 
@@ -108,7 +108,7 @@ function filterDateDirective() {
                 case 'between':
                     stateString = fromStr + ',' + toStr;
                     break;
-                case 'is':
+                case 'equals':
                     stateString = fromStr;
                     break;
                 case 'lessThanOrEquals':
