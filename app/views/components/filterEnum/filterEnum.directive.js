@@ -104,7 +104,7 @@ function filterEnumDirective() {
         };
 
         vm.getWidth = function (key) {
-            if (!vm.suggestions.counts) return;
+            if (!vm.suggestions || !vm.suggestions.counts) return;
             if (!vm.showFacetCount() || !vm.filterState.data || !vm.filterState.data.count || !vm.suggestions || !vm.suggestions.counts || !vm.suggestions.counts[key]) {
                 return {
                     width: '0%'
