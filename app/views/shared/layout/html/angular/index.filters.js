@@ -81,13 +81,14 @@
             }
         })
         .filter('formatBytes', function(){
-            return function(bytes, lang, decimals) {
-                if (bytes == 0) return '0 Byte';
+            return function(bytes, decimals, language) {
+                if (bytes == 0) return '0 Bytes';
+                if (bytes == 1) return '1 Byte';
                 var k = 1000;
                 var dm = decimals || 0;
                 var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
                 var i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)).toLocaleString(lang) + ' ' + sizes[i];
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)).toLocaleString(language) + ' ' + sizes[i];
             }
         })
         .filter('formatAsPercentage', function(){
