@@ -6,7 +6,7 @@
     <article class="wrapper-horizontal-stripes downloadKey"
              ng-controller="occurrenceDownloadKeyCtrl as downloadKey"
              ng-init="downloadKey.setInitials({$ download.datasets.offset $},{$ download.datasets.limit $}, '{$ download.record.key $}')">
-        <div class="horizontal-stripe article-header {% if download.isFileAvailable %} article-header--tabbed{% endif %} white-background">
+        <div class="horizontal-stripe article-header {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %} article-header--tabbed{% endif %} white-background">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12 text-center">
@@ -18,8 +18,10 @@
                         <h1 class="text-center">
                             {% if download.record.status === 'KILLED' %}
                                 <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
-                                {% elif download.record.status === 'CANCELLED' %}
+                            {% elif download.record.status === 'CANCELLED' %}
                                 <span class="error">{$ __('downloadKey.cancelled') | capitalize $}</span>
+                            {% elif download.record.status === 'PREPARING' %}
+                                <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
                             {% else %}
                                 <span>{$ __n('downloadKey.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
                             {% endif %}
@@ -30,12 +32,12 @@
                             </p>
                         {% endif %}
                         <div class="m-t-1">
-                            <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                            <a href="{$ download.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
                         </div>
                     </header>
                 </div>
             </div>
-            {% if download.isFileAvailable %}
+            {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                 <div class="container--normal">
                     <div class="row">
                         <div>
@@ -45,10 +47,10 @@
                                         {% if download.record.status === 'SUCCEEDED' %}
                                             <a href="{$ download.record.downloadLink $}"
                                                class="gb-button--flat pull-right">{$ __('stdTerms.download') $}</a>
-                                        {% elif download.record.status === 'PENDING' %}
+                                        {% elif download.record.status === 'PREPARING' %}
                                             <span class="gb-button--flat gb-button--loader pull-right">
                                                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-                                                {$ __('downloadKey.status.pending') $}
+                                                {$ __('downloadKey.status.preparing') $}
                                             </span>
                                         {% elif download.record.status === 'RUNNING' %}
                                             <span class="gb-button--flat gb-button--loader pull-right">
@@ -99,6 +101,7 @@
                                                         GBIF.org ({$ download.record.created | formatDate(gb.locales.current) $}) GBIF Occurrence Download {$ download.record.doi $}
                                                     </dd>
                                                 </div>
+                                                {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                                                 <div>
                                                     <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
                                                     <dd>
@@ -113,6 +116,7 @@
                                                             locInt(gb.locales.current) $}</a>
                                                     </dd>
                                                 </div>
+                                                {% endif %}
                                             </dl>
                                         </div>
                                     {% endif %}
@@ -136,7 +140,7 @@
                                                 <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
                                                 <pre>
                                                     <code>
-                                                        {$ download.predicateString | safe $}
+{$ download.predicateString | safe $}
                                                     </code>
                                                 </pre>
                                         </div>
@@ -188,6 +192,10 @@
                                                 <div class="title">
                                                     {$ dataset.datasetTitle $}
                                                 </div>
+                                                <span class="meta meta--hoverOnly">{$ dataset.datasetDOI $}</span>
+                                                <span class="meta--right meta--hoverOnly">{$ dataset.numberRecords $} records at time of download</span>
+                                                {#<span class="doi m-t-1"><span>DOI</span><span>{$ dataset.datasetDOI | readableDOI $}</span></span>#}
+                                                {#<span class="discreet">{$ dataset.numberRecords $} records at time of download</span>#}
                                             </a>
                                         </li>
                                     {% endfor %}
