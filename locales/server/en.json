@@ -106,11 +106,7 @@
     "livingSpecimensIncluded": "Living specimens",
     "livingSpecimensIncludedDescription": "You search includes living specimens such as occurrences in botanical and zoological gardens.",
     "loaderText": "Please hang on while we analyze your download",
-    "authorizationFailed": "Auth failed",
-    "joinDescriptions": {
-      "and": "All must apply",
-      "or": "At least one must apply"
-    }
+    "authorizationFailed": "Auth failed"
   },
   "date": {
     "synced": "synced",
@@ -1299,13 +1295,55 @@
     "Sound": "audio",
     "MovingImage": "video"
   },
-  "download": {
+  "downloadKey": {
     "nOccurrencesDownloaded": {
       "one": "{{count}} occurrence downloaded",
       "other": "{{count}} occurrences downloaded"
+    },
+    "nConstituentDatasets": {
+      "one": "Includes records from {{count}} dataset",
+      "other": "Includes records from {{count}} datasets"
+    },
+    "fileNotAvailable": "This file is no longer available for download",
+    "brokenDownload": "broken download",
+    "cancelled": "cancelled",
+    "deleted": "deleted",
+    "filterApplied": "Filter applied %s",
+    "rerunQuery": "rerun query",
+    "downloadKilled": "The download request was unsuccessful. Please try it again or get in touch.",
+    "downloadDeleted": "This file has been deleted. If you need it restored then please get in touch.",
+    "storageDurationTeaser": "For how long will GBIF store this data?",
+    "file": "file",
+    "constituentDatasets": "Involved datasets",
+    "noFiltersApplied": "No filters used",
+    "apiUsageDescription": "To repeat the download on todays data using the API you can use below query.",
+    "apiFilterView": "API",
+    "humanFilterView": "Human",
+    "infoAboutStorage": {
+      "title": "We store all download files as long as possible",
+      "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
+      "paragraphB": "But what does this mean? It means that storage space and funding isn't infinite. We strive to store all downloads forever, but prioritize downloads that have been cites."
+    },
+    "status": {
+      "pending": "pending",
+      "running": "running",
+      "cancelled": "cancelled",
+      "killed": "killed"
+    },
+    "predicate": {
+      "joinDescriptions": {
+        "and": "All must apply",
+        "or": "At least one must apply",
+        "not": "None must be included"
+      },
+      "and": "and",
+      "or": "or",
+      "not": "not"
     }
   },
   "stdTerms": {
+    "contactHelpdesk": "Contact helpdesk",
+    "ok": "ok",
     "location": "location",
     "basisOfRecord": "basis of record",
     "dataset": "dataset",
@@ -1372,7 +1410,8 @@
     "total": "total",
     "download": "download",
     "license": "license",
-    "learnMore": "learn more"
+    "learnMore": "learn more",
+    "readMore": "read more"
   },
   "continent": {
     "NORTH_AMERICA": "North America",
@@ -2142,7 +2181,7 @@
     "catalogNumber": "catalog number",
     "year": "year",
     "country": "country",
-    "taxonKey": "taxonKey",
+    "taxonKey": "scientific name",
     "elevation": "elevation",
     "collectionCode": "collection code",
     "recordNumber": "record number",

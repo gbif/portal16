@@ -2,8 +2,8 @@
     {% if p.type == 'and' or p.type == 'or' %}
         <ul>
             <div class="join">
-                <span class="node">{$ p.type | capitalize $}</span>
-                <span class="discreet">{$ __('occurrenceDownload.joinDescriptions.' + p.type) $}</span>
+                <span class="node">{$ __('downloadKey.predicate.' + p.type) | capitalize $}</span>
+                <span class="discreet">{$ __('downloadKey.predicate.joinDescriptions.' + p.type) | capitalize $}</span>
             </div>
 
             {% for predicate in p.predicates %}
@@ -16,8 +16,8 @@
     {% elseif p.type == 'not' %}
         <ul class="not">
             <div class="join">
-                <span class="node">{$ p.type | capitalize $}</span>
-                <span class="discreet">None must be included</span>
+                <span class="node">{$ __('downloadKey.predicate.' + p.type) | capitalize $}</span>
+                <span class="discreet">{$ __('downloadKey.predicate.joinDescriptions.not') | capitalize $}</span>
             </div>
             <li>
                 <div class="pipe"></div>
@@ -31,7 +31,7 @@
                 {% for option in p.values %}
                     <li class="node-value" tooltip-placement="bottom"
                                        tooltip-popup-delay="200"
-                                       uib-tooltip="OR - at least one must apply"><span>{$ option | capitalize $}</span></li>
+                                       uib-tooltip="{$ __('downloadKey.predicate.joinDescriptions.or') | capitalize $}"><span>{$ option | capitalize $}</span></li>
                 {% endfor %}
             </ol>
         </div>

@@ -7,7 +7,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($state, $rootScope, NAV_EVENTS) {
+function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal) {
     var vm = this;
     vm.HUMAN = true;
 
@@ -16,6 +16,52 @@ function occurrenceDownloadKeyCtrl($state, $rootScope, NAV_EVENTS) {
         $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
         $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
     };
+
+    vm.openAboutStorage = function (format) {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'downloadKeyStorageInfo.html',
+            controller: 'infoModalInstanceCtrl',
+            controllerAs: '$ctrl',
+            resolve: {
+                format: function () {
+                    return format;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (downloadOptions) {
+            //vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
+        }, function () {
+            //user clicked cancel
+        });
+    };
+
+    vm.pageChanged = function() {
+        vm.offset = (vm.currentPage - 1) * vm.limit;
+        $location.hash('datasets');
+        $scope.$watchCollection($location.search('offset', vm.offset), function () {
+            $window.location.reload();
+        })
+    };
+
+    vm.setInitials = function(offset, limit, key) {
+        vm.offset = offset || 0;
+        vm.limit = limit;
+        vm.key = key;
+        vm.currentPage = Math.floor(vm.offset / vm.limit) + 1;
+    };
+
 }
+
+angular.module('portal').controller('infoModalInstanceCtrl', function ($uibModalInstance) {
+    var $ctrl = this;
+
+    $ctrl.ok = function () {
+        $uibModalInstance.close();
+    };
+});
 
 module.exports = occurrenceDownloadKeyCtrl;

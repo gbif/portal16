@@ -3,6 +3,13 @@
     font-size 16px
 }
 
+downloadKey {
+    &__storageTeaser {
+        font-style italic
+        margin-left 5px
+    }
+}
+
 .storyline {
     &__chapter {
         position relative
@@ -64,6 +71,7 @@
         background transparent
     }
 }
+
 .predicates {
     &.isSimplePredicate {
         .leaf {
@@ -103,7 +111,7 @@
             top: 9px;
         }
     }
-    ul.not>li>ul {
+    ul.not > li > ul {
         padding-top 0
     }
 
@@ -144,7 +152,7 @@
             background $navBar_background_color
         }
     }
-    ul>li {
+    ul > li {
         position: relative;
         padding-left: 30px;
         margin-left: 10px;
@@ -197,11 +205,12 @@
     ul {
         padding 0
         li {
-            >a {
+            > a {
                 display block
                 color $bodyTextColor
                 text-decoration none
                 padding vrBlock(1.5)
+                position relative
                 .title {
                     white-space nowrap
                     text-overflow ellipsis
@@ -235,8 +244,7 @@
         display inline-block
         margin-right 5px
         .path {
-            stroke rgba(0,0,0,0.3)
+            stroke rgba(0, 0, 0, 0.3)
         }
     }
 }
-

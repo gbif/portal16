@@ -3,57 +3,65 @@
 {% import "./predicate.macro.nunjucks" as predicate %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes downloadKey" ng-controller="occurrenceDownloadKeyCtrl as downloadKey">
-        <div class="horizontal-stripe article-header article-header--tabbed white-background">
+    <article class="wrapper-horizontal-stripes downloadKey"
+             ng-controller="occurrenceDownloadKeyCtrl as downloadKey"
+             ng-init="downloadKey.setInitials({$ download.datasets.offset $},{$ download.datasets.limit $}, '{$ download.record.key $}')">
+        <div class="horizontal-stripe article-header {% if download.isFileAvailable %} article-header--tabbed{% endif %} white-background">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12 text-center">
                         <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Download</span>
+                            <span class="article-header__category__upper">{$ __('stdTerms.download') $}</span>
                             <span class="article-header__category__lower">{$ download.record.created | formatDate(gb.locales.current) $}</span>
                         </nav>
 
                         <h1 class="text-center">
                             {% if download.record.status === 'KILLED' %}
-                            <span class="error">Broken download</span>
-                            {% elif download.record.status === 'CANCELLED' %}
-                            <span class="error">Cancelled</span>
+                                <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
+                                {% elif download.record.status === 'CANCELLED' %}
+                                <span class="error">{$ __('downloadKey.cancelled') | capitalize $}</span>
                             {% else %}
-                            <span>{$ __n('download.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
+                                <span>{$ __n('downloadKey.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
                             {% endif %}
                         </h1>
+                        {% if download.isFileDeleted %}
+                            <p class="text-error">
+                                {$ __('downloadKey.fileNotAvailable') $}
+                            </p>
+                        {% endif %}
                         <div class="m-t-1">
                             <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
                         </div>
                     </header>
                 </div>
             </div>
-            {% if download.record.status !== 'CANCELLED' and download.record.status !== 'KILLED' %}
-            <div class="container--normal">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <nav class="tabs">
-                            <ul>
-                                <li class="tab tab-right">
-                                    {% if download.record.status === 'SUCCEEDED' %}
-                                    <a href="{$ download.record.downloadLink $}" class="gb-button--flat pull-right">DOWNLOAD</a>
-                                    {% elif download.record.status === 'RUNNING' %}
-                                    <span class="gb-button--flat gb-button--loader pull-right">
-                                        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-                                        RUNNING
-                                    </span>
-                                    {% elif download.record.status === 'CANCELLED' %}
-                                    <span class="gb-button--flat gb-button--loader pull-right">
-                                        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-                                        RUNNING
-                                    </span>
-                                    {% endif %}
-                                </li>
-                            </ul>
-                        </nav>
+            {% if download.isFileAvailable %}
+                <div class="container--normal">
+                    <div class="row">
+                        <div>
+                            <nav class="tabs">
+                                <ul>
+                                    <li class="tab tab-right">
+                                        {% if download.record.status === 'SUCCEEDED' %}
+                                            <a href="{$ download.record.downloadLink $}"
+                                               class="gb-button--flat pull-right">{$ __('stdTerms.download') $}</a>
+                                        {% elif download.record.status === 'PENDING' %}
+                                            <span class="gb-button--flat gb-button--loader pull-right">
+                                                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                                                {$ __('downloadKey.status.pending') $}
+                                            </span>
+                                        {% elif download.record.status === 'RUNNING' %}
+                                            <span class="gb-button--flat gb-button--loader pull-right">
+                                                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                                                {$ __('downloadKey.status.running') $}
+                                            </span>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endif %}
         </div>
         <div class="horizontal-stripe light-background">
@@ -63,104 +71,169 @@
                         <div class="storyline__bullet"><span class="gb-icon-filter"></span></div>
                         <div class="storyline__block">
                             <p class="small discreet text-uppercase">
-                                Filter applied {$ download.record.created | formatDate(gb.locales.current) $}
+                                {$ __('downloadKey.filterApplied', download.record.created | formatDate(gb.locales.current)) $}
                                 {% if download.isSimple %}
-                                <a href="/occurrence/search?{$ download.isSimple $}" class="pull-right inherit discreet p-r-1">Rerun query</a>
+                                    <a href="/occurrence/search?{$ download.isSimple $}"
+                                       class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>
                                 {% endif %}
                             </p>
                             <div class="card">
                                 <div class="card__stripe">
                                     {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
-                                    <div class="card__content card__content--error--large">
-                                        The download request was unsuccessful. Please try it again or <a href="" ng-click="downloadKey.openHelpdesk()">contact the GBIF Helpdesk</a>.
-                                    </div>
+                                        <div class="card__content card__content--error--large">
+                                            {$ __('downloadKey.downloadKilled') $}
+                                            <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                        </div>
                                     {% else %}
-                                    <div class="card__content">
-                                        <strong>Citation</strong><span>: GBIF.org (24th January 2017) GBIF Occurrence Download http://doi.org/10.15468/dl.n5twu3</span>
-                                        <br/>
-                                        <strong>File</strong><span>: {$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
-                                        <a href="" style="font-style:italic";margin-left:5px;>"For how long will GBIF store this data?"</a>
-                                        <br/>
-                                        <strong>Status</strong>: <span>{$ download.record.status $}</span>
-                                        <br/>
-                                        <strong>Involved datasets</strong><span>: <a href="#datasets">{$ download.record.numberDatasets | locInt(gb.locales.current) $}</a></span>
-                                        <br/>
-                                    </div>
+                                        {% if download.isFileDeleted %}
+                                            <div class="card__content card__content--error--large seperator--b">
+                                                {$ __('downloadKey.downloadDeleted') $}
+                                                <a href="" ng-click="downloadKey.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card__content">
+                                            <dl class="inline">
+                                                <div>
+                                                    <dt class="text-capitalize">{$ __('downloadKey.citation') $}</dt>
+                                                    <dd>
+                                                        GBIF.org ({$ download.record.created | formatDate(gb.locales.current) $}) GBIF Occurrence Download {$ download.record.doi $}
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
+                                                    <dd>
+                                                        <span>{$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
+                                                        <a href="" ng-click="downloadKey.openAboutStorage()" class="downloadKey__storageTeaser">{$ __('downloadKey.storageDurationTeaser') $}</a>
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                                    <dd>
+                                                        <a href="#datasets">{$ download.record.numberDatasets |
+                                                            locInt(gb.locales.current) $}</a>
+                                                    </dd>
+                                                </div>
+                                            </dl>
+                                        </div>
                                     {% endif %}
                                 </div>
 
                                 <div class="card__content predicateContainer">
                                     {% if not download.noFilters %}
                                         <div class="toggle small">
-                                            <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN" ng-click="downloadKey.HUMAN = false">JSON</a>
-                                            <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN" ng-click="downloadKey.HUMAN = true">HUMAN</a>
+                                            <a href="" class="inherit discreet" ng-if="downloadKey.HUMAN"
+                                               ng-click="downloadKey.HUMAN = false">{$  __('downloadKey.apiFilterView') $}</a>
+                                            <a href="" class="inherit discreet ng-cloak" ng-if="!downloadKey.HUMAN"
+                                               ng-click="downloadKey.HUMAN = true">{$  __('downloadKey.humanFilterView') $}</a>
                                         </div>
-                                        <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}" ng-show="downloadKey.HUMAN">
+                                        <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}"
+                                             ng-show="downloadKey.HUMAN">
                                             {$ predicate.print(download.record.request.predicate, __) $}
                                         </div>
-                                        <div>To repeat the download on todays data using the API you can use below query. <a href="/developer/occurrence#predicates">Read more</a></div>
-                                        <pre class="ng-cloak" ng-show="!downloadKey.HUMAN"><code>
-{$ download.predicateString | safe $}
-                                        </code></pre>
+                                        <div ng-show="!downloadKey.HUMAN" class="ng-cloak">
+                                            <div>
+                                                {$ __('downloadKey.apiUsageDescription') $}
+                                                <a href="/developer/occurrence#predicates">{$ __('stdTerms.readMore') | capitalize $}</a></div>
+                                                <pre>
+                                                    <code>
+                                                        {$ download.predicateString | safe $}
+                                                    </code>
+                                                </pre>
+                                        </div>
                                     {% else %}
-                                    No filters applied
+                                        {$ __('downloadKey.noFiltersApplied') $}
                                     {% endif %}
                                 </div>
                             </div>
                         </div>
                         <div class="storyline__pipe"></div>
                     </div>
-                    
-                    <div class="storyline__chapter">
-                        <div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>
-                        <div class="storyline__block">
-                            <div class="empty-box body-text">
-                                No cleaned versions shared
-                            </div>
-                        </div>
-                        <div class="storyline__pipe"></div>
-                    </div>
-                    <div class="storyline__chapter">
-                        <div class="storyline__bullet"><span class="gb-icon-quote"></span></div>
-                        <div class="storyline__block">
-                            <div class="empty-box body-text">
-                                No known usages
-                            </div>
-                        </div>
-                    </div>
+
+                    {#<div class="storyline__chapter">#}
+                        {#<div class="storyline__bullet"><span class="gb-icon-cloud-upload"></span></div>#}
+                        {#<div class="storyline__block">#}
+                            {#<div class="empty-box body-text">#}
+                                {#No cleaned versions shared#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="storyline__pipe"></div>#}
+                    {#</div>#}
+                    {#<div class="storyline__chapter">#}
+                        {#<div class="storyline__bullet"><span class="gb-icon-quote"></span></div>#}
+                        {#<div class="storyline__block">#}
+                            {#<div class="empty-box body-text">#}
+                                {#No known usages#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
                 </div>
             </div>
         </div>
 
         {% if download.datasets.count > 0 %}
-        <div class="horizontal-stripe bare-background" id="datasets">
-            <div class="container--normal">
-                <h4>{$ download.datasets.count $} Constituent datasets</h4>
-                <div class="card">
-                    <div class="card__stripe">
-                        <div class="stripeList">
-                            <ul>
-                                {% for dataset in download.datasets.results %}
-                                <li>
-                                    <a href="/dataset/{$ dataset.datasetKey $}">
-                                        <div class="pull-right">
-                                            <span class="numberBadge">{$ dataset.numberRecords | compactInteger $}</span>
-                                        </div>
-                                        <div class="title">
-                                            {$ dataset.datasetTitle $}
-                                        </div>
-                                        
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
+            <div class="horizontal-stripe bare-background">
+                <span class="relative-anchor-offset"><a id="datasets"></a></span>
+                <div class="container--normal">
+                    <h4>{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</h4>
+                    <div class="card">
+                        <div class="card__stripe">
+                            <div class="stripeList">
+                                <ul>
+                                    {% for dataset in download.datasets.results %}
+                                        <li>
+                                            <a href="/dataset/{$ dataset.datasetKey $}">
+                                                <div class="pull-right">
+                                                    <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>
+                                                </div>
+                                                <div class="title">
+                                                    {$ dataset.datasetTitle $}
+                                                </div>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% if download.datasets.count > download.datasets.limit %}
+                            <div class="card__content">
+                                <uib-pagination
+                                        total-items="{$ download.datasets.count $}"
+                                        ng-model="downloadKey.currentPage"
+                                        max-size="downloadKey.maxSize"
+                                        items-per-page="{$ download.datasets.limit $}"
+                                        class="pagination-sm"
+                                        boundary-link-numbers="false"
+                                        rotate="false"
+                                        ng-change="downloadKey.pageChanged()">
+                                </uib-pagination>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
         {% endif %}
     </article>
 
-{% endblock %}
+    <script type="text/ng-template" id="downloadKeyStorageInfo.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.ok()"></a>
+        <div class="gb-modal-header">
+            <span class="modal-title body-text" id="modal-title">{$  __('downloadKey.infoAboutStorage.title') $}</span>
+        </div>
+        <div class="gb-modal-body" id="modal-body">
+            <div class="gb-modal-body__content white-background">
+                <p>
+                    {$ __('downloadKey.infoAboutStorage.paragraphA') $}
+                </p>
+                <p>
+                    {$  __('downloadKey.infoAboutStorage.paragraphB') $}
+                </p>
+            </div>
+        </div>
+        <div class="gb-modal-footer">
+            <a href="" class="gb-button--flat text-uppercase" type="button" ng-click="$ctrl.ok()">{$  __('stdTerms.ok') $}</a>
+        </div>
+    </script>
 
+
+{% endblock %}
