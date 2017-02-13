@@ -42,9 +42,10 @@
                             </div>
 
                             <h4 class="search-results__list__item__title">
-                                <a ng-if="row.type !== 'dataset' && row.type !== 'literature'" href="/{{ row.targetUrl }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <a ng-if="row.type !== 'dataset' && row.type !== 'literature' && row.type !== 'gbif_participant'" href="/{{ row.targetUrl }}" ng-bind-html="row.title | limitTo:150"></a>
                                 <a ng-if="row.type == 'dataset' && row.type !== 'literature'" href="/dataset/{{ row.datasetUuid }}" ng-bind-html="row.title | limitTo:150"></a>
                                 <a ng-if="row.type == 'literature' && row.hasOwnProperty('literatureUrl')" href="{{ row.literatureUrl }}" ng-bind-html="row.title | limitTo:150"></a>
+                                <a ng-if="row.type == 'gbif_participant' && row.hasOwnProperty('participantIso2')" href="/country/{{ row.participantIso2 }}" ng-bind-html="row.title | limitTo:150"></a>
                                 <span ng-if="row.type == 'literature' && !row.hasOwnProperty('literatureUrl')" ng-bind-html="row.title | limitTo:150"></span>
                             </h4>
                             <div class="search-results__list__item__citation" ng-if="row.type == 'literature'">
@@ -68,6 +69,8 @@
                                  ng-bind-html="row.body | truncate:600"></div>
                             <div class="search-results__list__item__summary" ng-show="row.type == 'literature'"
                                  ng-bind-html="row.abstract | truncate:600"></div>
+                            <div class="search-results__list__item__summary" ng-show="row.type == 'gbif_participant'"
+                                 ng-bind-html="row.history.en[0].value | truncate:600"></div>
                             <div class="search-results__list__item__keywords" ng-if="row.keywords.length > 0">
                                 <span translate="cms.literature.keywords"></span>: <span ng-repeat="keyword in row.keywords">{{ keyword.name }}{{ $last ? '' : ', '}}</span>
                             </div>
