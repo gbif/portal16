@@ -14,7 +14,13 @@
                         </nav>
 
                         <h1 class="text-center">
+                            {% if download.record.status === 'KILLED' %}
+                            <span class="error">Broken download</span>
+                            {% elif download.record.status === 'CANCELLED' %}
+                            <span class="error">Cancelled</span>
+                            {% else %}
                             <span>{$ __n('download.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
+                            {% endif %}
                         </h1>
                         <div class="m-t-1">
                             <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
@@ -22,42 +28,37 @@
                     </header>
                 </div>
             </div>
+            {% if download.record.status !== 'CANCELLED' and download.record.status !== 'KILLED' %}
             <div class="container--normal">
                 <div class="row">
                     <div class="col-xs-12">
                         <nav class="tabs">
                             <ul>
                                 <li class="tab tab-right">
+                                    {% if download.record.status === 'SUCCEEDED' %}
                                     <a href="{$ download.record.downloadLink $}" class="gb-button--flat pull-right">DOWNLOAD</a>
+                                    {% elif download.record.status === 'RUNNING' %}
+                                    <span class="gb-button--flat gb-button--loader pull-right">
+                                        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                                        RUNNING
+                                    </span>
+                                    {% elif download.record.status === 'CANCELLED' %}
+                                    <span class="gb-button--flat gb-button--loader pull-right">
+                                        <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                                        RUNNING
+                                    </span>
+                                    {% endif %}
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
         <div class="horizontal-stripe light-background">
             <div class="container--normal">
                 <div class="storyline">
-                    {#<div class="storyline__chapter">#}
-                        {#<div class="storyline__bullet"><span class="gb-icon-logo"></span></div>#}
-                        {#<div class="storyline__block">#}
-                            {#<div class="small discreet">#}
-                                {#<p class="text-uppercase">#}
-                                    {#{$ download.record.created | formatDate(gb.locales.current) $}#}
-                                {#</p>#}
-                                {#<p>#}
-                                {#The data in the download is based on the state og GBIF.org at the time of the download#}
-                                {#</p>#}
-                            {#</div>#}
-                            {#<div class="card">#}
-                                {#<div class="card__header">#}
-                                    {#{$ download.record.created | formatDate(gb.locales.current) $}#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                        {#<div class="storyline__pipe"></div>#}
-                    {#</div>#}
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-filter"></span></div>
                         <div class="storyline__block">
@@ -69,15 +70,25 @@
                             </p>
                             <div class="card">
                                 <div class="card__stripe">
+                                    {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
+                                    <div class="card__content card__content--error--large">
+                                        The download request was unsuccessful. Please try it again or <a href="" ng-click="downloadKey.openHelpdesk()">contact the GBIF Helpdesk</a>.
+                                    </div>
+                                    {% else %}
                                     <div class="card__content">
                                         <strong>Citation</strong><span>: GBIF.org (24th January 2017) GBIF Occurrence Download http://doi.org/10.15468/dl.n5twu3</span>
                                         <br/>
-                                        <strong>Format</strong><span>: .csv</span>
+                                        <strong>File</strong><span>: {$ download.record.size | formatByte $} {$ __('downloadFormat.' + download.record.request.format) $}</span>
+                                        <a href="" style="font-style:italic";margin-left:5px;>"For how long will GBIF store this data?"</a>
                                         <br/>
-                                        <strong>Size</strong><span>: 15.2kb</span>
+                                        <strong>Status</strong>: <span>{$ download.record.status $}</span>
+                                        <br/>
+                                        <strong>Involved datasets</strong><span>: <a href="#datasets">{$ download.record.numberDatasets | locInt(gb.locales.current) $}</a></span>
                                         <br/>
                                     </div>
+                                    {% endif %}
                                 </div>
+
                                 <div class="card__content predicateContainer">
                                     {% if not download.noFilters %}
                                         <div class="toggle small">
@@ -87,6 +98,7 @@
                                         <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}" ng-show="downloadKey.HUMAN">
                                             {$ predicate.print(download.record.request.predicate, __) $}
                                         </div>
+                                        <div>To repeat the download on todays data using the API you can use below query. <a href="/developer/occurrence#predicates">Read more</a></div>
                                         <pre class="ng-cloak" ng-show="!downloadKey.HUMAN"><code>
 {$ download.predicateString | safe $}
                                         </code></pre>
@@ -111,16 +123,19 @@
                     <div class="storyline__chapter">
                         <div class="storyline__bullet"><span class="gb-icon-quote"></span></div>
                         <div class="storyline__block">
-                            
+                            <div class="empty-box body-text">
+                                No known usages
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="horizontal-stripe bare-background">
+        {% if download.datasets.count > 0 %}
+        <div class="horizontal-stripe bare-background" id="datasets">
             <div class="container--normal">
-                <h4>Constituent datasets</h4>
+                <h4>{$ download.datasets.count $} Constituent datasets</h4>
                 <div class="card">
                     <div class="card__stripe">
                         <div class="stripeList">
@@ -144,6 +159,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </article>
 
 {% endblock %}

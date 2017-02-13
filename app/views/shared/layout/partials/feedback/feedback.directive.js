@@ -40,6 +40,11 @@ function feedbackDirective() {
         vm.selected = undefined;
 
         $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
+            //open feedback on the relevant tab ((question, bug etc.))
+            if (vm.type[data.type]) {
+                vm.toggle(vm.type[data.type]);
+            }
+            //toggle or set state
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {

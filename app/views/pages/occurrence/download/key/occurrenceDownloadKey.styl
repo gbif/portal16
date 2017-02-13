@@ -85,7 +85,7 @@
     ul.not {
         padding 0
     }
-    ul ul .join, .leaf {
+    ul ul .join, ul .leaf {
         &:after {
             content: '';
             display: block;
@@ -98,7 +98,7 @@
             z-index 1
         }
     }
-    ul ul.not .join, .leaf {
+    ul ul.not .join, ul .leaf {
         &:after {
             top: 9px;
         }
@@ -227,3 +227,16 @@
     color white
     text-align center
 }
+
+.gb-button--loader {
+    .loader {
+        width 20px
+        top 5px
+        display inline-block
+        margin-right 5px
+        .path {
+            stroke rgba(0,0,0,0.3)
+        }
+    }
+}
+

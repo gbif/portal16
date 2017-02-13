@@ -19,14 +19,14 @@ module.exports = function (app) {
 
 router.get('/download/:key\.:ext?', function (req, res, next) {
     var key = req.params.key,
-        offset = req.query.offset || 0;
+        offset = req.query.offset || 0,
+        limit = 100;
 
-    var datasetsUrl = apiConfig.occurrenceDownload.url + key + '/datasets?offset=' + offset;
+    var datasetsUrl = apiConfig.occurrenceDownload.url + key + '/datasets?offset=' + offset + '&limit=' + limit;
     Promise.all([getResource(datasetsUrl), Download.get(key)]).then(function(values){
         let datasets = values[0],
             download = values[1];
         download.datasets = datasets;
-        download.datasets.results[0].numberRecords = 123123132;
 
         let promiseList = [];
         try{
