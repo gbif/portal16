@@ -39,17 +39,6 @@ var angular = require('angular');
                 }
             );
         })
-        // @ for testing purpose before API goes live.
-        .factory('DevDatasetSearch', function ($resource) {
-            return $resource('http://api.gbif-dev.org/v1/dataset/search', null, {
-                    'query': {
-                        method: 'GET',
-                        isArray: false,
-                        cancellable: true
-                    }
-                }
-            );
-        })
     ;
 
 })();
