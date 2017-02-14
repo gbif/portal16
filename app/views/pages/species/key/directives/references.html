@@ -2,7 +2,10 @@
     <h3>References</h3>
     <ul>
         <li ng-repeat="ref in vm.references">
-            <a ng-if="ref.doi" href="{{ref.doi}}">{{ ref.citation }}</a>
+            <span ng-if="ref.doi">
+                <span>{{ ref.citation }}</span>
+                <a href="https://doi.org/{{ref.doi}}">{{ ref.doi }}</a>
+            </span>
             <span ng-if="!ref.doi" class="reference">{{ ref.citation }}</span>
         </li>
     </ul>
