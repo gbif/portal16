@@ -1,9 +1,27 @@
 .site-footer {
     .site-footer__upper {
         border-top 1px solid #dbe3e7
-        color $discreetInk
-        padding vrBlock(3) 0 vrBlock(2) 0
+        //color $discreetInk
+        color darken($navBar_background_color, 15)
+        padding vrBlock(2) 0
         margin-top vrBlock(8)
+        h4 {
+            font-weight normal
+            font-size 16px
+            margin-bottom 20px
+        }
+    }
+    &__menu {
+        >li {
+            float left
+            margin-right 100px
+            li {
+                font-weight 300
+                a {
+                    color inherit
+                }
+            }
+        }
     }
     &__lower {
         color white
@@ -13,25 +31,18 @@
     ul {
         padding 0
     }
-    &__social {
-        text-align center
-        li {
-            padding vrBlock(0.5)
+    .newsletterButton {
+        background white
+        > a {
+            padding 15px 30px
             display inline-block
         }
-        a {
-            background white
-            border-radius 50%
-            line-height vrBlock(3)
-            text-align center
-            display block
-            width vrBlock(3)
-            height vrBlock(3)
-            font-size 30px
-            color $navBar_background_color
-            &:hover {
-                text-decoration none
-            }
-        }
+        color $navBar_background_color
+        font-size 16px
+        display inline-block
+        margin auto
+        border-radius 3px
+        margin 20px
+        margin-bottom 50px
     }
 }
