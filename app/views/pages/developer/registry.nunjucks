@@ -191,7 +191,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {$ api.trow(url="/dataset/{UUID}/metrics",
+                        {$ api.trow(url="/dataset/{UUID}/metrics", paging=false,
                         respLink=apiBase+"dataset/66dd0960-2d7d-46ee-a491-87b9adcfe7b1/metrics", description="Get
                         various metrics for a checklist. Metrics include the number of species, the number of synonyms,
                         counts by rank, counts by vernacular name language, etc.") $}

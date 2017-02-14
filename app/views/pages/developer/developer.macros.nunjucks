@@ -41,7 +41,7 @@
             <td class="wordwrap">
                 {% set comma = joiner() %}
                 {% for p in params %}
-                    <a href='#p_{$ p $}'>{$ p $}</a>{$ comma() $}
+                    {$ comma() $}<a href='#p_{$ p $}'>{$ p $}</a>
                 {% endfor %}
             </td>
         {% endif %}

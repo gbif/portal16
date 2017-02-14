@@ -2,7 +2,7 @@
 {% import "./developer.macros.nunjucks" as api %}
 
 {% macro trow(url, resp, httpMethod="GET", respLink, paging=undefined, params=[]) %}
-    {$ api.trow(url="/species/"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, paging=paging, authRequired=undefined, description=caller()) $}
+    {$ api.trow(url="/species/"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
 {% endmacro %}
 
 {% block page %}
@@ -72,19 +72,19 @@
                         Lists root usages of a checklist
                         {% endcall %}
 
-                        {% call trow(url="/{int}", resp="NameUsage", respLink=apiBase+"species/5231190", params=["language"]) %}
+                        {% call trow(url="/{int}", paging=false, resp="NameUsage", respLink=apiBase+"species/5231190", params=["language"]) %}
                         Gets the single name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/verbatim", resp="VerbatimNameUsage", respLink=apiBase+"species/5231190/verbatim") %}
+                        {% call trow(url="/{int}/verbatim", paging=false, resp="VerbatimNameUsage", respLink=apiBase+"species/5231190/verbatim") %}
                         Gets the verbatim name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/name", resp="ParsedName", respLink=apiBase+"species/5231190/name") %}
+                        {% call trow(url="/{int}/name", paging=false, resp="ParsedName", respLink=apiBase+"species/5231190/name") %}
                         Gets the parsed name for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/parents", resp="NameUsage List", params=["language"], respLink=apiBase+"species/5231190/parents") %}
+                        {% call trow(url="/{int}/parents", paging=false, resp="NameUsage List", params=["language"], respLink=apiBase+"species/5231190/parents") %}
                         Lists all parent usages for a name usage
                         {% endcall %}
 
@@ -100,7 +100,7 @@
                         Lists all synonyms for a name usage
                         {% endcall %}
 
-                        {% call trow(url="/{int}/combinations", resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
+                        {% call trow(url="/{int}/combinations", paging=false, resp="NameUsage List", respLink=apiBase+"species/5231190/combinations") %}
                         Lists all combinations that have this name usage as their basionym
                         {% endcall %}
 
