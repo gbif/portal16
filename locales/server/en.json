@@ -1327,10 +1327,11 @@
       "paragraphB": "But what does this mean? It means that storage space and funding isn't infinite. We strive to store all downloads forever, but prioritize downloads that have been cites."
     },
     "status": {
-      "preparing": "preparing",
-      "running": "running",
-      "cancelled": "cancelled",
-      "killed": "killed"
+      "PREPARING": "preparing",
+      "SUSPENDED": "suspended",
+      "RUNNING": "running",
+      "CANCELLED": "cancelled",
+      "KILLED": "killed"
     },
     "predicate": {
       "joinDescriptions": {
