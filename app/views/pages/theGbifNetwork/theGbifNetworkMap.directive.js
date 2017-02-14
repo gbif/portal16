@@ -133,6 +133,8 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
             height = 480 - margin.top - margin.bottom,
             svgWidth = width + margin.left + margin.right,
             svgHeight = height + margin.top + margin.bottom,
+            vpHeight = height + 10,
+            vpWidth = svgWidth,
             centered,
             activePolygon = d3.select(null);
 
@@ -140,7 +142,7 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
             .attr('id', 'theGbifNetworkMap')
             //.attr('width', svgWidth)
             //.attr('height', svgHeight)
-            .attr('viewBox', '0 0 ' + svgWidth + ' ' + svgHeight)
+            .attr('viewBox', '0 0 ' + vpWidth + ' ' + vpHeight)
             .attr('preserveAspectRatio', 'xMidYMid meet')
             .classed('svg-content', true);
 
@@ -179,12 +181,12 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
 
         var regionBoxes = {
             'GLOBAL': [[0,0],[width,height]],
-            'ASIA': [[540,105],[870,305]],
-            'AFRICA': [[420,140],[640,350]],
-            'EUROPE': [[380,80],[750,100]],
-            'LATIN_AMERICA': [[155,160],[395,400]],
-            'NORTH_AMERICA': [[100,50],[350,170]],
-            'OCEANIA': [[760,250],[1000,400]]
+            'ASIA': [[540,95],[870,295]],
+            'AFRICA': [[420,130],[640,340]],
+            'EUROPE': [[380,70],[750,90]],
+            'LATIN_AMERICA': [[155,150],[395,390]],
+            'NORTH_AMERICA': [[100,30],[350,150]],
+            'OCEANIA': [[760,220],[1000,390]]
         };
 
         d3.json("/api/topojson/world-robinson", function(error, topology) {
