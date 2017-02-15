@@ -115,13 +115,15 @@ function isValid(formData) {
 function createIssue(req, data, cb) {
     let agent = useragent.parse(req.headers['user-agent']),
         referer = req.headers.referer,
-        ip = req.clientIp,
-        country = getGeoIp(ip),
+        ip,
+        country,
         description = '',
         title,
         labels = [];
 
     try {
+        ip = req.clientIp;
+        country = _.get(getGeoIp(ip), 'country.iso_code');
         description = getDescription(data, agent, referer);
         title = getTitle(data.form.title, data.type, referer);
         labels = getLabels(data, country);
@@ -135,12 +137,14 @@ function createIssue(req, data, cb) {
         password: credentials.password
     });
 
-    var ghrepo = client.repo(credentials.repository);
-    ghrepo.issue({
+    var issueData = {
         title: title,
         body: description,
         labels: labels
-    }, function (err, data) {
+    };
+
+    var ghrepo = client.repo(credentials.repository);
+    ghrepo.issue(issueData, function (err, data) {
         if (err) {
             cb(err);
         } else {
