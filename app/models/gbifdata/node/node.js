@@ -17,6 +17,18 @@ Node.get = function (key, options) {
     if (typeof options.expand === 'undefined') {
         return promise
     } else {
+        return promise.then(function (node) {
+            return node.expand(options.expand)
+        });
+    }
+};
+
+Node.getByCountryCode = function (countryCode, options) {
+    options = options || {};
+    var promise = resource.get(api.country.url + countryCode).as(Node);
+    if (typeof options.expand === 'undefined') {
+        return promise
+    } else {
         return promise.then(function (country) {
             return country.expand(options.expand)
         });
@@ -45,9 +57,11 @@ Node.prototype.expand = function (fieldNames) {
     let identifier = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
     let participantId = _.get(identifier, 'identifier');
     if (typeof participantId !== 'undefined') {
+        console.log(participantId);
         resourceLookup.participant = {
             resource: cmsConfig.participant.url + participantId,
-            extendToField: 'participant'
+            extendToField: 'participant',
+            options: {failHard: false}//unclear if this should rather fail hard
         }
     }
 

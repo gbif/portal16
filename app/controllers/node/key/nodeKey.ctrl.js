@@ -3,6 +3,7 @@
 var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
+    Node = require('../../../models/gbifdata/gbifdata').Node,
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     contributors = require('../../dataset/key/contributors/contributors'),
     isDev = rootRequire('config/config').env == 'dev',
@@ -18,7 +19,7 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
     if (!utils.isGuid(nodeKey)) {
         next();
     } else {
-        nodeSearch(nodeKey).then(function(node) {
+        Node.get(nodeKey).then(function (node) {
             if (node.record.type === 'COUNTRY' && node.record.country) {
                 res.redirect('/country/' + node.record.country);
             } else {
@@ -28,15 +29,16 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                 }
                 node._computedValues = {};
                 let contacts = node.record.contacts;
-                //let organizationContact = {
-                //    organization: publisher.record.title,
-                //    city: publisher.record.city,
-                //    country: publisher.record.country,
-                //    address: publisher.record.address,
-                //    postalCode: publisher.record.postalCode,
-                //    type: 'PUBLISHER'
-                //};
-                //contacts.push(organizationContact);
+                let nodeContact = {
+                    organization: node.record.title,
+                    city: node.record.city,
+                    country: node.record.country,
+                    address: node.record.address,
+                    email: node.record.email,
+                    phone: node.record.phone,
+                    postalCode: node.record.postalCode
+                };
+                contacts.push(nodeContact);
 
                 node._computedValues.contributors = contributors.getContributors(contacts);
                 let pageData = {
@@ -52,22 +54,6 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
         });
     }
 });
-
-function nodeSearch(key) {
-    "use strict";
-    var deferred = Q.defer();
-    helper.getApiData(apiConfig.node.url + key, function (err, data) {
-        if (typeof data.errorType !== 'undefined') {
-            deferred.reject(data);
-        } else if (data) {
-            deferred.resolve({record: data});
-        }
-        else {
-            deferred.reject(err);
-        }
-    }, {retries: 2, timeoutMilliSeconds: 30000});
-    return deferred.promise;
-}
 
 function renderPage(req, res, next, data, template) {
     try {

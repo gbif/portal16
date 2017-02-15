@@ -15,7 +15,11 @@ router.get('/country/:key\.:ext?', function (req, res, next) {
 
     countryData.getCountryData(key, function (err, country) {
         if (err) {
-            next(err)
+            if (_.get(err, 'errorResponse.statusCode', 404) < 500) {
+                next();
+            } else {
+                next(err);
+            }
         } else {
             country.code = key;
             var latest = _.concat(

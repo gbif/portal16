@@ -100,6 +100,7 @@ require('./angular/toast.service');
 require('./angular/map.constants');
 require('./angular/enums.constants');
 require('./angular/country.resource');
+require('./angular/node.resource');
 
 require('./angular/directives/onload.directive');
 
@@ -120,6 +121,8 @@ require('../../../pages/occurrence/gallery/occurrenceGallery.ctrl');
 require('../../../pages/occurrence/map/occurrenceMap.ctrl');
 require('../../../pages/occurrence/species/occurrenceSpecies.ctrl');
 require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
+
+require('../../../pages/node/key/nodeKey.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 

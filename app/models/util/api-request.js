@@ -7,6 +7,7 @@ var request = require('request'),
 
 var ERRORS = Object.freeze({
     API_TIMEOUT: 'API_TIMEOUT',
+    NO_CONTENT: 'NO_CONTENT',
     API_ERROR: 'API_ERROR',
     BAD_REQUEST: 'BAD_REQUEST',
     NOT_FOUND: 'NOT_FOUND',
@@ -53,6 +54,9 @@ function getData(cb, path, options) {
                 errorResponse: response
             };
             switch (response.statusCode) {
+                case 204:
+                    error.errorType = ERRORS.NO_CONTENT;
+                    break;
                 case 400:
                     error.errorType = ERRORS.BAD_REQUEST;
                     break;
