@@ -3,19 +3,17 @@
 var resource = require('../resource'),
     cmsConfig = require('../../cmsData/apiConfig'),
     _ = require('lodash'),
-    participantDump = require('./participant-dump'),
-    countryCodeToDrupalId = _.keyBy(participantDump, 'Participant ISO 3166-2 code'),//temporary solution because the Drupal api do not allow for getting participants by their ISO code. Instead we do a map between ISO and internal Drupal node id
     api = require('../apiConfig');
 
-var Country = function (record) {
+var Node = function (record) {
     this.record = record;
 };
 
-Country.prototype.record = {};
+Node.prototype.record = {};
 
-Country.get = function (key, options) {
+Node.get = function (key, options) {
     options = options || {};
-    var promise = resource.get(api.country.url + key).as(Country);
+    var promise = resource.get(api.node.url + key).as(Node);
     if (typeof options.expand === 'undefined') {
         return promise
     } else {
@@ -25,14 +23,7 @@ Country.get = function (key, options) {
     }
 };
 
-Country.prototype.expand = function (fieldNames) {
-    var participantId,
-        participant = countryCodeToDrupalId[this.record.country.toUpperCase()];//use temporary mapping object as Drupal do not allow search by ISO
-
-    if (typeof participant !== 'undefined') {
-        participantId = participant.Nid;
-    }
-
+Node.prototype.expand = function (fieldNames) {
     var resources = [],
         resourceLookup = {
             news: {
@@ -46,12 +37,19 @@ Country.prototype.expand = function (fieldNames) {
             dataUse: {
                 resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
                 extendToField: 'dataUse'
-            },
-            participant: {
-                resource: cmsConfig.participant.url + participantId,
-                extendToField: 'participant'
             }
         };
+
+    //if node has a participant id from the direcotory then use that to resolve the drupal participant data
+    let identifiers = _.get(this.record, 'identifiers', []);
+    let identifier = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
+    let participantId = _.get(identifier, 'identifier');
+    if (typeof participantId !== 'undefined') {
+        resourceLookup.participant = {
+            resource: cmsConfig.participant.url + participantId,
+            extendToField: 'participant'
+        }
+    }
 
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
@@ -59,4 +57,4 @@ Country.prototype.expand = function (fieldNames) {
     return resource.extend(this).with(resources);
 };
 
-module.exports = Country;
+module.exports = Node;
