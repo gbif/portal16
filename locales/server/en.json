@@ -1417,6 +1417,11 @@
     "learnMore": "learn more",
     "readMore": "read more"
   },
+  "event": {
+    "location": "Location",
+    "date": "Date",
+    "languageOfEvent": "Language of event"
+  },
   "continent": {
     "NORTH_AMERICA": "North America",
     "OCEANIA": "Oceania",
