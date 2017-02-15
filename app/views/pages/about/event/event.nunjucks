@@ -32,7 +32,7 @@
                             {% if data.location or data.venueCountry.length >= 1 %}
                                 <section
                                         class="{% if data.location or data.venueCountry.length >= 1 %}no-break{% endif %}">
-                                    <h5>Location</h5>
+                                    <h5>{$ __('event.location') $}</h5>
                                     <ul class="list-citations">
                                         <li class="no-break">
                                             {$ data.location | safe
@@ -45,7 +45,7 @@
 
                             {% if data.dateText %}
                                 <section class="no-break">
-                                    <h5>Date</h5>
+                                    <h5>{$ __('event.date') $}</h5>
                                     <ul class="list-links">
                                         <li>{$ data.dateText | safe $}</li>
                                     </ul>
@@ -54,7 +54,7 @@
 
                             {% if data.eventLanguage %}
                                 <section class="no-break">
-                                    <h5>Language of event</h5>
+                                    <h5>{$ __('event.languageOfEvent') $}</h5>
                                     <ul class="list-chips">
                                         <li>{$ data.eventLanguage $}</li>
                                     </ul>
