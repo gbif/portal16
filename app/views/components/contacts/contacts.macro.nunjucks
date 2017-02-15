@@ -49,14 +49,14 @@
                     <div class="clearfix">
                         {% if contributor.phone.length > 0 and contributor.phone[0] %}
                             <span class="dataset-key__contributors__phone">
-                        <i class="gb-icon-phone2"></i>
+                        {#<i class="gb-icon-phone2"></i>#}
                         <a href="tel:{$ contributor.phone[0] $}" class="inherit">{$ contributor.phone[0] $}</a>
                     </span>
                         {% endif %}
 
                         {% if contributor.email.length > 0 and contributor.email[0] %}
                             <span class="dataset-key__contributors__mail">
-                        <i class="gb-icon-mail"></i>
+                        {#<i class="gb-icon-mail"></i>#}
                         <a href="mailto:{$ contributor.email[0] $}" class="inherit">{$ contributor.email[0]
                             $}</a>
                     </span>

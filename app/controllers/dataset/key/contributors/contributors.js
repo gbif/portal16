@@ -174,6 +174,12 @@ function getContributors(contacts) {
     if (!_.isArray(contacts)) {
         return [];
     }
+    //remove empty values from address array - the API returns [null]
+    contacts.forEach(function(contact){
+        if (contact.address) {
+            _.remove(contact.address, _.isNil);
+        }
+    });
     let originators, administrativeContacts, uniqueContacts, trimmedContacts = cleanContacts(contacts);
 
     let personsOnly = trimmedContacts.filter(function (e) {
