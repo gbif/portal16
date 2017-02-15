@@ -5,6 +5,7 @@ var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     contributors = require('../../dataset/key/contributors/contributors'),
+    isDev = rootRequire('config/config').env == 'dev',
     Q = require('q'),
     router = express.Router();
 
@@ -18,9 +19,13 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
         next();
     } else {
         nodeSearch(nodeKey).then(function(node) {
-            if (false && node.type === 'COUNTRY' && node.country) {
-                res.redirect('/country/' + node.country);
+            if (node.record.type === 'COUNTRY' && node.record.country) {
+                res.redirect('/country/' + node.record.country);
             } else {
+                if (!isDev) {
+                    next();
+                    return;
+                }
                 node._computedValues = {};
                 let contacts = node.record.contacts;
                 //let organizationContact = {
@@ -31,12 +36,13 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                 //    postalCode: publisher.record.postalCode,
                 //    type: 'PUBLISHER'
                 //};
-                contacts.push(organizationContact);
+                //contacts.push(organizationContact);
+
                 node._computedValues.contributors = contributors.getContributors(contacts);
                 let pageData = {
                     node: node,
                     _meta: {
-                        title: 'Node ' + node.title
+                        title: 'Node ' + node.record.title
                     }
                 };
                 renderPage(req, res, next, pageData, 'pages/node/key/nodeKey');
