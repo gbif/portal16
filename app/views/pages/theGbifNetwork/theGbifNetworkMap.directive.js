@@ -236,10 +236,11 @@ function theGbifNetworkMap(ParticipantHeads, CountryDataDigest, PublisherEndorse
 
         function zoomToPolygon(d) {
             centered = d;
+            var area = Math.round(path.area(d) * 100) / 100;
 
             var bounds = path.bounds(d),
-                dx = bounds[1][0] - bounds[0][0],
-                dy = bounds[1][1] - bounds[0][1],
+                dx = area > 30 ? bounds[1][0] - bounds[0][0] : bounds[1][0] - bounds[0][0] + 50,
+                dy = area > 30 ? bounds[1][1] - bounds[0][1] : bounds[1][1] - bounds[0][1] + 50,
                 x = (bounds[0][0] + bounds[1][0]) / 2,
                 y = (bounds[0][1] + bounds[1][1]) / 2,
                 scale = 0.9 / Math.max(dx / width, dy / height),
