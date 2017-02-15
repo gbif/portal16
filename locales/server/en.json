@@ -2134,7 +2134,7 @@
   },
   "feedback": {
     "intro": {
-      "title": "Feedback",
+      "title": "Feedback and questions",
       "example": "You can help us solve the issue by choosing a feedback type."
     },
     "content": {
@@ -2144,7 +2144,7 @@
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
-      "title": "Functionality",
+      "title": "Bug",
       "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
     },
     "idea": {
@@ -2152,7 +2152,7 @@
       "example": "E.g. I want GBIF for my smart watch."
     },
     "question": {
-      "title": "Question",
+      "title": "Helpdesk",
       "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
@@ -2173,7 +2173,7 @@
       "username": "Your email or Github username (optional)"
     },
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
-    "bugReport": "functionality issue",
+    "bugReport": "bug",
     "issueTracking": "All issues are visible to the public at {Github}",
     "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
