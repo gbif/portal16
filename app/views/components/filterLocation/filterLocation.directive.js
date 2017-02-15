@@ -144,6 +144,7 @@ function filterLocationDirective() {
         vm.addString = function() {
             var parsingResult = parseStringToWKTs(vm.geometryString);
             if (parsingResult.geometry) {
+                vm.hasCoordinate = true;
                 $filter('unique')(parsingResult.geometry).forEach(function(q){
                     addGeometrySuggestion(q);
                     addGeometryOption(vm.geometryOptions, q, true);
