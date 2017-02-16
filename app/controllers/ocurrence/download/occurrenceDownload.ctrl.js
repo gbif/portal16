@@ -45,7 +45,7 @@ router.get('/download/:key\.:ext?', function (req, res, next) {
         }
 
     }, function(err){
-        console.log(err);
+        next(err);
     });
 });
 
@@ -54,6 +54,9 @@ function renderPage(req, res, next, download) {
         if (req.params.ext == 'debug') {
             res.json(download);
         } else {
+            if (download.record.status == 'PREPARING' || download.record.status == 'RUNNING') {
+                res.setHeader('Cache-Control', 'no-cache');
+            }
             res.render('pages/occurrence/download/key/occurrenceDownloadKey', {
                 download: download,
                 title: 'Ocurrences',

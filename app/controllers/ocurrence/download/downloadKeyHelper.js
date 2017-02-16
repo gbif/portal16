@@ -231,17 +231,25 @@ function addEndpointTask(predicate, config, tasks) {
     }
 }
 
-function getResource(url) {
+function getResource(url, failSilently) {
     "use strict";
     var deferred = Q.defer();
     helper.getApiData(url, function (err, data) {
         if (typeof data.errorType !== 'undefined') {
-            deferred.reject(data);
+            if (failSilently) {
+                deferred.resolve();
+            } else {
+                deferred.reject(data);
+            }
         } else if (data) {
             deferred.resolve(data);
         }
         else {
-            deferred.reject(err);
+            if (failSilently) {
+                deferred.resolve();
+            } else {
+                deferred.reject(err);
+            }
         }
     }, {retries: 3, timeoutMilliSeconds: 30000});
     return deferred.promise;
