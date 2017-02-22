@@ -7,11 +7,11 @@ angular
     .controller('termsCtrl', termsCtrl);
 
 /** @ngInject */
-function termsCtrl(localStorageService) {
+function termsCtrl($localStorage) {
     var vm = this;
-    vm.userAcceptance = localStorageService.get('userAcceptance');
+    vm.userAcceptance = $localStorage.userAcceptance;
     vm.accept = function () {
-        localStorageService.set('userAcceptance', true);
+        $localStorage.userAcceptance = true;
         vm.userAcceptance = true;
     }
 }

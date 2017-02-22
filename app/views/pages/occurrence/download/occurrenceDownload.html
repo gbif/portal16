@@ -66,7 +66,8 @@
         <div class="container--normal">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="download-report m-t-2">
+                    <!--TODO this area should only be VISIBLE if logged in. Else show login box . but until we have user mangement, then just allow people to enter login info-->
+                    <div class="download-report m-t-2" Xng-if="occDownload.hasSessionCookie">
                         <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                             <div class="discreet">
@@ -232,6 +233,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--<div class="card card&#45;&#45;login m-t-1" ng-if="!occDownload.hasSessionCookie">-->
+                        <!--<div user-login></div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -249,11 +254,12 @@
                     also be available in the future. Thank you for your understanding.
                 </p>
             </div>
+            <!--TODO temporarily require username password instead of login-->
             <div class="horizontal-stripe light-background seperator seperator--b">
                 <div class="gb-modal-body__content">
                     <p>
                         Please enter your credentials. Don't have any? You need to <a
-                                href="http://www.gbif.org/user/register">create an account first</a>.
+                            href="http://www.gbif.org/user/register">create an account first</a>.
                     </p>
                     <div class="search-box">
                         <input type="text" placeholder="username" ng-model="$ctrl.username">
@@ -267,11 +273,11 @@
                 </div>
             </div>
         </div>
+        </div>
         <div class="gb-modal-footer">
             <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Cancel</a>
             <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()"
                ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>
-
         </div>
     </script>
 </div>

@@ -26,7 +26,7 @@ function filterLocationDirective() {
     return directive;
 
     /** @ngInject */
-    function filterLocation($scope, $filter, OccurrenceFilter, localStorageService) {
+    function filterLocation($scope, $filter, OccurrenceFilter, $localStorage) {
         var vm = this;
         vm.inputType = 'BBOX';
         vm.hasCoordinate;
@@ -55,17 +55,15 @@ function filterLocationDirective() {
             if (!wkt || !isValidWKT(wkt)) {
                 return false;
             }
-            if(localStorageService.isSupported) {
-                var filters = localStorageService.get('filters');
-                if (!filters) {
-                    filters = [];
-                }
-                filters.unshift(wkt);
-                filters = $filter('unique')(filters).slice(0,20);
-                vm.geometrySuggestions = filters;
-                localStorageService.set('filters', filters);
-                updateGeometrySuggestions();
+            var filters = $localStorage.filters;
+            if (!filters) {
+                filters = [];
             }
+            filters.unshift(wkt);
+            filters = $filter('unique')(filters).slice(0,20);
+            vm.geometrySuggestions = filters;
+            $localStorage.filters = filters;
+            updateGeometrySuggestions();
         }
 
         function addSuggestions(queries) {
@@ -77,11 +75,9 @@ function filterLocationDirective() {
 
         function updateGeometrySuggestions() {
             var filters = [];
-            if(localStorageService.isSupported) {
-                filters = localStorageService.get('filters');
-                if (!filters) {
-                    filters = [];
-                }
+            filters = $localStorage.filters;
+            if (!filters) {
+                filters = [];
             }
             vm.geometrySuggestions = [];
             filters.forEach(function(q){

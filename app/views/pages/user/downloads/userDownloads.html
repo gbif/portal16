@@ -1,0 +1,42 @@
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--normal">
+        <nav class="discreetTabs">
+            <ul>
+                <li>
+                    <a href="" class="inherit noUnderline" ui-sref="userProfile()">Profile</a>
+                </li>
+                <li class="isActive">
+                    <a href="" class="inherit noUnderline">Downloads</a>
+                </li>
+                <!--<li ng-class="{isActive: vm.active=='SETTINGS'}">-->
+                <!--<a href="" class="inherit noUnderline" ui-sref="userSettings()" ng-click="vm.active='SETTINGS'">Settings</a>-->
+                <!--</li>-->
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--normal">
+        <div class="m-t-2">
+            <div ng-if="!userDownloads.downloads">
+                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+            </div>
+            <div class="card m-b-2" ng-repeat="download in userDownloads.downloads.results">
+                <ng-include src="'/occurrence/download/' + download.key + '/card'"></ng-include>
+            </div>
+
+            <div ng-if="userDownloads.downloads && userDownloads.downloads.count > userDownloads.limit">
+                <uib-pagination
+                        total-items="userDownloads.downloads.count"
+                        ng-model="userDownloads.currentPage"
+                        max-size="userDownloads.maxSize"
+                        items-per-page="userDownloads.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="false"
+                        rotate="false"
+                        ng-change="userDownloads.pageChanged()">
+                </uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

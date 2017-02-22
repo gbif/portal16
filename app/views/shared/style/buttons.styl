@@ -9,6 +9,9 @@
     &:hover {
         text-decoration none
     }
+    &:disabled {
+        background #dddddd
+    }
 }
 
 .gb-button--round {
@@ -37,6 +40,12 @@
     }
 }
 
+.gb-button--brand {
+    @extends .gb-button--primary
+    background darkseagreen
+    font-size 12px
+    text-transform uppercase
+}
 
 .gb-icon-button {
     background $linkColor

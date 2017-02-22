@@ -9,14 +9,14 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl(localStorageService) {
+function datasetKeyCtrl($localStorage) {
     var vm = this;
     vm.bibExpand = {
         isExpanded: false
     };
     vm.key = gb.datasetKey.key; //TODO what would be a better way to do this? an bootstraped constant possibly?
 
-    vm.displayPreferences = localStorageService.get('displayPreferences');
+    vm.displayPreferences = $localStorage.displayPreferences;
 
     vm.displayPreferences = {
         datasetKey: {
@@ -24,7 +24,7 @@ function datasetKeyCtrl(localStorageService) {
         }
     };
 
-    localStorageService.set('displayPreferences', vm.displayPreferences);
+    $localStorage.displayPreferences = vm.displayPreferences;
 }
 
 module.exports = datasetKeyCtrl;

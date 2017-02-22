@@ -47,6 +47,12 @@ var apiConfig = {
     occurrenceDownload: {
         url: baseUrl + 'occurrence/download/'
     },
+    occurrenceDownloadUser: {
+        url: baseUrl + 'occurrence/download/user/'
+    },
+    occurrenceSearchDownload: {
+        url: baseUrl + 'occurrence/search/download/'
+    },
     publisher: {
         url: baseUrl + 'organization/'
     },
@@ -85,6 +91,12 @@ var apiConfig = {
     },
     countryEnumeration: {
         url: baseUrl + 'enumeration/country'
+    },
+    user: {
+        url: 'http://localhost:3000/api/user/'
+    },
+    cookieNames: {
+        userSession: 'userSession'
     }
 };
 

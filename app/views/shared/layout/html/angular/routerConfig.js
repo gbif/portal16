@@ -179,6 +179,38 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'cmsTableCtrl',
             controllerAs: 'cmsTable'
         })
+        .state('user', {
+            parent: 'localization',
+            url: '/user',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/user/user.html',
+                    controller: 'userCtrl',
+                    controllerAs: 'user'
+                }
+            }
+        })
+        .state('userProfile', {
+            parent: 'user',
+            url: '/profile',
+            templateUrl: '/templates/pages/user/profile/userProfile.html',
+            controller: 'userProfileCtrl',
+            controllerAs: 'userProfile'
+        })
+        .state('userDownloads', {
+            parent: 'user',
+            url: '/download?offset&limit',
+            templateUrl: '/templates/pages/user/downloads/userDownloads.html',
+            controller: 'userDownloadsCtrl',
+            controllerAs: 'userDownloads'
+        })
+        .state('userSettings', {
+            parent: 'user',
+            url: '/settings',
+            templateUrl: '/templates/pages/user/settings/userSettings.html',
+            controller: 'userSettingsCtrl',
+            controllerAs: 'userSettings'
+        })
     ;
     //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 

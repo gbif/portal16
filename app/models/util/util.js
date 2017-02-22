@@ -70,6 +70,18 @@ function getHigestRankingLowerClasses(children) {
     return children;
 }
 
+function renderPage(req, res, next, data, template) {
+    try {
+        if (req.params.ext == 'debug') {
+            res.json(data);
+        } else {
+            res.render(template, data);
+        }
+    } catch (e) {
+        next(e);
+    }
+}
+
 module.exports = {
     getApiData: apirequest.getApiData,
     getApiDataPromise: apirequest.getApiDataPromise,
@@ -77,5 +89,6 @@ module.exports = {
     filterByMatchType: filterByMatchType,
     getSynonymKey: getSynonymKey,
     getHigestRankingLowerClasses: getHigestRankingLowerClasses,
-    filterByExactQuery: filterByExactQuery
+    filterByExactQuery: filterByExactQuery,
+    renderPage: renderPage
 };

@@ -1,0 +1,91 @@
+{% import "./predicate.macro.nunjucks" as predicate %}
+<div class="card__stripe">
+    {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
+        <div class="card__content card__content--error">
+            <div class="row">
+                <div class="col-xs-12">
+                    {$ __('downloadKey.downloadKilled') $}
+                    <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                    {% if download.record.key %}
+                        <div class="m-t-05">
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/download/{$ download.record.key $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% if download.isFileDeleted %}
+            <div class="card__content card__content--error seperator--b">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {$ __('downloadKey.downloadDeleted') $}
+                        <a href="" ng-click="userDownloads.openHelpdesk()">{$ __('stdTerms.contactHelpdesk') $}</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="card__content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <a href="{$ gb.locales.urlPrefix $}/occurrence/download/{$ download.record.key $}" class="doi"><span>DOI</span><span>{$ download.record.doi | readableDOI $}</span></a>
+                    <dl class="inline">
+                        {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
+                            <div>
+                                <dt class="text-capitalize">Date</dt>
+                                <dd>
+                                    <span>{$ download.record.created | formatDate(gb.locales.current) $}</span>
+                                </dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <dl class="inline">
+                        {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
+                            <div>
+                                <dt class="text-capitalize">Occurrences</dt>
+                                <dd>
+                                    <span>{$ download.record.totalRecords | locInt(gb.locales.current) $}</span>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                <dd>
+                                    <span>{$ download.record.numberDatasets | locInt(gb.locales.current) $}</span>
+                                </dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+<div class="card__stripe">
+    <div class="card__content predicateContainer">
+        {% if not download.noFilters %}
+            <div class="toggle small">
+            </div>
+            <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}">
+                {$ predicate.print(download.record.request.predicate, __) $}
+            </div>
+        {% else %}
+            {$ __('downloadKey.noFiltersApplied') $}
+        {% endif %}
+    </div>
+</div>
+
+
+{% if (download.record.status === 'SUCCEEDED' and not download.isFileDeleted) or download.isSimple %}
+<div class="card__stripe light-background">
+    <div class="card__content">
+        {% if download.record.status === 'SUCCEEDED' and not download.isFileDeleted %}
+            <a href="{$ download.record.downloadLink $}" class="gb-button--flat text-uppercase small">Download</a>
+        {% endif %}
+        {% if download.isSimple %}
+            <a href="/occurrence/search?{$ download.isSimple $}" class="gb-button--flat text-uppercase pull-right small">Rerun query</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}

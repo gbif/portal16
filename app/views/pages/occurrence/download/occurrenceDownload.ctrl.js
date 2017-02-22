@@ -14,7 +14,7 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $cookies) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -173,9 +173,6 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
         vm.updateCounts();
     });
 
-
-
-
     vm.open = function (format) {
         var modalInstance = $uibModal.open({
             animation: true,
@@ -213,7 +210,7 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
             headers: headers
         };
 
-        $http(req).then(function (response) {
+        $http.get(req).then(function (response) {
             window.location.href = 'download/' + response.data;
         }, function(err) {
             //TODO alert user of failure
@@ -229,6 +226,19 @@ function occurrenceDownloadCtrl($state, $scope, $q, $http, OccurrenceFilter, Occ
             }
         });
     };
+
+    //keep track of whether the user is logged in or not
+    function setLoginState() {
+        vm.hasSessionCookie = !!$cookies.get('userSession');
+    }
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        setLoginState();
+    });
+
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        setLoginState();
+    });
+    setLoginState();
 
 }
 

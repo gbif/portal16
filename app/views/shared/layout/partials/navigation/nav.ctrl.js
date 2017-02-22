@@ -1,31 +1,50 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl($http, $location, $rootScope, NAV_EVENTS) {
+function navCtrl($http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, User) {
     var vm = this;
+    var toggleGroup = [
+        NAV_EVENTS.toggleSearch,
+        NAV_EVENTS.toggleFeedback,
+        NAV_EVENTS.toggleNotifications,
+        NAV_EVENTS.toggleUserMenu
+    ];
+
+    vm.openMenu = function(navEvent){
+        toggleGroup.forEach(function(e){
+            if (e === navEvent) {
+                $rootScope.$broadcast(e, {state: true});
+            } else {
+                $rootScope.$broadcast(e, {state: false});
+            }
+        });
+    };
 
     vm.toggleNotifications = function () {
-        $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
-        $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: false});
-        $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: true});
+        vm.openMenu(NAV_EVENTS.toggleNotifications);
     };
 
     vm.toggleFeedback = function () {
-        $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
-        $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true});
-        $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
+        vm.openMenu(NAV_EVENTS.toggleFeedback);
     };
 
     vm.toggleSearch = function () {
-        $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {toggle: true});
-        $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {state: false});
-        $rootScope.$broadcast(NAV_EVENTS.toggleNotifications, {toggle: false});
+        vm.openMenu(NAV_EVENTS.toggleSearch);
+    };
+
+    vm.toggleUserMenu = function () {
+        if($sessionStorage.user) {
+            window.location = '/user/profile';
+        } else {
+            vm.openMenu(NAV_EVENTS.toggleUserMenu);
+        }
     };
 
     vm.getIssues = function () {
@@ -38,6 +57,20 @@ function navCtrl($http, $location, $rootScope, NAV_EVENTS) {
             });
     };
     vm.getIssues();
+
+    function updateUser() {
+        vm.loginGreeting = _.get($sessionStorage.user, 'userName', 'Login');
+    }
+    updateUser();
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
+        updateUser();
+    });
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
+        updateUser();
+    });
 
 }
 

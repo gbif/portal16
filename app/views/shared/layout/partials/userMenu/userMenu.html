@@ -1,0 +1,7 @@
+<aside id="userMenu" class="userMenu menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+	<div class="menubox__wrapper">
+        <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+		<div user-login ng-if="vm.isActive"></div>
+	</div>
+</aside>

@@ -1,0 +1,3 @@
+{% if not meta.hideUserMenu %}
+	<div user-menu></div>
+{% endif %}

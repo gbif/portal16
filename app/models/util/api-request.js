@@ -89,6 +89,8 @@ function getData(cb, path, options) {
         else {
             if (options.type == 'XML') {
                 parseXml(body, path, cb);
+            } else if (options.type == 'PLAIN') {
+                cb(null, body);
             }
             else {
                 parseJson(body, path, cb);
@@ -137,7 +139,7 @@ function parseJson(body, path, cb) {
 
 function getApiData(path, callback, options) {
     options = options || {};
-    options.timeoutMilliSeconds = options.timeoutMilliSeconds || 3000;
+    options.timeoutMilliSeconds = options.timeout || options.timeoutMilliSeconds || 3000; //TODO this is silly, why create a new property milliseconds for this? refactor to remove usage everywhere
     options.retries = options.retries || 2;
     options.failHard = options.failHard || false;
 

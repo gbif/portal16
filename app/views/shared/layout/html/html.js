@@ -17,7 +17,9 @@ require('nouislider-angular');
 window.Chartist = require('chartist');
 require('angular-chartist.js');
 require('chartist-plugin-axistitle');
-require('angular-local-storage');
+require('ngstorage');
+require('angular-cookies');
+require('angular-messages');
 require('angular-toastr');
 
 
@@ -28,7 +30,7 @@ require('angular-svg-round-progressbar');
 (function () {
     'use strict';
     angular
-        .module('portal', ['LocalStorageModule', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
+        .module('portal', ['ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
 })();
 
 (function () {
@@ -55,11 +57,13 @@ require('angular-svg-round-progressbar');
     }
 
     /** @ngInject */
-    function configBlock(localStorageServiceProvider, toastrConfig) {
-        localStorageServiceProvider
-            .setPrefix('gbif')
-            .setStorageType('localStorage')
-            .setDefaultToCookie(false);
+    function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig) {
+        $localStorageProvider.setKeyPrefix('gbif.');
+        $sessionStorageProvider.setKeyPrefix('gbif.');
+        // localStorageServiceProvider
+        //     .setPrefix('gbif')
+        //     .setStorageType('localStorage')
+        //     .setDefaultToCookie(false);
 
         angular.extend(toastrConfig, {
             autoDismiss: false,
@@ -104,6 +108,7 @@ require('./angular/node.resource');
 
 require('./angular/directives/onload.directive');
 
+require('../partials/userMenu/userMenu.directive');
 require('../partials/feedback/feedback.directive');
 require('../partials/notifications/notifications.directive');
 
@@ -123,6 +128,14 @@ require('../../../pages/occurrence/species/occurrenceSpecies.ctrl');
 require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
 
 require('../../../pages/node/key/nodeKey.ctrl');
+
+require('../../../components/userLogin/userLogin.directive');
+require('../../../pages/user/updatePassword/updatePassword.ctrl');
+require('../../../pages/user/profile/userProfile.ctrl');
+require('../../../pages/user/downloads/userDownloads.ctrl');
+require('../../../pages/user/settings/userSettings.ctrl');
+require('../../../pages/user/user.ctrl');
+require('../../../pages/user/confirmUser/confirmUser.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 

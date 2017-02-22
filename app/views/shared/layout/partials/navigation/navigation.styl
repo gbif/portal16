@@ -452,14 +452,42 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
             > a {
                 height ($navBar_height - $navBar_borderWidth)
                 .service-menu__icon {
-                    position absolute
+                    //position absolute
                     font-size 28px
                     width 3rem
-                    display block
+                    display inline-block
                     text-align center
                     overflow hidden
                     height ($navBar_height - $navBar_borderWidth)
                     line-height ($navBar_height - $navBar_borderWidth)
+                }
+                .service-menu__buttonWrapper {
+                    width 3rem
+                    display inline-block
+                    text-align center
+                    overflow hidden
+                    height ($navBar_height - $navBar_borderWidth)
+                    line-height ($navBar_height - $navBar_borderWidth)
+                    width initial
+                    .service-menu__button {
+                        padding 3px 5px
+                        width 100px
+                        background white
+                        color darken($navBar_background_color, 5)
+                        font-weight 500
+                        text-shadow none
+                        display inline-block
+                        padding 0 10px
+                        line-height 2em
+                        margin 0 10px
+                        border-radius 2px
+                        transition max-width 200ms ease
+                        overflow hidden
+                        text-overflow ellipsis
+                        white-space nowrap
+                        position relative
+                        top 7px
+                    }
                 }
                 .service-menu__text {
                     position absolute
@@ -470,7 +498,7 @@ $service-menu_teaser_pos_r = vrBlock(0.5);
                     display none
                 }
                 display inline-block
-                width 3rem
+                //width 3rem
                 //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
                 relative()
                 font-size (100 /$majorThird) %

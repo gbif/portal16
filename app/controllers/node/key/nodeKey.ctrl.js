@@ -7,7 +7,6 @@ var express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     contributors = require('../../dataset/key/contributors/contributors'),
     isDev = rootRequire('config/config').env == 'dev',
-    Q = require('q'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -47,22 +46,10 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                         title: 'Node ' + node.record.title
                     }
                 };
-                renderPage(req, res, next, pageData, 'pages/node/key/nodeKey');
+                helper.renderPage(req, res, next, pageData, 'pages/node/key/nodeKey');
             }
         }, function(err){
            next(err);
         });
     }
 });
-
-function renderPage(req, res, next, data, template) {
-    try {
-        if (req.params.ext == 'debug') {
-            res.json(data);
-        } else {
-            res.render(template, data);
-        }
-    } catch (e) {
-        next(e);
-    }
-}

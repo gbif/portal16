@@ -1,0 +1,5 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    {#TODO Please wait wihile we load your profile some indicator that angular is loading perhaps?#}
+{% endblock %}

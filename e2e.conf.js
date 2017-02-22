@@ -1,6 +1,6 @@
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    baseUrl: 'http://demo.gbif-dev.org',
-    allScriptsTimeout: 80000,
-    specs: ['e2e/*.spec.js']
+    baseUrl: 'http://localhost:3000/',
+    allScriptsTimeout: 120000,
+    specs: ['e2e/occurrenceSearch.spec.js', 'e2e/*.spec.js']
 };

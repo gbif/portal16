@@ -1,0 +1,29 @@
+<ng-include src="'/api/template/search.html'"></ng-include>
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="user white-background">
+            <article class="wrapper-horizontal-stripes" ng-if="user.loggedIn">
+                <div class="horizontal-stripe white-background">
+                    <div class="container--normal">
+                        <div class="m-b-1">
+                            <a href="" class="gb-button--brand pull-right" ng-click="user.logout()">Logout</a>
+                            <span class="body-text">Don lepidoptera</span>
+                            <div class="small">
+                                John Johnson
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ui-view></div>
+            </article>
+            <div class="wrapper-horizontal-stripes" ng-if="!user.loggedIn">
+                <div class="horizontal-stripe white-background">
+                    <div class="card card--login">
+                        <div user-login></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-include src="'/api/template/footer.html'"></ng-include>
+    </div>
+</div>

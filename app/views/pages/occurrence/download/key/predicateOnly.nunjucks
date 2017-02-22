@@ -1,0 +1,2 @@
+{% import "./predicate.macro.nunjucks" as predicate %}
+{$ predicate.print(decoratedPredicate, __) $}

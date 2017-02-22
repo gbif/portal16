@@ -10,7 +10,7 @@ describe('E2E_01_Occurrence_Search', function () {
     });
 
     it('should work with free text search', function () {
-        browser.get('/');
+        browser.get('/occurrence/search');
         browser.get(occurrenceTable.url);
         expect(occurrenceTable.rowEls.count()).toBeGreaterThan(10);
 

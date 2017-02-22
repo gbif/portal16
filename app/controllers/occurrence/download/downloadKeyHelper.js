@@ -124,7 +124,7 @@ function addSyntheticTypes(predicate) {
 function getSimpleQuery(predicate) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
-    } else if(['or', 'not'].indexOf(predicate.type) !== -1 && predicate._maxDepth > 3) {
+    } else if(['or', 'not'].indexOf(predicate.type) !== -1 || predicate._maxDepth > 3) {
         return false;
     } else if(predicate.type === 'and') {
         var query = {};
@@ -232,26 +232,24 @@ function addEndpointTask(predicate, config, tasks) {
 }
 
 function getResource(url, failSilently) {
-    "use strict";
+    var options = {
+        url: url,
+        retries: 3,
+        timeout: 30000,
+        failHard: !failSilently
+    };
+    return requestPromise(options);
+}
+
+function requestPromise(queryOptions) {
     var deferred = Q.defer();
-    helper.getApiData(url, function (err, data) {
-        if (typeof data.errorType !== 'undefined') {
-            if (failSilently) {
-                deferred.resolve();
-            } else {
-                deferred.reject(data);
-            }
-        } else if (data) {
+    helper.getApiData(queryOptions.url, function (err, data) {
+        if (err) {
+            deferred.reject(err);
+        } else {
             deferred.resolve(data);
         }
-        else {
-            if (failSilently) {
-                deferred.resolve();
-            } else {
-                deferred.reject(err);
-            }
-        }
-    }, {retries: 3, timeoutMilliSeconds: 30000});
+    }, queryOptions);
     return deferred.promise;
 }
 

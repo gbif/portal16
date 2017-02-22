@@ -29,7 +29,7 @@
             <span class="node">{$ __('filterNames.' + (p.key | toCamelCase)) | capitalize $}</span>
             <ol class="inline-bullet-list">
                 {% for option in p.values %}
-                    <li class="node-value" tooltip-placement="bottom"
+                    <li class="node-value" tooltip-placement="top"
                                        tooltip-popup-delay="200"
                                        uib-tooltip="{$ __('downloadKey.predicate.joinDescriptions.or') | capitalize $}"><span>{$ option | capitalize $}</span></li>
                 {% endfor %}

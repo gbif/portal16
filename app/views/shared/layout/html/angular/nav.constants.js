@@ -6,6 +6,8 @@
         .module('portal')
         .constant('NAV_EVENTS', {
             toggleFeedback: 'toggleFeedback',
-            toggleSearch: 'toggleSearch'
+            toggleSearch: 'toggleSearch',
+            toggleUserMenu: 'toggleUserMenu',
+            toggleNotifications: 'toggleNotifications'
         })
 })();

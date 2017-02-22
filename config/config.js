@@ -9,6 +9,7 @@ var path = require('path'),
     tileApi = yargs.tileapi,
     cmsApi = yargs.cmsapi,
     credentials = yargs.credentials,
+    verification = yargs.verification,
     analyticsImg = yargs.analyticsImg;
 
 var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
@@ -31,7 +32,8 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: credentials || '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/etc/portal16/verification'
     },
     dev: {
         env: env,
@@ -49,7 +51,8 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: credentials || '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/etc/portal16/verification'
     },
     uat: {
         env: env,
@@ -67,7 +70,8 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-uat.org/',
-        credentials: credentials || '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/etc/portal16/verification'
     },
     prod: {
         env: env,
@@ -85,7 +89,8 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'https://demo.gbif.org/',
-        credentials: credentials || '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/etc/portal16/verification'
     },
     test: {
         env: env,
@@ -103,7 +108,8 @@ var config = {
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
-        credentials: credentials || '/etc/portal16/credentials'
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/etc/portal16/verification'
     }
 };
 

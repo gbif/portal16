@@ -11,7 +11,16 @@ module.exports = function (app) {
     app.use('/occurrence', router);
 };
 
+
+router.get('/download/:key/card\.:ext?', function (req, res, next) {
+    renderDownload(req, res, next, 'pages/occurrence/download/key/downloadCardContent');
+});
+
 router.get('/download/:key\.:ext?', function (req, res, next) {
+    renderDownload(req, res, next, 'pages/occurrence/download/key/occurrenceDownloadKey');
+});
+
+function renderDownload(req, res, next, template) {
     var key = req.params.key,
         offset = req.query.offset || 0,
         limit = 500;
@@ -28,7 +37,7 @@ router.get('/download/:key\.:ext?', function (req, res, next) {
 
             if (!download.record.request.predicate) {
                 download.noFilters = true;
-                renderPage(req, res, next, download);
+                renderPage(req, res, next, download, template);
             } else {
                 downloadHelper.addChildKeys(download.record.request.predicate);
                 downloadHelper.addSyntheticTypes(download.record.request.predicate);
@@ -37,19 +46,27 @@ router.get('/download/:key\.:ext?', function (req, res, next) {
                 downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
                 downloadHelper.flattenSameType(download.record.request.predicate);
                 Promise.all(promiseList).then(function(){
-                    renderPage(req, res, next, download);
+                    renderPage(req, res, next, download, template);
                 });
             }
         } catch(err){
-            next(err);
+            if (err.type == 'NOT_FOUND') {
+                next();
+            } else {
+                next(err);
+            }
         }
 
     }, function(err){
-        next(err);
+        if (err.type == 'NOT_FOUND') {
+            next();
+        } else {
+            next(err);
+        }
     });
-});
+}
 
-function renderPage(req, res, next, download) {
+function renderPage(req, res, next, download, template) {
     try {
         if (req.params.ext == 'debug') {
             res.json(download);
@@ -57,7 +74,7 @@ function renderPage(req, res, next, download) {
             if (download.record.status == 'PREPARING' || download.record.status == 'RUNNING') {
                 res.setHeader('Cache-Control', 'no-cache');
             }
-            res.render('pages/occurrence/download/key/occurrenceDownloadKey', {
+            res.render(template, {
                 download: download,
                 title: 'Ocurrences',
                 _meta: {
