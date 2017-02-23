@@ -82,15 +82,15 @@ nature, PLOS, ... and
             <div class="container--desktop">
                 <div class="home__news">
                     <div class="text-center">
-                        <h1>News from the network</h1>
-                        <p>
-                            Stay up to date with what goes on in the network
-                        </p>
-                        <div>
-                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=event" class="gb-button--primary">Events</a>
-                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=news" class="gb-button--primary">News</a>
-                            <a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="gb-button--primary">Data use</a>
-                        </div>
+                        <h2>News from the network</h2>
+                        {#<p>#}
+                            {#Stay up to date with what goes on in the network#}
+                        {#</p>#}
+                        {#<div>#}
+                            {#<a href="{$ gb.locales.urlPrefix $}/cms/search?type=event" class="gb-button--brand">Events</a>#}
+                            {#<a href="{$ gb.locales.urlPrefix $}/cms/search?type=news" class="gb-button--brand">News</a>#}
+                            {#<a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="gb-button--brand">Data use</a>#}
+                        {#</div>#}
                     </div>
 
                     <div class="articles">
@@ -105,14 +105,16 @@ nature, PLOS, ... and
                                         <div class="article-box__tag">
                                             <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
                                         </div>
-                                        <h4 class="article-box__title">{{ newsStory.title }}</h4>
+                                        <h4 class="article-box__title">
+                                                {{ newsStory.title }}
+                                        </h4>
                                         <span class="article-box__footer">{{newsStory.created * 1000 | date:'longDate' }}</span>
                                     </div>
                                 </a>
                             </div>
 
                             <div ng-if="newsStory.type == 'event'">
-                                <a class="card__stripe">
+                                <a ng-href="/{{ newsStory.targetUrl }}" class="card__stripe">
                                     <div class="card__content date-box">
                                         <img ng-src="//api.gbif.org/v1/image/unsafe/500x330/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
                                              alt="" class="article-thumb invisible">
@@ -131,11 +133,15 @@ nature, PLOS, ... and
                                         <div class="article-box__tag">
                                             <span translate="cms.contentType.{{ newsStory.type }}" class="text-capitalize"></span>
                                         </div>
-                                        <h4 class="article-box__title">{{ newsStory.title }}</h4>
+                                        <h4 class="article-box__title">{{ newsStory.title | truncate:80 }}</h4>
+                                        <span class="article-box__footer">{{newsStory.dateText}}</span>
                                     </div>
                                 </a>
                             </div>
                         </article>
+                    </div>
+                    <div class="text-right">
+                        <a href="{$ gb.locales.urlPrefix $}/cms/search" class="gb-button--flat text-uppercase small">More</a>
                     </div>
 
                 </div>

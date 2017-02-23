@@ -51,7 +51,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         color white
         position relative
         &__hero-text {
-            padding vrBlock(7) 0
+            padding vrBlock(4) 0
         }
         h1 {
             max-width 700px
@@ -76,7 +76,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         }
     }
     &__news {
-        padding vrBlock(3) 0
+        padding vrBlock(2) 0
         //&__header {
         //    margin-bottom vrBlock(1)
         //    h2 {
@@ -171,7 +171,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         //padding-bottom 30%
         &__header {
             h1 {
-                font-size 50px
+                font-size 45px
             }
         }
     }
@@ -210,12 +210,14 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             font-size 12px
             margin-bottom 3px
             font-weight bold
+            color $orangePeel
         }
         &__title {
             font-weight 400
             font-size 16px
             line-height $lineHeightRatio
             margin 0
+            color #555
         }
         &__footer {
             font-size 12px
@@ -260,7 +262,9 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 
 .date-box {
     //background darkseagreen
-    background radial-gradient(farthest-corner at 30% 20%, #6cc7af 20%, #4a9c86 60%, #3e737d)
+    $radLighter = lighten(darkseagreen, 5)
+    $radDarker = darken(darkseagreen, 5)
+    background radial-gradient(farthest-corner at 30% 20%, $radLighter 20%, darkseagreen 60%, $radDarker)
     color white
     text-align center
     width 100%
