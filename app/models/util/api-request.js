@@ -49,14 +49,11 @@ function getData(cb, path, options) {
             }
         }
         //if not found or not status code 200
-        else if (response && response.statusCode !== 200) {
+        else if (response && response.statusCode > 299) {
             let error = {
                 errorResponse: response
             };
             switch (response.statusCode) {
-                case 204:
-                    error.errorType = ERRORS.NO_CONTENT;
-                    break;
                 case 400:
                     error.errorType = ERRORS.BAD_REQUEST;
                     break;
@@ -77,14 +74,9 @@ function getData(cb, path, options) {
             }
             cb(error, null);
         }
-
         //if no response data
         else if (!body) {
-            cb({
-                errorType: ERRORS.INVALID_RESPONSE,
-                errorResponse: err
-            }, null);
-            log.error('no response data ' + path);
+            cb(null, response);
         }
         else {
             if (options.type == 'XML') {

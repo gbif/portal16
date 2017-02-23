@@ -1,7 +1,8 @@
 'use strict';
 
 var baseConfig = require('../../../config/config'),
-    baseUrl = baseConfig.serverProtocol + baseConfig.dataApi;
+    baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
+    identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
 
 // TODO Establish URL concatenation policy. Always no trailing slash?
 var apiConfig = {
@@ -72,7 +73,7 @@ var apiConfig = {
         url: baseUrl + 'directory/participant?limit=300'
     },
     directoryParticipant: {
-        url: baseUrl + 'directory/participant'
+        url: baseUrl + 'directory/participant/'
     },
     directoryNode: {
         url: baseUrl + 'directory/node'
@@ -93,10 +94,16 @@ var apiConfig = {
         url: baseUrl + 'enumeration/country'
     },
     user: {
-        url: 'http://localhost:3000/api/user/'
+        url: identityBaseUrl + 'user'
+    },
+    userLogin: {
+        url: identityBaseUrl + 'user/login'
+    },
+    userLogout: {
+        url: identityBaseUrl + 'user/logout'
     },
     cookieNames: {
-        userSession: 'userSession'
+        userSession: 'USER_SESSION'
     }
 };
 

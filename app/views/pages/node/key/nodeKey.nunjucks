@@ -22,22 +22,122 @@
         </div>
         <div class="horizontal-stripe light-background">
             <div class="container--normal">
-                <div>
-                    <p class="small discreet text-uppercase">
-                        Participant information
-                    </p>
+                <div class="m-b-2">
                     <div class="card">
                         <div class="card__stripe">
-                            <div class="card__content">
-                                <dl>
-                                    <dt>Status</dt>
-                                    <dd>Other associate member</dd>
-                                </dl>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="card__content">
+                                            <h3>Participant</h3>
+                                            <dl class="inline">
+                                                <div>
+                                                    <dt>Member status</dt>
+                                                    <dd>{$ node.directoryParticipant.participationStatus $}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt>GBIF participant since</dt>
+                                                    <dd>{$ node.directoryParticipant.membershipStart | formatDate(gb.locales.current) $}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt>GBIF region</dt>
+                                                    <dd>{$ node.directoryParticipant.membershipStart | formatDate(gb.locales.current) $}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Head of delegation</dt>
+                                                    <dd><a href="#contributor_{$ node._computedValues.headOfDelegation._id $}">{$ node._computedValues.headOfDelegation.firstName $} {$ node._computedValues.headOfDelegation.lastName $}</a></dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Participant homepage</dt>
+                                                    <dd>
+                                                        <a href="{$ node.directoryParticipant.participantUrl $}">{$ node.directoryParticipant.participantUrl | truncate(30) $}</a>
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Social media</dt>
+                                                    <dd>
+                                                        {% for media in node.participant.data[0].socialMedia %}
+                                                            <a href="{$ media.url $}">{$ media.title | truncate(30) $}</a>
+                                                        {% endfor %}
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt>rssFeed</dt>
+                                                    <dd>
+                                                        {% for rssFeed in node.participant.data[0].rssFeed %}
+                                                            <a href="{$ rssFeed.url $}">{$ rssFeed.title | truncate(30) $}</a>
+                                                        {% endfor %}
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt>otherLinks</dt>
+                                                    <dd>
+                                                        {% for otherLink in node.participant.data[0].otherLinks %}
+                                                            <div><a href="{$ otherLink.url $}">{$ otherLink.url | truncate(30) $}</a></div>
+                                                        {% endfor %}
+                                                    </dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="card__content">
+                                            <h3>Node</h3>
+                                            <dl class="inline">
+                                                <div>
+                                                    <dt>Node name</dt>
+                                                    <dd>{$ node.record.title $}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Participant node manager</dt>
+                                                    <dd><a href="#contributor_{$ node._computedValues.nodeManager._id $}">{$ node._computedValues.nodeManager.firstName $} {$ node._computedValues.nodeManager.lastName $}</a></dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Node established</dt>
+                                                    <dd>{$ node.record.created | formatDate(gb.locales.current) $}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt>Node homepage</dt>
+                                                    <dd>
+                                                        {% for homepage in node.record.homepage %}
+                                                        <div><a href="{$ homepage $}">{$ homepage | truncate(30) $}</a></div>
+                                                        {% endfor %}
+                                                    </dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="m-t-2 nodeKey__contacts">
+                <div class="m-b-2">
+                    <p class="small discreet text-uppercase">
+                        About the participant
+                    </p>
+                    <div class="card">
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <h3>History</h3>
+                                {$ node.participant.data[0].history | safe $}
+                            </div>
+                            <div class="card__content">
+                                <h3>Vision</h3>
+                                {$ node.participant.data[0].visionMission | safe $}
+                            </div>
+                            <div class="card__content">
+                                <h3>Structure</h3>
+                                {$ node.participant.data[0].structure | safe $}
+                            </div>
+                            <div class="card__content">
+                                <h3>National funding</h3>
+                                {$ node.participant.data[0].nationalFunding | safe $}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-b-2 nodeKey__contacts">
                     <p class="small discreet text-uppercase">
                         Contacts
                     </p>

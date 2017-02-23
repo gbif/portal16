@@ -10,6 +10,7 @@ angular
 /** @ngInject */
 function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User) {
     var vm = this;
+    User.loadActiveUser();
 
     function updatePaginationCounts() {
         vm.offset = parseInt($stateParams.offset) || 0;
@@ -21,7 +22,7 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
     updatePaginationCounts();
 
     vm.getDownloads = function () {
-        var downloads = $http.get(endpoints.userDownloads, {params: {limit: vm.limit, offset: vm.offset}});
+        var downloads = $http.get(endpoints.userDownloads, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
         downloads.then(function (response) {
             vm.downloads = response.data;
         }, function (err) {
@@ -34,7 +35,7 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
 
     vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
-        $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: false, notify: true, reload: true});
+        $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: true, notify: true, reload: true});
     };
 
     vm.openHelpdesk = function () {

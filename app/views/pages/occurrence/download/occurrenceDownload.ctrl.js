@@ -14,7 +14,7 @@ angular
     .controller('occurrenceDownloadCtrl', occurrenceDownloadCtrl);
 
 /** @ngInject */
-function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $cookies) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -200,17 +200,8 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
         query.format = format;
         query.notification_address = email;
         var downloadUrl = endpoints.download + '?' + $httpParamSerializer(query);
-        var auth = btoa(username + ':' + password),
-            headers = {"Authorization": "Basic " + auth};
 
-        var req = {
-            method: 'GET',
-            url: downloadUrl,
-            transformResponse: undefined,
-            headers: headers
-        };
-
-        $http.get(req).then(function (response) {
+        $http.get(downloadUrl).then(function (response) {
             window.location.href = 'download/' + response.data;
         }, function(err) {
             //TODO alert user of failure
@@ -229,32 +220,34 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     //keep track of whether the user is logged in or not
     function setLoginState() {
-        vm.hasSessionCookie = !!$cookies.get('userSession');
+        vm.hasUser = !!$sessionStorage.user;
     }
     $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
         setLoginState();
     });
-
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
         setLoginState();
     });
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        setLoginState();
+    });
+    User.loadActiveUser();
     setLoginState();
-
 }
 
 
 angular.module('portal').controller('ModalInstanceCtrl', function ($uibModalInstance, format) {
     var $ctrl = this;
-    $ctrl.username;
-    $ctrl.password;
-    $ctrl.email;
+    //$ctrl.username;
+    //$ctrl.password;
+    //$ctrl.email;
     $ctrl.format = format;
 
     $ctrl.ok = function () {
         $uibModalInstance.close({
-            username: $ctrl.username,
-            password: $ctrl.password,
-            email: $ctrl.email,
+            //username: $ctrl.username,
+            //password: $ctrl.password,
+            //email: $ctrl.email,
             format: $ctrl.format
         });
     };

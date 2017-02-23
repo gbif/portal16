@@ -1,16 +1,14 @@
 "use strict";
 var _ = require('lodash'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    cmsConfig = rootRequire('app/models/cmsData/apiConfig'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    helper = rootRequire('app/models/util/util'),
-    async = require('async');
+    helper = rootRequire('app/models/util/util');
 
 function getCountryData(countryCode, cb) {
-
     Node.getByCountryCode(countryCode, {expand: ['participant', 'news', 'events', 'dataUse']}).then(function (node) {
         if (!_.isUndefined(_.get(node, 'participant.errorType'))) {
-            cb(node.participant);
+            delete node.participant;
+            cb(null, node);
         } else {
             var rssFeed = _.get(node, 'participant.data[0].rssFeed[0].url');
             if (!rssFeed) {

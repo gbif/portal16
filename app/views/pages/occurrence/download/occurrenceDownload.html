@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <!--TODO this area should only be VISIBLE if logged in. Else show login box . but until we have user mangement, then just allow people to enter login info-->
-                    <div class="download-report m-t-2" Xng-if="occDownload.hasSessionCookie">
+                    <div class="download-report m-t-2" ng-if="occDownload.hasUser">
                         <div ng-if="!occDownload.stateParams.params.q && !occDownload.hasData()" class="discreet text-center">
                             <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                             <div class="discreet">
@@ -234,9 +234,9 @@
                         </div>
                     </div>
 
-                    <!--<div class="card card&#45;&#45;login m-t-1" ng-if="!occDownload.hasSessionCookie">-->
-                        <!--<div user-login></div>-->
-                    <!--</div>-->
+                    <div class="card card--login m-t-1" ng-if="!occDownload.hasUser">
+                        <div user-login></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -255,29 +255,30 @@
                 </p>
             </div>
             <!--TODO temporarily require username password instead of login-->
-            <div class="horizontal-stripe light-background seperator seperator--b">
-                <div class="gb-modal-body__content">
-                    <p>
-                        Please enter your credentials. Don't have any? You need to <a
-                            href="http://www.gbif.org/user/register">create an account first</a>.
-                    </p>
-                    <div class="search-box">
-                        <input type="text" placeholder="username" ng-model="$ctrl.username">
-                    </div>
-                    <div class="search-box m-t-1">
-                        <input type="password" placeholder="password" ng-model="$ctrl.password">
-                    </div>
-                    <div class="search-box m-t-1">
-                        <input type="text" placeholder="notification e-mail address" ng-model="$ctrl.email">
-                    </div>
-                </div>
-            </div>
+            <!--<div class="horizontal-stripe light-background seperator seperator&#45;&#45;b">-->
+                <!--<div class="gb-modal-body__content">-->
+                    <!--<p>-->
+                        <!--Please enter your credentials. Don't have any? You need to <a-->
+                            <!--href="http://www.gbif.org/user/register">create an account first</a>.-->
+                    <!--</p>-->
+                    <!--<div class="search-box">-->
+                        <!--<input type="text" placeholder="username" ng-model="$ctrl.username">-->
+                    <!--</div>-->
+                    <!--<div class="search-box m-t-1">-->
+                        <!--<input type="password" placeholder="password" ng-model="$ctrl.password">-->
+                    <!--</div>-->
+                    <!--<div class="search-box m-t-1">-->
+                        <!--<input type="text" placeholder="notification e-mail address" ng-model="$ctrl.email">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
         </div>
         <div class="gb-modal-footer">
             <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Cancel</a>
-            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()"
-               ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>
+            <!--<a href="" class="gb-button&#45;&#45;primary" type="button" ng-click="$ctrl.ok()"-->
+               <!--ng-class="{invisible: !$ctrl.username || !$ctrl.password || !$ctrl.email}">Understood</a>-->
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood</a>
         </div>
     </script>
 </div>

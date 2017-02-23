@@ -39,14 +39,14 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets) {
     };
     vm.getDatasets();
 
-    //vm.pageChanged = function() {
+    //vm.endorsedPageChanged = function() {
     //    vm.offset = (vm.currentPage - 1) * vm.limit;
     //    $location.hash('datasets');
     //    $scope.$watchCollection($location.search('offset', vm.offset), function () {
     //        $window.location.reload();
     //    })
     //};
-    //
+
     //vm.setInitials = function(offset, limit, key) {
     //    vm.offset = offset || 0;
     //    vm.limit = limit;

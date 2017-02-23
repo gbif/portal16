@@ -2,6 +2,7 @@
 
 var resource = require('../resource'),
     cmsConfig = require('../../cmsData/apiConfig'),
+    apiConfig = require('../../gbifdata/apiConfig'),
     _ = require('lodash'),
     api = require('../apiConfig');
 
@@ -57,12 +58,17 @@ Node.prototype.expand = function (fieldNames) {
     let identifier = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
     let participantId = _.get(identifier, 'identifier');
     if (typeof participantId !== 'undefined') {
-        console.log(participantId);
+
         resourceLookup.participant = {
             resource: cmsConfig.participant.url + participantId,
-            extendToField: 'participant',
-            options: {failHard: false}//unclear if this should rather fail hard
-        }
+            extendToField: 'participant'
+            //options: {failHard: false}//unclear if this should rather fail hard
+        };
+
+        resourceLookup.directoryParticipant = {
+            resource: apiConfig.directoryParticipant.url + participantId,
+            extendToField: 'directoryParticipant'
+        };
     }
 
     fieldNames.forEach(function (e) {

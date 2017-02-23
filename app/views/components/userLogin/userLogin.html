@@ -22,12 +22,12 @@
                 <!--<img src=""></div>-->
             <!--</div>-->
             <div>
-                <div style="font-size:16px">{{vm.user.userName}}</div>
-                <div class="discreet small">{{vm.user.firstName}} {{vm.user.lastName}}</div>
+                <div class="body-text">{{vm.user.firstName}} {{vm.user.lastName}}</div>
+                <!--<div class="discreet small">{{vm.user.firstName}} {{vm.user.lastName}}</div>-->
             </div>
             <div class="m-t-1">
-                <a href="/user/profile" class="gb-button--brand text-uppercase">Profile</a>
-                <a href="" class="gb-button--flat pull-right text-uppercase small" ng-click="vm.logout()">Logout</a>
+                <a href="" class="gb-button--flat text-uppercase small" ng-click="vm.logout()">Logout</a>
+                <a href="/user/profile" class="gb-button--brand pull-right text-uppercase">Profile</a>
             </div>
         </div>
     </div>

@@ -7,22 +7,21 @@ angular
     .controller('userCtrl', userCtrl);
 
 /** @ngInject */
-function userCtrl(User, $cookies, $sessionStorage, $window, $scope, AUTH_EVENTS) {
+function userCtrl(User, $sessionStorage, $window, $scope, AUTH_EVENTS) {
     var vm = this;
 
-    vm.loggedIn = !!$cookies.get('userSession');
     var activeUser = User.loadActiveUser();
     if (activeUser) {
         activeUser.then(function(){
-            vm.loggedIn = true;
+            vm.profile = $sessionStorage.user;
         }, function(){
-            vm.loggedIn = false;
+            vm.profile = $sessionStorage.user;
         });
     } else {
-        vm.loggedIn = false;
+        vm.profile = $sessionStorage.user;
     }
 
-    vm.user = $sessionStorage.user;
+    vm.profile = $sessionStorage.user;
     vm.logout = function () {
         var logout = User.logout();
         logout.then(function () {
@@ -34,13 +33,15 @@ function userCtrl(User, $cookies, $sessionStorage, $window, $scope, AUTH_EVENTS)
 
     $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
         $window.location.reload();
-        vm.loggedIn = false;
-        vm.user = $sessionStorage.user;
+        vm.profile = $sessionStorage.user;
     });
 
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
-        vm.loggedIn = true;
-        vm.user = $sessionStorage.user;
+        vm.profile = $sessionStorage.user;
+    });
+
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function () {
+        vm.profile = $sessionStorage.user;
     });
 }
 

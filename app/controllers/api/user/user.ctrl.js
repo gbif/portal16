@@ -5,57 +5,73 @@ var express = require('express'),
     request = require('request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     user = require('./user'),
-    router = express.Router();
+    router = express.Router(),
+    minute = 60000,
+    hour =  60*minute,
+    day = 24*hour;
     //verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
 
 module.exports = function (app) {
     app.use('/api/user', router);
 };
 
+router.get('/', function (req, res) {
+    var cookie = req.cookies[apiConfig.cookieNames.userSession];
+    if (cookie) {
+        user.getUser(req, res);
+    } else {
+        res.setHeader('Cache-Control', 'no-cache');
+        res.status(204);//Perhaps this should be 401 - unknown credentials, but on the other hand there is no credentials presented. it is used as a ping - am I logged in?
+        res.send('Not logged in');
+    }
+});
+
+router.get('/login', function (req, res) {
+    user.login(req, res);
+});
+
+router.get('/logout', function (req, res) {
+    user.logout(req, res);
+});
+
 router.get('/usersDownloads', function (req, res) {
-    res.status(401);//TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
-    res.send('NOT IMPLEMENTED');
-    //var cookie = req.cookies[apiConfig.cookieNames.userSession];
-    //if (cookie) {
-    //    res.setHeader('Cache-Control', 'no-cache');
-    //
-    //    user.getDownloads(cookie, req.query).then(
-    //        function (downloads) {
-    //            res.json(downloads);
-    //        },
-    //        function (err) {
-    //            console.log(err);
-    //            res.status(401);//TODO depdends on the error
-    //            res.send('Download failed. please try again later.');
-    //        }
-    //    );
-    //} else {
-    //    res.status(401);
-    //    res.json('You need to sign in before downloading');
-    //}
+    var cookie = req.cookies[apiConfig.cookieNames.userSession];
+    if (cookie) {
+        res.setHeader('Cache-Control', 'private, max-age=' + minute*5);
+
+        user.getDownloads(cookie, req.query).then(
+            function (downloads) {
+                res.json(downloads);
+            },
+            function (err) {
+                res.status(401);//TODO depdends on the error
+                res.send('Download failed. please try again later.');
+            }
+        );
+    } else {
+        res.status(401);
+        res.json('You need to sign in before downloading');
+    }
 });
 
 router.get('/download', function (req, res) {
-    res.status(401);//TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
-    res.send('NOT IMPLEMENTED');
-    //var cookie = req.cookies[apiConfig.cookieNames.userSession];
-    //if (cookie) {
-    //    res.setHeader('Cache-Control', 'no-cache');
-    //
-    //    user.simpleDownload(cookie, req.query).then(
-    //        function (download) {
-    //            res.send(download);
-    //        },
-    //        function (err) {
-    //            console.log(err);
-    //            res.status(401);//TODO depdends on the error
-    //            res.send('Download failed. please try again later.');
-    //        }
-    //    );
-    //} else {
-    //    res.status(401);
-    //    res.send('You need to sign in before downloading');
-    //}
+    var cookie = req.cookies[apiConfig.cookieNames.userSession];
+    if (cookie) {
+        res.setHeader('Cache-Control', 'no-cache');
+
+        user.simpleDownload(cookie, req.query).then(
+            function (download) {
+                res.send(download);
+            },
+            function (err) {
+                res.status(401);//TODO depdends on the error
+                res.send('Download failed. please try again later.');
+            }
+        );
+    } else {
+        res.status(401);
+        res.send('You need to sign in before downloading');
+    }
 });
 
 
@@ -94,35 +110,6 @@ router.post('/create', function (req, res) {
 });
 
 //mocks
-router.get('/', function (req, res) {
-    res.status(401);
-    res.send('NOT IMPLEMENTED');
-    //var cookie = req.cookies.userSession;
-    //if (cookie) {
-    //    res.setHeader('Cache-Control', 'no-cache');
-    //    setTimeout(function () {
-    //        res.json(mockUser);
-    //    }, responseDelay);
-    //} else {
-    //    res.status(401);
-    //    setTimeout(function () {
-    //        res.json('you are not logged in');
-    //    }, responseDelay);
-    //}
-});
-
-router.get('/login', function (req, res) {
-    res.status(401);
-    res.send('NOT IMPLEMENTED');
-    //var randomNumber = Math.random().toString();
-    //randomNumber = randomNumber.substring(2, randomNumber.length);
-    //res.cookie('userSession', randomNumber, {maxAge: 3600000});
-    //res.setHeader('Cache-Control', 'no-cache');
-    //
-    //setTimeout(function () {
-    //    res.json(mockUser);
-    //}, responseDelay);
-});
 
 router.get('/reset', function (req, res) {
     res.status(401);
@@ -139,15 +126,5 @@ router.post('/:userKey/updatePassword', function (req, res) {
     //res.status(204);
     //setTimeout(function () {
     //    res.json('you password has been updated');
-    //}, responseDelay);
-});
-
-router.get('/logout', function (req, res) {
-    res.status(401);
-    res.send('NOT IMPLEMENTED');
-    //res.status(204);
-    //res.cookie('userSession', '', {maxAge: 1});
-    //setTimeout(function () {
-    //    res.json('you are logged out. cookie is no longer usable');
     //}, responseDelay);
 });

@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function userProfileCtrl(User) {
     var vm = this;
-    vm.test = 'hej';
+    User.loadActiveUser();
 }
 
 module.exports = userProfileCtrl;

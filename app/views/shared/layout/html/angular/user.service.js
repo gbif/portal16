@@ -19,40 +19,22 @@
                 var that = this;
 
                 that.loadActiveUser = function () {
-                    if ($cookies.get('userSession')) {
-                        var activeUser = $http.get('/api/user');
-                        activeUser.then(function (response) {
-                            $sessionStorage.user = response.data;
-                            $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
-                        }, function () {
-                            setGuestUser();
-                            $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
-                        });
-                        return activeUser;
-                    } else {
-                        setGuestUser();
+                    var activeUser = $http.get('/api/user');
+                    activeUser.then(function (response) {
+                        $sessionStorage.user = response.data;
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
-                    }
+                    }, function () {
+                        delete $sessionStorage.user;
+                        $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
+                    });
+                    return activeUser;
                 };
 
                 that.loadStorageUser = function () {
-                    if ($cookies.get('userSession')) {
-                        if (isGuestUser()) {
-                            that.loadActiveUser();
-                        }
-                    } else {
-                        setGuestUser();
+                    if (!$sessionStorage.user) {
+                        that.loadActiveUser();
                     }
                 };
-
-                function isGuestUser() {
-                    return _.isUndefined($sessionStorage.user);
-                }
-
-                function setGuestUser() {
-                    $cookies.remove('userSession');
-                    delete $sessionStorage.user;
-                }
 
                 that.createUser = function (body) {
                     var creation = $http.post('/api/user/create', body);
@@ -69,12 +51,12 @@
 
                 that.login = function (username, password) {
                     var authData = $window.btoa(username + ':' + password);
-                    $http.defaults.headers.common['Authorization'] = 'Basic ' + authData;
                     var userLogin = $http.get('/api/user/login', {
                     //var userLogin = $http.get('http://labs.gbif-dev.org:7002/user/login', {
                         headers: {'Authorization': 'Basic ' + authData}
                     });
                     userLogin.then(function (response) {
+                        console.log(response);
                         $sessionStorage.user = response.data;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS);
                         //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
@@ -84,21 +66,17 @@
                     return userLogin;
                 };
 
-
                 that.logout = function () {
-                    setGuestUser();
+                    console.log('logging out ');
                     var logout = $http.get('/api/user/logout');
                     logout.then(function () {
+                        delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
                         //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
                     }, function () {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });
                     return logout;
-                };
-
-                that.logoutAll = function () {
-
                 };
 
                 that.resetPassword = function () {

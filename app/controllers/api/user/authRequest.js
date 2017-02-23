@@ -26,14 +26,13 @@ function requestPromise(queryOptions) {
 }
 
 function getUser(userSessionCookie) {
-    var cookie = request.cookie(apiConfig.cookieNames.userSession + '=' + userSessionCookie),
-        userRequest = {
+    var userRequest = {
             url: apiConfig.user.url,
             retries: 5,
             timeout: 30000,
             method: 'GET',
             headers: {
-                Cookie: cookie
+                'x-gbif-user-session': userSessionCookie
             },
             failHard: true
         };
@@ -83,5 +82,6 @@ function authenticatedRequest(cookie, options) {
 
 module.exports = {
     authenticatedRequest: authenticatedRequest,
-    getUser: getUser
+    getUser: getUser,
+    requestPromise: requestPromise
 };

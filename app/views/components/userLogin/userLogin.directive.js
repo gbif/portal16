@@ -1,6 +1,6 @@
 'use strict';
 
-require('../../shared/layout/html/angular/user.service')
+require('../../shared/layout/html/angular/user.service');
 
 var angular = require('angular'),
     _ = require('lodash');
