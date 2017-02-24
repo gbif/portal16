@@ -271,7 +271,7 @@ function createMap(element) {
     var map = L.map(mapElement, {
         crs: L.CRS.EPSG4326,
         scrollWheelZoom: false
-    }).setView(new L.LatLng(0, 0), 1);
+    }).fitWorld();
 
     if (!globe) {
         globe = globeCreator(globeCanvas, {
@@ -282,7 +282,6 @@ function createMap(element) {
     map.on('move', function () {
         globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
     });
-    map.fitWorld().zoomIn();
 
 
     //var geoJ = {
@@ -341,7 +340,8 @@ function changeBaseMap(map) {
 function addOverLays(map, query) {
     var queryParam = query.basisOfRecord;
     delete query.basisOfRecord;
-    var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
+    //var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
+    var conf = {srs: 'EPSG:4326'};
 
     var optionsA = angular.extend({}, conf, query);
     //optionsA.style = "outline.poly";
