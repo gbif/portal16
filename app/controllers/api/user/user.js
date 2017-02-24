@@ -78,6 +78,9 @@ function login(req, res) {
                 httpOnly: true
             }
         );
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Pragma', 'no-cache');
+        res.header('Expires', '0');
         res.send(data.user);//only send the user data, not the token. it shouldn't be accessible through JS
     }, function(err){
         errorUnwrapper(res, err);
@@ -101,7 +104,9 @@ function logout(req, res) {
 
 function getUser(req, res) {
     cookieRequest(req, apiConfig.user.url).then(function(data){
-        res.setHeader('Cache-Control', 'no-cache');
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Pragma', 'no-cache');
+        res.header('Expires', '0');
         res.json(data);
     }, function(err){
         errorUnwrapper(res, err);

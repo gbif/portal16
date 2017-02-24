@@ -12,9 +12,15 @@ router.get('/', function (req, res) {
 });
 
 router.get('/profile', function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Pragma', 'no-cache');
+    res.header('Expires', '0');
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 router.get('/download', function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Pragma', 'no-cache');
+    res.header('Expires', '0');
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 
