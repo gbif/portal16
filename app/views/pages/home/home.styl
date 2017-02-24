@@ -128,11 +128,22 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             }
         }
     }
-    &__map {
-        height 80vh
-        gbmap {
-            height 100%
-            width 100%
+    &__about--columns {
+        columns 2 10px 30px
+    }
+    &__rss {
+        &__description {
+            font-size 14px
+            span {
+                display block
+                float right
+            }
+        }
+        &__item {
+            &:hover {
+                background white
+            }
+            border-bottom 1px solid $stripeBorderColor
         }
     }
     

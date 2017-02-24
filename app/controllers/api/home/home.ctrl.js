@@ -5,9 +5,9 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
-    getGeoIp = rootRequire('app/helpers/utils').getGeoIp,
+    Node = rootRequire('app/models/gbifdata/gbifdata').Node,
     async = require('async'),
-    cmsConfig = rootRequire('app/models/cmsData/apiConfig'),
+    minute = 60000,
     cmsSearchUrl = rootRequire('app/models/cmsData/apiConfig').search.url;
 
 module.exports = function (app) {
@@ -19,6 +19,7 @@ router.get('/home/upcomingEvents', function (req, res) {
         upcomingEventsUrl = cmsSearchUrl + '?filter[type]=event&filter[ge_date_ical:value][value]=' + now + '&filter[ge_date_ical:value][operator]=%22%3E%22&sort=dateStart&range=3';
 
     cmsSearch(upcomingEventsUrl).then(function (data) {
+        res.setHeader('Cache-Control', 'public, max-age=' + minute*20);
         res.json(data);
     }, function () {
         res.status(500);
@@ -29,64 +30,45 @@ router.get('/home/upcomingEvents', function (req, res) {
     });
 });
 
-router.get('/home/localrss', function (req, res) {
-    res.status(500);
-    res.send('NOT IMPLEMETED - druapl api changed and the endpoint have not been updated to match');
-    ////endpoint allows for mocking ip queries eg http://localhost:7000/api/utils/localrss?mockip=89.114.136.105 is portugal
-    //let ip = req.query.mockip || req.clientIp || '',
-    //    country = getGeoIp(ip), //look up ip in max mind database to get geoip info
-    //    isoCode = _.get(country, 'country.iso_code');
-    //
-    //var participantId,
-    //    participant = countryCodeToDrupalId[isoCode]; //
-    //
-    //if (typeof participant !== 'undefined') {
-    //    var tasks = {};
-    //    participantId = participant.Nid;
-    //    tasks.participant = function (callback) {
-    //        helper.getApiData(cmsConfig.participant.url + participantId, callback, {failHard: true});
-    //    };
-    //    tasks.nodeFeed = [
-    //        'participant', function (results, callback) {
-    //            var rssFeed = _.get(results, 'participant.data[0].rssFeed[0].url');
-    //            if (typeof results.participant.errorType !== 'undefined' || !rssFeed) {
-    //                callback(null, null);
-    //            } else {
-    //                helper.getApiData(rssFeed, callback, {
-    //                    failHard: true,
-    //                    retries: 1,
-    //                    timeoutMilliSeconds: 5000,
-    //                    type: 'XML'
-    //                });
-    //            }
-    //        }
-    //    ];
-    //
-    //    async.auto(tasks, function (err, results) {
-    //        if (err) {
-    //            res.status(500);
-    //            res.send('unable to get feed');
-    //        } else {
-    //            var rssItem = _.get(results, 'nodeFeed.rss.channel[0].item[0]');
-    //            if (rssItem) {
-    //                rssItem.pubDate = format.date(_.get(rssItem, 'pubDate[0]', ''), '');
-    //                rssItem.title = _.get(rssItem, 'title[0]', '');
-    //                rssItem.description = _.get(rssItem, 'description[0]', '');
-    //                rssItem.description = format.removeHtml(rssItem.description);
-    //                rssItem.link = _.get(rssItem, 'link[0]', '');
-    //                res.json(rssItem);
-    //            } else {
-    //                res.status(500);
-    //                res.send('unable to get feed');
-    //            }
-    //
-    //        }
-    //    });
-    //} else {
-    //    res.status(500);
-    //    res.send('unable to get feed');
-    //}
+router.get('/home/rss/:countryCode', function (req, res) {
+    var countryCode = req.params.countryCode;
+    var limit = req.query.limit || 4;
+    if (!_.isUndefined(countryCode)) {
+        Node.getByCountryCode(countryCode, {expand: ['participant']}).then(function (node) {
+            var rssFeed = _.get(node, 'participant.data[0].rssFeed[0].url');
+            if (!rssFeed) {
+                res.status(204);
+                res.send();
+            } else {
+                helper.getApiData(rssFeed, function(err, rssData) {
+                    if (err || rssData.errorType) {
+                        res.status(204);
+                        res.send();
+                    } else {
+                        res.setHeader('Cache-Control', 'public, max-age=' + minute*20);
+                        res.json(getCleanFeed(rssData, limit, countryCode));
+                    }
+                }, {retries: 1, timeoutMilliSeconds: 3000, type: 'XML', failHard: true});
+            }
+        });
+    } else {
+        res.status(204);
+        res.send();
+    }
 });
+
+function getCleanFeed(feed, limit, countryCode) {
+    var rssItems = _.get(feed, 'rss.channel[0].item', []);
+    rssItems = _.slice(rssItems, 0, limit);
+    rssItems.forEach(function(rssItem){
+        rssItem.pubDate = format.date(_.get(rssItem, 'pubDate[0]', ''), ''); //TODO localize results based on rss ? on site language?
+        rssItem.title = format.removeHtml(_.get(rssItem, 'title[0]', ''));
+        rssItem.description = _.get(rssItem, 'description[0]', '');
+        rssItem.description = format.removeHtml(rssItem.description).slice(0, 200);
+        rssItem.link = _.get(rssItem, 'link[0]', '');
+    });
+    return rssItems;
+}
 
 function cmsSearch(requestedUrl) {
     "use strict";
