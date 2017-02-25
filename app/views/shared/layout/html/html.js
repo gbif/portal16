@@ -106,7 +106,7 @@ require('./angular/enums.constants');
 require('./angular/country.resource');
 require('./angular/node.resource');
 
-require('./angular/directives/onload.directive');
+require('./angular/directives/onLoad/onload.directive');
 
 require('../partials/userMenu/userMenu.directive');
 require('../partials/feedback/feedback.directive');
