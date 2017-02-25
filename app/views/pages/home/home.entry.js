@@ -8,10 +8,7 @@ angular
 function homeCtrl($http, OccurrenceSearch, env) {
     var vm = this;
     vm.imageCache = env.imageCache;
-    vm.mapView = {
-        center: [0, 0],
-        zoom: 0
-    };
+    vm.mapView = undefined;
     vm.mapOptions = {
         points: true
     };
@@ -92,3 +89,4 @@ function homeCtrl($http, OccurrenceSearch, env) {
 }
 
 module.exports = homeCtrl;
+

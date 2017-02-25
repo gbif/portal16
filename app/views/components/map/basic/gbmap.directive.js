@@ -255,7 +255,7 @@ function gbmapDirective() {
         };
 
         $scope.$watch(function() { return vm.mapView; }, function() {
-            if (map) {
+            if (map && vm.mapView) {
                 map.setView(new L.LatLng(vm.mapView.center[0], vm.mapView.center[1]), vm.mapView.zoom);
             }
         });
