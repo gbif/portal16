@@ -91,3 +91,20 @@ gbmap {
         width 150px
     }
 }
+
+.map__lockedRatio {
+    width 100%
+    height 0
+    padding-bottom calc(50% - 20px)
+    position relative
+    >div {
+        position absolute
+        top 0
+        right 0
+        left 0
+        bottom 0
+        >gbmap {
+            height 100%
+        }
+    }
+}

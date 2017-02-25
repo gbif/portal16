@@ -23,7 +23,9 @@ function gbmapDirective() {
             publishingOrg: '=',
             country: '=',
             publishingCountry: '=',
-            mapstyle: '='
+            mapstyle: '=',
+            mapView: '=',
+            mapOptions: '='
         },
         link: mapLink,
         controller: gbmap,
@@ -44,6 +46,7 @@ function gbmapDirective() {
             overlays = [],
             map;
 
+        vm.mapOptions = vm.mapOptions || {};
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
@@ -168,7 +171,7 @@ function gbmapDirective() {
             overlays.forEach(function (layer) {
                 map.removeLayer(layer);
             });
-            overlays = addOverLays(map, getMapQuery());
+            overlays = addOverLays(map, getMapQuery(), vm.mapOptions.points);
         };
 
         function getMapQuery() {
@@ -250,6 +253,12 @@ function gbmapDirective() {
         vm.toggleProjection = function () {
             vm.toggleControls('projection');
         };
+
+        $scope.$watch(function() { return vm.mapView; }, function() {
+            if (map) {
+                map.setView(new L.LatLng(vm.mapView.center[0], vm.mapView.center[1]), vm.mapView.zoom);
+            }
+        });
     }
 }
 
@@ -282,6 +291,7 @@ function createMap(element) {
     map.on('move', function () {
         globe.setCenter(map.getCenter().lat, map.getCenter().lng, map.getZoom());
     });
+    window.map = map;
 
 
     //var geoJ = {
@@ -337,11 +347,14 @@ function changeBaseMap(map) {
     baseMap.addTo(map);
 }
 
-function addOverLays(map, query) {
+function addOverLays(map, query, points) {
     var queryParam = query.basisOfRecord;
     delete query.basisOfRecord;
-    //var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
-    var conf = {srs: 'EPSG:4326'};
+
+    var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
+    if (points) {
+        var conf = {srs: 'EPSG:4326'};
+    }
 
     var optionsA = angular.extend({}, conf, query);
     //optionsA.style = "outline.poly";

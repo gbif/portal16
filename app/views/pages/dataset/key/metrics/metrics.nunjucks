@@ -220,7 +220,11 @@
                 </div>
             </div>
             <div class="container--desktop--snap-to-edges">
-                <gbmap style="height:500px" dataset-key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+                <div class="map__lockedRatio">
+                    <div>
+                        <gbmap dataset-key="'{$ dataset.record.key $}'" mapstyle="'light'"></gbmap>
+                    </div>
+                </div>
 
                 {#<div>#}
                 {#<div class="card" style="margin:20px">#}
