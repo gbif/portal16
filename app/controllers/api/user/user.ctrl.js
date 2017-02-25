@@ -2,13 +2,9 @@
 
 //TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
 var express = require('express'),
-    request = require('request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     user = require('./user'),
-    router = express.Router(),
-    minute = 60000,
-    hour =  60*minute,
-    day = 24*hour;
+    router = express.Router();
     //verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
 
 module.exports = function (app) {
@@ -43,7 +39,7 @@ router.get('/usersDownloads', function (req, res) {
             function (downloads) {
                 res.json(downloads);
             },
-            function (err) {
+            function () {
                 res.status(401);//TODO depdends on the error
                 res.send('Download failed. please try again later.');
             }
@@ -63,7 +59,7 @@ router.get('/download', function (req, res) {
             function (download) {
                 res.send(download);
             },
-            function (err) {
+            function () {
                 res.status(401);//TODO depdends on the error
                 res.send('Download failed. please try again later.');
             }

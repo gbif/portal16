@@ -6,9 +6,7 @@ var express = require('express'),
     queryResolver = require('./queryResolver'),
     router = express.Router(),
     downloadHelper = require('./downloadKeyHelper'),
-    minute = 60000,
-    hour =  60*minute,
-    day = 24*hour;
+    minute = 60000;
 
 module.exports = function (app) {
     app.use('/occurrence', router);

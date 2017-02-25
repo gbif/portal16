@@ -16,9 +16,9 @@ function updatePasswordCtrl(User) {
             User.updatePassword(vm.userKey, {
                 password: vm.pw,
                 token: vm.token
-            }).then(function (data) {
+            }).then(function () {
                 //will redirect from User service
-            }, function (err) {
+            }, function () {
                 //TODO inform user that the attept to update the password faild. toast probably
             });
         } else {

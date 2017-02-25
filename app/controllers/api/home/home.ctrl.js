@@ -6,7 +6,6 @@ let express = require('express'),
     format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
     Node = rootRequire('app/models/gbifdata/gbifdata').Node,
-    async = require('async'),
     minute = 60000,
     Chance = require('chance'),
     chance = new Chance(),
@@ -67,7 +66,7 @@ router.get('/home/node/:countryCode', function (req, res) {
     }
 });
 
-function getCleanFeed(feed, limit, countryCode) {
+function getCleanFeed(feed, limit) {
     var rssItems = _.get(feed, 'rss.channel[0].item', []);
     rssItems = _.slice(rssItems, 0, limit);
     rssItems.forEach(function (rssItem) {

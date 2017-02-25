@@ -18,9 +18,8 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets) {
             function(response){
                 vm.endorsed = response;
             },
-            function(err){
+            function(){
                 //TODO handle errors
-                console.log('error needs proper handling');
             }
         );
     };
@@ -31,9 +30,8 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets) {
             function(response){
                 vm.datasets = response;
             },
-            function(err){
+            function(){
                 //TODO handle errors
-                console.log('error needs proper handling');
             }
         );
     };

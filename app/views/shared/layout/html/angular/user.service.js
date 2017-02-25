@@ -1,7 +1,6 @@
 (function () {
     'use strict';
-    var angular = require('angular'),
-        _ = require('lodash');
+    var angular = require('angular');
 
     angular
         .module('portal')
@@ -40,11 +39,11 @@
                     var creation = $http.post('/api/user/create', body);
                     creation.then(function () {
                         var url = $location.url();
-                        console.log(url);
                         $cookies.put('userCreationUrl', url, {
                             path: '/'
                         });
-                    }, function (err) {
+                    }, function () {
+                        //TODO inform of failed creation
                     });
                     return creation;
                 };
@@ -56,7 +55,6 @@
                         headers: {'Authorization': 'Basic ' + authData}
                     });
                     userLogin.then(function (response) {
-                        console.log(response);
                         $sessionStorage.user = response.data;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS);
                         //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
@@ -67,7 +65,6 @@
                 };
 
                 that.logout = function () {
-                    console.log('logging out ');
                     var logout = $http.get('/api/user/logout');
                     logout.then(function () {
                         delete $sessionStorage.user;
@@ -89,7 +86,8 @@
                     updatePassword.then(function () {
                         $location.url('/user/login');
                         $window.location.reload();
-                    }, function (err) {
+                    }, function () {
+                        //TODO inform user of failed update. toast?
                     });
                     return updatePassword;
                 };

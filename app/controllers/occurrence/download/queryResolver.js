@@ -43,10 +43,6 @@ let queryResolver = {
         type: 'ENUM',
         valueTranslation: 'occurrenceIssue.'
     },
-    issue: {
-        type: 'ENUM',
-        valueTranslation: 'occurrenceIssue.'
-    },
     typeStatus: {
         type: 'ENUM',
         valueTranslation: 'typeStatus.'

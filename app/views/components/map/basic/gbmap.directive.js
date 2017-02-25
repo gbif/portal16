@@ -353,7 +353,7 @@ function addOverLays(map, query, points) {
 
     var conf = {style: "classic.poly", bin: "hex", "hexPerTile": 25, srs: 'EPSG:4326'};
     if (points) {
-        var conf = {srs: 'EPSG:4326'};
+        conf = {srs: 'EPSG:4326'};
     }
 
     var optionsA = angular.extend({}, conf, query);

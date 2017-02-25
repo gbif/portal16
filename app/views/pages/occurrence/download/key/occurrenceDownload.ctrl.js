@@ -18,7 +18,7 @@ function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_E
     };
 
     vm.openAboutStorage = function (format) {
-        var modalInstance = $uibModal.open({
+        $uibModal.open({
             animation: true,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -31,15 +31,9 @@ function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_E
                 }
             }
         });
-
-        modalInstance.result.then(function (downloadOptions) {
-            //vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
-        }, function () {
-            //user clicked cancel
-        });
     };
 
-    vm.pageChanged = function() {
+    vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;
         $location.hash('datasets');
         $scope.$watchCollection($location.search('offset', vm.offset), function () {
@@ -47,7 +41,7 @@ function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_E
         })
     };
 
-    vm.setInitials = function(offset, limit, key) {
+    vm.setInitials = function (offset, limit, key) {
         vm.offset = offset || 0;
         vm.limit = limit;
         vm.key = key;

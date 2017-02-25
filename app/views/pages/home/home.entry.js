@@ -23,7 +23,7 @@ function homeCtrl($http, OccurrenceSearch, env) {
     function getLatest() {
         var geoip = $http.get('/api/utils/geoip/country');
         geoip.then(function (response) {
-            vm.country = response.data;//'DK';
+            vm.country = response.data;
             //to avoid too much offset cap latitude
             vm.country.location[0] = Math.min(vm.country.location[0], 40);
             vm.country.location[0] = Math.max(vm.country.location[0], -40);
@@ -42,10 +42,9 @@ function homeCtrl($http, OccurrenceSearch, env) {
             }, function () {
                 //TODO ignore failures as this is optional anyhow
             });
-        }, function (err) {
         });
 
-        geoip.then(function (response) {
+        geoip.then(function () {
 
             OccurrenceSearch.query({
                 mediaType: 'stillImage',

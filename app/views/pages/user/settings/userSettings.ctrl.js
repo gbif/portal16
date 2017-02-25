@@ -7,9 +7,7 @@ angular
     .controller('userSettingsCtrl', userSettingsCtrl);
 
 /** @ngInject */
-function userSettingsCtrl(User) {
-    var vm = this;
-    vm.test = 'hej';
+function userSettingsCtrl() {
 }
 
 module.exports = userSettingsCtrl;

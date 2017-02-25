@@ -1,14 +1,14 @@
 "use strict";
 let express = require('express'),
-    path = require('path'),
-    //verifier = require('../../../models/verification/verification'),
+    //path = require('path'),
+//verifier = require('../../../models/verification/verification'),
     router = express.Router();
 
 module.exports = function (app) {
     app.use('/api/verification', router);
 };
 
-router.get('/image/:id/:name', function (req, res) {
+router.get('/image/:id/:name', function (req, res, next) {
     next();
     //verifier.resolveImageName(req.params.id, req.params.name, function(err, location){
     //    if (!err) {
@@ -20,7 +20,7 @@ router.get('/image/:id/:name', function (req, res) {
     //});
 });
 
-router.get('/challenge', function (req, res) {
+router.get('/challenge', function (req, res, next) {
     next();
     //verifier.getChallenge(function(err, challenge){
     //    if (!err) {

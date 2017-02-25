@@ -9,8 +9,8 @@ var NodeCache = require("node-cache"),
 
 module.exports = humanVerifier;
 
-function humanVerifier(config) {
-    var config = config,
+function humanVerifier(conf) {
+    var config = conf,
         challengeCache = new NodeCache({stdTTL: 60, checkperiod: 10, errorOnMissing: true});
 
     function getRandomImages(group, number, isCorrect) {
@@ -93,8 +93,8 @@ function humanVerifier(config) {
         challengeCache.get(id, function (err, challenge) {
             if (!err) {
                 //the challenge should be deleted so there is only one attempt
-                challengeCache.del(id, function (err, count) {
-                    //this isn't good. if it isn't deleted the user will have two attempts.
+                challengeCache.del(id, function () {//err, count
+                    //failure isn't good. if it isn't deleted the user will have two attempts.
                     //try again? try to overwrite it? flush everything?
                 });
                 //is the responded answer array the same as the one we know to bt the answer

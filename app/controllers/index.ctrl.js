@@ -3,10 +3,7 @@ let express = require('express'),
     router = express.Router(),
     Q = require('q'),
     helper = rootRequire('app/models/util/util'),
-    format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
-    async = require('async'),
-    minute = 60000,
     cmsSearchUrl = rootRequire('app/models/cmsData/apiConfig').search.url;
 
 module.exports = function (app) {
@@ -26,8 +23,8 @@ router.get('/', function (req, res, next) {
                     event: _.get(values[2], 'results[0]')
                 };
                 render(req, res, next, {highlights: highlights});
-            }, function(err){
-                render(req, res, next);
+            }, function(){
+                render(req, res, next);//show page without news stories
             });
     }
 });

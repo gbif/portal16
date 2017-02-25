@@ -1,6 +1,5 @@
 "use strict";
 var _ = require('lodash'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
     helper = rootRequire('app/models/util/util');
 

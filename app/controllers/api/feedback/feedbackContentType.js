@@ -57,11 +57,11 @@ function parseOccurrence(path, cb) {
                 contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
 
                 cb(contentType);
-            }, function(err){
+            }, function(){
                 //fail silently. If there is no endorsing node or the call fails, then simply ignore it. It isn't essential for usage.
             });
         },
-        function (err) {
+        function () {
             //failed to get occurrence. Fall back to gbif github report
             cb();
         }

@@ -4,8 +4,6 @@ var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    _ = require('lodash'),
     contributors = require('../../dataset/key/contributors/contributors'),
     isDev = rootRequire('config/config').env == 'dev',
     router = express.Router();

@@ -4,13 +4,10 @@ var credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).directory,
     appKey = credentials.appKey,
     secret = credentials.secret,
-    request = require('request'),
-    _ = require('lodash'),
     Q = require('q'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     helper = require('../../../models/util/util'),
     crypto = require('crypto'),
-    querystring = require('querystring'),
     NEWLINE = '\n';
 
 function requestPromise(queryOptions) {

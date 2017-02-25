@@ -8,7 +8,6 @@ angular
 
 /** @ngInject */
 function userProfileCtrl(User) {
-    var vm = this;
     User.loadActiveUser();
 }
 
