@@ -4,44 +4,7 @@ $home_overlay_color_from = rgba(0, 0, 0, $home_overlay_opacity)
 $home_overlay_color_to = rgba(0, 0, 0, 0)
 $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 
-// .search-box {
-//     background white
-//     color #444
-//     padding 10px 20px
-//     border 1px solid rgba(255, 255, 255, 0.3)
-//     position relative
-//     overflow hidden
-//     input {
-//         border none
-//         padding-right vrBlock(4)
-//         width 100%
-//         overflow hidden
-//         text-overflow ellipsis
-//         &:focus {
-//             outline none
-//         }
-//         &::placeholder {
-//             color #ddd
-//             font-weight light
-//         }    
-//     }
-//     a {
-//         position absolute
-//         right 0
-//         margin 5px 15px
-//         top 0
-//         font-size vrBlock(1.125)
-//     }
-
-//     box-shadow 1px 2px 3px rgba(0,0,0,0.3)
-//     width 500px
-//     max-width 100%
-// }
-
 .home {
-    font-size 18px
-    line-height 1.66667 //30px
-    font-weight 300
     &__header {
         background-color $olivine
         background-attachment fixed
@@ -74,6 +37,9 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
                 background rgba(0, 0, 0, 0.3)
             }
         }
+    }
+    &__quicklinks {
+        margin-top 5px
     }
     &__news {
         padding vrBlock(2) 0
@@ -109,7 +75,52 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             }
         }
     }
-    
+    &__about {
+        font-size 18px
+        line-height 1.66667 //30px
+        font-weight 300
+    }
+    &__country {
+        font-size 14px
+        &__headline {
+            div {
+                font-size 18px
+            }
+        }
+        &__category {
+            color $orangePeel
+            font-weight 500
+            font-size 12px
+        }
+        &__title {
+            font-weight normal
+            margin-bottom 0
+        }
+        &__description {
+            font-size 14px
+            font-weight 300
+        }
+        &__footer {
+            color $discreetInk
+            font-size 12px
+            display block
+        }
+        &__activities {
+            max-height 400px
+            overflow auto
+        }
+        &__more {
+            margin-top -10px
+        }
+        &__logo {
+            float right
+            >img {
+                max-width 100px
+                max-height 70px
+            }
+        }
+    }
+
     &__occurrences {
         background-color white
         background-image url('https://a0.muscache.com/airbnb/static/engagement/p1/large/posters_sm.jpg')
@@ -131,19 +142,24 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     &__about--columns {
         columns 2 10px 30px
     }
-    &__rss {
-        &__description {
-            font-size 14px
-            span {
-                display block
-                float right
+
+    &__country__occurrences {
+        overflow hidden
+        display flex
+        flex-wrap nowrap
+        height 70px
+        >a {
+            margin-right 3px
+            flex 0 0 auto
+            display inline-block
+            white-space nowrap
+            height 70px
+            background-position center
+            background-size cover
+            img {
+                height 100%
+                width auto
             }
-        }
-        &__item {
-            &:hover {
-                background white
-            }
-            border-bottom 1px solid $stripeBorderColor
         }
     }
     

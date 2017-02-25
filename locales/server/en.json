@@ -1448,7 +1448,15 @@
     "OBSERVER": "observer",
     "AFFILIATE": "affiliate",
     "FORMER": "former",
-    "undefined": "unknown"
+    "undefined": "unknown",
+    "longForm": {
+      "VOTING": "A voting particpant",
+      "ASSOCIATE": "An associate participant",
+      "OBSERVER": "An observing participant",
+      "AFFILIATE": "An affiliate participant",
+      "FORMER": "A former participant",
+      "undefined": "unknown"
+    }
   },
   "installation": {
     "type": {
@@ -1853,8 +1861,7 @@
         "between": "between",
         "lessThanOrEquals": "below",
         "greaterThanOrEquals": "above"
-      },
-      "in": "intervals.elevation.in"
+      }
     },
     "depth": {
       "equals": "is {from}m",
@@ -1867,8 +1874,7 @@
         "between": "between",
         "lessThanOrEquals": "less than",
         "greaterThanOrEquals": "deeper than"
-      },
-      "in": "intervals.depth.in"
+      }
     },
     "year": {
       "equals": "is from {from}",
@@ -1881,8 +1887,7 @@
         "between": "between",
         "lessThanOrEquals": "before",
         "greaterThanOrEquals": "after"
-      },
-      "in": "intervals.year.in"
+      }
     }
   },
   "directory": {

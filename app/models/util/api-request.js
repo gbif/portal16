@@ -74,9 +74,12 @@ function getData(cb, path, options) {
             }
             cb(error, null);
         }
+
         //if no response data
         else if (!body) {
-            cb(null, response);
+            cb(null, {
+                statusCode: response.statusCode
+            });
         }
         else {
             if (options.type == 'XML') {

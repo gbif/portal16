@@ -146,14 +146,14 @@ nature, PLOS, ... and
                     <div class="text-right">
                         <a href="{$ gb.locales.urlPrefix $}/cms/search" class="gb-button--flat text-uppercase small">Search articles, events and more</a>
                     </div>
-
                 </div>
-                <div class="container-fluid m-b-2 ng-cloak">
+
+                <div class="m-b-2 ng-cloak">
+                    <h2>What is GBIF?</h2>
                     <div class="row">
-                        <div class="col-xs-12" ng-class="{'col-md-6': home.hasFeed}">
+                        <div class="col-xs-12" ng-class="{'col-md-6': home.showCountryCard}">
                             <div class="home__about">
-                                <h2>What is GBIF?</h2>
-                                <div ng-class="{'home__about--columns': !home.hasFeed}">
+                                <div ng-class="{'home__about--columns': !home.showCountryCard}">
                                     <p>
                                         A global network of publishers, researchers and nations that believe data about life on earth is worth most when shared.
                                         In total more than 700 millions species occurrences has been published.
@@ -162,43 +162,116 @@ nature, PLOS, ... and
                                         A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
                                         Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
                                     </p>
-                                    <div class="text-right">
-                                        <a href="sdf">Read more</a>
+                                    <div>
+                                        <a href="/what-is-gbif">Read more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 home__rss" ng-if="home.hasFeed">
+                        <div class="col-xs-12 col-md-6 home__country" ng-if="home.showCountryCard">
                             <div class="card">
                                 <div class="card__stripe">
-                                    <div class="card__content">
-                                        News from <span translate="country.{{ home.country }}"></span>
+                                    <div class="card__content home__country__headline">
+                                        <div translate="country.{{ home.country.countryCode }}"></div>
+                                        <span class="small discreet" translate="participationStatus.longForm.{{ home.participationStatus }}"></span>
                                     </div>
                                 </div>
-                                <a ng-href="{{ rssItem.link }}" class="card__stripe card__stripe--light home__rss__item" ng-repeat="rssItem in home.rssFeed | limitTo:2">
-                                    <div class="card__content">
-                                        <div>
-                                            <h4 class="home__rss__title">
-                                                {{ rssItem.title }}
-                                            </h4>
-                                            <p class="home__rss__description">
-                                                {{ rssItem.description | truncate:80 }}
-                                                <span class="home__rss__date discreet small discreet">
-                                                    {{ rssItem.pubDate }}
-                                                </span>
+                                <div class="home__country__activities">
+                                    <div class="card__stripe card__stripe--light" ng-if="home.hasImages">
+                                        <div class="card__content">
+                                            <div class="home__country__category">
+                                                Occurrences
+                                            </div>
+                                            <p class="home__country__description">
+                                                <span>{{ home.totalCount | localNumber }} occurrences about</span> <span translate="country.{{ home.country.countryCode }}"></span>.
+                                                <a ng-href="/occurrence/search?country={{ home.country.countryCode }}">See all</a>
                                             </p>
+                                            <div class="home__country__occurrences">
+                                                <a ng-repeat="result in home.occurrences.results" ng-href="/occurrence/{{ result.key }}" class="hideInvalid isInvalid">
+                                                    <img gb-load ng-src="{{ home.imageCache }}x140/{{ result._images[0].identifier | encodeURIComponent }}">
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
+                                    <div class="card__stripe card__stripe--light home__rss" ng-if="home.hasFeed">
+                                        <div class="card__content">
+                                            <div class="home__country__category">
+                                                Node news
+                                            </div>
+                                            <div ng-repeat="rssItem in home.rssFeed | limitTo:2" class="m-b-1">
+                                                <h4 class="home__country__title">
+                                                    <a ng-href="{{ rssItem.link }}">{{ rssItem.title }}</a>
+                                                </h4>
+                                                <p class="home__country__description">
+                                                    {{ rssItem.description | truncate:80 }}
+                                                    <span class="home__country__footer">
+                                                        {{ rssItem.pubDate }}
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__stripe card__stripe--light" ng-if="home.hasPublishingPublishers">
+                                        <div class="card__content">
+                                            <div class="home__country__category">
+                                                Publishers
+                                            </div>
+                                            <div ng-repeat="publisher in home.publishers.results" class="m-b-1">
+                                                <div ng-if="publisher.logoUrl" class="hideInvalid isInvalid home__country__logo">
+                                                    <img gb-load ng-src="{{ publisher.logoUrl }}">
+                                                </div>
+                                                <div>
+                                                    <h4 class="home__country__title">
+                                                        <a ng-href="/publisher/{{ publisher.key }}">{{ publisher.title }}</a>
+                                                    </h4>
+                                                    <p class="home__country__description">
+                                                        {{ publisher.description | truncate:80 }}
+                                                        <span class="home__country__footer">
+                                                            {{ publisher.numPublishedDatasets }} published datasets
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="home__country__more" ng-if="home.hasMorePublishers">
+                                                <a class="discreet small" ng-href="/publisher/search?country={{ home.country.countryCode }}">See all</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card__stripe card__stripe--light" ng-if="home.hasDatasets">
+                                        <div class="card__content">
+                                            <div class="home__country__category">
+                                                Datasets
+                                            </div>
+                                            <div ng-repeat="dataset in home.datasets.results" class="m-b-1">
+                                                <div ng-if="dataset.logoUrl" class="hideInvalid isInvalid home__country__logo">
+                                                    <img gb-load ng-src="{{ dataset.logoUrl }}">
+                                                </div>
+                                                <div>
+                                                    <h4 class="home__country__title">
+                                                        <a ng-href="/dataset/{{ dataset.key }}">{{ dataset.title | truncate:100 }}</a>
+                                                    </h4>
+                                                    <p class="home__country__description">
+                                                        {{ dataset.description | truncate:150 }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="home__country__more" ng-if="home.hasMoreDatasets">
+                                                <a class="discreet small" ng-href="/dataset/search?country={{ home.country.countryCode }}">See all</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card home__map ng-cloak">
-                    <div style="width:100%;height:0;padding-bottom:50%; position:relative;">
-                        <div style="position:absolute;top:0;right:0;left:0;bottom:0;">
-                            <gbmap style="height:100%" mapstyle="'light'"></gbmap>
+                <div class="card home__map ng-cloak m-b-2">
+                    <div class="map__lockedRatio">
+                        <div>
+                            <gbmap mapstyle="'light'" map-view="home.mapView" map-options="home.mapOptions"></gbmap>
                         </div>
                     </div>
                 </div>
@@ -359,7 +432,7 @@ nature, PLOS, ... and
                             </div>
                         </div>
                     </div-->
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 m-b-2">
                         <gbmap mapstyle="'light'" style="height:500px"></gbmap>
                     </div>
                 </div>
