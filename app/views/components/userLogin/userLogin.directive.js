@@ -43,11 +43,11 @@ function userLoginDirective() {
             });
 
             //get users estimated location
-            var geoip = $http.get('/api/utils/geoip');
+            var geoip = $http.get('/api/utils/geoip/country');
 
             //once both are in, then set country to users location if not already set
             $q.all([geoip, countryList]).then(function (values) {
-                var isoCode = _.get(values, '[0].country.country.iso_code');
+                var isoCode = _.get(values, '[0].countryCode');
                 if (isoCode) {
                     var usersCountry = values[1].data.find(function (e) {
                         return e.key === isoCode
