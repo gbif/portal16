@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -139,6 +140,12 @@ function filterEnumDirective() {
 
         vm.uncheckAll = function () {
             vm.query = [];
+            vm.apply();
+        };
+
+        //TODO test
+        vm.reverse = function () {
+            vm.query = _.difference(vm.getVisibleEnums(), vm.query);
             vm.apply();
         };
 
