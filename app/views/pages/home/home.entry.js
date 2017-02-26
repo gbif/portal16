@@ -1,5 +1,8 @@
 'use strict';
 
+var angular = require('angular'),
+    _ = require('lodash');
+
 angular
     .module('portal')
     .controller('homeCtrl', homeCtrl);
@@ -35,7 +38,7 @@ function homeCtrl($http, OccurrenceSearch, env) {
                     vm.hasFeed = true;
                     vm.showCountryCard = true;
                 }
-                vm.participationStatus = response.data.record.participationStatus;
+                vm.participationStatus = _.get(response, 'data.record.participationStatus');
             }, function () {
                 //TODO ignore failures as this is optional anyhow
             });

@@ -173,7 +173,7 @@ nature, PLOS, ... and
                                 <div class="card__stripe">
                                     <div class="card__content home__country__headline">
                                         <div translate="country.{{ home.country.countryCode }}"></div>
-                                        <span class="small discreet" translate="participationStatus.longForm.{{ home.participationStatus }}"></span>
+                                        <span class="small discreet" translate="participationStatus.longForm.{{ home.participationStatus }}" ng-if="home.participationStatus"></span>
                                     </div>
                                 </div>
                                 <div class="home__country__activities">
@@ -218,7 +218,7 @@ nature, PLOS, ... and
                                             </div>
                                             <div ng-repeat="publisher in home.publishers.results" class="m-b-1">
                                                 <div ng-if="publisher.logoUrl" class="hideInvalid isInvalid home__country__logo">
-                                                    <img gb-load ng-src="{{ publisher.logoUrl }}">
+                                                    <img gb-load ng-src="{{ home.imageCache }}x200/{{ publisher.logoUrl | encodeURIComponent }}">
                                                 </div>
                                                 <div>
                                                     <h4 class="home__country__title">
@@ -245,7 +245,7 @@ nature, PLOS, ... and
                                             </div>
                                             <div ng-repeat="dataset in home.datasets.results" class="m-b-1">
                                                 <div ng-if="dataset.logoUrl" class="hideInvalid isInvalid home__country__logo">
-                                                    <img gb-load ng-src="{{ dataset.logoUrl }}">
+                                                    <img gb-load ng-src="{{ home.imageCache }}x200/{{ dataset.logoUrl | encodeURIComponent }}">
                                                 </div>
                                                 <div>
                                                     <h4 class="home__country__title">
