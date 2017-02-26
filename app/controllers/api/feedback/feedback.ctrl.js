@@ -39,7 +39,7 @@ router.get('/issues', function (req, res) {
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
-            q: item + ' is:issue is:open label:content -label:"Under review" in:body+repo:' + credentials.repository,
+            q: item + ' is:issue is:open label:content label:"public relevance" in:body+repo:' + credentials.repository,
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
@@ -159,7 +159,7 @@ function getTitle(title) {
 
 function getLabels(data, country) {
     var labels = _.union(['Under review'], _.intersection(['bug', 'idea', 'content', 'question'], [data.type]));
-    if (country) {
+    if ( (data.type == 'question' || data.type == 'content') && country) {
         labels.push(country);
     }
     return _.uniq(labels);
