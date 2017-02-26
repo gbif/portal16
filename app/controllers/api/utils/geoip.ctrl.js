@@ -2,6 +2,7 @@
 let express = require('express'),
     router = express.Router(),
     log = rootRequire('config/log'),
+    url = require('url'),
     minute = 60000,
     hour = 60 * minute,
     _ = require('lodash'),
@@ -12,8 +13,12 @@ module.exports = function (app) {
 };
 
 router.get('/geoip', function (req, res) {
-    let ip = req.clientIp,
+    let referer = req.headers.referer,
+        parsedReferer = url.parse(referer, true),
+        mockIp = _.get(parsedReferer, 'query.mockip'),
+        ip = mockIp || req.clientIp,
         country = getGeoIp(ip);
+
     if (!country) {
         log.error('unable to match ip to country using ip: ' + ip);
         res.setHeader('Cache-Control', 'no-cache');
@@ -26,7 +31,10 @@ router.get('/geoip', function (req, res) {
 });
 
 router.get('/geoip/country', function (req, res) {
-    let ip = req.clientIp,
+    let referer = req.headers.referer,
+        parsedReferer = url.parse(referer, true),
+        mockIp = _.get(parsedReferer, 'query.mockip'),
+        ip = mockIp || req.clientIp,
         country = getGeoIp(ip),
         countryCode = _.get(country, 'country.iso_code');
 
