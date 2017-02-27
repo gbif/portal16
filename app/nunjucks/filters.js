@@ -39,6 +39,10 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('reduceUrlToDomain', format.reduceUrlToDomain);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('locInt', format.localizeInteger);
     })();
 

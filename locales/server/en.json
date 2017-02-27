@@ -1524,6 +1524,24 @@
     "TEMPORARY_DELEGATE": "temporary delegate",
     "TEMPORARY_HEAD_OF_DELEGATION": "temporary head of delegation"
   },
+  "node": {
+    "introText": {
+      "COUNTRY": {
+        "VOTING": "A voting participant from {country}, {region}",
+        "ASSOCIATE": "An associate participant from {country}, {region}",
+        "OBSERVER": "An observing participant from {country}, {region}",
+        "AFFILIATE": "An affiliate participant from {country}, {region}",
+        "FORMER": "A former participant from {country}, {region}"
+      },
+      "OTHER": {
+        "VOTING": "A voting member from {country}, {region}",
+        "ASSOCIATE": "An associate member from {country}, {region}",
+        "OBSERVER": "An observing member from {country}, {region}",
+        "AFFILIATE": "An affiliate member from {country}, {region}",
+        "FORMER": "A former member from {country}, {region}"
+      }
+    }
+  },
   "dataset": {
     "longType": {
       "OCCURRENCE": "occurrence dataset",

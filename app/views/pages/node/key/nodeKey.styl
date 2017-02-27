@@ -1,8 +1,44 @@
-.nodeKey {
-    &__contacts {
-        address {
+.node {
+    &__summary {
+        margin-bottom 10px
+    }
+    &__images {
+        .cover-image {
+            margin 0
+            border none
+        }
+    }
+    &__stats {
+        background $navBar_background_color
+        display flex
+        justify-content space-around
+        color white
+        > div {
+            text-align center
             padding 10px
-            padding-bottom 0
+            flex 1 0 auto
+        }
+        &__count {
+            font-size 20px
+            font-weight 300
+        }
+    }
+    &__info {
+        padding vrBlock(1)
+        border 1px solid $stripeBorderColor
+        background $lightBackground
+    }
+}
+
+.articleLinks {
+    padding-top vrBlock(1) 0
+    >div {
+        display inline-block
+        margin-right 10px
+        a {
+            display block
+            width 40px
+            height 40px
         }
     }
 }

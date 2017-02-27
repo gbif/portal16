@@ -189,6 +189,7 @@ module.exports = {
     addPortalClasses: addPortalClasses,
     insertLinks: linkTools.insertLinks,
     linkify: linkTools.linkify,
+    reduceUrlToDomain: linkTools.reduceUrlToDomain,
     getDOILink: linkTools.getDOILink,
     readableDOI: linkTools.readableDOI,
     toCamelCase: toCamelCase,

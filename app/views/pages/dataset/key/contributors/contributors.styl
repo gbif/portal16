@@ -1,4 +1,5 @@
 .dataset-key__contributors {
+    color $bodyTextColor
     &__mail, &__phone {
         overflow hidden
         text-overflow ellipsis
@@ -28,6 +29,7 @@
     }
     &__item {
         position relative
+        padding 10px
         > address, > i {
             position relative
         }
@@ -52,7 +54,7 @@
         margin 0 -($halfGutter)
         > div {
             flex 0 1 auto
-            width 33%
+            width 100%
         }
     }
 }
@@ -80,18 +82,10 @@
     }
 }
 
-+isAbove(500px) {
++isAbove(600px) {
     .flex-columns {
         > div {
             width 50%
-        }
-    }
-}
-
-+isAbove(900px) {
-    .flex-columns {
-        > div {
-            width 33%
         }
     }
 }

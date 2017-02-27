@@ -1,6 +1,7 @@
 "use strict";
 
 var _ = require('lodash'),
+    url = require('url'),
     doiRegex = require("doi-regex"),
     Autolinker = require('autolinker'),
     linkTemplateTarget = '<a href="%s1" target="%s2">%s3</a>',
@@ -48,6 +49,16 @@ function linkify(text, options) {
     return Autolinker.link(text, newOptions);
 }
 
+function reduceUrlToDomain(text) {
+    if (_.isString(text)) {
+        var parsedUrl = url.parse(text),
+            domain = parsedUrl.hostname;
+            return domain;
+    } else {
+        return '';
+    }
+}
+
 
 function getDOILink(text, throwOnMissing) {
     var doi;
@@ -83,7 +94,8 @@ module.exports = {
     insertLinks: insertLinks,
     linkify: linkify,
     getDOILink: getDOILink,
-    readableDOI: readableDOI
+    readableDOI: readableDOI,
+    reduceUrlToDomain: reduceUrlToDomain
 };
 
 //console.log(linkify('replace this mymail@gmail.com and this one thisMail@gbif.org and show a link to http://mysite.com but not to relative ones like this /occurrence/234'));

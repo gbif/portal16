@@ -107,6 +107,7 @@ require('./angular/country.resource');
 require('./angular/node.resource');
 
 require('./angular/directives/onLoad/onload.directive');
+require('./angular/directives/helpDesk.directive');
 
 require('../partials/userMenu/userMenu.directive');
 require('../partials/feedback/feedback.directive');

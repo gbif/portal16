@@ -4,6 +4,7 @@ var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     helper = rootRequire('app/models/util/util'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
+    _ = require('lodash'),
     contributors = require('../../dataset/key/contributors/contributors'),
     isDev = rootRequire('config/config').env == 'dev',
     router = express.Router();
@@ -13,13 +14,20 @@ module.exports = function (app) {
 };
 
 router.get('/node/:key\.:ext?', function (req, res, next) {
-    var nodeKey = req.params.key;
+    var nodeKey = req.params.key,
+        offset_endorsed = req.query.offset_endorsed,
+        offset_datasets = req.query.offset_datasets;
     if (!utils.isGuid(nodeKey)) {
         next();
     } else {
         Node.get(nodeKey, {expand: ['participant', 'directoryParticipant']}).then(function (node) {
             try {
-                if (node.record.type === 'COUNTRY' && node.record.country) {
+                node.offset_endorsed = offset_endorsed || 0;
+                node.offset_datasets = offset_datasets || 0;
+                if (_.get(node, 'participant.errorType')) {
+                    delete node.participant;
+                }
+                if (node.record.type === 'XCOUNTRY' && node.record.country) {
                     res.redirect('/country/' + node.record.country);
                 } else {
                     if (!isDev) {
@@ -27,6 +35,8 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                         return;
                     }
                     node._computedValues = {};
+
+                    //create unified contacts with multiple roles per person
                     let contacts = node.record.contacts;
                     let nodeContact = {
                         organization: node.record.title,
@@ -48,6 +58,9 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                         return e.roles.indexOf('HEAD_OF_DELEGATION') > -1;
                     });
 
+                    //websites
+                    var websites = _.uniq([].concat(_.get(node, 'record.homepage', [])).concat(_.get(node, 'directoryParticipant.participantUrl', [])));
+                    node._computedValues.associatedWebsites = websites;
                     let pageData = {
                         node: node,
                         _meta: {

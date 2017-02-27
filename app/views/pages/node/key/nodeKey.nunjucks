@@ -1,9 +1,12 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 {% import "../../../components/contacts/contacts.macro.nunjucks" as contactsMacro %}
 
+
+
 {% block page %}
     <article class="wrapper-horizontal-stripes nodeKey"
-             ng-controller="nodeKeyCtrl as nodeKey">
+             ng-controller="nodeKeyCtrl as nodeKey"
+             ng-init="nodeKey.setKey('{$ node.record.key $}', {$ node.offset_endorsed $}, {$ node.offset_datasets $})">
         <div class="horizontal-stripe article-header white-background">
             <div class="container--desktop">
                 <div class="row">
@@ -20,142 +23,195 @@
                 </div>
             </div>
         </div>
-        <div class="horizontal-stripe light-background">
-            <div class="container--normal">
-                <div class="m-b-2">
-                    <div class="card">
-                        <div class="card__stripe">
-                            <div class="container-fluid">
-                                <div class="row">
+        <div class="horizontal-stripe--paddingless white-background">
+            <div class="container--desktop m-b-2">
+                <div class="node__summary">
+                    {% if node.record.type == 'COUNTRY' %}
+                    <div class="node__images">
+                        <figure class="heading-image">
+                            <div class="cover-image">
+                                <img src="//api.gbif.org/v1/image/unsafe/1200x600/left/top/http://static.inaturalist.org/photos/3400549/original.JPG?1460949098" gallery-image>
+                            </div>
+                        </figure>
+                    </div>
+                    {% endif %}
+                    <div class="node__info">
+                        <div class="">
+                            <div class="row">
+                                {% if node.record.key == '7f48e0c8-5c96-49ec-b972-30748e339115' %}
+                                <div class="col-xs-12">
+                                    <div class="card__content">
+                                        <p>
+                                            The Participant Node Managers Committee is a body that can endorse an institution to publish data through the GBIF network. Wherever possible, a national Node or thematic network is preferred to endorse an institution to help ensure the most relevant technical and administrative support is given. In the absence of such a suitable Node the committee can endorse publishers.
+                                            To request endorsement please contact the <span help-desk>GBIF Helpdesk</span>.
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if node.directoryParticipant %}
                                     <div class="col-xs-12 col-md-6">
                                         <div class="card__content">
-                                            <h3>Participant</h3>
-                                            <dl class="inline">
+                                            <p>
+                                            {$ __mf('node.introText.' + node.record.type + '.' + node.record.participationStatus, { country: __('country.' + node.record.country), region: __('region.' + node.record.gbifRegion) }) $}
+                                            </p>
+                                            <div class="articleLinks m-b-05">
+                                                {% if node.participant.data[0].socialMedia.length > 0 %}
+                                                    {% for media in node.participant.data[0].socialMedia %}
+                                                    <div>
+                                                        <a href="{$ media.url $}">
+                                                            <img src="/img/social/{$ media.title | lower | urlencode $}.png">
+                                                        </a>
+                                                    </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {% if node.participant.data[0].rssFeed.length > 0 %}
+                                                    {% for rssFeed in node.participant.data[0].rssFeed %}
+                                                        <div>
+                                                            <a href="{$ rssFeed.url $}">
+                                                                <img src="/img/social/rss.png">
+                                                            </a>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                            <p>
+                                                <ol class="inline-bullet-list">
+                                                    {% for homepage in node._computedValues.associatedWebsites %}
+                                                    <li>
+                                                        <a href="{$ homepage $}">{$ homepage | reduceUrlToDomain $}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                    <li>
+                                                        <a href="#contacts">Contacts</a>
+                                                    </li>
+                                                </ol>
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="card__content">
+                                        <dl class="inline">
+                                            {% if node.record.type == 'COUNTRY' %}
+                                                {% if node.record.title %}
+                                                    <div>
+                                                        <dt>Node name</dt>
+                                                        <dd>{$ node.record.title $}</dd>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if node.directoryParticipant.participationStatus %}
                                                 <div>
                                                     <dt>Member status</dt>
-                                                    <dd>{$ node.directoryParticipant.participationStatus $}</dd>
+                                                    <dd>{$ __('participationStatus.' + node.directoryParticipant.participationStatus) $}</dd>
                                                 </div>
+                                            {% endif %}
+                                            {% if node.directoryParticipant.membershipStart %}
                                                 <div>
                                                     <dt>GBIF participant since</dt>
                                                     <dd>{$ node.directoryParticipant.membershipStart | formatDate(gb.locales.current) $}</dd>
                                                 </div>
+                                            {% endif %}
+                                            {% if node.directoryParticipant.gbifRegion %}
                                                 <div>
                                                     <dt>GBIF region</dt>
-                                                    <dd>{$ node.directoryParticipant.membershipStart | formatDate(gb.locales.current) $}</dd>
+                                                    <dd>{$ __('region.' + node.directoryParticipant.gbifRegion) $}</dd>
                                                 </div>
+                                            {% endif %}
+                                            {% if node._computedValues.headOfDelegation %}
                                                 <div>
                                                     <dt>Head of delegation</dt>
                                                     <dd><a href="#contributor_{$ node._computedValues.headOfDelegation._id $}">{$ node._computedValues.headOfDelegation.firstName $} {$ node._computedValues.headOfDelegation.lastName $}</a></dd>
                                                 </div>
-                                                <div>
-                                                    <dt>Participant homepage</dt>
-                                                    <dd>
-                                                        <a href="{$ node.directoryParticipant.participantUrl $}">{$ node.directoryParticipant.participantUrl | truncate(30) $}</a>
-                                                    </dd>
-                                                </div>
-                                                <div>
-                                                    <dt>Social media</dt>
-                                                    <dd>
-                                                        {% for media in node.participant.data[0].socialMedia %}
-                                                            <a href="{$ media.url $}">{$ media.title | truncate(30) $}</a>
-                                                        {% endfor %}
-                                                    </dd>
-                                                </div>
-                                                <div>
-                                                    <dt>rssFeed</dt>
-                                                    <dd>
-                                                        {% for rssFeed in node.participant.data[0].rssFeed %}
-                                                            <a href="{$ rssFeed.url $}">{$ rssFeed.title | truncate(30) $}</a>
-                                                        {% endfor %}
-                                                    </dd>
-                                                </div>
-                                                <div>
-                                                    <dt>otherLinks</dt>
-                                                    <dd>
-                                                        {% for otherLink in node.participant.data[0].otherLinks %}
-                                                            <div><a href="{$ otherLink.url $}">{$ otherLink.url | truncate(30) $}</a></div>
-                                                        {% endfor %}
-                                                    </dd>
-                                                </div>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-6">
-                                        <div class="card__content">
-                                            <h3>Node</h3>
-                                            <dl class="inline">
-                                                <div>
-                                                    <dt>Node name</dt>
-                                                    <dd>{$ node.record.title $}</dd>
-                                                </div>
+                                            {% endif %}
+                                            {% if node._computedValues.nodeManager %}
                                                 <div>
                                                     <dt>Participant node manager</dt>
                                                     <dd><a href="#contributor_{$ node._computedValues.nodeManager._id $}">{$ node._computedValues.nodeManager.firstName $} {$ node._computedValues.nodeManager.lastName $}</a></dd>
                                                 </div>
+                                            {% endif %}
+                                            {% if node.participant.data[0].otherLinks.length > 0 %}
                                                 <div>
-                                                    <dt>Node established</dt>
-                                                    <dd>{$ node.record.created | formatDate(gb.locales.current) $}</dd>
-                                                </div>
-                                                <div>
-                                                    <dt>Node homepage</dt>
+                                                    <dt>Other links</dt>
                                                     <dd>
-                                                        {% for homepage in node.record.homepage %}
-                                                        <div><a href="{$ homepage $}">{$ homepage | truncate(30) $}</a></div>
+                                                        <ol class="inline-bullet-list">
+                                                        {% for otherLink in node.participant.data[0].otherLinks %}
+                                                            <li>
+                                                                <a href="{$ otherLink.url $}">{$ otherLink.title | truncate(30) $}</a>
+                                                            </li>
                                                         {% endfor %}
+                                                        </ol>
                                                     </dd>
                                                 </div>
-                                            </dl>
-                                        </div>
+                                            {% endif %}
+                                        </dl>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="m-b-2">
-                    <p class="small discreet text-uppercase">
-                        About the participant
-                    </p>
-                    <div class="card">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <h3>History</h3>
-                                {$ node.participant.data[0].history | safe $}
+                    <div class="node__stats">
+                        <div>
+                            <div class="node__stats__count">
+                                <span count="//api.gbif.org/v1/node/{$ node.record.key $}/organization">
+                                    &nbsp;</span>
                             </div>
-                            <div class="card__content">
-                                <h3>Vision</h3>
-                                {$ node.participant.data[0].visionMission | safe $}
-                            </div>
-                            <div class="card__content">
-                                <h3>Structure</h3>
-                                {$ node.participant.data[0].structure | safe $}
-                            </div>
-                            <div class="card__content">
-                                <h3>National funding</h3>
-                                {$ node.participant.data[0].nationalFunding | safe $}
-                            </div>
+                            <div>Endorsed publishers</div>
                         </div>
-                    </div>
-                </div>
-                <div class="m-b-2 nodeKey__contacts">
-                    <p class="small discreet text-uppercase">
-                        Contacts
-                    </p>
-                    <div class="card">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                {$ contactsMacro.contactsList(node._computedValues.contributors.all, __) $}
+                        <div>
+                            <div class="node__stats__count">
+                                <span count="//api.gbif.org/v1/node/{$ node.record.key $}/dataset">
+                                    &nbsp;</span>
                             </div>
+                            <div>Datasets</div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% if node.participant %}
+            <div class="container--narrow">
+                <div class="body-text">
+                    <div>
+                        <div>
+                            {% if node.participant.data[0].history %}
+                                <div class="">
+                                    <h3>History</h3>
+                                    {$ node.participant.data[0].history | safe $}
+                                </div>
+                            {% endif %}
+                            {% if node.participant.data[0].visionMission %}
+                                <div class="">
+                                    <h3>Vision</h3>
+                                    {$ node.participant.data[0].visionMission | safe $}
+                                </div>
+                            {% endif %}
+                            {% if node.participant.data[0].structure %}
+                                <div class="">
+                                    <h3>Structure</h3>
+                                    {$ node.participant.data[0].structure | safe $}
+                                </div>
+                            {% endif %}
+                            {% if node.participant.data[0].nationalFunding %}
+                                <div class="">
+                                    <h3>National funding</h3>
+                                    {$ node.participant.data[0].nationalFunding | safe $}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </div>
 
-        <div class="horizontal-stripe bare-background ng-cloak">
+
+
+        <div class="horizontal-stripe bare-background ng-cloak" ng-if="nodeKey.endorsed.count > 0">
             <span class="relative-anchor-offset"><a id="datasets"></a></span>
             <div class="container--normal">
-                <h4>Endorsed publishers</h4>
+                <p class="small discreet text-uppercase">
+                    Endorsed publishers
+                </p>
                 <div class="card">
                     <div class="card__stripe">
                         <div class="stripeList" ng-show="nodeKey.endorsed.count > 0">
@@ -181,13 +237,13 @@
                         <div class="card__content" ng-if="nodeKey.endorsed.count > nodeKey.limit">
                             <uib-pagination
                                     total-items="nodeKey.endorsed.count"
-                                    ng-model="nodeKey.currentPage"
+                                    ng-model="nodeKey.currentPage_endorsed"
                                     max-size="nodeKey.maxSize"
                                     items-per-page="nodeKey.limit"
                                     class="pagination-sm"
                                     boundary-link-numbers="false"
                                     rotate="false"
-                                    ng-change="nodeKey.pageChanged()">
+                                    ng-change="nodeKey.pageChanged_endorsed()">
                             </uib-pagination>
                         </div>
                     </div>
@@ -195,19 +251,18 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe bare-background ng-cloak">
+        <div class="horizontal-stripe bare-background ng-cloak" ng-if="nodeKey.datasets.count > 0">
             <span class="relative-anchor-offset"><a id="datasets"></a></span>
             <div class="container--normal">
-                <h4>Latest datasets published</h4>
+                <p class="small discreet text-uppercase">
+                    Latest datasets published
+                </p>
                 <div class="card">
                     <div class="card__stripe">
                         <div class="stripeList" ng-show="nodeKey.datasets.count > 0">
                             <ul>
                                 <li ng-repeat="dataset in nodeKey.datasets.results">
                                     <a href="/dataset/{$ publisher.key $}">
-                                        {#<div class="pull-right text-right">#}
-                                            {#<span class="numberBadge">{{ dataset.numPublishedDatasets }}</span>#}
-                                        {#</div>#}
                                         <div class="title">
                                             {{ dataset.title }}
 
@@ -224,22 +279,43 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="card__content" ng-if="nodeKey.dataset.count > nodeKey.limit">
+                        <div class="card__content" ng-if="nodeKey.datasets.count > nodeKey.limit">
                             <uib-pagination
-                                    total-items="nodeKey.dataset.count"
-                                    ng-model="nodeKey.currentPage"
+                                    total-items="nodeKey.datasets.count"
+                                    ng-model="nodeKey.currentPage_datasets"
                                     max-size="nodeKey.maxSize"
                                     items-per-page="nodeKey.limit"
                                     class="pagination-sm"
                                     boundary-link-numbers="false"
                                     rotate="false"
-                                    ng-change="nodeKey.pageChanged()">
+                                    ng-change="nodeKey.pageChanged_datasets()">
                             </uib-pagination>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        {% if node._computedValues.contributors.all.length > 0 %}
+        <div class="horizontal-stripe bare-background ng-cloak">
+            <span class="relative-anchor-offset"><a id="contacts"></a></span>
+            <div class="container--normal">
+                <p class="small discreet text-uppercase">
+                    Contacts
+                </p>
+                <div class="card">
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            {$ contactsMacro.contactsList(node._computedValues.contributors.all, __) $}
+                            <div class="text-center discreet small m-b-1">
+                                Cannot find a contact? You are always welcome to contact the GBIF helpdesk and we will try our best to help you.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
 
     </article>
 
