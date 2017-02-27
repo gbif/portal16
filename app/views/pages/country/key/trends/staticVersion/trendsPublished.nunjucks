@@ -12,22 +12,7 @@
         {% include('./toggle.nunjucks') %}
 
         {% import "./trends.macro.nunjucks" as trends %}
-        {# About #}
-        <div class="page--analytics horizontal-stripe--paddingless light-background" ng-show="countryKey.showAbout"
-             ng-init="countryKey.showAbout = {$ isAbout $}">
-            <div class="container--normal">
-                <div class="row">
-                    <div class="col-xs-12">
-                        {$ trends.stats(country, true, imgUrls.about.thumbBase, imgUrls.about.imgBase, __) $}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        {# from #}
-        <div class="page--analytics horizontal-stripe--paddingless light-background ng-cloak"
-             ng-show="!countryKey.showAbout">
+        <div class="page--analytics horizontal-stripe--paddingless white-background" ng-show="countryKey.showAbout">
             <div class="container--normal">
                 <div class="row">
                     <div class="col-xs-12">
@@ -49,4 +34,3 @@
         }, false);
     </script>
 {% endblock %}
-

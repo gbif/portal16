@@ -2,7 +2,8 @@
 'use strict';
 
 var angular = require('angular'),
-    globeCreator = require('./globe');
+    globeCreator = require('./globe'),
+    _ = require('lodash');
 
 require('./gbTileLayer');
 
@@ -46,7 +47,6 @@ function gbmapDirective() {
             overlays = [],
             map;
 
-        vm.mapOptions = vm.mapOptions || {};
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
@@ -171,7 +171,8 @@ function gbmapDirective() {
             overlays.forEach(function (layer) {
                 map.removeLayer(layer);
             });
-            overlays = addOverLays(map, getMapQuery(), vm.mapOptions.points);
+            var points = _.get(vm, 'mapOptions.points');
+            overlays = addOverLays(map, getMapQuery(), points);
         };
 
         function getMapQuery() {

@@ -76,6 +76,9 @@ function getData(cb, path, options) {
         }
 
         //if no response data
+        else if (response.statusCode == 204 && options.failOnNoContent) {
+            cb({statusCode: response.statusCode});
+        }
         else if (!body) {
             cb(null, {
                 statusCode: response.statusCode

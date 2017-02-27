@@ -23,9 +23,21 @@ function getCountryData(countryCode, cb) {
                 }, {retries: 1, timeoutMilliSeconds: 3000, type: 'XML', failHard: true});
             }
         }
+    }, function(err){
+        cb(err);
+    });
+}
+
+function getParticipant(countryCode, cb) {
+    Node.getByCountryCode(countryCode).then(function (node) {
+        cb(null, node)
+    }, function(err){
+        cb(err);
     });
 }
 
 module.exports = {
-    getCountryData: getCountryData
+    getCountryData: getCountryData,
+    getParticipant: getParticipant
 };
+

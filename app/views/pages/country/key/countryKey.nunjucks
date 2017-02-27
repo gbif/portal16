@@ -29,7 +29,7 @@
         {$ tabsMacro.countryTabs(country, 'activity', __) $}
 
 
-        <div class="horizontal-stripe--paddingless light-background">
+        <div class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
                 <div class="card-container--stats">
 

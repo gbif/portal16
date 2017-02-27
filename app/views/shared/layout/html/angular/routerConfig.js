@@ -211,6 +211,52 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'userSettingsCtrl',
             controllerAs: 'userSettings'
         })
+        .state('node', {
+            parent: 'localization',
+            url: '/node/:key?offset_datasets&offset_endorsed',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/node/key/node.html',
+                    controller: 'nodeKeyCtrl',
+                    controllerAs: 'nodeKey'
+                }
+            }
+        })
+        .state('country', {
+            parent: 'localization',
+            abstract: true,
+            url: '/country2/:key',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/country/key/countryKey.html',
+                    controller: 'countryKeyCtrl',
+                    controllerAs: 'countryKey'
+                }
+            }
+        })
+        .state('countryActivity', {
+            parent: 'country',
+            url: '/{direction:(?:about|published)}',
+            params: {direction: {squash: true, value: 'about'}},
+            templateUrl: '/templates/pages/country/key/activity/countryActivity.html',
+            controller: 'countryActivityCtrl',
+            controllerAs: 'countryActivity'
+        })
+        .state('countryTrends', {
+            parent: 'country',
+            url: '/trends/{direction:(?:about|published)}',
+            params: {direction: {squash: true, value: 'about'}},
+            templateUrl: '/templates/pages/country/key/trends/countryTrends.html',
+            controller: 'countryTrendsCtrl',
+            controllerAs: 'countryTrends'
+        })
+        .state('countryParticipant', {
+            parent: 'country',
+            url: '/participant',
+            templateUrl: '/templates/pages/country/key/participant/countryParticipant.html',
+            controller: 'countryParticipantCtrl',
+            controllerAs: 'countryParticipant'
+        })
     ;
     //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 

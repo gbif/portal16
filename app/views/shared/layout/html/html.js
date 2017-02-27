@@ -161,6 +161,9 @@ require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
 require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
 require('../../../pages/country/key/countryKey.ctrl');
+require('../../../pages/country/key/trends/countryTrends.ctrl');
+require('../../../pages/country/key/activity/countryActivity.ctrl');
+require('../../../pages/country/key/participant/countryParticipant.ctrl');
 
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');

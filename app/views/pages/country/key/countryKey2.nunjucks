@@ -1,9 +1,16 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes">
+    <script>
+        var gb = gb || {};
+        gb.nodeKey = '{$ country.record.key $}';
+        gb.countryCode = '{$ country.record.country $}';
+        //        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
+        //        gb.rm = {$ occurrence | rawJson | safe $}
+    </script>
+    <article class="wrapper-horizontal-stripes page--data" >
 
-        <div class="horizontal-stripe article-header white-background p-b-0">
+        <div class="horizontal-stripe article-header white-background">
             <div class="container--desktop">
                 <div class="row">
                     <header class="col-xs-12">
@@ -23,24 +30,12 @@
             </div>
         </div>
 
-        {% import "../tabs.macro.nunjucks" as tabsMacro %}
-        {$ tabsMacro.countryTabs(country, 'participant', __) $}
+        <div ui-view>
 
-        <div class="m-t-1">
-            <ng-include src="'/node/{$ country.record.key $}/content'"></ng-include>
         </div>
 
-        {#{% include "./highlights/highlights.nunjucks" %}#}
-
-        {#{% include "./description/description.nunjucks" %}#}
-
-        {#{% include "./map/map.nunjucks" %}#}
-
-        {#{% include "./contacts/contacts.nunjucks" %}#}
 
     </article>
-
-
 
 
 {% endblock %}

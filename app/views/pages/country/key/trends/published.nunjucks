@@ -1,0 +1,11 @@
+{% import "./trends.macro.nunjucks" as trends %}
+<div class="page--analytics horizontal-stripe--paddingless white-background ng-cloak"
+     ng-show="!countryKey.showAbout">
+    <div class="container--normal">
+        <div class="row">
+            <div class="col-xs-12">
+                {$ trends.stats(country, false, imgUrls.from.thumbBase, imgUrls.from.imgBase, __) $}
+            </div>
+        </div>
+    </div>
+</div>

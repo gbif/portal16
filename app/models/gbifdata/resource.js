@@ -10,10 +10,12 @@ var Resource = function (resourceIdentifier) {
     this.resourceIdentifier = resourceIdentifier;
 };
 
-Resource.getResource = function (resourceIdentifier, DataType) {
+Resource.getResource = function (resourceIdentifier, DataType, options) {
     var deferred = Q.defer();
     helper.getApiData(resourceIdentifier, function (err, data) {
-        if (typeof data.errorType !== 'undefined') {
+        if (err) {
+            deferred.reject(err);
+        } else if (typeof data.errorType !== 'undefined') {
             var error = new Error(data);
             error.type = data.errorType;
             deferred.reject(error);
@@ -23,7 +25,7 @@ Resource.getResource = function (resourceIdentifier, DataType) {
         else {
             deferred.reject(new Error(err));
         }
-    });
+    }, options);
     return deferred.promise;
 };
 
@@ -71,12 +73,12 @@ Resource.get = function (resourceIdentifier) {
     return new Resource(resourceIdentifier);
 };
 
-Resource.prototype.as = function (DataType) {
+Resource.prototype.as = function (DataType, options) {
     if (typeof this.resourceIdentifier === 'undefined') {
         throw new Error('You need to define a resource first');
     } else {
         this.DataType = DataType;
-        return Resource.getResource(this.resourceIdentifier, this.DataType);
+        return Resource.getResource(this.resourceIdentifier, this.DataType, options);
     }
 };
 

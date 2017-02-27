@@ -1,6 +1,6 @@
 $taxonIconSizeL = 60px
 .taxon-icon {
-    background $linkColor
+    background $navBar_background_color
     color white
     font-size $taxonIconSizeL
     line-height $taxonIconSizeL
@@ -9,11 +9,13 @@ $taxonIconSizeL = 60px
     border-radius 50%
     transition background 300ms ease
     &:hover {
-        background darken($linkColor, 20)
+        background darken($navBar_background_color, 20)
     }
 }
 
 .taxonBreakdown {
+    margin vrBlock(2) 0
+    margin-bottom vrBlock(5)
     > div {
         display flex
         justify-content center

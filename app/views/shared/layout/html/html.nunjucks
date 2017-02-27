@@ -33,7 +33,7 @@
         {% endif %}
         {# Main layout cont #}
         {# http://html5doctor.com/the-main-element/ #}
-        <main id="main" class="main" role="main" ui-view>
+        <main id="main" class="main" role="main" {% if not _meta.customUiView %} ui-view {% endif %}>
 
             {# Drawer block is contextual, therefore is a part of the <main> #}
             {#{% if _meta.hasDrawer %}#}

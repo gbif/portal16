@@ -14,7 +14,7 @@ Node.prototype.record = {};
 
 Node.get = function (key, options) {
     options = options || {};
-    var promise = resource.get(api.node.url + key).as(Node);
+    var promise = resource.get(api.node.url + key).as(Node, {failHard: true, failOnNoContent: true});
     if (typeof options.expand === 'undefined') {
         return promise
     } else {
@@ -26,7 +26,7 @@ Node.get = function (key, options) {
 
 Node.getByCountryCode = function (countryCode, options) {
     options = options || {};
-    var promise = resource.get(api.country.url + countryCode).as(Node);
+    var promise = resource.get(api.country.url + countryCode).as(Node, {failHard: true, failOnNoContent: true});
     if (typeof options.expand === 'undefined') {
         return promise
     } else {

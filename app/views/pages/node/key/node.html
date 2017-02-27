@@ -1,0 +1,86 @@
+<article class="wrapper-horizontal-stripes nodeKey">
+    <div class="horizontal-stripe bare-background ng-cloak" ng-if="nodeKey.endorsed.count > 0">
+        <span class="relative-anchor-offset"><a id="endorsedPublishers"></a></span>
+        <div class="container--normal">
+            <p class="small discreet text-uppercase">
+                Endorsed publishers
+            </p>
+            <div class="card">
+                <div class="card__stripe">
+                    <div class="stripeList" ng-show="nodeKey.endorsed.count > 0">
+                        <ul>
+                            <li ng-repeat="publisher in nodeKey.endorsed.results">
+                                <a href="/publisher/{$ publisher.key $}">
+                                    <div class="pull-right text-right">
+                                        <span class="numberBadge">{{ publisher.numPublishedDatasets }}</span>
+                                    </div>
+                                    <div class="title">
+                                        {{ publisher.title }}
+                                    </div>
+                                    <div class="discreet small m-t-05 clearfix">
+                                        <span class="pull-right">published datasets</span>
+                                        <span>A data publisher from {{ publisher.city }} {{ 'country.' + publisher.country | translate }}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card__content m-l-1" ng-if="nodeKey.endorsed.count > nodeKey.limit">
+                        <uib-pagination
+                                total-items="nodeKey.endorsed.count"
+                                ng-model="nodeKey.currentPage_endorsed"
+                                max-size="nodeKey.maxSize"
+                                items-per-page="nodeKey.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="nodeKey.pageChanged_endorsed()">
+                        </uib-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="horizontal-stripe bare-background ng-cloak" ng-if="nodeKey.datasets.count > 0">
+        <span class="relative-anchor-offset"><a id="datasets"></a></span>
+        <div class="container--normal">
+            <p class="small discreet text-uppercase">
+                Latest datasets published
+            </p>
+            <div class="card">
+                <div class="card__stripe">
+                    <div class="stripeList" ng-show="nodeKey.datasets.count > 0">
+                        <ul>
+                            <li ng-repeat="dataset in nodeKey.datasets.results">
+                                <a href="/dataset/{$ publisher.key $}">
+                                    <div class="title">
+                                        {{ dataset.title }}
+                                    </div>
+                                    <div class="discreet small m-t-05 clearfix">
+                                        <span>
+                                            <span>{{ 'dataset.longType.' + dataset.type | translate }}.</span>
+                                            Updated <time am-time-ago="dataset.modified"></time>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card__content m-l-1" ng-if="nodeKey.datasets.count > nodeKey.limit">
+                        <uib-pagination
+                                total-items="nodeKey.datasets.count"
+                                ng-model="nodeKey.currentPage_datasets"
+                                max-size="nodeKey.maxSize"
+                                items-per-page="nodeKey.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="nodeKey.pageChanged_datasets()">
+                        </uib-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

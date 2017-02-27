@@ -1,0 +1,55 @@
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--desktop">
+        <nav class="discreetTabs">
+            <ul>
+                <li>
+                    <a href="" class="inherit noUnderline" ui-sref="countryActivity()">Activity</a>
+                </li>
+                <li class="isActive">
+                    <a href="" class="inherit noUnderline">Trends</a>
+                </li>
+                <li>
+                    <a href="" class="inherit noUnderline" ui-sref="countryParticipant()">Participant</a>
+                </li>
+                <li>
+                    <a class="inherit noUnderline" href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                        <span class="gb-icon-file-download"></span>
+                        <span>
+                            Download report
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="horizontal-stripe white-background">
+    <div class="container--normal">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4 class="m0 inline-block" ng-if="countryTrends.showAbout">
+                    Change over time in data about species from <span translate="country.{{countryTrends.countryCode}}"></span> available from
+                    GBIF.org.
+                </h4>
+                <h4 class="m0 inline-block ng-cloak" ng-if="!countryTrends.showAbout">
+                    Change over time in the data published by institutions within <span translate="country.{{countryTrends.countryCode}}"></span>
+                    available from GBIF.org
+                </h4>
+                <div class="gb-btn-group inline-block pull-right">
+                    <label ng-model="countryKey.showAbout" uib-btn-radio="true"
+                    ><a ui-sref="countryTrends({direction:'about'})" class="inherit noUnderline">About</a></label>
+
+                    <label ng-model="countryKey.showAbout" uib-btn-radio="false"
+                    ><a ui-sref="countryTrends({direction:'published'})" class="inherit noUnderline">Published</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--desktop">
+        <ng-include src="'/api/country/' + countryTrends.countryCode + '/trends/' + countryTrends.direction"></ng-include>
+    </div>
+</div>

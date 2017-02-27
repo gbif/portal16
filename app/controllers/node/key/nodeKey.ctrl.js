@@ -14,6 +14,18 @@ module.exports = function (app) {
 };
 
 router.get('/node/:key\.:ext?', function (req, res, next) {
+    render(req, res, next, 'pages/node/key/nodeKey', true);
+});
+
+router.get('/node/:key/content\.:ext?', function (req, res, next) {
+    render(req, res, next, 'pages/node/key/nodeParticipantInfo', false);
+});
+
+router.get('/node/:key/contacts\.:ext?', function (req, res, next) {
+    render(req, res, next, 'pages/node/key/nodeParticipantContacts', false);
+});
+
+function render(req, res, next, template, redirect) {
     var nodeKey = req.params.key,
         offset_endorsed = req.query.offset_endorsed,
         offset_datasets = req.query.offset_datasets;
@@ -27,7 +39,7 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                 if (_.get(node, 'participant.errorType')) {
                     delete node.participant;
                 }
-                if (node.record.type === 'XCOUNTRY' && node.record.country) {
+                if (redirect && node.record.type === 'COUNTRY' && node.record.country) {
                     res.redirect('/country/' + node.record.country);
                 } else {
                     if (!isDev) {
@@ -64,10 +76,11 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
                     let pageData = {
                         node: node,
                         _meta: {
-                            title: 'Node ' + node.record.title
+                            title: 'Node ' + node.record.title,
+                            customUiView: true
                         }
                     };
-                    helper.renderPage(req, res, next, pageData, 'pages/node/key/nodeKey');
+                    helper.renderPage(req, res, next, pageData, template);
                 }
             } catch (err) {
                 next(err);
@@ -76,4 +89,4 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
             next(err);
         });
     }
-});
+}

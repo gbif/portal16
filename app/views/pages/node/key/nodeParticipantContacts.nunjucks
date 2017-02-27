@@ -1,0 +1,22 @@
+{% import "../../../components/contacts/contacts.macro.nunjucks" as contactsMacro %}
+
+{% if node._computedValues.contributors.all.length > 0 %}
+    <div class="horizontal-stripe bare-background">
+        <span class="relative-anchor-offset"><a id="contacts"></a></span>
+        <div class="container--normal">
+            <p class="small discreet text-uppercase">
+                Contacts
+            </p>
+            <div class="card">
+                <div class="card__stripe">
+                    <div class="card__content">
+                        {$ contactsMacro.contactsList(node._computedValues.contributors.all, __) $}
+                        <div class="text-center discreet small m-b-1">
+                            Cannot find a contact? You are always welcome to contact the <a href="" help-desk>GBIF helpdesk</a> and we will try our best to help you.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

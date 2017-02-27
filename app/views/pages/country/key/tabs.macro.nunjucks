@@ -1,39 +1,41 @@
 {% macro countryTabs(country, active, __) %}
     <section class="horizontal-stripe--paddingless white-background">
-        <div class="container--normal">
+        <div class="container--desktop">
             <div class="row">
                 <div class="col-xs-12">
                     <nav class="tabs">
-                        <ul>
-                            <li class="tab {% if active == 'activity' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}">
-                                    Activity
-                                </a>
-                            </li>
+                        <div class="container--normal">
+                            <ul>
+                                <li class="tab {% if active == 'activity' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}">
+                                        Activity
+                                    </a>
+                                </li>
 
-                            {#{% if country.node.participationStatus %}#}
-                                {#<li class="tab {% if active == 'participant' %}isActive{% endif %}">#}
-                                    {#<a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">#}
-                                        {#Participant#}
-                                    {#</a>#}
-                                {#</li>#}
-                            {#{% endif %}#}
+                                {% if country.record.participationStatus %}
+                                    <li class="tab {% if active == 'participant' %}isActive{% endif %}">
+                                        <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/participant">
+                                            Participant
+                                        </a>
+                                    </li>
+                                {% endif %}
 
-                            <li class="tab {% if active == 'trends' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/trends/about">
-                                    Trends
-                                </a>
-                            </li>
+                                <li class="tab {% if active == 'trends' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/country/{$ country.code $}/trends/about">
+                                        Trends
+                                    </a>
+                                </li>
 
-                            <li class="tab tab-right tab--seperator">
-                                <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
-                                    <span class="gb-icon-file-download gb-icon-button"></span>
-                                <span>
-                                    Download report
-                                </span>
-                                </a>
-                            </li>
-                        </ul>
+                                <li class="tab tab-right tab--seperator">
+                                    <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                                        <span class="gb-icon-file-download"></span>
+                                    <span>
+                                        Download report
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
             </div>

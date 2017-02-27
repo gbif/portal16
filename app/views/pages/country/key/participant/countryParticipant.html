@@ -1,0 +1,35 @@
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--desktop">
+        <nav class="discreetTabs">
+            <ul>
+                <li>
+                    <a href="" class="inherit noUnderline" ui-sref="countryActivity()">Activity</a>
+                </li>
+                <li>
+                    <a href="" class="inherit noUnderline" ui-sref="countryTrends()">Trends</a>
+                </li>
+                <li class="isActive">
+                    <a href="" class="inherit noUnderline">Participant</a>
+                </li>
+                <li>
+                    <a class="inherit noUnderline" href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                        <span class="gb-icon-file-download"></span>
+                        <span>
+                            Download report
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="horizontal-stripe--paddingless white-background">
+    <div class="container--desktop">
+        <ng-include src="'/node/' + countryParticipant.nodeKey + '/content'"></ng-include>
+    </div>
+</div>
+
+<div ng-controller="nodeKeyCtrl as nodeKey" ng-init="nodeKey.init('{$ country.code $}')">
+    <ng-include src="'/templates/pages/node/key/node.html'"></ng-include>
+</div>

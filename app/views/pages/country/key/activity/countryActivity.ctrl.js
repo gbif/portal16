@@ -4,10 +4,10 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('countryKeyCtrl', countryKeyCtrl);
+    .controller('countryActivityCtrl', countryActivityCtrl);
 
 /** @ngInject */
-function countryKeyCtrl($http, OccurrenceTableSearch) {
+function countryActivityCtrl($http, OccurrenceTableSearch) {
     var vm = this;
     vm.aboutCountries = {};
     vm.fromCountries = {};
@@ -19,7 +19,6 @@ function countryKeyCtrl($http, OccurrenceTableSearch) {
     vm.countryCode = gb.countryCode;
 
     vm.init = function () {
-    console.log(234);
         getCoveredCountries();
         getDatasets();
         getKingdomBreakdown();
@@ -63,6 +62,7 @@ function countryKeyCtrl($http, OccurrenceTableSearch) {
             //TODO couldn't get the data
         });
     }
+    vm.init();
 }
 
-module.exports = countryKeyCtrl;
+module.exports = countryActivityCtrl;

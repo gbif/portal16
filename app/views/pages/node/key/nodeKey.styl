@@ -13,10 +13,16 @@
         display flex
         justify-content space-around
         color white
-        > div {
+        > * {
+            display block
             text-align center
             padding 10px
             flex 1 0 auto
+            background $navBar_background_color
+            transition background 200ms ease
+            &:hover {
+                background darken($navBar_background_color, 5)
+            }
         }
         &__count {
             font-size 20px
@@ -24,7 +30,7 @@
         }
     }
     &__info {
-        padding vrBlock(1)
+        padding vrBlock(2)
         border 1px solid $stripeBorderColor
         background $lightBackground
     }

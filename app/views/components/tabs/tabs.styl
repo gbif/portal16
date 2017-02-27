@@ -1,46 +1,6 @@
-//ul.tabs {
-//    position relative
-//    z-index 10
-//    padding 0
-//    > li {
-//        float left
-//        display inline-block
-//        margin 0 2px
-//        position relative
-//        a {
-//            display block
-//            padding 0px 12px
-//            text-transform capitalize
-//            color inherit
-//            height $searchTabBar-height
-//            line-height $searchTabBar-height
-//            &:hover {
-//                text-decoration none
-//            }
-//        }
-//        &.is-active {
-//            background $actionColor
-//            color white
-//            &:after { //arrow below
-//                top 100%
-//                left 50%
-//                border solid transparent
-//                content " "
-//                height 0
-//                width 0
-//                position absolute
-//                pointer-events none
-//                border-color rgba(58, 85, 99, 0)
-//                border-top-color $actionColor
-//                border-width 7px
-//                margin-left -8px
-//            }
-//        }
-//    }
-//}
-
 .tabs {
     height $searchTabBar-height
+    border-bottom 2px solid #ddd
     ul {
         display block
         padding 0
@@ -69,8 +29,8 @@
     }
     li.isActive {
         a, span {
-            border-color $color_accent
-            color $bodyTextColor
+            border-color $navBar_background_color
+            color darken($navBar_background_color, 10)
         }
     }
     .tab--seperator {
