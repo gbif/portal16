@@ -65,7 +65,7 @@ var config = {
         },
         port: port || 80,
         log: log,
-        serverProtocol: 'https:',
+        serverProtocol: 'http:',
         apidocs: apidocs,
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
@@ -85,7 +85,7 @@ var config = {
         },
         port: port || 80,
         log: log,
-        serverProtocol: 'https:',
+        serverProtocol: 'http:',
         apidocs: apidocs,
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
