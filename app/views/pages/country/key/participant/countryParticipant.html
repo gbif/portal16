@@ -45,5 +45,6 @@
 <div ng-if="countryKey.isParticipant">
     <div ng-controller="nodeKeyCtrl as nodeKey" ng-init="nodeKey.init('{$ country.code $}')">
         <ng-include src="'/templates/pages/node/key/node.html'"></ng-include>
+        <div ng-include="'/node/' + countryParticipant.nodeKey + '/contacts'"></div>
     </div>
 </div>
