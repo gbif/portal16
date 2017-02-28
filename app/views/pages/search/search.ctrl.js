@@ -32,6 +32,7 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
     );
 
     vm.updateSearch = function () {
+        vm.loaded = false;
         vm.query.q = vm.freeTextQuery || '';
         if ($state.current.abstract) {
             location.href = '/search?q=' + encodeURIComponent(vm.query.q);
@@ -39,6 +40,11 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
             $state.go($state.current, vm.query);
         }
         window.scrollTo(0, 0);
+    };
+    vm.searchRedirect = function () {
+        vm.loaded = false;
+        vm.query.q = vm.freeTextQuery || '';
+        location.href = '/search?q=' + encodeURIComponent(vm.query.q);
     };
     vm.searchOnEnter = function (event) {
         if (event.which === 13) {
@@ -53,7 +59,6 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
             vm.isActive = false;
         }
     };
-
 
     $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
         if (data.toggle) {
