@@ -1,15 +1,15 @@
 <div class="horizontal-stripe--paddingless white-background">
     <div class="{% if node.record.type == 'COUNTRY' %} container--desktop {% else %} container--normal {% endif %}m-b-2">
         <div class="node__summary">
-            {% if node.record.type == 'COUNTRY' %}
-                <div class="node__images">
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img src="//api.gbif.org/v1/image/unsafe/1200x600/left/top/http://static.inaturalist.org/photos/3400549/original.JPG?1460949098" gallery-image>
-                        </div>
-                    </figure>
-                </div>
-            {% endif %}
+            {#{% if node.record.type == 'COUNTRY' %}#}
+                {#<div class="node__images">#}
+                    {#<figure class="heading-image">#}
+                        {#<div class="cover-image">#}
+                            {#<img src="//api.gbif.org/v1/image/unsafe/1200x600/left/top/http://static.inaturalist.org/photos/3400549/original.JPG?1460949098" gallery-image>#}
+                        {#</div>#}
+                    {#</figure>#}
+                {#</div>#}
+            {#{% endif %}#}
             <div class="node__info">
                 <div class="">
                     <div class="row">
@@ -82,7 +82,7 @@
                                         {% for media in node.participant.data[0].socialMedia %}
                                             <div>
                                                 <a href="{$ media.url $}">
-                                                    <img src="/img/social/{$ media.title | lower | urlencode $}.png">
+                                                    <img src="{$ media.title | socialMediaIcon | rev $}">
                                                 </a>
                                             </div>
                                         {% endfor %}

@@ -5,8 +5,6 @@
         var gb = gb || {};
         gb.nodeKey = '{$ country.record.key $}';
         gb.countryCode = '{$ country.record.country $}';
-        //        gb.occurrenceRecordVerbatim = {$ occurrence.verbatim | rawJson | safe $};
-        //        gb.rm = {$ occurrence | rawJson | safe $}
     </script>
     <article class="wrapper-horizontal-stripes page--data" >
 
@@ -31,6 +29,19 @@
         </div>
 
         <div ui-view>
+
+            <div class="discreet text-center">
+                <div class="discreet">
+                    <h2 style="color:#ccc">
+                        Loading country data
+                    </h2>
+                    <div class="loader">
+                        <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

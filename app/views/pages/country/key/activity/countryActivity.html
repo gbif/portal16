@@ -12,8 +12,7 @@
                     <a href="" class="inherit noUnderline" ui-sref="countryParticipant()">Participant</a>
                 </li>
                 <li>
-                    <a class="inherit noUnderline"
-                       href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                    <a class="inherit noUnderline" ng-href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf">
                         <span class="gb-icon-file-download"></span>
                         <span>
                             Download report
@@ -26,12 +25,23 @@
 </div>
 
 <div class="horizontal-stripe--paddingless country-key white-background">
-    <div class="container--desktop country-key">
-        <div class="card-container--stats p-b-2">
-            <ng-include src="'/api/country/' + countryActivity.countryCode + '/breakdown'"></ng-include>
+
+    <div ng-if="!countryActivity.loaded" class="discreet text-center m-t-2">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
         </div>
     </div>
+
+    <div class="container--desktop country-key">
+        <div class="card-container--stats p-b-2">
+            <div ng-include="'/api/country/' + countryActivity.countryCode + '/breakdown'" onload="countryActivity.loaded = true"></div>
+        </div>
+    </div>
+
 </div>
+
 <div class="horizontal-stripe light-background">
     <div class="container--desktop country-key">
         <div class="card-container--stats">

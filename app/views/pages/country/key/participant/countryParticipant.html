@@ -12,7 +12,7 @@
                     <a href="" class="inherit noUnderline">Participant</a>
                 </li>
                 <li>
-                    <a class="inherit noUnderline" href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ country.code $}/GBIF_CountryReport_{$ country.code $}.pdf">
+                    <a class="inherit noUnderline" ng-href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf">
                         <span class="gb-icon-file-download"></span>
                         <span>
                             Download report
@@ -25,8 +25,17 @@
 </div>
 
 <div class="horizontal-stripe--paddingless white-background">
-    <div class="container--desktop">
-        <ng-include src="'/node/' + countryParticipant.nodeKey + '/content'"></ng-include>
+    <div>
+
+        <div ng-if="!countryParticipant.loaded" class="discreet text-center m-t-2">
+            <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+            <div class="discreet">
+                <em>Please hang on while we generate the country trends</em>
+            </div>
+        </div>
+
+        <div ng-include="'/node/' + countryParticipant.nodeKey + '/content'" onload="countryParticipant.loaded = true"></div>
+
     </div>
 </div>
 

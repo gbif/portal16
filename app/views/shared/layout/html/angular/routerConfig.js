@@ -225,7 +225,7 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('country', {
             parent: 'localization',
             abstract: true,
-            url: '/country2/:key',
+            url: '/country/:key',
             views: {
                 main: {
                     templateUrl: '/templates/pages/country/key/countryKey.html',
@@ -252,7 +252,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('countryParticipant', {
             parent: 'country',
-            url: '/participant',
+            url: '/participant?offset_datasets&offset_endorsed',
             templateUrl: '/templates/pages/country/key/participant/countryParticipant.html',
             controller: 'countryParticipantCtrl',
             controllerAs: 'countryParticipant'
@@ -269,3 +269,4 @@ function routerConfig($stateProvider, $locationProvider) {
 }
 
 module.exports = routerConfig;
+

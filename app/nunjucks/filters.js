@@ -219,6 +219,18 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     /**
+     * Social icon. Due to everything being versioned we have to go through this loop
+     * Remember to use it with the rev filter for versioned assets.
+     */
+    (function () {
+        nunjucksConfiguration.addFilter('socialMediaIcon', function (media) {
+            if (media) {
+                return '/img/social/' + _.toLower(media.replace(' ', '_')) + '.png';
+            }
+        });
+    })();
+
+    /**
      * filter that uses the rev-manifest.json to change versioned asset file paths.
      * The path to the file should be the full absolute path in the public folder to the unrev'ed asset.
      *
@@ -240,7 +252,7 @@ module.exports = function (nunjucksConfiguration) {
             if (location in revManifest) {
                 return "/" + revManifest[location];
             }
-            return location;
+            return "/" + location;
         });
     })();
 

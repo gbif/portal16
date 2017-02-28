@@ -52,13 +52,13 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets, $state, $stateParams)
     vm.pageChanged_endorsed = function () {
         vm.offset_endorsed = (vm.currentPage_endorsed - 1) * vm.limit;
         var offset = vm.offset_endorsed == 0 ? undefined : vm.offset_endorsed;
-        $state.go($state.current, {limit: vm.limit, offset_endorsed: offset}, {inherit: true, notify: false, reload: true});
+        $state.go($state.current, {limit: vm.limit, offset_endorsed: offset, '#': 'endorsedPublishers'}, {inherit: true, notify: false, reload: true});
         vm.getEndorsed();
     };
     vm.pageChanged_datasets = function () {
         vm.offset_datasets = (vm.currentPage_datasets - 1) * vm.limit;
         var offset = vm.offset_datasets == 0 ? undefined : vm.offset_datasets;
-        $state.go($state.current, {limit: vm.limit, offset_datasets: offset}, {inherit: true, notify: false, reload: true});
+        $state.go($state.current, {limit: vm.limit, offset_datasets: offset, '#': 'datasets'}, {inherit: true, notify: false, reload: true});
         vm.getDatasets();
     };
 

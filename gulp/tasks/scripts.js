@@ -53,6 +53,10 @@ function buildScripts() {
     return build(config.js.browserify.main.path, config.js.browserify.main.dest);
 }
 
+//update byild so that all files names entry will be build automatically.
+gulp.task('dataRepo', function () {
+    return build('./app/views/pages/tools/dataRepo/dataRepo.entry.js', 'pages/dataRepo.js');
+});
 gulp.task('speciesLookup', function () {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
