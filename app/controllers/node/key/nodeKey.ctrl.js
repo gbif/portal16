@@ -42,10 +42,6 @@ function render(req, res, next, template, redirect) {
                 if (redirect && node.record.type === 'COUNTRY' && node.record.country) {
                     res.redirect('/country/' + node.record.country);
                 } else {
-                    if (!isDev) {
-                        next();
-                        return;
-                    }
                     node._computedValues = {};
 
                     //create unified contacts with multiple roles per person
