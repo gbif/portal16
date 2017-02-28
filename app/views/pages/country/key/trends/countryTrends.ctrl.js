@@ -10,13 +10,11 @@ angular
 function countryTrendsCtrl($stateParams) {
     var vm = this;
     vm.direction = $stateParams.direction;
-    vm.isAbout = vm.direction == 'about';
+    vm.showAbout = vm.direction == 'about';
     vm.countryCode = gb.countryCode;
     vm.aboutTemplate = '/api/country/' + vm.countryCode + '/trends/' + vm.direction;
-    console.log(vm.trendsTemplate);
 
-    vm.changeToPublished = function() {
-    console.log('change tpo published');
+    vm.changeToPublished = function () {
         $state.go($state.current, {direction: 'published'}, {inherit: true, notify: false, reload: true});
     };
 }

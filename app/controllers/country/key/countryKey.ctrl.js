@@ -15,12 +15,17 @@ function renderForAngular(req, res, next) {
     countryData.getParticipant(key, function (err, country) {
         if (err) {
             if (_.get(err, 'errorResponse.statusCode', 404) < 500) {
-                next();
+                country = {
+                    code: key,
+                    isParticipant: false
+                };
+                renderPage(req, res, next, country);
             } else {
                 next(err);
             }
         } else {
             country.code = key;
+            country.isParticipant = true;
             renderPage(req, res, next, country);
         }
     });
@@ -90,59 +95,37 @@ router.get('/api/country/:key/news', function (req, res, next) {
 
 router.get('/api/country/:key/breakdown', function (req, res, next) {
     var key = req.params.key.toUpperCase();
-
-    var key = req.params.key.toUpperCase();
-    countryData.getParticipant(key, function (err, country) {
-        if (err) {
-            if (_.get(err, 'errorResponse.statusCode', 404) < 500) {
-                next();
-            } else {
-                next(err);
+    var country = {
+        code: key
+    };
+    try {
+        res.render('pages/country/key/activity/activities', {
+            country: country,
+            _meta: {
+                title: res.__('country.' + country.code),
+                imageCacheUrl: imageCacheUrl,
+                customUiView: true
             }
-        } else {
-            country.code = key;
-            try {
-                if (req.params.ext == 'debug') {
-                    res.json(country);
-                } else {
-                    res.render('pages/country/key/activity/activities', {
-                        country: country,
-                        _meta: {
-                            title: res.__('country.' + country.code),
-                            imageCacheUrl: imageCacheUrl,
-                            customUiView: true
-                        }
-                    });
-                }
-            } catch (e) {
-                next(e);
-            }
-        }
-    });
+        });
+    } catch (e) {
+        next(e);
+    }
 });
 
 router.get('/api/country/:key/trends/about\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    countryData.getCountryData(key, function (err, country) {
-        if (err) {
-            next(err)
-        } else {
-            country.code = key;
-            renderPartialTrendsPage(req, res, next, country, true, 'pages/country/key/trends/about');
-        }
-    });
+    var key = req.params.key.toUpperCase();
+    var country = {
+        code: key
+    };
+    renderPartialTrendsPage(req, res, next, country, true, 'pages/country/key/trends/about');
 });
 
 router.get('/api/country/:key/trends/published\.:ext?', function (req, res, next) {
-    var key = req.params.key;
-    countryData.getCountryData(key, function (err, country) {
-        if (err) {
-            next(err)
-        } else {
-            country.code = key;
-            renderPartialTrendsPage(req, res, next, country, false, 'pages/country/key/trends/published');
-        }
-    });
+    var key = req.params.key.toUpperCase();
+    var country = {
+        code: key
+    };
+    renderPartialTrendsPage(req, res, next, country, false, 'pages/country/key/trends/published');
 });
 
 function renderPartialTrendsPage(req, res, next, country, isAbout, template) {

@@ -15,8 +15,22 @@ function countryActivityCtrl($http, OccurrenceTableSearch) {
     vm.largestDatasetsFrom = {};
     vm.kingdomsAbout = {};
     vm.kingdomsFrom = {};
+    vm.kingdoms = [
+        {id: 1, title: 'Animalia', icon: 'animalia'},
+        {id: 6, title: 'Plantae', icon: 'plantae'},
+        {id: 5, title: 'Fungi', icon: 'fungi'},
+        {id: 2, title: 'Archaea', icon: 'archaea'},
+        {id: 3, title: 'Bacteria', icon: 'bacteria'},
+        {id: 4, title: 'Chromista', icon: 'chromista'},
+        {id: 7, title: 'Protozoa', icon: 'protozoa'},
+        {id: 8, title: 'Viruses', icon: 'viruses'},
+        {id: 0, title: 'incertae sedis', icon: 'unknown'}
+    ];
     vm.showAbout = true;
     vm.countryCode = gb.countryCode;
+    vm.mapOptions = {
+        points: true
+    };
 
     vm.init = function () {
         getCoveredCountries();

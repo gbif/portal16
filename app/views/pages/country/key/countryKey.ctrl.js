@@ -7,62 +7,28 @@ angular
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl($http, OccurrenceTableSearch) {
+function countryKeyCtrl(OccurrenceSearch) {
     var vm = this;
-    vm.aboutCountries = {};
-    vm.fromCountries = {};
-    vm.largestDatasetsAbout = {};
-    vm.largestDatasetsFrom = {};
-    vm.kingdomsAbout = {};
-    vm.kingdomsFrom = {};
-    vm.showAbout = true;
     vm.countryCode = gb.countryCode;
+    vm.isParticipant = gb.isParticipant;
 
-    vm.init = function () {
-    console.log(234);
-        getCoveredCountries();
-        getDatasets();
-        getKingdomBreakdown();
-    };
-    function getCoveredCountries() {
-        $http.get('/api/count/country/' + vm.countryCode + '/from/countries').then(function (response) {
-            vm.fromCountries = response.data;
-        });
-        $http.get('/api/count/country/' + vm.countryCode + '/about/countries').then(function (response) {
-            vm.aboutCountries = response.data;
-        });
-    }
+    OccurrenceSearch.query({
+        country: vm.countryCode,
+        limit: 0
+    }, function(data){
+        vm.countAbout = data.count;
+    }, function(err){
+        //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
+    });
 
-    function getDatasets() {
-        $http.get('/api/occurrence/search?facet=dataset_key&limit=0&country=' + vm.countryCode).then(function (response) {
-            vm.largestDatasetsAbout = response.data.facets.DATASET_KEY.counts;
-        });
-        $http.get('/api/occurrence/search?facet=dataset_key&limit=0&publishingCountry=' + vm.countryCode).then(function (response) {
-            vm.largestDatasetsFrom = response.data.facets.DATASET_KEY.counts;
-        });
-    }
-
-    function getKingdomBreakdown() {
-        OccurrenceTableSearch.query({
-            country: vm.countryCode,
-            facet: 'kingdomKey',
-            limit: 0
-        }, function (response) {
-            vm.kingdomsAbout = response.facets.KINGDOM_KEY.counts;
-        }, function () {
-            //TODO couldn't get the data
-        });
-
-        OccurrenceTableSearch.query({
-            publishingCountry: vm.countryCode,
-            facet: 'kingdomKey',
-            limit: 0
-        }, function (response) {
-            vm.kingdomsFrom = response.facets.KINGDOM_KEY.counts;
-        }, function () {
-            //TODO couldn't get the data
-        });
-    }
+    OccurrenceSearch.query({
+        publishing_country: vm.countryCode,
+        limit: 0
+    }, function(data){
+        vm.countPublished = data.count;
+    }, function(err){
+        //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
+    });
 }
 
 module.exports = countryKeyCtrl;

@@ -1,5 +1,7 @@
 {% include('../recordBreakdown/recordBreakdown.nunjucks') %}
 
-{% include('../countryCoverage/countryCoverage.nunjucks') %}
+{#<div>#}
+    {#{% include('../countryCoverage/countryCoverage.nunjucks') %}#}
 
-{% include('../datasetBreakdown/datasetBreakdown.nunjucks') %}
+    {#{% include('../datasetBreakdown/datasetBreakdown.nunjucks') %}#}
+{#</div>#}

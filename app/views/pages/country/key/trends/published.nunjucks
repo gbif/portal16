@@ -1,6 +1,5 @@
 {% import "./trends.macro.nunjucks" as trends %}
-<div class="page--analytics horizontal-stripe--paddingless white-background ng-cloak"
-     ng-show="!countryKey.showAbout">
+<div class="page--analytics horizontal-stripe--paddingless white-background ng-cloak">
     <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">

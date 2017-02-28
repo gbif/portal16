@@ -61,11 +61,12 @@ module.exports = function (element, options) {
     function updateStyle(opt) {
         opt = opt || {};
         globeOptions.landColor = opt.land || "#ccc";
-        globeOptions.waterColor = opt.water || "#eee";
-        globeOptions.graticules = opt.graticules || "#bbb";
+        globeOptions.waterColor = opt.water || "#ccc";
+        globeOptions.graticules = opt.graticules || "#aaa";
         globeOptions.focus = opt.focus || "rgba(0,0,0,0.3)";
-        globeOptions.border = opt.border || "#aaa";
+        globeOptions.border = opt.border || "#999";
     }
+
 
     updateStyle(options);
     setCenter(0, 0, 0);

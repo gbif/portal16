@@ -294,7 +294,6 @@ function createMap(element) {
     });
     window.map = map;
 
-
     //var geoJ = {
     //    "type": "FeatureCollection",
     //    "features": [

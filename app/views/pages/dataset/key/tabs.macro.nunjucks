@@ -43,7 +43,7 @@
                             {% if dataset._occurrenceCount.count > 0 %}
                                 <li class="tab tab-right tab--seperator">
                                     <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                        <span class="gb-icon-microscope gb-icon-button"></span>
+                                        {#<span class="gb-icon-microscope"></span>#}
                                         <span>
                                             Explore
                                         </span>
@@ -54,7 +54,7 @@
                             {% if dataset._computedValues.originalArchive and dataset._occurrenceCount.count > 0 %}
                                 <li class="tab tab-right" uib-dropdown dropdown-append-to-body>
                                     <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
-                                        <span class="gb-icon-file-download gb-icon-button"></span>
+                                        <span class="gb-icon-file-download"></span>
                                         <span>
                                             Download
                                         </span>

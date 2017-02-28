@@ -8,7 +8,7 @@
                 <li>
                     <a href="" class="inherit noUnderline" ui-sref="countryTrends()">Trends</a>
                 </li>
-                <li>
+                <li ng-if="countryKey.isParticipant">
                     <a href="" class="inherit noUnderline" ui-sref="countryParticipant()">Participant</a>
                 </li>
                 <li>
@@ -35,14 +35,12 @@
     </div>
 
     <div class="container--desktop country-key">
-        <div class="card-container--stats p-b-2">
-            <div ng-include="'/api/country/' + countryActivity.countryCode + '/breakdown'" onload="countryActivity.loaded = true"></div>
-        </div>
+        <div ng-include="'/api/country/' + countryActivity.countryCode + '/breakdown'" onload="countryActivity.loaded = true" class="card-container--stats m-b-2"></div>
     </div>
 
 </div>
 
-<div class="horizontal-stripe light-background">
+<div class="horizontal-stripe light-background" ng-if="countryKey.isParticipant">
     <div class="container--desktop country-key">
         <div class="card-container--stats">
             <ng-include src="'/api/country/' + countryActivity.countryCode + '/news'"></ng-include>

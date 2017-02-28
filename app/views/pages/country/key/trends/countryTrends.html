@@ -8,7 +8,7 @@
                 <li class="isActive">
                     <a href="" class="inherit noUnderline">Trends</a>
                 </li>
-                <li>
+                <li ng-if="countryKey.isParticipant">
                     <a href="" class="inherit noUnderline" ui-sref="countryParticipant()">Participant</a>
                 </li>
                 <li>
@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div class="horizontal-stripe white-background">
+<div class="horizontal-stripe--paddingless white-background m-b-1">
     <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">
@@ -32,15 +32,15 @@
                     Change over time in data about species from <span translate="country.{{countryTrends.countryCode}}"></span> available from
                     GBIF.org.
                 </h4>
-                <h4 class="m0 inline-block ng-cloak" ng-if="!countryTrends.showAbout">
+                <h4 class="m0 inline-block ng-cloak" ng-if="!countryTrends.showAbout && countryKey.countPublished">
                     Change over time in the data published by institutions within <span translate="country.{{countryTrends.countryCode}}"></span>
                     available from GBIF.org
                 </h4>
-                <div class="gb-btn-group inline-block pull-right">
-                    <label ng-model="countryKey.showAbout" uib-btn-radio="true"
+                <div class="gb-btn-group inline-block pull-right" ng-if="countryKey.countPublished">
+                    <label ng-model="countryTrends.showAbout" uib-btn-radio="true"
                     ><a ui-sref="countryTrends({direction:'about'})" class="inherit noUnderline">About</a></label>
 
-                    <label ng-model="countryKey.showAbout" uib-btn-radio="false"
+                    <label ng-model="countryTrends.showAbout" uib-btn-radio="false"
                     ><a ui-sref="countryTrends({direction:'published'})" class="inherit noUnderline">Published</a></label>
                 </div>
             </div>
@@ -58,6 +58,11 @@
             </div>
         </div>
 
-        <div ng-include="'/api/country/' + countryTrends.countryCode + '/trends/' + countryTrends.direction" onload="countryTrends.loaded = true"></div>
+        <div ng-if="!countryTrends.showAbout && !countryKey.countPublished" class="blankNotification">
+            <h2>There is no data published from <span translate="country.{{ countryKey.countryCode }}"></span></h2>
+        </div>
+
+        <div ng-include="'/api/country/' + countryTrends.countryCode + '/trends/about'" onload="countryTrends.loaded = true" ng-show="countryTrends.showAbout"></div>
+        <div ng-include="'/api/country/' + countryTrends.countryCode + '/trends/published'" onload="countryTrends.loaded = true" ng-show="countryKey.countPublished && !countryTrends.showAbout"></div>
     </div>
 </div>
