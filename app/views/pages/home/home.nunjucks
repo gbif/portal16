@@ -61,6 +61,8 @@ nature, PLOS, ... and
                         <a href="{$ gb.locales.urlPrefix $}/occurrence/search" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Occurrences</a>
                         <a href="{$ gb.locales.urlPrefix $}/species/search" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Species</a>
                         <a href="{$ gb.locales.urlPrefix $}/dataset/search" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Datasets</a>
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/search" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Publishers</a>
+                        <a href="{$ gb.locales.urlPrefix $}/cms/search" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Activities</a>
                         <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">What is GBIF?</a>
                     </div>
                 </div>
@@ -155,12 +157,10 @@ nature, PLOS, ... and
                             <div class="home__about">
                                 <div ng-class="{'home__about--columns': !home.showCountryCard}">
                                     <p>
-                                        A global network of publishers, researchers and nations that believe data about life on earth is worth most when shared.
-                                        In total more than 700 millions species occurrences has been published.
+                                        GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.
                                     </p>
                                     <p>
-                                        A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
-                                        Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
+                                        Coordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.
                                     </p>
                                     <div>
                                         <a href="/what-is-gbif">Read more</a>
@@ -172,7 +172,7 @@ nature, PLOS, ... and
                             <div class="card">
                                 <div class="card__stripe">
                                     <div class="card__content home__country__headline">
-                                        <div translate="country.{{ home.country.countryCode }}"></div>
+                                        <div><a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" translate="country.{{ home.country.countryCode }}"></a></div>
                                         <span class="small discreet" translate="participationStatus.longForm.{{ home.participationStatus }}" ng-if="home.participationStatus"></span>
                                     </div>
                                 </div>
@@ -190,24 +190,6 @@ nature, PLOS, ... and
                                                 <a ng-repeat="result in home.occurrences.results" ng-href="/occurrence/{{ result.key }}" class="hideInvalid isInvalid">
                                                     <img gb-load ng-src="{{ home.imageCache }}x140/{{ result._images[0].identifier | encodeURIComponent }}">
                                                 </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card__stripe card__stripe--light home__rss" ng-if="home.hasFeed">
-                                        <div class="card__content">
-                                            <div class="home__country__category">
-                                                Node news
-                                            </div>
-                                            <div ng-repeat="rssItem in home.rssFeed | limitTo:2" class="m-b-1">
-                                                <h4 class="home__country__title">
-                                                    <a ng-href="{{ rssItem.link }}">{{ rssItem.title }}</a>
-                                                </h4>
-                                                <p class="home__country__description">
-                                                    {{ rssItem.description | truncate:80 }}
-                                                    <span class="home__country__footer">
-                                                        {{ rssItem.pubDate }}
-                                                    </span>
-                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -260,6 +242,24 @@ nature, PLOS, ... and
                                                 <a class="discreet small" ng-href="/dataset/search?country={{ home.country.countryCode }}">See all</a>
                                             </div>
 
+                                        </div>
+                                    </div>
+                                    <div class="card__stripe card__stripe--light home__rss" ng-if="home.hasFeed">
+                                        <div class="card__content">
+                                            <div class="home__country__category">
+                                                Node news
+                                            </div>
+                                            <div ng-repeat="rssItem in home.rssFeed | limitTo:2" class="m-b-1">
+                                                <h4 class="home__country__title">
+                                                    <a ng-href="{{ rssItem.link }}">{{ rssItem.title }}</a>
+                                                </h4>
+                                                <p class="home__country__description">
+                                                    {{ rssItem.description | truncate:80 }}
+                                                    <span class="home__country__footer">
+                                                        {{ rssItem.pubDate }}
+                                                    </span>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

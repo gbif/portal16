@@ -39,7 +39,11 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         }
     }
     &__quicklinks {
-        margin-top 5px
+        //max-width 400px
+        a {
+            display inline-block
+            margin 5px 2px 0 0
+        }
     }
     &__news {
         padding vrBlock(2) 0
@@ -114,7 +118,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         }
         &__logo {
             float right
-            >img {
+            > img {
                 max-width 100px
                 max-height 70px
             }
@@ -148,7 +152,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         display flex
         flex-wrap nowrap
         height 70px
-        >a {
+        > a {
             margin-right 3px
             flex 0 0 auto
             display inline-block
