@@ -10,7 +10,7 @@
                     <div class="stripeList" ng-show="nodeKey.endorsed.count > 0">
                         <ul>
                             <li ng-repeat="publisher in nodeKey.endorsed.results">
-                                <a href="/publisher/{$ publisher.key $}">
+                                <a ng-href="/publisher/{{ publisher.key }}">
                                     <div class="pull-right text-right">
                                         <span class="numberBadge">{{ publisher.numPublishedDatasets }}</span>
                                     </div>
@@ -53,7 +53,7 @@
                     <div class="stripeList" ng-show="nodeKey.datasets.count > 0">
                         <ul>
                             <li ng-repeat="dataset in nodeKey.datasets.results">
-                                <a href="/dataset/{$ publisher.key $}">
+                                <a ng-href="/dataset/{{ dataset.key }}">
                                     <div class="title">
                                         {{ dataset.title }}
                                     </div>
