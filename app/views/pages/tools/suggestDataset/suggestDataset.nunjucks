@@ -235,7 +235,7 @@
                                                             <input type="text" class="form-control"
                                                                    ng-model="suggestDataset.suggestion.userEmail"
                                                                    id="datasetUserEmail"
-                                                                   placeholder="e.g. e-mail">
+                                                                   placeholder="e.g. email or Github username">
                                                             <span class="small">{$ __('tools.suggestDataset.form.publicAlert') $}</span>
                                                         </div>
                                                     </div>
