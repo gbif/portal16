@@ -1,4 +1,5 @@
 var apirequest = require('./api-request'),
+    imageCachePrefix = require('../gbifdata/apiConfig').image.url,
     confidenceThreshold = 20;
 
 function getMatchesByConfidence(results) {
@@ -71,6 +72,8 @@ function getHigestRankingLowerClasses(children) {
 }
 
 function renderPage(req, res, next, data, template) {
+    data._meta = data._meta || {};
+    data._meta.imageCache = data._meta.imageCache || imageCachePrefix;
     try {
         if (req.params.ext == 'debug') {
             res.json(data);
