@@ -7,6 +7,8 @@ let contentful = require('contentful'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
+    credentialsPath = rootRequire('config/config').credentials,
+    credentials = require(credentialsPath).contentful.gbif,
     router = express.Router();
 
 module.exports = function (app) {
@@ -25,24 +27,11 @@ router.get('/preview/data-use/:id\.:ext?', function (req, res, next) {
 
 });
 
-//function render(req, res, next, content) {
-//    content._meta = {
-//        title: 'GBIF',
-//            bodyClass: 'hasTransparentMenu',
-//            hideSearchAction: true
-//    };
-//    try {
-//        res.render('pages/about/data_use/tmpPreviewDataUse', content);
-//    } catch (err) {
-//        next(err);
-//    }
-//}
-
 function getContentfulItem(entryId, depth) {
     let deferred = Q.defer(),
-        space = 'bdcxqn1is9pq',
+        space = credentials.space,
         query = {
-            access_token: 'b5152cfadd945e088b349e6935d0ce6652e7d065d92b6118c2dc6eff1f42f6f7',
+            access_token: credentials.access_token,
             include: depth || 1,
             'sys.id': entryId
         };
