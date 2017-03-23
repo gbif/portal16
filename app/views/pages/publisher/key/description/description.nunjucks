@@ -1,25 +1,24 @@
 {% if publisher.record.description %}
-    <section class="horizontal-stripe white-background publisher-key__text">
-        <div class="container--narrow">
+    <span class="relative-anchor-offset"><a id="description"></a></span>
+    <div class="container--narrow">
 
-            {% if publisher.record.language != 'eng' %}
-                <div class="stripe-comment-wrapper">
-                    <div class="stripe-comment">
-                        <div>
-                            {$ __('language.' + publisher.record.language) $}
-                        </div>
+        {% if publisher.record.language != 'eng' %}
+            <div class="stripe-comment-wrapper">
+                <div class="stripe-comment">
+                    <div>
+                        {$ __('language.' + publisher.record.language) $}
                     </div>
                 </div>
-            {% endif %}
+            </div>
+        {% endif %}
 
+        <div>
+            <h3>Description</h3>
             <div>
-                <h3>Description</h3>
-                <div>
-                    <p>
-                        {$ publisher.record.description | safe $}
-                    </p>
-                </div>
+                <p>
+                    {$ publisher.record.description | safe $}
+                </p>
             </div>
         </div>
-    </section>
+    </div>
 {% endif %}

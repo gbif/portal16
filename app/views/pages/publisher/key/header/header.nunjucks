@@ -12,22 +12,23 @@
             </header>
         </div>
 
-        {#% if publisher.record.modified %}
+        {% if publisher.record.modified %}
         <div class="stripe-comment">
             <div>
                 Modified
                 {$ publisher.record.modified | formatDate(gb.locales.current) $}
             </div>
         </div>
-        {% endif %#}
+        {% endif %}
 
         <div class="text-center">
 
             {% if publisher.record.homepage | isDefined %}
-                <a href="{$ publisher.record.homepage $}" class="gb-button--round">Homepage</a>
+                {#<a href="{$ publisher.record.homepage $}" class="gb-button--brand">Homepage</a>#}
+                {% for homepage in publisher.record.homepage %}
+                        <a href="{$ homepage $}" class="gb-button--brand">{$ homepage | reduceUrlToDomain $}</a>
+                {% endfor %}
             {% endif %}
-
-            <a href="#contact" class="gb-button--round">Contact</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,49 @@
+<article class="wrapper-horizontal-stripes installationKey">
+    <div class="horizontal-stripe bare-background ng-cloak" ng-if="installationKey.servedDatasets.count > 0">
+        <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
+        <div class="container--normal">
+            <p class="small discreet text-uppercase">
+                Served datasets
+            </p>
+            <div class="card">
+                <div class="card__stripe">
+                    <div class="stripeList" ng-show="installationKey.servedDatasets.count > 0">
+                        <ul>
+                            <li ng-repeat="dataset in installationKey.servedDatasets.results">
+                                <a ng-href="/dataset/{{ dataset.key }}">
+                                    <div class="pull-right text-right">
+                                        <span class="numberBadge">
+                                            <span count="//api.gbif.org/v1/occurrence/search?datasetKey={{dataset.key}}" count-type>&nbsp;</span>
+                                        </span>
+                                    </div>
+                                    <div class="title">
+                                        {{ dataset.title }}
+                                    </div>
+                                    <div class="discreet small m-t-05 clearfix">
+                                        <span class="pull-right">Occurrences</span>
+                                        <span>
+                                            <span>{{ 'dataset.longType.' + dataset.type | translate }}.</span>
+                                            Updated <time am-time-ago="dataset.modified"></time>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card__content m-l-1" ng-if="installationKey.servedDatasets.count > installationKey.limit">
+                        <uib-pagination
+                                total-items="installationKey.servedDatasets.count"
+                                ng-model="installationKey.currentPage"
+                                max-size="installationKey.maxSize"
+                                items-per-page="installationKey.limit"
+                                class="pagination-sm"
+                                boundary-link-numbers="false"
+                                rotate="false"
+                                ng-change="installationKey.pageChanged()">
+                        </uib-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

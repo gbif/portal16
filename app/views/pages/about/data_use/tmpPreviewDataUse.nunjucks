@@ -47,7 +47,7 @@
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
                     <div class="body-text">
-                        {$ main.fields.body | sanitize | safe $}
+                        {$ main.fields.body | sanitizeTrusted | addPortalClasses | safe $}
                     </div>
 
                     <div class="article-auxiliary prose-columns smaller">

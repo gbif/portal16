@@ -1,49 +1,98 @@
-<section class="horizontal-stripe light-background occurrenceKey__highlights">
-    <div class="container--narrow">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <dl class="inline">
+<div class="container--desktop m-b-2">
+    <div class="node__summary">
 
-                    <div>
-                        <dt class="text-capitalize">Published</dt>
-                        <dd>
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}">{$
-                                publisher.record.numPublishedDatasets $} datasets</a> with <span
-                                    href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}">{$
-                                publisher.occurrences.count | localizeInteger(gb.locales.current) $} occurrences</span>
-                        </dd>
+        <div class="node__info">
+            <div class="">
+                <div class="row">
+                    <div class="col-xs-12 {% if publisher.record.logoUrl  %} col-md-4 {% else %} col-md-6 {% endif %}">
+                        <div>
+                            {% if publisher.record.description | isDefined %}
+                                {% if publisher.record.description | striptags | length < 350 %}
+                                    {$ publisher.record.description | decodeHtml | linkify | sanitize | safe $}
+                                {% else %}
+                                    {$ publisher.record.description | decodeHtml | linkify | sanitize | truncateHtml(220) | safe $}
+                                    <a href="#description">more</a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
                     </div>
 
-                    {% if publisher.endorsingNode | isNotEmpty %}
+                    <div class="col-xs-12 {% if publisher.record.logoUrl  %} col-md-4 {% else %} col-md-6 {% endif %}">
                         <div>
-                            <dt class="text-capitalize">Endorsed by</dt>
-                            <dd><a href="{$ gb.locales.urlPrefix $}/node/{$ publisher.endorsingNode.key $}">{$
-                                    publisher.endorsingNode.title $}</a></dd>
+                            <dl class="inline">
+                                {% if publisher.record.created %}
+                                    <div>
+                                        <dt>GBIF publisher since</dt>
+                                        <dd>{$ publisher.record.created | formatDate(gb.locales.current) $}</dd>
+                                    </div>
+                                {% endif %}
+                                {% if publisher.endorsingNode.key %}
+                                    <div>
+                                        <dt>Endorsed by</dt>
+                                        <dd><a href="{$ gb.locales.urlPrefix $}/node/{$ publisher.endorsingNode.key $}">{$
+                                                publisher.endorsingNode.title $}</a></dd>
+                                    </div>
+                                {% endif %}
+                                {% if publisher._computedValues.contributors.all.length > 0 %}
+                                    <div>
+                                        <dt>Contacts</dt>
+                                        <dd>
+                                            <ol class="inline-bullet-list">
+                                                {% for contact in publisher._computedValues.contributors.all | sort(attribute='_id')%}
+                                                    <li>
+                                                        {% if contact._person %}
+                                                            <a href="#contributor_{$ contact._id $}">{$ contact.firstName $} {$ contact.lastName $}</a>
+                                                        {% else %}
+                                                            <a href="#contributor_{$ contact._id $}">{$ contact.organization $}</a>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </dd>
+                                    </div>
+                                {% endif %}
+                            </dl>
+                        </div>
+                    </div>
+
+                    {% if publisher.record.logoUrl  %}
+                        <div class="col-xs-12 col-md-4">
+                            <div class="publisher-logo-container">
+                                <img src="{$ publisher.record.logoUrl $}">
+                            </div>
                         </div>
                     {% endif %}
-
-                    {% if publisher.record.homepage | isDefined %}
-                        <div>
-                            <dt class="text-capitalize">Homepage</dt>
-                            <dd><a href="{$ publisher.record.homepage $}">{$ publisher.record.homepage $}</a></dd>
-                        </div>
-                    {% endif %}
-
-                    {% if publisher.record.created | isDefined %}
-                        <div>
-                            <dt class="text-capitalize">Created</dt>
-                            <dd>{$ publisher.record.created | formatDate(gb.locales.current) $}</dd>
-                        </div>
-                    {% endif %}
-
-                </dl>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="publisher-logo-container">
-                    <img src="{$ publisher.record.logoUrl $}" onError="this.style.display = 'none'" class="pull-right">
                 </div>
             </div>
         </div>
+        <div class="node__stats">
+            <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_org={$ publisher.record.key $}" class="inherit noUnderline block">
+                <div class="node__stats__count">
+                    <span>{$ publisher.record.numPublishedDatasets $}</span>
+                </div>
+                <div>Datasets</div>
+            </a>
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}" class="inherit noUnderline block">
+                <div class="node__stats__count">
+                            <span count="//api.gbif.org/v1/occurrence/search?publishing_org={$ publisher.record.key $}">
+                                &nbsp;</span>
+                </div>
+                <div>Occurrences</div>
+            </a>
+            <a href="#installations" class="inherit noUnderline block">
+                <div class="node__stats__count">
+                            <span count="//api.gbif.org/v1/organization/{$ publisher.record.key $}/installation">
+                                &nbsp;</span>
+                </div>
+                <div>Installations</div>
+            </a>
+        </div>
+        {% if publisher.occurrences.count > 0 %}
+            <div class="map__lockedRatio">
+                <div>
+                    <gbmap publishing-org="'{$ publisher.record.key $}'" mapstyle="'light'"></gbmap>
+                </div>
+            </div>
+        {% endif %}
     </div>
-
-</section>
+</div>

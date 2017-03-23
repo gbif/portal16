@@ -23,7 +23,12 @@ Installation.get = function (key, options) {
 
 Installation.prototype.expand = function (fieldNames) {
     var resources = [],
-        resourceLookup = {};
+        resourceLookup = {
+            endorsingPublisher: {
+                resource: api.publisher.url + this.record.organizationKey,
+                extendToField: 'endorsingPublisher'
+            }
+        };
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });

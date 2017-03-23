@@ -35,6 +35,14 @@ Publisher.prototype.expand = function (fieldNames) {
             occurrences: {
                 resource: api.occurrenceSearch.url + '?limit=0&publishingOrg=' + this.record.key,
                 extendToField: 'occurrences'
+            },
+            hostedDataset: {
+                resource: api.publisher.url + this.record.key + '/hostedDataset',
+                extendToField: 'hostedDataset'
+            },
+            installation: {
+                resource: api.publisher.url + this.record.key + '/installation',
+                extendToField: 'installation'
             }
         };
     fieldNames.forEach(function (e) {

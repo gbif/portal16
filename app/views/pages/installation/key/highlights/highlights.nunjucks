@@ -1,0 +1,64 @@
+<div class="container--desktop m-b-2">
+    <div class="node__summary">
+
+        <div class="node__info">
+            <div class="">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div>
+                            {% if installation.record.description | isDefined %}
+                                {$ installation.record.description | decodeHtml | linkify | sanitize | safe $}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-4">
+                        <div>
+                            <dl class="inline">
+                                {% if installation.record.created %}
+                                    <div>
+                                        <dt>Type</dt>
+                                        <dd>{$ __('installationType.' + installation.record.type) $}</dd>
+                                    </div>
+                                {% endif %}
+                                {% if installation.record.organizationKey %}
+                                    <div>
+                                        <dt>Hosted by</dt>
+                                        <dd>
+                                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ installation.record.organizationKey $}">
+                                                {$ installation.endorsingPublisher.title $}
+                                            </a>
+                                        </dd>
+                                    </div>
+                                {% endif %}
+                                {% if installation.record.endpoints.length > 0 %}
+                                    <div>
+                                        <dt>Access points</dt>
+                                        <dd>
+                                            <ol class="inline-bullet-list">
+                                                {% for accessPoint in installation.record.endpoints %}
+                                                    <li>
+                                                        <a href="{$ accessPoint.url $}">{$ accessPoint.type $} </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </dd>
+                                    </div>
+                                {% endif %}
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="node__stats">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}" class="inherit noUnderline block">
+                <div class="node__stats__count">
+                            <span count="//api.gbif.org/v1/occurrence/search?publishing_org={$ publisher.record.key $}">
+                                &nbsp;</span>
+                </div>
+                <div>Served datasets</div>
+            </a>
+        </div>
+    </div>
+</div>

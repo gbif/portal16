@@ -1,6 +1,7 @@
 (function () {
     'use strict';
-    var angular = require('angular');
+    var angular = require('angular'),
+        Humanize = require('humanize-plus');
 
     angular
         .module('portal')
@@ -24,6 +25,11 @@
         .filter('underscoreToHyphen', function () {
             return function (text) {
                 return text.replace(/_/g, '-');
+            }
+        })
+        .filter('compactInteger', function () {
+            return function (nr) {
+                return Humanize.compactInteger(nr, 0);
             }
         })
         .filter('encodeURIComponent', function () {

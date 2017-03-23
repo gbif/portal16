@@ -17,7 +17,7 @@ router.get('/publisher/:key\.:ext?', function (req, res, next) {
     if (!isGuid(key)) {
         next();
     } else {
-        Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences']}).then(function (publisher) {
+        Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences', 'installation']}).then(function (publisher) {
             try {
                 publisher._computedValues = {};
                 let contacts = publisher.record.contacts;

@@ -2208,6 +2208,14 @@
     "commentSingular": "{{commentCount}} comment",
     "commentPlural": "{{commentCount}} comments"
   },
+  "installationType": {
+    "IPT_INSTALLATION": "IPT installation",
+    "DIGIR_INSTALLATION": "DiGIR installation",
+    "TAPIR_INSTALLATION": "tapir installation",
+    "BIOCASE_INSTALLATION": "biocase installation",
+    "HTTP_INSTALLATION": "http installation",
+    "SYMBIOTA_INSTALLATION": "symbiota installation"
+  },
   "filterNames": {
     "month": "month",
     "catalogNumber": "catalog number",

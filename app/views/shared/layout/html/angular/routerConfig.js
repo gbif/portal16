@@ -222,6 +222,17 @@ function routerConfig($stateProvider, $locationProvider) {
                 }
             }
         })
+        .state('installation', {
+            parent: 'localization',
+            url: '/installation/:key?offset',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/installation/key/installationKey.html',
+                    controller: 'installationKeyCtrl',
+                    controllerAs: 'installationKey'
+                }
+            }
+        })
         .state('country', {
             parent: 'localization',
             abstract: true,

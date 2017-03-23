@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 router.get('/installation/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    Installation.get(key, {expand: ['endorsingNode']}).then(function (installation) {
+    Installation.get(key, {expand: ['endorsingPublisher']}).then(function (installation) {
         renderPage(req, res, next, installation);
     }, function (err) {
         next(err);
@@ -17,13 +17,14 @@ router.get('/installation/:key\.:ext?', function (req, res, next) {
 
 function renderPage(req, res, next, installation) {
     try {
-        if (req.params.ext == 'json') {
+        if (req.params.ext == 'debug') {
             res.json(installation);
         } else {
             res.render('pages/installation/key/installationKey', {
                 installation: installation,
                 _meta: {
-                    title: 'Installation: ' + req.params.key
+                    title: 'Installation: ' + req.params.key,
+                    customUiView: true
                 }
             });
         }
