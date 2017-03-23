@@ -99,8 +99,6 @@
                 </div>
             </div>
 
-            {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
-
         </article>
     </div>
 {% endblock %}

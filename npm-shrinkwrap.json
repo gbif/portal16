@@ -59,7 +59,8 @@
           "dependencies": {
             "camelcase": {
               "version": "1.2.1",
-              "from": "camelcase@>=1.0.2 <2.0.0"
+              "from": "camelcase@>=1.0.2 <2.0.0",
+              "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
             }
           }
         }
@@ -142,6 +143,11 @@
       "from": "angular-chartist.js@4.2.1",
       "resolved": "https://registry.npmjs.org/angular-chartist.js/-/angular-chartist.js-4.2.1.tgz"
     },
+    "angular-cookies": {
+      "version": "1.6.2",
+      "from": "angular-cookies@>=1.6.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/angular-cookies/-/angular-cookies-1.6.2.tgz"
+    },
     "angular-hotkeys": {
       "version": "1.7.0",
       "from": "angular-hotkeys@1.7.0",
@@ -152,10 +158,10 @@
       "from": "angular-leaflet-directive@0.10.0",
       "resolved": "https://registry.npmjs.org/angular-leaflet-directive/-/angular-leaflet-directive-0.10.0.tgz"
     },
-    "angular-local-storage": {
-      "version": "0.5.0",
-      "from": "angular-local-storage@0.5.0",
-      "resolved": "https://registry.npmjs.org/angular-local-storage/-/angular-local-storage-0.5.0.tgz"
+    "angular-messages": {
+      "version": "1.6.2",
+      "from": "angular-messages@latest",
+      "resolved": "https://registry.npmjs.org/angular-messages/-/angular-messages-1.6.2.tgz"
     },
     "angular-moment": {
       "version": "1.0.1",
@@ -445,6 +451,18 @@
       "version": "0.6.1",
       "from": "axis@>=0.6.1 <0.7.0",
       "resolved": "https://registry.npmjs.org/axis/-/axis-0.6.1.tgz"
+    },
+    "babel-runtime": {
+      "version": "6.3.19",
+      "from": "babel-runtime@>=6.3.19 <6.4.0",
+      "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.3.19.tgz",
+      "dependencies": {
+        "core-js": {
+          "version": "1.2.7",
+          "from": "core-js@>=1.2.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz"
+        }
+      }
     },
     "babylon": {
       "version": "6.14.1",
@@ -894,6 +912,11 @@
       "from": "chalk@>=1.1.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz"
     },
+    "chance": {
+      "version": "1.0.4",
+      "from": "chance@>=1.0.4 <2.0.0",
+      "resolved": "https://registry.npmjs.org/chance/-/chance-1.0.4.tgz"
+    },
     "change-case": {
       "version": "3.0.0",
       "from": "change-case@>=3.0.0 <3.1.0",
@@ -1185,6 +1208,23 @@
       "version": "1.0.2",
       "from": "content-type@>=1.0.2 <1.1.0",
       "resolved": "https://registry.npmjs.org/content-type/-/content-type-1.0.2.tgz"
+    },
+    "contentful": {
+      "version": "3.8.1",
+      "from": "contentful@latest",
+      "resolved": "https://registry.npmjs.org/contentful/-/contentful-3.8.1.tgz",
+      "dependencies": {
+        "lodash": {
+          "version": "4.2.1",
+          "from": "lodash@>=4.2.0 <4.3.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.2.1.tgz"
+        }
+      }
+    },
+    "contentful-sdk-core": {
+      "version": "2.5.0",
+      "from": "contentful-sdk-core@>=2.5.0 <2.6.0",
+      "resolved": "https://registry.npmjs.org/contentful-sdk-core/-/contentful-sdk-core-2.5.0.tgz"
     },
     "convert-source-map": {
       "version": "1.1.3",
@@ -2346,6 +2386,11 @@
       "version": "1.1.2",
       "from": "flow-remove-types@>=1.0.4 <2.0.0",
       "resolved": "https://registry.npmjs.org/flow-remove-types/-/flow-remove-types-1.1.2.tgz"
+    },
+    "follow-redirects": {
+      "version": "0.0.7",
+      "from": "follow-redirects@0.0.7",
+      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-0.0.7.tgz"
     },
     "for-in": {
       "version": "0.1.6",
@@ -3545,7 +3590,8 @@
           "dependencies": {
             "lodash.defaults": {
               "version": "2.4.1",
-              "from": "lodash.defaults@>=2.4.1 <2.5.0"
+              "from": "lodash.defaults@2.4.1",
+              "resolved": "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-2.4.1.tgz"
             }
           }
         },
@@ -3699,7 +3745,8 @@
           "dependencies": {
             "lodash.defaults": {
               "version": "2.4.1",
-              "from": "lodash.defaults@>=2.4.1 <2.5.0"
+              "from": "lodash.defaults@2.4.1",
+              "resolved": "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-2.4.1.tgz"
             }
           }
         },
@@ -3740,7 +3787,8 @@
               "dependencies": {
                 "object-keys": {
                   "version": "0.4.0",
-                  "from": "object-keys@>=0.4.0 <0.5.0"
+                  "from": "object-keys@0.4.0",
+                  "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-0.4.0.tgz"
                 }
               }
             }
@@ -4062,21 +4110,6 @@
       "from": "header-case@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/header-case/-/header-case-1.0.0.tgz"
     },
-    "highlight": {
-      "version": "0.2.4",
-      "from": "highlight@latest",
-      "resolved": "https://registry.npmjs.org/highlight/-/highlight-0.2.4.tgz"
-    },
-    "highlight.js": {
-      "version": "9.9.0",
-      "from": "highlight.js@>=9.7.0 <10.0.0",
-      "resolved": "https://registry.npmjs.org/highlight.js/-/highlight.js-9.9.0.tgz"
-    },
-    "highlighter": {
-      "version": "0.1.0",
-      "from": "highlighter@latest",
-      "resolved": "https://registry.npmjs.org/highlighter/-/highlighter-0.1.0.tgz"
-    },
     "hoek": {
       "version": "2.16.3",
       "from": "hoek@>=2.0.0 <3.0.0",
@@ -4142,6 +4175,11 @@
       "from": "https-browserify@>=0.0.0 <0.1.0",
       "resolved": "https://registry.npmjs.org/https-browserify/-/https-browserify-0.0.1.tgz"
     },
+    "humanize-plus": {
+      "version": "1.8.2",
+      "from": "humanize-plus@>=1.8.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/humanize-plus/-/humanize-plus-1.8.2.tgz"
+    },
     "i18n": {
       "version": "0.8.3",
       "from": "i18n@>=0.8.1 <0.9.0",
@@ -4149,7 +4187,8 @@
       "dependencies": {
         "async": {
           "version": "1.5.2",
-          "from": "async@>=1.5.2 <1.6.0"
+          "from": "async@1.5.2",
+          "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz"
         },
         "glob": {
           "version": "6.0.4",
@@ -5776,6 +5815,11 @@
       "from": "ng-infinite-scroll@>=1.2.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/ng-infinite-scroll/-/ng-infinite-scroll-1.3.0.tgz"
     },
+    "ngstorage": {
+      "version": "0.3.11",
+      "from": "ngstorage@>=0.3.11 <0.4.0",
+      "resolved": "https://registry.npmjs.org/ngstorage/-/ngstorage-0.3.11.tgz"
+    },
     "no-case": {
       "version": "2.3.0",
       "from": "no-case@>=2.2.0 <3.0.0",
@@ -5966,7 +6010,8 @@
           "dependencies": {
             "window-size": {
               "version": "0.1.4",
-              "from": "window-size@>=0.1.4 <0.2.0"
+              "from": "window-size@0.1.4",
+              "resolved": "https://registry.npmjs.org/window-size/-/window-size-0.1.4.tgz"
             }
           }
         }
@@ -7463,7 +7508,8 @@
           "dependencies": {
             "object-keys": {
               "version": "0.4.0",
-              "from": "object-keys@>=0.4.0 <0.5.0"
+              "from": "object-keys@0.4.0",
+              "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-0.4.0.tgz"
             }
           }
         }
@@ -7989,7 +8035,8 @@
           "dependencies": {
             "camelcase": {
               "version": "1.2.1",
-              "from": "camelcase@>=1.0.2 <2.0.0"
+              "from": "camelcase@>=1.0.2 <2.0.0",
+              "resolved": "https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz"
             }
           }
         }
@@ -8444,7 +8491,8 @@
           "dependencies": {
             "object-keys": {
               "version": "0.4.0",
-              "from": "object-keys@>=0.4.0 <0.5.0"
+              "from": "object-keys@0.4.0",
+              "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-0.4.0.tgz"
             }
           }
         }
