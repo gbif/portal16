@@ -430,7 +430,7 @@ function getParticipantsContacts(contacts) {
 
 function getParticipantDetails(participantId) {
     let deferred = Q.defer();
-    let requestUrl = dataApi.directoryParticipant.url + '/' + participantId;
+    let requestUrl = dataApi.directoryParticipant.url + participantId;
     let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
