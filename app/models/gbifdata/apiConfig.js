@@ -27,6 +27,9 @@ var apiConfig = {
     installation: {
         url: baseUrl + 'installation/'
     },
+    network: {
+        url: baseUrl + 'network/'
+    },
     node: {
         url: baseUrl + 'node/'
     },

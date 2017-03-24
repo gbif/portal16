@@ -106,6 +106,7 @@ require('./angular/enums.constants');
 require('./angular/country.resource');
 require('./angular/node.resource');
 require('./angular/installation.resource');
+require('./angular/network.resource');
 
 require('./angular/directives/onLoad/onload.directive');
 require('./angular/directives/helpDesk.directive');
@@ -131,6 +132,7 @@ require('../../../pages/occurrence/download/occurrenceDownload.ctrl');
 
 require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');
+require('../../../pages/network/key/networkKey.ctrl');
 
 require('../../../components/userLogin/userLogin.directive');
 require('../../../pages/user/updatePassword/updatePassword.ctrl');

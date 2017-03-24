@@ -26,10 +26,13 @@ router.get('/publisher/:key\.:ext?', function (req, res, next) {
                     city: publisher.record.city,
                     country: publisher.record.country,
                     address: publisher.record.address,
-                    postalCode: publisher.record.postalCode,
-                    type: 'PUBLISHER'
+                    province: publisher.record.province,
+                    email: publisher.record.email,
+                    postalCode: publisher.record.postalCode
                 };
-                contacts.push(organizationContact);
+                if (organizationContact.address || organizationContact.email) {
+                    contacts.push(organizationContact);
+                }
                 publisher._computedValues.contributors = contributors.getContributors(contacts);
                 renderPage(req, res, next, publisher);
             } catch (error) {

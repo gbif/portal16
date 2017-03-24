@@ -233,6 +233,17 @@ function routerConfig($stateProvider, $locationProvider) {
                 }
             }
         })
+        .state('network', {
+            parent: 'localization',
+            url: '/network/:key?offset',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/network/key/networkKey.html',
+                    controller: 'networkKeyCtrl',
+                    controllerAs: 'networkKey'
+                }
+            }
+        })
         .state('country', {
             parent: 'localization',
             abstract: true,

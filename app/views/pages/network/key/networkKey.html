@@ -1,15 +1,15 @@
-<article class="wrapper-horizontal-stripes installationKey">
-    <div class="horizontal-stripe bare-background ng-cloak" ng-if="installationKey.servedDatasets.count > 0">
-        <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
+<article class="wrapper-horizontal-stripes networkKey">
+    <div class="horizontal-stripe bare-background ng-cloak" ng-if="networkKey.datasets.count > 0">
+        <span class="relative-anchor-offset"><a id="datasets"></a></span>
         <div class="container--normal">
             <p class="small discreet text-uppercase">
-                Served datasets
+                Participating datasets
             </p>
             <div class="card">
                 <div class="card__stripe">
-                    <div class="stripeList" ng-show="installationKey.servedDatasets.count > 0">
+                    <div class="stripeList" ng-show="networkKey.datasets.count > 0">
                         <ul>
-                            <li ng-repeat="dataset in installationKey.servedDatasets.results">
+                            <li ng-repeat="dataset in networkKey.datasets.results">
                                 <a ng-href="/dataset/{{ dataset.key }}">
                                     <!--<div class="pull-right text-right">-->
                                         <!--<span class="numberBadge">-->
@@ -35,16 +35,16 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card__content m-l-1" ng-if="installationKey.servedDatasets.count > installationKey.limit">
+                    <div class="card__content m-l-1" ng-if="networkKey.datasets.count > networkKey.limit">
                         <uib-pagination
-                                total-items="installationKey.servedDatasets.count"
-                                ng-model="installationKey.currentPage"
-                                max-size="installationKey.maxSize"
-                                items-per-page="installationKey.limit"
+                                total-items="networkKey.datasets.count"
+                                ng-model="networkKey.currentPage"
+                                max-size="networkKey.maxSize"
+                                items-per-page="networkKey.limit"
                                 class="pagination-sm"
                                 boundary-link-numbers="false"
                                 rotate="false"
-                                ng-change="installationKey.pageChanged()">
+                                ng-change="networkKey.pageChanged()">
                         </uib-pagination>
                     </div>
                 </div>

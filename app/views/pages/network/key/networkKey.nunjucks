@@ -1,0 +1,63 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes publisherKey page--data">
+
+        <div class="horizontal-stripe article-header white-background">
+            <div class="container">
+                <div class="row">
+                    <header class="col-xs-12">
+                        <nav class="article-header__category article-header__category--deep">
+                            <span class="article-header__category__upper">{$ __('network.title') $}</span>
+                            <span class="article-header__category__lower">{$ network.record.created | formatDate(gb.locales.current) $}</span>
+                        </nav>
+
+                        <h1 class="text-center">
+                            <span>{$ network.record.title $}</span>
+                        </h1>
+                    </header>
+                </div>
+                {% if network.record.modified %}
+                    <div class="stripe-comment">
+                        <div>
+                            Modified
+                            {$ network.record.modified | formatDate(gb.locales.current) $}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="text-center">
+                    {% if network.record.homepage | isDefined %}
+                        {% for homepage in network.record.homepage %}
+                            <a href="{$ homepage $}" class="gb-button--brand">{$ homepage | reduceUrlToDomain $}</a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe--paddingless white-background">
+            {% include "./highlights/highlights.nunjucks" %}
+
+            {% if network.record.description | striptags | length >= 350 %}
+                <span class="relative-anchor-offset"><a id="description"></a></span>
+                <div class="container--narrow m-b-2">
+                    <div class="body-text">
+                        {$ network.record.description | decodeHtml | linkify | sanitize | safe $}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+
+
+        <div ui-view>
+
+        </div>
+
+        {% include "./contacts/contacts.nunjucks" %}
+
+    </article>
+
+
+
+{% endblock %}

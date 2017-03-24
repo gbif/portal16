@@ -1,0 +1,81 @@
+<div class="container--desktop m-b-2">
+    <div class="node__summary  m-b-1">
+        <div class="node__info">
+            <div class="">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div>
+                            {% if network.record.description | isDefined %}
+                                <dl class="inline">
+                                    <div>
+                                        <dt>Description</dt>
+                                        <dd>
+                                            {% if network.record.description | striptags | length < 350 %}
+                                                {$ network.record.description | decodeHtml | linkify | sanitize | safe $}
+                                            {% else %}
+                                                {$ network.record.description | decodeHtml | linkify | sanitize | truncateHtml(220) | safe $}
+                                                <a href="#description">more</a>
+                                            {% endif %}
+                                        </dd>
+                                    </div>
+                                </dl>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-4">
+                        {% if network.record.logoUrl  %}
+                            <div class="publisher-logo-container isInvalid">
+                                <img gb-load src="{$ network.record.logoUrl $}">
+                            </div>
+                        {% endif %}
+                        <div>
+                            <dl class="inline">
+                                {% if network._computedValues.contributors.all.length > 0 %}
+                                    <div>
+                                        <dt>Contacts</dt>
+                                        <dd>
+                                            <ol class="inline-bullet-list">
+                                                {% for contact in network._computedValues.contributors.all | sort(attribute='_id')%}
+                                                    <li>
+                                                        {% if contact._person %}
+                                                            <a href="#contributor_{$ contact._id $}">{$ contact.firstName $} {$ contact.lastName $}</a>
+                                                        {% else %}
+                                                            <a href="#contributor_{$ contact._id $}">{$ contact.organization $}</a>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </dd>
+                                    </div>
+                                {% endif %}
+                                {% if network.record.endpoints.length > 0 %}
+                                    <div>
+                                        <dt>Access points</dt>
+                                        <dd>
+                                            <ol class="inline-bullet-list">
+                                                {% for accessPoint in network.record.endpoints %}
+                                                    <li>
+                                                        <a href="{$ accessPoint.url $}">{$ accessPoint.type $} </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ol>
+                                        </dd>
+                                    </div>
+                                {% endif %}
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="node__stats">
+            <a href="#datasets" class="inherit noUnderline block">
+                <div class="node__stats__count">
+                    {$ network.record.numConstituents | locInt(gb.locales.current) $}
+                </div>
+                <div>Participating datasets</div>
+            </a>
+        </div>
+    </div>
+</div>

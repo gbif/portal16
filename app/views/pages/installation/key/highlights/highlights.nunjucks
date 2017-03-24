@@ -7,7 +7,14 @@
                     <div class="col-xs-12 col-md-8">
                         <div>
                             {% if installation.record.description | isDefined %}
-                                {$ installation.record.description | decodeHtml | linkify | sanitize | safe $}
+                                <dl class="inline">
+                                    <div>
+                                        <dt>Description</dt>
+                                        <dd>
+                                            {$ installation.record.description | decodeHtml | linkify | sanitize | safe $}
+                                        </dd>
+                                    </div>
+                                </dl>
                             {% endif %}
                         </div>
                     </div>
@@ -19,16 +26,6 @@
                                     <div>
                                         <dt>Type</dt>
                                         <dd>{$ __('installationType.' + installation.record.type) $}</dd>
-                                    </div>
-                                {% endif %}
-                                {% if installation.record.organizationKey %}
-                                    <div>
-                                        <dt>Hosted by</dt>
-                                        <dd>
-                                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ installation.record.organizationKey $}">
-                                                {$ installation.endorsingPublisher.title $}
-                                            </a>
-                                        </dd>
                                     </div>
                                 {% endif %}
                                 {% if installation.record.endpoints.length > 0 %}
@@ -45,6 +42,16 @@
                                         </dd>
                                     </div>
                                 {% endif %}
+                                {% if installation.record.organizationKey %}
+                                    <div>
+                                        <dt>Hosted by</dt>
+                                        <dd>
+                                            <a href="{$ gb.locales.urlPrefix $}/publisher/{$ installation.record.organizationKey $}">
+                                                {$ installation.endorsingPublisher.title $}
+                                            </a>
+                                        </dd>
+                                    </div>
+                                {% endif %}
                             </dl>
                         </div>
                     </div>
@@ -54,7 +61,7 @@
         <div class="node__stats">
             <a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}" class="inherit noUnderline block">
                 <div class="node__stats__count">
-                            <span count="//api.gbif.org/v1/occurrence/search?publishing_org={$ publisher.record.key $}">
+                            <span count="//api.gbif.org/v1/installation/{$ installation.record.key $}/dataset">
                                 &nbsp;</span>
                 </div>
                 <div>Served datasets</div>

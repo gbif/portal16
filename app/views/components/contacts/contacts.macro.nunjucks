@@ -36,7 +36,15 @@
                         </div>
                     {% endif %}
 
-
+                    {% if contributor.city %}
+                        {% if contributor.postalCode %}
+                            <span>{$ contributor.postalCode $}</span>
+                        {% endif %}
+                        <span>{$ contributor.city $}</span><br>
+                    {% endif %}
+                    {% if contributor.province %}
+                        <span>{$ contributor.province $}</span><br>
+                    {% endif %}
                     {% if contributor.country %}
                         <span>{$ __('country.' + contributor.country) $}</span><br>
                     {% endif %}

@@ -2,8 +2,11 @@
     <div class="container">
         <div class="row">
             <header class="col-xs-12">
-                <nav class="article-header__category">
+                <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper">{$ __('stdTerms.publisher') $}</span>
+                    <span class="article-header__category__lower">
+                        {$ publisher.record.created | formatDate(gb.locales.current) $}
+                    </span>
                 </nav>
 
                 <h1>

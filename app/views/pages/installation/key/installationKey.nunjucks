@@ -11,7 +11,7 @@
                         <nav class="article-header__category article-header__category--deep">
                             <span class="article-header__category__upper">{$ __('stdTerms.installation') $}</span>
                             <span class="article-header__category__lower">
-                                {$ __('installation.type.' + installation.record.type) $}
+                                {$ installation.record.created | formatDate(gb.locales.current) $}
                             </span>
                         </nav>
 
@@ -20,6 +20,14 @@
                         </h1>
                     </header>
                 </div>
+                {% if installation.record.modified %}
+                    <div class="stripe-comment">
+                        <div>
+                            Modified
+                            {$ installation.record.modified | formatDate(gb.locales.current) $}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
 

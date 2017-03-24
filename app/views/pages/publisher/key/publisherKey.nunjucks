@@ -27,7 +27,7 @@
                                 <ul>
                                     {% for installation in publisher.installation.results %}
                                         <li>
-                                            <a href="/installation/{$ installation.key $}">
+                                            <a href="{$ gb.locales.urlPrefix $}/installation/{$ installation.key $}">
                                                 <div class="pull-right text-right">
                                                     <span class="numberBadge"><span
                                                                 count="//api.gbif.org/v1/installation/{$ installation.key $}/dataset">&nbsp;</span></span>
@@ -36,13 +36,10 @@
                                                     {$ installation.title $}
                                                 </div>
                                                 <div class="discreet small m-t-05 clearfix">
-                                                    <div class="discreet small m-t-05 clearfix">
-                                                        <span class="pull-right">Served datasets</span>
-                                                <span>
-                                                    {$ __('installationType.' + installation.type) $}
-                                                </span>
-                                                    </div>
-
+                                                    <span class="pull-right">Served datasets</span>
+                                                    <span>
+                                                        {$ __('installationType.' + installation.type) $}
+                                                    </span>
                                                 </div>
                                             </a>
                                         </li>
