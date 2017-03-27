@@ -22,7 +22,10 @@ function getData(cb, path, options) {
         timeout: options.timeoutMilliSeconds
     };
 
-    if (options.headers) requestOptions.headers = options.headers;
+    requestOptions.headers = options.headers || {};
+    if (!requestOptions.headers['User-Agent']) {
+        requestOptions.headers['User-Agent'] = 'GBIF-portal';
+    }
     if (options.qs) requestOptions.qs = options.qs;
 
     request.get(requestOptions, function (err, response, body) {
