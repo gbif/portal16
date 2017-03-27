@@ -52,7 +52,7 @@ gulp.task('prod', function (callback) {
         ['dataValidator'],
         ['speciesPopulation'],
         ['home'],
-        'signpost',
+        ['signpost'],
         ['ipt'],
         ['templates'],
         ['ieStyle'],
