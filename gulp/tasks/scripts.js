@@ -73,6 +73,10 @@ gulp.task('home', function () {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
+gulp.task('signpost', function () {
+    return build('./app/views/shared/signpost.entry.js', 'shared/signpost.js');
+});
+
 //gulp.task('buildOccurrenceKey', function() {
 //    return build(config.js.browserify.occurrenceKey.path, config.js.browserify.occurrenceKey.dest)
 //        .pipe(browserSync.stream());

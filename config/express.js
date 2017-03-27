@@ -6,6 +6,7 @@ let express = require('express'),
     methodOverride = require('method-override'),
     i18n = require("i18n"),
     requestIp = require('request-ip'),
+    slashes = require("connect-slashes"),
     bodyparser = require('body-parser');
 //log = rootRequire('config/log'),
 
@@ -72,7 +73,7 @@ module.exports = function (app, config) {
     }));
     app.use(methodOverride());
 
-
+    app.use(slashes(false, { code: 302 }));
     /**
      require all route controllers
      */

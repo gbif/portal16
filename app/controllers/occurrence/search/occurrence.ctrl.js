@@ -40,5 +40,3 @@ router.get('/download', function (req, res) {
 router.get('/species', function (req, res) {
     renderSearch(req, res);
 });
-
-
