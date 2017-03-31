@@ -78,7 +78,7 @@ function addWwwSignPost() {
     var aTag = document.createElement('a');
     aTag.style.cssText = linkStyle;
     aTag.setAttribute('href', link);
-    aTag.innerHTML = "View on demo site";
+    aTag.innerHTML = "We’re working on a redesign of GBIF.org - Try it here";
     elemDiv.appendChild(aTag);
     document.body.appendChild(elemDiv);
 }
