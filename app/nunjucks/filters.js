@@ -2,7 +2,15 @@ var format = require('../helpers/format'),
     _ = require('lodash'),
     urlRegex = require('url-regex'),
     truncate = require('html-truncate'),
+    md = require('markdown-it')({html: true, linkify: true, typographer: true}),
     fs = require('fs');
+
+    md.use(require('markdown-it-video'), {
+        youtube: {width: 640, height: 390},
+        vimeo: {width: 500, height: 281},
+        vine: {width: 600, height: 600, embed: 'simple'},
+        prezi: {width: 550, height: 400}
+    });
 
 module.exports = function (nunjucksConfiguration) {
 
@@ -14,6 +22,14 @@ module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('formatDate', format.date);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('dateRange', format.dateRange);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('timeRange', format.timeRange);
     })();
 
     (function () {
@@ -70,6 +86,12 @@ module.exports = function (nunjucksConfiguration) {
         nunjucksConfiguration.addFilter('wordBreakToHyphen', function (data) {
             var newstr = data.replace('_', '-');
             return newstr;
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('renderMarkdown', function (markdownText) {
+            return md.render(markdownText);
         });
     })();
 

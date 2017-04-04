@@ -9,6 +9,7 @@ let contentful = require('contentful'),
     querystring = require('querystring'),
     credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).contentful.gbif,
+    format = rootRequire('app/helpers/format'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -27,11 +28,48 @@ router.get('/preview/data-use/:id\.:ext?', function (req, res, next) {
 
 });
 
+
+router.get('/api/event/:id\.:ext?', function (req, res, next) {
+    var entryId = req.params.id;
+    var entry = entryId.substr(3);
+    getContentfulItem(entry, 2).then(function (content) {
+        res.writeHead(200, {
+            'Content-Type': 'text/calendar',
+            //'Content-disposition': 'attachment;filename=' + filename,
+            'Content-Length': icsEvent.length
+        });
+        res.end(new Buffer(icsEvent, 'binary'));
+    });
+
+});
+
+
+
+router.get('/preview/event/:id\.:ext?', function (req, res, next) {
+    var entryId = req.params.id;
+    var entry = entryId.substr(3);
+    getContentfulItem(entry, 2).then(function (content) {
+        content._meta = {
+            title: 'Preview'
+        };
+
+        //view logic
+
+        //is single day
+        if (!content.main.fields.end || format.date(content.main.fields.start) == format.date(content.main.fields.end)) {
+            content.main.fields.__singleDay = true;
+        }
+
+        helper.renderPage(req, res, next, content, 'pages/about/event/tmpPreviewEvent');
+    });
+
+});
+
 function getContentfulItem(entryId, depth) {
     let deferred = Q.defer(),
         space = credentials.space,
         query = {
-            access_token: credentials.access_token,
+            access_token: credentials.preview_access_token,
             include: depth || 1,
             'sys.id': entryId
         };

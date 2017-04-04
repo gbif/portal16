@@ -37,6 +37,77 @@ function date(date, locale, format) {
     return day.format(format);
 }
 
+function dateRange(start, end, showHours, locale) {
+    var startDate, endDate;
+    locale = locale || defaultLanguage;
+
+    //parse start date
+    if (!isNaN(Number(start))) {
+        startDate = moment.unix(start).locale(locale);
+    } else {
+        startDate = moment(start, dateFormats).locale(locale);
+    }
+
+    //parse end date
+    if (!isNaN(Number(end))) {
+        endDate = moment.unix(end).locale(locale);
+    } else {
+        endDate = moment(end, dateFormats).locale(locale);
+    }
+
+    //always if all day event, then ignore time a day
+    if (start === end || !end) {
+        //if same date and time or no enddate then show just start date
+        if (showHours) return startDate.format('D MMMM YYYY HH:mm');
+        return startDate.format('D MMMM YYYY');
+    } else if (showHours && startDate.format('D MMMM YYYY') == endDate.format('D MMMM YYYY')) {
+        //if not an all day event, then show full date and time in interval
+        // 15 may 2017 13:00 - 17 may 2017 20:00
+        return startDate.format('D MMMM YYYY') + ' ' + startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm');
+    } else if (showHours) {
+        //10 april 13:30 - 15:50
+        return startDate.format('D MMMM YYYY HH:mm') + ' - ' + endDate.format('D MMMM YYYY HH:mm');
+    } else if (startDate.year() !== endDate.year()) {
+        //29 december 2017 - 1 january 2018
+        return startDate.format('D MMM YYYY') + ' - ' + endDate.format('D MMM YYYY');
+    } else if (startDate.month() !== endDate.month()) {
+        // 29 juni - 2 july 2017
+        return startDate.format('D MMM') + ' - ' + endDate.format('D MMM YYYY');
+    } else if (startDate.day() !== endDate.day()) {
+        //17-19 may 2016
+        return startDate.format('D') + ' - ' + endDate.format('D MMMM YYYY');
+    } else {
+        return startDate.format('D MMMM YYYY');
+    }
+}
+
+function timeRange(start, end) {
+    var startDate, endDate,
+        locale = defaultLanguage;
+
+    //parse start date
+    if (!isNaN(Number(start))) {
+        startDate = moment.unix(start).locale(locale);
+    } else {
+        startDate = moment(start, dateFormats).locale(locale);
+    }
+
+    //parse end date
+    if (!isNaN(Number(end))) {
+        endDate = moment.unix(end).locale(locale);
+    } else {
+        endDate = moment(end, dateFormats).locale(locale);
+    }
+
+    //always if all day event, then ignore time a day
+    if (start === end || !end) {
+        //if same date and time or no enddate then show just start date
+        return startDate.format('HH:mm');
+    } else {
+        return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm');
+    }
+}
+
 function toCamelCase(text) {
     if (!_.isString(text)) {
         return '';
@@ -194,6 +265,8 @@ module.exports = {
     readableDOI: linkTools.readableDOI,
     toCamelCase: toCamelCase,
     decodeHtml: decodeHtml,
-    compactInteger: compactInteger
+    compactInteger: compactInteger,
+    dateRange: dateRange,
+    timeRange: timeRange
 };
 
