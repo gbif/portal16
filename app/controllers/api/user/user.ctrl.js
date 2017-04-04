@@ -5,7 +5,7 @@ var express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     user = require('./user'),
     router = express.Router();
-    //verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
+//verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
 
 module.exports = function (app) {
     app.use('/api/user', router);

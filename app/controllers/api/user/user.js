@@ -4,7 +4,7 @@ var Q = require('q'),
     authRequest = require('./authRequest'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
-    isNotDevBuild = require('../../../../config/config').env !== 'dev', //it is convientent to set cookies on localhost so don't require secure cookies for dev builds
+    isNotDevBuild = require('../../../../config/config').env !== 'dev', //it is convenient to set cookies on localhost so don't require secure cookies for dev builds
     minute = 60000,
     hour =  60*minute,
     day = 24*hour;
@@ -113,6 +113,18 @@ function getUser(req, res) {
     });
 }
 
+function create(userInfo, req, res) {
+    return authRequest.create(userInfo).then(function(data){
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Pragma', 'no-cache');
+        res.header('Expires', '0');
+
+        res.json(data);
+    }, function(err){
+        errorUnwrapper(res, err);
+    });
+}
+
 function cookieRequest(req,url) {
     var cookie = req.cookies[apiConfig.cookieNames.userSession];
     if (cookie) {
@@ -155,5 +167,6 @@ module.exports = {
     simpleDownload: simpleDownload,
     login: login,
     logout: logout,
-    getUser: getUser
+    getUser: getUser,
+    create: create
 };

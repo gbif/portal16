@@ -1,7 +1,7 @@
 "use strict";
 let express = require('express'),
-    //path = require('path'),
-//verifier = require('../../../models/verification/verification'),
+    path = require('path'),
+    //verifier = require('../../../models/verification/verification'),
     router = express.Router();
 
 module.exports = function (app) {

@@ -97,7 +97,8 @@ var apiConfig = {
         url: baseUrl + 'enumeration/country'
     },
     user: {
-        url: identityBaseUrl + 'user'
+        url: identityBaseUrl + 'user',
+        canonical: 'user'
     },
     userLogin: {
         url: identityBaseUrl + 'user/login'

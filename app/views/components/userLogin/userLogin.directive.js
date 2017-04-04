@@ -153,10 +153,11 @@ function userLoginDirective() {
                         password: vm.password
                     }
                 };
-                body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
-                    return vm.answer[e];
-                });
-                body.challenge.id = vm.challenge.id;
+                //UNCOMMENT IF USING HUMAN VERIFICATION
+                //body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
+                //    return vm.answer[e];
+                //});
+                //body.challenge.id = vm.challenge.id;
                 var createUserPromise = User.createUser(body);
                 createUserPromise.then(function () {
                     vm.changeState('CREATED');

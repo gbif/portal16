@@ -11,7 +11,9 @@ var path = require('path'),
     cmsApi = yargs.cmsapi,
     credentials = yargs.credentials,
     verification = yargs.verification,
-    analyticsImg = yargs.analyticsImg;
+    analyticsImg = yargs.analyticsImg,
+    contentfulApi = yargs.contentfulApi,
+    contentfulPreviewApi = yargs.contentfulPreviewApi;
 
 var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
 
@@ -35,7 +37,9 @@ var config = {
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
-        verification: verification || '/etc/portal16/verification'
+        verification: verification || '/etc/portal16/verification',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
     },
     dev: {
         env: env,
@@ -55,7 +59,9 @@ var config = {
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
-        verification: verification || '/etc/portal16/verification'
+        verification: verification || '/etc/portal16/verification',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
     },
     uat: {
         env: env,
@@ -75,7 +81,9 @@ var config = {
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-uat.org/',
         credentials: credentials || '/etc/portal16/credentials',
-        verification: verification || '/etc/portal16/verification'
+        verification: verification || '/etc/portal16/verification',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
     },
     prod: {
         env: env,
@@ -95,7 +103,9 @@ var config = {
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'https://demo.gbif.org/',
         credentials: credentials || '/etc/portal16/credentials',
-        verification: verification || '/etc/portal16/verification'
+        verification: verification || '/etc/portal16/verification',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
     },
     test: {
         env: env,
@@ -115,7 +125,9 @@ var config = {
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
-        verification: verification || '/etc/portal16/verification'
+        verification: verification || '/etc/portal16/verification',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
     }
 };
 

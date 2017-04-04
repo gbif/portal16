@@ -24,15 +24,15 @@ function requestPromise(queryOptions) {
 
 function getUser(userSessionCookie) {
     var userRequest = {
-            url: apiConfig.user.url,
-            retries: 5,
-            timeout: 30000,
-            method: 'GET',
-            headers: {
-                'x-gbif-user-session': userSessionCookie
-            },
-            failHard: true
-        };
+        url: apiConfig.user.url,
+        retries: 5,
+        timeout: 30000,
+        method: 'GET',
+        headers: {
+            'x-gbif-user-session': userSessionCookie
+        },
+        failHard: true
+    };
     return requestPromise(userRequest);
 }
 
