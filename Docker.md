@@ -1,5 +1,7 @@
 # Docker experiment
 
+See the [Dockerfile](./Dockerfile)
+
 To run the portal using Docker:
 
 1. [Install Docker](https://docs.docker.com/engine/installation/)
@@ -56,3 +58,5 @@ docker run -p 1234:80 -v /path/to/gbif-configuration/portal16/prod/:/etc/portal1
 
 * The `bower install` isn't run automatically by `npm install`
 * The GBIF repository isn't used by `npm install`.
+* CI and builds using Jenkins
+* Automated deployment
