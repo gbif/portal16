@@ -151,6 +151,24 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'publisherTableCtrl',
             controllerAs: 'publisherTable'
         })
+        .state('resourceSearch', {
+            parent: 'localization',
+            url: '/resource?offset&limit&q&contentType&countriesOfCoverage&countriesOfResearcher&literatureType&language&audiences&purposes&topics',
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/resource/search/resource.html',
+                    controller: 'resourceCtrl',
+                    controllerAs: 'resource'
+                }
+            }
+        })
+        .state('resourceSearchList', {
+            parent: 'resourceSearch',
+            url: '/search',
+            templateUrl: '/templates/pages/resource/search/list/resourceList.html',
+            controller: 'resourceListCtrl',
+            controllerAs: 'resourceList'
+        })
         .state('cmsSearch', {
             parent: 'localization',
             url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type&category_literature_year&category_gbif_literature_annotation&category_author_from_country&category_gbif_region',

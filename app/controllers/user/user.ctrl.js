@@ -8,7 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res) {
-    res.redirect(307, './user/profile');
+    res.redirect(302, './user/profile');
 });
 
 router.get('/profile', function (req, res, next) {

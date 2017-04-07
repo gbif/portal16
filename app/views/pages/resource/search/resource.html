@@ -1,0 +1,35 @@
+<div search-drawer filter="resource.state" content-type="resources">
+    <div class="site-drawer__section">
+        <div class="search-bar filter-group">
+
+            <form class="search-bar__term" ng-submit="resource.search()">
+                <input type="text"
+                       id="siteSearch"
+                       autocomplete="off"
+                       class="fit-suggestions"
+                       ng-model="resource.state.query.q"
+                       placeholder="Search for resources"
+                       uib-typeahead="suggestion.title for suggestion in resource.getSuggestions($viewValue)"
+                       typeahead-on-select="resource.typeaheadSelect($item, $model, $label, $event)"
+                       typeahead-focus-first="false">
+                <a href="" type="submit" class="gb-icon-search search-bar__search" ng-click="resource.search()">
+                    <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                </a>
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="site-content">
+
+    <div class="site-content__page">
+        <div class="resource-search-results">
+            <div ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

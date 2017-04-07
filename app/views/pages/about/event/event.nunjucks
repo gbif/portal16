@@ -4,80 +4,176 @@
     <div>
         <article class="wrapper-horizontal-stripes">
             <div class="horizontal-stripe article-header white-background">
-                <div class="container">
+                <div class="container--normal">
                     <div class="row">
                         <header class="col-xs-12 text-center">
                             <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">{$ __('cms.contentType.event') $}</span>
-                                <span class="article-header__category__lower">{$ data.created | formatDate(gb.locales.current) $}</span>
+                                <span class="article-header__category__upper">
+                                    <a href="{$ gb.locales.urlPrefix $}/cms/search?type=event">{$ __('cms.contentType.event') $}</a>
+                                </span>
+                                <span class="article-header__category__lower">{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</span>
                             </nav>
-                            <h1>{$ data.title $}</h1>
-                            <div class="article-header__intro">
-                                {# fulltext html already wrapped by <p> from Content API #}
-                                {$ data.summary | safe $}
+                            <h1>{$ main.fields.title $}</h1>
+
+                            <div class="article-header__button">
+                                {% if main.fields.url %}
+                                <a href="{$ main.fields.url $}" class="gb-button--discreet small">{$ main.fields.url | reduceUrlToDomain $}</a>
+                                {% endif %}
+                                <a href="" class="gb-button--discreet small">Add to calendar</a>
                             </div>
+
+                            <div class="article-header__highlights">
+                                <div><span class="gb-icon-calendar"></span>
+                                    {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
+                                </div>
+                                {% if main.fields.__singleDay and not main.fields.allDayEvent %}
+                                <div>
+                                    <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end) $}
+                                    {% if main.fields.showTimeZone %}
+                                    <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+
+                                {% if main.fields.country %}
+                                <div><span class="gb-icon-marker"></span>{$ __('country.' + main.fields.country.sys.id) $}</div>
+                                {% endif %}
+
+                            </div>
+
                         </header>
-                    </div>
-                </div>
-
-                <div class="container--narrow">
-                    <div class="body-text prose-columns">
-
-                        {$ data.body | safe $}
-
-                    </div>
-
-                    <div class="article-auxiliary prose-columns">
-                        <div> {# placeholder for the bootstrap row class, which breaks column here #}
-                            {% if data.location or data.venueCountry.length >= 1 %}
-                                <section
-                                        class="{% if data.location or data.venueCountry.length >= 1 %}no-break{% endif %}">
-                                    <h5>{$ __('event.location') $}</h5>
-                                    <ul class="list-citations">
-                                        <li class="no-break">
-                                            {$ data.location | safe
-                                            $}{% if data.location and data.venueCountry.length >= 1 %}, {% endif %}{$
-                                            data.venueCountry[0].name $}
-                                        </li>
-                                    </ul>
-                                </section>
-                            {% endif %}
-
-                            {% if data.dateText %}
-                                <section class="no-break">
-                                    <h5>{$ __('event.date') $}</h5>
-                                    <ul class="list-links">
-                                        <li>{$ data.dateText | safe $}</li>
-                                    </ul>
-                                </section>
-                            {% endif %}
-
-                            {% if data.eventLanguage %}
-                                <section class="no-break">
-                                    <h5>{$ __('event.languageOfEvent') $}</h5>
-                                    <ul class="list-chips">
-                                        <li>{$ data.eventLanguage $}</li>
-                                    </ul>
-                                </section>
-                            {% endif %}
-
-                            {% if data.eventImage %}
-                                <section class="no-break">
-                                    <figure>
-                                        <div class="">
-                                            <img src="{$ data.eventImage.original $}"
-                                                 alt="{$ data.eventImage.original $}">
-                                        </div>
-                                    </figure>
-                                </section>
-                            {% endif %}
-                        </div>
                     </div>
                 </div>
             </div>
 
-            {% import "../cms.macros.nunjucks" as cmsMacros %}
-            {$ cmsMacros.cmsPrevNext(data, _meta.imageCacheUrl, __) $}
+            {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width > 1170 %}
+                <div class="horizontal-stripe p-t-0 white-background">
+                    <figure class="heading-image">
+                        <div class="cover-image">
+                            <img ng-src="{$ _meta.imageCache $}1170x422/http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
+                                 alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}"
+                                 gallery-image>
+                        </div>
+                        <figcaption class="container--narrow">
+                            {$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | sanitize | safe $}
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endif %}
+
+            <div class="horizontal-stripe white-background p-t-0">
+
+                <div class="container--narrow">
+                    <div class="body-text">
+                        {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 1170 and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width > 800 %}
+                            <figure>
+                                <img class="bordered" ng-src="{$ _meta.imageCache $}http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
+                                     alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
+                                {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
+                                    <figcaption>
+                                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
+                                    </figcaption>
+                                {% endif %}
+                            </figure>
+                        {% endif %}
+
+                        {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+
+                        {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 800 %}
+                            <figure>
+                                <img class="bordered" ng-src="{$ _meta.imageCache $}http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
+                                     alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
+                                {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
+                                    <figcaption>
+                                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
+                                    </figcaption>
+                                {% endif %}
+                            </figure>
+                        {% endif %}
+                    </div>
+
+                    <div class="article-auxiliary prose-columns">
+                        <div>
+                            {% if main.fields.links %}
+                                <section>
+                                    <h4>Links</h4>
+                                    <ul class="inline-bullet-list">
+                                        {% for link in main.fields.links %}
+                                            <li>
+                                                <a href="{$ resolved.Entry[link.sys.id].fields.url $}">{$ resolved.Entry[link.sys.id].fields.label $}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {% if main.fields.documents %}
+                                <section class="no-break">
+                                    <h4>Documents</h4>
+                                    <ul class="inline-bullet-list">
+                                        {% for document in main.fields.documents %}
+                                        <li>
+                                            <a href="{$ resolved.Asset[document.sys.id].fields.file.url $}">{$ resolved.Asset[document.sys.id].fields.title $}</a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            {% if main.fields.organisingParticipants %}
+                                <section class="no-break">
+                                    <h4>Organising Participants</h4>
+                                    <ul class="list-chips">
+                                        {% for participant in main.fields.organisingParticipants %}
+                                            <li>
+                                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </section>
+                            {% endif %}
+
+                            <section>
+                                <h4>Where</h4>
+                                <dl class="inline">
+                                    {% if main.fields.venue %}
+                                        <div>
+                                            <dt>Venue</dt>
+                                            <dd>{$ main.fields.venue | safe $}</dd>
+                                        </div>
+                                    {% endif %}
+                                    {% if main.fields.location %}
+                                        <div>
+                                            <dt>Location</dt>
+                                            <dd>{$ main.fields.location | safe $}</dd>
+                                        </div>
+                                    {% endif %}
+                                    {% if main.fields.country %}
+                                        <div>
+                                            <dt>Country</dt>
+                                            <dd>{$ __('country.' + main.fields.country.sys.id) $}</dd>
+                                        </div>
+                                    {% endif %}
+                                    <div>
+                                        <dt>When</dt>
+                                        {% if main.fields.allDayEvent %}
+                                            <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
+                                        {% else  %}
+                                            <dd>
+                                                {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
+                                                {% if main.fields.showTimeZone %}
+                                                    <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
+                                                {% endif %}
+                                            </dd>
+                                        {% endif %}
+                                    </div>
+                                </dl>
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </article>
     </div>

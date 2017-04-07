@@ -107,6 +107,9 @@ require('./angular/country.resource');
 require('./angular/node.resource');
 require('./angular/installation.resource');
 require('./angular/network.resource');
+require('./angular/resource.resource');
+require('./angular/resourceFilter.service');
+
 
 require('./angular/directives/onLoad/onload.directive');
 require('./angular/directives/helpDesk.directive');
@@ -153,6 +156,10 @@ require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/dataset/key/usage/datasetUsage.ctrl');
+
+//cms data is gathered under the umbrella term resources
+require('../../../pages/resource/search/resource.ctrl');
+require('../../../pages/resource/search/list/resourceList.ctrl');
 
 require('./angular/cmsFilter.service');
 require('../../../pages/cms/search/cms.ctrl');

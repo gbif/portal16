@@ -1,8 +1,8 @@
 //has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
 const _ = require('lodash');
 
-let knownFilters = ['year', 'contentType', 'type', 'language', 'vocabularyPurpose', 'vocabularyTopic', 'vocabularyDataUse', 'countryOfResearcher', 'countryOfCoverage'];
-//knownFilters = knownFilters.map(function(e){return e + '.keyword'});
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage'],
+    defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme'];
 
 function buildQuery(query){
     //facetMultiselect should work
@@ -12,6 +12,7 @@ function buildQuery(query){
         size = getInteger(query.limit, 20),
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true;
 
+    query.contentType = query.contentType || defaultContentTypes;
     arrayifyParams(query);
 
     let body = {};
@@ -77,6 +78,17 @@ function buildQuery(query){
             });
         }
     }
+
+    //sorting
+    //if (_.isUndefined(query.q)) {
+    //    body.sort = [
+    //        {
+    //            "createdAt": {
+    //                "order": "desc"
+    //            }
+    //        }
+    //    ];
+    //}
 
     let searchParams = {
         from: from,

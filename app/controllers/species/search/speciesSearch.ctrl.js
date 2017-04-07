@@ -18,7 +18,7 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    res.redirect(307, './species/search');
+    res.redirect(302, './species/search');
 });
 
 router.get('/search', function (req, res) {

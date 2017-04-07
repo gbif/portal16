@@ -91,7 +91,11 @@ module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('renderMarkdown', function (markdownText) {
-            return md.render(markdownText);
+            if (_.isString(markdownText)) {
+                return md.render(markdownText);
+            } else {
+                return '';
+            }
         });
     })();
 

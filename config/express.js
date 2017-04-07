@@ -82,7 +82,7 @@ module.exports = function (app, config) {
         require(controller)(app);
     });
 
-    require(config.root + '/app/urlHandling/urlHandling.js')(app);
+    //require(config.root + '/app/urlHandling/urlHandling.js')(app); //disable all drupal route handling - as part of the development to move to contentful
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 };
