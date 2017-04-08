@@ -33,7 +33,7 @@ router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
 });
 
 router.get('/news/:id/:title?\.:ext?', function (req, res, next) {
-    prose('news', 'pages/about/news/NewsStory', req, res, next);
+    prose('news', 'pages/about/news/newsStory', req, res, next);
 });
 
 router.get('/tool/:id/:title?\.:ext?', function (req, res, next) {
@@ -51,6 +51,9 @@ function prose(type, template, req, res, next){
             //check if there is any results. if not, then the item do not exists
             if (results.total == 0) {
                 next();
+                return;
+            } else if(_.get(results, 'sys.type') !== 'Array') {
+                next(Error('contentful query failed'));
                 return;
             }
 
