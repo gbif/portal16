@@ -216,6 +216,21 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('fileContentTypeToIconName', function (contentType) {
+            switch(contentType) {
+                case 'application/pdf':
+                    return 'pdf';
+                case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+                    return 'doc';
+                case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+                    return 'ppt';
+                default:
+                    return 'download';
+            }
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('encodeURI', function (data) {
             if (!data) {
                 return ''

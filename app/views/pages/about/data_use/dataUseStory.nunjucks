@@ -75,17 +75,15 @@
 
                     <div class="article-auxiliary prose-columns smaller">
                         <div> {# placeholder for the bootstrap row class, which breaks column here #}
-                            {% if main.fields.citationInformation %}
+                            {% if main.fields.citation %}
                                 <section class="no-break">
                                     <h4>Citations</h4>
-                                    <ul class="list-citations">
-                                        <li class="no-break">{$ main.fields.citationInformation | sanitize | safe $}</li>
-                                    </ul>
+                                    {$ main.fields.citation | renderMarkdown | sanitize | safe $}
                                 </section>
                             {% endif %}
 
                             {#This assumes that there is always tags to show. TODO hide if no available tags#}
-                            {#{% if data.tagsAudience | isNotEmpty or data.tagsDataUse | isNotEmpty or data.tagsCapacityEnhancement | isNotEmpty or data.tagsPurpose | isNotEmpty or data.tagsTopic | isNotEmpty %}#}
+                            {% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty %}
                                 <section class="no-break">
                                     <h4>Subject</h4>
                                     <ul class="list-chips">
@@ -145,7 +143,7 @@
                                         {% endfor %}
                                     </ul>
                                 </section>
-                            {#{% endif %}#}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
