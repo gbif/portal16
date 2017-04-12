@@ -1,6 +1,6 @@
 "use strict";
 let express = require('express'),
-    path = require('path'),
+    //path = require('path'),
     //verifier = require('../../../models/verification/verification'),
     router = express.Router();
 

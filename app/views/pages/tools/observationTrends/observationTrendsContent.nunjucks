@@ -1,47 +1,47 @@
-<div ng-controller="speciesPopulationCtrl as speciesPopulation" class="speciesPopulation">
+<div ng-controller="observationTrendsCtrl as observationTrends" class="observationTrends">
     <div class="ieWarning">
         IE isn't support at this point
     </div>
     <article class="wrapper-horizontal-stripes">
         <div>
-            <div id="speciesPopulationMap" class="speciesPopulationMap fillHeight"></div>
+            <div id="observationTrendsMap" class="observationTrendsMap fillHeight"></div>
         </div>
-        <div class="time-slider time-slider__card ng-cloak" ng-show="speciesPopulation.lowerTaxon">
+        <div class="time-slider time-slider__card ng-cloak" ng-show="observationTrends.lowerTaxon">
             <div class="gb-btn-group time-slider__buttons">
                 <label class="active">
-                        <span class="time-slider__years">{{ speciesPopulation.yearRange.start }}
-                            - {{ speciesPopulation.yearRange.end }}</span>
+                        <span class="time-slider__years">{{ observationTrends.yearRange.start }}
+                            - {{ observationTrends.yearRange.end }}</span>
                 </label>
             </div>
             <div class="time-slider__container">
-                <div ya-no-ui-slider='speciesPopulation.sliderOptions'
-                     ya-no-ui-slider-events='speciesPopulation.eventHandlers'
+                <div ya-no-ui-slider='observationTrends.sliderOptions'
+                     ya-no-ui-slider-events='observationTrends.eventHandlers'
                      class="time-slider__slider is-active"></div>
             </div>
         </div>
-        <div class="speciesPopulation__mapTools ng-cloak">
+        <div class="observationTrends__mapTools ng-cloak">
             <ul>
-                <li class="is-active speciesPopulation__mapTools__info">
+                <li class="is-active observationTrends__mapTools__info">
                     <a href="" class="inherit noUnderline gb-icon-unknown"
-                       ng-click="speciesPopulation.toggleMapTool('info')"></a>
-                    <div ng-show="speciesPopulation.mapTool.info">
+                       ng-click="observationTrends.toggleMapTool('info')"></a>
+                    <div ng-show="observationTrends.mapTool.info">
                         <a href="{$ gb.locales.urlPrefix $}/{$ aboutUrl $}" class="inherit title"
-                           id="speciesPopulation__mapTools__info__link">{$ __('tools.speciesPopulation.aboutLink')
+                           id="observationTrends__mapTools__info__link">{$ __('tools.observationTrends.aboutLink')
                             $}</a>
                     </div>
                 </li>
-                <li class="is-active speciesPopulation__mapTools__style" ng-show="speciesPopulation.lowerTaxon">
+                <li class="is-active observationTrends__mapTools__style" ng-show="observationTrends.lowerTaxon">
                     <a href="" class="inherit noUnderline gb-icon-drop"
-                       ng-click="speciesPopulation.toggleMapTool('style')"></a>
-                    <div ng-show="speciesPopulation.mapTool.style">
+                       ng-click="observationTrends.toggleMapTool('style')"></a>
+                    <div ng-show="observationTrends.mapTool.style">
                         <div>
                             <h5>
                                 Select the minimum years of data per hexagon
                             </h5>
                             <div class="gb-select">
                                 <label><span class="gb-icon-angle-down"></span>
-                                    <select ng-model="speciesPopulation.minimumYears"
-                                            ng-change="speciesPopulation.updateMap()">
+                                    <select ng-model="observationTrends.minimumYears"
+                                            ng-change="observationTrends.updateMap()">
                                         <option ng-repeat="year in [2,5,10,15,25]" value="{{ year }}">{{ year }} years
                                         </option>
                                     </select>
@@ -53,8 +53,8 @@
                                 Filter hexagons by slope standard error. Range: 0.0 - 1.0.
                             </h5>
                             <div class="search-box">
-                                <input type="number" step="0.00001" min="0" max="1" ng-model="speciesPopulation.slopeStdErrThreshold"
-                                       ng-change="speciesPopulation.updateMap()">
+                                <input type="number" step="0.00001" min="0" max="1" ng-model="observationTrends.slopeStdErrThreshold"
+                                       ng-change="observationTrends.updateMap()">
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
         </div>
     </article>
 
-    <aside class="site-drawer is-locked" ng-class="{'is-active': speciesPopulation.isActive}">
-        <a href="" class="site-drawer__toggle" ng-click="speciesPopulation.isActive = !speciesPopulation.isActive"></a>
+    <aside class="site-drawer is-locked" ng-class="{'is-active': observationTrends.isActive}">
+        <a href="" class="site-drawer__toggle" ng-click="observationTrends.isActive = !observationTrends.isActive"></a>
         <div class="site-drawer__wrapper">
             <div class="site-drawer__wrapped-content">
                 <div class="site-drawer__content">
@@ -73,7 +73,7 @@
                             <a href="https://gbif.org" target="_blank"
                                class="gb-icon-logo site-drawer__bar__icon inherit embeded-only"></a>
                             <div class="site-drawer__bar__title">
-                                <span>{$ __('tools.speciesPopulation.drawerTitle') $}</span>
+                                <span>{$ __('tools.observationTrends.drawerTitle') $}</span>
                             </div>
                             <span class="site-drawer__bar__icon inherit invisible embeded-only"></span>
                         </div>
@@ -89,12 +89,12 @@
                         {#</div>#}
                     </div>
                 </div>
-                <div class="site-drawer__section" id="speciesPopulation_scrollContainer">
+                <div class="site-drawer__section" id="observationTrends_scrollContainer">
                     <div class="site-drawer__section__content">
 
                         <div>
                             <h4>
-                                {$ __('tools.speciesPopulation.selectSpecies') $}
+                                {$ __('tools.observationTrends.selectSpecies') $}
                             </h4>
                             <div class="search-box">
                                 <input type="text"
@@ -103,63 +103,63 @@
                                        name="lowerTaxon"
                                        autocomplete="off"
                                        class="fit-suggestions"
-                                       ng-model="speciesPopulation.lowerTaxonStr"
-                                       uib-typeahead="suggestion.scientificName for suggestion in speciesPopulation.getSuggestions($viewValue)"
-                                       typeahead-on-select="speciesPopulation.setLowerTaxon($item)"
+                                       ng-model="observationTrends.lowerTaxonStr"
+                                       uib-typeahead="suggestion.scientificName for suggestion in observationTrends.getSuggestions($viewValue)"
+                                       typeahead-on-select="observationTrends.setLowerTaxon($item)"
                                        typeahead-focus-first="true"
-                                       typeahead-template-url="{{ speciesPopulation.suggestTemplate }}"
+                                       typeahead-template-url="{{ observationTrends.suggestTemplate }}"
                                        typeahead-focus-first="true">
                             </div>
                         </div>
-                        <div ng-if="!speciesPopulation.lowerTaxon" class="speciesPopulation__intro">
+                        <div ng-if="!observationTrends.lowerTaxon" class="observationTrends__intro">
                             <p>
-                                {$ __('tools.speciesPopulation.intro') | safe $}
+                                {$ __('tools.observationTrends.intro') | safe $}
                             </p>
                         </div>
-                        <div ng-if="speciesPopulation.lowerTaxon" class="ng-cloak">
+                        <div ng-if="observationTrends.lowerTaxon" class="ng-cloak">
                             <h4>
-                                {$ __('tools.speciesPopulation.selectHigherTaxa') $}
+                                {$ __('tools.observationTrends.selectHigherTaxa') $}
                             </h4>
                             <div class="gb-select">
                                 <label><span class="gb-icon-angle-down"></span>
-                                    <select ng-options="taxon as taxon.name for taxon in speciesPopulation.higherTaxonArray"
-                                            ng-model="speciesPopulation.higherTaxon"
-                                            ng-change="speciesPopulation.updateHigherTaxon()"></select>
+                                    <select ng-options="taxon as taxon.name for taxon in observationTrends.higherTaxonArray"
+                                            ng-model="observationTrends.higherTaxon"
+                                            ng-change="observationTrends.updateHigherTaxon()"></select>
                                 </label>
                             </div>
                         </div>
 
-                        <div ng-if="speciesPopulation.lowerTaxon.countSince1900 == 0" class="error ng-cloak">
-                            {$ __('tools.speciesPopulation.noData') $}
+                        <div ng-if="observationTrends.lowerTaxon.countSince1900 == 0" class="error ng-cloak">
+                            {$ __('tools.observationTrends.noData') $}
                         </div>
 
-                        <div ng-show="speciesPopulation.lowerTaxon" class="ng-cloak">
+                        <div ng-show="observationTrends.lowerTaxon" class="ng-cloak">
                             <h4>
-                                {$ __('tools.speciesPopulation.selectArea') $}
+                                {$ __('tools.observationTrends.selectArea') $}
                             </h4>
-                            <div class="speciesPopulation__mode">
-                                <a href="" ng-click="speciesPopulation.startHexagon()"
-                                   ng-class="{active: speciesPopulation.hexagonMode}">{$
-                                    __('tools.speciesPopulation.hexagon') $}</a>
-                                <a href="" ng-click="speciesPopulation.startDraw()"
-                                   ng-class="{active: !speciesPopulation.hexagonMode}">{$
-                                    __('tools.speciesPopulation.draw') $}</a>
-                                <a href="" ng-click="speciesPopulation.clearSelection()">{$
-                                    __('tools.speciesPopulation.clear') $}</a>
+                            <div class="observationTrends__mode">
+                                <a href="" ng-click="observationTrends.startHexagon()"
+                                   ng-class="{active: observationTrends.hexagonMode}">{$
+                                    __('tools.observationTrends.hexagon') $}</a>
+                                <a href="" ng-click="observationTrends.startDraw()"
+                                   ng-class="{active: !observationTrends.hexagonMode}">{$
+                                    __('tools.observationTrends.draw') $}</a>
+                                <a href="" ng-click="observationTrends.clearSelection()">{$
+                                    __('tools.observationTrends.clear') $}</a>
                             </div>
                         </div>
 
                         <ng-include src="'/templates/components/loader/loader.html'"
-                                    ng-if="speciesPopulation.loading"></ng-include>
+                                    ng-if="observationTrends.loading"></ng-include>
 
-                        <div class="ng-cloak speciesPopulation__results"
-                             ng-show="speciesPopulation.tableData.years.length > 0">
+                        <div class="ng-cloak observationTrends__results"
+                             ng-show="observationTrends.tableData.years.length > 0">
                             <h4>
-                                {$ __('tools.speciesPopulation.resultIntro') $}
+                                {$ __('tools.observationTrends.resultIntro') $}
                             </h4>
                             <div class="card">
                                 <div class="card__content">
-                                    <h5>Relative abundance of "{{ speciesPopulation.lowerTaxon.scientificName }}" per
+                                    <h5>Relative observation trend for "{{ observationTrends.lowerTaxon.scientificName }}" per
                                         year.</h5>
                                     <h5>(species/higher taxon)</h5>
                                 </div>
@@ -171,29 +171,29 @@
                                     <dl class="inline">
                                         <div>
                                             <dt class="text-capitalize">Slope</dt>
-                                            <dd>{{ speciesPopulation.selectedArea.apiData.slope | number : 5 }}</dd>
+                                            <dd>{{ observationTrends.selectedArea.apiData.slope | number : 5 }}</dd>
                                         </div>
                                         <div>
                                             <dt class="text-capitalize" title="Sum of squared errors of prediction">
                                                 SSE
                                             </dt>
-                                            <dd>{{ speciesPopulation.selectedArea.apiData.SSE | number : 5 }}</dd>
+                                            <dd>{{ observationTrends.selectedArea.apiData.SSE | number : 5 }}</dd>
                                         </div>
                                         <div>
                                             <dt class="text-capitalize">Mean square error</dt>
-                                            <dd>{{ speciesPopulation.selectedArea.apiData.meanSquareError | number : 5 }}</dd>
+                                            <dd>{{ observationTrends.selectedArea.apiData.meanSquareError | number : 5 }}</dd>
                                         </div>
                                         <div>
                                             <dt class="text-capitalize">Significance</dt>
-                                            <dd>{{ speciesPopulation.selectedArea.apiData.significance | number : 5 }}</dd>
+                                            <dd>{{ observationTrends.selectedArea.apiData.significance | number : 5 }}</dd>
                                         </div>
                                         <div>
                                             <dt class="text-capitalize">Slope standard error</dt>
-                                            <dd>{{ speciesPopulation.selectedArea.apiData.slopeStdErr | number : 5 }}</dd>
+                                            <dd>{{ observationTrends.selectedArea.apiData.slopeStdErr | number : 5 }}</dd>
                                         </div>
                                         <div>
                                             <dt class="text-capitalize">Years with data</dt>
-                                            <dd>{{ speciesPopulation.tableData.years.length }}</dd>
+                                            <dd>{{ observationTrends.tableData.years.length }}</dd>
                                         </div>
                                     </dl>
                                 </div>
@@ -201,7 +201,7 @@
 
                             <div class="card">
                                 <div class="card__content">
-                                    <h5>"{{ speciesPopulation.higherTaxon.name }}" per year</h5>
+                                    <h5>"{{ observationTrends.higherTaxon.name }}" per year</h5>
                                 </div>
                                 <div class="count-chart"></div>
                             </div>
@@ -218,10 +218,10 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="year in speciesPopulation.tableData.years">
+                                            <tr ng-repeat="year in observationTrends.tableData.years">
                                                 <td>{{ year }}</td>
-                                                <td class="text-right">{{ speciesPopulation.tableData.groupCounts[year] }}</td>
-                                                <td class="text-right">{{ speciesPopulation.tableData.speciesCounts[year] || 0 }}</td>
+                                                <td class="text-right">{{ observationTrends.tableData.groupCounts[year] }}</td>
+                                                <td class="text-right">{{ observationTrends.tableData.speciesCounts[year] || 0 }}</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                         <p class="m-t-1 embeded-only">
-                            {$ __('tools.speciesPopulation.embedIntro') | insertLinks('https://gbif.org', '_blank') |
+                            {$ __('tools.observationTrends.embedIntro') | insertLinks('https://gbif.org', '_blank') |
                             safe $}
                         </p>
                     </div>

@@ -128,8 +128,8 @@
             "url": "/tools/species-lookup"
           },
           {
-            "name": "speciesPopulation",
-            "url": "/tools/species-population"
+            "name": "observationTrends",
+            "url": "/tools/observation-trends"
           },
           {
             "name": "developerBlog",

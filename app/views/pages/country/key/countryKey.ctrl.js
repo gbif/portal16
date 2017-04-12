@@ -17,7 +17,7 @@ function countryKeyCtrl(OccurrenceSearch) {
         limit: 0
     }, function(data){
         vm.countAbout = data.count;
-    }, function(err){
+    }, function(){
         //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
     });
 
@@ -26,9 +26,10 @@ function countryKeyCtrl(OccurrenceSearch) {
         limit: 0
     }, function(data){
         vm.countPublished = data.count;
-    }, function(err){
+    }, function(){
         //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
     });
 }
 
 module.exports = countryKeyCtrl;
+

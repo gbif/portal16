@@ -50,7 +50,7 @@ gulp.task('prod', function (callback) {
         'dataRepo',
         ['speciesLookup'],
         ['dataValidator'],
-        ['speciesPopulation'],
+        ['observationTrends'],
         ['home'],
         ['signpost'],
         ['ipt'],
@@ -75,7 +75,7 @@ gulp.task('watch', ['browser-sync'], function () {
     ], ['styles-reload']);
 
     // gulp.watch([config.js.server.paths], ['server-lint']); //should not be necessary. the files are linted at start up
-    gulp.watch([config.js.client.watch], ['scripts-reload', 'client-lint', 'dataRepo']); //, 'speciesLookup', 'dataValidator', 'ipt', 'speciesPopulation', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
+    gulp.watch([config.js.client.watch], ['scripts-reload', 'client-lint', 'dataRepo']); //, 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
 
     gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
 
@@ -87,7 +87,7 @@ gulp.task('dev', [], function (callback) {
         ['clean-all'],
         ['revision'],
         ['env-constants'],
-        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'dataValidator', 'ipt', 'speciesPopulation', 'home', 'dataRepo', 'signpost'],
+        ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home', 'dataRepo', 'signpost'],
         ['templates'],
         ['ieStyle'],
         ['watch'],

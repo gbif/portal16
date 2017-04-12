@@ -139,18 +139,30 @@ router.get('/home/datasets/:countryCode', function (req, res) {
         country: countryCode
     };
     var datasetUrl = apiConfig.dataset.url + '?' + querystring.stringify(query);
+    console.log(datasetUrl);
     search(datasetUrl).then(function (data) {
-        delete data.endOfRecords;
-        data.results = chance.pickset(data.results, limit).map(function (e) {
-            var desc = _.get(e, 'description', '');
-            return {
-                key: e.key,
-                title: e.title,
-                logoUrl: e.logoUrl,
-                description: format.decodeHtml(format.removeHtml(desc)).slice(0, 400)
+        try {
+            delete data.endOfRecords;
+            if (data.results.length == 0) {
+                res.json(data);
+                return;
             }
-        });
-        res.json(data)
+            data.results = chance.pickset(data.results, limit).map(function (e) {
+                var desc = _.get(e, 'description', '');
+                return {
+                    key: e.key,
+                    title: e.title,
+                    logoUrl: e.logoUrl,
+                    description: format.decodeHtml(format.removeHtml(desc)).slice(0, 400)
+                }
+            });
+            res.json(data)
+        } catch(err) {
+            res.status(_.get(err, 'errorResponse.statusCode', 500));
+            res.json({
+                body: _.get(err, 'errorResponse.body', err)
+            });
+        }
 
     }, function (err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));

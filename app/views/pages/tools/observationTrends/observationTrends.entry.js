@@ -7,10 +7,10 @@ var wellknown = require('wellknown');
 
 angular
     .module('portal')
-    .controller('speciesPopulationCtrl', speciesPopulationCtrl);
+    .controller('observationTrendsCtrl', observationTrendsCtrl);
 
 /** @ngInject */
-function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
+function observationTrendsCtrl($scope, $http, suggestEndpoints, $httpParamSerializer, env, OccurrenceSearch, Regression) {
     var vm = this;
     vm.lowerTaxon;
     vm.loading = false;
@@ -292,4 +292,4 @@ function speciesPopulationCtrl($scope, $http, suggestEndpoints, $httpParamSerial
 }
 
 
-module.exports = speciesPopulationCtrl;
+module.exports = observationTrendsCtrl;

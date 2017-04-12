@@ -61,6 +61,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enumTranslationPath: 'typeStatus.',
         showAll: false,
         enums: enums.typeStatus,
+        reversible: true,
         facets: {
             hasFacets: true,
             facetKey: 'TYPE_STATUS'
@@ -74,6 +75,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enumTranslationPath: 'occurrenceIssue.',
         showAll: true,
         enums: enums.occurrenceIssue,
+        reversible: true,
         facets: {
             hasFacets: true,
             facetKey: 'ISSUE'
@@ -276,6 +278,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         queryKey: 'country',
         filter: OccurrenceFilter,
         enumTranslationPath: 'country.',
+        reversible: false,
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
@@ -310,6 +313,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enumTranslationPath: 'basisOfRecord.',
         showAll: true,
         enums: enums.basisOfRecord,
+        reversible: true,
         facets: {
             hasFacets: true,
             facetKey: 'BASIS_OF_RECORD'
@@ -323,6 +327,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enumTranslationPath: 'protocol.',
         showAll: true,
         enums: enums.protocol,
+        reversible: true,
         facets: {
             hasFacets: true,
             facetKey: 'PROTOCOL'
@@ -336,6 +341,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         enumTranslationPath: 'month.',
         showAll: true,
         enums: enums.month,
+        reversible: true,
         facets: {
             hasFacets: true,
             facetKey: 'MONTH'

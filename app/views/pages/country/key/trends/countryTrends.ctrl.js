@@ -7,7 +7,7 @@ angular
     .controller('countryTrendsCtrl', countryTrendsCtrl);
 
 /** @ngInject */
-function countryTrendsCtrl($stateParams) {
+function countryTrendsCtrl($stateParams, $state) {
     var vm = this;
     vm.direction = $stateParams.direction;
     vm.showAbout = vm.direction == 'about';

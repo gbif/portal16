@@ -20,7 +20,7 @@ function createMap(options) {
     }
     mapApi = 'https:' + options.dataapiv2 + 'map/';
     map = new mapboxgl.Map({ // eslint-disable-line no-undef
-        container: 'speciesPopulationMap',
+        container: 'observationTrendsMap',
         style: 'mapbox://styles/mapbox/light-v9',//mapStyle,
         center: [10, 50],
         zoom: 3,

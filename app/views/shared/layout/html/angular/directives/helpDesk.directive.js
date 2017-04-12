@@ -7,8 +7,8 @@ angular
     .directive('helpDesk', function ($parse, $rootScope, NAV_EVENTS) {
         return {
             restrict: 'A',
-            link: function (scope, elem, attrs) {
-                elem.on('click', function (event) {
+            link: function (scope, elem) {
+                elem.on('click', function () {
                     $rootScope.$broadcast(NAV_EVENTS.toggleFeedback, {toggle: true, type: 'QUESTION'});
                     scope.$apply(function() {
                     });

@@ -6,7 +6,6 @@ var express = require('express'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
     _ = require('lodash'),
     contributors = require('../../dataset/key/contributors/contributors'),
-    isDev = rootRequire('config/config').env == 'dev',
     router = express.Router();
 
 module.exports = function (app) {

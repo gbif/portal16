@@ -32,6 +32,7 @@ var redirectedPages = [
     //}
 ];
 
+
 function isRedirectedPage(path) {
     for (var i = 0; i < redirectedPages.length; i++) {
         var regexPattern = redirectedPages[i].pattern;

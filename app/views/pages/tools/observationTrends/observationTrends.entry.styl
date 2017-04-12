@@ -2,7 +2,7 @@
 @import "./../../../shared/style/typography/_typography"
 @import "./../../../shared/style/_mediaQueryBlocks"
 
-.speciesPopulation {
+.observationTrends {
 
     //map style
     .mapboxgl-ctrl-group > button.active {
@@ -15,7 +15,7 @@
         z-index 10
         position relative
     }
-    .speciesPopulationMap {
+    .observationTrendsMap {
         z-index 10
     }
     &__intro {
@@ -146,7 +146,7 @@
 }
 
 +isAbove($laptop) {
-    .speciesPopulation {
+    .observationTrends {
         article {
             margin-left $filterDrawerWidth
         }
@@ -154,7 +154,7 @@
 }
 
 .IE {
-    .speciesPopulation {
+    .observationTrends {
         article {
             display none
         }

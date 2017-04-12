@@ -63,8 +63,8 @@ gulp.task('speciesLookup', function () {
 gulp.task('dataValidator', function () {
     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
 });
-gulp.task('speciesPopulation', function () {
-    return build('./app/views/pages/tools/speciesPopulation/speciesPopulation.entry.js', 'pages/speciesPopulation.js');
+gulp.task('observationTrends', function () {
+    return build('./app/views/pages/tools/observationTrends/observationTrends.entry.js', 'pages/observationTrends.js');
 });
 gulp.task('ipt', function () {
     return build('./app/views/pages/ipt/ipt.entry.js', 'pages/ipt.js');
