@@ -36,6 +36,10 @@ router.get('/tool2/:id/:title?\.:ext?', function (req, res, next) {
     prose('tool', 'pages/about/tool/tool', req, res, next);
 });
 
+router.get('/programme2/:id/:title?\.:ext?', function (req, res, next) {
+    prose('programme', 'pages/resource/key/programme/programme', req, res, next);
+});
+
 function prose(type, template, req, res, next){
     let entry = req.params.id,
         entryTitle = req.params.title,

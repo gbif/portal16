@@ -31,29 +31,50 @@
     flex-wrap wrap
     margin -10px
     >li {
+        @extends .hoverBox
         flex 1 1 auto
         width 40%
         min-width 300px
         display inline-block
-        //box-shadow 0 2px 2px 2px rgba(0, 0, 0, 0.16)
-        //margin 10px
+        box-shadow 0 2px 5px 3px rgba(0,0,0,.015)
+        border 1px solid #eee
+        margin 10px
         font-size 14px
         margin-bottom 20px
         >a {
             display block
             position relative
-            height 72px
-            padding 10px
+            height 52px
             img {
-                position absolute
-                top 10px
-                left 10px
+                float left
+                height 52px
+                width 40px
+                border none
             }
             >div {
-                vertically-align()
-                margin-left 70px
+                padding 5px
+                margin-left 50px
+                height 52px
+                >div {
+                    /* only supported on webkit and doesn't look like it will be in firefox at anytime. fallback is hard cropping without the ellipsis */
+                    display -webkit-box
+                    -webkit-line-clamp 2
+                    -webkit-box-orient vertical
+                    overflow hidden
+                    text-overflow ellipsis
+                    max-height $lineHeightRatio*2rem /* important to choose a height that matches line height to crop between lines*/
+                    vertically-align()
+                }
             }
         }
     }
 }
 
+.article-secondary {
+    padding-top vrBlock(2)
+    margin-top vrBlock(2)
+    border-top 1px solid $stripeBorderColor
+    >section {
+        margin-bottom vrBlock(2)
+    }
+}
