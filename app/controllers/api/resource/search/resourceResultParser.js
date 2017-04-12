@@ -2,21 +2,8 @@
 const _ = require('lodash'),
     format = require('../../../../helpers/format'),
     slugify = require("slugify"),
-    credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).contentful.gbif,
-    request = require('requestretry'),
-    querystring = require('querystring'),
-    urljoin = require('url-join'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true}),
     changeCase = require('change-case');
-
-//_.mixin({
-//    deep: function (obj, mapper) {
-//        return mapper(_.mapValues(obj, function (v) {
-//            return _.isPlainObject(v) ? _.deep(v, mapper) : v;
-//        }));
-//    }
-//});
 
 module.exports = {
     normalize: normalize,
@@ -25,9 +12,9 @@ module.exports = {
     truncate: truncate,
     selectLocale: selectLocale,
     addSlug: addSlug,
-    include: include,
     renameField: renameField,
-    concatFields: concatFields
+    concatFields: concatFields,
+    transformFacets: transformFacets
 };
 
 function normalize(result, offset, limit) {
@@ -179,54 +166,27 @@ function concatFields(results, fieldsPaths, targetField) {
     });
 }
 
-function getLinks(o, links, key){
-    links = links || [];
-    if (key == 'sys') {
-        if (o.linkType == 'Entry' || o.linkType == 'Asset') {
-            links.push(o);
+function transformFacets(result, __, types) {
+    try {
+        types = types || ["YEAR","CONTENT_TYPE","LITERATURE_TYPE","LANGUAGE","AUDIENCES","PURPOSES","TOPICS"];
+        if (!_.isEmpty(result.facets)) {
+            result.facets.forEach(function (facet) {
+                facet.counts = facet.counts.map(function (e) {
+                    var facetEntry = {
+                        name: e.name,
+                        title: e.name,
+                        count: e.count
+                    };
+                    if (types.indexOf(facet.field) > -1) {
+                        facetEntry.title = __('enums.cms.vocabularyTerms.' + e.name);
+                    }
+                    return facetEntry;
+                });
+                facet.counts = _.keyBy(facet.counts, 'name');
+            });
+            result.facets = _.keyBy(result.facets, 'field');
         }
-
-        return links;
+    } catch(e){
+        console.log(e);
     }
-    if (_.isObject(o) || _.isArray(o)) {
-        _.forEach(o, function(value, key){
-            getLinks(value, links, key);
-        });
-    }
-    return links;
-}
-
-let typeMap = {
-    Entry: 'entries',
-    Asset: 'assets'
-};
-
-async function include(o) {
-    let links = _.uniqBy(getLinks(o), 'id');
-    let promiseList = links.map(x => getItemById(x.id, typeMap[x.linkType]));
-    let linkedItems = await Promise.all(promiseList);
-    linkedItems = _.keyBy(linkedItems, 'sys.id');
-    return linkedItems;
-}
-
-function getItemById(id, type, isPreview) {
-    //let accessToken = isPreview ? credentials.preview_access_token : credentials.access_token,
-    let accessToken = 'a069e9b4f1f6430d99a2adfccf8b3f8bc05e24879fcb010c04cd1213abc83561',
-        api = isPreview ? 'http://preview.contentful.com' : 'http://cdn.contentful.com',
-        //space = credentials.space,
-        space = 'njecg2f64y52',
-        query = {
-            access_token: accessToken
-        },
-        requestPath = urljoin(api, 'spaces', space, type, id, '?' + querystring.stringify(query));
-
-    let proseRequest = {
-        url: requestPath,
-        fullResponse: false,
-        json: true,
-        maxAttempts: 2,
-        timeout: 30000,
-        method: 'GET'
-    };
-    return request(proseRequest);
 }

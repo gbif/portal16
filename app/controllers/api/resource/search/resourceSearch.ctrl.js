@@ -2,7 +2,6 @@
 var express = require('express'),
     router = express.Router(),
     elasticsearch = require('elasticsearch'),
-    _ = require('lodash'),
     resourceSearch = require('./resourceSearch'),
     resourceResultParser = require('./resourceResultParser'),
     localeMap = { //TODO move to configuration file where site languages is defined
@@ -39,11 +38,9 @@ router.get('/resource/search', function (req, res) {
         resourceResultParser.truncate(parsedResult.results, ['title'], 100);
         resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
         resourceResultParser.addSlug(parsedResult.results, 'title', localeMap[preferedLocale], localeMap.en);
+        resourceResultParser.transformFacets(parsedResult, req.__);
 
-        //resourceResultParser.include(parsedResult).then(function(includedData){
-        //    parsedResult.includes = includedData;
-        //    res.json(parsedResult);
-        //});
+        parsedResult.filters = {};
 
         res.json(parsedResult);
     }, function (err) {

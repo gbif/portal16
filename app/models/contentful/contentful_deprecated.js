@@ -37,23 +37,23 @@ function getEntity(id, depth, preview) {
     return request(userRequest);
 }
 
-function getDataUseStory(id) {
-}
-
-function getNewsStory(id) {
-}
-
-function getTool(id) {
-}
-
-function getParticipant(id) {
-}
-
-function getProgramme(id) {
-}
-
-function getProject(id) {
-}
-
-function getGeneric(id) {
-}
+//function getDataUseStory(id) {
+//}
+//
+//function getNewsStory(id) {
+//}
+//
+//function getTool(id) {
+//}
+//
+//function getParticipant(id) {
+//}
+//
+//function getProgramme(id) {
+//}
+//
+//function getProject(id) {
+//}
+//
+//function getGeneric(id) {
+//}

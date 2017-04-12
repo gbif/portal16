@@ -1,42 +1,38 @@
 "use strict";
 
-let contentful = require('contentful'),
-    express = require('express'),
+let express = require('express'),
     _ = require('lodash'),
     slugify = require("slugify"),
     request = require('requestretry'),
     urljoin = require('url-join'),
-    path = require('path'),
     moment = require('moment'),
     helper = rootRequire('app/models/util/util'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).contentful.gbif,
-    format = rootRequire('app/helpers/format'),
     router = express.Router();
 
 module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/data-use/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/data-use2/:id/:title?\.:ext?', function (req, res, next) {
     prose('data-use', 'pages/about/data_use/dataUseStory', req, res, next);
 });
 
-router.get('/datause/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/datause2/:id/:title?\.:ext?', function (req, res, next) {
     prose('data-use', 'pages/about/data_use/dataUseStory', req, res, next);
 });
 
-router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
-    prose('event', 'pages/about/event/event', req, res, next);
+router.get('/event2/:id/:title?\.:ext?', function (req, res, next) {
+    prose('event', 'pages/about/event/event2', req, res, next);
 });
 
-router.get('/news/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/news2/:id/:title?\.:ext?', function (req, res, next) {
     prose('news', 'pages/about/news/newsStory', req, res, next);
 });
 
-router.get('/tool/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/tool2/:id/:title?\.:ext?', function (req, res, next) {
     prose('tool', 'pages/about/tool/tool', req, res, next);
 });
 
@@ -69,7 +65,7 @@ function prose(type, template, req, res, next){
             if (!preview) {
                 let slugTitle = getSlug(itemTitle);
                 if (slugTitle != entryTitle){
-                    res.redirect(302, '/'+ type +'/' + entry + '/' + slugTitle);
+                    res.redirect(302, '/'+ type +'2/' + entry + '/' + slugTitle);
                     return;
                 }
             }
@@ -125,10 +121,10 @@ function getFirstContentItem(result) {
     var entry = {};
     entry.main = result.items[0];
     entry.resolved = {};
-    if (!_.isEmpty(result.includes.Entry)) {
+    if (_.get(result, 'includes.Entry.length', 0) > 0) {
         entry.resolved.Entry = _.keyBy(result.includes.Entry, 'sys.id');
     }
-    if (!_.isEmpty(result.includes.Asset)) {
+    if (_.get(result, 'includes.Asset.length', 0) > 0) {
         entry.resolved.Asset = _.keyBy(result.includes.Asset, 'sys.id');
     }
     return entry;

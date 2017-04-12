@@ -25,7 +25,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env) {
     vm.pageChanged = function () {
         vm.state.query.offset = (vm.currentPage - 1) * vm.limit;
         updatePaginationCounts();
-        DatasetFilter.update(vm.state.query);
+        ResourceFilter.update(vm.state.query);
         window.scrollTo(0, 0);
     };
 

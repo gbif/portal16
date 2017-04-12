@@ -1,5 +1,6 @@
 //has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
-const _ = require('lodash');
+const _ = require('lodash'),
+    filterHelper = require('./filter');
 
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme'];
@@ -9,7 +10,8 @@ function buildQuery(query){
     //facetLimit seems useful per type
     //ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
-        size = getInteger(query.limit, 20),
+        size = getInteger(query.limit, 100),
+        facetSize = 10,
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true;
 
     query.contentType = query.contentType || defaultContentTypes;
@@ -44,7 +46,7 @@ function buildQuery(query){
         //if no filters then add simple facets without filters
         if (!facetMultiselect || factedFilters.length == 0) {
             query.facet.forEach(function(facet){
-                body.aggregations[facet] = {terms: {field: facet}};
+                body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
             });
         } else {
 
@@ -71,7 +73,7 @@ function buildQuery(query){
                     },
                     aggregations: {
                         counts: {
-                            terms: {field: filter}
+                            terms: {field: filter, size: facetSize}
                         }
                     }
                 };
@@ -80,21 +82,22 @@ function buildQuery(query){
     }
 
     //sorting
-    //if (_.isUndefined(query.q)) {
-    //    body.sort = [
-    //        {
-    //            "createdAt": {
-    //                "order": "desc"
-    //            }
-    //        }
-    //    ];
-    //}
+    if (_.isUndefined(query.q)) {
+        body.sort = [
+            {
+                "createdAt": {
+                    "order": "desc"
+                }
+            }
+        ];
+    }
 
     let searchParams = {
         from: from,
         size: size,
         body: body
     };
+
     return searchParams;
 }
 
@@ -109,7 +112,6 @@ function getInteger(nr, fallbackValue){
 function getAggregationFilter(filterTerms, excludedKey) {
     var filteredTerms = [];
     Object.keys(filterTerms).forEach(function(key){
-    console.log(excludedKey);
         if (key != excludedKey) {
             filteredTerms.push(filterTerms[key]);
         }
@@ -132,18 +134,23 @@ function addToFilter(filter, field, value){
 }
 
 function getFilter(field, value) {
-    //Create the term filter
-    let filterTerm = {};
-    if (value.length == 1) {
-        let term = {};
-        term[field] = value[0];
-        _.set(filterTerm, 'term', term);
-    } else {
-        let term = {};
-        term[field] = value;
-        _.set(filterTerm, 'terms', term);//value is an array with multiple values
+    let isRange = false;
+    if (field == 'year') {
+        isRange = true;
     }
-    return filterTerm;
+    return filterHelper.getFilter(field, value, isRange);
+    ////Create the term filter
+    //let filterTerm = {};
+    //if (value.length == 1) {
+    //    let term = {};
+    //    term[field] = value[0];
+    //    _.set(filterTerm, 'term', term);
+    //} else {
+    //    let term = {};
+    //    term[field] = value;
+    //    _.set(filterTerm, 'terms', term);//value is an array with multiple values
+    //}
+    //return filterTerm;
 }
 
 function getNotFacetedFilters(query) {

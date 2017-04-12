@@ -1,128 +1,163 @@
-<article class="wrapper-horizontal-stripes">
+<div class="container--narrow">
+    <div class="row">
+        <div class="col-xs-12">
+            <div ng-repeat="result in resourceList.state.data.results">
+                <div class="card m-b-1 searchCard">
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            <span class="searchCard__type">{{result.contentType}}</span>
+                            <h2>
+                                <a ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">{{result.title}}</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="card__stripe">
+                        <div class="card__content">
+                            <!--<div style="width:128px; float:right;margin-left:5px;background:#888">-->
+                            <!--<div class="teaser-map&#45;&#45;small">-->
+                            <!--<img src="//cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist">-->
+                            <!--<img ng-src="//api.gbif-uat.org/v2/map/occurrence/density/0/0/0.png?style=classic.poly&srs=EPSG%3A4326&bin=hex&hexPerTile=25&datasetKey=38b4c89f-584c-41bb-bd8f-cd1def33e92f">-->
 
+                            <!--</div>-->
+                            <!--</div>-->
 
-    <div class="horizontal-stripe--paddingless white-background search-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search resources</span>
-                        <span class="article-header__category__lower" ng-if="resourceList.hasData()">
-                            {{resourceList.state.data.count | localNumber:resourceList.state.query.locale }} results
-                        </span>
-                        <span class="article-header__category__lower" ng-if="!resourceList.hasData()">
-                            Loading ...
-                        </span>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="horizontal-stripe--paddingless white-background">
-        <div class="container-fluid">
-            <div class="row">
-                <nav class="tabs">
-                    <ul>
-                        <li class="tab isActive">
-                            <a href="" ui-sref="resourceSearchList({contentType:[]})">
-                                All
-                            </a>
-                        </li>
-
-                        <li class="tab">
-                            <a href="" ui-sref="resourceSearchList({contentType:['news']})">
-                                News
-                            </a>
-                        </li>
-
-                        <li class="tab">
-                            <a href="" ui-sref="resourceSearchList({contentType:['event']})">
-                                Events
-                            </a>
-                        </li>
-
-                        <li class="tab">
-                            <a href="" ui-sref="resourceSearchList({contentType:['document']})">
-                                Documents
-                            </a>
-                        </li>
-
-                        <li class="tab">
-                            <a href="" ui-sref="resourceSearchList({contentType:['project']})">
-                                Projects
-                            </a>
-                        </li>
-
-                        <li class="tab" uib-dropdown dropdown-append-to-body>
-                            <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
-                                More
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
-                                aria-labelledby="btn-append-to-body">
-                                <li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['programme']})">Programmes</a></li>
-                                <li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['literature']})">Literature</a>
-                                <li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['tool']})">Tools</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-
-
-    <div class="horizontal-stripe light-background">
-        <!--<ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>-->
-        <!--<div ng-if="resourceList.hasData()">-->
-        <!--<div class="container&#45;&#45;narrow">-->
-        <!--{{resourceList.state}}-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>
-        <div ng-if="resourceList.hasData()">
-            <div class="container--narrow">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div ng-repeat="result in resourceList.state.data.results">
-                            <div class="card m-b-1 searchCard">
-                                <div class="card__stripe">
-                                    <div class="card__content">
-                                        <span class="searchCard__type">{{result.contentType}}</span>
-                                        <h2>
-                                            <a ng-href="/{{result.contentType}}/{{result.id}}/{{result._slug}}">{{result.title}}</a>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="card__stripe">
-                                    <div class="card__content">
-                                    <!--<div style="width:128px; float:right;margin-left:5px;background:#888">-->
-                                        <!--<div class="teaser-map&#45;&#45;small">-->
-                                            <!--<img src="//cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist">-->
-                                            <!--<img ng-src="//api.gbif-uat.org/v2/map/occurrence/density/0/0/0.png?style=classic.poly&srs=EPSG%3A4326&bin=hex&hexPerTile=25&datasetKey=38b4c89f-584c-41bb-bd8f-cd1def33e92f">-->
-
-                                        <!--</div>-->
-                                    <!--</div>-->
-
-                                        <img class="searchCard__img"
-                                             ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
-                                        <p>
-                                            {{result._summary}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <img class="searchCard__img"
+                                 ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
+                            <p>
+                                {{result._summary}}
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</article>
+</div>
+<!--<article class="wrapper-horizontal-stripes">-->
+
+
+    <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-header">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
+                        <!--<span class="article-header__category__upper">Search resources</span>-->
+                        <!--<span class="article-header__category__lower" ng-if="resourceList.hasData()">-->
+                            <!--{{resourceList.state.data.count | localNumber:resourceList.state.query.locale }} results-->
+                        <!--</span>-->
+                        <!--<span class="article-header__category__lower" ng-if="!resourceList.hasData()">-->
+                            <!--Loading ...-->
+                        <!--</span>-->
+                    <!--</nav>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<section class="horizontal-stripe&#45;&#45;paddingless white-background">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<nav class="tabs">-->
+                    <!--<ul>-->
+                        <!--<li class="tab isActive">-->
+                            <!--<a href="" ui-sref="resourceSearchList({contentType:[]})">-->
+                                <!--All-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="resourceSearchList({contentType:['news']})">-->
+                                <!--News-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="resourceSearchList({contentType:['event']})">-->
+                                <!--Events-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="resourceSearchList({contentType:['document']})">-->
+                                <!--Documents-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="resourceSearchList({contentType:['project']})">-->
+                                <!--Projects-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab" uib-dropdown dropdown-append-to-body>-->
+                            <!--<a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>-->
+                                <!--More-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"-->
+                                <!--aria-labelledby="btn-append-to-body">-->
+                                <!--<li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['programme']})">Programmes</a></li>-->
+                                <!--<li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['literature']})">Literature</a>-->
+                                <!--<li role="menuitem"><a href="" ui-sref="resourceSearchList({contentType:['tool']})">Tools</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+
+
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+
+
+    <!--<div class="horizontal-stripe light-background">-->
+        <!--&lt;!&ndash;<ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div ng-if="resourceList.hasData()">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="container&#45;&#45;narrow">&ndash;&gt;-->
+        <!--&lt;!&ndash;{{resourceList.state}}&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+        <!--<ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>-->
+        <!--<div ng-if="resourceList.hasData()">-->
+            <!--<div class="container&#45;&#45;narrow">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                        <!--<div ng-repeat="result in resourceList.state.data.results">-->
+                            <!--<div class="card m-b-1 searchCard">-->
+                                <!--<div class="card__stripe">-->
+                                    <!--<div class="card__content">-->
+                                        <!--<span class="searchCard__type">{{result.contentType}}</span>-->
+                                        <!--<h2>-->
+                                            <!--<a ng-href="/{{result.contentType}}/{{result.id}}/{{result._slug}}">{{result.title}}</a>-->
+                                        <!--</h2>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="card__stripe">-->
+                                    <!--<div class="card__content">-->
+                                    <!--&lt;!&ndash;<div style="width:128px; float:right;margin-left:5px;background:#888">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="teaser-map&#45;&#45;small">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<img src="//cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<img ng-src="//api.gbif-uat.org/v2/map/occurrence/density/0/0/0.png?style=classic.poly&srs=EPSG%3A4326&bin=hex&hexPerTile=25&datasetKey=38b4c89f-584c-41bb-bd8f-cd1def33e92f">&ndash;&gt;-->
+
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                                        <!--<img class="searchCard__img"-->
+                                             <!--ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">-->
+                                        <!--<p>-->
+                                            <!--{{result._summary}}-->
+                                        <!--</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</article>-->
 
 
 

@@ -153,7 +153,7 @@ function routerConfig($stateProvider, $locationProvider) {
         })
         .state('resourceSearch', {
             parent: 'localization',
-            url: '/resource?offset&limit&q&contentType&countriesOfCoverage&countriesOfResearcher&literatureType&language&audiences&purposes&topics',
+            url: '/resources?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&countriesOfResearcher&countriesOfCoverage',
             views: {
                 main: {
                     templateUrl: '/templates/pages/resource/search/resource.html',

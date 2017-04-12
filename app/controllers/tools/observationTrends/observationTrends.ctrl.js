@@ -7,30 +7,30 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/tools/species-population', function (req, res, next) {
+router.get('/tools/observation-trends', function (req, res, next) {
     try {
-        res.render('pages/tools/speciesPopulation/speciesPopulation', {
+        res.render('pages/tools/observationTrends/observationTrends', {
             _meta: {
-                title: 'Species Population',
+                title: 'Observation Trends',
                 hideFooter: true
             },
-            aboutUrl: 'tools/species-population/about'
+            aboutUrl: 'tools/observation-trends/about'
         });
     } catch (err) {
         next(err);
     }
 });
 
-router.get('/embed/species-population', function (req, res, next) {
+router.get('/embed/observation-trends', function (req, res, next) {
     try {
-        res.render('pages/tools/speciesPopulation/speciesPopulationEmbed', {
+        res.render('pages/tools/observationTrends/observationTrendsEmbed', {
             _meta: {
-                title: 'Species Population',
+                title: 'Observation Trends',
                 hideFooter: true,
                 removeMenu: true,
                 useEmbeddedStyleSheet: true
             },
-            aboutUrl: 'tools/species-population/about'
+            aboutUrl: 'tools/observation-trends/about'
         });
     } catch (err) {
         next(err);
