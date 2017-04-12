@@ -89,7 +89,7 @@
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="stdTerms.clear">Clear</span>
             </a>
-            <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()">
+            <a href="" class="site-drawer__bar__action" ng-click="vm.reverse()" ng-if="vm.filterConfig.reversible">
                 <span translate="stdTerms.invert">Invert</span>
             </a>
         </div>

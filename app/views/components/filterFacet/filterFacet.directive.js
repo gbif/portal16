@@ -79,6 +79,9 @@ function filterFacetDirective() {
         };
 
         $scope.$watch(function () {
+            if (vm.filterConfig.useFacetMultiselect && typeof vm.filterState.query[vm.filterConfig.queryKey] !== 'undefined') {
+                return vm.filterState.facetMultiselect;
+            }
             return vm.filterState.data
         }, function (newData) {
             vm.disabled = true;

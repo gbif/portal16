@@ -28,8 +28,9 @@ function filterIntervalDirective() {
     return directive;
 
     /** @ngInject */
-    function filterInterval($scope, $filter, OccurrenceFilter) {
+    function filterInterval($scope, $filter) {
         var vm = this;
+        vm.filter = vm.filterConfig.filter;
         vm.queryKey = vm.filterConfig.queryKey;
         vm.title = vm.filterConfig.title || vm.filterConfig.queryKey;
         vm.translationPrefix = vm.filterConfig.translationPrefix || vm.filterConfig.queryKey;
@@ -104,7 +105,7 @@ function filterIntervalDirective() {
                     vm.query.push(e.queryString);
                 }
             });
-            OccurrenceFilter.updateParam(vm.queryKey, vm.query);
+            vm.filter.updateParam(vm.queryKey, vm.query);
         }
     }
 }

@@ -25,7 +25,7 @@
                 </label>
             </div>
         </div>
-        <div class="site-drawer__bar" ng-if="!vm.collapsed">
+        <div class="site-drawer__bar" ng-if="!vm.collapsed && !vm.filterConfig.singleSelect">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()"
                ng-class="{invisible: vm.query.length == 0}"><span translate="stdTerms.clear">Clear</span></a>
             <a href="" class="site-drawer__bar__action" ng-click="vm.add()"
