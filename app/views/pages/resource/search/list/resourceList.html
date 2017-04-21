@@ -2,33 +2,54 @@
     <div class="row">
         <div class="col-xs-12">
             <div ng-repeat="result in resourceList.state.data.results">
-                <div class="card m-b-1 searchCard">
-                    <div class="card__stripe">
-                        <div class="card__content">
-                            <span class="searchCard__type">{{result.contentType}}</span>
-                            <h2>
-                                <a ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">{{result.title}}</a>
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="card__stripe">
-                        <div class="card__content">
-                            <!--<div style="width:128px; float:right;margin-left:5px;background:#888">-->
-                            <!--<div class="teaser-map&#45;&#45;small">-->
-                            <!--<img src="//cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist">-->
-                            <!--<img ng-src="//api.gbif-uat.org/v2/map/occurrence/density/0/0/0.png?style=classic.poly&srs=EPSG%3A4326&bin=hex&hexPerTile=25&datasetKey=38b4c89f-584c-41bb-bd8f-cd1def33e92f">-->
+                <ng-include src="'/api/template/search/eventResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'event'"></ng-include>
+                <ng-include src="'/api/template/search/datauseResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'dataUse'"></ng-include>
+                <ng-include src="'/api/template/search/newsResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'news'"></ng-include>
+                <ng-include src="'/api/template/search/projectResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'project'"></ng-include>
+                <ng-include src="'/api/template/search/programmeResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'programme'"></ng-include>
+                <ng-include src="'/api/template/search/literatureResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'literature'"></ng-include>
+                <ng-include src="'/api/template/search/toolResult.html?v={$ _BUILD_VERSION_ $}'" ng-if="result.contentType == 'tool'"></ng-include>
+                <!--<div class="card m-b-1 searchCard">-->
+                    <!--<div class="card__stripe">-->
+                        <!--<div class="card__content">-->
+                            <!--<span class="searchCard__type">{{result.contentType}}</span>-->
+                            <!--<a class="inherit" ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">-->
+                                <!--<h2>-->
+                                    <!--{{result.title}}-->
+                                <!--</h2>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="card__stripe">-->
+                        <!--<div class="card__content">-->
+                            <!--&lt;!&ndash;<div style="width:128px; float:right;margin-left:5px;background:#888">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="teaser-map&#45;&#45;small">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img src="//cartocdn-ashbu.global.ssl.fastly.net/timrobertson100/api/v1/map/3a222bf37b6c105e0c7c6e3a2a1d6ecc:1467147536105/0/0/0/0.png?cache_policy=persist">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img ng-src="//api.gbif-uat.org/v2/map/occurrence/density/0/0/0.png?style=classic.poly&srs=EPSG%3A4326&bin=hex&hexPerTile=25&datasetKey=38b4c89f-584c-41bb-bd8f-cd1def33e92f">&ndash;&gt;-->
 
-                            <!--</div>-->
-                            <!--</div>-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-                            <img class="searchCard__img"
-                                 ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
-                            <p>
-                                {{result._summary}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                            <!--<a href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}"><img class="searchCard__img"-->
+                                 <!--ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">-->
+                            <!--</a>-->
+                            <!--<div>-->
+                                <!--{{result._summary}}-->
+                            <!--</div>-->
+                            <!--<p class="discreet&#45;&#45;very smaller">-->
+                                <!--Published by {{ result.publishingOrganizationTitle | limitTo:100 }}-->
+                            <!--</p>-->
+                            <!--<ul class="list-chips">-->
+                                <!--<li>-->
+                                    <!--<a ng-href="/resources/search?contentType={{ result.contentType }}">{{result.contentType}}</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={{ result.key }}">{{ result.recordCount }} occurrences</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

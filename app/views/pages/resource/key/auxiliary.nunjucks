@@ -1,0 +1,128 @@
+{% if main.fields | hasAtLeastOneKey(['citation', 'countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes', 'organisingParticipants']) %}
+<div class="article-auxiliary prose-columns smaller">
+    <div> {# placeholder for the bootstrap row class, which breaks column here #}
+
+        {% if main.fields.citation %}
+            <section class="no-break">
+                <h4>Citations</h4>
+                {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
+            </section>
+        {% endif %}
+
+
+        {#This assumes that there is always tags to show. TODO hide if no available tags#}
+        {#{% if main.fields.countriesOfResearcher | isNotEmpty or main.fields.countriesOfCoverage | isNotEmpty or main.fields.topics | isNotEmpty or main.fields.audiences | isNotEmpty or main.fields.purposes | isNotEmpty or main.fields.organisingParticipants | isNotEmpty %}#}
+        {% if main.fields | hasAtLeastOneKey(['countriesOfResearcher', 'countriesOfCoverage', 'topics', 'audiences', 'purposes']) %}
+            <section class="no-break">
+                <h4>Subject</h4>
+                <ul class="list-chips">
+                    {% if main.fields.countriesOfResearcher.length > 0 %}
+                        <li class="list-chips__category">
+                            Researchers country:
+                        </li>
+                    {% endif %}
+                    {% for tag in main.fields.countriesOfResearcher %}
+                        <li>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?countriesOfResearcher={$ resolved.Entry[tag.sys.id].fields.isoCode $}">{$ __('country.' + resolved.Entry[tag.sys.id].fields.isoCode) $}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if main.fields.countriesOfCoverage.length > 0 %}
+                        <li class="list-chips__category">
+                            Country coverage:
+                        </li>
+                    {% endif %}
+                    {% for tag in main.fields.countriesOfCoverage %}
+                        <li>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?countriesOfCoverage={$ resolved.Entry[tag.sys.id].fields.isoCode $}">{$ __('country.' + resolved.Entry[tag.sys.id].fields.isoCode) $}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if main.fields.topics.length > 0 %}
+                        <li class="list-chips__category">
+                            Topics:
+                        </li>
+                    {% endif %}
+                    {% for tag in main.fields.topics %}
+                        <li>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?topics={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if main.fields.audiences.length > 0 %}
+                        <li class="list-chips__category">
+                            Audiences:
+                        </li>
+                    {% endif %}
+                    {% for tag in main.fields.audiences %}
+                        <li>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?audiences={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if main.fields.purposes.length > 0 %}
+                        <li class="list-chips__category">
+                            Purposes:
+                        </li>
+                    {% endif %}
+                    {% for tag in main.fields.purposes %}
+                        <li>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?purposes={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% if main.fields.organisingParticipants %}
+            <section class="no-break">
+                <h4>Organising Participants</h4>
+                <ul class="list-chips">
+                    {% for participant in main.fields.organisingParticipants %}
+                        {% if resolved.Entry[participant.sys.id] %}
+                            <li>
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+    </div>
+</div>
+{% endif %}
+
+{#{% if main.fields.links or main.fields.organisingParticipants%}#}
+    {#<div class="article-auxiliary prose-columns">#}
+        {#<div>#}
+            {#{% if main.fields.links %}#}
+                {#<section>#}
+                    {#<h4>Links</h4>#}
+                    {#<ul class="inline-list">#}
+                        {#{% for link in main.fields.links %}#}
+                            {#<li>#}
+                                {#<a href="{$ resolved.Entry[link.sys.id].fields.url $}">{$ resolved.Entry[link.sys.id].fields.label $}</a>#}
+                            {#</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                {#</section>#}
+            {#{% endif %}#}
+
+            {#{% if main.fields.organisingParticipants %}#}
+                {#<section class="no-break">#}
+                    {#<h4>Organising Participants</h4>#}
+                    {#<ul class="list-chips">#}
+                        {#{% for participant in main.fields.organisingParticipants %}#}
+                            {#<li>#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>#}
+                            {#</li>#}
+                        {#{% endfor %}#}
+                    {#</ul>#}
+                {#</section>#}
+            {#{% endif %}#}
+
+        {#</div>#}
+    {#</div>#}
+{#{% endif %}#}
+

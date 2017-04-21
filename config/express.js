@@ -35,13 +35,9 @@ module.exports = function (app, config) {
     //    next();
     //});
 
-
-    let locales = ['en', 'da'],
-        defaultLocale = 'en';
-
     i18n.configure({
-        locales: locales,
-        defaultLocale: defaultLocale,
+        locales: config.locales,
+        defaultLocale: config.defaultLocale,
         directory: './locales/server/',
         objectNotation: true,
         fallbacks: {'da': 'en'},
@@ -50,10 +46,10 @@ module.exports = function (app, config) {
     app.use(i18n.init);
 
     //Middleware to remove locale from url and set i18n.locale based on url. This allows one route to match different locales
-    require(config.root + '/app/middleware/i18n/localeFromQuery.js').use(app, locales, defaultLocale);
+    require(config.root + '/app/middleware/i18n/localeFromQuery.js').use(app, config.locales, config.defaultLocale);
 
     // Node doesn't include other locales than english per default. Include these to use Intl.
-    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(locales);
+    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
 
     //add menu to all requests
     require(config.root + '/app/middleware/menu/menu.js').use(app);
@@ -73,7 +69,15 @@ module.exports = function (app, config) {
     }));
     app.use(methodOverride());
 
-    app.use(slashes(false, { code: 302 }));
+    //app.use(slashes(false, { code: 302 }));//the module is defect. asking it to remove slashes leads to circular redirects
+    app.use(function(req, res, next) {
+        if (req.path.substr(-1) == '/' && req.path.length > 1) {
+            var query = req.url.slice(req.path.length);
+            res.redirect(301, req.path.slice(0, -1) + query);
+        } else {
+            next();
+        }
+    });
     /**
      require all route controllers
      */

@@ -36,7 +36,6 @@
 
 .wrapper-horizontal-stripes {
     > .horizontal-stripe, > .horizontal-stripe--paddingless {
-        border-top 1px solid $stripeBorderColor
         &.article-header {
             border none
             &--tabbed {
@@ -46,18 +45,18 @@
                 }
             }
         }
-        &.white-background + .white-background {
-            border none
+        &.white-background + .light-background, &.light-background + .white-background {
+            border-top 1px solid $stripeBorderColor
         }
-        &.light-background + .light-background {
-            border none
-        }
-        &.bare-background + .bare-background {
-            border none
-        }
-        &.light-background:last-of-type {
-            border-bottom 1px solid $stripeBorderColor
-        }
+        //&.light-background + .light-background {
+        //    border none
+        //}
+        //&.bare-background + .bare-background {
+        //    border none
+        //}
+        //&.light-background:last-of-type {
+        //    border-bottom 1px solid $stripeBorderColor
+        //}
         > *:last-of-type {
             margin-bottom 0
         }
@@ -76,9 +75,9 @@
  * Header area styles
  */
 .article-header {
-    &.horizontal-stripe {
-        padding vrBlock(2.5) 0
-    }
+    //&.horizontal-stripe {
+    //    padding vrBlock(2.5) 0
+    //}
     > * last-child {
         margin-bottom 0
     }
@@ -549,8 +548,8 @@ sub {
 .anchor-block--tabs {
     @extends .anchor-block
     &:before {
-        height $navBar_height + 4rem //todo parameterize tab bar?
-        margin-top -($navBar_height + 4rem)
+        height $navBar_height + $searchTabBar-height //todo parameterize tab bar?
+        margin-top -($navBar_height + $searchTabBar-height)
     }
 }
 

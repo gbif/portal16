@@ -1,0 +1,44 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <script>
+        var gb = gb || {};
+        gb.projectId = '{$ main.fields.projectId $}';
+        gb.projectKey = '{$ main.sys.id $}';
+    </script>
+    <article class="wrapper-horizontal-stripes programme white-background" ng-controller="projectKeyCtrl as projectKey">
+        {% include "./header.nunjucks" %}
+
+        {% include "./nav.nunjucks" %}
+
+        <div class="anchorTabs__tabs">
+            <div class="anchor-block--tabs anchorTabs__content" id="datasets">
+                {% include "./datasets.nunjucks" %}
+            </div>
+
+            <div class="anchor-block--tabs anchorTabs__content" id="news">
+                {% include "./newsEvents.nunjucks" %}
+            </div>
+
+            <div class="anchor-block--tabs anchorTabs__content" id="about">
+                <div class="p-t-05">
+                    {% include "./about.nunjucks" %}
+                </div>
+            </div>
+        </div>
+
+        {% import "../funder.macro.nunjucks" as funderMacro %}
+        <span class="relative-anchor-offset"><a id="funding"></a></span>
+
+        {% if main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
+        {$ funderMacro.organisationsAndParticipants('€ ' + main.fields.fundsAllocated | locInt(gb.locales.current) + ' funded by', resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations, resolved) $}
+        {% endif %}
+
+        {% if main.fields.matchingFunds and main.fields.fundingOrganisations | isNotEmpty %}
+        {$ funderMacro.organisationsAndParticipants('€ ' + main.fields.matchingFunds | locInt(gb.locales.current) + ' co Funded by', main.fields.fundingOrganisations, resolved) $}
+        {% endif %}
+
+    </article>
+{% endblock %}
+
+

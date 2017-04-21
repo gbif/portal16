@@ -1,207 +1,43 @@
 {% extends "../../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <div>
-        <article class="wrapper-horizontal-stripes">
-            <div class="horizontal-stripe article-header white-background">
-                <div class="container--normal">
-                    <div class="row">
-                        <header class="col-xs-12 text-center">
-                            <nav class="article-header__category article-header__category--deep">
-                                <span class="article-header__category__upper">
-                                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=programme">{$ __('cms.contentType.programme') $}</a>
-                                </span>
-                                <span class="article-header__category__lower">{$ main.fields.acronym $}</span>
-                            </nav>
-                            <h1>{$ main.fields.title $}</h1>
+    <script>
+        var gb = gb || {};
+        gb.programmeKey = '{$ main.sys.id $}';
+    </script>
+    <article class="wrapper-horizontal-stripes programme" ng-controller="programmeKeyCtrl as programmeKey">
+        {% include "./header.nunjucks" %}
 
-                            <div class="article-header__button">
-                                {% if main.fields.primaryLink %}
-                                    <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
-                                {% endif %}
-                            </div>
+        {% include "./nav.nunjucks" %}
 
-                            <div class="article-header__highlights">
-                                <div><span class="gb-icon-calendar"></span>
-                                    {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
-                                </div>
-                                {% if main.fields.__singleDay and not main.fields.allDayEvent %}
-                                    <div>
-                                        <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end) $}
-                                        {% if main.fields.showTimeZone %}
-                                            <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-
-                                {% if main.fields.country %}
-                                    <div><a href="#where" class="inherit"><span class="gb-icon-marker"></span>{$ __('country.' + main.fields.country.sys.id) $}</a></div>
-                                {% endif %}
-
-                            </div>
-
-                        </header>
-                    </div>
-                </div>
+        <div class="anchorTabs__tabs">
+            <div class="anchor-block--tabs anchorTabs__content" id="projects">
+                {% include "./projects.nunjucks" %}
             </div>
 
-            {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width > 1170 %}
-                <div class="horizontal-stripe p-t-0 white-background">
-                    <figure class="heading-image">
-                        <div class="cover-image">
-                            <img ng-src="{$ _meta.imageCache $}1170x422/http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
-                                 alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}"
-                                 gallery-image>
-                        </div>
-                        <figcaption class="container--narrow">
-                            {$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | sanitize | safe $}
-                        </figcaption>
-                    </figure>
-                </div>
+            {% if main.fields.news | isNotEmpty %}
+            <div class="anchor-block--tabs anchorTabs__content" id="news">
+                {% include "./news.nunjucks" %}
+            </div>
             {% endif %}
 
-            <div class="horizontal-stripe white-background p-t-0">
+            {% if main.fields.events | isNotEmpty %}
+            <div class="anchor-block--tabs anchorTabs__content" id="events">
+                {% include "./events.nunjucks" %}
+            </div>
+            {% endif %}
 
-                <div class="container--narrow">
-                    <div class="body-text">
-                        {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 1170 and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width > 800 %}
-                            <figure>
-                                <img class="bordered" ng-src="{$ _meta.imageCache $}http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
-                                     alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
-                                {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
-                                    <figcaption>
-                                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
-                                    </figcaption>
-                                {% endif %}
-                            </figure>
-                        {% endif %}
-
-                        {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
-
-                        {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 800 %}
-                            <figure>
-                                <img class="bordered" ng-src="{$ _meta.imageCache $}http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}"
-                                     alt="{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.title $}">
-                                {% if resolved.Asset[main.fields.primaryImage.sys.id].fields.description %}
-                                    <figcaption>
-                                        <div>{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.description | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}</div>
-                                    </figcaption>
-                                {% endif %}
-                            </figure>
-                        {% endif %}
-
-                    </div>
-                    <div class="article-secondary">
-                        {% if main.fields.documents or main.fields.secondaryLinks%}
-                            <section>
-                                <ul class="inline-document-list">
-                                    {% for link in main.fields.secondaryLinks %}
-                                        <li>
-                                            <a href="{$ resolved.Entry[link.sys.id].fields.url $}" class="inherit noUnderline">
-                                                <img ng-src="/img/fileTypes/link.png">
-                                                <div>
-                                                    <div>
-                                                        {$ resolved.Entry[link.sys.id].fields.label $}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                    {% for document in main.fields.documents %}
-                                        <li>
-                                            <a href="{$ resolved.Asset[document.sys.id].fields.file.url $}" class="inherit noUnderline">
-                                                <img ng-src="/img/fileTypes/{$ resolved.Asset[document.sys.id].fields.file.contentType | fileContentTypeToIconName $}.png">
-                                                <div>
-                                                    <div>
-                                                        {$ resolved.Asset[document.sys.id].fields.title $}
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </section>
-                        {% endif %}
-
-                        <section>
-                            <span class="relative-anchor-offset"><a id="where"></a></span>
-                            {#<h3>Where</h3>#}
-                            <dl class="inline">
-                                {% if main.fields.venue %}
-                                    <div>
-                                        <dt>Venue</dt>
-                                        <dd>{$ main.fields.venue | safe $}</dd>
-                                    </div>
-                                {% endif %}
-                                {% if main.fields.location %}
-                                    <div>
-                                        <dt>Location</dt>
-                                        <dd>{$ main.fields.location | safe $}</dd>
-                                    </div>
-                                {% endif %}
-                                {% if main.fields.country %}
-                                    <div>
-                                        <dt>Country</dt>
-                                        <dd>{$ __('country.' + main.fields.country.sys.id) $}</dd>
-                                    </div>
-                                {% endif %}
-                                <div>
-                                    <dt>When</dt>
-                                    {% if main.fields.allDayEvent %}
-                                        <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
-                                    {% else  %}
-                                        <dd>
-                                            {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
-                                            {% if main.fields.showTimeZone %}
-                                                <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
-                                            {% endif %}
-                                        </dd>
-                                    {% endif %}
-                                </div>
-                                {% if main.fields.eventLanguage %}
-                                    <div>
-                                        <dt>Language</dt>
-                                        <dd>{$ main.fields.eventLanguage $}</dd>
-                                    </div>
-                                {% endif %}
-                            </dl>
-                        </section>
-
-                    </div>
-
-                    <div class="article-auxiliary prose-columns">
-                        <div>
-                            {% if main.fields.links %}
-                                <section>
-                                    <h4>Links</h4>
-                                    <ul class="inline-list">
-                                        {% for link in main.fields.links %}
-                                            <li>
-                                                <a href="{$ resolved.Entry[link.sys.id].fields.url $}">{$ resolved.Entry[link.sys.id].fields.label $}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
-
-                            {% if main.fields.organisingParticipants %}
-                                <section class="no-break">
-                                    <h4>Organising Participants</h4>
-                                    <ul class="list-chips">
-                                        {% for participant in main.fields.organisingParticipants %}
-                                            <li>
-                                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[participant.sys.id].fields.country.sys.id $}">{$ resolved.Entry[participant.sys.id].fields.title $}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </section>
-                            {% endif %}
-
-                        </div>
-                    </div>
+            <div class="anchor-block--tabs anchorTabs__content" id="about">
+                <div class="p-t-05">
+                    {% include "./about.nunjucks" %}
                 </div>
             </div>
+        </div>
 
-        </article>
-    </div>
+        {% import "../funder.macro.nunjucks" as funderMacro %}
+        {$ funderMacro.organisationsAndParticipants('Funded by', main.fields.fundingOrganisations, resolved) $}
+
+    </article>
 {% endblock %}
+
+

@@ -1,0 +1,15 @@
+.anchorTabs {
+    &__content {
+        display none
+    }
+    &__tabs>div:last-child {
+        display block
+    }
+
+    &__content:target {
+        display block
+        ~div{
+            display none
+        }
+    }
+}

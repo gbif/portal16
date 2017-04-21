@@ -1,0 +1,38 @@
+{% extends "../sharable.nunjucks" %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <header class="text-center">
+                    <nav class="article-header__category article-header__category--deep">
+                        <span class="article-header__category__upper"><a
+                                    href="{$ gb.locales.urlPrefix $}/resource/search?type=data_use">{$
+                                __('cms.contentType.data_use') $}</a></span>
+                        <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
+                    </nav>
+                    <h1>{$ main.fields.title $}</h1>
+                    <div class="article-header__intro">
+                        {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                    </div>
+                    {% if main.fields.numberOfResourceUsed | isNotEmpty %}
+                    <span class="article-header__meta">
+                    {$ main.fields.numberOfResourceUsed | striptags $}
+                    </span>
+                    {% endif %}
+                </header>
+            </div>
+
+            {% include "../primaryImage.nunjucks" %}
+
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
+                    {% include "../body.nunjucks" %}
+
+                    {% include "../auxiliary.nunjucks" %}
+                </div>
+            </div>
+
+        </article>
+    </div>
+{% endblock %}

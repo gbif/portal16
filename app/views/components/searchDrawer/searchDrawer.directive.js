@@ -46,7 +46,8 @@ function searchDrawerDirective() {
         };
 
         vm.clear = function () {
-            $state.go('.', {contentType: vm.filter.query.contentType}, {inherit: false, notify: true, reload: true});
+        console.log(vm.filter.query.locale);
+            $state.go('.', {contentType: vm.filter.query.contentType, locale: vm.filter.query.locale}, {inherit: false, notify: true, reload: true});
         };
 
     }

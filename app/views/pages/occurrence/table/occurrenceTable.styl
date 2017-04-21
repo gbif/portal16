@@ -16,6 +16,9 @@
 
 .search-table {
     font-size 12px
+    >tbody>tr>td {
+        vertical-align middle
+    }
     tr, td, th {
         overflow hidden
         > a, > span {
@@ -31,12 +34,13 @@
         }
     }
     th {
-        font-weight bold
+        //font-weight bold
+        color $discreetInk
     }
     tbody {
-        tr {
-            cursor pointer
-        }
+        //tr {
+        //    cursor pointer
+        //}
         tr:nth-of-type(even) {
             //background alpha($alternativeTableRow, 1)
         }
@@ -48,7 +52,8 @@
 
 .table-container {
     padding 0 15px
-    display table
+    //display table
+    max-width 100%
 }
 
 .table-cell {

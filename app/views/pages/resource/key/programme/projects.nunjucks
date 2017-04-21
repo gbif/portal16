@@ -1,0 +1,65 @@
+<div class="light-background p-t-05 seperator">
+    <div class="container--narrow">
+    </div>
+    <div>
+        <div class="scrollable-y">
+            <div class="table-container">
+                <table class="table search-table smaller">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th class="text-capitalize"
+                            ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status']">
+                            <a href=""
+                               ng-click="programmeKey.state.sortType = col; programmeKey.state.sortReverse = !programmeKey.state.sortReverse">
+                                <span class="inline-block text-nowrap">
+                                    <span>{{ col }}</span>
+                                    <span ng-show="programmeKey.state.sortType == col && !programmeKey.state.sortReverse">&#x25B2;</span>
+                                    <span ng-show="programmeKey.state.sortType == col && programmeKey.state.sortReverse">&#x25BC;</span>
+                                    <span ng-show="programmeKey.state.sortType != col" class="invisible">&#x25BC;</span>
+                                </span>
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="result in programmeKey.projects.results | orderBy:programmeKey.state.sortType:programmeKey.state.sortReverse"
+                        ng-click="programmeKey.goto('{$ gb.locales.urlPrefix $}/project2/' + result.id + '/' + result._slug)">
+                        <td class="table-cell--narrow">
+                            <div class="imageGallery__img img-round-thumb" ng-if="result.primaryImage.file.url">
+                                <img ng-src="{{ programmeKey.imageCache }}50x50/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}"
+                                     gallery-image>
+                            </div>
+                        </td>
+                        <td class="table-cell--widder">
+                            <a ng-href="{$ gb.locales.urlPrefix $}/project2/{{ result.id }}/{{ result._slug }}"
+                               ng-click="programmeKey.preventBubbling($event)">{{ result.title }}</a>
+                            {#<div class="discreet" ng-if="result.projectId">{{result.projectId}}</div>#}
+                        </td>
+                        <td class="table-cell--normal">
+                            <span translate="cms.projectGrantType.{{ result.grantType }}"
+                                  ng-if="result.grantType">{{ result.grantType }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span ng-if="result.start">{{ result.start | amDateFormat:'DD MMM YYYY' }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span ng-if="result.end">{{ result.end | amDateFormat:'DD MMM YYYY' }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:'{$ gb.locales.current $}' }}</span>
+                        </td>
+                        <td class="table-cell--narrow">
+                            <span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:'{$ gb.locales.current $}' }}</span>
+                        </td>
+                        <td class="table-cell--normal">
+                            <span translate="cms.projectStatus.{{ result.status }}"
+                                  ng-if="result.status">{{ result.status }}</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

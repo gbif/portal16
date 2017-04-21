@@ -1,0 +1,110 @@
+{% extends "../sharable.nunjucks" %}
+
+{% block page %}
+    <div>
+        <article class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe article-header white-background">
+                <div class="container--normal">
+                    <div class="row">
+                        <header class="col-xs-12 text-center">
+                            <nav class="article-header__category article-header__category--deep">
+                                <span class="article-header__category__upper">
+                                    <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=event">{$ __('cms.contentType.event') $}</a>
+                                </span>
+                                <span class="article-header__category__lower">{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</span>
+                            </nav>
+                            <h1>{$ main.fields.title $}</h1>
+
+                            <div class="article-header__button">
+                                {% if main.fields.primaryLink %}
+                                <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
+                                {% endif %}
+                                <a href="" class="gb-button--discreet small">Add to calendar</a>
+                            </div>
+
+                            <div class="article-header__highlights">
+                                <div><span class="gb-icon-calendar"></span>
+                                    {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
+                                </div>
+                                {% if main.fields.__singleDay and not main.fields.allDayEvent %}
+                                <div>
+                                    <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end) $}
+                                    {% if main.fields.showTimeZone %}
+                                    <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+
+                                {% if main.fields.country %}
+                                <div><a href="#where" class="inherit"><span class="gb-icon-marker"></span>{$ __('country.' + main.fields.country.sys.id) $}</a></div>
+                                {% endif %}
+
+                            </div>
+
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            {% include "../primaryImage.nunjucks" %}
+
+            <div class="horizontal-stripe white-background p-t-0">
+
+                <div class="container--narrow">
+                    {% include "../body.nunjucks" %}
+
+                    <div class="article-secondary">
+                        {% include "../documentsLinks.nunjucks" %}
+
+                        <section>
+                            <span class="relative-anchor-offset"><a id="where"></a></span>
+                            {#<h3>Where</h3>#}
+                            <dl class="inline">
+                                {% if main.fields.venue %}
+                                    <div>
+                                        <dt>Venue</dt>
+                                        <dd>{$ main.fields.venue | safe $}</dd>
+                                    </div>
+                                {% endif %}
+                                {% if main.fields.location %}
+                                    <div>
+                                        <dt>Location</dt>
+                                        <dd>{$ main.fields.location | safe $}</dd>
+                                    </div>
+                                {% endif %}
+                                {% if main.fields.country %}
+                                    <div>
+                                        <dt>Country</dt>
+                                        <dd>{$ __('country.' + main.fields.country.sys.id) $}</dd>
+                                    </div>
+                                {% endif %}
+                                <div>
+                                    <dt>When</dt>
+                                    {% if main.fields.allDayEvent %}
+                                        <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
+                                    {% else  %}
+                                        <dd>
+                                            {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
+                                            {% if main.fields.showTimeZone %}
+                                                <span> UTC {$ main.fields.start | formatDate(gb.locales.current, 'Z') $}</span>
+                                            {% endif %}
+                                        </dd>
+                                    {% endif %}
+                                </div>
+                                {% if main.fields.eventLanguage %}
+                                    <div>
+                                        <dt>Language</dt>
+                                        <dd>{$ main.fields.eventLanguage $}</dd>
+                                    </div>
+                                {% endif %}
+                            </dl>
+                        </section>
+                    </div>
+
+                    {% include "../auxiliary.nunjucks" %}
+                </div>
+            </div>
+
+        </article>
+    </div>
+{% endblock %}

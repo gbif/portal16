@@ -41,6 +41,7 @@
         margin 10px
         font-size 14px
         margin-bottom 20px
+        border-radius 25px 0 0 0
         >a {
             display block
             position relative
@@ -75,6 +76,56 @@
     margin-top vrBlock(2)
     border-top 1px solid $stripeBorderColor
     >section {
-        margin-bottom vrBlock(2)
+        margin-bottom vrBlock(1)
     }
+}
+
+.associated-entities {
+    color #738d9c
+    li>a {
+        color inherit
+    }
+    &__logos {
+        display flex
+        flex-wrap wrap
+        margin 0 -($halfGutter)
+        justify-content center
+        padding 0
+        > li {
+            display inline-block
+            text-align center
+            margin $halfGutter
+            width 250px
+            float left
+            img {
+                max-height 75px
+                //border 1px solid #ddd
+                margin auto
+                margin-bottom 10px
+            }
+            div {
+                max-width 250px
+                margin auto
+            }
+        }
+    }
+    &__titles {
+        display block
+        margin auto
+        li {
+            display inline-block
+        }
+        text-align center
+    }
+    &__titleBox {
+        padding 10px
+        background #d0d9de
+        border-radius 3px
+    }
+}
+
+.emptyInfo {
+    text-align center
+    color #9fb7c3
+    margin 5rem 3rem 10rem 3rem
 }

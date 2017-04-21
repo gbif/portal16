@@ -1,0 +1,58 @@
+{% macro organisationsAndParticipants(title, fundingOrganisations, resolved) %}
+    <div class="horizontal-stripe bare-background">
+        <div class="container--narrow">
+            <p class="small discreet text-uppercase text-center">{$ title $}</p>
+        </div>
+        <div class="container-fluid">
+            <div class="associated-entities">
+                <ul class="associated-entities__titles inline-bullet-list text-center">
+                    {% for funder in fundingOrganisations %}
+                         {#if organisation without logo#}
+                        {% if resolved.Entry[funder.sys.id].sys.contentType.sys.id != "Participant" and not resolved.Asset[resolved.Entry[funder.sys.id].fields.logo.sys.id].fields.file.url %}
+                            <li>
+                                {% if resolved.Entry[funder.sys.id].fields.url %}
+                                    <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                {% else %}
+                                    <span>{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <ul class="associated-entities__logos m-t-05">
+                    {% for funder in fundingOrganisations %}
+                        {# if country #}
+                        {% if resolved.Entry[funder.sys.id].sys.contentType.sys.id == "Participant" %}
+                            <li>
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[funder.sys.id].fields.country.sys.id $}/about">
+                                    <img src="/img/flags/{$ resolved.Entry[funder.sys.id].fields.country.sys.id $}.png">
+                                    <div>
+                                        GBIF {$ resolved.Entry[funder.sys.id].fields.title $}
+                                    </div>
+                                </a>
+                            </li>
+                            {#if organisation#}
+                        {% elif resolved.Asset[resolved.Entry[funder.sys.id].fields.logo.sys.id].fields.file.url %}
+                            <li>
+                                <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">
+                                    <img src="{$ resolved.Asset[resolved.Entry[funder.sys.id].fields.logo.sys.id].fields.file.url $}">
+                                    <div>
+                                        {$ resolved.Entry[funder.sys.id].fields.title $}
+                                    </div>
+                                </a>
+                            </li>
+                        {#{% else %}#}
+                            {#<li class="associated-entities__titleBox">#}
+                                {#<a href="{$ resolved.Entry[funder.sys.id].fields.url $}">#}
+                                    {#{$ resolved.Entry[funder.sys.id].fields.title $}#}
+                                {#</a>#}
+                            {#</li>#}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+{% endmacro %}

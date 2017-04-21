@@ -1,0 +1,120 @@
+{% include "../primaryImage.nunjucks" %}
+
+<div class="horizontal-stripe white-background">
+    <div class="container--narrow">
+        {% include "../body.nunjucks" %}
+        <div class="article-secondary">
+
+            {#{% if main.fields.documents or main.fields.secondaryLinks%}#}
+            <span class="relative-anchor-offset"><a id="details"></a></span>
+            <section class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <dl class="inline">
+                        {% if main.fields.fundsAllocated %}
+                            <div>
+                                <dt>Funding</dt>
+                                <dd>€ {$ main.fields.fundsAllocated | locInt(gb.locales.current) $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if main.fields.matchingFunds %}
+                            <div>
+                                <dt>Co funding</dt>
+                                <dd>€ {$ main.fields.matchingFunds | locInt(gb.locales.current) $}</dd>
+                            </div>
+                        {% endif %}
+                        {% if main.fields.grantType %}
+                            <div>
+                                <dt>Type of grant</dt>
+                                <dd>{$ __('cms.projectGrantType.' + main.fields.grantType) $}</dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <dl class="inline">
+                        {% if main.fields.start and main.fields.end %}
+                        <div>
+                            <dt>Duration</dt>
+                            <dd>{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</dd>
+                        </div>
+                        {% endif %}
+                        {% if resolved.Entry[main.fields.programme.sys.id].fields.acronym %}
+                            <div>
+                                <dt>Programme</dt>
+                                <dd><a href="{$ gb.locales.urlPrefix $}/programme2/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.acronym $}</a></dd>
+                            </div>
+                        {% endif %}
+                    </dl>
+                </div>
+
+            </section>
+            {#{% endif %}#}
+
+            {% include "../documentsLinks.nunjucks" %}
+
+            <section>
+                <dl class="inline">
+                    {% if main.fields.additionalPartners | isNotEmpty %}
+                    <div>
+                        <dt>Partners</dt>
+                        <dd>
+                            <ul class="inline-bullet-list">
+                                {% for partner in main.fields.additionalPartners %}
+                                    {% if resolved.Entry[partner.sys.id] %}
+                                        <li>
+                                            {% if resolved.Entry[partner.sys.id].sys.contentType.sys.id == "Participant" %}
+                                                {# if country #}
+                                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[partner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[partner.sys.id].fields.title $}</a>
+                                            {% else %}
+                                                {#if organisation#}
+                                                {% if resolved.Entry[partner.sys.id].fields.url %}
+                                                    <a href="{$ resolved.Entry[partner.sys.id].fields.url $}">{$ resolved.Entry[partner.sys.id].fields.title $}</a>
+                                                {% else %}
+                                                    <span>{$ resolved.Entry[partner.sys.id].fields.title $}</span>
+                                                {% endif %}
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                    </div>
+                    {% endif %}
+                    {% if resolved.Entry[main.fields.leadPartner.sys.id] %}
+                    <div>
+                        <dt>Project lead</dt>
+                        <dd>
+                            {% if resolved.Entry[main.fields.leadPartner.sys.id].sys.contentType.sys.id == "Participant" %}
+                                {# if country #}
+                                <a href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</a>
+                            {% else %}
+                                {#if organisation#}
+                                {% if resolved.Entry[main.fields.leadPartner.sys.id].fields.url %}
+                                    <a href="{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.url $}">{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</a>
+                                {% else %}
+                                    <span>{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</span>
+                                {% endif %}
+                            {% endif %}
+
+                            {#<a href="">{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</a>#}
+                        </dd>
+                    </div>
+                    {% endif %}
+                    {% if main.fields.leadContact %}
+                        <div>
+                            <dt>Contact details</dt>
+                            <dd>
+                                <div>
+                                    {$ main.fields.leadContact | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+
+                                </div>
+                            </dd>
+                        </div>
+                    {% endif %}
+                </dl>
+            </section>
+
+        </div>
+        {% include "../auxiliary.nunjucks" %}
+    </div>
+</div>

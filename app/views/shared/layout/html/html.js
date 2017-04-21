@@ -43,12 +43,8 @@ require('angular-svg-round-progressbar');
     /** @ngInject */
     function runBlock(amMoment, $translate, $http) { //$log
         //$log.debug('runBlock end');
-        if (location.pathname.substr(0, 4) == '/da/') {
-            $translate.use('da');
-            amMoment.changeLocale('da');
-        } else {
-            amMoment.changeLocale('en');
-        }
+        $translate.use(window.gb.locale);
+        amMoment.changeLocale(window.gb.locale);
 
         $http({
             method: 'GET',
@@ -176,6 +172,9 @@ require('../../../pages/country/key/trends/countryTrends.ctrl');
 require('../../../pages/country/key/activity/countryActivity.ctrl');
 require('../../../pages/country/key/participant/countryParticipant.ctrl');
 
+require('../../../pages/resource/key/programme/programme.ctrl');
+require('../../../pages/resource/key/project/project.ctrl');
+
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
 require('./angular/remarks.service');
@@ -202,6 +201,7 @@ require('../../../components/filterInterval/filterInterval.directive');
 require('../../../components/filterFacet/filterFacet.directive');
 require('../../../components/filterFacetedEnum/filterFacetedEnum.directive');
 require('../../../components/count/count.directive');
+require('../../../components/asyncIf/asyncIf.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');

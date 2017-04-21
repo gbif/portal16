@@ -1,0 +1,33 @@
+<div class="card m-b-1 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <span class="searchCard__type">PROGRAMME {{result.contentType}}</span>
+            <a class="inherit" ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
+                <h2>
+                    {{result.title}}
+                </h2>
+            </a>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <a href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
+                <img class="searchCard__img" ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
+            </a>
+            <div>
+                {{result._summary}}
+            </div>
+            <p class="discreet--very smaller">
+                Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
+            </p>
+            <ul class="list-chips">
+                <li>
+                    <a ng-href="/resources/search?contentType={{ result.contentType }}">{{result.contentType}}</a>
+                </li>
+                <li>
+                    <a ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={{ result.key }}">{{ result.recordCount }} occurrences</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

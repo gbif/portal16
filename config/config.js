@@ -13,9 +13,14 @@ var path = require('path'),
     verification = yargs.verification,
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
-    contentfulPreviewApi = yargs.contentfulPreviewApi;
-
-var apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api";
+    contentfulPreviewApi = yargs.contentfulPreviewApi,
+    apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api",
+    locales = ['en', 'es', 'da'],
+    contentfulLocaleMap = {
+        'en': 'en-GB',
+        'es': 'es-ES'
+    },
+    defaultLocale = 'en';
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
 var config = {
@@ -32,14 +37,17 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap
     },
     dev: {
         env: env,
@@ -54,14 +62,17 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',// NB not dev!
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap
     },
     uat: {
         env: env,
@@ -76,14 +87,17 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not uat!
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-uat.org/',
         credentials: credentials || '/etc/portal16/credentials',
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap
     },
     prod: {
         env: env,
@@ -98,14 +112,17 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'https://demo.gbif.org/',
         credentials: credentials || '/etc/portal16/credentials',
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap
     },
     test: {
         env: env,
@@ -120,14 +137,17 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
         credentials: credentials || '/etc/portal16/credentials',
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/'
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap
     }
 };
 

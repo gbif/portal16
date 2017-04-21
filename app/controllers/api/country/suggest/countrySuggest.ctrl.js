@@ -11,6 +11,7 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
+//TODO make gneric one that uses locales to fetch and if not present fallback to english
 router.get('/country/suggest.json', function (req, res) {
     var lang = req.query.lang;
     var countrySuggestions = [];

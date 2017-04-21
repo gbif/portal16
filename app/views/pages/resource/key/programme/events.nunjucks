@@ -1,0 +1,28 @@
+<div class="horizontal-stripe light-background p-t-05 seperator">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-repeat="result in programmeKey.events.data.results">
+                    <div class="card m-b-1 searchCard">
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <h2>
+                                    <a ng-href="{$ gb.locales.urlPrefix $}/event2/{{result.id}}/{{result._slug}}">{{result.title}}</a>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="card__stripe">
+                            <div class="card__content">
+                                <img class="searchCard__img"
+                                     ng-src="{{ programmeKey.imageCache }}128x64/{{ 'http:' + programmeKey.events.data.images[result.primaryImage.sys.id] | encodeURIComponent }}" ng-if="programmeKey.events.data.images[result.primaryImage.sys.id]">
+                                <p>
+                                    {{result._summary}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

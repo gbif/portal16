@@ -10,7 +10,7 @@ function routerConfig($stateProvider, $locationProvider) {
     //TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
     $stateProvider
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
-            url: '/{locale:(?:en|da)}',
+            url: '/{locale:(?:en|da|es)}',
             abstract: true,
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale: {squash: true, value: 'en'}}
@@ -297,7 +297,42 @@ function routerConfig($stateProvider, $locationProvider) {
             controller: 'countryParticipantCtrl',
             controllerAs: 'countryParticipant'
         })
+        //.state('programmeProjects', {
+        //    parent: 'localization',
+        //    url: '/programme2/:key/projects/:title',
+        //    views: {
+        //        main: {
+        //            templateUrl: '/templates/pages/resource/key/programme/projects/projects.html',
+        //            controller: 'programmeProjectsCtrl',
+        //            controllerAs: 'programmeProjects'
+        //        }
+        //    }
+        //})
+        //.state('programmeNews', {
+        //    parent: 'localization',
+        //    url: '/programme2/:key/news/:title',
+        //    views: {
+        //        main: {
+        //            templateUrl: '/templates/pages/resource/key/programme/news/news.html',
+        //            controller: 'programmeNewsCtrl',
+        //            controllerAs: 'programmeNews'
+        //        }
+        //    }
+        //})
+        //.state('programmeEvents', {
+        //    parent: 'localization',
+        //    url: '/programme2/:key/events/:title',
+        //    views: {
+        //        main: {
+        //            templateUrl: '/templates/pages/resource/key/programme/events/events.html',
+        //            controller: 'programmeEventsCtrl',
+        //            controllerAs: 'programmeEvents'
+        //        }
+        //    }
+        //})
+
     ;
+
     //if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');
 
     //We do not support ie9 and browsers without history api https://docs.angularjs.org/error/$location/nobase

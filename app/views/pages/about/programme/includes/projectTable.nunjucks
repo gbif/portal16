@@ -42,7 +42,7 @@
             <tr ng-repeat="(index, project) in programme.node.relatedProjects | orderBy:sort.field:sort.Reverse">
                 <td><a ng-bind="project.title" href="/{{ project.targetUrl }}"></a><span ng-if="project.projectId"><br>{{ project.projectId }}</span></td> {# title #}
                 <td><span ng-if="project.grantType" class="text-nowrap"
-                    translate="cms.projectGrantType.{{ project.grantType }}"></span></td> {# grantType #}
+                    translate="cms.projectGrantType.{{ project.grantType | uppercase }}"></span></td> {# grantType #}
                 <td ng-bind="project.duration.end * 1000 | date:'longDate'"
                     class="text-nowrap">{{ project.duration.start * 1000 | date:'longDate' }} {$
                     __('cms.projectDuration.to') $}<br></td> {# duration #}
@@ -52,7 +52,7 @@
                 <th>{$ __('cms.project.estCoFunding') $}</th>
                 <td ng-bind="'&euro; ' + (project.estimatedCoFunding | number: 2)"
                     class="text-nowrap currency-estimated"></td> {# estimated co-funding #}
-                <td class="text-nowrap" translate="cms.projectStatus.{{ project.status }}"></td> {# status #}
+                <td class="text-nowrap" translate="cms.projectStatus.{{ project.status | uppercase }}"></td> {# status #}
             </tr>
             </tbody>
         </table>

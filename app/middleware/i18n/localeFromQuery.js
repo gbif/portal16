@@ -58,6 +58,7 @@ function use(app, locales, defaultLocale) {
                 current: defaultLocale
             };
         }
+        //console.log();
         next();
     });
 

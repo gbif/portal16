@@ -12,7 +12,7 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
     if (typeof req.query.q !== 'undefined') {
-        res.redirect(res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
+        res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
     } else {
         Promise.all([getNews(), getDataUseStories(), getUpcomingEvents()])
             .then(function(values){

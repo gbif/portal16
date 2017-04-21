@@ -2,7 +2,7 @@ var format = require('../helpers/format'),
     _ = require('lodash'),
     urlRegex = require('url-regex'),
     truncate = require('html-truncate'),
-    md = require('markdown-it')({html: true, linkify: true, typographer: true}),
+    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true}),
     fs = require('fs');
 
     md.use(require('markdown-it-video'), {
@@ -41,6 +41,36 @@ module.exports = function (nunjucksConfiguration) {
     (function () {
         nunjucksConfiguration.addFilter('slice', function (data, start, amount) {
             return data && (data.constructor === Array || typeof(data) === 'string') ? data.slice(start, amount) : undefined;
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('addition', function (number, otherNumbers) {
+            if (!_.isArray(otherNumbers)) {
+                otherNumbers = [otherNumbers];
+            }
+            otherNumbers.push(number);
+            return _.sumBy(otherNumbers, function(nr) {
+                return _.isFinite(nr) ? nr : 0;
+            });
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('hasAtLeastOneKey', function (element, keys) {
+            if (_.isArray(keys)) {
+                for (var i = 0; i < keys.length; i++) {
+                    var e = _.get(element, keys[i]);
+                    if (_.isObjectLike(e)) {
+                        if (!_.isEmpty(e)) {
+                            return true;
+                        }
+                    } else if (!_.isNil(e)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         });
     })();
 

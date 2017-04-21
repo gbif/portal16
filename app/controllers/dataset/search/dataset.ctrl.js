@@ -2,16 +2,8 @@ var express = require('express'),
     router = express.Router();
 
 module.exports = function (app) {
-    app.use('/', router);
+    app.use('/dataset', router);
 };
-
-router.get('/dataset', function (req, res) {
-    searchHandler(req, res);
-});
-
-router.get('/dataset/search', function (req, res) {
-    searchHandler(req, res);
-});
 
 function searchHandler(req, res) {
     "use strict";
@@ -32,3 +24,10 @@ function renderPage(req, res, searchString) {
     });
 }
 
+router.get('/', function (req, res) {
+    res.redirect(302, './dataset/search');
+});
+
+router.get('/search', function (req, res) {
+    searchHandler(req, res);
+});

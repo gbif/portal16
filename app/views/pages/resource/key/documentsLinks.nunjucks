@@ -1,0 +1,34 @@
+{% if main.fields.documents or main.fields.secondaryLinks%}
+    <section>
+        <ul class="inline-document-list">
+            {% for link in main.fields.secondaryLinks %}
+                <li>
+                    <a href="{$ resolved.Entry[link.sys.id].fields.url $}" class="inherit noUnderline">
+                        <img src="/img/fileTypes/link.png">
+                        <div>
+                            <div>
+                                {$ resolved.Entry[link.sys.id].fields.label $}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+            {% for document in main.fields.documents %}
+                <li>
+                    <a href="{$ resolved.Asset[document.sys.id].fields.file.url $}" class="inherit noUnderline">
+                        <img src="/img/fileTypes/{$ resolved.Asset[document.sys.id].fields.file.contentType | fileContentTypeToIconName $}.png">
+                        <div>
+                            <div>
+                                {% if resolved.Asset[document.sys.id].fields.title %}
+                                    {$ resolved.Asset[document.sys.id].fields.title $}
+                                {% else %}
+                                    {$ resolved.Asset[document.sys.id].fields.file.fileName $}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endif %}

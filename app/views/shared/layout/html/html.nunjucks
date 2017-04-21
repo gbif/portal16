@@ -50,9 +50,9 @@
 
             <div class="site-content">
 
-                {% if _meta.hasTools %}
+                {#{% if _meta.hasTools %}#}
                     {% block tools %}{% endblock %}
-                {% endif %}
+                {#{% endif %}#}
 
                 {# use page--fixed-width to restrict main column width #}
                 <div class="site-content__page">
