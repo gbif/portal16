@@ -6,11 +6,11 @@ angular
     .directive('filterFacet', filterFacetDirective);
 
 /** @ngInject */
-function filterFacetDirective() {
+function filterFacetDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterFacet/filterFacet.html',
+        templateUrl: '/templates/components/filterFacet/filterFacet.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

@@ -6,7 +6,7 @@
  */
 var helper = require('../../models/util/util'),
     apiConfig = require('../../models/gbifdata/apiConfig'),
-    cmsConfig = require('../../models/cmsData/apiConfig'),
+    resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     _ = require('lodash'),
     async = require('async');
 
@@ -86,7 +86,7 @@ function augmentSpeciesData(rawTaxaMatches, cb) {
     });
 }
 
-function getData(query, cb) {
+function getData(query, __, cb) {
     var q = encodeURIComponent(query);
     async.auto(
         {
@@ -159,7 +159,11 @@ function getData(query, cb) {
                 helper.getApiData(apiConfig.publisher.url + '?limit=3&q=' + q, callback);
             },
             cms: function (callback) {
-                helper.getApiData(cmsConfig.search.url + q + '?page[size]=10', callback);//TODO
+                // helper.getApiData(cmsConfig.search.url + q + '?page[size]=10', callback);//TODO
+                let articles = resourceSearch.search({limit:10, q: q}, __);
+                    articles
+                        .then(function(data){callback(null, data);})
+                        .catch(function(err){callback(err);});
             },
             country: function (callback) {
                 helper.getApiData(apiConfig.directoryParticipant.url + '?q=' + q, function (err, data) {
@@ -235,8 +239,8 @@ function isPartialResponse(results) {
     return false;
 }
 
-function search(q, cb) {
-    getData(q, function (err, results) {
+function search(q, __, cb) {
+    getData(q, __, function (err, results) {
 
         results.isPartialResponse = isPartialResponse(results);
         if (results.occurrencesImagesLocation && results.occurrences && results.occurrencesImagesLocation.count >= 10) {

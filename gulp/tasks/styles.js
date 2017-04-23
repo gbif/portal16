@@ -55,18 +55,18 @@ gulp.task('vendor-styles', function () {
         .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.css'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        .pipe(gulpif(config.isProd, rev()))
+        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor), {
-        }))
-        .pipe(rename(function (path) {
-            path.dirname += "/" + vendor
-        }))
-        .pipe(gulpif(config.isProd, rev.manifest({
-            path: config.rev.manifest,
-            cwd: config.rev.manifestDest,
-            merge: true
-        })))
-        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
+        }));
+        // .pipe(rename(function (path) {
+        //     path.dirname += "/" + vendor
+        // }))
+        // .pipe(gulpif(config.isProd, rev.manifest({
+        //     path: config.rev.manifest,
+        //     cwd: config.rev.manifestDest,
+        //     merge: true
+        // })))
+        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
 
 
@@ -122,17 +122,17 @@ function buildStylus() {
         .pipe(gulpif(config.isProd, revReplace({
             manifest: gulp.src(config.rev.manifest)
         })))
-        .pipe(gulpif(config.isProd, rev()))
-        .pipe(gulp.dest(path.join(config.paths.dist, dest)))
-        .pipe(rename(function (path) {
-            path.dirname = dest + "/" + path.dirname;
-        }))
-        .pipe(gulpif(config.isProd, rev.manifest({
-            path: config.rev.manifest,
-            cwd: config.rev.manifestDest,
-            merge: true
-        })))
-        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
+        // .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
+        // .pipe(rename(function (path) {
+        //     path.dirname = dest + "/" + path.dirname;
+        // }))
+        // .pipe(gulpif(config.isProd, rev.manifest({
+        //     path: config.rev.manifest,
+        //     cwd: config.rev.manifestDest,
+        //     merge: true
+        // })))
+        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }
 
 gulp.task('ieStyle', [], function () {

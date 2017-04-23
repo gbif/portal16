@@ -1,31 +1,44 @@
 <div class="card m-b-1 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <span class="searchCard__type">LITERATURE {{result.contentType}}</span>
-            <a class="inherit" ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
-                <h2>
+            <span class="searchCard__type">{$ __('cms.contentType.literature') | capitalize $}</span>
+            <h3>
+                <a ng-href="https://doi.org/{{result.identifiers.doi}}" ng-if="result.identifiers.doi">
                     {{result.title}}
-                </h2>
-            </a>
+                    <span class="gb-icon-link"></span>
+                </a>
+                <a ng-href="{{result.websites[0]}}" ng-if="!result.identifiers.doi && result.websites[0]">
+                    {{result.title}}
+                    <span class="gb-icon-link"></span>
+                </a>
+                <span ng-if="!result.identifiers.doi && !result.websites[0]">
+                    {{result.title}}
+                </span>
+            </h3>
         </div>
     </div>
     <div class="card__stripe">
         <div class="card__content">
-            <a href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
-                <img class="searchCard__img" ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
-            </a>
-            <div>
-                {{result._summary}}
+            <div class="searchCard__meta">
+                <span ng-repeat="author in result.authors | limitTo:6 " class="text-capitalize">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
+                <span class="text-capitalize" ng-if="result.authors[6]">... - </span>
+                ({{ result.year }})
+                {{ result.source }}
+                <span ng-if="!result.identifiers.doi && !result.websites[0]">
+                    {{ result.volume }}
+                    ({{ result.issue }})
+                    {{ result.pages }}
+                </span>
             </div>
-            <p class="discreet--very smaller">
-                Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
+            <p>
+                {{result.abstract}}
             </p>
+            {#<p class="discreet--very smaller">#}
+                {#Published by {{ result.publisher | limitTo:200 }}#}
+            {#</p>#}
             <ul class="list-chips">
                 <li>
-                    <a ng-href="/resources/search?contentType={{ result.contentType }}">{{result.contentType}}</a>
-                </li>
-                <li>
-                    <a ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={{ result.key }}">{{ result.recordCount }} occurrences</a>
+                    <a class="text-capitalize" ng-href="/resources/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
                 </li>
             </ul>
         </div>

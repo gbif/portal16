@@ -2,7 +2,7 @@ var express = require('express'),
     router = express.Router();
 
 module.exports = function (app) {
-    app.use('/resources', router);
+    app.use('/resource', router);
 };
 
 function renderSearch(req, res) {
@@ -17,7 +17,7 @@ function renderSearch(req, res) {
 }
 
 router.get('/', function (req, res) {
-    res.redirect(302, './resources/search');
+    res.redirect(302, './resource/search');
 });
 
 router.get('/search', function (req, res) {

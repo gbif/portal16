@@ -13,11 +13,11 @@ angular
     .directive('gbmap', gbmapDirective);
 
 /** @ngInject */
-function gbmapDirective() {
+function gbmapDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         transclude: true,
-        templateUrl: '/templates/components/map/basic/gbmap.html',
+        templateUrl: '/templates/components/map/basic/gbmap.html?v=' + BUILD_VERSION,
         scope: {
             datasetKey: '=',
             taxonKey: '=',

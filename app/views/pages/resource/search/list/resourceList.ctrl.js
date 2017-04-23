@@ -6,11 +6,12 @@ angular
     .controller('resourceListCtrl', resourceListCtrl);
 
 /** @ngInject */
-function resourceListCtrl(hotkeys, ResourceFilter, env) {
+function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     var vm = this, offset;
     vm.state = ResourceFilter.getState();
     vm.tileApi = env.tileApi;
     vm.imageCache = env.imageCache;
+    vm.BUILD_VERSION = BUILD_VERSION;
 
     //* pagination */
     function updatePaginationCounts() {

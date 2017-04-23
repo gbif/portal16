@@ -6,9 +6,10 @@
                     <div class="card m-b-1 searchCard">
                         <div class="card__stripe">
                             <div class="card__content">
-                                <h2>
-                                    <a ng-href="{$ gb.locales.urlPrefix $}/{{ result.contentType }}2/{{result.id}}/{{result._slug}}">{{result.title}}</a>
-                                </h2>
+                                <span class="searchCard__type" translate="cms.contentType.{{ result.contentType }}"></span>
+                                <h3>
+                                    <a ng-href="{$ gb.locales.urlPrefix $}/{{ result.contentType }}/{{result.id}}/{{result._slug}}">{{result.title}}</a>
+                                </h3>
                             </div>
                         </div>
                         <div class="card__stripe">
@@ -18,7 +19,6 @@
                                 <p>
                                     {{result._summary}}
                                 </p>
-                                {{ result.contentType }}
                             </div>
                         </div>
                     </div>

@@ -8,11 +8,11 @@ angular
     .directive('filterLocationMap', filterLocationMapDirective);
 
 /** @ngInject */
-function filterLocationMapDirective() {
+function filterLocationMapDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         transclude: true,
-        templateUrl: '/templates/components/filterLocation/filterLocationMap.html',
+        templateUrl: '/templates/components/filterLocation/filterLocationMap.html?v=' + BUILD_VERSION,
         scope: {},
         link: mapLink,
         controller: filterLocationMap,

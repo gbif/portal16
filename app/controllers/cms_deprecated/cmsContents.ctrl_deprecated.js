@@ -4,8 +4,8 @@ let express = require('express'),
     format = require('../../helpers/format'),
     cmsUrlEncode = require('../../helpers/cmsUrlEncode'),
     config = require('../../../config/config'),
-    cmsApi = require('../../models/cmsData/apiConfig'),
-    cmsData = require('../../models/cmsData/cmsData'),
+    cmsApi = require('../../models/cmsData_deprecated/apiConfig'),
+    cmsData = require('../../models/cmsData_deprecated/cmsData'),
     dataApi = require('../../models/gbifdata/apiConfig'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true});
 

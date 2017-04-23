@@ -6,11 +6,11 @@ angular
     .directive('enumFilter', enumFilterDirective);
 
 /** @ngInject */
-function enumFilterDirective() {
+function enumFilterDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/enumFilter/enumFilter.html',
+        templateUrl: '/templates/components/enumFilter/enumFilter.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

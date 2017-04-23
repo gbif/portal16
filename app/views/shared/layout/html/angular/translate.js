@@ -11,8 +11,8 @@ angular
 // as service http://angular-translate.github.io/docs/#/guide/03_using-translate-service
 // Using with params in strings http://angular-translate.github.io/docs/#/guide/06_variable-replacement
 /** @ngInject */
-function translaterConfig($translateProvider) {
-    $translateProvider.useUrlLoader('/api/translation.json');
+function translaterConfig($translateProvider, BUILD_VERSION) {
+    $translateProvider.useUrlLoader('/api/translation.json?v=' + BUILD_VERSION);
     // https://angular-translate.github.io/docs/#/guide/14_pluralization
     $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
     $translateProvider.preferredLanguage('en');

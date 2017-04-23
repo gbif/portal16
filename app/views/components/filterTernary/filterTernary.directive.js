@@ -6,11 +6,11 @@ angular
     .directive('filterTernary', filterTernaryDirective);
 
 /** @ngInject */
-function filterTernaryDirective() {
+function filterTernaryDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterTernary/filterTernary.html',
+        templateUrl: '/templates/components/filterTernary/filterTernary.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

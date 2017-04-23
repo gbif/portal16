@@ -11,10 +11,10 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.16.0/mapbox-gl-draw.js'></script>
-    <script src="/js/base/pages/observationTrends.js"></script>
+    <script src="/js/base/pages/observationTrends.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/observationTrends/observationTrends.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/pages/tools/observationTrends/observationTrends.css?v={$ BUILD_VERSION $}">
 {% endblock %}
 

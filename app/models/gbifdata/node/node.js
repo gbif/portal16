@@ -1,7 +1,7 @@
 "use strict";
 
 var resource = require('../resource'),
-    cmsConfig = require('../../cmsData/apiConfig'),
+    cmsConfig = require('../../cmsData_deprecated/apiConfig'),
     apiConfig = require('../../gbifdata/apiConfig'),
     _ = require('lodash'),
     api = require('../apiConfig');
@@ -39,18 +39,6 @@ Node.getByCountryCode = function (countryCode, options) {
 Node.prototype.expand = function (fieldNames) {
     var resources = [],
         resourceLookup = {
-            news: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=news&filter[category_country]=' + this.record.country,
-                extendToField: 'news'
-            },
-            events: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=event&filter[category_country]=' + this.record.country,
-                extendToField: 'events'
-            },
-            dataUse: {
-                resource: cmsConfig.search.url + '?sort=-created&page[size]=3&filter[type]=data_use&filter[category_country]=' + this.record.country,
-                extendToField: 'dataUse'
-            }
         };
 
     //if node has a participant id from the direcotory then use that to resolve the drupal participant data
@@ -58,12 +46,6 @@ Node.prototype.expand = function (fieldNames) {
     let identifier = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
     let participantId = _.get(identifier, 'identifier');
     if (typeof participantId !== 'undefined') {
-
-        resourceLookup.participant = {
-            resource: cmsConfig.participant.url + participantId,
-            extendToField: 'participant'
-            //options: {failHard: false}//unclear if this should rather fail hard
-        };
 
         resourceLookup.directoryParticipant = {
             resource: apiConfig.directoryParticipant.url + participantId,
@@ -74,6 +56,7 @@ Node.prototype.expand = function (fieldNames) {
     fieldNames.forEach(function (e) {
         if (resourceLookup.hasOwnProperty(e)) resources.push(resourceLookup[e]);
     });
+    this.record.__TESTER = 'MORTEN';
     return resource.extend(this).with(resources);
 };
 

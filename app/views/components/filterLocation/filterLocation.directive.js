@@ -8,11 +8,11 @@ angular
     .directive('filterLocation', filterLocationDirective);
 
 /** @ngInject */
-function filterLocationDirective() {
+function filterLocationDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterLocation/filterLocation.html',
+        templateUrl: '/templates/components/filterLocation/filterLocation.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

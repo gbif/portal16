@@ -1,10 +1,9 @@
 "use strict";
 let express = require('express'),
     router = express.Router(),
-    Q = require('q'),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
-    cmsSearchUrl = rootRequire('app/models/cmsData/apiConfig').search.url;
+    resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
 
 module.exports = function (app) {
     app.use('/', router);
@@ -12,66 +11,41 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
     if (typeof req.query.q !== 'undefined') {
+        //if using the short omni search format gbif.org?q=something then redirect to search
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
     } else {
-        Promise.all([getNews(), getDataUseStories(), getUpcomingEvents()])
+        let news = resourceSearch.search({contentType:'news',limit:1, homepage: true}, req.__, 5000),
+            dataUse = resourceSearch.search({contentType:'dataUse',limit:1, homepage: true}, req.__, 5000),
+            event = resourceSearch.search({contentType:'event',limit:1, homepage: false}, req.__, 5000), //TODO shouldn't events be visible on the home page ? they are all hidden per default
+            feature = resourceSearch.search({contentType:'dataUse',limit:1, offset:1, homepage: true}, req.__, 5000);
+
+        Promise.all([news, dataUse, event, feature])
             .then(function(values){
-                var highlights = {
-                    newsStory: _.get(values[0], 'results[0]'),
-                    dataStoryA: _.get(values[1], 'results[0]'),
-                    dataStoryB: _.get(values[1], 'results[1]'),
-                    event: _.get(values[2], 'results[0]')
+                let highlights = {
+                    news: _.get(values[0], 'results[0]'),
+                    dataUse: _.get(values[1], 'results[0]'),
+                    event: _.get(values[2], 'results[0]'),
+                    feature: _.get(values[3], 'results[0]')
                 };
-                render(req, res, next, {highlights: highlights});
-            }, function(){
-                render(req, res, next);//show page without news stories
+                helper.renderPage(req, res, next, {
+                    highlights: highlights,
+                    _meta: {
+                        title: 'GBIF',
+                        bodyClass: 'hasTransparentMenu',
+                        hideSearchAction: true
+                    }
+                }, 'pages/home/home');
+            })
+            .catch(function(){
+                //show page without highlight stories
+                res.setHeader('Cache-Control', 'no-cache'); //TODO might be worth having a short cache on it
+                helper.renderPage(req, res, next, {
+                    _meta: {
+                        title: 'GBIF',
+                        bodyClass: 'hasTransparentMenu',
+                        hideSearchAction: true
+                    }
+                }, 'pages/home/home');
             });
     }
 });
-
-function render(req, res, next, homeData) {
-    try {
-        res.render('pages/home/home', {
-            home: homeData,
-            _meta: {
-                title: 'GBIF',
-                bodyClass: 'hasTransparentMenu',
-                hideSearchAction: true
-            }
-        });
-    } catch (err) {
-        next(err);
-    }
-}
-
-function getNews() {
-    var newsUrl = cmsSearchUrl + '?sort=-created&page[size]=1&filter[type]=news';
-    return cmsSearch(newsUrl);
-}
-
-function getDataUseStories() {
-    var newsUrl = cmsSearchUrl + '?sort=-created&page[size]=2&filter[type]=data_use';
-    return cmsSearch(newsUrl);
-}
-
-function getUpcomingEvents() {
-    let now = Math.floor(Date.now() / 1000),
-        upcomingEventsUrl = cmsSearchUrl + '?filter[type]=event&filter[ge_date_ical:value][value]=' + now + '&filter[ge_date_ical:value][operator]=%22%3E%22&sort=dateStart&range=3';
-    return cmsSearch(upcomingEventsUrl);
-}
-
-function cmsSearch(requestedUrl) {
-    "use strict";
-    var deferred = Q.defer();
-    helper.getApiData(requestedUrl, function (err, data) {
-        if (typeof data.errorType !== 'undefined') {
-            deferred.reject(data);
-        } else if (data) {
-            deferred.resolve(data);
-        }
-        else {
-            deferred.reject(err);
-        }
-    }, {retries: 2, timeoutMilliSeconds: 30000});
-    return deferred.promise;
-}

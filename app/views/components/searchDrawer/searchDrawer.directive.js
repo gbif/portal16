@@ -6,11 +6,11 @@ angular
     .directive('searchDrawer', searchDrawerDirective);
 
 /** @ngInject */
-function searchDrawerDirective() {
+function searchDrawerDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/searchDrawer/searchDrawer.html',
+        templateUrl: '/templates/components/searchDrawer/searchDrawer.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
             contentType: '@'

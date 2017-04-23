@@ -36,7 +36,7 @@ requireDir('./gulp/tasks', {
 gulp.task('prod', function (callback) {
     runSequence(
         ['clean-all'],
-        ['revision'],
+        // ['revision'],
         ['env-constants'],
         // these produce rev'ed files
         // We avoid parallel tasks that could overwrite the rev-manifest.json
@@ -85,7 +85,7 @@ gulp.task('watch', ['browser-sync'], function () {
 gulp.task('dev', [], function (callback) {
     runSequence(
         ['clean-all'],
-        ['revision'],
+        // ['revision'],
         ['env-constants'],
         ['stylus-reload', 'vendor-styles', 'scripts-reload', 'vendor-scripts', 'assets', 'vendorAssets', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home', 'dataRepo', 'signpost'],
         ['templates'],

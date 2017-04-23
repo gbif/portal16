@@ -8,11 +8,11 @@ angular
     .directive('filterDate', filterDateDirective);
 
 /** @ngInject */
-function filterDateDirective() {
+function filterDateDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterDate/filterDate.html',
+        templateUrl: '/templates/components/filterDate/filterDate.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

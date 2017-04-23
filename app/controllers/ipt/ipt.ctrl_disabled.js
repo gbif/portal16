@@ -1,3 +1,5 @@
+//have previously mapped to a specific Drupal entry. should map tp contentful and probably from contentful be marked as having this url
+
 //http://cms-api.gbif-uat.org/api/v1/generic/82906
 "use strict";
 var express = require('express'),

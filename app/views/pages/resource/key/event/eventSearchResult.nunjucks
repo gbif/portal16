@@ -2,45 +2,48 @@
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.event') | capitalize $}</span>
-            <a class="inherit" ng-href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
-                <h2>
+            <h3>
+                <a ng-href="{{ result.primaryLink.url }}" ng-if="result.primaryLink.url">
                     {{result.title}}
-                </h2>
-            </a>
+                    <span class="gb-icon-link"></span>
+                </a>
+                <a ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" ng-if="!result.primaryLink.url">
+                    {{result.title}}
+                </a>
+            </h3>
         </div>
     </div>
     <div class="card__stripe">
         <div class="card__content">
-            <a href="/{{result.contentType}}2/{{result.id}}/{{result._slug}}">
-                {#<img class="searchCard__img" ng-src="{{ resourceList.imageCache }}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">#}
-                <div class="date-box--small searchCard__img">
-                    <img src="//api.gbif.org/v1/image/unsafe/500x330/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
-                         alt="" class="article-thumb invisible">
+            <div class="clearfix">
+                <div class="searchCard__date">
+                    <div>{{ result.start | amDateFormat: 'D MMM' }}</div>
+                    <span>{{ result.start | amDateFormat:'YYYY' }}</span>
+                </div>
+                <div class="m-b-05">
+                    {{result._summary}}
+                </div>
+                <div class="discreet--very smaller" ng-if="result.start">
+                    <div ng-if="result.country || result.location || result.venue">
+                        <span class="gb-icon-marker"></span><span translate="country.{{ result.country.id }}" ng-if="result.country.id"></span>
+                        <span ng-if="result.location"> - {{ result.location }}</span>
+                        <span ng-if="result.venue"> - {{ result.venue }}</span>
+                    </div>
                     <div>
-                        <div>
-                            {#<span>{{ result.start | amDateFormat:'MMMM' }}</span>#}
-                            <div>{{ result.start | amDateFormat:'D MMM' }}</div>
-                            <span>{{ result.start | amDateFormat:'YYYY' }}</span>
-                        </div>
+                        <span class="gb-icon-calendar"></span>
+                        <span>{{ result.start | amDateFormat:'LL' }}</span>
+                        {# <span ng-if="!result.allDayEvent">{{ result.start | amDateFormat:'HH:mm Z' }}</span> #}
+                        <span ng-if="(result.start | amDateFormat:'LL') !== (result.end | amDateFormat:'LL')"> - {{ result.end | amDateFormat:'LL' }}</span>
+                        <span ng-if="(result.start | amDateFormat:'LL') === (result.end | amDateFormat:'LL') && !result.allDayEvent">{{ result.start | amDateFormat:'HH:mm Z' }}</span>
                     </div>
                 </div>
-            </a>
-            <div>
-                {{result._summary}}
             </div>
-            <p class="discreet--very smaller" ng-if="result.start">
-                Location: <span translate="country.{{ result.country.id }}" ng-if="result.country.id"></span>
-                <span ng-if="result.location">{{ result.location }}</span>
-                <span ng-if="result.venue">{{ result.venue }}</span>
-            </p>
-            {#<ul class="list-chips">#}
-                {#<li>#}
-                    {#<a ng-href="/resources/search?contentType={{ result.contentType }}">{{result.contentType}}</a>#}
-                {#</li>#}
-                {#<li>#}
-                    {#<a ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={{ result.key }}">{{ result.recordCount }} occurrences</a>#}
-                {#</li>#}
-            {#</ul>#}
+        </div>
+    </div>
+    <div class="card__stripe" ng-if="!(result.end | isPast)">
+        <div class="card__content">
+            <a href="" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> Add to calendar</a>
+            <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}" class="gb-button--flat text-uppercase small" ng-if="result.primaryLink.url">View on GBIF</a>
         </div>
     </div>
 </div>

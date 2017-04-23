@@ -42,6 +42,12 @@ nature, PLOS, ... and
                     <h1>
                         Free and open access to biodiversity data
                     </h1>
+                    <div class="home__searchFilters">
+                        <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">Occurrences</a>
+                        <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">Species</a>
+                        <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">Datasets</a>
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">Publishers</a>
+                    </div>
                     <div class="home__header__search-bar search-box">
                         <form action="{$ gb.locales.urlPrefix $}/search"
                               ng-submit="omniSearch.updateSearch()">
@@ -58,17 +64,12 @@ nature, PLOS, ... and
                         </form>
                     </div>
                     <div class="home__quicklinks">
-                        <a href="{$ gb.locales.urlPrefix $}/occurrence/search" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Occurrences</a>
-                        <a href="{$ gb.locales.urlPrefix $}/species/search" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Species</a>
-                        <a href="{$ gb.locales.urlPrefix $}/dataset/search" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Datasets</a>
-                        <a href="{$ gb.locales.urlPrefix $}/publisher/search" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Publishers</a>
-                        <a href="{$ gb.locales.urlPrefix $}/cms/search" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}" class="gb-button--brand--transparent">Activities</a>
                         <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">What is GBIF?</a>
+                        <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}/about" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
                     </div>
                 </div>
                 <div class="caption">
-                    <i>Eulalia microphylla</i> Schmarda, 1861 observed in New Zealand. CC BY-NC 2016 <a href="/occurrence/1265894407">Ryan Brooks via iNaturalist</a>
-                    {#<i>Abies balsamea</i> (L.) Mill. observed in United States. CC BY-NC 2016 <a href="/occurrence/1144979922">Emily Stone via iNaturalist</a>#}
+                    <a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
                 </div>
             </div>
         </div>
@@ -80,82 +81,81 @@ nature, PLOS, ... and
                         <h2>News from the network</h2>
                     </div>
 
-                    {% macro newsArticle(newsStory, __) %}
-                        {% if newsStory %}
-                            <article class="card article-box hoverBox">
-                                <div>
-                                    {% if newsStory.images[0].self %}
-                                    <a href="/{$ newsStory.targetUrl $}" class="card__stripe">
-                                        <img src="//api.gbif.org/v1/image/unsafe/500x330/{$ newsStory.images[0].self | encodeURI $}"
+                    {% macro newsArticle(article, __) %}
+                        {% if article %}
+                            <article class="card card--flexible article-box hoverBox">
+                                {#<div>#}
+                                    {% if article.primaryImage %}
+                                    <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                                        <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
                                              alt="" class="article-thumb">
                                     </a>
                                     {% endif %}
-                                    <a href="/{$ newsStory.targetUrl $}" class="card__stripe inherit">
+                                    <div class="card__stripe--expandable inherit">
                                         <div class="card__content">
-                                            <div class="article-box__tag">
-                                                <span translate="cms.contentType.{$ newsStory.type $}" class="text-capitalize"></span>
-                                            </div>
                                             <h4 class="article-box__title">
-                                                {$ newsStory.title | truncate(80) $}
+                                                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
                                             </h4>
-                                            <span class="article-box__footer">{$ newsStory.created | formatDate(gb.locales.current) $}</span>
+                                            <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
                                         </div>
-                                    </a>
+                                    </div>
+                                <div class="text-center">
+                                    <a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">{$ article.contentType $}</a>
                                 </div>
+                                {#</div>#}
                             </article>
                         {% endif %}
                     {% endmacro %}
 
-                    {% macro eventArticle(newsStory, __) %}
-                        {% if newsStory %}
-                            <article class="card article-box hoverBox">
-                                <div>
-                                    <a ng-href="/{$ newsStory.targetUrl $}" class="card__stripe">
-                                        <div class="date-box">
-                                            <img src="//api.gbif.org/v1/image/unsafe/500x330/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
-                                                 alt="" class="article-thumb invisible">
+                    {% macro eventArticle(article, __) %}
+                        {% if article %}
+                            <article class="card card--flexible article-box hoverBox">
+                                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                                    <div class="date-box">
+                                        <img src="{$ _meta.imageCache $}600x300/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
+                                             alt="" class="article-thumb invisible">
+                                        <div>
                                             <div>
-                                                <div>
 
-                                                    <span>{$ newsStory.dateStart | formatDate(gb.locales.current, 'MMMM') $}</span>
-                                                    <div>{$ newsStory.dateStart | formatDate(gb.locales.current, 'D') $}</div>
-                                                    <span>{$ newsStory.dateStart | formatDate(gb.locales.current, 'YYYY') $}</span>
-                                                </div>
+                                                <span>{$ article.start | formatDate(gb.locales.current, 'MMMM') $}</span>
+                                                <div>{$ article.start | formatDate(gb.locales.current, 'D') $}</div>
+                                                <span>{$ article.start | formatDate(gb.locales.current, 'YYYY') $}</span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
+                                </a>
 
-                                    <a href="/{{ newsStory.targetUrl }}" class="card__stripe inherit">
-                                        <div class="card__content">
-                                            <div class="article-box__tag">
-                                                <span class="text-capitalize">{$ __('cms.contentType.' + newsStory.type) $}</span>
-                                            </div>
-                                            <h4 class="article-box__title">{$ newsStory.title | truncate(80) $}</h4>
-                                            <span class="article-box__footer">{$ newsStory.dateText $}</span>
-                                        </div>
-                                    </a>
+                                <div class="card__stripe--expandable inherit">
+                                    <div class="card__content">
+                                        <h4 class="article-box__title">
+                                            <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
+                                                {$ article.title | truncate(80) $}
+                                            </a>
+                                        </h4>
+                                        <span class="article-box__footer">{$ article.start | dateRange(article.end, false, gb.locales.current) $}</span>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">events</a>
                                 </div>
                             </article>
                         {% endif %}
                     {% endmacro %}
 
                     <div class="articles">
-                        {$ newsArticle(home.highlights.newsStory, __) $}
-                        {$ newsArticle(home.highlights.dataStoryA, __) $}
-                        {$ newsArticle(home.highlights.dataStoryB, __) $}
-                        {$ eventArticle(home.highlights.event, __) $}
-                    </div>
-                    <div class="text-right">
-                        <a href="{$ gb.locales.urlPrefix $}/cms/search" class="gb-button--flat text-uppercase small">Search articles, events and more</a>
+                        {$ newsArticle(highlights.news, __) $}
+                        {$ newsArticle(highlights.dataUse, __) $}
+                        {$ eventArticle(highlights.event, __) $}
+                        {#{$ eventArticle(home.highlights.event, __) $}#}
                     </div>
                 </div>
 
-                <div class="m-b-2 ng-cloak">
-                    <h2>What is GBIF?</h2>
+                <div class="m-b-2">
+                    <h2 class="text-center">What is GBIF?</h2>
                     <div class="row">
-                        <div class="col-xs-12" ng-class="{'col-md-6': home.showCountryCard}">
+                        <div class="col-xs-12">
                             <div class="home__about">
-                                <div ng-class="{'home__about--columns': !home.showCountryCard}">
+                                <div class="home__about--columns">
                                     <p>
                                         GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.
                                     </p>
@@ -163,104 +163,7 @@ nature, PLOS, ... and
                                         Coordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.
                                     </p>
                                     <div>
-                                        <a href="/what-is-gbif">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6 home__country" ng-if="home.showCountryCard">
-                            <div class="card">
-                                <div class="card__stripe">
-                                    <div class="card__content home__country__headline">
-                                        <div><a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" translate="country.{{ home.country.countryCode }}"></a></div>
-                                        <span class="small discreet" translate="participationStatus.longForm.{{ home.participationStatus }}" ng-if="home.participationStatus"></span>
-                                    </div>
-                                </div>
-                                <div class="home__country__activities">
-                                    <div class="card__stripe card__stripe--light" ng-if="home.hasImages">
-                                        <div class="card__content">
-                                            <div class="home__country__category">
-                                                Occurrences
-                                            </div>
-                                            <p class="home__country__description">
-                                                <span>{{ home.totalCount | localNumber }} occurrences about</span> <span translate="country.{{ home.country.countryCode }}"></span>.
-                                                <a ng-href="/occurrence/search?country={{ home.country.countryCode }}">See all</a>
-                                            </p>
-                                            <div class="home__country__occurrences">
-                                                <a ng-repeat="result in home.occurrences.results" ng-href="/occurrence/{{ result.key }}" class="hideInvalid isInvalid">
-                                                    <img gb-load ng-src="{{ home.imageCache }}x140/{{ result._images[0].identifier | encodeURIComponent }}">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card__stripe card__stripe--light" ng-if="home.hasPublishingPublishers">
-                                        <div class="card__content">
-                                            <div class="home__country__category">
-                                                Publishers
-                                            </div>
-                                            <div ng-repeat="publisher in home.publishers.results" class="m-b-1">
-                                                <div ng-if="publisher.logoUrl" class="hideInvalid isInvalid home__country__logo">
-                                                    <img gb-load ng-src="{{ home.imageCache }}x200/{{ publisher.logoUrl | encodeURIComponent }}">
-                                                </div>
-                                                <div>
-                                                    <h4 class="home__country__title">
-                                                        <a ng-href="/publisher/{{ publisher.key }}">{{ publisher.title }}</a>
-                                                    </h4>
-                                                    <p class="home__country__description">
-                                                        {{ publisher.description | truncate:80 }}
-                                                        <span class="home__country__footer">
-                                                            {{ publisher.numPublishedDatasets }} published datasets
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="home__country__more" ng-if="home.hasMorePublishers">
-                                                <a class="discreet small" ng-href="/publisher/search?country={{ home.country.countryCode }}">See all</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="card__stripe card__stripe--light" ng-if="home.hasDatasets">
-                                        <div class="card__content">
-                                            <div class="home__country__category">
-                                                Datasets
-                                            </div>
-                                            <div ng-repeat="dataset in home.datasets.results" class="m-b-1">
-                                                <div ng-if="dataset.logoUrl" class="hideInvalid isInvalid home__country__logo">
-                                                    <img gb-load ng-src="{{ home.imageCache }}x200/{{ dataset.logoUrl | encodeURIComponent }}">
-                                                </div>
-                                                <div>
-                                                    <h4 class="home__country__title">
-                                                        <a ng-href="/dataset/{{ dataset.key }}">{{ dataset.title | truncate:100 }}</a>
-                                                    </h4>
-                                                    <p class="home__country__description">
-                                                        {{ dataset.description | truncate:150 }}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="home__country__more" ng-if="home.hasMoreDatasets">
-                                                <a class="discreet small" ng-href="/dataset/search?country={{ home.country.countryCode }}">See all</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="card__stripe card__stripe--light home__rss" ng-if="home.hasFeed">
-                                        <div class="card__content">
-                                            <div class="home__country__category">
-                                                Node news
-                                            </div>
-                                            <div ng-repeat="rssItem in home.rssFeed | limitTo:2" class="m-b-1">
-                                                <h4 class="home__country__title">
-                                                    <a ng-href="{{ rssItem.link }}">{{ rssItem.title }}</a>
-                                                </h4>
-                                                <p class="home__country__description">
-                                                    {{ rssItem.description | truncate:80 }}
-                                                    <span class="home__country__footer">
-                                                        {{ rssItem.pubDate }}
-                                                    </span>
-                                                </p>
-                                            </div>
-                                        </div>
+                                        <a href="{$ gb.locale.urlPrefix $}/what-is-gbif">Read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -275,10 +178,9 @@ nature, PLOS, ... and
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        
+
 
         {#<article class="horizontal-stripe--paddingless home__featured bg-attached">#}
             {#<div class="container--normal">#}
@@ -318,127 +220,124 @@ nature, PLOS, ... and
             {#</div>#}
         {#</div>#}
 
-        <section class="horizontal-stripe--paddingless seperator features ng-cloak" ng-if="home.underDevelopment">
-            <div class="features__intro container--normal">
-                <h1>What is GBIF?</h1>
-                <p>
-                    A world in which biodiversity information is freely and universally available for science, society and a sustainable future.
-                </p>
-            </div>
-            <div class="container--desktop">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2104216/original.jpg?1436381798')">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="feature__summary col-xs-12 col-sm-6">
-                                        <h2>
-                                            A tool for science and society
-                                        </h2>
-                                        <p>
-                                            Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.
-                                        </p>
-                                        <a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="inherit underline">Explore featured data usages</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/1670392/original.jpg?1427736194')">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="feature__summary col-xs-12">
-                                        <h2>
-                                            A connected community
-                                        </h2>
-                                        <p>
-                                            GBIF’s Participants collaborate by sharing skills, experience and technology to mobilize and use data about biodiversity for the public good.
-                                        </p>
-                                        <a href="{$ gb.locales.urlPrefix $}/gbif-network" class="inherit underline">Learn more about the GBIF network</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2253573/original.jpg?1439318676')">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="feature__summary col-xs-12">
-                                        <h2>
-                                            A window on biodiversity
-                                        </h2>
-                                        <p>
-                                            Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.
-                                        </p>
-                                        <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit underline">Explore occurrences</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/4140961/original.JPG?1467258661')">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="feature__summary col-xs-12 col-sm-6">
-                                        <h2>
-                                            An informatics infrastructure
-                                        </h2>
-                                        <p>
-                                            GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.
-                                        </p>
-                                        <a href="{$ gb.locales.urlPrefix $}/informatics-infratructure" class="inherit underline">Read all about the technical infrastructure</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="features__intro container--normal">
-                <h1>Start exploring</h1>
-                <div>
-                    <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="gb-button--primary">Occurrences</a>
-                    <a href="{$ gb.locales.urlPrefix $}/species/search" class="gb-button--primary">Species</a>
-                    <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="gb-button--primary">Datasets</a>
-                    <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="gb-button--primary">Publishers</a>
-                </div>
-            </div>
-            <div class="container--desktop">
-                <div class="row">
-                    <!--div class="col-xs-12" style="padding:50px 0">
-                        <div class="feature feature--blank">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="feature__summary col-xs-12 col-sm-6">
-                                        <h2>
-                                            The GBIF history
-                                        </h2>
-                                        <p>
-                                            Established in 2004 with the vision of a world in which biodiversity information is freely and universally available for science, society and a sustainable future.
-                                        </p>
-                                        <p>
-                                            Get the full account straight from the horse's mouth as our director Donald Hobern tells the story of where we were and where we are going.
-                                        </p>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div>
-                                            <img src="/img/donaldTmp.png">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div-->
-                    <div class="col-xs-12 m-b-2">
-                        <gbmap mapstyle="'light'" style="height:500px"></gbmap>
-                    </div>
-                </div>
-            </div>
+        {#<section class="horizontal-stripe--paddingless seperator features ng-cloak" xng-if="home.underDevelopment">#}
+            {#<div class="features__intro container--normal">#}
+                {#<h1>What is GBIF?</h1>#}
+                {#<p>#}
+                    {#A world in which biodiversity information is freely and universally available for science, society and a sustainable future.#}
+                {#</p>#}
+            {#</div>#}
+            {#<div class="container--desktop">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12">#}
+                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2104216/original.jpg?1436381798')">#}
+                            {#<div class="container-fluid">#}
+                                {#<div class="row">#}
+                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
+                                        {#<h2>#}
+                                            {#A tool for science and society#}
+                                        {#</h2>#}
+                                        {#<p>#}
+                                            {#Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.#}
+                                        {#</p>#}
+                                        {#<a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="inherit underline">Explore featured data usages</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-xs-12 col-md-6">#}
+                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/1670392/original.jpg?1427736194')">#}
+                            {#<div class="container-fluid">#}
+                                {#<div class="row">#}
+                                    {#<div class="feature__summary col-xs-12">#}
+                                        {#<h2>#}
+                                            {#A connected community#}
+                                        {#</h2>#}
+                                        {#<p>#}
+                                            {#GBIF’s Participants collaborate by sharing skills, experience and technology to mobilize and use data about biodiversity for the public good.#}
+                                        {#</p>#}
+                                        {#<a href="{$ gb.locales.urlPrefix $}/gbif-network" class="inherit underline">Learn more about the GBIF network</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-xs-12 col-md-6">#}
+                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2253573/original.jpg?1439318676')">#}
+                            {#<div class="container-fluid">#}
+                                {#<div class="row">#}
+                                    {#<div class="feature__summary col-xs-12">#}
+                                        {#<h2>#}
+                                            {#A window on biodiversity#}
+                                        {#</h2>#}
+                                        {#<p>#}
+                                            {#Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.#}
+                                        {#</p>#}
+                                        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit underline">Explore occurrences</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-xs-12">#}
+                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/4140961/original.JPG?1467258661')">#}
+                            {#<div class="container-fluid">#}
+                                {#<div class="row">#}
+                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
+                                        {#<h2>#}
+                                            {#An informatics infrastructure#}
+                                        {#</h2>#}
+                                        {#<p>#}
+                                            {#GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.#}
+                                        {#</p>#}
+                                        {#<a href="{$ gb.locales.urlPrefix $}/informatics-infratructure" class="inherit underline">Read all about the technical infrastructure</a>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="features__intro container--normal">#}
+                {#<h1>Start exploring</h1>#}
+                {#<div>#}
+                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="gb-button--primary">Occurrences</a>#}
+                    {#<a href="{$ gb.locales.urlPrefix $}/species/search" class="gb-button--primary">Species</a>#}
+                    {#<a href="{$ gb.locales.urlPrefix $}/dataset/search" class="gb-button--primary">Datasets</a>#}
+                    {#<a href="{$ gb.locales.urlPrefix $}/publisher/search" class="gb-button--primary">Publishers</a>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="container--desktop">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12" style="padding:50px 0">#}
+                        {#<div class="feature feature--blank">#}
+                            {#<div class="container-fluid">#}
+                                {#<div class="row">#}
+                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
+                                        {#<h2>#}
+                                            {#The GBIF history#}
+                                        {#</h2>#}
+                                        {#<p>#}
+                                            {#Established in 2004 with the vision of a world in which biodiversity information is freely and universally available for science, society and a sustainable future.#}
+                                        {#</p>#}
+                                        {#<p>#}
+                                            {#Get the full account straight from the horse's mouth as our director Donald Hobern tells the story of where we were and where we are going.#}
+                                        {#</p>#}
+                                    {#</div>#}
+                                    {#<div class="col-xs-12 col-sm-6">#}
+                                        {#<div>#}
+                                            {#<img src="/img/donaldTmp.png">#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
-        </section>
+        {#</section>#}
 
         {#<div class="horizontal-stripe--paddingless home__map">#}
             {#<gbmap taxon-key="'1'" mapstyle="'light'"></gbmap>#}
@@ -449,5 +348,5 @@ nature, PLOS, ... and
 {% endblock %}
 
 {% block scripts %}
-    <script src="/js/base/pages/home.js"></script>
+    <script src="/js/base/pages/home.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}

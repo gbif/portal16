@@ -25,26 +25,29 @@
 </div>
 
 <div class="horizontal-stripe--paddingless white-background">
-    <div ng-if="countryKey.isParticipant">
+    <!--<div ng-if="countryKey.isParticipant">-->
 
-        <div ng-if="!countryParticipant.loaded" class="discreet text-center m-t-2">
-            <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-            <div class="discreet">
-                <em>Please hang on while we generate the country trends</em>
-            </div>
-        </div>
+        <!--<div ng-if="!countryParticipant.loaded" class="discreet text-center m-t-2">-->
+            <!--<ng-include src="'/templates/components/loader/loader.html'"></ng-include>-->
+            <!--<div class="discreet">-->
+                <!--<em>Please hang on while we generate the country trends</em>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div ng-include="'/node/' + countryParticipant.nodeKey + '/content'" onload="countryParticipant.loaded = true"></div>
+        <!--&lt;!&ndash;<div ng-include="'/node/' + countryParticipant.nodeKey + '/content'" onload="countryParticipant.loaded = true"></div>&ndash;&gt;-->
 
-    </div>
-    <div ng-if="!countryKey.isParticipant" class="blankNotification">
-        <h2><span translate="country.{{ countryKey.countryCode }}"></span> is not a participant</h2>
-    </div>
-</div>
-
-<div ng-if="countryKey.isParticipant">
-    <div ng-controller="nodeKeyCtrl as nodeKey" ng-init="nodeKey.init('{$ country.code $}')">
-        <ng-include src="'/templates/pages/node/key/node.html'"></ng-include>
-        <div ng-include="'/node/' + countryParticipant.nodeKey + '/contacts'"></div>
+    <!--</div>-->
+    <!--<div ng-if="!countryKey.isParticipant" class="blankNotification">-->
+        <!--<h2><span translate="country.{{ countryKey.countryCode }}"></span> is not a participant</h2>-->
+    <!--</div>-->
+    <div class="emptyInfo">
+        <h3>Participant info coming soon</h3>
     </div>
 </div>
+
+<!--<div ng-if="countryKey.isParticipant">-->
+    <!--<div ng-controller="nodeKeyCtrl as nodeKey" ng-init="nodeKey.init('{$ country.code $}')">-->
+        <!--<ng-include src="'/templates/pages/node/key/node.html'"></ng-include>-->
+        <!--<div ng-include="'/node/' + countryParticipant.nodeKey + '/contacts'"></div>-->
+    <!--</div>-->
+<!--</div>-->

@@ -18,24 +18,24 @@
         <div class="omnisearch-bar__filters">
             <div>
                 <a href="" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
+                   class="gb-button--brand">
                     Occurrences
                 </a>
                 <a href="" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
+                   class="gb-button--brand">
                     Species
                 </a>
                 <a href="" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
+                   class="gb-button--brand">
                     Datasets
                 </a>
                 <a href="" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
+                   class="gb-button--brand">
                     Publishers
                 </a>
-                <a href="" ng-href="{$ gb.locales.urlPrefix $}/cms/search?q={{ omniSearch.freeTextQuery }}"
-                   class="gb-button--primary">
-                    GBIF network
+                <a href="" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ omniSearch.freeTextQuery }}"
+                   class="gb-button--brand">
+                    Resources
                 </a>
             </div>
         </div>

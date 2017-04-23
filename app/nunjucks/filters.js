@@ -2,6 +2,7 @@ var format = require('../helpers/format'),
     _ = require('lodash'),
     urlRegex = require('url-regex'),
     truncate = require('html-truncate'),
+    url = require('url'),
     md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true}),
     fs = require('fs');
 
@@ -277,53 +278,37 @@ module.exports = function (nunjucksConfiguration) {
         nunjucksConfiguration.addFilter('localizeInteger', format.localizeInteger);
     })();
 
-    /**
-     * Generates the absoulte path to the country flag for the given iso code.
-     * Remember to use it with the rev filter for versioned assets.
-     */
     (function () {
-        nunjucksConfiguration.addFilter('flag', function (countryCode) {
+        nunjucksConfiguration.addFilter('flag', function (countryCode, buildVersion) {
             if (countryCode) {
-                return '/img/flags/' + _.toUpper(countryCode) + ".png";
+                return '/img/flags/' + _.toUpper(countryCode) + ".png?v=" + buildVersion;
             }
         });
     })();
 
     /**
-     * Social icon. Due to everything being versioned we have to go through this loop
-     * Remember to use it with the rev filter for versioned assets.
+     * A hacky way to match social media links to the icons we have
      */
     (function () {
+        let mediaIconMap = {
+            'twitter.com': 'twitter',
+            'facebook.com': 'facebook',
+            'plus.google.com': 'google_plus',
+            'instagram.com': 'instagram',
+            'linkedin.com': 'linkedin',
+            'pinterest.com': 'pinterest',
+            'vimeok.com': 'vimeo',
+            'youtube.com': 'youtube'
+        };
         nunjucksConfiguration.addFilter('socialMediaIcon', function (media) {
             if (media) {
-                return '/img/social/' + _.toLower(media.replace(' ', '_')) + '.png';
+                let mediaHostName = url.parse(media).hostname;
+                mediaHostName = mediaHostName.replace('www.', '');
+                let knownMedia = mediaIconMap[mediaHostName];
+                if (knownMedia) {
+                    return '/img/social/' + knownMedia + '.png';
+                }
             }
-        });
-    })();
-
-    /**
-     * filter that uses the rev-manifest.json to change versioned asset file paths.
-     * The path to the file should be the full absolute path in the public folder to the unrev'ed asset.
-     *
-     * <img src="{$ code | flag | rev $}"/>
-     * =>
-     * <img src="/img/flags/DK-8257f70c13.png"/>
-     */
-    (function () {
-        var revManifest;
-        var revFile = 'public/rev-manifest.json';
-        if (fs.existsSync(revFile)) {
-            revManifest = JSON.parse(fs.readFileSync(revFile, 'utf8'));
-            console.log("Loaded asset versioning manifest at " + revFile + " with " + Object.keys(revManifest).length + " entries.");
-        } else {
-            revManifest = {};
-        }
-        nunjucksConfiguration.addFilter('rev', function (location) {
-            location = _.trimStart(location, '/');
-            if (location in revManifest) {
-                return "/" + revManifest[location];
-            }
-            return "/" + location;
         });
     })();
 

@@ -3,7 +3,7 @@
 {% if node._computedValues.contributors.all.length > 0 %}
     <div class="horizontal-stripe bare-background">
         <span class="relative-anchor-offset"><a id="contacts"></a></span>
-        <div class="container--normal">
+        <div class="container--narrow">
             <p class="small discreet text-uppercase">
                 Contacts
             </p>

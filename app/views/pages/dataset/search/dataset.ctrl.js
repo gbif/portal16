@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, BUILD_VERSION) {
     var vm = this;
     vm.state = DatasetFilter.getState();
 
@@ -115,7 +115,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
             defaultParams: {
                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
             },
-            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'scientificName',
             suggestShortName: 'title',
             suggestKey: 'key'
@@ -130,7 +130,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species) {
         search: {
             isSearchable: true,
             placeholder: 'ocurrenceFieldNames.TRANSLATE',
-            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
+            suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale + '&v=' + BUILD_VERSION
         },
         facets: {
             hasFacets: true,

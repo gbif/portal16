@@ -10,11 +10,11 @@ angular
     .directive('filterInterval', filterIntervalDirective);
 
 /** @ngInject */
-function filterIntervalDirective() {
+function filterIntervalDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterInterval/filterInterval.html',
+        templateUrl: '/templates/components/filterInterval/filterInterval.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

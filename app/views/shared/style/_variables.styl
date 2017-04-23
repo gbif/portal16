@@ -72,7 +72,7 @@ $navBar_background_color := #71b171
 $navBar_background := linear-gradient(lighten($navBar_background_color, 2), $navBar_background_color) //linear-gradient(lighten($olivine, 2), $olivine)
 
 $navBar_boxShadow := 0 2px 2px rgba(0, 0, 0, 0.2)
-$navBar_borderColor := #f5cc27
+$navBar_borderColor := darken($navBar_background_color, 5)//#65a565
 $navBar_textColor := #fafafa
 $navBar_fontWeight = 400
 $navBar_dropDownBackground := white
@@ -87,7 +87,7 @@ menuTextShadow() {
 /*search*/
 $searchBar-height := vrBlock(3)
 $searchTabBar-height := vrBlock(2.25)
-$searchBar_backgroundColor := #aeceba
+$searchBar_backgroundColor := darken($navBar_background_color, 5)//#65a565
 $searchBar_color := #fff
 
 $contentWidth--wide := 1653px

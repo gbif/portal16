@@ -4,8 +4,8 @@ var express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
-    apiConfig = require('../../../../models/cmsData/apiConfig'),
-    cmsData = require('../../../../models/cmsData/cmsData'),
+    apiConfig = require('../../../../models/cmsData_deprecated/apiConfig'),
+    cmsData = require('../../../../models/cmsData_deprecated/cmsData'),
     Utilities = require('../cmsUtilities'),
     log = require('../../../../../config/log');
 

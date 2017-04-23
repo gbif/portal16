@@ -82,7 +82,7 @@
                                         {% for media in node.participant.data[0].socialMedia %}
                                             <div>
                                                 <a href="{$ media.url $}">
-                                                    <img src="{$ media.title | socialMediaIcon | rev $}">
+                                                    <img src="{$ media.title | socialMediaIcon $}">
                                                 </a>
                                             </div>
                                         {% endfor %}

@@ -72,12 +72,14 @@
 }
 
 .article-secondary {
-    padding-top vrBlock(2)
-    margin-top vrBlock(2)
-    border-top 1px solid $stripeBorderColor
     >section {
         margin-bottom vrBlock(1)
     }
+}
+.body-text+.article-secondary {
+    padding-top vrBlock(2)
+    margin-top vrBlock(2)
+    border-top 1px solid $stripeBorderColor
 }
 
 .associated-entities {
@@ -127,5 +129,20 @@
 .emptyInfo {
     text-align center
     color #9fb7c3
-    margin 5rem 3rem 10rem 3rem
+    padding 5rem 3rem 10rem 3rem
+}
+.emptyInfo--large {
+    @extends .emptyInfo
+    padding-bottom 30rem
+}
+
+
+
+    //TEST
+.grid {
+    width:100%;
+    min-height:500px;
+}
+.grid-item {
+    width 400px
 }

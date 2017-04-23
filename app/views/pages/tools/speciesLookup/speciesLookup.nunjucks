@@ -31,5 +31,5 @@
 
 
 {% block scripts %}
-    <script src="/js/base/pages/speciesLookup.js"></script>
+    <script src="/js/base/pages/speciesLookup.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}

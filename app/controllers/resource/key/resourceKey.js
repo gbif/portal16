@@ -1,7 +1,7 @@
 "use strict";
 
 let _ = require('lodash'),
-    slugify = require("slugify"),
+    slug = require("slug"),
     request = require('requestretry'),
     urljoin = require('url-join'),
     moment = require('moment'),
@@ -15,12 +15,13 @@ module.exports = {
     searchContentful: searchContentful,
     getFirstContentItem: getFirstContentItem,
     mapLegacyData: mapLegacyData,
-    removeUnresovable: removeUnresovable
+    removeUnresovable: removeUnresovable,
+    getParticipant: getParticipant
 };
 
 
 function getSlug(str){
-    return slugify(str.toLowerCase().normalize().replace(/[^\w\-]/g, '-'));
+    return slug(str.toLowerCase());
 }
 
 function searchContentful(entryId, depth, isPreview, locale) {
@@ -32,6 +33,57 @@ function searchContentful(entryId, depth, isPreview, locale) {
             access_token: accessToken,
             include: depth || 1,
             'sys.id': entryId,
+            'locale': validLocale
+        },
+        requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(query));
+
+    var proseRequest = {
+        url: requestPath,
+        fullResponse: false,
+        json: true,
+        maxAttempts: 2,
+        timeout: 30000,
+        method: 'GET'
+    };
+    return request(proseRequest);
+}
+
+function decorateFirst(results){
+    //check if there is any results. if not, then the item do not exists
+    if (results.total == 0) {
+        return;
+    } else if(_.get(results, 'sys.type') !== 'Array') {
+        throw(Error('contentful query failed'));
+    }
+
+    let contentItem = getFirstContentItem(results),
+        itemTitle = contentItem.main.fields.title || '',
+        slugTitle = getSlug(itemTitle);
+    mapLegacyData(contentItem);
+    removeUnresovable(contentItem.main.fields, contentItem.resolved);
+
+    contentItem._meta = {
+        title: itemTitle,
+        slugTitle: slugTitle
+    };
+    return contentItem;
+}
+async function getParticipant(directoryId, depth, isPreview, locale) {
+    let participants = await getParticipants(directoryId, depth, isPreview, locale),
+        first = decorateFirst(participants);
+    return first;
+}
+
+function getParticipants(directoryId, depth, isPreview, locale) {
+    let accessToken = isPreview ? credentials.preview_access_token : credentials.access_token,
+        api = isPreview ? 'http://preview.contentful.com' : 'http://cdn.contentful.com',
+        space = credentials.space,
+        validLocale = contentfulLocaleMap[locale],
+        query = {
+            access_token: accessToken,
+            include: depth || 1,
+            content_type: 'Participant',
+            'fields.directoryId': directoryId,
             'locale': validLocale
         },
         requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(query));

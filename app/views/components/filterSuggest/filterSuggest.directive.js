@@ -7,10 +7,10 @@ angular
     .directive('filterSuggest', filterSuggestDirective);
 
 /** @ngInject */
-function filterSuggestDirective() {
+function filterSuggestDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
-        templateUrl: '/templates/components/filterSuggest/filterSuggest.html',
+        templateUrl: '/templates/components/filterSuggest/filterSuggest.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

@@ -7,11 +7,11 @@ angular
     .directive('filterTaxon', filterTaxonDirective);
 
 /** @ngInject */
-function filterTaxonDirective() {
+function filterTaxonDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterTaxon/filterTaxon.html',
+        templateUrl: '/templates/components/filterTaxon/filterTaxon.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='
@@ -32,7 +32,7 @@ function filterTaxonDirective() {
         vm.queryKey = vm.filterConfig.queryKey;
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
-        vm.listTemplate = vm.filterConfig.listTemplate ? vm.filterConfig.listTemplate : '/templates/components/filterSuggest/basicSuggest.html';
+        vm.listTemplate = vm.filterConfig.listTemplate;
 
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
         vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);

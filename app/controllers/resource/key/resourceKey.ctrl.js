@@ -10,34 +10,55 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/data-use2/:id/:title?\.:ext?', function (req, res, next) {
+
+router.get('/data-use/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'data-use', 'pages/resource/key/dataUse/dataUseStory');
 });
-
-router.get('/datause2/:id/:title?\.:ext?', function (req, res, next) {
-    prose(req, res, next, 'data-use', 'pages/resource/key/dataUse/dataUseStory');
+router.get('/dataUse/:id/:title?\.:ext?', function (req, res) {
+    res.redirect(302, res.locals.gb.locales.urlPrefix + '/data-use/' + req.params.id + '/' + req.params.title);
 });
 
-router.get('/event2/:id/:title?\.:ext?', function (req, res, next) {
+
+router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'event', 'pages/resource/key/event/event');
 });
 
-router.get('/news2/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/news/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'news', 'pages/resource/key/news/newsStory');
 });
 
-router.get('/tool2/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/tool/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'tool', 'pages//resource/key/tool/tool');
 });
 
-router.get('/programme2/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/programme/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'programme', 'pages/resource/key/programme/programme');
 });
 
-router.get('/project2/:id/:title?\.:ext?', function (req, res, next) {
+router.get('/project/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'project', 'pages/resource/key/project/project');
 });
 
+router.get('/country2/:id/:title?\.:ext?', function (req, res, next) {
+    let entry = req.params.id,
+        entryTitle = req.params.title,
+        preview = entryTitle === '_preview';// too see the preview of an item (using the preview api) call an item with /[id]/_preview
+
+    resource.getParticipant(entry, 2, false, res.locals.gb.locales.current)
+        .then(function(contentItem){
+            //if not a preview, then make sure the title is a part of the url by redirecting if necessary
+            if (!preview) {
+                if (contentItem._meta.slugTitle != entryTitle){
+                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/country2/' + entry + '/' + contentItem._meta.slugTitle );
+                    return;
+                }
+            }
+            helper.renderPage(req, res, next, contentItem, 'pages/resource/key/project/project');
+        })
+        .catch(function(err){
+            next(err);
+        });
+});
 
 function prose(req, res, next, type, template){
     let entry = req.params.id,
@@ -69,7 +90,7 @@ function prose(req, res, next, type, template){
             //if not a preview, then make sure the title is a part of the url by redirecting if necessary
             if (!preview) {
                 if (slugTitle != entryTitle){
-                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/'+ type +'2/' + entry + '/' + slugTitle);
+                    res.redirect(302, res.locals.gb.locales.urlPrefix + '/'+ type + '/' + entry + '/' + slugTitle);
                     return;
                 }
             }

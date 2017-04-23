@@ -35,18 +35,18 @@ gulp.task('vendor-scripts', function () {
         .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.js'))
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-        .pipe(gulpif(config.isProd, rev()))
+        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        .pipe(gulp.dest(path.join(config.paths.dist, vendor)))
-        .pipe(rename(function (path) {
-            path.dirname += "/" + vendor
-        }))
-        .pipe(gulpif(config.isProd, rev.manifest({
-            path: config.rev.manifest,
-            cwd: config.rev.manifestDest,
-            merge: true
-        })))
-        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
+        .pipe(gulp.dest(path.join(config.paths.dist, vendor)));
+        // .pipe(rename(function (path) {
+        //     path.dirname += "/" + vendor
+        // }))
+        // .pipe(gulpif(config.isProd, rev.manifest({
+        //     path: config.rev.manifest,
+        //     cwd: config.rev.manifestDest,
+        //     merge: true
+        // })))
+        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
 
 function buildScripts() {
@@ -74,7 +74,7 @@ gulp.task('home', function () {
 });
 
 gulp.task('signpost', function () {
-    return buildNoneRevisioned('./app/views/shared/signpost.entry.js', 'shared/signpost.js');
+    return build('./app/views/shared/signpost.entry.js', 'shared/signpost.js');
 });
 
 //gulp.task('buildOccurrenceKey', function() {
@@ -82,7 +82,7 @@ gulp.task('signpost', function () {
 //        .pipe(browserSync.stream());
 //});
 
-function build(entry, name) {
+function build2(entry, name) {
     var revision = config.loadRevision();
     var dest = 'js/base';
     return browserify({
@@ -111,24 +111,24 @@ function build(entry, name) {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        .pipe(replace('/templates/', '/templates/' + revision + '/'))
-        .pipe(gulpif(config.isProd, revReplace({
-            manifest: gulp.src(config.rev.manifest)
-        })))
-        .pipe(gulpif(config.isProd, rev()))
-        .pipe(gulp.dest(path.join(config.paths.dist, dest)))
-        .pipe(rename(function (path) {
-            path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
-        }))
-        .pipe(gulpif(config.isProd, rev.manifest({
-            path: config.rev.manifest,
-            cwd: config.rev.manifestDest,
-            merge: true
-        })))
-        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
+        // .pipe(replace('/templates/', '/templates/' + revision + '/'))
+        // .pipe(gulpif(config.isProd, revReplace({
+        //     manifest: gulp.src(config.rev.manifest)
+        // })))
+        // .pipe(gulpif(config.isProd, rev()))
+        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
+        // .pipe(rename(function (path) {
+        //     path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
+        // }))
+        // .pipe(gulpif(config.isProd, rev.manifest({
+        //     path: config.rev.manifest,
+        //     cwd: config.rev.manifestDest,
+        //     merge: true
+        // })))
+        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }
 
-function buildNoneRevisioned(entry, name) {
+function build(entry, name) {
     var dest = 'js/base';
     return browserify({
         entries: entry,

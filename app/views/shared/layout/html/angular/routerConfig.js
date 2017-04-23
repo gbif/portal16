@@ -6,7 +6,7 @@ angular
 
 // The annotation is necessary to work with minification and ngAnnotate when using as a commonjs Module - http://chrisdoingweb.com/blog/minifying-browserified-angular-modules/
 /** @ngInject */
-function routerConfig($stateProvider, $locationProvider) {
+function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
     //TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
     $stateProvider
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
@@ -20,7 +20,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/search?q',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/search/search.html',
+                    templateUrl: '/templates/pages/search/search.html?v=' + BUILD_VERSION,
                     controller: 'searchCtrl',
                     controllerAs: 'rootSearch'
                 }
@@ -43,7 +43,7 @@ function routerConfig($stateProvider, $locationProvider) {
             },
             views: {
                 main: {
-                    templateUrl: '/templates/pages/occurrence/occurrence.html',
+                    templateUrl: '/templates/pages/occurrence/occurrence.html?v=' + BUILD_VERSION,
                     controller: 'occurrenceCtrl',
                     controllerAs: 'occurrence'
                 }
@@ -52,35 +52,35 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('occurrenceSearchTable', {
             parent: 'occurrenceSearch',
             url: '/search?offset&limit',
-            templateUrl: '/templates/pages/occurrence/table/occurrenceTable.html',
+            templateUrl: '/templates/pages/occurrence/table/occurrenceTable.html?v=' + BUILD_VERSION,
             controller: 'occurrenceTableCtrl',
             controllerAs: 'occTable'
         })
         .state('occurrenceSearchMap', {
             parent: 'occurrenceSearch',
             url: '/map?center&zoom',
-            templateUrl: '/templates/pages/occurrence/map/occurrenceMap.html',
+            templateUrl: '/templates/pages/occurrence/map/occurrenceMap.html?v=' + BUILD_VERSION,
             controller: 'occurrenceMapCtrl',
             controllerAs: 'occMap'
         })
         .state('occurrenceSearchGallery', {
             parent: 'occurrenceSearch',
             url: '/gallery',
-            templateUrl: '/templates/pages/occurrence/gallery/occurrenceGallery.html',
+            templateUrl: '/templates/pages/occurrence/gallery/occurrenceGallery.html?v=' + BUILD_VERSION,
             controller: 'occurrenceGalleryCtrl',
             controllerAs: 'occGallery'
         })
         .state('occurrenceSearchSpecies', {
             parent: 'occurrenceSearch',
             url: '/species',
-            templateUrl: '/templates/pages/occurrence/species/occurrenceSpecies.html',
+            templateUrl: '/templates/pages/occurrence/species/occurrenceSpecies.html?v=' + BUILD_VERSION,
             controller: 'occurrenceSpeciesCtrl',
             controllerAs: 'occSpecies'
         })
         .state('occurrenceSearchDownload', {
             parent: 'occurrenceSearch',
             url: '/download',
-            templateUrl: '/templates/pages/occurrence/download/occurrenceDownload.html',
+            templateUrl: '/templates/pages/occurrence/download/occurrenceDownload.html?v=' + BUILD_VERSION,
             controller: 'occurrenceDownloadCtrl',
             controllerAs: 'occDownload'
         })
@@ -89,7 +89,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade&taxon_key&project_id',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/dataset/search/dataset.html',
+                    templateUrl: '/templates/pages/dataset/search/dataset.html?v=' + BUILD_VERSION,
                     controller: 'datasetCtrl',
                     controllerAs: 'dataset'
                 }
@@ -98,7 +98,7 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('datasetSearchTable', {
             parent: 'datasetSearch',
             url: '/search',
-            templateUrl: '/templates/pages/dataset/search/table/datasetTable.html',
+            templateUrl: '/templates/pages/dataset/search/table/datasetTable.html?v=' + BUILD_VERSION,
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
         })
@@ -113,7 +113,7 @@ function routerConfig($stateProvider, $locationProvider) {
             },
             views: {
                 main: {
-                    templateUrl: '/templates/pages/species/search/species.html',
+                    templateUrl: '/templates/pages/species/search/species.html?v=' + BUILD_VERSION,
                     controller: 'speciesCtrl',
                     controllerAs: 'species'
                 }
@@ -122,14 +122,14 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('speciesSearchList', {
             parent: 'speciesSearch',
             url: '/search',
-            templateUrl: '/templates/pages/species/search/list/speciesList.html',
+            templateUrl: '/templates/pages/species/search/list/speciesList.html?v=' + BUILD_VERSION,
             controller: 'speciesListCtrl',
             controllerAs: 'speciesList'
         })
         .state('speciesSearchTable', {
             parent: 'speciesSearch',
             url: '/table',
-            templateUrl: '/templates/pages/species/search/table/speciesTable.html',
+            templateUrl: '/templates/pages/species/search/table/speciesTable.html?v=' + BUILD_VERSION,
             controller: 'speciesTableCtrl',
             controllerAs: 'speciesTable'
         })
@@ -138,7 +138,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/publisher?offset&limit&q&country',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/publisher/search/publisher.html',
+                    templateUrl: '/templates/pages/publisher/search/publisher.html?v=' + BUILD_VERSION,
                     controller: 'publisherCtrl',
                     controllerAs: 'publisher'
                 }
@@ -147,16 +147,16 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('publisherSearchTable', {
             parent: 'publisherSearch',
             url: '/search',
-            templateUrl: '/templates/pages/publisher/search/table/publisherTable.html',
+            templateUrl: '/templates/pages/publisher/search/table/publisherTable.html?v=' + BUILD_VERSION,
             controller: 'publisherTableCtrl',
             controllerAs: 'publisherTable'
         })
         .state('resourceSearch', {
             parent: 'localization',
-            url: '/resources?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&countriesOfResearcher&countriesOfCoverage',
+            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&countriesOfResearcher&countriesOfCoverage',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/resource/search/resource.html',
+                    templateUrl: '/templates/pages/resource/search/resource.html?v=' + BUILD_VERSION,
                     controller: 'resourceCtrl',
                     controllerAs: 'resource'
                 }
@@ -165,44 +165,44 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('resourceSearchList', {
             parent: 'resourceSearch',
             url: '/search',
-            templateUrl: '/templates/pages/resource/search/list/resourceList.html',
+            templateUrl: '/templates/pages/resource/search/list/resourceList.html?v=' + BUILD_VERSION,
             controller: 'resourceListCtrl',
             controllerAs: 'resourceList'
         })
-        .state('cmsSearch', {
-            parent: 'localization',
-            url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type&category_literature_year&category_gbif_literature_annotation&category_author_from_country&category_gbif_region',
-            views: {
-                main: {
-                    templateUrl: '/templates/pages/cms/search/cms.html',
-                    controller: 'cmsCtrl',
-                    controllerAs: 'cms'
-                }
-            },
-            resolve: {
-                results: function ($stateParams, CmsSearch) {
-                    var query = angular.copy($stateParams);
-                    return CmsSearch.query(query).$promise.then(function (response) {
-                        return response;
-                    }, function (error) {
-                        return error;
-                    });
-                }
-            }
-        })
-        .state('cmsSearchTable', {
-            parent: 'cmsSearch',
-            url: '/search',
-            templateUrl: '/templates/pages/cms/search/table/cmsTable.html',
-            controller: 'cmsTableCtrl',
-            controllerAs: 'cmsTable'
-        })
+        // .state('cmsSearch', {
+        //     parent: 'localization',
+        //     url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type&category_literature_year&category_gbif_literature_annotation&category_author_from_country&category_gbif_region',
+        //     views: {
+        //         main: {
+        //             templateUrl: '/templates/pages/cms/search/cms.html',
+        //             controller: 'cmsCtrl',
+        //             controllerAs: 'cms'
+        //         }
+        //     },
+        //     resolve: {
+        //         results: function ($stateParams, CmsSearch) {
+        //             var query = angular.copy($stateParams);
+        //             return CmsSearch.query(query).$promise.then(function (response) {
+        //                 return response;
+        //             }, function (error) {
+        //                 return error;
+        //             });
+        //         }
+        //     }
+        // })
+        // .state('cmsSearchTable', {
+        //     parent: 'cmsSearch',
+        //     url: '/search',
+        //     templateUrl: '/templates/pages/cms/search/table/cmsTable.html',
+        //     controller: 'cmsTableCtrl',
+        //     controllerAs: 'cmsTable'
+        // })
         .state('user', {
             parent: 'localization',
             url: '/user',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/user/user.html',
+                    templateUrl: '/templates/pages/user/user.html?v=' + BUILD_VERSION,
                     controller: 'userCtrl',
                     controllerAs: 'user'
                 }
@@ -211,21 +211,21 @@ function routerConfig($stateProvider, $locationProvider) {
         .state('userProfile', {
             parent: 'user',
             url: '/profile',
-            templateUrl: '/templates/pages/user/profile/userProfile.html',
+            templateUrl: '/templates/pages/user/profile/userProfile.html?v=' + BUILD_VERSION,
             controller: 'userProfileCtrl',
             controllerAs: 'userProfile'
         })
         .state('userDownloads', {
             parent: 'user',
             url: '/download?offset&limit',
-            templateUrl: '/templates/pages/user/downloads/userDownloads.html',
+            templateUrl: '/templates/pages/user/downloads/userDownloads.html?v=' + BUILD_VERSION,
             controller: 'userDownloadsCtrl',
             controllerAs: 'userDownloads'
         })
         .state('userSettings', {
             parent: 'user',
             url: '/settings',
-            templateUrl: '/templates/pages/user/settings/userSettings.html',
+            templateUrl: '/templates/pages/user/settings/userSettings.html?v=' + BUILD_VERSION,
             controller: 'userSettingsCtrl',
             controllerAs: 'userSettings'
         })
@@ -234,7 +234,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/node/:key?offset_datasets&offset_endorsed',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/node/key/node.html',
+                    templateUrl: '/templates/pages/node/key/node.html?v=' + BUILD_VERSION,
                     controller: 'nodeKeyCtrl',
                     controllerAs: 'nodeKey'
                 }
@@ -245,7 +245,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/installation/:key?offset',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/installation/key/installationKey.html',
+                    templateUrl: '/templates/pages/installation/key/installationKey.html?v=' + BUILD_VERSION,
                     controller: 'installationKeyCtrl',
                     controllerAs: 'installationKey'
                 }
@@ -256,7 +256,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/network/:key?offset',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/network/key/networkKey.html',
+                    templateUrl: '/templates/pages/network/key/networkKey.html?v=' + BUILD_VERSION,
                     controller: 'networkKeyCtrl',
                     controllerAs: 'networkKey'
                 }
@@ -268,7 +268,7 @@ function routerConfig($stateProvider, $locationProvider) {
             url: '/country/:key',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/country/key/countryKey.html',
+                    templateUrl: '/templates/pages/country/key/countryKey.html?v=' + BUILD_VERSION,
                     controller: 'countryKeyCtrl',
                     controllerAs: 'countryKey'
                 }
@@ -278,7 +278,7 @@ function routerConfig($stateProvider, $locationProvider) {
             parent: 'country',
             url: '/{direction:(?:about|published)}',
             params: {direction: {squash: true, value: 'about'}},
-            templateUrl: '/templates/pages/country/key/activity/countryActivity.html',
+            templateUrl: '/templates/pages/country/key/activity/countryActivity.html?v=' + BUILD_VERSION,
             controller: 'countryActivityCtrl',
             controllerAs: 'countryActivity'
         })
@@ -286,14 +286,14 @@ function routerConfig($stateProvider, $locationProvider) {
             parent: 'country',
             url: '/trends/{direction:(?:about|published)}',
             params: {direction: {squash: true, value: 'about'}},
-            templateUrl: '/templates/pages/country/key/trends/countryTrends.html',
+            templateUrl: '/templates/pages/country/key/trends/countryTrends.html?v=' + BUILD_VERSION,
             controller: 'countryTrendsCtrl',
             controllerAs: 'countryTrends'
         })
         .state('countryParticipant', {
             parent: 'country',
             url: '/participant?offset_datasets&offset_endorsed',
-            templateUrl: '/templates/pages/country/key/participant/countryParticipant.html',
+            templateUrl: '/templates/pages/country/key/participant/countryParticipant.html?v=' + BUILD_VERSION,
             controller: 'countryParticipantCtrl',
             controllerAs: 'countryParticipant'
         })

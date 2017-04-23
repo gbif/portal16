@@ -8,11 +8,11 @@ angular
     .directive('intervalSlider', intervalSliderDirective);
 
 /** @ngInject */
-function intervalSliderDirective() {
+function intervalSliderDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/filterInterval/intervalSlider.html',
+        templateUrl: '/templates/components/filterInterval/intervalSlider.html?v=' + BUILD_VERSION,
         scope: {
             intervalOptions: '='
         },

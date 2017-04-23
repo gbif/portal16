@@ -7,11 +7,11 @@ angular
     .directive('bboxFilter', bboxFilterDirective);
 
 /** @ngInject */
-function bboxFilterDirective() {
+function bboxFilterDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         transclude: true,
-        templateUrl: '/templates/components/filterLocation/bboxFilter/bboxFilter.html',
+        templateUrl: '/templates/components/filterLocation/bboxFilter/bboxFilter.html?v=' + BUILD_VERSION,
         scope: {},
         controller: bboxFilter,
         controllerAs: 'vm',

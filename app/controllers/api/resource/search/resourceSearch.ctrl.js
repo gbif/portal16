@@ -1,7 +1,6 @@
 "use strict";
 var express = require('express'),
     router = express.Router(),
-    elasticsearch = require('elasticsearch'),
     _ = require('lodash'),
     resourceSearch = require('./resourceSearch'),
     resourceResultParser = require('./resourceResultParser'),
@@ -10,43 +9,26 @@ var express = require('express'),
     defaultLocale = rootRequire('config/config').defaultLocale;
 
 
-var client = new elasticsearch.Client({
-    host: {
-        protocol: 'http',
-        host: 'develastic-vh.gbif.org',
-        port: 9200
-    }
-});
+
 
 module.exports = function (app) {
     app.use('/api', router);
 };
 
 router.get('/resource/search', function (req, res) {
-    let query = resourceSearch.buildQuery(req.query),
-        preferedLocale = req.query.locale;
-
-    client.search(query).then(function (resp) {
-        var parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
-        resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
-        resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
-
-        resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'projectId', 'status', 'location', 'venue'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
-        resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'title']);
-        resourceResultParser.stripHtml(parsedResult.results, ['body', 'summary', 'title']);
-        resourceResultParser.concatFields(parsedResult.results, ['summary', 'body'], '_summary');
-        resourceResultParser.truncate(parsedResult.results, ['title'], 150);
-        resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
-        resourceResultParser.addSlug(parsedResult.results, 'title', contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
-        resourceResultParser.transformFacets(parsedResult, req.__);
-
-        parsedResult.filters = {};
-
-        res.json(parsedResult);
-    }, function (err) {
-        console.trace(err.message);
-    });
+    resourceSearch.search(req.query, req.__)
+        .then(function(result){
+            res.json(result);
+        })
+        .catch(function(err){
+            console.trace(err.message);
+            console.log(JSON.stringify(req.query, null, 2));
+            res.status(500);
+            res.send('Unable to parse query');
+        });
 });
+
+
 
 /*for wrapping related items of an item in a manner similar to the normal search - it would benefit from a rethinking as it is neither elegant nor generic */
 router.get('/resource/key/search', function (req, res) {
@@ -61,17 +43,17 @@ router.get('/resource/key/search', function (req, res) {
             res.json(parsedResult);
         }, function (err) {
             console.trace(err.message);
+            res.status(500);
+            res.send(err.message);
         });
 });
 
 function transformResult(results, listPath, preferedLocale) {
     //check if there is any results. if not, then the item do not exists
     if (results.total == 0) {
-        next();
-        return;
+        throw Error('NO RESULTS');
     } else if(_.get(results, 'sys.type') !== 'Array') {
-        next(Error('contentful query failed'));
-        return;
+        throw Error('contentful query failed');
     }
 
     let contentItem = resource.getFirstContentItem(results);
@@ -101,6 +83,7 @@ function transformResult(results, listPath, preferedLocale) {
     parsedResult.images = _.mapValues(contentItem.resolved.Asset, 'fields.file.url');
 
     resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
+    resourceResultParser.renameField(parsedResult.results, 'event', 'country.sys.id', 'country.id');//rename literature.abcstract to summary for consistency with other content types
     resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
 
     resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);

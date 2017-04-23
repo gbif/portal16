@@ -77,5 +77,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="/js/base/pages/ipt.js"></script>
+    <script src="/js/base/pages/ipt.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}

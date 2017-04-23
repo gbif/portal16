@@ -8,10 +8,10 @@ angular
     .directive('filterEnum', filterEnumDirective);
 
 /** @ngInject */
-function filterEnumDirective() {
+function filterEnumDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
-        templateUrl: '/templates/components/filterEnum/filterEnum.html',
+        templateUrl: '/templates/components/filterEnum/filterEnum.html?v=' + BUILD_VERSION,
         scope: {
             filterState: '=',
             filterConfig: '='

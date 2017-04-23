@@ -1,8 +1,8 @@
 let express = require('express'),
     router = express.Router(),
-    cmsApi = require('../models/cmsData/apiConfig'),
-    cmsData = require('../models/cmsData/cmsData'),
-    cmsContents = require('../controllers/cms/cmsContents.ctrl');
+    cmsApi = require('../models/cmsData_deprecated/apiConfig'),
+    cmsData = require('../models/cmsData_deprecated/cmsData'),
+    cmsContents = require('../controllers/cms_deprecated/cmsContents.ctrl');
 
 module.exports = function (app) {
     app.use('/', router);

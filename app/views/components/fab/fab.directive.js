@@ -6,11 +6,11 @@ angular
     .directive('fab', fabDirective);
 
 /** @ngInject */
-function fabDirective() {
+function fabDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/components/fab/fab.html',
+        templateUrl: '/templates/components/fab/fab.html?v=' + BUILD_VERSION,
         scope: {},
         controller: fab,
         controllerAs: 'vm',

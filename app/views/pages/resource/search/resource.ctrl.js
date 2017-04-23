@@ -97,7 +97,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, NAV_EVENTS) {
     };
 
     vm.hasData = function () {
-        return typeof vm.state.data.count !== 'undefined'
+        return typeof vm.state.data.count !== 'undefined';
     };
 
     vm.isTabShown = function(contentType){

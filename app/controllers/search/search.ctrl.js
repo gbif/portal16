@@ -3,7 +3,7 @@ var express = require('express'),
     highlights = require('./highlights'),
     baseConfig = require('../../../config/config'),
     imageCacheUrl = rootRequire('app/models/gbifdata/apiConfig').image.url,
-    Utilities = require('../api/cms/cmsUtilities'),
+    Utilities = require('../api/cms_deprecated/cmsUtilities'),
     _ = require('lodash'),
     router = express.Router();
 
@@ -39,7 +39,7 @@ function searchHandler(req, res, next) {
     "use strict";
     var searchString = req.query.q;
 
-    search.search(searchString, function (results) {
+    search.search(searchString, req.__, function (results) {
         try {
             if (_.has(results, 'cms.results.length')) {
                 // handling type-url conversion for CMS contents

@@ -6,9 +6,8 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 
 .home {
     &__header {
-        background-color $olivine
-        background-attachment fixed
-        background-image linear-gradient(to right, $home_overlay_color_from, $home_overlay_color_to), url('//api.gbif.org/v1/image/unsafe/1600x1000/left/top/http://static.inaturalist.org/photos/3400549/original.JPG?1460949098')
+        background-color $navBar_background_color// $olivine
+        background-image linear-gradient(to right, $home_overlay_color_from, $home_overlay_color_to), url("//api.gbif.org/v1/image/unsafe/1500x750/http:%2F%2Fimages.contentful.com%2Fq553fnlofhvs%2Fu42ztYDTy0swCYeC8iOwe%2F565d6151d833ef85881292ae03879d9b%2FWhite_Leadtree_Leucaena_leucocephala.jpg")
         background-size cover
         background-position center
         color white
@@ -38,6 +37,25 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             }
         }
     }
+    &__searchFilters {
+        background darken($navBar_background_color, 10)
+        display flex
+        overflow auto
+        max-width 500px
+        color white
+        a {
+            flex 1 0 auto
+            padding 7px
+            padding-bottom 3px
+            border-bottom 2px solid transparent
+            text-align center
+            font-size 12px
+            text-transform uppercase
+            &:hover {
+                border-bottom 2px solid darken($navBar_background_color, 20)
+            }
+        }
+    }
     &__quicklinks {
         //max-width 400px
         a {
@@ -62,7 +80,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         //    }
         //}
     }
-    
+
     &__featured {
         background-image linear-gradient(to right, $dark_overlay_color, $dark_overlay_color), url('//api.gbif.org/v1/image/unsafe/1600x1000/left/top/http%3A%2F%2Fcms.gbif-uat.org%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fheader_image%2Fpublic%2Fgbif_scaled_contents%2Fdata_use%2F2016-November%2F82995%2F14201651585_2a9517b21b_k.jpg')
         background-size cover
@@ -166,7 +184,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             }
         }
     }
-    
+
     &__datapapers {
         &__bubble {
             width 160px
@@ -214,9 +232,16 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             padding-top 0
         }
         .site-nav {
-            background none
+            background rgba(0,0,0,0.0)
+            transition background 300ms ease
             box-shadow none
             position absolute
+            &:hover {
+                background rgba(0,0,0,0.2)
+            }
+        }
+        .omnisearch-bar {
+            display none
         }
     }
 }
@@ -321,15 +346,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
                 font-weight normal
             }
         }
-    }
-}
-.date-box--small {
-    @extends .date-box
-    span {
-        font-size 12px
-    }
-    >div>div div {
-        font-size 16px
     }
 }
 

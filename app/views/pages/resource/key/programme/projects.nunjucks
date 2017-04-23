@@ -1,6 +1,4 @@
 <div class="light-background p-t-05 seperator">
-    <div class="container--narrow">
-    </div>
     <div>
         <div class="scrollable-y">
             <div class="table-container">
@@ -32,7 +30,7 @@
                             </div>
                         </td>
                         <td class="table-cell--widder">
-                            <a ng-href="{$ gb.locales.urlPrefix $}/project2/{{ result.id }}/{{ result._slug }}"
+                            <a ng-href="{$ gb.locales.urlPrefix $}/project/{{ result.id }}/{{ result._slug }}"
                                ng-click="programmeKey.preventBubbling($event)">{{ result.title }}</a>
                             {#<div class="discreet" ng-if="result.projectId">{{result.projectId}}</div>#}
                         </td>
@@ -61,5 +59,15 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="emptyInfo--large" ng-if="!programmeKey.projects.$resolved">
+        <h3>Hang on while we search for related projects</h3>
+        <span class="loading"></span>
+    </div>
+    <div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && !programmeKey.projects.results">
+        <h3>Hmm :( we couldn't find any projects due to a server error</h3>
+    </div>
+    <div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && programmeKey.projects.count >= 0">
+        <h3>No projects to show</h3>
     </div>
 </div>

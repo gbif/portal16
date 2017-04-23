@@ -14,7 +14,7 @@
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
-<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %}>
+<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="urlPrefix='{$ gb.locales.urlPrefix $}'">
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
@@ -73,9 +73,11 @@
 <script>
     window.gb = window.gb || {};
     window.gb.locale = '{$ gb.locales.current $}';
+    window.gb.urlPrefix = '{$ gb.locales.urlPrefix $}';
+    window.gb.buildVersion = '{$ BUILD_VERSION $}';
 </script>
-<script src="/js/vendor/vendor.js"></script>
-<script src="/js/base/custom.js"></script>
+<script src="/js/vendor/vendor.js?v={$ BUILD_VERSION $}"></script>
+<script src="/js/base/custom.js?v={$ BUILD_VERSION $}"></script>
 
 {% block scripts %}{% endblock %}
 

@@ -1,7 +1,7 @@
 "use strict";
 const _ = require('lodash'),
     format = require('../../../../helpers/format'),
-    slugify = require("slugify"),
+    slug = require("slug"),
     md = require('markdown-it')({html: true, linkify: true, typographer: true}),
     changeCase = require('change-case');
 
@@ -60,10 +60,10 @@ function stripHtml(results, fieldsPaths){
         fieldsPaths.forEach(function(field){
             let value = _.get(e, field);
             if (_.isString(value)) {
-                _.set(e, field, format.removeHtml(value));
+                _.set(e, field, format.decodeHtml(format.removeHtml(value)));
             } else if (_.isObject(value)) {
                 let transformedValue = _.mapValues(value, function(x){
-                    return format.removeHtml(x);
+                    return format.decodeHtml(format.removeHtml(x));
                 });
                 _.set(e, field, transformedValue);
 
@@ -140,7 +140,7 @@ function addSlug(results, field, preferedLanguage, fallbackLanguage) {
 }
 
 function getSlug(str){
-    return slugify(str.toLowerCase().normalize().replace(/[^\w\-]/g, '-'));
+    return slug(str.toLowerCase());
 }
 
 function renameField(results, type, oldFieldName, newFieldName) {

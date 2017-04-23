@@ -7,9 +7,9 @@
                     <div class="card m-b-1 searchCard">
                         <div class="card__stripe">
                             <div class="card__content">
-                                <h2>
+                                <h3>
                                     <a ng-href="{$ gb.locales.urlPrefix $}/dataset/{{result.key}}">{{result.title}}</a>
-                                </h2>
+                                </h3>
                             </div>
                         </div>
                         <div class="card__stripe">

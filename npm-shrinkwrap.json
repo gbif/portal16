@@ -7341,6 +7341,11 @@
       "from": "slide@>=1.1.5 <2.0.0",
       "resolved": "https://registry.npmjs.org/slide/-/slide-1.1.6.tgz"
     },
+    "slug": {
+      "version": "0.9.1",
+      "from": "slug@latest",
+      "resolved": "https://registry.npmjs.org/slug/-/slug-0.9.1.tgz"
+    },
     "slugify": {
       "version": "1.1.0",
       "from": "slugify@latest",
@@ -8214,6 +8219,11 @@
       "version": "1.0.1",
       "from": "unflowify@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/unflowify/-/unflowify-1.0.1.tgz"
+    },
+    "unicode": {
+      "version": "9.0.1",
+      "from": "unicode@>=0.3.1",
+      "resolved": "https://registry.npmjs.org/unicode/-/unicode-9.0.1.tgz"
     },
     "uniq": {
       "version": "1.0.1",

@@ -6,11 +6,11 @@ angular
     .directive('notifications', notificationsDirective);
 
 /** @ngInject */
-function notificationsDirective() {
+function notificationsDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/api/notifications/template.html',
+        templateUrl: '/api/notifications/template.html?v=' + BUILD_VERSION,
         scope: {},
         replace: true,
         controller: notifications,

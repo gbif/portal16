@@ -6,11 +6,11 @@ angular
     .directive('feedback', feedbackDirective);
 
 /** @ngInject */
-function feedbackDirective() {
+function feedbackDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/api/feedback/template.html',
+        templateUrl: '/api/feedback/template.html?v=' + BUILD_VERSION,
         scope: {},
         replace: true,
         controller: feedback,

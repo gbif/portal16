@@ -11,10 +11,10 @@ angular
     .directive('userLogin', userLoginDirective);
 
 /** @ngInject */
-function userLoginDirective() {
+function userLoginDirective(BUILD_VERSION, LOCALE) {
     var directive = {
         restrict: 'A',
-        templateUrl: '/templates/components/userLogin/userLogin.html',
+        templateUrl: '/templates/components/userLogin/userLogin.html?v=' + BUILD_VERSION,
         scope: {},
         replace: true,
         controller: userLogin,
@@ -37,7 +37,7 @@ function userLoginDirective() {
 
         vm.getSuggestions = function () {
             //get list of countries
-            var countryList = $http.get('/api/country/suggest.json?lang=en');//TODO needs localization of suggestions
+            var countryList = $http.get('/api/country/suggest.json?lang=' + LOCALE + '&v=' + BUILD_VERSION);//TODO needs localization of suggestions
             countryList.then(function (response) {
                 vm.searchSuggestions = response.data;
             });

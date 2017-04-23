@@ -5,6 +5,7 @@
             <div>
                 <form class="search-box" ng-submit="rootSearch.updateSearch()">
                     <input type="text"
+                           id="siteSearch"
                            autocomplete="off"
                            ng-init="rootSearch.freeTextQuery == ''"
                            ng-model="rootSearch.freeTextQuery"
@@ -18,20 +19,20 @@
             </div>
             <div class="omnisearch-bar__filters">
                 <div>
-                    <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                        Occurrence
+                    <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--brand">
+                        Occurrences
                     </a>
-                    <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                    <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--brand">
                         Species
                     </a>
-                    <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
-                        Dataset
+                    <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--brand">
+                        Datasets
                     </a>
-                    <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--primary">
+                    <a href="" ui-sref="publisherSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--brand">
                         Publisher
                     </a>
-                    <a ui-sref="cmsSearchTable({q: rootSearch.query.q})" class="gb-button--primary">
-                        GBIF Network
+                    <a ui-sref="resourceSearchList({q: rootSearch.query.q})" class="gb-button--brand">
+                        Resources
                     </a>
                 </div>
             </div>

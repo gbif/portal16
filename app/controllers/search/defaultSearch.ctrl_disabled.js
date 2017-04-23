@@ -1,3 +1,5 @@
+//unclear if this is something we still want. it is a drupal left over in some ways
+
 var express = require('express'),
     Q = require('q'),
     cmsSearchUrl = rootRequire('app/models/cmsData/apiConfig').search.url,

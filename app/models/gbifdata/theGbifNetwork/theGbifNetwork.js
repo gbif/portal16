@@ -15,10 +15,10 @@ let helper = require('../../util/util'),
     NodeCache = require('node-cache'),
     theGbifNetworkCache = new NodeCache(),
     dataApi = require('../apiConfig'),
-    cmsApi = require('../../cmsData/apiConfig'),
+    cmsApi = require('../../cmsData_deprecated/apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
-    Literature = require('../../cmsData/literature/literature'),
+    Literature = require('../../cmsData_deprecated/literature/literature'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 

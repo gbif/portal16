@@ -24,7 +24,7 @@
         </div>
 
         <div ng-if="resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'literature'">
-            <div filter-enum filter-config="resource.filters.countriesOfCoverage" filter-state="resource.state"></div>
+            <div filter-enum filter-config="resource.filters.countriesOfResearcher" filter-state="resource.state"></div>
         </div>
 
         <div ng-if="resource.state.query.contentType == 'literature'">
@@ -90,31 +90,31 @@
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('news')" ng-class="{isActive: resource.state.query.contentType == 'news'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], locale: resource.state.query.locale})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], offset:undefined})">
                                             News
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('dataUse')" ng-class="{isActive: resource.state.query.contentType == 'dataUse'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], locale: resource.state.query.locale})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], offset:undefined})">
                                             Data use
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('event')" ng-class="{isActive: resource.state.query.contentType == 'event'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], locale: resource.state.query.locale})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], offset:undefined})">
                                             Events
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('project')" ng-class="{isActive: resource.state.query.contentType == 'project'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], locale: resource.state.query.locale})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], offset:undefined})">
                                             Projects
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.getExtraTabContentType()" ng-class="{isActive: resource.state.query.contentType == resource.getExtraTabContentType()}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], locale: resource.state.query.locale})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], offset:undefined})">
                                             {{resource.getExtraTabContentType()}}
                                         </a>
                                     </li>
@@ -126,7 +126,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                             aria-labelledby="btn-append-to-body">
                                             <li ng-repeat="option in resource.getMoreOptions()" role="menuitem">
-                                                <a href="" ui-sref="resourceSearchList({contentType:[option], locale: resource.state.query.locale})">{{option}}</a>
+                                                <a href="" ui-sref="resourceSearchList({contentType:[option], offset:undefined})">{{option}}</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -138,7 +138,7 @@
 
 
                 <div class="horizontal-stripe light-background">
-                    <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resource.hasData()"></ng-include>
+                    <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resource.hasData() && !resource.state.failedRequest"></ng-include>
                     <div ng-if="resource.hasData()">
                         <div ui-view ng-if="resource.state.data.count > 0">
 
@@ -146,6 +146,9 @@
                         <div class="emptyInfo" ng-if="resource.state.data.count === 0">
                             <h3>No results - try clearing your filters</h3>
                         </div>
+                    </div>
+                    <div class="emptyInfo" ng-if="resource.state.failedRequest">
+                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
                     </div>
                 </div>
             </article>

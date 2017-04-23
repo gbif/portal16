@@ -1,16 +1,16 @@
 .searchCard {
-    h2 {
+    h3 {
         font-size 16px
         line-height 20px
         margin 0
     }
     &__type {
-        padding 1px 5px;
-        font-size 12px;
-        //background: #f1f1f1;
+        padding 1px 5px
+        font-size 12px
+        background #f1f1f1
         display inline-block
         float right
-        color orange
+        font-weight bold
     }
 
     &__img {
@@ -19,5 +19,26 @@
         border 1px solid #eee
         height 64px
         margin-left 5px
+    }
+    &__date {
+        float right
+        width 80px
+        margin-left 5px
+        background $lightBackground
+        text-align center
+        border 1px solid #eee
+        div {
+            background $navBar_background_color
+            color white
+            padding 10px
+        }
+        span{
+            padding 10px
+            display inline-block
+        }
+    }
+    &__meta {
+        font-size 12px
+        color darken($navBar_background_color, 15)//#4a8e4a
     }
 }

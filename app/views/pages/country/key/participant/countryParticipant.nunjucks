@@ -27,7 +27,10 @@
         {$ tabsMacro.countryTabs(country, 'participant', __) $}
 
         <div class="m-t-1">
-            <ng-include src="'/node/{$ country.record.key $}/content'"></ng-include>
+            {#<ng-include src="'/node/{$ country.record.key $}/content'"></ng-include>#}
+            <div class="emptyInfo">
+                <h3>Participant info coming soon</h3>
+            </div>
         </div>
 
         {#{% include "./highlights/highlights.nunjucks" %}#}

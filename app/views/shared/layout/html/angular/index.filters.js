@@ -27,6 +27,11 @@
                 return text.replace(/_/g, '-');
             }
         })
+        .filter('isPast', function (moment) {
+            return function (date) {
+                return moment().isAfter(date);
+            }
+        })
         .filter('compactInteger', function () {
             return function (nr) {
                 return Humanize.compactInteger(nr, 0);

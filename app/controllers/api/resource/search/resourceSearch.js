@@ -1,19 +1,57 @@
 //has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
 const _ = require('lodash'),
+    elasticsearch = require('elasticsearch'),
+    resourceResultParser = require('./resourceResultParser'),
+    contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
+    defaultLocale = rootRequire('config/config').defaultLocale,
     filterHelper = require('./filter');
 
-let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id'],
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme'];
+
+var client = new elasticsearch.Client({
+    host: {
+        protocol: 'http',
+        host: 'develastic-vh.gbif.org',
+        port: 9200
+    }
+});
+
+async function search(requestQuery, __, requestTimeout) {
+    let preferedLocale = requestQuery.locale,
+        query = buildQuery(requestQuery);
+
+    query.requestTimeout = requestTimeout || 5000;
+
+    let resp = await client.search(query);
+    let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
+    // resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
+    resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
+
+    resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'abstract', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'projectId', 'status', 'location', 'venue', 'primaryLink.url', 'programme.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
+    resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract', 'title']);
+    resourceResultParser.stripHtml(parsedResult.results, ['body', 'summary', 'title', 'abstract']);
+    resourceResultParser.concatFields(parsedResult.results, ['summary', 'body'], '_summary');
+    resourceResultParser.truncate(parsedResult.results, ['title'], 150);
+    resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
+    resourceResultParser.truncate(parsedResult.results, ['abstract'], 300);
+    resourceResultParser.addSlug(parsedResult.results, 'title', contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
+    resourceResultParser.transformFacets(parsedResult, __);
+
+    parsedResult.filters = {};
+    return parsedResult;
+}
 
 function buildQuery(query){
     //facetMultiselect should work
     //facetLimit seems useful per type
     //ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
-        size = getInteger(query.limit, 100),
+        size = getInteger(query.limit, 20),
         facetSize = 10,
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true;
 
+    query.searchable = true;
     query.contentType = query.contentType || defaultContentTypes;
     arrayifyParams(query);
 
@@ -83,6 +121,23 @@ function buildQuery(query){
 
     //sorting
     if (_.isUndefined(query.q)) {
+        // if (query.contentType == 'event') {
+        //     body.sort = [
+        //         {
+        //             "start.en-GB": { //TODO this shouldn't be neccessary and it adds an implicit filter is looks like. that ain't right ask Fede to fix in API
+        //                 "order": "desc"
+        //             }
+        //         }
+        //     ];
+        // } else {
+        //     body.sort = [
+        //         {
+        //             "createdAt": {
+        //                 "order": "desc"
+        //             }
+        //         }
+        //     ];
+        // }
         body.sort = [
             {
                 "createdAt": {
@@ -97,7 +152,7 @@ function buildQuery(query){
         size: size,
         body: body
     };
-
+    // console.log(JSON.stringify(body, null, 2));
     return searchParams;
 }
 
@@ -186,6 +241,7 @@ function arrayify(value) {
 }
 
 module.exports = {
+    search: search,
     buildQuery: buildQuery
 };
 //var q = {q: 'data', "vocabularyDataUse": 'Science use', countryOfCoverage: ['US', 'DE'], facet: ['countryOfCoverage', 'vocabularyDataUse', 'vocabularyTopic'], facetMultiselect: true};

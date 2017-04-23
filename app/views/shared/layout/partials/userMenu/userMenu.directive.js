@@ -6,11 +6,11 @@ angular
     .directive('userMenu', userMenuDirective);
 
 /** @ngInject */
-function userMenuDirective() {
+function userMenuDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'A',
         transclude: true,
-        templateUrl: '/templates/shared/layout/partials/userMenu/userMenu.html',
+        templateUrl: '/templates/shared/layout/partials/userMenu/userMenu.html?v=' + BUILD_VERSION,
         scope: {},
         replace: true,
         controller: userMenu,

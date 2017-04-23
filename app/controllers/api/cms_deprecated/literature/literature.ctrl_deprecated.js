@@ -7,7 +7,7 @@
 const express = require('express'),
       router = express.Router(),
       log = require('../../../../../config/log'),
-      Literature = require('../../../../models/cmsData/literature/literature');
+      Literature = require('../../../../models/cmsData_deprecated/literature/literature');
 
 module.exports = app => {
     app.use('/api', router);

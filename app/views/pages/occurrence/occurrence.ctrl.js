@@ -13,7 +13,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, BUILD_VERSION) {
     var vm = this;
 
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
@@ -28,7 +28,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         defaultParams: {
             datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
         },
-        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+        suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
         shortName: 'canonicalName',
         longName: 'scientificName',
         placeholder: 'search.taxonSearchPlaceholder',
@@ -43,7 +43,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         translationPrefix: 'stdTerms',
         suggestEndpoint: suggestEndpoints.dataset,
         defaultParams: {},
-        suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html',
+        suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
         shortName: 'title',
         longName: 'title',
         placeholder: 'search.datasetSearchPlaceholder',
@@ -370,7 +370,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             isSearchable: true,
             placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.dataset,
-            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html',
+            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
@@ -396,7 +396,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             defaultParams: {
                 datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
             },
-            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html',
+            suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'scientificName',
             suggestShortName: 'title',
             suggestKey: 'key'
