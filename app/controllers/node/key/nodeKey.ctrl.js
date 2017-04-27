@@ -6,7 +6,6 @@ var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     Node = require('../../../models/gbifdata/gbifdata').Node,
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
-    Q = require('q'),
     _ = require('lodash'),
     request = require('requestretry'),
     contributors = require('../../dataset/key/contributors/contributors'),
@@ -28,6 +27,60 @@ router.get('/node/:key/contacts\.:ext?', function (req, res, next) {
     render(req, res, next, 'pages/node/key/nodeParticipantContacts', false);
 });
 
+
+let Participant = rootRequire('app/models/node/participant'),
+    registry = rootRequire('app/models/node/registry'),
+    participantView = require('./viewModel');
+
+router.get('/node2/:key\.:ext?', function (req, res, next) {
+    let key = req.params.key;
+    if (!utils.isGuid(key)) {
+        next();
+    }
+    let node = registry.getNodeById(key);
+    node
+        .then(function(registryNode){
+            if (registryNode.type == 'COUNTRY') {
+                res.redirect(302, res.gb.locales.urlPrefix + '/countryIso/' + registryNode.country);
+                return;
+            }
+            let pageData = {
+                node: node,
+                _meta: {
+                    title: registryNode.title,
+                    customUiView: true
+                }
+            };
+            helper.renderPage(req, res, next, pageData, 'pages/node/key/nodeKey');
+        })
+        .catch(function(err){
+            console.log(err);
+            if (err.statusCode == 404) {
+                next();
+            } else next(err);
+        });
+});
+
+router.get('/countryIso/:iso\.:ext?', function (req, res, next) {
+    let isoCode = req.params.iso.toUpperCase();
+    let participantPromise = Participant.get(isoCode, res.locals.gb.locales.current);
+    participantPromise
+        .then(function(participant){
+            participant = participantView(participant);
+            participant._meta = {
+                title: 'Country',
+                customUiView: true
+            };
+            helper.renderPage(req, res, next, participant, 'pages/country/key2/countryKey');
+        })
+        .catch(function(err){
+            console.log(err);
+            if (err.statusCode == 404) {
+                next();
+            } else next(err);
+        });
+});
+
 function render(req, res, next, template, redirect) {
     var nodeKey = req.params.key;
 
@@ -43,11 +96,11 @@ function render(req, res, next, template, redirect) {
         };
         request(baseRequest)
             .then(function(record){
-
                 if (record.statusCode > 299) {
                     next(record.message);
                     return;
                 }
+
                 let node = {record: record.body};
                 transformNode(node);
                 //if node has a participant id from the direcotory then use that to resolve the drupal participant data
@@ -77,11 +130,19 @@ function render(req, res, next, template, redirect) {
                             helper.renderPage(req, res, next, pageData, template);
                         })
                         .catch(function(err){next(err)});
+                } else {
+                    let pageData = {
+                        node: node,
+                        _meta: {
+                            title: 'Node ' + node.record.title,
+                            customUiView: true
+                        }
+                    };
+                    helper.renderPage(req, res, next, pageData, template);
                 }
             })
             .catch(function(err){
-                res.status(500);
-                res.send('The server failed to get that node');
+                next(err);
             });
         return;
         // Node.get(nodeKey, {expand: ['participant', 'directoryParticipant']}).then(function (node) {

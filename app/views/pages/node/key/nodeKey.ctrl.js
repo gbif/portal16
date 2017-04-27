@@ -7,7 +7,7 @@ angular
     .controller('nodeKeyCtrl', nodeKeyCtrl);
 
 /** @ngInject */
-function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets, $state, $stateParams) {
+function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets, $state, $stateParams, $timeout) {
     var vm = this;
     vm.limit = 5;
     vm.endorsed = {};
@@ -61,6 +61,28 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets, $state, $stateParams)
         $state.go($state.current, {limit: vm.limit, offset_datasets: offset, '#': 'datasets'}, {inherit: true, notify: false, reload: true});
         vm.getDatasets();
     };
+
+
+
+
+
+    vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    vm.series = ['Series A', 'Series B'];
+    vm.data = [
+        //[65, 59, 80, 81, 56, 55, 40],
+        //[28, 48, 40, 19, 86, 27, 90]
+    ];
+    vm.onClick = function (points, evt) {
+        console.log(points, evt);
+    };
+
+    // Simulate async data update
+    $timeout(function () {
+        vm.data = [
+            [28, 48, 40, 19, 86, 27, 90],
+            [65, 59, 80, 81, 56, 55, 40]
+        ];
+    }, 3000);
 
 }
 

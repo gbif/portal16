@@ -3,6 +3,7 @@ const _ = require('lodash'),
     format = require('../../../../helpers/format'),
     slug = require("slug"),
     md = require('markdown-it')({html: true, linkify: true, typographer: true}),
+    defaultLocale = rootRequire('config/config').defaultLocale,
     changeCase = require('change-case');
 
 module.exports = {
@@ -14,7 +15,8 @@ module.exports = {
     addSlug: addSlug,
     renameField: renameField,
     concatFields: concatFields,
-    transformFacets: transformFacets
+    transformFacets: transformFacets,
+    getLocaleVersion: getLocaleVersion
 };
 
 function normalize(result, offset, limit) {
@@ -109,32 +111,63 @@ function selectLocale(results, fieldsPaths, preferedLanguage, fallbackLanguage) 
     results.forEach(function(e){
         fieldsPaths.forEach(function(field){
             let value = _.get(e, field);
+            if (_.isString(value)) {
+                return value;
+            }
             if (_.isObject(value)) {
-                let languageVersion = value[preferedLanguage];
+                let languageVersion = _.get(value, preferedLanguage, value[fallbackLanguage]);
                 if (_.isString(languageVersion)) {
                     _.set(e, field, languageVersion);
                 } else {
-                    languageVersion = value[fallbackLanguage];
-                    _.set(e, field, languageVersion ? languageVersion : '');
+                    _.set(e, field, languageVersion ? languageVersion : value);
                 }
             }
         });
     });
 }
 
-function addSlug(results, field, preferedLanguage, fallbackLanguage) {
+function getLocaleVersion(item, preferedLanguage, fallbackLanguage, depth) {
+    depth = depth || 0;
+    depth++;
+    if (depth > 10) {
+        return item; //failsafe as well as a sanity measure - don't recurse more than to depth 10
+    }
+    try {
+        if (_.has(item, fallbackLanguage)) {
+
+            //if there is a fallback version, there might also be other translations.
+            let languageVersion = _.get(item, preferedLanguage, item[fallbackLanguage]);
+            if (_.isString(languageVersion)) {
+                return getLocaleVersion(languageVersion, preferedLanguage, fallbackLanguage, depth);
+            } else {
+                return getLocaleVersion(languageVersion, preferedLanguage, fallbackLanguage, depth);
+            }
+
+        } else {
+            //not a translated field, but might be an array or object that should be translated
+            if (_.isPlainObject(item) && !_.isEmpty(item)) {
+                return _.mapValues(item, function (o) {
+                    return getLocaleVersion(o, preferedLanguage, fallbackLanguage, depth)
+                });
+            }
+            if (_.isArray(item) && !_.isEmpty(item)) {
+                return _.map(item, function (o) {
+                    return getLocaleVersion(o, preferedLanguage, fallbackLanguage, depth)
+                });
+            }
+            return item;
+        }
+    } catch(err){
+        console.log(err);
+        console.log(depth);
+    }
+}
+
+function addSlug(results, field) {
     results.forEach(function(e){
         let value = _.get(e, field);
         if (_.isString(value)) {
             e._slug = getSlug(value);
-        } else if (_.isObject(value)) {
-            let languageVersion = value[preferedLanguage];
-            if (_.isString(languageVersion)) {
-                e._slug = getSlug(languageVersion);
-            } else {
-                languageVersion = value[fallbackLanguage] || '';
-                e._slug = getSlug(languageVersion);
-            }
         }
     });
 }

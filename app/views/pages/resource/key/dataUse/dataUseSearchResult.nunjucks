@@ -1,4 +1,4 @@
-<div class="card m-b-1 searchCard">
+<div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.dataUse') | capitalize $}</span>

@@ -14,6 +14,7 @@ var path = require('path'),
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
     contentfulPreviewApi = yargs.contentfulPreviewApi,
+    elasticContentful = yargs.elasticContentful,
     apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api",
     locales = ['en', 'es', 'da'],
     contentfulLocaleMap = {
@@ -45,6 +46,7 @@ var config = {
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap
@@ -70,6 +72,7 @@ var config = {
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap
@@ -95,6 +98,7 @@ var config = {
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap
@@ -120,6 +124,7 @@ var config = {
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap
@@ -145,6 +150,7 @@ var config = {
         verification: verification || '/etc/portal16/verification',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap

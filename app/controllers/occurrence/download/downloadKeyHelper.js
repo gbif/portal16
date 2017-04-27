@@ -223,9 +223,12 @@ function addEndpointTask(predicate, config, tasks) {
         });
         tasks.push(listPromise);
     } else {
-        let itemPromise = getResource(config.url + predicate.value).then(function(e){
-            predicate.value = e[config.field];
-        });
+        let itemPromise = getResource(config.url + predicate.value) .then(function(e){
+                predicate.value = e[config.field];
+            })
+            .catch(function(err){
+                predicate.value = predicate.value;
+            });
         tasks.push(itemPromise);
     }
 }

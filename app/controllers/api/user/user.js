@@ -45,7 +45,12 @@ function simpleDownload(cookie, query) {
             };
             authRequest.authenticatedRequest(cookie, options)
                 .then(function (response) {
-                    deferred.resolve(response);
+                    if (response.errorType) {
+                        deferred.reject(response);
+                    }
+                    else {
+                        deferred.resolve(response);
+                    }
                 })
                 .fail(function (err) {
                     deferred.reject(err);

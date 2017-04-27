@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.newsEvents.results">
-                    <div class="card m-b-1 searchCard">
+                    <div class="card m-b-05 searchCard">
                         <div class="card__stripe">
                             <div class="card__content">
                                 <span class="searchCard__type" translate="cms.contentType.{{ result.contentType }}"></span>

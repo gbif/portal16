@@ -48,12 +48,6 @@ module.exports = function (app, config) {
     //Middleware to remove locale from url and set i18n.locale based on url. This allows one route to match different locales
     require(config.root + '/app/middleware/i18n/localeFromQuery.js').use(app, config.locales, config.defaultLocale);
 
-    // Node doesn't include other locales than english per default. Include these to use Intl.
-    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
-
-    //add menu to all requests
-    require(config.root + '/app/middleware/menu/menu.js').use(app);
-
     app.use(bodyparser.json({
         limit: '1mb'
     }));
@@ -68,6 +62,16 @@ module.exports = function (app, config) {
         etag: false
     }));
     app.use(methodOverride());
+
+    //add middleware to handle redirects of old urls or shortened menu items
+    let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
+    app.use(redirects);
+
+    // Node doesn't include other locales than english per default. Include these to use Intl.
+    require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
+
+    //add menu to all requests
+    require(config.root + '/app/middleware/menu/menu.js').use(app);
 
     //app.use(slashes(false, { code: 302 }));//the module is defect. asking it to remove slashes leads to circular redirects
     app.use(function(req, res, next) {

@@ -16,18 +16,22 @@
                 {% if main.fields.start and main.fields.end %}
                     <div>
                         <a href="#details" class="inherit">
-                    <span class="gb-icon-calendar"></span>
-                        {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
+                            <span class="gb-icon-calendar"></span>
+                            {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
                         </a>
                     </div>
                 {% endif %}
 
+
+
+                {% if main.fields.fundsAllocated %}
                 <div>
                     <a href="#funding" class="inherit">
                         <span class="gb-icon-euro"></span>
                         {$ (main.fields.fundsAllocated | addition(main.fields.matchingFunds)) | locInt(gb.locales.current) $}
                     </a>
                 </div>
+                {% endif %}
             </div>
 
         </header>

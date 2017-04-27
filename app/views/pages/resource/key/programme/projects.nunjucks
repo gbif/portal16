@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="result in programmeKey.projects.results | orderBy:programmeKey.state.sortType:programmeKey.state.sortReverse"
-                        ng-click="programmeKey.goto('{$ gb.locales.urlPrefix $}/project2/' + result.id + '/' + result._slug)">
+                        ng-click="programmeKey.goto('{$ gb.locales.urlPrefix $}/project/' + result.id + '/' + result._slug)">
                         <td class="table-cell--narrow">
                             <div class="imageGallery__img img-round-thumb" ng-if="result.primaryImage.file.url">
                                 <img ng-src="{{ programmeKey.imageCache }}50x50/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}"
@@ -67,7 +67,7 @@
     <div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && !programmeKey.projects.results">
         <h3>Hmm :( we couldn't find any projects due to a server error</h3>
     </div>
-    <div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && programmeKey.projects.count >= 0">
+    <div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && programmeKey.projects.count == 0">
         <h3>No projects to show</h3>
     </div>
 </div>

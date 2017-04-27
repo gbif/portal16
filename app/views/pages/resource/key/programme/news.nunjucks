@@ -7,7 +7,7 @@
                     {# TODO should use the shared template, but since the api result is different so is the template (the elastic search api have changed)#}
                     {#<ng-include src="'/api/template/search/newsResult.html?v={$ BUILD_VERSION $}'"></ng-include>#}
 
-                    <div class="card m-b-1 searchCard">
+                    <div class="card m-b-05 searchCard">
                         <div class="card__stripe">
                             <div class="card__content">
                                 <span class="searchCard__type">{$ __('cms.contentType.news') | capitalize $}</span>

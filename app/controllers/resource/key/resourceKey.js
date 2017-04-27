@@ -7,6 +7,7 @@ let _ = require('lodash'),
     moment = require('moment'),
     querystring = require('querystring'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
+
     credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).contentful.gbif;
 
@@ -16,7 +17,8 @@ module.exports = {
     getFirstContentItem: getFirstContentItem,
     mapLegacyData: mapLegacyData,
     removeUnresovable: removeUnresovable,
-    getParticipant: getParticipant
+    getParticipant: getParticipant,
+    getHomePage: getHomePage
 };
 
 
@@ -24,18 +26,25 @@ function getSlug(str){
     return slug(str.toLowerCase());
 }
 
-function searchContentful(entryId, depth, isPreview, locale) {
+function searchContentful(query, depth, isPreview, locale) {
     let accessToken = isPreview ? credentials.preview_access_token : credentials.access_token,
         api = isPreview ? 'http://preview.contentful.com' : 'http://cdn.contentful.com',
         space = credentials.space,
         validLocale = contentfulLocaleMap[locale],
-        query = {
+        composedQuery = {
             access_token: accessToken,
             include: depth || 1,
-            'sys.id': entryId,
+            //'sys.id': entryId,
             'locale': validLocale
         },
-        requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(query));
+        requestPath;
+
+        if (_.isPlainObject(query)) {
+            _.assign(composedQuery, query);
+        } else {
+            composedQuery['sys.id'] = query;
+        }
+        requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(composedQuery));
 
     var proseRequest = {
         url: requestPath,
@@ -69,34 +78,18 @@ function decorateFirst(results){
     return contentItem;
 }
 async function getParticipant(directoryId, depth, isPreview, locale) {
-    let participants = await getParticipants(directoryId, depth, isPreview, locale),
-        first = decorateFirst(participants);
+    let participants = await searchContentful({
+            content_type: 'Participant',
+            'fields.directoryId': directoryId
+        }, depth, isPreview, locale),
+            first = decorateFirst(participants);
     return first;
 }
 
-function getParticipants(directoryId, depth, isPreview, locale) {
-    let accessToken = isPreview ? credentials.preview_access_token : credentials.access_token,
-        api = isPreview ? 'http://preview.contentful.com' : 'http://cdn.contentful.com',
-        space = credentials.space,
-        validLocale = contentfulLocaleMap[locale],
-        query = {
-            access_token: accessToken,
-            include: depth || 1,
-            content_type: 'Participant',
-            'fields.directoryId': directoryId,
-            'locale': validLocale
-        },
-        requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(query));
-
-    var proseRequest = {
-        url: requestPath,
-        fullResponse: false,
-        json: true,
-        maxAttempts: 2,
-        timeout: 30000,
-        method: 'GET'
-    };
-    return request(proseRequest);
+async function getHomePage(isPreview, locale) {
+    let homepages = await searchContentful({content_type:'homePage'}, 3, false, isPreview, locale),
+        first = decorateFirst(homepages);
+    return first;
 }
 
 function getFirstContentItem(result) {

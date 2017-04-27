@@ -1,0 +1,52 @@
+"use strict";
+
+var utils = rootRequire('app/helpers/utils'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    _ = require('lodash'),
+    chai = require('chai'),
+    expect = chai.expect,
+    request = require('requestretry');
+
+async function getNodeById(id) {
+    let baseRequest = {
+        url: apiConfig.node.url + id,
+        timeout: 30000,
+        method: 'GET',
+        json: true
+    };
+    let node = await request(baseRequest);
+    if (node.statusCode > 299) {
+        throw (response);
+    }
+    decorateNode(node.body);
+    return node.body;
+}
+
+async function getNodeByIso(iso) {
+    let baseRequest = {
+        url: apiConfig.country.url + iso,
+        timeout: 30000,
+        method: 'GET',
+        json: true
+    };
+    let node = await request(baseRequest);
+    if (node.statusCode > 299) {
+        throw (response);
+    }
+    decorateNode(node.body);
+    return node.body;
+}
+
+function decorateNode(node){
+    expect(node).to.be.an('object');
+
+    let identifiers = node.identifiers || [],
+        directoryParticipant = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
+    node.participantId = _.get(directoryParticipant, 'identifier');
+    return node;
+}
+
+module.exports = {
+    getNodeById: getNodeById,
+    getNodeByIso: getNodeByIso
+};

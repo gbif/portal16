@@ -40,6 +40,18 @@
             <div filter-facet filter-config="resource.filters.purposes" filter-state="resource.state"></div>
         </div>
 
+        <!--<div ng-if="resource.state.query.contentType == 'event'">-->
+            <!--<a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-if="!resource.state.query._showPastEvents">Show past events</a>-->
+            <!--<a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-if="resource.state.query._showPastEvents">Show upcoming events</a>-->
+        <!--</div>-->
+
+        <div class="filter-group text-center" ng-if="resource.state.query.contentType == 'event'">
+            <div class="gb-btn-group">
+                <a ui-sref="resourceSearchList({_showPastEvents:undefined})" ui-sref-opts="{inherit: true}" ng-class="{active: !resource.state.query._showPastEvents}">Upcoming</a>
+                <a ui-sref="resourceSearchList({_showPastEvents:true})" ui-sref-opts="{inherit: true}" ng-class="{active: resource.state.query._showPastEvents}">Past</a>
+            </div>
+        </div>
+
         <div class="site-drawer__comment">
             <p>
                 Search for news, events, documents and much more. If you are looking for species occurrences then try our <a ui-sref="occurrenceSearchTable()" href="">occurrence search</a> instead.
@@ -90,31 +102,31 @@
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('news')" ng-class="{isActive: resource.state.query.contentType == 'news'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], offset:undefined})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['news'], _showPastEvents:undefined, offset:undefined})">
                                             News
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('dataUse')" ng-class="{isActive: resource.state.query.contentType == 'dataUse'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], offset:undefined})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['dataUse'], _showPastEvents:undefined, offset:undefined})">
                                             Data use
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('event')" ng-class="{isActive: resource.state.query.contentType == 'event'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], offset:undefined})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['event'], _showPastEvents:undefined, offset:undefined})">
                                             Events
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.isTabShown('project')" ng-class="{isActive: resource.state.query.contentType == 'project'}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], offset:undefined})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['project'], _showPastEvents:undefined, offset:undefined})">
                                             Projects
                                         </a>
                                     </li>
 
                                     <li class="tab" ng-if="resource.getExtraTabContentType()" ng-class="{isActive: resource.state.query.contentType == resource.getExtraTabContentType()}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], offset:undefined})">
+                                        <a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], _showPastEvents:undefined, offset:undefined})">
                                             {{resource.getExtraTabContentType()}}
                                         </a>
                                     </li>
@@ -126,7 +138,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                             aria-labelledby="btn-append-to-body">
                                             <li ng-repeat="option in resource.getMoreOptions()" role="menuitem">
-                                                <a href="" ui-sref="resourceSearchList({contentType:[option], offset:undefined})">{{option}}</a>
+                                                <a href="" ui-sref="resourceSearchList({contentType:[option], _showPastEvents:undefined, offset:undefined})">{{option}}</a>
                                             </li>
                                         </ul>
                                     </li>

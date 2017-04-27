@@ -22,6 +22,9 @@ require('angular-cookies');
 require('angular-messages');
 require('angular-toastr');
 
+require('chartjs');
+require('angular-chart.js');
+
 
 require('checklist-model');//TODO remove as we hardly use it now that there is continous update on occurrenece search?
 
@@ -30,7 +33,7 @@ require('angular-svg-round-progressbar');
 (function () {
     'use strict';
     angular
-        .module('portal', ['ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
+        .module('portal', ['chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
 })();
 
 (function () {
@@ -38,7 +41,8 @@ require('angular-svg-round-progressbar');
     angular
         .module('portal')
         .run(runBlock)
-        .config(configBlock);
+        .config(configBlock)
+        .config(chartjsConfig);
 
     /** @ngInject */
     function runBlock(amMoment, $translate, $http, LOCALE, moment) { //$log
@@ -143,6 +147,21 @@ require('angular-svg-round-progressbar');
             extendedTimeOut: "3000"
         });
     }
+
+    /** @ngInject */
+    function chartjsConfig(ChartJsProvider) {
+        // Configure all charts
+        ChartJsProvider.setOptions({
+            chartColors: ['#FF5252', '#FF8A80'],
+            responsive: false
+        });
+        // Configure all line charts
+        ChartJsProvider.setOptions('line', {
+            showLines: false
+        });
+    }
+
+
 })();
 
 require('./angular/env.constants');
@@ -234,7 +253,7 @@ require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
 require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
-require('../../../pages/country/key/countryKey.ctrl');
+require('../../../pages/country/key2/countryKey.ctrl');
 require('../../../pages/country/key/trends/countryTrends.ctrl');
 require('../../../pages/country/key/activity/countryActivity.ctrl');
 require('../../../pages/country/key/participant/countryParticipant.ctrl');

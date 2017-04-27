@@ -1,12 +1,13 @@
 var moment = require('moment'),
     sanitizeHtml = require('sanitize-html'),
     Entities = require('html-entities').AllHtmlEntities,
+    isUrl = require("is-url"),
     entities = new Entities(),
     camelCase = require('camelcase'),
     _ = require('lodash'),
     Humanize = require('humanize-plus'),
     linkTools = require('./links/links'),
-    defaultLanguage = 'en';
+    defaultLanguage = rootRequire('config/config').defaultLocale;
 
 // GBIF/UN date style
 moment.updateLocale('en', {
@@ -23,7 +24,7 @@ moment.updateLocale('en', {
         LLLL: "LT, dddd Do MMMM YYYY"
     }
 });
-var dateFormats = ['YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
+var dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
 
 function date(date, locale, format) {
     var day;
@@ -174,6 +175,37 @@ function compactInteger(nr) {
     return Humanize.compactInteger(nr, 0);
 }
 
+function localizeLinks(dirty, urlPrefix) {
+    urlPrefix = urlPrefix || '';
+    dirty = dirty || '';
+    let clean = sanitizeHtml(dirty, {
+            allowedTags: false,
+            allowedAttributes: false,
+            transformTags: {
+                'a': function (tagName, attr) {
+                    if (!isUrl(attr.href)) {
+                        attr.href = urlPrefix +'/' + attr.href.replace(/^\//, '');
+                    }
+                    return {
+                        tagName: 'a',
+                        attribs: attr
+                    };
+                }
+            }
+        }
+    );
+    return clean;
+}
+
+function localizeLink(url, urlPrefix) {
+    url = _.isString(url) ? url : '';
+    urlPrefix = urlPrefix || '';
+    if (!isUrl(url)) {
+        return urlPrefix +'/' + url.replace(/^\//, '');
+    }
+    return url;
+}
+
 function sanitizeTrusted(dirty) {
     dirty = dirty || '';
     var allowedTags = ['img', 'h2', 'iframe'];
@@ -241,7 +273,7 @@ function addPortalClasses(raw) {
                 '*': ['href', 'name', 'target', 'src', 'class', 'frameborder', 'width', 'height', 'allowfullscreen']
             },
             transformTags: {
-                'table': sanitizeHtml.simpleTransform('table', {class: 'table table-bordered table-striped'})
+                'table': sanitizeHtml.simpleTransform('table', {class: 'table'})
             }
         }
     );
@@ -267,6 +299,8 @@ module.exports = {
     decodeHtml: decodeHtml,
     compactInteger: compactInteger,
     dateRange: dateRange,
-    timeRange: timeRange
+    timeRange: timeRange,
+    localizeLinks: localizeLinks,
+    localizeLink: localizeLink
 };
 

@@ -1,7 +1,6 @@
 "use strict";
 
 var resource = require('../resource'),
-    cmsConfig = require('../../cmsData_deprecated/apiConfig'),
     apiConfig = require('../../gbifdata/apiConfig'),
     _ = require('lodash'),
     api = require('../apiConfig');

@@ -110,6 +110,14 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('localizeLinks', format.localizeLinks);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('localizeLink', format.localizeLink);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('addPortalClasses', format.addPortalClasses);
     })();
 
@@ -131,8 +139,28 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('renderTrustedMarkdown', function (markdownText, urlPrefix) {
+            if (_.isString(markdownText)) {
+                return format.addPortalClasses(format.localizeLinks(format.sanitizeTrusted(md.render(markdownText)), urlPrefix))
+            } else {
+                return '';
+            }
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('isUndefined', function (data) {
             return typeof data === 'undefined';
+        });
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('find', function (data, predicate) {
+        console.log(data, predicate);
+            if (!_.isArray(data)) {
+                return undefined;
+            }
+            return _.find(data, predicate);
         });
     })();
 

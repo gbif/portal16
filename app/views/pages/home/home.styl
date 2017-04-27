@@ -97,11 +97,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             }
         }
     }
-    &__about {
-        font-size 18px
-        line-height 1.66667 //30px
-        font-weight 300
-    }
     &__country {
         font-size 14px
         &__headline {
@@ -160,9 +155,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
                 font-weight bold
             }
         }
-    }
-    &__about--columns {
-        columns 2 10px 30px
     }
 
     &__country__occurrences {
@@ -346,6 +338,12 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
                 font-weight normal
             }
         }
+    }
+}
+
++isAbove($laptop) {
+    .home__about--columns {
+        columns 2 10px 30px
     }
 }
 

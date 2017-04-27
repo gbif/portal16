@@ -76,95 +76,46 @@ nature, PLOS, ... and
         
         <div class="horizontal-stripe--paddingless light-background">
             <div class="container--desktop">
-                <div class="home__news">
-                    <div class="text-center">
-                        <h2>News from the network</h2>
+                {% if highlights | isNotEmpty %}
+                    <div class="home__news">
+                        <div class="text-center">
+                            <h2>News from the network</h2>
+                        </div>
+
+                        <div class="articles">
+                        {% for feature in highlights | slice(0,4) %}
+                            {% if feature.contentType == 'news' or feature.contentType == 'dataUse'%}
+                                {$ newsArticle(feature, __) $}
+                            {% elif feature.contentType == 'event' %}
+                                {$ eventArticle(feature, __) $}
+                            {% elif feature.contentType == 'feature' %}
+                                {$ featureArticle(feature, __) $}
+                            {% endif %}
+                        {% endfor %}
+
+                        </div>
+                        <div class="text-center">
+                            <a class="gb-button--brand" href="{$ gb.locale.urlPrefix $}/resource/search">Explore news, events and more</a>
+                        </div>
                     </div>
-
-                    {% macro newsArticle(article, __) %}
-                        {% if article %}
-                            <article class="card card--flexible article-box hoverBox">
-                                {#<div>#}
-                                    {% if article.primaryImage %}
-                                    <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
-                                        <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
-                                             alt="" class="article-thumb">
-                                    </a>
-                                    {% endif %}
-                                    <div class="card__stripe--expandable inherit">
-                                        <div class="card__content">
-                                            <h4 class="article-box__title">
-                                                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
-                                            </h4>
-                                            <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
-                                        </div>
-                                    </div>
-                                <div class="text-center">
-                                    <a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">{$ article.contentType $}</a>
-                                </div>
-                                {#</div>#}
-                            </article>
-                        {% endif %}
-                    {% endmacro %}
-
-                    {% macro eventArticle(article, __) %}
-                        {% if article %}
-                            <article class="card card--flexible article-box hoverBox">
-                                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
-                                    <div class="date-box">
-                                        <img src="{$ _meta.imageCache $}600x300/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
-                                             alt="" class="article-thumb invisible">
-                                        <div>
-                                            <div>
-
-                                                <span>{$ article.start | formatDate(gb.locales.current, 'MMMM') $}</span>
-                                                <div>{$ article.start | formatDate(gb.locales.current, 'D') $}</div>
-                                                <span>{$ article.start | formatDate(gb.locales.current, 'YYYY') $}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div class="card__stripe--expandable inherit">
-                                    <div class="card__content">
-                                        <h4 class="article-box__title">
-                                            <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
-                                                {$ article.title | truncate(80) $}
-                                            </a>
-                                        </h4>
-                                        <span class="article-box__footer">{$ article.start | dateRange(article.end, false, gb.locales.current) $}</span>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">events</a>
-                                </div>
-                            </article>
-                        {% endif %}
-                    {% endmacro %}
-
-                    <div class="articles">
-                        {$ newsArticle(highlights.news, __) $}
-                        {$ newsArticle(highlights.dataUse, __) $}
-                        {$ eventArticle(highlights.event, __) $}
-                        {#{$ eventArticle(home.highlights.event, __) $}#}
-                    </div>
-                </div>
+                {% endif %}
 
                 <div class="m-b-2">
-                    <h2 class="text-center">What is GBIF?</h2>
+                    <h2 class="text-center">{$ main.fields.aboutTitle $}</h2>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="home__about">
+                            <div class="home__about body-text">
                                 <div class="home__about--columns">
-                                    <p>
-                                        GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.
-                                    </p>
-                                    <p>
-                                        Coordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.
-                                    </p>
-                                    <div>
-                                        <a href="{$ gb.locale.urlPrefix $}/what-is-gbif">Read more</a>
-                                    </div>
+                                    {$ main.fields.aboutBody | renderTrustedMarkdown(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                                    {#<p>#}
+                                        {#GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.#}
+                                    {#</p>#}
+                                    {#<p>#}
+                                        {#Coordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.#}
+                                    {#</p>#}
+                                    {#<div>#}
+                                        {#<a href="{$ gb.locale.urlPrefix $}/what-is-gbif">Read more</a>#}
+                                    {#</div>#}
                                 </div>
                             </div>
                         </div>
@@ -350,3 +301,88 @@ nature, PLOS, ... and
 {% block scripts %}
     <script src="/js/base/pages/home.js?v={$ BUILD_VERSION $}"></script>
 {% endblock %}
+
+
+{% macro newsArticle(article, __) %}
+    {% if article %}
+        <article class="card card--flexible article-box hoverBox">
+            {#<div>#}
+            {% if article.primaryImage %}
+                <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
+                         alt="" class="article-thumb">
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">{$ article.title | truncate(80) $}</a>
+                    </h4>
+                    <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
+                </div>
+            </div>
+            {#<div class="text-center">#}
+            {#<a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">{$ article.contentType $}</a>#}
+            {#</div>#}
+            {#</div>#}
+        </article>
+    {% endif %}
+{% endmacro %}
+
+
+{% macro eventArticle(article, __) %}
+    {% if article %}
+        <article class="card card--flexible article-box hoverBox">
+            <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="card__stripe">
+                <div class="date-box">
+                    <img src="{$ _meta.imageCache $}600x300/http://upload.wikimedia.org/wikipedia/commons/5/52/Spacer.gif"
+                         alt="" class="article-thumb invisible">
+                    <div>
+                        <div>
+
+                            <span>{$ article.start | formatDate(gb.locales.current, 'MMMM') $}</span>
+                            <div>{$ article.start | formatDate(gb.locales.current, 'D') $}</div>
+                            <span>{$ article.start | formatDate(gb.locales.current, 'YYYY') $}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ gb.locale.urlPrefix $}/{$ article.contentType $}/{$ article.id $}/{$ article._slug $}" class="inherit">
+                            {$ article.title | truncate(80) $}
+                        </a>
+                    </h4>
+                    <span class="article-box__footer">{$ article.start | dateRange(article.end, false, gb.locales.current) $}</span>
+                </div>
+            </div>
+            {#<div class="text-center">#}
+            {#<a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">events</a>#}
+            {#</div>#}
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro featureArticle(article, __) %}
+    {% if article %}
+        <article class="card card--flexible article-box hoverBox">
+            {#<div>#}
+            {% if article.primaryImage %}
+                <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="card__stripe">
+                    <img src="{$ _meta.imageCache $}600x300/http:{$ article.primaryImage.file.url | encodeURI $}"
+                         alt="" class="article-thumb">
+                </a>
+            {% endif %}
+            <div class="card__stripe--expandable inherit">
+                <div class="card__content">
+                    <h4 class="article-box__title">
+                        <a href="{$ article.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ article.title $}</a>
+                    </h4>
+                    <span class="article-box__footer">{$ article.comment $}</span>
+                </div>
+            </div>
+        </article>
+    {% endif %}
+{% endmacro %}

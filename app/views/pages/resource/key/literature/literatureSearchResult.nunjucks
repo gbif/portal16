@@ -1,4 +1,4 @@
-<div class="card m-b-1 searchCard">
+<div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.literature') | capitalize $}</span>
@@ -28,6 +28,9 @@
                     {{ result.volume }}
                     ({{ result.issue }})
                     {{ result.pages }}
+                    <span ng-repeat="(key, identifier) in result.identifiers">
+                        {{ key }}: {{ identifier }}
+                    </span>
                 </span>
             </div>
             <p>
@@ -41,6 +44,7 @@
                     <a class="text-capitalize" ng-href="/resources/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
                 </li>
             </ul>
+            <a href="//scholar.google.com/scholar?as_q={{result.title | encodeURIComponent}}&as_sauthors={{ result.authors[0].lastName }}" class="small" ng-if="!result.identifiers.doi && !result.websites[0]">Google Scholar</a>
         </div>
     </div>
 </div>

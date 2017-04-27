@@ -18,6 +18,10 @@ router.get('/dataUse/:id/:title?\.:ext?', function (req, res) {
     res.redirect(302, res.locals.gb.locales.urlPrefix + '/data-use/' + req.params.id + '/' + req.params.title);
 });
 
+router.get('/article/:id/:title?\.:ext?', function (req, res, next) {
+    prose(req, res, next, 'article', 'pages/resource/key/article/article');
+});
+
 
 router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'event', 'pages/resource/key/event/event');

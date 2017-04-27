@@ -79,10 +79,16 @@ var apiConfig = {
         url: baseUrl + 'directory/participant/'
     },
     directoryNode: {
-        url: baseUrl + 'directory/node'
+        url: baseUrl + 'directory/node/'
     },
     directoryPerson: {
-        url: baseUrl + 'directory/person'
+        url: baseUrl + 'directory/person/'
+    },
+    directoryNodePerson: {
+        url: baseUrl + 'directory/node_person/'
+    },
+    directoryParticipantPerson: {
+        url: baseUrl + 'directory/participant_person/'
     },
     directoryPersonRole: {
         url: baseUrl + 'directory/person_role?limit=100'

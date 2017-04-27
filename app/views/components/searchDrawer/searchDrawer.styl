@@ -294,7 +294,7 @@ $filterEmphasisColor = $blueTintedBlack
             width 100%
         }
         .gb-btn-group {
-            label {
+            >label, >a {
                 width auto
             }
         }
@@ -390,7 +390,7 @@ $filterEmphasisColor = $blueTintedBlack
     border 25px
     border-radius 25px
     display block
-    > label {
+    > label, > a {
         border none
         box-shadow none
         border-radius 25px
@@ -399,12 +399,19 @@ $filterEmphasisColor = $blueTintedBlack
         margin-right 3px
         display inline-block
         font-weight normal
+        color inherit
         &:first-of-type {
             margin-left 3px
         }
         &.active {
             background $filterEmphasisColor
             color white
+            &:hover {
+                color white
+            }
+        }
+        &:hover {
+            text-decoration none
         }
     }
 }

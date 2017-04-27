@@ -22,7 +22,7 @@ router.get('/resource/search', function (req, res) {
         })
         .catch(function(err){
             console.trace(err.message);
-            console.log(JSON.stringify(req.query, null, 2));
+            //console.log(JSON.stringify(req.query, null, 2));
             res.status(500);
             res.send('Unable to parse query');
         });

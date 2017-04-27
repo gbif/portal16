@@ -1,0 +1,16 @@
+<div class="horizontal-stripe article-header white-background p-b-05">
+    <div class="container--desktop">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Participant</span>
+                    <span class="article-header__category__lower">{$ node.record.participationStatus $}</span>
+                </nav>
+
+                <h1 class="text-center">
+                    <span>{$ node.record.title $}</span>
+                </h1>
+            </header>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
+    "redirects": "node node_modules/csvtojson/bin/csvtojson redirectTable.csv > app/middleware/redirects/redirectTable.json",
     "local": "NODE_ENV=local gulp --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials",
     "install": "node node_modules/bower/bin/bower install; mkdir -p reports;",
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
@@ -42,6 +43,7 @@
     "bunyan-logstash": "^0.3.4",
     "bunyan-prettystream": "^0.1.3",
     "camelcase": "^4.0.0",
+    "chai": "^3.5.0",
     "chance": "^1.0.4",
     "change-case": "https://registry.npmjs.org/change-case/-/change-case-3.0.0.tgz",
     "chartist": "^0.9.8",
@@ -107,6 +109,7 @@
     "i18n": "^0.8.1",
     "intl": "^1.1.0",
     "intl-locales-supported": "^1.0.0",
+    "is-url": "^1.2.2",
     "istanbul": "^0.4.2",
     "jasmine-reporters": "^2.1.1",
     "jasmine-spec-reporter": "^2.4.0",

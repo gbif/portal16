@@ -3,6 +3,7 @@
 //TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
 var express = require('express'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    _ = require('lodash'),
     user = require('./user'),
     router = express.Router();
 //verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
@@ -59,8 +60,8 @@ router.get('/download', function (req, res) {
             function (download) {
                 res.send(download);
             },
-            function () {
-                res.status(401);//TODO depdends on the error
+            function (err) {
+                res.status(_.get(err, 'errorResponse.statusCode', 401));
                 res.send('Download failed. please try again later.');
             }
         );

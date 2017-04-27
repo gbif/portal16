@@ -9,9 +9,10 @@
                             <dd><a href="{$ gb.locales.urlPrefix $}/species/{$ occurrence.record.taxonKey $}">{$
                                     occurrence.record.scientificName $}</a></dd>
                         </div>
-                    {% else %}
+                    {% endif %}
+                    {% if occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] and occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] !== ccurrence.record.scientificName %}
                         <div>
-                            <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
+                            <dt class="text-capitalize">Verbatim name</dt>
                             <dd>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
                         </div>
                     {% endif %}

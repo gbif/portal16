@@ -4,9 +4,8 @@ let express = require('express'),
     Q = require('q'),
     _ = require('lodash'),
     helper = rootRequire('app/models/util/util'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig');
-
-const querystring = require('querystring');
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    querystring = require('querystring');
 
 module.exports = function (app) {
     app.use('/api/count', router);
