@@ -163,6 +163,10 @@ function buildQuery(query) {
     }
 
     searchParams.body = body;
+    searchParams.body.indices_boost = {
+        literature: 0
+    };
+
     //console.log(JSON.stringify(body, null, 4));
     return searchParams;
 }
