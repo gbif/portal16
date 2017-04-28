@@ -4,9 +4,6 @@
  *
  * Wiredep : if any stylus files is defined in the bower mains they will be injected into our custom stylus and compiled.
  * This allow us to overwrite variables and customize vendor files
- *
- * Revisioning files is not working with streaming.
- * We therefore only revision the production tasks but not the xyz-reload ones.
  */
 
 'use strict';
@@ -55,18 +52,8 @@ gulp.task('vendor-styles', function () {
         .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.css'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor), {
         }));
-        // .pipe(rename(function (path) {
-        //     path.dirname += "/" + vendor
-        // }))
-        // .pipe(gulpif(config.isProd, rev.manifest({
-        //     path: config.rev.manifest,
-        //     cwd: config.rev.manifestDest,
-        //     merge: true
-        // })))
-        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
 
 
@@ -103,7 +90,6 @@ function buildStylus() {
 
     var dest = 'css/base';
     return gulp.src([
-            //path.join(config.paths.src, '/shared/style/index.entry.styl')
             path.join(config.paths.src, '/**/*.entry.styl')
         ])
         // .pipe(g.plumber())
@@ -119,20 +105,7 @@ function buildStylus() {
             path.basename = path.basename.replace('.entry', '');
         }))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        .pipe(gulpif(config.isProd, revReplace({
-            manifest: gulp.src(config.rev.manifest)
-        })))
-        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)));
-        // .pipe(rename(function (path) {
-        //     path.dirname = dest + "/" + path.dirname;
-        // }))
-        // .pipe(gulpif(config.isProd, rev.manifest({
-        //     path: config.rev.manifest,
-        //     cwd: config.rev.manifestDest,
-        //     merge: true
-        // })))
-        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }
 
 gulp.task('ieStyle', [], function () {

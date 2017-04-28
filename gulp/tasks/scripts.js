@@ -9,8 +9,6 @@ var gulp = require('gulp'),
     transform = require('vinyl-transform'),
     browserify = require('browserify'),
     rename = require("gulp-rename"),
-    rev = require('gulp-rev'),
-    revReplace = require("gulp-rev-replace"),
     replace = require('gulp-replace'),
     fs = require('fs'),
     gulpif = require('gulp-if'),
@@ -35,18 +33,8 @@ gulp.task('vendor-scripts', function () {
         .pipe(gulpif(!config.isProd, g.sourcemaps.init()))
         .pipe(g.concat('vendor.js'))
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, vendor)));
-        // .pipe(rename(function (path) {
-        //     path.dirname += "/" + vendor
-        // }))
-        // .pipe(gulpif(config.isProd, rev.manifest({
-        //     path: config.rev.manifest,
-        //     cwd: config.rev.manifestDest,
-        //     merge: true
-        // })))
-        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 });
 
 function buildScripts() {
@@ -83,7 +71,6 @@ gulp.task('signpost', function () {
 //});
 
 function build2(entry, name) {
-    var revision = config.loadRevision();
     var dest = 'js/base';
     return browserify({
         entries: entry,
@@ -111,21 +98,7 @@ function build2(entry, name) {
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', g.util.log)
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        // .pipe(replace('/templates/', '/templates/' + revision + '/'))
-        // .pipe(gulpif(config.isProd, revReplace({
-        //     manifest: gulp.src(config.rev.manifest)
-        // })))
-        // .pipe(gulpif(config.isProd, rev()))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)));
-        // .pipe(rename(function (path) {
-        //     path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
-        // }))
-        // .pipe(gulpif(config.isProd, rev.manifest({
-        //     path: config.rev.manifest,
-        //     cwd: config.rev.manifestDest,
-        //     merge: true
-        // })))
-        // .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
 }
 
 function build(entry, name) {
@@ -159,6 +132,5 @@ function build(entry, name) {
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
         .pipe(rename(function (path) {
             path.dirname = "/" + dest + (path.dirname == "." ? "" : "/" + path.dirname);
-        }))
-        .pipe(gulpif(config.isProd, gulp.dest(config.rev.manifestDest)));
+        }));
 }

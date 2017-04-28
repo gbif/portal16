@@ -81,7 +81,7 @@
                         <span class="article-header__category__lower" ng-if="resource.hasData()">
                             {{resource.state.data.count | localNumber:resource.state.query.locale }} results
                         </span>
-                        <span class="article-header__category__lower" ng-if="!resource.hasData()">
+                        <span class="article-header__category__lower" ng-if="!resource.hasData() && !resource.state.failedRequest">
                             Loading ...
                         </span>
                         <span class="article-header__category__lower" ng-if="resource.state.failedRequest">
