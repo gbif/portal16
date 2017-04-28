@@ -9,6 +9,7 @@ angular
 function speciesCtrl($state, SpeciesFilter) {
     var vm = this;
     vm.state = SpeciesFilter.getState();
+    vm.$state = $state;
     vm.filters = {};
 
     //facet filters
@@ -79,7 +80,9 @@ function speciesCtrl($state, SpeciesFilter) {
     //    }
     //    return false;
     //};
-
+    vm.hasData = function () {
+        return typeof vm.state.data.count !== 'undefined'
+    };
 
     vm.search = function () {
         $state.go('.', vm.state.query, {inherit: false, notify: true, reload: true});

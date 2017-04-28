@@ -19,15 +19,15 @@
                     <p ng-if="vm.selected == vm.ISSUES">
                         {#{$ __('feedback.issues.description') $}#}
                         {#<br/>#}
-                        <a href="" class="gb-button--primary text-uppercase" ng-click="vm.gotoRoot()">{$
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()">{$
                             __('feedback.issues.create') $}</a>
                     </p>
 
                     <p ng-if="vm.selected == vm.CONFIRMATION">
-                        <a ng-href="{{ vm.referenceId }}" class="gb-button--primary text-uppercase inherit"
+                        <a ng-href="{{ vm.referenceId }}" class="gb-button--brand text-uppercase inherit"
                            ng-if="vm.referenceId">{$
                             __('feedback.confirmation.seeIssue') $}</a>
-                        <a href="" class="gb-button--primary text-uppercase" ng-click="vm.gotoRoot()">{$
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()">{$
                             __('feedback.issues.create') $}</a>
                     </p>
                 </div>
@@ -92,7 +92,7 @@
                     <div ng-if="!vm.forceShowForm">
                         <p translate="feedback.content.annotate"></p>
                         <p class="menubox__section__content__annotate">
-                            <a class="gb-button--primary inherit"
+                            <a class="gb-button--brand inherit"
                                target="_blank"
                                ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
                         </p>
@@ -112,7 +112,7 @@
                     <div ng-if="!vm.forceShowForm">
                         <p translate="feedback.content.contactPerMail"></p>
                         {#<p class="menubox__section__content__annotate">#}
-                            {#<a class="gb-button--primary inherit"#}
+                            {#<a class="gb-button--brand inherit"#}
                                {#target="_blank"#}
                                {#ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>#}
                         {#</p>#}

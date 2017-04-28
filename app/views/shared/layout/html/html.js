@@ -265,7 +265,7 @@ require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
 require('./angular/remarks.service');
 require('../../../pages/publisher/search/publisher.ctrl');
-require('../../../pages/publisher/search/table/publisherTable.ctrl');
+require('../../../pages/publisher/search/list/publisherList.ctrl');
 
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');

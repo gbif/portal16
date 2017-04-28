@@ -4,42 +4,7 @@
         <div class="row" ng-if="projectKey.datasets.count > 0">
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.datasets.results">
-                    <div class="card m-b-05 searchCard">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <h3>
-                                    <a ng-href="{$ gb.locales.urlPrefix $}/dataset/{{result.key}}">{{result.title}}</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <div class="searchCard__img asyncIf--isHidden" async-if="//api.gbif.org/v1/occurrence/search?dataset_key={{ result.key }}&has_coordinate=true&has_geospatial_issue=false">
-                                    <div class="teaser-map--small">
-                                        <img src="/img/tile000/basemap-grey-light2.png">
-                                        <img ng-src="{{projectKey.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
-                                    </div>
-                                </div>
-
-                                <img class="searchCard__img"
-                                     ng-src="{{ projectKey.imageCache }}128x64/{{ 'http:' + projectKey.datasets.data.images[result.primaryImage.sys.id] | encodeURIComponent }}" ng-if="projectKey.datasets.data.images[result.primaryImage.sys.id]">
-                                <div>
-                                    {{result.description | limitTo:200 }}
-                                </div>
-                                <p class="discreet--very smaller">
-                                    Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
-                                </p>
-                                <ul class="list-chips">
-                                    <li>
-                                        <a ng-href="{$ gb.locales.urlPrefix $}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}"></a>
-                                    </li>
-                                    <li>
-                                        <a ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={{ result.key }}">{{ result.recordCount }} occurrences</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <ng-include src="'/api/template/search/datasetResult.html?v=' + projectKey.BUILD_VERSION"></ng-include>
                 </div>
             </div>
         </div>

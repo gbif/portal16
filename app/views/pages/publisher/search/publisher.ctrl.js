@@ -53,6 +53,10 @@ function publisherCtrl($state, hotkeys, PublisherFilter) {
         }
     };
 
+    vm.hasData = function () {
+        return typeof vm.state.data.count !== 'undefined'
+    };
+
     vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();
         vm.freeTextQuery = '';

@@ -144,12 +144,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
-        .state('publisherSearchTable', {
+        .state('publisherSearchList', {
             parent: 'publisherSearch',
             url: '/search',
-            templateUrl: '/templates/pages/publisher/search/table/publisherTable.html?v=' + BUILD_VERSION,
-            controller: 'publisherTableCtrl',
-            controllerAs: 'publisherTable'
+            templateUrl: '/templates/pages/publisher/search/list/publisherList.html?v=' + BUILD_VERSION,
+            controller: 'publisherListCtrl',
+            controllerAs: 'publisherList'
         })
         .state('resourceSearch', {
             parent: 'localization',

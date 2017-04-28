@@ -1,6 +1,7 @@
 var apirequest = require('./api-request'),
     config = require('../../../config/config'),
     imageCachePrefix = require('../gbifdata/apiConfig').image.url,
+    clientTileApi = require('../gbifdata/apiConfig').clientTileApi.url,
     confidenceThreshold = 20;
 
 function getMatchesByConfidence(results) {
@@ -75,6 +76,7 @@ function getHigestRankingLowerClasses(children) {
 function renderPage(req, res, next, data, template) {
     data._meta = data._meta || {};
     data._meta.imageCache = data._meta.imageCache || imageCachePrefix;
+    data._meta.clientTileApi = data._meta.tileApi || clientTileApi;
     data._meta.title = data._meta.title || req.originalUrl;
     data._meta.domain = config.domain;
     data._meta.originalUrl = req.originalUrl;

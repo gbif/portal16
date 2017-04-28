@@ -3,12 +3,13 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('publisherTableCtrl', publisherTableCtrl);
+    .controller('publisherListCtrl', publisherListCtrl);
 
 /** @ngInject */
-function publisherTableCtrl(hotkeys, PublisherFilter) {
+function publisherListCtrl(hotkeys, PublisherFilter, BUILD_VERSION) {
     var vm = this, offset;
     vm.state = PublisherFilter.getState();
+    vm.BUILD_VERSION = BUILD_VERSION;
 
     /* pagination */
     function updatePaginationCounts() {
@@ -56,5 +57,5 @@ function publisherTableCtrl(hotkeys, PublisherFilter) {
     //https://github.com/johan/world.geo.json/blob/master/countries.geo.json
 }
 
-module.exports = publisherTableCtrl;
+module.exports = publisherListCtrl;
 

@@ -13,12 +13,13 @@ angular
     .controller('speciesListCtrl', speciesListCtrl);
 
 /** @ngInject */
-function speciesListCtrl(hotkeys, SpeciesFilter, env, speciesConstants) {
+function speciesListCtrl(hotkeys, SpeciesFilter, env, speciesConstants, BUILD_VERSION) {
     var vm = this, offset;
     vm.backboneKey = speciesConstants.backboneKey;
     vm.state = SpeciesFilter.getState();
     vm.tileApi = env.tileApi;
     vm.dataApi = env.dataApi;
+    vm.BUILD_VERSION = BUILD_VERSION;
 
     //* pagination */
     function updatePaginationCounts() {

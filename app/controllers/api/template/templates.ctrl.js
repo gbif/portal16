@@ -2,15 +2,15 @@ var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
     minute = 60, //cache goes by seconds
-    hour = minute*60,
-    day = hour*24;
+    hour = minute * 60,
+    day = hour * 24;
 
 module.exports = function (app) {
     app.use('/api/template', router);
 };
 
 router.get('/*.html', function (req, res, next) {
-    res.header('Cache-Control', 'public, max-age=' + day*100);
+    res.header('Cache-Control', 'public, max-age=' + day * 100);
     next();
 });
 
@@ -53,3 +53,16 @@ router.get('/search/toolResult.html', function (req, res, next) {
 router.get('/search/articleResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/article/articleSearchResult');
 });
+
+router.get('/search/datasetResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/datasetSearchResult');
+});
+
+router.get('/search/speciesResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/species/speciesSearchResult');
+});
+
+router.get('/search/publisherResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
+});
+

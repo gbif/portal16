@@ -32,6 +32,11 @@
                 return moment().isAfter(date);
             }
         })
+        .filter('isNew', function (moment) {
+            return function (date) {
+                return moment().subtract(90, 'd').isBefore(date);
+            }
+        })
         .filter('compactInteger', function () {
             return function (nr) {
                 return Humanize.compactInteger(nr, 0);

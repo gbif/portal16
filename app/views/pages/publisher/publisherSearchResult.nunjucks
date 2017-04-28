@@ -1,0 +1,31 @@
+<div class="card m-b-05 searchCard searchCard--publisher">
+    <div class="card__stripe">
+        <div class="card__content">
+            <span class="searchCard__type" ng-if="result.created | isNew">New publisher</span>
+            <h3>
+                <a href="{{ urlPrefix }}/publisher/{{result.key}}">
+                    {{result.title}}
+                </a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <a href="{{ urlPrefix }}/publisher/{{result.key}}">
+                <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
+            </a>
+            <p>
+                {{result.description | truncate:200 }}
+            </p>
+            <ul class="list-chips">
+                <li ng-if="result.numPublishedDatasets">
+                    <a href="" ui-sref="datasetSearchList({publishing_org:result.key})">Datasets: {{ result.numPublishedDatasets }}</a>
+                </li>
+                <li ng-if="result.country">
+                    <a href="" ng-href="{{ urlPrefix }}/country/{{ result.country }}" translate="country.{{ result.country }}">{{ result.country }}</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

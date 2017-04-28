@@ -54,13 +54,83 @@
     </div>
 </div>
 
+<!--<div class="site-content">-->
+
+    <!--<div class="site-content__page">-->
+        <!--<div class="species-search-results">-->
+            <!--<div ui-view>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
 <div class="site-content">
-
     <div class="site-content__page">
-        <div class="species-search-results">
-            <div ui-view>
+        <div class="species-search-results light-background">
+            <div class="wrapper-horizontal-stripes">
+                <div class="horizontal-stripe--paddingless white-background search-header">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <nav class="article-header__category article-header__category--deep">
+                                    <span class="article-header__category__upper">Search species</span>
+                        <span class="article-header__category__lower" ng-if="species.hasData()">
+                            {{species.state.data.count | localNumber:species.state.query.locale }} results
+                        </span>
+                        <span class="article-header__category__lower" ng-if="!species.hasData() && !species.state.failedRequest">
+                            Loading ...
+                        </span>
+                        <span class="article-header__category__lower" ng-if="species.state.failedRequest">
+                            Failed
+                        </span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <section class="horizontal-stripe--paddingless white-background">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <nav class="tabs">
+                                <ul>
+                                    <li class="tab" ng-class="{isActive: !species.state.query.advanced}">
+                                        <a href="" ui-sref="speciesSearchList({advanced:undefined})" ui-sref-opts="{inherit: true}">
+                                            GBIF Backbone
+                                        </a>
+                                    </li>
+
+                                    <li class="tab" ng-class="{isActive: species.state.query.advanced}">
+                                        <a href="" ui-sref="speciesSearchList({advanced:1})" ui-sref-opts="{inherit: true}">
+                                            All checklists
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="horizontal-stripe light-background">
+                    <ng-include src="'/templates/components/loader/loader.html'" ng-if="!species.hasData() && !species.state.failedRequest"></ng-include>
+                    <div ng-if="species.hasData()">
+                        <div ui-view ng-if="species.state.data.count > 0">
+
+                        </div>
+                        <div class="emptyInfo" ng-if="species.state.data.count === 0">
+                            <h3>No results - try clearing your filters</h3>
+                        </div>
+                    </div>
+                    <div class="emptyInfo" ng-if="species.state.failedRequest">
+                        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+                    </div>
+                </div>
             </div>
+
         </div>
+
+
     </div>
 </div>

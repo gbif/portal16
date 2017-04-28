@@ -1,6 +1,7 @@
 'use strict';
 
 var baseConfig = require('../../../config/config'),
+    clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
     identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
 
@@ -111,6 +112,9 @@ var apiConfig = {
     },
     userLogout: {
         url: identityBaseUrl + 'user/logout'
+    },
+    clientTileApi: {
+        url: clientTileApi
     },
     cookieNames: {
         userSession: 'USER_SESSION'

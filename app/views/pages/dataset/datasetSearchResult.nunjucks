@@ -1,0 +1,34 @@
+<article class="card m-b-05 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <h3>
+                <a ng-href="{{ urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <div class="searchCard__img asyncIf--isHidden" async-if="//api.gbif.org/v1/occurrence/search?dataset_key={{ result.key }}&has_coordinate=true&has_geospatial_issue=false">
+                <div class="teaser-map--small">
+                    <img src="/img/tile000/basemap-grey-light2.png">
+                    <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
+                </div>
+            </div>
+            <div>
+                {{result.description | limitTo:200 }}
+            </div>
+            <p class="discreet--very smaller">
+                Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
+            </p>
+            <ul class="list-chips">
+                <li>
+                    <a ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}"></a>
+                </li>
+                <li>
+                    <a ng-href="{{ urlPrefix }}/occurrence/search?dataset_key={{ result.key }}" ng-if="result.type=='OCCURRENCE'">{{ result.recordCount | localNumber }} occurrences</a>
+                    <a ng-href="{{ urlPrefix }}/species/search?dataset_key={{ result.key }}" ng-if="result.type=='CHECKLIST'">{{ result.recordCount | localNumber }} taxa</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>

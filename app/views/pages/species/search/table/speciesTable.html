@@ -1,85 +1,44 @@
-<article class="wrapper-horizontal-stripes">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <section class="horizontal-stripe white-background">
+                <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"></ng-include>
+                <div ng-if="speciesTable.hasData()">
 
-
-    <section class="horizontal-stripe--paddingless white-background search-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search</span>
-                        <span class="article-header__category__lower">Species</span>
-                    </nav>
-                    <div class="search-header__description">
-                        <span ng-if="speciesTable.hasData()">
-                            {{speciesTable.state.data.count | localNumber:speciesTable.state.query.locale }} results
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="horizontal-stripe--paddingless white-background seperator--b">
-        <div class="container--narrow">
-            <div class="row">
-                <nav class="tabs">
-                    <ul>
-                        <li class="tab">
-                            <a href="" ui-sref="speciesSearchList()">
-                                List
-                            </a>
-                        </li>
-
-                        <li class="tab isActive">
-                            <span>
-                                Table
-                            </span>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="horizontal-stripe white-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesTable.hasData()"></ng-include>
-        <div ng-if="speciesTable.hasData()">
-
-            <div class="scrollable-y">
-                <div class="table-container">
-                    <table class="table search-table">
-                        <thead>
-                        <tr>
-                            <th class="text-capitalize table-cell--wide"
-                                ng-repeat="field in ['scientificName', 'taxonRank', 'status', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
-                                {{field}}
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="species in speciesTable.state.data.results">
-                            <!--<td class="table-cell&#45;&#45;narrow">-->
-                            <!--<a href="{{species.key}}" ng-if="speciesTable.backboneKey == species.datasetKey">-->
-                            <!--<div class="tile inline-block pull-left">-->
-                            <!--<div class="teaser-map&#45;&#45;smaller">-->
-                            <!--<img src="/img/tile000/basemap-grey-light2.png">-->
-                            <!--<img ng-src="{{speciesTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</a>-->
-                            <!--</td>-->
-                            <td class="table-cell--widder">
-                                <a ng-href="{{species.key}}">
-                                    <div>{{species.scientificName}}</div>
-                                </a>
-                            </td>
-                            <td class="table-cell--normal text-capitalize">
-                                <a ng-href="{{species.key}}" translate="taxonRank.{{species.rank}}"
-                                   ng-if="species.rank">{{species.rank}}</a>
-                            </td>
-                            <td class="table-cell--narrow text-capitalize">
-                                <a ng-href="{{species.key}}">
+                    <div class="scrollable-y">
+                        <div class="table-container">
+                            <table class="table search-table">
+                                <thead>
+                                <tr>
+                                    <th class="text-capitalize table-cell--wide"
+                                        ng-repeat="field in ['scientificName', 'taxonRank', 'status', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                                        {{field}}
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="species in speciesTable.state.data.results">
+                                    <!--<td class="table-cell&#45;&#45;narrow">-->
+                                    <!--<a href="{{species.key}}" ng-if="speciesTable.backboneKey == species.datasetKey">-->
+                                    <!--<div class="tile inline-block pull-left">-->
+                                    <!--<div class="teaser-map&#45;&#45;smaller">-->
+                                    <!--<img src="/img/tile000/basemap-grey-light2.png">-->
+                                    <!--<img ng-src="{{speciesTable.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--</a>-->
+                                    <!--</td>-->
+                                    <td class="table-cell--widder">
+                                        <a ng-href="{{species.key}}">
+                                            <div>{{species.scientificName}}</div>
+                                        </a>
+                                    </td>
+                                    <td class="table-cell--normal text-capitalize">
+                                        <a ng-href="{{species.key}}" translate="taxonRank.{{species.rank}}"
+                                           ng-if="species.rank">{{species.rank}}</a>
+                                    </td>
+                                    <td class="table-cell--narrow text-capitalize">
+                                        <a ng-href="{{species.key}}">
                                     <span ng-if="species.taxonomicStatus == 'ACCEPTED'">
                                         <span translate="taxonomicStatus.{{species.taxonomicStatus}}">
                                         {{species.taxonomicStatus}}
@@ -98,41 +57,90 @@
                                         </span>
                                     </span>
 
-                                </a>
-                            </td>
-                            <td class="table-cell--wide">
-                                <a ng-href="../dataset/{{species.datasetKey}}">
-                                    <div>{{species._datasetKey.title}}</div>
-                                </a>
-                            </td>
+                                        </a>
+                                    </td>
+                                    <td class="table-cell--wide">
+                                        <a ng-href="../dataset/{{species.datasetKey}}">
+                                            <div>{{species._datasetKey.title}}</div>
+                                        </a>
+                                    </td>
 
-                            <td class="table-cell--normal"
-                                ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
-                                <a ng-href="{{species.key}}">{{species[t]}}</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <uib-pagination
-                                total-items="speciesTable.state.data.count"
-                                ng-model="speciesTable.currentPage"
-                                max-size="speciesTable.maxSize"
-                                items-per-page="speciesTable.limit"
-                                class="pagination-sm"
-                                boundary-link-numbers="false"
-                                rotate="false"
-                                ng-change="speciesTable.pageChanged()"
-                                ng-show="speciesTable.state.data.count > speciesTable.limit">
-                        </uib-pagination>
+                                    <td class="table-cell--normal"
+                                        ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
+                                        <a ng-href="{{species.key}}">{{species[t]}}</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <uib-pagination
+                                        total-items="speciesTable.state.data.count"
+                                        ng-model="speciesTable.currentPage"
+                                        max-size="speciesTable.maxSize"
+                                        items-per-page="speciesTable.limit"
+                                        class="pagination-sm"
+                                        boundary-link-numbers="false"
+                                        rotate="false"
+                                        ng-change="speciesTable.pageChanged()"
+                                        ng-show="speciesTable.state.data.count > speciesTable.limit">
+                                </uib-pagination>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+            </section>
         </div>
-    </section>
-</article>
+    </div>
+</div>
+
+<!--<article class="wrapper-horizontal-stripes">-->
+
+
+    <!--<section class="horizontal-stripe&#45;&#45;paddingless white-background search-header">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
+                        <!--<span class="article-header__category__upper">Search</span>-->
+                        <!--<span class="article-header__category__lower">Species</span>-->
+                    <!--</nav>-->
+                    <!--<div class="search-header__description">-->
+                        <!--<span ng-if="speciesTable.hasData()">-->
+                            <!--{{speciesTable.state.data.count | localNumber:speciesTable.state.query.locale }} results-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="horizontal-stripe&#45;&#45;paddingless white-background seperator&#45;&#45;b">-->
+        <!--<div class="container&#45;&#45;narrow">-->
+            <!--<div class="row">-->
+                <!--<nav class="tabs">-->
+                    <!--<ul>-->
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="speciesSearchList()">-->
+                                <!--List-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+                        <!--<li class="tab isActive">-->
+                            <!--<span>-->
+                                <!--Table-->
+                            <!--</span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+
+
+    <!---->
+<!--</article>-->

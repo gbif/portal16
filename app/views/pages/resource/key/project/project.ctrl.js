@@ -8,12 +8,13 @@ angular
     .controller('projectKeyCtrl', projectKeyCtrl);
 
 /** @ngInject */
-function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope) {
+function projectKeyCtrl(DatasetSearch, $q, env, $http, $location, $rootScope, BUILD_VERSION) {
     var vm = this;
     vm.projectId = gb.projectId;
     vm.key = gb.projectKey;
     vm.imageCache = env.imageCache;
     vm.tileApi = env.tileApi;
+    vm.BUILD_VERSION = BUILD_VERSION;
     var tabs = ['about', 'news', 'datasets'];
 
     if (vm.projectId) {

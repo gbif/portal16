@@ -1,0 +1,42 @@
+<article class="card m-b-05 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <a href="" ui-sref="speciesSearchList({rank:result.rank})" class="inherit searchCard__type hoverBox" ng-if="result.rank" translate="taxonRank.{{ result.rank }}"></a>
+            <h3>
+                <a ng-href="{{ urlPrefix }}/species/{{result.key}}">{{result.scientificName}}</a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <div class="searchCard__img asyncIf--isHidden" async-if="//api.gbif.org/v1/occurrence/search?taxon_key={{ result.key }}&has_coordinate=true&has_geospatial_issue=false">
+                <div class="teaser-map--small">
+                    <img src="/img/tile000/basemap-grey-light2.png">
+                    <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=TAXON&resolution=4">
+                </div>
+            </div>
+            {#<div>#}
+                {#{{result.description | limitTo:200 }}#}
+            {#</div>#}
+            <div class="searchCard__meta" ng-if="result.publishedIn">
+                Published in: {{ result.publishedIn | truncate:180 }}
+            </div>
+            <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
+                Taxonomy: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                      ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
+                      ng-bind-html="result[taxa]"></span>
+            </p>
+            <ul class="list-chips">
+                <li>
+                    <a href="" ui-sref="speciesSearchList({status:result.taxonomicStatus})" translate="taxonomicStatus.{{ result.taxonomicStatus }}">{{ result.taxonomicStatus }}</a>
+                </li>
+                <li ng-if="result.rank">
+                    <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
+                </li>
+                <li ng-if="result.rank">
+                    <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="//api.gbif.org/v1/occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> occurrences</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>

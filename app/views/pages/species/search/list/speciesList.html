@@ -1,108 +1,132 @@
-<article class="wrapper-horizontal-stripes">
-
-
-    <div class="horizontal-stripe--paddingless white-background search-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">Search</span>
-                        <span class="article-header__category__lower">Species</span>
-                    </nav>
-                    <div class="search-header__description">
-                        <span ng-if="speciesList.hasData()">
-                            {{speciesList.state.data.count | localNumber:speciesList.state.query.locale }} results
-                        </span>
-                    </div>
+<div class="container--narrow">
+    <div class="row">
+        <div class="col-xs-12">
+            <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
+            <div ng-if="speciesList.hasData()">
+                <div ng-repeat="result in speciesList.state.data.results">
+                    <ng-include src="'/api/template/search/speciesResult.html?v=' + speciesList.BUILD_VERSION"></ng-include>
                 </div>
+
+                <uib-pagination
+                        total-items="speciesList.state.data.count"
+                        ng-model="speciesList.currentPage"
+                        max-size="speciesList.maxSize"
+                        items-per-page="speciesList.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="false"
+                        rotate="false"
+                        ng-change="speciesList.pageChanged()"
+                        ng-show="speciesList.state.data.count > speciesList.limit">
+                </uib-pagination>
             </div>
         </div>
     </div>
+</div>
 
-    <section class="horizontal-stripe--paddingless white-background seperator--b">
-        <div class="container--narrow">
-            <div class="row">
-                <nav class="tabs">
-                    <ul>
-                        <li class="tab isActive">
-                            <span>
-                                List
-                            </span>
-                        </li>
+<!--<article class="wrapper-horizontal-stripes">-->
+    <!---->
+    <!--<div class="horizontal-stripe&#45;&#45;paddingless white-background search-header">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
+                        <!--<span class="article-header__category__upper">Search</span>-->
+                        <!--<span class="article-header__category__lower">Species</span>-->
+                    <!--</nav>-->
+                    <!--<div class="search-header__description">-->
+                        <!--<span ng-if="speciesList.hasData()">-->
+                            <!--{{speciesList.state.data.count | localNumber:speciesList.state.query.locale }} results-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-                        <li class="tab">
-                            <a href="" ui-sref="speciesSearchTable()">
-                                Table
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
+    <!--<section class="horizontal-stripe&#45;&#45;paddingless white-background seperator&#45;&#45;b">-->
+        <!--<div class="container&#45;&#45;narrow">-->
+            <!--<div class="row">-->
+                <!--<nav class="tabs">-->
+                    <!--<ul>-->
+                        <!--<li class="tab isActive">-->
+                            <!--<span>-->
+                                <!--List-->
+                            <!--</span>-->
+                        <!--</li>-->
 
-    <div class="horizontal-stripe white-background">
-        <ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>
-        <div ng-if="speciesList.hasData()">
+                        <!--<li class="tab">-->
+                            <!--<a href="" ui-sref="speciesSearchTable()">-->
+                                <!--Table-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
 
-            <div class="container--narrow">
-                <div class="search-results__list row">
-                    <div class="col-xs-12">
+    <!--<div class="horizontal-stripe white-background">-->
+        <!--<ng-include src="'/templates/components/loader/loader.html'" ng-if="!speciesList.hasData()"></ng-include>-->
+        <!--<div ng-if="speciesList.hasData()">-->
 
-                        <article class="search-results__list__item"
-                                 ng-repeat="species in speciesList.state.data.results">
-                            <span class="search-results__list__item__tag"><span>{{species.rank}}</span><span>{{species.taxonomicStatus}}</span></span>
-                            <div>
-                                <a href="../species/{{species.key}}" class="tile"
-                                   ng-if="speciesList.backboneKey == species.datasetKey">
-                                    <div class="teaser-map--small">
-                                        <img src="/img/tile000/basemap-grey-light2.png">
-                                        <img ng-src="{{speciesList.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">
-                                    </div>
-                                </a>
-                                <div>
-                                    <h4 class="search-results__list__item__title">
-                                        <a href="../species/{{species.key}}">
-                                            {{species.scientificName | stripTags | limitTo:150}}
-                                        </a>
-                                    </h4>
-                                    <p class="search-results__list__item__meta"
-                                       ng-if="speciesList.state.query.advanced">
-                                        Checklist: <a class="" href="../dataset/{{ species.datasetKey }}">{{species._datasetKey.title
-                                        | limitTo:50 }}</a>
-                                    </p>
-                                    <!--<p ng-if="speciesList.getVernacularNameMatch(species)">-->
-                                    <!--Common name in <span translate="language.{{speciesList.getVernacularNameMatch(species).language}}"></span>: <span ng-bind-html="speciesList.getVernacularNameMatch(species).vernacularName"></span>-->
+            <!--<div class="container&#45;&#45;narrow">-->
+                <!--<div class="search-results__list row">-->
+                    <!--<div class="col-xs-12">-->
+
+                        <!--<article class="search-results__list__item"-->
+                                 <!--ng-repeat="species in speciesList.state.data.results">-->
+                            <!--<span class="search-results__list__item__tag"><span>{{species.rank}}</span><span>{{species.taxonomicStatus}}</span></span>-->
+                            <!--<div>-->
+                                <!--<a href="../species/{{species.key}}" class="tile"-->
+                                   <!--ng-if="speciesList.backboneKey == species.datasetKey">-->
+                                    <!--<div class="teaser-map&#45;&#45;small">-->
+                                        <!--<img src="/img/tile000/basemap-grey-light2.png">-->
+                                        <!--<img ng-src="{{speciesList.tileApi}}?x=0&y=0&z=0&palette=yellows_reds&key={{species.key}}&type=TAXON&resolution=4">-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<div>-->
+                                    <!--<h4 class="search-results__list__item__title">-->
+                                        <!--<a href="../species/{{species.key}}">-->
+                                            <!--{{species.scientificName | stripTags | limitTo:150}}-->
+                                        <!--</a>-->
+                                    <!--</h4>-->
+                                    <!--<p class="search-results__list__item__meta"-->
+                                       <!--ng-if="speciesList.state.query.advanced">-->
+                                        <!--Checklist: <a class="" href="../dataset/{{ species.datasetKey }}">{{species._datasetKey.title-->
+                                        <!--| limitTo:50 }}</a>-->
                                     <!--</p>-->
-                                    <p class="discreet classification-list">
-                                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
-                                              ng-if="species[taxa] && taxa != species.rank.toLowerCase()"
-                                              ng-bind-html="species[taxa]"></span>
-                                    </p>
+                                    <!--&lt;!&ndash;<p ng-if="speciesList.getVernacularNameMatch(species)">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;Common name in <span translate="language.{{speciesList.getVernacularNameMatch(species).language}}"></span>: <span ng-bind-html="speciesList.getVernacularNameMatch(species).vernacularName"></span>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                                    <!--<p class="discreet classification-list">-->
+                                        <!--<span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"-->
+                                              <!--ng-if="species[taxa] && taxa != species.rank.toLowerCase()"-->
+                                              <!--ng-bind-html="species[taxa]"></span>-->
+                                    <!--</p>-->
 
-                                    <p ng-if="species.acceptedKey">
-                                        Synonym of: <a ng-href="{{species.acceptedKey}}">{{species.accepted}}</a>
-                                    </p>
+                                    <!--<p ng-if="species.acceptedKey">-->
+                                        <!--Synonym of: <a ng-href="{{species.acceptedKey}}">{{species.accepted}}</a>-->
+                                    <!--</p>-->
 
-                                </div>
-                            </div>
-                        </article>
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</article>-->
 
-                        <uib-pagination
-                                total-items="speciesList.state.data.count"
-                                ng-model="speciesList.currentPage"
-                                max-size="speciesList.maxSize"
-                                items-per-page="speciesList.limit"
-                                class="pagination-sm"
-                                boundary-link-numbers="false"
-                                rotate="false"
-                                ng-change="speciesList.pageChanged()"
-                                ng-show="speciesList.state.data.count > speciesList.limit">
-                        </uib-pagination>
-                    </div>
-                </div>
+                        <!--<uib-pagination-->
+                                <!--total-items="speciesList.state.data.count"-->
+                                <!--ng-model="speciesList.currentPage"-->
+                                <!--max-size="speciesList.maxSize"-->
+                                <!--items-per-page="speciesList.limit"-->
+                                <!--class="pagination-sm"-->
+                                <!--boundary-link-numbers="false"-->
+                                <!--rotate="false"-->
+                                <!--ng-change="speciesList.pageChanged()"-->
+                                <!--ng-show="speciesList.state.data.count > speciesList.limit">-->
+                        <!--</uib-pagination>-->
+                    <!--</div>-->
+                <!--</div>-->
 
-            </div>
-        </div>
-    </div>
-</article>
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</article>-->

@@ -15,7 +15,7 @@ module.exports = function (app) {
 
 router.get('/publisher/search', function (req, res) {
     publisherSearch(req.query).then(function (data) {
-        data = prune(data, ['description', 'contacts', 'comments']);
+        data = prune(data, ['contacts', 'comments']);
         let settings = {
             facets: false,
             query: req.query,

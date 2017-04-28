@@ -208,6 +208,10 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, BU
         }
     };
 
+    vm.hasData = function () {
+        return typeof vm.state.data.count !== 'undefined'
+    };
+
     //vm.clearFreetextAndSetFocus = function() {
     //    document.getElementById('siteSearch').focus();
     //    vm.freeTextQuery = '';
