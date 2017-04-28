@@ -4,6 +4,7 @@
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>
             <div ng-if="resourceList.hasData()">
                 <div ng-repeat="result in resourceList.state.data.results">
+                    <ng-include src="'/api/template/search/articleResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'article'"></ng-include>
                     <ng-include src="'/api/template/search/eventResult.html?v=' +       resourceList.BUILD_VERSION" ng-if="result.contentType == 'event'"></ng-include>
                     <ng-include src="'/api/template/search/datauseResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'dataUse'"></ng-include>
                     <ng-include src="'/api/template/search/newsResult.html?v=' +        resourceList.BUILD_VERSION" ng-if="result.contentType == 'news'"></ng-include>

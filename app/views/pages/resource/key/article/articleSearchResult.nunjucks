@@ -1,0 +1,21 @@
+<div class="card m-b-05 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <h3>
+                <a href="{{ urlPrefix }}/data-use/{{result.id}}/{{result._slug}}">
+                    {{result.title}}
+                </a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <a href="{{ urlPrefix }}/data-use/{{result.id}}/{{result._slug}}">
+                <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
+            </a>
+            <p>
+                {{result._summary}}
+            </p>
+        </div>
+    </div>
+</div>

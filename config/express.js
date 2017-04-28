@@ -56,7 +56,7 @@ module.exports = function (app, config) {
     }));
     app.use(cookieParser());
     app.use(compress());
-    app.use(express.static(config.root + '/public', { 
+    app.use(express.static(config.root + '/public', {
         cacheControl: true,
         maxAge: '100d',
         etag: false
@@ -74,7 +74,7 @@ module.exports = function (app, config) {
     require(config.root + '/app/middleware/menu/menu.js').use(app);
 
     //app.use(slashes(false, { code: 302 }));//the module is defect. asking it to remove slashes leads to circular redirects
-    app.use(function(req, res, next) {
+    app.use(function (req, res, next) {
         if (req.path.substr(-1) == '/' && req.path.length > 1) {
             var query = req.url.slice(req.path.length);
             res.redirect(301, req.path.slice(0, -1) + query);
@@ -91,6 +91,7 @@ module.exports = function (app, config) {
     });
 
     // require(config.root + '/app/urlHandling/urlHandling.js')(app); //disable all drupal route handling - as part of the development to move to contentful
+    require(config.root + '/app/controllers/resource/key/resourceBySlugCtrl.js')(app);
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 };

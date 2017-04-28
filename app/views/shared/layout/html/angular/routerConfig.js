@@ -264,39 +264,38 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('country', {
             parent: 'localization',
-            abstract: true,
             url: '/country/:key',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/country/key/countryKey.html?v=' + BUILD_VERSION,
+                    templateUrl: '/templates/pages/participant/country/activities.html?v=' + BUILD_VERSION,
                     controller: 'countryKeyCtrl',
                     controllerAs: 'countryKey'
                 }
             }
         })
-        .state('countryActivity', {
-            parent: 'country',
-            url: '/{direction:(?:about|published)}',
-            params: {direction: {squash: true, value: 'about'}},
-            templateUrl: '/templates/pages/country/key/activity/countryActivity.html?v=' + BUILD_VERSION,
-            controller: 'countryActivityCtrl',
-            controllerAs: 'countryActivity'
-        })
-        .state('countryTrends', {
-            parent: 'country',
-            url: '/trends/{direction:(?:about|published)}',
-            params: {direction: {squash: true, value: 'about'}},
-            templateUrl: '/templates/pages/country/key/trends/countryTrends.html?v=' + BUILD_VERSION,
-            controller: 'countryTrendsCtrl',
-            controllerAs: 'countryTrends'
-        })
-        .state('countryParticipant', {
-            parent: 'country',
-            url: '/participant?offset_datasets&offset_endorsed',
-            templateUrl: '/templates/pages/country/key/participant/countryParticipant.html?v=' + BUILD_VERSION,
-            controller: 'countryParticipantCtrl',
-            controllerAs: 'countryParticipant'
-        })
+        //.state('countryActivity', {
+        //    parent: 'country',
+        //    url: '/{direction:(?:about|published)}',
+        //    params: {direction: {squash: true, value: 'about'}},
+        //    templateUrl: '/templates/pages/country/key/activity/countryActivity.html?v=' + BUILD_VERSION,
+        //    controller: 'countryActivityCtrl',
+        //    controllerAs: 'countryActivity'
+        //})
+        //.state('countryTrends', {
+        //    parent: 'country',
+        //    url: '/trends/{direction:(?:about|published)}',
+        //    params: {direction: {squash: true, value: 'about'}},
+        //    templateUrl: '/templates/pages/country/key/trends/countryTrends.html?v=' + BUILD_VERSION,
+        //    controller: 'countryTrendsCtrl',
+        //    controllerAs: 'countryTrends'
+        //})
+        //.state('countryParticipant', {
+        //    parent: 'country',
+        //    url: '/participant?offset_datasets&offset_endorsed',
+        //    templateUrl: '/templates/pages/country/key/participant/countryParticipant.html?v=' + BUILD_VERSION,
+        //    controller: 'countryParticipantCtrl',
+        //    controllerAs: 'countryParticipant'
+        //})
         //.state('programmeProjects', {
         //    parent: 'localization',
         //    url: '/programme2/:key/projects/:title',

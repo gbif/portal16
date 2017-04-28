@@ -253,7 +253,7 @@ require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
 require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
-require('../../../pages/country/key2/countryKey.ctrl');
+require('../../../pages/participant/country/countryKey.ctrl');
 require('../../../pages/country/key/trends/countryTrends.ctrl');
 require('../../../pages/country/key/activity/countryActivity.ctrl');
 require('../../../pages/country/key/participant/countryParticipant.ctrl');

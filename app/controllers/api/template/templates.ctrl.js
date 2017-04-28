@@ -49,3 +49,7 @@ router.get('/search/literatureResult.html', function (req, res, next) {
 router.get('/search/toolResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/tool/toolSearchResult');
 });
+
+router.get('/search/articleResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/resource/key/article/articleSearchResult');
+});

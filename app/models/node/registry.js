@@ -47,6 +47,6 @@ function decorateNode(node){
 }
 
 module.exports = {
-    getNodeById: getNodeById,
+    get: getNodeById,
     getNodeByIso: getNodeByIso
 };

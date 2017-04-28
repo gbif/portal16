@@ -18,7 +18,8 @@ module.exports = {
     mapLegacyData: mapLegacyData,
     removeUnresovable: removeUnresovable,
     getParticipant: getParticipant,
-    getHomePage: getHomePage
+    getHomePage: getHomePage,
+    getByAlias: getByAlias
 };
 
 
@@ -83,6 +84,21 @@ async function getParticipant(directoryId, depth, isPreview, locale) {
             'fields.directoryId': directoryId
         }, depth, isPreview, locale),
             first = decorateFirst(participants);
+    return first;
+}
+
+async function getByAlias(urlAlias, depth, isPreview, locale) {
+    let articles = await searchContentful({
+            content_type: 'article',
+            'fields.urlAlias': urlAlias
+        }, depth, isPreview, locale);
+        if (articles.total == 0) {
+            throw {
+                statusCode: 404,
+                message: 'No such article'
+            }
+        }
+        let first = decorateFirst(articles);
     return first;
 }
 

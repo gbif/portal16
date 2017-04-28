@@ -35,7 +35,7 @@
     <form class="userLogin__form" name="vm.loginUserForm" ng-if="vm.loginState" ng-submit="vm.submitLogin()">
         <div class="userLogin__form__group">
             <label>
-                <span>Username or email</span>
+                <span>Username (not email)</span>
                 <input type="text" name="username" required ng-model="vm.username" focus-me="true">
             </label>
         </div>
@@ -60,96 +60,96 @@
     </form>
 
     <form name="vm.createUserForm" class="userLogin__form" ng-if="vm.createState">
-        <!--<div>-->
-            <!--Please use <a href="http://www.gbif.org/user/login">GBIF.org</a> for user creation for now. Your account should be synced within a day. Thank you.-->
+        <div>
+            Please use <a href="http://www.gbif.org/user/login">GBIF.org</a> for user creation for now. Your account should be synced within a day. Thank you.
+        </div>
+        <!--<div ng-if="!vm.verification">-->
+            <!--<div class="userLogin__form__group">-->
+                <!--<label>-->
+                    <!--<span>Country</span>-->
+                    <!--<input type="text"-->
+                           <!--required-->
+                           <!--name="country"-->
+                           <!--ng-class="{isInvalid: vm.invalidCountry}"-->
+                           <!--autocomplete="off"-->
+                           <!--ng-model="vm.country"-->
+                           <!--uib-typeahead="suggestion.title for suggestion in vm.searchSuggestions | filter:$viewValue | limitTo:8"-->
+                           <!--typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"-->
+                           <!--typeahead-no-results="vm.invalidCountry"-->
+                           <!--typeahead-select-on-blur="true"-->
+                           <!--typeahead-editable="false"-->
+                           <!--typeahead-focus-first="true">-->
+                <!--</label>-->
+                <!--<div ng-messages="vm.createUserForm.country.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                    <!--<div ng-message="required">Country required</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="userLogin__form__group">-->
+                <!--<label>-->
+                    <!--<span>Email</span>-->
+                    <!--<input type="email" name="email" required ng-model="vm.email">-->
+                <!--</label>-->
+                <!--<div ng-messages="vm.createUserForm.email.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                    <!--<div ng-message="required">Email required</div>-->
+                    <!--<div ng-message="email">Please enter a valid email</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="userLogin__form__group">-->
+                <!--<label>-->
+                    <!--<span>Username</span>-->
+                    <!--<input type="text" name="username" required ng-model="vm.username">-->
+                <!--</label>-->
+                <!--<div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                    <!--<div ng-message="required">Username required</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="userLogin__form__group">-->
+                <!--<label>-->
+                    <!--<span>Password</span>-->
+                    <!--<input type="password" name="password" ng-minlength="8" ng-maxlength="256" required ng-model="vm.password">-->
+                <!--</label>-->
+                <!--<div ng-messages="vm.createUserForm.password.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
+                    <!--<div ng-message="required">Password is required</div>-->
+                    <!--<div ng-message="minlength">Password must be 8 characters or more</div>-->
+                    <!--<div ng-message="maxlength">You password may not be above 256 characters</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<p class="m-t-1">-->
+                <!--&lt;!&ndash;<a href="" class="gb-button&#45;&#45;brand" ng-click="vm.createNext()">Next</a>&ndash;&gt;-->
+                <!--<button type="submit" class="gb-button&#45;&#45;brand" ng-click="vm.signup()">Sign up</button>-->
+            <!--</p>-->
+            <!--<div class="small text-error" ng-if="vm.formInvalid && vm.createUserForm.$invalid">-->
+                <!--Please fill in form-->
+            <!--</div>-->
         <!--</div>-->
-        <div ng-if="!vm.verification">
-            <div class="userLogin__form__group">
-                <label>
-                    <span>Country</span>
-                    <input type="text"
-                           required
-                           name="country"
-                           ng-class="{isInvalid: vm.invalidCountry}"
-                           autocomplete="off"
-                           ng-model="vm.country"
-                           uib-typeahead="suggestion.title for suggestion in vm.searchSuggestions | filter:$viewValue | limitTo:8"
-                           typeahead-on-select="vm.typeaheadSelect($item, $model, $label, $event)"
-                           typeahead-no-results="vm.invalidCountry"
-                           typeahead-select-on-blur="true"
-                           typeahead-editable="false"
-                           typeahead-focus-first="true">
-                </label>
-                <div ng-messages="vm.createUserForm.country.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Country required</div>
-                </div>
-            </div>
-            <div class="userLogin__form__group">
-                <label>
-                    <span>Email</span>
-                    <input type="email" name="email" required ng-model="vm.email">
-                </label>
-                <div ng-messages="vm.createUserForm.email.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Email required</div>
-                    <div ng-message="email">Please enter a valid email</div>
-                </div>
-            </div>
-            <div class="userLogin__form__group">
-                <label>
-                    <span>Username</span>
-                    <input type="text" name="username" required ng-model="vm.username">
-                </label>
-                <div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Username required</div>
-                </div>
-            </div>
-            <div class="userLogin__form__group">
-                <label>
-                    <span>Password</span>
-                    <input type="password" name="password" ng-minlength="8" ng-maxlength="256" required ng-model="vm.password">
-                </label>
-                <div ng-messages="vm.createUserForm.password.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">
-                    <div ng-message="required">Password is required</div>
-                    <div ng-message="minlength">Password must be 8 characters or more</div>
-                    <div ng-message="maxlength">You password may not be above 256 characters</div>
-                </div>
-            </div>
 
-            <p class="m-t-1">
-                <!--<a href="" class="gb-button&#45;&#45;brand" ng-click="vm.createNext()">Next</a>-->
-                <button type="submit" class="gb-button--brand" ng-click="vm.signup()">Sign up</button>
-            </p>
-            <div class="small text-error" ng-if="vm.formInvalid && vm.createUserForm.$invalid">
-                Please fill in form
-            </div>
-        </div>
-
-        <div ng-if="vm.verification">
-            <div class="verification">
-                <div></div>
-                <div class="verification__query">
-                    <div class="verification__description">
-                        <div>
-                            Select all images below like this one:
-                        </div>
-                    </div>
-                    <div class="verification__img">
-                        <img ng-src="/api/verification/{{vm.challenge.challenge}}">
-                    </div>
-                </div>
-                <div class="verification__options">
-                    <a hre="" ng-repeat="option in vm.challenge.options" class="verification__img" ng-class="{isSelected: vm.answer[$index]}" ng-click="vm.answer[$index]=!vm.answer[$index]">
-                        <img ng-src="/api/verification/{{option}}">
-                    </a>
-                </div>
-            </div>
-            <p class="m-t-1">
-                <button type="submit" class="gb-button--brand" ng-click="vm.signup()">Sign up</button>
-            </p>
-            <p class="small discreet">
-                By creating an account you accept GBIFs <a href="">terms</a> and <a href="">privacy policy</a>.
-            </p>
-        </div>
+        <!--<div ng-if="vm.verification">-->
+            <!--<div class="verification">-->
+                <!--<div></div>-->
+                <!--<div class="verification__query">-->
+                    <!--<div class="verification__description">-->
+                        <!--<div>-->
+                            <!--Select all images below like this one:-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="verification__img">-->
+                        <!--<img ng-src="/api/verification/{{vm.challenge.challenge}}">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="verification__options">-->
+                    <!--<a hre="" ng-repeat="option in vm.challenge.options" class="verification__img" ng-class="{isSelected: vm.answer[$index]}" ng-click="vm.answer[$index]=!vm.answer[$index]">-->
+                        <!--<img ng-src="/api/verification/{{option}}">-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<p class="m-t-1">-->
+                <!--<button type="submit" class="gb-button&#45;&#45;brand" ng-click="vm.signup()">Sign up</button>-->
+            <!--</p>-->
+            <!--<p class="small discreet">-->
+                <!--By creating an account you accept GBIFs <a href="">terms</a> and <a href="">privacy policy</a>.-->
+            <!--</p>-->
+        <!--</div>-->
         
     </form>
 

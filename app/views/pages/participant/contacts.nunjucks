@@ -1,0 +1,73 @@
+{% if activePeople or node.address %}
+    <div class="card contactsCard">
+        <div class="card__stripe">
+            {% if node.address %}
+            <a href="" class="inherit contactsCard__header contactsCard__contact card__content" ng-click="contactHeader = !contactHeader">
+                {% if participant.type == 'COUNTRY' %}
+                    <div class="contactsCard__abbr"><img src="/img/country/{$ participant.countryCode $}/48.png" /></div>
+                {% endif %}
+                <div class="contactsCard__name">
+                    <div>
+                        {% if node.acronym %}
+                            <div>{$ node.acronym $}</div>
+                            <span class="small discreet">{$ node.name $}</span>
+                        {% else %}
+                            <div>{$ node.name $}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+            <div class="card__content small discreet ng-cloak" ng-if="contactHeader">
+                {$ node.address | renderMarkdown | safe $}
+            </div>
+            {% else %}
+                <div class="card__content contactsCard__name">
+                    <div>
+                        {% if node.acronym %}
+                            <div>{$ node.acronym $}</div>
+                            <span class="small discreet">{$ node.name $}</span>
+                        {% else %}
+                            <div>{$ node.name $}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="card__stripe">
+            <div class="card__content contactsCard__subheader">
+                Contacts
+            </div>
+        </div>
+        {% for contact in activePeople %}
+            <div class="card__stripe">
+                <div class="contactsCard__contact">
+                    {#<div class="contactsCard__abbr">JW</div>#}
+                    <a href="" class="inherit contactsCard__name card__content" ng-click="contact{$ contact.id $} = !contact{$ contact.id $}">
+                        <div>
+                            <div>{$ contact.firstName $} {$ contact.surname $}</div>
+                    <span class="small discreet text-capitalize">
+                        {% for role in contact.roles %}
+                            {$ __('role.' + role.role) $}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </span>
+                        </div>
+                    </a>
+                    <div class="contactsCard__link card__content">
+                        {% if contact.email %}
+                            <a href="mailto:{$ contact.email $}" class="inherit noUnderline"><span class="gb-icon-email"></span></a>
+                        {% endif %}
+                        {#<div><span class="gb-icon-menu-up"></span></div>#}
+                    </div>
+                </div>
+                <div class="card__content small discreet ng-cloak" ng-if="contact{$ contact.id $}">
+                    <div>{$ contact.title $} {$ contact.firstName $} {$ contact.surname $}</div>
+                    <div>{$ contact.institutionName $}</div>
+                    <div>{$ __('country.' + contact.countryCode) $}</div>
+                    <div>{$ contact.address | renderMarkdown | safe $}</div>
+                    <div><a href="mailto:{$ contact.email $}">{$ contact.email $}</a></div>
+                    <div><a href="tel:{$ contact.phone $}">{$ contact.phone $}</a></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

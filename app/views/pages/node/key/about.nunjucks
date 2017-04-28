@@ -5,7 +5,7 @@
 <div class="horizontal-stripe white-background">
     <div class="container--narrow">
 
-        {% if main %}
+        {% if main.fields | hasAtLeastOneKey(['body', 'nodeHistory', 'nodeMission', 'nodeStructure', 'nodeFunding']) %}
             <div class="body-text">
                 {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
 

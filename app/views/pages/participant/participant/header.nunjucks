@@ -1,0 +1,17 @@
+<div class="horizontal-stripe article-header white-background p-b-05">
+    <div class="container--desktop">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">Participant</span>
+                    <span class="article-header__category__lower">{$ participant.participationStatus $}</span>
+                </nav>
+
+                <h1 class="text-center">
+                {# TODO why is it the name of the node we show and not the participant - this is simply duplicated from existing site #}
+                    <span>{$ node.name or participant.name $}</span>
+                </h1>
+            </header>
+        </div>
+    </div>
+</div>

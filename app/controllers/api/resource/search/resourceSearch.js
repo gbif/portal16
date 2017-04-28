@@ -9,17 +9,18 @@ const _ = require('lodash'),
     filterHelper = require('./filter');
 
 let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage'],
-    defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme'];
+    defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 var client = new elasticsearch.Client({
     host: elasticContentful
 });
 
+
 async function search(requestQuery, __, requestTimeout) {
     let preferedLocale = requestQuery.locale,
         query = buildQuery(requestQuery);
 
-    query.requestTimeout = requestTimeout || 5000;
+    query.requestTimeout = requestTimeout || 10000;
 
     let resp = await client.search(query);
 
@@ -142,29 +143,45 @@ function buildQuery(query) {
         if (query.contentType == 'event') {
             body.sort = [
                 {
-                    "start": { //seems odd this is localized
-                        "order": showPastEvents ? "desc": "asc",
-                        "missing" : "_last",
+                    "start": {
+                        "order": showPastEvents ? "desc" : "asc",
+                        "missing": "_last",
                         "unmapped_type": "date"
                     }
                 }
             ];
         } else {
-            body.sort = [
-                {
-                    "createdAt": {
-                        "order": "desc",
-                        "missing" : "_last",
-                        "unmapped_type": "date"
-                    }
+            body.query = {
+                "function_score": {
+                    "functions": [
+                        {
+                            "gauss": {
+                                "createdAt": {
+                                    "scale": "10d"
+                                }
+                            }
+                        }
+                    ],
+                    query: body.query
                 }
-            ];
+            };
+
+            //body.sort = [
+            //    {
+            //        "createdAt": {
+            //            "order": "desc",
+            //            "missing" : "_last",
+            //            "unmapped_type": "date"
+            //        }
+            //    }
+            //];
         }
     }
 
     searchParams.body = body;
     searchParams.body.indices_boost = {
         literature: 0
+        //article: 3
     };
 
     //console.log(JSON.stringify(body, null, 4));
@@ -315,7 +332,9 @@ let newEventOrSomethingElse = {
                 },
                 {
                     "terms": {
-                        "contentType": _.filter(defaultContentTypes, function(e){return e !== 'event'})
+                        "contentType": _.filter(defaultContentTypes, function (e) {
+                            return e !== 'event'
+                        })
                     }
                 }
             ]

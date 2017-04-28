@@ -22,7 +22,6 @@ router.get('/article/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'article', 'pages/resource/key/article/article');
 });
 
-
 router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'event', 'pages/resource/key/event/event');
 });

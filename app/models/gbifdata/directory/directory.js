@@ -446,7 +446,7 @@ function getParticipantDetails(participantId) {
 
 function getNodeDetails(nodeId) {
     let deferred = Q.defer();
-    let requestUrl = dataApi.directoryNode.url + '/' + nodeId;
+    let requestUrl = dataApi.directoryNode.url + nodeId;
     let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
@@ -550,7 +550,7 @@ Directory.getCommitteeContacts = (group, contacts) => {
 
 function getPersonContact(personId, contacts) {
     let deferred = Q.defer();
-    let requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    let requestUrl = dataApi.directoryPerson.url + personId;
     let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)
@@ -616,7 +616,7 @@ function getPersonContact(personId, contacts) {
 
 Directory.getPersonDetail = personId => {
     let deferred = Q.defer();
-    let requestUrl = dataApi.directoryPerson.url + '/' + personId;
+    let requestUrl = dataApi.directoryPerson.url + personId;
     let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)

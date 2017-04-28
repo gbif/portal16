@@ -61,9 +61,9 @@
                                     </a>
                                 </li>
                                 <li ng-if="vm.contentType != 'cms'" class="text-capitalize">
-                                    <a ui-sref="cmsSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
-                                       translate="stdTerms.cms">
-                                        GBIF Network
+                                    <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})" ui-sref-opts="{inherit: false}"
+                                       translate="stdTerms.resources">
+                                        Resources
                                     </a>
                                 </li>
                             </ul>

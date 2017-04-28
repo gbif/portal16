@@ -1,21 +1,29 @@
 "use strict";
 
-var utils = rootRequire('app/helpers/utils'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    directoryNode = require('../directoryNode'),
-    _ = require('lodash'),
-    request = require('requestretry');
+var Participant = require('./participant'),
+    Registry = require('./registry'),
+    utils = rootRequire('app/helpers/utils'),
+    _ = require('lodash');
 
-function getRegistryNode(id) {
-    let baseRequest = {
-        url: apiConfig.node.url + nodeKey,
-        timeout: 30000,
-        method: 'GET',
-        json: true
-    };
-    return request(baseRequest);
+async function getNode(key, locale) {
+    if (!utils.isGuid(key)) {
+        throw {
+            statusCode: 404,
+            message: 'not a valid node key'
+        }
+    }
+    let registryNode = await Registry.get(key);
+    let firstDirectoryIdentifier = _.find(registryNode.identifiers, {type: 'GBIF_PARTICIPANT'});
+    if (firstDirectoryIdentifier) {
+        return Participant.get(firstDirectoryIdentifier.identifier, locale);
+    } else {
+        throw {
+            statusCode: 404,
+            message: 'node could not  be found in the directory as a participants. All nodes are assumed to be participants as well'
+        }
+    }
 }
 
 module.exports = {
-
-}
+    get: getNode
+};

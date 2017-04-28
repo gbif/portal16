@@ -45,9 +45,17 @@ async function getNodeById(id) {
     return node;
 }
 
-function getParticipant(iso, locale) {
+function getParticipant(key, locale) {
+    let participantPromise;
+
     var promise = new Promise(function (resolve, reject) {
-        getParticipantByIso(iso)
+        if (key.match(/^[0-9]+$/)) {
+            participantPromise = getParticipantById(key);
+        } else {
+            participantPromise = getParticipantByIso(key);
+        }
+
+        participantPromise
             .then(function (participant) {
                 expandParticipant(participant, locale)
                     .then(function (result) {
@@ -136,8 +144,15 @@ async function expandParticipant(participant, locale) {
         nodeHistory: nodeHistory.results,
         participantHistory: participantHistory.results,
         registryNode: registryNode,
-        type: 'COUNTRY'
+        type: 'COUNTRY',
+        country: {
+            countryCode: participant.countryCode
+        }
     };
+
+    if (participant.type !== 'COUNTRY') {
+        delete result.registryNode;
+    }
 
     return result;
 }
@@ -172,5 +187,6 @@ async function getNodePeople(id) {
 }
 
 module.exports = {
-    get: getParticipant
+    get: getParticipant,
+    getParticipantById: getParticipantById
 };
