@@ -179,6 +179,7 @@ function buildQuery(query) {
     }
 
     searchParams.body = body;
+    searchParams.index = 'content';
     searchParams.body.indices_boost = {
         literature: 0
         //article: 3

@@ -2,12 +2,11 @@
 
 var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    //apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     _ = require('lodash'),
-    request = require('requestretry'),
-    contributors = require('../../dataset/key/contributors/contributors'),
+    //contributors = require('../../dataset/key/contributors/contributors'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -28,7 +27,6 @@ module.exports = function (app) {
 
 
 let Participant = rootRequire('app/models/node/participant'),
-    Registry = rootRequire('app/models/node/registry'),
     Node = rootRequire('app/models/node/node'),
     countries = rootRequire('app/models/util/country-codes'),
     countryMap = _.keyBy(_.filter(countries, 'ISO3166-1-Alpha-2'), 'ISO3166-1-Alpha-2'),
@@ -81,16 +79,21 @@ router.get('/country/:iso\.:ext?', function (req, res, next) {
             helper.renderPage(req, res, next, participant, 'pages/participant/country/countryKey');
         })
         .catch(function(err){
-            let nonParticipant = {
-                country: {
-                    countryCode: isoCode
-                }
-            };
-            nonParticipant._meta = {
-                title: countryMap[isoCode].name,
-                customUiView: true
-            };
-            helper.renderPage(req, res, next, nonParticipant, 'pages/participant/country/countryKey');
+            if (err.statusCode !== 404) {
+                next(err);
+                return;
+            } else {
+                let nonParticipant = {
+                    country: {
+                        countryCode: isoCode
+                    }
+                };
+                nonParticipant._meta = {
+                    title: countryMap[isoCode].name,
+                    customUiView: true
+                };
+                helper.renderPage(req, res, next, nonParticipant, 'pages/participant/country/countryKey');
+            }
         });
 });
 //

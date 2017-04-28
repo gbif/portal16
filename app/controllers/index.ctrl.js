@@ -8,6 +8,7 @@ let express = require('express'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
 
+
 module.exports = function (app) {
     app.use('/', router);
 };
@@ -17,15 +18,15 @@ router.get('/', function (req, res, next) {
         //if using the short omni search format gbif.org?q=something then redirect to search
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
     } else {
-        let news = resourceSearch.search({contentType:'news',limit:1, homepage: true}, req.__, 5000),
-            dataUse = resourceSearch.search({contentType:'dataUse',limit:1, homepage: true}, req.__, 5000),
-            event = resourceSearch.search({contentType:'event',limit:1, homepage: true}, req.__, 5000), //TODO shouldn't events be visible on the home page ? they are all hidden per default
-            homepage = resource.getHomePage({content_type:'homePage'}, 3, false, res.locals.gb.locales.current);
+        let news = resourceSearch.search({contentType: 'news', limit: 1, homepage: true}, req.__, 5000),
+            dataUse = resourceSearch.search({contentType: 'dataUse', limit: 1, homepage: true}, req.__, 5000),
+            event = resourceSearch.search({contentType: 'event', limit: 1, homepage: true}, req.__, 5000), //TODO shouldn't events be visible on the home page ? they are all hidden per default
+            homepage = resource.getHomePage({content_type: 'homePage'}, 3, false, res.locals.gb.locales.current);
 
         Promise.all([homepage, news, dataUse, event])
-            .then(function(values){
+            .then(function (values) {
                 let highlights = [];
-                _.get(values[0], 'main.fields.features', []).forEach(function(e){
+                _.get(values[0], 'main.fields.features', []).forEach(function (e) {
                     let featureItem = _.get(values[0], 'resolved.Entry.' + _.get(e, 'sys.id'));
                     if (featureItem) {
                         featureItem.fields.contentType = _.get(featureItem, 'sys.contentType.sys.id');
@@ -57,7 +58,7 @@ router.get('/', function (req, res, next) {
                 //return;
                 helper.renderPage(req, res, next, context, 'pages/home/home');
             })
-            .catch(function(err){
+            .catch(function (err) {
                 //show page without highlight stories
                 console.log(err);
                 res.setHeader('Cache-Control', 'no-cache'); //TODO might be worth having a short cache on it
@@ -71,3 +72,4 @@ router.get('/', function (req, res, next) {
             });
     }
 });
+

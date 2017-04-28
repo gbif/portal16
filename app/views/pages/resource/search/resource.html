@@ -84,6 +84,9 @@
                         <span class="article-header__category__lower" ng-if="!resource.hasData()">
                             Loading ...
                         </span>
+                        <span class="article-header__category__lower" ng-if="resource.state.failedRequest">
+                            Failed
+                        </span>
                                 </nav>
                             </div>
                         </div>

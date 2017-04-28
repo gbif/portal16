@@ -73,7 +73,7 @@ function nodeKeyCtrl(NodeEndorsedPublishers, NodeDatasets, $state, $stateParams,
         //[28, 48, 40, 19, 86, 27, 90]
     ];
     vm.onClick = function (points, evt) {
-        console.log(points, evt);
+        //console.log(points, evt);
     };
 
     // Simulate async data update

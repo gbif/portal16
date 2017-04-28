@@ -3,7 +3,6 @@ const _ = require('lodash'),
     format = require('../../../../helpers/format'),
     slug = require("slug"),
     md = require('markdown-it')({html: true, linkify: true, typographer: true}),
-    defaultLocale = rootRequire('config/config').defaultLocale,
     changeCase = require('change-case');
 
 module.exports = {

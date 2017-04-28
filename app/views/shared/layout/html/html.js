@@ -45,7 +45,7 @@ require('angular-svg-round-progressbar');
         .config(chartjsConfig);
 
     /** @ngInject */
-    function runBlock(amMoment, $translate, $http, LOCALE, moment) { //$log
+    function runBlock(amMoment, $translate, $http, LOCALE) { //$log
         //$log.debug('runBlock end');
         $translate.use(LOCALE);
 

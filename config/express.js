@@ -6,7 +6,6 @@ let express = require('express'),
     methodOverride = require('method-override'),
     i18n = require("i18n"),
     requestIp = require('request-ip'),
-    slashes = require("connect-slashes"),
     bodyparser = require('body-parser');
 //log = rootRequire('config/log'),
 

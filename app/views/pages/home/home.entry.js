@@ -1,14 +1,13 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl($http, OccurrenceSearch) {
+function homeCtrl($http) {
     var vm = this;
     vm.mapView = undefined;
     vm.mapOptions = {
@@ -28,42 +27,42 @@ function homeCtrl($http, OccurrenceSearch) {
             };
         });
 
-        geoip.then(function () {
-
-            OccurrenceSearch.query({
-                mediaType: 'stillImage',
-                country: vm.country.countryCode,
-                limit:10
-            }, function (data) {
-                vm.localOccurrences = data;
-                vm.localOccurrences.results.forEach(function (e) {
-                    //select first image
-                    e._images = [];
-                    for (var i = 0; i < e.media.length; i++) {
-                        if (e.media[i].type == 'StillImage') {
-                            e._images.push(e.media[i]);
-                        }
-                    }
-                });
-            });
-
-            OccurrenceSearch.query({
-                mediaType: 'stillImage',
-                limit:10
-            }, function (data) {
-                vm.occurrences = data;
-                vm.occurrences.results.forEach(function (e) {
-                    //select first image
-                    e._images = [];
-                    for (var i = 0; i < e.media.length; i++) {
-                        if (e.media[i].type == 'StillImage') {
-                            e._images.push(e.media[i]);
-                        }
-                    }
-                });
-            });
-
-        });
+        //geoip.then(function () {
+        //
+        //    OccurrenceSearch.query({
+        //        mediaType: 'stillImage',
+        //        country: vm.country.countryCode,
+        //        limit:10
+        //    }, function (data) {
+        //        vm.localOccurrences = data;
+        //        vm.localOccurrences.results.forEach(function (e) {
+        //            //select first image
+        //            e._images = [];
+        //            for (var i = 0; i < e.media.length; i++) {
+        //                if (e.media[i].type == 'StillImage') {
+        //                    e._images.push(e.media[i]);
+        //                }
+        //            }
+        //        });
+        //    });
+        //
+        //    OccurrenceSearch.query({
+        //        mediaType: 'stillImage',
+        //        limit:10
+        //    }, function (data) {
+        //        vm.occurrences = data;
+        //        vm.occurrences.results.forEach(function (e) {
+        //            //select first image
+        //            e._images = [];
+        //            for (var i = 0; i < e.media.length; i++) {
+        //                if (e.media[i].type == 'StillImage') {
+        //                    e._images.push(e.media[i]);
+        //                }
+        //            }
+        //        });
+        //    });
+        //
+        //});
     }
 
     getLatest();

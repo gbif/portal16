@@ -226,7 +226,7 @@ function addEndpointTask(predicate, config, tasks) {
         let itemPromise = getResource(config.url + predicate.value) .then(function(e){
                 predicate.value = e[config.field];
             })
-            .catch(function(err){
+            .catch(function(){
                 predicate.value = predicate.value;
             });
         tasks.push(itemPromise);

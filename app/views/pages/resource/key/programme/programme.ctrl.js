@@ -7,7 +7,7 @@ angular
     .controller('programmeKeyCtrl', programmeKeyCtrl);
 
 /** @ngInject */
-function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope, $timeout) {
+function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
     var vm = this;
     vm.key = gb.programmeKey;
     vm.imageCache = env.imageCache;
