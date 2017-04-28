@@ -1,8 +1,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-    rev = require('gulp-rev'),
-    gulpif = require('gulp-if'),
     config = rootRequire('config/build');
 
 gulp.task('assets', [], function () {

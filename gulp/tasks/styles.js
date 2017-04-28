@@ -18,8 +18,6 @@ var gulp = require('gulp'),
     lost = require('lost'),
     axis = require('axis'),
     runSequence = require('run-sequence'),
-    rev = require('gulp-rev'),
-    revReplace = require("gulp-rev-replace"),
     g = require('gulp-load-plugins')();
 
 
