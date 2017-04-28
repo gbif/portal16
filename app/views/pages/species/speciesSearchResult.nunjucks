@@ -21,6 +21,11 @@
             <div class="searchCard__meta" ng-if="result.publishedIn">
                 Published in: {{ result.publishedIn | truncate:180 }}
             </div>
+            {# TODO find a more robst way - move to angular env and use from there fx #}
+            <div class="searchCard__meta" ng-if="result.datasetKey != 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
+                Checklist: <a class="" ng-href="{{ urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
+                    | truncate:50 }}</a>
+            </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
                 Taxonomy: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                       ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
