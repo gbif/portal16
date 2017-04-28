@@ -4,7 +4,6 @@ var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
     //apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
-    resource = rootRequire('app/controllers/resource/key/resourceKey'),
     _ = require('lodash'),
     //contributors = require('../../dataset/key/contributors/contributors'),
     router = express.Router();

@@ -152,10 +152,10 @@ module.exports = [
             "name": "whatIsGbif",
             "url": "/what-is-gbif"
           },
-          {
-            "name": "GbifNetwork",
-            "url": "/the-gbif-network"
-          },
+          //{
+          //  "name": "GbifNetwork",
+          //  "url": "/the-gbif-network"
+          //},
           {
             "name": "becomeMember",
             "url": "/become-member"

@@ -3,6 +3,7 @@
 var apiConfig = require('../../../models/gbifdata/apiConfig'),
     chai = require('chai'),
     expect = chai.expect,
+    querystring = require('querystring'),
     authOperations = require('./authOperations');
 
 module.exports = {

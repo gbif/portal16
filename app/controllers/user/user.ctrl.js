@@ -43,3 +43,4 @@ router.get('/:userKey/update-password/:challenge', function (req, res, next) {
     //};
     //helper.renderPage(req, res, next, context, 'pages/user/updatePassword/updatePassword');
 });
+

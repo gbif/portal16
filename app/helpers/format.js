@@ -7,7 +7,7 @@ var moment = require('moment'),
     _ = require('lodash'),
     Humanize = require('humanize-plus'),
     linkTools = require('./links/links'),
-    defaultLanguage = rootRequire('config/config').defaultLocale;
+    defaultLanguage = require('../../config/config').defaultLocale;
 
 // GBIF/UN date style
 moment.updateLocale('en', {

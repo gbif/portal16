@@ -5,7 +5,6 @@ const credentialsPath = rootRequire('config/config').credentials,
     appKey = credentials.appKey,
     secret = credentials.secret,
     request = require('requestretry'),
-    Q = require('q'),
     chai = require('chai'),
     expect = chai.expect,
     apiConfig = require('../../../models/gbifdata/apiConfig'),
@@ -58,7 +57,7 @@ async function authenticatedRequest(options) {
 function createHeader(options) {
     options.headers['x-url'] = options.canonicalPath || options.url;
     if (options.userName) {
-        headers['x-gbif-user'] = options.userName;
+        options.headers['x-gbif-user'] = options.userName;
     }
     if (options.method == 'POST' || options.method == 'PUT') {
         options.headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.json)).digest("base64");

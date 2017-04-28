@@ -3,8 +3,6 @@ let express = require('express'),
     router = express.Router(),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
-    Chance = require('chance'),
-    chance = new Chance(),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
 

@@ -1,7 +1,6 @@
 "use strict";
 
-var utils = rootRequire('app/helpers/utils'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
@@ -16,7 +15,7 @@ async function getNodeById(id) {
     };
     let node = await request(baseRequest);
     if (node.statusCode > 299) {
-        throw (response);
+        throw node;
     }
     decorateNode(node.body);
     return node.body;
@@ -31,7 +30,7 @@ async function getNodeByIso(iso) {
     };
     let node = await request(baseRequest);
     if (node.statusCode > 299) {
-        throw (response);
+        throw node;
     }
     decorateNode(node.body);
     return node.body;

@@ -3,8 +3,7 @@ var format = require('../helpers/format'),
     urlRegex = require('url-regex'),
     truncate = require('html-truncate'),
     url = require('url'),
-    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true}),
-    fs = require('fs');
+    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true});
 
     md.use(require('markdown-it-video'), {
         youtube: {width: 640, height: 390},

@@ -4,8 +4,7 @@
 const redirectList = require('./redirectTable'),
     redirectTable = {},
     ignoreTrailingSlashes = true,
-    querystring = require('querystring'),
-    _ = require('lodash');
+    querystring = require('querystring');
 
 redirectList.forEach(function(e){
     redirectTable[e.incoming] = e.target;
