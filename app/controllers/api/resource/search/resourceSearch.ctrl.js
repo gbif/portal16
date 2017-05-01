@@ -8,9 +8,6 @@ var express = require('express'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
     defaultLocale = rootRequire('config/config').defaultLocale;
 
-
-
-
 module.exports = function (app) {
     app.use('/api', router);
 };

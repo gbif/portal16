@@ -14,6 +14,7 @@ var path = require('path'),
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
     contentfulPreviewApi = yargs.contentfulPreviewApi,
+    backboneDatasetKey = 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
     elasticContentful = yargs.elasticContentful,
     apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api",
     locales = ['en', 'es', 'da'],
@@ -49,7 +50,8 @@ var config = {
         elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
     },
     dev: {
         env: env,
@@ -75,7 +77,8 @@ var config = {
         elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
     },
     uat: {
         env: env,
@@ -101,7 +104,8 @@ var config = {
         elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
     },
     prod: {
         env: env,
@@ -127,7 +131,8 @@ var config = {
         elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
     },
     test: {
         env: env,
@@ -153,7 +158,8 @@ var config = {
         elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
     }
 };
 
