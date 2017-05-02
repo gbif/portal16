@@ -11,9 +11,12 @@
     </div>
     <div class="card__stripe">
         <div class="card__content">
-            <a href="{{ urlPrefix }}/publisher/{{result.key}}">
-                <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
+            <a href="{{ urlPrefix }}/publisher/{{result.key}}" class="pull-right">
+                <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
+            <div class="searchCard__meta" ng-if="result.created">
+                Joined <span am-time-ago="result.created"></span>
+            </div>
             <p>
                 {{result.description | truncate:200 }}
             </p>

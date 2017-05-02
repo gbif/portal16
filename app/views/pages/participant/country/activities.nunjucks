@@ -5,4 +5,5 @@
                     <!--chart-series="nodeKey.series" chart-click="nodeKey.onClick"></canvas>-->
         <!--</div>-->
     <!--</div>-->
+    {{ countryKey.test }}
 </div>

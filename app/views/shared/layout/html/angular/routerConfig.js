@@ -169,34 +169,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'resourceListCtrl',
             controllerAs: 'resourceList'
         })
-        // .state('cmsSearch', {
-        //     parent: 'localization',
-        //     url: '/cms?offset&limit&q&type&language&category_data_use&category_capacity_enhancement&category_about_gbif&category_audience&category_purpose&category_country&category_topic&category_resource_type&category_literature_year&category_gbif_literature_annotation&category_author_from_country&category_gbif_region',
-        //     views: {
-        //         main: {
-        //             templateUrl: '/templates/pages/cms/search/cms.html',
-        //             controller: 'cmsCtrl',
-        //             controllerAs: 'cms'
-        //         }
-        //     },
-        //     resolve: {
-        //         results: function ($stateParams, CmsSearch) {
-        //             var query = angular.copy($stateParams);
-        //             return CmsSearch.query(query).$promise.then(function (response) {
-        //                 return response;
-        //             }, function (error) {
-        //                 return error;
-        //             });
-        //         }
-        //     }
-        // })
-        // .state('cmsSearchTable', {
-        //     parent: 'cmsSearch',
-        //     url: '/search',
-        //     templateUrl: '/templates/pages/cms/search/table/cmsTable.html',
-        //     controller: 'cmsTableCtrl',
-        //     controllerAs: 'cmsTable'
-        // })
         .state('user', {
             parent: 'localization',
             url: '/user',
@@ -267,28 +239,28 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             url: '/country/:key',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/participant/country/activities.html?v=' + BUILD_VERSION,
+                    templateUrl: '/templates/pages/participant/country/country.html?v=' + BUILD_VERSION,
                     controller: 'countryKeyCtrl',
                     controllerAs: 'countryKey'
                 }
             }
         })
-        //.state('countryActivity', {
-        //    parent: 'country',
-        //    url: '/{direction:(?:about|published)}',
-        //    params: {direction: {squash: true, value: 'about'}},
-        //    templateUrl: '/templates/pages/country/key/activity/countryActivity.html?v=' + BUILD_VERSION,
-        //    controller: 'countryActivityCtrl',
-        //    controllerAs: 'countryActivity'
-        //})
-        //.state('countryTrends', {
-        //    parent: 'country',
-        //    url: '/trends/{direction:(?:about|published)}',
-        //    params: {direction: {squash: true, value: 'about'}},
-        //    templateUrl: '/templates/pages/country/key/trends/countryTrends.html?v=' + BUILD_VERSION,
-        //    controller: 'countryTrendsCtrl',
-        //    controllerAs: 'countryTrends'
-        //})
+        .state('countryTrends', {
+           parent: 'country',
+           url: '/trends/{direction:(?:about|published)}',
+           params: {direction: {squash: true, value: 'about'}},
+           templateUrl: '/templates/pages/participant/country/trends.html?v=' + BUILD_VERSION,
+           controller: 'countryActivityCtrl',
+           controllerAs: 'countryActivity'
+        })
+        .state('countryActivity', {
+           parent: 'country',
+           url: '/activity/{direction:(?:about|published)}',
+           params: {direction: {squash: true, value: 'about'}},
+           templateUrl: '/templates/pages/participant/country/activity.html?v=' + BUILD_VERSION,
+           controller: 'countryActivityCtrl',
+           controllerAs: 'countryActivity'
+        })
         //.state('countryParticipant', {
         //    parent: 'country',
         //    url: '/participant?offset_datasets&offset_endorsed',

@@ -1,0 +1,28 @@
+<article class="card m-b-05 searchCard">
+    <div class="card__stripe">
+        <div class="card__content">
+            <span href="" class="inherit searchCard__type hoverBox" ng-if="result.participant" translate="participationStatus.longForm.{{ result.participant.participationStatus }}"></span>
+            <h3>
+                <a ng-href="{{ urlPrefix }}/country/{{result.countryCode}}" translate="country.{{ result.countryCode }}">{{ result.countryCode }}</a>
+            </h3>
+        </div>
+    </div>
+    <div class="card__stripe">
+        <div class="card__content">
+            <div class="pull-right">
+                <img class="searchCard__img--noCrop" src="/img/flags/{{ result.countryCode }}.png">
+            </div>
+            <p ng-if="result.participant">
+                Member since: {{ result.participant.membershipStart }}
+            </p>
+            <ul class="list-chips">
+                <li>
+                    <a ui-sref="occurrenceSearchTable({country:result.countryCode})"><span count="//api.gbif.org/v1/occurrence/search?country={{ result.countryCode }}">&nbsp;</span> occurrences about</a>
+                </li>
+                <li>
+                    <a ui-sref="occurrenceSearchTable({publishing_country:result.countryCode})"><span count="//api.gbif.org/v1/occurrence/search?publishing_country={{ result.countryCode }}">&nbsp;</span> published occurrences</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>

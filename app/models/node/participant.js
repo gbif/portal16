@@ -188,5 +188,6 @@ async function getNodePeople(id) {
 
 module.exports = {
     get: getParticipant,
-    getParticipantById: getParticipantById
+    getParticipantById: getParticipantById,
+    getParticipantByIso: getParticipantByIso
 };

@@ -66,3 +66,7 @@ router.get('/search/publisherResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
 });
 
+router.get('/search/countryResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
+});
+

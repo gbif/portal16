@@ -254,9 +254,11 @@ require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
 require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
 require('../../../pages/participant/country/countryKey.ctrl');
-require('../../../pages/country/key/trends/countryTrends.ctrl');
-require('../../../pages/country/key/activity/countryActivity.ctrl');
-require('../../../pages/country/key/participant/countryParticipant.ctrl');
+require('../../../pages/participant/country/countryTrends.ctrl');
+require('../../../pages/participant/country/countryActivity.ctrl');
+
+// require('../../../pages/country/key/activity/countryActivity.ctrl');
+// require('../../../pages/country/key/participant/countryParticipant.ctrl');
 
 require('../../../pages/resource/key/programme/programme.ctrl');
 require('../../../pages/resource/key/project/project.ctrl');
@@ -288,6 +290,7 @@ require('../../../components/filterFacet/filterFacet.directive');
 require('../../../components/filterFacetedEnum/filterFacetedEnum.directive');
 require('../../../components/count/count.directive');
 require('../../../components/asyncIf/asyncIf.directive');
+require('../../../components/taxonImg/taxonImg.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');

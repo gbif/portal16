@@ -17,6 +17,8 @@ angular
                     var number = $filter('localNumber')(response.data.count, gb.locale);
                     element.html(number);
                     element.addClass('loaded');
+                }).catch(function(){
+                    //swallow errors//TODO how to handle this in a gerneal way. in some cases, the count is essential
                 });
             }
         };

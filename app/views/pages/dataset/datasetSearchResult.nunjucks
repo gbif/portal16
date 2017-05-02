@@ -1,6 +1,7 @@
 <article class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
+            <a href="" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox"></a>
             <h3>
                 <a ng-href="{{ urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
             </h3>
@@ -14,16 +15,16 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
                 </div>
             </div>
-            <div>
+            <p>
                 {{result.description | limitTo:200 }}
-            </div>
+            </p>
             <p class="discreet--very smaller">
                 Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
             </p>
             <ul class="list-chips">
-                <li>
-                    <a ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}"></a>
-                </li>
+                {#<li>#}
+                    {#<a ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}"></a>#}
+                {#</li>#}
                 <li>
                     <a ng-href="{{ urlPrefix }}/occurrence/search?dataset_key={{ result.key }}" ng-if="result.type=='OCCURRENCE'">{{ result.recordCount | localNumber }} occurrences</a>
                     <a ng-href="{{ urlPrefix }}/species/search?dataset_key={{ result.key }}" ng-if="result.type=='CHECKLIST'">{{ result.recordCount | localNumber }} taxa</a>

@@ -280,6 +280,14 @@ function addPortalClasses(raw) {
     return clean;
 }
 
+function sanitizeField(obj, field) {
+    _.set(obj, field, decodeHtml(removeHtml(_.get(obj, field))));
+}
+
+function sanitizeArrayField(array, field) {
+    array.forEach(function(e){sanitizeField(e, field)});
+}
+
 module.exports = {
     date: date,
     localizeInteger: localizeInteger,
@@ -301,6 +309,8 @@ module.exports = {
     dateRange: dateRange,
     timeRange: timeRange,
     localizeLinks: localizeLinks,
-    localizeLink: localizeLink
+    localizeLink: localizeLink,
+    sanitizeField: sanitizeField,
+    sanitizeArrayField: sanitizeArrayField
 };
 

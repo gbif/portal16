@@ -7,7 +7,7 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
+function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS, $http) {
     var vm = this;
     vm.isActive = false;
     vm.query = angular.copy($stateParams);
@@ -72,6 +72,25 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS) {
             document.getElementById('siteSearch').blur();
         }
     });
+
+    vm.search = function(){
+        vm.searchResults = $http.get('/api/omnisearch', {
+            params: {
+                q: vm.freeTextQuery
+            }
+        });
+        vm.loading = true;
+        vm.failed = false;
+        vm.searchResults.then(function (response) {
+            vm.loading = false;
+            vm.results = response.data;
+        }).catch(function () {
+            //TODO inform user about failure
+            vm.loading = false;
+            vm.failed = true;
+        });
+    }
+    vm.search();
 
 }
 

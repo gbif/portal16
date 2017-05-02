@@ -2,15 +2,14 @@
 var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
+    format = rootRequire('app/helpers/format'),
     backboneDatasetKey = rootRequire('config/config').backboneDatasetKey,
     resourceSearch = require('../resource/search/resourceSearch'),
-    contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
-    defaultLocale = rootRequire('config/config').defaultLocale,
     Dataset = require('./dataset'),
     Species = require('./species'),
     SpeciesMatch = require('./speciesMatches'),
-    Publisher = require('./publisher');
-
+    Publisher = require('./publisher'),
+    Country = require('./countrySearch');
 
 module.exports = function (app) {
     app.use('/api', router);
@@ -19,40 +18,43 @@ module.exports = function (app) {
 router.get('/omniSearch', function (req, res) {
     let query = req.query.q,
         preferedLocale = req.query.locale;
-    let datasets = Dataset.query({q:query});
-    let publishers = Publisher.query({q:query});
-    let species = Species.query({q:query, datasetKey: backboneDatasetKey});
-    let speciesMatches = SpeciesMatch.query({name:query, verbose:true});
-    let resources = resourceSearch.search({q:query, local: preferedLocale}, res.__);
-    // search resources
-    // datasets, publishers, countries, directory people,
-    // species regular search and match.
-    // maybe occurrences for catalog nr
-    //
-    // afterwards create highlights cards
-    // species details, occurrences count
 
-    Promise.all([speciesMatches, species, datasets, publishers, resources])
-        .then(function(values){
-            let response = {
-                speciesMatches: values[0],
-                species: values[1],
-                datasets: values[2],
-                publishers: values[3],
-                resources: values[4]
-            };
-            response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
-            addTypes(response);
-            addSearchFieldsToAll(response);
-            flatten(response);
-            res.json(response);
+    search(query, preferedLocale, res.__)
+        .then(function(result){
+            res.json(result);
         })
-        .catch(function(err){
-            console.log(err);
+        .catch(function(){
             res.status(500);
             res.send('SERVER FAILURE');
         });
 });
+
+async function search(query, preferedLocale, __){
+    let datasets = Dataset.query({q:query, limit:3});
+    let publishers = Publisher.query({q:query, limit:3});
+    let species = Species.query({q:query, datasetKey: backboneDatasetKey, limit:3});
+    let speciesMatches = SpeciesMatch.query({name:query, verbose:true});
+    let resources = resourceSearch.search({q:query, local: preferedLocale, limit:4}, __);
+    let country = Country.query(query);
+
+    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country]);
+    let response = {
+        speciesMatches: values[0],
+        species: values[1],
+        datasets: values[2],
+        publishers: values[3],
+        resources: values[4],
+        country: values[5]
+    };
+    response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
+    transformMatches(response.speciesMatches);
+    response.species.results = _.slice(_.concat(response.speciesMatches, response.species.results), 0, 3);
+    addTypes(response);
+    // addSearchFieldsToAll(response);
+
+    format.sanitizeArrayField(response.datasets.results, 'description');
+    return response;
+}
 
 function pruneDuplicateSpecies(matches, species) {
     let matchIds = _.map(matches, 'usageKey');
@@ -75,39 +77,14 @@ function addType(results, type) {
     });
 }
 
-function addSearchFieldsToAll(response) {
-    addSearchFields(response.speciesMatches);
-    addSearchFields(response.species.results);
-    addSearchFields(response.datasets.results);
-    addSearchFields(response.publishers.results);
-    addSearchFields(response.resources.results);
-}
-
-function addSearchFields(results) {
-    results.forEach(function(e){
-        let summary = _.get(e, 'summary', ''),
-            scientificName = _.get(e, 'scientificName', ''),
-            title = _.get(e, 'title', ''),
-            description = _.get(e, 'description', ''),
-            body = _.get(e, 'body', '');
-        e._title = scientificName + title;
-        e._description = (summary + description + body).substring(0,300);
+function transformMatches(speciesMatches) {
+    speciesMatches.forEach(function(e){
+        e.key = e.usageKey;
+        e.taxonomicStatus = e.status;
     });
 }
 
-function flatten(response) {
-    let results = _.concat([], response.species.results, response.datasets.results, response.publishers.results, response.resources.results);
-    response.counts = {
-        species: response.species.count,
-        datasets: response.datasets.count,
-        publishers: response.publishers.count,
-        resources: response.resources.count
-    };
+function hasKeywordMatch(item, q) {
 
-    delete response.species;
-    delete response.datasets;
-    delete response.publishers;
-    delete response.resources;
-
-    response.flat = results;
 }
+

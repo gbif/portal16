@@ -14,7 +14,7 @@
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
-<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="urlPrefix='{$ gb.locales.urlPrefix $}'">
+<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}">
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">

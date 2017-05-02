@@ -4,7 +4,7 @@
             {% if node.address %}
             <a href="" class="inherit contactsCard__header contactsCard__contact card__content" ng-click="contactHeader = !contactHeader">
                 {% if participant.type == 'COUNTRY' %}
-                    <div class="contactsCard__abbr"><img src="/img/country/{$ participant.countryCode $}/48.png" /></div>
+                    <div class="contactsCard__abbr"><img src="/img/country/{$ participant.countryCode | lower $}/48.png" /></div>
                 {% endif %}
                 <div class="contactsCard__name">
                     <div>

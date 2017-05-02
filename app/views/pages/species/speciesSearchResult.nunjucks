@@ -15,16 +15,17 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=TAXON&resolution=4">
                 </div>
             </div>
-            {#<div>#}
-                {#{{result.description | limitTo:200 }}#}
-            {#</div>#}
+            <div class="pull-right hideInvalid" taxon-img="{{ result.key }}" ng-if="result.rank == 'SPECIES' || result.rank == 'GENUS'"></div>
             <div class="searchCard__meta" ng-if="result.publishedIn">
                 Published in: {{ result.publishedIn | truncate:180 }}
             </div>
             {# TODO find a more robst way - move to angular env and use from there fx #}
-            <div class="searchCard__meta" ng-if="result.datasetKey != 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
+            <div class="searchCard__meta" ng-if="result.datasetKey && result.datasetKey != 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
                 Checklist: <a class="" ng-href="{{ urlPrefix }}/dataset/{{ result.datasetKey }}">{{result._datasetKey.title
                     | truncate:50 }}</a>
+            </div>
+            <div class="small" ng-if="result.acceptedKey">
+                Synonym of: <a ng-href="{{ urlPrefix }}/species/{{ result.acceptedKey }}">{{ result.accepted }} </a>
             </div>
             <p class="discreet classification-list" ng-if="result.rank != 'KINGDOM'">
                 Taxonomy: <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"

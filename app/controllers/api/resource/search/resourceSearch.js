@@ -190,7 +190,9 @@ function buildQuery(query) {
 }
 
 function getInteger(nr, fallbackValue) {
-    if (nr === parseInt(nr, 10).toString()) {
+    if (_.isInteger(nr)) {
+        return nr;
+    } else if (nr === parseInt(nr, 10).toString()) {
         return parseInt(nr, 10);
     } else {
         return fallbackValue;

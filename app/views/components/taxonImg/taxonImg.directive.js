@@ -1,0 +1,21 @@
+'use strict';
+var angular = require('angular');
+
+angular
+    .module('portal')
+    .directive('taxonImg', function ($http, env) {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+                var url = '/api/species/' + attrs.taxonImg + '/image';
+                $http.get(url, {})
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            element.html('<img src="' + env.imageCache + '64x64/' + encodeURIComponent(response.data) + '" onerror="this.parentElement.style.display=\'none\'" />');
+                        }
+                    }).catch(function(){
+                    //swallow errors
+                });
+            }
+        };
+    });
