@@ -65,7 +65,7 @@ nature, PLOS, ... and
                     </div>
                     <div class="home__quicklinks">
                         <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">What is GBIF?</a>
-                        <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}/about" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
+                        <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
                     </div>
                 </div>
                 <div class="caption">
