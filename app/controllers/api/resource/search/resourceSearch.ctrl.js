@@ -39,7 +39,7 @@ router.get('/resource/key/search', function (req, res) {
             let parsedResult = transformResult(results, type, preferedLocale);
             res.json(parsedResult);
         }, function (err) {
-            console.trace(err.message);
+            console.trace(err);
             res.status(500);
             res.send(err.message);
         });

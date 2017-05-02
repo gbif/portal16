@@ -77,7 +77,9 @@ function buildQuery(query) {
 
     //add free text query to query
     if (query.q) {
-        _.set(body, 'query.bool.must[1].query_string.query', query.q)
+        _.set(body, 'query.bool.must[1].query_string.query', query.q);
+    } else {
+        _.set(body, 'query.bool.must[1].match_all', {});
     }
 
     //not facet filters should simply be added to the query filters.
@@ -157,9 +159,12 @@ function buildQuery(query) {
                         {
                             "gauss": {
                                 "createdAt": {
-                                    "scale": "10d"
+                                    "origin": "now/d",
+                                    "scale": "7d",
+                                    "decay": 0.75
                                 }
-                            }
+                            },
+                            "weight": 10
                         }
                     ],
                     query: body.query
@@ -176,6 +181,30 @@ function buildQuery(query) {
             //    }
             //];
         }
+    } else {
+        body.query = {
+            "function_score": {
+                "boost": "5",
+                "functions": [
+                    {
+                        "gauss": {
+                            "createdAt": {
+                                "origin": "now/d",
+                                "scale": "7d",
+                                "decay": 0.75
+                            }
+                        },
+                        "weight": 10
+                    },
+                    {
+                        "filter": { "match": { "keywords": query.q } },
+                        "weight": 100
+                    }
+                ],
+                "score_mode": "max",
+                query: body.query
+            }
+        };
     }
 
     searchParams.body = body;
