@@ -103,7 +103,7 @@
                                                 <span class="discreet--very text-uppercase">Publishers</span>
                                                 <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.publishers.count | localNumber}} results</a>
                                             </p>
-                                            <div ng-repeat="result in rootSearch.results.datasets.results">
+                                            <div ng-repeat="result in rootSearch.results.publishers.results">
                                                 <ng-include src="'/api/template/search/publisherResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
                                             </div>
                                         </div>
