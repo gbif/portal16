@@ -68,6 +68,10 @@ function buildModelAndRender(req, res, next, template) {
     } else {
         dataset.getDataset(datasetKey, function (err, dataset) {
             if (err) {
+                if (err.type == 'NOT_FOUND') {
+                    next();
+                    return;
+                }
                 next(err);
             } else {
                 renderPage(req, res, next, template, dataset);
