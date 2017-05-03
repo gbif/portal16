@@ -39,7 +39,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
@@ -66,7 +66,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',// NB not dev!
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
         analyticsImg: analyticsImg || 'cms-api.gbif-dev.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',
@@ -93,7 +93,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not uat!
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-uat.org/',
@@ -120,7 +120,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/', // NB not prod!
         domain: 'https://demo.gbif.org/',
@@ -147,7 +147,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif-uat.org:7002/',
+        identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'cms-api.gbif-uat.org/sites/default/files/gbif_analytics/',
         domain: 'https://gbif-dev.org/',

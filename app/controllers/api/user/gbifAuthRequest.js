@@ -7,24 +7,9 @@ const credentialsPath = rootRequire('config/config').credentials,
     request = require('requestretry'),
     chai = require('chai'),
     expect = chai.expect,
-    apiConfig = require('../../../models/gbifdata/apiConfig'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     crypto = require('crypto'),
     NEWLINE = '\n';
-
-function getUserFromToken(userSessionCookie) {
-    var userRequest = {
-        url: apiConfig.user.url,
-        maxAttempts: 5,   // (default) try 5 times
-        retryDelay: 5000,  // (default) wait for 5s before trying again
-        retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
-        timeout: 30000,
-        method: 'GET',
-        headers: {
-            'x-gbif-user-session': userSessionCookie
-        }
-    };
-    return request(userRequest);
-}
 
 async function authenticatedRequest(options) {
     //https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
@@ -44,24 +29,24 @@ async function authenticatedRequest(options) {
     };
     requestOptions.method = options.method;
     requestOptions.url = options.url;
-    requestOptions.body = options.body;
+    requestOptions.json = options.body;
 
-    var header = createHeader(options);
-    signHeader(requestOptions.method, header);
-    requestOptions.headers = header;
+    var headers = createHeader(options);
+    signHeader(requestOptions.method, headers);
+    requestOptions.headers = headers;
 
     let data = await request(requestOptions);
     return data;
 }
 
 function createHeader(options) {
-    options.headers['x-url'] = options.canonicalPath || options.url;
-    if (options.userName) {
-        options.headers['x-gbif-user'] = options.userName;
-    }
+    let headers = {};
+    headers['x-url'] = options.canonicalPath || options.url;
+    headers['x-gbif-user'] = options.userName || appKey;
     if (options.method == 'POST' || options.method == 'PUT') {
-        options.headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.json)).digest("base64");
+        headers['Content-MD5'] = crypto.createHash('md5').update(JSON.stringify(options.body)).digest("base64");
     }
+    return headers;
 }
 
 function signHeader(method, headers) {
@@ -76,29 +61,6 @@ function signHeader(method, headers) {
     headers.Authorization = 'GBIF ' + appKey + ':' + signature;
 }
 
-
-//function authenticatedRequestFromCookie(cookie, options) {
-//    var deferred = Q.defer();
-//    var userPromise = getUserFromToken(cookie);
-//    userPromise
-//        .then(function (user) {
-//            options.userName = user.userName;
-//            authenticatedRequest(options)
-//                .then(function (response) {
-//                    deferred.resolve(response);
-//                })
-//                .fail(function (err) {
-//                    deferred.reject(err);
-//                });
-//        })
-//        .fail(function (err) {
-//            deferred.reject(err);
-//        });
-//    return deferred.promise;
-//}
-
 module.exports = {
-    getUserFromToken: getUserFromToken,
-    //authenticatedRequestFromCookie: authenticatedRequestFromCookie,
     authenticatedRequest: authenticatedRequest
 };
