@@ -107,6 +107,13 @@ var apiConfig = {
         url: identityBaseUrl + 'user',
         canonical: 'user'
     },
+    userID: {
+        url: identityBaseUrl + 'user'
+    },
+    userConfirm: {
+        url: identityBaseUrl + 'user/confirm',
+        canonical: 'user/confirm'
+    },
     userLogin: {
         url: identityBaseUrl + 'user/login'
     },

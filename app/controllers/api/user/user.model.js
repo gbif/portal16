@@ -4,21 +4,71 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     chai = require('chai'),
     expect = chai.expect,
     querystring = require('querystring'),
+    credentialsPath = rootRequire('config/config').credentials,
+    credentials = require(credentialsPath).directory,
+    secret = credentials.secret,
+    jwt = require('jsonwebtoken'),
     authOperations = require('./gbifAuthRequest');
 
 module.exports = {
-    create: create
+    create: create,
+    confirm: confirm,
+    findBySession: findBySession
 };
 
-function create(body) {
+async function create(body) {
     let options = {
         method: 'POST',
         body: body,
         url: apiConfig.user.url,
         canonicalPath: apiConfig.user.canonical
     };
-    return authOperations.authenticatedRequest(options);
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 201) {
+        throw response;
+    }
+    return response.body;
 }
+
+async function confirm(challengeCode, userName) {
+    let options = {
+        method: 'POST',
+        body: {
+            challengeCode: challengeCode
+        },
+        url: apiConfig.userConfirm.url,
+        canonicalPath: apiConfig.userConfirm.canonical,
+        userName: userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 201) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function findBySession(session){
+    let user = await authOperations.getUserFromToken(session);
+    return user;
+}
+
+// async function findById(userName) {
+//     return {
+//         userName: userName,
+//         somevalue: Math.random()
+//     };
+//
+//     // let options = {
+//     //     method: 'GET',
+//     //     url: apiConfig.userID.url
+//     // };
+//     // let response = await authOperations.authenticatedRequest(options);
+//
+//     // if (response.statusCode !== 201) {
+//     //     throw response;
+//     // }
+//     // return response.body;
+// }
 //
 //async function getUserDownloads(cookie, query) {
 //    query = query || {};

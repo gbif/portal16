@@ -18,12 +18,16 @@
 "use strict";
 var express = require('express'),
     user = require('./user.controller'),
-    router = express.Router();
+    router = express.Router(),
+    auth = require('../../auth/auth.service');
 
 module.exports = function (app) {
     app.use('/api/user', router);
 };
 
 router.post('/', user.create);
+router.get('/confirm', user.confirm);
+router.get('/me', auth.isAuthenticated(), user.me);
 //router.post('/login', user.create);
-//router.get('/me', user.create);
+
+

@@ -2,59 +2,69 @@
 var userModel = require('./user.model'),
     credentialsPath = rootRequire('config/config').credentials,
     credentials = require(credentialsPath).directory,
-    secret = credentials.secret,
-    jwt = require('jsonwebtoken');
+    auth = require('../../auth/auth.service');
 
 module.exports = {
-    create: create
+    create: create,
+    confirm: confirm,
+    me: me
 };
+
 /**
  * Creates a new user
  */
 function create(req, res) {
-    console.log('body');
-    console.log(req.body);
     userModel.create(req.body)
-        .then(function(user){
-            console.log(user);
-            var token = jwt.sign({ _id: 5 }, secret, {
-                expiresIn: 60 * 60 * 5
-            });
-            res.json({ token });
+        .then(function(){
+            res.status(201);
+            res.json({type:'CONFIRM_MAIL'});
         })
-        .catch(function(err){
-            res.status(500);
-            res.send('failed');
-            console.log(err);
-        });
-
-
-    //var newUser = new User(req.body);
-    //newUser.provider = 'local';
-    //newUser.role = 'user';
-    //newUser.save()
-    //    .then(function(user) {
-    //        var token = jwt.sign({ _id: user._id }, config.secrets.session, {
-    //            expiresIn: 60 * 60 * 5
-    //        });
-    //        res.json({ token });
-    //    })
-    //    .catch(validationError(res));
+        .catch(handleError(res, 422));
 }
 
-//function validationError(res, statusCode) {
-//    statusCode = statusCode || 422;
-//    return function(err) {
-//        return res.status(statusCode).json(err);
-//    };
-//}
-//
-//function handleError(res, statusCode) {
-//    statusCode = statusCode || 500;
-//    return function(err) {
-//        return res.status(statusCode).send(err);
-//    };
-//}
+/**
+ * Confirm user creation from mail link
+ */
+function confirm(req, res) {
+    let challengeCode = req.query.code,
+        userName = req.query.username;
+
+    userModel.confirm(challengeCode, userName)
+        .then(function(user){
+            let token = auth.signToken(user);
+            user = sanitizeUser(user);
+            res.json({ token, user });
+        })
+        .catch(handleError(res));
+}
+
+/**
+ * Gets the user associated with my token
+ */
+function me(req, res) {
+    res.send(sanitizeUser(req.user));
+// console.log('USER FROM TOKEN');
+// console.log(req.user);
+//     userModel.findById(userId)
+//         .then(function(user){
+//             console.log('GOT USER');
+//             console.log(user);
+//             res.json({ user });
+//         })
+//         .catch(handleError(res));
+}
+
+function sanitizeUser(user){
+    //sanitize user somehow? i guess there isn't anything in the response that cannot goe out at this point. later perhaps some configurations that are for internal only
+    return user;
+}
+function handleError(res, statusCode) {
+   statusCode = statusCode || 500;
+   return function(err) {
+        console.log(err);
+       return res.status(res.statusCode || statusCode).json(err.body);
+   };
+}
 //
 ///**
 // * Get list of users
