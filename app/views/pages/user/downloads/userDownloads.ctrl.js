@@ -22,13 +22,15 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
     updatePaginationCounts();
 
     vm.getDownloads = function () {
+        vm.loadingDownloads = true;
+        vm.failedToLoadDownloads = false;
         var downloads = $http.get(endpoints.userDownloads, {params: {limit: vm.limit, offset: vm.offset, locale: $stateParams.locale}});
         downloads.then(function (response) {
+            vm.loadingDownloads = false;
             vm.downloads = response.data;
         }, function (err) {
-            if (err.status == 401) {
-                User.logout();
-            }
+            vm.loadingDownloads = false;
+            vm.failedToLoadDownloads = true;
         });
     };
     vm.getDownloads();

@@ -155,7 +155,6 @@ module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('find', function (data, predicate) {
-        console.log(data, predicate);
             if (!_.isArray(data)) {
                 return undefined;
             }

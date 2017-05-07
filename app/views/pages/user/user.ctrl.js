@@ -7,8 +7,9 @@ angular
     .controller('userCtrl', userCtrl);
 
 /** @ngInject */
-function userCtrl(User, $sessionStorage, $window, $scope, AUTH_EVENTS) {
+function userCtrl(User, $sessionStorage, $scope, AUTH_EVENTS, $state) {
     var vm = this;
+    vm.$state = $state;
 
     var activeUser = User.loadActiveUser();
     if (activeUser) {
@@ -23,16 +24,10 @@ function userCtrl(User, $sessionStorage, $window, $scope, AUTH_EVENTS) {
 
     vm.profile = $sessionStorage.user;
     vm.logout = function () {
-        var logout = User.logout();
-        logout.then(function () {
-            $window.location.reload();
-        }, function () {
-            //TODO the client should also be able to logout, but the token might not have been deleted from the server. that seems less interesting for the user
-        });
+        User.logout();
     };
 
     $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
-        $window.location.reload();
         vm.profile = $sessionStorage.user;
     });
 

@@ -157,8 +157,7 @@ function getLocaleVersion(item, preferedLanguage, fallbackLanguage, depth) {
             return item;
         }
     } catch(err){
-        console.log(err);
-        console.log(depth);
+        //TODO log error
     }
 }
 
@@ -219,6 +218,6 @@ function transformFacets(result, __, types) {
             result.facets = _.keyBy(result.facets, 'field');
         }
     } catch(e){
-        console.log(e);
+        //log error
     }
 }

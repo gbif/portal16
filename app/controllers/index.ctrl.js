@@ -58,7 +58,6 @@ router.get('/', function (req, res, next) {
             })
             .catch(function (err) {
                 //show page without highlight stories
-                console.log(err);
                 res.setHeader('Cache-Control', 'no-cache'); //TODO might be worth having a short cache on it
                 helper.renderPage(req, res, next, {
                     _meta: {

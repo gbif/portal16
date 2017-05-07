@@ -30,6 +30,9 @@ async function authenticatedRequest(options) {
     requestOptions.method = options.method;
     requestOptions.url = options.url;
     requestOptions.json = options.body;
+    if (requestOptions.method == 'GET') {
+        requestOptions.json = true;
+    }
 
     var headers = createHeader(options);
     signHeader(requestOptions.method, headers);
@@ -50,9 +53,9 @@ function createHeader(options) {
 }
 
 function signHeader(method, headers) {
-    var stringToSign = method + NEWLINE + headers['x-url'] + NEWLINE + 'application/json';
+    var stringToSign = method + NEWLINE + headers['x-url'];
     if (headers['Content-MD5']) {
-        stringToSign += NEWLINE + headers['Content-MD5'];
+        stringToSign += NEWLINE + 'application/json' + NEWLINE + headers['Content-MD5'];
     }
     if (headers['x-gbif-user']) {
         stringToSign += NEWLINE + headers['x-gbif-user'];
@@ -61,26 +64,6 @@ function signHeader(method, headers) {
     headers.Authorization = 'GBIF ' + appKey + ':' + signature;
 }
 
-async function getUserFromToken(userSessionCookie) {
-    var userRequest = {
-        url: apiConfig.user.url,
-        maxAttempts: 5,   // (default) try 5 times
-        retryDelay: 5000,  // (default) wait for 5s before trying again
-        retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
-        timeout: 30000,
-        method: 'GET',
-        headers: {
-            'x-gbif-user-session': userSessionCookie
-        }
-    };
-    let response = await request(userRequest);
-    if (response.statusCode !== 200) {
-        throw response;
-    }
-    return response.body;
-}
-
 module.exports = {
-    authenticatedRequest: authenticatedRequest,
-    getUserFromToken: getUserFromToken
+    authenticatedRequest: authenticatedRequest
 };

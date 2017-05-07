@@ -1,6 +1,7 @@
 'use strict';
 
 require('../../shared/layout/html/angular/user.service');
+require('../../shared/layout/html/angular/regexPatterns.constants');
 
 var angular = require('angular'),
     _ = require('lodash');
@@ -11,7 +12,7 @@ angular
     .directive('userLogin', userLoginDirective);
 
 /** @ngInject */
-function userLoginDirective(BUILD_VERSION, LOCALE) {
+function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
     var directive = {
         restrict: 'A',
         templateUrl: '/templates/components/userLogin/userLogin.html?v=' + BUILD_VERSION,
@@ -27,6 +28,8 @@ function userLoginDirective(BUILD_VERSION, LOCALE) {
     /** @ngInject */
     function userLogin($q, $http, User, $scope, AUTH_EVENTS, toastService, $sessionStorage) {
         var vm = this;
+        vm.emailPattern = regexPatterns.email;
+        vm.userNamePattern = regexPatterns.userName;
         vm.verification = false;
         vm.country;
         vm.answer = {};
@@ -60,6 +63,11 @@ function userLoginDirective(BUILD_VERSION, LOCALE) {
         vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item) || angular.isUndefined(item.key)) return;
             vm.countryCode = item.key;
+        };
+
+        vm.formatTypehead = function(searchSuggestions, isoCode){
+            var o = _.find(searchSuggestions, {key:isoCode});
+            return (o ? o.title || o.key : isoCode);
         };
 
         vm.getSuggestions();
@@ -111,14 +119,19 @@ function userLoginDirective(BUILD_VERSION, LOCALE) {
         };
 
         vm.resetPassword = function () {
-            var reset = User.resetPassword();
+            var reset = User.resetPassword({userNameOrEmail: vm.userNameOrEmail});
             vm.waiting = true;
             reset.then(function () {
                 vm.changeState('RESET_MAIL_SENT');
                 vm.waiting = false;
-            }, function () {
+            }, function (err) {
                 vm.waiting = false;
-                toastService.error({message: "We couldn't reset you password right now - please try again later. Sorry for the inconvenience"});
+                if (err.status < 500) { //401 seems an odd error code for 'no such entry' but that is what the API returns
+                    //TODO move error messages to translation file
+                    toastService.error({message: "Unknown username or email", feedback: true});
+                } else {
+                    toastService.error({message: "We couldn't reset you password right now - please try again later. Sorry for the inconvenience", feedback: true});
+                }
             });
         };
 
@@ -141,23 +154,27 @@ function userLoginDirective(BUILD_VERSION, LOCALE) {
             });
         };
         vm.signup = function () {
+            vm.creationFailure = undefined;
             if (vm.createUserForm.$valid) {
                 vm.waiting = true;
                 vm.formInvalid = false;
                 var body = {
                     challenge: {},
                     user: {
-                        country: vm.country,
-                        username: vm.username,
+                        settings: {
+                            country: vm.country
+                        },
+                        userName: vm.username,
                         email: vm.email,
                         password: vm.password
                     }
                 };
                 //UNCOMMENT IF USING HUMAN VERIFICATION
-                //body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
-                //    return vm.answer[e];
-                //});
-                //body.challenge.id = vm.challenge.id;
+                body.challenge.answer = Object.keys(vm.answer).filter(function (e) {
+                    return vm.answer[e];
+                });
+                body.challenge.id = vm.challenge.id;
+
                 var createUserPromise = User.createUser(body);
                 createUserPromise.then(function () {
                     vm.changeState('CREATED');
@@ -166,13 +183,14 @@ function userLoginDirective(BUILD_VERSION, LOCALE) {
                     if (err.status === 401) {
                         vm.getChallenge();
                     } else {
-                        //TODO depdends on the response the server will give. ask Tim once he has implemented the service. Should tell the user how it is invalid
+                        //TODO get all possible error tpes from Christian and add them to the translation file
                         vm.verification = false;
                         vm.waiting = false;
-                        toastService.error({
-                            message: "We couldn't create your account. Please try again and let us know if the problem persists",
-                            feedback: true
-                        });
+                        vm.creationFailure = _.get(err, 'data.error');
+                        //toastService.error({
+                        //    message: "We couldn't create your account. Please try again and let us know if the problem persists",
+                        //    feedback: true
+                        //});
                     }
                 });
             } else {

@@ -18,7 +18,7 @@
                 var that = this;
 
                 that.loadActiveUser = function () {
-                    var activeUser = $http.get('/api/user');
+                    var activeUser = $http.get('/api/user/me');
                     activeUser.then(function (response) {
                         $sessionStorage.user = response.data;
                         $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
@@ -50,15 +50,14 @@
 
                 that.login = function (username, password) {
                     var authData = $window.btoa(username + ':' + password);
-                    var userLogin = $http.get('/api/user/login', {
-                    //var userLogin = $http.get('http://labs.gbif-dev.org:7002/user/login', {
+                    var userLogin = $http.get('/api/auth/basic', {
                         headers: {'Authorization': 'Basic ' + authData}
                     });
                     userLogin.then(function (response) {
-                        $sessionStorage.user = response.data;
+                        $sessionStorage.user = response.data.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS);
                         //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
-                    }, function(){
+                    }, function () {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGIN_FAILURE);
                     });
                     return userLogin;
@@ -69,27 +68,57 @@
                     logout.then(function () {
                         delete $sessionStorage.user;
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_SUCCESS);
-                        //$window.location.reload(); //would be safer to reload in case some controller doesn't listen to broadcasted event
+                        window.location = '/';
                     }, function () {
                         $rootScope.$broadcast(AUTH_EVENTS.LOGOUT_FAILED);
                     });
                     return logout;
                 };
 
-                that.resetPassword = function () {
-                    var passwordReset = $http.get('/api/user/reset');
+                that.resetPassword = function (usernameOrEmail) {
+                    var passwordReset = $http.post('/api/user/resetPassword', usernameOrEmail);
                     return passwordReset;
                 };
 
-                that.updatePassword = function (id, body) {
-                    var updatePassword = $http.post('/api/user/' + id + '/updatePassword', body);
+                that.updateForgottenPassword = function (body) {
+                    var updatePassword = $http.post('/api/user/updateForgottenPassword', body);
                     updatePassword.then(function () {
-                        $location.url('/user/login');
-                        $window.location.reload();
+                        that.loadActiveUser()
+                            .then(function(){
+                                $location.url('/user/profile');
+                                $window.location.reload();
+                            })
+                            .catch(function(){
+                                $location.url('/user/profile');
+                                $window.location.reload();
+                            });
                     }, function () {
                         //TODO inform user of failed update. toast?
                     });
                     return updatePassword;
+                };
+
+                that.changePassword = function (userName, oldPassword, newPassword) {
+                    var authData = $window.btoa(userName + ':' + oldPassword);
+                    var config = {
+                        headers: {'Authorization': 'Basic ' + authData}
+                    };
+                    var body = {
+                        password: newPassword
+                    };
+                    var changePassword = $http.post('/api/user/changePassword', body, config);
+                    //leave it to consumer to show error
+                    return changePassword;
+                };
+
+                that.update = function (user) {
+                    var update = $http.put('/api/user/update', user);
+                    update.then(function () {
+                        $rootScope.$broadcast(AUTH_EVENTS.USER_UPDATED);
+                    }, function () {
+                        //TODO inform of failed creation
+                    });
+                    return update;
                 };
 
                 that.loadStorageUser();

@@ -1,5 +1,5 @@
 .userLogin {
-    padding vrBlock(1.5)
+    padding vrBlock(1)
     background white
     position relative
     z-index 10
@@ -35,6 +35,9 @@
             &.ng-invalid.ng-touched, &.isInvalid {
                 border-color tomato
             }
+            &:disabled {
+                border-bottom-color #efefef
+            }
         }
         label {
             > span {
@@ -47,7 +50,7 @@
             width 100%
         }
         &__group {
-            margin-bottom vrBlock(1)
+            margin-bottom vrBlock(0.25)
         }
         .gb-button--brand {
             width 100%
@@ -61,7 +64,7 @@
 }
 
 .discreetTabs {
-    margin-bottom vrBlock(1)
+    //margin-bottom vrBlock(1)
     ul {
         padding 0
         display flex

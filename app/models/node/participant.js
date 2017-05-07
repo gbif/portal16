@@ -63,7 +63,6 @@ function getParticipant(key, locale) {
                     })
                     .catch(function (err) {
                         //ignore missing relations
-                        console.log(err);
                         resolve({
                             participant: participant,
                             _incomplete: true

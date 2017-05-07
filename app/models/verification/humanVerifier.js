@@ -98,7 +98,11 @@ function humanVerifier(conf) {
                     //try again? try to overwrite it? flush everything?
                 });
                 //is the responded answer array the same as the one we know to bt the answer
-                cb(_.isEqual(challenge.answer, answer.sort()));
+                let isHumanEnough = _.isEqual(challenge.answer, answer.sort());
+                //response with delay as comparisons are vulnerable to timing attacks - a fixed total delay would of course be better
+                setTimeout(function(){
+                    return cb(isHumanEnough);
+                }, chance.integer({min: 100, max: 200}) );
             } else {
                 //if something fails, then simply return false for not verified.
                 return cb(false);

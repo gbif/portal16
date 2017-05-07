@@ -26,8 +26,7 @@ router.get('/species/:key/images', function (req, res) {
             let imgList = getImages(response.results);
             res.json(imgList);
         })
-        .catch(function (err) {
-            console.log(err);
+        .catch(function () {
             res.status(500);
             res.send('SERVER FAILURE');
         });
@@ -51,8 +50,7 @@ router.get('/species/:key/image', function (req, res) {
                 res.send();
             }
         })
-        .catch(function (err) {
-            console.log(err);
+        .catch(function () {
             res.status(500);
             res.send('SERVER FAILURE');
         });

@@ -1,5 +1,7 @@
 var express = require('express'),
     helper = rootRequire('app/models/util/util'),
+    userModel = require('../api/user/user.model'),
+    auth = require('../auth/auth.service');
     router = express.Router();
 
 //TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
@@ -12,35 +14,58 @@ router.get('/', function (req, res) {
 });
 
 router.get('/profile', function (req, res, next) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Pragma', 'no-cache');
-    res.header('Expires', '0');
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 router.get('/download', function (req, res, next) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Pragma', 'no-cache');
-    res.header('Expires', '0');
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 
-router.get('/:userKey/confirm/:challenge', function (req, res, next) {
-    next();//TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
-    ////ask user service if this user and challenge is valid. If so then sets the token returned and shows success page. If no, then show failed validation page.
-    //var randomNumber = Math.random().toString();
-    //randomNumber = randomNumber.substring(2, randomNumber.length);
-    //res.cookie('userSession', randomNumber, {maxAge: 900000});
-    //res.setHeader('Cache-Control', 'no-cache');
-    //helper.renderPage(req, res, next, {}, 'pages/user/confirmUser/confirmUser');
+router.get('/:userName/confirm/:challengeCode', function (req, res, next) {
+    //ask user service if this user and challenge is valid. If so then sets the token returned and shows success page. If no, then show failed validation page.
+    let challengeCode = req.params.challengeCode,
+        userName = req.params.userName;
+
+    userModel.confirm(challengeCode, userName)
+        .then(function(user){
+            let token = auth.signToken(user);
+            auth.setTokenCookie(res, token);//log the user in
+            auth.setNoCache(res);//don't cache this response anywhere as it would be misleading
+
+            helper.renderPage(req, res, next, {
+                _meta: {
+                    bodyClass: 'hasTransparentMenu',
+                    hideFooter: true,
+                    title: 'Welcome'
+                }
+            }, 'pages/user/confirmUser/confirmUser');
+        })
+        .catch(function(err){
+            if (err.statusCode > 399 && err.statusCode < 404) {
+                //not a valid token //seemingly the API returns 400 for invalid token. for 'isValidChallenge' it returns 401 if invalid.
+                helper.renderPage(req, res, next, {}, 'pages/user/confirmUser/invalidToken');
+            } else {
+                next(err);
+            }
+        });
 });
 
-router.get('/:userKey/update-password/:challenge', function (req, res, next) {
-    next();//TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs
+router.get('/:userName/update-password/:challengeCode', function (req, res, next) {
     //ask if valid reset token. if so show form that posts to update password service with token and new password. if not valid then inform user.
-    //let context = {
-    //    token: req.params.challenge,
-    //    userKey: req.params.userKey
-    //};
-    //helper.renderPage(req, res, next, context, 'pages/user/updatePassword/updatePassword');
+    let challengeCode = req.params.challengeCode,
+        userName = req.params.userName;
+
+    userModel.isValidChallenge(userName, challengeCode)
+        .then(function(){
+            let context = {
+                challengeCode: challengeCode,
+                userName: userName
+            };
+            auth.setNoCache(res);
+            helper.renderPage(req, res, next, context, 'pages/user/updatePassword/updatePassword');
+        })
+        .catch(function(){
+            //not a valid token
+            helper.renderPage(req, res, next, {}, 'pages/user/updatePassword/invalidToken');
+        });
 });
 

@@ -1,17 +1,26 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes user" ng-controller="confirmUserCtrl as confirmUser">
+    <article class="wrapper-horizontal-stripes confirmUser imageWithCaption" ng-controller="confirmUserCtrl as confirmUser">
         <section class="horizontal-stripe article-header">
             <div class="container--narrow">
-                <div class="text-center">
-                    <h1>Welcome to GBIF</h1>
-                    <p>
-                        Your account has been confirmed and you are now logged in
-                    </p>
-                    <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase">Continue</a>
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <div class="text-center">
+                            <div class="h3">Welcome to GBIF</div>
+                            <p>
+                                Your account has been confirmed and you are now logged in
+                            </p>
+                            <p>
+                                <a ng-href="{{confirmUser.destinationUrl}}" ng-if="confirmUser.destinationUrl" class="ng-cloak gb-button--brand text-uppercase">Continue</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        <div class="imageWithCaption__caption">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+        </div>
     </article>
 {% endblock %}

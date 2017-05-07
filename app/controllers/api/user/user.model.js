@@ -4,29 +4,36 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     chai = require('chai'),
     expect = chai.expect,
     querystring = require('querystring'),
-    credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).directory,
-    secret = credentials.secret,
-    jwt = require('jsonwebtoken'),
+    request = require('requestretry'),
+    log = rootRequire('config/log'),
     authOperations = require('./gbifAuthRequest');
 
 module.exports = {
     create: create,
     confirm: confirm,
-    findBySession: findBySession
+    login: login,
+    getByUserName: getByUserName,
+    update: update,
+    resetPassword: resetPassword,
+    updateForgottenPassword: updateForgottenPassword,
+    isValidChallenge: isValidChallenge,
+    getClientUser: getClientUser,
+    getDownloads: getDownloads,
+    changePassword: changePassword
 };
 
 async function create(body) {
     let options = {
         method: 'POST',
         body: body,
-        url: apiConfig.user.url,
-        canonicalPath: apiConfig.user.canonical
+        url: apiConfig.userCreate.url,
+        canonicalPath: apiConfig.userCreate.canonical
     };
     let response = await authOperations.authenticatedRequest(options);
     if (response.statusCode !== 201) {
         throw response;
     }
+
     return response.body;
 }
 
@@ -47,9 +54,148 @@ async function confirm(challengeCode, userName) {
     return response.body;
 }
 
-async function findBySession(session){
-    let user = await authOperations.getUserFromToken(session);
-    return user;
+async function update(userName, body) {
+    let options = {
+        method: 'PUT',
+        body: body,
+        url: apiConfig.userAdmin.url + userName,
+        canonicalPath: apiConfig.userAdmin.canonical + userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode > 299) {
+        throw response;
+    }
+    return response;
+}
+
+async function resetPassword(userNameOrEmail) {
+    let options = {
+        method: 'POST',
+        body: {},
+        url: apiConfig.userResetPassword.url,
+        canonicalPath: apiConfig.userResetPassword.canonical,
+        userName: userNameOrEmail
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode > 299) {
+        throw response;
+    }
+    return response.body;
+}
+
+
+async function updateForgottenPassword(body) {
+    let challengeCode = body.challengeCode,
+        password = body.password;
+    //TODO test challengeCode and password is present
+
+    let options = {
+        method: 'POST',
+        body: {
+            challengeCode: challengeCode,
+            password: password
+        },
+        url: apiConfig.userUpdateForgottenPassword.url,
+        canonicalPath: apiConfig.userUpdateForgottenPassword.canonical,
+        userName: body.userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 201) {
+        throw response;
+    }
+    return response;
+}
+
+async function isValidChallenge(userName, challengeCode) {
+    let options = {
+        method: 'GET',
+        url: apiConfig.userChallengeCodeValid.url + '?challengeCode?' + challengeCode,
+        userName: userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 204) {
+        throw response;
+    }
+    return response;
+}
+
+async function getByUserName(userName) {
+    let options = {
+        method: 'GET',
+        url: apiConfig.userAdmin.url + userName
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function getDownloads(userName, query) {
+    query = query || {};
+    expect(userName, 'user name').to.be.a('string');
+    expect(query, 'download query').to.be.an('object');
+    let options = {
+        url: apiConfig.occurrenceDownloadUser.url + userName + '?' + querystring.stringify(query),
+        userName: userName,
+        method: 'GET'
+    };
+    let response = await authOperations.authenticatedRequest(options);
+    //this should never be unauthorized, but it happens when the a user is created but not known by the occurrence api (mixed environments)
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function login(auth) {
+    let loginRequest = {
+        url: apiConfig.userLogin.url,
+        method: 'GET',
+        headers: {
+            authorization: auth
+        },
+        fullResponse: true,
+        json: true
+    };
+    let response = await request(loginRequest);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function changePassword(auth, newPassword) {
+    let options = {
+        url: apiConfig.userChangePassword.url,
+        method: 'PUT',
+        headers: {
+            authorization: auth
+        },
+        body: {
+            password: newPassword
+        },
+        fullResponse: true,
+        json: true
+    };
+    let response = await request(options);
+    if (response.statusCode !== 204) {
+        throw response;
+    }
+    return response.body;
+}
+
+function getClientUser(user){
+    //sanitize user somehow? i guess there isn't anything in the response that cannot goe out at this point. later perhaps some configurations that are for internal only
+    return {
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        settings: {
+            country: user.settings.country
+        }
+    };
 }
 
 // async function findById(userName) {

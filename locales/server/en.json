@@ -1844,6 +1844,9 @@
         "other": "related documents and information"
       }
     },
+    "dataUse": {
+      "resourceUsed": "Data resources used via GBIF"
+    },
     "auxiliary": {
       "subject": {
         "one": "subject",
@@ -2307,5 +2310,9 @@
         "call": "call"
       }
     }
+  },
+  "error": {
+    "USER_ALREADY_EXIST": "User already exists. Please try another username or email",
+    "CONSTRAINT_VIOLATION": "Invalid or insufficient information provided"
   }
 }

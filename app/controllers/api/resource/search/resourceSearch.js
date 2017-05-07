@@ -199,6 +199,10 @@ function buildQuery(query) {
                     {
                         "filter": { "match": { "keywords": query.q } },
                         "weight": 100
+                    },
+                    {
+                        "filter": { "match": { "title": query.q } },
+                        "weight": 20
                     }
                 ],
                 "score_mode": "max",

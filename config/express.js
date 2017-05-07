@@ -1,13 +1,14 @@
 let express = require('express'),
     glob = require('glob'),
+    passport = require('passport'),
 // favicon = require('serve-favicon'),
     cookieParser = require('cookie-parser'),
     compress = require('compression'),
     methodOverride = require('method-override'),
     i18n = require("i18n"),
     requestIp = require('request-ip'),
-    bodyparser = require('body-parser');
-//log = rootRequire('config/log'),
+    bodyparser = require('body-parser'),
+    log = rootRequire('config/log');
 
 module.exports = function (app, config) {
     let env = config.env || 'dev';
@@ -61,6 +62,7 @@ module.exports = function (app, config) {
         etag: false
     }));
     app.use(methodOverride());
+    app.use(passport.initialize());
 
     //add middleware to handle redirects of old urls or shortened menu items
     let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
@@ -81,6 +83,7 @@ module.exports = function (app, config) {
             next();
         }
     });
+
     /**
      require all route controllers
      */
@@ -93,4 +96,9 @@ module.exports = function (app, config) {
     require(config.root + '/app/controllers/resource/key/resourceBySlugCtrl.js')(app);
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
+
+    process.on('unhandledRejection', function(reason, p){
+        log.error("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);
+        // There is not much else to do here. Keep track of the logs and make sure this never happens. There should be no unhandled rejections.
+    });
 };

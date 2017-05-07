@@ -1,24 +1,7 @@
 <div class="horizontal-stripe--paddingless white-background">
-    <div class="container--normal">
-        <nav class="discreetTabs">
-            <ul>
-                <li>
-                    <a href="" class="inherit noUnderline" ui-sref="userProfile()">Profile</a>
-                </li>
-                <li class="isActive">
-                    <a href="" class="inherit noUnderline">Downloads</a>
-                </li>
-                <!--<li ng-class="{isActive: vm.active=='SETTINGS'}">-->
-                <!--<a href="" class="inherit noUnderline" ui-sref="userSettings()" ng-click="vm.active='SETTINGS'">Settings</a>-->
-                <!--</li>-->
-            </ul>
-        </nav>
-    </div>
-</div>
-<div class="horizontal-stripe--paddingless white-background">
-    <div class="container--normal">
+    <div class="container--narrow">
         <div class="m-t-2">
-            <div ng-if="!userDownloads.downloads">
+            <div ng-if="userDownloads.loadingDownloads">
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
             <div class="card m-b-2" ng-repeat="download in userDownloads.downloads.results">
@@ -37,6 +20,17 @@
                         ng-change="userDownloads.pageChanged()">
                 </uib-pagination>
             </div>
+
+            <div class="emptyInfo" ng-if="!userDownloads.loadingDownloads && userDownloads.downloads.count === 0">
+                <h3>You haven't downloaded anything yet</h3>
+                <p>Get started by searching for some <a href="{{urlPrefix}}/occurrence/search">occurrences</a></p>
+            </div>
+
+            <div class="emptyInfo" ng-if="!userDownloads.loadingDownloads && userDownloads.failedToLoadDownloads">
+                <h3>Looks like you aren't authorized to view your own downloads - that seems wrong!</h3>
+                <p>Maybe you have been logged out? Try to refresh the page and let us know if the issue persists. We are sorry about the inconvenience.</p>
+            </div>
+
         </div>
     </div>
 </div>

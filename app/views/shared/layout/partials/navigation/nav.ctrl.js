@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl($http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state) {
+function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state) {
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -40,7 +40,11 @@ function navCtrl($http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $session
     };
 
     vm.toggleUserMenu = function () {
-        if (!$state.includes('user')) {
+        if ($sessionStorage.user) {
+            if (!$state.includes('user')) {
+                $window.location = '/user/profile';
+            }
+        } else {
             vm.openMenu(NAV_EVENTS.toggleUserMenu);
         }
     };
