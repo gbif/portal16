@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state) {
+function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys) {
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -73,6 +73,17 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
     $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
         updateUser();
     });
+
+    hotkeys.add(
+        {
+            combo: ['alt+f', 'alt+space'],
+            description: 'Site search',
+            callback: function (event) {
+                vm.openMenu(NAV_EVENTS.toggleSearch);
+                event.preventDefault();
+            }
+        }
+    );
 
 }
 

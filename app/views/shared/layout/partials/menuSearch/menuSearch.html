@@ -1,0 +1,28 @@
+<aside id="menuSearch" class="menuSearch menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+    <div class="menubox__wrapper">
+        <div class="menubox__top">
+            <div class="menubox__header">
+                <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                <div class="menubox__header__title text-center">
+                    <span>Search</span>
+                </div>
+                <div class="m-05 m-t-0">
+                    <form class="search-box" ng-submit="vm.searchRedirect()">
+                        <input type="text"
+                               id="menuSearchBox"
+                               focus-me="vm.focus"
+                               autocomplete="off"
+                               ng-model="vm.freeTextQuery"
+                               placeholder="Occurrences, species, news ..."
+                               ng-keydown="vm.closeOnEsc($event)">
+                        <a href="" type="submit" class="inherit search-box__submit gb-icon-search2"
+                           ng-click="vm.searchRedirect()">
+                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

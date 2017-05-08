@@ -11,8 +11,9 @@ function updatePasswordCtrl(User) {
     var vm = this;
 
     vm.update = function () {
-        if (vm.pw === vm.repeatedPw) {
+        if (vm.updatePasswordForm.$valid && vm.pw === vm.repeatedPw) {
             vm.notIdentical = false;
+            vm.passwordFormInvalid = false;
             User.updateForgottenPassword({
                 password: vm.pw,
                 challengeCode: vm.challengeCode,
@@ -24,6 +25,7 @@ function updatePasswordCtrl(User) {
             });
         } else {
             vm.notIdentical = true;
+            vm.passwordFormInvalid = true;
         }
     }
 }

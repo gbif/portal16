@@ -21,29 +21,53 @@ function menuSearchDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function menuSearch($scope, NAV_EVENTS, AUTH_EVENTS) {
+    function menuSearch($scope, NAV_EVENTS, $timeout) {
         var vm = this;
         vm.isActive = false;
 
-        $scope.$on(NAV_EVENTS.togglemenuSearch, function (event, data) {
+        $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
             if (data.toggle) {
                 vm.isActive = !vm.isActive;
             } else {
                 vm.isActive = data.state;
             }
+            vm.focus = false;
+            $timeout(function(){
+                vm.focus = true;
+            }, 100);
         });
 
         vm.close = function () {
             vm.isActive = false;
         };
 
-        $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function () {
-            vm.isActive = false;
-        });
+        vm.searchRedirect = function () {
+            location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery || '');
+        };
 
-        $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function () {
-            vm.isActive = false;
-        });
+        vm.closeOnEsc = function (event) {
+            if (event.which === 27) {
+                vm.isActive = false;
+            }
+        };
+
+        //vm.clearFreetextAndSetFocus = function () {
+        //    vm.isActive = true;
+        //    document.getElementById('menuSearchBox').focus();
+        //    vm.freeTextQuery = '';
+        //};
+
+        //hotkeys.add(
+        //    {
+        //        combo: ['alt+f', 'alt+space'],
+        //        description: 'Site search',
+        //        callback: function (event) {
+        //            vm.isActive = true;
+        //            vm.clearFreetextAndSetFocus();
+        //            event.preventDefault();
+        //        }
+        //    }
+        //);
     }
 }
 

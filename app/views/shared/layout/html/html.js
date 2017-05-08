@@ -197,6 +197,7 @@ require('./angular/directives/onLoad/onload.directive');
 require('./angular/directives/helpDesk.directive');
 
 require('../partials/userMenu/userMenu.directive');
+require('../partials/menuSearch/menuSearch.directive');
 require('../partials/feedback/feedback.directive');
 require('../partials/notifications/notifications.directive');
 
@@ -230,6 +231,7 @@ require('../../../pages/user/confirmUser/confirmUser.ctrl');
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 
 require('../../../pages/species/key/speciesKey.ctrl');
+require('../../../pages/species/key2/speciesKey.ctrl');
 
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');

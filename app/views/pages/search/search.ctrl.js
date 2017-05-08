@@ -19,17 +19,17 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS, $http) {
         vm.freeTextQuery = '';
     };
     //might be interesting to look at: http://chieffancypants.github.io/angular-hotkeys/
-    hotkeys.add(
-        {
-            combo: ['alt+f', 'alt+space'],
-            description: 'Site search',
-            callback: function (event) {
-                vm.isActive = true;
-                vm.clearFreetextAndSetFocus();
-                event.preventDefault();
-            }
-        }
-    );
+    //hotkeys.add(
+    //    {
+    //        combo: ['alt+f', 'alt+space'],
+    //        description: 'Site search',
+    //        callback: function (event) {
+    //            vm.isActive = true;
+    //            vm.clearFreetextAndSetFocus();
+    //            event.preventDefault();
+    //        }
+    //    }
+    //);
 
     vm.updateSearch = function () {
         vm.loaded = false;
@@ -41,37 +41,37 @@ function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS, $http) {
         }
         window.scrollTo(0, 0);
     };
-    vm.searchRedirect = function () {
-        vm.loaded = false;
-        vm.query.q = vm.freeTextQuery || '';
-        location.href = '/search?q=' + encodeURIComponent(vm.query.q);
-    };
-    vm.searchOnEnter = function (event) {
-        if (event.which === 13) {
-            vm.updateSearch();
-        }
+    //vm.searchRedirect = function () {
+    //    vm.loaded = false;
+    //    vm.query.q = vm.freeTextQuery || '';
+    //    location.href = '/search?q=' + encodeURIComponent(vm.query.q);
+    //};
+    //vm.searchOnEnter = function (event) {
+    //    if (event.which === 13) {
+    //        vm.updateSearch();
+    //    }
+    //
+    //};
+    //
+    //vm.closeOnEsc = function (event) {
+    //    if (event.which === 27) {
+    //        document.getElementById('siteSearch').blur();
+    //        vm.isActive = false;
+    //    }
+    //};
 
-    };
-
-    vm.closeOnEsc = function (event) {
-        if (event.which === 27) {
-            document.getElementById('siteSearch').blur();
-            vm.isActive = false;
-        }
-    };
-
-    $scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
-        if (data.toggle) {
-            vm.isActive = !vm.isActive;
-        } else {
-            vm.isActive = data.state;
-        }
-        if (vm.isActive) {
-            vm.clearFreetextAndSetFocus();
-        } else {
-            document.getElementById('siteSearch').blur();
-        }
-    });
+    //$scope.$on(NAV_EVENTS.toggleSearch, function (event, data) {
+    //    if (data.toggle) {
+    //        vm.isActive = !vm.isActive;
+    //    } else {
+    //        vm.isActive = data.state;
+    //    }
+    //    if (vm.isActive) {
+    //        vm.clearFreetextAndSetFocus();
+    //    } else {
+    //        document.getElementById('siteSearch').blur();
+    //    }
+    //});
 
     vm.search = function(){
         vm.searchResults = $http.get('/api/omnisearch', {

@@ -61,11 +61,11 @@
     </form>
 
     <form name="vm.createUserForm" class="userLogin__form" ng-if="vm.createState">
-        <div ng-if="vm.disableRegistration">
+        <div ng-if="vm.disableRegistration" class="m-t-05">
             Please use <a href="http://www.gbif.org/user/login">GBIF.org</a> for user creation for now. Your account should be synced within a day. Thank you.
         </div>
 
-        <div ng-if="!vm.verification">
+        <div ng-if="!vm.disableRegistration && !vm.verification">
             <div class="userLogin__form__group">
                 <label>
                     <span>Country</span>
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div ng-if="vm.verification">
+        <div ng-if="!vm.disableRegistration && vm.verification">
             <div class="verification">
                 <div></div>
                 <div class="verification__query">

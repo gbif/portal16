@@ -133,6 +133,23 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'speciesTableCtrl',
             controllerAs: 'speciesTable'
         })
+        .state('speciesKey', {
+            parent: 'localization',
+            url: '/species2/:key',
+            params: {
+                advanced: {
+                    value: false,
+                    squash: true
+                }
+            },
+            views: {
+                main: {
+                    templateUrl: '/templates/pages/species/key2/speciesKey.html?v=' + BUILD_VERSION,
+                    controller: 'speciesKey2Ctrl',
+                    controllerAs: 'speciesKey2'
+                }
+            }
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',

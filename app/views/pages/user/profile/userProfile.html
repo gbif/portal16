@@ -4,7 +4,7 @@
             <!--For now your profile information can only be edited via <a href="http://www.gbif.org/user">GBIF.org</a>. Account information is synchronized daily.-->
         <!--</div>-->
         <div>
-            <div class="clearfix">
+            <div class="clearfix" ng-if="!userProfile.disableEditing">
                 <div class="switch-group pull-right">
                     <p class="small" ng-if="!userProfile.inEditMode">Edit profile</p>
                     <p class="small" ng-if="userProfile.inEditMode">Stop editing</p>

@@ -100,16 +100,18 @@ async function updateForgottenPassword(body) {
         userName: body.userName
     };
     let response = await authOperations.authenticatedRequest(options);
+    console.log(response);
+
     if (response.statusCode !== 201) {
         throw response;
     }
-    return response;
+    return response.body;
 }
 
 async function isValidChallenge(userName, challengeCode) {
     let options = {
         method: 'GET',
-        url: apiConfig.userChallengeCodeValid.url + '?challengeCode?' + challengeCode,
+        url: apiConfig.userChallengeCodeValid.url + '?challengeCode=' + challengeCode,
         userName: userName
     };
     let response = await authOperations.authenticatedRequest(options);

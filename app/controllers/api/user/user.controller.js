@@ -37,7 +37,8 @@ function confirm(req, res) {
         .then(function(user){
             let token = auth.signToken(user);
             user = userModel.getClientUser(user);
-            res.json({ token, user });
+            auth.setTokenCookie(res, token);
+            res.json({ user });
         })
         .catch(handleError(res));
 }
@@ -78,8 +79,11 @@ function resetPassword(req, res) {
  */
 function updateForgottenPassword(req, res) {
     userModel.updateForgottenPassword(req.body)
-        .then(function(resp){
-            res.json(resp);
+        .then(function(user){
+            let token = auth.signToken(user);
+            user = userModel.getClientUser(user);
+            auth.setTokenCookie(res, token);
+            res.json({ user });
         })
         .catch(handleError(res, 422));
 }

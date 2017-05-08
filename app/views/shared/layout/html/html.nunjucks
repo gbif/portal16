@@ -30,6 +30,7 @@
             {% include "../partials/feedback/feedback.nunjucks" %}
             {% include "../partials/notifications/notifications.nunjucks" %}
             {% include "../partials/userMenu/userMenu.nunjucks" %}
+            {% include "../partials/menuSearch/menuSearch.nunjucks" %}
         {% endif %}
         {# Main layout cont #}
         {# http://html5doctor.com/the-main-element/ #}

@@ -1,4 +1,4 @@
-<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" ng-controller="searchCtrl as omniSearch" click-outside="omniSearch.isActive = false">
+<aside class="omnisearch-bar" ng-class="{'is-active': omniSearch.isActive}" Xng-controller="searchCtrl as omniSearch" click-outside="omniSearch.isActive = false">
     <div>
         <div>
             <form class="search-box" ng-submit="omniSearch.searchRedirect()">
