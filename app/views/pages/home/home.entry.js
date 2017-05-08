@@ -1,6 +1,6 @@
 'use strict';
 
-var angular = require('angular');
+//var angular = require('angular'); it is required, but included in the main build. We need a better way to load bootstrap controllers async
 
 angular
     .module('portal')
