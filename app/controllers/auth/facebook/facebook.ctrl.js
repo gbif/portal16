@@ -2,8 +2,8 @@
 let express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).auth.facebook,
+    //credentialsPath = rootRequire('config/config').credentials,
+    //credentials = require(credentialsPath).auth.facebook,
     FacebookStrategy = require('passport-facebook').Strategy,
     User = require('../../api/user/user.model'),
     auth = require('../auth.service');
@@ -23,8 +23,8 @@ router.get('/facebook/callback', function (req, res, next) {
     })(req, res, next);
 });
 
-let clientId = credentials.clientId,
-    clientSecret = credentials.clientSecret,
+let clientId = 'clientId',
+    clientSecret = 'clientSecret',
     callbackURL = 'http://localhost:7000/auth/facebook/callback',
     profileFields = ['id', 'email', 'displayName', 'picture'];
 
