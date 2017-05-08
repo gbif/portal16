@@ -1,5 +1,5 @@
 <div class="emptyInfo">
-    <h3>This country doesn't formally participate in GBIF</h3>
+    <h3>This country is not a participant in GBIF</h3>
     <p>But luckily that doesn't necessarily mean no data and no local publishers</p>
-    <a href="#activities" class="gb-button--discreet">See activities</a>
+    <a href="" ui-sref="countryActivity()" class="gb-button--discreet">See activities</a>
 </div>

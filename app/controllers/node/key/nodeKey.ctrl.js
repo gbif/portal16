@@ -94,8 +94,9 @@ async function getCountry(isoCode, current) {
             message: 'Not a known country code'
         }
     }
-    let participant = await Participant.get(isoCode, current);
+    let participant;
     try{
+        participant = await Participant.get(isoCode, current);
         participant = participantView(participant);
         participant._meta = {
             title: 'Country'
