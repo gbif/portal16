@@ -27,7 +27,7 @@ function userLoginDirective(BUILD_VERSION, LOCALE, regexPatterns) {
     /** @ngInject */
     function userLogin($q, $http, User, $scope, AUTH_EVENTS, toastService, $sessionStorage) {
         var vm = this;
-        vm.disableRegistration = false;
+        vm.disableRegistration = true;
         vm.emailPattern = regexPatterns.email;
         vm.userNamePattern = regexPatterns.userName;
         vm.verification = false;
