@@ -2,7 +2,6 @@
 var verificationFolder = rootRequire('config/config').verification,
     path = require('path'),
     verificationConfig = require(path.join(verificationFolder, 'config')),
-    imageFolder = verificationConfig.images,
     verifier = require('./humanVerifier')(verificationConfig);
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
     resolveImageName: function (id, name, cb) {
         verifier.resolveImageName(id, name, function (err, name) {
             if (name) {
-                name = path.join(verificationFolder, imageFolder, name);
+                name = path.join(verificationFolder, name);
             }
             cb(err, name);
         });

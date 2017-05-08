@@ -1,0 +1,31 @@
+{
+    "groups": [
+        {
+            "folder": "american_robin",
+            "images": [
+                "10.jpg",
+                "3.jpg",
+                "5.jpg",
+                "8.jpg"
+            ]
+        },
+        {
+            "folder": "flabellina",
+            "images": [
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ]
+        },
+        {
+            "folder": "fly_agaric",
+            "images": [
+                "2.jpg",
+                "3.jpg",
+                "5.jpg",
+                "6.jpg"
+            ]
+        }
+    ]
+}
