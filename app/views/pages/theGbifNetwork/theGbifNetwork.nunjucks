@@ -48,8 +48,8 @@
                 <div class="row main-counts">
                     <div class="col-xs-12">
                         <div class="update-region">
-                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 3"></ng-include>
-                            <div ng-if="vm.updatedCounts === 3">
+                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 2"></ng-include>
+                            <div ng-if="vm.updatedCounts === 2">
                                 <div class="entity-counts">
                                     {% for pType in data.participantTypes %}
                                         {% if data.count[pType] > 0 %}
@@ -71,32 +71,32 @@
                                         <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
                                     </div>
                                 </div>
-                                <div id="chart-literature-yearly" class="chart-literature text-center">
-                                    <div literature-bar-chart-yearly region="vm.currentRegion"></div>
-                                </div>
-                                <div class="entity-counts">
-                                    <div class="entity-count">
-                                        <div class="count-number count-literature"
-                                             ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">
-                                            {$ data.count.literature | localizeInteger(gb.locales.current) $}
-                                        </div>
-                                        <div class="count-label medium-long-label">{$ __('theGbifNetwork.peerReviewedPublicationBy') $}</div>
-                                    </div>
-                                    <div class="entity-count">
-                                        <div class="count-number count-literature"
-                                             ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">
-                                            {$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}
-                                        </div>
-                                        <div class="count-label">{$ __('theGbifNetwork.authorsFrom') $}</div>
-                                    </div>
-                                    <div class="entity-count">
-                                        <div class="count-number count-literature"
-                                             ng-bind="vm.count.countriesLiteratureAuthorsFrom ? vm.count.countriesLiteratureAuthorsFrom : '{$ data.count.countriesLiteratureAuthorsFrom $}'">
-                                            {$ data.count.countriesLiteratureAuthorsFrom | localizeInteger(gb.locales.current)$}
-                                        </div>
-                                        <div class="count-label">{$ __('theGbifNetwork.countries') $}</div>
-                                    </div>
-                                </div>
+                                {#<div id="chart-literature-yearly" class="chart-literature text-center">#}
+                                    {#<div literature-bar-chart-yearly region="vm.currentRegion"></div>#}
+                                {#</div>#}
+                                {#<div class="entity-counts">#}
+                                    {#<div class="entity-count">#}
+                                        {#<div class="count-number count-literature"#}
+                                             {#ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">#}
+                                            {#{$ data.count.literature | localizeInteger(gb.locales.current) $}#}
+                                        {#</div>#}
+                                        {#<div class="count-label medium-long-label">{$ __('theGbifNetwork.peerReviewedPublicationBy') $}</div>#}
+                                    {#</div>#}
+                                    {#<div class="entity-count">#}
+                                        {#<div class="count-number count-literature"#}
+                                             {#ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">#}
+                                            {#{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}#}
+                                        {#</div>#}
+                                        {#<div class="count-label">{$ __('theGbifNetwork.authorsFrom') $}</div>#}
+                                    {#</div>#}
+                                    {#<div class="entity-count">#}
+                                        {#<div class="count-number count-literature"#}
+                                             {#ng-bind="vm.count.countriesLiteratureAuthorsFrom ? vm.count.countriesLiteratureAuthorsFrom : '{$ data.count.countriesLiteratureAuthorsFrom $}'">#}
+                                            {#{$ data.count.countriesLiteratureAuthorsFrom | localizeInteger(gb.locales.current)$}#}
+                                        {#</div>#}
+                                        {#<div class="count-label">{$ __('theGbifNetwork.countries') $}</div>#}
+                                    {#</div>#}
+                                {#</div>#}
                             </div>
                         </div>
                     </div>

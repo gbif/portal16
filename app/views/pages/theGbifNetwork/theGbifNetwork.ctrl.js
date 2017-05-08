@@ -34,14 +34,14 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         'associate_country_participant',
         'other_associate_participant'
     ];
-    var literatureCounts = [
-        'literature',
-        'literatureAuthors',
-        'literatureAuthorFromCountries'
-    ];
+    //var literatureCounts = [
+    //    'literature',
+    //    'literatureAuthors',
+    //    'literatureAuthorFromCountries'
+    //];
 
     vm.query = $stateParams;
-    vm.updatedCounts = 3;
+    vm.updatedCounts = 2;
 
     // list non-country participants
     vm.nonCountryParticipants = [];
@@ -73,15 +73,15 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             }, function(error){
                 return error;
             });
-        LiteratureCount.get({'gbifRegion': region}).$promise
-            .then(function(response){
-                literatureCounts.forEach(function(count){
-                    if(response[count]) vm.count[count] = $filter('localNumber')(response[count], gb.locale);
-                });
-                vm.updatedCounts += 1;
-            }, function(error){
-                return error;
-            });
+        //LiteratureCount.get({'gbifRegion': region}).$promise
+        //    .then(function(response){
+        //        literatureCounts.forEach(function(count){
+        //            if(response[count]) vm.count[count] = $filter('localNumber')(response[count], gb.locale);
+        //        });
+        //        vm.updatedCounts += 1;
+        //    }, function(error){
+        //        return error;
+        //    });
         DirectoryParticipants.get({'gbifRegion': region, 'membershipType': 'other_associate_participant'}).$promise
             .then(function(response){
                 vm.nonCountryParticipants = response;
