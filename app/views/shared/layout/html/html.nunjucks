@@ -45,10 +45,6 @@
                 {#</aside>#}
             {#{% endif %}#}
 
-            {% if not _meta.removeMenu %}
-                {% include "../partials/navigation/search/search.nunjucks" %}
-            {% endif %}
-
             <div class="site-content">
 
                 {#{% if _meta.hasTools %}#}
