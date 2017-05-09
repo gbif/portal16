@@ -22,6 +22,7 @@ function create(req, res) {
     userModel.create(req.body.user)
         .then(function(){
             res.status(201);
+            auth.setNoCache(res);
             res.json({type:'CONFIRM_MAIL'});
         })
         .catch(handleError(res, 422));
