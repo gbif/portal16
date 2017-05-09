@@ -18,3 +18,4 @@ router.post('/changePassword', user.changePassword);//the api requires basic aut
 router.get('/logout', user.logout);
 
 router.get('/myDownloads', auth.isAuthenticated(), user.getDownloads);
+router.get('/download', auth.isAuthenticated(), user.createSimpleDownload);

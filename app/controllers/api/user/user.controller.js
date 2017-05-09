@@ -11,6 +11,7 @@ module.exports = {
     updateForgottenPassword: updateForgottenPassword,
     logout: logout,
     getDownloads: getDownloads,
+    createSimpleDownload: createSimpleDownload,
     changePassword: changePassword
 };
 
@@ -108,6 +109,17 @@ function getDownloads(req, res) {
         .then(function(downloads){
             res.setHeader('Cache-Control', 'private, max-age=' + 10000); //allow the user to store the list of downloads locally
             res.json(downloads);
+        })
+        .catch(handleError(res, 422));
+}
+
+/**
+ * Updates the password given a short lived token sent to the users email
+ */
+function createSimpleDownload(req, res) {
+    userModel.createSimpleDownload(req.user, req.query)
+        .then(function(download){
+            res.json(download);
         })
         .catch(handleError(res, 422));
 }

@@ -19,6 +19,7 @@ module.exports = {
     isValidChallenge: isValidChallenge,
     getClientUser: getClientUser,
     getDownloads: getDownloads,
+    createSimpleDownload: createSimpleDownload,
     changePassword: changePassword
 };
 
@@ -150,6 +151,27 @@ async function getDownloads(userName, query) {
     return response.body;
 }
 
+async function createSimpleDownload(user, query) {
+    query = query || {};
+    expect(query, 'download query').to.be.an('object');
+    expect(user.userName, 'user name').to.be.a('string');
+
+    query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
+
+    var options = {
+        url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
+        userName: user.userName,
+        type: 'PLAIN',
+        method: 'GET'
+    };
+
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
 async function login(auth) {
     let loginRequest = {
         url: apiConfig.userLogin.url,
@@ -236,21 +258,3 @@ function getClientUser(user){
 //}
 //
 //
-//async function createSimpleDownload(cookie, query) {
-//    query = query || {};
-//    expect(cookie, 'user token').to.be.a('string');
-//    expect(query, 'download query').to.be.an('object');
-//
-//    let user = await authOperations.getUserFromToken(cookie);
-//
-//    query.notification_address = user.email || 'an_email_is_required_despite_not_needing_it';
-//    var options = {
-//        url: apiConfig.occurrenceSearchDownload.url + '?' + querystring.stringify(query),
-//        userName: user.userName,
-//        type: 'PLAIN',
-//        method: 'GET'
-//    };
-//
-//    let download = await authOperations.authenticatedRequest(options);
-//    return download;
-//}
