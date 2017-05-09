@@ -1,19 +1,20 @@
 'use strict';
 
 var angular = require('angular'),
-    keys = require('../../../../../helpers/constants').keys;
+    _ = require('lodash'),
+    keys = require('../../../../../../helpers/constants').keys;
 
 angular
     .module('portal')
-    .directive('taxBrowser', taxBrowserDirective);
+    .directive('taxonomyBrowser', taxonomyBrowserDirective);
 
 /** @ngInject */
-function taxBrowserDirective(BUILD_VERSION) {
+function taxonomyBrowserDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/species/key/directives/taxBrowser/taxBrowser.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/pages/species/key/directives/taxonomyBrowser/taxonomyBrowser.html?v=' + BUILD_VERSION,
         scope: {},
-        controller: taxBrowserCtrl,
+        controller: taxonomyBrowserCtrl,
         controllerAs: 'vm',
         bindToController: {
             occ: '@',
@@ -24,7 +25,7 @@ function taxBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
+    function taxonomyBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
@@ -75,12 +76,24 @@ function taxBrowserDirective(BUILD_VERSION) {
                     }, function () {
                     });
 
+                    vm.classifiedChildren = [];
+                    vm.unclassified = {
+                        kingdomRank: [],
+                        phylumRank: [],
+                        classRank: [],
+                        orderRank: [],
+                        familyRank: [],
+                        genusRank: [],
+                        speciesRank: []
+                    };
                     TaxonomyChildren.query({
                         datasetKey: vm.datasetKey,
                         taxonKey: vm.taxonKey,
                         occ: vm.occ
                     }, function (data) {
                         vm.children = data.results;
+                        vm.classifiedChildren = _.filter(data.results, ['rank', 'GENUS']);
+                        console.log(vm.classifiedChildren);
                         vm.taxonNumOccurrences = data.numOccurrences;
                     }, function () {
                     })
@@ -105,5 +118,5 @@ function taxBrowserDirective(BUILD_VERSION) {
 
 }
 
-module.exports = taxBrowserDirective;
+module.exports = taxonomyBrowserDirective;
 

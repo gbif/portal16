@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');
 //require('./directives/dbpedia.directive.js');
