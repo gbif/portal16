@@ -1,52 +1,77 @@
-<div ng-controller="searchCtrl as rootSearch">
-
-    <aside class="omnisearch-bar--static omnisearch-bar is-active">
-        <div>
-            <div>
-                <form class="search-box" ng-submit="rootSearch.updateSearch()">
-                    <input type="text"
-                           id="siteSearch"
-                           autocomplete="off"
-                           ng-init="rootSearch.freeTextQuery == ''"
-                           ng-model="rootSearch.freeTextQuery"
-                           placeholder="Occurrences, species, news ..."
-                           ng-keydown="rootSearch.closeOnEsc($event)">
-                    <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2 inherit"
-                       ng-click="rootSearch.updateSearch()">
-                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
-                    </a>
-                </form>
-            </div>
-            <div class="omnisearch-bar__filters">
-                <div>
-                    <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--brand">
-                        Occurrences
-                    </a>
-                    <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="gb-button--brand">
-                        Species
-                    </a>
-                    <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" class="gb-button--brand">
-                        Datasets
-                    </a>
-                    <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="gb-button--brand">
-                        Publisher
-                    </a>
-                    <a ui-sref="resourceSearchList({q: rootSearch.query.q})" class="gb-button--brand">
-                        Resources
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
+<div>
     <div class="site-content">
         <div class="site-content__page">
             <div class="omni-search-results light-background">
                 <div class="wrapper-horizontal-stripes">
+                    <div class="horizontal-stripe--paddingless bare-background p-t-1 seperator--b">
+                        <div class="container--narrow">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <form class="search-box" ng-submit="rootSearch.updateSearch()">
+                                        <input type="text"
+                                               id="siteSearch"
+                                               autocomplete="off"
+                                               ng-init="rootSearch.freeTextQuery == ''"
+                                               ng-model="rootSearch.freeTextQuery"
+                                               placeholder="Occurrences, species, news ..."
+                                               ng-keydown="rootSearch.closeOnEsc($event)">
+                                        <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2 inherit"
+                                           ng-click="rootSearch.updateSearch()">
+                                            <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                                        </a>
+                                    </form>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <nav class="tabs">
+                                        <ul>
+                                            <li class="tab isActive">
+                                                <a href="" ui-sref="omniSearch({q: undefined})">
+                                                    Everything
+                                                </a>
+                                            </li>
+
+                                            <li class="tab">
+                                                <a href="" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})">
+                                                    Occurrences
+                                                </a>
+                                            </li>
+
+                                            <li class="tab">
+                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})">
+                                                    Species
+                                                </a>
+                                            </li>
+
+                                            <li class="tab">
+                                                <a href="" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})">
+                                                    Datasets
+                                                </a>
+                                            </li>
+
+                                            <li class="tab">
+                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})">
+                                                    Publisher
+                                                </a>
+                                            </li>
+
+                                            <li class="tab">
+                                                <a href="" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})">
+                                                    Resources
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="horizontal-stripe--paddingless">
                         <div class="container--narrow">
                             <div class="row">
-                                <div class="col-xs-12 m-t-1">
+                                <div class="col-xs-12 m-t-1" ng-if="rootSearch.freeTextQuery">
                                     <div style="margin:100px 0" ng-if="rootSearch.loading">
                                         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                                     </div>
@@ -57,16 +82,26 @@
                                     </div>
 
                                     <div ng-if="!rootSearch.loading && !rootSearch.failed">
+
+                                        <div ng-if="rootSearch.results.resourceHighlights.count > 0">
+                                            <div ng-repeat="result in rootSearch.results.resourceHighlights.results">
+                                                <ng-include src="'/api/template/search/articleResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'article'"></ng-include>
+                                                <ng-include src="'/api/template/search/eventResult.html?v=' +       resourceList.BUILD_VERSION" ng-if="result.contentType == 'event'"></ng-include>
+                                                <ng-include src="'/api/template/search/datauseResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'dataUse'"></ng-include>
+                                                <ng-include src="'/api/template/search/newsResult.html?v=' +        resourceList.BUILD_VERSION" ng-if="result.contentType == 'news'"></ng-include>
+                                                <ng-include src="'/api/template/search/projectResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'project'"></ng-include>
+                                                <ng-include src="'/api/template/search/programmeResult.html?v=' +   resourceList.BUILD_VERSION" ng-if="result.contentType == 'programme'"></ng-include>
+                                                <ng-include src="'/api/template/search/literatureResult.html?v=' +  resourceList.BUILD_VERSION" ng-if="result.contentType == 'literature'"></ng-include>
+                                                <ng-include src="'/api/template/search/toolResult.html?v=' +        resourceList.BUILD_VERSION" ng-if="result.contentType == 'tool'"></ng-include>
+                                            </div>
+                                        </div>
+
                                         <div ng-repeat="result in rootSearch.results.country.results">
                                             <ng-include src="'/api/template/search/countryResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
                                         </div>
 
-                                        <div ng-if="rootSearch.results.species.count > 0">
-                                            <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase">Species</span>
-                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.species.count | localNumber }} results</a>
-                                            </p>
-                                            <div ng-repeat="result in rootSearch.results.species.results">
+                                        <div ng-if="rootSearch.results.speciesMatches.count > 0">
+                                            <div ng-repeat="result in rootSearch.results.speciesMatches.results">
                                                 <ng-include src="'/api/template/search/speciesResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
                                             </div>
                                         </div>
@@ -78,6 +113,26 @@
                                             </p>
                                             <div ng-repeat="result in rootSearch.results.datasets.results">
                                                 <ng-include src="'/api/template/search/datasetResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="rootSearch.results.publishers.count > 0">
+                                            <p class="clearfix small m-t-1">
+                                                <span class="discreet--very text-uppercase">Publishers</span>
+                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.publishers.count | localNumber}} results</a>
+                                            </p>
+                                            <div ng-repeat="result in rootSearch.results.publishers.results">
+                                                <ng-include src="'/api/template/search/publisherResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="rootSearch.results.species.results.length > 0">
+                                            <p class="clearfix small m-t-1">
+                                                <span class="discreet--very text-uppercase">Species</span>
+                                                <a href="" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.species.count | localNumber }} results</a>
+                                            </p>
+                                            <div ng-repeat="result in rootSearch.results.species.results">
+                                                <ng-include src="'/api/template/search/speciesResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
                                             </div>
                                         </div>
 
@@ -98,16 +153,6 @@
                                             </div>
                                         </div>
 
-                                        <div ng-if="rootSearch.results.publishers.count > 0">
-                                            <p class="clearfix small m-t-1">
-                                                <span class="discreet--very text-uppercase">Publishers</span>
-                                                <a href="" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="discreet--very text-uppercase pull-right">{{ rootSearch.results.publishers.count | localNumber}} results</a>
-                                            </p>
-                                            <div ng-repeat="result in rootSearch.results.publishers.results">
-                                                <ng-include src="'/api/template/search/publisherResult.html?v=' +     resourceList.BUILD_VERSION"></ng-include>
-                                            </div>
-                                        </div>
-
                                         <div class="emptyInfo">
                                             <h3>Cannot find what you are looking for?</h3>
                                             <p>Try specifying a type</p>
@@ -117,6 +162,12 @@
                                             <a ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet">Publishers</a>
                                             <a ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" class="m-05 gb-button--discreet">Resources</a>
                                         </div>
+                                    </div>
+                                </div>
+                                <div ng-if="!rootSearch.freeTextQuery">
+                                    <div class="emptyInfo">
+                                        <h3>No search terms entered</h3>
+                                        <p>Not sure what you are looking for? How about looking at some <a href="" ui-sref="occurrenceSearchGallery()">pictures of species occurrences</a> then</p>
                                     </div>
                                 </div>
                             </div>

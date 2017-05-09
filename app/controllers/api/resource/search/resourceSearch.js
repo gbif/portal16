@@ -8,7 +8,7 @@ const _ = require('lodash'),
     elasticContentful = rootRequire('config/config').elasticContentful,
     filterHelper = require('./filter');
 
-let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage'],
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage', 'keywords'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 var client = new elasticsearch.Client({
@@ -68,7 +68,6 @@ function buildQuery(query) {
             size: size
         };
 
-
     query.contentType = query.contentType || defaultContentTypes;
     //if (query.contentType == 'event') {
     //    from.index = 'event';
@@ -77,6 +76,7 @@ function buildQuery(query) {
 
     //add free text query to query
     if (query.q) {
+        query.q = query.q.toLowerCase();
         _.set(body, 'query.bool.must[1].query_string.query', query.q);
     } else {
         _.set(body, 'query.bool.must[1].match_all', {});

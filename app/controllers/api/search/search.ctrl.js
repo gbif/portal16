@@ -20,36 +20,42 @@ router.get('/omniSearch', function (req, res) {
         preferedLocale = req.query.locale;
 
     search(query, preferedLocale, res.__)
-        .then(function(result){
+        .then(function (result) {
             res.json(result);
         })
-        .catch(function(){
+        .catch(function (err) {
             res.status(500);
             res.send('SERVER FAILURE');
+            console.log(err);
         });
 });
 
-async function search(query, preferedLocale, __){
-    let datasets = Dataset.query({q:query, limit:3});
-    let publishers = Publisher.query({q:query, limit:3});
-    let species = Species.query({q:query, datasetKey: backboneDatasetKey, limit:3});
-    let speciesMatches = SpeciesMatch.query({name:query, verbose:true});
-    let resources = resourceSearch.search({q:query, local: preferedLocale, limit:4}, __);
+async function search(query, preferedLocale, __) {
+    query = _.isString(query) ? query.toLowerCase() : query;
+    let datasets = Dataset.query({q: query, limit: 3});
+    let publishers = Publisher.query({q: query, limit: 3});
+    let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3});
+    let speciesMatches = SpeciesMatch.query({name: query, verbose: true});
+    let resources = resourceSearch.search({q: query, local: preferedLocale, limit: 10}, __);
+    let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article'], local: preferedLocale, limit: 2}, __);
     let country = Country.query(query);
 
-    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country]);
+    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights]);
     let response = {
         speciesMatches: values[0],
         species: values[1],
         datasets: values[2],
         publishers: values[3],
         resources: values[4],
-        country: values[5]
+        country: values[5],
+        resourceHighlights: values[6]
     };
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
-    transformMatches(response.speciesMatches);
-    response.species.results = _.slice(_.concat(response.speciesMatches, response.species.results), 0, 3);
+    response.speciesMatches = transformMatches(response.speciesMatches);
+    //response.species.results = _.slice(_.concat(response.speciesMatches.results, response.species.results), 0, 3);
     addTypes(response);
+
+    pruneDuplicateResources(response.resources, response.resourceHighlights);
     // addSearchFieldsToAll(response);
 
     format.sanitizeArrayField(response.datasets.results, 'description');
@@ -58,13 +64,17 @@ async function search(query, preferedLocale, __){
 
 function pruneDuplicateSpecies(matches, species) {
     let matchIds = _.map(matches, 'usageKey');
-    return _.filter(species, function(e){
+    return _.filter(species, function (e) {
         return !_.includes(matchIds, e.key);
     });
 }
 
-function addTypes(response){
-    addType(response.speciesMatches, 'species');
+function pruneDuplicateResources(otherResults, keywordResults) {
+    otherResults.results = _.differenceBy(otherResults.results, keywordResults.results, 'id');
+}
+
+function addTypes(response) {
+    addType(response.speciesMatches.results, 'species');
     addType(response.species.results, 'species');
     addType(response.datasets.results, 'dataset');
     addType(response.publishers.results, 'publisher');
@@ -72,19 +82,20 @@ function addTypes(response){
 }
 
 function addType(results, type) {
-    results.forEach(function(e){
+    results.forEach(function (e) {
         e._type = type;
     });
 }
 
 function transformMatches(speciesMatches) {
-    speciesMatches.forEach(function(e){
+    speciesMatches.forEach(function (e) {
         e.key = e.usageKey;
         e.taxonomicStatus = e.status;
     });
+    return {
+        count: speciesMatches.length,
+        limit: speciesMatches.length,
+        offset: 0,
+        results: speciesMatches
+    }
 }
-
-function hasKeywordMatch(item, q) {
-
-}
-
