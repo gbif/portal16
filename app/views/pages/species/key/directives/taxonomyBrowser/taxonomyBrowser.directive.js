@@ -25,13 +25,21 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl($sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
+    function taxonomyBrowserCtrl($http, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
+        if (vm.taxonKey == 'root') {
+            $http.get('//api.gbif.org/v1/species/root/' + vm.datasetKey)
+                .then(function(resp){
+                    console.log(resp);
+                })
+                .catch(function(err){
+                    console.log(err);
+                });
+        }
         vm.$state = $state;
         vm.$sessionStorage = $sessionStorage;
-        vm.expectedRanks = ['KINGDOM', 'PHYLUM', 'CLASS', 'ORDER', 'FAMILY', 'GENUS', 'SPECIES', 'SUBSPECIES'];
         vm.taxon;
         vm.parents;
         vm.endOfChildren = false;
@@ -84,7 +92,10 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             'ORDER': 'FAMILY',
             'FAMILY': 'GENUS',
             'GENUS': 'SPECIES',
-            'SPECIES': 'SUBSPECIES'
+            'SPECIES': 'SUBSPECIES',
+            'SUBSPECIES': 'VARIETY',
+            'VARIETY': 'SUBVARIETY',
+            'SUBVARIETY': 'FORM'
         };
         vm.getNextRank = function(rank){
             var next = nextLinneanRank[rank];
