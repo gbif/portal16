@@ -25,81 +25,126 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl(TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
+    function taxonomyBrowserCtrl($sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
+        vm.$state = $state;
+        vm.$sessionStorage = $sessionStorage;
+        vm.expectedRanks = ['KINGDOM', 'PHYLUM', 'CLASS', 'ORDER', 'FAMILY', 'GENUS', 'SPECIES', 'SUBSPECIES'];
         vm.taxon;
         vm.parents;
-        vm.children;
+        vm.endOfChildren = false;
+        vm.offsetChildren = 0;
+        vm.loadingChildren = false;
         vm.synonyms;
         vm.taxonNumOccurrences;
         vm.linkPrefix = keys.nubKey == vm.datasetKey ? '/species/' : '/dataset/' + vm.datasetKey + '/taxonomy/';
         vm.isOcc = vm.occ == 'true';
 
+        vm.getChildren = function(limit, offset) {
+            vm.loadingChildren = true;
+            var children = TaxonomyChildren.query({
+                datasetKey: vm.datasetKey,
+                taxonKey: vm.taxonKey,
+                occ: vm.occ,
+                limit: limit || 50,
+                offset: offset || vm.offsetChildren
+            });
+            children.$promise
+                .then(function(resp){
+                    vm.endOfChildren = vm.endOfChildren || resp.endOfRecords;
+                    vm.offsetChildren = children.offset + resp.results.length;
+                    processChildren(resp);
+                })
+                .catch(function () {
+                });
+            return children;
+        };
+
+        function processChildren(children){
+            vm.taxon.$promise.then(function () {
+                if (!vm.taxon.synonym) {
+                    vm.classifiedChildren = _.concat(vm.classifiedChildren, _.filter(children.results, ['rank', vm.nextRank]));
+                    children.results.forEach(function (e) {
+                        if (e.rank !== vm.nextRank) {
+                            vm.unclassifiedChildren.push(e);
+                        }
+                    });
+                }
+                vm.loadingChildren = false;
+            });
+        }
+
+
+        var nextLinneanRank = {
+            'KINGDOM': 'PHYLUM',
+            'PHYLUM': 'CLASS',
+            'CLASS': 'ORDER',
+            'ORDER': 'FAMILY',
+            'FAMILY': 'GENUS',
+            'GENUS': 'SPECIES',
+            'SPECIES': 'SUBSPECIES'
+        };
+        vm.getNextRank = function(rank){
+            var next = nextLinneanRank[rank];
+            return next ? next : 'UNRANKED';
+        };
+
         if (vm.taxonKey) {
-            TaxonomyDetail.query({
+            vm.parents = TaxonomyParents.query({
+                datasetKey: vm.datasetKey,
+                taxonKey: vm.taxonKey,
+                occ: vm.occ
+            });
+
+            var synonyms = TaxonomySynonyms.query({
+                datasetKey: vm.datasetKey,
+                taxonKey: vm.taxonKey,
+                occ: vm.occ
+            });
+
+            vm.classifiedChildren = [];
+            vm.unclassifiedChildren = [];
+            vm.getChildren(20).$promise
+                .then(function(resp){
+                    vm.getChildren(250, resp.results.length);
+                });
+
+            // var initialChildren = TaxonomyChildren.query({
+            //     datasetKey: vm.datasetKey,
+            //     taxonKey: vm.taxonKey,
+            //     occ: vm.occ,
+            //     limit: 50
+            // });
+
+            vm.taxon = TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey
-            }, function (data) {
-                vm.taxon = data;
+            });
 
-                TaxonomyParents.query({
-                    datasetKey: vm.datasetKey,
-                    taxonKey: vm.taxonKey,
-                    occ: vm.occ
-                }, function (parents) {
-                    if (vm.taxon.synonym) {
-                        // also add accepted taxon as parent
-                        TaxonomyDetail.query({
+            vm.taxon.$promise.then(function () {
+                vm.nextRank = vm.getNextRank(vm.taxon.rank);
+
+                vm.taxon.$promise.then(function(taxon) {
+                    if (taxon.synonym) {
+                        vm.acceptedTaxon = TaxonomyDetail.query({
                             datasetKey: vm.datasetKey,
                             taxonKey: vm.taxon.acceptedKey
-                        }, function (acc) {
-                            parents.push(acc);
-                            vm.parents = parents;
-                        }, function () {
                         });
-                    } else {
-                        vm.parents = parents;
                     }
-                }, function () {
+                }).catch(function () {
                 });
 
                 if (!vm.taxon.synonym) {
-                    TaxonomySynonyms.query({
-                        datasetKey: vm.datasetKey,
-                        taxonKey: vm.taxonKey,
-                        occ: vm.occ
-                    }, function (data) {
+                    synonyms.$promise.then(function (data) {
                         vm.synonyms = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function () {
+                    }).catch(function () {
                     });
-
-                    vm.classifiedChildren = [];
-                    vm.unclassified = {
-                        kingdomRank: [],
-                        phylumRank: [],
-                        classRank: [],
-                        orderRank: [],
-                        familyRank: [],
-                        genusRank: [],
-                        speciesRank: []
-                    };
-                    TaxonomyChildren.query({
-                        datasetKey: vm.datasetKey,
-                        taxonKey: vm.taxonKey,
-                        occ: vm.occ
-                    }, function (data) {
-                        vm.children = data.results;
-                        vm.classifiedChildren = _.filter(data.results, ['rank', 'GENUS']);
-                        console.log(vm.classifiedChildren);
-                        vm.taxonNumOccurrences = data.numOccurrences;
-                    }, function () {
-                    })
                 }
 
-            }, function () {
+            }).catch(function () {
             });
 
         } else {
@@ -119,4 +164,5 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
 }
 
 module.exports = taxonomyBrowserDirective;
+
 

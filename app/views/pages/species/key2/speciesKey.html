@@ -14,6 +14,25 @@
         </div>
 
         <div class="site-drawer__section">
+            <div class="m-05">
+                <form class="search-box" ng-submit="speciesKey2.updateSearch()">
+                    <input type="text"
+                           focus-me="speciesKey2.filterConfig.expanded"
+                           autocomplete="off"
+                           class="fit-suggestions"
+                           ng-model="speciesKey2.selected"
+                           placeholder="search"
+                           uib-typeahead="suggestion.scientificName for suggestion in speciesKey2.getSuggestions($viewValue)"
+                           typeahead-on-select="speciesKey2.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="true"
+                           typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"
+                           ng-keyup="speciesKey2.searchOnEnter($event)">
+                    <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
+                       ng-click="speciesKey2.updateSearch()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
             <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}"></taxonomy-browser>
         </div>
     </div>
@@ -22,11 +41,47 @@
 
 <div class="site-content">
     <div class="site-content__page">
-        <div class="species-search-results light-background">
+        <div class="speciesKey white-background">
             <div class="wrapper-horizontal-stripes">
-                <div class="horizontal-stripe--paddingless white-background">
 
+                <div class="horizontal-stripe article-header white-background p-b-05">
+                    <div class="container--desktop">
+                        <div class="row">
+                            <header class="col-xs-12 text-center">
+                                <nav class="article-header__category article-header__category--deep">
+                                    <span class="article-header__category__upper" translate="taxonRank.{{speciesKey2.species.rank}}"></span>
+                                    <span class="article-header__category__lower" translate="taxonomicStatus.{{speciesKey2.species.taxonomicStatus}}"></span>
+                                </nav>
+
+                                <h1 class="text-center">
+                                    <span>{{speciesKey2.species.scientificName}}</span>
+                                </h1>
+
+                                <p class="text-center">
+                                    <span class="classification-list discreet">
+                                        <a ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                                           href="" ui-sref=".({key:speciesKey2.species[taxa + 'Key']})"
+                                           class="{$ taxa $}"
+                                           ng-if="speciesKey2.species[taxa] && taxa != (speciesKey2.species.rank | lowercase )">{{ speciesKey2.species[taxa] }}</a>
+                                    </span>
+                                </p>
+
+                                <div class="article-header__source" ng-if="speciesKey2.species.publishedIn">
+                                    Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span>
+                                </div>
+                                <div class="article-header__button">
+                                    <a ng-if="speciesKey2.occurrences.count > 0" href="" class="gb-button--discreet small" ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{speciesKey2.occurrences.count | localNumber}} occurrences</a>
+                                    <a ng-if="speciesKey2.occurrences.count == 0" ng-href="{{urlPrefix}}/tools/suggest-dataset" class="gb-button--discreet small">We don't know of any occurrences - let us know if you do</a>
+                                    <a ng-if="!speciesKey2.occurrences.$resolved" class="gb-button--discreet small"><span class="loading"></span></a>
+                                </div>
+
+
+
+                            </header>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

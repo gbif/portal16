@@ -1,40 +1,99 @@
 <div class="taxonomyBrowser">
     <ul>
-        <li ng-repeat="tax in vm.parents">
-            <span class="sciname"><a href="{{vm.linkPrefix}}{{tax.key}}">{{tax.canonicalName}}</a></span>
-            <small class="rank">{{tax.rank}}</small>
+        <li class="taxonomyBrowser__parent">
+            <span class="sciname"><a ui-sref=".({key:undefined})" href="">Life</a></span>
             <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
-            <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
-        </span>
-            <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
-            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
-        </span>
+                <!--<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>-->
+            </span>
+            <!--<span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">-->
+            <!--<a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>-->
+            <!--</span>-->
         </li>
-        <li class="current-name">
+        <li class="taxonomyBrowser__parent" ng-repeat="tax in vm.parents">
+            <span class="taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank }}"></span>
+            <span class="sciname"><a ui-sref=".({key:tax.key})" href="">{{tax.scientificName}}</a></span>
+            <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
+                <!--<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>-->
+            </span>
+            <!--<span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">-->
+            <!--<a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>-->
+        <!--</span>-->
+        </li>
+
+        <li ng-if="vm.acceptedTaxon" class="taxonomyBrowser__accepted">
+            <div class="small discreet">Accepted name</div>
+            <span class="taxonomyBrowser__rank" translate="taxonRank.{{ vm.acceptedTaxon.rank }}"></span>
+            <span class="sciname"><a ui-sref=".({key:vm.acceptedTaxon.key})" href="">{{vm.acceptedTaxon.canonicalName}}<div class="small discreet">{{vm.acceptedTaxon.authorship}}</div></a></span>
+        </li>
+
+        <li class="taxonomyBrowser__current" ng-if="vm.taxon.key">
             <span ng-show="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
-            <span class="sciname">{{vm.taxon.scientificName}}</span>
-            <small class="rank">{{vm.taxon.rank}}</small>
+            <span class="taxonomyBrowser__rank" translate="taxonRank.{{ vm.taxon.rank }}"></span>
+            <span class="sciname">{{vm.taxon.canonicalName}}</span>
+            <div class="small discreet">{{vm.taxon.authorship}}</div>
+            <div ng-if="vm.synonyms.length > 0">
+                <ul>
+                    <li class="synonym" ng-repeat="tax in vm.synonyms">
+                        <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
+                        <span class="sciname"><a ui-sref=".({key:tax.key})" href="">{{tax.scientificName}}</a></span>
+                        <span class="small rank text-capitalize" translate="taxonRank.{{ tax.rank }}"></span>
+                        <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
+                        <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
+                        </span>
+                                    <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
+                        <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </li>
-        <!--<li class="synonym" ng-repeat="tax in vm.synonyms">-->
-        <!--<span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>-->
-        <!--<span class="sciname"><a href="{{vm.linkPrefix}}{{tax.key}}">{{tax.scientificName}}</a></span>-->
-        <!--<small class="rank">{{tax.rank}}</small>-->
-        <!--<span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">-->
-        <!--<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>-->
-        <!--</span>-->
-        <!--<span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">-->
-        <!--<a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>-->
-        <!--</span>-->
-        <!--</li>-->
-        <li class="taxonchild" ng-repeat="tax in vm.children">
-            <span class="sciname"><a href="{{vm.linkPrefix}}{{tax.key}}">{{tax.scientificName}}</a></span>
-            <small class="rank">{{tax.rank}}</small>
-            <span ng-show="vm.isOcc && tax.numOccurrences > 0" class="search-link gb-icon-microscope">
-            <a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>
-        </span>
-            <span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">
-            <a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>
-        </span>
+
+        <li ng-if="vm.classifiedChildren.length > 0" class="taxonomyBrowser__group">
+            <div class="taxonomyBrowser__rank m-1" translate="taxonRank.{{vm.nextRank}}"></div>
         </li>
+        <li class="taxonomyBrowser__child taxonchild" ng-repeat="tax in vm.classifiedChildren">
+            <a Xng-show="!vm.isOcc && tax.numDescendants > 0" href="/species/search?status=ACCEPTED&status=DOUBTFUL&advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}" class="badge inherit noUnderline" tooltip-placement="left"
+               uib-tooltip="{{ tax.numDescendants }} descendants">{{ tax.numDescendants | compactInteger }}</a>
+            <span class="sciname"><a ui-sref=".({key:tax.key})" href="">{{tax.canonicalName}} <div class="small discreet">{{tax.authorship}}</div></a></span>
+            <span ng-show="vm.isOcc && tax.numOccurrences > 0">
+            <!--<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>-->
+            </span>
+        </li>
+
+
+        <div ng-if="vm.unclassifiedChildren.length > 0">
+            <div class="taxonomyBrowser__unknown seperator clearfix">
+                <div class="switch-group pull-right">
+                    <p class="small" ng-if="!vm.$sessionStorage.showIncertaeSedis">Hide incertae sedis</p>
+                    <p class="small" ng-if="vm.$sessionStorage.showIncertaeSedis">Display incertae sedis</p>
+                    <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="vm.$sessionStorage.showIncertaeSedis"
+                           aria-label="Include incertae sedis" />
+                    <label for="speciesLookupDiscardInCsv" class="switch"></label>
+                </div>
+            </div>
+            <ul ng-if="vm.$sessionStorage.showIncertaeSedis">
+                <li class="taxonomyBrowser__child taxonchild" ng-repeat="tax in vm.unclassifiedChildren">
+                    <span class="taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank }}"></span>
+                    <span class="sciname"><a ui-sref=".({key:tax.key})" href="">{{tax.scientificName}}</a></span>
+                    <!--<small class="rank">{{tax.rank}}</small>-->
+                    <!--<span ng-show="vm.isOcc && tax.numOccurrences > 0">-->
+                    <!--<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>-->
+                    <!--</span>-->
+                    <!--<span ng-show="!vm.isOcc && tax.numDescendants > 0" class="search-link gb-icon-search">-->
+                    <!--<a href="/species/search?advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}">{{tax.numDescendants}}</a>-->
+                    <!--</span>-->
+                </li>
+            </ul>
+            <div ng-if="!vm.endOfChildren && vm.$sessionStorage.showIncertaeSedis && !vm.loadingChildren" class="m-t-2 text-center">
+                <a href="" ng-click="vm.getChildren(100)" class="gb-button--discreet">More</a>
+            </div>
+        </div>
+
+        <div ng-if="!vm.endOfChildren && vm.unclassifiedChildren.length == 0 && !vm.loadingChildren" class="m-t-2 text-center">
+            <a href="" ng-click="vm.getChildren(100)" class="gb-button--discreet">More</a>
+        </div>
+        <div ng-if="!vm.loadingChildren && vm.classifiedChildren.length == 0 && vm.unclassifiedChildren.length == 0 && vm.taxon.rank != 'SPECIES'" class="emptyInfo">
+            <h3>No children</h3>
+        </div>
     </ul>
 </div>

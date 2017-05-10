@@ -17,15 +17,31 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($stateParams, Species) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch) {
     var vm = this;
     vm.key = $stateParams.key;
     vm.species = Species.get({id: $stateParams.key});
+    vm.occurrences = OccurrenceSearch.query({taxonKey:$stateParams.key, limit:0});
 
     //vm.key = gb.taxon.key;
     //vm.name = gb.taxon.name;
     //vm.rank = gb.taxon.rank;
     //vm.synonym = gb.taxon.synonym;
+
+    vm.getSuggestions = function (val) {
+        return $http.get('//api.gbif.org/v1/species/suggest', {
+            params: {
+                q: val,
+                limit: 10
+            }
+        }).then(function (response) {
+            return response.data;
+        });
+    };
+
+    vm.typeaheadSelect = function (item) { //  model, label, event
+        $state.go($state.current, {key: item.key}, {inherit: false, notify: true, reload: false});
+    };
 }
 
 module.exports = speciesKey2Ctrl;

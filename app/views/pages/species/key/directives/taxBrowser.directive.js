@@ -11,7 +11,7 @@ angular
 function taxBrowserDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/species/key/directives/taxBrowser/taxBrowser.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/pages/species/key/directives/taxBrowser.html?v=' + BUILD_VERSION,
         scope: {},
         controller: taxBrowserCtrl,
         controllerAs: 'vm',
