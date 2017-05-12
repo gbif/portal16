@@ -2,6 +2,9 @@
 
 var angular = require('angular');
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
+require('../../../components/iucnStatus/iucnStatus.directive.js');
+require('../../../components/occurrenceCard/occurrenceCard.directive.js');
+
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');
 //require('./directives/dbpedia.directive.js');
@@ -21,7 +24,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch)
     var vm = this;
     vm.key = $stateParams.key;
     vm.species = Species.get({id: $stateParams.key});
-    vm.occurrences = OccurrenceSearch.query({taxonKey:$stateParams.key, limit:0});
+    vm.occurrences = OccurrenceSearch.query({taxonKey: $stateParams.key, limit: 0});//used for showing button with count in top
+
+    vm.occurrenceQuery = {taxonKey: $stateParams.key, limit: 0};
 
     //vm.key = gb.taxon.key;
     //vm.name = gb.taxon.name;

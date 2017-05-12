@@ -144,7 +144,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             },
             views: {
                 main: {
-                    templateUrl: '/templates/pages/species/key2/speciesKey.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
                     controller: 'speciesKey2Ctrl',
                     controllerAs: 'speciesKey2'
                 }

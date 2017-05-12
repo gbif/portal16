@@ -157,8 +157,9 @@ require('angular-svg-round-progressbar');
         });
         // Configure all line charts
         ChartJsProvider.setOptions('line', {
-            showLines: false
+            showLines: true
         });
+        //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
     }
 
 

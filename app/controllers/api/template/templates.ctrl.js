@@ -70,3 +70,7 @@ router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });
 
+router.get('/species/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');
+});
+

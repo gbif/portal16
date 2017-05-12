@@ -31,10 +31,10 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         vm.datasetKey = vm.datasetKey || keys.nubKey;
         if (vm.taxonKey == 'root') {
             $http.get('//api.gbif.org/v1/species/root/' + vm.datasetKey)
-                .then(function(resp){
+                .then(function (resp) {
                     console.log(resp);
                 })
-                .catch(function(err){
+                .catch(function (err) {
                     console.log(err);
                 });
         }
@@ -50,7 +50,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         vm.linkPrefix = keys.nubKey == vm.datasetKey ? '/species/' : '/dataset/' + vm.datasetKey + '/taxonomy/';
         vm.isOcc = vm.occ == 'true';
 
-        vm.getChildren = function(limit, offset) {
+        vm.getChildren = function (limit, offset) {
             vm.loadingChildren = true;
             var children = TaxonomyChildren.query({
                 datasetKey: vm.datasetKey,
@@ -60,7 +60,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 offset: offset || vm.offsetChildren
             });
             children.$promise
-                .then(function(resp){
+                .then(function (resp) {
                     vm.endOfChildren = vm.endOfChildren || resp.endOfRecords;
                     vm.offsetChildren = children.offset + resp.results.length;
                     processChildren(resp);
@@ -70,15 +70,16 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             return children;
         };
 
-        function processChildren(children){
+        function processChildren(children) {
             vm.taxon.$promise.then(function () {
                 if (!vm.taxon.synonym) {
-                    vm.classifiedChildren = _.concat(vm.classifiedChildren, _.filter(children.results, ['rank', vm.nextRank]));
-                    children.results.forEach(function (e) {
-                        if (e.rank !== vm.nextRank) {
-                            vm.unclassifiedChildren.push(e);
-                        }
-                    });
+                    vm.classifiedChildren = _.concat(vm.classifiedChildren, children.results);
+                    //vm.classifiedChildren = _.concat(vm.classifiedChildren, _.filter(children.results, ['rank', vm.nextRank]));
+                    //children.results.forEach(function (e) {
+                    //    if (e.rank !== vm.nextRank) {
+                    //        vm.unclassifiedChildren.push(e);
+                    //    }
+                    //});
                 }
                 vm.loadingChildren = false;
             });
@@ -97,7 +98,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             'VARIETY': 'SUBVARIETY',
             'SUBVARIETY': 'FORM'
         };
-        vm.getNextRank = function(rank){
+        vm.getNextRank = function (rank) {
             var next = nextLinneanRank[rank];
             return next ? next : 'UNRANKED';
         };
@@ -118,7 +119,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             vm.classifiedChildren = [];
             vm.unclassifiedChildren = [];
             vm.getChildren(20).$promise
-                .then(function(resp){
+                .then(function (resp) {
                     vm.getChildren(250, resp.results.length);
                 });
 
@@ -137,7 +138,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             vm.taxon.$promise.then(function () {
                 vm.nextRank = vm.getNextRank(vm.taxon.rank);
 
-                vm.taxon.$promise.then(function(taxon) {
+                vm.taxon.$promise.then(function (taxon) {
                     if (taxon.synonym) {
                         vm.acceptedTaxon = TaxonomyDetail.query({
                             datasetKey: vm.datasetKey,

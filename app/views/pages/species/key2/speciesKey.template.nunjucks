@@ -1,0 +1,34 @@
+{% include "./siteDrawer.nunjucks" %}
+
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="speciesKey2 light-background">
+            <div class="wrapper-horizontal-stripes">
+
+                {% include "./header.nunjucks" %}
+
+
+                <div class="horizontal-stripe light-background">
+                    <div class="container--desktop">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                {#<div class="card">#}
+                                    {#occurrence card content here#}
+                                    {#<occurrence-card query="speciesKey2.occurrenceQuery"></occurrence-card>#}
+                                {#</div>#}
+                            </div>
+                            <div class="col-xs-6">
+                                {#<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Status_iucn3.1_LC.svg/220px-Status_iucn3.1_LC.svg.png">#}
+                                {#<img src="http://maps.iucnredlist.org/images/status/RL_NE.png">#}
+                                <div class="card" ng-show="speciesKey2.status">
+                                    <iucn-status threat-status="speciesKey2.status" name="{{speciesKey2.species.canonicalName}}"></iucn-status>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
