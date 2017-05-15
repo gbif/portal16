@@ -12,17 +12,30 @@
                     <div class="container--desktop">
                         <div class="row">
                             <div class="col-xs-6">
-                                {#<div class="card">#}
-                                    {#occurrence card content here#}
-                                    {#<occurrence-card query="speciesKey2.occurrenceQuery"></occurrence-card>#}
-                                {#</div>#}
+                                <div class="card">
+                                    <occurrence-card query="speciesKey2.occurrenceQuery"></occurrence-card>
+                                </div>
                             </div>
                             <div class="col-xs-6">
                                 {#<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Status_iucn3.1_LC.svg/220px-Status_iucn3.1_LC.svg.png">#}
                                 {#<img src="http://maps.iucnredlist.org/images/status/RL_NE.png">#}
-                                <div class="card" ng-show="speciesKey2.status">
+                                <div class="card m-b-1" ng-show="speciesKey2.status">
                                     <iucn-status threat-status="speciesKey2.status" name="{{speciesKey2.species.canonicalName}}"></iucn-status>
                                 </div>
+                                <div class="card">
+                                    <div class="card__content">
+                                        <h4>Latitudal distribution</h4>
+                                        <canvas id="base" class="chart-horizontal-bar"
+                                                height=300 style="width: content-box;"
+                                                chart-data="speciesKey2.latData" chart-labels="speciesKey2.latLabels" chart-series="speciesKey2.latSeries" chart-colors="vm.colors">
+                                        </canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-t-1">
+                            <div class="col-xs-6">
+
                             </div>
                         </div>
                     </div>

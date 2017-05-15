@@ -1,14 +1,30 @@
 <div class="occurrenceCard">
-    sdfælkj
-    <div class="wrapper-horizontal-stripes nodeKey">
-        <div class="horizontal-stripe bare-background ng-cloak">
-            <!--<canvas class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels"-->
-                    <!--chart-series="nodeKey.series" chart-click="vm.onClick" chart-options="vm.options"></canvas>-->
-
-            <canvas id="line" class="chart chart-line" chart-data="vm.data"
-                    chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"
-                    chart-dataset-override="vm.datasetOverride" chart-click="vm.onClick">
-            </canvas>
-        </div>
+    <div class="occurrenceCard__chartArea">
+        <canvas height=100 style="width: content-box;" id="line" class="chart chart-bar" chart-data="vm.data" chart-colors="vm.colors"
+                chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"
+                chart-click="vm.onClick">
+        </canvas>
+    </div>
+    <div class="occurrenceCard__title">
+        {{vm.occurrences.count | localNumber }} occurrences
+        <a ui-sref="occurrenceSearchTable(vm.query)" class="pull-right inherit">See all</a>
+    </div>
+    <div class="occurrenceCard__list">
+        <ul>
+            <li ng-repeat="occurrence in vm.occurrences.results | limitTo:6">
+                <a ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" class="occurrenceCard__list__description inherit noUnderline">
+                    <div>
+                        {{occurrence.scientificName}}
+                    </div>
+                    <span>
+                        <span translate="country.{{occurrence.countryCode}}" class="m-r-05"></span>
+                        <span>{{ occurrence.eventDate | amDateFormat:'MMMM YYYY' }}</span>
+                    </span>
+                </a>
+                <a ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="occurrenceCard__list__img hideInvalid inherit noUnderline">
+                    <img ng-src="{{ occurrence._image.identifier | imgCache:40:40 }}" gb-load>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

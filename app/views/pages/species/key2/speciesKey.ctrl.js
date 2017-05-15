@@ -24,9 +24,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch)
     var vm = this;
     vm.key = $stateParams.key;
     vm.species = Species.get({id: $stateParams.key});
-    vm.occurrences = OccurrenceSearch.query({taxonKey: $stateParams.key, limit: 0});//used for showing button with count in top
+    vm.occurrences = OccurrenceSearch.query({taxon_key: $stateParams.key});//used for showing button with count in top
 
-    vm.occurrenceQuery = {taxonKey: $stateParams.key, limit: 0};
+    vm.occurrenceQuery = {taxon_key: $stateParams.key};
 
     //vm.key = gb.taxon.key;
     //vm.name = gb.taxon.name;
@@ -46,6 +46,46 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch)
 
     vm.typeaheadSelect = function (item) { //  model, label, event
         $state.go($state.current, {key: item.key}, {inherit: false, notify: true, reload: false});
+    };
+
+
+
+    //latitude test
+    vm.getLatitudes = function () {
+        $http.get('/api/chart/latitudeDistribution', {
+            params: {
+                taxon_key: vm.key
+            }
+        }).then(function (response) {
+            vm.latLabels = response.data.labels;
+            vm.latData = [response.data.values];
+        });
+    };
+    vm.getLatitudes();
+    vm.latLabels = [];
+    vm.latSeries = ['Occurrences per latitude'];
+    vm.latData = [[]];
+    vm.colors = ['#345fa2']; //'#14243e'
+    vm.options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            xAxes: [{
+                display: false,
+                gridLines: {
+                    display: false
+                }
+            }],
+            yAxes: [{
+                display: false,
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     };
 }
 

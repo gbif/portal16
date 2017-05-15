@@ -45,6 +45,15 @@
         .filter('encodeURIComponent', function () {
             return window.encodeURIComponent;
         })
+        .filter('imgCache', function (env) {
+            return function (imgUrl, width, height) {
+                if (width || height) {
+                    return env.imageCache + width + 'x' + height + '/' + window.encodeURIComponent(imgUrl);
+                } else {
+                    return env.imageCache + window.encodeURIComponent(imgUrl);
+                }
+            }
+        })
         .filter('localNumber', function () {
             return function (num, lang) {
                 if (angular.isUndefined(num)) return '';

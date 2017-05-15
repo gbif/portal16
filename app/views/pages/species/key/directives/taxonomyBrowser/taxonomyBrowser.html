@@ -6,7 +6,7 @@
                     <div class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank }}"></div>
                     <div class="taxonomyBrowser__description">
                         <span class="sciname">{{tax.canonicalName}}</span>
-                        <div class="small discreet">{{tax.authorship}}</div>
+                        <span class="small discreet">{{tax.authorship}}</span>
                     </div>
                 </a>
             </li>
@@ -19,7 +19,7 @@
             <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank }}"></span>
             <span class="taxonomyBrowser__description sciname">
                 {{vm.acceptedTaxon.canonicalName}}
-                <div class="small discreet">{{vm.acceptedTaxon.authorship}}</div>
+                <span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>
             </span>
         </a>
     </div>
@@ -47,7 +47,7 @@
                             <div>
                                 <a ui-sref=".({key:tax.key})" href="" class="inherit">
                                     <span class="sciname">{{tax.canonicalName}}</span>
-                                    <div class="small discreet">{{tax.authorship}}</div>
+                                    <span class="small discreet">{{tax.authorship}}</span>
                                 </a>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                     <div class="taxonomyBrowser__description">
                         <span>
                             {{tax.canonicalName}}
-                            <div class="small discreet">{{tax.authorship}}</div>
+                            <span class="small discreet">{{tax.authorship}}</span>
                         </span>
                         <div>
                             <!--<a  ng-show="!vm.isOcc && tax.numDescendants > 0"-->
