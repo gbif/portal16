@@ -20,18 +20,27 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset) {
     var vm = this;
     vm.key = $stateParams.key;
+    vm.$state = $state;
     vm.species = Species.get({id: $stateParams.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: $stateParams.key});//used for showing button with count in top
+    vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: $stateParams.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
+
+    vm.species.$promise
+        .then(function(resp){
+            vm.isSpeciesOrBelow = !!resp.speciesKey;
+            var searchRank = vm.isSpeciesOrBelow ? undefined : 'SPECIES';
+            vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: $stateParams.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit:0});
+
+            vm.dataset = Dataset.get({id:resp.datasetKey});
+        });
 
     vm.occurrenceQuery = {taxon_key: $stateParams.key};
 
-    //vm.key = gb.taxon.key;
-    //vm.name = gb.taxon.name;
-    //vm.rank = gb.taxon.rank;
-    //vm.synonym = gb.taxon.synonym;
+    vm.descriptions = SpeciesDescriptions.get({id: vm.key, limit:100});
+
 
     vm.getSuggestions = function (val) {
         return $http.get('//api.gbif.org/v1/species/suggest', {

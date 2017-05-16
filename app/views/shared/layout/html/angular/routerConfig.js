@@ -150,6 +150,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+        .state('speciesKeyReferences', {
+            parent: 'speciesKey',
+            url: '/references',
+            templateUrl: '/api/template/species/references.html?v=' + BUILD_VERSION,
+            controller: 'speciesReferencesCtrl',
+            controllerAs: 'speciesReferences'
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',

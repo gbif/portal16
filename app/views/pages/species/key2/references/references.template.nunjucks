@@ -1,0 +1,12 @@
+<div class="horizontal-stripe light-background p-t-05 seperator">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-repeat="result in speciesReferences.references">
+                    <ng-include src="'/api/template/referenceListResult.html?v={$ BUILD_VERSION $}'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
