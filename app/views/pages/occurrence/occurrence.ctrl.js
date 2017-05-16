@@ -1,10 +1,3 @@
-/**
- * search types?
- * auto complete
- * integer is [between, below, above]
- * date interval etc
- * enum list, multiselect
- */
 'use strict';
 var angular = require('angular');
 

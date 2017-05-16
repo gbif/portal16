@@ -73,6 +73,22 @@ function getHigestRankingLowerClasses(children) {
     return children;
 }
 
+function prune(obj, keys) {
+    keys.forEach(function (key) {
+        delete obj[key];
+    });
+    return obj
+}
+
+function keepKeys(obj, keys) {
+    Object.keys(obj).forEach(function (key) {
+        if (keys.indexOf(key) == -1) {
+            delete obj[key];
+        }
+    });
+    return obj
+}
+
 function renderPage(req, res, next, data, template) {
     data._meta = data._meta || {};
     data._meta.imageCache = data._meta.imageCache || imageCachePrefix;
@@ -99,5 +115,7 @@ module.exports = {
     getSynonymKey: getSynonymKey,
     getHigestRankingLowerClasses: getHigestRankingLowerClasses,
     filterByExactQuery: filterByExactQuery,
-    renderPage: renderPage
+    renderPage: renderPage,
+    prune: prune,
+    keepKeys: keepKeys
 };

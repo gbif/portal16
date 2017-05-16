@@ -77,6 +77,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'occurrenceSpeciesCtrl',
             controllerAs: 'occSpecies'
         })
+        .state('occurrenceSearchDatasets', {
+            parent: 'occurrenceSearch',
+            url: '/datasets',
+            templateUrl: '/templates/pages/occurrence/datasets/occurrenceDatasets.html?v=' + BUILD_VERSION,
+            controller: 'occurrenceDatasetsCtrl',
+            controllerAs: 'occDatasets'
+        })
         .state('occurrenceSearchDownload', {
             parent: 'occurrenceSearch',
             url: '/download',
@@ -135,7 +142,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species2/:key',
+            url: '/species2/:key?refOffset',
             params: {
                 advanced: {
                     value: false,
