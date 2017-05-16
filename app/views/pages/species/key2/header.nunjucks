@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background seperator--b p-b-0">
+<div class="horizontal-stripe article-header white-background p-b-0">
     <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
@@ -22,21 +22,6 @@
                                             speciesKey2.species[taxa] }}</a>
                                     </span>
                 </p>
-
-                <!--<div class="article-header__source" ng-if="speciesKey2.species.publishedIn">-->
-                <!--Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span>-->
-                <!--</div>-->
-                <div class="article-header__button m-t-05">
-                    <a ng-if="speciesKey2.occurrences.count > 0" href=""
-                       class="gb-button--discreet small"
-                       ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{speciesKey2.occurrences.count
-                        | localNumber}} occurrences</a>
-                    <a ng-if="speciesKey2.occurrences.count == 0"
-                       ng-href="{{urlPrefix}}/tools/suggest-dataset" class="gb-button--discreet small">We
-                        don't know of any occurrences - let us know if you do</a>
-                    <a ng-if="!speciesKey2.occurrences.$resolved"
-                       class="gb-button--discreet small"><span class="loading"></span></a>
-                </div>
 
             </header>
         </div>

@@ -74,3 +74,10 @@ router.get('/species/key.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');
 });
 
+router.get('/species/references.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/species/key2/references/references.template.nunjucks');
+});
+
+router.get('/referenceListResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/species/key2/references/referenceListResult.nunjucks');
+});
