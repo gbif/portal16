@@ -1,0 +1,35 @@
+<div class="horizontal-stripe white-background">
+    <div class="container--narrow">
+        {#<div class="row">#}
+            {#<div class="col-xs-12 col-md-3">#}
+                {#Taxon#}
+            {#</div>#}
+            {#<div class="col-xs-12">#}
+                {#<div class="container--narrow">#}
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="text-uppercase discreet small">Synonyms</div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                            <ul style="padding:0">
+                                <li><a href="sdf" class="inherit">Anser caerulescens subsp. atlanticus (Kennard, 1927)</a></li>
+                                <li>Cygnus columbianus subsp. atlanticus (Kennard, 1927)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div class="text-uppercase discreet small">Combinations</div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                            <ul style="padding:0">
+                                <li>Cygnus columbianus subsp. atlanticus (Kennard, 1927)</li>
+                                <li>Anser caerulescens subsp. atlanticus (Kennard, 1927)</li>
+                            </ul>
+                        </div>
+                    </div>
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    </div>
+</div>

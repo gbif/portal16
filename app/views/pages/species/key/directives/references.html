@@ -1,35 +1,36 @@
-<span class="discreet text-uppercase small">References</span>
-<section id="references" class="card--references card">
-    <!--<div class="card__stripe">-->
-        <!--<div class="card__content">-->
-            <!--<h4>References</h4>-->
+<div ng-if="vm.references.results.length > 0">
+    <span class="discreet text-uppercase small">References</span>
+    <section id="references" class="card--references card">
+        <!--<div class="card__stripe">-->
+            <!--<div class="card__content">-->
+                <!--<h4>References</h4>-->
+            <!--</div>-->
         <!--</div>-->
-    <!--</div>-->
-    <div class="tableList discreet">
-        <ul>
-            <li ng-repeat="result in vm.references.results" class="card--references__item">
-                <div>
-                    <div ng-bind-html="result.citation" class="max2Lines">{{ result.citation }}</div>
-                    <div class="small">
-                        <span class="source text-capitalize" ng-if="result.type">{{ result.type}} - </span>
-                        <span class="source text-capitalize" ng-if="result.source">{{ result.source }} </span>
-                        <a class="" ng-href="{{result.doi}}" ng-if="result.doi">
-                            {{result.doi}}
-                        </a>
-                        <a class="" ng-href="https://scholar.google.com/scholar?q={{result.citation}}" ng-if="!result.doi">
-                            Google Scholar
-                        </a>
+        <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
+            <ul>
+                <li ng-repeat="result in vm.references.results" class="card--references__item">
+                    <div>
+                        <div ng-bind-html="result.citation" class="max2Lines">{{ result.citation }}</div>
+                        <div class="small">
+                            <span class="source text-capitalize" ng-if="result.type">{{ result.type}} - </span>
+                            <span class="source text-capitalize" ng-if="result.source">{{ result.source }} </span>
+                            <a class="" ng-href="{{result.doi}}" ng-if="result.doi">
+                                {{result.doi}}
+                            </a>
+                            <a class="" ng-href="https://scholar.google.com/scholar?q={{result.citation}}" ng-if="!result.doi">
+                                Google Scholar
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li ng-if="vm.references.offset > 0 && vm.references.results.length < 5" ng-repeat="ref in [1,2,3,4,5] | limitTo:(5-vm.references.results.length)"></li>
-        </ul>
-    </div>
-    <div ng-if="vm.references.offset > 0 || !vm.references.endOfRecords">
-        <div class="clearfix m-05">
-            <a href="" class="gb-button--discreet" ng-click="vm.prev()" ng-if="vm.references.offset>0">Previous</a>
-            <a href="" class="pull-right gb-button--discreet" ng-click="vm.next()" ng-if="!vm.references.endOfRecords">Next</a>
+                </li>
+                <li ng-if="vm.references.offset > 0 && vm.references.results.length < 5" ng-repeat="ref in [1,2,3,4,5] | limitTo:(5-vm.references.results.length)"></li>
+            </ul>
         </div>
-    </div>
-</section>
-
+        <div ng-if="vm.hasPages">
+            <div class="clearfix m-05">
+                <a href="" class="gb-button--discreet" ng-click="vm.prev()" ng-class="{invisible: vm.references.offset==0}">Previous</a>
+                <a href="" class="pull-right gb-button--discreet" ng-click="vm.next()" ng-class="{invisible: vm.references.endOfRecords}">Next</a>
+            </div>
+        </div>
+    </section>
+</div>

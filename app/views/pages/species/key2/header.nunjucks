@@ -28,19 +28,8 @@
                 </div>
                 <div class="article-header__button m-t-05">
 
-                    <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
-                       class="gb-button--discreet small"
-                       ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count
-                        | localNumber }}
-                        <span ng-if="speciesKey2.isSpeciesOrBelow">Infraspecies</span>
-                        <span ng-if="!speciesKey2.isSpeciesOrBelow">Species</span>
-                    </a>
-                    <a ng-if="!speciesKey2.subsumedSpecies.$resolved"
-                       class="gb-button--discreet small"><span class="loading"></span></a>
-
-
                     <a ng-if="speciesKey2.occurrences.count > 0" href=""
-                       class="gb-button--discreet small"
+                       class="gb-button--brand small"
                        ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count
                         | localNumber }} occurrences</a>
                     <a ng-if="speciesKey2.occurrences.count == 0"
@@ -49,6 +38,15 @@
                     <a ng-if="!speciesKey2.occurrences.$resolved"
                        class="gb-button--discreet small"><span class="loading"></span> occurrences</a>
 
+                    <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
+                       class="gb-button--primary small"
+                       ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count
+                        | localNumber }}
+                        <span ng-if="speciesKey2.isSpeciesOrBelow">Infraspecies</span>
+                        <span ng-if="!speciesKey2.isSpeciesOrBelow">Species</span>
+                    </a>
+                    <a ng-if="!speciesKey2.subsumedSpecies.$resolved"
+                       class="gb-button--discreet small"><span class="loading"></span></a>
 
                 </div>
 

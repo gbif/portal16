@@ -39,8 +39,13 @@ function referencesDirective() {
                 limit: vm.references.limit || 5,
                 offset: vm.references.offset || 0
             }, function (data) {
-                vm.references = data;//_.sortedUniqBy(_.sortBy(data.results, citeFunc), citeFunc);
-                //updatePaginationCounts();
+                data.results.forEach(function(e){
+                    if (_.isString(e.doi) && e.doi.substr(0,4) !== 'http') {
+                        e.doi = 'https://doi.org/' + e.doi;
+                    }
+                });
+                vm.references = data;
+                setHeight();
             }, function () {
             });
         }
@@ -63,6 +68,17 @@ function referencesDirective() {
         };
 
         getReferences();
+
+        function setHeight() {
+            if (vm.references.offset > 0 || !vm.references.endOfRecords && _.get(vm.references, 'results.length', 0) > 0) {
+                vm.height = (77*5) + 'px';
+                vm.hasPages = true;
+            }
+        }
+
+        vm.getHeight = function(){
+            return vm.height;
+        }
     }
 }
 

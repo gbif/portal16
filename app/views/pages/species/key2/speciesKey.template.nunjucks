@@ -7,12 +7,12 @@
 
                 {% include "./header.nunjucks" %}
 
-                {#{% include "./nav.nunjucks" %}#}
+                {% include "./intro.nunjucks" %}
 
                 <div ui-view>
 
 
-                    <div class="horizontal-stripe white-background">
+                    <div class="horizontal-stripe--paddingless white-background">
                         <div class="container--desktop--snap-to-edges" ng-if="speciesKey2.mappedOccurrences.count > 0">
                             <div class="map__lockedRatio card">
                                 <div ng-if="speciesKey2.key">
@@ -59,10 +59,10 @@
 
                     <div class="horizontal-stripe white-background">
                         <div class="container--narrow">
-                            <div class="row body-text">
-                                <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12 body-text">
                                     <div ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.descriptions.results.length > 0">
-                                        <h3>Description</h3>
+                                        <h3 class="m-t-0">Description</h3>
                                         <div>
                                             <div ng-repeat="description in speciesKey2.descriptions.results">
                                                 <h4>{{ description.type }}</h4>
