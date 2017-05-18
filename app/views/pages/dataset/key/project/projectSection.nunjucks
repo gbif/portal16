@@ -3,9 +3,12 @@
         <span class="relative-anchor-offset"><a name="about"></a></span>
         <div class="container--narrow">
             <div>
-                <h3>Project</h3>
+                <div>
+                    <h3>Project</h3>
+                </div>
                 <div class="card">
                     <div class="card__content">
+                        <span class="pull-right discreet--very small">Project id: <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=project&q=%22{$ dataset.record.project.identifier $}%22">{$ dataset.record.project.identifier $}</a></span>
                         <span class="h6">Project title</span>
                         <h3>{$ dataset.record.project.title | capitalize $}</h3>
 
