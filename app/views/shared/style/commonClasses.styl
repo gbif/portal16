@@ -258,8 +258,6 @@ $articleCategorySeparatorSpacing = 6px
 
 
     h3 {
-        margin-top 45px
-        margin-bottom 25px
         font-weight 300
         color #586579
         font-size 25px
@@ -294,6 +292,10 @@ $articleCategorySeparatorSpacing = 6px
 
 .body-text--markdown {
     @extends .body-text
+    h3 {
+        margin-top 45px
+        margin-bottom 25px
+    }
 }
 
 .article-auxiliary {
@@ -489,10 +491,6 @@ $headerImageMaxFullWidth = $desktop
     }
     // .count-text {
     //     text-align center
-    // }
-    .card {
-        margin-bottom vrBlock(0.5)
-    }
 }
 
 ul.list-style-none {

@@ -1,6 +1,5 @@
 'use strict';
-let credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).directory,
+let credentials = rootRequire('config/config').credentials.directory,
     secret = credentials.secret,
     jwt = require('jsonwebtoken'),
     expressJwt = require('express-jwt'),

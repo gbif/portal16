@@ -18,16 +18,20 @@
             {$ tabsMacro.datasetTabs(dataset, 'dataset', __) $}
         </div>
 
-        {% include('./metrics/metrics.nunjucks') %}
+        {% include('./main/intro.nunjucks') %}
+        {#{% include('./metrics/metrics.nunjucks') %}#}
 
         <div class="submenu-wrapper" id="submenuWrapper">
-            {% include('./text/submenu.nunjucks') %}
+
+            {% include('./prose/prose.nunjucks') %}
+
+            {#{% include('./text/submenu.nunjucks') %}#}
             {#{% include('./map/map.nunjucks') %}#}
-            {% include('./text/text.nunjucks') %}
-            {% include('./bibliography/bibliography.nunjucks') %}
-            {% include('./dataDescription/dataDescription.nunjucks') %}
-            {% include('./contributors/contributors.nunjucks') %}
-            {% include('./citation/citation.nunjucks') %}
+            {#{% include('./text/text.nunjucks') %}#}
+            {#{% include('./bibliography/bibliography.nunjucks') %}#}
+            {#{% include('./dataDescription/dataDescription.nunjucks') %}#}
+            {#{% include('./contributors/contributors.nunjucks') %}#}
+            {#{% include('./citation/citation.nunjucks') %}#}
         </div>
 
     </article>

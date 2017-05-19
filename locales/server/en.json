@@ -1234,6 +1234,7 @@
       "VIRUS": "virus",
       "HYBRID": "hybrid formula",
       "INFORMAL": "informal",
+      "OTU": "Operational Taxonomic Unit",
       "CULTIVAR": "cultivar",
       "CANDIDATUS": "candidatus",
       "PLACEHOLDER": "placeholder",
@@ -1352,6 +1353,7 @@
   },
   "stdTerms": {
     "contactHelpdesk": "Contact helpdesk",
+    "noDescription": "No description available",
     "resources": "resources",
     "topics": "topics",
     "purposes": "purposes",
@@ -2325,5 +2327,8 @@
     "LC": "Least Concern",
     "DD": "Data Deficient",
     "NE": "Not Evaluated"
+  },
+  "cites": {
+    "appendix": "Appendix"
   }
 }

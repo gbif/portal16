@@ -1,0 +1,50 @@
+.summaryStats {
+    &__item {
+        margin 10px 0
+    }
+    &__percentage {
+        display block
+        float left
+        height 50px
+        line-height 25px
+        padding-left 10px
+        font-weight normal
+        font-size 18px
+        > div {
+            font-size 14px
+        }
+    }
+    &__description {
+        display block
+        float left
+        height 50px
+        line-height 50px
+        padding-left 10px
+        font-weight normal
+    }
+
+    &__circle {
+        width 50px
+        height 50px
+        line-height 50px
+        font-size 50px
+        margin auto
+        display inline-block
+        float left
+        color darken($greyBackground, 10)
+        text-decoration none
+        &:hover {
+            text-decoration none
+            color darken($greyBackground, 20)
+        }
+        &--occurrences, &--species {
+            border-radius 50%
+        }
+        &--occurrences{
+            background $navBar_background_color
+        }
+        &--species {
+            background deepskyblue
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.galleryBar {
+    height 150px
+    overflow hidden
+    position relative
+    >div {
+        display flex
+        overflow hidden
+        overflow-x auto
+        height 250px
+        padding-bottom 100px
+    }
+    &__img {
+        margin-right 10px
+        flex 0 0 auto
+        height 150px
+        img {
+            height 150px
+        }
+    }
+    >a {
+        position absolute
+        margin 10px
+        bottom 0
+        right 0
+    }
+}

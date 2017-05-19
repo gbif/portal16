@@ -146,6 +146,9 @@ var apiConfig = {
     },
     cookieNames: {
         userSession: 'USER_SESSION'
+    },
+    citesName: {
+        url: 'https://api.speciesplus.net/api/v1/taxon_concepts.json'
     }
 };
 

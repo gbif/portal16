@@ -1,35 +1,71 @@
-<div class="horizontal-stripe white-background">
-    <div class="container--narrow">
-        {#<div class="row">#}
-            {#<div class="col-xs-12 col-md-3">#}
-                {#Taxon#}
-            {#</div>#}
-            {#<div class="col-xs-12">#}
-                {#<div class="container--narrow">#}
-                    <div class="row">
-                        <div class="col-xs-12 col-md-3">
-                            <div class="text-uppercase discreet small">Synonyms</div>
-                        </div>
-                        <div class="col-xs-12 col-md-9">
-                            <ul style="padding:0">
-                                <li><a href="sdf" class="inherit">Anser caerulescens subsp. atlanticus (Kennard, 1927)</a></li>
-                                <li>Cygnus columbianus subsp. atlanticus (Kennard, 1927)</li>
-                            </ul>
+<div class="horizontal-stripe p-b-0">
+    <div class="container--desktop">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="container-fluid card--padded">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                                <dl class="inline">
+                                    <div ng-if="speciesKey2.species.publishedIn">
+                                        <dt>Published in</dt>
+                                        <dd ng-bind-html="speciesKey2.species.publishedIn"></dd>
+                                    </div>
+                                    {#<div>#}
+                                        {#<dt>Common name</dt>#}
+                                        {#<dd>Bear Goat</dd>#}
+                                    {#</div>#}
+                                    <div>
+                                        <dt>Sources</dt>
+                                        <dd>
+                                            <ul class="inline-bullet-list">
+                                                <li ng-if="speciesKey2.species.sourceTaxonKey"><a href="/species/{{ speciesKey2.species.sourceTaxonKey }}">Source taxon</a></li>
+                                                {#<li>IPNI</li>#}
+                                                {#<li>WoRMS</li>#}
+                                            </ul>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                                <dl class="inline">
+                                    <div>
+                                        <dt>IUCN status</dt>
+                                        <dd>
+                                            <span ng-if="speciesKey2.status"><span translate="iucnStatus.{{ speciesKey2.status.category }}"></span></span>
+                                            <span ng-if="!speciesKey2.status" class="discreet--very">Loading</span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>CITES status</dt>
+                                        <dd>
+                                            <a ng-href="{{ speciesKey2.cites._reference }}" ng-if="speciesKey2.cites.cites_listing"><span translate="cites.appendix"></span> {{ speciesKey2.cites.cites_listing }} </a>
+                                            <span ng-if="!speciesKey2.cites.$resolved" class="discreet--very">Loading</span>
+                                            <span ng-if="!speciesKey2.cites.cites_listing && speciesKey2.cites.$resolved">No entry</span>
+                                        </dd>
+                                    </div>
+                                    <div ng-if="speciesKey2.species.canonicalName">
+                                        <dt>Search links</dt>
+                                        <dd>
+                                            <ul class="inline-bullet-list">
+                                                <li>
+                                                    <a ng-href="//eol.org/search/?q={{ speciesKey2.species.canonicalName }}">Encyclopedia of Life</a>
+                                                </li>
+                                                <li>
+                                                    <a ng-href="//www.catalogueoflife.org/col/search/all/key/{{ speciesKey2.species.canonicalName }}">Catalogue of Life</a>
+                                                </li>
+                                                <li>
+                                                    <a ng-href="//www.biodiversitylibrary.org/name/{{ speciesKey2.species.canonicalName }}">Biodiversity Heritage Library</a>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-3">
-                            <div class="text-uppercase discreet small">Combinations</div>
-                        </div>
-                        <div class="col-xs-12 col-md-9">
-                            <ul style="padding:0">
-                                <li>Cygnus columbianus subsp. atlanticus (Kennard, 1927)</li>
-                                <li>Anser caerulescens subsp. atlanticus (Kennard, 1927)</li>
-                            </ul>
-                        </div>
-                    </div>
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
+                </div>
+            </div>
+        </div>
     </div>
 </div>

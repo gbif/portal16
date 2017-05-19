@@ -12,11 +12,6 @@
                 <h1 class="text-center">
                     <span>{$ dataset.record.title $}</span>
                 </h1>
-                {#<p class="source">#}
-                    {#Published by <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}"#}
-                    {#class="inherit"><u>{$ dataset.publisher.title $}</u></a>#}
-                {#</p>#}
-
                 {% if dataset._computedValues.contributors.highlighted.length > 0 %}
                     <div>
                         <ol class="inline-bullet-list">
@@ -43,23 +38,5 @@
                 {% endif %}
             </header>
         </div>
-
-
-        {#<div class="stripe-comment">#}
-        {#<div>#}
-        {#{$ __('date.synced') $}#}
-        {#{% if gb.locales.current == 'en' %}#}
-        {#<time am-time-ago="'{$ occurrence.highlights.lastSynced $}'"></time>#}
-        {#{% else %}#}
-        {#{$ occurrence.highlights.lastSynced | formatDate(gb.locales.current) $}#}
-        {#{% endif %}#}
-        {#</div>#}
-        {#{% if occurrence.record.modified %}#}
-        {#<div>#}
-        {#{$ __('date.modified') $} {$ occurrence.record.modified | formatDate(gb.locales.current) $}#}
-        {#</div>#}
-        {#{% endif %}#}
-        {#</div>#}
-
     </div>
 </div>

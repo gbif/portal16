@@ -8,18 +8,7 @@ var angular = require('angular');
     angular
         .module('portal')
         .factory('CitesApi', function ($resource, token) {
-            return $resource('https://api.speciesplus.net/api/v1/taxon_concepts.json', null, {
-                    'query': {
-                        method: 'GET',
-                        headers: {
-                            'X-Authentication-Token': token.cites
-                        },
-                        params: {
-                            name: ':name'
-                        },
-                        isArray: false
-                    }
-                }
+            return $resource('/api/cites/:kingdom/:name', null, {}
             );
         });
 

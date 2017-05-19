@@ -1,6 +1,6 @@
 {% if dataset.record.bibliographicCitations.length > 0 %}
     <section
-            class="horizontal-stripe dataset-key__bibliography white-background is-fade-expandable is-fade-expanded"
+            class="horizontal-stripe--paddingless dataset-key__bibliography white-background is-fade-expandable is-fade-expanded"
             {#{% if dataset.record.bibliographicCitations.length <= 5 %} is-fade-expanded {% endif %}#}
             {#{% if dataset.record.bibliographicCitations.length > 5 %}#}
             {#ng-class="{'is-fade-expanded': datasetKey.bibExpand.isExpanded}"#}

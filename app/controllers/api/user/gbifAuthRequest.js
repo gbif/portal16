@@ -1,7 +1,6 @@
 "use strict";
 
-const credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).directory,
+const credentials = rootRequire('config/config').credentials.directory,
     appKey = credentials.appKey,
     secret = credentials.secret,
     request = require('requestretry'),

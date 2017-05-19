@@ -3,7 +3,7 @@ module.exports = (function () {
         var tabsFixedContainer = document.getElementById('tabsFixedContainer');
         var navbarHeight = 0; //TODO should build stylus variables to js
         if (tabsFixedContainer) {
-            navbarHeight = 46;
+            navbarHeight = 95;
         }
         var submenuWrapper = document.getElementById('submenuWrapper');
         var submenu = document.getElementById('submenu');
@@ -36,7 +36,7 @@ module.exports = (function () {
 
 module.exports = (function () {
     if (document.compatMode == 'CSS1Compat') {
-        var navbarHeight = 46; //TODO should build stylus variables to js navbar + tabbar height
+        var navbarHeight = 56; //TODO should build stylus variables to js navbar + tabbar height
         var tabsFixedContainer = document.getElementById('tabsFixedContainer');
         var tabsScrollable = document.getElementById('tabsScrollable');
 

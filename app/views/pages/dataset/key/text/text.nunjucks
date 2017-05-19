@@ -1,5 +1,5 @@
 {% if dataset.record.description %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="description">
                 {% if dataset.record.language != 'eng' %}
@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if dataset.record.purpose %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="purpose">
                 <h3>Purpose</h3>
@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if dataset.record.temporalCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="temporalCoverages">
                 <h3>Temporal coverage</h3>
@@ -65,7 +65,7 @@
 {% endif %}
 
 {% if dataset.record.geographicCoverages.length > 0 %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="geographicCoverages">
                 <h3>Geographic coverages</h3>
@@ -91,7 +91,7 @@
 {% include('./taxonomicCoverages/taxonomicCoverages.nunjucks') %}
 
 {% if dataset.record.samplingDescription %}
-    <section class="horizontal-stripe white-background dataset-key__text dataset-key__sampling">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text dataset-key__sampling">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="methodology">
                 <h3>Methodology</h3>
@@ -131,7 +131,7 @@
 {% endif %}
 
 {% if dataset.record.additionalInfo %}
-    <section class="horizontal-stripe white-background dataset-key__text">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__text">
         <div class="container--narrow">
             <div class="anchor-block--tabs" id="additionalInfo">
                 <h3>Additional Info</h3>
@@ -147,7 +147,7 @@
 
 
 {#{% if dataset.record.keywordCollections.length > 0 %}#}
-    {#<section class="horizontal-stripe white-background dataset-key__text">#}
+    {#<section class="horizontal-stripe--paddingless white-background dataset-key__text">#}
         {#<span class="relative-anchor-offset"><a name="keywords"></a></span>#}
         {#<div class="container--narrow">#}
             {#<div class="article-auxiliary prose-columns">#}

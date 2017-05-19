@@ -1,4 +1,4 @@
-<section class="horizontal-stripe white-background dataset-key__citation" style="height:calc(100vh - 15rem)">
+<section class="horizontal-stripe--paddingless white-background dataset-key__citation" style="height:calc(100vh - 15rem)">
     <div class="anchor-block--tabs" id="citation">
         <div class="container--narrow">
             <span class="relative-anchor-offset"><a name="citation"></a></span>

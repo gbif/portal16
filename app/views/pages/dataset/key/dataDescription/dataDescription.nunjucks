@@ -1,5 +1,5 @@
 {% if dataset.record.dataLanguage or dataset.record.language or dataset.record.dataDescriptions | isNotEmpty %}
-    <section class="horizontal-stripe white-background dataset-key__contributors">
+    <section class="horizontal-stripe--paddingless white-background dataset-key__contributors">
         <div class="anchor-block--tabs" id="dataDescription">
             <div class="container--narrow">
                 <span class="relative-anchor-offset--tabs"><a name="dataDescription"></a></span>

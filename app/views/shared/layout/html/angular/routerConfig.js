@@ -109,6 +109,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
         })
+        .state('datasetKey', {
+            parent: 'localization',
+            url: '/dataset2/:key?refOffset',
+            views: {
+                main: {
+                    templateUrl: '/api/template/dataset/key.html?v=' + BUILD_VERSION,
+                    controller: 'datasetKey2Ctrl',
+                    controllerAs: 'datasetKey2'
+                }
+            }
+        })
         .state('speciesSearch', {
             parent: 'localization',
             url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&status&issue&{advanced:bool}',
@@ -142,7 +153,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species2/:key?refOffset',
+            url: '/species/:key?refOffset',
             params: {
                 advanced: {
                     value: false,
@@ -156,13 +167,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                     controllerAs: 'speciesKey2'
                 }
             }
-        })
-        .state('speciesKeyReferences', {
-            parent: 'speciesKey',
-            url: '/references',
-            templateUrl: '/api/template/species/references.html?v=' + BUILD_VERSION,
-            controller: 'speciesReferencesCtrl',
-            controllerAs: 'speciesReferences'
         })
         .state('publisherSearch', {
             parent: 'localization',

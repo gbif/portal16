@@ -60,9 +60,12 @@ function iucnStatusDirective() {
                     vm.category = iucn.category;
                     vm.iucnTaxonid = iucn.taxonid;
                 } else {
-                    vm.category = undefined;
+                    vm.category = 'NE';
                 }
-                vm.threatStatus = vm.category;
+                vm.threatStatus = {
+                    iucn: iucn,
+                    category: vm.category
+                };
                 vm.loading = false;
             }, function () {
                 vm.loading = false;
