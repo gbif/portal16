@@ -33,14 +33,14 @@ nature, PLOS, ... and
 {# home page, or front page #}
 {% block page %}
     <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
-        <div class="home__header" ng-controller="searchCtrl as omniSearch">
+        <div class="home__header" ng-controller="searchCtrl as omniSearch" style="background-image: url('{$ _meta.imageCache $}1500x750/http:{$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.file.url | encodeURI  $}')">
             <div class="container--desktop">
                 <div class="home__header__hero-text">
                     <div class="home__header__name">
-                        Global Biodiversity Information Facility
+                        {$ main.fields.title $}
                     </div>
                     <h1>
-                        Free and open access to biodiversity data
+                        {$ main.fields.summary $}
                     </h1>
                     <div class="home__searchFilters">
                         <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">Occurrences</a>
@@ -64,12 +64,13 @@ nature, PLOS, ... and
                         </form>
                     </div>
                     <div class="home__quicklinks">
-                        <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">What is GBIF?</a>
+                        <a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="gb-button--brand--transparent">{$ main.fields.aboutTitle $}</a>
                         <a ng-href="{$ gb.locales.urlPrefix $}/country/{{ home.country.countryCode }}" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode">About GBIF <span translate="country.{{ home.country.countryCode }}"></span></a>
                     </div>
                 </div>
                 <div class="caption">
-                    <a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.#}
+                    {$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.description | sanitize | safe $}
                 </div>
             </div>
         </div>
