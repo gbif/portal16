@@ -1,7 +1,7 @@
 <div class="card container-fluid ng-cloak">
     {#occurrence stats#}
     <div class="row summaryStats" ng-if="datasetKey2.occurrences.count">
-        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
                 <div class="summaryStats__percentage">
@@ -11,13 +11,13 @@
             </div>
         </a>
 
-        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&issue=TAXON_MATCH_NONE" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
                             max="100"
                             current="( 100*(datasetKey2.occurrences.count - datasetKey2.withoutTaxon.count) / datasetKey2.occurrences.count)"
-                            bgcolor="#cee4e8"
+                            bgcolor="#dbefef"
                             color="#71b171"
                             responsive="true">
                     </round-progress>
@@ -29,13 +29,13 @@
             </div>
         </a>
 
-        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&has_geospatial_issue=false&has_coordinate=true" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
                             max="100"
                             current="( 100*datasetKey2.withCoordinates.count / datasetKey2.occurrences.count)"
-                            bgcolor="#cee4e8"
+                            bgcolor="#dbefef"
                             color="#71b171"
                             responsive="true">
                     </round-progress>
@@ -47,13 +47,13 @@
             </div>
         </a>
 
-        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&year=*,3000" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
                             max="100"
                             current="( 100*datasetKey2.withYear.count / datasetKey2.occurrences.count)"
-                            bgcolor="#cee4e8"
+                            bgcolor="#dbefef"
                             color="#71b171"
                             responsive="true">
                     </round-progress>
@@ -68,7 +68,7 @@
     </div>
     {#checklist stats#}
     <div class="row summaryStats" ng-if="datasetKey2.taxa.count > 0">
-        <a href="/species/search?dataset_key={$ dataset.record.key $}&advanced=1" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle summaryStats__circle--species"></div>
                 <div class="summaryStats__percentage">
@@ -77,13 +77,13 @@
                 </div>
             </div>
         </a>
-        <a href="/species/search?dataset_key={$ dataset.record.key $}&rank=SPECIES&advanced=1" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true, rank:'SPECIES'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
                             max="100"
                             current="100*(datasetKey2.taxa.facets.RANK.counts.SPECIES.count / datasetKey2.taxa.count)"
-                            bgcolor="#cee4e8"
+                            bgcolor="#dbefef"
                             color="#8ab9c1"
                             responsive="true">
                     </round-progress>
@@ -94,5 +94,39 @@
                 </div>
             </div>
         </a>
+        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            <div>
+                <div class="summaryStats__circle">
+                    <round-progress
+                            max="100"
+                            current="datasetKey2.metrics.nubCoveragePct"
+                            bgcolor="#dbefef"
+                            color="#8ab9c1"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="summaryStats__percentage">
+                    <span>{{ datasetKey2.metrics.nubCoveragePct }}%</span>
+                    <div>overlap with GBIF Backbone</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            <div>
+                <div class="summaryStats__circle">
+                    <round-progress
+                            max="100"
+                            current="datasetKey2.metrics.colCoveragePct"
+                            bgcolor="#dbefef"
+                            color="#8ab9c1"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="summaryStats__percentage">
+                    <span>{{ datasetKey2.metrics.colCoveragePct }}%</span>
+                    <div><span>overlap with Catalogue of Life</span></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

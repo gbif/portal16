@@ -5,9 +5,9 @@
         <li class="part-name">
             {#<h3><a href="#" class="inherit">Content</a></h3>#}
             <ul class="nav-chapters">
-                <li class="nav-chapter" du-scrollspy="summary">
-                    <a href="#summary">Summary</a>
-                </li>
+                {#<li class="nav-chapter" du-scrollspy="summary">#}
+                    {#<a href="#summary">Summary</a>#}
+                {#</li>#}
                 <li class="nav-chapter" du-scrollspy="descriptionBlock" ng-if="datasetKey2.dataset.description">
                     <a href="#description">Description</a>
                 </li>
@@ -51,6 +51,10 @@
                 <li class="nav-chapter" du-scrollspy="contributorsBlock"
                     ng-if="datasetKey2.dataset._computedValues.contributors.all.length > 0">
                     <a href="#contributors">Contributors</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="originBlock">
+                    <a href="#origin">Origin</a>
                 </li>
 
                 <li class="nav-chapter" du-scrollspy="citationBlock" ng-if="datasetKey2.dataset.citation">

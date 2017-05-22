@@ -1,4 +1,4 @@
-<section class="horizontal-stripe dataset-key__bibliography"
+<section class="horizontal-stripe--paddingless dataset-key__bibliography"
          ng-if="datasetKey2.dataset.bibliographicCitations.length > 0">
     <div>
         <a href="" id="bibliography"></a>

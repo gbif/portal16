@@ -2,8 +2,9 @@
     <div class="container--desktop">
         <div class="row">
             <div class="emptyInfo">
-                <h3>We are actively rethinking what metrics to compile.</h3>
-                <p>If you have ideas please <a href="https://github.com/gbif/portal16/issues/138">let us know here</a></p>
+                <h3>We are rethinking what metrics are most useful to show you</h3>
+                <p>If you have ideas please let us know <a href="https://github.com/gbif/portal16/issues/138">here</a></p>
+                <p>(In the meantime, you can view the previous version <a ng-href="http://gbif.org/dataset/{{ datasetKey2.key }}">here</a>)</p>
             </div>
             {#<div>#}
                 {#<div>#}

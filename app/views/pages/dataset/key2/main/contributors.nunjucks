@@ -1,4 +1,4 @@
-<section class="horizontal-stripe--paddingless dataset-key__contributors p-t-1" ng-if="datasetKey2.dataset._computedValues.contributors.all.length > 0">
+<section class="horizontal-stripe--paddingless dataset-key__contributors" ng-if="datasetKey2.dataset._computedValues.contributors.all.length > 0">
     <div>
         <a href="" id="contributors"></a>
         <div class="anchor-block--tabs" id="contributorsBlock">

@@ -19,11 +19,12 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation) {
+function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation, DatasetMetrics) {
     var vm = this;
     vm.key = $stateParams.key;
     vm.$state = $state;
     vm.dataset = DatasetExtended.get({key:vm.key});
+    vm.metrics = DatasetMetrics.get({key:vm.key});
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit:0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type:'StillImage'});

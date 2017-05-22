@@ -4,7 +4,7 @@
         <div class="anchor-block--tabs" id="temporalCoveragesBlock">
             <h3>Temporal coverage</h3>
             <div>
-                <p ng-repeat="period in datasetKey2.dataset.temporalCoverages">
+                <div ng-repeat="period in datasetKey2.dataset.temporalCoverages">
                     <span ng-if="period['@type'] == 'range'">
                         {{ period.start | amDateFormat:'D MMMM YYYY'  }}  - {{ period.end | amDateFormat:'D MMMM YYYY' }}
                     </span>
@@ -12,7 +12,7 @@
                         {{ period.period | amDateFormat:'D MMMM YYYY' }}
                     </span>
                     <span ng-if="period['@type'] == 'verbatim'" ng-bind-html="period.period"></span>
-                </p>
+                </div>
             </div>
         </div>
     </div>

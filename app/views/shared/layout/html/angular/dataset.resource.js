@@ -48,6 +48,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetMetrics', function ($resource, env) {
+            return $resource(env.dataApi + 'dataset/:key/metrics', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
     ;
 
 })();

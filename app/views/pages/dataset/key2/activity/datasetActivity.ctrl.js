@@ -27,8 +27,7 @@ function datasetActivityCtrl($http, $state, $stateParams, env, endpoints, Datase
         downloads.then(function (response) {
             vm.loadingDownloads = false;
             vm.downloads = response.data;
-            console.log(vm.downloads);
-        }, function (err) {
+        }, function () {
             vm.loadingDownloads = false;
             vm.failedToLoadDownloads = true;
         });

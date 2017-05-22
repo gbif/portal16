@@ -4,13 +4,12 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('datasetTaxonomyCtrl', datasetTaxonomyCtrl);
+    .controller('datasetProjectCtrl', datasetProjectCtrl);
 
 /** @ngInject */
-function datasetTaxonomyCtrl($stateParams, DatasetExtended) {
+function datasetProjectCtrl($stateParams) {
     var vm = this;
     vm.key = $stateParams.key;
-    vm.dataset = DatasetExtended.get({key:vm.key});
 }
 
-module.exports = datasetTaxonomyCtrl;
+module.exports = datasetProjectCtrl;
