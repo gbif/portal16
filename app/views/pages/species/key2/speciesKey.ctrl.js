@@ -23,9 +23,10 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, speciesConstants) {
     var vm = this;
     vm.key = $stateParams.speciesKey;
+    vm.backboneKey = speciesConstants.backboneKey;
     vm.$state = $state;
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});//used for showing button with count in top
@@ -34,6 +35,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
+    vm.isNub = false;
 
     vm.species.$promise
         .then(function(resp){
@@ -42,8 +44,8 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
             vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: vm.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit:0});
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
+            vm.isNub = vm.species.datasetKey === vm.backboneKey;
             getCitesStatus(resp.kingdom, resp.canonicalName);
-            // getRelatedSources(resp);
         });
 
     vm.occurrenceQuery = {taxon_key: vm.key};
@@ -61,7 +63,18 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
                     taxonKey: resp.key
                 });
             }
+            if (vm.species.sourceTaxonKey) {
+                vm.sourceTaxon = Species.get({id: vm.species.sourceTaxonKey});
+                vm.sourceTaxon.$promise
+                    .then(function(){
+                        vm.sourceTaxonExists = true;
+                    })
+                    .catch(function(){
+                        vm.sourceTaxonExists = false;
+                    });
+            }
         });
+
 
     function getCitesStatus(kingdom, name) {
         vm.cites = CitesApi.get({
@@ -69,28 +82,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
             name: name
         });
     }
-
-    //TODO needs doing - get related sources from elsewhere. Not something we have on the current site
-    // function getRelatedSources(species) {
-    //     var kingdom = species.kingdom;
-    //     var keyDatasets = {
-    //         'ZooBank': 'c8227bb4-4143-443f-8cb2-51f9576aff14',
-    //         'WoRMS': '2d59e5db-57ad-41ff-97d6-11f5fb264527'
-    //     };
-    //     var datasetMapping = {
-    //         'Animalia': ['ZooBank', 'WoRMS']
-    //     };
-    //     SpeciesRelated.query({
-    //         id: vm.key,
-    //         limit: 100
-    //
-    //     }, function (data) {
-    //         console.log(data);
-    //
-    //     }, function () {
-    //     });
-    // }
-
 
     vm.getSuggestions = function (val) {
         return $http.get('//api.gbif.org/v1/species/suggest', {
@@ -106,46 +97,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     vm.typeaheadSelect = function (item) { //  model, label, event
         $state.go($state.current, {speciesKey: item.key}, {inherit: false, notify: true, reload: false});
     };
-    //
-    //
-    //
-    // //latitude test
-    // vm.getLatitudes = function () {
-    //     $http.get('/api/chart/latitudeDistribution', {
-    //         params: {
-    //             taxon_key: vm.key
-    //         }
-    //     }).then(function (response) {
-    //         vm.latLabels = response.data.labels;
-    //         vm.latData = [response.data.values];
-    //     });
-    // };
-    // vm.getLatitudes();
-    // vm.latLabels = [];
-    // vm.latSeries = ['Occurrences per latitude'];
-    // vm.latData = [[]];
-    // vm.colors = ['#345fa2']; //'#14243e'
-    // vm.options = {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     scales: {
-    //         xAxes: [{
-    //             display: true,
-    //             gridLines: {
-    //                 display: false
-    //             }
-    //         }],
-    //         yAxes: [{
-    //             display: true,
-    //             gridLines: {
-    //                 display: false
-    //             },
-    //             ticks: {
-    //                 beginAtZero: true
-    //             }
-    //         }]
-    //     }
-    // };
 }
 
 module.exports = speciesKey2Ctrl;

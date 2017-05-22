@@ -1,6 +1,6 @@
 <span class="relative-anchor-offset"><a name="menu"></a></span>
 
-<nav class="submenu submenu--tabs" id="submenu">
+<nav class="submenu submenu--tabs" id="submenu" ng-init="datasetKey2.attachMenuListener()">
     <ul class="nav-parts">
         <li class="part-name">
             {#<h3><a href="#" class="inherit">Content</a></h3>#}

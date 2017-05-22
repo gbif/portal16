@@ -7,14 +7,14 @@
             <div class="site-drawer__bar">
                 <div class="site-drawer__bar__title">
                     <span>
-                          GBIF backbone classification
+                          Classification
                     </span>
                 </div>
             </div>
         </div>
 
         <div class="site-drawer__section">
-            <div class="m-05">
+            <div class="m-05" ng-if="speciesKey2.isNub">
                 <form class="search-box" ng-submit="speciesKey2.updateSearch()">
                     <input type="text"
                            focus-me="speciesKey2.filterConfig.expanded"

@@ -3,7 +3,7 @@
  */
 var express = require('express'),
     request = require('request'),
-    darkskyKey = rootRequire('config/config').credentials.darksky.key,
+    darkskyKey = rootRequire('config/credentials').darksky.key,
     router = express.Router();
 
 module.exports = function (app) {

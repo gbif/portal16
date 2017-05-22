@@ -1,14 +1,14 @@
 <div class="site-content">
     <div class="site-content__page">
         <div class="datasetKey2 light-background">
-            <div class="wrapper-horizontal-stripes">
+            <div class="wrapper-horizontal-stripes" ng-if="datasetKey2.dataset.$resolved">
 
                 {% include "./header.nunjucks" %}
 
                 <div id="tabsScrollable">
                     {% include "./nav.nunjucks" %}
                 </div>
-                <div class="tabs-fixed-container" id="tabsFixedContainer">
+                <div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey2.attachTabListener()">
                     {% include "./nav.nunjucks" %}
                 </div>
 
@@ -20,6 +20,11 @@
                 <div ui-view>
                 </div>
 
+            </div>
+            <div class="wrapper-horizontal-stripes" ng-if="!datasetKey2.dataset.$resolved">
+                <div class="emptyInfo">
+                    <h3>Hang on while we find the dataset</h3>
+                </div>
             </div>
         </div>
     </div>

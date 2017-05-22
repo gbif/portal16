@@ -15,13 +15,16 @@
                                         {#<dt>Common name</dt>#}
                                         {#<dd>Bear Goat</dd>#}
                                     {#</div>#}
-                                    <div>
+                                    <div ng-if="speciesKey2.species.sourceTaxonKey && speciesKey2.sourceTaxon.$resolved">
                                         <dt>Sources</dt>
                                         <dd>
                                             <ul class="inline-bullet-list">
-                                                <li ng-if="speciesKey2.species.sourceTaxonKey"><a href="/species/{{ speciesKey2.species.sourceTaxonKey }}">Source taxon</a></li>
-                                                {#<li>IPNI</li>#}
-                                                {#<li>WoRMS</li>#}
+                                                <li ng-if="speciesKey2.sourceTaxonExists">
+                                                    <a href="/species/{{ speciesKey2.species.sourceTaxonKey }}">Reference taxon</a>
+                                                </li>
+                                                <li ng-if="!speciesKey2.sourceTaxonExists" class="discreet--very">
+                                                    <span>The reference taxon is no longer available</span>
+                                                </li>
                                             </ul>
                                         </dd>
                                     </div>

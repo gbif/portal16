@@ -3,11 +3,12 @@
 var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils'),
-    submenuUpdate = require('./main/submenu');
+    fixedUtil = require('./main/submenu');
 
 require('./project/datasetProject.ctrl');
 require('./stats/datasetStats.ctrl');
-require('./taxonomy/datasetTaxonomy.ctrl');
+//require('./taxonomy/datasetTaxonomy.ctrl');
+require('./activity/datasetActivity.ctrl');
 require('../../../components/contactsCard/contacts.directive');
 require('../../../components/doi/doi.directive');
 require('../../../components/license/license.directive');
@@ -18,7 +19,7 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher) {
+function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation) {
     var vm = this;
     vm.key = $stateParams.key;
     vm.$state = $state;
@@ -35,11 +36,22 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
 
     vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'rank', limit:0 });
 
-    vm.dataset.$promise.then(submenuUpdate);
     vm.dataset.$promise.then(function(){
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
+        vm.installation = Installation.get({id: vm.dataset.installationKey});
+        vm.installation.$promise.then(function(){
+            vm.host = Publisher.get({id: vm.installation.organizationKey});
+        });
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
+        vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
     });
+
+    function getOriginalDarwinCoreArchive(endpoints) {
+        endpoints = endpoints || [];
+        return endpoints.find(function (e) {
+            return e.type == 'DWC_ARCHIVE';
+        });
+    }
 
     function geoJsonFromCoverage(geographicCoverages) {
         var geoJson = {
@@ -52,11 +64,20 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
                     geoJson.features.push(getFeature(e));
                 }
             });
-            return geoJson;
-        } else {
-            return false;
+            if (geoJson.features.length > 0) {
+                return geoJson;
+            }
         }
+        return false;
     }
+
+    vm.attachTabListener = function() {
+        fixedUtil.updateTabs();
+    };
+
+    vm.attachMenuListener = function() {
+        fixedUtil.updateMenu();
+    };
 
     function getFeature(coverage) {
         var b = coverage.boundingBox;

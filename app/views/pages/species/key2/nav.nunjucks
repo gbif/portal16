@@ -6,7 +6,7 @@
                     {#<a ui-sref="speciesKey()">About</a>#}
                 {#</li>#}
 
-                <li class="tab tab-right ng-cloak">
+                <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                     <span>
                         <a ng-if="speciesKey2.occurrences.count > 0" href=""
                            class="gb-button--brand"
@@ -19,7 +19,7 @@
                     </span>
                 </li>
 
-                <li class="tab tab-right ng-cloak">
+                <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                     <span>
                         <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
                            class="gb-button--primary"
@@ -29,6 +29,12 @@
                             <span ng-if="!speciesKey2.isSpeciesOrBelow">Species</span>
                         </a>
                         <a ng-if="!speciesKey2.subsumedSpecies.$resolved" class="gb-button--discreet"><span class="loading"></span></a>
+                    </span>
+                </li>
+
+                <li class="tab tab-right ng-cloak" ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">
+                    <span>
+                        <a class="gb-button--brand" ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})">View in GBIF backbone</a>
                     </span>
                 </li>
             </ul>

@@ -54,7 +54,7 @@
                 </div>
             </a>
             <div class="contactsCard__link card__content">
-                <a ng-href="mailto:{{ contact.email }}" class="inherit noUnderline" ng-if="contact.email.length > 0"><span
+                <a ng-href="mailto:{{ contact.email[0] }}" class="inherit noUnderline" ng-if="contact.email.length > 0"><span
                         class="gb-icon-email"></span></a>
             </div>
         </div>

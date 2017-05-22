@@ -111,7 +111,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('datasetKey', {
             parent: 'localization',
-            url: '/dataset2/:key',
+            url: '/dataset/:key',
             views: {
                 main: {
                     templateUrl: '/api/template/dataset/key.html?v=' + BUILD_VERSION,
@@ -120,12 +120,19 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
-        .state('datasetKeyTaxonomy', {
+        //.state('datasetKeyTaxonomy', {
+        //    parent: 'datasetKey',
+        //    url: '/taxonomy',
+        //    templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
+        //    controller: 'datasetTaxonomyCtrl',
+        //    controllerAs: 'datasetTaxonomy'
+        //})
+        .state('datasetKeyActivity', {
             parent: 'datasetKey',
-            url: '/taxonomy',
-            templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
-            controller: 'datasetTaxonomyCtrl',
-            controllerAs: 'datasetTaxonomy'
+            url: '/activity?offset&limit',
+            templateUrl: '/api/template/dataset/activity.html?v=' + BUILD_VERSION,
+            controller: 'datasetActivityCtrl',
+            controllerAs: 'datasetActivity'
         })
         .state('datasetKeyProject', {
             parent: 'datasetKey',

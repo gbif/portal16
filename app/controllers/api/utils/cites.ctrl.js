@@ -3,7 +3,7 @@ var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     apiConfig = rootRequire('/app/models/gbifdata/apiConfig'),
-    cites = rootRequire('config/config').credentials.CITES,
+    cites = rootRequire('config/credentials').CITES,
     request = require('requestretry');
 
 module.exports = function (app) {

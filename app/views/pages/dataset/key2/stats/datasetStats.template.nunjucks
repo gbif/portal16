@@ -1,6 +1,10 @@
-<section class="horizontal-stripe light-background dataset-key__usage seperator--b">
+<section class="horizontal-stripe light-background dataset-key__usage">
     <div class="container--desktop">
         <div class="row">
+            <div class="emptyInfo">
+                <h3>We are actively rethinking what metrics to compile.</h3>
+                <p>If you have ideas please <a href="https://github.com/gbif/portal16/issues/138">let us know here</a></p>
+            </div>
             {#<div>#}
                 {#<div>#}
                     {#<div>#}
@@ -26,15 +30,15 @@
 
 
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="card card__content">
-                        kingdom breakdown
+            {#<div class="row">#}
+                {#<div class="col-xs-12">#}
+                    {#<div class="card card__content">#}
+                        {#kingdom breakdown#}
 
-                        {{ datasetStats.testthis }}
-                        {{ datasetStats.key }}
+                        {#{{ datasetStats.testthis }}#}
+                        {#{{ datasetStats.key }}#}
 
-                        <div>
+                        {#<div>#}
                             {#<canvas height=100 style="width: content-box;" id="occurrenceKingdoms" class="chart chart-pie" chart-data="datasetStats.occurrenceKingdoms.data" chart-colors="vm.colors"#}
                             {#chart-labels="vm.labels" chart-series="vm.series" chart-options="vm.options"#}
                             {#chart-click="vm.onClick">#}
@@ -42,16 +46,16 @@
                             {#<canvas id="occurrenceKingdoms" class="chart chart-pie"#}
                             {#Xchart-colors="datasetStats.colors" chart-dataset-override="datasetStats.datasetOverride" chart-data="datasetStats.occurrenceKingdoms.data" chart-labels="datasetStats.occurrenceKingdoms.labels" chart-options="datasetStats.occurrenceKingdoms.options">#}
                             {#</canvas>#}
-                            <canvas id="tester"></canvas>
-                        </div>
-                        <div ng-bind-html="datasetStats.legendContent"></div>
+                            {#<canvas id="tester"></canvas>#}
+                        {#</div>#}
+                        {#<div ng-bind-html="datasetStats.legendContent"></div>#}
 
-                    </div>
-                </div>
-            </div>
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
 
-            <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-            <div class='altmetric-embed' data-badge-popover='bottom' data-doi='{$ dataset.record.doi $}'></div>
+            {#<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>#}
+            {#<div class='altmetric-embed' data-badge-popover='bottom' data-doi='{$ dataset.record.doi $}'></div>#}
 
         </div>
     </div>

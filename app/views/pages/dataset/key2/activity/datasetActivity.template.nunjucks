@@ -1,0 +1,54 @@
+<div class="horizontal-stripe--paddingless">
+    <div class="container--narrow" ng-if="datasetActivity.downloads">
+
+
+        {#<div class="ng-cloak">#}
+            {#<div ng-if="datasetActivity.state == 'LOADING'">#}
+                {#<ng-include src="'/templates/components/loader/loader.html'"></ng-include>#}
+            {#</div>#}
+            {#<div ng-if="datasetActivity.state == 'LOADED'">#}
+                {#<h5>Frequency of used filters in downloads</h5>#}
+                {#<div style="max-width: 800px">#}
+                    {#<chartist class="ct-chart ct-golden-section" chartist-data="datasetActivity.data"#}
+                    {#chartist-chart-options="datasetActivity.options"#}
+                    {#chartist-chart-type="Bar"></chartist>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        <div class="body-text">
+            <div>
+                <h3>{{ datasetActivity.downloads.count | localNumber }} download events</h3>
+            </div>
+        </div>
+
+        <div class="m-t-2">
+            <div ng-if="datasetActivity.loadingDownloads">
+                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+            </div>
+            <div ng-repeat="download in datasetActivity.downloads.results">
+                <h4 class="text-uppercase small discreet">{{ download.numberRecords | localNumber }} occurrences from this dataset</h4>
+                <div class="card m-b-2">
+                    <ng-include src="'/occurrence/download/' + download.downloadKey + '/card'"></ng-include>
+                </div>
+            </div>
+
+            <div ng-if="datasetActivity.downloads && datasetActivity.downloads.count > datasetActivity.limit">
+                <uib-pagination
+                        total-items="datasetActivity.downloads.count"
+                        ng-model="datasetActivity.currentPage"
+                        max-size="datasetActivity.maxSize"
+                        items-per-page="datasetActivity.limit"
+                        class="pagination-sm"
+                        boundary-link-numbers="false"
+                        rotate="false"
+                        ng-change="datasetActivity.pageChanged()">
+                </uib-pagination>
+            </div>
+
+            <div class="emptyInfo" ng-if="!datasetActivity.loadingDownloads && datasetActivity.downloads.count === 0">
+                <h3>No downloads yet</h3>
+            </div>
+
+        </div>
+    </div>
+</div>

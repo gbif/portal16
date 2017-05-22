@@ -15,10 +15,10 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=DATASET&resolution=4">
                 </div>
             </div>
-            <p>
+            <p ng-if="result.description">
                 {{result.description | limitTo:200 }}
             </p>
-            <p class="discreet--very smaller">
+            <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
                 Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
             </p>
             <ul class="list-chips">

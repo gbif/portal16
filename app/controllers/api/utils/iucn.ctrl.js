@@ -3,7 +3,7 @@ var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
-    iucn = rootRequire('config/config').credentials.IUCN,
+    iucn = rootRequire('config/credentials').IUCN,
     helper = rootRequire('app/models/util/util');
 
 module.exports = function (app) {

@@ -1,46 +1,35 @@
-$occurrenceCardChartBg = #253856
-$occurrenceCardHeaderBg = lighten(#253856, 10)
-.occurrenceCard {
-    &__chartArea {
-        background $occurrenceCardChartBg
-        color white
-        padding 10px
+.contactsCard {
+    position relative
+    &__header {
+
     }
-    &__title {
-        padding 10px
-        background $occurrenceCardHeaderBg
-        color white
+    &__subheader {
+        background $lightBackground
+        //color white
     }
-    &__list {
-        ul {
-            display table
-            padding 0
-            width 100%
-            li {
-                display table-row
-                >a {
-                    padding 10px
-                    display table-cell
-                    vertical-align middle
-                    >span {
-                        color $discreetInk
-                        font-size 12px
-                    }
-                }
-                &:hover {
-                    background #eee
-                }
-            }
+    &__contact {
+        display flex
+        flex-wrap none
+        border-left 2px solid transparent
+        &:hover {
+            border-color deepskyblue
         }
-        &__description {
+    }
+    &__name {
+        flex 1 1 auto
+        white-space no-wrap
+        >div {
+            display inline-block
         }
-        &__img {
-            width 60px
-            text-align center
-        }
-        img {
-            border-radius 50%
-            overflow hidden
+    }
+    &__link {
+        flex 0 0 auto
+        white-space nowrap
+        font-size 18px
+        margin-top 5px
+        color #d0d5d8
+        &:hover {
+            color darken(#d0d5d8, 15)
         }
     }
 }

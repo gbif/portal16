@@ -2,7 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    credentials = rootRequire('config/config').credentials.auth.orcid,
+    credentials = rootRequire('config/credentials').auth.orcid,
     OrcidStrategy = require('passport-orcid').Strategy,
     User = require('../../api/user/user.model'),
     auth = require('../auth.service');

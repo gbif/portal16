@@ -1,4 +1,4 @@
-<section class="horizontal-stripe dataset-key__contributors seperator small" ng-if="datasetKey2.dataset.dataLanguage || datasetKey2.dataset.language || datasetKey2.dataset.dataDescriptions.length > 0">
+<section class="horizontal-stripe--paddingless dataset-key__contributors small" ng-if="datasetKey2.dataset.dataLanguage || datasetKey2.dataset.language || datasetKey2.dataset.dataDescriptions.length > 0">
     <div>
         <a href="" id="dataDescription"></a>
         <div class="anchor-block--tabs" id="dataDescriptionBlock">

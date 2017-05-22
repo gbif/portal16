@@ -1,4 +1,4 @@
-<section class="horizontal-stripe seperator small dataset-key__text" ng-if="datasetKey2.dataset.additionalInfo">
+<section class="horizontal-stripe--paddingless small dataset-key__text" ng-if="datasetKey2.dataset.additionalInfo">
     <div>
         <a href="" id="additionalInfo"></a>
         <div class="anchor-block--tabs" id="additionalInfoBlock">

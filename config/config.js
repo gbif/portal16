@@ -163,6 +163,4 @@ var config = {
     }
 };
 
-config[env].credentials = require(config[env].credentials);
-
 module.exports = Object.freeze(config[env]);

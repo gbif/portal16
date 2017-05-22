@@ -1,0 +1,49 @@
+<section class="horizontal-stripe--paddingless dataset-key__contributors small">
+    <div>
+        <a href="" id="oigin"></a>
+        <div class="anchor-block--tabs" id="oiginBlock">
+            <h4>Origin</h4>
+            <div>
+                <dl class="inline">
+                    <div ng-if="datasetKey2.dataset.created">
+                        <dt class="text-capitalize">Registration date</dt>
+                        <dd>{{ datasetKey2.dataset.created | amDateFormat:'D MMMM YYYY' }}</dd>
+                    </div>
+
+                    <div ng-if="datasetKey2.dataset.modified">
+                        <dt class="text-capitalize">Last modification date</dt>
+                        <dd>{{ datasetKey2.dataset.modified | amDateFormat:'D MMMM YYYY' }}</dd>
+                    </div>
+
+                    <div ng-if="datasetKey2.dataset.modified">
+                        <dt class="text-capitalize">Publication date</dt>
+                        <dd>{{ datasetKey2.dataset.pubDate | amDateFormat:'D MMMM YYYY' }}</dd>
+                    </div>
+
+                    <div ng-if="datasetKey2.installation.$resolved">
+                        <dt class="text-capitalize">Installation</dt>
+                        <dd><a ng-href="/installation/{{ datasetKey2.installation.key }}">{{ datasetKey2.installation.title }}</a></dd>
+                    </div>
+
+                    <div ng-if="datasetKey2.host.$resolved">
+                        <dt class="text-capitalize">Host</dt>
+                        <dd><a ng-href="/publisher/{{ datasetKey2.host.key }}">{{ datasetKey2.host.title }}</a></dd>
+                    </div>
+
+                    <div ng-if="datasetKey2.installation.contacts.length > 0">
+                        <dt class="text-capitalize">Installation contacts</dt>
+                        <dd>
+                            <ul class="inline-bullet-list">
+                                <li ng-repeat="person in datasetKey2.installation.contacts" ng-if="person.email[0]">
+                                    <a ng-href="mailto:{{ person.email[0] }}">
+                                        <span>{{ person.firstName }} {{ person.lastName }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>

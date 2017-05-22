@@ -33,13 +33,13 @@
                       ng-bind-html="result[taxa]"></span>
             </p>
             <ul class="list-chips">
-                <li>
+                <li ng-if="result.taxonomicStatus">
                     <a href="" ui-sref="speciesSearchList({status:result.taxonomicStatus})" translate="taxonomicStatus.{{ result.taxonomicStatus }}">{{ result.taxonomicStatus }}</a>
                 </li>
                 <li ng-if="result.rank">
                     <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
                 </li>
-                <li ng-if="result.rank">
+                <li ng-if="result.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
                     <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="//api.gbif.org/v1/occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> occurrences</a>
                 </li>
             </ul>

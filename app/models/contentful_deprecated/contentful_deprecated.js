@@ -1,7 +1,7 @@
 const request = require('requestretry'),
     querystring = require('querystring'),
     apiConfig = require('./apiConfig'),
-    credentials = rootRequire('config/config').credentials.contentful.gbif;
+    credentials = rootRequire('config/credentials').contentful.gbif;
 
 module.exports = {
     getEntity: getEntity

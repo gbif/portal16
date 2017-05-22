@@ -12,7 +12,7 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="logoImg" ng-if="datasetKey2.dataset.logoUrl">
-                <img ng-src="{{ datasetKey2.dataset.logoUrl }}">
+                <img ng-src="{{ datasetKey2.dataset.logoUrl }}" onError="this.style.display = 'none'">
             </div>
             <dl class="inline">
                 <div>

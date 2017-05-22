@@ -7,10 +7,11 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/dataset2/:key', render);
-router.get('/dataset2/:key/taxonomy', render);
-router.get('/dataset2/:key/project', render);
-router.get('/dataset2/:key/stats', render);
+router.get('/dataset/:key', render);
+//router.get('/dataset/:key/taxonomy', render);
+router.get('/dataset/:key/activity', render);
+router.get('/dataset/:key/project', render);
+router.get('/dataset/:key/stats', render);
 
 function render(req, res, next) {
     let datasetKey = req.params.key;

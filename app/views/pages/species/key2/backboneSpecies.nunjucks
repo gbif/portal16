@@ -1,0 +1,158 @@
+<div ng-if="speciesKey2.isNub">
+
+    {% include "./intro.nunjucks" %}
+
+    <div class="horizontal-stripe p-t-0">
+        <div class="container--desktop m-t-1" ng-if="speciesKey2.mappedOccurrences.count > 0">
+            <h4 class="text-muted small text-uppercase">{{ speciesKey2.mappedOccurrences.count | localNumber }}  georeferenced records</h4>
+            <div class="map__lockedRatio card">
+                <div ng-if="speciesKey2.key">
+                    <gbmap taxon-key="speciesKey2.key" mapstyle="'light'"></gbmap>
+                </div>
+            </div>
+        </div>
+
+        <div class="container--desktop m-t-1" ng-if="speciesKey2.images.count > 0">
+            <h4 class="text-muted small text-uppercase">{{ speciesKey2.images.count | localNumber }} occurrence with images</h4>
+            <div class="galleryBar">
+                <div>
+                    <a ng-repeat="occurrence in speciesKey2.images.results" ng-href="{{urlPrefix}}/occurrence/{{occurrence.key}}" ng-if="occurrence._image" class="galleryBar__img hideInvalid inherit noUnderline hoverBox">
+                        <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
+                    </a>
+                </div>
+                <a ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand">See gallery</a>
+            </div>
+        </div>
+
+        <div class="container--desktop">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                    <div class="m-t-1">
+                        <h4 class="text-muted small text-uppercase">Name</h4>
+                        <div class="card">
+                            <div class="container-fluid card--padded">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6" ng-if="speciesKey2.species.synonym">
+                                        <h5 class="text-muted small text-uppercase">Accepted name</h5>
+                                        <div><a ui-sref="speciesKey({key:speciesKey2.species.acceptedKey})">{{ speciesKey2.species.accepted }}</div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6" ng-if="!speciesKey2.species.synonym && speciesKey2.synonyms.results.length > 0">
+                                        <h5 class="text-muted small text-uppercase">Synonyms</h5>
+                                        <ul class="detailList__list">
+                                            <li ng-repeat="synonym in speciesKey2.synonyms.results">
+                                                <a ui-sref="speciesKey({key:synonym.key})">{{ synonym.scientificName }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6" ng-if="speciesKey2.combinations.length > 0">
+                                        <h5 class="text-muted small text-uppercase">Combinations</h5>
+                                        <ul class="detailList__list">
+                                            <li ng-repeat="synonym in speciesKey2.synonyms.results">
+                                                <a ui-sref="speciesKey({key:synonym.key})">{{ synonym.scientificName }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {#<div class="row" ng-show="speciesKey2.status">#}
+                                {#<div class="col-xs-12 col-md-3">#}
+                                {#<div class="text-muted small text-uppercase">IUCN threat status</div>#}
+                                {#</div>#}
+                                {#<div class="col-xs-12 col-md-9">#}
+                                {#<iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>#}
+                                {#</div>#}
+                                {#</div>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.descriptions.results.length > 0">
+                        <h4 class="text-muted small text-uppercase">Description</h4>
+                        <div class="card">
+                            <div class="card__content">
+                                <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1">
+                                    <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
+                                    <div ng-bind-html="description.description"></div>
+                                    <p class="small source">Source: <a class="inherit"
+                                                                       ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {#<div class="m-t-1">#}
+                    {#<h4 class="text-muted small text-uppercase">Occurrences over time</h4>#}
+                    {#<div class="card">#}
+                    {#<occurrence-card query="speciesKey2.occurrenceQuery"></occurrence-card>#}
+                    {#</div>#}
+                    {#</div>#}
+
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+
+                    <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
+                        <h4 class="text-muted small text-uppercase">IUCN status</h4>
+                        <div class="card">
+                            <iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>
+                        </div>
+                    </div>
+
+                    {#<div class="m-t-1" ng-show="speciesKey2.cites.cites_listing">#}
+                    {#<h4 class="text-muted small text-uppercase">Cites trade status</h4>#}
+                    {#<div class="card">#}
+                    {#<div class="card__content">#}
+                    {#<div>#}
+                    {#<a ng-href="{{ speciesKey2.cites._reference }}"><span translate="cites.appendix"></span> {{ speciesKey2.cites.cites_listing }} </a>#}
+                    {#</div>#}
+                    {#</div>#}
+                    {#</div>#}
+                    {#</div>#}
+
+                    <div class="m-t-1">
+                        <h4 class="text-muted small text-uppercase">References</h4>
+                        <references key="{{ speciesKey2.key }}"></references>
+                    </div>
+
+                    {#<div class="m-t-1">#}
+                    {#<h4 class="text-muted small text-uppercase">Latitudal distribution</h4>#}
+                    {#<div class="card">#}
+                    {#<div class="card__content">#}
+                    {#<canvas id="base" class="chart-horizontal-bar"#}
+                    {#height=300 style="width: content-box;"#}
+                    {#chart-data="speciesKey2.latData"#}
+                    {#chart-labels="speciesKey2.latLabels"#}
+                    {#chart-series="speciesKey2.latSeries" chart-colors="vm.colors">#}
+                    {#</canvas>#}
+                    {#</div>#}
+                    {#</div>#}
+                    {#</div>#}
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="horizontal-stripe light-background">
+        <div class="container--desktop">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div>
+                        <div class="discreet m-t-3">
+                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
+                            <div>
+                                {{ speciesKey2.dataset.citation.text }}
+                                <p class="small discreet m-t-1">Last
+                                    modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

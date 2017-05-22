@@ -1,6 +1,6 @@
 "use strict";
 
-var credentials = rootRequire('config/config').credentials.directory,
+var credentials = rootRequire('config/credentials').directory,
     appKey = credentials.appKey,
     secret = credentials.secret,
     Q = require('q'),

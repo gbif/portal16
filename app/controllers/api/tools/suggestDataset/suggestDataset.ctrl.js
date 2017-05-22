@@ -2,7 +2,7 @@
 var express = require('express'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
-    credentials = rootRequire('config/config').credentials.suggestDataset,
+    credentials = rootRequire('config/credentials').suggestDataset,
     log = rootRequire('config/log'),
     fs = require('fs'),
     _ = require('lodash'),
