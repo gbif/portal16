@@ -1,0 +1,9 @@
+<section class="horizontal-stripe seperator dataset-key__contributors p-t-1" ng-if="datasetKey2.dataset._computedValues.contributors.all.length > 0">
+    <div>
+        <a href="" id="contributors"></a>
+        <div class="anchor-block--tabs" id="contributorsBlock">
+            <h4>Contributors</h4>
+            <contacts contact-list="datasetKey2.dataset._computedValues.contributors.all"></contacts>
+        </div>
+    </div>
+</section>

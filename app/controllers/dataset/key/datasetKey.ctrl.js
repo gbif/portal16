@@ -20,9 +20,9 @@ router.get('/dataset/:key/project\.:ext?', function (req, res, next) {
     buildModelAndRender(req, res, next, 'pages/dataset/key/project/project');
 });
 
-router.get('/dataset/:key/metrics\.:ext?', function (req, res, next) {
+router.get('/dataset/:key/stats\.:ext?', function (req, res, next) {
     //TODO return 404 if not an occurrence dataset. at this point we hae no metrics for anything but occurrence datasets
-    buildModelAndRender(req, res, next, 'pages/dataset/key/usage/usage');
+    buildModelAndRender(req, res, next, 'pages/dataset/key/stats/stats');
 });
 
 router.get('/dataset/:key/origin\.:ext?', function (req, res, next) {

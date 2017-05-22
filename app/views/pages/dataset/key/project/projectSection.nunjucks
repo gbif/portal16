@@ -1,26 +1,24 @@
 {% if dataset.record.project %}
     <section class="horizontal-stripe light-background dataset-key__text dataset-key__text__project">
         <span class="relative-anchor-offset"><a name="about"></a></span>
-        <div class="container--narrow">
+        <div class="container--desktop body-text">
             <div>
-                <div>
-                    <h3>Project</h3>
-                </div>
                 <div class="card">
-                    <div class="card__content">
-                        <span class="pull-right discreet--very small">Project id: <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=project&q=%22{$ dataset.record.project.identifier $}%22">{$ dataset.record.project.identifier $}</a></span>
-                        <span class="h6">Project title</span>
+                    <div class="card__content container--narrow">
+                        {% if dataset.record.project.identifier %}
+                            <span class="pull-right discreet--very small">Project id: <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=project&q=%22{$ dataset.record.project.identifier $}%22">{$ dataset.record.project.identifier $}</a></span>
+                        {% endif %}
                         <h3>{$ dataset.record.project.title | capitalize $}</h3>
 
                         {% if dataset.record.project.studyAreaDescription %}
-                            <h4 class="h6">Study area</h4>
+                            <h4>Study area</h4>
                             <p>
                                 {$ dataset.record.project.studyAreaDescription | safe $}
                             </p>
                         {% endif %}
 
                         {% if dataset.record.project.designDescription %}
-                            <h5>Description</h5>
+                            <h4>Description</h4>
                             <p>
                                 {$ dataset.record.project.designDescription | safe $}
                             </p>
@@ -28,14 +26,14 @@
 
                         {% if dataset.record.project.funding %}
                             <span class="relative-anchor-offset"><a name="funding"></a></span>
-                            <h5>Funding</h5>
+                            <h4>Funding</h4>
                             <p>
                                 {$ dataset.record.project.funding | safe $}
                             </p>
                         {% endif %}
 
                         {% if dataset._computedValues.projectContacts.all.length > 0 %}
-                            <h5>Project contacts</h5>
+                            <h4>Project contacts</h4>
                             <div>
                                 {% for contributor in dataset._computedValues.projectContacts.all %}
                                     <div class="dataset-key__contributors__item">

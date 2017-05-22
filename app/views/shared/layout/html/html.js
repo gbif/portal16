@@ -243,7 +243,6 @@ require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
 require('../../../pages/dataset/key2/datasetKey.ctrl');
-require('../../../pages/dataset/key/usage/datasetUsage.ctrl');
 
 //cms data is gathered under the umbrella term resources
 require('../../../pages/resource/search/resource.ctrl');

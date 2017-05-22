@@ -1,0 +1,12 @@
+<div>taxonomy</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4">
+            <taxonomy-browser taxon-key="212" dataset-keyX="datasetKey2.key"></taxonomy-browser>
+        </div>
+        <div class="col-xs-8">
+            tester
+        </div>
+    </div>
+</div>
+

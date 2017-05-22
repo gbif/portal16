@@ -4,38 +4,25 @@
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper"><a
-                                href="{$ gb.locales.urlPrefix $}/dataset/search?type=OCCURRENCE">{$
-                            __('dataset.longType.' + dataset.record.type) $}</a></span>
-                    <span class="article-header__category__lower">{$ dataset.record.pubDate | formatDate(gb.locales.current) $}</span>
+                                href="{$ gb.locales.urlPrefix $}/dataset/search?type=OCCURRENCE" translate="dataset.longType.{{ datasetKey2.dataset.type }}">
+                            </a></span>
+                    <span class="article-header__category__lower">{{ datasetKey2.dataset.created | amDateFormat:'D MMMM YYYY' }}</span>
                 </nav>
 
                 <h1 class="text-center">
-                    <span>{$ dataset.record.title $}</span>
+                    <span>{{ datasetKey2.dataset.title }}</span>
                 </h1>
-                {% if dataset._computedValues.contributors.highlighted.length > 0 %}
-                    <div>
-                        <ol class="inline-bullet-list">
-                            {% for contributor in dataset._computedValues.contributors.highlighted %}
-                                <li>
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}#contributor_{$ contributor._id $}"
-                                       class="inherit"
-                                       tooltip-placement="bottom"
-                                       tooltip-popup-delay="300"
-                                       uib-tooltip="
-                                        {% for role in contributor.roles %}
-                                            {$ __('role.' + role) | capitalize $}{% if not loop.last %}, {% endif %}
-                                        {% endfor %}">
-                                        {% if contributor._primaryContact %}
-                                            <i class="gb-icon-mail"></i>
-                                        {% endif %}
-                                        {$ contributor.firstName $} {$ contributor.lastName $}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ol>
-                        {$ contributor.roles $}
-                    </div>
-                {% endif %}
+                <div ng-if="datasetKey2.dataset._computedValues.contributors.highlighted.length > 0">
+                    <ol class="inline-bullet-list">
+                        <li ng-repeat="contributor in datasetKey2.dataset._computedValues.contributors.highlighted">
+                            <a ng-href="#contributor_{{ contributor._id}}"
+                               class="inherit">
+                                    <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
+                                {{ contributor.firstName }} {{ contributor.lastName }}
+                            </a>
+                        </li>
+                    </ol>
+                </div>
             </header>
         </div>
     </div>

@@ -1,0 +1,11 @@
+<section class="horizontal-stripe--paddingless dataset-key__citation" style="height:calc(100vh - 3rem)" ng-if="datasetKey2.dataset.citation.text">
+    <div>
+        <a href="" id="citation"></a>
+        <div class="anchor-block--tabs" id="citationBlock">
+            <h4>Citation</h4>
+            <div class="small">
+                {{ datasetKey2.dataset.citation.text }}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,5 @@
 "use strict";
-var express = require('express'),
+let express = require('express'),
     user = require('./user.controller'),
     router = express.Router(),
     auth = require('../../auth/auth.service');

@@ -5,14 +5,20 @@
 
                 {% include "./header.nunjucks" %}
 
-                {#{% include "./nav.nunjucks" %}#}
-
-                {#{% include "./intro.nunjucks" %}#}
-sdfgælkj sdælfjk
-                <div ui-view>
-                sdf
+                <div id="tabsScrollable">
+                    {% include "./nav.nunjucks" %}
+                </div>
+                <div class="tabs-fixed-container" id="tabsFixedContainer">
+                    {% include "./nav.nunjucks" %}
                 </div>
 
+                <div ng-if="datasetKey2.$state.is('datasetKey')">
+                    {% include "./intro/intro.nunjucks" %}
+                    {% include "./main/prose.nunjucks" %}
+                </div>
+
+                <div ui-view>
+                </div>
 
             </div>
         </div>

@@ -16,6 +16,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetExtended', function ($resource) {
+            return $resource('/api/dataset/:key', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('DatasetSearch', function ($resource) {
             //var facets = {
             //    facet: ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country', 'decade']

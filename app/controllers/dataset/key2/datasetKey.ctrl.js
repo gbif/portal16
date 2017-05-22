@@ -7,8 +7,13 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/dataset2/:key\.:ext?', function render(req, res) {
-    var datasetKey = req.params.key;
+router.get('/dataset2/:key', render);
+router.get('/dataset2/:key/taxonomy', render);
+router.get('/dataset2/:key/project', render);
+router.get('/dataset2/:key/stats', render);
+
+function render(req, res, next) {
+    let datasetKey = req.params.key;
     if (!utils.isGuid(datasetKey)) {
         next();
         return;
@@ -16,9 +21,9 @@ router.get('/dataset2/:key\.:ext?', function render(req, res) {
     res.render('pages/dataset/key2/datasetKey', {
         key: req.params.key,
         _meta: {
-            title: 'Dataset',
-            hasTools: false,
-            hideFooter: true
+            title: 'Dataset'
         }
     });
-});
+};
+
+

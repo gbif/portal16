@@ -29,15 +29,15 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
-        if (vm.taxonKey == 'root') {
-            $http.get('//api.gbif.org/v1/species/root/' + vm.datasetKey)
-                .then(function (resp) {
-                    console.log(resp);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        }
+        // if (vm.taxonKey == 'root') {
+        //     $http.get('//api.gbif.org/v1/species/root/' + vm.datasetKey)
+        //         .then(function (resp) {
+        //             console.log(resp);
+        //         })
+        //         .catch(function (err) {
+        //             console.log(err);
+        //         });
+        // }
         vm.$state = $state;
         vm.$sessionStorage = $sessionStorage;
         vm.taxon;

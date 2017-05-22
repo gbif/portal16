@@ -111,7 +111,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('datasetKey', {
             parent: 'localization',
-            url: '/dataset2/:key?refOffset',
+            url: '/dataset2/:key',
             views: {
                 main: {
                     templateUrl: '/api/template/dataset/key.html?v=' + BUILD_VERSION,
@@ -119,6 +119,27 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                     controllerAs: 'datasetKey2'
                 }
             }
+        })
+        .state('datasetKeyTaxonomy', {
+            parent: 'datasetKey',
+            url: '/taxonomy',
+            templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
+            controller: 'datasetTaxonomyCtrl',
+            controllerAs: 'datasetTaxonomy'
+        })
+        .state('datasetKeyProject', {
+            parent: 'datasetKey',
+            url: '/project',
+            templateUrl: '/api/template/dataset/project.html?v=' + BUILD_VERSION,
+            controller: 'datasetProjectCtrl',
+            controllerAs: 'datasetProject'
+        })
+        .state('datasetKeyStats', {
+            parent: 'datasetKey',
+            url: '/stats',
+            templateUrl: '/api/template/dataset/stats.html?v=' + BUILD_VERSION,
+            controller: 'datasetStatsCtrl',
+            controllerAs: 'datasetStats'
         })
         .state('speciesSearch', {
             parent: 'localization',
@@ -153,7 +174,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species/:key?refOffset',
+            url: '/species/:speciesKey?refOffset',
             params: {
                 advanced: {
                     value: false,

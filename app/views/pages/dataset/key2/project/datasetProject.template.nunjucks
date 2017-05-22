@@ -1,0 +1,43 @@
+<section class="horizontal-stripe light-background dataset-key__text dataset-key__text__project" ng-if="datasetKey2.dataset.project">
+    <span class="relative-anchor-offset"><a name="about"></a></span>
+    <div class="container--desktop body-text">
+        <div>
+            <div class="card">
+                <div class="card__content container--narrow">
+
+                    <span ng-if="datasetKey2.dataset.project.identifier" class="pull-right discreet--very small">Project id: <a ui-sref="resourceSearch({q:datasetKey2.dataset.project.identifier, contentType: 'project'})">{{ datasetKey2.dataset.project.identifier }}</a></span>
+                    <h3>
+                        {{ datasetKey2.dataset.project.title }}
+                    </h3>
+
+                    <div ng-if="datasetKey2.dataset.project.studyAreaDescription">
+                        <h4>Study area</h4>
+                        <div ng-bind-html="datasetKey2.dataset.project.studyAreaDescription"></div>
+                    </div>
+
+                    <div ng-if="datasetKey2.dataset.project.designDescription">
+                        <h4>Description</h4>
+                        <div ng-bind-html="datasetKey2.dataset.project.designDescription"></div>
+                    </div>
+
+                    <div ng-if="datasetKey2.dataset.project.funding">
+                        <h4>Funding</h4>
+                        <div ng-bind-html="datasetKey2.dataset.project.funding"></div>
+                    </div>
+
+                    <div ng-if="!datasetKey2.dataset.project.studyAreaDescription && !datasetKey2.dataset.project.designDescription && !datasetKey2.dataset.project.funding" class="emptyInfo">
+                        <p>{$ __('stdTerms.noDescription') $}</p>
+                    </div>
+
+
+
+                    <div ng-if="datasetKey2.dataset._computedValues.projectContacts.all.length > 0">
+                        <h4>Project contacts</h4>
+                        <contacts contact-list="datasetKey2.dataset._computedValues.projectContacts.all"></contacts>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

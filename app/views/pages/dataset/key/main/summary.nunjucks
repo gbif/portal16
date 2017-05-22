@@ -1,6 +1,6 @@
 <div class="container-fluid card">
     <div class="row card__content">
-        <div class="col-xs-12 col-sm-6 col-md-9">
+        <div class="col-xs-12 col-sm-6 col-md-8">
             {% if dataset.record.description | isDefined %}
                 {% if dataset.record.description | striptags | length < 750 %}
                     {$ dataset.record.description | decodeHtml | linkify | sanitize | safe $}
@@ -14,9 +14,9 @@
                 </div>
             {% endif %}
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-xs-12 col-sm-6 col-md-4">
             {% if dataset.record.logoUrl %}
-            <div>
+            <div class="logoImg">
                 <img src="{$ dataset.record.logoUrl $}">
             </div>
             {% endif %}

@@ -1,7 +1,7 @@
 <div class="card container-fluid ng-cloak">
     {#occurrence stats#}
     <div class="row summaryStats" ng-if="datasetKey.occurrences.count">
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
                 <div class="summaryStats__percentage">
@@ -9,45 +9,9 @@
                     <div>Occurrences</div>
                 </div>
             </div>
-        </div>
+        </a>
 
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="( 100*datasetKey.withCoordinates.count / datasetKey.occurrences.count)"
-                            bgcolor="#cee4e8"
-                            color="#71b171"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
-                    <div>With coordinates</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            <div>
-                <div class="summaryStats__circle">
-                    <round-progress
-                            max="100"
-                            current="( 100*datasetKey.withYear.count / datasetKey.occurrences.count)"
-                            bgcolor="#cee4e8"
-                            color="#71b171"
-                            responsive="true">
-                    </round-progress>
-                </div>
-                <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
-                    <div>With year</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&issue=TAXON_MATCH_NONE" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -63,12 +27,48 @@
                     <div>With taxon match</div>
                 </div>
             </div>
-        </div>
+        </a>
+
+        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&has_geospatial_issue=false&has_coordinate=true" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            <div>
+                <div class="summaryStats__circle">
+                    <round-progress
+                            max="100"
+                            current="( 100*datasetKey.withCoordinates.count / datasetKey.occurrences.count)"
+                            bgcolor="#cee4e8"
+                            color="#71b171"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="summaryStats__percentage">
+                    <span>{{ ( datasetKey.withCoordinates.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
+                    <div>With coordinates</div>
+                </div>
+            </div>
+        </a>
+
+        <a href="/occurrence/search?dataset_key={$ dataset.record.key $}&year=*,3000" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            <div>
+                <div class="summaryStats__circle">
+                    <round-progress
+                            max="100"
+                            current="( 100*datasetKey.withYear.count / datasetKey.occurrences.count)"
+                            bgcolor="#cee4e8"
+                            color="#71b171"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="summaryStats__percentage">
+                    <span>{{ ( datasetKey.withYear.count / datasetKey.occurrences.count) | formatAsPercentage}}%</span>
+                    <div>With year</div>
+                </div>
+            </div>
+        </a>
 
     </div>
     {#checklist stats#}
     <div class="row summaryStats" ng-if="datasetKey.taxa.count > 0">
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a href="/species/search?dataset_key={$ dataset.record.key $}&advanced=1" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle summaryStats__circle--species"></div>
                 <div class="summaryStats__percentage">
@@ -76,8 +76,8 @@
                     <div>Taxa</div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        </a>
+        <a href="/species/search?dataset_key={$ dataset.record.key $}&rank=SPECIES&advanced=1" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -93,6 +93,6 @@
                     <div>species</div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>

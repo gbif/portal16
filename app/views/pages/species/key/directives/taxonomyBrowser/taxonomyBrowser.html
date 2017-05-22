@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li ng-repeat="tax in vm.parents">
-                <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({key:tax.key})" href="">
+                <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank }}"></div>
                     <div class="taxonomyBrowser__description">
                         <span class="sciname">{{tax.canonicalName}}</span>
@@ -13,7 +13,7 @@
         </ul>
     </div>
     <div>
-        <a ui-sref=".({key:vm.acceptedTaxon.key})" ng-if="vm.acceptedTaxon"
+        <a ui-sref=".({speciesKey:vm.acceptedTaxon.key})" ng-if="vm.acceptedTaxon"
            class="taxonomyBrowser__accepted inherit noUnderline">
             <div class="taxonomyBrowser__subheadline">Accepted name</div>
             <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank }}"></span>
@@ -45,7 +45,7 @@
                         <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                             <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                             <div>
-                                <a ui-sref=".({key:tax.key})" href="" class="inherit">
+                                <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
                                     <span class="sciname">{{tax.canonicalName}}</span>
                                     <span class="small discreet">{{tax.authorship}}</span>
                                 </a>
@@ -60,7 +60,7 @@
         <div class="taxonomyBrowser__headline">Immediate children</div>
         <ul>
             <li class="" ng-repeat="tax in vm.classifiedChildren">
-                <a class="taxonomyBrowser__child noUnderline inherit" ui-sref=".({key:tax.key})" href="">
+                <a class="taxonomyBrowser__child noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank }}"></div>
                     <div class="taxonomyBrowser__description">
                         <span>
@@ -99,7 +99,7 @@
         <!--<ul ng-if="!vm.$sessionStorage.hideIncertaeSedis">-->
         <!--<li class="taxonomyBrowser__child taxonchild" ng-repeat="tax in vm.unclassifiedChildren">-->
         <!--<span class="taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank }}"></span>-->
-        <!--<span class="sciname"><a ui-sref=".({key:tax.key})" href="">{{tax.scientificName}}</a></span>-->
+        <!--<span class="sciname"><a ui-sref=".({speciesKey:tax.key})" href="">{{tax.scientificName}}</a></span>-->
         <!--&lt;!&ndash;<small class="rank">{{tax.rank}}</small>&ndash;&gt;-->
         <!--&lt;!&ndash;<span ng-show="vm.isOcc && tax.numOccurrences > 0">&ndash;&gt;-->
         <!--&lt;!&ndash;<a href="/occurrence/search?dataset_key={{vm.datasetKey}}&taxon_key={{tax.key}}">{{tax.numOccurrences}}</a>&ndash;&gt;-->

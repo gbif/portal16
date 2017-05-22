@@ -397,6 +397,7 @@ $headerImageMaxFullWidth = $desktop
     padding 0
     li {
         display inline-block
+        margin 0 2px
         &:after {
             font-style normal
             content '\25CF' // ❯
@@ -600,4 +601,8 @@ sub {
 
 .bordered {
     border 1px solid $stripeBorderColor
+}
+
+.text-brand-color {
+    color $navBar_background_color
 }

@@ -1,0 +1,63 @@
+<span class="relative-anchor-offset"><a name="menu"></a></span>
+
+<nav class="submenu submenu--tabs" id="submenu">
+    <ul class="nav-parts">
+        <li class="part-name">
+            {#<h3><a href="#" class="inherit">Content</a></h3>#}
+            <ul class="nav-chapters">
+                <li class="nav-chapter" du-scrollspy="summary">
+                    <a href="#summary">Summary</a>
+                </li>
+                <li class="nav-chapter" du-scrollspy="descriptionBlock" ng-if="datasetKey2.dataset.description">
+                    <a href="#description">Description</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="purposeArea" ng-if="datasetKey2.dataset.purpose">
+                    <a href="#purpose">Purpose</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="temporalCoveragesBlock"
+                    ng-if="datasetKey2.dataset.temporalCoverages.length > 0">
+                    <a href="#temporalCoverages">Temporal coverage</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="geographicCoveragesBlock"
+                    ng-if="datasetKey2.dataset.geographicCoverages.length > 0">
+                    <a href="#geographicCoverages">Geographic coverage</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="taxonomicCoveragesBlock" ng-if="datasetKey2.dataset._computedValues.taxonomicCoverages.length > 0">
+                    <a href="#taxonomicCoverages">Taxonomic coverage</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="methodologyBlock" ng-if="datasetKey2.dataset.samplingDescription">
+                    <a href="#methodology">Method</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="bibliographyBlock"
+                    ng-if="datasetKey2.dataset.bibliographicCitations.length > 0">
+                    <a href="#bibliography">Bibliography</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="additionalInfoBlock" ng-if="datasetKey2.dataset.additionalInfo">
+                    <a href="#additionalInfo">Additional Info</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="dataDescriptionBlock"
+                    ng-if="datasetKey2.dataset.dataLanguage || datasetKey2.dataset.language || datasetKey2.dataset.dataDescriptions.length > 0">
+                    <a href="#dataDescription">Data Description</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="contributorsBlock"
+                    ng-if="datasetKey2.dataset._computedValues.contributors.all.length > 0">
+                    <a href="#contributors">Contributors</a>
+                </li>
+
+                <li class="nav-chapter" du-scrollspy="citationBlock" ng-if="datasetKey2.dataset.citation">
+                    <a href="#citation">Citation</a>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+</nav>

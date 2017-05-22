@@ -37,6 +37,13 @@
                 return moment().subtract(90, 'd').isBefore(date);
             }
         })
+        .filter('stripTags', function () {
+            return function (html) {
+                var tmp = document.createElement("DIV");
+                tmp.innerHTML = html;
+                return tmp.textContent || tmp.innerText || "";
+            }
+        })
         .filter('compactInteger', function () {
             return function (nr) {
                 return Humanize.compactInteger(nr, 0);
@@ -65,11 +72,6 @@
                 start = +start; //parse to int
                 return input.slice(start);
             }
-        })
-        .filter('stripTags', function () {
-            return function (text) {
-                return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-            };
         })
         .filter('unique', function () {
             return function (a) {

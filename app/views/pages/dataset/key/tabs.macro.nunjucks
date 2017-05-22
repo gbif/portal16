@@ -35,13 +35,13 @@
 
                             {#At this point we do not have any sensible metrics to show. TODO we should display some, but further discussion needed https://github.com/gbif/portal16/issues/138#}
                             <li class="tab {% if active == 'usage' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/metrics">
-                                    Metrics
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/stats">
+                                    Stats
                                 </a>
                             </li>
 
 
-                            {% if dataset._computedValues.originalArchive and dataset._occurrenceCount.count > 0 %}
+                            {% if dataset._computedValues.originalArchive %}
                                 <li class="tab" uib-dropdown dropdown-append-to-body>
                                     <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
                                         <span class="gb-icon-file-download"></span>
@@ -51,9 +51,11 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                         aria-labelledby="btn-append-to-body">
-                                        <li role="menuitem"><a href="#">GBIF Processed</a></li>
-                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Original</a>
+                                        <li role="menuitem" class="asyncIf--isHidden" async-if="//api.gbif.org/v1/occurrence/search?dataset_key={$ dataset.record.key $}">
+                                            <a href="/occurrence/download?dataset_key={$ dataset.record.key $}">Processed occurrences <span class="small text-brand-color">recommended</span></a>
                                         </li>
+                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Published archive</a></li>
+                                        <li role="menuitem"><a href="//api.gbif.org/v1/dataset/{$ dataset.record.key $}/document">GBIF annotated meta data (EML)</a></li>
                                     </ul>
                                 </li>
                             {% endif %}

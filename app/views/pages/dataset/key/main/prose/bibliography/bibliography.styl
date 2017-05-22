@@ -1,0 +1,23 @@
+.dataset-key__bibliography {
+    ol {
+        padding 0
+        li {
+            padding-bottom 15px
+        }
+    }
+    .inline-bullet-list {
+        li {
+            &:after {
+                color rgba(0, 0, 0, 0.3)
+            }
+        }
+    }
+}
+
++isAbove($laptop) {
+    .dataset-key__bibliography {
+        ol {
+            list-style-type decimal
+        }
+    }
+}

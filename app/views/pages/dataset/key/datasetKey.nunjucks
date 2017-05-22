@@ -19,19 +19,9 @@
         </div>
 
         {% include('./main/intro.nunjucks') %}
-        {#{% include('./metrics/metrics.nunjucks') %}#}
 
         <div class="submenu-wrapper" id="submenuWrapper">
-
-            {% include('./prose/prose.nunjucks') %}
-
-            {#{% include('./text/submenu.nunjucks') %}#}
-            {#{% include('./map/map.nunjucks') %}#}
-            {#{% include('./text/text.nunjucks') %}#}
-            {#{% include('./bibliography/bibliography.nunjucks') %}#}
-            {#{% include('./dataDescription/dataDescription.nunjucks') %}#}
-            {#{% include('./contributors/contributors.nunjucks') %}#}
-            {#{% include('./citation/citation.nunjucks') %}#}
+            {% include('./main/prose/prose.nunjucks') %}
         </div>
 
     </article>
