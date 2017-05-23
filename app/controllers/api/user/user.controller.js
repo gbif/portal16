@@ -106,7 +106,8 @@ function changePassword(req, res) {
  * Updates the password given a short lived token sent to the users email
  */
 function getDownloads(req, res) {
-    userModel.getDownloads(req.user.userName)
+console.log(req.user.userName);
+    userModel.getDownloads(req.user.userName, req.query)
         .then(function(downloads){
             res.setHeader('Cache-Control', 'private, max-age=' + 10000); //allow the user to store the list of downloads locally
             res.json(downloads);

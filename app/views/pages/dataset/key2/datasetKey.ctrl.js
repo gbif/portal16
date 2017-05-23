@@ -23,24 +23,29 @@ function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, 
     var vm = this;
     vm.key = $stateParams.key;
     vm.$state = $state;
-    vm.dataset = DatasetExtended.get({key:vm.key});
-    vm.metrics = DatasetMetrics.get({key:vm.key});
+    vm.dataset = DatasetExtended.get({key: vm.key});
+    vm.metrics = DatasetMetrics.get({key: vm.key});
 
-    vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit:0});
-    vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type:'StillImage'});
-    vm.images.$promise.then(function(resp){
+    vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
+    vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
+    vm.images.$promise.then(function (resp) {
         utils.attachImages(resp.results);
     });
-    vm.withCoordinates = OccurrenceSearch.query({dataset_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0 });
-    vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit:0 });
-    vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit:0 });
+    vm.withCoordinates = OccurrenceSearch.query({
+        dataset_key: vm.key,
+        has_coordinate: true,
+        has_geospatial_issue: false,
+        limit: 0
+    });
+    vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
+    vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
 
-    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'rank', limit:0 });
+    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'rank', limit: 0});
 
-    vm.dataset.$promise.then(function(){
+    vm.dataset.$promise.then(function () {
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
-        vm.installation.$promise.then(function(){
+        vm.installation.$promise.then(function () {
             vm.host = Publisher.get({id: vm.installation.organizationKey});
         });
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
@@ -72,11 +77,20 @@ function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, 
         return false;
     }
 
-    vm.attachTabListener = function() {
+    //for adding roles to the authors in the top
+    //vm.getRoles = function (contact) {
+    //    var roles = '';
+    //    contact.roles.forEach(function (e, i) {
+    //        roles += i === 0 ? e : ', ' + e;
+    //    });
+    //    return roles;
+    //};
+
+    vm.attachTabListener = function () {
         fixedUtil.updateTabs();
     };
 
-    vm.attachMenuListener = function() {
+    vm.attachMenuListener = function () {
         fixedUtil.updateMenu();
     };
 

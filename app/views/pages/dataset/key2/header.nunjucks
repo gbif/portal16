@@ -15,8 +15,12 @@
                 <div ng-if="datasetKey2.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey2.dataset._computedValues.contributors.highlighted">
-                            <a ng-href="#contributor_{{ contributor._id}}"
-                               class="inherit">
+                            <a ng-href="#contributors"
+                               class="inherit"
+                               {#tooltip-placement="bottom"#}
+                               {#tooltip-popup-delay="300"#}
+                               {#uib-tooltip="{{ datasetKey2.getRoles(contributor) }}"#}
+                               >
                                     <i class="gb-icon-mail" ng-if="contributor._primaryContact"></i>
                                 {{ contributor.firstName }} {{ contributor.lastName }}
                             </a>

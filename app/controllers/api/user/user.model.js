@@ -143,7 +143,9 @@ async function getDownloads(userName, query) {
         userName: userName,
         method: 'GET'
     };
+    console.log(options);
     let response = await authOperations.authenticatedRequest(options);
+    console.log(response);
     //this should never be unauthorized, but it happens when the a user is created but not known by the occurrence api (mixed environments)
     if (response.statusCode !== 200) {
         throw response;

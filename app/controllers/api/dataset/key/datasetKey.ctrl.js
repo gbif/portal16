@@ -47,6 +47,8 @@ async function getDataset(key) {
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.contacts);
 
+    clean(dataset);
+
     let projectContacts = _.get(dataset, 'project.contacts', false);
     if (projectContacts) {
         dataset._computedValues.projectContacts = contributors.getContributors(projectContacts);
@@ -58,20 +60,26 @@ async function getDataset(key) {
     }
 
     dataset._computedValues.bibliography = bibliography.getBibliography(dataset.bibliographicCitations);
-    clean(dataset);
+
     return dataset;
 }
 
 function clean(obj) {
     cleanField(obj, 'description');
     cleanField(obj, 'purpose');
-    cleanField(obj, 'geographicCoverage.description');
     cleanField(obj, 'samplingDescription.studyExtent');
     cleanField(obj, 'samplingDescription.sampling');
     cleanField(obj, 'samplingDescription.qualityControl');
     cleanField(obj, 'additionalInfo');
 
     cleanArray(obj, 'samplingDescription.methodSteps');
+
+    _.get(obj, 'geographicCoverages', []).forEach(function(e){
+        cleanField(e, 'description');
+    });
+    _.get(obj, 'taxonomicCoverages', []).forEach(function(e){
+        cleanField(e, 'description');
+    });
 }
 
 function cleanField(o, field) {
@@ -83,9 +91,9 @@ function cleanField(o, field) {
 function cleanArray(o, field) {
     let values = _.get(o, field);
     if (values) {
-        values.map(function(e){
+        _.set(o, values.map(function(e){
             return format.sanitize(format.linkify(format.decodeHtml(e)))
-        });
+        }));
     }
 }
 

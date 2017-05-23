@@ -11,9 +11,14 @@
                     <div class="dataset-key__taxonomicCoverages__rank" ng-repeat="rank in taxonomicCoverage._ranks" ng-if="rank.taxa">
                         <h4 translate="taxonRank.{{ rank.rank }}" class="text-capitalize"></h4>
                         <div class="dataset-key__taxonomicCoverages__columns">
-                            <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}">
+                            <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey2.dataset.type == 'CHECKLIST'">
                                 <a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey2.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
-                                    {{ name.scientificName }}
+                                    {{ name.scientificName }} <span ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
+                                </a>
+                            </span>
+                            <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey2.dataset.type != 'CHECKLIST'">
+                                <a ui-sref="occurrenceSearchTable({advanced:true,dataset_key: datasetKey2.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
+                                    {{ name.scientificName }} <span ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
                             </span>
                         </div>
