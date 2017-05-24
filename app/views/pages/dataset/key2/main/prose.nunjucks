@@ -18,15 +18,15 @@
                                     {% include "./geographicCoverages.nunjucks" %}
                                     {% include "./taxonomicCoverages.nunjucks" %}
                                     {% include "./samplingDescription.nunjucks" %}
+                                    {% include "./additionalInfo.nunjucks" %}
                                     {% include "./bibliography.nunjucks" %}
+                                    {% include "./contributors.nunjucks" %}
                                 </div>
                             </div>
                             <div class="white-background p-t-1">
                                 <div class="container--narrow seperator m-t-1">
-                                    {% include "./additionalInfo.nunjucks" %}
                                     {% include "./dataDescription.nunjucks" %}
-                                    {% include "./contributors.nunjucks" %}
-                                    {% include "./origin.nunjucks" %}
+                                    {% include "./registration.nunjucks" %}
                                     {% include "./citation.nunjucks" %}
                                 </div>
                             </div>

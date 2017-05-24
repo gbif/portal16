@@ -15,7 +15,8 @@ module.exports = {
     renameField: renameField,
     concatFields: concatFields,
     transformFacets: transformFacets,
-    getLocaleVersion: getLocaleVersion
+    getLocaleVersion: getLocaleVersion,
+    addFilters: addFilters
 };
 
 function normalize(result, offset, limit) {
@@ -220,4 +221,10 @@ function transformFacets(result, __, types) {
     } catch(e){
         //log error
     }
+}
+
+function addFilters(results, query, __) {
+    results.filters = {
+        PURPOSES: [{name: 'test', title: 'hej'}]
+    };
 }

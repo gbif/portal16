@@ -165,7 +165,7 @@ require('angular-svg-round-progressbar');
 
 })();
 
-require('./angular/env.constants');
+require('./angular/index.constants');
 require('./angular/routerConfig');
 
 require('./angular/index.filters');

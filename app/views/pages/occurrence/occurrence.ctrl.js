@@ -52,7 +52,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         queryKey: 'type_status',
         filter: OccurrenceFilter,
         enumTranslationPath: 'typeStatus.',
-        showAll: false,
+        showAll: true,
         enums: enums.typeStatus,
         reversible: true,
         facets: {

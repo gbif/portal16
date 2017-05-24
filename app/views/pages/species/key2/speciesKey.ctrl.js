@@ -23,10 +23,10 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, speciesConstants) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, constantKeys) {
     var vm = this;
     vm.key = $stateParams.speciesKey;
-    vm.backboneKey = speciesConstants.backboneKey;
+    vm.backboneKey = constantKeys.backboneKey;
     vm.$state = $state;
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});//used for showing button with count in top

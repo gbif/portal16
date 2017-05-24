@@ -161,14 +161,26 @@ function pruneTaxa(taxa, idsToIgnore) {
 
 function _pruneTaxa(taxa, idsToIgnore) {
     idsToIgnore = idsToIgnore || [];
-    return _.map(
+
+    ////TODO add parsed names
+    //taxa.forEach(function(e){
+    //    if (e.nameType === 'SCIENTIFIC') {
+    //        e._parsed = {
+    //            first: e.scientificName + ' hej',
+    //            second: 'med dig'
+    //        };
+    //    }
+    //});
+
+    let pruned = _.map(
         _.remove(taxa, function (t) {
             return _.indexOf(idsToIgnore, t.key) < 0
         })
         , function (tax) {
             return _.pick(
-                tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'authorship', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
+                tax, ['key', '_parsed', 'nameType', 'nameKey', 'acceptedKey', 'canonicalName', 'authorship', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
             );
         });
+    return pruned;
 }
 

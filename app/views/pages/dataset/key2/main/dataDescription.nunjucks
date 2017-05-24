@@ -23,12 +23,13 @@
                                 <li ng-repeat="descr in datasetKey2.dataset.dataDescriptions">
                                     <a ng-href="{{ descr.url }}">
                                         <span ng-if="descr.name">{{ descr.name }}</span>
-                                        <span ng-if="descr.url">{{ descr.url }}</span>
+                                        <span ng-if="!descr.name && descr.url">{{ descr.url }}</span>
                                     </a>
                                 </li>
                             </ul>
                         </dd>
                     </div>
+
                 </dl>
             </div>
         </div>

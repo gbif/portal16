@@ -13,6 +13,14 @@
                 return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
             }
         })
+        .filter('startsWith', function () {
+            return function (text, match) {
+                if (typeof text === 'undefined') {
+                    return false;
+                }
+                return text.substr(0, match.length) == match;
+            }
+        })
         .filter('truncate', function () {
             return function (text, length) {
                 length = length || 10;

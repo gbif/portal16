@@ -148,6 +148,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'datasetStatsCtrl',
             controllerAs: 'datasetStats'
         })
+        .state('datasetKeyConstituents', {
+            parent: 'datasetKey',
+            url: '/constituents?offset',
+            templateUrl: '/api/template/dataset/constituents.html?v=' + BUILD_VERSION,
+            controller: 'datasetConstituentsCtrl',
+            controllerAs: 'datasetConstituents'
+        })
         .state('speciesSearch', {
             parent: 'localization',
             url: '/species?offset&limit&q&rank&dataset_key&constituent_key&highertaxon_key&name_type&status&issue&{advanced:bool}',

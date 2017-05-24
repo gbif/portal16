@@ -93,3 +93,7 @@ router.get('/dataset/stats.html', function (req, res, next) {
 router.get('/dataset/activity.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/dataset/key2/activity/datasetActivity.template.nunjucks');
 });
+
+router.get('/dataset/constituents.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/constituents/datasetConstituents.template.nunjucks');
+});

@@ -201,6 +201,10 @@ function resolveEnum(predicate, config, __mf) {
     if (intervalTypes.indexOf(predicate.key) !== -1 ) {
         if (predicate.type == 'between') {
             predicate.value = __mf(config.valueTranslation + predicate.type, {from: predicate.from, to: predicate.to})
+        } else if (predicate.type == 'lessThan') {
+            predicate.value = __mf(config.valueTranslation + 'lessThanOrEquals', {to: predicate.value})
+        } else if (predicate.type == 'greaterThan') {
+            predicate.value = __mf(config.valueTranslation + 'greaterThanOrEquals', {from: predicate.value})
         } else {
             predicate.value = __mf(config.valueTranslation + predicate.type, {from: predicate.value, to: predicate.value})
         }

@@ -48,6 +48,7 @@ nature, PLOS, ... and
                             <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">Species</a>
                             <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">Datasets</a>
                             <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">Publishers</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ omniSearch.freeTextQuery }}">Resources</a>
                         </div>
                         <div class="home__header__search-bar search-box">
                             <form action="{$ gb.locales.urlPrefix $}/search"
@@ -97,9 +98,9 @@ nature, PLOS, ... and
                         {% endfor %}
 
                         </div>
-                        <div class="text-center">
-                            <a class="gb-button--brand" href="{$ gb.locale.urlPrefix $}/resource/search">Explore news, events and more</a>
-                        </div>
+                        {#<div class="text-center">#}
+                            {#<a class="gb-button--brand" href="{$ gb.locale.urlPrefix $}/resource/search">Explore news, events and more</a>#}
+                        {#</div>#}
                     </div>
                 {% endif %}
 

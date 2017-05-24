@@ -25,7 +25,7 @@
                         <div ng-bind-html="datasetKey2.dataset.project.funding"></div>
                     </div>
 
-                    <div ng-if="!datasetKey2.dataset.project.studyAreaDescription && !datasetKey2.dataset.project.designDescription && !datasetKey2.dataset.project.funding" class="emptyInfo">
+                    <div ng-if="datasetKey2.projectEmpty" class="emptyInfo">
                         <p>{$ __('stdTerms.noDescription') $}</p>
                     </div>
 

@@ -57,6 +57,24 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetConstituents', function ($resource, env) {
+            return $resource(env.dataApi + 'dataset/:key/constituents', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('DatasetProcessSummary', function ($resource, env) {
+            return $resource('/api/dataset/:key/processSummary', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
     ;
 
 })();

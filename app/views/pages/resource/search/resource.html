@@ -36,6 +36,7 @@
             <div filter-facet filter-config="resource.filters.topics" filter-state="resource.state"></div>
         </div>
 
+<!--{{angular.equals({}, resource.state.data.facets.PURPOSES.count)}}-->
         <div ng-if="resource.state.query.purposes || resource.state.query.contentType == 'project'">
             <div filter-facet filter-config="resource.filters.purposes" filter-state="resource.state"></div>
         </div>
@@ -128,23 +129,47 @@
                                         </a>
                                     </li>
 
-                                    <li class="tab" ng-if="resource.getExtraTabContentType()" ng-class="{isActive: resource.state.query.contentType == resource.getExtraTabContentType()}">
-                                        <a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], _showPastEvents:undefined, offset:undefined})">
-                                            {{resource.getExtraTabContentType()}}
+                                    <li class="tab" ng-if="resource.isTabShown('programme')" ng-class="{isActive: resource.state.query.contentType == 'programme'}">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['programme'], _showPastEvents:undefined, offset:undefined})">
+                                            Programmes
                                         </a>
                                     </li>
 
-                                    <li class="tab" uib-dropdown dropdown-append-to-body ng-if="resource.getMoreOptions().length > 0">
-                                        <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
-                                            More
+                                    <li class="tab" ng-if="resource.isTabShown('tool')" ng-class="{isActive: resource.state.query.contentType == 'tool'}">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['tool'], _showPastEvents:undefined, offset:undefined})">
+                                            Tools
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
-                                            aria-labelledby="btn-append-to-body">
-                                            <li ng-repeat="option in resource.getMoreOptions()" role="menuitem">
-                                                <a href="" ui-sref="resourceSearchList({contentType:[option], _showPastEvents:undefined, offset:undefined})">{{option}}</a>
-                                            </li>
-                                        </ul>
                                     </li>
+
+                                    <li class="tab" ng-if="resource.isTabShown('documents')" ng-class="{isActive: resource.state.query.contentType == 'documents'}">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['documents'], _showPastEvents:undefined, offset:undefined})">
+                                            Documents
+                                        </a>
+                                    </li>
+
+                                    <li class="tab" ng-if="resource.isTabShown('literature')" ng-class="{isActive: resource.state.query.contentType == 'literature'}">
+                                        <a href="" ui-sref="resourceSearchList({contentType:['literature'], _showPastEvents:undefined, offset:undefined})">
+                                            Literature
+                                        </a>
+                                    </li>
+
+                                    <!--<li class="tab" ng-if="resource.getExtraTabContentType()" ng-class="{isActive: resource.state.query.contentType == resource.getExtraTabContentType()}">-->
+                                        <!--<a href="" ui-sref="resourceSearchList({contentType:[resource.getExtraTabContentType()], _showPastEvents:undefined, offset:undefined})">-->
+                                            <!--{{resource.getExtraTabContentType()}}-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+
+                                    <!--<li class="tab" uib-dropdown dropdown-append-to-body ng-if="resource.getMoreOptions().length > 0">-->
+                                        <!--<a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>-->
+                                            <!--More-->
+                                        <!--</a>-->
+                                        <!--<ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"-->
+                                            <!--aria-labelledby="btn-append-to-body">-->
+                                            <!--<li ng-repeat="option in resource.getMoreOptions()" role="menuitem">-->
+                                                <!--<a href="" ui-sref="resourceSearchList({contentType:[option], _showPastEvents:undefined, offset:undefined})">{{option}}</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</li>-->
                                 </ul>
                             </nav>
                         </div>

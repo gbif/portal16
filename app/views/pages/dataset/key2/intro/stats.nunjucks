@@ -68,33 +68,48 @@
     </div>
     {#checklist stats#}
     <div class="row summaryStats" ng-if="datasetKey2.taxa.count > 0">
-        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
-            <div>
-                <div class="summaryStats__circle summaryStats__circle--species"></div>
-                <div class="summaryStats__percentage">
-                    <span>{{ datasetKey2.taxa.count | localNumber }}</span>
-                    <div>Taxa</div>
-                </div>
-            </div>
-        </a>
-        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true, rank:'SPECIES'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true, status: 'ACCEPTED'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            {#<div>#}
+                {#<div class="summaryStats__circle summaryStats__circle--species"></div>#}
+                {#<div class="summaryStats__percentage">#}
+                    {#<span>{{ datasetKey2.stats.accepted | localNumber }}</span>#}
+                    {#<div>Accepted names</div>#}
+                {#</div>#}
+            {#</div>#}
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
                             max="100"
-                            current="100*(datasetKey2.taxa.facets.RANK.counts.SPECIES.count / datasetKey2.taxa.count)"
+                            current="100*(datasetKey2.stats.accepted / datasetKey2.taxa.count)"
                             bgcolor="#dbefef"
                             color="#8ab9c1"
                             responsive="true">
                     </round-progress>
                 </div>
                 <div class="summaryStats__percentage">
-                    <span>{{ ( datasetKey2.taxa.facets.RANK.counts.SPECIES.count / datasetKey2.taxa.count) | formatAsPercentage}}%</span>
-                    <div>species</div>
+                    <span>{{ datasetKey2.stats.accepted | localNumber }}</span>
+                    <div>Accepted names</div>
                 </div>
             </div>
         </a>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced: true, status: ['HETEROTYPIC_SYNONYM', 'SYNONYM', 'PROPARTE_SYNONYM', 'HOMOTYPIC_SYNONYM']})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+            <div>
+                <div class="summaryStats__circle">
+                    <round-progress
+                            max="100"
+                            current="100*(datasetKey2.stats.synonyms / datasetKey2.taxa.count)"
+                            bgcolor="#dbefef"
+                            color="#8ab9c1"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="summaryStats__percentage">
+                    <span>{{ datasetKey2.stats.synonyms | localNumber }}</span>
+                    <div>Synonyms</div>
+                </div>
+            </div>
+        </a>
+        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey2.isPartOfCOL">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -107,11 +122,11 @@
                 </div>
                 <div class="summaryStats__percentage">
                     <span>{{ datasetKey2.metrics.nubCoveragePct }}%</span>
-                    <div>overlap with GBIF Backbone</div>
+                    <div>Overlap with GBIF Backbone</div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey2.isPartOfCOL">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -124,7 +139,7 @@
                 </div>
                 <div class="summaryStats__percentage">
                     <span>{{ datasetKey2.metrics.colCoveragePct }}%</span>
-                    <div><span>overlap with Catalogue of Life</span></div>
+                    <div><span>Overlap with Catalogue of Life</span></div>
                 </div>
             </div>
         </div>

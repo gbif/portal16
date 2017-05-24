@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .service('SpeciesFilter', function ($rootScope, $state, $stateParams, SpeciesSearch, speciesConstants) {
+    .service('SpeciesFilter', function ($rootScope, $state, $stateParams, SpeciesSearch, constantKeys) {
         var state = {
             data: {},
             failedRequest: false,
@@ -13,7 +13,7 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
-            dataset_key: speciesConstants.backboneKey,
+            dataset_key: constantKeys.backboneKey,
             name_type: undefined,
             constituent_key: undefined
         };

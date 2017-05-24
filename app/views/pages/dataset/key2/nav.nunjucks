@@ -16,9 +16,15 @@
                             {#</a>#}
                         {#</li>#}
 
-                        <li class="tab" ng-class="{isActive: datasetKey2.$state.is('datasetKeyProject')}" ng-if="datasetKey2.dataset.project">
+                        <li class="tab" ng-class="{isActive: datasetKey2.$state.is('datasetKeyProject')}" ng-if="datasetKey2.dataset.project && !datasetKey2.projectEmpty">
                             <a ui-sref="datasetKeyProject({key:datasetKey2.dataset.key})">
                                 Project
+                            </a>
+                        </li>
+
+                        <li class="tab" ng-class="{isActive: datasetKey2.$state.is('datasetKeyConstituents')}">
+                            <a ui-sref="datasetKeyConstituents({key:datasetKey2.dataset.key})">
+                                Constituents
                             </a>
                         </li>
 
@@ -35,7 +41,7 @@
                         </li>
 
 
-                        <li class="tab" uib-dropdown dropdown-append-to-body ng-if="datasetKey2.originalArchive">
+                        <li class="tab" uib-dropdown dropdown-append-to-body ng-if="datasetKey2.originalArchive || datasetKey2.dataset.type == 'OCCURRENCE' || datasetKey2.dataset.type == 'SAMPLING_EVENT'">
                             <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
                                 <span class="gb-icon-file-download"></span>
                                 <span>
@@ -62,25 +68,25 @@
                         </li>
 
                         <li class="tab tab-right ng-cloak" ng-if="datasetKey2.occurrences.count > 0">
-                                <span>
-                                    <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key})" class="gb-button--brand">
-                                        {{ datasetKey2.occurrences.count | localNumber }}
-                                        <span>
-                                            Occurrences
-                                        </span>
-                                    </a>
-                                </span>
+                            <span>
+                                <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key})" class="gb-button--brand">
+                                    {{ datasetKey2.occurrences.count | localNumber }}
+                                    <span>
+                                        Occurrences
+                                    </span>
+                                </a>
+                            </span>
                         </li>
 
                         <li class="tab tab-right ng-cloak" ng-if="datasetKey2.taxa.count > 0">
-                                <span>
-                                    <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced:true})" class="gb-button--primary">
-                                        {{ datasetKey2.taxa.count | localNumber }}
-                                        <span>
-                                            Species
-                                        </span>
-                                    </a>
-                                </span>
+                            <span>
+                                <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced:true})" class="gb-button--primary">
+                                    {{ datasetKey2.taxa.count | localNumber }}
+                                    <span>
+                                        Records
+                                    </span>
+                                </a>
+                            </span>
                         </li>
 
                     </ul>

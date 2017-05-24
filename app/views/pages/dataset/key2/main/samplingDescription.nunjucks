@@ -2,15 +2,15 @@
     <div>
         <a href="" id="methodology"></a>
         <div class="anchor-block--tabs" id="methodologyBlock">
-            <h3>Methodology</h3>
+            <h3 translate="dataset.methodology" class="text-capitalize">Methodology</h3>
             <div>
                 <div ng-repeat="field in ['studyExtent', 'sampling', 'qualityControl']" ng-if="datasetKey2.dataset.samplingDescription[field]">
-                    <h4 class="m-t-1">{{ field }}</h4>
+                    <h4 translate="dataset.{{ field }}" class="text-capitalize">{{ field }}</h4>
                     <div ng-bind-html="datasetKey2.dataset.samplingDescription[field]"></div>
                 </div>
 
                 <div ng-if="datasetKey2.dataset.samplingDescription.methodSteps.length > 0">
-                    <h4 class="m-t-1">Method steps</h4>
+                    <h4 translate="dataset.methodSteps" class="text-capitalize">Method steps</h4>
                     <ol>
                         <li class="counted-section--connected" ng-repeat="step in datasetKey2.dataset.samplingDescription.methodSteps">
                             <div>

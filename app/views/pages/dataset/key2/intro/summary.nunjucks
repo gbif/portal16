@@ -15,14 +15,22 @@
                 <img ng-src="{{ datasetKey2.dataset.logoUrl }}" onError="this.style.display = 'none'">
             </div>
             <dl class="inline">
+                {#<div>#}
+                    {#<dt class="text-capitalize">Publisher</dt>#}
+                    {#<dd>#}
+                        {#<a ng-href="/publisher/{{ datasetKey2.dataset.publishingOrganizationKey }}">#}
+                            {#{{ datasetKey2.publisher.title }}#}
+                        {#</a>#}
+                    {#</dd>#}
+                {#</div>#}
+
                 <div>
-                    <dt class="text-capitalize">Publisher</dt>
+                    <dt class="text-capitalize">Last modified</dt>
                     <dd>
-                        <a ng-href="/publisher/{{ datasetKey2.dataset.publishingOrganizationKey }}">
-                            {{ datasetKey2.publisher.title }}
-                        </a>
+                        {{ datasetKey2.dataset.modified | amDateFormat:'D MMMM YYYY' }}
                     </dd>
                 </div>
+
                 <div>
                     <dt class="text-capitalize">License</dt>
                     <dd>

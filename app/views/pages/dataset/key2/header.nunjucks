@@ -6,12 +6,17 @@
                     <span class="article-header__category__upper"><a
                                 ui-sref="datasetSearchTable({type:datasetKey2.dataset.type})" translate="dataset.longType.{{ datasetKey2.dataset.type }}">
                             </a></span>
-                    <span class="article-header__category__lower">Published {{ datasetKey2.dataset.pubDate | amDateFormat:'D MMMM YYYY' }}</span>
+                    <span class="article-header__category__lower">Registered {{ datasetKey2.dataset.created | amDateFormat:'D MMMM YYYY' }}</span>
                 </nav>
 
                 <h1 class="text-center">
                     <span>{{ datasetKey2.dataset.title }}</span>
                 </h1>
+                <p class="source">
+                    Published by <a class="source underline" ng-href="/publisher/{{ datasetKey2.dataset.publishingOrganizationKey }}">
+                        {{ datasetKey2.publisher.title }}
+                    </a>
+                </p>
                 <div ng-if="datasetKey2.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">
                         <li ng-repeat="contributor in datasetKey2.dataset._computedValues.contributors.highlighted">
@@ -27,6 +32,9 @@
                         </li>
                     </ol>
                 </div>
+                <p class="text-error" ng-if="datasetKey2.dataset.deleted">
+                    This dataset was deleted {{ datasetKey2.dataset.deleted | amDateFormat:'D MMMM YYYY' }}
+                </p>
             </header>
         </div>
     </div>

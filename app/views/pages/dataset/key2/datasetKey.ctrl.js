@@ -7,6 +7,7 @@ var angular = require('angular'),
 
 require('./project/datasetProject.ctrl');
 require('./stats/datasetStats.ctrl');
+require('./constituents/datasetConstituents.ctrl');
 //require('./taxonomy/datasetTaxonomy.ctrl');
 require('./activity/datasetActivity.ctrl');
 require('../../../components/contactsCard/contacts.directive');
@@ -19,12 +20,15 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation, DatasetMetrics) {
+function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys) {
     var vm = this;
+    //$anchorScroll.yOffset = -5;
     vm.key = $stateParams.key;
     vm.$state = $state;
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
+    vm.processSummary = DatasetProcessSummary.get({key: vm.key});
+    vm.isPartOfCOL = constantKeys.col === vm.key;
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
@@ -40,7 +44,15 @@ function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, 
     vm.withoutTaxon = OccurrenceSearch.query({dataset_key: vm.key, issue: 'TAXON_MATCH_NONE', limit: 0});
     vm.withYear = OccurrenceSearch.query({dataset_key: vm.key, year: '*,3000', limit: 0});
 
-    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'rank', limit: 0});
+    vm.taxa = SpeciesSearch.query({dataset_key: vm.key, facet: 'status', limit: 0});
+    vm.stats = {};
+    vm.taxa.$promise.then(function(){
+        vm.stats.accepted = _.get(vm.taxa, 'facets.STATUS.counts.ACCEPTED.count', 0);
+        vm.stats.synonyms = _.get(vm.taxa, 'facets.STATUS.counts.HETEROTYPIC_SYNONYM.count', 0) +
+                            _.get(vm.taxa, 'facets.STATUS.counts.SYNONYM.count', 0) +
+                            _.get(vm.taxa, 'facets.STATUS.counts.PROPARTE_SYNONYM.count', 0) +
+                            _.get(vm.taxa, 'facets.STATUS.counts.HOMOTYPIC_SYNONYM.count', 0);
+    });
 
     vm.dataset.$promise.then(function () {
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
@@ -50,12 +62,22 @@ function datasetKey2Ctrl($state, $stateParams, OccurrenceSearch, SpeciesSearch, 
         });
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
         vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
+        vm.dataset._endpoints = _.filter(vm.dataset.endpoints, 'url');
+        vm.dataset._identifiers = _.filter(vm.dataset.identifiers, function(e){
+            return ['DOI', 'URL', 'LSID', 'FTP', 'UNKNOWN'].indexOf(e.type) > -1;
+        });
+        $timeout(function(){
+            $anchorScroll();
+        });
+        vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
+        vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.col === vm.dataset.parentDatasetKey;
     });
+
 
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
         return endpoints.find(function (e) {
-            return e.type == 'DWC_ARCHIVE';
+            return e.type == 'DWC_ARCHIVE' || e.type == 'BIOCASE';
         });
     }
 
