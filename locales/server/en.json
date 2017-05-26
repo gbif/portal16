@@ -1428,7 +1428,8 @@
     "download": "download",
     "license": "license",
     "learnMore": "learn more",
-    "readMore": "read more"
+    "readMore": "read more",
+    "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}"
   },
   "event": {
     "location": "Location",
