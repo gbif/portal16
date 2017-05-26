@@ -221,6 +221,24 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'publisherListCtrl',
             controllerAs: 'publisherList'
         })
+        .state('publisherKey', {
+            parent: 'localization',
+            url: '/publisher/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/publisher/key.html?v=' + BUILD_VERSION,
+                    controller: 'publisherKeyCtrl',
+                    controllerAs: 'publisherKey'
+                }
+            }
+        })
+        .state('publisherKeyDatasets', {
+            parent: 'datasetKey',
+            url: '/activity?offset&limit',
+            templateUrl: '/api/template/publisher/datasets.html?v=' + BUILD_VERSION,
+            controller: 'publisherDatasetsCtrl',
+            controllerAs: 'publisherDatasets'
+        })
         .state('resourceSearch', {
             parent: 'localization',
             url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&countriesOfResearcher&countriesOfCoverage&_showPastEvents',

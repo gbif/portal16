@@ -1,0 +1,25 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="publisherKey light-background">
+            <div class="wrapper-horizontal-stripes" Xng-if="publisherKey.publisher.$resolved">
+
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+
+                <div Xng-if="datasetKey2.$state.is('datasetKey')">
+
+                </div>
+                {{ publisherKey.test }}
+
+                <div ui-view>
+                </div>
+
+            </div>
+            <div class="wrapper-horizontal-stripes" Xng-if="!datasetKey2.dataset.$resolved">
+                <div class="emptyInfo">
+                    <h3>Hang on while we find the dataset</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

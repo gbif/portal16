@@ -66,6 +66,18 @@ router.get('/search/publisherResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
 });
 
+router.get('/publisher/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/publisherKey.template.nunjucks');
+});
+
+router.get('/publisher/datasets.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/datasets/publisherDatasets.template.nunjucks');
+});
+
+router.get('/publisher/installations.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/installations/publisherInstallations.template.nunjucks');
+});
+
 router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });

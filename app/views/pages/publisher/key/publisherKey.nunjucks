@@ -3,9 +3,10 @@
 {% block page %}
     <article class="wrapper-horizontal-stripes publisherKey page--data">
 
-        {% include "./header/header.nunjucks" %}
+        {% include "./header.nunjucks" %}
+        {% include "./nav.nunjucks" %}
 
-        <div class="horizontal-stripe p-t-0 white-background">
+        <div class="horizontal-stripe p-t-0 light-background">
             {% include "./highlights/highlights.nunjucks" %}
 
             {% if publisher.record.description | striptags | length >= 350 %}
