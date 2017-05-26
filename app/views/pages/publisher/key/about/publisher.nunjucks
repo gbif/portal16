@@ -1,0 +1,39 @@
+<address class="small discreet">
+    <div>{{ publisherKey.publisher.title }} {{ publisherKey.publisher.firstName }} {{ publisherKey.publisher.lastName }}</div>
+    <ul class="inline-bullet-list">
+        <li ng-repeat="position in publisherKey.publisher.position">{{position}}</li>
+    </ul>
+    <div>{{ publisherKey.publisher.organization }}</div>
+    <div>{{ publisherKey.publisher.city }}</div>
+    <div>{{ publisherKey.publisher.province }} {{ publisherKey.publisher.postalCode }}</div>
+    <div ng-if="publisherKey.publisher.country" translate="country.{{publisherKey.publisher.country}}"></div>
+    <div ng-repeat="addressLine in publisherKey.publisher.address">{{addressLine}}</div>
+    <div>
+        <ul class="inline-bullet-list">
+            <li ng-repeat="email in publisherKey.publisher.email" ng-if="email">
+                <a ng-href="mailto:{{ email }}">{{ email }}</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="inline-bullet-list">
+            <li ng-repeat="phone in publisherKey.publisher.phone" ng-if="phone">
+                <a ng-href="tel:{{ phone }}">{{ phone }}</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="inline-bullet-list">
+            <li ng-repeat="homepage in publisherKey.publisher.homepage" ng-if="homepage">
+                <a ng-href="{{ homepage }}">{{ homepage }}</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="inline-bullet-list">
+            <li ng-repeat="userId in publisherKey.publisher.userId" ng-if="userId">
+                <a ng-href="{{ userId }}">{{ userId }}</a>
+            </li>
+        </ul>
+    </div>
+</address>

@@ -233,11 +233,18 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             }
         })
         .state('publisherKeyDatasets', {
-            parent: 'datasetKey',
-            url: '/activity?offset&limit',
+            parent: 'publisherKey',
+            url: '/datasets?offset&limit',
             templateUrl: '/api/template/publisher/datasets.html?v=' + BUILD_VERSION,
             controller: 'publisherDatasetsCtrl',
             controllerAs: 'publisherDatasets'
+        })
+        .state('publisherKeyInstallations', {
+            parent: 'publisherKey',
+            url: '/installations?offset&limit',
+            templateUrl: '/api/template/publisher/installations.html?v=' + BUILD_VERSION,
+            controller: 'publisherInstallationsCtrl',
+            controllerAs: 'publisherInstallations'
         })
         .state('resourceSearch', {
             parent: 'localization',

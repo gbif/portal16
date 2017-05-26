@@ -1,0 +1,69 @@
+<div class="card container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="card__content row">
+                <div class="logoImg pull-right" ng-if="publisherKey.publisher.logoUrl">
+                    <img ng-src="{{ publisherKey.publisher.logoUrl }}" onError="this.style.display = 'none'">
+                </div>
+
+                <dl class="inline">
+                    <div ng-if="publisherKey.technicalContact">
+                        <dt class="text-capitalize">Description</dt>
+                        <dd ng-bind-html="publisherKey.publisher.description">
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="text-capitalize">Endorsed by</dt>
+                        <dd>
+                            {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="text-capitalize">GBIF pubilsher since</dt>
+                        <dd>
+                            <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
+                        </dd>
+                    </div>
+                    <div ng-if="publisherKey.adminContact">
+                        <dt class="text-capitalize">Administrative contact</dt>
+                        <dd>
+                            <a ng-href="mailto:{{ publisherKey.adminContact.email[0] }}">{{ publisherKey.adminContact.firstName }} {{ publisherKey.adminContact.lastName }}</a>
+                        </dd>
+                    </div>
+                    <div ng-if="publisherKey.technicalContact">
+                        <dt class="text-capitalize">Technical contact</dt>
+                        <dd>
+                            <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="addressMap">
+                <div ng-if="publisherKey.addressToggle">
+                    {% include('./publisher.nunjucks') %}
+                </div>
+                <div ng-if="!publisherKey.addressToggle">
+                    <div style="height:300px" ng-if="publisherKey.center" class="row">
+                        <leaflet
+                                leafletMap="leafletMap"
+                                id="publisherLocationMap"
+                                defaults="publisherKey.mapDefaults"
+                                markers="publisherKey.markers"
+                                height="100%"
+                                width="100%"
+                                tiles="publisherKey.tiles"
+                                lf-center="publisherKey.center"
+                                event-broadcast="publisherKey.mapEvents"
+                        ></leaflet>
+                    </div>
+                </div>
+                <a class="gb-button--brand" ng-click="publisherKey.addressToggle = !publisherKey.addressToggle" ng-if="publisherKey.center.lat">
+                    <span ng-if="!publisherKey.addressToggle">Show address</span>
+                    <span ng-if="publisherKey.addressToggle">Show on map</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

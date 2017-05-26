@@ -1,0 +1,98 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="hidden">
+
+        <h1>
+            {$ publisher.record.title $}
+        </h1>
+
+        <dl>
+            <dt>GBIF publisher since</dt>
+            <dd>{$ publisher.record.created | formatDate(gb.locales.current) $}</dd>
+        </dl>
+
+        <div>
+            <h2>Description</h2>
+            {$ publisher.record.description | decodeHtml | linkify | sanitize | safe $}
+        </div>
+
+        <div>
+            <h2>Contacts</h2>
+            {% for contact in publisher.record.contacts %}
+            <address>
+                {% if contact.type %}
+                    {$ contact.type $}<br/>
+                {% endif %}
+
+                {% if contact.firstName or contact.lastName %}
+                    {$ contact.firstName $} {$ contact.lastName $}<br/>
+                {% endif %}
+
+                {% if contact.position.length > 0 %}
+                    {% for position in contact.position %}
+                        position: {$ position $}<br>
+                    {% endfor %}
+                {% endif %}
+
+                {% if contact.organization %}
+                    {$ contact.organization $}<br/>
+                {% endif %}
+
+                {% if contact.address.length > 0 %}
+                    {% for addressLine in contact.address %}
+                        <span>{$ addressLine $}</span><br/>
+                    {% endfor %}
+                {% endif %}
+
+                {% if contact.city %}
+                    {$ contact.city $}<br/>
+                {% endif %}
+
+                {% if contact.postalCode %}
+                    {$ contact.postalCode $}<br/>
+                {% endif %}
+
+                {% if contact.province %}
+                    {$ contact.province $}<br/>
+                {% endif %}
+
+                {% if contact.country %}
+                    {$ contact.country $}<br/>
+                {% endif %}
+
+                {% if contact.phone.length > 0 %}
+                    {% for phone in contact.phone %}
+                        Telephone: {$ phone $}<br>
+                    {% endfor %}
+                {% endif %}
+
+                {% if contact.email.length > 0 %}
+                    {% for email in contact.email %}
+                        email: {$ email $}<br>
+                    {% endfor %}
+                {% endif %}
+
+                {% if contact.homepage.length > 0 %}
+                    {% for homepage in contact.homepage %}
+                        homepage: {$ homepage $}<br>
+                    {% endfor %}
+                {% endif %}
+
+                {% if contact.userId.length > 0 %}
+                    {% for userId in contact.userId %}
+                        userId: {$ userId $}<br>
+                    {% endfor %}
+                {% endif %}
+
+
+            </address>
+            {% endfor %}
+        </div>
+
+    </article>
+
+
+
+
+{% endblock %}

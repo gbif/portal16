@@ -67,7 +67,7 @@
             <div>{{ contact.city }}</div>
             <div>{{ contact.province }} {{ contact.postalCode }}</div>
             <div ng-if="contact.country" translate="country.{{contact.country}}"></div>
-            <div ng-repeat="addresLine in contact.address">{{addressLine}}</div>
+            <div ng-repeat="addressLine in contact.address">{{addressLine}}</div>
             <div>
                 <ul class="inline-bullet-list">
                     <li ng-repeat="email in contact.email">

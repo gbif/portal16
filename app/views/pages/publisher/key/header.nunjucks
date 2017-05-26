@@ -3,34 +3,23 @@
         <div class="row">
             <header class="col-xs-12">
                 <nav class="article-header__category article-header__category--deep">
-                    <span class="article-header__category__upper">{$ __('stdTerms.publisher') $}</span>
+                    <span class="article-header__category__upper"><a
+                                ui-sref="publisherSearchList()" translate="stdTerms.publisher">
+                        </a></span>
                     <span class="article-header__category__lower">
-                        {$ publisher.record.created | formatDate(gb.locales.current) $}
+                        Registered {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
                     </span>
                 </nav>
-
                 <h1>
-                    <span>{$ publisher.record.title $}</span>
+                    {{ publisherKey.publisher.title }}
                 </h1>
             </header>
         </div>
 
-        {% if publisher.record.modified %}
-        <div class="stripe-comment">
-            <div>
-                Modified
-                {$ publisher.record.modified | formatDate(gb.locales.current) $}
-            </div>
-        </div>
-        {% endif %}
-
-        <div class="text-center">
-
-            {% if publisher.record.homepage | isDefined %}
-                {% for homepage in publisher.record.homepage %}
-                        <a href="{$ homepage $}" class="gb-button--brand">{$ homepage | reduceUrlToDomain $}</a>
-                {% endfor %}
-            {% endif %}
-        </div>
+        {#<div class="stripe-comment" ng-if="publisherKey.publisher.modified !== publisherKey.publisher.created">#}
+            {#<div>#}
+                {#Modified {{ publisherKey.publisher.modified | amDateFormat:'D MMMM YYYY' }}#}
+            {#</div>#}
+        {#</div>#}
     </div>
 </div>

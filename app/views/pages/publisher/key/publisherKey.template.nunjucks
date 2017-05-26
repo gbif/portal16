@@ -6,18 +6,17 @@
                 {% include "./header.nunjucks" %}
                 {% include "./nav.nunjucks" %}
 
-                <div Xng-if="datasetKey2.$state.is('datasetKey')">
-
+                <div ng-if="publisherKey.$state.is('publisherKey')">
+                    {% include "./about/index.nunjucks" %}
                 </div>
-                {{ publisherKey.test }}
 
                 <div ui-view>
                 </div>
 
             </div>
-            <div class="wrapper-horizontal-stripes" Xng-if="!datasetKey2.dataset.$resolved">
+            <div class="wrapper-horizontal-stripes" ng-if="!publisherKey.publisher.$resolved">
                 <div class="emptyInfo">
-                    <h3>Hang on while we find the dataset</h3>
+                    <h3>Hang on while we find the publisher</h3>
                 </div>
             </div>
         </div>
