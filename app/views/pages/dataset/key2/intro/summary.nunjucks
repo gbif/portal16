@@ -10,6 +10,11 @@
                 {$ __('stdTerms.noDescription') $}
             </div>
         </div>
+        {#<div class="col-xs-12 col-sm-6 col-md-2">#}
+            {#<div class="pull-right">#}
+                {#<img ng-src="{{ datasetKey2.images.results[0]._image.identifier | imgCache:200:150 }}">#}
+            {#</div>#}
+        {#</div>#}
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="logoImg" ng-if="datasetKey2.dataset.logoUrl">
                 <img ng-src="{{ datasetKey2.dataset.logoUrl }}" onError="this.style.display = 'none'">

@@ -109,7 +109,7 @@
                 </div>
             </div>
         </a>
-        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey2.isPartOfCOL">
+        <div class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="!datasetKey2.isBackbone">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress

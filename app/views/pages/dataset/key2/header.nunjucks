@@ -16,6 +16,7 @@
                     Published by <a class="source underline" ng-href="/publisher/{{ datasetKey2.dataset.publishingOrganizationKey }}">
                         {{ datasetKey2.publisher.title }}
                     </a>
+                    <span class="source" ng-if="datasetKey2.parentDataset.title"> - This dataset is a constituent of <a class="source underline" ng-href="/dataset/{{ datasetKey2.parentDataset.key }}">{{ datasetKey2.parentDataset.title }}</a></span>
                 </p>
                 <div ng-if="datasetKey2.dataset._computedValues.contributors.highlighted.length > 0">
                     <ol class="inline-bullet-list">

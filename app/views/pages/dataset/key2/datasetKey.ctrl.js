@@ -20,7 +20,7 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, DatasetExtended, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys) {
+function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys) {
     var vm = this;
     //$anchorScroll.yOffset = -5;
     vm.key = $stateParams.key;
@@ -28,7 +28,9 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
+    vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isPartOfCOL = constantKeys.col === vm.key;
+    vm.isBackbone = constantKeys.backboneKey === vm.key;
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
@@ -60,6 +62,7 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
         vm.installation.$promise.then(function () {
             vm.host = Publisher.get({id: vm.installation.organizationKey});
         });
+        vm.parentDataset = Dataset.get({id: vm.dataset.parentDatasetKey});
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
         vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
         vm.dataset._endpoints = _.filter(vm.dataset.endpoints, 'url');
