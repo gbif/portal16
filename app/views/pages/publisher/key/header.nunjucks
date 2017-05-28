@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background">
+<div class="horizontal-stripe article-header white-background p-b-1">
     <div class="container">
         <div class="row">
             <header class="col-xs-12">
@@ -7,7 +7,7 @@
                                 ui-sref="publisherSearchList()" translate="stdTerms.publisher">
                         </a></span>
                     <span class="article-header__category__lower">
-                        Registered {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
+                        Since {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
                     </span>
                 </nav>
                 <h1>

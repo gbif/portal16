@@ -3,7 +3,9 @@
         <a href="" id="contributors"></a>
         <div class="anchor-block--tabs" id="contributorsBlock">
             <h3>Contributors</h3>
-            <contacts contact-list="datasetKey2.dataset._computedValues.contributors.all"></contacts>
+            <div class="contactsCard card">
+                <contact contact-info="contact" ng-repeat="contact in datasetKey2.dataset._computedValues.contributors.all"></contact>
+            </div>
         </div>
     </div>
 </section>

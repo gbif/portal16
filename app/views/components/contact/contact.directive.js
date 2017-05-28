@@ -5,17 +5,17 @@ var angular = require('angular'),
 
 angular
     .module('portal')
-    .directive('contacts', contactsDirective);
+    .directive('contact', contactDirective);
 
 /** @ngInject */
-function contactsDirective(BUILD_VERSION) {
+function contactDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/components/contactsCard/contacts.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/components/contact/contact.html?v=' + BUILD_VERSION,
         scope: {
-            contactList: '='
+            contactInfo: '='
         },
-        controller: contactsCtrl,
+        controller: contactCtrl,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -23,11 +23,11 @@ function contactsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function contactsCtrl() {
+    function contactCtrl() {
         var vm = this;
-        vm.visible = {};
+        vm.contact = vm.contactInfo;
     }
 }
 
-module.exports = contactsDirective;
+module.exports = contactDirective;
 

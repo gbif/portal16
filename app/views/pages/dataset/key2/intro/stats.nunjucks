@@ -11,7 +11,7 @@
             </div>
         </a>
 
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetKey2.withoutTaxon.$resolved">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -29,7 +29,7 @@
             </div>
         </a>
 
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey2.withCoordinates.$resolved">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress
@@ -47,7 +47,7 @@
             </div>
         </a>
 
-        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+        <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetKey2.withYear.$resolved">
             <div>
                 <div class="summaryStats__circle">
                     <round-progress

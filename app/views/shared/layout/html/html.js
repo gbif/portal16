@@ -124,6 +124,16 @@ require('angular-svg-round-progressbar');
     }
 
     /** @ngInject */
+    function addStateToRoot($rootScope,   $state,   $stateParams) {
+        // It's very handy to add references to $state and $stateParams to the $rootScope
+        // so that you can access them from any scope within your applications.For example,
+        // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+        // to active whenever 'contacts.list' or one of its decendents is active.
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+    }
+
+    /** @ngInject */
     function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig) {
         $localStorageProvider.setKeyPrefix('gbif.');
         $sessionStorageProvider.setKeyPrefix('gbif.');
@@ -164,6 +174,9 @@ require('angular-svg-round-progressbar');
 
 
 })();
+
+require('../partials/head/head.ctrl');
+require('../partials/head/page.factory');
 
 require('./angular/index.constants');
 require('./angular/routerConfig');

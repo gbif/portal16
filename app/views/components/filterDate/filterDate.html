@@ -16,8 +16,7 @@
                             <span ng-if="vm.getParsedQuery(q).type === 'invalid'">{{q}} - invalid date</span>
                             <span ng-if="vm.getParsedQuery(q).type !== 'invalid'" 
                                 translate="{{vm.filterConfig.intervalTranslation}}{{ vm.getParsedQuery(q).type }}" 
-                                translate-values="{ from: vm.getParsedQuery(q).values[0], to: vm.getParsedQuery(q).values[1]}" 
-                                translate-interpolation="messageformat"></span>
+                                translate-values="{ from: vm.getParsedQuery(q).values[0], to: vm.getParsedQuery(q).values[1]}"></span>
                         </span>
                 </label>
             </div>

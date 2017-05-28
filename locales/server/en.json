@@ -1355,6 +1355,7 @@
     "contactHelpdesk": "Contact helpdesk",
     "noDescription": "No description available",
     "resources": "resources",
+    "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
     "topics": "topics",
     "purposes": "purposes",
     "audiences": "audiences",

@@ -6,9 +6,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, BUILD_VERSION) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION) {
     var vm = this;
-
+    Page.setTitle('Occurrence search');
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};

@@ -9,7 +9,7 @@
 <![endif]-->
 
 {# <head> #}
-<head>
+<head ng-controller="headCtrl as head">
     {% include "../partials/head/head.nunjucks" %}
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}

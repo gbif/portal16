@@ -1,27 +1,43 @@
-<div class="card container-fluid">
+<div class="card card--spaced container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-8">
+        <div class="col-xs-12" ng-class="{'col-sm-6': publisherKey.center, 'col-md-8': publisherKey.center}">
             <div class="card__content row">
                 <div class="logoImg pull-right" ng-if="publisherKey.publisher.logoUrl">
                     <img ng-src="{{ publisherKey.publisher.logoUrl }}" onError="this.style.display = 'none'">
                 </div>
 
                 <dl class="inline">
-                    <div ng-if="publisherKey.technicalContact">
+                    <div ng-if="publisherKey.publisher.description">
                         <dt class="text-capitalize">Description</dt>
                         <dd ng-bind-html="publisherKey.publisher.description">
                         </dd>
                     </div>
-                    <div>
+                    {#<div>#}
+                        {#<dt class="text-capitalize">GBIF pubilsher since</dt>#}
+                        {#<dd>#}
+                            {#{{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}#}
+                        {#</dd>#}
+                    {#</div>#}
+                    <div ng-if="publisherKey.publisher.endorsementApproved">
                         <dt class="text-capitalize">Endorsed by</dt>
                         <dd>
-                            {{ publisherKey.publisher.created | amDateFormat:'D MMMM YYYY' }}
+                            <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
                         </dd>
                     </div>
-                    <div>
-                        <dt class="text-capitalize">GBIF pubilsher since</dt>
+                    <div ng-if="publisherKey.publisher.endorsementApproved === false">
+                        <dt class="text-capitalize">Pending endorsement by</dt>
                         <dd>
                             <a ng-href="/node/{{ publisherKey.endorser.key }}">{{ publisherKey.endorser.title }}</a>
+                        </dd>
+                    </div>
+                    <div ng-if="publisherKey.installations.count > 0">
+                        <dt class="text-capitalize">Installations</dt>
+                        <dd>
+                           <ul class="inline-bullet-list">
+                               <li ng-repeat="installation in publisherKey.installations.results">
+                                   <a ng-href="/installation/{{ installation.key }}">{{ installation.title }}</a>
+                               </li>
+                           </ul>
                         </dd>
                     </div>
                     <div ng-if="publisherKey.adminContact">
@@ -36,33 +52,29 @@
                             <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
                         </dd>
                     </div>
+                    {#<div ng-if="publisherKey.publisher.email[0]">#}
+                        {#<dt class="text-capitalize">Publisher</dt>#}
+                        {#<dd>#}
+                            {#<a ng-href="mailto:{{ publisherKey.publisher.email[0] }}">{{ publisherKey.publisher.email[0] }}</a>#}
+                        {#</dd>#}
+                    {#</div>#}
+                    {#<a class="gb-button--discreet text-uppercase" href="#contacts">Contact details</a>#}
                 </dl>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="addressMap">
-                <div ng-if="publisherKey.addressToggle">
-                    {% include('./publisher.nunjucks') %}
-                </div>
-                <div ng-if="!publisherKey.addressToggle">
-                    <div style="height:300px" ng-if="publisherKey.center" class="row">
-                        <leaflet
-                                leafletMap="leafletMap"
-                                id="publisherLocationMap"
-                                defaults="publisherKey.mapDefaults"
-                                markers="publisherKey.markers"
-                                height="100%"
-                                width="100%"
-                                tiles="publisherKey.tiles"
-                                lf-center="publisherKey.center"
-                                event-broadcast="publisherKey.mapEvents"
-                        ></leaflet>
-                    </div>
-                </div>
-                <a class="gb-button--brand" ng-click="publisherKey.addressToggle = !publisherKey.addressToggle" ng-if="publisherKey.center.lat">
-                    <span ng-if="!publisherKey.addressToggle">Show address</span>
-                    <span ng-if="publisherKey.addressToggle">Show on map</span>
-                </a>
+            <div class="addressMap row" ng-if="publisherKey.center">
+                <leaflet
+                        leafletMap="leafletMap"
+                        id="publisherLocationMap"
+                        defaults="publisherKey.mapDefaults"
+                        markers="publisherKey.markers"
+                        height="100%"
+                        width="100%"
+                        tiles="publisherKey.tiles"
+                        lf-center="publisherKey.center"
+                        event-broadcast="publisherKey.mapEvents"
+                ></leaflet>
             </div>
         </div>
     </div>

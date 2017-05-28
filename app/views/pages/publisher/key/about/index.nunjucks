@@ -9,16 +9,8 @@
         </div>
 
         {% include('./images.nunjucks') %}
+
+        {% include('./contacts.nunjucks') %}
         {% include('./map.nunjucks') %}
-
-        <section class="horizontal-stripe--paddingless dataset-key__contributors" ng-if="publisherKey.publisher._computedValues.contributors.all.length > 0">
-            <div class="container--desktop">
-                <div>
-                    <h4 class="text-muted small text-uppercase">Contacts</h4>
-                    <contacts contact-list="publisherKey.publisher._computedValues.contributors.all"></contacts>
-                </div>
-            </div>
-        </section>
-
     </section>
 </div>

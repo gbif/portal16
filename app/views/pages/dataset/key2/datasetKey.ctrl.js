@@ -10,7 +10,7 @@ require('./stats/datasetStats.ctrl');
 require('./constituents/datasetConstituents.ctrl');
 //require('./taxonomy/datasetTaxonomy.ctrl');
 require('./activity/datasetActivity.ctrl');
-require('../../../components/contactsCard/contacts.directive');
+require('../../../components/contact/contact.directive');
 require('../../../components/doi/doi.directive');
 require('../../../components/license/license.directive');
 require('../../../components/map/featureMap/featureMap.directive');
@@ -20,8 +20,9 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys) {
+function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page) {
     var vm = this;
+    Page.setTitle('Dataset');
     //$anchorScroll.yOffset = -5;
     vm.key = $stateParams.key;
     vm.$state = $state;
@@ -57,6 +58,7 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
     });
 
     vm.dataset.$promise.then(function () {
+        Page.setTitle(vm.dataset.title);
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
         vm.installation.$promise.then(function () {
@@ -159,3 +161,4 @@ function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, Speci
 }
 
 module.exports = datasetKey2Ctrl;
+

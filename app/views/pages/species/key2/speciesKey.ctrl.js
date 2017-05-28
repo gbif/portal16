@@ -23,13 +23,17 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, constantKeys) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
     var vm = this;
+    Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
+    vm.$state = $state;
     vm.backboneKey = constantKeys.backboneKey;
     vm.$state = $state;
+    vm.BUILD_VERSION = BUILD_VERSION;
     vm.species = Species.get({id: vm.key});
-    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});//used for showing button with count in top
+    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
+    vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
     vm.images.$promise.then(function(resp){
@@ -39,6 +43,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
 
     vm.species.$promise
         .then(function(resp){
+            Page.setTitle(vm.species.scientificName);
             vm.isSpeciesOrBelow = !!resp.speciesKey;
             var searchRank = vm.isSpeciesOrBelow ? undefined : 'SPECIES';
             vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: vm.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit:0});

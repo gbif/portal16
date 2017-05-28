@@ -12,11 +12,15 @@ angular
     .controller('publisherKeyCtrl', publisherKeyCtrl);
 
 /** @ngInject */
-function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSearch, Node) {
+function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
+    Page.setTitle('Publisher');
     vm.key = $stateParams.key;
     vm.$state = $state;
+    vm.BUILD_VERSION = BUILD_VERSION;
     vm.publisher = PublisherExtended.get({key: vm.key});
+    vm.installations = PublisherInstallations.get({id: vm.key, limit:100});
+    vm.datasets = DatasetSearch.get({publishing_org: vm.key, limit:0});
     vm.occurrences = OccurrenceSearch.query({publishing_org: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({publishing_org: vm.key, media_type: 'StillImage'});
     vm.images.$promise.then(function (resp) {
@@ -33,17 +37,20 @@ function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSea
         vm.endorser = Node.get({id: vm.publisher.endorsingNodeKey});
         updateMap();
         extractContacts();
+        Page.setTitle(vm.publisher.title);
     });
 
     function extractContacts() {
         vm.technicalContact = _.find(vm.publisher.contacts, {type: 'TECHNICAL_POINT_OF_CONTACT'});
         vm.adminContact = _.find(vm.publisher.contacts, {type: 'ADMINISTRATIVE_POINT_OF_CONTACT'});
-        console.log('sdf');
-        console.log(vm.technicalContact);
     }
 
     //Map
     function updateMap() {
+        if (!vm.publisher.latitude || !vm.publisher.longitude) {
+            return;
+        }
+        vm.showMapToggle = false;
         vm.center = {zoom: 7, lat: vm.publisher.latitude, lng: vm.publisher.longitude};
         vm.markers = {};
         vm.markers.office = {

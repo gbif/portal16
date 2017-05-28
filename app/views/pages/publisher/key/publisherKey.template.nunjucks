@@ -5,7 +5,6 @@
 
                 {% include "./header.nunjucks" %}
                 {% include "./nav.nunjucks" %}
-
                 <div ng-if="publisherKey.$state.is('publisherKey')">
                     {% include "./about/index.nunjucks" %}
                 </div>
@@ -20,5 +19,6 @@
                 </div>
             </div>
         </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + publisherKey.BUILD_VERSION"></ng-include>
     </div>
 </div>

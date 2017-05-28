@@ -1,6 +1,7 @@
 
 
-    <title>{$ _meta.title $}</title>
+    {#<title>{$ _meta.title $}</title>#}
+    <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">
 

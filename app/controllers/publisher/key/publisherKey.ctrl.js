@@ -17,15 +17,13 @@ module.exports = function (app) {
 };
 
 router.get('/publisher/:key\.:ext?', render);
-router.get('/publisher/:key/datasets', render);
-router.get('/publisher/:key/installations', render);
 
 function render(req, res, next) {
     var key = req.params.key;
     if (!isGuid(key)) {
         next();
     } else {
-        Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences', 'installation']}).then(function (publisher) {
+        Publisher.get(key).then(function (publisher) {
             try {
                 publisher._computedValues = {};
                 let contacts = publisher.record.contacts;

@@ -16,5 +16,6 @@
                 </div>
             </div>
         </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + speciesKey2.BUILD_VERSION"></ng-include>
     </div>
 </div>

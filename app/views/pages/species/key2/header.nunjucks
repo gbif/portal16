@@ -1,4 +1,4 @@
-<div class="horizontal-stripe article-header white-background p-b-0">
+<div class="horizontal-stripe article-header white-background p-b-1">
     <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
@@ -13,17 +13,46 @@
                     <span>{{speciesKey2.species.scientificName}}</span>
                 </h1>
 
+                <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span></p>
+
                 <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">in <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
 
-                <p class="text-center">
-                    <span class="classification-list discreet">
-                        <a ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
-                           href="" ui-sref=".({speciesKey:speciesKey2.species[taxa + 'Key']})"
-                           class="{$ taxa $}"
-                           ng-if="speciesKey2.species[taxa] && taxa != (speciesKey2.species.rank | lowercase )">{{
-                            speciesKey2.species[taxa] }}</a>
-                    </span>
-                </p>
+                {#<span class="article-header__meta">#}
+                    {#{{ speciesKey2.vernacularName.vernacularName }}#}
+                {#</span>#}
+
+                <div class="article-header__highlights">
+                    <div ng-if="speciesKey2.vernacularName.vernacularName" class="text-capitalize">
+                        <div>
+                            <span class="article-header__meta">{{ speciesKey2.vernacularName.vernacularName }}</span>
+                            <span class="discreet--very">in <span translate="language.{{ speciesKey2.vernacularName.language }}"></span></span>
+                        </div>
+                    </div>
+
+                    <div ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.status">
+                        <div>
+                            <span class="article-header__meta" translate="iucnStatus.{{ speciesKey2.status.category }}"></span>
+                            <span class="discreet--very">
+                                <a ng-href="{{speciesKey2.status.link}}" class="inherit">
+                                    IUCN {{ speciesKey2.status.iucn.published_year }}
+                                    <span class="gb-icon-link"></span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.cites.$resolved && speciesKey2.cites.cites_listing">
+                        <div>
+                            <span class="article-header__meta">Trade restrictions {{ speciesKey2.cites.cites_listing }}</span>
+                            <span class="discreet--very">
+                                <a ng-href="{{ speciesKey2.cites._reference }}" class="inherit">
+                                    CITES {{ speciesKey2.cites.updated_at | amDateFormat:'YYYY' }}
+                                    <span class="gb-icon-link"></span>
+                                </a>
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
             </header>
         </div>

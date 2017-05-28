@@ -71,7 +71,7 @@
                             <span>
                                 <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key})" class="gb-button--brand">
                                     {{ datasetKey2.occurrences.count | localNumber }}
-                                    <span>
+                                    <span class="gb-button--brand__label">
                                         Occurrences
                                     </span>
                                 </a>
@@ -82,7 +82,7 @@
                             <span>
                                 <a ui-sref="speciesSearchList({dataset_key:datasetKey2.key, advanced:true})" class="gb-button--primary">
                                     {{ datasetKey2.taxa.count | localNumber }}
-                                    <span>
+                                    <span class="gb-button--primary__label">
                                         Records
                                     </span>
                                 </a>

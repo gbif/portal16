@@ -13,9 +13,10 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, BUILD_VERSION) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Page, BUILD_VERSION) {
     var vm = this;
     vm.state = DatasetFilter.getState();
+    Page.setTitle('Dataset search');
 
 
     vm.filters = {};

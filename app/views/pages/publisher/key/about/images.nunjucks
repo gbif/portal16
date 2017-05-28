@@ -6,6 +6,6 @@
                 <img ng-src="{{ occurrence._image.identifier | imgCache:200:150 }}" gb-load>
             </a>
         </div>
-        <a ui-sref="occurrenceSearchGallery({dataset_key: publisherKey.key})" class="gb-button--brand">See gallery</a>
+        <a ui-sref="occurrenceSearchGallery({publishing_org: publisherKey.key})" class="gb-button--brand">See gallery</a>
     </div>
 </div>

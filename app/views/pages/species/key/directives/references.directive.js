@@ -12,17 +12,18 @@ function referencesDirective() {
     var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/references.html',
-        scope: {},
+        scope: {
+            references: '=',
+            key: '@'
+        },
         controller: referencesCtrl,
         controllerAs: 'vm',
-        bindToController: {
-            key: '@'
-        }
+        bindToController: true
     };
     return directive;
 
     /** @ngInject */
-    function referencesCtrl($state, $stateParams, SpeciesReferences) {
+    function referencesCtrl($scope, $state, $stateParams, SpeciesReferences) {
         var vm = this;
         vm.references = {
             limit: 5,
@@ -44,6 +45,7 @@ function referencesDirective() {
                         e.doi = 'https://doi.org/' + e.doi;
                     }
                 });
+                data.hasResults = data.offset > 0 || data.results.length > 0;
                 vm.references = data;
                 setHeight();
             }, function () {
@@ -67,7 +69,11 @@ function referencesDirective() {
             getReferences();
         };
 
-        getReferences();
+        $scope.$watch(function () {
+            return vm.key;
+        }, function () {
+            getReferences(vm.key);
+        });
 
         function setHeight() {
             if (vm.references.offset > 0 || !vm.references.endOfRecords && _.get(vm.references, 'results.length', 0) > 0) {

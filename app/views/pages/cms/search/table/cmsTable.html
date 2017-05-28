@@ -11,8 +11,7 @@
                     <div class="search-header__description" ng-if="cmsTable.hasData()">
                         <span ng-bind="cmsTable.state.data.count | localNumber:cmsTable.state.query.locale"></span>
                         <span translate="stdTerms.result"
-                              translate-values="{NUMBER: cmsTable.state.data.count}"
-                              translate-interpolation="messageformat"></span>
+                              translate-values="{NUMBER: cmsTable.state.data.count}"></span>
                         <!-- <span>page {{cmsTable.currentPage}} of {{cmsTable.totalPages}}</span> -->
                     </div>
                 </div>
