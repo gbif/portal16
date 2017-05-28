@@ -7,9 +7,7 @@ let _ = require('lodash'),
     moment = require('moment'),
     querystring = require('querystring'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
-
-    credentialsPath = rootRequire('config/config').credentials,
-    credentials = require(credentialsPath).contentful.gbif;
+    credentials = rootRequire('config/credentials').contentful.gbif;
 
 module.exports = {
     getSlug: getSlug,

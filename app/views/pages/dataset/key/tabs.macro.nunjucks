@@ -1,9 +1,9 @@
 {% macro datasetTabs(dataset, active, __) %}
-    <section class="horizontal-stripe--paddingless white-background dataset-key__visual-summary seperator--b">
+    <section class="horizontal-stripe--paddingless white-background seperator--b">
         <div class="container--desktop">
             <div class="row">
                 <div class="col-xs-12">
-                    <nav class="tabs">
+                    <nav class="tabs tabs--noBorder">
                         <ul>
                             <li class="tab {% if active == 'dataset' %}isActive{% endif %}">
                                 <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}">
@@ -11,17 +11,19 @@
                                 </a>
                             </li>
 
-                            <li class="tab {% if active == 'taxonomy' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/taxonomy">
-                                    Taxonomy
-                                </a>
-                            </li>
+                            {% if dataset.record.type == 'CHECKLIST' %}
+                                <li class="tab {% if active == 'taxonomy' %}isActive{% endif %}">
+                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/taxonomy">
+                                        Taxonomy
+                                    </a>
+                                </li>
+                            {% endif %}
 
-                            <li class="tab {% if active == 'origin' %}isActive{% endif %}">
-                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">
-                                    Origin
-                                </a>
-                            </li>
+                            {#<li class="tab {% if active == 'origin' %}isActive{% endif %}">#}
+                                {#<a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/origin">#}
+                                    {#Origin#}
+                                {#</a>#}
+                            {#</li>#}
 
                             {% if dataset.record.project | isNotEmpty %}
                                 <li class="tab {% if active == 'project' %}isActive{% endif %}">
@@ -32,27 +34,15 @@
                             {% endif %}
 
                             {#At this point we do not have any sensible metrics to show. TODO we should display some, but further discussion needed https://github.com/gbif/portal16/issues/138#}
-                            {% if dataset.record.type != 'CHECKLIST' %}
-                                <li class="tab {% if active == 'usage' %}isActive{% endif %}">
-                                    <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/metrics">
-                                        Metrics
-                                    </a>
-                                </li>
-                            {% endif %}
+                            <li class="tab {% if active == 'usage' %}isActive{% endif %}">
+                                <a href="{$ gb.locales.urlPrefix $}/dataset/{$ dataset.record.key $}/stats">
+                                    Stats
+                                </a>
+                            </li>
 
-                            {% if dataset._occurrenceCount.count > 0 %}
-                                <li class="tab tab-right tab--seperator">
-                                    <a href="{$ gb.locales.urlPrefix $}/occurrence/search?dataset_key={$ dataset.record.key $}">
-                                        {#<span class="gb-icon-microscope"></span>#}
-                                        <span>
-                                            Explore
-                                        </span>
-                                    </a>
-                                </li>
-                            {% endif %}
 
-                            {% if dataset._computedValues.originalArchive and dataset._occurrenceCount.count > 0 %}
-                                <li class="tab tab-right" uib-dropdown dropdown-append-to-body>
+                            {% if dataset._computedValues.originalArchive %}
+                                <li class="tab" uib-dropdown dropdown-append-to-body>
                                     <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
                                         <span class="gb-icon-file-download"></span>
                                         <span>
@@ -61,27 +51,47 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                         aria-labelledby="btn-append-to-body">
-                                        <li role="menuitem"><a href="#">GBIF Processed</a></li>
-                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Original</a>
+                                        <li role="menuitem" class="asyncIf--isHidden" async-if="//api.gbif.org/v1/occurrence/search?dataset_key={$ dataset.record.key $}">
+                                            <a href="/occurrence/download?dataset_key={$ dataset.record.key $}">Processed occurrences <span class="small text-brand-color">recommended</span></a>
                                         </li>
+                                        <li role="menuitem"><a href="{$ dataset._computedValues.originalArchive.url $}">Published archive</a></li>
+                                        <li role="menuitem"><a href="//api.gbif.org/v1/dataset/{$ dataset.record.key $}/document">GBIF annotated meta data (EML)</a></li>
                                     </ul>
                                 </li>
-                                {#{% else %}#}
-                                {#<li class="tab tab-right">#}
-                                {#<a href="{$ endpoint.url $}" uib-dropdown-toggle>#}
-                                {#<a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>#}
-                                {#<span class="gb-icon-file-download gb-icon-button"></span>#}
-                                {#<span>#}
-                                {#Download#}
-                                {#</span>#}
-                                {#</a>#}
-                                {#<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-body">#}
-                                {#<li role="menuitem"><a href="#">GBIF version</a></li>#}
-                                {#<li role="menuitem"><a href="{$ dataset.record._computedValues.originalArchive.url $}">Original {$ dataset.record._computedValues.originalArchive.type $}</a></li>#}
-                                {#</ul>#}
-                                {#</li>#}
                             {% endif %}
 
+                            {% if dataset.record.homepage %}
+                                <li class="tab">
+                                    <a href="{$ dataset.record.homepage $}">
+                                        <span class="gb-icon-link"></span>
+                                        <span>
+                                            Dataset Homepage
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                            <li class="tab tab-right ng-cloak" ng-if="datasetKey.occurrences.count > 0">
+                                <span>
+                                    <a class="gb-button--brand">
+                                        {{ datasetKey.occurrences.count | localNumber }}
+                                        <span>
+                                            Occurrences
+                                        </span>
+                                    </a>
+                                </span>
+                            </li>
+
+                            <li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">
+                                <span>
+                                    <a class="gb-button--primary">
+                                        {{ datasetKey.taxa.count | localNumber }}
+                                        <span>
+                                            Species
+                                        </span>
+                                    </a>
+                                </span>
+                            </li>
 
                         </ul>
                     </nav>

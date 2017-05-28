@@ -7,8 +7,9 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($scope, $state, $stateParams, hotkeys, NAV_EVENTS, $http) {
+function searchCtrl($state, $stateParams, Page, $http) {
     var vm = this;
+    Page.setTitle('Search');
     vm.isActive = false;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;

@@ -1,0 +1,85 @@
+$secondaryInk = #9cabb3;
+.taxonomyBrowser {
+    .discreet--very {
+        color $secondaryInk
+    }
+    font-size 14px
+    ul {
+        padding 0
+    }
+    &__parent, &__current, &__child, &__accepted {
+        padding 8px 10px
+        position relative
+        display block
+    }
+    &__child, &__parent, &__accepted {
+        background-color transparent
+        transition background-color 200ms ease
+    }
+    &__child:hover, &__parent:hover, &__accepted:hover {
+        background-color #e5ebef
+    }
+    &__current, &__accepted {
+        border 1px solid $stripeBorderColor
+        border-width 1px 0 0 0
+    }
+    &__current {
+        background white
+        padding 15px 10px
+        border-width 1px 0
+    }
+    &__rank {
+        text-transform capitalize
+        font-size 12px
+        color $discreetInk
+    }
+    &__term {
+        text-transform capitalize
+        font-size 12px
+        color $secondaryInk//$discreetInk
+        width 65px
+        display inline-block
+        position absolute
+        text-overflow ellipsis
+        overflow hidden
+    }
+    &__type {
+        text-transform capitalize
+        font-size 12px
+        color $discreetInk
+        display block
+    }
+    &__headline, &__subheadline {
+        color $discreetInk//$secondaryInk
+        font-size 12px
+        text-transform capitalize
+        margin-left 70px
+    }
+    &__headline {
+        padding 10px
+    }
+    &__description {
+        margin-left 70px
+        display block
+    }
+    &__synonyms {
+        margin-top 8px
+    }
+    &__synonym {
+        position relative
+        margin-bottom 4px
+        > span {
+            position absolute
+        }
+        > div {
+            padding-left 15px
+        }
+    }
+    &__group {
+        text-align right
+        margin 0 20px
+        > div {
+            float none
+        }
+    }
+}

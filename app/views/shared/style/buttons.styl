@@ -25,40 +25,48 @@
     color $linkColor
     background-color transparent
 }
-
-.gb-button--primary, a.gb-button--primary[href=""], a.gb-button--primary[href=""]:focus, a.gb-button--primary[href=""]:hover {
+.gb-button--colored, a.gb-button--colored[href=""], a.gb-button--colored[href=""]:focus, a.gb-button--colored[href=""]:hover {
     @extends .gb-button
     color white
-    background #8ab9c1
     transition box-shadow 200ms ease, background 200ms ease
     box-shadow 0 2px 2px 0 rgba(0, 0, 0, 0.16)
     border none
     font-weight 400
+    font-size 12px
+    text-transform uppercase
     &:hover, &:focus {
         box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.16)
-        background darken(#8ab9c1, 35)
         color white
+    }
+}
+.gb-button--primary {
+    @extends .gb-button--colored
+    background #82b1b9
+    &__label {
+        color darken(#82b1b9, 30)
     }
 }
 
 .gb-button--brand {
-    @extends .gb-button--primary
-    background darkseagreen
-    font-size 12px
-    text-transform uppercase
+    @extends .gb-button--colored
+    background $navBar_background_color
+    &__label {
+        color darken($navBar_background_color, 30)
+    }
 }
 
 .gb-button--brand--transparent {
     @extends .gb-button--brand
-    background alpha(darken(darkseagreen, 20), 0.4)
+    background alpha(darken($navBar_background_color, 20), 0.4)
 }
 
 .gb-button--discreet {
-    @extends .gb-button--brand
+    @extends .gb-button--colored
     background #eee
     color #666
-    &:hover {
-        background #9eb0b5
+    &:hover, &:focus {
+        background #ddd
+        color #666
     }
 }
 

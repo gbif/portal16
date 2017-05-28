@@ -9,19 +9,6 @@ function getTaxonList(list, rank) {
     let sorted = _.sortBy(filtered, ['scientificName']);
     return sorted;
 }
-//
-//function alphabeticalGroupedTaxa(list) {
-//    let letters = {};
-//    list.forEach(function (o) {
-//        let name = _.get(o, 'scientificName');
-//        if (name) {
-//            let firstLetter = name.substring(0,1);
-//            letters[firstLetter] = letters[firstLetter] || [];
-//            letters[firstLetter].push(o);
-//        }
-//    });
-//    return letters;
-//}
 
 function parseTaxonomicCoverage(taxonomicCoverage) {
     let groupedByRank = {};
@@ -64,9 +51,3 @@ function extendTaxonomicCoverages(taxonomicCoverages) {
 module.exports = {
     extendTaxonomicCoverages: extendTaxonomicCoverages
 };
-
-/*
- * description
- * ranks
- *   list or ABC lists
- * */

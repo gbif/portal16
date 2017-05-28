@@ -1,0 +1,46 @@
+$occurrenceCardChartBg = #253856
+$occurrenceCardHeaderBg = lighten(#253856, 10)
+.occurrenceCard {
+    &__chartArea {
+        background $occurrenceCardChartBg
+        color white
+        padding 10px
+    }
+    &__title {
+        padding 10px
+        background $occurrenceCardHeaderBg
+        color white
+    }
+    &__list {
+        ul {
+            display table
+            padding 0
+            width 100%
+            li {
+                display table-row
+                >a {
+                    padding 10px
+                    display table-cell
+                    vertical-align middle
+                    >span {
+                        color $discreetInk
+                        font-size 12px
+                    }
+                }
+                &:hover {
+                    background #eee
+                }
+            }
+        }
+        &__description {
+        }
+        &__img {
+            width 60px
+            text-align center
+        }
+        img {
+            border-radius 50%
+            overflow hidden
+        }
+    }
+}

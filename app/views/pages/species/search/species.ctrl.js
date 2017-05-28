@@ -6,8 +6,9 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($state, SpeciesFilter) {
+function speciesCtrl($state, SpeciesFilter, Page) {
     var vm = this;
+    Page.setTitle('Species search');
     vm.state = SpeciesFilter.getState();
     vm.$state = $state;
     vm.filters = {};

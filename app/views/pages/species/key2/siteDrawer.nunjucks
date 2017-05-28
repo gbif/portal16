@@ -1,0 +1,39 @@
+<aside class="site-drawer is-locked" id="site-search">
+    <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
+    <!--Apply filters-->
+    <!--</div>-->
+    <div class="site-drawer__content">
+        <div class="site-drawer__header">
+            <div class="site-drawer__bar">
+                <div class="site-drawer__bar__title">
+                    <span>
+                          Classification
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-drawer__section">
+            <div class="m-05" ng-if="speciesKey2.isNub">
+                <form class="search-box" ng-submit="speciesKey2.updateSearch()">
+                    <input type="text"
+                           focus-me="speciesKey2.filterConfig.expanded"
+                           autocomplete="off"
+                           class="fit-suggestions--searchBox"
+                           ng-model="speciesKey2.selected"
+                           placeholder="Select a species"
+                           uib-typeahead="suggestion.scientificName for suggestion in speciesKey2.getSuggestions($viewValue)"
+                           typeahead-on-select="speciesKey2.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="true"
+                           typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"
+                           ng-keyup="speciesKey2.searchOnEnter($event)">
+                    <!--<a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"-->
+                    <!--ng-click="speciesKey2.updateSearch()">-->
+                    <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
+                    <!--</a>-->
+                </form>
+            </div>
+            <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}"></taxonomy-browser>
+        </div>
+    </div>
+</aside>

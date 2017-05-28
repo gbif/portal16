@@ -1,6 +1,9 @@
 .tabs {
     height $searchTabBar-height
     border-bottom 2px solid #ddd
+    &--noBorder {
+        border-bottom 0
+    }
     ul {
         display block
         padding 0
@@ -46,11 +49,11 @@
         .tab--seperator {
             border-left none
         }
-    }
-    .tab-right {
-        float right
-        a {
-            //text-transform none
+        .tab-right {
+            float right
+            >span {
+                padding-right 0
+            }
         }
     }
 }

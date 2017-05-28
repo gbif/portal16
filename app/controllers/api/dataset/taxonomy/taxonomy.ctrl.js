@@ -44,13 +44,15 @@ function getParents(req, res, next) {
 }
 
 function getChildren(req, res, next) {
+    let childrenLimit = req.query.limit || limit;
+    let offset = req.query.offset || 0;
     if (isOccurrence(req)) {
         Taxon.get(req.params.taxonKey).then(function (tax) {
             //use occ solr facets
-            callApi(res, next, buildSolrQuery(req, tax.record.rank, limit), convertFacetsAcceptedOnly, tax.record.key);
+            callApi(res, next, buildSolrQuery(req, tax.record.rank, childrenLimit, offset), convertFacetsAcceptedOnly, tax.record.key);
         });
     } else {
-        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=" + limit, prunePage);
+        callApi(res, next, apiConfig.taxon.url + req.params.taxonKey + "/children?limit=" + childrenLimit + '&offset=' + offset, prunePage);
     }
 }
 
@@ -76,11 +78,12 @@ function nextLowerRank(rank) {
     return 'kingdom';
 }
 
-function buildSolrQuery(req, rank, limit) {
+function buildSolrQuery(req, rank, limit, offset) {
+    offset = offset || 0;
     if (rank) {
         rank = rank.toLowerCase();
     }
-    var url = apiConfig.occurrenceSearch.url + "?limit=0&facetLimit=" + limit + "&datasetKey=" + req.params.datasetKey + "&facet=" + nextLowerRank(rank) + "Key";
+    var url = apiConfig.occurrenceSearch.url + "?limit=0&facetOffset=" + offset + "&facetLimit=" + limit + "&datasetKey=" + req.params.datasetKey + "&facet=" + nextLowerRank(rank) + "Key";
     if (req.params.taxonKey && rank) {
         url = url + "&" + rank + "Key=" + req.params.taxonKey;
     }
@@ -158,14 +161,26 @@ function pruneTaxa(taxa, idsToIgnore) {
 
 function _pruneTaxa(taxa, idsToIgnore) {
     idsToIgnore = idsToIgnore || [];
-    return _.map(
+
+    ////TODO add parsed names
+    //taxa.forEach(function(e){
+    //    if (e.nameType === 'SCIENTIFIC') {
+    //        e._parsed = {
+    //            first: e.scientificName + ' hej',
+    //            second: 'med dig'
+    //        };
+    //    }
+    //});
+
+    let pruned = _.map(
         _.remove(taxa, function (t) {
             return _.indexOf(idsToIgnore, t.key) < 0
         })
         , function (tax) {
             return _.pick(
-                tax, ['key', 'nameKey', 'acceptedKey', 'canonicalName', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
+                tax, ['key', '_parsed', 'nameType', 'nameKey', 'acceptedKey', 'canonicalName', 'authorship', 'scientificName', 'rank', 'taxonomicStatus', 'numDescendants', 'numOccurrences']
             );
         });
+    return pruned;
 }
 

@@ -1,0 +1,8 @@
+<div class="container--desktop m-t-1 ng-cloak" ng-if="datasetKey2.withCoordinates.count > 0">
+    <h4 class="text-muted small text-uppercase">{{ datasetKey2.withCoordinates.count | localNumber }}  georeferenced records</h4>
+    <div class="map__lockedRatio card">
+        <div ng-if="datasetKey2.key">
+            <gbmap dataset-key="datasetKey2.key" mapstyle="'light'"></gbmap>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="publisherKey light-background">
+            <div class="wrapper-horizontal-stripes" Xng-if="publisherKey.publisher.$resolved">
+
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+                <div ng-if="publisherKey.$state.is('publisherKey')">
+                    {% include "./about/index.nunjucks" %}
+                </div>
+
+                <div ui-view>
+                </div>
+
+            </div>
+            <div class="wrapper-horizontal-stripes" ng-if="!publisherKey.publisher.$resolved">
+                <div class="emptyInfo">
+                    <h3>Hang on while we find the publisher</h3>
+                </div>
+            </div>
+        </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + publisherKey.BUILD_VERSION"></ng-include>
+    </div>
+</div>

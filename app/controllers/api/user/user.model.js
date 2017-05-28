@@ -101,7 +101,6 @@ async function updateForgottenPassword(body) {
         userName: body.userName
     };
     let response = await authOperations.authenticatedRequest(options);
-    console.log(response);
 
     if (response.statusCode !== 201) {
         throw response;
@@ -143,6 +142,7 @@ async function getDownloads(userName, query) {
         userName: userName,
         method: 'GET'
     };
+
     let response = await authOperations.authenticatedRequest(options);
     //this should never be unauthorized, but it happens when the a user is created but not known by the occurrence api (mixed environments)
     if (response.statusCode !== 200) {

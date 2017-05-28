@@ -1,0 +1,52 @@
+.card--references {
+    ul {
+        padding 0
+        li {
+            display block
+            height 77px
+            padding 10px
+        }
+    }
+    &__item > div {
+        border-bottom 1px solid $stripeBorderColor
+    }
+}
+
+.tableList {
+    ul {
+        display table
+        padding 0
+        width 100%
+        li {
+            display table-row
+            > * {
+                padding 10px
+                display table-cell
+                vertical-align middle
+                > span {
+                    color $discreetInk
+                    font-size 12px
+                }
+            }
+        }
+    }
+    &__description {
+    }
+    &__img {
+        width 60px
+        text-align center
+    }
+    img {
+        border-radius 50%
+        overflow hidden
+    }
+}
+
+.max2Lines {
+    overflow hidden
+    text-overflow ellipsis
+    display -webkit-box
+    -webkit-box-orient vertical
+    -webkit-line-clamp 2 /* number of lines to show */
+    max-height 2rem *$lineHeightRatio /* fallback */
+}

@@ -9,7 +9,7 @@
 <![endif]-->
 
 {# <head> #}
-<head>
+<head ng-controller="headCtrl as head">
     {% include "../partials/head/head.nunjucks" %}
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
@@ -44,10 +44,6 @@
                     {#</div>#}
                 {#</aside>#}
             {#{% endif %}#}
-
-            {% if not _meta.removeMenu %}
-                {% include "../partials/navigation/search/search.nunjucks" %}
-            {% endif %}
 
             <div class="site-content">
 

@@ -54,7 +54,13 @@
                             </a>
                         </li>
 
-                        <li class="tab tab-right">
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchDatasets()">
+                                Datasets
+                            </a>
+                        </li>
+
+                        <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
                                 <span>
@@ -101,10 +107,20 @@
                     <table class="table search-table smaller">
                         <thead>
                         <tr>
-                            <th class="text-capitalize"
-                                ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'month & year', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']">
-                                {{field}}
-                            </th>
+                            <!--<th class="text-capitalize"-->
+                                <!--ng-repeat="field in ['scientificName', 'country', 'coordinates', 'basisOfRecord', 'monthAndyear', 'dataset', 'remarks', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']" translate="stdTerms.{{field}}">-->
+                                <!--{{field}}-->
+                            <!--</th>-->
+                            <th class="table-cell--wide text-capitalize" translate="ocurrenceFieldNames.scientificName"></th>
+                            <th class="table-cell--normal text-capitalize" translate="ocurrenceFieldNames.country"></th>
+                            <th class="table-cell--normal text-capitalize" translate="stdTerms.coordinates"></th>
+                            <th class="table-cell--normal text-capitalize" translate="ocurrenceFieldNames.basisOfRecord"></th>
+                            <th class="table-cell--narrow text-capitalize" translate="stdTerms.monthAndyear"></th>
+                            <th class="table-cell--wide text-capitalize" translate="stdTerms.dataset"></th>
+                            <th class="table-cell--narrow text-capitalize" translate="stdTerms.remarks"></th>
+                            <th class="table-cell--narrow text-capitalize" translate="ocurrenceFieldNames.taxonRank"></th>
+                            <th class="table-cell--narrow text-capitalize" ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']" translate="ocurrenceFieldNames.{{t}}"></th>
+                            <th class="table-cell--wide text-capitalize" translate="ocurrenceFieldNames.species"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -113,7 +129,7 @@
                                 <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}">{{result.country}}</a>
+                                <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}" ng-if="result.countryCode">{{result.country}}</a>
                             </td>
                             <td class="table-cell--normal">
                                 <a ng-href="{{result.key}}">

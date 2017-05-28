@@ -38,7 +38,9 @@ function renderDownload(req, res, next, template) {
 
             if (!download.record.request.predicate) {
                 download.noFilters = true;
-                renderPage(req, res, next, download, template);
+                Promise.all(promiseList).then(function(){
+                    renderPage(req, res, next, download, template);
+                });
             } else {
                 downloadHelper.addChildKeys(download.record.request.predicate);
                 downloadHelper.addSyntheticTypes(download.record.request.predicate);

@@ -8,10 +8,10 @@ angular
     .directive('taxBrowser', taxBrowserDirective);
 
 /** @ngInject */
-function taxBrowserDirective() {
+function taxBrowserDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/pages/species/key/directives/taxBrowser.html',
+        templateUrl: '/templates/pages/species/key/directives/taxBrowser.html?v=' + BUILD_VERSION,
         scope: {},
         controller: taxBrowserCtrl,
         controllerAs: 'vm',
@@ -73,7 +73,7 @@ function taxBrowserDirective() {
                         vm.synonyms = data.results;
                         vm.taxonNumOccurrences = data.numOccurrences;
                     }, function () {
-                    })
+                    });
 
                     TaxonomyChildren.query({
                         datasetKey: vm.datasetKey,

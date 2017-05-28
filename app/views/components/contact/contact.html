@@ -1,0 +1,53 @@
+<div class="contactsCard__contact card__content">
+    <div href="" class="inherit contactsCard__name" name="contact_{{vm.contact._id}}">
+        <div>
+            <div ng-if="vm.contact.firstName || vm.contact.lastName">{{ vm.contact.firstName }} {{ vm.contact.lastName }}</div>
+            <div ng-if="!vm.contact.firstName && !vm.contact.lastName">{{ vm.contact.organization || vm.contact.title }}</div>
+        </div>
+    </div>
+    <div class="small discreet">
+        <div class="text-capitalize" ng-if="vm.contact.roles.length > 0">
+            <ul class="inline-bullet-list">
+                <li ng-repeat="role in vm.contact.roles">
+                    <span translate="role.{{role}}"></span>
+                </li>
+            </ul>
+        </div>
+        <ul class="inline-bullet-list" ng-if="vm.contact.position.length > 0">
+            <li ng-repeat="position in vm.contact.position">{{position}}</li>
+        </ul>
+        <div ng-if="!vm.contact.firstName && !vm.contact.lastName">{{ vm.contact.organization }}</div>
+        <div ng-repeat="addressLine in vm.contact.address">{{addressLine}}</div>
+        <div>{{ vm.contact.city }} {{ vm.contact.postalCode }}</div>
+        <div>{{ vm.contact.province }}</div>
+        <div ng-if="vm.contact.country" translate="country.{{vm.contact.country}}"></div>
+        <div>
+            <ul class="inline-bullet-list">
+                <li ng-repeat="email in vm.contact.email">
+                    <a ng-href="mailto:{{ email }}">{{ email }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list">
+                <li ng-repeat="phone in vm.contact.phone" ng-if="phone">
+                    <a ng-href="tel:{{ phone }}">{{ phone }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list">
+                <li ng-repeat="homepage in vm.contact.homepage" ng-if="homepage">
+                    <a ng-href="{{ homepage }}">{{ homepage }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list">
+                <li ng-repeat="userId in vm.contact.userId" ng-if="userId">
+                    <a ng-href="{{ userId }}">{{ userId }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

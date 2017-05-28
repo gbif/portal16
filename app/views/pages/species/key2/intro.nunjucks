@@ -1,0 +1,88 @@
+{#<div class="container--desktop row p-t-05">#}
+    {#<img style="height:40px; margin-right:5px" src="https://pbs.twimg.com/profile_images/344513261568178508/17cf622677d8c0136626a2248beecefe_400x400.png">#}
+    {#<img style="height:40px; margin-right:5px"class="tester" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/EOL_logo.svg/1200px-EOL_logo.svg.png">#}
+    {#<img style="height:40px; margin-right:5px"class="tester" src="https://biodivlib.wikispaces.com/file/view/BHL-Portrait.png/265607498/BHL-Portrait.png">#}
+    {#<img style="height:40px; margin-right:5px"class="tester" src="https://pbs.twimg.com/profile_images/1215770459/ipni-logo.jpg">#}
+{#</div>#}
+
+<div class="horizontal-stripe p-b-0">
+    <div class="container--desktop">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="container-fluid card--padded">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                                {#<p>#}
+                                    {#<span class="classification-list discreet">#}
+                                        {#<a ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"#}
+                                           {#href="" ui-sref=".({speciesKey:speciesKey2.species[taxa + 'Key']})"#}
+                                           {#class="{$ taxa $}"#}
+                                           {#ng-if="speciesKey2.species[taxa] && taxa != (speciesKey2.species.rank | lowercase )">{{#}
+                                            {#speciesKey2.species[taxa] }}</a>#}
+                                    {#</span>#}
+                                {#</p>#}
+                                <dl class="inline">
+                                    {#<div ng-if="speciesKey2.species.publishedIn">#}
+                                        {#<dt>Published in</dt>#}
+                                        {#<dd ng-bind-html="speciesKey2.species.publishedIn"></dd>#}
+                                    {#</div>#}
+                                    {#<div>#}
+                                        {#<dt>Common name</dt>#}
+                                        {#<dd>Bear Goat</dd>#}
+                                    {#</div>#}
+                                    <div ng-if="speciesKey2.species.sourceTaxonKey && speciesKey2.sourceTaxon.$resolved">
+                                        <dt>Sources</dt>
+                                        <dd>
+                                            <ul class="inline-bullet-list">
+                                                <li ng-if="speciesKey2.sourceTaxonExists">
+                                                    <a href="/species/{{ speciesKey2.species.sourceTaxonKey }}">Reference taxon</a>
+                                                </li>
+                                                <li ng-if="!speciesKey2.sourceTaxonExists" class="discreet--very">
+                                                    <span>The reference taxon is no longer available</span>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                                <dl class="inline">
+                                    <div>
+                                        <dt>IUCN status</dt>
+                                        <dd>
+                                            <span ng-if="speciesKey2.status"><span translate="iucnStatus.{{ speciesKey2.status.category }}"></span></span>
+                                            <span ng-if="!speciesKey2.status" class="discreet--very">Loading</span>
+                                        </dd>
+                                    </div>
+                                    <div>
+                                        <dt>CITES status</dt>
+                                        <dd>
+                                            <a ng-href="{{ speciesKey2.cites._reference }}" ng-if="speciesKey2.cites.cites_listing"><span translate="cites.appendix"></span> {{ speciesKey2.cites.cites_listing }} </a>
+                                            <span ng-if="!speciesKey2.cites.$resolved" class="discreet--very">Loading</span>
+                                            <span ng-if="!speciesKey2.cites.cites_listing && speciesKey2.cites.$resolved">No entry</span>
+                                        </dd>
+                                    </div>
+                                    <div ng-if="speciesKey2.species.canonicalName">
+                                        <dt>Search links</dt>
+                                        <dd>
+                                            <ul class="inline-bullet-list">
+                                                <li>
+                                                    <a ng-href="//eol.org/search/?q={{ speciesKey2.species.canonicalName }}">Encyclopedia of Life</a>
+                                                </li><li>
+                                                    <a ng-href="//www.catalogueoflife.org/col/search/all/key/{{ speciesKey2.species.canonicalName }}">Catalogue of Life</a>
+                                                </li><li>
+                                                    <a ng-href="//www.biodiversitylibrary.org/name/{{ speciesKey2.species.canonicalName }}">Biodiversity Heritage Library</a>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

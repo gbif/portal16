@@ -77,6 +77,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'occurrenceSpeciesCtrl',
             controllerAs: 'occSpecies'
         })
+        .state('occurrenceSearchDatasets', {
+            parent: 'occurrenceSearch',
+            url: '/datasets',
+            templateUrl: '/templates/pages/occurrence/datasets/occurrenceDatasets.html?v=' + BUILD_VERSION,
+            controller: 'occurrenceDatasetsCtrl',
+            controllerAs: 'occDatasets'
+        })
         .state('occurrenceSearchDownload', {
             parent: 'occurrenceSearch',
             url: '/download',
@@ -101,6 +108,52 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             templateUrl: '/templates/pages/dataset/search/table/datasetTable.html?v=' + BUILD_VERSION,
             controller: 'datasetTableCtrl',
             controllerAs: 'datasetTable'
+        })
+        .state('datasetKey', {
+            parent: 'localization',
+            url: '/dataset/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/dataset/key.html?v=' + BUILD_VERSION,
+                    controller: 'datasetKey2Ctrl',
+                    controllerAs: 'datasetKey2'
+                }
+            }
+        })
+        //.state('datasetKeyTaxonomy', {
+        //    parent: 'datasetKey',
+        //    url: '/taxonomy',
+        //    templateUrl: '/api/template/dataset/taxonomy.html?v=' + BUILD_VERSION,
+        //    controller: 'datasetTaxonomyCtrl',
+        //    controllerAs: 'datasetTaxonomy'
+        //})
+        .state('datasetKeyActivity', {
+            parent: 'datasetKey',
+            url: '/activity?offset&limit',
+            templateUrl: '/api/template/dataset/activity.html?v=' + BUILD_VERSION,
+            controller: 'datasetActivityCtrl',
+            controllerAs: 'datasetActivity'
+        })
+        .state('datasetKeyProject', {
+            parent: 'datasetKey',
+            url: '/project',
+            templateUrl: '/api/template/dataset/project.html?v=' + BUILD_VERSION,
+            controller: 'datasetProjectCtrl',
+            controllerAs: 'datasetProject'
+        })
+        .state('datasetKeyStats', {
+            parent: 'datasetKey',
+            url: '/stats',
+            templateUrl: '/api/template/dataset/stats.html?v=' + BUILD_VERSION,
+            controller: 'datasetStatsCtrl',
+            controllerAs: 'datasetStats'
+        })
+        .state('datasetKeyConstituents', {
+            parent: 'datasetKey',
+            url: '/constituents?offset',
+            templateUrl: '/api/template/dataset/constituents.html?v=' + BUILD_VERSION,
+            controller: 'datasetConstituentsCtrl',
+            controllerAs: 'datasetConstituents'
         })
         .state('speciesSearch', {
             parent: 'localization',
@@ -135,7 +188,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species2/:key',
+            url: '/species/:speciesKey?refOffset',
             params: {
                 advanced: {
                     value: false,
@@ -144,7 +197,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             },
             views: {
                 main: {
-                    templateUrl: '/templates/pages/species/key2/speciesKey.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
                     controller: 'speciesKey2Ctrl',
                     controllerAs: 'speciesKey2'
                 }
@@ -167,6 +220,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             templateUrl: '/templates/pages/publisher/search/list/publisherList.html?v=' + BUILD_VERSION,
             controller: 'publisherListCtrl',
             controllerAs: 'publisherList'
+        })
+        .state('publisherKey', {
+            parent: 'localization',
+            url: '/publisher/:key',
+            views: {
+                main: {
+                    templateUrl: '/api/template/publisher/key.html?v=' + BUILD_VERSION,
+                    controller: 'publisherKeyCtrl',
+                    controllerAs: 'publisherKey'
+                }
+            }
         })
         .state('resourceSearch', {
             parent: 'localization',

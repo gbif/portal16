@@ -12,31 +12,79 @@ function referencesDirective() {
     var directive = {
         restrict: 'E',
         templateUrl: '/templates/pages/species/key/directives/references.html',
-        scope: {},
+        scope: {
+            references: '=',
+            key: '@'
+        },
         controller: referencesCtrl,
         controllerAs: 'vm',
-        bindToController: {
-            key: '@'
-        }
+        bindToController: true
     };
     return directive;
 
     /** @ngInject */
-    function referencesCtrl(SpeciesReferences) {
+    function referencesCtrl($scope, $state, $stateParams, SpeciesReferences) {
         var vm = this;
-        vm.references = [];
-
-        var citeFunc = function (r) {
-            return r.citation;
+        vm.references = {
+            limit: 5,
+            offset: 0,
+            endOfRecords: true
         };
-        SpeciesReferences.query({
-            id: vm.key
+        //vm.limit = 5;
+        //vm.offset = 0;
+        //vm.endOfRecords = false;
 
-        }, function (data) {
-            vm.references = _.sortedUniqBy(_.sortBy(data.results, citeFunc), citeFunc);
+        function getReferences() {
+            SpeciesReferences.query({
+                id: vm.key,
+                limit: vm.references.limit || 5,
+                offset: vm.references.offset || 0
+            }, function (data) {
+                data.results.forEach(function(e){
+                    if (_.isString(e.doi) && e.doi.substr(0,4) !== 'http') {
+                        e.doi = 'https://doi.org/' + e.doi;
+                    }
+                });
+                data.hasResults = data.offset > 0 || data.results.length > 0;
+                vm.references = data;
+                setHeight();
+            }, function () {
+            });
+        }
 
+        function updatePageState() {
+            vm.references.offset = parseInt($stateParams.refOffset) || 0;
+        }
+        updatePageState();
+
+        vm.next = function() {
+            vm.references.offset = vm.references.offset + vm.references.limit;
+            $state.go('.', {refOffset: vm.references.offset}, {inherit: true, notify: false, reload: false});
+            getReferences();
+        };
+
+        vm.prev = function() {
+            vm.references.offset = vm.references.offset - vm.references.limit;
+            $state.go('.', {refOffset: vm.references.offset}, {inherit: true, notify: false, reload: false});
+            getReferences();
+        };
+
+        $scope.$watch(function () {
+            return vm.key;
         }, function () {
-        })
+            getReferences(vm.key);
+        });
+
+        function setHeight() {
+            if (vm.references.offset > 0 || !vm.references.endOfRecords && _.get(vm.references, 'results.length', 0) > 0) {
+                vm.height = (77*5) + 'px';
+                vm.hasPages = true;
+            }
+        }
+
+        vm.getHeight = function(){
+            return vm.height;
+        }
     }
 }
 

@@ -1234,6 +1234,7 @@
       "VIRUS": "virus",
       "HYBRID": "hybrid formula",
       "INFORMAL": "informal",
+      "OTU": "Operational Taxonomic Unit",
       "CULTIVAR": "cultivar",
       "CANDIDATUS": "candidatus",
       "PLACEHOLDER": "placeholder",
@@ -1352,10 +1353,14 @@
   },
   "stdTerms": {
     "contactHelpdesk": "Contact helpdesk",
+    "noDescription": "No description available",
     "resources": "resources",
+    "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
     "topics": "topics",
     "purposes": "purposes",
     "audiences": "audiences",
+    "coordinates": "coordinates",
+    "monthAndyear": "month & year",
     "ok": "ok",
     "location": "location",
     "basisOfRecord": "basis of record",
@@ -1424,7 +1429,8 @@
     "download": "download",
     "license": "license",
     "learnMore": "learn more",
-    "readMore": "read more"
+    "readMore": "read more",
+    "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}"
   },
   "event": {
     "location": "Location",
@@ -1574,58 +1580,25 @@
     },
     "title": "title",
     "publishedBy": "Published by",
-    "submenu": {
-      "group": {
-        "introduction": {
-          "name": "introduction",
-          "chapters": {
-            "metrics": "metrics",
-            "map": "map",
-            "description": "description",
-            "purpose": "purpose"
-          }
-        },
-        "coverage": {
-          "name": "coverage",
-          "chapters": {
-            "temporalCoverages": "temporal",
-            "geographicCoverages": "geographic",
-            "taxonomicCoverages": "taxonomic"
-          }
-        },
-        "methodology": {
-          "name": "methodology",
-          "chapters": {
-            "studyExtent": "study extent",
-            "qualityControl": "quality control",
-            "sampling": "sampling",
-            "methodSteps": "method steps"
-          }
-        },
-        "project": {
-          "name": "project",
-          "chapters": {
-            "about": "about",
-            "funding": "funding"
-          }
-        },
-        "credit": {
-          "name": "credit",
-          "chapters": {
-            "contributions": "contributions",
-            "bibliography": "bibliography",
-            "citation": "citation"
-          }
-        },
-        "usage": {
-          "name": "usage",
-          "chapters": {
-            "usage metrics": "usage metrics",
-            "processing history": "processing history"
-          }
-        }
-      }
-    }
+    "description": "description",
+    "purpose": "purpose",
+    "methodology": "methodology",
+    "studyExtent": "study extent",
+    "qualityControl": "quality control",
+    "sampling": "sampling",
+    "methodSteps": "method steps",
+    "project": "project",
+    "about": "about",
+    "funding": "funding",
+    "contributors": "contributors",
+    "registration": "GBIF registration",
+    "dataDescription": "Data description",
+    "bibliography": "bibliography",
+    "citation": "citation",
+    "temporalCoverages": "temporal",
+    "geographicCoverages": "geographic",
+    "taxonomicCoverages": "taxonomic",
+    "additionalInfo": "additional info"
   },
   "countryPage": {
     "occurrencesAbout": "Occurrences about",
@@ -2228,6 +2201,21 @@
     "HTTP_INSTALLATION": "http installation",
     "SYMBIOTA_INSTALLATION": "symbiota installation"
   },
+  "endpointType": {
+    "EML": "EML",
+    "FEED": "FEED",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "DWC ARCHIVE",
+    "DIGIR": "DIGIR",
+    "DIGIR_MANIS": "DIGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BIOCASE",
+    "OAI_PMH": "OAI PMH",
+    "OTHER": "OTHER"
+  },
   "filterNames": {
     "month": "month",
     "catalogNumber": "catalog number",
@@ -2295,24 +2283,50 @@
         "Data paper": "Data paper",
         "Phylogenetics": "Phylogenetics",
         "journal": "journal",
-        "conference_proceedings": "conference_proceedings",
-        "book_section": "book_section",
+        "conference_proceedings": "conference proceedings",
+        "book_section": "book section",
         "report": "report",
         "thesis": "thesis",
         "book": "book",
-        "working_paper": "working_paper",
+        "working_paper": "working paper",
         "generic": "generic",
-        "web_page": "web_page",
-        "magazine_article": "magazine_article",
-        "eng": "eng",
-        "spa": "spa",
+        "web_page": "web page",
+        "magazine_article": "magazine article",
         "participant": "participant",
-        "call": "call"
+        "call": "Call",
+        "article": "Article",
+        "Data publishing": "Data publishing",
+        "Data access": "Data access",
+        "Data digitization": "Data digitization",
+        "Data curation & quality": "Data curation & quality",
+        "Data analysis": "Data analysis",
+        "Capacity enhancement": "Capacity enhancement",
+        "GBIF network": "GBIF network",
+        "Data holders": "Data holders",
+        "Data users": "Data users",
+        "Decision makers": "Decision makers",
+        "Biodiversity knowledge experts": "Biodiversity knowledge experts",
+        "Public stakeholders": "Public stakeholders"
       }
     }
   },
   "error": {
     "USER_ALREADY_EXIST": "User already exists. Please try another username or email",
     "CONSTRAINT_VIOLATION": "Invalid or insufficient information provided"
-  }
+  },
+  "iucnStatus": {
+    "EX": "Extinct",
+    "EW": "Extinct in the Wild",
+    "CR": "Critically Endangered",
+    "EN": "Endangered",
+    "VU": "Vulnerable",
+    "NT": "Near Threatened",
+    "LC": "Least Concern",
+    "DD": "Data Deficient",
+    "NE": "Not Evaluated"
+  },
+  "cites": {
+    "appendix": "Appendix"
+  },
+  "enums.cms.vocabularyTerms.": "enums.cms.vocabularyTerms."
 }

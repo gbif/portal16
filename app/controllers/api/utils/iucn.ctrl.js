@@ -3,6 +3,7 @@ var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
+    iucn = rootRequire('config/credentials').IUCN,
     helper = rootRequire('app/models/util/util');
 
 module.exports = function (app) {
@@ -11,8 +12,7 @@ module.exports = function (app) {
 
 router.get('/redlist/:name', function (req, res) {
     var name = req.params.name;
-    var token = req.query.token;
-    redlistSearch(name, token).then(function (data) {
+    redlistSearch(name, iucn.token).then(function (data) {
         res.json(data);
     }, function (err) {
         res.status(_.get(err, 'errorResponse.statusCode', 500));

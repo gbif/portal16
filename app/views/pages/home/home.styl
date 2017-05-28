@@ -7,7 +7,9 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 .home {
     &__header {
         background-color $navBar_background_color// $olivine
-        background-image linear-gradient(to right, $home_overlay_color_from, $home_overlay_color_to), url("//api.gbif.org/v1/image/unsafe/1500x750/http:%2F%2Fimages.contentful.com%2Fq553fnlofhvs%2Fu42ztYDTy0swCYeC8iOwe%2F565d6151d833ef85881292ae03879d9b%2FWhite_Leadtree_Leucaena_leucocephala.jpg")
+        > div {
+            background-image linear-gradient(to right, $home_overlay_color_from, $home_overlay_color_to)
+        }
         background-size cover
         background-position center
         color white
@@ -25,7 +27,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             position absolute
             right 0
             bottom 0
-            padding 5px 10px
+            padding 5px 10px 0 10px
             color rgba(255, 255, 255, 0.5)
             a {
                 color inherit

@@ -223,7 +223,7 @@ function getContributors(contacts) {
     }
     if (primaryContact) {
         primaryContact._primaryContact = true;
-        primaryContact.roles.push('_PRIMARY_CONTACT');
+        // primaryContact.roles.push('_PRIMARY_CONTACT');
     }
 
 

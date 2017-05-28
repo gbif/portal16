@@ -16,6 +16,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetExtended', function ($resource) {
+            return $resource('/api/dataset/:key', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('DatasetSearch', function ($resource) {
             //var facets = {
             //    facet: ['type', 'keyword', 'publishing_org', 'hosting_org', 'publishing_country', 'decade']
@@ -35,6 +44,33 @@ var angular = require('angular');
                         method: 'GET',
                         isArray: false,
                         cancellable: true
+                    }
+                }
+            );
+        })
+        .factory('DatasetMetrics', function ($resource, env) {
+            return $resource(env.dataApi + 'dataset/:key/metrics', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('DatasetConstituents', function ($resource, env) {
+            return $resource(env.dataApi + 'dataset/:key/constituents', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('DatasetProcessSummary', function ($resource, env) {
+            return $resource('/api/dataset/:key/processSummary', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
                     }
                 }
             );

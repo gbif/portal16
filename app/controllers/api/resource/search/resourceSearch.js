@@ -39,8 +39,8 @@ async function search(requestQuery, __, requestTimeout) {
     resourceResultParser.truncate(parsedResult.results, ['abstract'], 300);
     resourceResultParser.addSlug(parsedResult.results, 'title');
     resourceResultParser.transformFacets(parsedResult, __);
+    resourceResultParser.addFilters(parsedResult, requestQuery, __);
 
-    parsedResult.filters = {};
     return parsedResult;
 }
 

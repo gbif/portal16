@@ -13,6 +13,7 @@
     "ci-test": "node node_modules/istanbul/lib/cli.js cover spec/unit-server.js; node node_modules/istanbul/lib/cli.js report clover; node node_modules/gulp/bin/gulp.js test-client;"
   },
   "dependencies": {
+    "accept-language-parser": "1.4.0",
     "angular": "1.5.8",
     "angular-aria": "1.5.8",
     "angular-chart.js": "^1.1.1",
@@ -125,6 +126,7 @@
     "karma-notify-reporter": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
+    "langs": "2.0.0",
     "lodash": "^4.15.0",
     "lost": "^6.6.3",
     "mapbox-gl": "^0.28.0",

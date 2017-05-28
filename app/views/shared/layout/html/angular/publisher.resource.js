@@ -16,6 +16,24 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('PublisherInstallations', function ($resource, env) {
+            return $resource(env.dataApi + 'organization/:id/installation', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
+        .factory('PublisherExtended', function ($resource) {
+            return $resource('/api/publisher/:key', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('PublisherSearch', function ($resource) {
             return $resource('/api/publisher/search', null, {
                     'query': {
@@ -52,4 +70,3 @@ var angular = require('angular');
         })
         ;
 })();
-

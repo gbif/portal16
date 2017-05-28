@@ -22,10 +22,10 @@
             </p>
             <ul class="list-chips">
                 <li ng-if="result.numPublishedDatasets">
-                    <a href="" ui-sref="datasetSearchList({publishing_org:result.key})">Datasets: {{ result.numPublishedDatasets }}</a>
+                    <a href="" ui-sref="datasetSearchTable({publishing_org:result.key})">Datasets: {{ result.numPublishedDatasets }}</a>
                 </li>
                 <li ng-if="result.country">
-                    <a href="" ng-href="{{ urlPrefix }}/country/{{ result.country }}" translate="country.{{ result.country }}">{{ result.country }}</a>
+                    <a href="" ui-sref=".({country:result.country})" translate="country.{{ result.country }}">{{ result.country }}</a>
                 </li>
             </ul>
 

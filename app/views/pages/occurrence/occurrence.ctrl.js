@@ -1,10 +1,3 @@
-/**
- * search types?
- * auto complete
- * integer is [between, below, above]
- * date interval etc
- * enum list, multiselect
- */
 'use strict';
 var angular = require('angular');
 
@@ -13,9 +6,9 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, BUILD_VERSION) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION) {
     var vm = this;
-
+    Page.setTitle('Occurrence search');
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};
@@ -59,7 +52,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         queryKey: 'type_status',
         filter: OccurrenceFilter,
         enumTranslationPath: 'typeStatus.',
-        showAll: false,
+        showAll: true,
         enums: enums.typeStatus,
         reversible: true,
         facets: {

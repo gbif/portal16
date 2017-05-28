@@ -1,0 +1,21 @@
+<div class="anchor-block--tabs" id="summary" ng-if="datasetKey2.dataset.type != 'METADATA'">
+    <section class="horizontal-stripe light-background seperator--b">
+        <div class="container--desktop">
+            <div class="row">
+                <div class="col-xs-12">
+                    {% include('./summary.nunjucks') %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    {% include('./stats.nunjucks') %}
+                </div>
+            </div>
+        </div>
+
+        {% include('./map.nunjucks') %}
+        {% include('./images.nunjucks') %}
+
+    </section>
+</div>

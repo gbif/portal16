@@ -13,6 +13,14 @@
                 return text.charAt(0) + text.slice(1).toLowerCase().replace(/_/g, ' ');
             }
         })
+        .filter('startsWith', function () {
+            return function (text, match) {
+                if (typeof text === 'undefined') {
+                    return false;
+                }
+                return text.substr(0, match.length) == match;
+            }
+        })
         .filter('truncate', function () {
             return function (text, length) {
                 length = length || 10;
@@ -37,6 +45,13 @@
                 return moment().subtract(90, 'd').isBefore(date);
             }
         })
+        .filter('stripTags', function () {
+            return function (html) {
+                var tmp = document.createElement("DIV");
+                tmp.innerHTML = html;
+                return tmp.textContent || tmp.innerText || "";
+            }
+        })
         .filter('compactInteger', function () {
             return function (nr) {
                 return Humanize.compactInteger(nr, 0);
@@ -44,6 +59,15 @@
         })
         .filter('encodeURIComponent', function () {
             return window.encodeURIComponent;
+        })
+        .filter('imgCache', function (env) {
+            return function (imgUrl, width, height) {
+                if (width || height) {
+                    return env.imageCache + width + 'x' + height + '/' + window.encodeURIComponent(imgUrl);
+                } else {
+                    return env.imageCache + window.encodeURIComponent(imgUrl);
+                }
+            }
         })
         .filter('localNumber', function () {
             return function (num, lang) {
@@ -56,11 +80,6 @@
                 start = +start; //parse to int
                 return input.slice(start);
             }
-        })
-        .filter('stripTags', function () {
-            return function (text) {
-                return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-            };
         })
         .filter('unique', function () {
             return function (a) {

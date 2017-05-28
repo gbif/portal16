@@ -3,6 +3,13 @@
 {% import "./predicate.macro.nunjucks" as predicate %}
 
 {% block page %}
+    <script>
+        var gb = gb || {};
+        gb.downloadKey = {
+            key: '{$ download.record.key $}',
+            doi: '{$ download.record.doi $}'
+        };
+    </script>
     <article class="wrapper-horizontal-stripes downloadKey"
              ng-controller="occurrenceDownloadKeyCtrl as downloadKey"
              ng-init="downloadKey.setInitials({$ download.datasets.offset $},{$ download.datasets.limit $}, '{$ download.record.key $}')">
@@ -41,18 +48,24 @@
                 <div class="container--normal">
                     <div class="row">
                         <div>
-                            <nav class="tabs">
+                            <nav class="tabs tabs--noBorder">
                                 <ul>
                                     <li class="tab tab-right">
                                         {% if download.record.status === 'SUCCEEDED' %}
-                                            <a href="{$ download.record.downloadLink $}"
-                                               class="gb-button--flat pull-right">{$ __('stdTerms.download') $}</a>
+                                            <span>
+                                                <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
+                                            </span>
                                         {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
                                             <span class="gb-button--flat gb-button--loader pull-right">
                                                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                                                 {$ __('downloadKey.status.' + download.record.status) $}
                                             </span>
                                         {% endif %}
+                                    </li>
+                                    <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
+                                        <span>
+                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--flat" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
+                                        </span>
                                     </li>
                                 </ul>
                             </nav>

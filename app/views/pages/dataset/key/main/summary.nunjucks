@@ -1,0 +1,47 @@
+<div class="container-fluid card">
+    <div class="row card__content">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            {% if dataset.record.description | isDefined %}
+                {% if dataset.record.description | striptags | length < 750 %}
+                    {$ dataset.record.description | decodeHtml | linkify | sanitize | safe $}
+                {% else %}
+                    {$ dataset.record.description | decodeHtml | striptags | truncate(650) | safe $}
+                    <a class="m-l-1" href="#description">more</a>
+                {% endif %}
+            {% else %}
+                <div class="discreet-comment">
+                    {$ __('stdTerms.noDescription') $}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            {% if dataset.record.logoUrl %}
+            <div class="logoImg">
+                <img src="{$ dataset.record.logoUrl $}">
+            </div>
+            {% endif %}
+            <dl class="inline">
+                <div>
+                    <dt class="text-capitalize">Publisher</dt>
+                    <dd>
+                        <a href="{$ gb.locales.urlPrefix $}/publisher/{$ dataset.publisher.key $}">
+                            {$ dataset.publisher.title $}
+                        </a>
+                    </dd>
+                </div>
+                <div>
+                    <dt class="text-capitalize">License</dt>
+                    <dd>
+                        {% import "../../../../components/license/license.macro.nunjucks" as licenseMacros %}
+                        {$ licenseMacros.licenseFromUrl(dataset.record.license, __) $}
+                    </dd>
+                </div>
+                <div>
+                    <a href="#citation" class="doi"><span
+                                class="gb-icon-quote"></span><span>Citation</span></a>
+                    <a href="{$ dataset.record.doi | getDOILink $}" class="doi"><span>DOI</span><span>{$ dataset.record.doi | readableDOI $}</span></a>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>

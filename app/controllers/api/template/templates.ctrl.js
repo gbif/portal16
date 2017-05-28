@@ -66,7 +66,50 @@ router.get('/search/publisherResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/publisher/publisherSearchResult');
 });
 
+router.get('/publisher/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/publisherKey.template.nunjucks');
+});
+
+router.get('/publisher/datasets.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/datasets/publisherDatasets.template.nunjucks');
+});
+
+router.get('/publisher/installations.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/publisher/key/installations/publisherInstallations.template.nunjucks');
+});
+
 router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });
 
+router.get('/species/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');
+});
+
+router.get('/dataset/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/datasetKey.template.nunjucks');
+});
+
+router.get('/dataset/taxonomy.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/taxonomy/datasetTaxonomy.template.nunjucks');
+});
+
+router.get('/dataset/project.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/project/datasetProject.template.nunjucks');
+});
+
+router.get('/dataset/stats.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/stats/datasetStats.template.nunjucks');
+});
+
+router.get('/dataset/activity.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/activity/datasetActivity.template.nunjucks');
+});
+
+router.get('/dataset/constituents.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/constituents/datasetConstituents.template.nunjucks');
+});
+
+router.get('/site/footer.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'shared/layout/partials/footer/footer.nunjucks');
+});

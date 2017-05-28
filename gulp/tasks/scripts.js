@@ -70,36 +70,36 @@ gulp.task('signpost', function () {
 //        .pipe(browserSync.stream());
 //});
 
-function build2(entry, name) {
-    var dest = 'js/base';
-    return browserify({
-        entries: entry,
-        debug: true
-    }).bundle()
-        .on('error', function (err) {
-            if (!config.isProd) {
-                console.log(err.toString());
-                notifier.notify({
-                    'title': 'Browserify',
-                    'message': err.toString()
-                });
-            } else {
-                throw err;
-            }
-            this.emit("end");
-        })
-        .pipe(source(name))
-        .pipe(buffer())
-        .pipe(gulpif(!config.isProd, g.sourcemaps.init({
-            loadMaps: true
-        })))
-        // Add transformation tasks to the pipeline here.
-        .pipe(g.ngAnnotate()) // To not break angular injection when minified
-        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
-        .on('error', g.util.log)
-        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
-        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
-}
+//function build2(entry, name) {
+//    var dest = 'js/base';
+//    return browserify({
+//        entries: entry,
+//        debug: true
+//    }).bundle()
+//        .on('error', function (err) {
+//            if (!config.isProd) {
+//                console.log(err.toString());
+//                notifier.notify({
+//                    'title': 'Browserify',
+//                    'message': err.toString()
+//                });
+//            } else {
+//                throw err;
+//            }
+//            this.emit("end");
+//        })
+//        .pipe(source(name))
+//        .pipe(buffer())
+//        .pipe(gulpif(!config.isProd, g.sourcemaps.init({
+//            loadMaps: true
+//        })))
+//        // Add transformation tasks to the pipeline here.
+//        .pipe(g.ngAnnotate()) // To not break angular injection when minified
+//        .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
+//        .on('error', g.util.log)
+//        .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
+//        .pipe(gulp.dest(path.join(config.paths.dist, dest)));
+//}
 
 function build(entry, name) {
     var dest = 'js/base';

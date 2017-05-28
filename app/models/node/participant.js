@@ -1,5 +1,4 @@
-let credentialsPath = require('../../../config/config').credentials,
-    credentials = require(credentialsPath).directory,
+let credentials = rootRequire('config/credentials').directory,
     crypto = require('crypto'),
     request = require('requestretry'),
     apiConfig = require('../gbifdata/apiConfig'),

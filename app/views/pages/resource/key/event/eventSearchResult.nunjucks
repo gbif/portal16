@@ -20,12 +20,12 @@
                     <div>{{ result.start | amDateFormat: 'D MMM' }}</div>
                     <span>{{ result.start | amDateFormat:'YYYY' }}</span>
                 </div>
-                <div class="m-b-05">
+                <div class="m-b-025">
                     {{result._summary}}
                 </div>
                 <div class="discreet--very smaller" ng-if="result.start">
                     <div ng-if="result.country || result.location || result.venue">
-                        <span class="gb-icon-marker"></span><span translate="country.{{ result.country.id }}" ng-if="result.country.id"></span>
+                        <span class="gb-icon-marker"></span><span translate="country.{{ result.country }}" ng-if="result.country"></span>
                         <span ng-if="result.location"> - {{ result.location }}</span>
                         <span ng-if="result.venue"> - {{ result.venue }}</span>
                     </div>

@@ -1,4 +1,4 @@
-<div class="body-text">
+<div class="body-text--markdown">
     {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
 
     {% if main.fields.primaryImage and resolved.Asset[main.fields.primaryImage.sys.id].fields.file.details.image.width <= 800 %}

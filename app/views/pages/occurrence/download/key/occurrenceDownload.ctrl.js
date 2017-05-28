@@ -1,15 +1,22 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal) {
+function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch) {
     var vm = this;
     vm.HUMAN = true;
+    vm.maxSize = 5;
+    vm.doi = _.get(gb, 'downloadKey.doi', '').substring(4);
+vm.test = 20;
+    if (vm.doi) {
+        vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
+    }
 
     vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});

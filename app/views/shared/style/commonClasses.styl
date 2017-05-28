@@ -240,35 +240,39 @@ $articleCategorySeparatorSpacing = 6px
 .body-text {
     font-size 16px
     line-height 1.5
-    >h1:first-child, >h2:first-child, >h3:first-child, >h4:first-child {
+
+    > h1:first-child, > h2:first-child, > h3:first-child, > h4:first-child {
         margin-top 0px
     }
+
     strong {
         font-weight bold
     }
+
     h1, h2 {
         font-weight 300
         font-size 30px
         color #8496ab
         margin 80px 0 60px 0
     }
+
     h1 {
         font-size 38px
     }
 
-
     h3 {
-        margin-top 65px
-        margin-bottom 25px
-        font-weight 300
-        color #586579
+        font-weight 400
+        color #58687b //#75879c
         font-size 25px
+        margin-top 45px
+        margin-bottom 15px
     }
     h4 {
-        margin-top 65px
-        margin-bottom 25px
-        font-weight 400
-        font-size 18px
+        margin-top 30px
+        margin-bottom 10px
+        font-weight 500
+        font-size 16px
+        color #75879c //#586579
     }
 
     ul {
@@ -395,6 +399,7 @@ $headerImageMaxFullWidth = $desktop
     padding 0
     li {
         display inline-block
+        margin 0 2px
         &:after {
             font-style normal
             content '\25CF' // ❯
@@ -489,10 +494,6 @@ $headerImageMaxFullWidth = $desktop
     }
     // .count-text {
     //     text-align center
-    // }
-    .card {
-        margin-bottom vrBlock(0.5)
-    }
 }
 
 ul.list-style-none {
@@ -602,4 +603,12 @@ sub {
 
 .bordered {
     border 1px solid $stripeBorderColor
+}
+
+.text-brand-color {
+    color $navBar_background_color
+}
+
+.text-error {
+    color tomato
 }

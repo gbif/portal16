@@ -50,7 +50,13 @@
                             </a>
                         </li>
 
-                        <li class="tab tab-right">
+                        <li class="tab">
+                            <a href="" ui-sref="occurrenceSearchDatasets()">
+                                Datasets
+                            </a>
+                        </li>
+
+                        <li class="tab">
                             <a href="" ui-sref="occurrenceSearchDownload()">
                                 <span class="gb-icon-file-download"></span>
                                 <span>
@@ -68,8 +74,7 @@
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
             <div class="imageGallery">
-                <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}"
-                   ng-style="{'background-image':'url({{ occGallery.getSubDomain($index) }}{{occGallery.imageCache}}1x1/{{image._images[0].identifier | encodeURIComponent}}'}">
+                <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
                     <img ng-src="{{ occGallery.getSubDomain($index) }}{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"
                          gallery-image on-img-error="occGallery.imageFailed">
                     <div class="summary smaller">{{image.scientificName}}</div>

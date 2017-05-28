@@ -1,0 +1,44 @@
+<div class="horizontal-stripe--paddingless">
+    <div class="container--narrow">
+        <div class="m-t-2">
+            <div ng-if="datasetConstituents.loadingDownloads">
+                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+            </div>
+
+            <div ng-if="!datasetConstituents.loadingDownloads && !datasetConstituents.failedToLoadDownloads && datasetConstituents.constituents.count > 0">
+                <div>
+                    <div>
+                        <h4 class="small discreet text-uppercase">{{ datasetConstituents.constituents.count | localNumber }} constituent datasets</h4>
+                    </div>
+                </div>
+
+                <div ng-repeat="result in datasetConstituents.constituents.results">
+                    <ng-include src="'/api/template/search/datasetResult.html?v=' + projectKey.BUILD_VERSION"></ng-include>
+                </div>
+
+                <div ng-if="datasetConstituents.constituents && datasetConstituents.constituents.count > datasetConstituents.limit">
+                    <uib-pagination
+                            total-items="datasetConstituents.constituents.count"
+                            ng-model="datasetConstituents.currentPage"
+                            max-size="datasetConstituents.maxSize"
+                            items-per-page="datasetConstituents.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="datasetConstituents.pageChanged()">
+                    </uib-pagination>
+                </div>
+            </div>
+
+            <div class="emptyInfo" ng-if="!datasetConstituents.loadingDownloads && datasetConstituents.constituents.count === 0">
+                <h3>No constituent datasets</h3>
+            </div>
+
+            <div class="emptyInfo" ng-if="datasetConstituents.failedToLoadDownloads">
+                <h3>There was a server failure while trying to get the constituent datasets</h3>
+                <p>Please try again or let us know if it continues</p>
+            </div>
+
+        </div>
+    </div>
+</div>

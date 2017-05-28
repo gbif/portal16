@@ -3,8 +3,7 @@
 <div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true">
     <div class="table-container--participant" ng-init="sort = {field: '', reverse: false };">
         <h3 translate="theGbifNetwork.regionalRepresentative"
-            translate-values="{NUMBER: vm.reps.length}"
-            translate-interpolation="messageformat"></h3>
+            translate-values="{NUMBER: vm.reps.length}"></h3>
 
         <table class="table card">
             <thead>

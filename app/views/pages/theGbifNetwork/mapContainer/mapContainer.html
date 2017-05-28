@@ -33,42 +33,36 @@
                 <li ng-if="vm.endorsedPublisher > 0">
                     <strong ng-bind="vm.endorsedPublisher"></strong>
                     <span translate="theGbifNetwork.endorsedDataPublisher"
-                          translate-values="{ NUMBER: vm.endorsedPublisher }"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{ NUMBER: vm.endorsedPublisher }"></span>
                 </li>
                 <li ng-if="vm.digest.counts.datasetFromCount">
                     <a href="/dataset/search?type=OCCURRENCE&publishing_country={{ vm.digest.iso2 }}">
                     <strong ng-bind="vm.digest.counts.datasetFromCount | localNumber:gb.locale"></strong>
                     </a>
                     <span translate="theGbifNetwork.occurrenceDatasetWith"
-                          translate-values="{ NUMBER: vm.digest.counts.datasetFromCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{ NUMBER: vm.digest.counts.datasetFromCount}"></span>
                     <a href="/occurrence/search?publishing_country={{ vm.digest.iso2 }}&advanced=1">
                     <strong ng-bind="vm.digest.counts.occurrenceFromCount | localNumber:gb.locale"></strong>
                     </a>
                     <span translate="theGbifNetwork.record"
-                          translate-values="{ NUMBER: vm.digest.counts.occurrenceFromCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{ NUMBER: vm.digest.counts.occurrenceFromCount}"></span>
                 </li>
                 <li ng-if="vm.digest.counts.checklistDatasetFromCount">
                     <a href="/dataset/search?type=CHECKLIST&publishing_country={{ vm.digest.iso2 }}">
                         <strong ng-bind="vm.digest.counts.checklistDatasetFromCount | localNumber:gb.locale"></strong>
                     </a>
                     <span translate="theGbifNetwork.checklistDatasetWith"
-                          translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromCount}"></span>
                     <strong ng-bind="vm.digest.counts.checklistDatasetFromRecordCount | localNumber:gb.locale"></strong>
                     <span translate="theGbifNetwork.usage"
-                          translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromRecordCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{ NUMBER: vm.digest.counts.checklistDatasetFromRecordCount}"></span>
                 </li>
                 <li ng-if="vm.digest.counts.metadataDatasetFromCount">
                     <a href="/dataset/search?type=METADATA&publishing_country={{ vm.digest.iso2 }}">
                     <strong ng-bind="vm.digest.counts.metadataDatasetFromCount | localNumber:gb.locale"></strong>
                     </a>
                     <span translate="theGbifNetwork.metadataDataset"
-                          translate-values="{NUMBER: vm.digest.counts.metadataDatasetFromCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{NUMBER: vm.digest.counts.metadataDatasetFromCount}"></span>
                 </li>
             </ul>
             <ul class="info-pane__digest">
@@ -86,8 +80,7 @@
                         <strong ng-bind="vm.digest.counts.literatureAuthoredByCount"></strong>
                     </a>
                     <span translate="theGbifNetwork.peerReviewedPublication"
-                          translate-values="{NUMBER: vm.digest.counts.literatureAuthoredByCount}"
-                          translate-interpolation="messageformat"></span>
+                          translate-values="{NUMBER: vm.digest.counts.literatureAuthoredByCount}"></span>
                 </li>
             </ul>
             <footer>

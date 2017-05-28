@@ -12,12 +12,18 @@ function isGuid(stringToTest) {
     return regexGuid.test(stringToTest);
 }
 
-router.get('/publisher/:key\.:ext?', function (req, res, next) {
+module.exports = function (app) {
+    app.use('/', router);
+};
+
+router.get('/publisher/:key\.:ext?', render);
+
+function render(req, res, next) {
     var key = req.params.key;
     if (!isGuid(key)) {
         next();
     } else {
-        Publisher.get(key, {expand: ['endorsingNode', 'datasets', 'occurrences', 'installation']}).then(function (publisher) {
+        Publisher.get(key).then(function (publisher) {
             try {
                 publisher._computedValues = {};
                 let contacts = publisher.record.contacts;
@@ -46,14 +52,14 @@ router.get('/publisher/:key\.:ext?', function (req, res, next) {
             }
         });
     }
-});
+};
 
 function renderPage(req, res, next, publisher) {
     try {
         if (req.params.ext == 'debug') {
             res.json(publisher);
         } else {
-            res.render('pages/publisher/key/publisherKey', {
+            res.render('pages/publisher/key/seo', {
                 publisher: publisher,
                 _meta: {
                     title: 'Publisher Detail ' + req.params.key

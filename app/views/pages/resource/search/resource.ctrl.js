@@ -7,10 +7,10 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, NAV_EVENTS) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Page, NAV_EVENTS) {
     var vm = this;
     vm.state = ResourceFilter.getState();
-
+    Page.setTitle('Resource search');
     vm.filters = {};
 
     vm.filters.countriesOfCoverage = {
