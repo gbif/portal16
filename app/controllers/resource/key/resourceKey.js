@@ -101,7 +101,7 @@ async function getByAlias(urlAlias, depth, isPreview, locale) {
 }
 
 async function getHomePage(isPreview, locale) {
-    let homepages = await searchContentful({content_type:'homePage'}, 3, false, isPreview, locale),
+    let homepages = await searchContentful({content_type:'homePage'}, 3, isPreview, locale),
         first = decorateFirst(homepages);
     return first;
 }
