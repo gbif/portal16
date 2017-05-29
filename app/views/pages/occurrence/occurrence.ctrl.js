@@ -6,7 +6,7 @@ angular
     .controller('occurrenceCtrl', occurrenceCtrl);
 
 /** @ngInject */
-function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION) {
+function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher) {
     var vm = this;
     Page.setTitle('Occurrence search');
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
@@ -391,6 +391,26 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             },
             suggestTemplate: '/templates/components/filterTaxon/suggestTaxonTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'scientificName',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
+    vm.filters.publisher = {
+        titleTranslation: 'stdTerms.publisher',
+        queryKey: 'publishing_org',
+        filter: OccurrenceFilter,
+        expand: {
+            resource: Publisher,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'PUBLISHING_ORG'
+        },
+        search: {
+            isSearchable: false,
+            suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
         }
