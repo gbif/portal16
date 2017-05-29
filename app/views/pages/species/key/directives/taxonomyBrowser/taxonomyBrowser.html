@@ -5,8 +5,8 @@
                 <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                     <div class="taxonomyBrowser__description">
-                        <span class="sciname">{{tax.canonicalName}}</span>
-                        <span class="small discreet">{{tax.authorship}}</span>
+                        <span class="sciname">{{tax.scientificName}}</span>
+                        <!--<span class="small discreet">{{tax.authorship}}</span>-->
                     </div>
                 </a>
             </li>
@@ -18,8 +18,8 @@
             <div class="taxonomyBrowser__subheadline">Accepted name</div>
             <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
             <span class="taxonomyBrowser__description sciname">
-                {{vm.acceptedTaxon.canonicalName}}
-                <span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>
+                {{vm.acceptedTaxon.scientificName}}
+                <!--<span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>-->
             </span>
         </a>
     </div>
@@ -31,10 +31,26 @@
             <div class="taxonomyBrowser__description" ng-class="{taxonomyBrowser__synonym: vm.taxon.synonym}">
                 <span ng-if="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                 <div>
-                    <span class="sciname">{{vm.taxon.canonicalName}}</span>
-                    <div class="small discreet">{{vm.taxon.authorship}}</div>
+                    <span class="sciname">{{vm.taxon.scientificName}}</span>
+                    <!--<div class="small discreet">{{vm.taxon.authorship}}</div>-->
                 </div>
             </div>
+
+            <div class="taxonomyBrowser__synonyms" ng-if="vm.taxon.basionymKey">
+                <!--<span class="taxonomyBrowser__term">Synonyms</span>-->
+                <div class="taxonomyBrowser__subheadline">Basionym</div>
+                <div>
+                    <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
+                        <span class="synonymSymbol">≡</span>
+                        <div>
+                            <a ui-sref=".({speciesKey:vm.taxon.basionymKey})" href="" class="inherit">
+                                <span class="sciname">{{vm.taxon.basionym}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="taxonomyBrowser__synonyms" ng-if="vm.synonyms.length > 0">
                 <!--<span class="taxonomyBrowser__term">Synonyms</span>-->
@@ -46,8 +62,8 @@
                             <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                             <div>
                                 <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
-                                    <span class="sciname">{{tax.canonicalName}}</span>
-                                    <span class="small discreet">{{tax.authorship}}</span>
+                                    <span class="sciname">{{tax.scientificName}}</span>
+                                    <!--<span class="small discreet">{{tax.authorship}}</span>-->
                                 </a>
                             </div>
                         </div>
@@ -64,8 +80,8 @@
                     <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                     <div class="taxonomyBrowser__description">
                         <span>
-                            {{tax.canonicalName}}
-                            <span class="small discreet">{{tax.authorship}}</span>
+                            {{tax.scientificName}}
+                            <!--<span class="small discreet">{{tax.authorship}}</span>-->
                         </span>
                         <div>
                             <!--<a  ng-show="!vm.isOcc && tax.numDescendants > 0"-->
