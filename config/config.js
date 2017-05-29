@@ -20,7 +20,12 @@ var path = require('path'),
     locales = ['en', 'es', 'da'],
     contentfulLocaleMap = {
         'en': 'en-GB',
-        'es': 'es-ES'
+        'es': 'es',
+        'ar': 'ar',
+        'zh': 'zh',
+        'fr': 'fr',
+        'ru': 'ru',
+        'pt': 'pt'
     },
     defaultLocale = 'en';
 

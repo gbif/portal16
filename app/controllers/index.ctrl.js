@@ -4,7 +4,10 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
-    resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
+    resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
+    acceptLanguageParser = require('accept-language-parser'),
+    availableLanguagesForHomePage = ['en', 'zh', 'fr', 'ru', 'es', 'pt'],
+    langs = require('langs');
 
 
 module.exports = function (app) {
@@ -16,10 +19,14 @@ router.get('/', function (req, res, next) {
         //if using the short omni search format gbif.org?q=something then redirect to search
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/search?q=' + req.query.q);
     } else {
+        //if no language defined in url, then select language for home page content based on accept language in header
+        let matchedLanguage = acceptLanguageParser.pick(availableLanguagesForHomePage, req.headers['accept-language']),
+            homePageLanguage = !res.locals.gb.locales.urlPrefix ? matchedLanguage : res.locals.gb.locales.current;
+
         let news = resourceSearch.search({contentType: 'news', limit: 1, homepage: true}, req.__, 5000),
             dataUse = resourceSearch.search({contentType: 'dataUse', limit: 1, homepage: true}, req.__, 5000),
             event = resourceSearch.search({contentType: 'event', limit: 1, homepage: true}, req.__, 5000), //TODO shouldn't events be visible on the home page ? they are all hidden per default
-            homepage = resource.getHomePage({content_type: 'homePage'}, 3, false, res.locals.gb.locales.current);
+            homepage = resource.getHomePage(false, homePageLanguage);
 
         Promise.all([homepage, news, dataUse, event])
             .then(function (values) {
