@@ -7,7 +7,6 @@ var express = require('express'),
     expect = chai.expect,
     querystring = require('querystring'),
     request = require('requestretry'),
-
     acceptLanguageParser = require('accept-language-parser'),
     langs = require('langs');
 
@@ -22,7 +21,7 @@ router.get('/species/:key/vernacularName', function (req, res) {
         if (name) {
             res.send(name);
         }
-        res.status(404);
+        res.status(204);
         res.send();
     }).catch(function(){
         res.status(500);
