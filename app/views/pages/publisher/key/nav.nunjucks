@@ -40,6 +40,17 @@
                                 </a>
                             </span>
                         </li>
+
+                        <li class="tab tab-right ng-cloak" ng-if="publisherKey.literature.count > 0">
+                            <span>
+                                <a ui-sref="resourceSearchList({publishingOrganizationKey:publisherKey.key, contentType: 'literature'})" class="gb-button--dark">
+                                    {{ publisherKey.literature.count | localNumber }}
+                                    <span translate="stdTerms.citations" translate-values="{ NUMBER: publisherKey.literature.count }">
+                                        Citations
+                                    </span>
+                                </a>
+                            </span>
+                        </li>
                     </ul>
                 </nav>
             </div>

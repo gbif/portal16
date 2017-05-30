@@ -7,7 +7,7 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, Page, NAV_EVENTS) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, NAV_EVENTS, BUILD_VERSION) {
     var vm = this;
     vm.state = ResourceFilter.getState();
     Page.setTitle('Resource search');
@@ -85,6 +85,47 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Page, NAV_EVENTS) {
             multiSelect: true
         };
     });
+
+    vm.filters.dataset = {
+        titleTranslation: 'stdTerms.dataset',
+        queryKey: 'gbifDatasetKey',
+        filter: ResourceFilter,
+        expand: {
+            resource: Dataset,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: false
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.dataset,
+            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
+    vm.filters.publisher = {
+        titleTranslation: 'stdTerms.publisher',
+        queryKey: 'publishingOrganizationKey',
+        filter: ResourceFilter,
+        expand: {
+            resource: Publisher,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: false
+        },
+        search: {
+            isSearchable: false,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
 
     vm.openHelpdesk = function () {
         $rootScope.$broadcast(NAV_EVENTS.toggleSearch, {state: false});
