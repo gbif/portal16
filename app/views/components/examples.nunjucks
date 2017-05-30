@@ -4,6 +4,4 @@
 
 {% include "./basics/doi.example.nunjucks" %}
 
-
-
 {% include "./map/basic/gbmap.example.nunjucks" %}

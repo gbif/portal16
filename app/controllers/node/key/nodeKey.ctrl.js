@@ -96,7 +96,15 @@ async function getCountry(isoCode, current) {
     }
     let participant;
     try{
-        participant = await Participant.get(isoCode, current);
+
+        //TODO remove tmp look up approach shortly after 1 june 2017
+        //ugly patch until the directory API supports search by countryCode. currently it filters out IN because it is an english word and you can only search by freetext. This should be fixed at API level
+        let tmp = isoCode;
+        if (isoCode == 'IN') {
+            tmp = '114';
+        }
+        participant = await Participant.get(tmp, current);
+        //participant = await Participant.get(isoCode, current);
         participant = participantView(participant);
         participant._meta = {
             title: 'Country'

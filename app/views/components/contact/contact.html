@@ -1,7 +1,7 @@
 <div class="contactsCard__contact card__content">
     <div href="" class="inherit contactsCard__name" name="contact_{{vm.contact._id}}">
         <div>
-            <div ng-if="vm.contact.firstName || vm.contact.lastName">{{ vm.contact.firstName }} {{ vm.contact.lastName }}</div>
+            <div ng-if="vm.contact.firstName || vm.contact.lastName">{{ vm.contact.firstName }} {{ vm.contact.lastName }} {{ vm.contact.surname }}</div>
             <div ng-if="!vm.contact.firstName && !vm.contact.lastName">{{ vm.contact.organization || vm.contact.title }}</div>
         </div>
     </div>

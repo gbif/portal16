@@ -1430,7 +1430,8 @@
     "license": "license",
     "learnMore": "learn more",
     "readMore": "read more",
-    "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}"
+    "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
+    "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}"
   },
   "event": {
     "location": "Location",
@@ -2328,5 +2329,7 @@
   "cites": {
     "appendix": "Appendix"
   },
-  "enums.cms.vocabularyTerms.": "enums.cms.vocabularyTerms."
+  "help": {
+    "citationExplainer": "We do our best to find literature citing GBIF downloads. When a paper cite using a DOI we can track it to the individual datasets and publishers. This list only shows usage known to GBIF. The data might have been filtered further after download."
+  }
 }

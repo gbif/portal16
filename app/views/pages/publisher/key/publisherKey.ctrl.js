@@ -12,7 +12,7 @@ angular
     .controller('publisherKeyCtrl', publisherKeyCtrl);
 
 /** @ngInject */
-function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
+function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSearch, ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Publisher');
     vm.key = $stateParams.key;
@@ -21,11 +21,13 @@ function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSea
     vm.publisher = PublisherExtended.get({key: vm.key});
     vm.installations = PublisherInstallations.get({id: vm.key, limit:100});
     vm.datasets = DatasetSearch.get({publishing_org: vm.key, limit:0});
+    vm.literature = ResourceSearch.query({contentType: 'literature', publishingOrganizationKey: vm.key, limit: 0});
     vm.occurrences = OccurrenceSearch.query({publishing_org: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({publishing_org: vm.key, media_type: 'StillImage'});
     vm.images.$promise.then(function (resp) {
         utils.attachImages(resp.results);
     });
+
     vm.withCoordinates = OccurrenceSearch.query({
         publishing_org: vm.key,
         has_coordinate: true,

@@ -67,7 +67,7 @@
                             </a>
                         </li>
 
-                        <li class="tab tab-right ng-cloak" ng-if="datasetKey2.occurrences.count > 0">
+                        <li class="tab tab-right ng-cloak" ng-if="datasetKey2.dataset.type == 'OCCURRENCE' || datasetKey2.dataset.type == 'SAMPLING_EVENT' || datasetKey2.occurrences.count > 0">
                             <span>
                                 <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey2.key})" class="gb-button--brand">
                                     {{ datasetKey2.occurrences.count | localNumber }}
@@ -84,6 +84,17 @@
                                     {{ datasetKey2.taxa.count | localNumber }}
                                     <span class="gb-button--primary__label">
                                         Records
+                                    </span>
+                                </a>
+                            </span>
+                        </li>
+
+                        <li class="tab tab-right ng-cloak" ng-if="datasetKey2.literature.count > 0">
+                            <span>
+                                <a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey2.key, contentType: 'literature'})" class="gb-button--dark">
+                                    {{ datasetKey2.literature.count | localNumber }}
+                                    <span translate="stdTerms.citations" translate-values="{ NUMBER: datasetKey2.literature.count }">
+                                        Citations
                                     </span>
                                 </a>
                             </span>
