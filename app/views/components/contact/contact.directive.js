@@ -26,6 +26,17 @@ function contactDirective(BUILD_VERSION) {
     function contactCtrl() {
         var vm = this;
         vm.contact = vm.contactInfo;
+
+        vm.getAsArray = function(value) {
+            return angular.isArray(value) ? value : [value];
+        };
+
+        vm.getRoles = function(roles) {
+            var r = vm.getAsArray(roles);
+            return _.map(r, function(e){
+                return _.isString(e) ? e : e.role;
+            });
+        }
     }
 }
 
