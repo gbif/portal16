@@ -4,6 +4,11 @@ var _ = require('lodash'),
     url = require('url'),
     doiRegex = require("doi-regex"),
     Autolinker = require('autolinker'),
+    md = require('markdown-it')({
+        html: true,
+        linkify: true,
+        typographer: true
+    }),
     linkTemplateTarget = '<a href="%s1" target="%s2">%s3</a>',
     linkTemplate = '<a href="%s1">%s3</a>';
 
@@ -34,19 +39,20 @@ function insertLinks(text, links, target) {
 }
 
 function linkify(text, options) {
-    options = options || {};
-    var defaults = {
-        newWindow: false,
-        urls: {
-            tldMatches: false,
-            schemeMatches: true,
-            wwwMatches: true
-        },
-        phone: false,
-        email: true
-    };
-    var newOptions = _.merge(defaults, options);
-    return Autolinker.link(text, newOptions);
+    //options = options || {};
+    //var defaults = {
+    //    newWindow: false,
+    //    urls: {
+    //        tldMatches: false,
+    //        schemeMatches: true,
+    //        wwwMatches: true
+    //    },
+    //    phone: false,
+    //    email: true
+    //};
+    //var newOptions = _.merge(defaults, options);
+    //return Autolinker.link(text, newOptions);
+    return md.renderInline(text);
 }
 
 function reduceUrlToDomain(text) {

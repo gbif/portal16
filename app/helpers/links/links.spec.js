@@ -18,7 +18,7 @@ describe("insert links in text to minimize translation work", function () {
 describe("make links into a tags and mails into mail links", function () {
     it("can transform into a tags", function () {
         var testString = 'replace this mymail@gmail.com and this one thisMail@gbif.org and show a link to http://mysite.com but not to relative ones like this /occurrence/234';
-        var expectedString = 'replace this <a href="mailto:mymail@gmail.com">mymail@gmail.com</a> and this one <a href="mailto:thisMail@gbif.org">thisMail@gbif.org</a> and show a link to <a href="http://mysite.com">mysite.com</a> but not to relative ones like this /occurrence/234';
+        var expectedString = 'replace this <a href="mailto:mymail@gmail.com">mymail@gmail.com</a> and this one <a href="mailto:thisMail@gbif.org">thisMail@gbif.org</a> and show a link to <a href="http://mysite.com">http://mysite.com</a> but not to relative ones like this /occurrence/234';
         expect(linkHelper.linkify(testString)).toEqual(expectedString);
     });
 });
