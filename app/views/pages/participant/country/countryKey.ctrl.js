@@ -8,12 +8,16 @@ angular
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl(OccurrenceSearch, $location, $rootScope, $stateParams, $state) {
+function countryKeyCtrl(OccurrenceSearch, $location, $rootScope, $http, $stateParams, $state) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
     vm.countryCode = $stateParams.key;
     vm.$state = $state;
+    $http.get('/api/country/about/' + vm.countryCode).then(function (response) {
+        vm.country = response.data;
+    });
+
     //
     // OccurrenceSearch.query({
     //     country: vm.countryCode,
