@@ -7,13 +7,20 @@ angular
     .controller('installationKeyCtrl', installationKeyCtrl);
 
 /** @ngInject */
-function installationKeyCtrl($state, $stateParams, InstallationDatasets) {
+function installationKeyCtrl($state, $stateParams, InstallationDatasets, InstallationExtended, Publisher, BUILD_VERSION) {
     var vm = this;
+    vm.BUILD_VERSION = BUILD_VERSION;
     vm.limit = 5;
     vm.servedDatasets = {};
     vm.maxSize = 5;
     vm.limit = 5;
-    vm.key = gb.installationKey || $stateParams.key;
+    vm.key = $stateParams.key;
+    vm.installation = InstallationExtended.get({id:vm.key});
+
+    vm.installation.$promise.then(function(installation){
+        vm.publisher = Publisher.get({id: installation.organizationKey})
+    });
+
 
     vm.getDatasets = function () {
         InstallationDatasets.get({id: vm.key, limit: vm.limit, offset: vm.offset},
