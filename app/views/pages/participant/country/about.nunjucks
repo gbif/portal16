@@ -205,13 +205,5 @@
     </div>
 </div>
 
-
-{% if activePeople | isNotEmpty %}
-    <div class="horizontal-stripe bare-background">
-        <span class="relative-anchor-offset"><a id="contacts"></a></span>
-        <div class="container--narrow">
-            {% include "../contacts.nunjucks" %}
-        </div>
-    </div>
-{% endif %}
+{% include "../contacts.nunjucks" %}
 

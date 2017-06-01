@@ -2,7 +2,7 @@
 {% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes publisherKey page--data">
+    <article class="wrapper-horizontal-stripes publisherKey page--data hidden">
 
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
@@ -35,9 +35,9 @@
             {% include "./highlights/highlights.nunjucks" %}
         </div>
 
-        <div ui-view>
+        {#<div ui-view>#}
 
-        </div>
+        {#</div>#}
 
     </article>
 

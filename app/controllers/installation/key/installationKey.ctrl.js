@@ -23,8 +23,7 @@ function renderPage(req, res, next, installation) {
             res.render('pages/installation/key/installationKey', {
                 installation: installation,
                 _meta: {
-                    title: 'Installation: ' + req.params.key,
-                    customUiView: true
+                    title: 'Installation: ' + req.params.key
                 }
             });
         }

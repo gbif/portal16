@@ -16,6 +16,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('InstallationExtended', function ($resource) {
+            return $resource('/api/installation/:id', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('InstallationDatasets', function ($resource, env) {
             return $resource(env.dataApi + 'installation/:id/dataset', null, {
                     'query': {

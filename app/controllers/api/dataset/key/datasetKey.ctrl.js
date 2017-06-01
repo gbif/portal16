@@ -91,7 +91,7 @@ function cleanField(o, field) {
 function cleanArray(o, field) {
     let values = _.get(o, field);
     if (values) {
-        _.set(o, values.map(function(e){
+        _.set(o, field, values.map(function(e){
             return format.sanitize(format.linkify(format.decodeHtml(e)))
         }));
     }

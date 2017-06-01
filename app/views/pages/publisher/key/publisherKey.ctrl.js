@@ -4,8 +4,7 @@ var angular = require('angular'),
     _ = require('lodash'),
     utils = require('../../../shared/layout/html/utils/utils');
 
-require('./datasets/publisherDatasets.ctrl');
-require('./installations/publisherInstallations.ctrl');
+
 
 angular
     .module('portal')

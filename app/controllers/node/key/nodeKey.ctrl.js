@@ -74,7 +74,7 @@ router.get('/api/template/country/:iso\.:ext?', function (req, res, next) {
         });
 });
 
-router.get('/api/country/about/:iso\.:ext?', function (req, res, next) {
+router.get('/api/country/about/:iso', function (req, res, next) {
     let isoCode = req.params.iso.toUpperCase();
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     country
