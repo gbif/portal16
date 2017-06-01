@@ -1,0 +1,22 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes">
+
+        <div class="horizontal-stripe light-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                    large
+                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                    </div>
+                    <div class="col-xs-8">
+                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                    </div>
+                    <div class="col-xs-4">
+                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
