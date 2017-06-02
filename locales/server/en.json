@@ -1478,7 +1478,10 @@
     "type": {
       "IPT_INSTALLATION": "IPT",
       "HTTP_INSTALLATION": "HTTP",
-      "BIOCASE_INSTALLATION": "BIOCASE"
+      "DiGIR_INSTALLATION": "DiGIR",
+      "TAPIR_INSTALLATION": "TAPIR",
+      "BIOCASE_INSTALLATION": "BIOCASE",
+      "SYMBIOTA_INSTALLATION": "SYMBIOTA"
     }
   },
   "datasetDetails": {

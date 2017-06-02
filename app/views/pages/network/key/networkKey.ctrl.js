@@ -7,18 +7,22 @@ angular
     .controller('networkKeyCtrl', networkKeyCtrl);
 
 /** @ngInject */
-function networkKeyCtrl($state, $stateParams, NetworkDatasets) {
+function networkKeyCtrl($state, $stateParams, $anchorScroll, Network, NetworkDatasets, BUILD_VERSION) {
     var vm = this;
+    vm.BUILD_VERSION = BUILD_VERSION;
     vm.limit = 5;
     vm.datasets = {};
     vm.maxSize = 5;
     vm.limit = 5;
-    vm.key = gb.networkKey || $stateParams.key;
+    vm.key =  $stateParams.key;
+
+    vm.network = Network.get({id: vm.key});
 
     vm.getDatasets = function () {
         NetworkDatasets.get({id: vm.key, limit: vm.limit, offset: vm.offset},
             function (response) {
                 vm.datasets = response;
+                $anchorScroll(['datasets']);
             },
             function () {
                 //TODO handle errors

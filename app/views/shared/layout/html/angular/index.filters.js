@@ -63,7 +63,8 @@
         .filter('imgCache', function (env) {
             return function (imgUrl, width, height) {
                 if (width || height) {
-                    return env.imageCache + width + 'x' + height + '/' + window.encodeURIComponent(imgUrl);
+
+                    return env.imageCache + (width || '') + 'x' + (height || '') + '/' + window.encodeURIComponent(imgUrl);
                 } else {
                     return env.imageCache + window.encodeURIComponent(imgUrl);
                 }

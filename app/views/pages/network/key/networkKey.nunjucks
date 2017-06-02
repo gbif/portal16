@@ -1,7 +1,7 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes publisherKey page--data">
+    <article class="wrapper-horizontal-stripes publisherKey page--data hidden">
 
         <div class="horizontal-stripe article-header white-background">
             <div class="container">
@@ -50,9 +50,7 @@
 
 
 
-        <div ui-view>
 
-        </div>
 
         {% include "./contacts/contacts.nunjucks" %}
 

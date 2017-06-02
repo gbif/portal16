@@ -43,8 +43,7 @@ function renderPage(req, res, next, network) {
             res.render('pages/network/key/networkKey', {
                 network: network,
                 _meta: {
-                    title: 'Network ' + network.record.title,
-                    customUiView: true
+                    title: 'Network ' + network.record.title
                 }
             });
         }

@@ -40,6 +40,7 @@ function parseOccurrence(path, cb) {
             Node.get(occurrence.publisher.endorsingNodeKey, {}).then(function(node){
                 contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
                 // has custom annotation system?
+                occurrence.record._installationKey = occurrence.dataset.installationKey;
                 contentType.annotation = getAnnotation(occurrence.record);
 
                 // get administrative contacts
