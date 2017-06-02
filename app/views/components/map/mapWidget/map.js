@@ -57,28 +57,52 @@ function createMap(element) {
             tilePixelRatio: 1,
             wrapX: true
         }),
-        visible: true
+        visible: true,
+    });
+
+    layers['EPSG:4326-R-CLASSIC'] = new ol.layer.Tile({
+        source: new ol.source.TileImage({
+            projection: 'EPSG:4326',
+            url: 'https://tile.gbif.org/4326/omt/{z}/{x}/{y}@'+pixel_ratio+'x.png?style=gbif-classic',
+            tileGrid: tile_grid_16,
+            tilePixelRatio: 1,
+            wrapX: true
+        }),
+        visible: true,
+    });
+
+    layers['OccurrenceDensity:4326'] = new ol.layer.VectorTile({
+        renderMode: 'image',
+        source: new ol.source.VectorTile({
+            projection: 'EPSG:4326',
+            format: new ol.format.MVT(),
+            url: 'https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}.mvt?srs=EPSG:4326&bin=hex&taxonKey=2481433',
+            tileGrid: tile_grid_14,
+            tilePixelRatio: 8,
+        }),
+        //style: createDensityStyle(),
+        visible: true,
     });
 
     layers['OccurrenceDensityRaster:4326'] = new ol.layer.Tile({
         extent: ol.proj.get('EPSG:4326').getExtent(),
         source: new ol.source.TileImage({
             projection: 'EPSG:4326',
-            url: 'https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@'+pixel_ratio+'x.png?srs=EPSG:4326&style=green.poly&bin=hex',
+            url: 'https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@'+pixel_ratio+'x.png?srs=EPSG:4326',
             tileGrid: tile_grid_16,
-            tilePixelRatio: 1
+            tilePixelRatio: 1,
+            wrapX: true
         }),
         visible: true
     });
 
+
     var map = new ol.Map({
         layers: [
-            //new ol.layer.Tile({
-            //    source: new ol.source.OSM()
-            //}),
+            layers['EPSG:4326-R-CLASSIC'],
             layers['EPSG:4326-R'],
+            //layers['OccurrenceDensity:4326']
             layers['OccurrenceDensityRaster:4326']
-
         ],
         target: mapElement,
         view: new ol.View({
@@ -129,7 +153,7 @@ function reproj(map, layers) {
         minZoom: 0,
         maxZoom: 14,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
     var tile_grid_16 = new ol.tilegrid.TileGrid({
@@ -138,7 +162,7 @@ function reproj(map, layers) {
         minZoom: 0,
         maxZoom: max_zoom,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
     var layers2 = [];
@@ -151,6 +175,7 @@ function reproj(map, layers) {
             tileGrid: tile_grid_14,
             url: 'https://tile.gbif.org/3575/omt/{z}/{x}/{y}@'+pixel_ratio+'x.png?style='+raster_style,
             tilePixelRatio: 1,
+            wrapX: false
         }),
         visible: true,
     });
@@ -161,17 +186,22 @@ function reproj(map, layers) {
             tileGrid: tile_grid_16,
             tilePixelRatio: 1,
             url: 'https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@'+pixel_ratio+'x.png?srs=EPSG:3575',
+            wrapX: false
         }),
         visible: true
     });
-    map.getLayerGroup().removeLayer();
+    map.getLayers().clear();
     map.setView(new ol.View({
-        center: ol.proj.fromLonLat([-1.049565, 51.441297], 'EPSG:3575'),
+        //center: ol.proj.fromLonLat([-1.049565, 51.441297], 'EPSG:3575'),
+        center: ol.proj.fromLonLat([0, 89], 'EPSG:3575'),
         projection: ol.proj.get('EPSG:3575'),
         zoom: 1,
         maxResolution: halfWidth / tile_size * 2
     }));
+    map.addLayer(layers2['EPSG:3575-R']);
+    map.addLayer(layers2['OccurrenceDensityRaster:3575']);
 }
+
 
 
 
@@ -199,7 +229,7 @@ function createMap2(element) {
         minZoom: 0,
         maxZoom: 14,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
     var tile_grid_16 = new ol.tilegrid.TileGrid({
@@ -208,7 +238,7 @@ function createMap2(element) {
         minZoom: 0,
         maxZoom: max_zoom,
         resolutions: resolutions,
-        tileSize: tile_size,
+        tileSize: tile_size
     });
 
     var layers = [];
@@ -222,7 +252,7 @@ function createMap2(element) {
             url: 'https://tile.gbif.org/3575/omt/{z}/{x}/{y}@'+pixel_ratio+'x.png?style='+raster_style,
             tilePixelRatio: 1,
         }),
-        visible: true,
+        visible: true
     });
     layers['OccurrenceDensityRaster:3575'] = new ol.layer.Tile({
         extent: extent,
@@ -244,7 +274,7 @@ function createMap2(element) {
             center: ol.proj.fromLonLat([-1.049565, 51.441297], 'EPSG:3575'),
             projection: ol.proj.get('EPSG:3575'),
             zoom: 1,
-            maxResolution: halfWidth / tile_size * 2,
+            maxResolution: halfWidth / tile_size * 2
         })
     });
 
