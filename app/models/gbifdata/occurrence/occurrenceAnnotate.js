@@ -14,14 +14,25 @@ var config = {
             name: "AnnoSys",
             abbrivation: "An"
         }
+    },
+    installation: {
+        '2c733a9d-363d-4d66-9aef-3e0f7bc44bec': {
+            url: "{{references}}",
+            keys: ['references'],
+            name: "Symbiota",
+            abbrivation: "Sy"
+        }
     }
 };
 
 function getAnnotationUrl(occurrence) {
     if (typeof occurrence === 'undefined') return undefined;
+
     let publishingOrgKey = occurrence.publishingOrgKey;
-    if (typeof publishingOrgKey === 'undefined') return undefined;
-    let configTemplate = config.publisher[publishingOrgKey];
+    let installationKey = occurrence._installationKey;
+    if (typeof publishingOrgKey === 'undefined' && typeof installationKey === 'undefined') return undefined;
+
+    let configTemplate = config.publisher[publishingOrgKey] || config.installation[installationKey];
     if (typeof configTemplate === 'undefined') return undefined;
 
     let url = configTemplate.url;
