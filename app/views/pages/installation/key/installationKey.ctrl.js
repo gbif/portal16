@@ -7,7 +7,7 @@ angular
     .controller('installationKeyCtrl', installationKeyCtrl);
 
 /** @ngInject */
-function installationKeyCtrl($state, $stateParams, InstallationDatasets, InstallationExtended, Publisher, BUILD_VERSION) {
+function installationKeyCtrl($state, $stateParams, $anchorScroll, InstallationDatasets, InstallationExtended, Publisher, BUILD_VERSION) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.limit = 5;
@@ -26,6 +26,9 @@ function installationKeyCtrl($state, $stateParams, InstallationDatasets, Install
         InstallationDatasets.get({id: vm.key, limit: vm.limit, offset: vm.offset},
             function (response) {
                 vm.servedDatasets = response;
+
+                    $anchorScroll(['servedDatasets']);
+
             },
             function () {
                 //TODO handle errors

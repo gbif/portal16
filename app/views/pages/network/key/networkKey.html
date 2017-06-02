@@ -1,54 +1,121 @@
-<article class="wrapper-horizontal-stripes networkKey">
-    <div class="horizontal-stripe bare-background ng-cloak" ng-if="networkKey.datasets.count > 0">
-        <span class="relative-anchor-offset"><a id="datasets"></a></span>
-        <div class="container--normal">
-            <p class="small discreet text-uppercase">
-                Participating datasets
-            </p>
-            <div class="card">
-                <div class="card__stripe">
-                    <div class="stripeList" ng-show="networkKey.datasets.count > 0">
-                        <ul>
-                            <li ng-repeat="dataset in networkKey.datasets.results">
-                                <a ng-href="/dataset/{{ dataset.key }}">
-                                    <!--<div class="pull-right text-right">-->
-                                        <!--<span class="numberBadge">-->
-                                            <!--<span count="//api.gbif.org/v1/occurrence/search?datasetKey={{dataset.key}}" count-type>&nbsp;</span>-->
-                                        <!--</span>-->
-                                    <!--</div>-->
-                                    <div class="title">
-                                        {{ dataset.title }}
-                                    </div>
-                                    <div class="discreet small m-t-05 clearfix">
-                                        <span>
-                                            <span class="text-capitalize">{{ 'dataset.longType.' + dataset.type | translate }}.</span>
-                                            <span>
-                                                <span count="//api.gbif.org/v1/occurrence/search?datasetKey={{dataset.key}}" count-type>&nbsp;</span>
-                                                Occurrences
-                                            </span>
-                                            <!--<span class="pull-right">-->
-                                                <!--Updated <time am-time-ago="dataset.modified"></time>-->
-                                            <!--</span>-->
-                                        </span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="publisherKey light-background">
+            <div class="wrapper-horizontal-stripes">
+                <div class="horizontal-stripe article-header white-background p-b-1 seperator--b">
+                    <div class="container">
+                        <div class="row">
+                            <header class="col-xs-12 text-center">
+                                <nav class="article-header__category article-header__category--deep">
+                                    <span class="article-header__category__upper"
+                                          translate="network.title"></span>
+                                    <span class="article-header__category__lower">
+                        Registered {{ networkKey.network.created | amDateFormat:'D MMMM YYYY' }}
+                    </span>
+                                </nav>
+                                <h1>
+                                    {{ networkKey.network.title }}
+                                </h1>
+                                <div class="article-header__button"
+                                     ng-if="networkKey.network.homepage && networkKey.network.homepage.length > 0">
+
+                                    <a ng-href="{{networkKey.network.homepage[0]}}" class="gb-button--discreet small">Visit
+                                        homepage</a>
+
+
+                                </div>
+                                <div class="article-header__highlights"
+                                     ng-if="networkKey.network.email && networkKey.network.email.length > 0">
+                                    <a class="inherit" ng-href="mailto:{{networkKey.network.email[0]}}"><span
+                                            class="gb-icon-mail"></span>
+                                        Contact
+
+                                    </a>
+                                </div>
+                            </header>
+                        </div>
+
+
                     </div>
-                    <div class="card__content m-l-1" ng-if="networkKey.datasets.count > networkKey.limit">
-                        <uib-pagination
-                                total-items="networkKey.datasets.count"
-                                ng-model="networkKey.currentPage"
-                                max-size="networkKey.maxSize"
-                                items-per-page="networkKey.limit"
-                                class="pagination-sm"
-                                boundary-link-numbers="false"
-                                rotate="false"
-                                ng-change="networkKey.pageChanged()">
-                        </uib-pagination>
+                </div>
+                <section class="horizontal-stripe">
+                    <div class="container--narrow">
+                        <div class="container-fluid card card--spaced m-b-1">
+
+
+                            <div class="card__content">
+                                <div class="col-xs-12 col-sm-6 col-md-8 ">
+                                    <div ng-bind-html="networkKey.network.description"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 " ng-if="networkKey.network.logoUrl">
+                                    <img ng-src="{{networkKey.network.logoUrl | imgCache:200}}"
+                                         onerror="this.style.display= 'none'">
+
+                                    <dl class="inline m-t-05">
+
+
+                                        <div clas ng-if="networkKey.network.endpoints.length > 0">
+                                            <dt class="text-capitalize">Endpoints</dt>
+                                            <dd>
+                                                <ul class="inline-bullet-list">
+                                                    <li ng-repeat="endpoint in networkKey.network.endpoints">
+                                                        <a ng-href="{{endpoint.url}}">{{endpoint.url}}</a>
+                                                    </li>
+                                                </ul>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="m-b-1 ng-cloak" ng-if="networkKey.datasets.count > 0">
+                            <span class="relative-anchor-offset"><a id="datasets"></a></span>
+                            <h4 class="small discreet text-uppercase" translate="network.participatingDatasets">
+
+                            </h4>
+
+                            <div>
+                                <div ng-show="networkKey.datasets.count > 0">
+
+                                    <div ng-repeat="result in networkKey.datasets.results">
+                                        <ng-include
+                                                src="'/api/template/search/datasetResult.html?v=' + networkKey.BUILD_VERSION"></ng-include>
+                                    </div>
+
+                                </div>
+                                <div ng-if="networkKey.datasets.count > networkKey.limit">
+                                    <uib-pagination
+                                            total-items="networkKey.datasets.count"
+                                            ng-model="networkKey.currentPage"
+                                            max-size="networkKey.maxSize"
+                                            items-per-page="networkKey.limit"
+                                            class="pagination-sm"
+                                            boundary-link-numbers="false"
+                                            rotate="false"
+                                            ng-change="networkKey.pageChanged()">
+                                    </uib-pagination>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                </section>
+
+
+            </div>
+            <div class="wrapper-horizontal-stripes" ng-if="!networkKey.network.$resolved">
+                <div class="emptyInfo">
+                    <h3>Hang on while we find the network</h3>
                 </div>
             </div>
         </div>
+
+        <ng-include src="'/api/template/site/footer.html?v=' + networkKey.BUILD_VERSION"></ng-include>
     </div>
-</article>
+</div>

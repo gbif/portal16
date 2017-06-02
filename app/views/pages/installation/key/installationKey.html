@@ -25,7 +25,7 @@
                 </div>
                 <section class="horizontal-stripe--paddingless m-t-1" >
                     <div class="container--narrow">
-                        <div class="card card--spaced">
+                        <div class="card card--spaced m-b-1">
 
 
                                     <div class="card__content">
@@ -57,11 +57,7 @@
 
 
                         </div>
-                    </div>
-                </section>
-                <section class="horizontal-stripe--paddingless m-t-1" id="contacts">
-                    <div class="container--narrow">
-                        <div>
+                        <div class="m-b-1">
                             <h4 class="small discreet text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: installationKey.installation._computedValues.contributors.all.length + 1}">Contacts</h4>
 
                             <div class="contactsCard card card--spaced">
@@ -71,42 +67,42 @@
 
 
                         </div>
-                    </div>
-                </section>
+                        <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
+                            <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
+                            <h4 class="small discreet text-uppercase">
+                                Served datasets
+                            </h4>
 
-                <section class="horizontal-stripe light-background ng-cloak"
-                         ng-if="installationKey.servedDatasets.count > 0">
-                    <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
-                    <div class="container--narrow">
-                        <h4 class="small discreet text-uppercase">
-                            Served datasets
-                        </h4>
-
-                        <div>
-                            <div ng-show="installationKey.servedDatasets.count > 0">
+                            <div>
+                                <div ng-show="installationKey.servedDatasets.count > 0">
 
                                     <div ng-repeat="result in installationKey.servedDatasets.results">
                                         <ng-include
                                                 src="'/api/template/search/datasetResult.html?v=' + installationKey.BUILD_VERSION"></ng-include>
                                     </div>
 
+                                </div>
+                                <div ng-if="installationKey.servedDatasets.count > installationKey.limit">
+                                    <uib-pagination
+                                            total-items="installationKey.servedDatasets.count"
+                                            ng-model="installationKey.currentPage"
+                                            max-size="installationKey.maxSize"
+                                            items-per-page="installationKey.limit"
+                                            class="pagination-sm"
+                                            boundary-link-numbers="false"
+                                            rotate="false"
+                                            ng-change="installationKey.pageChanged()">
+                                    </uib-pagination>
+                                </div>
                             </div>
-                            <div ng-if="installationKey.servedDatasets.count > installationKey.limit">
-                                <uib-pagination
-                                        total-items="installationKey.servedDatasets.count"
-                                        ng-model="installationKey.currentPage"
-                                        max-size="installationKey.maxSize"
-                                        items-per-page="installationKey.limit"
-                                        class="pagination-sm"
-                                        boundary-link-numbers="false"
-                                        rotate="false"
-                                        ng-change="installationKey.pageChanged()">
-                                </uib-pagination>
-                            </div>
+
                         </div>
 
                     </div>
                 </section>
+
+
+
 
             </div>
             <div class="wrapper-horizontal-stripes" ng-if="!installationKey.installation.$resolved">
