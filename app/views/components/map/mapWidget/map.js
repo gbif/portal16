@@ -29,7 +29,9 @@ function createMap(element) {
     var extent = 180.0;
     var tile_size = 512;
     var max_zoom = 16;
-    var resolutions = Array(max_zoom+1).fill().map((_, i) => ( extent / tile_size / Math.pow(2, i) ));
+    var resolutions = Array(max_zoom+1).fill().map(function(_, i){
+        return extent / tile_size / Math.pow(2, i)
+    });
     var raster_style = 'gbif-middle';
 
     var tile_grid_14 = new ol.tilegrid.TileGrid({
@@ -145,7 +147,9 @@ function reproj(map, layers) {
     ol.proj.get("EPSG:3575").setExtent(extent);
     var tile_size = 512;
     var max_zoom = 16;
-    var resolutions = Array.from(new Array(max_zoom+1), (x,i) => (halfWidth/(tile_size*Math.pow(2,i-1))));
+    var resolutions = Array.from(new Array(max_zoom+1), function(x,i){
+        return halfWidth/(tile_size*Math.pow(2,i-1));
+    });
 
     var tile_grid_14 = new ol.tilegrid.TileGrid({
         extent: extent,
@@ -221,7 +225,9 @@ function createMap2(element) {
     ol.proj.get("EPSG:3575").setExtent(extent);
     var tile_size = 512;
     var max_zoom = 16;
-    var resolutions = Array.from(new Array(max_zoom+1), (x,i) => (halfWidth/(tile_size*Math.pow(2,i-1))));
+    var resolutions = Array.from(new Array(max_zoom+1), function(x,i){
+        return halfWidth/(tile_size*Math.pow(2,i-1));
+    });
 
     var tile_grid_14 = new ol.tilegrid.TileGrid({
         extent: extent,
