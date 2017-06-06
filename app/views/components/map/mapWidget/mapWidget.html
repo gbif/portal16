@@ -2,7 +2,30 @@
     <h1>MAP</h1>
     <div class="mapWidget__mapArea"></div>
     <div>
-        <button ng-click="vm.restyle()">restyle</button>
-        <button ng-click="vm.projectionChange()">projectionChange</button>
+        <div class="time-slider time-slider__card">
+            {{vm.clicked}}
+            <div class="gb-btn-group time-slider__buttons">
+                <label ng-model="vm.allYears" uib-btn-radio="true"
+                       ng-change="vm.updateMap()">All time</label>
+                <label ng-model="vm.allYears" uib-btn-radio="false"
+                       ng-change="vm.updateMap()"><span class="time-slider__years"></span></label>
+            </div>
+            <div class="time-slider__container">
+                <div class="time-slider__slider" ng-class="{'is-active': !vm.allYears}"></div>
+            </div>
+        </div>
+
+        <div class="mapWidget__options">
+
+        </div>
+    </div>
+    <div>
+        <button ng-click="vm.restyle('dots')">dots</button>
+        <button ng-click="vm.restyle('hexagons')">hexagons</button>
+        <button ng-click="vm.restyle2('hexagons')">blue dots</button>
+        <button ng-click="vm.setProjection('EPSG_3575')">arctic</button>
+        <button ng-click="vm.setProjection('EPSG_4326')">wgs84</button>
+        <button ng-click="vm.setFilters()">human observations only</button>
+        <button ng-click="vm.clearFilters()">no filters</button>
     </div>
 </div>
