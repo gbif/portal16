@@ -77,7 +77,7 @@ function getParticipant(key, locale) {
 
 async function getParticipantByIso(isoCode) {
     let query = {
-        q: isoCode
+        country: isoCode
     };
     let participantSearchResults = await signedGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     let participantItem = _.find(participantSearchResults.results, {countryCode: isoCode, type: 'COUNTRY'});
