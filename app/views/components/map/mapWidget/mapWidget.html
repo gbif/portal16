@@ -1,8 +1,58 @@
-<div>
-    <h1>MAP</h1>
-    <div class="mapWidget__mapArea"></div>
-    <div>
-        <div class="time-slider time-slider__card">
+<div class="card m-b-1">
+    <div class="mapWidget__mapWrapper">
+        <div class="mapWidget__mapArea"></div>
+        <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.PROJECTION">
+            <div>
+                <h4>Projection</h4>
+                <ul class="p-0">
+                    <li>
+                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ARCTIC)">Arctic</a>
+                    </li>
+                    <li>
+                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.PLATE_CAREE)">Plate caree</a>
+                    </li>
+                    <li>
+                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.MERCATOR)">Web mercator</a>
+                    </li>
+                    <li>
+                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ANTARCTIC)">Antarctica</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.BOR">
+            <div>
+                <h4>Basis of record</h4>
+                <div class="form-group">
+                    <div>
+                        <div class="checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
+                            <label><input type="checkbox" name="basisOfRecord" ng-model="vm.basisOfRecord[bor]"
+                                          ng-change="vm.updateFilters()"><span class="text-capitalize"
+                                                                           translate="basisOfRecord.{{bor}}"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.STYLE">
+            <div>
+                <h4>Style</h4>
+                <div class="gb-radio">
+                    <label class="radio" ng-model="vm.style" uib-btn-radio=""
+                           ng-change="vm.setStyle(vm.styles.CLASSIC)"><span class="gb-radio__indicator"><span></span></span><span
+                            class="gb-radio__name">Classic</span></label>
+                    <label class="radio" ng-model="vm.style" uib-btn-radio="true"
+                           ng-change="vm.setStyle(vm.styles.LIGHT)"><span class="gb-radio__indicator"><span></span></span><span
+                            class="gb-radio__name">Light</span></label>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="mapWidget__controls">
+        <div class="mapWidget__inlineOption time-slider time-slider__card">
             {{vm.clicked}}
             <div class="gb-btn-group time-slider__buttons">
                 <label ng-model="vm.allYears" uib-btn-radio="true"
@@ -16,16 +66,15 @@
         </div>
 
         <div class="mapWidget__options">
-
+            <div class="">
+                <a href="" class="button gb-icon-drop" ng-click="vm.toggleControl(vm.controls.STYLE)"
+                   ng-class="{'is-active': vm.controls.style}"></a>
+                <a href="" class="button gb-icon-funnel" ng-click="vm.toggleControl(vm.controls.BOR)"
+                   ng-class="{'is-active': vm.controls.filters}"></a>
+                <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleControl(vm.controls.PROJECTION)"
+                   ng-class="{'is-active': vm.controls.projection}"></a>
+                <a href="" ng-href="/occurrence/search?{{vm.getExploreQuery()}}" class="button gb-icon-microscope"></a>
+            </div>
         </div>
-    </div>
-    <div>
-        <button ng-click="vm.restyle('dots')">dots</button>
-        <button ng-click="vm.restyle('hexagons')">hexagons</button>
-        <button ng-click="vm.restyle2('hexagons')">blue dots</button>
-        <button ng-click="vm.setProjection('EPSG_3575')">arctic</button>
-        <button ng-click="vm.setProjection('EPSG_4326')">wgs84</button>
-        <button ng-click="vm.setFilters()">human observations only</button>
-        <button ng-click="vm.clearFilters()">no filters</button>
     </div>
 </div>

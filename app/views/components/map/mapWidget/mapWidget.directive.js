@@ -32,8 +32,34 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($scope) {
+    function mapWidget($scope, enums) {
         var vm = this;
+        vm.projections = {
+            ARCTIC: 'EPSG_3575',
+            MERCATOR: 'EPSG_3857',
+            PLATE_CAREE: 'EPSG_4326',
+            ANTARCTIC: 'EPSG_3031'
+        };
+        vm.activeControl = undefined;
+        vm.controls = {
+            PROJECTION: 1,
+            BOR: 2,
+            STYLE: 3
+        };
+        vm.styles = {
+            CLASSIC: {
+                baseMap: {style: 'gbif-classic'},
+                overlay: []
+            },
+            LIGHT: {
+                baseMap: {style: 'gbif-light'},
+                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {style: 'orange.marker', bin: 'hex', hexPerTile: 15}]
+            }
+        };
+        vm.basisOfRecord = {};
+        enums.basisOfRecord.forEach(function (bor) {
+            vm.basisOfRecord[bor] = false;
+        });
         var map;
 
         vm.allYears = true;
@@ -68,12 +94,12 @@ function mapWidgetDirective(BUILD_VERSION) {
             slider.noUiSlider.on('change', vm.sliderChange);
         };
 
-        vm.restyle = function(){
-            map.update({baseMap: {style: 'gbif-dark'}, overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 27}]});
+        vm.setStyle = function(style){
+            map.update(style);
         };
 
         vm.restyle2 = function(){
-            map.update({baseMap: {style: 'gbif-dark'}, overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 10}, {style: 'blue.marker', bin: 'hex', hexPerTile: 10}]});
+            map.update({baseMap: {style: 'gbif-light'}, overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {style: 'orange.marker', bin: 'hex', hexPerTile: 15}]});
         };
 
         vm.setProjection = function(epsg){
@@ -84,8 +110,16 @@ function mapWidgetDirective(BUILD_VERSION) {
             map.update({filters: {basisOfRecord: 'HUMAN_OBSERVATION', taxonKey: 18}});
         };
 
+        vm.updateFilters = function(){
+            map.update({filters: getQuery()});
+        };
+
         vm.clearFilters = function(){
             map.update({filters: {}});
+        };
+
+        vm.toggleControl = function(control) {
+            vm.activeControl = control;
         };
 
         function getQuery() {
@@ -93,13 +127,21 @@ function mapWidgetDirective(BUILD_VERSION) {
             if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
                 query.year = vm.yearRange.start + "," + vm.yearRange.end;
             }
+            //basis of record as array
+            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
+                return vm.basisOfRecord[e];
+            });
+            query.basisOfRecord = basisOfRecord;
+            if (basisOfRecord.length == 0 || basisOfRecord.length == Object.keys(vm.basisOfRecord).length) {
+                delete query.basisOfRecord;
+            }
             return query;
         }
 
         vm.sliderChange = function (vals) {
             vm.yearRange.start = Math.floor(vals[0]);
             vm.yearRange.end = Math.floor(vals[1]);
-            map.update({filters: getQuery()});
+            vm.updateFilters();
             $scope.$apply(function () {
                 vm.allYears = false;
             });
