@@ -60,13 +60,7 @@ function get4326() {
 
 
 function get3857() {
-    var extent = 180.0;
-    var resolutions = Array(max_zoom + 1).fill().map(function (_, i) {
-        return extent / tile_size / Math.pow(2, i)
-    });
-
     var tile_grid_16 = ol.tilegrid.createXYZ({
-        //extent: ol.proj.get('EPSG:3857').getExtent(),
         minZoom: 0,
         maxZoom: 16,
         tileSize: tile_size
@@ -79,7 +73,7 @@ function get3857() {
         epsg: 3857,
         tileGrid: tile_grid_16,
         //resolutions: resolutions,
-        //fitExtent: [-90, -75, 90, 75],
+        fitExtent: ol.proj.transformExtent([-90, -75, 90, 75], 'EPSG:4326', 'EPSG:3857'),
         getView: function (lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
@@ -148,6 +142,7 @@ function get3575() {
 
 
 function get3031() {
+    var halfWidth = 12367396.2185; // To the Equator
     var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
     ol.proj.get("EPSG:3031").setExtent(extent);
     var resolutions = Array.from(new Array(max_zoom + 1), function (x, i) {
