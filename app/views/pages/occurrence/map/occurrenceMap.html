@@ -70,7 +70,14 @@
     </section>
 
     <section class="horizontal-stripe--paddingless light-background">
-        <div>
+        <div class="emptyInfo" ng-if="occMap.occurrenceState.query.has_coordinate === 'false'">
+            <h3>No occurrences to show</h3>
+            <p>Include occurrences with coordinates?</p>
+            <div>
+                <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase">Yes</a>
+            </div>
+        </div>
+        <div ng-if="occMap.occurrenceState.query.has_coordinate !== 'false'">
             <div class="occurrence-search-map">
                 <leaflet
                         leafletMap="leafletMap"
@@ -81,6 +88,17 @@
                         width="100%"
                         layers="occMap.layers"
                 ></leaflet>
+                <div class="occurrence-search-map__notification card small" ng-if="!occMap.ignoreCoordinateIssues && (occMap.occurrenceState.query.has_coordinate !== 'true' || occMap.occurrenceState.query.has_geospatial_issue !== 'false')">
+                    <div class="card__stripe">
+                        <div class="card__content" translate="help.locationFilterWarning">
+                            Remove occurrences with suspicious coordinates?
+                        </div>
+                    </div>
+                    <div class="card__stripe--actions">
+                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase">Yes</a>
+                        <a href="" class="gb-button--flat text-uppercase" ng-click="occMap.ignoreCoordinateIssues = true">No</a>
+                    </div>
+                </div>
 
                 <div class="search-overlay" ng-if="occMap.mapMenu.show">
                     <div class="search-overlay__header">
@@ -102,10 +120,10 @@
                                           style="color: tomato">Unkown species TODO</span>
                                     <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
                                     <div class="small discreet classification-list">
-										<span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                                               ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">
-											{{occurrence[taxa]}}
-										</span>
+                                            {{occurrence[taxa]}}
+                                        </span>
                                     </div>
                                     <div class="imageGallery__img img-round-thumb"
                                          ng-if="occurrence.media[0].identifier && occurrence.media[0].type=='StillImage'">
