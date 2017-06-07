@@ -40,7 +40,6 @@ function createMap(element, options) {
         } else {
             map.addLayer(currentProjection.getOccurrenceLayer(filters));
         }
-
     };
 
     var map = new ol.Map({
@@ -49,10 +48,24 @@ function createMap(element, options) {
     map.on('singleclick', function(e){
         console.log(ol.proj.transform(e.coordinate, currentProjection.srs, 'EPSG:4326'));
     });
+    //this.handlers = {};
+    //this.handlers.moveend = [];
+    //map.on('moveend', function(e){
+    //    console.log(ol.proj.transform(e.coordinate, currentProjection.srs, 'EPSG:4326'));
+    //});
     this.update(options);
+
+    this.getViewExtent = function(){
+        var e = map.getView().calculateExtent(map.getSize());
+        return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
+    };
 
     return {
         map: map,
-        update: this.update
+        update: this.update,
+        on: function(str, action){
+            return map.on(str, action);
+        },
+        getViewExtent: this.getViewExtent
     };
 }
