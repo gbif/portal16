@@ -32,7 +32,7 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($scope, enums) {
+    function mapWidget($scope, $timeout, enums) {
         var vm = this;
         vm.projections = {
             ARCTIC: 'EPSG_3575',
@@ -68,6 +68,12 @@ function mapWidgetDirective(BUILD_VERSION) {
         $scope.create = function (element) {
             map = mapController.createMap(element, {baseMap: {style: 'gbif-dark'}, filters: {basisOfRecord: 'HUMAN_OBSERVATION', taxonKey: 212}});
 
+            map.on('moveend', function(e){
+                $timeout(function(){
+                    vm.viewBbox = map.getViewExtent();
+                    vm.viewBboxWidth = vm.viewBbox[2] - vm.viewBbox[0];
+                }, 0);
+            });
             var slider = element[0].querySelector('.time-slider__slider');
             var years = element[0].querySelector('.time-slider__years');
 
@@ -120,6 +126,9 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         vm.toggleControl = function(control) {
             vm.activeControl = control;
+        };
+
+        vm.getExploreQuery = function(){
         };
 
         function getQuery() {

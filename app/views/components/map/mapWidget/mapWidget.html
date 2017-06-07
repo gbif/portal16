@@ -64,8 +64,12 @@
                 <div class="time-slider__slider" ng-class="{'is-active': !vm.allYears}"></div>
             </div>
         </div>
-
         <div class="mapWidget__options">
+            <span>
+            {{vm.viewBbox}}
+                <a class="gb-button--discreet" ng-if="vm.viewBboxWidth >= 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore</a>
+                <a class="gb-button--discreet" ng-if="vm.viewBboxWidth < 180">Explore area</a>
+            </span>
             <div class="">
                 <a href="" class="button gb-icon-drop" ng-click="vm.toggleControl(vm.controls.STYLE)"
                    ng-class="{'is-active': vm.controls.style}"></a>
