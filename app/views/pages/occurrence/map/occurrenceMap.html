@@ -88,10 +88,9 @@
                         width="100%"
                         layers="occMap.layers"
                 ></leaflet>
-                <div class="occurrence-search-map__notification card small" ng-if="!occMap.ignoreCoordinateIssues && (occMap.occurrenceState.query.has_coordinate !== 'true' || occMap.occurrenceState.query.has_geospatial_issue !== 'false')">
+                <div class="occurrence-search-map__notification occurrence-search-map__notification--error card small" ng-if="!occMap.ignoreCoordinateIssues && (occMap.occurrenceState.query.has_coordinate !== 'true' || occMap.occurrenceState.query.has_geospatial_issue !== 'false')">
                     <div class="card__stripe">
                         <div class="card__content" translate="help.locationFilterWarning">
-                            Remove occurrences with suspicious coordinates?
                         </div>
                     </div>
                     <div class="card__stripe--actions">
