@@ -43,7 +43,7 @@
                     </dd>
                 </div>
                 <div>
-                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span>Citation</span></a>
+                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span>How to cite</span></a>
                     <doi link="{{ datasetKey2.dataset.doi }}"></doi>
                 </div>
             </dl>

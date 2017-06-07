@@ -2333,6 +2333,7 @@
     "appendix": "Appendix"
   },
   "help": {
-    "citationExplainer": "We do our best to find literature citing GBIF downloads. When a paper cite using a DOI we can track it to the individual datasets and publishers. This list only shows usage known to GBIF. The data might have been filtered further after download."
+    "citationExplainer": "We do our best to find literature citing GBIF downloads. When a paper cite using a DOI we can track it to the individual datasets and publishers. This list only shows usage known to GBIF. The data might have been filtered further after download.",
+    "locationFilterWarning": "Remove occurrences with suspicious coordinates?"
   }
 }

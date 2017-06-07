@@ -101,7 +101,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             isSearchable: true,
             placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.dataset,
-            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
@@ -120,7 +120,10 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
             hasFacets: false
         },
         search: {
-            isSearchable: false,
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.publisher,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
