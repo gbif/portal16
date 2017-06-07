@@ -23,8 +23,12 @@ function createMap(element, options) {
         filters = options.filters || filters || {};
         map.getLayers().clear();
         if (!currentProjection || (options.projection && options.projection != currentProjection.name)) {
-            currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
+            currentProjection = projections[options.projection] || currentProjection || projections.EPSG_3857;
             map.setView(currentProjection.getView(0, 0, 1));
+            if (currentProjection.fitExtent) {
+                map.getView().fit(currentProjection.fitExtent);
+            }
+            window.map = map;
         }
         map.addLayer(currentProjection.getBaseLayer(baseMapStyle));
 
@@ -41,6 +45,9 @@ function createMap(element, options) {
 
     var map = new ol.Map({
         target: mapElement
+    });
+    map.on('singleclick', function(e){
+        console.log(ol.proj.transform(e.coordinate, currentProjection.srs, 'EPSG:4326'));
     });
     this.update(options);
 

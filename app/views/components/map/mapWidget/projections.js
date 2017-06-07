@@ -9,7 +9,7 @@ ol.proj.setProj4(proj4);
 
 proj4.defs('EPSG:4326', "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees");
 proj4.defs("EPSG:3575", "+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs");
-
+proj4.defs("EPSG:3031", "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs");
 
 //set up projections an dshared variables
 var halfWidth = Math.sqrt(2) * 6371007.2;
@@ -38,20 +38,62 @@ function get4326() {
         //tile_grid_14: tile_grid_14,
         tileGrid: tile_grid_16,
         resolutions: resolutions,
-        getView: function(lat, lon, zoom){
+        fitExtent: [-1, -80, 1, 80],
+        getView: function (lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
             zoom = zoom || 0;
             return new ol.View({
                 center: [0, 0],
-                zoom:  zoom,
+                zoom: zoom,
                 projection: 'EPSG:4326'
             })
         },
-        getBaseLayer: function(params){
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_4326.url, this, params);
         },
-        getOccurrenceLayer: function(params){
+        getOccurrenceLayer: function (params) {
+            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+        }
+    };
+}
+
+
+function get3857() {
+    var extent = 180.0;
+    var resolutions = Array(max_zoom + 1).fill().map(function (_, i) {
+        return extent / tile_size / Math.pow(2, i)
+    });
+
+    var tile_grid_16 = ol.tilegrid.createXYZ({
+        //extent: ol.proj.get('EPSG:3857').getExtent(),
+        minZoom: 0,
+        maxZoom: 16,
+        tileSize: tile_size
+    });
+    return {
+        name: 'EPSG_3857',
+        wrapX: true,
+        srs: 'EPSG:3857',
+        //projection: 'EPSG:3857',
+        epsg: 3857,
+        tileGrid: tile_grid_16,
+        //resolutions: resolutions,
+        //fitExtent: [-90, -75, 90, 75],
+        getView: function (lat, lon, zoom) {
+            lat = lat || 0;
+            lon = lon || 0;
+            zoom = zoom || 0;
+            return new ol.View({
+                center: [0, 0],
+                zoom: zoom,
+                projection: 'EPSG:3857'
+            })
+        },
+        getBaseLayer: function (params) {
+            return getLayer(baseMaps.EPSG_3857.url, this, params);
+        },
+        getOccurrenceLayer: function (params) {
             return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
@@ -60,8 +102,8 @@ function get4326() {
 function get3575() {
     var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
     ol.proj.get("EPSG:3575").setExtent(extent);
-    var resolutions = Array.from(new Array(max_zoom+1), function(x,i){
-        return halfWidth/(tile_size*Math.pow(2,i-1));
+    var resolutions = Array.from(new Array(max_zoom + 1), function (x, i) {
+        return halfWidth / (tile_size * Math.pow(2, i - 1));
     });
 
     var tile_grid_16 = new ol.tilegrid.TileGrid({
@@ -73,7 +115,7 @@ function get3575() {
         tileSize: tile_size
     });
 
-    var getCenter = function(){
+    var getCenter = function () {
         return ol.proj.fromLonLat([0, 89], 'EPSG:3575');
     };
 
@@ -86,22 +128,71 @@ function get3575() {
         //tile_grid_14: tile_grid_14,
         tileGrid: tile_grid_16,
         resolutions: resolutions,
-        getView: function(lat, lon, zoom){
+        fitExtent: extent,
+        getView: function (lat, lon, zoom) {
             return new ol.View({
                 center: getCenter(lat, lon),
                 projection: ol.proj.get('EPSG:3575'),
-                zoom:  zoom || 0,
+                zoom: zoom || 0,
                 maxResolution: halfWidth / tile_size * 2
             })
         },
-        getBaseLayer: function(params){
+        getBaseLayer: function (params) {
             return getLayer(baseMaps.EPSG_3575.url, this, params);
         },
-        getOccurrenceLayer: function(params){
+        getOccurrenceLayer: function (params) {
             return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
+
+
+function get3031() {
+    var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
+    ol.proj.get("EPSG:3031").setExtent(extent);
+    var resolutions = Array.from(new Array(max_zoom + 1), function (x, i) {
+        return halfWidth / (tile_size * Math.pow(2, i - 1));
+    });
+
+    var tile_grid_16 = new ol.tilegrid.TileGrid({
+        extent: extent,
+        origin: [-halfWidth, halfWidth],
+        minZoom: 0,
+        maxZoom: max_zoom,
+        resolutions: resolutions,
+        tileSize: tile_size
+    });
+
+    var getCenter = function () {
+        return ol.proj.fromLonLat([0, -89], 'EPSG:3031');
+    };
+
+    return {
+        name: 'EPSG_3031',
+        wrapX: false,
+        srs: 'EPSG:3031',
+        projection: 'EPSG:3031',
+        epsg: 3031,
+        tileGrid: tile_grid_16,
+        resolutions: resolutions,
+        fitExtent: extent,
+        getView: function (lat, lon, zoom) {
+            return new ol.View({
+                center: getCenter(lat, lon),
+                projection: ol.proj.get('EPSG:3031'),
+                zoom: zoom || 0,
+                maxResolution: halfWidth / tile_size * 2
+            })
+        },
+        getBaseLayer: function (params) {
+            return getLayer(baseMaps.EPSG_3031.url, this, params);
+        },
+        getOccurrenceLayer: function (params) {
+            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+        }
+    };
+}
+
 
 function getLayer(baseUrl, proj, params) {
     params = params || {};
@@ -121,5 +212,7 @@ function getLayer(baseUrl, proj, params) {
 
 module.exports = {
     EPSG_4326: get4326(),
-    EPSG_3575: get3575()
+    EPSG_3575: get3575(),
+    EPSG_3031: get3031(),
+    EPSG_3857: get3857()
 };
