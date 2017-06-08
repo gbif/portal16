@@ -113,3 +113,7 @@ router.get('/dataset/constituents.html', function (req, res, next) {
 router.get('/site/footer.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/footer/footer.nunjucks');
 });
+
+router.get('/thegbifnetwork/participantDetails.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/theGbifNetwork/participantDetails.html');
+});

@@ -15,8 +15,8 @@
                 </div>
             </div>
         </div>
-        <section id="region-nav" class="horizontal-stripe--paddingless white-background">
-            <div class="container-desktop">
+        <section id="region-nav" class="horizontal-stripe white-background">
+            <div class="container--normal">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="text-center region-selector-select">
@@ -25,8 +25,9 @@
                                 <option ng-repeat="region in vm.validRegions" value="{{ region }}" translate="region.{{ region }}"></option>
                             </select>
                         </div>
-                        <div class="tabs text-center tabs--emphasized region-selector-tabs">
-                            <ul>
+                        {#<div class="tabs text-center tabs--emphasized region-selector-tabs">#}
+                        <div class="tabs">
+                            <ul class="anchorTabs">
                                 {% for region in data.validRegions %}
                                     <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
                                         <a href="#" ng-click="vm.selectRegion('{$ region $}')">
@@ -36,73 +37,64 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        {#</div>#}
                     </div>
                 </div>
             </div>
         </section>
-        <section id="map-strip" class="horizontal-stripe--paddingless light-background svg-map-container__aspect-fix">
-            <div the-gbif-network-map region="vm.currentRegion" membership-type="vm.membershipType" class="svg-map-container"></div>
-        </section>
-        <section class="horizontal-stripe--paddingless">
-            <div class="container--desktop">
-                <div class="row main-counts">
-                    <div class="col-xs-12">
-                        <div class="update-region">
-                            <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.updatedCounts !== 2"></ng-include>
-                            <div ng-if="vm.updatedCounts === 2">
-                                <div class="entity-counts">
-                                    {% for pType in data.participantTypes %}
-                                        {% if data.count[pType] > 0 %}
-                                            <div class="entity-count">
-                                                <div class="count-number" ng-class="'{$ pType $}'"
-                                                     ng-bind="vm.count['{$ pType $}'] ? vm.count['{$ pType $}'] : '{$ data.count[pType] $}'">
-                                                    {$ data.count[pType] $}
-                                                </div>
-                                                <div class="count-label {% if pType in ['associate_country_participant', 'other_associate_participant'] %}extra-long-label{% endif %}">
-                                                    {$ __n('directory.' + pType, data.count[pType]) $}</div>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                    <div class="entity-count">
-                                        <div class="count-number data-publisher"
-                                             ng-bind="vm.count.publisher ? vm.count.publisher : '{$ data.count.publisher | localizeInteger(gb.locales.current) $}'">
-                                            {$ data.count.publisher | localizeInteger(gb.locales.current) $}
-                                        </div>
-                                        <div class="count-label">{$ __('stdTerms.dataPublishers') $}</div>
-                                    </div>
-                                </div>
-                                {#<div id="chart-literature-yearly" class="chart-literature text-center">#}
-                                    {#<div literature-bar-chart-yearly region="vm.currentRegion"></div>#}
-                                {#</div>#}
-                                {#<div class="entity-counts">#}
-                                    {#<div class="entity-count">#}
-                                        {#<div class="count-number count-literature"#}
-                                             {#ng-bind="vm.count.literature ? vm.count.literature : '{$ data.count.literature | localizeInteger(gb.locales.current) $}'">#}
-                                            {#{$ data.count.literature | localizeInteger(gb.locales.current) $}#}
-                                        {#</div>#}
-                                        {#<div class="count-label medium-long-label">{$ __('theGbifNetwork.peerReviewedPublicationBy') $}</div>#}
-                                    {#</div>#}
-                                    {#<div class="entity-count">#}
-                                        {#<div class="count-number count-literature"#}
-                                             {#ng-bind="vm.count.literatureAuthors ? vm.count.literatureAuthors : '{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}'">#}
-                                            {#{$ data.count.literatureAuthors | localizeInteger(gb.locales.current) $}#}
-                                        {#</div>#}
-                                        {#<div class="count-label">{$ __('theGbifNetwork.authorsFrom') $}</div>#}
-                                    {#</div>#}
-                                    {#<div class="entity-count">#}
-                                        {#<div class="count-number count-literature"#}
-                                             {#ng-bind="vm.count.countriesLiteratureAuthorsFrom ? vm.count.countriesLiteratureAuthorsFrom : '{$ data.count.countriesLiteratureAuthorsFrom $}'">#}
-                                            {#{$ data.count.countriesLiteratureAuthorsFrom | localizeInteger(gb.locales.current)$}#}
-                                        {#</div>#}
-                                        {#<div class="count-label">{$ __('theGbifNetwork.countries') $}</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            </div>
-                        </div>
+        <section class="horizontal-stripe white-background seperator--b">
+            <div class="container--normal m-b-1">
+
+                    <div class="theGbifNetWork__map card" >
+                        <leaflet
+                                leafletMap="leafletMap"
+                                id="theNetworkMap"
+                                legend="vm.legend"
+                                defaults="vm.mapDefaults"
+                                markers="vm.markers"
+                                paths="vm.paths"
+                                height="100%"
+                                width="100%"
+                                tiles="vm.tiles"
+                                lf-center="vm.center"
+                                geojson="vm.geoJson"
+                                event-broadcast="vm.mapEvents"
+                                controls="vm.controls"
+                        ></leaflet>
+
+                        <ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"
+                                    src="'/api/template/thegbifnetwork/participantDetails.html?v=' + vm.BUILD_VERSION" ></ng-include>
+                         <div class="theGbifNetWork__legend" ng-if="vm.mapIsLoaded">
+                             <div></div>
+                             <div class="outline" >
+                                 <i style="background:#4E9F37"></i>
+                             </div>
+                             <div class="info-label" translate="directory.voting_participant.other"></div>
+                             <div class="outline" >
+                                 <i style="background:#58BAE9"></i>
+                             </div>
+                             <div class="info-label" translate="directory.associate_country_participant.other"></div>
+
+                         </div>
+
                     </div>
-                </div>
+
+
             </div>
+            <div class="container--normal">
+            <span ng-repeat="participantType in vm.participantTypes">
+                    <a class="gb-button--brand">{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></a>
+
+                </span>
+
+                <span>
+                    <a class="gb-button--brand">{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></a>
+
+                </span>
+            </div>
+
         </section>
+
         <section ng-if="vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
             <div class="container-fluid">
                 <div class="row">
@@ -119,7 +111,7 @@
                             <h3>{$ __n('participation.nonCountryParticipant', data.count.other_associate_participant) $}</h3>
                         </header>
                         <ol>
-                            <li class="ng-cloak" ng-repeat="p in vm.nonCountryParticipants" ng-if="vm.nonCountryParticipants">
+                            <li class="ng-cloak" ng-repeat="p in vm.nonCountryParticipants | orderBy: 'name'" ng-if="vm.nonCountryParticipants">
                                 <p>
                                     <span ng-if="p.hasOwnProperty('abbreviatedName')"><strong ng-bind="p.abbreviatedName"></strong>: </span>
                                     <span ng-bind="p.name"></span>
