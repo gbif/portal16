@@ -12,7 +12,16 @@ module.exports = function (app) {
 };
 
 router.get('/search', function (req, res, next) {
-console.log(5);
+    var referer = req.header('Referer');
+    if (referer && referer.indexOf('www.gbif.org') !== -1) {
+        res.cookie('isRedirectedFromProd', 'true',
+            {
+                maxAge: 5000,
+                secure: false,
+                httpOnly: false
+            }
+        );
+    }
     try {
         var searchString = req.query.q,
             context = {

@@ -7,13 +7,14 @@ angular
     .controller('searchCtrl', searchCtrl);
 
 /** @ngInject */
-function searchCtrl($state, $stateParams, Page, $http) {
+function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     var vm = this;
     Page.setTitle('Search');
     vm.isActive = false;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;
     vm.locale = $stateParams.locale;
+    vm.isRedirectedFromProd = $cookies.get('isRedirectedFromProd') === 'true';
 
     vm.clearFreetextAndSetFocus = function () {
         document.getElementById('siteSearch').focus();

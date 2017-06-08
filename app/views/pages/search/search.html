@@ -71,6 +71,14 @@
                     <div class="horizontal-stripe--paddingless">
                         <div class="container--narrow">
                             <div class="row">
+                                <div class="emptyInfo" ng-if="rootSearch.isRedirectedFromProd" style="background: #5d5d5d;color: white;padding: 1rem;margin: 1rem;">
+                                    <h3>GBIF.org is changing.</h3>
+                                    <p>We have redirected you to our new website because your search on the current one will return poor results.</p>
+                                    <p>While work on the new site is not yet complete, please feel free to explore it and share your feedback and suggestions.</p>
+                                    <!--<p>-->
+                                        <!--<a ng-href="http://www.gbif.org/search/node/{{rootSearch.freeTextQuery}}" class="gb-button&#45;&#45;discreet">Take me back</a>-->
+                                    <!--</p>-->
+                                </div>
                                 <div class="col-xs-12 m-t-1" ng-if="rootSearch.freeTextQuery">
                                     <div style="margin:100px 0" ng-if="rootSearch.loading">
                                         <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
