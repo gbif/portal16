@@ -72,6 +72,23 @@
     </div>
     <div class="mapWidget__controls">
         <div class="mapWidget__inlineOption time-slider time-slider__card">
+            <div class="switch-group">
+                <label class="switch">
+                    <input type="checkbox" ng-model="vm.inEditMode"
+                           aria-label="Edit"/>
+                </label>
+            </div>
+            <label class="switch">
+            test
+                <input type="checkbox" ng-model="vm.inEditMode"/>
+            </label>
+            <div class="switch-group">
+                <p class="small" ng-if="!vm.inEditMode">Edit profile</p>
+                <p class="small" ng-if="vm.inEditMode">Stop editing</p>
+                <input id="speciesLookupDiscardInCsv" type="checkbox" ng-model="vm.inEditMode"
+                       aria-label="Edit" ng-change="vm.editModeChanged()"/>
+                <label for="speciesLookupDiscardInCsv" class="switch"></label>
+            </div>
             <div class="gb-btn-group time-slider__buttons">
                 <label ng-model="vm.allYears" uib-btn-radio="true"
                        ng-change="vm.updateMap()">All time</label>
