@@ -4,6 +4,25 @@
         <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.PROJECTION">
             <div>
                 <h4>Projection</h4>
+                <div class="gb-radio">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ARCTIC)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Arctic</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="true" ng-change="vm.setProjection(vm.projections.PLATE_CAREE)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Plate Caree</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.MERCATOR)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Mercator</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ANTARCTIC)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Antarctica</span>
+                    </label>
+                </div>
+
                 <ul class="p-0">
                     <li>
                         <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ARCTIC)">Arctic</a>
