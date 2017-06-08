@@ -36,7 +36,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
         translationPrefix: 'stdTerms',
         suggestEndpoint: suggestEndpoints.dataset,
         defaultParams: {},
-        suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
+        suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
         shortName: 'title',
         longName: 'title',
         placeholder: 'search.datasetSearchPlaceholder',
@@ -363,7 +363,7 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             isSearchable: true,
             placeholder: 'search TRANSLATE',
             suggestEndpoint: suggestEndpoints.dataset,
-            suggestTemplate: '/templates/components/filterTaxon/suggestDatasetTemplate.html?v=' + BUILD_VERSION,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
@@ -409,7 +409,10 @@ function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, sugges
             facetKey: 'PUBLISHING_ORG'
         },
         search: {
-            isSearchable: false,
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.publisher,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'

@@ -38,7 +38,7 @@
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.dataset" filter-state="resource.state"></div>
 
-        <div ng-if="resource.state.query.publishingOrganizationKey && resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.publisher" filter-state="resource.state"></div>
+        <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.publisher" filter-state="resource.state"></div>
 
 <!--{{angular.equals({}, resource.state.data.facets.PURPOSES.count)}}-->
         <div ng-if="resource.state.query.purposes || resource.state.query.contentType == 'project'">

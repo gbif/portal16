@@ -122,5 +122,5 @@ var baseLayers = {
         .module('portal')
         .constant('mapConstants', {
             baseLayers: baseLayers
-        });
+        })
 })();
