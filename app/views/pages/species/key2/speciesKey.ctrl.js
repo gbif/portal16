@@ -89,7 +89,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     }
 
     vm.getSuggestions = function (val) {
-        return $http.get('//api.gbif.org/v1/species/suggest', {
+        return $http.get('//api.gbif-uat.org/v1/species/suggest', {
             params: {
                 q: val,
                 limit: 10

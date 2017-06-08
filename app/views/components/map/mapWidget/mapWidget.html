@@ -4,6 +4,25 @@
         <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.PROJECTION">
             <div>
                 <h4>Projection</h4>
+                <div class="gb-radio">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ARCTIC)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Arctic</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="true" ng-change="vm.setProjection(vm.projections.PLATE_CAREE)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Plate Caree</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.MERCATOR)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Mercator</span>
+                    </label>
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ANTARCTIC)">
+                        <span class="gb-radio__indicator"><span></span></span>
+                        <span class="gb-radio__name">Antarctica</span>
+                    </label>
+                </div>
+
                 <ul class="p-0">
                     <li>
                         <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ARCTIC)">Arctic</a>
@@ -53,7 +72,6 @@
     </div>
     <div class="mapWidget__controls">
         <div class="mapWidget__inlineOption time-slider time-slider__card">
-            {{vm.clicked}}
             <div class="gb-btn-group time-slider__buttons">
                 <label ng-model="vm.allYears" uib-btn-radio="true"
                        ng-change="vm.updateMap()">All time</label>
@@ -66,9 +84,8 @@
         </div>
         <div class="mapWidget__options">
             <span>
-            {{vm.viewBbox}}
-                <a class="gb-button--discreet" ng-if="vm.viewBboxWidth >= 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore</a>
-                <a class="gb-button--discreet" ng-if="vm.viewBboxWidth < 180">Explore area</a>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() !== 'EPSG_4326' || vm.viewBboxWidth >= 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore</a>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() === 'EPSG_4326' && vm.viewBboxWidth < 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore area</a>
             </span>
             <div class="">
                 <a href="" class="button gb-icon-drop" ng-click="vm.toggleControl(vm.controls.STYLE)"
@@ -77,7 +94,6 @@
                    ng-class="{'is-active': vm.controls.filters}"></a>
                 <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleControl(vm.controls.PROJECTION)"
                    ng-class="{'is-active': vm.controls.projection}"></a>
-                <a href="" ng-href="/occurrence/search?{{vm.getExploreQuery()}}" class="button gb-icon-microscope"></a>
             </div>
         </div>
     </div>
