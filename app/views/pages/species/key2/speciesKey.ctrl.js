@@ -23,7 +23,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -89,7 +89,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     }
 
     vm.getSuggestions = function (val) {
-        return $http.get('//api.gbif-uat.org/v1/species/suggest', {
+        return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
                 limit: 10
