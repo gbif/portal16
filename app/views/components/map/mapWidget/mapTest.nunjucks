@@ -8,13 +8,13 @@
                 <div class="row">
                     <div class="col-xs-12">
                     large
-                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                        <map-widget filter="{dataset_key:'0645ccdb-e001-4ab0-9729-51f1755e007e'}" mapstyle="'light'"></map-widget>
                     </div>
                     <div class="col-xs-8">
-                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                        <map-widget filter="{taxon_key:326}" mapstyle="'light'"></map-widget>
                     </div>
                     <div class="col-xs-4">
-                        <map-widget dataset-key="'sdf'" mapstyle="'light'"></map-widget>
+                        <map-widget filter="{publishing_org:'299958e0-4c06-11d8-b290-b8a03c50a862'}" mapstyle="'light'"></map-widget>
                     </div>
                 </div>
             </div>

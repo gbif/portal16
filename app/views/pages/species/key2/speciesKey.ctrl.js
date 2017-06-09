@@ -7,6 +7,7 @@ var angular = require('angular'),
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
+require('../../../components/scientificName/scientificName.directive.js');
 
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');
@@ -23,7 +24,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -89,7 +90,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     }
 
     vm.getSuggestions = function (val) {
-        return $http.get('//api.gbif.org/v1/species/suggest', {
+        return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
                 limit: 10

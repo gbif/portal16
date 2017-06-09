@@ -86,7 +86,7 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         if (e.source !== 'DwcTerm' && e.source !== 'DcTerm' && typeof whiteList[e.simpleName] === 'undefined') {
             return;
         }
-        if (!_.isEmpty(occurrence.record[e.simpleName]) || !_.isEmpty(occurrence.verbatim[e.qualifiedName])) {
+        if ( notEmpty(occurrence.record[e.simpleName]) || notEmpty(occurrence.verbatim[e.qualifiedName])) {
             usedTerms.push(e);
             let group = e.group || 'other';
             groups[group] = groups[group] || [];
@@ -103,6 +103,10 @@ function getUsedOccurrenceCoreTerms(occurrence, terms) {
         usedGroups: Array.from(usedGroups),
         groups: groups
     };
+}
+
+function notEmpty(value){
+    return !_.isUndefined(value) && (!_.isObjectLike(value) || !_.isEmpty(value))
 }
 
 function getUsedExtensionTerms(verbatim) {

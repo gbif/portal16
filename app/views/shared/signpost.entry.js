@@ -26,10 +26,25 @@ var redirectedPages = [
     },
     {
         pattern: /^\/occurrence\/search/gi
+    },
+    {
+        pattern: /^\/dataset\/search/gi
+    },
+    {
+        pattern: /^\/publisher\/search/gi
+    },
+    {
+        pattern: /^\/species\/search/gi
+    },
+    {
+        pattern: /^\/dataset\/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/i
+    },
+    {
+        pattern: /^\/publisher\/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/i
+    },
+    {
+        pattern: /^\/species\/[0-9]+$/gi
     }
-    //{
-    //    pattern: /^dataset\/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/i
-    //}
 ];
 
 
