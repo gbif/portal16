@@ -76,7 +76,7 @@ function buildQuery(query) {
 
     //add free text query to query
     if (query.q) {
-        query.q = query.q.toLowerCase();
+        query.q = '"' + query.q.toLowerCase() + '"';
         _.set(body, 'query.bool.must[1].query_string.query', query.q);
     } else {
         _.set(body, 'query.bool.must[1].match_all', {});
