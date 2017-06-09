@@ -23,35 +23,10 @@ function scientificNameDirective() {
     return directive;
 
     /** @ngInject */
-    function scientificNameCtrl(SpeciesName) {
+    function scientificNameCtrl(SpeciesParsedName) {
         var vm = this;
-
-        function add(value) {
-            return value ? value + ' ' : '';
-        }
-
-        SpeciesName.get({id:vm.key}, function(name){
-            var n = '';
-            if (name.genusOrAbove || name.specificEpithet) {
-                n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
-            }
-            if (name.infraSpecificEpithet) {
-                n += add(name.rankMarker) + '<i>' + add(name.specificEpithet) + '</i>';
-            }
-            if (name.bracketAuthorship || name.bracketYear){
-                n += '(' + add(name.bracketAuthorship);
-                if (name.bracketAuthorship && name.bracketYear) {
-                    n += ', ';
-                }
-                n += add(name.bracketYear) + ')';
-            }
-            n += add(name.authorship);
-            if (name.authorship && name.year) {
-                n += ', ';
-            }
-            n += add(name.year);
-
-            vm.parsedName = n;
+        SpeciesParsedName.get({id:vm.key}, function(data){
+            vm.parsedName = data.n;
         }, function(err){
             console.log(err);
         });
