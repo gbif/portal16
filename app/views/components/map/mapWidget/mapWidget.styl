@@ -1,9 +1,11 @@
 .mapWidget {
   position relative
   overflow initial
-  //&.isSmall {
-  //  border-left 5px solid tomato
-  //}
+  &.isSmall {
+    .mapWidget__options {
+      width 100%
+    }
+  }
   //&.isLarge {
   //  border-left 5px solid green
   //}
@@ -19,7 +21,7 @@
   }
   &__options {
     float right
-    margin 0 5px
+    padding 0 5px
     > div {
       float right
       > a {
