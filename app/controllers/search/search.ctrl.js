@@ -17,7 +17,7 @@ router.get('/search', function (req, res, next) {
         res.cookie('isRedirectedFromProd', 'true',
             {
                 maxAge: 5000,
-                secure: false,
+                secure: true,
                 httpOnly: false
             }
         );

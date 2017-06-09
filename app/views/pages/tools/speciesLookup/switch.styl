@@ -41,7 +41,7 @@ $color-track-on = lighten(deepskyblue, 20)
             transition left $animation, background $animation, box-shadow $animation
     &:active::before
         box-shadow 0 2px ($height / 2) px rgba(black, .28), 0 0 0 ($size / 2) px rgba(#808080, .1)
-    input:checked + .switch
+    input:checked + .switch, .switch.isActive
         background $color-track-on
         &::before
             left ($size - $label + $padding) rem

@@ -34,17 +34,23 @@ function mapWidgetDirective(BUILD_VERSION) {
     /** @ngInject */
     function mapWidget($scope, $timeout, enums, $httpParamSerializer, MapCapabilities) {
         var vm = this;
+        vm.styleBreaks = {
+            breakpoints: [0, 700],
+            classes: ['isSmall', 'isLarge']
+        };
         vm.projections = {
             ARCTIC: 'EPSG_3575',
             MERCATOR: 'EPSG_3857',
             PLATE_CAREE: 'EPSG_4326',
             ANTARCTIC: 'EPSG_3031'
         };
+        vm.activeProjection = vm.projections.PLATE_CAREE;
         vm.activeControl = undefined;
         vm.controls = {
             PROJECTION: 1,
             BOR: 2,
-            STYLE: 3
+            STYLE: 3,
+            YEAR: 4
         };
         vm.styles = {
             CLASSIC: {
@@ -128,17 +134,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             map.update(style);
         };
 
-        vm.restyle2 = function () {
-            map.update({
-                baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
-                    style: 'orange.marker',
-                    bin: 'hex',
-                    hexPerTile: 15
-                }]
-            });
-        };
-
         vm.setProjection = function (epsg) {
             map.update({projection: epsg});
         };
@@ -156,7 +151,11 @@ function mapWidgetDirective(BUILD_VERSION) {
         };
 
         vm.toggleControl = function (control) {
-            vm.activeControl = control;
+            if (vm.activeControl == control) {
+                vm.activeControl = 0;
+            } else {
+                vm.activeControl = control;
+            }
         };
 
         vm.getProjection = function () {
