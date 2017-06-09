@@ -1,53 +1,58 @@
-<div class="card m-b-1">
+<div class="mapWidget card m-b-1" element-query="vm.styleBreaks">
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__mapArea"></div>
+    </div>
+    <div class="mapWidget__controls clearfix">
+        <div class="mapWidget__options">
+            <span>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() !== 'EPSG_4326' || vm.viewBboxWidth >= 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore</a>
+                <a class="gb-button--discreet" ng-if="vm.getProjection() === 'EPSG_4326' && vm.viewBboxWidth < 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore area</a>
+            </span>
+            <div class="">
+                <a href="" class="button gb-icon-clock" ng-click="vm.toggleControl(vm.controls.YEAR)"
+                   ng-class="{'is-active': vm.activeControl == vm.controls.YEAR}" ng-if="vm.styleBreaks.current === 0"></a>
+                <a href="" class="button gb-icon-drop" ng-click="vm.toggleControl(vm.controls.STYLE)"
+                   ng-class="{'is-active': vm.activeControl == vm.controls.STYLE}"></a>
+                <a href="" class="button gb-icon-funnel" ng-click="vm.toggleControl(vm.controls.BOR)"
+                   ng-class="{'is-active': vm.activeControl == vm.controls.BOR}"></a>
+                <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleControl(vm.controls.PROJECTION)"
+                   ng-class="{'is-active': vm.activeControl == vm.controls.PROJECTION}"></a>
+            </div>
+        </div>
         <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.PROJECTION">
             <div>
+                <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                 <h4>Projection</h4>
                 <div class="gb-radio">
-                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ARCTIC)">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="vm.projections.ARCTIC" ng-change="vm.setProjection(vm.projections.ARCTIC)">
                         <span class="gb-radio__indicator"><span></span></span>
                         <span class="gb-radio__name">Arctic</span>
                     </label>
-                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="true" ng-change="vm.setProjection(vm.projections.PLATE_CAREE)">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="vm.projections.PLATE_CAREE" ng-change="vm.setProjection(vm.projections.PLATE_CAREE)">
                         <span class="gb-radio__indicator"><span></span></span>
-                        <span class="gb-radio__name">Plate Caree</span>
+                        <span class="gb-radio__name">Plate Carrée</span>
                     </label>
-                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.MERCATOR)">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="vm.projections.MERCATOR" ng-change="vm.setProjection(vm.projections.MERCATOR)">
                         <span class="gb-radio__indicator"><span></span></span>
                         <span class="gb-radio__name">Mercator</span>
                     </label>
-                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="false" ng-change="vm.setProjection(vm.projections.ANTARCTIC)">
+                    <label class="radio" ng-model="vm.activeProjection" uib-btn-radio="vm.projections.ANTARCTIC" ng-change="vm.setProjection(vm.projections.ANTARCTIC)">
                         <span class="gb-radio__indicator"><span></span></span>
                         <span class="gb-radio__name">Antarctica</span>
                     </label>
                 </div>
-
-                <ul class="p-0">
-                    <li>
-                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ARCTIC)">Arctic</a>
-                    </li>
-                    <li>
-                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.PLATE_CAREE)">Plate caree</a>
-                    </li>
-                    <li>
-                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.MERCATOR)">Web mercator</a>
-                    </li>
-                    <li>
-                        <a class="inherit noUnderline" href="" ng-click="vm.setProjection(vm.projections.ANTARCTIC)">Antarctica</a>
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.BOR">
             <div>
+                <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                 <h4>Basis of record</h4>
                 <div class="form-group">
                     <div>
                         <div class="checkbox" ng-repeat="(bor, val) in vm.basisOfRecord">
                             <label><input type="checkbox" name="basisOfRecord" ng-model="vm.basisOfRecord[bor]"
                                           ng-change="vm.updateFilters()"><span class="text-capitalize"
-                                                                           translate="basisOfRecord.{{bor}}"></span></label>
+                                                                               translate="basisOfRecord.{{bor}}"></span></label>
                         </div>
                     </div>
                 </div>
@@ -56,6 +61,7 @@
 
         <div class="mapWidget__control" ng-if="vm.activeControl == vm.controls.STYLE">
             <div>
+                <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                 <h4>Style</h4>
                 <div class="gb-radio">
                     <label class="radio" ng-model="vm.style" uib-btn-radio=""
@@ -67,33 +73,25 @@
                 </div>
             </div>
         </div>
-
-
-    </div>
-    <div class="mapWidget__controls">
-        <div class="mapWidget__inlineOption time-slider time-slider__card">
-            <div class="gb-btn-group time-slider__buttons">
-                <label ng-model="vm.allYears" uib-btn-radio="true"
-                       ng-change="vm.updateMap()">All time</label>
-                <label ng-model="vm.allYears" uib-btn-radio="false"
-                       ng-change="vm.updateMap()"><span class="time-slider__years"></span></label>
-            </div>
-            <div class="time-slider__container">
-                <div class="time-slider__slider" ng-class="{'is-active': !vm.allYears}"></div>
-            </div>
-        </div>
-        <div class="mapWidget__options">
-            <span>
-                <a class="gb-button--discreet" ng-if="vm.getProjection() !== 'EPSG_4326' || vm.viewBboxWidth >= 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore</a>
-                <a class="gb-button--discreet" ng-if="vm.getProjection() === 'EPSG_4326' && vm.viewBboxWidth < 180" ng-href="/occurrence/search?{{vm.getExploreQuery()}}">Explore area</a>
-            </span>
-            <div class="">
-                <a href="" class="button gb-icon-drop" ng-click="vm.toggleControl(vm.controls.STYLE)"
-                   ng-class="{'is-active': vm.controls.style}"></a>
-                <a href="" class="button gb-icon-funnel" ng-click="vm.toggleControl(vm.controls.BOR)"
-                   ng-class="{'is-active': vm.controls.filters}"></a>
-                <a href="" class="button gb-icon-butterfly" ng-click="vm.toggleControl(vm.controls.PROJECTION)"
-                   ng-class="{'is-active': vm.controls.projection}"></a>
+        <div class="mapWidget__inlineOption" ng-show="vm.styleBreaks.current > 0 || vm.activeControl == vm.controls.YEAR" ng-class="{mapWidget__control: vm.styleBreaks.current == 0}">
+            <div class="time-slider time-slider__card">
+                <div ng-if="vm.styleBreaks.current == 0">
+                    <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
+                    <h4>Year filter</h4>
+                </div>
+                <!--<div class="switch-group">-->
+                    <!--<a class="switch" ng-click="vm.allYears = !vm.allYears" role="checkbox" aria-checked="{{vm.allYears}}" ng-class="{isActive: vm.allYears}"></a>-->
+                    <!--<span>Any year</span>-->
+                <!--</div>-->
+                <div class="gb-btn-group time-slider__buttons">
+                    <label ng-model="vm.allYears" uib-btn-radio="true"
+                           ng-change="vm.updateFilters()">Any year</label>
+                    <label ng-model="vm.allYears" uib-btn-radio="false"
+                           ng-change="vm.updateFilters()"><span class="time-slider__years"></span></label>
+                </div>
+                <div class="time-slider__container">
+                    <div class="time-slider__slider" ng-class="{'is-active': !vm.allYears}"></div>
+                </div>
             </div>
         </div>
     </div>

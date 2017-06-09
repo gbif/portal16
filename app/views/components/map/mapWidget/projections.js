@@ -205,6 +205,7 @@ function getLayer(baseUrl, proj, params) {
             url: baseUrl + querystring.stringify(params),
             wrapX: proj.wrapX
         }),
+        useInterimTilesOnError:false,
         visible: true
     });
 }

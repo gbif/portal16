@@ -310,6 +310,7 @@ require('../../../components/filterFacet/filterFacet.directive');
 require('../../../components/filterFacetedEnum/filterFacetedEnum.directive');
 require('../../../components/count/count.directive');
 require('../../../components/asyncIf/asyncIf.directive');
+require('../../../components/elementQuery/elementQuery.directive');
 require('../../../components/taxonImg/taxonImg.directive');
 
 require('../../../components/filterEnum/filterEnum.directive');
