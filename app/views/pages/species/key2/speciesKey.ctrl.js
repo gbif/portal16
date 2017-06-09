@@ -7,6 +7,7 @@ var angular = require('angular'),
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
+require('../../../components/scientificName/scientificName.directive.js');
 
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');

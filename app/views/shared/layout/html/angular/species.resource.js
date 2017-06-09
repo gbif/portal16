@@ -88,6 +88,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesName', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/name', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesSearch', function ($resource) {
             return $resource('/api/species/search', null, {
                     'query': {
