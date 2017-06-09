@@ -80,9 +80,7 @@ DirectoryParticipants.groupBy = (query) => {
 
                 })
                 .then(result => {
-
-                    console.log(JSON.stringify(result));
-
+                    
                     directoryParticipantsCache.set('allParticipants', result.results, 3600, (err, success) => {
                         if (!err && success) {
                             log.info('Variable allParticipants cached, valid for 3600 seconds.');
