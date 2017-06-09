@@ -28,13 +28,18 @@
                         {#<div class="tabs text-center tabs--emphasized region-selector-tabs">#}
                         <div class="tabs">
                             <ul class="anchorTabs">
-                                {% for region in data.validRegions %}
-                                    <li class="tab" ng-class="{'isActive': vm.currentRegion == '{$ region $}'}">
-                                        <a href="#" ng-click="vm.selectRegion('{$ region $}')">
-                                            {$ __('region.' + region) $}
+
+                                    <li class="tab" ng-class="{'isActive': vm.currentRegion == region}" ng-repeat="region in vm.validRegions">
+                                        <a href="#" ng-click="vm.selectRegion(region)" translate="region.{{ region }}">
+
                                         </a>
                                     </li>
-                                {% endfor %}
+                                <li class="tab" ng-class="{'isActive': vm.currentRegion == 'OTHER'}" >
+                                    <a href="#" ng-click="vm.selectRegion('OTHER')" translate="participation.nonCountryParticipant.other">
+
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                         {#</div>#}
@@ -42,30 +47,16 @@
                 </div>
             </div>
         </section>
-        <section class="horizontal-stripe white-background seperator--b">
+        <section class="horizontal-stripe white-background seperator--b" ng-show="vm.currentRegion !== 'OTHER'">
             <div class="container--normal m-b-1">
 
-                    <div class="theGbifNetWork__map card" >
-                        <leaflet
-                                leafletMap="leafletMap"
-                                id="theNetworkMap"
-                                legend="vm.legend"
-                                defaults="vm.mapDefaults"
-                                markers="vm.markers"
-                                paths="vm.paths"
-                                height="100%"
-                                width="100%"
-                                tiles="vm.tiles"
-                                lf-center="vm.center"
-                                geojson="vm.geoJson"
-                                event-broadcast="vm.mapEvents"
-                                controls="vm.controls"
-                        ></leaflet>
+                    <div class="theGbifNetWork__map">
+                        <div id="theNetworkMap" class="m-b-1"></div>
+
 
                         <ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"
                                     src="'/api/template/thegbifnetwork/participantDetails.html?v=' + vm.BUILD_VERSION" ></ng-include>
                          <div class="theGbifNetWork__legend" ng-if="vm.mapIsLoaded">
-                             <div></div>
                              <div class="outline" >
                                  <i style="background:#4E9F37"></i>
                              </div>
@@ -76,34 +67,33 @@
                              <div class="info-label" translate="directory.associate_country_participant.other"></div>
 
                          </div>
+                        <span ng-repeat="participantType in vm.participantTypes">
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></span>
+
+                </span>
+
+                        <span>
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+
+                </span>
 
                     </div>
 
 
             </div>
-            <div class="container--normal">
-            <span ng-repeat="participantType in vm.participantTypes">
-                    <a class="gb-button--brand">{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></a>
 
-                </span>
-
-                <span>
-                    <a class="gb-button--brand">{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></a>
-
-                </span>
-            </div>
 
         </section>
 
-        <section ng-if="vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
-            <div class="container-fluid">
-                <div class="row">
+        <section ng-if="vm.currentRegion !== 'OTHER' && vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
+            <div class="container--normal">
+
                     {% include "./participantsDigest/regionalReps.nunjucks" %}
                     {% include "./participantsDigest/participantTable.nunjucks" %}
-                </div>
+
             </div>
         </section>
-        <section ng-if="vm.currentRegion === 'GLOBAL'" class="horizontal-stripe--paddingless white-background">
+        <section ng-if="vm.currentRegion === 'OTHER'" class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
                 <div class="row participant-list__columned">
                     <div class="col-xs-12 text-center">
@@ -114,7 +104,8 @@
                             <li class="ng-cloak" ng-repeat="p in vm.nonCountryParticipants | orderBy: 'name'" ng-if="vm.nonCountryParticipants">
                                 <p>
                                     <span ng-if="p.hasOwnProperty('abbreviatedName')"><strong ng-bind="p.abbreviatedName"></strong>: </span>
-                                    <span ng-bind="p.name"></span>
+                                    <a ng-if="p._nodes && p._nodes.length > 0" ng-bind="p.name" ng-href="/node/{{ p._nodes[0].key }}"></a>
+                                    <span ng-if="!p._nodes || p._nodes.length === 0" ng-bind="p.name"></span>
                                 </p>
                             </li>
                         </ol>

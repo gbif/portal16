@@ -19,6 +19,40 @@ DirectoryParticipants.prototype.record = {};
 
 DirectoryParticipants.activeMembershipTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'];
 
+
+var getNodes = participantId => {
+    let deferred = Q.defer();
+    let url = dataApi.node.url;
+    helper.getApiDataPromise(url, {'qs': {'identifier': participantId}})
+        .then(result => {
+
+            deferred.resolve(result.results);
+        })
+        .catch(e => {
+            deferred.reject(e);
+        });
+    return deferred.promise;
+};
+
+var addNodes = result => {
+
+    var promises = [];
+
+    _.each(result.results, (participant)=>{
+        promises.push(getNodes(participant.id).then((nodes)=>{
+
+            participant._nodes = nodes;
+            return participant;
+        }))
+
+    })
+
+    return Q.all(promises).then(()=>{
+        return result;
+    });
+
+}
+
 // accepts gbifRegion & membershipType as params
 // /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
 DirectoryParticipants.groupBy = (query) => {
@@ -35,9 +69,20 @@ DirectoryParticipants.groupBy = (query) => {
             return deferred.reject(err);
         }
 
+
+
+
         if (value == undefined) {
             helper.getApiDataPromise(requestUrl, options)
                 .then(result => {
+
+                    return (query.membershipType="other_associate_participant") ? addNodes(result) : Q(result);
+
+                })
+                .then(result => {
+
+                    console.log(JSON.stringify(result));
+
                     directoryParticipantsCache.set('allParticipants', result.results, 3600, (err, success) => {
                         if (!err && success) {
                             log.info('Variable allParticipants cached, valid for 3600 seconds.');
