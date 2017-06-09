@@ -26,7 +26,7 @@ function createMap(element, options) {
             currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
             map.setView(currentProjection.getView(0, 0, 1));
             if (currentProjection.fitExtent) {
-                map.getView().fit(currentProjection.fitExtent);
+                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
             }
             window.map = map;
         }
@@ -60,7 +60,7 @@ function createMap(element, options) {
     };
 
     this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs));
+        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {nearest: true, maxZoom: 10, minZoom: 0});
     };
 
     return {

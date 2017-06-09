@@ -31,7 +31,7 @@ async function getParsedName(speciesKey) {
         n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
     }
     if (name.infraSpecificEpithet) {
-        n += add(name.rankMarker) + '<i>' + add(name.specificEpithet) + '</i>';
+        n += add(name.rankMarker) + '<i>' + add(name.infraSpecificEpithet) + '</i>';
     }
     if (name.bracketAuthorship || name.bracketYear){
         n += '(' + add(name.bracketAuthorship);

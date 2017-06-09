@@ -16,7 +16,8 @@ function mapWidgetDirective(BUILD_VERSION) {
         transclude: true,
         templateUrl: '/templates/components/map/mapWidget/mapWidget.html?v=' + BUILD_VERSION,
         scope: {
-            filter: '='
+            filter: '=',
+            style: '='
         },
         link: mapLink,
         controller: mapWidget,
@@ -57,6 +58,18 @@ function mapWidgetDirective(BUILD_VERSION) {
                 baseMap: {style: 'gbif-classic'},
                 overlay: []
             },
+            DOTS: {
+                baseMap: {style: 'gbif-light'},
+                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
+                    style: 'orange.marker',
+                    bin: 'hex',
+                    hexPerTile: 15
+                }]
+            },
+            GREEN: {
+                baseMap: {style: 'osm-bright'},
+                overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 15}]
+            },
             LIGHT: {
                 baseMap: {style: 'gbif-light'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
@@ -66,6 +79,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }]
             }
         };
+        var suggestedStyle = vm.styles[_.get(vm.style, 'suggested', 'CLASSIC')];
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
@@ -77,7 +91,8 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         $scope.create = function (element) {
             map = mapController.createMap(element, {
-                baseMap: {style: 'gbif-dark'},
+                baseMap: suggestedStyle.baseMap,
+                overlay: suggestedStyle.overlay,
                 filters: getQuery()
             });
 
@@ -166,6 +181,8 @@ function mapWidgetDirective(BUILD_VERSION) {
             var q = getQuery();
             if (map && map.getProjection() == 'EPSG_4326') {
                 q.geometry = getBoundsAsQueryString();
+                q.has_coordinate = true;
+                q.has_geospatial_issue = false;
             }
             q = _.mapKeys(q, function (value, key) {
                 return _.snakeCase(key);

@@ -11,10 +11,11 @@ angular
     .controller('publisherKeyCtrl', publisherKeyCtrl);
 
 /** @ngInject */
-function publisherKeyCtrl($stateParams, $state, PublisherExtended, OccurrenceSearch, ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
+function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtended, OccurrenceSearch, ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Publisher');
     vm.key = $stateParams.key;
+    vm.capabilities = MapCapabilities.get({publishingOrg: vm.key});
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.publisher = PublisherExtended.get({key: vm.key});

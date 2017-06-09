@@ -1,74 +1,112 @@
 .mapWidget {
-  position relative
-  overflow initial
-  &.isSmall {
-    .mapWidget__options {
-      width 100%
-    }
-  }
-  //&.isLarge {
-  //  border-left 5px solid green
-  //}
-  &__mapWrapper {
     position relative
-  }
-  &__controls {
-    border-top 1px solid rgba(0, 0, 0, 0.2)
-    background white
-  }
-  &__inlineOption, &__options {
-    display inline-block
-  }
-  &__options {
-    float right
-    padding 0 5px
-    > div {
-      float right
-      > a {
-        color lighten($discreetInk, 30)
+    overflow initial
+    &.isSmall {
+        .mapWidget__options {
+            width 100%
+        }
+        .time-slider__container {
+            margin-left 20px
+        }
+    }
+    //&.isLarge {
+    //  border-left 5px solid green
+    //}
+    &__mapWrapper {
+        position relative
+    }
+    &__controls {
+        border-top 1px solid rgba(0, 0, 0, 0.2)
+        background white
+    }
+    &__inlineOption, &__options {
         display inline-block
-        font-size 22px
-        width 30px
-        line-height 30px
-        height 30px
-        margin-top 7px
-        text-align center
-        &.is-active {
-          color inherit
+    }
+    &__options {
+        float right
+        padding 0 5px
+        > div {
+            float right
+            > a {
+                color lighten($discreetInk, 30)
+                display inline-block
+                font-size 22px
+                width 30px
+                line-height 30px
+                height 30px
+                margin-top 7px
+                text-align center
+                &.is-active {
+                    color inherit
+                }
+            }
         }
-      }
+        > span {
+            display inline-block
+            float left
+            font-size 12px
+            padding 5px
+            > a {
+                display table-cell
+            }
+        }
     }
-    >span {
-      display inline-block
-      float left
-      font-size 12px
-      padding 5px
-      >a {
-        display table-cell
-      }
+    &__control {
+        .menubox__close {
+            margin 5px 10px
+        }
+        position absolute
+        padding 10px
+        max-height calc(100% - 40px)
+        max-width 100%
+        //overflow auto
+        bottom 40px
+        right 0
+        > div {
+            background white
+            border 1px solid rgba(0, 0, 0, 0.2)
+            border-radius 2px
+            padding 10px
+            .gb-radio {
+                > label {
+                    display block
+                }
+            }
+        }
     }
-  }
-  &__control {
-    .menubox__close {
-      margin 5px 10px
+}
+
+.time-slider__card {
+    display inline-block
+    background white
+    //border 1px solid rgba(0, 0, 0, 0.2)
+    //border-radius 3px
+    font-size 12px
+    .time-slider__buttons, .time-slider__container {
+        display inline-block
+        padding 5px
     }
-    position absolute
-    padding 10px
-    max-height calc(100% - 40px)
-    max-width 100%
-    //overflow auto
-    bottom 40px
-    right 0
+    .time-slider__container {
+        padding 2px 20px 2px 0 //from tweaking the numbers to align.
+    }
+    .time-slider__slider {
+        width 150px
+    }
+}
+
+.map__lockedRatio {
+    width 100%
+    height 0
+    padding-bottom calc(50% - 20px)
+    position relative
     > div {
-      background white
-      border 1px solid rgba(0, 0, 0, 0.2)
-      border-radius 2px
-      padding 10px
-      .gb-radio {
-        > label {
-          display block
+        position absolute
+        top 0
+        right 0
+        left 0
+        bottom 0
+        > gbmap {
+            height 100%
         }
-      }
     }
-  }
 }

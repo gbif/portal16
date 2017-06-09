@@ -20,11 +20,12 @@ angular
     .controller('datasetKey2Ctrl', datasetKey2Ctrl);
 
 /** @ngInject */
-function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page) {
+function datasetKey2Ctrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
     //$anchorScroll.yOffset = -5;
     vm.key = $stateParams.key;
+    vm.capabilities = MapCapabilities.get({datasetKey: vm.key});
     vm.$state = $state;
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
