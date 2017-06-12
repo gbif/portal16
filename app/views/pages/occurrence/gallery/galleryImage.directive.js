@@ -37,12 +37,14 @@ angular
                     element.parent().attr('data-width', 'wide');
                     element.parent().addClass('isInvalid');
                     // element.parent().html('<span></span>');
-                    scope.$apply(function (scope) {
-                        var fn = scope.onImgError();
-                        if ('undefined' !== typeof fn) {
-                            fn();
-                        }
-                    });
+                    if (typeof scope.onImgError === 'function') {
+                        scope.$apply(function (scope) {
+                            var fn = scope.onImgError();
+                            if ('undefined' !== typeof fn) {
+                                fn();
+                            }
+                        });
+                    }
                 });
             }
         };
