@@ -7,13 +7,13 @@
         {% include "./map.nunjucks" %}
     </div>
 
-    <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.mappedOccurrences.$resolved" class="emptyInfo">
+    <div ng-if="!speciesKey2.images.$resolved || !speciesKey2.capabilities.$resolved" class="emptyInfo">
         <h3>Searching 700+ million records for species data</h3>
     </div>
 
     {% include "./partners.nunjucks" %}
 
-    <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.mappedOccurrences.$resolved">
+    <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
             <div class="row">

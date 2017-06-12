@@ -127,9 +127,10 @@ nature, PLOS, ... and
                 </div>
 
                 <div class="card home__map ng-cloak m-b-2">
-                    <div class="map__lockedRatio">
+                    <div class="card">
                         <div>
-                            <gbmap mapstyle="'light'" map-view="home.mapView" map-options="home.mapOptions"></gbmap>
+                            {#<gbmap mapstyle="'light'" map-view="home.mapView" map-options="home.mapOptions"></gbmap>#}
+                            <map-widget></map-widget>
                         </div>
                     </div>
                 </div>

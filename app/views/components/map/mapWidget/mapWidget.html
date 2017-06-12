@@ -1,6 +1,9 @@
-<div class="mapWidget card m-b-1" element-query="vm.styleBreaks">
+<div class="mapWidget" element-query="vm.styleBreaks" ng-class="{fullscreen: vm.fullscreen}" ng-style="vm.widgetContextStyle">
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__mapArea"></div>
+        <div class="mapWidget__mapButtons">
+            <a href="" ng-click="vm.toggleFullscreen()" ng-class="{'gb-icon-fullscreen': !vm.fullscreen, 'gb-icon-fullscreen-exit': vm.fullscreen}"></a>
+        </div>
     </div>
     <div class="mapWidget__controls clearfix">
         <div class="mapWidget__options">
@@ -64,12 +67,9 @@
                 <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                 <h4>Style</h4>
                 <div class="gb-radio">
-                    <label class="radio" ng-model="vm.style" uib-btn-radio=""
-                           ng-change="vm.setStyle(vm.styles.CLASSIC)"><span class="gb-radio__indicator"><span></span></span><span
-                            class="gb-radio__name">Classic</span></label>
-                    <label class="radio" ng-model="vm.style" uib-btn-radio="true"
-                           ng-change="vm.setStyle(vm.styles.LIGHT)"><span class="gb-radio__indicator"><span></span></span><span
-                            class="gb-radio__name">Light</span></label>
+                    <label class="radio" ng-model="vm.style" uib-btn-radio="option"
+                           ng-change="vm.setStyle(option)" ng-repeat="option in vm.styleOptions"><span class="gb-radio__indicator"><span></span></span><span
+                            class="gb-radio__name">{{option | prettifyEnum}}</span></label>
                 </div>
             </div>
         </div>
@@ -94,5 +94,51 @@
                 </div>
             </div>
         </div>
+
+        <div class="mapPopups" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
+            <div class="mapPopup" ng-class="{isLoading: vm.mapMenu.isLoading}">
+                <div class="mapPopup__header">
+                    <h4>
+                        <span ng-if="!vm.mapMenu.isLoading && vm.mapMenu.occurrences.count == 0">No occurrences</span>
+                        <span ng-if="!vm.mapMenu.isLoading && vm.mapMenu.occurrences.count > 0">Occurrences in area</span>
+                        <span ng-if="vm.mapMenu.isLoading">
+                            Searching for occurrences in area <span class="loading"></span>
+                        </span>
+                        <a href="" class="gb-icon-close_L inherit pull-right"
+                           ng-click="vm.activeControl = undefined"></a>
+                    </h4>
+                </div>
+                <div class="mapPopup__results seperator" ng-if="!vm.mapMenu.isLoading">
+                    <div class="emptyInfo" ng-if="vm.mapMenu.occurrences.count == 0">
+                        <p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | amDateFormat:'DD MMM YYYY' }}</span></span></p>
+                    </div>
+                    <ul ng-if="vm.mapMenu.occurrences.count > 0">
+                        <li ng-repeat="occurrence in vm.mapMenu.occurrences.results"
+                            class="occurrence-list-item seperator--b clearfix">
+
+                            <div class="occurrence-list-item__header discreet">
+                                <div class="imageGallery__img img-round-thumb"
+                                     ng-if="occurrence._image">
+                                    <img ng-src="{{ occurrence._image.identifier | imgCache:40:40 }}" gallery-image>
+                                </div>
+                                <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</a>
+                                <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name text-error" ng-if="!occurrence.scientificName">Unkown species</a>
+                                <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
+                                <div class="small discreet classification-list">
+                                            <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
+                                                  ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">
+                                                {{occurrence[taxa]}}
+                                            </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="occurrence-list-item text-center p-t-1 p-b-1" ng-if="vm.mapMenu.occurrences.results.length < vm.mapMenu.occurrences.count">
+                            <a ng-href="/occurrence/search?{{vm.getClickedQuery()}}" class="gb-button--discreet">More</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>

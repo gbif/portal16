@@ -1,74 +1,194 @@
 .mapWidget {
-  position relative
-  overflow initial
-  &.isSmall {
-    .mapWidget__options {
-      width 100%
-    }
-  }
-  //&.isLarge {
-  //  border-left 5px solid green
-  //}
-  &__mapWrapper {
     position relative
-  }
-  &__controls {
-    border-top 1px solid rgba(0, 0, 0, 0.2)
-    background white
-  }
-  &__inlineOption, &__options {
-    display inline-block
-  }
-  &__options {
-    float right
-    padding 0 5px
-    > div {
-      float right
-      > a {
-        color lighten($discreetInk, 30)
+    overflow initial
+    background $lightBackground
+    &.fullscreen {
+        position fixed
+        z-index 1000
+        top 0
+        bottom 0
+        width 100%
+        left 0
+        right 0
+        .mapWidget__mapWrapper, .mapWidget__mapArea {
+            height calc(100vh - 40px)
+        }
+    }
+    &.isSmall {
+        .mapWidget__options, .mapWidget__inlineOption {
+            width 100%
+            display block
+        }
+        .time-slider__container {
+            margin-left 20px
+        }
+        .mapWidget__control {
+            position relative
+            padding 0 5px 5px
+            bottom: 0
+            margin-top 40px
+        }
+    }
+    &__mapButtons {
+        position absolute
+        left 0.5rem
+        top 56px
+        background #aaa
+        >a {
+            background #fff
+            font-size 21px
+            display block
+            text-decoration none
+            text-align center
+            height 24px
+            width 24px
+            line-height 24px
+            background-color rgba(0,60,136,.5)
+            border 1px solid #aaa
+            background white
+            color #444
+            &:hover {
+                background #efefef
+            }
+        }
+    }
+    //&.isLarge {
+    //  border-left 5px solid green
+    //}
+    &__mapWrapper {
+        position relative
+    }
+    &__controls {
+        border-top 1px solid rgba(0, 0, 0, 0.2)
+        background white
+    }
+    &__inlineOption, &__options {
         display inline-block
-        font-size 22px
-        width 30px
-        line-height 30px
-        height 30px
-        margin-top 7px
-        text-align center
-        &.is-active {
-          color inherit
+    }
+    &__options {
+        float right
+        padding 0 5px
+        > div {
+            float right
+            > a {
+                color lighten($discreetInk, 30)
+                display inline-block
+                font-size 22px
+                width 30px
+                line-height 30px
+                height 30px
+                margin-top 7px
+                text-align center
+                &.is-active {
+                    color inherit
+                }
+            }
         }
-      }
-    }
-    >span {
-      display inline-block
-      float left
-      font-size 12px
-      padding 5px
-      >a {
-        display table-cell
-      }
-    }
-  }
-  &__control {
-    .menubox__close {
-      margin 5px 10px
-    }
-    position absolute
-    padding 10px
-    max-height calc(100% - 40px)
-    max-width 100%
-    //overflow auto
-    bottom 40px
-    right 0
-    > div {
-      background white
-      border 1px solid rgba(0, 0, 0, 0.2)
-      border-radius 2px
-      padding 10px
-      .gb-radio {
-        > label {
-          display block
+        > span {
+            display inline-block
+            float left
+            font-size 12px
+            padding 5px
+            > a {
+                display table-cell
+            }
         }
-      }
     }
-  }
+    &__control {
+        .menubox__close {
+            margin 5px 10px
+        }
+        position absolute
+        padding 10px
+        max-height calc(100% - 40px)
+        max-width 100%
+        //overflow auto
+        bottom 40px
+        right 0
+        > div {
+            max-width 300px
+            background white
+            border 1px solid rgba(0, 0, 0, 0.2)
+            border-radius 2px
+            padding 10px
+            .gb-radio {
+                > label {
+                    display block
+                    font-weight inherit
+                }
+            }
+        }
+    }
+}
+
+.time-slider__card {
+    display inline-block
+    background white
+    //border 1px solid rgba(0, 0, 0, 0.2)
+    //border-radius 3px
+    font-size 12px
+    .time-slider__buttons, .time-slider__container {
+        display inline-block
+        padding 5px
+        color #bbb
+    }
+    .time-slider__container {
+        padding 2px 20px 2px 0 //from tweaking the numbers to align.
+    }
+    .time-slider__slider {
+        width 150px
+    }
+}
+
+//.map__lockedRatio {
+//    width 100%
+//    height 0
+//    padding-bottom calc(50% - 20px)
+//    position relative
+//    > div {
+//        position absolute
+//        top 0
+//        right 0
+//        left 0
+//        bottom 0
+//        > gbmap {
+//            height 100%
+//        }
+//    }
+//}
+
+.mapWidget {
+    .mapWidget__mapWrapper {
+        width 100%
+        height 0
+        padding-bottom 70%
+        position relative
+        .mapWidget__mapArea {
+            position absolute
+            top 0
+            right 0
+            left 0
+            bottom 0
+        }
+    }
+    &.isLarge {
+        .mapWidget__mapWrapper {
+            padding-bottom 50%
+        }
+    }
+}
+
+.ol-control {
+    button {
+        background-color white
+        color $bodyTextColor
+        &:hover, &:focus {
+            background #efefef
+        }
+    }
+    &.ol-zoom {
+        background-color #aaa
+        padding 0
+        border-radius 0
+    }
 }

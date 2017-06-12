@@ -10,7 +10,7 @@ module.exports = {
 
 function createMap(element, options) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
-    var options = options || {};
+    options = options || {};
     var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
     var overlayStyle = options.overlays || [];
     var filters = options.filters || {};
@@ -26,7 +26,7 @@ function createMap(element, options) {
             currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
             map.setView(currentProjection.getView(0, 0, 1));
             if (currentProjection.fitExtent) {
-                map.getView().fit(currentProjection.fitExtent);
+                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
             }
             window.map = map;
         }
@@ -42,12 +42,9 @@ function createMap(element, options) {
     };
 
     var map = new ol.Map({
-        target: mapElement
+        target: mapElement,
+        logo: false
     });
-    map.on('singleclick', function (e) {
-        console.log(ol.proj.transform(e.coordinate, currentProjection.srs, 'EPSG:4326'));
-    });
-
     this.update(options);
 
     this.getViewExtent = function () {
@@ -59,8 +56,12 @@ function createMap(element, options) {
         return currentProjection.name;
     };
 
+    this.getProjectedCoordinate = function(coordinate) {
+        return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
+    };
+
     this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs));
+        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {nearest: false, maxZoom: 10, minZoom: 0});
     };
 
     return {
@@ -71,6 +72,7 @@ function createMap(element, options) {
         },
         getViewExtent: this.getViewExtent,
         getProjection: this.getProjection,
-        setExtent: this.setExtent
+        setExtent: this.setExtent,
+        getProjectedCoordinate: this.getProjectedCoordinate
     };
 }

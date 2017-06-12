@@ -24,7 +24,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -32,6 +32,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     vm.backboneKey = constantKeys.backboneKey;
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
+    vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
