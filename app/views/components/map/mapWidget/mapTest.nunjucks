@@ -9,17 +9,17 @@
                     <div class="col-xs-12">
                     large
                         <div class="card m-t-1">
-                            <map-widget filter="{dataset_key:'75956ee6-1a2b-4fa3-b3e8-ccda64ce6c2d'}" style="{suggested: 'DOTS'}"></map-widget>
+                            <map-widget filter="{dataset_key:'b124e1e0-4755-430f-9eab-894f25a9b59c'}" map-style="{suggested: 'CLASSIC'}"></map-widget>
                         </div>
                     </div>
                     <div class="col-xs-8">
                         <div class="card m-t-1">
-                            <map-widget filter="{taxon_key:326}" mapstyle="'light'"></map-widget>
+                            <map-widget filter="{taxon_key:326}"></map-widget>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="card m-t-1">
-                            <map-widget filter="{publishing_org:'299958e0-4c06-11d8-b290-b8a03c50a862'}" style="{suggested: 'GREEN'}"></map-widget>
+                            <map-widget filter="{publishing_org:'299958e0-4c06-11d8-b290-b8a03c50a862'}" map-style="{suggested: 'GREEN'}"></map-widget>
                         </div>
                     </div>
                 </div>

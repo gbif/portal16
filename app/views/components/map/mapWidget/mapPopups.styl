@@ -1,0 +1,103 @@
+.mapPopups {
+  position absolute
+  padding 10px
+  height calc(100% - 40px)
+  max-width 100%
+  bottom 40px
+  right 0
+  display flex
+  flex-direction column
+  pointer-events none
+  .mapPopup {
+    width 380px
+    background #fff
+    border 1px solid rgba(0, 0, 0, .2)
+    border-radius 2px
+    max-height 100%
+    overflow hidden
+    display flex
+    flex-direction column
+    transition max-height 300ms ease
+    pointer-events auto
+    &.isLoading {
+      max-height 100px
+    }
+  }
+}
+
+.mapPopup {
+  box-shadow 0 2px 3px 2px rgba(0, 0, 0, 0.1)
+  &__header {
+    flex 0 0 auto
+    color #748190
+    h4 {
+      margin 0
+      padding 20px
+    }
+  }
+  &__results {
+    flex 1 1 auto
+    overflow-y auto
+    ul {
+      padding 0
+      overflow hidden
+      li {
+        padding 5px 10px
+        position relative
+        .img-round-thumb {
+          float right
+          background-repeat no-repeat
+          background-position center
+          margin 0 0 5px 5px
+          display block
+          background-color #f1f1f1
+          img {
+            display none
+          }
+          &.isValid {
+            background-size cover
+          }
+        }
+      }
+    }
+  }
+}
+
+.img-round-thumb {
+  height 50px
+  width 50px
+  border-radius 25px
+  overflow hidden
+  display none
+  &.isValid {
+    display block
+    box-shadow 0 0 3px rgba(0, 0, 0, 0.3)
+  }
+  img {
+    height 100%
+  }
+}
+
+//.occurrence-list-item {
+//  &__header {
+//    display block
+//  }
+//  &__name {
+//    white-space nowrap
+//    color #4d5258
+//  }
+//  .discreet {
+//    color #aaa
+//    font-weight 300
+//  }
+//  &.active {
+//    .discreet {
+//      color #8b9fa9
+//    }
+//  }
+//  > a {
+//    > div {
+//      white-space normal
+//    }
+//  }
+//}
