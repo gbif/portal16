@@ -2,6 +2,7 @@
 
 var ol = require('openlayers'),
     _ = require('lodash'),
+    Progress = require('./progress'),
     projections = require('./projections');
 
 module.exports = {
@@ -10,6 +11,9 @@ module.exports = {
 
 function createMap(element, options) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
+    var progressElement = element[0].querySelector('.mapWidget__progress');
+    var progress = new Progress(progressElement);
+
     options = options || {};
     var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
     var overlayStyle = options.overlays || [];
@@ -30,15 +34,30 @@ function createMap(element, options) {
             }
             window.map = map;
         }
-        map.addLayer(currentProjection.getBaseLayer(baseMapStyle));
+        map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
 
         if (overlayStyle.length > 0) {
             overlayStyle.forEach(function (overlay) {
-                map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters)));
+                map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
             });
         } else {
-            map.addLayer(currentProjection.getOccurrenceLayer(filters));
+            map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, filters, {progress: progress})));
         }
+        //var source = new ol.source.TileImage({
+        //    url: https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?'
+        //});
+        //
+        //source.on('tileloadstart', function() {
+        //    progress.addLoading();
+        //});
+        //
+        //source.on('tileloadend', function() {
+        //    progress.addLoaded();
+        //});
+        //source.on('tileloaderror', function() {
+        //    progress.addLoaded();
+        //});
+        //map.addLayer(new ol.layer.Tile({source: source}));
     };
 
     var map = new ol.Map({
@@ -56,12 +75,16 @@ function createMap(element, options) {
         return currentProjection.name;
     };
 
-    this.getProjectedCoordinate = function(coordinate) {
+    this.getProjectedCoordinate = function (coordinate) {
         return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
-    this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {nearest: false, maxZoom: 10, minZoom: 0});
+    this.setExtent = function (extent) {
+        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
+            nearest: false,
+            maxZoom: 10,
+            minZoom: 0
+        });
     };
 
     return {
