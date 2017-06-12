@@ -8,7 +8,6 @@ module.exports = function (app) {
 function renderSearch(req, res) {
     res.render('pages/resource/search/resourceSearch', {
         _meta: {
-            hideSearchAction: true,
             hasTools: true,
             hideFooter: true,
             title: 'Resources'

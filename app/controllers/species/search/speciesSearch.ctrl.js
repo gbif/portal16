@@ -9,7 +9,6 @@ function renderSearch(req, res) {
     res.render('pages/species/search/speciesSearch', {
         title: 'Ocurrences',
         _meta: {
-            hideSearchAction: false,
             hasTools: true,
             hideFooter: true,
             title: res.__('stdTerms.search')

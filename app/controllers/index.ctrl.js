@@ -69,8 +69,7 @@ router.get('/', function (req, res, next) {
                 helper.renderPage(req, res, next, {
                     _meta: {
                         title: 'GBIF',
-                        bodyClass: 'hasTransparentMenu',
-                        hideSearchAction: true
+                        bodyClass: 'hasTransparentMenu'
                     }
                 }, 'pages/home/home');
             });

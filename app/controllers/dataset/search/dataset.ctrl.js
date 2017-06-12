@@ -16,7 +16,6 @@ function renderPage(req, res, searchString) {
         query: searchString,
         _meta: {
             bodyClass: 'dataset',
-            hideSearchAction: true,
             hideFooter: true,
             hasTools: true,
             title: res.__('stdTerms.search')
