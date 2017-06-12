@@ -10,10 +10,9 @@ angular
 function networkKeyCtrl($state, $stateParams, $anchorScroll, Network, NetworkDatasets, BUILD_VERSION) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
-    vm.limit = 5;
     vm.datasets = {};
     vm.maxSize = 5;
-    vm.limit = 5;
+    vm.limit = 20;
     vm.key =  $stateParams.key;
 
     vm.network = Network.get({id: vm.key});

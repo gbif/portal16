@@ -10,10 +10,9 @@ angular
 function installationKeyCtrl($state, $stateParams, $anchorScroll, InstallationDatasets, InstallationExtended, Publisher, BUILD_VERSION) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
-    vm.limit = 5;
     vm.servedDatasets = {};
     vm.maxSize = 5;
-    vm.limit = 5;
+    vm.limit = 20;
     vm.key = $stateParams.key;
     vm.installation = InstallationExtended.get({id:vm.key});
 
