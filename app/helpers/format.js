@@ -213,10 +213,10 @@ function sanitizeTrusted(dirty) {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(allowedTags),
             allowedAttributes: {
                 '*': ['href', 'name', 'target', 'src', 'class', 'style', 'frameborder', 'width', 'height', 'allowfullscreen']
-            },
-            exclusiveFilter: function (frame) {
-                return frame.tag === 'p' && !frame.text.trim();
             }
+            //exclusiveFilter: function (frame) {
+            //    return frame.tag === 'p' && !frame.text.trim(); //PROBLEM: removes p tags with image in it if there is no text
+            //}
             //transformTags: {
             //    'iframe': function (tagName, attr) {
             //        // My own custom magic goes here
