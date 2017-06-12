@@ -16,7 +16,9 @@ module.exports = {
     concatFields: concatFields,
     transformFacets: transformFacets,
     getLocaleVersion: getLocaleVersion,
-    addFilters: addFilters
+    addFilters: addFilters,
+    addDOIsToLiterature: addDOIsToLiterature,
+    removeFields: removeFields
 };
 
 function normalize(result, offset, limit) {
@@ -195,6 +197,22 @@ function concatFields(results, fieldsPaths, targetField) {
             }
         });
         _.set(e, targetField, concatString);
+    });
+}
+
+function addDOIsToLiterature(results) {
+    results.forEach(function(e){
+        var tags = _.get(e, 'tags', []);
+        var dois = tags.filter(function(e){return e.startsWith('gbifDOI:');}).map(function(e){return 'doi:' + e.substr(8)});
+        e._gbifDOIs = dois;
+    });
+}
+
+function removeFields(results, fieldsPaths) {
+    results.forEach(function(e){
+        fieldsPaths.forEach(function(field){
+            delete e[field];
+        });
     });
 }
 
