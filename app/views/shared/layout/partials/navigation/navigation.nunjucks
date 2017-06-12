@@ -15,7 +15,7 @@
                 <a href="#search">Search</a>
             </li> -->
             {#{% if not _meta.hideSearchAction %}#}
-            <li class="service-menu__search {% if _meta.hideSearchAction %} invisible {% endif %}">
+            <li class="service-menu__search">
                 <a href="" ng-click="nav.toggleSearch()">
                     <span class="service-menu__icon gb-icon-search2"></span>
                     <span class="service-menu__text">Search</span>

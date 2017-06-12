@@ -38,7 +38,9 @@
             </div>
             <div class="m-b-025">
                 <ul class="inline-bullet-list discreet--very smaller">
-                    <li ng-repeat="keyword in result.keywords | limitTo: 6">{{ keyword }}</li>
+                    <li ng-repeat="keyword in result.keywords | limitTo: 6">
+                        {{ keyword }}
+                    </li>
                 </ul>
             </div>
             <ul class="list-chips">
@@ -46,6 +48,15 @@
                     <a class="text-capitalize" ng-href="/resource/search?contentType=literature&literatureType={{ result.literatureType }}" translate="cms.literatureType.{{ result.literatureType }}"></a>
                 </li>
             </ul>
+            <div ng-if="result._gbifDOIs.length > 0">
+                <span class="small discreet">GBIF DOI</span>
+                <ul class="list-chips">
+                    <li ng-repeat="doi in result._gbifDOIs | limitTo: 50">
+                        <doi link="{{ doi }}"></doi>
+                    </li>
+                </ul>
+            </div>
+
             <a href="//scholar.google.com/scholar?as_q={{result.title | encodeURIComponent}}&as_sauthors={{ result.authors[0].lastName }}" class="small" ng-if="!result.identifiers.doi && !result.websites[0]">Google Scholar</a>
         </div>
     </div>

@@ -9,7 +9,6 @@ function renderSearch(req, res) {
     res.render('pages/cms/search/cmsSearch', {
         title: 'Information',
         _meta: {
-            hideSearchAction: true,
             hasTools: true,
             hideFooter: true,
             title: res.__('stdTerms.search')

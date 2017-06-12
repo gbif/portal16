@@ -25,6 +25,10 @@ async function search(requestQuery, __, requestTimeout) {
     let resp = await client.search(query);
 
     let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
+
+    resourceResultParser.removeFields(parsedResult.results, ['gbifDatasetKey', 'publishingOrganizationKey']);
+    resourceResultParser.addDOIsToLiterature(parsedResult.results);
+
     // resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
     resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
 

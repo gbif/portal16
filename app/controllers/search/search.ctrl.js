@@ -30,7 +30,6 @@ router.get('/search', function (req, res, next) {
                     bodyClass: 'omnisearch',
                     tileApi: baseConfig.tileApi,
                     hideFooter: true,
-                    hideSearchAction: true,
                     title: res.__('stdTerms.search')
                 }
             };
@@ -76,7 +75,6 @@ router.get('/search', function (req, res, next) {
 //                query: searchString,
 //                _meta: {
 //                    bodyClass: 'omnisearch',
-//                    hideSearchAction: false,
 //                    hideFooter: true,
 //                    tileApi: baseConfig.tileApi,
 //                    imageCacheUrl: imageCacheUrl

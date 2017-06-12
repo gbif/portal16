@@ -46,7 +46,7 @@ function get4326() {
             return new ol.View({
                 maxZoom: max_zoom,
                 minZoom: 0,
-                center: [0, 0],
+                center: [lon, lat],
                 zoom: zoom,
                 projection: 'EPSG:4326'
             })
@@ -83,7 +83,7 @@ function get3857() {
             return new ol.View({
                 maxZoom: max_zoom,
                 minZoom: 0,
-                center: [0, 0],
+                center: [lon, lat],
                 zoom: zoom,
                 projection: 'EPSG:3857'
             })
@@ -196,15 +196,32 @@ function get3031() {
 function getLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
+    var progress = params.progress;
+    console.log(progress);
+    var source = new ol.source.TileImage({
+        projection: proj.projection,
+        tileGrid: proj.tileGrid,
+        tilePixelRatio: 1,
+        url: baseUrl + querystring.stringify(params),
+        wrapX: proj.wrapX
+    });
+    source.on('tileloadstart', function() {
+        progress.addLoading();
+        console.log('tileloadstart');
+    });
+
+    source.on('tileloadend', function() {
+        progress.addLoaded();
+        console.log('tileloadend');
+    });
+    source.on('tileloaderror', function() {
+        progress.addLoaded();
+        console.log('tileloaderror');
+    });
+
     return new ol.layer.Tile({
         extent: proj.extent,
-        source: new ol.source.TileImage({
-            projection: proj.projection,
-            tileGrid: proj.tileGrid,
-            tilePixelRatio: 1,
-            url: baseUrl + querystring.stringify(params),
-            wrapX: proj.wrapX
-        }),
+        source: source,
         useInterimTilesOnError:false,
         visible: true
     });

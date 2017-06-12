@@ -118,7 +118,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             });
             vm.capabilities = MapCapabilities.get(query);
             vm.capabilities.$promise.then(function (response) {
-                map.setExtent([response.minLng, response.minLat, response.maxLng, response.maxLat]);
+                map.setExtent([response.minLng-1, response.minLat-1, response.maxLng+1, response.maxLat+1]);//expand with one degree as the API sometimes crop away content see https://github.com/gbif/maps/issues/17
                 //only create the slider if there are any years in the data to filter on
                 if (response.maxYear) {
                     createSlider(element, response.minYear, response.maxYear);

@@ -15,7 +15,7 @@ function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_E
     vm.doi = _.get(gb, 'downloadKey.doi', '').substring(4);
 vm.test = 20;
     if (vm.doi) {
-        vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
+        vm.literature = ResourceSearch.query({contentType: 'literature', q: vm.doi});
     }
 
     vm.openHelpdesk = function () {
