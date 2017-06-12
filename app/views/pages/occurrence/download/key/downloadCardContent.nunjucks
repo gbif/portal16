@@ -42,19 +42,23 @@
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <dl class="inline">
-                        {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
-                            <div>
-                                <dt class="text-capitalize">Occurrences</dt>
-                                <dd>
-                                    <span>{$ download.record.totalRecords | locInt(gb.locales.current) $}</span>
-                                </dd>
-                            </div>
-                            <div>
-                                <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
-                                <dd>
-                                    <span>{$ download.record.numberDatasets | locInt(gb.locales.current) $}</span>
-                                </dd>
-                            </div>
+                        {% if download.record.totalRecords or download.record.numberDatasets %}
+                            {% if download.record.totalRecords %}
+                                <div>
+                                    <dt class="text-capitalize">Occurrences</dt>
+                                    <dd>
+                                        <span>{$ download.record.totalRecords | locInt(gb.locales.current) $}</span>
+                                    </dd>
+                                </div>
+                            {% endif %}
+                            {% if download.record.numberDatasets %}
+                                <div>
+                                    <dt class="text-capitalize">{$ __('downloadKey.constituentDatasets') $}</dt>
+                                    <dd>
+                                        <span>{$ download.record.numberDatasets | locInt(gb.locales.current) $}</span>
+                                    </dd>
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </dl>
                 </div>

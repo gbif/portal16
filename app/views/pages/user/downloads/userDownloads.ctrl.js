@@ -8,9 +8,10 @@ angular
 
 
 /** @ngInject */
-function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User) {
+function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $stateParams, User, Page) {
     var vm = this;
     User.loadActiveUser();
+    Page.setTitle('My downloads');//TODO move into translation file
 
     function updatePaginationCounts() {
         vm.offset = parseInt($stateParams.offset) || 0;
@@ -34,6 +35,15 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
         });
     };
     vm.getDownloads();
+
+    vm.cancelDownload = function (key) {
+        var cancel = $http.get(endpoints.cancelDownload + key);
+        cancel.then(function () {
+            vm.getDownloads();
+        }, function (err) {
+            //TODO tell user the download fialed to be cancelled
+        });
+    };
 
     vm.pageChanged = function () {
         vm.offset = (vm.currentPage - 1) * vm.limit;

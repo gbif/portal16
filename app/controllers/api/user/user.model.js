@@ -20,7 +20,8 @@ module.exports = {
     getClientUser: getClientUser,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
-    changePassword: changePassword
+    changePassword: changePassword,
+    cancelDownload: cancelDownload
 };
 
 async function create(body) {
@@ -165,6 +166,22 @@ async function createSimpleDownload(user, query) {
         method: 'GET'
     };
 
+    let response = await authOperations.authenticatedRequest(options);
+    if (response.statusCode !== 200) {
+        throw response;
+    }
+    return response.body;
+}
+
+async function cancelDownload(user, key) {
+    expect(key, 'download query').to.be.a('string');
+    expect(user.userName, 'user name').to.be.a('string');
+
+    var options = {
+        url: apiConfig.occurrenceCancelDownload.url + key,
+        userName: user.userName,
+        method: 'DELETE'
+    };
     let response = await authOperations.authenticatedRequest(options);
     if (response.statusCode !== 200) {
         throw response;

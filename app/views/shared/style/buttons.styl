@@ -60,6 +60,14 @@
     }
 }
 
+.gb-button--error {
+    @extends .gb-button--colored
+    background tomato
+    &__label {
+        color darken(tomato, 30)
+    }
+}
+
 .gb-button--brand--transparent {
     @extends .gb-button--brand
     background alpha(darken($navBar_background_color, 20), 0.4)

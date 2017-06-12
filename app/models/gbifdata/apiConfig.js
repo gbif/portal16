@@ -58,6 +58,9 @@ var apiConfig = {
     occurrenceSearchDownload: {
         url: baseUrl + 'occurrence/search/download/'
     },
+    occurrenceCancelDownload: {
+        url: baseUrl + 'occurrence/download/request/'
+    },
     publisher: {
         url: baseUrl + 'organization/'
     },

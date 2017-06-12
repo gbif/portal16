@@ -4,8 +4,11 @@
             <div ng-if="userDownloads.loadingDownloads">
                 <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
             </div>
-            <div class="card m-b-2" ng-repeat="download in userDownloads.downloads.results">
-                <ng-include src="'/occurrence/download/' + download.key + '/card'"></ng-include>
+            <div ng-repeat="download in userDownloads.downloads.results">
+                <a href="" class="gb-button--error m-b-05" ng-if="download.status == 'RUNNING' || download.status == 'PREPARING'" ng-click="userDownloads.cancelDownload(download.key)">Cancel download</a>
+                <div class="card m-b-2">
+                    <ng-include src="'/occurrence/download/' + download.key + '/card'"></ng-include>
+                </div>
             </div>
 
             <div ng-if="userDownloads.downloads && userDownloads.downloads.count > userDownloads.limit">
