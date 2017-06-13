@@ -1,6 +1,6 @@
 <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.repTableLoaded === false"></ng-include>
 
-<div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true">
+<div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true && vm.reps.length > 0">
     <div class="table-container--participant" ng-init="sort = {field: '', reverse: false };">
         <h3 translate="theGbifNetwork.regionalRepresentative"
             translate-values="{NUMBER: vm.reps.length}"></h3>
@@ -9,17 +9,17 @@
             <thead>
             <tr>
                 <th ng-click="sortField = 'role'; sortReverse = !sortReverse">
-                    <a>{$ __('directory.role') $}</a>
+                    <a translate="directory.role"></a>
                     <span ng-show="sortField == 'role' && !sortReverse" class="gb-icon-angle-down"></span>
                     <span ng-show="sortField == 'role' && sortReverse" class="gb-icon-angle-up"></span>
                 </th>
                 <th ng-click="sortField = 'surname'; sortReverse = !sortReverse">
-                    <a>{$ __('directory.name') $}</a>
+                    <a translate="directory.name"></a>
                     <span ng-show="sortField == 'surname' && !sortReverse" class="gb-icon-angle-down"></span>
                     <span ng-show="sortField == 'surname' && sortReverse" class="gb-icon-angle-up"></span>
                 </th>
                 <th ng-click="sortField = 'participantName'; sortReverse = !sortReverse">
-                    <a>{$ __('directory.participant') $}</a>
+                    <a translate="directory.participant"></a>
                     <span ng-show="sortField == 'participantName' && !sortReverse" class="gb-icon-angle-down"></span>
                     <span ng-show="sortField == 'participantName' && sortReverse" class="gb-icon-angle-up"></span>
                 </th>
@@ -28,11 +28,11 @@
             <tbody ng-if="vm.reps.length > 0">
             <tr ng-repeat="(index, person) in vm.reps | orderBy:sortField:sortReverse"
                 ng-click="vm.toggleDetail('nodes_steering_group' + '_' + person.id)">
-                <td class="gbif-role"> {# role #}
+                <td class="gbif-role">
                     <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
                 </td>
-                <td> {# delegation member #}
-                    <address class="contacts__item" id="contact_{$ person.id $}">
+                <td>
+                    <address class="contacts__item" id="contact_{{person.id}}">
                         <div class="contact__heading">
                             <span class="relative-anchor-offset"><a name="contact_{{ person.id }}"></a></span>
                             <span><strong ng-bind="person.surname + ', ' + person.firstName"></strong></span>
@@ -59,7 +59,7 @@
                         </div>
                     </address>
                 </td>
-                <td ng-bind="person.participantName"></td> {# participant #}
+                <td ng-bind="person.participantName"></td>
             </tr>
             </tbody>
         </table>

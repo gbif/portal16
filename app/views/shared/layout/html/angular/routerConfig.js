@@ -345,14 +345,14 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
            controller: 'countryActivityCtrl',
            controllerAs: 'countryActivity'
         })
-        // .state('theGbifNetwork', {
-        //
-        //     url: '/the-gbif-network/:region?',
-        //     params: {region: {squash: true, value: 'global'}},
-        //     templateUrl: '/templates/pages/theGbifNetwork/theGbifNetwork.html?v=' + BUILD_VERSION,
-        //     controller: 'theGbifNetworkCtrl',
-        //     controllerAs: 'vm'
-        // })
+        .state('theGbifNetwork', {
+
+            url: '/the-gbif-network/:region?',
+            params: {region: {squash: true, value: 'global'}},
+            templateUrl: '/templates/pages/theGbifNetwork/theGbifNetwork.html?v=' + BUILD_VERSION,
+            controller: 'theGbifNetworkCtrl',
+            controllerAs: 'vm'
+        })
 
 
         //theGbifNetworkCtrl

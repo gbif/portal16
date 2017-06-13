@@ -117,3 +117,11 @@ router.get('/site/footer.html', function (req, res, next) {
 router.get('/thegbifnetwork/participantDetails.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/theGbifNetwork/participantDetails.html');
 });
+
+router.get('/thegbifnetwork/participantTable.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/theGbifNetwork/participantsDigest/participantTable.html');
+});
+
+router.get('/thegbifnetwork/regionalReps.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/theGbifNetwork/participantsDigest/regionalReps.html');
+});

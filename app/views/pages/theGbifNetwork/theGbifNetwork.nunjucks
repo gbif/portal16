@@ -1,119 +1,145 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes" ng-controller="theGbifNetworkCtrl as vm" ng-init="locale = '{$ data.locale $}'">
-        <div class="horizontal-stripe article-header white-background">
-            <div class="container">
-                <div class="row">
-                    <header class="col-xs-12 text-center article-header">
-                        <h1>{$ __('menu.GbifNetwork') $}</h1>
-                        <div class="article-header__intro anchor-block__above">
+    {#<article class="wrapper-horizontal-stripes" ng-controller="theGbifNetworkCtrl as vm" >#}
+        <article class="wrapper-horizontal-stripes"  >
+
+        {#<div class="horizontal-stripe article-header white-background">#}
+            {#<div class="container">#}
+                {#<div class="row">#}
+                    {#<header class="col-xs-12 text-center article-header">#}
+                        {#<h1 translate="menu.GbifNetwork"></h1>#}
+                        {#<div class="article-header__intro anchor-block__above">#}
                             {# fulltext html already wrapped by <p> from Content API #}
-                            {$ data.intro | safe $}
-                        </div>
-                    </header>
-                </div>
-            </div>
-        </div>
-        <section id="region-nav" class="horizontal-stripe white-background">
-            <div class="container--normal">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="text-center region-selector-select">
-                            <label for="regionSelect">{$ __('region.' + 'select_region') $}: </label>
-                            <select id="regionSelect" ng-model="vm.currentRegion" ng-change="vm.selectRegion(vm.currentRegion)">
-                                <option ng-repeat="region in vm.validRegions" value="{{ region }}" translate="region.{{ region }}"></option>
-                            </select>
-                        </div>
-                        {#<div class="tabs text-center tabs--emphasized region-selector-tabs">#}
-                        <div class="tabs">
-                            <ul class="anchorTabs">
-
-                                    <li class="tab" ng-class="{'isActive': vm.currentRegion == region}" ng-repeat="region in vm.validRegions">
-                                        <a href="#" ng-click="vm.selectRegion(region)" translate="region.{{ region }}">
-
-                                        </a>
-                                    </li>
-                                <li class="tab" ng-class="{'isActive': vm.currentRegion == 'OTHER'}" >
-                                    <a href="#" ng-click="vm.selectRegion('OTHER')" translate="participation.nonCountryParticipant.other">
-
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
+                            {#{$ intro | safe $}#}
                         {#</div>#}
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="horizontal-stripe white-background seperator--b" ng-show="vm.currentRegion !== 'OTHER'">
-            <div class="container--normal m-b-1">
+                    {#</header>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<section id="region-nav" class="horizontal-stripe white-background">#}
+            {#<div class="container--normal">#}
+                {#<div class="row">#}
+                    {#<div class="col-xs-12">#}
+                        {#<div class="text-center region-selector-select">#}
+                            {#<label for="regionSelect" translate="region.select_region"> </label>#}
+                            {#<select id="regionSelect" ng-model="vm.currentRegion" ng-change="vm.selectRegion(vm.currentRegion)">#}
+                                {#<option ng-repeat="region in vm.validRegions" value="{{ region }}" translate="region.{{ region }}"></option>#}
+                            {#</select>#}
+                        {#</div>#}
+                        {#<div class="tabs">#}
+                            {#<ul class="anchorTabs">#}
 
-                    <div class="theGbifNetWork__map">
-                        <div id="theNetworkMap" class="m-b-1"></div>
+                                    {#<li class="tab" ng-class="{'isActive': vm.currentRegion == region}" ng-repeat="region in vm.validRegions">#}
+                                        {#<a href="#" ng-click="vm.selectRegion(region)" translate="region.{{ region }}">#}
+
+                                        {#</a>#}
+                                    {#</li>#}
+                                {#<li class="tab" ng-class="{'isActive': vm.currentRegion == 'OTHER'}" >#}
+                                    {#<a href="#" ng-click="vm.selectRegion('OTHER')" translate="participation.nonCountryParticipant.other">#}
+
+                                    {#</a>#}
+                                {#</li>#}
+
+                            {#</ul>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</section>#}
+        {#<section class="horizontal-stripe white-background seperator--b" ng-show="vm.currentRegion !== 'OTHER'">#}
+            {#<div class="container--normal m-b-1">#}
+
+                    {#<div class="theGbifNetWork__map">#}
+                        {#<div id="theNetworkMap" class="m-b-1"></div>#}
 
 
-                        <ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"
-                                    src="'/api/template/thegbifnetwork/participantDetails.html?v=' + vm.BUILD_VERSION" ></ng-include>
-                         <div class="theGbifNetWork__legend" ng-if="vm.mapIsLoaded">
-                             <div class="outline" >
-                                 <i style="background:#4E9F37"></i>
-                             </div>
-                             <div class="info-label" translate="directory.voting_participant.other"></div>
-                             <div class="outline" >
-                                 <i style="background:#58BAE9"></i>
-                             </div>
-                             <div class="info-label" translate="directory.associate_country_participant.other"></div>
+                        {#<ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"#}
+                                    {#src="'/api/template/thegbifnetwork/participantDetails.html?v=' + vm.BUILD_VERSION" ></ng-include>#}
+                         {#<div class="theGbifNetWork__legend" ng-if="vm.mapIsLoaded">#}
+                             {#<div class="outline" >#}
+                                 {#<i style="background:#4E9F37"></i>#}
+                             {#</div>#}
+                             {#<div class="info-label" translate="directory.voting_participant.other"></div>#}
+                             {#<div class="outline" >#}
+                                 {#<i style="background:#58BAE9"></i>#}
+                             {#</div>#}
+                             {#<div class="info-label" translate="directory.associate_country_participant.other"></div>#}
 
-                         </div>
-                        <span ng-repeat="participantType in vm.participantTypes">
-                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></span>
+                         {#</div>#}
+                        {#<span ng-repeat="participantType in vm.participantTypes" >#}
+                    {#<span class="theGbifNetWork__badges" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></span>#}
 
-                </span>
+                {#</span>#}
 
-                        <span>
-                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+                        {#<span>#}
+                    {#<span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>#}
 
-                </span>
+                {#</span>#}
 
-                    </div>
-
-
-            </div>
+                    {#</div>#}
 
 
-        </section>
+            {#</div>#}
 
-        <section ng-if="vm.currentRegion !== 'OTHER' && vm.currentRegion !== 'GLOBAL'" class="horizontal-stripe light-background">
-            <div class="container--normal">
 
-                    {% include "./participantsDigest/regionalReps.nunjucks" %}
-                    {% include "./participantsDigest/participantTable.nunjucks" %}
+        {#</section>#}
+        {#<section class="horizontal-stripe white-background seperator--b" ng-show="vm.currentRegion !== 'OTHER' && vm.currentRegion !== 'GLOBAL'">#}
+            {#{% include "../resource/key/article/article.nunjucks" %}#}
 
-            </div>
-        </section>
-        <section ng-if="vm.currentRegion === 'OTHER'" class="horizontal-stripe--paddingless white-background">
-            <div class="container--desktop">
-                <div class="row participant-list__columned">
-                    <div class="col-xs-12 text-center">
-                        <header>
-                            <h3>{$ __n('participation.nonCountryParticipant', data.count.other_associate_participant) $}</h3>
-                        </header>
-                        <ol>
-                            <li class="ng-cloak" ng-repeat="p in vm.nonCountryParticipants | orderBy: 'name'" ng-if="vm.nonCountryParticipants">
-                                <p>
-                                    <span ng-if="p.hasOwnProperty('abbreviatedName')"><strong ng-bind="p.abbreviatedName"></strong>: </span>
-                                    <a ng-if="p._nodes && p._nodes.length > 0" ng-bind="p.name" ng-href="/node/{{ p._nodes[0].key }}"></a>
-                                    <span ng-if="!p._nodes || p._nodes.length === 0" ng-bind="p.name"></span>
-                                </p>
-                            </li>
-                        </ol>
-                        <footer></footer>
-                    </div>
-                </div>
-            </div>
-        </section>
+            {#<div>#}
+                {#<article class="wrapper-horizontal-stripes">#}
+                    {#<div class="horizontal-stripe article-header white-background">#}
+                        {#<header class="text-center">#}
+                            {#<nav class="article-header__category article-header__category--deep">#}
+                        {#<span class="article-header__category__upper"><a#}
+                                    {#href="{$ gb.locales.urlPrefix $}/resource/search?contentType=dataUse">{$#}
+                                {#__('cms.contentType.dataUse') $}</a></span>#}
+                                {#<span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>#}
+                            {#</nav>#}
+                            {#<h1>{$ main.fields.title $}</h1>#}
+                            {#<div class="article-header__intro">#}
+                                {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}#}
+                            {#</div>#}
+                            {#{% if main.fields.numberOfResourceUsed | isNotEmpty %}#}
+                                {#<span class="article-header__meta">#}
+                    {#{$ main.fields.numberOfResourceUsed | striptags $}#}
+                    {#</span>#}
+                            {#{% endif %}#}
+                        {#</header>#}
+                    {#</div>#}
+
+                    {#{% include "../resource/key/primaryImage.nunjucks" %}#}
+
+                    {#<div class="horizontal-stripe white-background">#}
+                        {#<div class="container--narrow">#}
+                            {#{% include "../resource/key/body.nunjucks" %}#}
+
+                            {#<div class="article-secondary">#}
+                                {#{% include "../resource/key/documentsLinks.nunjucks" %}#}
+                            {#</div>#}
+
+                            {#{% include "../resource/key/auxiliary.nunjucks" %}#}
+                        {#</div>#}
+                    {#</div>#}
+
+                {#</article>#}
+            {#</div>#}
+
+
+
+        {#</section>#}
+        {#<section  class="horizontal-stripe light-background">#}
+            {#<div class="container--normal">#}
+
+                {#<ng-include src="'/api/template/thegbifnetwork/regionalReps.html?v=' + vm.BUILD_VERSION"></ng-include>#}
+                {#<ng-include src="'/api/template/thegbifnetwork/participantTable.html?v=' + vm.BUILD_VERSION"></ng-include>#}
+                    {#{% include "./participantsDigest/regionalReps.nunjucks" %}#}
+                    {#{% include "./participantsDigest/participantTable.nunjucks" %}#}
+
+            {#</div>#}
+        {#</section>#}
+
 
     </article>
 {% endblock %}

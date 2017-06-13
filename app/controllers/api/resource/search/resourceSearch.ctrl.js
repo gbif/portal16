@@ -45,6 +45,22 @@ router.get('/resource/key/search', function (req, res) {
         });
 });
 
+router.get('/resource/alias', function (req, res) {
+    let urlAlias = req.query.urlAlias,
+        preferedLocale = req.query.locale;
+
+    resource.getByAlias(urlAlias, 2, false, preferedLocale)
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err =>{
+            console.trace(err);
+            res.status(500);
+            res.send(err.message);
+        })
+
+});
+
 function transformResult(results, listPath, preferedLocale) {
     //check if there is any results. if not, then the item do not exists
     if (results.total == 0) {
