@@ -13,9 +13,9 @@ angular
     .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
 
 /** @ngInject */
-function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, PublisherCount, LiteratureCount, $scope,$stateParams, $filter,  $location, ParticipantsDigest, DirectoryNsgContacts, WorldTopoJson, leafletData, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, $translate, $timeout) {
+function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, PublisherCount,  $scope, $state, $stateParams, $filter,  $location, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, ContentFul, BUILD_VERSION) {
     var vm = this;
-
+    vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     var regionCenters = {
         'GLOBAL': {zoom: 2, lat: 0, lng: 0},
@@ -42,27 +42,12 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     if (currentProjection.fitExtent) {
         map.getView().fit(currentProjection.fitExtent);
     }
-    var styles = {
-        voting_participant: new ol.style.Style({
-            fill: new ol.style.Fill({
-                color: '#4E9F37'
-            }),
-            stroke: new ol.style.Stroke({
-                color: '#FFFFFF',
-                width: 1
-            })
-        }),
-        associate_country_participant: new ol.style.Style({
-            fill: new ol.style.Fill({
-                color: '#58BAE9'
-            }),
-            stroke: new ol.style.Stroke({
-                color: '#FFFFFF',
-                width: 1
-            })
-        }),
 
-    }
+
+    var colors = {voting_participant: '#4E9F37', associate_country_participant: '#58BAE9'}
+
+    var currentlySelectedFeature;
+
     var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
             url: '/api/topojson/world',
@@ -70,10 +55,27 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             overlaps: false
         }),
         style: function(feature) {
-            return styles[feature.O.membershipType];
+
+            var stroke = (currentlySelectedFeature === feature) ? '#000000': '#FFFFFF';
+            var  zIndex= (currentlySelectedFeature === feature) ? 100 : 1;
+            var  width = (currentlySelectedFeature === feature) ? 2 : 1;
+            return new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: colors[feature.O.membershipType]
+                }),
+                stroke: new ol.style.Stroke({
+                    color: stroke,
+                    width: width
+                }),
+                zIndex: zIndex
+            })
 
         }
     });
+
+
+
+
    map.addLayer(vector);
 
     var displayFeatureInfo = function(pixel) {
@@ -83,8 +85,17 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         });
 
         if (feature) {
+            currentlySelectedFeature = feature;
             vm.updateParticipantDetails(feature.O);
-          map.getView().fit(ol.proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
+            var extent = feature.getGeometry().getExtent();
+            var longitudeSpan = (extent[2] - extent[0]);
+            // A check if to see if the extent of a country crosses the date line, if so zoom to region rather than fit the entire globe
+            if(longitudeSpan < 180){
+                map.getView().fit(ol.proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
+            } else {
+                zoomToRegion(feature.O.gbifRegion);
+            }
+
         } else {
             vm.showParticipantDetails = false;
         }
@@ -96,6 +107,8 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
 
 
     map.on('click', function(evt) {
+
+
         displayFeatureInfo(evt.pixel);
     });
 
@@ -178,7 +191,6 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
     vm.query = $stateParams;
     vm.updatedCounts = 2;
 
-    // list non-country participants
     vm.nonCountryParticipants = [];
     if (vm.nonCountryParticipants.length == 0) {
         DirectoryParticipants.get({'gbifRegion': vm.currentRegion, 'membershipType': 'other_associate_participant'}).$promise
@@ -187,64 +199,71 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
             }, function (error){
                 return error;
             });
-    }
+    };
 
     vm.selectRegion = function(region) {
         vm.showParticipantDetails = false;
         vm.updatedCounts = 0;
         vm.currentRegion = region;
         vm.totalParticipantCount = 0;
+        delete vm.contentfulResource;
 
-        var query = (region !== 'OTHER') ? {'gbifRegion': region} : {'membershipType': 'other_associate_participant'};
 
-        DirectoryParticipantsCount.get(query).$promise
-            .then(function (response) {
-                vm.participantTypes.forEach(function(pType){
-                    if (response[pType]) {
-                    vm.count[pType] = response[pType];
-                        vm.totalParticipantCount += parseInt(response[pType]);
-                    };
+        if(region === 'PARTICIPANT_ORGANISATIONS'){
+            vm.activeParticipantsDigest =  vm.nonCountryParticipants;
+            vm.tableLoaded = true;
+            delete vm.reps;
+            vm.repTableLoaded = true;
+
+
+        } else {
+            var urlAlias = '/the-gbif-network/'+ region.toLowerCase().replace('_', '-');
+
+            vm.contentfulResource = ContentFul.getByAlias({urlAlias: urlAlias });
+
+            var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : {
+                'gbifRegion': 'GLOBAL',
+                'membershipType': 'other_associate_participant'
+            };
+
+            DirectoryParticipantsCount.get(query).$promise
+                .then(function (response) {
+                    vm.participantTypes.forEach(function (pType) {
+                        if (response[pType]) {
+                            vm.count[pType] = response[pType];
+                            vm.totalParticipantCount += parseInt(response[pType]);
+                        }
+                        ;
+                    });
+                    vm.updatedCounts += 1;
+                }, function (error) {
+                    return error;
                 });
-                vm.updatedCounts += 1;
-            }, function (error) {
-                return error;
-            });
-        PublisherCount.get(query).$promise
-            .then(function(response){
-                if (response.publisher) vm.count.publisher = $filter('localNumber')(response.publisher, gb.locale);
-                vm.updatedCounts += 1;
-            }, function(error){
-                return error;
-            });
-        //LiteratureCount.get({'gbifRegion': region}).$promise
-        //    .then(function(response){
-        //        literatureCounts.forEach(function(count){
-        //            if(response[count]) vm.count[count] = $filter('localNumber')(response[count], gb.locale);
-        //        });
-        //        vm.updatedCounts += 1;
-        //    }, function(error){
-        //        return error;
-        //    });
-        // DirectoryParticipants.get({'gbifRegion': region, 'membershipType': 'other_associate_participant'}).$promise
-        //     .then(function(response){
-        //         vm.nonCountryParticipants = response;
-        //     }, function (error){
-        //         return error;
-        //     });
-        loadParticipantsDigest(vm.currentRegion);
-        loadRegionalReps(vm.currentRegion);
+            PublisherCount.get(query).$promise
+                .then(function (response) {
+                    if (response.publisher) vm.count.publisher = $filter('localNumber')(response.publisher, gb.locale);
+                    vm.updatedCounts += 1;
+                }, function (error) {
+                    return error;
+                });
 
-        if (region !== 'OTHER'){
+            loadParticipantsDigest(vm.currentRegion);
+            loadRegionalReps(vm.currentRegion);
 
-            zoomToRegion(region);
+            if (region !== 'PARTICIPANT_ORGANISATIONS') {
 
+                zoomToRegion(region);
+
+            }
         }
-
         var regionLower = region.toLowerCase().replace('_', '-');
-        $location.path('/the-gbif-network/' + regionLower);
+     //   $location.path('/the-gbif-network/' + regionLower);
+        $state.go($state.$current, {region: regionLower}, {notify: false});
+
     };
 
-    vm.currentRegion = $location.path().split('/')[2];
+    //vm.currentRegion = $location.path().split('/')[2];
+    vm.currentRegion = $stateParams.region;
     if (vm.currentRegion) {
         vm.currentRegion = vm.currentRegion.toUpperCase().replace('-', '_');
         vm.selectRegion(vm.currentRegion);
@@ -260,7 +279,7 @@ function theGbifNetworkCtrl(DirectoryParticipants, DirectoryParticipantsCount, P
         vm.tableLoaded = false;
         delete vm.activeParticipantsDigest;
 
-        var query = (region !== 'OTHER') ? {'gbifRegion': region} : { 'membershipType': 'other_associate_participant'};
+        var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : { 'gbifRegion': 'GLOBAL', 'membershipType': 'other_associate_participant'};
 
         ParticipantsDigest.get(query).$promise
             .then(function(response){

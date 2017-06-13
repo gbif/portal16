@@ -27,6 +27,12 @@ router.get('/species/:key/name', function (req, res) {
 async function getParsedName(speciesKey) {
     let name = await getName(speciesKey);
     var n = '';
+
+    //unparsable names - see https://github.com/gbif/portal-feedback/issues/209#issuecomment-307491143
+    if (name.type == 'HYBRID' || name.type == 'OTU' || name.type == 'VIRUS') {
+        n = name.scientificName;
+        return n;
+    }
     if (name.genusOrAbove || name.specificEpithet) {
         n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
     }

@@ -35,12 +35,14 @@ router.get('/participants/digest', (req, res, next) => {
         participants = [];
 
     // For the GLOBAL view, we don't proceed to extract numbers.
-    if (query.gbifRegion === 'GLOBAL' || typeof query.gbifRegion === 'undefined') {
+    if ((query.membershipType !== 'other_associate_participant' &&  query.gbifRegion === 'GLOBAL') || typeof query.gbifRegion === 'undefined') {
         res.json(participants);
     }
     else {
+
         helper.getApiDataPromise(url, {'qs': query})
             .then(data => {
+
 
                 data.forEach(datum => {
                     datum.iso2 = datum.countryCode;

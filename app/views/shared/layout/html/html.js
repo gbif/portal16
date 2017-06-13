@@ -205,7 +205,7 @@ require('./angular/installation.resource');
 require('./angular/network.resource');
 require('./angular/resource.resource');
 require('./angular/resourceFilter.service');
-
+require('./angular/contentFulResource.resource');
 
 require('./angular/directives/onLoad/onload.directive');
 require('./angular/directives/helpDesk.directive');
