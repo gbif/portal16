@@ -9,10 +9,10 @@
 
     <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
 
-        <div ng-if="vm.query !== '' && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
+        <div ng-if="vm.query && !vm.filterConfig.expanded" class="is-padded overflow-hidden">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" ng-click="vm.query = '';vm.apply();" checked="true">
+                    <input type="checkbox" ng-click="vm.query = undefined; vm.apply();" checked="true">
                     <span class="filter-group__filter__name text-capitalize" translate="stdTerms.yes"
                           ng-if="vm.query === 'true'">yes</span>
                     <span class="filter-group__filter__name text-capitalize" translate="stdTerms.no"
@@ -23,7 +23,7 @@
 
         <div class="is-padded overflow-hidden" ng-if="vm.filterConfig.expanded">
             <div class="gb-btn-group m-t-05 m-b-05">
-                <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="''" ng-change="vm.apply()" translate="stdTerms.all">All</label>
+                <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="" ng-change="vm.apply()" translate="stdTerms.all">All</label>
                 <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'true'" ng-change="vm.apply()" translate="stdTerms.yes">Yes</label>
                 <label class="text-capitalize" ng-model="vm.query" uib-btn-radio="'false'" ng-change="vm.apply()" translate="stdTerms.no">No</label>
             </div>
