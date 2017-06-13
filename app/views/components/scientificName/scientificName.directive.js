@@ -16,7 +16,8 @@ function scientificNameDirective() {
         controller: scientificNameCtrl,
         controllerAs: 'vm',
         bindToController: {
-            key: '@'
+            key: '@',
+            name: '@'
         }
     };
 
@@ -25,6 +26,7 @@ function scientificNameDirective() {
     /** @ngInject */
     function scientificNameCtrl(SpeciesParsedName) {
         var vm = this;
+        vm.parsedName = vm.name;
         SpeciesParsedName.get({id:vm.key}, function(data){
             vm.parsedName = data.n;
         }, function(err){
