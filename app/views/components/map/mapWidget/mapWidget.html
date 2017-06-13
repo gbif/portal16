@@ -1,6 +1,7 @@
-<div class="mapWidget" element-query="vm.styleBreaks" ng-class="{fullscreen: vm.fullscreen}" ng-style="vm.widgetContextStyle">
+<div class="mapWidget fixedSizes" element-query="vm.styleBreaks" ng-class="{fullscreen: vm.fullscreen}" ng-style="vm.widgetContextStyle">
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__mapArea"></div>
+        <div class="mapWidget__progress"></div>
         <div class="mapWidget__mapButtons">
             <a href="" ng-click="vm.toggleFullscreen()" ng-class="{'gb-icon-fullscreen': !vm.fullscreen, 'gb-icon-fullscreen-exit': vm.fullscreen}"></a>
         </div>
@@ -119,7 +120,7 @@
                             <div class="occurrence-list-item__header discreet">
                                 <div class="imageGallery__img img-round-thumb"
                                      ng-if="occurrence._image">
-                                    <img ng-src="{{ occurrence._image.identifier | imgCache:40:40 }}" gallery-image>
+                                    <img ng-src="{{ occurrence._image.identifier | imgCache:50:50 }}" gallery-image>
                                 </div>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</a>
                                 <a ng-href="/occurrence/{{occurrence.key}}" class="occurrence-list-item__name text-error" ng-if="!occurrence.scientificName">Unkown species</a>

@@ -79,15 +79,16 @@
         </div>
         <div ng-if="occMap.occurrenceState.query.has_coordinate !== 'false'">
             <div class="occurrence-search-map">
-                <leaflet
-                        leafletMap="leafletMap"
-                        id="occurrenceMap"
-                        class="occurrenceMap"
-                        defaults="occMap.mapDefaults"
-                        height="100%"
-                        width="100%"
-                        layers="occMap.layers"
-                ></leaflet>
+                <!--<leaflet-->
+                        <!--leafletMap="leafletMap"-->
+                        <!--id="occurrenceMap"-->
+                        <!--class="occurrenceMap"-->
+                        <!--defaults="occMap.mapDefaults"-->
+                        <!--height="100%"-->
+                        <!--width="100%"-->
+                        <!--layers="occMap.layers"-->
+                <!--&gt;</leaflet>-->
+                <adhoc-map filter="occMap.occurrenceState.query" map-style="{suggested: 'ORANGE_DOTS'}"></adhoc-map>
                 <div class="occurrence-search-map__notification occurrence-search-map__notification--error card small" ng-if="!occMap.ignoreCoordinateIssues && (occMap.occurrenceState.query.has_coordinate !== 'true' || occMap.occurrenceState.query.has_geospatial_issue !== 'false')">
                     <div class="card__stripe">
                         <div class="card__content" translate="help.locationFilterWarning">

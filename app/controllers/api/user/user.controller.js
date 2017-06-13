@@ -12,7 +12,8 @@ module.exports = {
     logout: logout,
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
-    changePassword: changePassword
+    changePassword: changePassword,
+    cancelDownload: cancelDownload
 };
 
 /**
@@ -115,12 +116,25 @@ function getDownloads(req, res) {
 }
 
 /**
- * Updates the password given a short lived token sent to the users email
+ * Initiate a simple download based on query parameters
  */
 function createSimpleDownload(req, res) {
     userModel.createSimpleDownload(req.user, req.query)
         .then(function(download){
             res.json(download);
+        })
+        .catch(handleError(res, 422));
+}
+
+/**
+ * Cancel a download the user has initiated
+ */
+function cancelDownload(req, res) {
+    console.log('cancel download ctrl');
+    userModel.cancelDownload(req.user, req.params.key)
+        .then(function(){
+            res.status(204);
+            res.send();
         })
         .catch(handleError(res, 422));
 }

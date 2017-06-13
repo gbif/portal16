@@ -46,7 +46,7 @@ function get4326() {
             return new ol.View({
                 maxZoom: max_zoom,
                 minZoom: 0,
-                center: [0, 0],
+                center: [lon, lat],
                 zoom: zoom,
                 projection: 'EPSG:4326'
             })
@@ -56,6 +56,10 @@ function get4326() {
         },
         getOccurrenceLayer: function (params) {
             return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+        },
+        getAdhocLayer: function (params) {
+            params.srs = '4326';//only supports this projection
+            return getLayer('http://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
@@ -83,7 +87,7 @@ function get3857() {
             return new ol.View({
                 maxZoom: max_zoom,
                 minZoom: 0,
-                center: [0, 0],
+                center: [lon, lat],
                 zoom: zoom,
                 projection: 'EPSG:3857'
             })
@@ -196,15 +200,28 @@ function get3031() {
 function getLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
+    var progress = params.progress;
+    var source = new ol.source.TileImage({
+        projection: proj.projection,
+        tileGrid: proj.tileGrid,
+        tilePixelRatio: 1,
+        url: baseUrl + querystring.stringify(params),
+        wrapX: proj.wrapX
+    });
+    source.on('tileloadstart', function() {
+        progress.addLoading();
+    });
+
+    source.on('tileloadend', function() {
+        progress.addLoaded();
+    });
+    source.on('tileloaderror', function() {
+        progress.addLoaded();
+    });
+
     return new ol.layer.Tile({
         extent: proj.extent,
-        source: new ol.source.TileImage({
-            projection: proj.projection,
-            tileGrid: proj.tileGrid,
-            tilePixelRatio: 1,
-            url: baseUrl + querystring.stringify(params),
-            wrapX: proj.wrapX
-        }),
+        source: source,
         useInterimTilesOnError:false,
         visible: true
     });

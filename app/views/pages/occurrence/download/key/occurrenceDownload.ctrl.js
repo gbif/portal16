@@ -8,14 +8,15 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch) {
+function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch, endpoints, $http) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
     vm.doi = _.get(gb, 'downloadKey.doi', '').substring(4);
-vm.test = 20;
+    vm.key = gb.downloadKey.key;
+
     if (vm.doi) {
-        vm.literature = ResourceSearch.query({contentType: 'literature', q: '"' + vm.doi + '"'});
+        vm.literature = ResourceSearch.query({contentType: 'literature', q: vm.doi});
     }
 
     vm.openHelpdesk = function () {
@@ -54,6 +55,13 @@ vm.test = 20;
         vm.key = key;
         vm.currentPage = Math.floor(vm.offset / vm.limit) + 1;
     };
+
+    var downloads = $http.get(endpoints.userDownloads, {params: {limit: 25}});
+    downloads.then(function (response) {
+        var match = _.find(response.data.results, {key: vm.key});
+        console.log(response.data.results);
+        console.log(match);
+    });
 
 }
 
