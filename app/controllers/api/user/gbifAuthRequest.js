@@ -13,7 +13,7 @@ const credentials = rootRequire('config/credentials').directory,
 async function authenticatedRequest(options) {
     //https://github.com/gbif/gbif-common-ws/blob/master/src/main/java/org/gbif/ws/security/GbifAuthService.java
     expect(options).to.be.an('object');
-    expect(['GET', 'POST', 'PUT'], 'request method').to.include(options.method);
+    expect(['GET', 'POST', 'PUT', 'DELETE'], 'request method').to.include(options.method);
     expect('url').to.be.a('string');
     if (options.method == 'POST' || options.method == 'PUT') {
         expect(options.canonicalPath, 'canonicalPath').to.be.a('string');

@@ -39,7 +39,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 },
                 repatriated: {
                     type: 'string',
-                    value: '',
+                    value: undefined,
                     squash: true,
                     array: false
                 }

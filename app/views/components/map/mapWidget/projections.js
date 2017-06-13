@@ -56,6 +56,10 @@ function get4326() {
         },
         getOccurrenceLayer: function (params) {
             return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+        },
+        getAdhocLayer: function (params) {
+            params.srs = '4326';//only supports this projection
+            return getLayer('http://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
@@ -197,7 +201,6 @@ function getLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
     var progress = params.progress;
-    console.log(progress);
     var source = new ol.source.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
@@ -207,16 +210,13 @@ function getLayer(baseUrl, proj, params) {
     });
     source.on('tileloadstart', function() {
         progress.addLoading();
-        console.log('tileloadstart');
     });
 
     source.on('tileloadend', function() {
         progress.addLoaded();
-        console.log('tileloadend');
     });
     source.on('tileloaderror', function() {
         progress.addLoaded();
-        console.log('tileloaderror');
     });
 
     return new ol.layer.Tile({

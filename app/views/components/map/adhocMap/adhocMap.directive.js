@@ -8,20 +8,20 @@ var angular = require('angular'),
 
 angular
     .module('portal')
-    .directive('mapWidget', mapWidgetDirective);
+    .directive('adhocMap', adhocMapDirective);
 
 /** @ngInject */
-function mapWidgetDirective(BUILD_VERSION) {
+function adhocMapDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         transclude: true,
-        templateUrl: '/templates/components/map/mapWidget/mapWidget.html?v=' + BUILD_VERSION,
+        templateUrl: '/templates/components/map/adhocMap/adhocMap.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
             mapStyle: '='
         },
         link: mapLink,
-        controller: mapWidget,
+        controller: adhocMap,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -34,11 +34,11 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($scope, $timeout, enums, $httpParamSerializer, MapCapabilities, OccurrenceSearch) {
+    function adhocMap($scope, $timeout, enums, $httpParamSerializer, OccurrenceSearch) {
         var vm = this;
         vm.styleBreaks = {
             breakpoints: [0, 700],
-            classes: ['isSmall', 'isLarge']
+            classes: ['adhocMapSmall', 'adhocMapLarge']
         };
         vm.projections = {
             ARCTIC: 'EPSG_3575',
@@ -112,33 +112,6 @@ function mapWidgetDirective(BUILD_VERSION) {
                 filters: getQuery()
             });
 
-            var query = _.assign({}, vm.filter);
-            query = _.mapKeys(query, function (value, key) {
-                return _.camelCase(key);
-            });
-
-            if (utils.isSimpleQuery(query)) {
-                vm.capabilities = MapCapabilities.get(query);
-                vm.capabilities.$promise.then(function (response) {
-                    map.setExtent([response.minLng-1, response.minLat-1, response.maxLng+1, response.maxLat+1]);//expand with one degree as the API sometimes crop away content see https://github.com/gbif/maps/issues/17
-                    //only create the slider if there are any years in the data to filter on
-                    if (response.maxYear) {
-                        createSlider(element, response.minYear, response.maxYear);
-                    }
-                }).catch(function () {
-                    createSlider(element);
-                });
-            } else {
-                createSlider(element);
-            }
-
-            map.on('moveend', function () {
-                $timeout(function () {
-                    vm.viewBbox = map.getViewExtent();
-                    vm.viewBboxWidth = vm.viewBbox[2] - vm.viewBbox[0];
-                }, 0);
-            });
-
             map.on('singleclick', function (e) {
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 7;
@@ -155,35 +128,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             //getOccurrencesInArea(47.3515625, 2.8125, 1);
         };
 
-        function createSlider(element, startYear, endYear) {
-            startYear = startYear || 1700;
-            endYear = endYear || 2017;
-            var slider = element[0].querySelector('.time-slider__slider');
-            var years = element[0].querySelector('.time-slider__years');
-
-            noUiSlider.create(slider, {
-                start: [startYear, endYear],
-                step: 1,
-                connect: true,
-                range: {
-                    'min': startYear,
-                    'max': endYear
-                }
-            });
-            slider.noUiSlider.on('update', function (vals) {
-                // only adjust the range the user can see
-                vm.yearRange.start = Math.floor(vals[0]);
-                vm.yearRange.end = Math.floor(vals[1]);
-                years.innerText = vm.yearRange.start + " - " + vm.yearRange.end;
-            });
-            slider.noUiSlider.on('start', function () {
-                $scope.$apply(function () {
-                    vm.allYears = false;
-                });
-            });
-            slider.noUiSlider.on('change', vm.sliderChange);
-        }
-
         vm.setStyle = function (style) {
             var s = vm.styles[style] || vm.styles.CLASSIC;
             vm.widgetContextStyle = {
@@ -192,20 +136,8 @@ function mapWidgetDirective(BUILD_VERSION) {
             map.update(s);
         };
 
-        vm.setProjection = function (epsg) {
-            map.update({projection: epsg});
-        };
-
-        vm.setFilters = function () {
-            map.update({filters: {basisOfRecord: 'HUMAN_OBSERVATION', taxonKey: 18}});
-        };
-
         vm.updateFilters = function () {
             map.update({filters: getQuery()});
-        };
-
-        vm.clearFilters = function () {
-            map.update({filters: {}});
         };
 
         vm.toggleControl = function (control) {
@@ -214,31 +146,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             } else {
                 vm.activeControl = control;
             }
-        };
-
-        vm.toggleFullscreen = function() {
-            vm.fullscreen = !vm.fullscreen;
-            $timeout(function(){
-                map.map.updateSize();
-                map.map.render();
-            }, 0);
-        };
-
-        vm.getProjection = function () {
-            return map ? map.getProjection() : undefined;
-        };
-
-        vm.getExploreQuery = function () {
-            var q = getQuery();
-            if (map && map.getProjection() == 'EPSG_4326') {
-                q.geometry = getBoundsAsQueryString();
-                q.has_coordinate = true;
-                q.has_geospatial_issue = false;
-            }
-            q = _.mapKeys(q, function (value, key) {
-                return _.snakeCase(key);
-            });
-            return $httpParamSerializer(q);
         };
 
         vm.getClickedQuery = function () {
@@ -252,58 +159,15 @@ function mapWidgetDirective(BUILD_VERSION) {
             return $httpParamSerializer(q);
         };
 
-        /**
-         * Make sure that longitude coordinates are within the bounds of the map (dateline wrapping).
-         * @param n
-         * @returns {number} within the -180 to 180 bounds. -200 will fx wrap to 160
-         */
-        function normalizeLng(extent) {
-            while (_.isNumber(extent[2]) && extent[2] < -180) {
-                extent[0] = extent[0] + 360;
-                extent[2] = extent[2] + 360;
-            }
-            return extent;
-        }
-
-        /**
-         * cap latitude (north south) to be within -90 to 90. no wrapping as we do not do that when displaying the map
-         * @param n
-         * @returns {number} -110 will return -90. 92 will return 90
-         */
-        function capBounds(n) {
-            var m = typeof n === 'number' ? n : 0;
-            m = Math.min(90, m);
-            m = Math.max(-90, m);
-            return m;
-        }
-
-        /**
-         * Get the bounds of the map as wkt string.
-         * @returns {string} format 'POLYGON((W S,W N,E N,E S,W S))'
-         */
-        function getBoundsAsQueryString() {
-            if (!map) return;
-            var extent = map.getViewExtent();
-            extent = normalizeLng(extent);
-            var N = capBounds(extent[3]),
-                S = capBounds(extent[1]),
-                W = extent[0],
-                E = extent[2];
-
-            var str = 'POLYGON' + '((W S,W N,E N,E S,W S))'
-                    .replace(/N/g, N.toFixed(2))
-                    .replace(/S/g, S.toFixed(2))
-                    .replace(/W/g, W.toFixed(2))
-                    .replace(/E/g, E.toFixed(2));
-            //if we are seeing all of earth then do not filter on bounds. TODO, this will be different code for other projections. How to handle that well?
-            if (Math.abs(E - W) >= 180) {
-                str = undefined;
-            }
-            return str;
-        }
-
         function getQuery() {
             var query = _.assign({}, vm.filter);
+            query = _.omitBy(query, function(e){
+                return _.isUndefined(e);
+            });
+            delete query.locale;
+            delete query.zoom;
+            delete query.advanced;
+            console.log(query);
             query = _.mapKeys(query, function (value, key) {
                 return _.camelCase(key);
             });
@@ -320,15 +184,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
             return query;
         }
-
-        vm.sliderChange = function (vals) {
-            vm.yearRange.start = Math.floor(vals[0]);
-            vm.yearRange.end = Math.floor(vals[1]);
-            vm.updateFilters();
-            $scope.$apply(function () {
-                vm.allYears = false;
-            });
-        };
 
         vm.mapMenu = {};
         vm.clickedQuery = {};
@@ -379,4 +234,4 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 }
 
-module.exports = mapWidgetDirective;
+module.exports = adhocMapDirective;

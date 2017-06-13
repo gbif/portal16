@@ -41,7 +41,7 @@ function filterTernaryDirective(BUILD_VERSION) {
             if (typeof q === 'string' && optionalBooleanRegEx.test(q)) {
                 vm.query = q;
             } else {
-                vm.query = '';
+                vm.query = undefined;
                 vm.apply();
             }
         }
