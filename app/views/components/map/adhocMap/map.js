@@ -2,9 +2,9 @@
 
 var ol = require('openlayers'),
     _ = require('lodash'),
-    Progress = require('./progress'),
-    // utils = require('../../../shared/layout/html/utils/utils'),
-    projections = require('./projections');
+    Progress = require('../mapWidget/progress'),
+    utils = require('../../../shared/layout/html/utils/utils'),
+    projections = require('../mapWidget/projections');
 
 module.exports = {
     createMap: createMap
@@ -19,7 +19,7 @@ function createMap(element, options) {
     var baseMapStyle = options.baseMap || {style: 'gbif-classic'};
     var overlayStyle = options.overlays || [];
     var filters = options.filters || {};
-    var currentProjection;
+    var currentProjection = projections.EPSG_4326;
 
     this.update = function (options) {
         options = options || {};
@@ -27,27 +27,27 @@ function createMap(element, options) {
         overlayStyle = options.overlay || overlayStyle || {};
         filters = options.filters || filters || {};
         map.getLayers().clear();
-        if (!currentProjection || (options.projection && options.projection != currentProjection.name)) {
-            currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
-            map.setView(currentProjection.getView(0, 0, 1));
-            if (currentProjection.fitExtent) {
-                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
-            }
+        map.setView(currentProjection.getView(0, 0, 1));
+        if (currentProjection.fitExtent) {
+            map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
         }
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
 
+        filters = _.omitBy(_.clone(filters), function(e){
+            return _.isUndefined(e);
+        });
         if (overlayStyle.length == 0) {
             overlayStyle.push({});
         }
         if (_.isArray(overlayStyle)) {
-            // var isSimple = utils.isSimpleQuery(filters);
+            //var isSimple = utils.isSimpleQuery(filters);
             overlayStyle.forEach(function (overlay) {
-                map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // if (isSimple) {
-                //     map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // } else {
-                //     map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                // }
+                map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //if (isSimple) {
+                //    map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //} else {
+                //    map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //}
             });
         }
     };
@@ -73,8 +73,8 @@ function createMap(element, options) {
 
     this.setExtent = function (extent) {
         map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
-            nearest: true,
-            maxZoom: 6,
+            nearest: false,
+            maxZoom: 10,
             minZoom: 0
         });
     };

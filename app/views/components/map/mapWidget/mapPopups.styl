@@ -1,6 +1,6 @@
 .mapPopups {
   position absolute
-  padding 10px
+  padding 10px 10px 0 10px
   height calc(100% - 40px)
   max-width 100%
   bottom 40px
@@ -10,6 +10,7 @@
   pointer-events none
   .mapPopup {
     width 380px
+    max-width 100%
     background #fff
     border 1px solid rgba(0, 0, 0, .2)
     border-radius 2px
@@ -19,8 +20,12 @@
     flex-direction column
     transition max-height 300ms ease
     pointer-events auto
+    margin-bottom 10px
     &.isLoading {
       max-height 100px
+    }
+    &.fixedSize {
+      flex 0 0 auto
     }
   }
 }
@@ -60,6 +65,10 @@
         }
       }
     }
+  }
+  &__footer {
+    padding 5px
+    text-align right
   }
 }
 

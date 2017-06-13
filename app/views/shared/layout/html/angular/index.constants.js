@@ -10,6 +10,7 @@
             col: '7ddf754f-d193-4cc9-b351-99906754a03b'
         }).constant('endpoints', {
             download: '/api/user/download',
+            cancelDownload: '/api/user/cancelDownload/',
             iucnUserLink: 'http://www.iucnredlist.org/details/',
             userDownloads: '/api/user/myDownloads',
             datasetDownloads: 'occurrence/download/dataset/'

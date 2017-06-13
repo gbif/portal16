@@ -1,0 +1,139 @@
+
+<article class="wrapper-horizontal-stripes"  >
+    <div class="horizontal-stripe article-header white-background">
+        <div class="container">
+            <div class="row">
+                <header class="col-xs-12 text-center article-header">
+                    <h1 translate="menu.GbifNetwork"></h1>
+                    <div class="article-header__intro anchor-block__above">
+                        <!--{$ intro | safe $}-->
+                    </div>
+                </header>
+            </div>
+        </div>
+    </div>
+    <section id="region-nav" class="horizontal-stripe white-background">
+        <div class="container--normal">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center region-selector-select">
+                        <label for="regionSelect" translate="region.select_region"> </label>
+                        <select id="regionSelect" ng-model="vm.currentRegion" ng-change="vm.selectRegion(vm.currentRegion)">
+                            <option ng-repeat="region in vm.validRegions" value="{{ region }}" translate="region.{{ region }}"></option>
+                        </select>
+                    </div>
+                    <div class="tabs">
+                        <ul class="anchorTabs">
+
+                            <li class="tab" ng-class="{'isActive': vm.currentRegion == region}" ng-repeat="region in vm.validRegions">
+                                <a href ng-click="vm.selectRegion(region)" translate="region.{{ region }}">
+
+                                </a>
+                            </li>
+                            <li class="tab" ng-class="{'isActive': vm.currentRegion == 'PARTICIPANT_ORGANISATIONS'}" >
+                                <a href ng-click="vm.selectRegion('PARTICIPANT_ORGANISATIONS')" translate="participation.nonCountryParticipant.other">
+
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="horizontal-stripe white-background seperator--b" ng-show="vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS'">
+        <div class="container--normal m-b-1">
+
+            <div class="theGbifNetWork__map">
+                <div id="theNetworkMap" class="m-b-1"></div>
+
+
+                <ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"
+                            src="'/api/template/thegbifnetwork/participantDetails.html?v=' + vm.BUILD_VERSION" ></ng-include>
+                <div class="theGbifNetWork__legend" ng-if="vm.mapIsLoaded">
+                    <div class="outline" >
+                        <i style="background:#4E9F37"></i>
+                    </div>
+                    <div class="info-label" translate="directory.voting_participant.other"></div>
+                    <div class="outline" >
+                        <i style="background:#58BAE9"></i>
+                    </div>
+                    <div class="info-label" translate="directory.associate_country_participant.other"></div>
+
+                </div>
+                <span ng-repeat="participantType in vm.participantTypes" >
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></span>
+
+                </span>
+
+                <span>
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+    <!--<section class="horizontal-stripe white-background seperator&#45;&#45;b" ng-show="vm.currentRegion !== 'OTHER' && vm.currentRegion !== 'GLOBAL'">-->
+        <!--{#{% include "../resource/key/article/article.nunjucks" %}#}-->
+
+        <!--<div>-->
+            <!--<article class="wrapper-horizontal-stripes">-->
+                <!--<div class="horizontal-stripe article-header white-background">-->
+                    <!--<header class="text-center">-->
+                        <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
+                        <!--<span class="article-header__category__upper"><a-->
+                                <!--href="{$ gb.locales.urlPrefix $}/resource/search?contentType=dataUse">{$-->
+                                <!--__('cms.contentType.dataUse') $}</a></span>-->
+                            <!--<span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>-->
+                        <!--</nav>-->
+                        <!--<h1>{$ main.fields.title $}</h1>-->
+                        <!--<div class="article-header__intro">-->
+                            <!--{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}-->
+                        <!--</div>-->
+                        <!--{% if main.fields.numberOfResourceUsed | isNotEmpty %}-->
+                        <!--<span class="article-header__meta">-->
+                    <!--{$ main.fields.numberOfResourceUsed | striptags $}-->
+                    <!--</span>-->
+                        <!--{% endif %}-->
+                    <!--</header>-->
+                <!--</div>-->
+
+                <!--{% include "../resource/key/primaryImage.nunjucks" %}-->
+
+                <!--<div class="horizontal-stripe white-background">-->
+                    <!--<div class="container&#45;&#45;narrow">-->
+                        <!--{% include "../resource/key/body.nunjucks" %}-->
+
+                        <!--<div class="article-secondary">-->
+                            <!--{% include "../resource/key/documentsLinks.nunjucks" %}-->
+                        <!--</div>-->
+
+                        <!--{% include "../resource/key/auxiliary.nunjucks" %}-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</article>-->
+        <!--</div>-->
+
+
+
+    <!--</section>-->
+    <section  class="horizontal-stripe light-background">
+        <div class="container--normal">
+            <ng-include src="'/api/template/thegbifnetwork/regionalReps.html?v=' + vm.BUILD_VERSION"></ng-include>
+            <ng-include src="'/api/template/thegbifnetwork/participantTable.html?v=' + vm.BUILD_VERSION"></ng-include>
+
+
+
+        </div>
+    </section>
+
+
+</article>
+

@@ -45,16 +45,18 @@ router.get('/topojson/world-robinson', (req, res, next) => {
 });
 
 router.get('/topojson/world', (req, res, next) => {
-    let options = {'qs': {'gbifRegion':'GLOBAL'}},
-        url = 'http://' + req.get('host') + '/api/directory/participants/active';
+    let options = {'qs': {'gbifRegion':'GLOBAL'}};
 
-   // res.json(worldTopoJson);
-    helper.getApiDataPromise(url, options)
+    helper.getApiDataPromise('http://' + req.get('host') + '/api/directory/participants/count', options)
+        .then( count =>{
+        return helper.getApiDataPromise('http://' + req.get('host') + '/api/directory/participants/active', options)
+        })
         .then(participants => {
 
             // decorate each feature if an active participant is associated with it.
             let keyed = {};
             participants.forEach(p => {
+
                 // only country participant will be shown on map.
                 if (p.type !== 'OTHER') {
                     keyed[p.countryCode] = p;

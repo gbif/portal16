@@ -2,7 +2,7 @@
 
 <div class="site-content">
     <div class="site-content__page">
-        <div class="speciesKey2 light-background" ng-class="{'bare-background': speciesKey2.isNub}">
+        <div class="speciesKey2 light-background" ng-class="{'bare-background': speciesKey2.isNub}" ng-if="speciesKey2.species.$resolved">
             <div class="wrapper-horizontal-stripes">
 
                 {% include "./header.nunjucks" %}
@@ -14,6 +14,11 @@
 
                     {% include "./nonBackboneSpecies.nunjucks" %}
                 </div>
+            </div>
+        </div>
+        <div ng-if="!speciesKey2.species.$resolved">
+            <div class="emptyInfo">
+                <h3>Loading</h3>
             </div>
         </div>
         <ng-include src="'/api/template/site/footer.html?v=' + speciesKey2.BUILD_VERSION"></ng-include>
