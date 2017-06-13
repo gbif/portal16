@@ -18,7 +18,8 @@ function adhocMapDirective(BUILD_VERSION) {
         templateUrl: '/templates/components/map/adhocMap/adhocMap.html?v=' + BUILD_VERSION,
         scope: {
             filter: '=',
-            mapStyle: '='
+            mapStyle: '=',
+            mapEvents: '='
         },
         link: mapLink,
         controller: adhocMap,
@@ -114,7 +115,7 @@ function adhocMapDirective(BUILD_VERSION) {
 
             map.on('singleclick', function (e) {
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
-                var size = 7;
+                var size = 150;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
                 var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));//lazy failsafe for those odd cases in polar projections
                 while (_.isNumber(coordinate[0]) && coordinate[0] < -180) {
@@ -152,7 +153,6 @@ function adhocMapDirective(BUILD_VERSION) {
             var q = getQuery();
             q.geometry = vm.clickedGeometry;
             q.has_coordinate = true;
-            q.has_geospatial_issue = false;
             q = _.mapKeys(q, function (value, key) {
                 return _.snakeCase(key);
             });
@@ -161,29 +161,15 @@ function adhocMapDirective(BUILD_VERSION) {
 
         function getQuery() {
             var query = _.assign({}, vm.filter);
-            query = _.omitBy(query, function(e){
-                return _.isUndefined(e);
-            });
-            delete query.locale;
-            delete query.zoom;
-            delete query.advanced;
-            console.log(query);
             query = _.mapKeys(query, function (value, key) {
                 return _.camelCase(key);
             });
-            if (!vm.allYears && vm.yearRange.start && vm.yearRange.end) {
-                query.year = vm.yearRange.start + "," + vm.yearRange.end;
-            }
-            //basis of record as array
-            var basisOfRecord = Object.keys(vm.basisOfRecord).filter(function (e) {
-                return vm.basisOfRecord[e];
-            });
-            query.basisOfRecord = basisOfRecord;
-            if (basisOfRecord.length == 0 || basisOfRecord.length == Object.keys(vm.basisOfRecord).length) {
-                delete query.basisOfRecord;
-            }
             return query;
         }
+
+        vm.addSpatialFilter = function() {
+            vm.mapEvents.filterChange(_.assign({}, vm.filter, {has_geospatial_issue: false, has_coordinate: true}));
+        };
 
         vm.mapMenu = {};
         vm.clickedQuery = {};
@@ -214,7 +200,6 @@ function adhocMapDirective(BUILD_VERSION) {
 
             vm.clickedQuery.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
             vm.clickedQuery.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
-            vm.clickedQuery.has_geospatial_issue = false;
             vm.activeControl = vm.controls.OCCURRENCES;
             vm.mapMenu.isLoading = true;
             vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {

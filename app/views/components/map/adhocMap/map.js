@@ -33,17 +33,21 @@ function createMap(element, options) {
         }
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
 
+        filters = _.omitBy(_.clone(filters), function(e){
+            return _.isUndefined(e);
+        });
         if (overlayStyle.length == 0) {
             overlayStyle.push({});
         }
         if (_.isArray(overlayStyle)) {
-            var isSimple = utils.isSimpleQuery(filters);
+            //var isSimple = utils.isSimpleQuery(filters);
             overlayStyle.forEach(function (overlay) {
-                if (isSimple) {
-                    map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
-                } else {
-                    map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
-                }
+                map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //if (isSimple) {
+                //    map.addLayer(currentProjection.getOccurrenceLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //} else {
+                //    map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
+                //}
             });
         }
     };

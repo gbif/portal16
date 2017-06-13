@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function searchCtrl($state, $stateParams, Page, $http, $cookies) {
     var vm = this;
-    Page.setTitle('Search');
+    //Page.setTitle('Search');
     vm.isActive = false;
     vm.query = angular.copy($stateParams);
     vm.freeTextQuery = vm.query.q;

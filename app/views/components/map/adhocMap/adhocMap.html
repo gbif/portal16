@@ -2,10 +2,23 @@
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__mapArea"></div>
         <div class="mapWidget__progress"></div>
+
     </div>
     <div class="mapWidget__controls clearfix">
-        <div class="mapPopups" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
-            <div class="mapPopup" ng-class="{isLoading: vm.mapMenu.isLoading}">
+        <div class="mapPopups">
+            <div class="mapPopup fixedSize" ng-if="!vm.ignoreCoordinateIssues && (vm.filter.has_coordinate !== 'true' || vm.filter.has_geospatial_issue !== 'false')">
+                <div class="card small">
+                    <div class="card__stripe">
+                        <div class="card__content" translate="help.locationFilterWarning">
+                        </div>
+                    </div>
+                    <div class="card__stripe--actions">
+                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase">Yes</a>
+                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true">No</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mapPopup" ng-class="{isLoading: vm.mapMenu.isLoading}" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
                 <div class="mapPopup__header">
                     <h4>
                         <span ng-if="!vm.mapMenu.isLoading && vm.mapMenu.occurrences.count == 0">No occurrences</span>
@@ -19,7 +32,7 @@
                 </div>
                 <div class="mapPopup__results seperator" ng-if="!vm.mapMenu.isLoading">
                     <div class="emptyInfo" ng-if="vm.mapMenu.occurrences.count == 0">
-                        <p>Data in GBIF are curated and updated continously. In some cases that mean that a point on the map has since been removed. This map was last updated <span>{{(vm.capabilities.lastUpdated || '2017-05-01') | amDateFormat:'DD MMM YYYY' }}</span></span></p>
+                        <p>No occurrences found</p>
                     </div>
                     <ul ng-if="vm.mapMenu.occurrences.count > 0">
                         <li ng-repeat="occurrence in vm.mapMenu.occurrences.results"
@@ -41,10 +54,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="occurrence-list-item text-center p-t-1 p-b-1" ng-if="vm.mapMenu.occurrences.results.length < vm.mapMenu.occurrences.count">
-                            <a ng-href="/occurrence/search?{{vm.getClickedQuery()}}" class="gb-button--discreet">More</a>
+                        <li class="occurrence-list-item text-center p-t-1 p-b-1 discreet" ng-if="vm.mapMenu.occurrences.results.length < vm.mapMenu.occurrences.count">
+                            {{vm.mapMenu.occurrences.count - vm.mapMenu.occurrences.results.length}} more
                         </li>
                     </ul>
+                </div>
+                <div class="mapPopup__footer seperator" ng-if="!vm.mapMenu.isLoading && vm.mapMenu.occurrences.count > 0">
+                    <a ng-href="/occurrence/search?{{vm.getClickedQuery()}}" class="gb-button--discreet">Use as location filter</a>
                 </div>
             </div>
         </div>

@@ -201,6 +201,7 @@ function getLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
     var progress = params.progress;
+    delete params.progress;
     var source = new ol.source.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
@@ -208,16 +209,18 @@ function getLayer(baseUrl, proj, params) {
         url: baseUrl + querystring.stringify(params),
         wrapX: proj.wrapX
     });
-    source.on('tileloadstart', function() {
-        progress.addLoading();
-    });
+    if (progress) {
+        source.on('tileloadstart', function () {
+            progress.addLoading();
+        });
 
-    source.on('tileloadend', function() {
-        progress.addLoaded();
-    });
-    source.on('tileloaderror', function() {
-        progress.addLoaded();
-    });
+        source.on('tileloadend', function () {
+            progress.addLoaded();
+        });
+        source.on('tileloaderror', function () {
+            progress.addLoaded();
+        });
+    }
 
     return new ol.layer.Tile({
         extent: proj.extent,

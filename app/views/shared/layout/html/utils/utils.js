@@ -22,6 +22,13 @@ function isSimpleQuery(f) {
     if (!f.hasCoordinate === 'true' && !f.hasGeospatialIssue === 'false') {
         return false;
     }
+    f = _.omitBy(_.clone(f), function(e){
+        return _.isUndefined(e);
+    });
+    delete f.locale;
+    delete f.zoom;
+    delete f.advanced;
+
     var counter = 2;
     counter += f.basisOfRecord ? 1 : 0;
 
