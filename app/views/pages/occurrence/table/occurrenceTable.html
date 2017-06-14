@@ -129,7 +129,7 @@
                                 <a ng-href="{{result.key}}">{{result.scientificName}}</a>
                             </td>
                             <td class="table-cell--normal">
-                                <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}" ng-if="result.countryCode">{{result.country}}</a>
+                                <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
                             </td>
                             <td class="table-cell--normal">
                                 <a ng-href="{{result.key}}">
@@ -139,9 +139,9 @@
                             <td class="table-cell--normal">
                                 <a ng-href="{{result.key}}" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                             </td>
-                            <td class="table-cell--narrow">
-                                <a ng-href="{{result.key}}">
-                                    {{result.eventDate | amDateFormat:'MMMM YYYY'}}
+                            <td class="table-cell--normal">
+                                <a ng-href="{{result.key}}" ng-if="result.eventDate">
+                                    {{result.eventDate | amDateFormat:'YYYY MMMM'}}
                                 </a>
                             </td>
                             <td class="table-cell--wide">
@@ -152,7 +152,8 @@
                             </td>
 
                             <td class="table-cell--narrow">
-                                <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}">{{result.taxonRank}}</a>
+                                <a ng-href="{{result.key}}" translate="taxonRank.{{result.taxonRank}}" ng-if="result.taxonRank">{{result.taxonRank}}</a>
+                                <a ng-href="{{result.key}}" translate="stdTerms.unknown" ng-if="!result.taxonRank"></a>
                             </td>
 
                             <td class="table-cell--narrow"
