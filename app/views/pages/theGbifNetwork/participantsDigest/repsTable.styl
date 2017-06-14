@@ -1,6 +1,6 @@
 .reps__table {
 
-    h3 {
+    h4 {
         text-transform capitalize
     }
     table.table {
@@ -20,8 +20,6 @@
         tbody {
             tr {
                 th, td {
-                    border none
-                    border-bottom 1px solid #eee
                     position relative
                     display inline-block
                     width 49%
@@ -132,9 +130,7 @@
                         display none
                     }
                 }
-                tr:nth-of-type(even) {
-                    background alpha($alternativeTableRow, 1)
-                }
+
                 tr:hover {
                     background darken($lightBackground, 5)
                 }

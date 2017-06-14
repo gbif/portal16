@@ -33,12 +33,11 @@ router.get('/participants/digest', (req, res, next) => {
     let url = 'http://' + req.get('host') + '/api/directory/participants/active',
         query = req.query,
         participants = [];
-
     // For the GLOBAL view, we don't proceed to extract numbers.
-    if ((query.membershipType !== 'other_associate_participant' &&  query.gbifRegion === 'GLOBAL') || typeof query.gbifRegion === 'undefined') {
-        res.json(participants);
-    }
-    else {
+    // if (query.membershipType !== 'other_associate_participant' || (query.gbifRegion === 'GLOBAL' || typeof query.gbifRegion === 'undefined')) {
+    //     res.json(participants);
+    // }
+    // else {
 
         helper.getApiDataPromise(url, {'qs': query})
             .then(data => {
@@ -116,5 +115,5 @@ router.get('/participants/digest', (req, res, next) => {
             .catch(err => {
                 next(err)
             });
-    }
+    // }
 });

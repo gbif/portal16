@@ -53,6 +53,21 @@ var addNodes = result => {
 
 }
 
+
+DirectoryParticipants.get = (query) => {
+    let  requestUrl = dataApi.directoryParticipants.url,
+        options = Directory.authorizeApiCall(requestUrl);
+
+  return  helper.getApiDataPromise(requestUrl, options)
+        .then(result => {
+           return result.results;
+           // return (query.membershipType="other_associate_participant") ? addNodes(result) : Q(result);
+
+        })
+}
+
+
+
 // accepts gbifRegion & membershipType as params
 // /api/directory/participants?gbifRegion=AFRICA&membershipType=associate_country_participant
 DirectoryParticipants.groupBy = (query) => {
@@ -76,7 +91,7 @@ DirectoryParticipants.groupBy = (query) => {
             helper.getApiDataPromise(requestUrl, options)
                 .then(result => {
 
-                    return (query.membershipType="other_associate_participant") ? addNodes(result) : Q(result);
+                    return (query.membershipType === "other_associate_participant") ? addNodes(result) : Q(result);
 
                 })
                 .then(result => {
@@ -135,6 +150,7 @@ function groupBy(participants, query) {
             });
             if (typeof query.membershipType !== 'undefined' && participantsByMembership.hasOwnProperty(query.membershipType)) {
                 output = participantsByMembership[query.membershipType];
+
             }
         }
 

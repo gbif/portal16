@@ -208,21 +208,8 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         vm.totalParticipantCount = 0;
         delete vm.contentfulResource;
 
-
-        if(region === 'PARTICIPANT_ORGANISATIONS'){
-            vm.activeParticipantsDigest =  vm.nonCountryParticipants;
-            vm.tableLoaded = true;
-            delete vm.reps;
-            vm.repTableLoaded = true;
-
-
-        } else {
-            var urlAlias = '/the-gbif-network/'+ region.toLowerCase().replace('_', '-');
-
-            vm.contentfulResource = ContentFul.getByAlias({urlAlias: urlAlias });
-
             var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : {
-                'gbifRegion': 'GLOBAL',
+
                 'membershipType': 'other_associate_participant'
             };
 
@@ -247,17 +234,29 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                     return error;
                 });
 
-            loadParticipantsDigest(vm.currentRegion);
+           if(vm.currentRegion !== 'GLOBAL') {
+               loadParticipantsDigest(vm.currentRegion);
+
+           } else {
+               delete vm.activeParticipantsDigest;
+
+               vm.tableLoaded = true;
+           };
             loadRegionalReps(vm.currentRegion);
 
-            if (region !== 'PARTICIPANT_ORGANISATIONS') {
+            if (vm.currentRegion !== 'GLOBAL' && vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS') {
 
                 zoomToRegion(region);
 
+            };
+
+            if( vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' &&  vm.currentRegion !== 'GLOBAL'){
+                var urlAlias = '/the-gbif-network/'+ region.toLowerCase().replace('_', '-');
+
+                vm.contentfulResource = ContentFul.getByAlias({urlAlias: urlAlias });
             }
-        }
+
         var regionLower = region.toLowerCase().replace('_', '-');
-     //   $location.path('/the-gbif-network/' + regionLower);
         $state.go($state.$current, {region: regionLower}, {notify: false});
 
     };
@@ -274,12 +273,16 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     }
 
     // For participant table.
-    loadParticipantsDigest(vm.currentRegion);
+    if(vm.currentRegion !== 'GLOBAL') {
+        loadParticipantsDigest(vm.currentRegion);
+    } else {
+        vm.tableLoaded = true;
+    };
     function loadParticipantsDigest(region) {
         vm.tableLoaded = false;
         delete vm.activeParticipantsDigest;
 
-        var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : { 'gbifRegion': 'GLOBAL', 'membershipType': 'other_associate_participant'};
+        var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : { 'membershipType': 'other_associate_participant'};
 
         ParticipantsDigest.get(query).$promise
             .then(function(response){

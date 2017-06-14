@@ -15,10 +15,8 @@ let helper = require('../../util/util'),
     NodeCache = require('node-cache'),
     theGbifNetworkCache = new NodeCache(),
     dataApi = require('../apiConfig'),
-    cmsApi = require('../../cmsData_deprecated/apiConfig'),
     DirectoryParticipants = require('../directory/directoryParticipants'),
     PublisherRegional = require('../publisher/publisherRegional'),
-    Literature = require('../../cmsData_deprecated/literature/literature'),
     translationsHelper = rootRequire('app/helpers/translations'),
     log = require('../../../../config/log');
 
@@ -110,12 +108,9 @@ theGbifNetwork.counts = query => {
                     count['publisher'] = publishers.length;
 
                     // add literature authored by regional scholars
-                    return Literature.groupBy(query);
                 })
                 .then(literatureRegional => {
-                    count['literature'] = literatureRegional.literature.length;
-                    count['literatureAuthorCountries'] = literatureRegional.countries.length;
-                    count['literatureAuthors'] = literatureRegional.authorsCount;
+
 
                     theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
                         if (!err && success) {
@@ -246,7 +241,7 @@ theGbifNetwork.getCountryDataCount = country => {
         {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
         {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
         {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='}
+        // {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='}
     ];
     calls.forEach(call => {
         callTasks.push(helper.getApiDataPromise(call.urlTemplate + country.iso2)
