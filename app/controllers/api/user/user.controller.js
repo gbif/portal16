@@ -13,7 +13,8 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload
+    cancelDownload: cancelDownload,
+    isRecentDownload: isRecentDownload
 };
 
 /**
@@ -130,11 +131,21 @@ function createSimpleDownload(req, res) {
  * Cancel a download the user has initiated
  */
 function cancelDownload(req, res) {
-    console.log('cancel download ctrl');
     userModel.cancelDownload(req.user, req.params.key)
         .then(function(){
             res.status(204);
             res.send();
+        })
+        .catch(handleError(res, 422));
+}
+
+/**
+ * Check if a given download key is initiated by the user
+ */
+function isRecentDownload(req, res) {
+    userModel.isRecentDownload(req.user, req.params.key)
+        .then(function(value){
+            res.send(value);
         })
         .catch(handleError(res, 422));
 }

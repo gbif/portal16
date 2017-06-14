@@ -90,7 +90,7 @@ let minute = 60000,
 function setTokenCookie(res, token) {
     res.cookie('token', token,
         {
-            maxAge: day * 300,
+            maxAge: day * 7,
             secure: isNotDevBuild,
             httpOnly: true
         }
