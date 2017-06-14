@@ -3569,6 +3569,11 @@
       "from": "function-bind@>=1.0.2 <2.0.0",
       "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.0.tgz"
     },
+    "fuse.js": {
+      "version": "3.0.4",
+      "from": "fuse.js@latest",
+      "resolved": "https://registry.npmjs.org/fuse.js/-/fuse.js-3.0.4.tgz"
+    },
     "gauge": {
       "version": "2.6.0",
       "from": "gauge@>=2.6.0 <2.7.0",

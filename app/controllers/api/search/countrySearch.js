@@ -2,28 +2,47 @@
 
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
-    countries = _.mapKeys(_.invert(rootRequire('locales/server/en').country), function(value, key){
-        return key.toLowerCase();
+    Fuse = require('fuse.js'),
+    countryTranslations = rootRequire('locales/server/en').country,
+    countries = Object.keys(countryTranslations).map(function(key){
+        return {title: countryTranslations[key], key: key }
     }),
     Participant = rootRequire('app/models/node/participant'),
-    chai = require('chai'),
-    expect = chai.expect,
-    querystring = require('querystring'),
-    request = require('requestretry');
+    options = {
+        keys: ['title'],
+        threshold: 0.2,
+        distance: 100,
+        shouldSort: true,
+        tokenize: false,
+        matchAllTokens: true,
+        includeScore: true
+    };
+
+var fuse = new Fuse(countries, options);
 
 async function query(countryName){
     if (!_.isString(countryName)) {
-        return
+        return;
     }
     countryName = countryName.toLowerCase();
-    if (countries[countryName]) {
+    var countryResults = fuse.search(countryName);
+    let match = countryResults[0];
+    if (!match) {
+        return;
+    }
+    var wordCount = match.item.title.toLowerCase().replace(',', ' ').split(' ').length;
+    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (wordCount > 1 && (countryName.length/match.item.title.length) < 0.33)){
+        return;
+    }
+    let countryKey = match.item.key;
+    if (countryResults[0]) {
         try {
-            let participant = await Participant.getParticipantByIso(countries[countryName]);
+            let participant = await Participant.getParticipantByIso(countryKey);
             return {
                 count: 1,
                 results: [
                     {
-                        countryCode: countries[countryName],
+                        countryCode: countryKey,
                         participant: participant.type == 'COUNTRY' ? participant : undefined
                     }
                 ]
@@ -33,7 +52,7 @@ async function query(countryName){
                 count: 1,
                 results: [
                     {
-                        countryCode: countries[countryName]
+                        countryCode: countryKey
                     }
                 ]
             }
