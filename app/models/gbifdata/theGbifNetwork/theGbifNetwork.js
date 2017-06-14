@@ -104,13 +104,9 @@ theGbifNetwork.counts = query => {
                     // add regional publishers
                     return PublisherRegional.groupBy(query);
                 })
+
                 .then(publishers => {
                     count['publisher'] = publishers.length;
-
-                    // add literature authored by regional scholars
-                })
-                .then(literatureRegional => {
-
 
                     theGbifNetworkCache.set(cacheId, count, 3600, (err, success) => {
                         if (!err && success) {
@@ -179,6 +175,20 @@ theGbifNetwork.getCountries = (iso2) => {
     return deferred.promise;
 };
 
+
+// theGbifNetwork.getFacets = participants => {
+// let countryFacetUrl = 'search?limit=0&facet=publishingCountry&publishingCountry.facetLimit=10000',
+//     organisationFacetUrl =  'search?limit=0&facet=publishingOrg&publishingOrg.facetLimit=10000';
+//
+// let countryOccurrenceFacets = helper.getApiDataPromise(dataApi.occurrence.url + countryFacetUrl),
+//     organisationOccurenceFacets = helper.getApiDataPromise(dataApi.occurrence.url + organisationFacetUrl),
+//     countryDatasetFacets = helper.getApiDataPromise(dataApi.dataset.url + countryFacetUrl),
+//     organisationDatasetFacets = helper.getApiDataPromise(dataApi.dataset.url + organisationFacetUrl);
+//
+//
+//
+// }
+
 /**
  * Gather specified API calls to digest for counts.
  * @param participant
@@ -230,17 +240,17 @@ theGbifNetwork.getCountryDataCount = country => {
     let countCollection = {};
     let callTasks = [];
     let calls = [
-        {'name': 'checklistDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=CHECKLIST&country='},
-        {'name': 'checklistDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=CHECKLIST&publishingCountry='},
-        {'name': 'datasetAbout', 'urlTemplate': dataApi.occurrence.url + 'counts/datasets?country='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
-        {'name': 'metadataDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=METADATA&country='},
-        {'name': 'metadataDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=METADATA&publishingCountry='},
-        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        // {'name': 'checklistDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=CHECKLIST&country='},
+        // {'name': 'checklistDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=CHECKLIST&publishingCountry='},
+        // {'name': 'datasetAbout', 'urlTemplate': dataApi.occurrence.url + 'counts/datasets?country='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        // {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        // {'name': 'metadataDatasetAbout', 'urlTemplate': dataApi.dataset.url  + 'search?limit=10000&type=METADATA&country='},
+        // {'name': 'metadataDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=METADATA&publishingCountry='},
+        {'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=OCCURRENCE&publishingCountry='}, //  IS USED return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
         {'name': 'occurrenceFrom', 'urlTemplate': dataApi.occurrence.url + 'search?limit=0&publishingCountry='},
-        {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
-        {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='},
-        {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
+        // {'name': 'occurrenceContributedBy', 'urlTemplate': dataApi.occurrence.url + 'counts/publishingCountries?country='}, // returns an object list of {[enumName]: count}
+        // {'name': 'occurrenceContributingTo', 'urlTemplate': dataApi.occurrence.url + 'counts/countries?publishingCountry='}, // IS USED
+        // {'name': 'samplingEventDatasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&type=SAMPLING_EVENT&publishingCountry='}, // return an object list of {[uuid]: count}{'name': 'datasetFrom', 'urlTemplate': dataApi.dataset.url + 'search?limit=10000&publishingCountry='},
         // {'name': 'literatureAuthoredBy', 'urlTemplate': cmsApi.search.url + '?filter[type]=literature&filter[category_author_from_country]='}
     ];
     calls.forEach(call => {
@@ -249,9 +259,7 @@ theGbifNetwork.getCountryDataCount = country => {
                 return processCountResult(call.name, result);
             })
             .then(countObj => {
-                if (countObj.hasOwnProperty('recordCount')) {
-                    countCollection[call.name + 'RecordCount'] = countObj.recordCount;
-                }
+
                 countCollection[call.name + 'Count'] = countObj.count;
             })
             .catch(e => {
@@ -283,6 +291,9 @@ theGbifNetwork.getOapDataCount = participant => {
                     })
                 );
             });
+
+            participant._nodes = nodes;
+
             return Q.all(publisherTasks)
                 .then(() => {
                     return publishers;
