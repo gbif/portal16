@@ -27,7 +27,7 @@
                                 <span class="error">{$ __('downloadKey.brokenDownload') | capitalize $}</span>
                             {% elif download.record.status === 'CANCELLED' %}
                                 <span class="error">{$ __('downloadKey.cancelled') | capitalize $}</span>
-                            {% elif download.record.status === 'PREPARING' %}
+                            {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                                 <span class="discreet">{$ __('downloadKey.underProcessing') | capitalize $}</span>
                             {% else %}
                                 <span>{$ __n('downloadKey.nOccurrencesDownloaded', download.record.totalRecords, {count: download.record.totalRecords | locInt(gb.locales.current)}) $}</span>
@@ -67,6 +67,13 @@
                                             <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
                                         </span>
                                     </li>
+                                    {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
+                                    <li class="tab tab-right ng-cloak" ng-if="downloadKey.recentDownload.isRecent">
+                                        <span>
+                                            <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
+                                        </span>
+                                    </li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>
@@ -88,6 +95,17 @@
                                 {% endif %}
                             </p>
                             <div class="card">
+                                {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
+                                <div class="card__stripe">
+                                    <div class="card__content card__content--warning--large">
+                                        <p>The download has been started and is currently being processed.</p>
+                                        <p>Please expect 10 to 15 minutes for the download to complete.</p>
+                                        <div ng-if="downloadKey.recentDownload.isRecent" class="ng-cloak">
+                                            <p>A notification email with a link to download the results will be sent to the following address once ready: {{ downloadKey.profile.email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
                                 <div class="card__stripe">
                                     {% if download.record.status === 'KILLED' or download.record.status === 'CANCELLED' %}
                                         <div class="card__content card__content--error--large">
