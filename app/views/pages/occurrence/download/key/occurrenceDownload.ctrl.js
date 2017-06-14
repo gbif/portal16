@@ -8,15 +8,16 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($interval, $scope, $window, env, $location, $rootScope, NAV_EVENTS, $uibModal, ResourceSearch, endpoints, $http, $sessionStorage) {
     var vm = this;
     vm.HUMAN = true;
     vm.maxSize = 5;
     vm.doi = _.get(gb, 'downloadKey.doi', '').substring(4);
     vm.key = gb.downloadKey.key;
+    vm.hasSucceeded = gb.downloadKey.status;
     vm.profile = $sessionStorage.user;
     $http.get('/api/user/isRecentDownload/' + vm.key)
-        .then(function(response){
+        .then(function (response) {
             vm.recentDownload = response.data;
         });
 
@@ -69,6 +70,20 @@ function occurrenceDownloadKeyCtrl($scope, $window, $location, $rootScope, NAV_E
             //TODO tell user the download failed to be cancelled
         });
     };
+
+    function getDownload() {
+        $http.get(env.dataApi + 'occurrence/download/' + vm.key)
+            .then(function (response) {
+                if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
+                    location.reload();
+                }
+            });
+    }
+
+    if (vm.hasSucceeded === 'RUNNING' || vm.hasSucceeded === 'PREPARING') {
+        console.log(vm.hasSucceeded);
+        $interval(getDownload, 2000);
+    }
 
 }
 
