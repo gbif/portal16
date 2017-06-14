@@ -6,6 +6,7 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = require('requestretry'),
     log = rootRequire('config/log'),
+    _ = require('lodash'),
     authOperations = require('./gbifAuthRequest');
 
 module.exports = {
@@ -21,7 +22,8 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: createSimpleDownload,
     changePassword: changePassword,
-    cancelDownload: cancelDownload
+    cancelDownload: cancelDownload,
+    isRecentDownload: isRecentDownload
 };
 
 async function create(body) {
@@ -187,6 +189,17 @@ async function cancelDownload(user, key) {
         throw response;
     }
     return response.body;
+}
+
+async function isRecentDownload(user, key) {
+    expect(key, 'download query').to.be.a('string');
+    expect(user.userName, 'user name').to.be.a('string');
+    var limit = 20;
+    var usersDownloads = await getDownloads(user.userName, {limit: limit});//Lazy test. only looking at the last 100
+    return {
+        isRecent: _.findIndex(usersDownloads.results, {key: key}) > -1,
+        limit: limit
+    };
 }
 
 async function login(auth) {

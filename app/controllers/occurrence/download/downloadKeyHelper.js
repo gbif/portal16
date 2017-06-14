@@ -269,17 +269,17 @@ function isFileAvailable(download) {
         download.isFileAvailable = false;
         deferred.resolve(false);
     } else {
-        options = {
-            method: 'HEAD',
-            host: url.parse(fileUrl).host,
-            port: 80,
-            path: url.parse(fileUrl).pathname
-        };
-        var req = http.request(options, function (r) {
-            download.isFileAvailable = r.statusCode == 200;
-            download.isFileDeleted = !download.isFileAvailable;//if not available and status==succeeded then is must have been deleted/removed
-            deferred.resolve(r.statusCode == 200);
-        });
+options = {
+    method: 'HEAD',
+    host: url.parse(fileUrl).host,
+    port: 80,
+    path: url.parse(fileUrl).pathname
+};
+var req = http.request(options, function (r) {
+    download.isFileAvailable = r.statusCode == 200;
+    download.isFileDeleted = !download.isFileAvailable;//if not available and status==succeeded then is must have been deleted/removed
+    deferred.resolve(r.statusCode == 200);
+});
         req.end();
     }
     return deferred.promise;
