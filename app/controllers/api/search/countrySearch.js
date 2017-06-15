@@ -30,8 +30,9 @@ async function query(countryName){
     if (!match) {
         return;
     }
-    var wordCount = match.item.title.toLowerCase().replace(',', ' ').split(' ').length;
-    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (wordCount > 1 && (countryName.length/match.item.title.length) < 0.33)){
+    var parts = match.item.title.toLowerCase().replace(',', ' ').split(' ');
+    var wordCount = parts.length;
+    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (parts[0] !== countryName && wordCount > 1 && (countryName.length/match.item.title.length) < 0.33)){
         return;
     }
     let countryKey = match.item.key;
