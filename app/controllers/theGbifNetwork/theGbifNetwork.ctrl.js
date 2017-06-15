@@ -6,10 +6,10 @@
 
 const express = require('express'),
       router = express.Router(),
-      helper = require('../../models/util/util'),
+        TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork'),
     Q = require('q'),
-    TheGbifNetwork = rootRequire('app/models/gbifdata/theGbifNetwork/theGbifNetwork'),
-      resourceKey = require("../resource/key/resourceKey");
+    helper = rootRequire('app/models/util/util'),
+    resource = require('../resource/key/resourceKey');
 
 
 module.exports = function (app) {
@@ -18,10 +18,9 @@ module.exports = function (app) {
 
 router.get('/the-gbif-network/:region?', (req, res, next) => {
 
-    let context = {},
-        query = {},
+    let query = {},
         validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'],
-        participantTypes = ['voting_participant', 'associate_country_participant', 'other_associate_participant'],
+
         region;
 
     if (typeof req.params.region !== 'undefined' && req.params.region !== 'participant-organisations') {
@@ -42,11 +41,24 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
        return;
     }
 
-    context.validRegions = validRegions;
-    context.participantTypes = participantTypes;
-    context.locale = req.locale;
+    var contentPromise = ( region !== 'GLOBAL') ?  resource.getByAlias(req.path, 2, false) : Q.resolve(false) ;
+    var introPromise = TheGbifNetwork.get(res);
 
-    res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {});
+    Q.all([introPromise, contentPromise])
+        .then((result)=>{
+
+            let opts = {intro: result[0][0]};
+            if(result[1] !== false && result[1].main){
+                opts.main = result[1].main
+            }
+             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', opts);
+        })
+    .catch(err => {
+        next(err )
+    });
+
+
+
 
 
     // TheGbifNetwork.get(res).then((data)=>{
@@ -104,3 +116,34 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
      //        next(err + 'at theGbifNetwork.ctrl line 22.')
      //    });
 });
+
+router.get('/templates/the-gbif-network/intro', (req, res, next) => {
+
+    TheGbifNetwork.get(res)
+       .then(data => {
+           var intro = data[0];
+           res.render('pages/theGbifNetwork/intro.nunjucks', {
+                       intro: intro,
+                       hasTitle: true
+                   });
+           })
+});
+
+router.get('/templates/the-gbif-network/:region/regionArticle.html', function (req, res, next) {
+
+    let urlAlias = '/the-gbif-network/'+req.params.region;
+
+    resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current)
+        .then(contentItem => {
+
+            helper.renderPage(req, res, next, contentItem, 'pages/theGbifNetwork/regionArticle.nunjucks');
+            //  res.json(result);
+        })
+        .catch(err =>{
+            console.trace(err);
+            res.status(500);
+            res.send(err.message);
+        })
+
+});
+
