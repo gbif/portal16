@@ -12,7 +12,7 @@ module.exports = function (app) {
 };
 
 router.get('/basic', function (req, res, next) {
-    passport.authenticate('basic', { session: false }, function (err, user, info) {
+    passport.authenticate('basic', {session: false}, function (err, user, info) {
         var error = err || info;
         if (error) {
             return res.status(401).json({message: 'Unable to verify.'});
@@ -24,14 +24,14 @@ router.get('/basic', function (req, res, next) {
         var token = auth.signToken(user);
         auth.setTokenCookie(res, token);
         auth.setNoCache(res);
-        res.json({ user });
+        res.json({user});
     })(req, res, next);
 });
 
 passport.use(new BasicStrategy(function (userid, password, done) {
     var authData = 'Basic ' + btoa(userid + ':' + password);
     User.login(authData)
-        .then(function(user){
+        .then(function (user) {
             done(null, user);
         })
         .catch(err => done(err));

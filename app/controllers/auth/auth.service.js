@@ -9,6 +9,10 @@ let credentials = rootRequire('config/credentials').directory,
     _ = require('lodash'),
     verification = rootRequire('app/models/verification/verification'); //this folder needs to be configured to work. Once the authentication is ready we could consider this home made verifaction.
 
+let minute = 60000,
+    hour =  60*minute,
+    day = 24*hour;
+
 var validateJwt = expressJwt({
     secret: secret
 });
@@ -76,7 +80,7 @@ function signToken(user, ttl) {
         userName: user.userName
     };
     let token = jwt.sign(tokenContent, secret, {
-        expiresIn: ttl || (60 * 60 * 1) // time in seconds - 1 hour
+        expiresIn: ttl || (60 * 60 * 24 * 7) // time in seconds - 7 days
     });
     return token;
 }
@@ -84,9 +88,6 @@ function signToken(user, ttl) {
 /**
  * Sets the token as a secure cookie
  */
-let minute = 60000,
-    hour =  60*minute,
-    day = 24*hour;
 function setTokenCookie(res, token) {
     res.cookie('token', token,
         {

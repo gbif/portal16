@@ -39,8 +39,14 @@ router.get('/participants/digest', (req, res, next) => {
     // }
     // else {
 
-        helper.getApiDataPromise(url, {'qs': query})
-            .then(data => {
+
+    var promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
+
+    Q.all(promises)
+        .then((result) => {
+
+            var data = result[0];
+            var facetMap = result[1];
 
 
                 data.forEach(datum => {
@@ -49,7 +55,7 @@ router.get('/participants/digest', (req, res, next) => {
                 let participantTasks = [];
 
                 data.forEach(participant => {
-                    participantTasks.push(TheGbifNetwork.getDataCount(participant)
+                    participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap)
                         .then(participant => {
                             return participant;
                         })
