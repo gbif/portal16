@@ -2,10 +2,10 @@
 
 var express = require('express'),
     utils = rootRequire('app/helpers/utils'),
-    //apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+//apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
-    //contributors = require('../../dataset/key/contributors/contributors'),
+//contributors = require('../../dataset/key/contributors/contributors'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -49,6 +49,10 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
 });
 
 router.get('/country/:iso\.:ext?', function (req, res, next) {
+    res.redirect(302, './summary');
+});
+
+router.get('/country/:iso/summary\.:ext?', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
 });
 
@@ -95,14 +99,14 @@ async function getCountry(isoCode, current) {
         }
     }
     let participant;
-    try{
+    try {
         participant = await Participant.get(isoCode, current);
         participant = participantView(participant);
         participant._meta = {
             title: 'Country'
         };
         return participant;
-    } catch(err){
+    } catch (err) {
         if (err.statusCode !== 404) {
             throw err;
         } else {

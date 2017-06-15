@@ -134,7 +134,11 @@ async function getParsedName(speciesKey) {
             if (name.cultivarEpithet) {
                 n += "'" + name.cultivarEpithet + "' ";
             }
-        } else {
+        }else if(name.rankMarker === 'unranked') {
+            n = name.scientificName;
+            return n;
+        }
+        else {
             n += add(name.genusOrAbove);
         }
 
@@ -142,11 +146,10 @@ async function getParsedName(speciesKey) {
         n += '<i>' + add(name.scientificName) + '</i>';
     }
     else if (name.type == 'CANDIDATUS') {
-        let candName = add(name.genusOrAbove);
+        let candName = name.genusOrAbove;
         if (name.specificEpithet) {
-            candName += name.specificEpithet
-        }
-        ;
+            candName += " "+ name.specificEpithet
+        } ;
 
         n += '"<i>Candidatus </i>' + candName + '" ';
     } else if (name.type == 'INFORMAL') {

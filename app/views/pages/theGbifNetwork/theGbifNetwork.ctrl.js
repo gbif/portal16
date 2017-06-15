@@ -10,7 +10,8 @@ var angular = require('angular'),
 
 angular
     .module('portal')
-    .controller('theGbifNetworkCtrl', theGbifNetworkCtrl);
+    .controller('theGbifNetworkCtrl', theGbifNetworkCtrl)
+
 
 /** @ngInject */
 function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, PublisherCount,  $scope, $state, $stateParams, $filter,  $location, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, ContentFul, BUILD_VERSION) {
@@ -173,7 +174,19 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
 
 
 
+    vm.cleanRoles = function(region){
 
+        return function(r){
+            if(region === undefined || region === 'GLOBAL' && r.role.indexOf('CHAIR') !== -1){
+                return true;
+            } else if(r.role.indexOf(region) !== -1) {
+                return true;
+            } else {
+                return false
+            }
+        }
+
+    }
 
 
     vm.count = {};
@@ -206,7 +219,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         vm.updatedCounts = 0;
         vm.currentRegion = region;
         vm.totalParticipantCount = 0;
-        delete vm.contentfulResource;
+        delete vm.contentfulResourceUrl;
 
             var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : {
 
@@ -251,9 +264,9 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
             };
 
             if( vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' &&  vm.currentRegion !== 'GLOBAL'){
-                var urlAlias = '/the-gbif-network/'+ region.toLowerCase().replace('_', '-');
 
-                vm.contentfulResource = ContentFul.getByAlias({urlAlias: urlAlias });
+                vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION
+
             }
 
         var regionLower = region.toLowerCase().replace('_', '-');
@@ -305,23 +318,37 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     }
 
     // For regional representative.
-    loadRegionalReps(vm.currentRegion);
+   // loadRegionalReps(vm.currentRegion);
     function loadRegionalReps(region) {
         vm.repTableLoaded = false;
         delete vm.reps;
         DirectoryNsgContacts.get().$promise
             .then(function(contacts) {
+
+                var idMap = {};
+
                 var reps = contacts.filter(function(contact){
-                    var picked = false;
-                    contact.roles.forEach(function(role){
-                        if (region === 'GLOBAL') {
-                            picked = role.role.indexOf('CHAIR') !== -1;
+
+                    if(idMap[contact.id] === true){
+                        return false ; // its already there, duplicates from API
+                    } else {
+                        var picked = false;
+                        contact.roles.forEach(function(role){
+                            if (region === 'GLOBAL' && role.role.indexOf('CHAIR') !== -1) {
+                                picked = true
+                            }
+                            else if(region !== 'GLOBAL' && role.role.indexOf(region) !== -1){
+                                picked = true;
+                            }
+                        });
+                        if(picked === true){
+                            idMap[contact.id] = true;
                         }
-                        else {
-                            picked = role.role.indexOf(region) !== -1;
-                        }
-                    });
-                    return picked;
+                        return picked;
+
+                    }
+
+
                 });
                 vm.reps = reps;
                 vm.repTableLoaded = true;

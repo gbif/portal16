@@ -5,8 +5,8 @@
             <div class="row">
                 <header class="col-xs-12 text-center article-header">
                     <h1 translate="menu.GbifNetwork"></h1>
-                    <div class="article-header__intro anchor-block__above">
-                        <!--{$ intro | safe $}-->
+                    <div class="article-header__intro anchor-block__above" ng-include="'/templates/the-gbif-network/intro'">
+
                     </div>
                 </header>
             </div>
@@ -79,51 +79,12 @@
 
 
     </section>
-    <!--<section class="horizontal-stripe white-background seperator&#45;&#45;b" ng-show="vm.currentRegion !== 'OTHER' && vm.currentRegion !== 'GLOBAL'">-->
-        <!--{#{% include "../resource/key/article/article.nunjucks" %}#}-->
-
-        <!--<div>-->
-            <!--<article class="wrapper-horizontal-stripes">-->
-                <!--<div class="horizontal-stripe article-header white-background">-->
-                    <!--<header class="text-center">-->
-                        <!--<nav class="article-header__category article-header__category&#45;&#45;deep">-->
-                        <!--<span class="article-header__category__upper"><a-->
-                                <!--href="{$ gb.locales.urlPrefix $}/resource/search?contentType=dataUse">{$-->
-                                <!--__('cms.contentType.dataUse') $}</a></span>-->
-                            <!--<span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>-->
-                        <!--</nav>-->
-                        <!--<h1>{$ main.fields.title $}</h1>-->
-                        <!--<div class="article-header__intro">-->
-                            <!--{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}-->
-                        <!--</div>-->
-                        <!--{% if main.fields.numberOfResourceUsed | isNotEmpty %}-->
-                        <!--<span class="article-header__meta">-->
-                    <!--{$ main.fields.numberOfResourceUsed | striptags $}-->
-                    <!--</span>-->
-                        <!--{% endif %}-->
-                    <!--</header>-->
-                <!--</div>-->
-
-                <!--{% include "../resource/key/primaryImage.nunjucks" %}-->
-
-                <!--<div class="horizontal-stripe white-background">-->
-                    <!--<div class="container&#45;&#45;narrow">-->
-                        <!--{% include "../resource/key/body.nunjucks" %}-->
-
-                        <!--<div class="article-secondary">-->
-                            <!--{% include "../resource/key/documentsLinks.nunjucks" %}-->
-                        <!--</div>-->
-
-                        <!--{% include "../resource/key/auxiliary.nunjucks" %}-->
-                    <!--</div>-->
-                <!--</div>-->
-
-            <!--</article>-->
-        <!--</div>-->
+    <section class="horizontal-stripe white-background seperator--b" ng-if="vm.contentfulResourceUrl" ng-include="vm.contentfulResourceUrl">
 
 
 
-    <!--</section>-->
+
+    </section>
     <section  class="horizontal-stripe light-background">
         <div class="container--normal">
             <ng-include src="'/api/template/thegbifnetwork/regionalReps.html?v=' + vm.BUILD_VERSION"></ng-include>

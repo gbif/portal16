@@ -1660,7 +1660,8 @@
       "tool": "tool",
       "link": "link",
       "generic": "generic",
-      "literature": "literature"
+      "literature": "literature",
+      "about_region" : "about the region"
     },
     "literatureType": {
       "journal": "journal",

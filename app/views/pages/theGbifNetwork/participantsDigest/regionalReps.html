@@ -29,7 +29,7 @@
             <tr ng-repeat="(index, person) in vm.reps | orderBy:sortField:sortReverse"
                 ng-click="vm.toggleDetail('nodes_steering_group' + '_' + person.id)">
                 <td class="gbif-role">
-                    <span ng-repeat="role in person.roles" ng-bind="role.translatedLabel"></span>
+                    <span ng-repeat="role in person.roles | filter:vm.cleanRoles(vm.currentRegion)" ng-bind="role.translatedLabel"></span>
                 </td>
                 <td>
                     <address class="contacts__item" id="contact_{{person.id}}">

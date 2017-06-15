@@ -1,0 +1,25 @@
+{% if _isPreview %}
+    <div>
+        <div class="wrapper-horizontal-stripes">
+            <div class="horizontal-stripe bare-background">
+                <div class="container--narrow">
+                    <h4>Only visible in preview</h4>
+                    <p>How will this image look in other croppings and sizes?</p>
+                    <div>
+                        <div class="m-b-1">
+                            <img ng-src="{$ _meta.imageCache $}600x300/http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}">
+                        </div>
+                        <div class="m-b-1">
+                            <img ng-src="{$ _meta.imageCache $}128x64/http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI  $}">
+                        </div>
+                        <div class="m-b-1">
+                            <div class="imageGallery__img img-round-thumb">
+                                <img ng-src="{$ _meta.imageCache $}50x50/http:{$ resolved.Asset[main.fields.primaryImage.sys.id].fields.file.url | encodeURI $}" gallery-image>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
