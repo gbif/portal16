@@ -139,6 +139,33 @@ var config = {
         contentfulLocaleMap: contentfulLocaleMap,
         backboneDatasetKey: backboneDatasetKey
     },
+    c5prod: {
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - c5prod'
+        },
+        port: port || 8080,
+        log: log,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        dataApiV2: dataApiV2 || '//api-c5.gbif.org/v2/',
+        dataApi: dataApi || '//api-c5.gbif.org/v1/',
+        tileApi: tileApi || '//api-c5.gbif.org/v1/map/density/tile.png',
+        identityApi: identityApi || '//labs.gbif.org:7003/',
+        cmsApi: cmsApi || '//www-c5.gbif.org/api/',
+        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
+        domain: 'https://demo.gbif.org/',
+        credentials: credentials || '/etc/portal16/credentials',
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://localhost:9200/',
+        locales: locales,
+        defaultLocale: defaultLocale,
+        contentfulLocaleMap: contentfulLocaleMap,
+        backboneDatasetKey: backboneDatasetKey
+    },
     test: {
         env: env,
         root: rootPath,
