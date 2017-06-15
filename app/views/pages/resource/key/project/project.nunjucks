@@ -39,6 +39,7 @@
         {% endif %}
 
     </article>
+    {% include "../preview.nunjucks" %}
 {% endblock %}
 
 

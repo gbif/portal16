@@ -38,6 +38,7 @@
         {$ funderMacro.organisationsAndParticipants('Funded by', main.fields.fundingOrganisations, resolved) $}
 
     </article>
+    {% include "../preview.nunjucks" %}
 {% endblock %}
 
 

@@ -4,6 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
+    auth = require('../../auth/auth.service'),
     resource = require('./resourceKey');
 
 module.exports = function (app) {
@@ -96,6 +97,9 @@ function prose(req, res, next, type, template){
                     res.redirect(302, res.locals.gb.locales.urlPrefix + '/'+ type + '/' + entry + '/' + slugTitle);
                     return;
                 }
+            } else {
+                auth.setNoCache(res);
+                contentItem._isPreview = true;
             }
             helper.renderPage(req, res, next, contentItem, template);
         })

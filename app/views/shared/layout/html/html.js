@@ -272,8 +272,11 @@ require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
 require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
 require('../../../pages/participant/country/countryKey.ctrl');
+require('../../../pages/participant/country/countrySummary.ctrl');
+//require('../../../pages/participant/country/countryAbout.ctrl');
+//require('../../../pages/participant/country/countryPublishing.ctrl');
+//require('../../../pages/participant/country/countryParticipation.ctrl');
 require('../../../pages/participant/country/countryTrends.ctrl');
-require('../../../pages/participant/country/countryActivity.ctrl');
 
 // require('../../../pages/country/key/activity/countryActivity.ctrl');
 // require('../../../pages/country/key/participant/countryParticipant.ctrl');

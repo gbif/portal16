@@ -7,12 +7,14 @@
 
     <div>
         <div ui-view></div>
-        <div class="white-background p-t-05" ng-if="countryKey.$state.is('country')">
-            {% if participant and (participant.participationStatus == 'VOTING' or participant.participationStatus == 'ASSOCIATE') %}
-                {% include "./about.nunjucks" %}
-            {% else %}
-                {% include "./nonParticipant.nunjucks" %}
-            {% endif %}
+
+        <div ng-if="countryKey.$state.is('country')">
+            {#{% if participant and (participant.participationStatus == 'VOTING' or participant.participationStatus == 'ASSOCIATE') %}#}
+                {#{% include "./about.nunjucks" %}#}
+            {#{% else %}#}
+                {#{% include "./nonParticipant.nunjucks" %}#}
+            {#{% endif %}#}
+            <div ng-include="'/api/template/country/summary.html'"></div>
         </div>
     </div>
 

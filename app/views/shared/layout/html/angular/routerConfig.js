@@ -329,6 +329,34 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+        .state('countrySummary', {
+            parent: 'country',
+            url: '/summary',
+            templateUrl: '/api/template/country/summary.html?v=' + BUILD_VERSION,
+            controller: 'countrySummaryCtrl',
+            controllerAs: 'countrySummary'
+        })
+        .state('countryAbout', {
+            parent: 'country',
+            url: '/about',
+            templateUrl: '/templates/pages/participant/country/about.html?v=' + BUILD_VERSION,
+            controller: 'countryActivityCtrl',
+            controllerAs: 'countryActivity'
+        })
+        .state('countryPublishing', {
+            parent: 'country',
+            url: '/publishing',
+            templateUrl: '/templates/pages/participant/country/publishing.html?v=' + BUILD_VERSION,
+            controller: 'countryActivityCtrl',
+            controllerAs: 'countryActivity'
+        })
+        .state('countryParticipation', {
+            parent: 'country',
+            url: '/participation',
+            templateUrl: '/templates/pages/participant/country/participation.html?v=' + BUILD_VERSION,
+            controller: 'countryActivityCtrl',
+            controllerAs: 'countryActivity'
+        })
         .state('countryTrends', {
            parent: 'country',
            url: '/trends/{direction:(?:about|published)}',

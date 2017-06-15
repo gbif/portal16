@@ -35,4 +35,5 @@
 
         </article>
     </div>
+    {% include "../preview.nunjucks" %}
 {% endblock %}
