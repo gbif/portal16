@@ -1,5 +1,113 @@
 <div class="seperator">
-    <div class="emptyInfo">
-        <h3>Not implemented yet - for now see the country report or <a href="http://www.gbif.org/country">GBIF.org</a></h3>
+    <div class="container--desktop m-t-1 ng-cloak" ng-if="countryActivity.occurrenceCount > 0">
+        <h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countryActivity.countryCode | translate }}</h4>
+
+        <div class="card container-fluid ng-cloak">
+            <div class="row summaryStats">
+                <a ui-sref="occurrenceSearchTable({country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?country={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__description">
+                            Occurrences
+                        </div>
+                    </div>
+                </a>
+                <a ui-sref="occurrenceSearchDatasets({country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count">{{countryActivity.datasetCount}}</div>
+                        <div class="summaryStats__simple__description">
+                            Datasets
+                        </div>
+                    </div>
+                </a>
+                <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count">{{countryActivity.publishingCountriesCount}}</div>
+                        <div class="summaryStats__simple__description">
+                            countries contribute data
+                        </div>
+                    </div>
+                </a>
+                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfCoverage={{ countryActivity.countryCode }}">3692</div>
+                        <div class="summaryStats__simple__description">
+                            Publications about Australia
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" ng-if="countryActivity.countryCapabilities.total > 0">
+            <div>
+                <map-widget filter="{country:countryActivity.countryCode}"></map-widget>
+            </div>
+        </div>
     </div>
+
+    <div class="container--desktop m-t-1 ng-cloak" ng-if="countryActivity.occurrenceFromCount > 0">
+        <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countryActivity.countryCode | translate }}</h4>
+
+        <div class="card container-fluid ng-cloak">
+            <div class="row summaryStats">
+                <a ui-sref="occurrenceSearchTable({publishing_country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?publishingCountry={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__description">
+                            Published occurrences
+                        </div>
+                    </div>
+                </a>
+                <a ui-sref="datasetSearchTable({publishing_country:countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/dataset/search?publishingCountry={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__description">
+                            Published datasets
+                        </div>
+                    </div>
+                </a>
+                <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count">{{countryActivity.countriesCount}}</div>
+                        <div class="summaryStats__simple__description">
+                            countries, territories and islands covered by publications from Australia
+                        </div>
+                    </div>
+                </a>
+                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                    <div>
+                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryActivity.countryCode }}">3692</div>
+                        <div class="summaryStats__simple__description">
+                            Publications from Australia
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="card" ng-if="countryActivity.publishingCountryCapabilities.total > 0">
+            <div>
+                <map-widget filter="{publishingCountry:countryActivity.countryCode}"></map-widget>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="container&#45;&#45;desktop m-t-1 ng-cloak">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-md-6">-->
+                <!--<h4 class="text-muted small text-uppercase">Participant</h4>-->
+                <!--<div class="card">-->
+                    <!--sdæfjkh-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-12 col-md-6">-->
+                <!--<h4 class="text-muted small text-uppercase">Node</h4>-->
+                <!--<div class="card">-->
+                    <!--sdæflhj ælkj-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
 </div>
