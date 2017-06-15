@@ -19,6 +19,16 @@ var angular = require('angular');
                     }
                 });
         })
+        .factory('Country', function ($resource) {
+            return $resource('/api/country/about/:key', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
     ;
 })();
 

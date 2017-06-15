@@ -2,16 +2,21 @@
     <div class="container--desktop">
         <div class="tabs">
             <ul class="anchorTabs">
-                <li class="tab" ng-class="{isActive: countryKey.$state.is('country')}">
-                    <a ui-sref="country()">About</a>
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countrySummary')}">
+                    <a ui-sref="countrySummary()">Summary</a>
+                </li>
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">
+                    <a ui-sref="countryAbout()">Data about</a>
+                </li>
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">
+                    <a ui-sref="countryPublishing()">Data publishing</a>
+                </li>
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}">
+                    <a ui-sref="countryParticipation()">Participation</a>
                 </li>
 
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryActivity') }">
                     <a ui-sref="countryActivity()">Activity</a>
-                </li>
-
-                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryTrends') }">
-                    <a ui-sref="countryTrends()">Trends</a>
                 </li>
 
                 {% if main.fields.primaryLink.sys.id %}

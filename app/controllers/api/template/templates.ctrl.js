@@ -82,6 +82,23 @@ router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });
 
+router.get('/country/summary.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/summary');
+});
+
+router.get('/country/about.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/about');
+});
+
+router.get('/country/publishing.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/publishing');
+});
+
+router.get('/country/participant.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/participant');
+});
+
+
 router.get('/species/key.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');
 });

@@ -1,20 +1,20 @@
 <div class="seperator">
-    <div class="container--desktop m-t-1 ng-cloak" ng-if="countryActivity.occurrenceCount > 0">
-        <h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countryActivity.countryCode | translate }}</h4>
+    <div class="container--desktop m-t-1 ng-cloak" ng-if="countrySummary.occurrenceCount > 0">
+        <h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countrySummary.countryCode | translate }}</h4>
 
         <div class="card container-fluid ng-cloak">
             <div class="row summaryStats">
-                <a ui-sref="occurrenceSearchTable({country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="occurrenceSearchTable({country: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?country={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?country={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Occurrences
                         </div>
                     </div>
                 </a>
-                <a ui-sref="occurrenceSearchDatasets({country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="occurrenceSearchDatasets({country: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count">{{countryActivity.datasetCount}}</div>
+                        <div class="summaryStats__simple__count">{{countrySummary.datasetCount}}</div>
                         <div class="summaryStats__simple__description">
                             Datasets
                         </div>
@@ -22,15 +22,15 @@
                 </a>
                 <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count">{{countryActivity.publishingCountriesCount}}</div>
+                        <div class="summaryStats__simple__count">{{countrySummary.publishingCountriesCount}}</div>
                         <div class="summaryStats__simple__description">
                             countries contribute data
                         </div>
                     </div>
                 </a>
-                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfCoverage={{ countryActivity.countryCode }}">3692</div>
+                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfCoverage={{ countrySummary.countryCode }}">3692</div>
                         <div class="summaryStats__simple__description">
                             Publications about Australia
                         </div>
@@ -39,29 +39,29 @@
             </div>
         </div>
 
-        <div class="card" ng-if="countryActivity.countryCapabilities.total > 0">
+        <div class="card" ng-if="countrySummary.countryCapabilities.total > 0">
             <div>
-                <map-widget filter="{country:countryActivity.countryCode}"></map-widget>
+                <map-widget filter="{country:countrySummary.countryCode}"></map-widget>
             </div>
         </div>
     </div>
 
-    <div class="container--desktop m-t-1 ng-cloak" ng-if="countryActivity.occurrenceFromCount > 0">
-        <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countryActivity.countryCode | translate }}</h4>
+    <div class="container--desktop m-t-1 ng-cloak" ng-if="countrySummary.occurrenceFromCount > 0">
+        <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countrySummary.countryCode | translate }}</h4>
 
         <div class="card container-fluid ng-cloak">
             <div class="row summaryStats">
-                <a ui-sref="occurrenceSearchTable({publishing_country: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="occurrenceSearchTable({publishing_country: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?publishingCountry={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?publishingCountry={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Published occurrences
                         </div>
                     </div>
                 </a>
-                <a ui-sref="datasetSearchTable({publishing_country:countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="datasetSearchTable({publishing_country:countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/dataset/search?publishingCountry={{ countryActivity.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/dataset/search?publishingCountry={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Published datasets
                         </div>
@@ -69,15 +69,15 @@
                 </a>
                 <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count">{{countryActivity.countriesCount}}</div>
+                        <div class="summaryStats__simple__count">{{countrySummary.countriesCount}}</div>
                         <div class="summaryStats__simple__description">
                             countries, territories and islands covered by publications from Australia
                         </div>
                     </div>
                 </a>
-                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryActivity.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryActivity.countryCode }}">3692</div>
+                        <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countrySummary.countryCode }}">3692</div>
                         <div class="summaryStats__simple__description">
                             Publications from Australia
                         </div>
@@ -85,9 +85,9 @@
                 </a>
             </div>
         </div>
-        <div class="card" ng-if="countryActivity.publishingCountryCapabilities.total > 0">
+        <div class="card" ng-if="countrySummary.publishingCountryCapabilities.total > 0">
             <div>
-                <map-widget filter="{publishingCountry:countryActivity.countryCode}"></map-widget>
+                <map-widget filter="{publishingCountry:countrySummary.countryCode}"></map-widget>
             </div>
         </div>
     </div>
@@ -103,19 +103,19 @@
                             <dl class="inline">
                                 <div>
                                     <dt>Member status</dt>
-                                    <dd class="text-capitalize">{{ 'participationStatus.' + countryActivity.country.participant.participationStatus | translate }}</dd>
+                                    <dd class="text-capitalize">{{ 'participationStatus.' + countrySummary.country.participant.participationStatus | translate }}</dd>
                                 </div>
                                 <div>
                                     <dt>GBIF participant since</dt>
-                                    <dd class="text-capitalize">{{ countryActivity.country.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
+                                    <dd class="text-capitalize">{{ countrySummary.country.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
                                 </div>
                                 <div>
                                     <dt>GBIF region</dt>
-                                    <dd class="text-capitalize">{{ 'region.' + countryActivity.country.participant.gbifRegion | translate }}</dd>
+                                    <dd class="text-capitalize">{{ 'region.' + countrySummary.country.participant.gbifRegion | translate }}</dd>
                                 </div>
                                 <div>
                                     <dt>Head of delegation</dt>
-                                    <dd><a href="#contact{{countryActivity.country.headOfDelegation.personId}}">{{ countryActivity.country.contacts[countryActivity.country.headOfDelegation.personId].firstName }} {{ countryActivity.country.contacts[countryActivity.country.headOfDelegation.personId].surname }}</a></dd>
+                                    <dd><a href="#contact{{countrySummary.country.headOfDelegation.personId}}">{{ countrySummary.country.contacts[countrySummary.country.headOfDelegation.personId].firstName }} {{ countrySummary.country.contacts[countrySummary.country.headOfDelegation.personId].surname }}</a></dd>
                                 </div>
                             </dl>
                         </div>
@@ -130,25 +130,25 @@
                             <dl class="inline">
                                 <div>
                                     <dt>Node name</dt>
-                                    <dd><a ng-href="#nodeAddress">{{ countryActivity.country.node.name }}</a></dd>
+                                    <dd><a ng-href="#nodeAddress">{{ countrySummary.country.node.name }}</a></dd>
                                 </div>
                                 <div>
                                     <dt>Node established</dt>
-                                    <dd>{{ countryActivity.country.prose.main.fields.nodeEstablishmentDate | amDateFormat:'YYYY' }}</dd>
+                                    <dd>{{ countrySummary.country.prose.main.fields.nodeEstablishmentDate | amDateFormat:'YYYY' }}</dd>
                                 </div>
                                 <div>
                                     <dt>Website</dt>
-                                    <dd><a ng-href="{{ countryActivity.country.node.nodeUrl }}">{{ countryActivity.country.node.nodeUrl }}</a></dd>
+                                    <dd><a ng-href="{{ countrySummary.country.node.nodeUrl }}">{{ countrySummary.country.node.nodeUrl }}</a></dd>
                                 </div>
                                 <div>
                                     <dt>Participant node manager</dt>
-                                    <dd><a ng-href="#contact{{countryActivity.country.nodeManager.personId}}">{{ countryActivity.country.contacts[countryActivity.country.nodeManager.personId].firstName }} {{ countryActivity.country.contacts[countryActivity.country.nodeManager.personId].surname }}</a></dd>
+                                    <dd><a ng-href="#contact{{countrySummary.country.nodeManager.personId}}">{{ countrySummary.country.contacts[countrySummary.country.nodeManager.personId].firstName }} {{ countrySummary.country.contacts[countrySummary.country.nodeManager.personId].surname }}</a></dd>
                                 </div>
                             </dl>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
     </section>
 
     <section class="horizontal-stripe bare-background m-t-1" id="contacts" ng-if="countryKey.country.node || countryKey.country.activePeople.length > 0">
