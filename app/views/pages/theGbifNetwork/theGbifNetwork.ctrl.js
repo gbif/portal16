@@ -1,12 +1,11 @@
 'use strict';
 
-require('../../shared/layout/html/angular/topoJson.resource');
+require('./theGbifNetworkMap.service');
 
 var angular = require('angular'),
     moment = require('moment'),
     topojson = require('topojson'),
-    ol = require('openlayers'),
-    projections = require('../../components/map/mapWidget/projections');
+    ol = require('openlayers');
 
 angular
     .module('portal')
@@ -14,7 +13,7 @@ angular
 
 
 /** @ngInject */
-function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, PublisherCount,  $scope, $state, $stateParams, $filter,  $location, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, ContentFul, BUILD_VERSION) {
+function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, PublisherCount,  $scope, $state, $stateParams, $filter, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
@@ -29,9 +28,9 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     };
 
 // ###############################################
-
+    var maxZoom = 7;
     var mapElement = document.getElementById('theNetworkMap');
-    var currentProjection = projections.EPSG_4326;
+    var currentProjection = GBIFNetworkMapService.get4326();
     var map = new ol.Map({
         target: mapElement,
         layers: [
@@ -39,7 +38,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         ]
     });
 
-    map.setView(currentProjection.getView(0, 0, 1));
+    map.setView(currentProjection.getView(0, 0, 1, 1, maxZoom));
     if (currentProjection.fitExtent) {
         map.getView().fit(currentProjection.fitExtent);
     }
@@ -120,7 +119,9 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
 
             center: [regionCenters[region].lng, regionCenters[region].lat],
             zoom: regionCenters[region].zoom,
-            projection: 'EPSG:4326'
+            projection: 'EPSG:4326',
+            maxZoom: maxZoom,
+            minZoom: 0
         })
         map.setView(view);
     }
@@ -263,11 +264,10 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
 
             };
 
-            if( vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' &&  vm.currentRegion !== 'GLOBAL'){
 
-                vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION
+        vm.contentfulResourceUrl = '/templates/the-gbif-network/'+region.toLowerCase().replace('_', '-')+'/regionArticle.html?v=' + vm.BUILD_VERSION
 
-            }
+
 
         var regionLower = region.toLowerCase().replace('_', '-');
         $state.go($state.$current, {region: regionLower}, {notify: false});

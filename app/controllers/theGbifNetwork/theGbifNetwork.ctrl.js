@@ -19,11 +19,11 @@ module.exports = function (app) {
 router.get('/the-gbif-network/:region?', (req, res, next) => {
 
     let query = {},
-        validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'],
+        validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'PARTICIPANT_ORGANISATIONS'],
 
         region;
 
-    if (typeof req.params.region !== 'undefined' && req.params.region !== 'participant-organisations') {
+    if (typeof req.params.region !== 'undefined') {
 
         region = req.params.region.toUpperCase().replace('-', '_')
 
@@ -40,6 +40,8 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
        next();
        return;
     }
+
+
 
     var contentPromise = ( region !== 'GLOBAL') ?  resource.getByAlias(req.path, 2, false) : Q.resolve(false) ;
     var introPromise = TheGbifNetwork.get(res);
