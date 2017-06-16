@@ -66,7 +66,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('DatasetProcessSummary', function ($resource, env) {
+        .factory('DatasetProcessSummary', function ($resource) {
             return $resource('/api/dataset/:key/processSummary', null, {
                     'query': {
                         method: 'GET',

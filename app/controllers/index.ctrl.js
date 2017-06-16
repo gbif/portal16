@@ -6,8 +6,7 @@ let express = require('express'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch'),
     acceptLanguageParser = require('accept-language-parser'),
-    availableLanguagesForHomePage = ['en', 'zh', 'fr', 'ru', 'es', 'pt'],
-    langs = require('langs');
+    availableLanguagesForHomePage = ['en', 'zh', 'fr', 'ru', 'es', 'pt'];
 
 
 module.exports = function (app) {
@@ -63,7 +62,8 @@ router.get('/', function (req, res, next) {
                 //return;
                 helper.renderPage(req, res, next, context, 'pages/home/home');
             })
-            .catch(function (err) {
+            .catch(function () {
+                //TODO log error
                 //show page without highlight stories
                 res.setHeader('Cache-Control', 'no-cache'); //TODO might be worth having a short cache on it
                 helper.renderPage(req, res, next, {

@@ -96,7 +96,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
             }
         };
 
-    };
+    }
 }
 
 module.exports = publisherKeyCtrl;

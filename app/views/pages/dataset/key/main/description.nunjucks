@@ -1,0 +1,16 @@
+<section class="horizontal-stripe--paddingless white-background dataset-key__text" ng-if="datasetKey.dataset.description">
+    <div>
+        <a href="" id="description"></a>
+        <div class="anchor-block--tabs" id="descriptionBlock">
+            <div class="stripe-comment-wrapper" ng-if="datasetKey.dataset.language !== 'eng'">
+                <div class="stripe-comment">
+                    <div translate="language.{{ datasetKey.dataset.language }}"></div>
+                </div>
+            </div>
+            <div>
+                <h3>Description</h3>
+                <div ng-bind-html="datasetKey.dataset.description"></div>
+            </div>
+        </div>
+    </div>
+</section>

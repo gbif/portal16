@@ -52,7 +52,7 @@ function render(req, res, next) {
             }
         });
     }
-};
+}
 
 function renderPage(req, res, next, publisher) {
     try {

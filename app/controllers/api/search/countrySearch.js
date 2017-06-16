@@ -1,7 +1,6 @@
 "use strict";
 
-var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    _ = require('lodash'),
+var _ = require('lodash'),
     Fuse = require('fuse.js'),
     countryTranslations = rootRequire('locales/server/en').country,
     countries = Object.keys(countryTranslations).map(function(key){

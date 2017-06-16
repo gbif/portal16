@@ -1,0 +1,52 @@
+<div class="container-fluid card">
+    <div class="row card__content">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div ng-if="datasetKey.dataset.description.length < 750" ng-bind-html="datasetKey.dataset.description"></div>
+            <div ng-if="datasetKey.dataset.description.length >= 750">
+                {{ datasetKey.dataset.description | stripTags | truncate: 500 }}
+                <a class="m-l-1" href="#description">more</a>
+            </div>
+            <div class="discreet-comment" ng-if="!datasetKey.dataset.description">
+                {$ __('stdTerms.noDescription') $}
+            </div>
+        </div>
+        {#<div class="col-xs-12 col-sm-6 col-md-2">#}
+            {#<div class="pull-right">#}
+                {#<img ng-src="{{ datasetKey.images.results[0]._image.identifier | imgCache:200:150 }}">#}
+            {#</div>#}
+        {#</div>#}
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="logoImg" ng-if="datasetKey.dataset.logoUrl">
+                <img ng-src="{{ datasetKey.dataset.logoUrl | imgCache }}" onError="this.style.display = 'none'">
+            </div>
+            <dl class="inline">
+                {#<div>#}
+                    {#<dt class="text-capitalize">Publisher</dt>#}
+                    {#<dd>#}
+                        {#<a ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">#}
+                            {#{{ datasetKey.publisher.title }}#}
+                        {#</a>#}
+                    {#</dd>#}
+                {#</div>#}
+
+                <div>
+                    <dt class="text-capitalize">Last modified</dt>
+                    <dd>
+                        {{ datasetKey.dataset.modified | amDateFormat:'D MMMM YYYY' }}
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="text-capitalize">License</dt>
+                    <dd>
+                        <license link="{{ datasetKey.dataset.license }}"></license>
+                    </dd>
+                </div>
+                <div>
+                    <a href="#citation" class="doi"><span class="gb-icon-quote"></span><span>How to cite</span></a>
+                    <doi link="{{ datasetKey.dataset.doi }}"></doi>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<section class="horizontal-stripe--paddingless white-background dataset-key__text" ng-if="datasetKey.dataset.purpose">
+    <div>
+        <a href="" id="purpose"></a>
+        <div class="anchor-block--tabs" id="purposeBlock">
+            <h3>Purpose</h3>
+            <div ng-bind-html="datasetKey.dataset.purpose"></div>
+        </div>
+    </div>
+</section>

@@ -118,8 +118,8 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             views: {
                 main: {
                     templateUrl: '/api/template/dataset/key.html?v=' + BUILD_VERSION,
-                    controller: 'datasetKey2Ctrl',
-                    controllerAs: 'datasetKey2'
+                    controller: 'datasetKeyCtrl',
+                    controllerAs: 'datasetKey'
                 }
             }
         })

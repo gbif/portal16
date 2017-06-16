@@ -3,7 +3,7 @@
 var ol = require('openlayers'),
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
-    utils = require('../../../shared/layout/html/utils/utils'),
+    //utils = require('../../../shared/layout/html/utils/utils'),
     projections = require('../mapWidget/projections');
 
 module.exports = {

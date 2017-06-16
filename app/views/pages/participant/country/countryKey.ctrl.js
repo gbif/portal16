@@ -1,14 +1,13 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl(OccurrenceSearch, $location, $rootScope, $http, $stateParams, $state, Country) {
+function countryKeyCtrl($http, $stateParams, $state, Country) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;

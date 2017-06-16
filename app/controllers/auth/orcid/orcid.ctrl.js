@@ -2,10 +2,10 @@
 var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    credentials = rootRequire('config/credentials').auth.orcid,
-    OrcidStrategy = require('passport-orcid').Strategy,
-    User = require('../../api/user/user.model'),
-    auth = require('../auth.service');
+    //credentials = rootRequire('config/credentials').auth.orcid,
+    //User = require('../../api/user/user.model'),
+    //auth = require('../auth.service'),
+    OrcidStrategy = require('passport-orcid').Strategy;
 
 
 module.exports = function (app) {

@@ -213,7 +213,7 @@ function adhocMapDirective(BUILD_VERSION) {
 
         $scope.$watchCollection(function () {
             return vm.filter
-        }, function (newValue) {
+        }, function () {
             map.update({filters: getQuery()});
         });
     }

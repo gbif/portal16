@@ -29,7 +29,7 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
         downloads.then(function (response) {
             vm.loadingDownloads = false;
             vm.downloads = response.data;
-        }, function (err) {
+        }, function () {
             vm.loadingDownloads = false;
             vm.failedToLoadDownloads = true;
         });
@@ -40,7 +40,7 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
         var cancel = $http.get(endpoints.cancelDownload + key);
         cancel.then(function () {
             vm.getDownloads();
-        }, function (err) {
+        }, function () {
             //TODO tell user the download fialed to be cancelled
         });
     };

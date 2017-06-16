@@ -1,15 +1,13 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
     .controller('speciesDatasetsCtrl', speciesDatasetsCtrl);
 
 /** @ngInject */
-function speciesDatasetsCtrl($stateParams) {
-    var vm = this;
+function speciesDatasetsCtrl() {
 }
 
 module.exports = speciesDatasetsCtrl;

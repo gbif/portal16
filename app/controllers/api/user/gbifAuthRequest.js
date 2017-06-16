@@ -6,7 +6,6 @@ const credentials = rootRequire('config/credentials').directory,
     request = require('requestretry'),
     chai = require('chai'),
     expect = chai.expect,
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     crypto = require('crypto'),
     NEWLINE = '\n';
 

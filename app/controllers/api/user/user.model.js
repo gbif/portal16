@@ -5,7 +5,6 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     expect = chai.expect,
     querystring = require('querystring'),
     request = require('requestretry'),
-    log = rootRequire('config/log'),
     _ = require('lodash'),
     authOperations = require('./gbifAuthRequest');
 

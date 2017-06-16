@@ -6,7 +6,6 @@ var express = require('express'),
     taxonomicCoverage = require('./taxonomicCoverage'),
     bibliography = require('./bibliography'),
     _ = require('lodash'),
-    querystring = require('querystring'),
     utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     request = require('requestretry');

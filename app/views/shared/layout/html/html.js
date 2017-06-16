@@ -45,78 +45,10 @@ require('angular-svg-round-progressbar');
         .config(chartjsConfig);
 
     /** @ngInject */
-    function runBlock(amMoment, $translate, $http, LOCALE, moment, $rootScope) { //$log
+    function runBlock(amMoment, $translate, $http, LOCALE) { //$log
         //$log.debug('runBlock end');
         $translate.use(LOCALE);
-
         amMoment.changeLocale(LOCALE);
-        // amMoment.changeLocale('en');
-
-        // window.setTimeout(function () {
-        //     moment.locale('fr', {
-        //         months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
-        //         monthsShort: 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
-        //         monthsParseExact: true,
-        //         weekdays: 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
-        //         weekdaysShort: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-        //         weekdaysMin: 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
-        //         weekdaysParseExact: true,
-        //         longDateFormat: {
-        //             LT: 'HH:mm',
-        //             LTS: 'HH:mm:ss',
-        //             L: 'DD/MM/YYYY',
-        //             LL: 'MMM D YYYY',
-        //             LLL: 'D MMMM YYYY HH:mm',
-        //             LLLL: 'dddd D MMMM YYYY HH:mm'
-        //         },
-        //         calendar: {
-        //             sameDay: '[Aujourd’hui à] LT',
-        //             nextDay: '[Demain à] LT',
-        //             nextWeek: 'dddd [à] LT',
-        //             lastDay: '[Hier à] LT',
-        //             lastWeek: 'dddd [dernier à] LT',
-        //             sameElse: 'L'
-        //         },
-        //         relativeTime: {
-        //             future: 'dans %s',
-        //             past: 'il y a %s',
-        //             s: 'quelques secondes',
-        //             m: 'une minute',
-        //             mm: '%d minutes',
-        //             h: 'une heure',
-        //             hh: '%d heures',
-        //             d: 'un jour',
-        //             dd: '%d jours',
-        //             M: 'un mois',
-        //             MM: '%d mois',
-        //             y: 'un an',
-        //             yy: '%d ans'
-        //         },
-        //         dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
-        //         ordinal: function (number) {
-        //             return number + (number === 1 ? 'er' : 'e');
-        //         },
-        //         meridiemParse: /PD|MD/,
-        //         isPM: function (input) {
-        //             return input.charAt(0) === 'M';
-        //         },
-        //         // In case the meridiem units are not separated around 12, then implement
-        //         // this function (look at locale/id.js for an example).
-        //         // meridiemHour : function (hour, meridiem) {
-        //         //     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
-        //         // },
-        //         meridiem: function (hours, minutes, isLower) {
-        //             return hours < 12 ? 'PD' : 'MD';
-        //         },
-        //         week: {
-        //             dow: 1, // Monday is the first day of the week.
-        //             doy: 4  // The week that contains Jan 4th is the first week of the year.
-        //         }
-        //     });
-        //     amMoment.changeLocale('fr');
-        // }, 2000);
-
-
         $http({
             method: 'GET',
             url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'
@@ -255,7 +187,6 @@ require('../../../pages/dataset/search/table/datasetTable.ctrl');
 require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
-require('../../../pages/dataset/key2/datasetKey.ctrl');
 
 //cms data is gathered under the umbrella term resources
 require('../../../pages/resource/search/resource.ctrl');

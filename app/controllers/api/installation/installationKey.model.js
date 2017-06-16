@@ -2,8 +2,6 @@
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     format = rootRequire('app/helpers/format'),
     _ = require('lodash'),
-    querystring = require('querystring'),
-    utils = rootRequire('app/helpers/utils'),
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     request = require('requestretry');
 
@@ -26,7 +24,7 @@ async function getInstallation(key) {
     let installation = response.body;
     installation._computedValues = {};
     installation._computedValues.contributors = contributors.getContributors(installation.contacts);
-    //clean(installation);
+    clean(installation);
     return installation;
 }
 

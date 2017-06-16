@@ -72,7 +72,7 @@ function update(req, res) {
  */
 function resetPassword(req, res) {
     userModel.resetPassword(req.body.userNameOrEmail)
-        .then(function(resp){
+        .then(function(){
             res.json({message: 'MAIL_CONFIRMATION'});
         })
         .catch(handleError(res, 422));

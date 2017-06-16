@@ -104,27 +104,27 @@ router.get('/species/key.html', function (req, res, next) {
 });
 
 router.get('/dataset/key.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/datasetKey.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/datasetKey.template.nunjucks');
 });
 
 router.get('/dataset/taxonomy.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/taxonomy/datasetTaxonomy.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/taxonomy/datasetTaxonomy.template.nunjucks');
 });
 
 router.get('/dataset/project.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/project/datasetProject.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/project/datasetProject.template.nunjucks');
 });
 
 router.get('/dataset/stats.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/stats/datasetStats.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/stats/datasetStats.template.nunjucks');
 });
 
 router.get('/dataset/activity.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/activity/datasetActivity.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/activity/datasetActivity.template.nunjucks');
 });
 
 router.get('/dataset/constituents.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/dataset/key2/constituents/datasetConstituents.template.nunjucks');
+    helper.renderPage(req, res, next, {}, 'pages/dataset/key/constituents/datasetConstituents.template.nunjucks');
 });
 
 router.get('/site/footer.html', function (req, res, next) {

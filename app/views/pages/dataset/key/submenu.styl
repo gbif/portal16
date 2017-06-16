@@ -1,0 +1,72 @@
+$submenuProgressColor = lighten($blueTintedBlack, 10);
+.submenu-wrapper {
+    overflow hidden
+    .submenu {
+        display none
+    }
+}
+
++isAbove($laptop) {
+    .submenu-wrapper {
+        position relative
+        .submenu {
+            max-height "calc(100vh - %s)" % $navBar_height
+            overflow auto
+            display block
+            width 220px
+            top 0
+            //left "calc(50% - %s - 220px)" % ($contentWidth--narrow / 2)
+            z-index 40
+            padding 2.5rem 0
+            ul {
+                padding 0
+            }
+            a {
+                color inherit
+                &:hover {
+                    text-decoration none
+                }
+            }
+            .nav-parts {
+                margin 0
+            }
+            .part-name > h3 {
+                margin-top 0
+                margin-left 0
+                padding 0 30px 0 20px
+            }
+            .nav-chapters {
+                padding 0px 20px 15px
+                height 100%
+            }
+            .nav-chapter {
+                position relative
+                a {
+                    padding 10px
+                    margin-left -10px
+                    display block
+                    line-height 1rem
+                    border-left 2px solid $greyBackground
+                }
+                &.active {
+                    a {
+                        border-left 2px solid $linkColor
+                    }
+                }
+            }
+            &.submenu--tabs {
+                &.submenu--fixed {
+                    top $navBar_height + 3rem //tab bar height TODO move to var
+                }
+            }
+        }
+        .submenu--bottom {
+            top auto
+            bottom 0
+        }
+        .submenu--fixed {
+            position fixed
+            top $navBar_height
+        }
+    }
+}

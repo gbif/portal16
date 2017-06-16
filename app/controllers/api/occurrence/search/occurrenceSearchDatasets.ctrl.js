@@ -2,10 +2,7 @@
 var express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
-    Q = require('q'),
     request = require('requestretry'),
-    async = require('async'),
-    helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig');
 
 const querystring = require('querystring');
@@ -28,7 +25,6 @@ router.get('/occurrence/datasets', function (req, res) {
     req.query.limit = 0;
     req.query.offset = undefined;
 
-    var endOfRecords = false;
     getDatasets(req.query)
         .then(function(result){
             res.json(result);

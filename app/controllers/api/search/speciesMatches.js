@@ -2,20 +2,8 @@
 
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
-    chai = require('chai'),
-    expect = chai.expect,
     querystring = require('querystring'),
     request = require('requestretry');
-
-async function expand(items){
-    return items;
-    //expect(node).to.be.an('object');
-    //
-    //let identifiers = node.identifiers || [],
-    //    directoryParticipant = _.find(identifiers, {type: 'GBIF_PARTICIPANT'});
-    //node.participantId = _.get(directoryParticipant, 'identifier');
-    //return node;
-}
 
 async function query(query, options){
     options = options || {};

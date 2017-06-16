@@ -1,6 +1,5 @@
 'use strict';
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 require('../../../components/map/adhocMap/adhocMap.directive');
 
@@ -34,7 +33,7 @@ function occurrenceMapCtrl($state, $scope, OccurrenceSearch, OccurrenceFilter) {
 
     $scope.$watchCollection(function () {
         return $state.params
-    }, function (newValue) {
+    }, function () {
         search(vm.occurrenceState.query);
     });
 
