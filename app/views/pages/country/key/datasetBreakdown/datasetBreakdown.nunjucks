@@ -9,7 +9,7 @@
         <div class="country-key__datasets__counts">
             <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}&type=OCCURRENCE"
                class="inherit noUnderline">
-                <strong count="//api.gbif.org/v1/dataset/search?type=OCCURRENCE&publishing_country={$ country.code $}">
+                <strong count="{{ portal.dataApi }}dataset/search?type=OCCURRENCE&publishing_country={$ country.code $}">
                     &nbsp;</strong>
                 <div>
                     Occurrence dataset
@@ -17,7 +17,7 @@
             </a>
             <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}&type=CHECKLIST"
                class="inherit noUnderline">
-                <strong count="//api.gbif.org/v1/dataset/search?type=CHECKLIST&publishing_country={$ country.code $}">
+                <strong count="{{ portal.dataApi }}dataset/search?type=CHECKLIST&publishing_country={$ country.code $}">
                     &nbsp;</strong>
                 <div>
                     Checklists
@@ -25,7 +25,7 @@
             </a>
             <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}&type=METADATA"
                class="inherit noUnderline">
-                <strong count="//api.gbif.org/v1/dataset/search?type=METADATA&publishing_country={$ country.code $}">
+                <strong count="{{ portal.dataApi }}dataset/search?type=METADATA&publishing_country={$ country.code $}">
                     &nbsp;</strong>
                 <div>
                     Meta data only
@@ -33,7 +33,7 @@
             </a>
             <a href="{$ gb.locales.urlPrefix $}/dataset/search?publishing_country={$ country.code $}&type=SAMPLING_EVENT"
                class="inherit noUnderline">
-                <strong count="//api.gbif.org/v1/dataset/search?type=SAMPLING_EVENT&publishing_country={$ country.code $}">
+                <strong count="{{ portal.dataApi }}dataset/search?type=SAMPLING_EVENT&publishing_country={$ country.code $}">
                     &nbsp;</strong>
                 <div>
                     Sampling data

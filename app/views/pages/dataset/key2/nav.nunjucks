@@ -54,7 +54,7 @@
                                     <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey2.key})">Processed occurrences <span class="small text-brand-color">recommended</span></a>
                                 </li>
                                 <li role="menuitem"><a href="{{ datasetKey2.originalArchive.url }}">Published archive</a></li>
-                                <li role="menuitem"><a ng-href="//api.gbif.org/v1/dataset/{{ datasetKey2.key }}/document">GBIF annotated meta data (EML)</a></li>
+                                <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey2.key }}/document">GBIF annotated meta data (EML)</a></li>
                             </ul>
                         </li>
 

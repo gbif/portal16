@@ -2,13 +2,13 @@
     <div>
         <h4 class="m0 inline-block" ng-if="countryActivity.showAbout">
             <span class="h3"
-                  count="//api.gbif.org/v1/occurrence/search?country={$ country.code $}">
+                  count="{{ portal.dataApi }}occurrence/search?country={$ country.code $}">
                 &nbsp;</span>
             <span>occurrence records about {$ __('country.' + country.code) $}</span>
         </h4>
         <h4 class="m0 inline-block ng-cloak" ng-if="!countryActivity.showAbout && countryKey.countPublished">
             <span class="h3"
-                  count="//api.gbif.org/v1/occurrence/search?publishingCountry={$ country.code $}">
+                  count="{{ portal.dataApi }}occurrence/search?publishingCountry={$ country.code $}">
                 &nbsp;</span>
             <span>occurrence records from {$ __('country.' + country.code) $}</span>
         </h4>

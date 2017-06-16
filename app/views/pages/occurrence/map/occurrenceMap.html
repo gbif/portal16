@@ -80,42 +80,6 @@
         <div ng-if="occMap.occurrenceState.query.has_coordinate !== 'false'">
             <div class="occurrence-search-map">
                 <adhoc-map filter="occMap.occurrenceState.query" map-style="{suggested: 'ORANGE_DOTS'}" map-events="occMap.mapEvents"></adhoc-map>
-
-                <div class="search-overlay" ng-if="occMap.mapMenu.show">
-                    <div class="search-overlay__header">
-                        <h4 class="h5">Occurrences in area
-                            <a href="" class="gb-icon-close_L inherit pull-right"
-                               ng-click="occMap.mapMenu.show = false"></a>
-                        </h4>
-                    </div>
-                    <div class="search-overlay__results">
-                        <ng-include src="'/templates/components/loader/loader.html'"
-                                    ng-if="occMap.mapMenu.isLoading"></ng-include>
-                        <ul ng-if="!occMap.mapMenu.isLoading">
-                            <li ng-repeat="occurrence in occMap.mapMenu.occurrences.results"
-                                class="species-list-item seperator">
-
-                                <a ng-href="/occurrence/{{occurrence.key}}" class="discreet">
-                                    <span class="species-list-item__name" ng-if="occurrence.scientificName">{{occurrence.scientificName}}</span>
-                                    <span class="species-list-item__name" ng-if="!occurrence.scientificName"
-                                          style="color: tomato">Unkown species TODO</span>
-                                    <!--<span class="small discreet text-capitalize" translate="taxonRank.{{occurrence.taxonRank}}">{{occurrence.taxonRank}}</span>-->
-                                    <div class="small discreet classification-list">
-                                        <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
-                                              ng-if="occurrence[taxa] && taxa != occurrence.taxonRank.toLowerCase()">
-                                            {{occurrence[taxa]}}
-                                        </span>
-                                    </div>
-                                    <div class="imageGallery__img img-round-thumb"
-                                         ng-if="occurrence.media[0].identifier && occurrence.media[0].type=='StillImage'">
-                                        <img ng-src="//api.gbif-uat.org/v1/image?url={{occurrence.media[0].identifier | encodeURIComponent}}&size=S"
-                                             gallery-image>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

@@ -58,14 +58,5 @@
                 </div>
             </div>
         </div>
-        <div class="node__stats">
-            <a href="{$ gb.locales.urlPrefix $}/occurrence/search?publishing_org={$ publisher.record.key $}" class="inherit noUnderline block">
-                <div class="node__stats__count">
-                            <span count="//api.gbif.org/v1/installation/{$ installation.record.key $}/dataset">
-                                &nbsp;</span>
-                </div>
-                <div>Served datasets</div>
-            </a>
-        </div>
     </div>
 </div>
