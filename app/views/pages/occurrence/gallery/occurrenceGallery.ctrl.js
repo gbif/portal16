@@ -16,7 +16,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
     vm.failedImageCount = 0;
     vm.results = [];
 
-    vm.imageCache = env.imageCache.replace('//', '');
+    vm.imageCache = env.imageCache;
 
     var latestData = {};
 
@@ -72,11 +72,6 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         offset = 0;
         vm.filter(vm.occurrenceState.query);
     });
-
-    vm.getSubDomain = function (index) {
-        var i = index % 5;
-        return '//' + String.fromCharCode(97 + i) + '-';
-    };
 
 }
 

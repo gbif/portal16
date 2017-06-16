@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.use('/api/verification', router);
 };
 
-router.get('/image/:id/:name', function (req, res, next) {
+router.get('/image/:id/:name', function (req, res) {
     verifier.resolveImageName(req.params.id, req.params.name, function(err, location){
         if (!err) {
             auth.setNoCache(res);
@@ -20,7 +20,7 @@ router.get('/image/:id/:name', function (req, res, next) {
     });
 });
 
-router.get('/challenge', function (req, res, next) {
+router.get('/challenge', function (req, res) {
     verifier.getChallenge(function(err, challenge){
         if (!err) {
             auth.setNoCache(res);

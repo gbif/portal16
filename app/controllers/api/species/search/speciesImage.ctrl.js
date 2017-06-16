@@ -2,9 +2,6 @@
 var express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    _ = require('lodash'),
-    chai = require('chai'),
-    expect = chai.expect,
     querystring = require('querystring'),
     request = require('requestretry');
 

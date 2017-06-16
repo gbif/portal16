@@ -60,7 +60,7 @@ function getParticipant(key, locale) {
                     .then(function (result) {
                         resolve(result);
                     })
-                    .catch(function (err) {
+                    .catch(function () {
                         //ignore missing relations
                         resolve({
                             participant: participant,

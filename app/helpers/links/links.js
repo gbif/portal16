@@ -3,7 +3,6 @@
 var _ = require('lodash'),
     url = require('url'),
     doiRegex = require("doi-regex"),
-    Autolinker = require('autolinker'),
     md = require('markdown-it')({
         html: true,
         linkify: true,
@@ -38,20 +37,7 @@ function insertLinks(text, links, target) {
     return res;
 }
 
-function linkify(text, options) {
-    //options = options || {};
-    //var defaults = {
-    //    newWindow: false,
-    //    urls: {
-    //        tldMatches: false,
-    //        schemeMatches: true,
-    //        wwwMatches: true
-    //    },
-    //    phone: false,
-    //    email: true
-    //};
-    //var newOptions = _.merge(defaults, options);
-    //return Autolinker.link(text, newOptions);
+function linkify(text) {
     return md.renderInline(text);
 }
 

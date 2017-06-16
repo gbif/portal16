@@ -1,6 +1,5 @@
 "use strict";
-var express = require('express'),
-    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = require('requestretry');
 

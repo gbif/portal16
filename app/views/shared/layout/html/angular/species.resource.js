@@ -88,7 +88,7 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('SpeciesParsedName', function ($resource, env) {
+        .factory('SpeciesParsedName', function ($resource) {
             return $resource('/api/species/:id/name', null, {
                     'query': {
                         method: 'GET',

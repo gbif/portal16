@@ -1,0 +1,24 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div>
+            <article class="wrapper-horizontal-stripes light-background countryKey">
+                {% include "./header.nunjucks" %}
+                {% include "./nav.nunjucks" %}
+
+                <div>
+                    <div ui-view></div>
+
+                    {#<div ng-if="countryKey.$state.is('country')">#}
+                        {#{% if participant and (participant.participationStatus == 'VOTING' or participant.participationStatus == 'ASSOCIATE') %}#}
+                            {#{% include "./about.nunjucks" %}#}
+                        {#{% else %}#}
+                            {#{% include "./nonParticipant.nunjucks" %}#}
+                        {#{% endif %}#}
+                        {#<div ng-include="'/api/template/country/summary.html'"></div>#}
+                    {#</div>#}
+                </div>
+            </article>
+        </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + BUILD_VERSION"></ng-include>
+    </div>
+</div>

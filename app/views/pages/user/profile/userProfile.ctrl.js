@@ -19,7 +19,7 @@ function userProfileCtrl(User, BUILD_VERSION, LOCALE, regexPatterns, $http, toas
         activeUser.then(function (response) {
             vm.profile = response.data;
             vm.original = JSON.parse(JSON.stringify(vm.profile));
-        }, function (err) {
+        }, function () {
             vm.loadingActiveUserFailed = true;
             //TODO handle errors - log out or inform user that the user cannot be loaded
         });

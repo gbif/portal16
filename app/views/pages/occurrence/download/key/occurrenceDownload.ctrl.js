@@ -66,7 +66,7 @@ function occurrenceDownloadKeyCtrl($timeout, $interval, $scope, $window, env, $l
         var cancel = $http.get(endpoints.cancelDownload + key);
         cancel.then(function () {
             location.reload();
-        }, function (err) {
+        }, function () {
             //TODO tell user the download failed to be cancelled
         });
     };

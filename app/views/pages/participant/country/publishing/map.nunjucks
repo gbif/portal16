@@ -1,0 +1,45 @@
+<section class="container--desktop m-b-1 ng-cloak" ng-if="countryKey.occurrenceFromCount > 0">
+    <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countryKey.countryCode | translate }}</h4>
+
+    <div class="card container-fluid ng-cloak">
+        <div class="row summaryStats">
+            <a ui-sref="occurrenceSearchTable({publishing_country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?publishingCountry={{ countryKey.countryCode }}"></div>
+                    <div class="summaryStats__simple__description">
+                        Published occurrences
+                    </div>
+                </div>
+            </a>
+            <a ui-sref="datasetSearchTable({publishing_country:countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}dataset/search?publishingCountry={{ countryKey.countryCode }}"></div>
+                    <div class="summaryStats__simple__description">
+                        Published datasets
+                    </div>
+                </div>
+            </a>
+            <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count">{{countryKey.countriesCount}}</div>
+                    <div class="summaryStats__simple__description">
+                        countries, territories and islands covered by publications from {{ 'country.' + countryKey.countryCode | translate }}
+                    </div>
+                </div>
+            </a>
+            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryKey.countryCode }}">3692</div>
+                    <div class="summaryStats__simple__description">
+                        Publications from {{ 'country.' + countryKey.countryCode | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="card" ng-if="countryKey.publishingCountryCapabilities.total > 0">
+        <div>
+            <map-widget filter="{publishingCountry:countryKey.countryCode}"></map-widget>
+        </div>
+    </div>
+</section>

@@ -48,45 +48,43 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
     }
 });
 
-router.get('/country/:iso\.:ext?', function (req, res, next) {
+router.get('/country/:iso\.:ext?', function (req, res) {
     res.redirect(302, './' + req.params.iso + '/summary');
 });
 
 router.get('/country/:iso/summary\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/about\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/publishing\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
-router.get('/country/:iso/participant\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+router.get('/country/:iso/participation\.:ext?', function (req, res, next) {
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/trends\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/api/template/country/:iso\.:ext?', function (req, res, next) {
-    // helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
-    // return;
     let isoCode = req.params.iso.toUpperCase();
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     country
         .then(function (context) {
-            helper.renderPage(req, res, next, context, 'pages/participant/country/countryKey');
+            helper.renderPage(req, res, next, context, 'pages/participant/country/participation/about');
         })
         .catch(function (err) {
-            next(err);
+            next();
         });
 });
 
-router.get('/api/country/about/:iso', function (req, res, next) {
+router.get('/api/country/about/:iso', function (req, res) {
     let isoCode = req.params.iso.toUpperCase();
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     country
@@ -130,38 +128,3 @@ async function getCountry(isoCode, current) {
         }
     }
 }
-
-// router.get('/api/template/country/about/:iso\.:ext?', function (req, res, next) {
-//     let isoCode = req.params.iso.toUpperCase();
-//     if (!countryMap[isoCode]) {
-//         next();
-//         return;
-//     }
-//     let participantPromise = Participant.get(isoCode, res.locals.gb.locales.current);
-//     participantPromise
-//         .then(function (participant) {
-//             participant = participantView(participant);
-//             participant._meta = {
-//                 title: 'Country',
-//                 customUiView: true
-//             };
-//             helper.renderPage(req, res, next, participant, 'pages/participant/country/prose');
-//         })
-//         .catch(function (err) {
-//             if (err.statusCode !== 404) {
-//                 next(err);
-//                 return;
-//             } else {
-//                 let nonParticipant = {
-//                     country: {
-//                         countryCode: isoCode
-//                     }
-//                 };
-//                 nonParticipant._meta = {
-//                     title: countryMap[isoCode].name,
-//                     customUiView: true
-//                 };
-//                 helper.renderPage(req, res, next, nonParticipant, 'pages/participant/country/prose');
-//             }
-//         });
-// });

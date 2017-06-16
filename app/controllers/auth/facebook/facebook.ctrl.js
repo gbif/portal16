@@ -2,10 +2,10 @@
 let express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    credentials = rootRequire('config/credentials').auth.facebook,
-    FacebookStrategy = require('passport-facebook').Strategy,
-    User = require('../../api/user/user.model'),
-    auth = require('../auth.service');
+    //credentials = rootRequire('config/credentials').auth.facebook,
+    //User = require('../../api/user/user.model'),
+    //auth = require('../auth.service'),
+    FacebookStrategy = require('passport-facebook').Strategy;
 
 
 module.exports = function (app) {

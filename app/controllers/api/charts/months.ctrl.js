@@ -40,9 +40,3 @@ async function getInterval(start, end, query) {
         return _.find(response.body.facets[0].counts, ['name', e + '']) || 0;
     })
 }
-
-function getLatitudeText(n){
-    if (n < 0) return Math.abs(n) + 'S';
-    if (n > 0) return Math.abs(n) + 'N';
-    return n;
-}

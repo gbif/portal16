@@ -1,7 +1,6 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
+var angular = require('angular');
 
 angular
     .module('portal')
@@ -29,8 +28,8 @@ function scientificNameDirective() {
         vm.parsedName = vm.name;
         SpeciesParsedName.get({id:vm.key}, function(data){
             vm.parsedName = data.n;
-        }, function(err){
-            console.log(err);
+        }, function(){
+            //ignore error and show the plain unformated name
         });
     }
 }

@@ -1,8 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-    utils = require('../../../shared/layout/html/utils/utils'),
-    _ = require('lodash');
+    utils = require('../../../shared/layout/html/utils/utils');
 
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');

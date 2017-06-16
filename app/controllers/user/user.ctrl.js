@@ -1,7 +1,7 @@
 var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     userModel = require('../api/user/user.model'),
-    auth = require('../auth/auth.service');
+    auth = require('../auth/auth.service'),
     router = express.Router();
 
 //TODO All development of user validation has been cancelled as the api interface hasn't been completed and changed specs

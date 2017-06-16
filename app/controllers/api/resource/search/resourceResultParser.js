@@ -241,8 +241,8 @@ function transformFacets(result, __, types) {
     }
 }
 
-function addFilters(results, query, __) {
+function addFilters(results) {
     results.filters = {
-        PURPOSES: [{name: 'test', title: 'hej'}]
+        //PURPOSES: [{name: 'test', title: 'hej'}]
     };
 }

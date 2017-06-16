@@ -1,0 +1,6 @@
+<div class="white-background p-t-05">
+    {#<div class="container--narrow m-b-05 ng-cloak">#}
+        {#{% include "../participantSummary.nunjucks" %}#}
+    {#</div>#}
+    <div ng-include="'/api/template/country/' + countryKey.countryCode"></div>
+</div>

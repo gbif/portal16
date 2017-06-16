@@ -1,5 +1,4 @@
 var express = require('express'),
-    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function (app) {

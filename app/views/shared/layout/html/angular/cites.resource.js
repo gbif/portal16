@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('CitesApi', function ($resource, token) {
+        .factory('CitesApi', function ($resource) {
             return $resource('/api/cites/:kingdom/:name', null, {}
             );
         });

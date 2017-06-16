@@ -78,18 +78,12 @@
 
         <ng-include src="'/templates/components/loader/loader.html'" ng-if="!occSpecies.hasData() && !occSpecies.occurrenceState.failedRequest"></ng-include>
 
-        <div ng-if="occSpecies.occurrenceState.failedRequest">
+        <div ng-if="occSpecies.occurrenceState.failedRequest" class="emptyInfo">
+            <h3>
+                Unable to process request
+            </h3>
             <p>
-                Hmm, we couldn't process your request.
-            </p>
-            <div>
-                {{occSpecies.occurrenceState.error.data.body}}
-                <div>
-                    The query is invalid. Try resetting your filters.
-                </div>
-            </div>
-            <p>
-                If you believe this should have worked, then please report this as an issue. Thank you for your patience.
+                Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues
             </p>
         </div>
         <!--<div class="container-fluid">-->
