@@ -1,4 +1,6 @@
 "use strict";
+let dataApi = rootRequire('app/models/gbifdata/apiConfig').base.url;
+
 //TODO make environment dependent to allow for test annotations?
 var config = {
     publisher: {
@@ -9,7 +11,7 @@ var config = {
             abbrivation: "iN"
         },
         '57254bd0-8256-11d8-b7ed-b8a03c50a862': {
-            url: "https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=http://api.gbif.org/v1/occurrence/annosys/{{key}}",
+            url: "https://annosys.bgbm.fu-berlin.de/AnnoSys/AnnoSys?recordURL=" + dataApi + "occurrence/annosys/{{key}}",
             keys: ['key'],
             name: "AnnoSys",
             abbrivation: "An"

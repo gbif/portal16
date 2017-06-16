@@ -1,5 +1,4 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
-{% import "../../search/searchResults.macro.nunjucks" as helpers %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes country-key page--data" ng-controller="countryKeyCtrl as countryKey"

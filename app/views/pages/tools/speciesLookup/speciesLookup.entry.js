@@ -11,7 +11,7 @@ angular
     .controller('speciesLookupCtrl', speciesLookupCtrl);
 
 /** @ngInject */
-function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys) {
+function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys, suggestEndpoints) {
     var vm = this;
     vm.species = undefined;
     vm.state = {};
@@ -167,7 +167,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     };
 
     vm.getSuggestions = function (val) {
-        return $http.get('//api.gbif.org/v1/species/suggest', {
+        return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
                 datasetKey: constantKeys.backboneKey,

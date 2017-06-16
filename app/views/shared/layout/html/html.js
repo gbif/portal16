@@ -174,7 +174,7 @@ require('angular-svg-round-progressbar');
 
 
 })();
-
+require('./portal.ctrl');
 require('../partials/head/head.ctrl');
 require('../partials/head/page.factory');
 

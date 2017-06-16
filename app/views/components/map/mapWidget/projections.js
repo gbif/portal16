@@ -3,6 +3,7 @@
 var ol = require('openlayers'),
     proj4 = require('proj4'),
     querystring = require('querystring'),
+    env = require('../../../shared/layout/html/angular/env'),
     baseMaps = require('./baseMapConfig');
 
 ol.proj.setProj4(proj4);
@@ -55,11 +56,11 @@ function get4326() {
             return getLayer(baseMaps.EPSG_4326.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         },
         getAdhocLayer: function (params) {
             params.srs = '4326';//only supports this projection
-            return getLayer('http://api.gbif.org/v2/map/occurrence/adhoc/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
@@ -96,7 +97,7 @@ function get3857() {
             return getLayer(baseMaps.EPSG_3857.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
@@ -143,7 +144,7 @@ function get3575() {
             return getLayer(baseMaps.EPSG_3575.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }
@@ -191,7 +192,7 @@ function get3031() {
             return getLayer(baseMaps.EPSG_3031.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer('https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
         }
     };
 }

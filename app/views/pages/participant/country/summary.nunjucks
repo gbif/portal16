@@ -6,7 +6,7 @@
             <div class="row summaryStats">
                 <a ui-sref="occurrenceSearchTable({country: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?country={{ countrySummary.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?country={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Occurrences
                         </div>
@@ -53,7 +53,7 @@
             <div class="row summaryStats">
                 <a ui-sref="occurrenceSearchTable({publishing_country: countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/occurrence/search?publishingCountry={{ countrySummary.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?publishingCountry={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Published occurrences
                         </div>
@@ -61,7 +61,7 @@
                 </a>
                 <a ui-sref="datasetSearchTable({publishing_country:countrySummary.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                     <div>
-                        <div class="summaryStats__simple__count" count="//api.gbif.org/v1/dataset/search?publishingCountry={{ countrySummary.countryCode }}"></div>
+                        <div class="summaryStats__simple__count" count="{{ portal.dataApi }}dataset/search?publishingCountry={{ countrySummary.countryCode }}"></div>
                         <div class="summaryStats__simple__description">
                             Published datasets
                         </div>

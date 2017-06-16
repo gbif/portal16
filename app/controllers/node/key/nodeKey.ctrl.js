@@ -49,18 +49,26 @@ router.get('/node/:key\.:ext?', function (req, res, next) {
 });
 
 router.get('/country/:iso\.:ext?', function (req, res, next) {
-    res.redirect(302, './summary');
+    res.redirect(302, './' + req.params.iso + '/summary');
 });
 
 router.get('/country/:iso/summary\.:ext?', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
 });
 
-router.get('/country/:iso/trends\.:ext?', function (req, res, next) {
+router.get('/country/:iso/about\.:ext?', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
 });
 
-router.get('/country/:iso/activity\.:ext?', function (req, res, next) {
+router.get('/country/:iso/publishing\.:ext?', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+});
+
+router.get('/country/:iso/participant\.:ext?', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+});
+
+router.get('/country/:iso/trends\.:ext?', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
 });
 
