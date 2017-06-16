@@ -26,7 +26,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     vm.estKbDwcA = 0.165617009; //based on 111GB for 702777671 occurrences in “DWCA"
     vm.estKbCsv = 0.065414979; //based on 44GB for 705302432 occurrences in CSV
 
-    vm.adhocTileApi = env.dataApiV2;//.replace('//', ''); //TODO this becomes an issue everywhere we use subdomains. If not http2 then this should be done differently
+    vm.adhocTileApi = env.dataApiV2;
 
     var toCamelCase = function (str) {
         return str.replace(/_([a-z])/g, function (g) {

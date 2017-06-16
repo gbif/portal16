@@ -96,14 +96,15 @@
                         </div>
                         <div class="download-report__summary" ng-show="occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                             <div class="card">
-                                <div class="download-report__map">
-                                    <div ng-if="occDownload.loadingThumbnail">
-                                        <div class="loading"></div>
-                                    </div>
+                                <!-- maps need a thumbnail service. That should come soon in agreement with Tim R and Matt B - 16/06/2017. When that comes it makes sense to add this again, but using the thumbnail service.-->
+                                <!--<div class="download-report__map">-->
+                                    <!--<div ng-if="occDownload.loadingThumbnail">-->
+                                        <!--<div class="loading"></div>-->
+                                    <!--</div>-->
 
-                                    <img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()"
-                                         ng-class="{invisible:occDownload.loadingThumbnail}"/>
-                                </div>
+                                    <!--<img ng-src="{{occDownload.thumbnail}}" gb-load="occDownload.onThumbLoad()"-->
+                                         <!--ng-class="{invisible:occDownload.loadingThumbnail}"/>-->
+                                <!--</div>-->
                                 <div class="card__content">
                                     <dl class="inline">
                                         <div>
