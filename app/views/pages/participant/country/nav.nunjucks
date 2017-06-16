@@ -1,16 +1,16 @@
 <div class="white-background">
     <div class="container--desktop">
-        <div class="tabs">
+        <div class="tabs" ng-class="{'tabs--noBorder': !countryKey.$state.is('countryParticipation')}">
             <ul class="anchorTabs">
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countrySummary')}">
-                    <a ui-sref="countrySummarye()">Summary</a>
+                    <a ui-sref="countrySummary()">Summary</a>
                 </li>
-                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">
-                    <a ui-sref="countryAbout()">Data about</a>
-                </li>
-                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">
-                    <a ui-sref="countryPublishing()">Data publishing</a>
-                </li>
+                {#<li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">#}
+                    {#<a ui-sref="countryAbout()">Data about</a>#}
+                {#</li>#}
+                {#<li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">#}
+                    {#<a ui-sref="countryPublishing()">Data publishing</a>#}
+                {#</li>#}
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}">
                     <a ui-sref="countryParticipation()">Participation</a>
                 </li>

@@ -1,7 +1,8 @@
 (function () {
     'use strict';
     var angular = require('angular'),
-        Humanize = require('humanize-plus');
+        Humanize = require('humanize-plus'),
+        _ = require('lodash');
 
     angular
         .module('portal')
@@ -33,6 +34,15 @@
         .filter('underscoreToHyphen', function () {
             return function (text) {
                 return text.replace(/_/g, '-');
+            }
+        })
+        .filter('flag', function (BUILD_VERSION) {
+            return function (countryCode) {
+                if (countryCode) {
+                    return '/img/flags/' + _.toUpper(countryCode) + ".png?v=" + BUILD_VERSION;
+                } else {
+                    return '';
+                }
             }
         })
         .filter('isPast', function (moment) {

@@ -323,7 +323,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             url: '/country/:key',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/participant/country/country.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/country.html?v=' + BUILD_VERSION,
                     controller: 'countryKeyCtrl',
                     controllerAs: 'countryKey'
                 }
@@ -339,23 +339,23 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         .state('countryAbout', {
             parent: 'country',
             url: '/about',
-            templateUrl: '/templates/pages/participant/country/about.html?v=' + BUILD_VERSION,
-            controller: 'countryActivityCtrl',
-            controllerAs: 'countryActivity'
+            templateUrl: '/api/template/country/about.html?v=' + BUILD_VERSION,
+            controller: 'countryAboutCtrl',
+            controllerAs: 'countryAbout'
         })
         .state('countryPublishing', {
             parent: 'country',
             url: '/publishing',
-            templateUrl: '/templates/pages/participant/country/publishing.html?v=' + BUILD_VERSION,
-            controller: 'countryActivityCtrl',
-            controllerAs: 'countryActivity'
+            templateUrl: '/api/template/country/publishing.html?v=' + BUILD_VERSION,
+            controller: 'countryPublishingCtrl',
+            controllerAs: 'countryPublishing'
         })
         .state('countryParticipation', {
             parent: 'country',
             url: '/participation',
-            templateUrl: '/templates/pages/participant/country/participation.html?v=' + BUILD_VERSION,
-            controller: 'countryActivityCtrl',
-            controllerAs: 'countryActivity'
+            templateUrl: '/api/template/country/participation.html?v=' + BUILD_VERSION,
+            controller: 'countryParticipationCtrl',
+            controllerAs: 'countryParticipation'
         })
         .state('countryTrends', {
            parent: 'country',

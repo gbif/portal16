@@ -1,6 +1,13 @@
+{% set main = prose.main %}
+{% set resolved = prose.resolved %}
+
 {% if main %}
-    {% include "../../resource/key/primaryImage.nunjucks" %}
+    {% include "../../../resource/key/primaryImage.nunjucks" %}
 {% endif %}
+
+<div class="container--narrow m-b-1 m-t-1 ng-cloak">
+    {% include "../participantSummary.nunjucks" %}
+</div>
 
 <div class="horizontal-stripe white-background">
     <div class="container--narrow">
@@ -167,7 +174,7 @@
                 </div>
             </div>
 
-            {% include "../../resource/key/documentsLinks.nunjucks" %}
+            {% include "../../../resource/key/documentsLinks.nunjucks" %}
 
             {# Do we really need this. For many it is the same website for participant, node and in contentful. Kust slightly different. w/o .html or v1 vs v2 s#}
             {#{% if node.nodeUrl | isNotEmpty or participant.participantUrl | isNotEmpty %}#}
@@ -201,9 +208,9 @@
                 {#</section>#}
             {#{% endif %}#}
         </div>
-        {% include "../../resource/key/auxiliary.nunjucks" %}
+        {% include "../../../resource/key/auxiliary.nunjucks" %}
     </div>
 </div>
 
-{% include "../contacts.nunjucks" %}
+{% include "../../contacts.nunjucks" %}
 

@@ -1,0 +1,46 @@
+<section class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+    <h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countryKey.countryCode | translate }}</h4>
+
+    <div class="card container-fluid ng-cloak">
+        <div class="row summaryStats">
+            <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count" count="{{ portal.dataApi }}occurrence/search?country={{ countryKey.countryCode }}"></div>
+                    <div class="summaryStats__simple__description">
+                        Occurrences
+                    </div>
+                </div>
+            </a>
+            <a ui-sref="occurrenceSearchDatasets({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count">{{countryKey.datasetCount}}</div>
+                    <div class="summaryStats__simple__description">
+                        Datasets
+                    </div>
+                </div>
+            </a>
+            <a class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count">{{countryKey.publishingCountriesCount}}</div>
+                    <div class="summaryStats__simple__description">
+                        countries contribute data
+                    </div>
+                </div>
+            </a>
+            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+                <div>
+                    <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfCoverage={{ countryKey.countryCode }}">3692</div>
+                    <div class="summaryStats__simple__description">
+                        Publications about {{ 'country.' + countryKey.countryCode | translate }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="card" ng-if="countryKey.countryCapabilities.total > 0">
+        <div>
+            <map-widget filter="{country:countryKey.countryCode}"></map-widget>
+        </div>
+    </div>
+</section>

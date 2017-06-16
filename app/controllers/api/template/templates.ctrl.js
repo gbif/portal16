@@ -82,20 +82,24 @@ router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });
 
+router.get('/country.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/country.template.nunjucks');
+});
+
 router.get('/country/summary.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/summary');
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/summary/summary.template.nunjucks');
 });
 
 router.get('/country/about.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/about');
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/about/about.template.nunjucks');
 });
 
 router.get('/country/publishing.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/publishing');
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/publishing/publishing.template.nunjucks');
 });
 
-router.get('/country/participant.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/participant');
+router.get('/country/participation.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/participation/participation.template.nunjucks');
 });
 
 

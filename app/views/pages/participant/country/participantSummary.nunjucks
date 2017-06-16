@@ -1,0 +1,48 @@
+<section class="card card--spaced">
+    <div class="row card__content">
+        <div class="col-xs-12 col-md-6">
+            <div>
+                <dl class="inline">
+                    <div>
+                        <dt>Member status</dt>
+                        <dd class="text-capitalize">{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
+                    </div>
+                    <div>
+                        <dt>GBIF participant since</dt>
+                        <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
+                    </div>
+                    <div>
+                        <dt>GBIF region</dt>
+                        <dd class="text-capitalize">{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
+                    </div>
+                    <div>
+                        <dt>Head of delegation</dt>
+                        <dd><a href="#contact{{countryKey.country.headOfDelegation.personId}}">{{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].surname }}</a></dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div>
+                <dl class="inline">
+                    <div>
+                        <dt>Node name</dt>
+                        <dd><a ng-href="#nodeAddress">{{ countryKey.country.node.name }}</a></dd>
+                    </div>
+                    <div>
+                        <dt>Node established</dt>
+                        <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | amDateFormat:'YYYY' }}</dd>
+                    </div>
+                    <div>
+                        <dt>Website</dt>
+                        <dd><a ng-href="{{ countryKey.country.node.nodeUrl }}">{{ countryKey.country.node.nodeUrl }}</a></dd>
+                    </div>
+                    <div>
+                        <dt>Participant node manager</dt>
+                        <dd><a ng-href="#contact{{countryKey.country.nodeManager.personId}}">{{ countryKey.country.contacts[countryKey.country.nodeManager.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.nodeManager.personId].surname }}</a></dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>

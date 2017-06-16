@@ -53,23 +53,23 @@ router.get('/country/:iso\.:ext?', function (req, res) {
 });
 
 router.get('/country/:iso/summary\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/about\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/publishing\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
-router.get('/country/:iso/participant\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+router.get('/country/:iso/participation\.:ext?', function (req, res, next) {
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/country/:iso/trends\.:ext?', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/participant/country/country');
+    helper.renderPage(req, res, next, {_meta: {title: req.__('country.' + req.params.iso)}}, 'pages/participant/country/country');
 });
 
 router.get('/api/template/country/:iso\.:ext?', function (req, res, next) {
@@ -77,10 +77,10 @@ router.get('/api/template/country/:iso\.:ext?', function (req, res, next) {
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     country
         .then(function (context) {
-            helper.renderPage(req, res, next, context, 'pages/participant/country/countryKey');
+            helper.renderPage(req, res, next, context, 'pages/participant/country/participation/about');
         })
         .catch(function (err) {
-            next(err);
+            next();
         });
 });
 

@@ -10,7 +10,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <div class="pull-right">
-                <img class="searchCard__img--noCrop" src="/img/flags/{{ result.countryCode }}.png">
+                <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}">
             </div>
             <p ng-if="result.participant">
                 Member since: {{ result.participant.membershipStart }}

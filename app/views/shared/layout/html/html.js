@@ -201,14 +201,6 @@ require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
 require('../../../pages/participant/country/countryKey.ctrl');
-require('../../../pages/participant/country/countrySummary.ctrl');
-//require('../../../pages/participant/country/countryAbout.ctrl');
-//require('../../../pages/participant/country/countryPublishing.ctrl');
-//require('../../../pages/participant/country/countryParticipation.ctrl');
-require('../../../pages/participant/country/countryTrends.ctrl');
-
-// require('../../../pages/country/key/activity/countryActivity.ctrl');
-// require('../../../pages/country/key/participant/countryParticipant.ctrl');
 
 require('../../../pages/resource/key/programme/programme.ctrl');
 require('../../../pages/resource/key/project/project.ctrl');
