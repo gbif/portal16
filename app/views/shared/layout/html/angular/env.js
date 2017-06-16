@@ -6,7 +6,7 @@ var env = {
     cmsProxy: '/api/cmsproxy/',
     analyticsImg: 'www.gbif.org/sites/default/files/gbif_analytics/', //e.g. //cms.gbif-dev.org/sites/default/files/gbif_analytics/
     imageCache: '//api.gbif.org/v1/image/unsafe/',
-    mapCapabilities: '//api.gbif-dev.org/v2/map/occurrence/density/capabilities.json'
+    mapCapabilities: '//api.gbif.org/v2/map/occurrence/density/capabilities.json'
 };
 
 module.exports = env;
