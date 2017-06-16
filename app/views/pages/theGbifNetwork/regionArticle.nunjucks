@@ -1,24 +1,29 @@
  <div>
-        <article class="wrapper-horizontal-stripes">
-            <div class="horizontal-stripe article-header white-background">
-                <header class="text-center">
-                    <nav class="article-header__category article-header__category--deep">
-                        <span class="article-header__category__upper">{$
-                                __('cms.contentType.about_region') $}</span>
-                        <span class="article-header__category__lower">{$ (main.sys.updatedAt) | formatDate(gb.locales.current) $}</span>
-                    </nav>
-                    <h1>{$ main.fields.title $}</h1>
-                    <div class="article-header__intro">
-                        {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
-                    </div>
+        {#<article class="wrapper-horizontal-stripes">#}
+            {#<div class="horizontal-stripe article-header white-background">#}
+                {#<header class="text-center">#}
+                    {#<nav class="article-header__category article-header__category--deep">#}
+                        {#<span class="article-header__category__upper">{$#}
+                                {#__('cms.contentType.about_region') $}</span>#}
+                        {#<span class="article-header__category__lower">{$ (main.sys.updatedAt) | formatDate(gb.locales.current) $}</span>#}
+                    {#</nav>#}
+                    {#<h1>{$ main.fields.title $}</h1>#}
+                    {#<div class="article-header__intro">#}
+                        {#{$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}#}
+                    {#</div>#}
 
-                </header>
-            </div>
+                {#</header>#}
+            {#</div>#}
 
-            {% include "../resource/key/primaryImage.nunjucks" %}
+            {#{% include "../resource/key/primaryImage.nunjucks" %}#}
+
+
 
             <div class="horizontal-stripe white-background">
-                <div class="container--narrow">
+                <div class="container--normal">
+                    <div class="body-text--markdown">
+                        <h2>{$ main.fields.title $}</h2>
+                    </div>
                     {% include "../resource/key/body.nunjucks" %}
 
                     <div class="article-secondary">
@@ -28,5 +33,5 @@
                 </div>
             </div>
 
-        </article>
+        {#</article>#}
     </div>
