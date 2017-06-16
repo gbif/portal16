@@ -144,7 +144,7 @@ theGbifNetwork.getCountries = (iso2) => {
         failHard: true
     };
 
-    var promises = [helper.getApiDataPromise(requestUrl, options), theGbifNetwork.getCountryFacets];
+    var promises = [helper.getApiDataPromise(requestUrl, options), theGbifNetwork.getCountryFacets()];
 
     Q.all(promises)
         .then((result) => {

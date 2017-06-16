@@ -268,8 +268,6 @@ require('../../../pages/about/programme/programme.ctrl');
 require('../../../pages/about/project/project.ctrl');
 require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
-require('../../../pages/theGbifNetwork/theGbifNetworkMap.directive');
-require('../../../pages/theGbifNetwork/literatureBarChartYearly.directive');
 
 require('../../../pages/participant/country/countryKey.ctrl');
 require('../../../pages/participant/country/countrySummary.ctrl');
