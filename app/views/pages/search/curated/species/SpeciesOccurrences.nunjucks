@@ -1,5 +1,0 @@
-{% if  results.taxaMatches %}
-    {% include "./speciesMatch.nunjucks" %}
-    {% elif results.rawTaxaMatches %}
-
-{% endif %}

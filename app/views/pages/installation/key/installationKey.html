@@ -1,70 +1,63 @@
 <div class="site-content">
     <div class="site-content__page">
         <div class="publisherKey light-background">
-            <div class="wrapper-horizontal-stripes">
+            <div class="wrapper-horizontal-stripes" ng-if="installationKey.installation.$resolved">
 
                 <div class="horizontal-stripe article-header white-background p-b-1 seperator--b">
                     <div class="container">
                         <div class="row">
                             <header class="col-xs-12">
-                                <nav class="article-header__category article-header__category--deep">
-                                    <span class="article-header__category__upper"
-                                          translate="stdTerms.installation"></span>
-                                    <span class="article-header__category__lower">
-                        Registered {{ installationKey.installation.created | amDateFormat:'D MMMM YYYY' }}
-                    </span>
+                                <nav class="article-header__category">
+                                    <span class="article-header__category__upper" translate="stdTerms.installation"></span>
                                 </nav>
                                 <h1>
                                     {{ installationKey.installation.title }}
                                 </h1>
                             </header>
                         </div>
-
-
                     </div>
                 </div>
-                <section class="horizontal-stripe--paddingless m-t-1" >
+                <section class="horizontal-stripe--paddingless m-t-1">
                     <div class="container--narrow">
                         <div class="card card--spaced m-b-1">
-
-
-                                    <div class="card__content">
-                                    <div ng-bind-html="installationKey.installation.description"></div>
-                                        <dl class="inline m-t-05">
-                                            <div ng-if="installationKey.installation.type">
-                                                <dt class="text-capitalize">Installation type</dt>
-                                                <dd translate="installation.type.{{installationKey.installation.type}}">
-                                                </dd>
-                                            </div>
-                                            <div ng-if="installationKey.publisher.$resolved">
-                                                <dt class="text-capitalize">Hosted by</dt>
-                                                <dd ><a ui-sref="publisherKey({ key: installationKey.publisher.key})">{{installationKey.publisher.title}}</a>
-                                                </dd>
-                                            </div>
-                                            <div ng-if="installationKey.installation.endpoints.length > 0">
-                                                <dt class="text-capitalize">Endpoints</dt>
-                                                <dd>
-                                                    <ul class="inline-bullet-list">
-                                                        <li ng-repeat="endpoint in installationKey.installation.endpoints">
-                                                            <a ng-href="{{endpoint.url}}">{{endpoint.url}}</a>
-                                                        </li>
-                                                    </ul>
-                                                </dd>
-                                            </div>
-                                        </dl>
+                            <div class="card__content">
+                                <div ng-bind-html="installationKey.installation.description"></div>
+                                <dl class="inline m-t-05">
+                                    <div ng-if="installationKey.installation.type">
+                                        <dt class="text-capitalize">Installation type</dt>
+                                        <dd translate="installation.type.{{installationKey.installation.type}}">
+                                        </dd>
                                     </div>
-
-
-
+                                    <div ng-if="installationKey.publisher.$resolved">
+                                        <dt class="text-capitalize">Hosted by</dt>
+                                        <dd><a ui-sref="publisherKey({ key: installationKey.publisher.key})">{{installationKey.publisher.title}}</a>
+                                        </dd>
+                                    </div>
+                                    <div ng-if="installationKey.installation.created">
+                                        <dt class="text-capitalize">Created</dt>
+                                        <dd>{{ installationKey.installation.created | amDateFormat:'D MMMM YYYY' }}</dd>
+                                    </div>
+                                    <div ng-if="installationKey.installation.endpoints.length > 0">
+                                        <dt class="text-capitalize">Endpoints</dt>
+                                        <dd>
+                                            <ul class="inline-bullet-list">
+                                                <li ng-repeat="endpoint in installationKey.installation.endpoints">
+                                                    <a ng-href="{{endpoint.url}}">{{endpoint.url}}</a>
+                                                </li>
+                                            </ul>
+                                        </dd>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
                         <div class="m-b-1">
-                            <h4 class="small discreet text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: installationKey.installation._computedValues.contributors.all.length + 1}">Contacts</h4>
+                            <h4 class="small discreet text-uppercase" translate="stdTerms.contacts"
+                                translate-values="{ NUMBER: installationKey.installation._computedValues.contributors.all.length + 1}">
+                                Contacts</h4>
 
                             <div class="contactsCard card card--spaced">
-
                                 <contact contact-info="contact" ng-repeat="contact in installationKey.installation._computedValues.contributors.all"></contact>
                             </div>
-
 
                         </div>
                         <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
@@ -100,8 +93,6 @@
 
                     </div>
                 </section>
-
-
 
 
             </div>

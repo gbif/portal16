@@ -189,7 +189,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pa
     };
 
     vm.getSuggestions = function (val) {
-        return $http.get('//api.gbif.org/v1/dataset/suggest', {
+        return $http.get(suggestEndpoints.dataset, {
             params: {
                 q: val,
                 limit: 10

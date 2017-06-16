@@ -121,14 +121,14 @@
             <div class="node__stats">
                 <a href="#endorsedPublishers" class="inherit noUnderline block">
                     <div class="node__stats__count">
-                                <span count="//api.gbif.org/v1/node/{$ node.record.key $}/organization">
+                                <span count="{{ portal.dataApi }}node/{$ node.record.key $}/organization">
                                     &nbsp;</span>
                     </div>
                     <div>Endorsed publishers</div>
                 </a>
                 <a href="#datasets" class="inherit noUnderline block">
                     <div class="node__stats__count">
-                                <span count="//api.gbif.org/v1/node/{$ node.record.key $}/dataset">
+                                <span count="{{ portal.dataApi }}node/{$ node.record.key $}/dataset">
                                     &nbsp;</span>
                     </div>
                     <div>Datasets</div>
