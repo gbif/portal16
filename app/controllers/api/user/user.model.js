@@ -6,7 +6,7 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = require('requestretry'),
     _ = require('lodash'),
-    authOperations = require('./gbifAuthRequest');
+    authOperations = require('../../auth/gbifAuthRequest');
 
 module.exports = {
     create: create,

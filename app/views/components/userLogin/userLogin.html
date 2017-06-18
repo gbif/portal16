@@ -33,14 +33,14 @@
         </div>
     </div>
 
-    <form class="userLogin__form" name="vm.loginUserForm" ng-if="vm.loginState" ng-submit="vm.submitLogin()">
-        <div class="userLogin__form__group">
+    <form class="userLogin__form gb-form" name="vm.loginUserForm" ng-if="vm.loginState" ng-submit="vm.submitLogin()">
+        <div class="gb-form__group">
             <label>
                 <span>Username or email</span>
                 <input type="text" name="username" required ng-model="vm.username" focus-me="true">
             </label>
         </div>
-        <div class="userLogin__form__group">
+        <div class="gb-form__group">
             <label>
                 <span>Password</span>
                 <input type="password" name="password" required ng-model="vm.password">
@@ -60,13 +60,13 @@
         </p>
     </form>
 
-    <form name="vm.createUserForm" class="userLogin__form" ng-if="vm.createState">
+    <form name="vm.createUserForm" class="gb-form" ng-if="vm.createState">
         <div ng-if="vm.disableRegistration" class="m-t-05">
             Please use <a href="http://www.gbif.org/user/login">GBIF.org</a> for user creation for now. Your account should be synced within a day. Thank you.
         </div>
 
         <div ng-if="!vm.disableRegistration && !vm.verification">
-            <div class="userLogin__form__group">
+            <div class="gb-form__group">
                 <label>
                     <span>Country</span>
                     <input type="text"
@@ -87,7 +87,7 @@
                     <div ng-message="required">Country required</div>
                 </div>
             </div>
-            <div class="userLogin__form__group">
+            <div class="gb-form__group">
                 <label>
                     <span>Email</span>
                     <input type="text" ng-pattern="vm.emailPattern" name="email" required ng-model="vm.email">
@@ -97,7 +97,7 @@
                     <div ng-message="pattern">Please enter a valid email</div>
                 </div>
             </div>
-            <div class="userLogin__form__group">
+            <div class="gb-form__group">
                 <label>
                     <span>Username</span>
                     <input type="text" name="username" ng-pattern="vm.userNamePattern" required ng-model="vm.username">
@@ -107,7 +107,7 @@
                     <div ng-message="pattern">A valid username is 3-64 characters and only containts letters a-z, A-Z and ._-</div>
                 </div>
             </div>
-            <div class="userLogin__form__group">
+            <div class="gb-form__group">
                 <label>
                     <span>Password</span>
                     <input type="password" name="password" ng-minlength="6" ng-maxlength="256" required ng-model="vm.password">
@@ -160,7 +160,7 @@
         
     </form>
 
-    <form class="userLogin__form" name="vm.resetPasswordForm" ng-if="vm.resetState" ng-submit="vm.resetPassword()" autocomplete="off">
+    <form class="gb-form" name="vm.resetPasswordForm" ng-if="vm.resetState" ng-submit="vm.resetPassword()" autocomplete="off">
         <div ng-if="vm.disableRegistration">
             <p>
                 Please use <a href="http://www.gbif.org/user/password">GBIF.org</a> to reset your password. Your account should be synced within a day. Thank you.
@@ -171,7 +171,7 @@
         </div>
 
         <div ng-if="!vm.disableRegistration">
-            <div class="userLogin__form__group">
+            <div class="gb-form__group">
                 <label>
                     <span>Email</span>
                     <input type="text" name="email" required ng-model="vm.userNameOrEmail" focus-me="true">

@@ -15,11 +15,11 @@
             </div>
 
             <div class="m-b-5">
-                <form class="userLogin__form" name="userProfile.profileForm" ng-submit="userProfile.updateProfile()">
+                <form class="gb-form" name="userProfile.profileForm" ng-submit="userProfile.updateProfile()">
                     <fieldset ng-disabled="!userProfile.inEditMode">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>First name</span>
                                         <input type="text" name="firstName" ng-model="userProfile.profile.firstName">
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>Last name</span>
                                         <input type="text" name="lastName" ng-model="userProfile.profile.lastName">
@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>Email</span>
                                         <input type="text" ng-pattern="userProfile.emailPattern" name="email" required ng-model="userProfile.profile.email">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>Country</span>
                                         <input type="text"
@@ -91,11 +91,11 @@
 
 
             <div ng-if="userProfile.inEditMode">
-                <form class="userLogin__form" name="userProfile.passwordForm" ng-submit="userProfile.changePassword()">
+                <form class="gb-form" name="userProfile.passwordForm" ng-submit="userProfile.changePassword()">
                     <fieldset>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>New password</span>
                                         <input type="password" required name="newPassword" ng-minlength="6" ng-maxlength="256" ng-model="userProfile.newPassword">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>Repeat new password</span>
                                         <input type="password" required name="repeatedPassword" ng-pattern="userProfile.repeatPattern(userProfile.newPassword)" ng-model="userProfile.repeatedPassword">
@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-6">
-                                <div class="userLogin__form__group">
+                                <div class="gb-form__group">
                                     <label>
                                         <span>Current password</span>
                                         <input type="password" required name="oldPassword" required ng-model="userProfile.oldPassword">
