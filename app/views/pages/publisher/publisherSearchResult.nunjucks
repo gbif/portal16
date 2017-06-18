@@ -17,6 +17,9 @@
             <div class="searchCard__meta" ng-if="result.created">
                 Joined <span am-time-ago="result.created"></span>
             </div>
+            <div ng-if="result._contact.email[0]" class="small">
+                Contact: <a href="mailto:{{ result._contact.email[0] }}">{{ result._contact.firstName }} {{ result._contact.lastName }}</a>
+            </div>
             <p>
                 {{result.description | truncate:200 }}
             </p>
