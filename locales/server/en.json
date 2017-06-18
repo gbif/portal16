@@ -1496,6 +1496,14 @@
     "FORMER": "former",
     "undefined": "unknown",
     "longForm": {
+      "VOTING":  "Voting participant",
+      "ASSOCIATE": "Associate participant",
+      "OBSERVER": "Observing participant",
+      "AFFILIATE": "Affiliate participant",
+      "FORMER": "Former participant",
+      "undefined": "Unknown"
+    },
+    "description": {
       "VOTING":  "A GBIF Voting participant from {REGION}",
       "ASSOCIATE": "An associate participant from {REGION}",
       "OBSERVER": "An observing participant from {REGION}",
