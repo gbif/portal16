@@ -1,0 +1,53 @@
+<div ng-if="eoi.state.hasTechContact">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Technical contact</span>
+                <span class="md-subhead">Please provide the technical contact which will be the personnel for technical or data issues.</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>First name</label>
+                        <input required name="techContactFirstName" ng-model="eoi.form.technicalContact.firstName">
+                        <div ng-messages="eoi.publisherForm.techContactFirstName.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Last name</label>
+                        <input required type="text" name="techContactLastName" ng-model="eoi.form.technicalContact.lastName">
+                        <div ng-messages="eoi.publisherForm.techContactLastName.$error">
+                            <div ng-message="required">This is required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Email</label>
+                        <input type="email" name="techContactEmail" ng-model="eoi.form.technicalContact.email">
+                        <div ng-messages="eoi.publisherForm.techContactEmail.$error">
+                            <div ng-message="email">Please provide a valid email</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Phone</label>
+                        <input name="techContactPhone" ng-model="eoi.form.technicalContact.phone">
+                        <div class="hint discreet--very small">Remember to prefix with country code</div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>User id</label>
+                        <input name="techContactUserId" ng-model="eoi.form.technicalContact.userId">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

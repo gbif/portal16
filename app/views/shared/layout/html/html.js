@@ -21,6 +21,8 @@ require('ngstorage');
 require('angular-cookies');
 require('angular-messages');
 require('angular-toastr');
+require('angular-animate');
+require('angular-material');
 
 require('chartjs');
 require('angular-chart.js');
@@ -33,7 +35,7 @@ require('angular-svg-round-progressbar');
 (function () {
     'use strict';
     angular
-        .module('portal', ['chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
+        .module('portal', ['ngMaterial', 'ngAnimate', 'chart.js', 'ngMessages', 'ngCookies', 'ngStorage', 'ngAria', 'ui.router', 'pascalprecht.translate', 'leaflet-directive', 'angularMoment', 'cfp.hotkeys', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'gb-click-outside', 'duScroll', 'ngSanitize', 'checklist-model', 'ya.nouislider', 'angular-chartist', 'angular-svg-round-progressbar', 'toastr']);
 })();
 
 (function () {
@@ -185,6 +187,7 @@ require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');
 
 require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
+require('../../../pages/custom/becomePublisher/becomePublisher.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
 

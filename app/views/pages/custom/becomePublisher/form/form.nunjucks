@@ -1,0 +1,28 @@
+<div class="horizontal-stripe light-background seperator ng-cloak">
+    <div class="container--narrow">
+
+        {% include "./preform/existingOrganization.nunjucks" %}
+
+        <div ng-if="eoi.state.notExisting">
+            {% include "./preform/terms.nunjucks" %}
+            <form name="eoi.publisherForm"
+                  ng-submit="eoi.publisherForm.$valid && eoi.createOrganization()"
+                  ng-if="eoi.terms.agreement && eoi.terms.authorized && eoi.terms.public">
+                {% include "./organization.nunjucks" %}
+
+                {% include "./endorsement.nunjucks" %}
+
+                {% include "./contacts.nunjucks" %}
+
+                {% include "./administrativeContact.nunjucks" %}
+
+                {% include "./technicalContact.nunjucks" %}
+
+                {% include "./hosting.nunjucks" %}
+
+                {% include "./save.nunjucks" %}
+            </form>
+        </div>
+
+    </div>
+</div>

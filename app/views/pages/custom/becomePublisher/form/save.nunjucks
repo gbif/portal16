@@ -1,0 +1,4 @@
+<div layout="row" layout-align="end" flex>
+    <md-button type="submit" class="md-raised md-primary" ng-click="eoi.submitAttempted = true">Register organization</md-button>
+    {#<md-button ng-click="eoi.createOrganization()" class="md-raised md-primary">TEST</md-button>#}
+</div>

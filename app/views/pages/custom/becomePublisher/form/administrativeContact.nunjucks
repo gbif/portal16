@@ -1,0 +1,53 @@
+<div ng-if="eoi.state.hasAdminContact">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Administrative contact</span>
+                <span class="md-subhead">Please provide the administrative contact which will be the personnel for general affairs.</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>First name</label>
+                        <input required name="adminContactFirstName" ng-model="eoi.form.administrativeContact.firstName">
+                        <div ng-messages="eoi.publisherForm.adminContactFirstName.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Last name</label>
+                        <input required type="text" name="adminContactLastName" ng-model="eoi.form.administrativeContact.lastName">
+                        <div ng-messages="eoi.publisherForm.adminContactLastName.$error">
+                            <div ng-message="required">This is required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>Email</label>
+                        <input type="email" name="adminContactEmail" ng-model="eoi.form.administrativeContact.email">
+                        <div ng-messages="eoi.publisherForm.adminContactEmail.$error">
+                            <div ng-message="email">Please provide a valid email</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>Phone</label>
+                        <input name="adminContactPhone" ng-model="eoi.form.administrativeContact.phone">
+                        <div class="hint discreet--very small">Remember to prefix with country code</div>
+                    </md-input-container>
+
+                    <md-input-container flex="50">
+                        <label>User id</label>
+                        <input name="adminContactUserId" ng-model="eoi.form.administrativeContact.userId">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

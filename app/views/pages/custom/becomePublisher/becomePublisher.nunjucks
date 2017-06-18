@@ -1,0 +1,28 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+
+    {% set main = prose.main %}
+    {% set resolved = prose.resolved %}
+
+    <div ng-controller="becomePublisherCtrl as eoi">
+        <article class="wrapper-horizontal-stripes">
+            {% include "./header.nunjucks" %}
+            {% include "../../resource/key/primaryImage.nunjucks" %}
+
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
+                    {% include "../../resource/key/body.nunjucks" %}
+                    <div class="article-secondary">
+                        {% include "../../resource/key/documentsLinks.nunjucks" %}
+                    </div>
+                </div>
+            </div>
+
+        </article>
+        {% include "../../resource/key/preview.nunjucks" %}
+
+        {% include "./form/form.nunjucks" %}
+    </div>
+
+{% endblock %}

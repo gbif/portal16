@@ -1,0 +1,18 @@
+<div>
+
+    {% include "organization.nunjucks" %}
+
+    {% include "endorsement.nunjucks" %}
+
+    {% include "contacts.nunjucks" %}
+
+    {% include "administrativeContact.nunjucks" %}
+
+    {% include "technicalContact.nunjucks" %}
+
+    {% include "hosting.nunjucks" %}
+
+    {% include "save.nunjucks" %}
+</div>
+
+
