@@ -1,5 +1,6 @@
 <div ng-if="speciesKey2.isNub">
 
+
     {#{% include "./intro.nunjucks" %}#}
 
     {% include "./images.nunjucks" %}
@@ -11,12 +12,34 @@
         <h3>Searching 700+ million records for species data</h3>
     </div>
 
+<div class="container--desktop m-t-1">
+    <div class="card" ng-if="speciesKey2.species.origin !== 'SOURCE'">
+        <div class="card__content card__content--warning">
+            <p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>
+            <p>Origin: <span translate="nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
+        </div>
+    </div>
+
+    <div class="row m-t-1" ng-if="speciesKey2.species.issues.length > 0">
+        <dt class="text-capitalize" translate="stdTerms.issues"></dt>
+        <dd class="issue-summary__list">
+
+
+            <span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="taxon.issueEnum.{{issue}}"></span>
+
+
+        </dd>
+    </div>
+
+</div>
     {% include "./partners.nunjucks" %}
 
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
             <div class="row">
+
+
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                     {#<div class="m-t-1">#}
                         {#<h4 class="text-muted small text-uppercase">Name</h4>#}

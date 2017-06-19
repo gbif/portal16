@@ -20,7 +20,7 @@
         </div>
 
 
-        <section class="horizontal-stripe white-background seperator--b" ">
+        <section class="horizontal-stripe white-background seperator--b" >
             {% if main | isNotEmpty %}
                 {% include "./regionArticle.nunjucks" %}
             {% endif %}
