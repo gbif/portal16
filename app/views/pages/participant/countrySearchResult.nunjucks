@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content">
+        <div class="card__content clearfix">
             <div class="pull-right">
                 <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}">
             </div>
