@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content">
+        <div class="card__content clearfix">
             <div class="searchCard__img asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}&has_coordinate=true&has_geospatial_issue=false">
                 <div class="teaser-map--small">
                     <img src="/img/tile000/basemap-grey-light2.png">
