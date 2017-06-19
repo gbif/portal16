@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content">
+        <div class="card__content clearfix">
             <a href="{{ urlPrefix }}/publisher/{{result.key}}" class="pull-right">
                 <img class="searchCard__img--noCrop" ng-src="{$ _meta.imageCache $}128x/{{ result.logoUrl | encodeURIComponent }}" ng-if="result.logoUrl">
             </a>
