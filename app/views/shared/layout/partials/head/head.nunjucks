@@ -3,7 +3,6 @@
     {#<title>{$ _meta.title $}</title>#}
     <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
 
     <!-- If IE use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -1,0 +1,194 @@
+'use strict';
+
+var angular = require('angular'),
+    ol = require('openlayers'),
+    _ = require('lodash');
+
+angular
+    .module('portal')
+    .controller('becomePublisherCtrl', becomePublisherCtrl);
+
+/** @ngInject */
+function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher, Node) {
+    var vm = this;
+    vm.state = {
+        notExisting: false,
+        hasAdminContact: false,
+        hasTechContact: false
+    };
+    vm.terms = {};
+    vm.form = {
+        comments: {},
+        pointOfContact: {},
+        administrativeContact: {},
+        technicalContact: {}
+    };
+
+    // vm.form = {"comments":{},"pointOfContact":{"firstName":"sdf","lastName":"dfg"},"administrativeContact":{},"technicalContact":{},"title":"asd","address":"lkjh","city":"lkjh","country":"DK","logoUrl":"lkjh","description":"kljh"};
+
+    vm.getPublisherSuggestions = function (val) {
+        var deferred = $q.defer();
+        var publisherSuggestions = $http.get(suggestEndpoints.publisher, {
+            params: {
+                q: val,
+                limit: 10
+            }
+        });
+        publisherSuggestions.then(function (resp) {
+            vm.userHaveSearched = true;
+            deferred.resolve(resp.data);
+        }).catch(function () {
+            deferred.reject();
+        });
+        return deferred.promise;
+    };
+    vm.getCountrySuggestions = function () {
+        var suggestions = $http.get('/api/country/suggest.json');
+        suggestions.then(function (resp) {
+            vm.countries = resp.data;
+        });
+    };
+    vm.getCountrySuggestions();
+
+    vm.changeCountry = function (country) {
+        if (country) {
+            Node.query({q: country}).$promise
+                .then(function (data) {
+                    vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
+                    vm.suggestedNode = _.head(vm.suggestedNodes);
+                });
+        }
+    };
+
+
+    vm.selectedPublisherChange = function (item) {
+        if (item) {
+            Publisher.get({id: item.key}).$promise
+                .then(function (publisher) {
+                    vm.publisher = publisher;
+                    vm.publisher._contact = getContact(vm.publisher);
+                    vm.node = Node.get({id: vm.publisher.endorsingNodeKey});
+                });
+        } else {
+            vm.publisher = undefined;
+        }
+    };
+
+    function getContact(publisher) {
+        //remove contacts without a mail
+        var p = _.filter(publisher.contacts, function (e) {
+            return e.email.length > 0;
+        });
+        //map to roles
+        p = _.keyBy(p, 'type');
+        return p.POINT_OF_CONTACT || p.ADMINISTRATIVE_POINT_OF_CONTACT || p.TECHNICAL_POINT_OF_CONTACT;
+    }
+
+    // vm.createSuggestion = function () {
+    //     $http.post('/api/tools/suggest-dataset', {form: vm.suggestion}, {}).then(function (response) {
+    //         vm.referenceId = response.data.referenceId;
+    //         vm.state = 'SUCCESS';
+    //     }, function () {
+    //         vm.state = 'FAILED';
+    //     });
+    // };
+
+    var map;
+    vm.createMap = function () {
+        map = new ol.Map({
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.XYZ({
+                        url: 'https://api.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZ2JpZiIsImEiOiJjaWxhZ2oxNWQwMDBxd3FtMjhzNjRuM2lhIn0.g1IE8EfqwzKTkJ4ptv3zNQ'
+                    })
+                })
+            ],
+            target: 'organizationMap',
+            view: new ol.View({
+                center: [0, 0],
+                zoom: 1
+            }),
+            interactions: ol.interaction.defaults({mouseWheelZoom:false})
+        });
+        map.on("singleclick", function (evt) {
+            setPinOnMap(evt);
+        });
+    };
+
+    vm.clear = function () {
+        map.removeLayer(vm.dynamicPinLayer);
+        $timeout(function(){
+            vm.form.latitude = vm.form.longitude = undefined;
+            vm.dynamicPinLayer = undefined;
+        }, 0);
+    };
+
+    vm.add = function () {
+        setPinOnMap({coordinate: map.getView().getCenter()})
+    };
+
+    function setPinOnMap(evt) {
+        var latLong = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+        $timeout(function(){
+            vm.form.latitude = latLong[1];
+            vm.form.longitude = latLong[0];
+        }, 0);
+
+        if (vm.dynamicPinLayer !== undefined) {
+            vm.iconGeometry.setCoordinates(evt.coordinate);
+        } else {
+            vm.iconGeometry = new ol.geom.Point(evt.coordinate);
+            var iconFeature = new ol.Feature({
+                geometry: vm.iconGeometry
+            });
+            var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon(({
+                    anchor: [0.5, 41],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    size: [25, 41],
+                    opacity: 1,
+                    src: '/img/marker-icon.png'
+                }))
+            });
+
+            iconFeature.setStyle(iconStyle);
+
+            var vectorSource = new ol.source.Vector({
+                features: [iconFeature]
+            });
+            vm.dynamicPinLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
+            map.addLayer(vm.dynamicPinLayer);
+        }
+    }
+
+
+    vm.createOrganization = function(){
+        var body = getBody();
+        var creation = $http.post('/api/eoi/create', body);
+        creation.then(function () {
+            //show info about success
+        }, function () {
+            //TODO inform of failed creation
+        });
+        return creation;
+    };
+
+    function getBody() {
+        var body = _.assign({}, vm.form);
+        body.contacts = [];
+        if (!body.hasAdminContact && body.administrativeContact.firstName) {
+
+        }
+        if (body.technicalContact.firstName) {
+
+        }
+        body.contacts.push(body.pointOfContact);
+        return body;
+    }
+
+}
+
+module.exports = becomePublisherCtrl;

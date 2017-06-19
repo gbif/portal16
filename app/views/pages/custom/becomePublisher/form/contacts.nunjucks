@@ -1,0 +1,61 @@
+<div>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Contact</span>
+                {#<span class="md-subhead">So that data owners</span>#}
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div layout="row">
+                <md-input-container flex="50">
+                    <label>First name</label>
+                    <input required name="contactFirstName" ng-model="eoi.form.pointOfContact.firstName">
+                    <div ng-messages="eoi.publisherForm.contactFirstName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="50">
+                    <label>Last name</label>
+                    <input required type="text" name="contactLastName" ng-model="eoi.form.pointOfContact.lastName">
+                    <div ng-messages="eoi.publisherForm.contactLastName.$error">
+                        <div ng-message="required">This is required</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex="50">
+                    <label>Email</label>
+                    <input type="email" name="contactEmail" ng-model="eoi.form.pointOfContact.email">
+                    <div ng-messages="eoi.publisherForm.contactEmail.$error">
+                        <div ng-message="email">Please provide a valid email</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container flex="50">
+                    <label>Phone</label>
+                    <input name="contactPhone" ng-model="eoi.form.pointOfContact.phone">
+                    <div class="hint discreet--very small">Remember to prefix with country code</div>
+                </md-input-container>
+
+                <md-input-container flex="50">
+                    <label>User id</label>
+                    <input name="contactUserId" ng-model="eoi.form.pointOfContact.userId">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <p>
+                    In our experience, it is helpful to have at least two contacts for any data publisher. We encourage submitters to identify at least one additional administrative or technical contact.
+                </p>
+            </div>
+            <div layout="row" layout-align="start">
+                <md-checkbox ng-model="eoi.state.hasAdminContact" flex="50" class="md-primary">Add administrative contact</md-checkbox>
+                <md-checkbox ng-model="eoi.state.hasTechContact" flex="50" class="md-primary">Add technical contact</md-checkbox>
+            </div>
+            {#<div class="small discreet">In our experience, it is helpful to have at least two contacts for any data publisher. We encourage submitters to identify at least one additional administrative or technical contact.</div>#}
+        </md-card-content>
+    </md-card>
+</div>

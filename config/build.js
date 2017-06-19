@@ -74,6 +74,7 @@ var bowerJs = !wiredep.js ? [] : wiredep.js.map(function (e) {
 bowerCss.push('node_modules/chartist/dist/chartist.min.css'); //This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
 bowerCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
 bowerCss.push('node_modules/openlayers/dist/ol.css');
+bowerCss.push('node_modules/angular-material/angular-material.css');
 config.bower = {
     cssFiles: bowerCss,
     jsFiles: bowerJs

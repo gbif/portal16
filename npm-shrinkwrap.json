@@ -143,6 +143,11 @@
       "from": "angular@1.5.8",
       "resolved": "https://registry.npmjs.org/angular/-/angular-1.5.8.tgz"
     },
+    "angular-animate": {
+      "version": "1.5.8",
+      "from": "angular-animate@1.5.8",
+      "resolved": "https://registry.npmjs.org/angular-animate/-/angular-animate-1.5.8.tgz"
+    },
     "angular-aria": {
       "version": "1.5.8",
       "from": "angular-aria@1.5.8",
@@ -172,6 +177,11 @@
       "version": "0.10.0",
       "from": "angular-leaflet-directive@0.10.0",
       "resolved": "https://registry.npmjs.org/angular-leaflet-directive/-/angular-leaflet-directive-0.10.0.tgz"
+    },
+    "angular-material": {
+      "version": "1.1.4",
+      "from": "angular-material@1.1.4",
+      "resolved": "https://registry.npmjs.org/angular-material/-/angular-material-1.1.4.tgz"
     },
     "angular-messages": {
       "version": "1.6.2",
@@ -372,7 +382,7 @@
     },
     "array-uniq": {
       "version": "1.0.3",
-      "from": "array-uniq@>=1.0.2 <2.0.0",
+      "from": "array-uniq@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/array-uniq/-/array-uniq-1.0.3.tgz"
     },
     "array-unique": {
@@ -966,7 +976,7 @@
     },
     "chalk": {
       "version": "1.1.3",
-      "from": "chalk@>=1.0.0 <2.0.0",
+      "from": "chalk@>=1.1.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/chalk/-/chalk-1.1.3.tgz"
     },
     "chance": {
@@ -3922,7 +3932,7 @@
     },
     "gulp": {
       "version": "3.9.1",
-      "from": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz",
+      "from": "gulp@>=3.9.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz",
       "dependencies": {
         "semver": {
@@ -4737,7 +4747,7 @@
     },
     "inherits": {
       "version": "2.0.3",
-      "from": "inherits@>=2.0.1 <2.1.0",
+      "from": "inherits@2.0.3",
       "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.3.tgz"
     },
     "ini": {
@@ -4862,7 +4872,7 @@
     },
     "is-glob": {
       "version": "2.0.1",
-      "from": "is-glob@>=2.0.1 <3.0.0",
+      "from": "is-glob@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/is-glob/-/is-glob-2.0.1.tgz"
     },
     "is-lower-case": {
@@ -6193,7 +6203,7 @@
     },
     "micromatch": {
       "version": "2.3.11",
-      "from": "micromatch@>=2.3.7 <3.0.0",
+      "from": "micromatch@2.3.11",
       "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-2.3.11.tgz"
     },
     "miller-rabin": {
@@ -6228,7 +6238,7 @@
     },
     "minimist": {
       "version": "1.2.0",
-      "from": "minimist@>=1.1.0 <2.0.0",
+      "from": "minimist@>=1.2.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
     },
     "mkdirp": {
@@ -7367,7 +7377,7 @@
     },
     "querystring": {
       "version": "0.2.0",
-      "from": "https://registry.npmjs.org/querystring/-/querystring-0.2.0.tgz",
+      "from": "querystring@0.2.0",
       "resolved": "https://registry.npmjs.org/querystring/-/querystring-0.2.0.tgz"
     },
     "querystring-es3": {
@@ -9544,7 +9554,7 @@
     },
     "xtend": {
       "version": "4.0.1",
-      "from": "xtend@>=4.0.1 <4.1.0",
+      "from": "xtend@>=4.0.0 <5.0.0",
       "resolved": "https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz"
     },
     "y18n": {

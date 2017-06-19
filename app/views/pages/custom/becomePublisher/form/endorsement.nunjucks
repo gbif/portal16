@@ -1,0 +1,21 @@
+<div ng-if="eoi.suggestedNode.key">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Supporting node</span>
+                <span class="md-subhead">To support publishers and review data quality all publishers are associated with a GBIF node. Please select one from below.</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div layout="row">
+                <div flex="100">
+                    <md-radio-group ng-model="data.group1">
+                        <md-radio-button value="{{ eoi.suggestedNode.key }}" class="md-primary">{{ eoi.suggestedNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
+                        <md-radio-button value="other" class="md-primary">The GBIF secretariat</md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

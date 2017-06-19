@@ -1,0 +1,67 @@
+<div>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">What and how</span>
+                <span class="md-subhead">Help us understand what and how you are planning to publish.</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div>
+                <div layout="row">
+                    GBIF.org provides a data access service that presents an index of published primary data and metadata. The responsibility of hosting the original data remains with the data publisher or owner. In order to fulfil this requirement, please answer the following questions.
+                </div>
+                <div layout="row">
+                    <md-input-container flex="100">
+                        <label>Data sample</label>
+                        <input type="url" name="sample" ng-model="eoi.form.comments.sampleUrl">
+                        <div class="hint discreet--very small">Please provide a reference to a the data that you plan to publish. E.g. a csv file or a website</div>
+                        <div ng-messages="eoi.publisherForm.sample.$error">
+                            <div ng-message="url">Invalid url</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div class="m-b-1">
+                    <p>
+                        Do you have EITHER the capacity to run a live server, OR access to a server, through which you will make your original dataset available to GBIF.org?
+                    </p>
+                    <md-radio-group ng-model="eoi.form.comments.serverCapable" name="serverCapable" layout="row" layout-align="start" ng-required="true">
+                        <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
+                        <md-radio-button value="no"  class="md-primary">No</md-radio-button>
+                    </md-radio-group>
+                    <div ng-messages="eoi.publisherForm.serverCapable.$error" ng-if="eoi.submitAttempted" class="text-error small">
+                        <div ng-message="required">Please select a value</div>
+                    </div>
+                </div>
+
+                <div class="m-b-1">
+                    <p>
+                        Are you planning to install and run a publishing software to publish your data directly to GBIF.org?
+                    </p>
+                    <md-radio-group ng-model="eoi.form.comments.toolPlanned" name="toolPlanned" layout="row" layout-align="start" required>
+                        <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
+                        <md-radio-button value="no"  class="md-primary">No</md-radio-button>
+                    </md-radio-group>
+                    <div ng-messages="eoi.publisherForm.toolPlanned.$error" ng-if="eoi.submitAttempted" class="text-error small">
+                        <div ng-message="required">Please select a value</div>
+                    </div>
+                </div>
+
+                <div class="m-b-1">
+                    <p>
+                        Do you need help in publishing your data?
+                    </p>
+                    <md-radio-group ng-model="eoi.form.comments.helpNeeded" name="helpNeeded" layout="row" layout-align="start" required>
+                        <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
+                        <md-radio-button value="no"  class="md-primary">No</md-radio-button>
+                    </md-radio-group>
+                    <div ng-messages="eoi.publisherForm.helpNeeded.$error" ng-if="eoi.submitAttempted" class="text-error small">
+                        <div ng-message="required">Please select a value</div>
+                    </div>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>
