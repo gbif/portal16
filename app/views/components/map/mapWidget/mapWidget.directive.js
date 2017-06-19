@@ -2,6 +2,7 @@
 
 var angular = require('angular'),
     mapController = require('./map'),
+    ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
 //globeCreator = require('./globe'),
     _ = require('lodash');
@@ -101,6 +102,8 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
+
+
             var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC')] || vm.styles.CLASSIC;
             vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC');
             vm.widgetContextStyle = {
@@ -110,6 +113,31 @@ function mapWidgetDirective(BUILD_VERSION) {
                 baseMap: suggestedStyle.baseMap,
                 overlay: suggestedStyle.overlay,
                 filters: getQuery()
+            });
+
+            //set up zoom control
+            var zoomInteraction;
+            zoomInteraction = new ol.interaction.MouseWheelZoom();
+            zoomInteraction.setActive(false);
+            map.map.addInteraction(zoomInteraction);
+
+            var disableZoomTimer;
+            element[0].addEventListener('click', function(e){
+                zoomInteraction.setActive(true);
+            });
+            element[0].addEventListener('doubleclick', function(e){
+                zoomInteraction.setActive(true);
+            });
+            element[0].addEventListener('mouseleave', function(e){
+                disableZoomTimer = $timeout(function(){
+                    zoomInteraction.setActive(false);
+                }, 3000);
+            });
+            element[0].addEventListener('mouseenter', function(e){
+                if(disableZoomTimer) {
+                    $timeout.cancel(disableZoomTimer);
+                    disableZoomTimer = undefined;
+                }
             });
 
             var query = _.assign({}, vm.filter);
@@ -217,7 +245,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             $timeout(function(){
                 map.map.updateSize();
                 map.map.render();
-            }, 0);
+            }, 100);
         };
 
         vm.getProjection = function () {

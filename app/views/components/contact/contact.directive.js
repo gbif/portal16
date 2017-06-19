@@ -26,6 +26,7 @@ function contactDirective(BUILD_VERSION) {
     function contactCtrl() {
         var vm = this;
         vm.contact = vm.contactInfo;
+        console.log(vm.contactInfo);
 
         vm.getAsArray = function(value) {
             return angular.isArray(value) ? value : [value];

@@ -5,12 +5,12 @@
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countrySummary')}">
                     <a ui-sref="countrySummary()">Summary</a>
                 </li>
-                {#<li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">#}
-                    {#<a ui-sref="countryAbout()">Data about</a>#}
-                {#</li>#}
-                {#<li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">#}
-                    {#<a ui-sref="countryPublishing()">Data publishing</a>#}
-                {#</li>#}
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryAbout')}">
+                    <a ui-sref="countryAbout()">Data about</a>
+                </li>
+                <li class="tab" ng-class="{isActive: countryKey.$state.is('countryPublishing')}">
+                    <a ui-sref="countryPublishing()">Data publishing</a>
+                </li>
                 <li class="tab" ng-class="{isActive: countryKey.$state.is('countryParticipation')}">
                     <a ui-sref="countryParticipation()">Participation</a>
                 </li>
@@ -25,8 +25,15 @@
                     </li>
                 {% endif %}
 
-                <li class="tab">
-                    <a href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{$ participant.countryCode $}/GBIF_CountryReport_{$ participant.countryCode $}.pdf" class="trigger">Country report<span class="gb-icon-file-download"></span></a>
+                <li class="tab tab-right">
+                    <span>
+                        <a ng-href="http://www.gbif.org/sites/default/files/gbif_analytics/country/{{ countryKey.countryCode }}/GBIF_CountryReport_{{ countryKey.countryCode }}.pdf" class="gb-button--brand">Country report<span class="gb-icon-file-download"></span></a>
+                    </span>
+                </li>
+                <li class="tab tab-right">
+                    <span>
+                        <a ui-sref="resourceSearchList({contentType: 'news', countriesOfCoverage: countryKey.countryCode })" class="gb-button--discreet">News</a>
+                    </span>
                 </li>
             </ul>
         </div>

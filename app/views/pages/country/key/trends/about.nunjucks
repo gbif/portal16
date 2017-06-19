@@ -1,7 +1,7 @@
 {% import "./trends.macro.nunjucks" as trends %}
 
 <div class="page--analytics horizontal-stripe--paddingless ng-cloak">
-    <div class="container--normal">
+    <div class="container--desktop">
         <div class="row">
             <div class="col-xs-12">
                 {$ trends.stats(country, true, imgUrls.about.thumbBase, imgUrls.about.imgBase, __) $}

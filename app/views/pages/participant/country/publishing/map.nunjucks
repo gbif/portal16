@@ -1,4 +1,4 @@
-<section class="container--desktop m-b-1 ng-cloak" ng-if="countryKey.occurrenceFromCount > 0">
+<section class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceFromCount > 0">
     <h4 class="text-muted small text-uppercase">Data from {{ 'country.' + countryKey.countryCode | translate }}</h4>
 
     <div class="card container-fluid ng-cloak">

@@ -1,3 +1,21 @@
-<section>
+<section class="seperator">
+
+    {#<div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">#}
+        {#<h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countryKey.countryCode | translate }}</h4>#}
+
+        {#<div class="card ng-cloak">#}
+            {#<div>#}
+                {#<occ-per-country></occ-per-country>#}
+            {#</div>#}
+
+         {#</div>#}
+     {#</div>#}
     {% include "./map.nunjucks" %}
+</section>
+
+<section class="light-background p-t-05">
+    <div class="container--desktop">
+        <h4 class="text-muted small text-uppercase">Trends about {{ 'country.' + countryKey.countryCode | translate }}</h4>
+    </div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__narrowCards"></div>
 </section>

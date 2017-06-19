@@ -7,6 +7,8 @@ require('./about/countryAbout.ctrl');
 require('./publishing/countryPublishing.ctrl');
 require('./participation/countryParticipation.ctrl');
 
+require('./occPerCountry/occPerCountry.directive');
+
 angular
     .module('portal')
     .controller('countryKeyCtrl', countryKeyCtrl);
