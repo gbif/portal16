@@ -50,7 +50,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
 
     var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
-            url: '/api/topojson/world?participantsOnly=true',
+            url: '/api/topojson/world/participants',
             format: new ol.format.TopoJSON(),
             overlaps: false
         }),
