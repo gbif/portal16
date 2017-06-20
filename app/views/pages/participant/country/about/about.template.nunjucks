@@ -1,16 +1,75 @@
 <section class="seperator">
 
-    {#<div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">#}
-        {#<h4 class="text-muted small text-uppercase">Data about {{ 'country.' + countryKey.countryCode | translate }}</h4>#}
-
-        {#<div class="card ng-cloak">#}
-            {#<div>#}
-                {#<occ-per-country></occ-per-country>#}
-            {#</div>#}
-
-         {#</div>#}
-     {#</div>#}
     {% include "./map.nunjucks" %}
+
+    <div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+        <div class="taxonBreakdown">
+            <div>
+                <a ng-href="../occurrence/search?publishing_country={{ countryKey.countryCode }}&taxon_key={{ kingdom.id }}"
+                   class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
+                    <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
+                    <div>
+                        <div class="small">{{ kingdom.title }}</div>
+                        <strong ng-if="countryKey.kingdomsAbout[kingdom.id].count">{{ countryKey.kingdomsAbout[kingdom.id].count | localNumber }}</strong>
+                        <strong ng-if="!countryKey.kingdomsAbout[kingdom.id].count">0</strong>
+                        <div class="small">occurrences</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container--desktop">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="card">
+                    <div class="card__content seperator--b">
+                        <div class="card__content__title">
+                            <h3>{{ countryKey.publishingCountriesCount }} countries</h3>
+                            <p>
+                                Countries, territories or islands publishing data about {{ 'country.' + countryKey.countryCode | translate }}
+                            </p>
+                        </div>
+                    </div>
+                    <md-content>
+                        <md-list flex style="max-height: 500px;">
+                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
+                            <md-list-item class="md-2-line" ng-repeat="(countryName, amount) in countryKey.publishingCountries">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{ countryName | prettifyEnum }}</h3>
+                                    <p>{{ amount | localNumber }} occurrences</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="card">
+                    <div class="card__content seperator--b">
+                        <div class="card__content__title">
+                            <h3>Datasets</h3>
+                            <p>
+                                Largest occurrence datasets about {{ 'country.' + countryKey.countryCode | translate }}
+                            </p>
+                        </div>
+                    </div>
+                    <md-content>
+                        <md-list flex style="max-height: 500px;">
+                            {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
+                            <md-list-item class="md-2-line" ng-repeat="dataset in countryAbout.datasetsAbout.results">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3><a ui-sref="datasetKey({key:dataset.key})">{{ dataset.title }}</a></h3>
+                                    <p>{{ dataset._count | localNumber }} occurrences</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <section class="light-background p-t-05">

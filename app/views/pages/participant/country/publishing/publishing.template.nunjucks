@@ -1,10 +1,87 @@
-<section class="seperator">
-    {% include "./map.nunjucks" %}
-</section>
+<div>
+    <div ng-if="countryPublishing.datasetsFrom.count">
+        <section class="seperator">
+            {% include "./map.nunjucks" %}
 
-<section class="light-background p-t-05">
-    <div class="container--desktop">
-        <h4 class="text-muted small text-uppercase">Publishing trends</h4>
+            <div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+                <div class="taxonBreakdown">
+                    <div>
+                        <a ng-href="../occurrence/search?publishing_country={{ countryKey.countryCode }}&taxon_key={{ kingdom.id }}"
+                           class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
+                            <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
+                            <div>
+                                <div class="small">{{ kingdom.title }}</div>
+                                <strong ng-if="countryKey.kingdomsFrom[kingdom.id].count">{{ countryKey.kingdomsFrom[kingdom.id].count | localNumber }}</strong>
+                                <strong ng-if="!countryKey.kingdomsFrom[kingdom.id].count">0</strong>
+                                <div class="small">occurrences</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container--desktop">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="card">
+                            <div class="card__content seperator--b">
+                                <div class="card__content__title">
+                                    <h3>{{ countryKey.countriesCount }} countries</h3>
+                                    <p>
+                                        {{ 'country.' + countryKey.countryCode | translate }} publishes records relating to biodiversity from {{ countryKey.countriesCount }} other countries, territories and islands.
+                                    </p>
+                                </div>
+                            </div>
+                            <md-content>
+                                <md-list flex style="max-height: 500px;">
+                                    {#<md-subheader class="md-no-sticky">Countries, territories or islands publishing data about Spain</md-subheader>#}
+                                    <md-list-item class="md-2-line" ng-repeat="(countryName, amount) in countryKey.countries">
+                                        <div class="md-list-item-text" layout="column">
+                                            <h3>{{ countryName | prettifyEnum }}</h3>
+                                            <p>{{ amount | localNumber }} occurrences</p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                            </md-content>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="card">
+                            <div class="card__content seperator--b">
+                                <div class="card__content__title">
+                                    <h3>Datasets</h3>
+                                    <p>
+                                        Latest datasets changed
+                                    </p>
+                                </div>
+                            </div>
+                            <md-content>
+                                <md-list flex style="max-height: 500px;">
+                                    <md-list-item class="md-2-line" ng-repeat="dataset in countryPublishing.datasetsFrom.results">
+                                        <div class="md-list-item-text" layout="column">
+                                            <h3><a ui-sref="datasetKey({key:dataset.key})">{{ dataset.title }}</a></h3>
+                                            <p>
+                                                {{ 'dataset.longType.' + dataset.type | translate }}
+                                            </p>
+                                        </div>
+                                    </md-list-item>
+                                </md-list>
+                            </md-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="light-background p-t-05">
+            <div class="container--desktop">
+                <h4 class="text-muted small text-uppercase">Publishing trends</h4>
+            </div>
+            <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__narrowCards"></div>
+        </section>
     </div>
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__narrowCards"></div>
-</section>
+    <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.count">
+        <h3>No data publising activity</h3>
+        <p>This country hasn't shared any data through GBIF</p>
+    </div>
+</div>

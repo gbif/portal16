@@ -1,6 +1,6 @@
 <div class="site-content">
-    <div class="site-content__page">
-        <div class="countryKey lighter-background">
+    <div class="site-content__page light-background">
+        <div class="countryKey">
             <div class="wrapper-horizontal-stripes">
 
                 <div class="horizontal-stripe article-header white-background p-b-05">
