@@ -54,7 +54,8 @@ function createMap(element, options) {
 
     var map = new ol.Map({
         target: mapElement,
-        logo: false
+        logo: false,
+        interactions: ol.interaction.defaults({mouseWheelZoom:false})
     });
     this.update(options);
 

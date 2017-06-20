@@ -1,0 +1,10 @@
+<div class="container--desktop m-t-1" ng-if="speciesKey2.speciesImages.results.length > 0">
+    <h4 class="text-muted small text-uppercase">{{ speciesKey2.speciesImages.results.length | localNumber }} images</h4>
+    <div class="galleryBar">
+        <div>
+            <a ng-repeat="image in speciesKey2.speciesImages.results"  class="galleryBar__img showBroken inherit noUnderline hoverBox">
+                <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load>
+            </a>
+        </div>
+    </div>
+</div>

@@ -22,21 +22,21 @@
         <div>{{ vm.contact.province }}</div>
         <div ng-if="vm.contact.country" translate="country.{{vm.contact.country}}"></div>
         <div>
-            <ul class="inline-bullet-list">
+            <ul class="inline-bullet-list" ng-if="vm.contact.email">
                 <li ng-repeat="email in vm.getAsArray(vm.contact.email)">
                     <a ng-href="mailto:{{ email }}">{{ email }}</a>
                 </li>
             </ul>
         </div>
         <div>
-            <ul class="inline-bullet-list">
+            <ul class="inline-bullet-list" ng-if="vm.contact.phone">
                 <li ng-repeat="phone in vm.getAsArray(vm.contact.phone)" ng-if="phone">
                     <a ng-href="tel:{{ phone }}">{{ phone }}</a>
                 </li>
             </ul>
         </div>
         <div>
-            <ul class="inline-bullet-list">
+            <ul class="inline-bullet-list" ng-if="vm.contact.homepage">
                 <li ng-repeat="homepage in vm.getAsArray(vm.contact.homepage)" ng-if="homepage">
                     <a ng-href="{{ homepage }}">{{ homepage }}</a>
                 </li>
@@ -48,6 +48,9 @@
                     <a ng-href="{{ userId }}">{{ userId }}</a>
                 </li>
             </ul>
+        </div>
+        <div class="discreet--very" ng-if="!vm.contact.country && !vm.contact.city && !vm.contact.address && !vm.contact.email">
+            No contact details
         </div>
     </div>
 </div>

@@ -23,7 +23,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -37,6 +37,8 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
+    vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 20});
+
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
@@ -51,6 +53,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
             vm.isNub = vm.species.datasetKey === vm.backboneKey;
+            vm.isSynonym = vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
 

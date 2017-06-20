@@ -12,7 +12,7 @@ angular
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets) {
+function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
@@ -55,69 +55,39 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
             vm.occurrenceFromCount = resp.data;
         });
 
-    //
-    // OccurrenceSearch.query({
-    //     country: vm.countryCode,
-    //     limit: 0
-    // }, function (data) {
-    //     vm.countAbout = data.count;
-    // }, function () {
-    //     //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
-    // });
-    //
-    // OccurrenceSearch.query({
-    //     publishing_country: vm.countryCode,
-    //     limit: 0
-    // }, function (data) {
-    //     vm.countPublished = data.count;
-    // }, function () {
-    //     //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
-    // });
-    //
-    // function updateTab() {
-    //     //vm.hash = tabs.indexOf($location.hash()) > -1 ? $location.hash() : 'about';
-    //     // vm.updateGrid();
-    //     console.log($location.search());
-    //     console.log('change detected');
-    // }
-    //
-    // updateTab();
-    //
-    // $rootScope.$on('$locationChangeSuccess', function () {
-    //     updateTab();
-    // });
-    //
-    // vm.tabs = {
-    //     ABOUT: undefined,
-    //     ACTIVITIES: 'activities',
-    //     TRENDS: 'trends'
-    // };
-    // vm.changeTab = function (tab) {
-    //     vm.tab = tab;
-    //     $location.search({tab: tab});
-    // };
-    //
-    // vm.country;
-    // $http.get('/api/country/about/' + $stateParams.key, {})
-    //     .then(function(response){
-    //         vm.country = response.data;
-    //         var linkId = _.get(response.data, 'prose.main.fields.primaryLink.sys.id');
-    //         var link = _.get(response.data, 'prose.resolved.Entry['+linkId+']');
-    //         if (link) {
-    //             vm.primaryLink = {
-    //                 url: link.fields.url,
-    //                 label: link.fields.label
-    //             }
-    //         } else if(response.data.node.nodeUrl) {
-    //             vm.primaryLink = {
-    //                 url: response.data.node.nodeUrl,
-    //                 label: response.data.node.acronym || 'Node website'
-    //             }
-    //         }
-    //     })
-    //     .catch(function(err){
-    //         console.log(err);
-    //     });
+    vm.kingdomsAbout = {};
+    vm.kingdomsFrom = {};
+    vm.kingdoms = [
+        {id: 1, title: 'Animalia', icon: 'animalia'},
+        {id: 6, title: 'Plantae', icon: 'plantae'},
+        {id: 5, title: 'Fungi', icon: 'fungi'},
+        {id: 2, title: 'Archaea', icon: 'archaea'},
+        {id: 3, title: 'Bacteria', icon: 'bacteria'},
+        {id: 4, title: 'Chromista', icon: 'chromista'},
+        {id: 7, title: 'Protozoa', icon: 'protozoa'},
+        {id: 8, title: 'Viruses', icon: 'viruses'},
+        {id: 0, title: 'incertae sedis', icon: 'unknown'}
+    ];
+
+    OccurrenceTableSearch.query({
+        publishingCountry: vm.countryCode,
+        facet: 'kingdomKey',
+        limit: 0
+    }, function (response) {
+        vm.kingdomsFrom = response.facets.KINGDOM_KEY.counts;
+    }, function () {
+        //TODO couldn't get the data
+    });
+
+    OccurrenceTableSearch.query({
+        country: vm.countryCode,
+        facet: 'kingdomKey',
+        limit: 0
+    }, function (response) {
+        vm.kingdomsAbout = response.facets.KINGDOM_KEY.counts;
+    }, function () {
+        //TODO couldn't get the data
+    });
 }
 
 module.exports = countryKeyCtrl;

@@ -44,6 +44,7 @@ require('angular-svg-round-progressbar');
         .module('portal')
         .run(runBlock)
         .config(configBlock)
+        .config(mdTheming)
         .config(chartjsConfig);
 
     /** @ngInject */
@@ -104,6 +105,103 @@ require('angular-svg-round-progressbar');
             showLines: true
         });
         //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+    }
+
+    /** @ngInject */
+    function mdTheming($mdThemingProvider) {
+        //build with https://angular-md-color.com/#/ based on menu green. plum and tomato
+        var customPrimary = {
+            '50': '#b3d5b3',
+            '100': '#a3cca3',
+            '200': '#92c392',
+            '300': '#82ba82',
+            '400': '#71b171',
+            '500': '#61a861',
+            '600': '#559a55',
+            '700': '#4c8a4c',
+            '800': '#437a43',
+            '900': '#3a693a',
+            'A100': '#c4dec4',
+            'A200': '#d4e7d4',
+            'A400': '#e5f0e5',
+            'A700': '#315931',
+            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        };
+        $mdThemingProvider
+            .definePalette('customPrimary',
+                customPrimary);
+
+        var customAccent = {
+            '50': '#313252',
+            '100': '#3a3c62',
+            '200': '#444572',
+            '300': '#4d4f82',
+            '400': '#575992',
+            '500': '#6163a2',
+            '600': '#8183b4',
+            '700': '#9193be',
+            '800': '#a1a2c7',
+            '900': '#b1b2d1',
+            'A100': '#8183b4',
+            'A200': '#7173ab',
+            'A400': '#6163a2',
+            'A700': '#c1c2da',
+            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        };
+        $mdThemingProvider
+            .definePalette('customAccent',
+                customAccent);
+
+        var customWarn = {
+            '50': '#ffcfc6',
+            '100': '#ffb9ad',
+            '200': '#ffa493',
+            '300': '#ff8e7a',
+            '400': '#ff7960',
+            '500': '#ff6347',
+            '600': '#ff4d2d',
+            '700': '#ff3814',
+            '800': '#f92600',
+            '900': '#e02200',
+            'A100': '#ffe5e0',
+            'A200': '#fffaf9',
+            'A400': '#ffffff',
+            'A700': '#c61e00',
+            'contrastDefaultColor': 'light',    // whether, by default, text (contrast) on this palette should be dark or light
+            'contrastDarkColors': ['50', '100', '200', '300', '400', 'A100'] //hues which contrast should be 'dark' by default
+        };
+        $mdThemingProvider
+            .definePalette('customWarn',
+                customWarn);
+
+        var customBackground = {
+            '50': '#ffffff',
+            '100': '#ffffff',
+            '200': '#ffffff',
+            '300': '#ffffff',
+            '400': '#ffffff',
+            '500': '#f7f9fa',
+            '600': '#e7edf0',
+            '700': '#d8e1e6',
+            '800': '#c8d6dd',
+            '900': '#b8cad3',
+            'A100': '#ffffff',
+            'A200': '#ffffff',
+            'A400': '#ffffff',
+            'A700': '#a9bec9'
+        };
+        $mdThemingProvider
+            .definePalette('customBackground',
+                customBackground);
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('customPrimary')
+            .accentPalette('customAccent')
+            .warnPalette('customWarn')
+            .backgroundPalette('customBackground')
+
     }
 
 

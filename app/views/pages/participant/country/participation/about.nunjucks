@@ -58,114 +58,59 @@
                 <div class="node__info">
                     <section class="">
                         <div class="row">
-                            {% if headOfDelegation or nodeManager or main.fields.linksToSocialMedia | isNotEmpty  or main.fields.rssFeeds | isNotEmpty or main.fields.newsletters | isNotEmpty%}
-                                <div class="col-xs-12 col-md-6">
-                                    <div>
-                                        <dl class="inline">
-                                            {% if headOfDelegation %}
+                            {% if main.fields.linksToSocialMedia | isNotEmpty  or main.fields.rssFeeds | isNotEmpty or main.fields.newsletters | isNotEmpty%}
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="articleLinks m-b-05">
+                                        {% if main.fields.linksToSocialMedia.length > 0 %}
+                                            {% for media in main.fields.linksToSocialMedia %}
                                                 <div>
-                                                    <dt>Head of delegation</dt>
-                                                    <dd><a href="#contacts">{$ contacts[headOfDelegation.personId].firstName $} {$ contacts[headOfDelegation.personId].surname $}</a></dd>
-                                                </div>
-                                            {% endif %}
-                                            {% if nodeManager %}
-                                                <div>
-                                                    <dt>Participant node manager</dt>
-                                                    <dd><a href="#contacts">{$ contacts[nodeManager.personId].firstName $} {$ contacts[nodeManager.personId].surname $}</a></dd>
-                                                </div>
-                                            {% endif %}
-                                        </dl>
-                                    </div>
-                                    {% if main.fields.linksToSocialMedia | isNotEmpty  or main.fields.rssFeeds | isNotEmpty or main.fields.newsletters | isNotEmpty%}
-                                        <div>
-                                            <div class="articleLinks m-b-05">
-                                                {% if main.fields.linksToSocialMedia.length > 0 %}
-                                                    {% for media in main.fields.linksToSocialMedia %}
-                                                        <div>
-                                                            {%  if resolved.Entry[media.sys.id].fields.url | socialMediaIcon %}
-                                                                <a href="{$ resolved.Entry[media.sys.id].fields.url $}">
-                                                                    <img src="{$ resolved.Entry[media.sys.id].fields.url | socialMediaIcon $}" title="{$ resolved.Entry[media.sys.id].fields.label $}">
-                                                                </a>
-                                                            {% endif %}
-                                                        </div>
-                                                    {% endfor %}
-                                                {% endif %}
-                                                {% if main.fields.rssFeeds.length > 0 %}
-                                                    {% for rssFeed in main.fields.rssFeeds %}
-                                                        {% if loop.first %}
-                                                            <div>
-                                                                <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
-                                                                    <img src="/img/social/rss.png">
-                                                                </a>
-                                                                {% if loop.length > 1 %}
-                                                                    <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
-                                                                {% endif %}
-                                                            </div>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                {% endif %}
-                                            </div>
-                                            <div class="articleLinks m-b-05">
-                                                {% if main.fields.rssFeeds.length > 1 %}
-                                                    {% for rssFeed in main.fields.rssFeeds %}
-                                                        {% if not loop.first %}
-                                                            <div>
-                                                                <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
-                                                                    <img src="/img/social/rss.png">
-                                                                </a>
-                                                                <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
-                                                            </div>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                {% endif %}
-                                            </div>
-                                            <div class="articleLinks m-b-05">
-                                                {% if main.fields.newsletters | isNotEmpty %}
-                                                    {% for media in main.fields.newsletters %}
-                                                        <a href="{$ resolved.Entry[media.sys.id].fields.url $}" class="gb-button--discreet">
-                                                            {$ resolved.Entry[media.sys.id].fields.label or 'newsletter' $}
+                                                    {%  if resolved.Entry[media.sys.id].fields.url | socialMediaIcon %}
+                                                        <a href="{$ resolved.Entry[media.sys.id].fields.url $}">
+                                                            <img src="{$ resolved.Entry[media.sys.id].fields.url | socialMediaIcon $}" title="{$ resolved.Entry[media.sys.id].fields.label $}">
                                                         </a>
-                                                    {% endfor %}
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endif %}
-                            {% if participant %}
-                                <div class="col-xs-12 col-md-6">
-                                    <div>
-                                        {#<p>#}
-                                        {#{$ __mf('node.introText.' + node.record.type + '.' + node.record.participationStatus, { country: __('country.' + node.record.country), region: __('region.' + node.record.gbifRegion) }) $}#}
-                                        {#</p>#}
-                                        <dl class="inline">
-                                            {% if node.name %}
-                                                {% if node.title %}
+                                                    {% endif %}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% if main.fields.rssFeeds.length > 0 %}
+                                            {% for rssFeed in main.fields.rssFeeds %}
+                                                {% if loop.first %}
                                                     <div>
-                                                        <dt>Node name</dt>
-                                                        <dd>{$ node.name $}</dd>
+                                                        <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
+                                                            <img src="/img/social/rss.png">
+                                                        </a>
+                                                        {% if loop.length > 1 %}
+                                                            <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
+                                                        {% endif %}
                                                     </div>
                                                 {% endif %}
-                                            {% endif %}
-                                            {% if participant.participationStatus %}
-                                                <div>
-                                                    <dt>Member status</dt>
-                                                    <dd>{$ __('participationStatus.' + participant.participationStatus) | capitalize $}</dd>
-                                                </div>
-                                            {% endif %}
-                                            {% if participant.membershipStart %}
-                                                <div>
-                                                    <dt>GBIF participant since</dt>
-                                                    <dd>{$ participant.membershipStart | formatDate(gb.locales.current, 'MMMM YYYY') $}</dd>
-                                                </div>
-                                            {% endif %}
-                                            {% if participant.gbifRegion %}
-                                                <div>
-                                                    <dt>GBIF region</dt>
-                                                    <dd>{$ __('region.' + participant.gbifRegion) | capitalize $}</dd>
-                                                </div>
-                                            {% endif %}
-                                        </dl>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="articleLinks m-b-05">
+                                        {% if main.fields.rssFeeds.length > 1 %}
+                                            {% for rssFeed in main.fields.rssFeeds %}
+                                                {% if not loop.first %}
+                                                    <div>
+                                                        <a href="{$ resolved.Entry[rssFeed.sys.id].fields.url $}">
+                                                            <img src="/img/social/rss.png">
+                                                        </a>
+                                                        <span>{$ resolved.Entry[rssFeed.sys.id].fields.label $}</span>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="articleLinks m-b-05">
+                                        {% if main.fields.newsletters | isNotEmpty %}
+                                            {% for media in main.fields.newsletters %}
+                                                <a href="{$ resolved.Entry[media.sys.id].fields.url $}" class="gb-button--discreet">
+                                                    {$ resolved.Entry[media.sys.id].fields.label or 'newsletter' $}
+                                                </a>
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endif %}
@@ -173,44 +118,9 @@
                     </section>
                 </div>
             </div>
-
             {% include "../../../resource/key/documentsLinks.nunjucks" %}
-
-            {# Do we really need this. For many it is the same website for participant, node and in contentful. Kust slightly different. w/o .html or v1 vs v2 s#}
-            {#{% if node.nodeUrl | isNotEmpty or participant.participantUrl | isNotEmpty %}#}
-                {#<section>#}
-                    {#<ul class="inline-document-list">#}
-                        {#{% if node.nodeUrl | isNotEmpty %}#}
-                            {#<li>#}
-                                {#<a href="{$ node.nodeUrl $}" class="inherit noUnderline">#}
-                                    {#<img src="/img/fileTypes/link.png">#}
-                                    {#<div>#}
-                                        {#<div>#}
-                                            {#{$ node.nodeUrl | reduceUrlToDomain $}#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</a>#}
-                            {#</li>#}
-                        {#{% endif %}#}
-                        {#{% if participant.participantUrl | isNotEmpty %}#}
-                            {#<li>#}
-                                {#<a href="{$ participant.participantUrl $}" class="inherit noUnderline">#}
-                                    {#<img src="/img/fileTypes/link.png">#}
-                                    {#<div>#}
-                                        {#<div>#}
-                                            {#{$ participant.participantUrl | reduceUrlToDomain $}#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</a>#}
-                            {#</li>#}
-                        {#{% endif %}#}
-                    {#</ul>#}
-                {#</section>#}
-            {#{% endif %}#}
         </div>
         {% include "../../../resource/key/auxiliary.nunjucks" %}
     </div>
 </div>
-
-{% include "../../contacts.nunjucks" %}
 
