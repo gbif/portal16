@@ -34,6 +34,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('TaxonomyCombinations', function ($resource) {
+            return $resource('/api/species/:taxonKey/combinations', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
         .factory('TaxonomyChildren', function ($resource) {
             return $resource('/api/taxonomy/:datasetKey/:taxonKey/children', null, {
                     'query': {

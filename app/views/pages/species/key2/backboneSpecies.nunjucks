@@ -13,23 +13,7 @@
     </div>
 
 <div class="container--desktop m-t-1">
-    <div class="card" ng-if="speciesKey2.species.origin !== 'SOURCE'">
-        <div class="card__content card__content--warning">
-            <p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>
-            <p>Origin: <span translate="nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
-        </div>
-    </div>
-
-    <div class="row m-t-1" ng-if="speciesKey2.species.issues.length > 0">
-        <dt class="text-capitalize" translate="stdTerms.issues"></dt>
-        <dd class="issue-summary__list">
-
-
-            <span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="taxon.issueEnum.{{issue}}"></span>
-
-
-        </dd>
-    </div>
+    {% include "./warnings.nunjucks" %}
 
 </div>
     {% include "./partners.nunjucks" %}
