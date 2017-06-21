@@ -4,6 +4,7 @@
 var queryString = require('query-string');
 var decamelize = require('decamelize');
 var path = require('path');
+var _ = require('lodash');
 
 function www2demoQuery(query) {
     if (!query) {
@@ -100,7 +101,11 @@ function addWwwSignPost() {
 }
 
 function addWarning() {
-    var divStyle = 'z-index: 10000;' +
+    var notice = _.get(window, '_notification.results[0]', undefined);
+    if (!notice) {
+        return;
+    }
+    var divStyle = 'z-index: 20000;' +
         'position: fixed;' +
         'bottom: 0;' +
         'width: 100%;' +
@@ -123,27 +128,28 @@ function addWarning() {
     elemDiv.style.cssText = divStyle;
     var aTag = document.createElement('a');
     aTag.style.cssText = linkStyle;
-    aTag.setAttribute('href', 'http://www.gbif.org/newsroom/news/83329/trinidad-workshops-kick-off-bid-caribbean');
-    aTag.innerHTML = "We’re moving our servers. That means that not all part of the site is functional. Read more ...";
+    aTag.setAttribute('href', notice.url);
+    aTag.innerHTML = notice.drupalPopup;
     elemDiv.appendChild(aTag);
     document.body.appendChild(elemDiv);
 
     var footer = document.getElementById('footer-credits');
-    footer.style.paddingBottom = '50px'
+    if (!footer) {
+        footer = document.getElementById('contact_footer');
+    }
+    if (footer) {
+        footer.style.paddingBottom = '50px';
+    }
+
+    jQuery( "<p>" + notice.downloadButton + "</p>" ).insertAfter( '#infoband .candy_blue_button.download_button' );
+    jQuery('#infoband .candy_blue_button.download_button').hide();
+    jQuery('#user-register-form').parent().html('<div class="container"><div class="row"><div class="col-xs-9 well well-lg well-margin-top disclaimer"> <div class="content-header"> <div class="notice-icon"></div>' + notice.register + '</div> </div></div> </div>')
+}
+window.addWarning = addWarning;
+
+
+if (isRedirectedPage(location.pathname)) {
+    addWwwSignPost();
 }
 
-
-// if (isRedirectedPage(location.pathname)) {
-//     addWwwSignPost();
-// }
-
-var _notifications = {$ notifications | rawJson | safe $}
-if (_notifications.count > 0) {
-    addWarning();
-} else {
-    window.timeout(function(){
-        if (_notifications.count > 0) {
-            addWarning();
-        }
-    }, 1500)
-}
+jQuery.getScript('https://demo.gbif.org/api/notifications/script.js');//get notifications if any
