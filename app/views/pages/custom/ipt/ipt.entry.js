@@ -12,6 +12,7 @@ function iptCtrl($http, leafletData, mapConstants) {
         scrollWheelZoom: false,
         crs: L.CRS.EPSG4326
     };
+    vm.center = {zoom: 7, lat: 0, lng: 0};
 
     vm.layers = {
         baselayers: {

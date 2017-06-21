@@ -1,0 +1,137 @@
+{% extends "../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+
+    {% set main = prose.main %}
+    {% set resolved = prose.resolved %}
+
+    <div ng-controller="becomePublisherCtrl as eoi">
+        <article class="wrapper-horizontal-stripes">
+            {% include "./header.nunjucks" %}
+            {% include "../../resource/key/primaryImage.nunjucks" %}
+
+            {#<div class="horizontal-stripe--paddingless white-background">#}
+                {#<div class="heading-image ipt__map">#}
+                    {#<leaflet#}
+                            {#leafletMap="leafletMap"#}
+                            {#id="iptInstallationsMap"#}
+                            {#class="iptInstallationsMap"#}
+                            {#defaults="ipt.mapDefaults"#}
+                            {#markers="ipt.installations"#}
+                            {#lf-center="ipt.center"#}
+                            {#height="100%"#}
+                            {#width="100%"#}
+                            {#layers="ipt.layers"#}
+                    {#></leaflet>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="horizontal-stripe--paddingless white-background">#}
+                {#<div class="heading-image">#}
+                    {#<div class="container-fluid">#}
+                        {#<div class="row ipt__map-stats">#}
+                            {#<div class="col-xs-12 col-sm-4 text-center"><span#}
+                                        {#class="ng-cloak">{{ ipt.installations.length }} </span>publishers#}
+                            {#</div>#}
+                            {#<div class="col-xs-12 col-sm-4 text-center">171 installations</div>#}
+                            {#<div class="col-xs-12 col-sm-4 text-center">50 countries</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+            <div class="horizontal-stripe white-background">
+                <div class="container--narrow">
+                    {% include "../../resource/key/body.nunjucks" %}
+                    <div class="article-secondary">
+                        {% include "../../resource/key/documentsLinks.nunjucks" %}
+                    </div>
+                </div>
+            </div>
+
+        </article>
+        {% include "../../resource/key/preview.nunjucks" %}
+    </div>
+
+{% endblock %}
+
+{#{% extends "../about/html-prose.nunjucks" %}#}
+{#{% import "../about/cms.macros.nunjucks" as cmsMacros %}#}
+
+{#{% block page %}#}
+    {#<div ng-controller="iptCtrl as ipt" class="ipt">#}
+        {#<article class="wrapper-horizontal-stripes">#}
+            {#<div class="horizontal-stripe article-header white-background">#}
+                {#<div class="container">#}
+                    {#<div class="row">#}
+                        {#<header class="col-xs-12 text-center">#}
+                            {#<nav class="article-header__category article-header__category--deep">#}
+                                {#<span class="article-header__category__upper">Tools</span>#}
+                                {#<span class="article-header__category__lower">Publishers</span>#}
+                            {#</nav>#}
+                            {#<h1>{$ data.title $}</h1>#}
+                            {#<div class="article-header__intro">#}
+                                {# fulltext html already wrapped by <p> from Content API #}
+                                {#{$ data.summary | safe $}#}
+                            {#</div>#}
+                            {#<div>#}
+                                {#<span class="article-header__meta m-r-2 m-l-2">#}
+                                    {#2.219 occurrence datasets#}
+                                {#</span>#}
+                                {#<span class="article-header__meta m-r-2 m-l-2">#}
+                                    {#450 million occurrence records#}
+                                {#</span>#}
+                                {#<span class="article-header__meta m-r-2 m-l-2">#}
+                                    {#199 checklist datasets#}
+                                {#</span>#}
+                            {#</div>#}
+                        {#</header>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+            {#<div class="horizontal-stripe--paddingless white-background">#}
+                {#<div class="heading-image ipt__map">#}
+                    {#<leaflet#}
+                            {#leafletMap="leafletMap"#}
+                            {#id="iptInstallationsMap"#}
+                            {#class="iptInstallationsMap"#}
+                            {#defaults="ipt.mapDefaults"#}
+                            {#markers="ipt.installations"#}
+                            {#lf-center="ipt.center"#}
+                            {#height="100%"#}
+                            {#width="100%"#}
+                            {#layers="ipt.layers"#}
+                    {#></leaflet>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="horizontal-stripe--paddingless white-background">#}
+                {#<div class="heading-image">#}
+                    {#<div class="container-fluid">#}
+                        {#<div class="row ipt__map-stats">#}
+                            {#<div class="col-xs-12 col-sm-4 text-center"><span#}
+                                        {#class="ng-cloak">{{ ipt.installations.length }} </span>publishers#}
+                            {#</div>#}
+                            {#<div class="col-xs-12 col-sm-4 text-center">171 installations</div>#}
+                            {#<div class="col-xs-12 col-sm-4 text-center">50 countries</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+
+            {#<div class="horizontal-stripe white-background">#}
+                {#<div class="container--narrow">#}
+                    {#<div class="body-text prose-columns">#}
+
+                        {#{$ data.body.safe_value | sanitize | safe $}#}
+
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</article>#}
+    {#</div>#}
+{#{% endblock %}#}
+
+{% block scripts %}
+    <script src="/js/base/pages/ipt.js?v={$ BUILD_VERSION $}"></script>
+{% endblock %}
