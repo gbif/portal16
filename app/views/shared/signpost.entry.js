@@ -99,7 +99,51 @@ function addWwwSignPost() {
     document.body.appendChild(elemDiv);
 }
 
+function addWarning() {
+    var divStyle = 'z-index: 10000;' +
+        'position: fixed;' +
+        'bottom: 0;' +
+        'width: 100%;' +
+        'padding: 10px 5px;' +
+        'background: tomato;' +
+        'color: white;' +
+        'text-align: center;' +
+        'box-shadow: 0 -1px 1px 2px rgba(0,0,0,0.2);';
 
-if (isRedirectedPage(location.pathname)) {
-    addWwwSignPost();
+    var linkStyle = 'padding: 7px 10px;' +
+        'background: #ffffff;' +
+        'display: inline-block;' +
+        'color: tomato;' +
+        'text-transform: uppercase;' +
+        'font-size: 12px;' +
+        'border-radius: 2px;' +
+        'font-weight: 500;';
+
+    var elemDiv = document.createElement('div');
+    elemDiv.style.cssText = divStyle;
+    var aTag = document.createElement('a');
+    aTag.style.cssText = linkStyle;
+    aTag.setAttribute('href', 'http://www.gbif.org/newsroom/news/83329/trinidad-workshops-kick-off-bid-caribbean');
+    aTag.innerHTML = "We’re moving our servers. That means that not all part of the site is functional. Read more ...";
+    elemDiv.appendChild(aTag);
+    document.body.appendChild(elemDiv);
+
+    var footer = document.getElementById('footer-credits');
+    footer.style.paddingBottom = '50px'
+}
+
+
+// if (isRedirectedPage(location.pathname)) {
+//     addWwwSignPost();
+// }
+
+var _notifications = {$ notifications | rawJson | safe $}
+if (_notifications.count > 0) {
+    addWarning();
+} else {
+    window.timeout(function(){
+        if (_notifications.count > 0) {
+            addWarning();
+        }
+    }, 1500)
 }
