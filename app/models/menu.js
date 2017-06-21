@@ -41,27 +41,27 @@ module.exports = [
       },
       {
         "name": "datasetClasses",
-        "url": "/publishing/dataset-classes"
+        "url": "/dataset-classes"
       },
       {
         "name": "publishingGuide",
-        "url": "/publishing/publishing-guide"
+        "url": "/publishing-guide"
       },
       {
         "name": "endorsement",
-        "url": "/publishing/endorsement"
+        "url": "/become-a-publisher"
       },
       {
         "name": "darwinCore",
-        "url": "/publishing/darwin-core"
+        "url": "/darwin-core"
       },
       {
         "name": "digitizingCollections",
-        "url": "/publishing/digitizing-collections"
+        "url": "/digitizing-collections"
       },
       {
         "name": "dataPapers",
-        "url": "/publishing/data-papers"
+        "url": "/data-papers"
       },
       {
         "name": "citizenScience",
@@ -87,11 +87,11 @@ module.exports = [
           },
           {
             "name": "suggestDataset",
-            "url": "/tools/suggest-dataset"
+            "url": "/suggest-dataset"
           },
           {
             "name": "collectionManagement",
-            "url": "/tools/collection-management"
+            "url": "/collection-management"
           }
         ]
       },
@@ -104,7 +104,7 @@ module.exports = [
           },
           {
             "name": "gbifSoftware",
-            "url": "/tools/gbif-software"
+            "url": "/gbif-software"
           },
           {
             "name": "rgbif",
