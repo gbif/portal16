@@ -5,8 +5,9 @@ var express = require('express'),
     ranks = rootRequire('app/models/enums/allEnums').rank,
     request = require('requestretry');
 
-const FAMILY_RANK_INDEX = 15;
-const SPECIES_RANK_INDEX = 27;
+const FAMILY_RANK_INDEX =   ranks.indexOf('FAMILY'); //15;
+const SPECIES_RANK_INDEX = ranks.indexOf('SPECIES'); //27;
+
 const rankMarkerMap = {
     "dom.": "DOMAIN",
     "superreg.": "SUPERKINGDOM",
@@ -85,6 +86,8 @@ const rankMarkerMap = {
 module.exports = function (app) {
     app.use('/api', router);
 };
+
+
 
 router.get('/species/:key/name', function (req, res) {
     let namePromise = getParsedName(req.params.key);

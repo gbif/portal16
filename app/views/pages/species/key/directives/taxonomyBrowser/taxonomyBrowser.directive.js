@@ -25,7 +25,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl($http, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents) {
+    function taxonomyBrowserCtrl($http, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
@@ -115,6 +115,11 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 taxonKey: vm.taxonKey,
                 occ: vm.occ
             });
+
+            vm.combinations = TaxonomyCombinations.query({
+                taxonKey: vm.taxonKey,
+                occ: vm.occ
+            })
 
             vm.classifiedChildren = [];
             vm.unclassifiedChildren = [];

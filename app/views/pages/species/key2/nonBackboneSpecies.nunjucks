@@ -1,36 +1,57 @@
 <div ng-if="!speciesKey2.isNub">
     <div class="container--desktop m-t-1">
         <div class="row">
-    <div class="card">
-        <div class="card__content card__content--warning">
-            <p>This is the interpretation of the species as published in {{ speciesKey2.dataset.title }}.
-                <span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">To view GBIFs view on this species see <a ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})">the backbone version</a>
-                             </span></p>
+
+            {% include "./warnings.nunjucks" %}
+
+            {#<div class="card"#}
+                 {#ng-if="!speciesKey2.isNub || speciesKey2.species.origin !== 'SOURCE' || speciesKey2.species.issues.length > 0">#}
+                {#<div class="card__content card__content--warning">#}
+                    {#<p ng-if="!speciesKey2.isNub">This is the interpretation of the species as published#}
+                        {#in {{ speciesKey2.dataset.title }}.#}
+                        {#<span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">To view GBIFs view on this species see <a#}
+                                    {#ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})">the backbone version</a>#}
+                             {#</span>#}
+                    {#</p>#}
+
+                    {#<span ng-if="speciesKey2.species.origin !== 'SOURCE'">#}
+
+                {#<p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>#}
+                    {#<p>Origin: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>#}
+
+                    {#</span>#}
+
+                    {#<p ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0"><span#}
+                                {#translate="stdTerms.issues"></span>: <span#}
+                                {#ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning"#}
+                                {#translate="taxon.issueEnum.{{ issue }}"></span></p>#}
+
+                {#</div>#}
+            {#</div>#}
         </div>
-    </div>
-        </div>
-
-        <div class="row m-t-1" ng-if="speciesKey2.species.origin !== 'SOURCE'">
-            <div class="card">
-                <div class="card__content card__content--warning">
-                    <p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>
-                    <p>Origin: <span translate="nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>
-                </div>
-            </div>
-        </div>
 
 
+        {#<div class="row m-t-1" ng-if="speciesKey2.species.origin !== 'SOURCE'">#}
+            {#<div class="card">#}
+                {#<div class="card__content card__content--warning">#}
+                    {#<p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>#}
+                    {#<p>Origin: <span translate="nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
 
-        <div class="row m-t-1" ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0">
-            <dt class="text-capitalize" translate="stdTerms.issues"></dt>
-            <dd class="issue-summary__list">
 
 
-                        <span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="taxon.issueEnum.{{issue}}"></span>
+        {#<div class="row m-t-1" ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0">#}
+            {#<dt class="text-capitalize" translate="stdTerms.issues"></dt>#}
+            {#<dd class="issue-summary__list">#}
 
 
-            </dd>
-        </div>
+                        {#<span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="taxon.issueEnum.{{issue}}"></span>#}
+
+
+            {#</dd>#}
+        {#</div>#}
 
 
     </div>

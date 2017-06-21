@@ -53,7 +53,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
             vm.isNub = vm.species.datasetKey === vm.backboneKey;
-            vm.isSynonym = vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
+            vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
 

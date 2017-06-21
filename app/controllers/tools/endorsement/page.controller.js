@@ -11,13 +11,13 @@ module.exports = {
  * Render create page
  */
 function eoiPage(req, res, next) {
-    let homepage = resource.getByAlias('become-a-publisher', 2, false, res.locals.gb.locales.current);
+    let homepage = resource.getByAlias('/become-a-publisher', 2, false, res.locals.gb.locales.current);
     homepage.then(
         function (data) {
             helper.renderPage(req, res, next, {
                 prose: data,
                 _meta: {
-                    title: 'Request endorsement',
+                    title: 'Become a publisher'
                 }
             }, 'pages/custom/becomePublisher/becomePublisher');
         },
