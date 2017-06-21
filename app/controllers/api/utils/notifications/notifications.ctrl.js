@@ -12,7 +12,7 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res) {
-    notifications.getNotifications(req.query.since).then(function(result){
+    notifications.getNotifications().then(function(result){
         res.json(result);
     }).catch(function(err){
         res.status(500);
@@ -20,3 +20,13 @@ router.get('/', function (req, res) {
     });
 });
 
+//temporary hack to embde in on the drupal page as a script
+router.get('/script.js', function (req, res) {
+    notifications.getNotifications().then(function(result){
+        res.setHeader('content-type', 'text/javascript');
+        res.end('window._notification = ' + JSON.stringify(result) + '; window.addWarning();');
+    }).catch(function(err){
+        res.status(500);
+        res.send(err);
+    });
+});

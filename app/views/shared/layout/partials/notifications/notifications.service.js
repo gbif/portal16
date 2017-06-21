@@ -1,6 +1,7 @@
 (function () {
     'use strict';
-    var angular = require('angular');
+    var angular = require('angular'),
+        _ = require('lodash');
 
     angular
         .module('portal')
@@ -10,9 +11,7 @@
 
     angular
         .module('portal')
-        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, $cookies) {
-            var that = this;
-
+        .service('Notifications', function ($http, $rootScope, NOTIFICATIONS, $sessionStorage, $interval) {
             var typeMap = {BLOCKER: 3, WARNING: 2, INFO: 1};
             var classMap = {
                 3: 'isBlocker',
@@ -20,45 +19,34 @@
                 1: 'isInfo'
             };
 
-            var state = {
-                data: {
-                    notifications: {},
-                    severity: undefined
-                }
-            };
-
-            function getState() {
-                return state;
-            }
-
             function decorate(notifications) {
                 notifications.results.forEach(function(e){
                     e._severity = typeMap[e.type];
                 });
-                notifications.results = _.sortBy(notifications.results, '_severity');
-                state.notifications = notifications;
+                notifications.results = _.sortBy(notifications.results, '_severity').reverse();
                 var mostSevere = _.get(_.maxBy(notifications.results, '_severity'), '_severity', 0);
-                state.severity = {
+                notifications.severity = {
                     value: mostSevere,
                     className: classMap[mostSevere]
                 };
+                return notifications;
             }
 
-            that.updateNotifications = function () {
-
+            function updateNotifications() {
                 $http.get('/api/notifications', {})
                     .then(function (response) {
-                        decorate(response.data);
-                        $rootScope.$broadcast(NOTIFICATIONS.CHANGED);
+                        var notifications = decorate(response.data);
+                        if (notifications.severity.value == 3 && !$sessionStorage.gb_hasBeenNotified) {
+                            notifications.alert = true;
+                            $sessionStorage.gb_hasBeenNotified = true;
+                        }
+                        $rootScope.$broadcast(NOTIFICATIONS.CHANGED, notifications);
                     }, function () {
                         //TODO mark as failure or simply hide
                     });
-            };
-            that.updateNotifications();
-
-            return {
-                getState: getState
-            };
+            }
+            updateNotifications();
+            $interval(updateNotifications, 120000);
         }
     );
 })();

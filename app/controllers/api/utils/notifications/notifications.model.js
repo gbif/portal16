@@ -1,35 +1,20 @@
 "use strict";
 let github = require('octonode'),
     credentials = rootRequire('config/credentials').portalFeedback,
+    resourceSearch = require('../../../resource/key/resourceKey'),
     _ = require('lodash'),
     log = rootRequire('config/log'),
     moment = require("moment");
 
-
-function getNotifications(startDate){
-    let client = github.client({
-            username: credentials.user,
-            password: credentials.password
-        }),
-        ghsearch = client.search();
-
-    let githubPromise = new Promise(function(resolve, reject){
-        ghsearch.issues({
-            q: 'is:issue is:open label:notification+repo:' + credentials.repository,
-            sort: 'created', //'reactions-+1',
-            order: 'desc',
-            per_page: 20
-        }, function (err, data) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data.items);
-            }
-        });
-    });
-    return githubPromise;
+async function getNotifications(){
+    let timestamp = (new Date()).toISOString();
+    let resources = await resourceSearch.searchContentful({content_type:'notification', 'fields.start[lt]': timestamp, 'fields.end[gt]': timestamp}, 0, false, 'en');
+    return {
+        count: resources.total,
+        limit: resources.limit,
+        results: resources.items.map(function(e){return e.fields})
+    };
 }
-
 
 module.exports = {
     getNotifications: getNotifications
