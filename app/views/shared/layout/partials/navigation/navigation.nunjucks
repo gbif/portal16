@@ -39,7 +39,7 @@
                     <span class="service-menu__icon gb-icon-notifications"></span>
                     <span class="service-menu__text">Notifications</span>
                 </a>
-                <span class="badge badge--error menu-notification ng-cloak">1</span>
+                <span class="notification-circle menu-notification {{ nav.notifications.severity.className }}" ng-if="nav.notifications.count > 0"></span>
             </li>
 
             <li class="service-menu__profile">
