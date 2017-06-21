@@ -1,0 +1,16 @@
+<div class="horizontal-stripe article-header white-background">
+    <header class="text-center">
+        {#<nav class="article-header__category">#}
+            {#<span class="article-header__category__upper">Share</span>#}
+        {#</nav>#}
+        <h1>{$ main.fields.title $}</h1>
+        <div class="article-header__intro">
+            {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+        </div>
+        {% if main.fields.numberOfResourceUsed | isNotEmpty %}
+            <span class="article-header__meta">
+                    {$ main.fields.numberOfResourceUsed | striptags $}
+                    </span>
+        {% endif %}
+    </header>
+</div>

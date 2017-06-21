@@ -14,7 +14,7 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
-router.get('/tools/suggest-dataset', function (req, res, next) {
+router.get('/suggest-dataset', function (req, res, next) {
 
     //if the text hasn't already been read from disk, then get it
     if (typeof translations[res.locals.gb.locales.current] === 'undefined') {

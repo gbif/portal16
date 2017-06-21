@@ -8,13 +8,13 @@
 <html lang="en" class="ie" ng-app="portal">
 <![endif]-->
 
-{# <head> #}
 <head ng-controller="headCtrl as head">
     {% include "../partials/head/head.nunjucks" %}
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}" ng-controller="portalCtrl as portal">
+
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
@@ -23,8 +23,6 @@
             {% include "../partials/navigation/navigation.nunjucks" %}
         {% endif %}
         {# Navigation end #}
-
-        {% include "../partials/popups/terms/terms.html" %}
         
         {% if not _meta.removeMenu %}
             {% include "../partials/feedback/feedback.nunjucks" %}
@@ -32,24 +30,11 @@
             {% include "../partials/userMenu/userMenu.nunjucks" %}
             {% include "../partials/menuSearch/menuSearch.nunjucks" %}
         {% endif %}
-        {# Main layout cont #}
-        {# http://html5doctor.com/the-main-element/ #}
+
         <main id="main" class="main" role="main" {% if not _meta.customUiView %} ui-view {% endif %}>
 
-            {# Drawer block is contextual, therefore is a part of the <main> #}
-            {#{% if _meta.hasDrawer %}#}
-                {#<aside id="filter" class="site-drawer">#}
-                    {#<div>#}
-                        {#{% block drawer %}{% endblock %}#}
-                    {#</div>#}
-                {#</aside>#}
-            {#{% endif %}#}
-
             <div class="site-content">
-
-                {#{% if _meta.hasTools %}#}
-                    {% block tools %}{% endblock %}
-                {#{% endif %}#}
+                {% block tools %}{% endblock %}
 
                 {# use page--fixed-width to restrict main column width #}
                 <div class="site-content__page">
@@ -57,12 +42,13 @@
                     <div>
                         {% block page %}{% endblock %}
                     </div>
-                    {# Footer #}
                     {% include "../partials/footer/footer.nunjucks" %}
                 </div>
 
             </div>
         </main>
+
+        {% include "../partials/popups/terms/terms.html" %}
 
     </div>
 </div>
