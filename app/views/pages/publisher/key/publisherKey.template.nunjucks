@@ -19,6 +19,6 @@
                 </div>
             </div>
         </div>
-        <ng-include src="'/api/template/site/footer.html?v=' + publisherKey.BUILD_VERSION"></ng-include>
+        <ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>
     </div>
 </div>

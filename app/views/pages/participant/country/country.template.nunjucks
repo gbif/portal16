@@ -1,24 +1,18 @@
 <div class="site-content">
     <div class="site-content__page light-background">
-        <div>
+        <div ng-if="countryKey.country.$resolved">
             <article class="wrapper-horizontal-stripes countryKey">
                 {% include "./header.nunjucks" %}
                 {% include "./nav.nunjucks" %}
 
                 <div>
                     <div ui-view></div>
-
-                    {#<div ng-if="countryKey.$state.is('country')">#}
-                        {#{% if participant and (participant.participationStatus == 'VOTING' or participant.participationStatus == 'ASSOCIATE') %}#}
-                            {#{% include "./about.nunjucks" %}#}
-                        {#{% else %}#}
-                            {#{% include "./nonParticipant.nunjucks" %}#}
-                        {#{% endif %}#}
-                        {#<div ng-include="'/api/template/country/summary.html'"></div>#}
-                    {#</div>#}
                 </div>
             </article>
         </div>
-        <ng-include src="'/api/template/site/footer.html?v=' + BUILD_VERSION"></ng-include>
+        <div ng-if="!countryKey.country.$resolved" class="emptyInfo">
+            <h3 class="loading"></h3>
+        </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>
     </div>
 </div>

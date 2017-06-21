@@ -1,0 +1,21 @@
+.menubox--notifications {
+  .menubox {
+    &__top.isBlocker {
+      background tomato
+      border 1px solid darken(tomato, 5)
+    }
+  }
+}
+
+.notification-circle {
+  display block
+  width 12px
+  height 12px
+  border-radius 6px
+  &.isBlocker, &.isWarning{
+    background tomato
+  }
+  &.isInfo {
+    background darken($navBar_background_color, 20)
+  }
+}

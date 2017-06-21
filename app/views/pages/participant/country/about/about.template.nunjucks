@@ -2,10 +2,10 @@
 
     {% include "./map.nunjucks" %}
 
-    <div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+    <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
         <div class="taxonBreakdown">
             <div>
-                <a ng-href="../occurrence/search?publishing_country={{ countryKey.countryCode }}&taxon_key={{ kingdom.id }}"
+                <a ui-sref="occurrenceSearchTable({country: countryKey.countryCode, taxon_key: kingdom.id})"
                    class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
                     <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
                     <div>
@@ -76,5 +76,5 @@
     <div class="container--desktop">
         <h4 class="text-muted small text-uppercase">Trends about {{ 'country.' + countryKey.countryCode | translate }}</h4>
     </div>
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__narrowCards"></div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__normalCards"></div>
 </section>

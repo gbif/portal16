@@ -1,6 +1,10 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
+
+require('./notifications.service');
+
 angular
     .module('portal')
     .directive('notifications', notificationsDirective);
@@ -21,7 +25,7 @@ function notificationsDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function notifications($scope, NAV_EVENTS) {
+    function notifications($scope, NAV_EVENTS, NOTIFICATIONS, Notifications) {
         var vm = this;
         vm.isActive = false;
 
@@ -37,16 +41,12 @@ function notificationsDirective(BUILD_VERSION) {
             vm.isActive = false;
         };
 
-        //vm.getNotifications = function () {
-        //    $http.get('/api/notifications/announcements', {})
-        //        .then(function (response) {
-        //            vm.announcements = response.data;
-        //        }, function (err) {
-        //            vm.issues = {};
-        //            //TODO mark as failure or simply hide
-        //        });
-        //};
-        //vm.getNotifications();
+        $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+            vm.notifications = notifications;
+            if (notifications.alert) {
+                vm.isActive = true;
+            }
+        });
     }
 }
 

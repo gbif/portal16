@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys) {
+function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, Notifications) {
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -84,6 +84,10 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
             }
         }
     );
+
+    $scope.$on(NOTIFICATIONS.CHANGED, function (event, notifications) {
+        vm.notifications = notifications;
+    });
 
 }
 
