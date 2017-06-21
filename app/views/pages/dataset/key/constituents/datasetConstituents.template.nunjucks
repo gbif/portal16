@@ -13,7 +13,7 @@
                 </div>
 
                 <div ng-repeat="result in datasetConstituents.constituents.results">
-                    <ng-include src="'/api/template/search/datasetResult.html?v=' + projectKey.BUILD_VERSION"></ng-include>
+                    <ng-include src="'/api/template/search/datasetResult.html?v=' + portal.BUILD_VERSION"></ng-include>
                 </div>
 
                 <div ng-if="datasetConstituents.constituents && datasetConstituents.constituents.count > datasetConstituents.limit">

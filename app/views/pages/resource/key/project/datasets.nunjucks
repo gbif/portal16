@@ -4,7 +4,7 @@
         <div class="row" ng-if="projectKey.datasets.count > 0">
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.datasets.results">
-                    <ng-include src="'/api/template/search/datasetResult.html?v=' + projectKey.BUILD_VERSION"></ng-include>
+                    <ng-include src="'/api/template/search/datasetResult.html?v=' + portal.BUILD_VERSION"></ng-include>
                 </div>
             </div>
         </div>
