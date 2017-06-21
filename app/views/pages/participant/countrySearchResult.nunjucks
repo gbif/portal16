@@ -9,8 +9,8 @@
     </div>
     <div class="card__stripe">
         <div class="card__content clearfix">
-            <div class="pull-right">
-                <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}">
+            <div class="pull-right isInvalid hideInvalid">
+                <img class="searchCard__img--noCrop" src="{{ result.countryCode | flag }}" gb-load>
             </div>
             <p ng-if="result.participant">
                 Member since: {{ result.participant.membershipStart }}

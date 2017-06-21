@@ -1,6 +1,6 @@
 <div>
-    <div class="white-background p-t-05" ng-if="countryKey.country.participant">
-        <div ng-include="'/api/template/country/' + countryKey.countryCode"></div>
+    <div class="white-background p-t-05" ng-if="countryKey.country.participant" ng-show="countryParticipation.loaded">
+        <div ng-include="'/api/template/country/' + countryKey.countryCode" onload="countryParticipation.loaded = true" ></div>
 
         <section class="horizontal-stripe bare-background m-t-1" id="contacts" ng-if="countryKey.country.node || countryKey.country.activePeople.length > 0">
             <div class="container--narrow">
@@ -14,6 +14,9 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div ng-if="!countryParticipation.loaded" class="emptyInfo">
+        <h3 class="loading"></h3>
     </div>
     <div class="emptyInfo" ng-if="!countryKey.country.participant">
         <h3>Not a participant</h3>

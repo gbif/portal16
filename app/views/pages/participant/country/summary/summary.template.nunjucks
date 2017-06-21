@@ -3,7 +3,7 @@
     {% include "../about/map.nunjucks" %}
     {% include "../publishing/map.nunjucks" %}
 
-    <section class="container--desktop m-b-1 ng-cloak">
+    <section class="container--desktop m-b-1 ng-cloak" ng-if="countryKey.country.participant">
         <section class="card card--spaced">
             <div class="card__content">
                 <div class="container-fluid">

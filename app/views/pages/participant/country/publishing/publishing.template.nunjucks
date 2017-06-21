@@ -1,12 +1,13 @@
-<div>
-    <div ng-if="countryPublishing.datasetsFrom.count">
-        <section class="seperator">
+<div class="seperator">
+    <div ng-if="countryPublishing.datasetsFrom.count > 0">
+
+        <section>
             {% include "./map.nunjucks" %}
 
-            <div class="container--desktop m-b-1 m-t-1 ng-cloak" ng-if="countryKey.occurrenceCount > 0">
+            <div class="container--desktop m-b-3 m-t-3 ng-cloak" ng-if="countryKey.occurrenceCount > 0 && countryKey.kingdomsFrom">
                 <div class="taxonBreakdown">
                     <div>
-                        <a ng-href="../occurrence/search?publishing_country={{ countryKey.countryCode }}&taxon_key={{ kingdom.id }}"
+                        <a ui-sref="occurrenceSearchTable({publishing_country: countryKey.countryCode, taxon_key: kingdom.id})"
                            class="taxonBreakdown__taxon inherit noUnderline" ng-repeat="kingdom in countryKey.kingdoms">
                             <div class="taxon-icon gb-icon-{{ kingdom.icon }}"></div>
                             <div>
@@ -77,11 +78,14 @@
             <div class="container--desktop">
                 <h4 class="text-muted small text-uppercase">Publishing trends</h4>
             </div>
-            <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__narrowCards"></div>
+            <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__normalCards"></div>
         </section>
     </div>
-    <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.count">
+    <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
         <h3>No data publising activity</h3>
         <p>This country hasn't shared any data through GBIF</p>
+    </div>
+    <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved">
+        <h3 class="loading"></h3>
     </div>
 </div>

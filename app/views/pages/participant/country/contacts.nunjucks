@@ -1,4 +1,4 @@
-<section class="horizontal-stripe bare-background m-t-1" id="contacts" ng-if="countryKey.country.node || countryKey.country.activePeople.length > 0">
+<section class="horizontal-stripe bare-background m-t-1" id="contacts" ng-if="countryKey.country.participant && (countryKey.country.node || countryKey.country.activePeople.length > 0)">
     <div class="container--desktop">
         <div>
             <h4 class="text-muted small text-uppercase" translate="stdTerms.contacts" translate-values="{ NUMBER: countryKey.country.activePeople.length}">Contacts</h4>

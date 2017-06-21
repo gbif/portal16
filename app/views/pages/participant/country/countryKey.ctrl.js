@@ -55,8 +55,6 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
             vm.occurrenceFromCount = resp.data;
         });
 
-    vm.kingdomsAbout = {};
-    vm.kingdomsFrom = {};
     vm.kingdoms = [
         {id: 1, title: 'Animalia', icon: 'animalia'},
         {id: 6, title: 'Plantae', icon: 'plantae'},
