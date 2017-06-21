@@ -23,8 +23,6 @@
             {% include "../partials/navigation/navigation.nunjucks" %}
         {% endif %}
         {# Navigation end #}
-
-        {% include "../partials/popups/terms/terms.html" %}
         
         {% if not _meta.removeMenu %}
             {% include "../partials/feedback/feedback.nunjucks" %}
@@ -63,6 +61,8 @@
 
             </div>
         </main>
+
+        {% include "../partials/popups/terms/terms.html" %}
 
     </div>
 </div>
