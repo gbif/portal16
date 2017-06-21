@@ -5,39 +5,38 @@
     {% set main = prose.main %}
     {% set resolved = prose.resolved %}
 
-    <div ng-controller="becomePublisherCtrl as eoi">
+    <div ng-controller="iptCtrl as ipt">
         <article class="wrapper-horizontal-stripes">
             {% include "./header.nunjucks" %}
-            {% include "../../resource/key/primaryImage.nunjucks" %}
 
-            {#<div class="horizontal-stripe--paddingless white-background">#}
-                {#<div class="heading-image ipt__map">#}
-                    {#<leaflet#}
-                            {#leafletMap="leafletMap"#}
-                            {#id="iptInstallationsMap"#}
-                            {#class="iptInstallationsMap"#}
-                            {#defaults="ipt.mapDefaults"#}
-                            {#markers="ipt.installations"#}
-                            {#lf-center="ipt.center"#}
-                            {#height="100%"#}
-                            {#width="100%"#}
-                            {#layers="ipt.layers"#}
-                    {#></leaflet>#}
-                {#</div>#}
-            {#</div>#}
-            {#<div class="horizontal-stripe--paddingless white-background">#}
-                {#<div class="heading-image">#}
-                    {#<div class="container-fluid">#}
-                        {#<div class="row ipt__map-stats">#}
-                            {#<div class="col-xs-12 col-sm-4 text-center"><span#}
-                                        {#class="ng-cloak">{{ ipt.installations.length }} </span>publishers#}
-                            {#</div>#}
-                            {#<div class="col-xs-12 col-sm-4 text-center">171 installations</div>#}
-                            {#<div class="col-xs-12 col-sm-4 text-center">50 countries</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="heading-image ipt__map">
+                    <leaflet
+                            leafletMap="leafletMap"
+                            id="iptInstallationsMap"
+                            class="iptInstallationsMap"
+                            defaults="ipt.mapDefaults"
+                            markers="ipt.installations"
+                            lf-center="ipt.center"
+                            height="100%"
+                            width="100%"
+                            layers="ipt.layers"
+                    ></leaflet>
+                </div>
+            </div>
+            <div class="horizontal-stripe--paddingless white-background">
+                <div class="heading-image">
+                    <div class="container-fluid">
+                        <div class="row ipt__map-stats">
+                            <div class="col-xs-12 col-sm-4 text-center"><span
+                                        class="ng-cloak">{{ ipt.installations.length }} </span>publishers
+                            </div>
+                            <div class="col-xs-12 col-sm-4 text-center">171 installations</div>
+                            <div class="col-xs-12 col-sm-4 text-center">50 countries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
