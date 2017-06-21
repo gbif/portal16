@@ -13,7 +13,14 @@
 
                 <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span></p>
 
-                <p ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">Synonym of <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})">{{ speciesKey2.species.accepted }}</a></p>
+                <p ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
+                    {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym of' : 'Synonym of' }} <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})">{{ speciesKey2.species.accepted }}</a>
+
+                </p>
+
+                <p ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey">
+                    Basionym: <a scientific-name key="{{ speciesKey2.species.basionymKey }}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})">{{ speciesKey2.species.basionym }}</a>
+                </p>
 
 
                 <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">in <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
