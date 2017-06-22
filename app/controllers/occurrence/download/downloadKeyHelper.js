@@ -219,7 +219,6 @@ function resolveEnum(predicate, config, __mf) {
 
 function addEndpointTask(predicate, config, tasks) {
     if (predicate.type == 'in') {
-
         let listPromise = Promise.all(predicate.values.map(function(value){
             return getResource(config.url + value);
         })).then(function(values){
@@ -227,7 +226,7 @@ function addEndpointTask(predicate, config, tasks) {
         });
         tasks.push(listPromise);
     } else {
-        let itemPromise = getResource(config.url + predicate.value) .then(function(e){
+        let itemPromise = getResource(config.url + predicate.value).then(function(e){
                 predicate.value = e[config.field];
             })
             .catch(function(){
