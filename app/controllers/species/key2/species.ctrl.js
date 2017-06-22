@@ -17,6 +17,18 @@ router.get('/species/:key(\\d+)\.:ext?', function render(req, res) {
 });
 
 
+router.get('/species/:key/verbatim', function render(req, res) {
+    res.render('pages/species/key2/speciesKey', {
+        key: req.params.key,
+        _meta: {
+            title: 'species',
+            hasTools: true,
+            hideFooter: true
+        }
+    });
+});
+
+
 router.get('/species2/:key(\\d+)/references\.:ext?', function render(req, res) {
     res.render('pages/species/key2/speciesKey', {
         key: req.params.key,

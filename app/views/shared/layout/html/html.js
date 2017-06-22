@@ -224,6 +224,7 @@ require('./angular/directory.resource');
 require('./angular/species.resource');
 require('./angular/taxonomy.resource');
 require('./angular/map.resource');
+require('./angular/dwcextension.resource');
 require('./angular/similarOccurrence.service');
 require('./angular/occurrenceFilter.service');
 require('./angular/datasetFilter.service');

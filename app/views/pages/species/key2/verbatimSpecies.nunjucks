@@ -1,0 +1,83 @@
+<div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKeyVerbatim') && speciesKey2.dwcextensions.$resolved">
+    <div class="container--desktop m-t-1">
+
+
+    </div>
+
+
+        <div class="container--desktop">
+
+            <div >
+                <div class="card m-b-05 searchCard row" >
+                    <div class="card__stripe">
+                        <div class="card__content card__content--warning">
+                            <table class="table table--compact">
+                                <thead>
+                                <th>Term</th><th>Value</th>
+
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="(key, value) in speciesKey2.verbatim" ng-if="key!=='key' && key!=='extensions' && key!=='lastCrawled' ">
+                                    <td class="verbatim-table--key">
+                                        {{ key.substr(key.lastIndexOf("/")+1) }}<br>
+                                        <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
+                                    </td><td ng-bind-html="value"></td>
+                                </tr>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div ng-if="speciesKey2.verbatimHasExtensions">
+            <h3 class="m-t-2">Extensions</h3>
+            </div>
+            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions">
+
+                    <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.getNameSpace(nameSpace, 'url')}}" >
+                            {{speciesKey2.getNameSpace(nameSpace, 'title')}}
+                        </a></h4>
+                <p class="discreet--very smaller extension-subheader">{{speciesKey2.getNameSpace(nameSpace, 'description')}}</p>
+                    <div >
+                        <div class="card m-b-05 searchCard row" ng-repeat="item in extension">
+                            <div class="card__stripe">
+                                <div class="card__content card__content--warning">
+                                <table class="table table--compact">
+                                    <thead>
+                                    <th>Term</th><th>Value</th>
+
+                                    </thead>
+                                    <tbody>
+                                       <tr ng-repeat="(key, value) in item">
+                                       <td class="verbatim-table--key">
+                                       {{ key.substr(key.lastIndexOf("/")+1) }}<br>
+                                       <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
+                                       </td><td ng-bind-html="value"></td>
+                                       </tr>
+
+
+                                    </tbody>
+
+                                </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+</div>
+</div>

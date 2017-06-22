@@ -1,6 +1,6 @@
-<div ng-if="!speciesKey2.isNub">
+<div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
     <div class="container--desktop m-t-1">
-        <div class="row">
+
 
             {% include "./warnings.nunjucks" %}
 
@@ -28,7 +28,7 @@
 
                 {#</div>#}
             {#</div>#}
-        </div>
+
 
 
         {#<div class="row m-t-1" ng-if="speciesKey2.species.origin !== 'SOURCE'">#}
@@ -61,82 +61,10 @@
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--desktop">
-            <div class="row">
 
 
-    {#<div class="light-background p-t-05 seperator">#}
-        {#<div>#}
-            {#<div class="scrollable-y">#}
-                {#<div class="table-container">#}
-                    {#<table class="table search-table smaller">#}
-                        {#<thead>#}
-                        {#<tr>#}
-                            {#<th></th>#}
-                            {#<th class="text-capitalize"#}
-                                {#ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status']">#}
-                                {#<a href=""#}
-                                   {#ng-click="programmeKey.state.sortType = col; programmeKey.state.sortReverse = !programmeKey.state.sortReverse">#}
-                                {#<span class="inline-block text-nowrap">#}
-                                    {#<span>{{ col }}</span>#}
-                                    {#<span ng-show="programmeKey.state.sortType == col && !programmeKey.state.sortReverse">&#x25B2;</span>#}
-                                    {#<span ng-show="programmeKey.state.sortType == col && programmeKey.state.sortReverse">&#x25BC;</span>#}
-                                    {#<span ng-show="programmeKey.state.sortType != col" class="invisible">&#x25BC;</span>#}
-                                {#</span>#}
-                                {#</a>#}
-                            {#</th>#}
-                        {#</tr>#}
-                        {#</thead>#}
-                        {#<tbody>#}
-                        {#<tr ng-repeat="result in programmeKey.projects.results | orderBy:programmeKey.state.sortType:programmeKey.state.sortReverse"#}
-                            {#ng-click="programmeKey.goto('{$ gb.locales.urlPrefix $}/project/' + result.id + '/' + result._slug)">#}
-                            {#<td class="table-cell--narrow">#}
-                                {#<div class="imageGallery__img img-round-thumb" ng-if="result.primaryImage.file.url">#}
-                                    {#<img ng-src="{{ programmeKey.imageCache }}50x50/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}"#}
-                                         {#gallery-image>#}
-                                {#</div>#}
-                            {#</td>#}
-                            {#<td class="table-cell--widder">#}
-                                {#<a ng-href="{$ gb.locales.urlPrefix $}/project/{{ result.id }}/{{ result._slug }}"#}
-                                   {#ng-click="programmeKey.preventBubbling($event)">{{ result.title }}</a>#}
-                                {#<div class="discreet" ng-if="result.projectId">{{result.projectId}}</div>#}
-                            {#</td>#}
-                            {#<td class="table-cell--normal">#}
-                            {#<span translate="cms.projectGrantType.{{ result.grantType }}"#}
-                                  {#ng-if="result.grantType">{{ result.grantType }}</span>#}
-                            {#</td>#}
-                            {#<td class="table-cell--narrow">#}
-                                {#<span ng-if="result.start">{{ result.start | amDateFormat:'DD MMM YYYY' }}</span>#}
-                            {#</td>#}
-                            {#<td class="table-cell--narrow">#}
-                                {#<span ng-if="result.end">{{ result.end | amDateFormat:'DD MMM YYYY' }}</span>#}
-                            {#</td>#}
-                            {#<td class="table-cell--narrow">#}
-                                {#<span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:'{$ gb.locales.current $}' }}</span>#}
-                            {#</td>#}
-                            {#<td class="table-cell--narrow">#}
-                                {#<span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:'{$ gb.locales.current $}' }}</span>#}
-                            {#</td>#}
-                            {#<td class="table-cell--normal">#}
-                            {#<span translate="cms.projectStatus.{{ result.status }}"#}
-                                  {#ng-if="result.status">{{ result.status }}</span>#}
-                            {#</td>#}
-                        {#</tr>#}
-                        {#</tbody>#}
-                    {#</table>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-        {#<div class="emptyInfo--large" ng-if="!programmeKey.projects.$resolved">#}
-            {#<h3>Hang on while we search for related projects</h3>#}
-            {#<span class="loading"></span>#}
-        {#</div>#}
-        {#<div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && !programmeKey.projects.results">#}
-            {#<h3>Hmm :( we couldn't find any projects due to a server error</h3>#}
-        {#</div>#}
-        {#<div class="emptyInfo--large" ng-if="programmeKey.projects.$resolved && programmeKey.projects.count == 0">#}
-            {#<h3>No projects to show</h3>#}
-        {#</div>#}
-    {#</div>#}
+
+
 
     <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
         <h4 class="text-muted small text-uppercase">Description</h4>
@@ -154,13 +82,13 @@
 
         </div>
     </div>
-            </div>
+
         </div>
     </div>
 
     <div class="horizontal-stripe light-background">
         <div class="container--desktop">
-            <div class="row">
+
                 <div class="col-xs-12">
                     <div>
                         <div class="discreet m-t-3">
@@ -174,7 +102,7 @@
                     </div>
 
                 </div>
-            </div>
+
         </div>
     </div>
 </div>
