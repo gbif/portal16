@@ -14,12 +14,12 @@
                 <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span></p>
 
                 <p ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
-                    {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym of' : 'Synonym of' }} <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})">{{ speciesKey2.species.accepted }}</a>
+                    {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym of' : 'Synonym of' }} <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" name="{{speciesKey2.species.accepted}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})"></a>
 
                 </p>
 
                 <p ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey">
-                    Basionym: <a scientific-name key="{{ speciesKey2.species.basionymKey }}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})">{{ speciesKey2.species.basionym }}</a>
+                    Basionym: <a scientific-name key="{{ speciesKey2.species.basionymKey }}" name="{{speciesKey2.species.basionym}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})"></a>
                 </p>
 
 

@@ -39,6 +39,51 @@ router.get('/species/:key/combinations', function (req, res) {
 
 });
 
+router.get('/species/:key/typeSpecimens', function (req, res) {
+
+    let baseRequest = {
+        url: apiConfig.taxon.url + req.params.key + '/typeSpecimens',
+        timeout: 30000,
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    return request(baseRequest)
+        .then(function(response){
+            return res.status(200).json(response.body);
+
+        })
+        .catch(function(err){
+            if (err.statusCode !== 200) {
+                throw response;
+            }
+        });
+
+});
+
+router.get('/species/:key/verbatim', function (req, res) {
+
+    let baseRequest = {
+        url: apiConfig.taxon.url + req.params.key + '/verbatim',
+        timeout: 30000,
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    return request(baseRequest)
+        .then(function(response){
+            return res.status(200).json(response.body);
+
+        })
+        .catch(function(err){
+            if (err.statusCode !== 200) {
+                throw response;
+            }
+        });
+
+});
+
+
 
 
 

@@ -23,7 +23,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -53,6 +53,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
             vm.isNub = vm.species.datasetKey === vm.backboneKey;
+            if(!vm.isNub){
+                vm.verbatim = SpeciesVerbatim.get({id: vm.key});
+            }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
