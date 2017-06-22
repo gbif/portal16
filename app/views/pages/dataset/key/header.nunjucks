@@ -10,7 +10,7 @@
                 </nav>
 
                 <h1 class="text-center">
-                    <span ng-class="{'text'error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
+                    <span ng-class="{'text-error': datasetKey.dataset.deleted}">{{ datasetKey.dataset.title }}</span>
                 </h1>
                 <p class="source">
                     Published by <a class="source underline" ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">
