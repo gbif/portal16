@@ -46,8 +46,8 @@ function renderDownload(req, res, next, template) {
                 downloadHelper.addSyntheticTypes(download.record.request.predicate);
                 downloadHelper.setDepths(download.record.request.predicate);
                 download.isSimple = downloadHelper.getSimpleQuery(download.record.request.predicate);
-                downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
                 downloadHelper.flattenSameType(download.record.request.predicate);
+                downloadHelper.addpredicateResolveTasks(download.record.request.predicate, queryResolver, promiseList, res.__mf);
                 Promise.all(promiseList).then(function(){
                     renderPage(req, res, next, download, template);
                 });
