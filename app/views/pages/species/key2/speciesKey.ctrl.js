@@ -64,10 +64,7 @@ function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension,
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
-    vm.getNameSpace = function(nameSpace, attribute){
 
-        return (vm.dwcextensions[nameSpace]) ? vm.dwcextensions[nameSpace][attribute] : undefined;
-    }
 
     vm.occurrenceQuery = {taxon_key: vm.key};
 

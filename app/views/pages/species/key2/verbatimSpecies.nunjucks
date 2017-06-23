@@ -8,6 +8,9 @@
         <div class="container--desktop">
 
             <div >
+                <h4 class="text-muted small text-uppercase">
+                    Last crawled {{ speciesKey2.verbatim.lastCrawled | date : 'longDate' }}
+                </h4>
                 <div class="card m-b-05 searchCard row" >
                     <div class="card__stripe">
                         <div class="card__content card__content--warning">
@@ -37,12 +40,12 @@
             <div ng-if="speciesKey2.verbatimHasExtensions">
             <h3 class="m-t-2">Extensions</h3>
             </div>
-            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions">
+            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace]">
 
-                    <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.getNameSpace(nameSpace, 'url')}}" >
-                            {{speciesKey2.getNameSpace(nameSpace, 'title')}}
+                    <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
+                            {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
                         </a></h4>
-                <p class="discreet--very smaller extension-subheader">{{speciesKey2.getNameSpace(nameSpace, 'description')}}</p>
+                <p class="discreet--very smaller extension-subheader">{{speciesKey2.dwcextensions[nameSpace].description}}</p>
                     <div >
                         <div class="card m-b-05 searchCard row" ng-repeat="item in extension">
                             <div class="card__stripe">
