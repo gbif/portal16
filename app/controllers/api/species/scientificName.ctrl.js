@@ -172,13 +172,13 @@ async function getParsedName(speciesKey) {
     }
 
     if (name.bracketAuthorship || name.bracketYear) {
-        n += '(' + add(name.bracketAuthorship);
+        n += '(' + addNoSpace(name.bracketAuthorship);
         if (name.bracketAuthorship && name.bracketYear) {
             n += ', ';
         }
-        n += add(name.bracketYear) + ')';
+        n += addNoSpace(name.bracketYear) + ') ';
     }
-    n += add(name.authorship);
+    n += addNoSpace(name.authorship);
     if (name.authorship && name.year) {
         n += ', ';
     }
@@ -204,5 +204,9 @@ async function getName(speciesKey) {
 
 function add(value) {
     return value ? value + ' ' : '';
+}
+
+function addNoSpace(value) {
+    return value ? value  : '';
 }
 

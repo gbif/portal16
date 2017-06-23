@@ -103,13 +103,17 @@ nature, PLOS, ... and
                         {#</div>#}
                     </div>
                 {% endif %}
+            </div>
+        </div>
 
-                <div class="m-b-2">
+        <div class="horizontal-stripe light-background">
+            <div class="container--narrow">
+                <div>
                     <h2 class="text-center">{$ main.fields.aboutTitle $}</h2>
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="home__about body-text">
-                                <div class="home__about--columns">
+                                <div>
                                     {$ main.fields.aboutBody | renderTrustedMarkdown(gb.locales.urlPrefix) | addPortalClasses | safe $}
                                     {#<p>#}
                                         {#GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.#}
@@ -125,6 +129,11 @@ nature, PLOS, ... and
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="horizontal-stripe light-background">
+            <div class="container--desktop">
 
                 <div class="card home__map ng-cloak m-b-2">
                     <div class="card">

@@ -55,7 +55,7 @@ gulp.task('observationTrends', function () {
     return build('./app/views/pages/tools/observationTrends/observationTrends.entry.js', 'pages/observationTrends.js');
 });
 gulp.task('ipt', function () {
-    return build('./app/views/pages/ipt/ipt.entry.js', 'pages/ipt.js');
+    return build('./app/views/pages/custom/ipt/ipt.entry.js', 'pages/ipt.js');
 });
 gulp.task('home', function () {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');

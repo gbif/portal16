@@ -259,7 +259,7 @@
                         Lists occurrence counts by year.
                         {% endcall %}
 
-                        {% call trowM(url="/occurrence/counts/datasets", resp="Counts", respLink=apiBase+"occurrence/counts/datasets?country=DE", params=["country","taxonKey"]) %}
+                        {% call trowM(url="/occurrence/counts/datasets", resp="Counts", respLink=apiBase+"occurrence/counts/datasets?country=DE", params=["country","nubKey"]) %}
                         Lists occurrence counts for datasets that cover a given taxon or country.
                         {% endcall %}
 
@@ -294,6 +294,7 @@
                     target='_blank'>ISO-3166-1</a>) of the country in which the occurrence was recorded.",
             "continent": "Continent, as defined in our <a href='"+apidocs+"/vocabulary/Continent.html' target='_blank'>Continent
                 enum</a>",
+            "nubKey": "A taxon key from the GBIF backbone.",
             "publishingCountry" : "The 2-letter country code (as per <a
                     href='http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm'
                     target='_blank'>ISO-3166-1</a>) of the owining organization's country.",

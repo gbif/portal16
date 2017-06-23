@@ -23,7 +23,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -52,10 +52,19 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, OccurrenceSearch,
             vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: vm.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit:0});
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
-            vm.isNub = vm.species.datasetKey === vm.backboneKey;
+            vm.isNub = vm.species.key === vm.species.nubKey;
+            if(!vm.isNub){
+                vm.verbatim = SpeciesVerbatim.get({id: vm.key});
+                vm.verbatim.$promise.then(function(){
+                    vm.verbatimHasExtensions = Object.keys(vm.verbatim.extensions).length > 0;
+                })
+                vm.dwcextensions = DwcExtension.get();
+
+            }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
+
 
     vm.occurrenceQuery = {taxon_key: vm.key};
 

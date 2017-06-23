@@ -34,6 +34,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesVerbatim', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/verbatim', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesChildren', function ($resource, env) {
             return $resource(env.dataApi + 'species/:id/children', null, {
                     'query': {

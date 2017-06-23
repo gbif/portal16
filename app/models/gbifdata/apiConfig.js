@@ -156,6 +156,9 @@ var apiConfig = {
     },
     citesName: {
         url: 'https://api.speciesplus.net/api/v1/taxon_concepts.json'
+    },
+    dwcextensions: {
+        url: 'http://gbrds.gbif.org/registry/extensions.json'
     }
 };
 

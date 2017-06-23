@@ -5,7 +5,7 @@
                 <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                     <div class="taxonomyBrowser__description">
-                        <span class="sciname">{{tax.scientificName}}</span>
+                        <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
                         <!--<span class="small discreet">{{tax.authorship}}</span>-->
                     </div>
                 </a>
@@ -17,8 +17,7 @@
            class="taxonomyBrowser__accepted inherit noUnderline">
             <div class="taxonomyBrowser__subheadline">Accepted name</div>
             <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
-            <span class="taxonomyBrowser__description sciname">
-                {{vm.acceptedTaxon.scientificName}}
+            <span scientific-name key="{{ vm.taxon.acceptedKey }}" name="{{vm.acceptedTaxon.scientificName}}" class="taxonomyBrowser__description sciname">
                 <!--<span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>-->
             </span>
         </a>
@@ -31,27 +30,27 @@
             <div class="taxonomyBrowser__description" ng-class="{taxonomyBrowser__synonym: vm.taxon.synonym}">
                 <span ng-if="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                 <div>
-                    <span class="sciname">{{vm.taxon.scientificName}}</span>
+                    <span scientific-name key="{{ vm.taxon.key }}" name="{{vm.taxon.scientificName}}" class="sciname"></span>
                     <!--<div class="small discreet">{{vm.taxon.authorship}}</div>-->
                 </div>
-                <!--<div class="taxonomyBrowser__basionyms" ng-if="vm.combinations.length > 0">-->
-                    <!--&lt;!&ndash;<span class="taxonomyBrowser__term">Synonyms</span>&ndash;&gt;-->
-                    <!--<div class="taxonomyBrowser__subheadline">Basionym of</div>-->
-                    <!--<ul>-->
-                        <!--<li ng-repeat="tax in vm.combinations">-->
-                            <!--&lt;!&ndash;<div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>&ndash;&gt;-->
-                            <!--<div class="taxonomyBrowser__description taxonomyBrowser__synonym">-->
-                                <!--<span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>-->
-                                <!--<div>-->
-                                    <!--<a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">-->
-                                        <!--<span class="sciname">{{tax.scientificName}}</span>-->
-                                        <!--&lt;!&ndash;<span class="small discreet">{{tax.authorship}}</span>&ndash;&gt;-->
-                                    <!--</a>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
+                <div class="taxonomyBrowser__basionyms" ng-if="vm.taxon.synonym && vm.combinations.length > 0">
+                    <!--<span class="taxonomyBrowser__term">Synonyms</span>-->
+                    <div class="taxonomyBrowser__subheadline">Basionym of</div>
+                    <ul>
+                        <li ng-repeat="tax in vm.combinations">
+                            <!--<div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>-->
+                            <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
+                                <span class="synonymSymbol">≡</span>
+                                <div>
+                                    <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
+                                        <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
+                                        <!--<span class="small discreet">{{tax.authorship}}</span>-->
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <!--<div class="taxonomyBrowser__synonyms" ng-if="vm.taxon.basionymKey">-->
@@ -80,7 +79,7 @@
                             <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                             <div>
                                 <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
-                                    <span class="sciname">{{tax.scientificName}}</span>
+                                    <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
                                     <!--<span class="small discreet">{{tax.authorship}}</span>-->
                                 </a>
                             </div>
@@ -97,10 +96,7 @@
                 <a class="taxonomyBrowser__child noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                     <div class="taxonomyBrowser__description">
-                        <span>
-                            {{tax.scientificName}}
-                            <!--<span class="small discreet">{{tax.authorship}}</span>-->
-                        </span>
+                        <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
                         <div>
                             <!--<a  ng-show="!vm.isOcc && tax.numDescendants > 0"-->
                             <!--href="/species/search?status=ACCEPTED&status=DOUBTFUL&advanced=1&dataset_key={{vm.datasetKey}}&highertaxon_key={{tax.key}}"-->

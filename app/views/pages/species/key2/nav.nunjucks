@@ -26,6 +26,14 @@
                         <span class="gb-icon-link"></span>
                     </a>
                 </li>
+                <li class="tab" ng-if="!speciesKey2.isNub && speciesKey2.verbatim" ng-class="{isActive: speciesKey2.$state.is('speciesKeyVerbatim')}">
+                    <a  ui-sref="speciesKeyVerbatim({ speciesKey: speciesKey2.species.key })">
+                        <span>
+                            Verbatim
+                        </span>
+
+                    </a>
+                </li>
 
                 <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                     <span>

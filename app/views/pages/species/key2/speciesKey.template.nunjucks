@@ -13,6 +13,8 @@
                     {% include "./backboneSpecies.nunjucks" %}
 
                     {% include "./nonBackboneSpecies.nunjucks" %}
+
+                    {% include "./verbatimSpecies.nunjucks" %}
                 </div>
             </div>
         </div>

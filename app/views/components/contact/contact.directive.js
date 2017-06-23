@@ -36,6 +36,10 @@ function contactDirective(BUILD_VERSION) {
             return _.map(r, function(e){
                 return _.isString(e) ? e : e.role;
             });
+        };
+
+        vm.isOrcid = function(userId){
+            return userId.indexOf('orcid.org') != -1;
         }
     }
 }

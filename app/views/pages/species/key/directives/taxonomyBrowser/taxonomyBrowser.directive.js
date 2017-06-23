@@ -25,7 +25,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl($http, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
+    function taxonomyBrowserCtrl($http, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
@@ -140,6 +140,19 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 taxonKey: vm.taxonKey
             });
 
+            $q.all([vm.taxon.$promise, vm.combinations.$promise]).then(function(){
+                if(vm.taxon.acceptedKey !== vm.taxon.key && vm.combinations.length >0){
+                    for(var i=0; i < vm.combinations.length; i++ ){
+                        if(vm.combinations[i].key === vm.taxon.acceptedKey){
+
+                            vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                        }
+                    }
+
+                }
+            });
+
+
             vm.taxon.$promise.then(function () {
                 vm.nextRank = vm.getNextRank(vm.taxon.rank);
 
@@ -149,13 +162,37 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                             datasetKey: vm.datasetKey,
                             taxonKey: vm.taxon.acceptedKey
                         });
+
+
+
+                            if(vm.taxon.basionymKey === vm.taxon.acceptedKey){
+
+                                vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                            }
+
+
                     }
                 }).catch(function () {
                 });
 
                 if (!vm.taxon.synonym) {
-                    synonyms.$promise.then(function (data) {
-                        vm.synonyms = data.results;
+
+                    $q.all([synonyms.$promise, vm.combinations.$promise])
+                    .then(function (data) {
+                        vm.synonyms = data[0].results;
+                        var homoTypicSynonymKeys = {};
+                        for(var i=0; i < vm.combinations.length; i++ ){
+                            homoTypicSynonymKeys[vm.combinations[i].key] = true;
+                        }
+
+                        for(var i=0; i < vm.synonyms.length; i++ ){
+                            if(homoTypicSynonymKeys[vm.synonyms[i].key] === true || vm.synonyms[i].key === vm.taxon.basionymKey){
+
+                                vm.synonyms[i].taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                            }
+                        }
+
+
                         vm.taxonNumOccurrences = data.numOccurrences;
                     }).catch(function () {
                     });

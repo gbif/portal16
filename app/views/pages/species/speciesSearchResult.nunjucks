@@ -3,7 +3,7 @@
         <div class="card__content">
             <a href="" ui-sref="speciesSearchList({rank:result.rank})" class="inherit searchCard__type hoverBox" ng-if="result.rank" translate="taxonRank.{{ result.rank }}"></a>
             <h3>
-                <a ng-href="{{ urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}">{{result.scientificName}}</a>
+                <a ng-href="{{ urlPrefix }}/species/{{result.key}}" scientific-name key="{{ result.key }}" name="{{result.scientificName}}"></a>
             </h3>
         </div>
     </div>

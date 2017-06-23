@@ -206,6 +206,23 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
                 }
             }
         })
+        .state('speciesKeyVerbatim', {
+            parent: 'speciesKey',
+            url: '/verbatim',
+            params: {
+                advanced: {
+                    value: false,
+                    squash: true
+                }
+            },
+            views: {
+                main: {
+                    templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
+                    controller: 'speciesKey2Ctrl',
+                    controllerAs: 'speciesKey2'
+                }
+            }
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',
