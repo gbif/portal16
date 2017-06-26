@@ -24,7 +24,7 @@
                                     <td class="verbatim-table--key">
                                         {{ key.substr(key.lastIndexOf("/")+1) }}<br>
                                         <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                    </td><td ng-bind-html="value"></td>
+                                    </td><td ng-bind-html="value | parseUrlFilter"></td>
                                 </tr>
 
 
@@ -40,7 +40,7 @@
             <div ng-if="speciesKey2.verbatimHasExtensions">
             <h3 class="m-t-2">Extensions</h3>
             </div>
-            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace]">
+            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace] && extension.length > 0">
 
                     <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
                             {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
@@ -60,7 +60,7 @@
                                        <td class="verbatim-table--key">
                                        {{ key.substr(key.lastIndexOf("/")+1) }}<br>
                                        <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                       </td><td ng-bind-html="value"></td>
+                                       </td><td ng-bind-html="value | parseUrlFilter"></td>
                                        </tr>
 
 

@@ -12,6 +12,10 @@
         <h3>Searching 700+ million records for species data</h3>
     </div>
 
+    <div class="emptyInfo" ng-if="speciesKey2.failedRequest">
+        <h3>The request failed with a server error. That shouldn't happen :(</h3>
+    </div>
+
 <div class="container--desktop m-t-1">
     {% include "./warnings.nunjucks" %}
 
@@ -112,6 +116,8 @@
                         <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
                     </div>
 
+
+
                     {#<div class="m-t-1">#}
                     {#<h4 class="text-muted small text-uppercase">Latitudal distribution</h4>#}
                     {#<div class="card">#}
@@ -128,29 +134,65 @@
 
 
                 </div>
-            </div>
-        </div>
+                <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 
-    </div>
+                        <species-datasets type="CHECKLIST" key="{{ speciesKey2.key }}"></species-datasets>
+
+                </div>
+                    <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 
 
-    <div class="horizontal-stripe light-background">
-        <div class="container--desktop">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div>
-                        <div class="discreet m-t-3">
-                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
-                            <div>
-                                {{ speciesKey2.dataset.citation.text }}
-                                <p class="small discreet m-t-1">Last
-                                    modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>
+
+                        <species-datasets type="OCCURRENCE" key="{{ speciesKey2.key }}"></species-datasets>
+
+                </div>
+                </div>
+                <div class="container--desktop">
+
+                    <div class="m-t-1" >
+                        <h4 class="text-muted small text-uppercase">Citation</h4>
+                        <div class="card">
+                            <div class="card__content">
+                                <div class="m-b-1 m-t-1" ng-bind-html=" speciesKey2.dataset.citation.text  | linky">
+                                    {#<p class="discreet text-uppercase small">Please cite as</p>#}
+                                    {#<div>#}
+                                        {#{{ speciesKey2.dataset.citation.text }}#}
+                                        {#<p class="small discreet m-t-1">Last#}
+                                            {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                                    {#</div>#}
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
+
+
+
             </div>
         </div>
+
     </div>
+
+
+    {#<div class="horizontal-stripe light-background">#}
+        {#<div class="container--desktop">#}
+            {#<div class="row">#}
+                {#<div class="col-xs-12">#}
+                    {#<div>#}
+                        {#<div class="discreet m-t-3">#}
+                            {#<p class="discreet text-uppercase small">Please cite as</p>#}
+                            {#<div>#}
+                                {#{{ speciesKey2.dataset.citation.text }}#}
+                                {#<p class="small discreet m-t-1">Last#}
+                                    {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 </div>
