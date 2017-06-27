@@ -15,7 +15,7 @@
                     This species was deleted {{ speciesKey2.species.deleted | amDateFormat:'D MMMM YYYY' }}
                 </p>
 
-                <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn"></span></p>
+                <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></p>
 
                 <p ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
                     {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym of' : 'Synonym of' }} <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" name="{{speciesKey2.species.accepted}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})"></a>

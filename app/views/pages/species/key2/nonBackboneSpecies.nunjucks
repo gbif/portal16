@@ -74,8 +74,7 @@
                 <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1 no-break">
                     <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
                     <div ng-bind-html="description.description"></div>
-                    <p class="small source" >Source: <a class="inherit" ng-if="description.source"
-                                                       ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a><span ng-if="!description.source">missing</span>
+                    <p class="small source" >Source: <span class="inherit" ng-if="description.source" ng-bind-html="description.source | parseUrlFilter:'_blank': 'source'" ></span><span ng-if="!description.source">missing</span>
                     </p>
                 </div>
             </div>
@@ -93,7 +92,7 @@
                 <h4 class="text-muted small text-uppercase">Citation</h4>
                 <div class="card">
                     <div class="card__content">
-                        <div class="m-b-1 m-t-1" ng-bind-html=" speciesKey2.dataset.citation.text  | linky">
+                        <div class="m-b-1 m-t-1" ng-bind-html=" speciesKey2.dataset.citation.text | parseUrlFilter:'_blank': 'source'">
                             {#<p class="discreet text-uppercase small">Please cite as</p>#}
                             {#<div>#}
                             {#{{ speciesKey2.dataset.citation.text }}#}

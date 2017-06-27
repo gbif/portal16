@@ -162,14 +162,17 @@
         })
         .filter('parseUrlFilter', function() {
             var urlPattern = /(www|http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi;
-            return function(text, target, otherProp) {
-                target = "_blank";
-                angular.forEach(text.match(urlPattern), function(url) {
-                    var urlPos = text.indexOf(url);
-                    if(text.substr(urlPos-6,4).indexOf('src') == -1){
-                        text = text.replace(url, "<a target=\"" + target + "\" href="+ url + " style='color:#4682B4'>" + url +"</a>");
-                    }
-                });
+            return function(text, target, clazz) {
+                target = target || "_blank";
+                if(typeof text === 'string') {
+                    angular.forEach(text.match(urlPattern), function(url) {
+                        var urlPos = text.indexOf(url);
+                        if(text.substr(urlPos-6,4).indexOf('src') == -1){
+                            text = text.replace(url, "<a target=\"" + target + "\" href="+ url + " class="+clazz+">" + url +"</a>");
+                        }
+                    });
+                }
+
                 return text;
             };
         })

@@ -16,7 +16,8 @@ function typeSpecimenDirective() {
         controller: typeSpecimenCtrl,
         controllerAs: 'vm',
         bindToController: {
-            key: '@'
+            key: '@',
+            rank: '@'
         }
     };
     return directive;
@@ -37,7 +38,7 @@ function typeSpecimenDirective() {
                 _.filter(data.results, function (o) {
                     return !_.find(o.issues, function (o) {
                         return o == 'TAXON_MATCH_HIGHERRANK';
-                    });
+                    }) && o.taxonRank === vm.rank;
                 }), ['typeStatus', 'year', 'occurrenceID']);
 
         }, function () {

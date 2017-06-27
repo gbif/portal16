@@ -38,11 +38,18 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
-    vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 20});
+    vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
 
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
+
+    vm.speciesImages.$promise.then(function(resp){
+        utils.attachImages(resp.results);
+    });
+
+
+
     vm.isNub = false;
 
     vm.species.$promise

@@ -27,12 +27,12 @@ function speciesDatasetsDirective() {
     function speciesDatasetsCtrl($scope, $state, $stateParams, SpeciesChecklistDatasets, SpeciesOccurrenceDatasets, $location, $anchorScroll) {
         var vm = this;
         vm.data = {
-            limit: 20,
+            limit: 10,
             offset: 0,
             endOfRecords: true
         };
       //  $anchorScroll.yOffset = 60;
-        vm.defaultLimit = 20;
+        vm.defaultLimit = 10;
         vm.offsetParam = vm.type.toLowerCase() + "DatasetOffset";
         //vm.limit = 5;
         //vm.offset = 0;
@@ -41,38 +41,21 @@ function speciesDatasetsDirective() {
         function getSpeciesDataset() {
 
             if(vm.type ==="CHECKLIST"){
-                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit || 20, offset: vm.data.offset || 0})
+                vm.data = SpeciesChecklistDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
                     .$promise.then(function(data){
                         vm.data = data;
                         setHeight();
 
                     });
             } else if(vm.type === "OCCURRENCE"){
-                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit || 20, offset: vm.data.offset || 0})
+                vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})
                     .$promise.then(function(data){
                     vm.data = data;
                     setHeight();
 
                 });
             }
-             //   vm.checklistsWithSpecies =
-             //   vm.occurrenceDatasetsWithSpecies = SpeciesOccurrenceDatasets.get({id: vm.key});
 
-            // SpeciesReferences.query({
-            //     id: vm.key,
-            //     limit: vm.data.limit || 5,
-            //     offset: vm.data.offset || 0
-            // }, function (data) {
-            //     data.results.forEach(function(e){
-            //         if (_.isString(e.doi) && e.doi.substr(0,4) !== 'http') {
-            //             e.doi = 'https://doi.org/' + e.doi;
-            //         }
-            //     });
-            //     data.hasResults = data.offset > 0 || data.results.length > 0;
-            //     vm.data = data;
-            //     setHeight();
-            // }, function () {
-            // });
         }
 
         function updatePageState() {
@@ -109,7 +92,7 @@ function speciesDatasetsDirective() {
 
         function setHeight() {
             if (vm.data.offset > 0 || !vm.data.endOfRecords && _.get(vm.data, 'results.length', 0) > 0) {
-                vm.height = (77*parseInt(vm.data.limit)) + 25 + 'px';
+                vm.height = (77* vm.data.results.length) + 25 + 'px';
                 vm.hasPages = true;
             }
         }

@@ -20,7 +20,7 @@
     {% include "./warnings.nunjucks" %}
 
 </div>
-    {% include "./partners.nunjucks" %}
+
 
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
@@ -29,43 +29,7 @@
 
 
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
-                    {#<div class="m-t-1">#}
-                        {#<h4 class="text-muted small text-uppercase">Name</h4>#}
-                        {#<div class="card">#}
-                            {#<div class="container-fluid card--padded">#}
-                                {#<div class="row">#}
-                                    {#<div class="col-xs-12 col-md-6" ng-if="speciesKey2.species.synonym">#}
-                                        {#<h5 class="text-muted small text-uppercase">Accepted name</h5>#}
-                                        {#<div><a ui-sref="speciesKey({key:speciesKey2.species.acceptedKey})">{{ speciesKey2.species.accepted }}</div>#}
-                                    {#</div>#}
-                                    {#<div class="col-xs-12 col-md-6" ng-if="!speciesKey2.species.synonym && speciesKey2.synonyms.results.length > 0">#}
-                                        {#<h5 class="text-muted small text-uppercase">Synonyms</h5>#}
-                                        {#<ul class="detailList__list">#}
-                                            {#<li ng-repeat="synonym in speciesKey2.synonyms.results">#}
-                                                {#<a ui-sref="speciesKey({key:synonym.key})">{{ synonym.scientificName }}</a>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</div>#}
-                                    {#<div class="col-xs-12 col-md-6" ng-if="speciesKey2.combinations.length > 0">#}
-                                        {#<h5 class="text-muted small text-uppercase">Combinations</h5>#}
-                                        {#<ul class="detailList__list">#}
-                                            {#<li ng-repeat="synonym in speciesKey2.synonyms.results">#}
-                                                {#<a ui-sref="speciesKey({key:synonym.key})">{{ synonym.scientificName }}</a>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</div>#}
-                                {#</div>#}
-                                {#<div class="row" ng-show="speciesKey2.status">#}
-                                {#<div class="col-xs-12 col-md-3">#}
-                                {#<div class="text-muted small text-uppercase">IUCN threat status</div>#}
-                                {#</div>#}
-                                {#<div class="col-xs-12 col-md-9">#}
-                                {#<iucn-status threat-status="speciesKey2.status" name="{{ speciesKey2.species.canonicalName }}"></iucn-status>#}
-                                {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
+
 
                     <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.descriptions.results.length > 0">
                         <h4 class="text-muted small text-uppercase">Description</h4>
@@ -83,12 +47,6 @@
                     </div>
 
 
-                    {#<div class="m-t-1">#}
-                    {#<h4 class="text-muted small text-uppercase">Occurrences over time</h4>#}
-                    {#<div class="card">#}
-                    {#<occurrence-card query="speciesKey2.occurrenceQuery"></occurrence-card>#}
-                    {#</div>#}
-                    {#</div>#}
 
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
@@ -100,16 +58,7 @@
                         </div>
                     </div>
 
-                    {#<div class="m-t-1" ng-show="speciesKey2.cites.cites_listing">#}
-                    {#<h4 class="text-muted small text-uppercase">Cites trade status</h4>#}
-                    {#<div class="card">#}
-                    {#<div class="card__content">#}
-                    {#<div>#}
-                    {#<a ng-href="{{ speciesKey2.cites._reference }}"><span translate="cites.appendix"></span> {{ speciesKey2.cites.cites_listing }} </a>#}
-                    {#</div>#}
-                    {#</div>#}
-                    {#</div>#}
-                    {#</div>#}
+
 
                     <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
                         <h4 class="text-muted small text-uppercase">References</h4>
@@ -118,57 +67,59 @@
 
 
 
-                    {#<div class="m-t-1">#}
-                    {#<h4 class="text-muted small text-uppercase">Latitudal distribution</h4>#}
-                    {#<div class="card">#}
-                    {#<div class="card__content">#}
-                    {#<canvas id="base" class="chart-horizontal-bar"#}
-                    {#height=300 style="width: content-box;"#}
-                    {#chart-data="speciesKey2.latData"#}
-                    {#chart-labels="speciesKey2.latLabels"#}
-                    {#chart-series="speciesKey2.latSeries" chart-colors="vm.colors">#}
-                    {#</canvas>#}
-                    {#</div>#}
-                    {#</div>#}
-                    {#</div>#}
-
-
                 </div>
-                <div class="row">
+
+
+
+
+
+
+
+
+            </div>
+            <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 
-                        <species-datasets type="CHECKLIST" key="{{ speciesKey2.key }}"></species-datasets>
+                    <species-datasets type="CHECKLIST" key="{{ speciesKey2.key }}"></species-datasets>
 
                 </div>
-                    <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 
 
 
-                        <species-datasets type="OCCURRENCE" key="{{ speciesKey2.key }}"></species-datasets>
+                    <species-datasets type="OCCURRENCE" key="{{ speciesKey2.key }}"></species-datasets>
 
                 </div>
+
+            </div>
+            <div class="row">
+                <div class="container--desktop">
+                <div class=" m-t-1">
+                    <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
                 </div>
+                </div>
+
                 <div class="container--desktop">
 
                     <div class="m-t-1" >
                         <h4 class="text-muted small text-uppercase">Citation</h4>
                         <div class="card">
                             <div class="card__content">
-                                <div class="m-b-1 m-t-1" ng-bind-html=" speciesKey2.dataset.citation.text  | linky">
+                                <div class="m-b-1 m-t-1" ng-bind-html=" speciesKey2.dataset.citation.text  | parseUrlFilter:'_blank': 'source'">
                                     {#<p class="discreet text-uppercase small">Please cite as</p>#}
                                     {#<div>#}
-                                        {#{{ speciesKey2.dataset.citation.text }}#}
-                                        {#<p class="small discreet m-t-1">Last#}
-                                            {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
+                                    {#{{ speciesKey2.dataset.citation.text }}#}
+                                    {#<p class="small discreet m-t-1">Last#}
+                                    {#modified: {{ speciesKey2.species.lastInterpreted | amDateFormat:'D MMMM YYYY' }}</p>#}
                                     {#</div>#}
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-
-
+                {% include "./partners.nunjucks" %}
 
             </div>
         </div>

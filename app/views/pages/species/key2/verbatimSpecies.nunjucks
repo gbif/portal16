@@ -7,8 +7,21 @@
 
         <div class="container--desktop">
 
+            <div class="card"
+                 >
+                <div class="card__content card__content--warning">
+                    <p >This listing shows the original information as received by GBIF from the data publisher, without further interpretation processing.
+
+
+                    </p>
+
+
+
+                </div>
+            </div>
+
             <div >
-                <h4 class="text-muted small text-uppercase">
+                <h4 class="text-muted small text-uppercase m-t-1">
                     Last crawled {{ speciesKey2.verbatim.lastCrawled | date : 'longDate' }}
                 </h4>
                 <div class="card m-b-05 searchCard row" >

@@ -118,7 +118,7 @@ router.get('/species/:key/occurencedatasets', function (req, res) {
                 offset: offset,
                 limit: limit,
                 count: arr.length,
-                endOfRecords: arr.length < (offset + limit),
+                endOfRecords: arr.length <= (offset + limit),
                 results: arr.slice(offset,  Math.min((offset + limit), arr.length))
             };
 
