@@ -24,9 +24,9 @@
     </div>
     <div>
         <!--<div class="small text-center lighter-background seperator">Current</div>-->
-        <div class="taxonomyBrowser__current" ng-if="vm.taxon.key">
+        <div class="taxonomyBrowser__current" ng-class="{taxonomyBrowser__synonym__bordered: vm.taxon.synonym}" ng-if="vm.taxon.key">
             <div class="taxonomyBrowser__subheadline" ng-if="vm.taxon.synonym">Synonym</div>
-            <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.taxon.rank || 'UNRANKED'}}"></span>
+            <!--<span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.taxon.rank || 'UNRANKED'}}"></span>-->
             <div class="taxonomyBrowser__description" ng-class="{taxonomyBrowser__synonym: vm.taxon.synonym}">
                 <span ng-if="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                 <div>
@@ -71,10 +71,12 @@
 
             <div class="taxonomyBrowser__synonyms" ng-if="vm.synonyms.length > 0">
                 <!--<span class="taxonomyBrowser__term">Synonyms</span>-->
+
                 <div class="taxonomyBrowser__subheadline">Synonyms</div>
+                <div class="taxonomyBrowser__synonym__bordered">
                 <ul>
                     <li ng-repeat="tax in vm.synonyms">
-                        <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
+                        <!--<div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>-->
                         <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                             <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                             <div>
@@ -86,7 +88,8 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+                </div>
+                </div>
         </div>
     </div>
     <div ng-if="vm.classifiedChildren.length > 0">

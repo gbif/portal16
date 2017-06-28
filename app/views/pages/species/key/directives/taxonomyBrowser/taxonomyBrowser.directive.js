@@ -141,6 +141,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             });
 
             $q.all([vm.taxon.$promise, vm.combinations.$promise]).then(function(){
+
                 if(vm.taxon.acceptedKey !== vm.taxon.key && vm.combinations.length >0){
                     for(var i=0; i < vm.combinations.length; i++ ){
                         if(vm.combinations[i].key === vm.taxon.acceptedKey){
@@ -148,6 +149,10 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                             vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
                         }
                     }
+
+                    vm.combinations = vm.combinations.filter(function(c){
+                        return c.key !== vm.taxon.acceptedKey;
+                    })
 
                 }
             });
