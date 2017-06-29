@@ -48,10 +48,13 @@ require('angular-svg-round-progressbar');
         .config(chartjsConfig);
 
     /** @ngInject */
-    function runBlock(amMoment, $translate, $http, LOCALE) { //$log
+    function runBlock(amMoment, $translate, $http, LOCALE, $anchorScroll) { //$log
         //$log.debug('runBlock end');
         $translate.use(LOCALE);
         amMoment.changeLocale(LOCALE);
+
+        // Adjust to the height of the header + 10 px:
+        $anchorScroll.yOffset = 60;
         $http({
             method: 'GET',
             url: '//timrobertson100.carto.com/api/v1/map?stat_tag=API&config=%7B%22version%22%3A%221.3.0%22%2C%22stat_tag%22%3A%22API%22%2C%22layers%22%3A%5B%7B%22type%22%3A%22cartodb%22%2C%22options%22%3A%7B%22sql%22%3A%22SELECT%20ST_SCALE(the_geom%2C%20111319.44444444444444%2C%20111319.44444444444444)%20AS%20the_geom_webmercator%20FROM%20world_borders_hd_copy%22%2C%22cartocss%22%3A%22%23layer%20%7B%20polygon-fill%3A%20%234D5258%3B%20polygon-opacity%3A%201%3B%20line-width%3A0%7D%22%2C%22cartocss_version%22%3A%222.1.0%22%7D%7D%5D%7D'

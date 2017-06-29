@@ -4,6 +4,7 @@ var angular = require('angular'),
     utils = require('../../../shared/layout/html/utils/utils');
 
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
+require('../key/directives/speciesDatasets.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
@@ -23,7 +24,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -37,11 +38,18 @@ function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension,
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
-    vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 20});
+    vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
 
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
+
+    vm.speciesImages.$promise.then(function(resp){
+        utils.attachImages(resp.results);
+    });
+
+
+
     vm.isNub = false;
 
     vm.species.$promise
@@ -52,7 +60,7 @@ function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension,
             vm.subsumedSpecies = SpeciesSearch.query({highertaxon_key: vm.key, rank: searchRank, status: ['ACCEPTED', 'DOUBTFUL'], limit:0});
 
             vm.dataset = Dataset.get({id:resp.datasetKey});
-            vm.isNub = vm.species.key === vm.species.nubKey;
+            vm.isNub  = vm.species.datasetKey === vm.backboneKey;
             if(!vm.isNub){
                 vm.verbatim = SpeciesVerbatim.get({id: vm.key});
                 vm.verbatim.$promise.then(function(){
@@ -61,6 +69,10 @@ function speciesKey2Ctrl($q, $state, $stateParams, Species, $http, DwcExtension,
                 vm.dwcextensions = DwcExtension.get();
 
             }
+            // else {
+            //     vm.checklistsWithSpecies = DatasetSearch.query({taxonKey:vm.species.key, type: 'CHECKLIST'});
+            //     vm.occurrenceDatasetsWithSpecies = SpeciesOccurrenceDatasets.get({id: vm.species.key})
+            // }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });

@@ -7,8 +7,21 @@
 
         <div class="container--desktop">
 
+            <div class="card"
+                 >
+                <div class="card__content card__content--warning">
+                    <p >This listing shows the original information as received by GBIF from the data publisher, without further interpretation processing.
+
+
+                    </p>
+
+
+
+                </div>
+            </div>
+
             <div >
-                <h4 class="text-muted small text-uppercase">
+                <h4 class="text-muted small text-uppercase m-t-1">
                     Last crawled {{ speciesKey2.verbatim.lastCrawled | date : 'longDate' }}
                 </h4>
                 <div class="card m-b-05 searchCard row" >
@@ -24,7 +37,7 @@
                                     <td class="verbatim-table--key">
                                         {{ key.substr(key.lastIndexOf("/")+1) }}<br>
                                         <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                    </td><td ng-bind-html="value"></td>
+                                    </td><td ng-bind-html="value | parseUrlFilter"></td>
                                 </tr>
 
 
@@ -40,7 +53,7 @@
             <div ng-if="speciesKey2.verbatimHasExtensions">
             <h3 class="m-t-2">Extensions</h3>
             </div>
-            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace]">
+            <div  ng-repeat="(nameSpace, extension) in speciesKey2.verbatim.extensions" ng-if="speciesKey2.dwcextensions[nameSpace] && extension.length > 0">
 
                     <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="{{speciesKey2.dwcextensions[nameSpace].url}}" >
                             {{speciesKey2.dwcextensions[nameSpace].title}} <span class="gb-icon-link"></span>
@@ -60,7 +73,7 @@
                                        <td class="verbatim-table--key">
                                        {{ key.substr(key.lastIndexOf("/")+1) }}<br>
                                        <a ng-href="{{ key }}" class="discreet--very smaller">{{ key }}</a>
-                                       </td><td ng-bind-html="value"></td>
+                                       </td><td ng-bind-html="value | parseUrlFilter"></td>
                                        </tr>
 
 

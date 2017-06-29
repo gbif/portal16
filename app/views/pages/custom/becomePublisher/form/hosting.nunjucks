@@ -3,25 +3,52 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">What and how</span>
-                <span class="md-subhead">Help us understand what and how you are planning to publish.</span>
+                <span class="md-subhead">Help us understand what kind of data you plan to publish, and what support you may need.</span>
             </md-card-title-text>
         </md-card-title>
 
         <md-card-content>
             <div>
                 <div layout="row">
-                    GBIF.org provides a data access service that presents an index of published primary data and metadata. The responsibility of hosting the original data remains with the data publisher or owner. In order to fulfil this requirement, please answer the following questions.
-                </div>
-                <div layout="row">
-                    <md-input-container flex="100">
-                        <label>Data sample</label>
-                        <input type="url" name="sample" ng-model="eoi.form.comments.sampleUrl">
-                        <div class="hint discreet--very small">Please provide a reference to a the data that you plan to publish. E.g. a csv file or a website</div>
-                        <div ng-messages="eoi.publisherForm.sample.$error">
-                            <div ng-message="url">Invalid url</div>
+                    <p> GBIF.org supports publication of four types of data, explained <a href='/dataset-classes'>here.</a> Responsibility for formatting the data and hosting the original datasets remains with the data publisher, but we can help you find appropriate technical solutions.     </p>           </div>
+                {#<div layout="row">#}
+                    {#<md-input-container flex="100">#}
+                        {#<label>Data sample</label>#}
+                        {#<input type="url" name="sample" ng-model="eoi.form.comments.sampleUrl">#}
+                        {#<div class="hint discreet--very small">Please provide a reference to a the data that you plan to publish. E.g. a csv file or a website</div>#}
+                        {#<div ng-messages="eoi.publisherForm.sample.$error">#}
+                            {#<div ng-message="url">Invalid url</div>#}
+                        {#</div>#}
+                    {#</md-input-container>#}
+                {#</div>#}
+
+                    <p>Which types of data do you expect to publish?</p>
+                    <fieldset class="standard">
+
+                        <div layout-wrap layout-gt-sm="row">
+
+
+                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.ResourceMetaData" aria-label="Resources metadata" class="md-primary md-align-top-left">
+                                    Resources metadata
+                                </md-checkbox>
+
+
+                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.ChecklistData" aria-label="Checklist data" class="md-primary md-align-top-left">
+                                    Checklist data
+                                </md-checkbox>
+
+
+                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.OccurenceData" aria-label="Occurrence-only data" class="md-primary md-align-top-left">
+                                    Occurrence-only data
+                                </md-checkbox>
+
+                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.SamplingEventData" aria-label="Sampling-event data" class="md-primary md-align-top-left">
+                                    Sampling-event data
+                                </md-checkbox>
+
                         </div>
-                    </md-input-container>
-                </div>
+                    </fieldset>
+
 
                 <div class="m-b-1">
                     <p>
@@ -38,7 +65,7 @@
 
                 <div class="m-b-1">
                     <p>
-                        Are you planning to install and run a publishing software to publish your data directly to GBIF.org?
+                        Are you planning to instal and run publishing software (such as the <a href="/ipt">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
                     </p>
                     <md-radio-group ng-model="eoi.form.comments.toolPlanned" name="toolPlanned" layout="row" layout-align="start" required>
                         <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>

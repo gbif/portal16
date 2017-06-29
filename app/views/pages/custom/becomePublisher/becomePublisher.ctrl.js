@@ -9,7 +9,7 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher, Node) {
+function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,DirectoryParticipants, Node) {
     var vm = this;
     vm.state = {
         notExisting: false,
@@ -21,7 +21,9 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher, N
         comments: {},
         pointOfContact: {},
         administrativeContact: {},
-        technicalContact: {}
+        technicalContact: {},
+        expectToPublishDataTypes: {}
+
     };
 
     // vm.form = {"comments":{},"pointOfContact":{"firstName":"sdf","lastName":"dfg"},"administrativeContact":{},"technicalContact":{},"title":"asd","address":"lkjh","city":"lkjh","country":"DK","logoUrl":"lkjh","description":"kljh"};
@@ -52,14 +54,46 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher, N
 
     vm.changeCountry = function (country) {
         if (country) {
-            Node.query({q: country}).$promise
-                .then(function (data) {
-                    vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
-                    vm.suggestedNode = _.head(vm.suggestedNodes);
-                });
+
+            if(country === 'TW' && typeof vm.chineseTaipei !== 'undefined' ){
+                 Node.query({identifierType: "GBIF_PARTICIPANT", identifier: vm.chineseTaipei.id}).$promise
+                    .then(function(data){
+                        vm.suggestedCountryNode = _.head(data.results);
+                    });
+
+
+            } else {
+                Node.query({q: country}).$promise
+                    .then(function (data) {
+                        vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
+                        vm.suggestedCountryNode = _.head(vm.suggestedNodes);
+                    });
+            }
         }
     };
 
+    vm.getNonCountryParticipants = function(){
+        DirectoryParticipants.get({membershipType: 'other_associate_participant'}).$promise
+            .then(function(response){
+                vm.nonCountryParticipants = _.filter(response, function(p){
+                    if(p.id === 239 && p.countryCode === 'TW'){
+                        vm.chineseTaipei = p;
+                    };
+                    return p.id !== 239 && p.countryCode !== 'TW';
+                });
+            }, function (error){
+                return error;
+            });
+    }
+    vm.getNonCountryParticipants();
+
+    vm.setSuggestedNode = function(participantId){
+        Node.query({identifierType: "GBIF_PARTICIPANT", identifier: participantId}).$promise
+            .then(function(data){
+                vm.suggestedNonCountryNode = _.head(data.results);
+                vm.form.suggestedNodeKey = ( vm.suggestedNonCountryNode) ? vm.suggestedNonCountryNode.key : undefined;
+            });
+    };
 
     vm.selectedPublisherChange = function (item) {
         if (item) {

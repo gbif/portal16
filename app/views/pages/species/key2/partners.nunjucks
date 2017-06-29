@@ -7,15 +7,22 @@
                     <div class="container-fluid card--padded">
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 text-center">
+                                <a target="_blank" ng-href="http://www.catalogueoflife.org/col/search/all/key/{{ speciesKey2.species.canonicalName.split(' ').join('+') }}">
+
                                 <img style="height:40px; margin-right:5px" src="https://pbs.twimg.com/profile_images/344513261568178508/17cf622677d8c0136626a2248beecefe_400x400.png">
+                                </a>
                                 <div>Catalogue of Life</div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 text-center">
+                                <a target="_blank" ng-href="http://eol.org/search/q={{ speciesKey2.species.canonicalName}}">
                                 <img style="height:40px; margin-right:5px"class="tester" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/EOL_logo.svg/1200px-EOL_logo.svg.png">
+                                </a>
                                 <div>Encyclopedia of Life</div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 text-center">
+                            <a target="_blank" ng-href="http://www.biodiversitylibrary.org/name/{{ speciesKey2.species.canonicalName.split(' ').join('_') }}">
                                 <img style="height:40px; margin-right:5px"class="tester" src="https://biodivlib.wikispaces.com/file/view/BHL-Portrait.png/265607498/BHL-Portrait.png">
+                            </a>
                                 <div>Biodiversity Heritage library</div>
                             </div>
                         </div>

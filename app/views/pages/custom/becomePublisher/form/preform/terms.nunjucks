@@ -11,7 +11,7 @@
                 <div layout-wrap layout-gt-sm="row">
                     <div>
                         <md-checkbox ng-model="eoi.terms.agreement" aria-label="Data sharing agreement" class="md-primary md-align-top-left">
-                            I have read and understood <a href="/terms/data-sharing">GBIF's Data Sharing Agreement</a> and agree to its terms.
+                            I have read and understood <a href="/terms/data-publisher">GBIF's Data Publisher Agreement</a> and agree to its terms.
                         </md-checkbox>
                     </div>
                     <div>

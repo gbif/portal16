@@ -12,21 +12,35 @@
             </li>
         </ul>
     </div>
-    <div>
-        <a ui-sref=".({speciesKey:vm.acceptedTaxon.key})" ng-if="vm.acceptedTaxon"
-           class="taxonomyBrowser__accepted inherit noUnderline">
-            <div class="taxonomyBrowser__subheadline">Accepted name</div>
-            <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
-            <span scientific-name key="{{ vm.taxon.acceptedKey }}" name="{{vm.acceptedTaxon.scientificName}}" class="taxonomyBrowser__description sciname">
-                <!--<span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>-->
-            </span>
-        </a>
-    </div>
+    <!--<div>-->
+        <!--<a ui-sref=".({speciesKey:vm.acceptedTaxon.key})" ng-if="vm.acceptedTaxon"-->
+           <!--class="taxonomyBrowser__accepted inherit noUnderline">-->
+            <!--<div class="taxonomyBrowser__subheadline">Accepted name</div>-->
+            <!--<span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>-->
+            <!--<span scientific-name key="{{ vm.taxon.acceptedKey }}" name="{{vm.acceptedTaxon.scientificName}}" class="taxonomyBrowser__description sciname">-->
+                <!--&lt;!&ndash;<span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>&ndash;&gt;-->
+            <!--</span>-->
+        <!--</a>-->
+    <!--</div>-->
     <div>
         <!--<div class="small text-center lighter-background seperator">Current</div>-->
-        <div class="taxonomyBrowser__current" ng-if="vm.taxon.key">
-            <div class="taxonomyBrowser__subheadline" ng-if="vm.taxon.synonym">Synonym</div>
-            <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.taxon.rank || 'UNRANKED'}}"></span>
+        <div class="taxonomyBrowser__current"  ng-if="vm.taxon.key">
+
+
+            <a ui-sref=".({speciesKey:vm.acceptedTaxon.key})" ng-if="vm.acceptedTaxon"
+               class="taxonomyBrowser__accepted inherit ">
+                <div class="taxonomyBrowser__subheadline">Accepted name</div>
+                <span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
+                <span scientific-name key="{{ vm.taxon.acceptedKey }}" name="{{vm.acceptedTaxon.scientificName}}" class="taxonomyBrowser__description sciname">
+                <!--<span class="small discreet">{{vm.acceptedTaxon.authorship}}</span>-->
+            </span>
+            </a>
+
+
+            <div class="taxonomyBrowser__subheadline m-t-1" ng-if="vm.taxon.synonym">Synonym</div>
+
+                <div class="taxonomyBrowser__synonym__bordered" ng-if="vm.taxon.synonym">
+            <!--<span class="taxonomyBrowser__term" translate="taxonRank.{{ vm.taxon.rank || 'UNRANKED'}}"></span>-->
             <div class="taxonomyBrowser__description" ng-class="{taxonomyBrowser__synonym: vm.taxon.synonym}">
                 <span ng-if="vm.taxon.synonym" class="synonymSymbol">{{vm.taxon.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                 <div>
@@ -52,43 +66,59 @@
                     </ul>
                 </div>
             </div>
+            </div>
+
+            <span class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ vm.taxon.rank || 'UNRANKED'}}" ng-if="!vm.taxon.synonym"></span>
+            <div ng-if="!vm.taxon.synonym" class="taxonomyBrowser__description">
+
+
+                <span scientific-name key="{{ vm.taxon.key }}" name="{{vm.taxon.scientificName}}" class="sciname"></span>
+
+
+                <!--<div class="small discreet">{{vm.taxon.authorship}}</div>-->
+            </div>
 
             <!--<div class="taxonomyBrowser__synonyms" ng-if="vm.taxon.basionymKey">-->
-                <!--&lt;!&ndash;<span class="taxonomyBrowser__term">Synonyms</span>&ndash;&gt;-->
-                <!--<div class="taxonomyBrowser__subheadline">Basionym</div>-->
-                <!--<div>-->
-                    <!--<div class="taxonomyBrowser__description taxonomyBrowser__synonym">-->
-                        <!--<span class="synonymSymbol">≡</span>-->
-                        <!--<div>-->
-                            <!--<a ui-sref=".({speciesKey:vm.taxon.basionymKey})" href="" class="inherit">-->
-                                <!--<span class="sciname">{{vm.taxon.basionym}}</span>-->
-                            <!--</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+            <!--&lt;!&ndash;<span class="taxonomyBrowser__term">Synonyms</span>&ndash;&gt;-->
+            <!--<div class="taxonomyBrowser__subheadline">Basionym</div>-->
+            <!--<div>-->
+            <!--<div class="taxonomyBrowser__description taxonomyBrowser__synonym">-->
+            <!--<span class="synonymSymbol">≡</span>-->
+            <!--<div>-->
+            <!--<a ui-sref=".({speciesKey:vm.taxon.basionymKey})" href="" class="inherit">-->
+            <!--<span class="sciname">{{vm.taxon.basionym}}</span>-->
+            <!--</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
             <!--</div>-->
 
 
             <div class="taxonomyBrowser__synonyms" ng-if="vm.synonyms.length > 0">
                 <!--<span class="taxonomyBrowser__term">Synonyms</span>-->
-                <div class="taxonomyBrowser__subheadline">Synonyms</div>
-                <ul>
-                    <li ng-repeat="tax in vm.synonyms">
-                        <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
-                        <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
-                            <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
-                            <div>
-                                <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
-                                    <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
-                                    <!--<span class="small discreet">{{tax.authorship}}</span>-->
-                                </a>
+
+                <div class="taxonomyBrowser__subheadline m-t-1">Synonyms</div>
+                <div class="taxonomyBrowser__synonym__bordered">
+                    <ul>
+                        <li ng-repeat="tax in vm.synonyms">
+                            <!--<div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>-->
+                            <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
+                                <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
+                                <div>
+                                    <a ui-sref=".({speciesKey:tax.key})" href="" class="inherit">
+                                        <span scientific-name key="{{ tax.key }}" name="{{tax.scientificName}}" class="sciname"></span>
+                                        <!--<span class="small discreet">{{tax.authorship}}</span>-->
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
+            </div>
+
         </div>
-    </div>
+
     <div ng-if="vm.classifiedChildren.length > 0">
         <div class="taxonomyBrowser__headline">Immediate children</div>
         <ul>
@@ -141,6 +171,7 @@
         <!--</ul>-->
         <!--<div ng-if="!vm.endOfChildren && !vm.$sessionStorage.hideIncertaeSedis && !vm.loadingChildren" class="m-t-2 text-center">-->
         <!--<a href="" ng-click="vm.getChildren(100)" class="gb-button&#45;&#45;discreet">More</a>-->
+        <!--</div>-->
         <!--</div>-->
         <!--</div>-->
 

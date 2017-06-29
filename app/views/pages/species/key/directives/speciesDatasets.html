@@ -1,0 +1,54 @@
+<div class="m-t-1" ng-if="vm.data.results.length > 0" >
+
+<h4   class="text-muted small text-uppercase" id="{{(vm.type === 'CHECKLIST') ? 'checklistDatasets' : 'occurrenceDatasets'}}">Appears in {{vm.data.count | localNumber}} {{vm.type}} datasets:</h4>
+
+<div >
+    <!--<span class="discreet text-uppercase small">References</span>-->
+    <section id="references" class="card--references card">
+        <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
+            <ul>
+                <li ng-repeat="result in vm.data.results" class="card--references__item">
+                    <div ng-if="vm.type === 'CHECKLIST'" >
+                        <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="/dataset/{{result.key}}" >
+                            {{result.title}}
+                        </a></h4>
+                        <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
+                        <div class="small" >
+                            As
+                            <a class="" ng-href="/species/{{result._relatedTaxon.key}}">
+                            <span scientific-name key="{{result._relatedTaxon.key}}" name="{{result._relatedTaxon.scientificName}}"></span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <div ng-if="vm.type === 'OCCURRENCE'">
+                        <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="/dataset/{{result.datasetKey}}" >
+                            {{result._dataset.title}}
+                        </a></h4>
+                        <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
+                        <div class="small" >
+
+                            <a class="" ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
+                                {{result.count | localNumber}} Occurrences
+
+                            </a>
+
+                        </div>
+
+                    </div>
+                </li>
+                <li ng-if="vm.data.offset > 0 && vm.data.results.length < 20" ng-repeat="ref in [1,2,3,4,5] | limitTo:(20-vm.data.results.length)"></li>
+            </ul>
+        </div>
+        <div ng-if="vm.hasPages">
+            <div class="clearfix m-05">
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.data.offset==0}">Previous</a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.data.endOfRecords}">Next</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+</div>

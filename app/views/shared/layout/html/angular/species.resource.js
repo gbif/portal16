@@ -115,6 +115,26 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesOccurrenceDatasets', function ($resource, env) {
+            return $resource('/api/species/:id/occurencedatasets', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
+        .factory('SpeciesChecklistDatasets', function ($resource, env) {
+            return $resource('/api/species/:id/checklistdatasets', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         .factory('SpeciesSearch', function ($resource) {
             return $resource('/api/species/search', null, {
                     'query': {

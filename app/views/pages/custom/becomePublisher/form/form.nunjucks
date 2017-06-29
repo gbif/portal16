@@ -12,6 +12,8 @@
 
                 {% include "./endorsement.nunjucks" %}
 
+                {% include "./programme.nunjucks" %}
+
                 {% include "./contacts.nunjucks" %}
 
                 {% include "./administrativeContact.nunjucks" %}

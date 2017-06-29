@@ -3,7 +3,7 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Administrative contact</span>
-                <span class="md-subhead">Please provide the administrative contact which will be the personnel for general affairs.</span>
+                <span class="md-subhead">Who can we approach for questions about your organization, for example how you appear on our web pages, data licensing issues etc.</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -30,7 +30,7 @@
                 <div layout="row">
                     <md-input-container flex="50">
                         <label>Email</label>
-                        <input type="email" name="adminContactEmail" ng-model="eoi.form.administrativeContact.email">
+                        <input type="email" required name="adminContactEmail" ng-model="eoi.form.administrativeContact.email">
                         <div ng-messages="eoi.publisherForm.adminContactEmail.$error">
                             <div ng-message="email">Please provide a valid email</div>
                         </div>
