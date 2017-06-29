@@ -1,8 +1,8 @@
-<div ng-if="eoi.suggestedNode.key">
+<div >
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Supporting node</span>
+                <span class="md-headline">Endorsing node</span>
                 <span class="md-subhead">To support publishers and review data quality all publishers are associated with a GBIF node. Please select one from below.</span>
             </md-card-title-text>
         </md-card-title>
@@ -10,10 +10,36 @@
         <md-card-content>
             <div layout="row">
                 <div flex="100">
-                    <md-radio-group ng-model="data.group1">
-                        <md-radio-button value="{{ eoi.suggestedNode.key }}" class="md-primary">{{ eoi.suggestedNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
-                        <md-radio-button value="other" class="md-primary">The GBIF secretariat</md-radio-button>
+                    <md-radio-group ng-model="eoi.form.suggestedNodeKey">
+                        <md-radio-button ng-show="eoi.suggestedCountryNode" value="{{ eoi.suggestedCountryNode.key }}" class="md-primary">{{ eoi.suggestedCountryNode.title }} <span class="discreet--very">suggested</span></md-radio-button>
+                        <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
+
+                        <md-radio-button value="other" class="md-primary" ng-if="!eoi.suggestedCountryNode">Help me with endorsement</md-radio-button>
+
+
+
                     </md-radio-group>
+
+                    <div layout="row">
+                        <md-input-container flex="50">
+                            <label ng-if="eoi.suggestedCountryNode">Another node I am affiliated with – click to select</label>
+                            <label ng-if="!eoi.suggestedCountryNode">A node I am affiliated with – click to select</label>
+
+
+                            <md-select required name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
+                                    {{participant.name}}
+                                </md-option>
+                            </md-select>
+                            {#<div ng-messages="eoi.publisherForm.organizationCountry.$error">#}
+                                {#<div ng-message="required">Please select a country</div>#}
+                            {#</div>#}
+                        </md-input-container>
+                    </div>
+
+
+
                 </div>
             </div>
         </md-card-content>

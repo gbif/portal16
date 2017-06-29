@@ -3,7 +3,7 @@
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Technical contact</span>
-                <span class="md-subhead">Please provide the technical contact which will be the personnel for technical or data issues.</span>
+                <span class="md-subhead">Who can we approach for technical information such as sending passwords to register data publishing tools?</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -30,7 +30,7 @@
                 <div layout="row">
                     <md-input-container flex="50">
                         <label>Email</label>
-                        <input type="email" name="techContactEmail" ng-model="eoi.form.technicalContact.email">
+                        <input required type="email" name="techContactEmail" ng-model="eoi.form.technicalContact.email">
                         <div ng-messages="eoi.publisherForm.techContactEmail.$error">
                             <div ng-message="email">Please provide a valid email</div>
                         </div>

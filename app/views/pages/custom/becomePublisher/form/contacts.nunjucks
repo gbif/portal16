@@ -2,8 +2,8 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Contact</span>
-                {#<span class="md-subhead">So that data owners</span>#}
+                <span class="md-headline">Contacts</span>
+                <span class="md-subhead">We need to know how to keep in touch with you.</span>
             </md-card-title-text>
         </md-card-title>
 
@@ -29,7 +29,7 @@
             <div layout="row">
                 <md-input-container flex="50">
                     <label>Email</label>
-                    <input type="email" name="contactEmail" ng-model="eoi.form.pointOfContact.email">
+                    <input type="email" required name="contactEmail" ng-model="eoi.form.pointOfContact.email">
                     <div ng-messages="eoi.publisherForm.contactEmail.$error">
                         <div ng-message="email">Please provide a valid email</div>
                     </div>
@@ -48,7 +48,7 @@
             </div>
             <div layout="row">
                 <p>
-                    In our experience, it is helpful to have at least two contacts for any data publisher. We encourage submitters to identify at least one additional administrative or technical contact.
+                    People move on! Please add at least one alternate contact, and consider using a generic email e.g. helpdesk@a.com that will always reach an appropriate person.
                 </p>
             </div>
             <div layout="row" layout-align="start">
