@@ -15,15 +15,15 @@
 
     <div layout="row">
         <div flex="50">
-            <md-radio-group ng-model="eoi.form.isAssociatedWithGBIFfundedProject" layout="row">
+            <md-radio-group ng-model="eoi.form.comments.isAssociatedWithGBIFfundedProject" layout="row">
                 <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
                 <md-radio-button value="no" class="md-primary">No</md-radio-button>
             </md-radio-group>
         </div>
         <div flex="50">
-            <md-input-container layout-fill ng-show="eoi.form.isAssociatedWithGBIFfundedProject === 'yes'">
+            <md-input-container layout-fill ng-show="eoi.form.comments.isAssociatedWithGBIFfundedProject === 'yes'">
                 <label>Please enter the project identifier - e.g. BID-CA2016-0000-NAC</label>
-                <input  type="text" name="projectIdentifier" ng-model="eoi.form.projectIdentifier" >
+                <input  type="text" name="projectIdentifier" ng-model="eoi.form.comments.projectIdentifier" >
 
             </md-input-container>
         </div>

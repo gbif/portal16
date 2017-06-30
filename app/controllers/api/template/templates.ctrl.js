@@ -147,4 +147,8 @@ router.get('/thegbifnetwork/regionalReps.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/theGbifNetwork/participantsDigest/regionalReps.html');
 });
 
+router.get('/developer/:page/tpl.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/developer/'+req.params.page+'.nunjucks');
+});
+
 

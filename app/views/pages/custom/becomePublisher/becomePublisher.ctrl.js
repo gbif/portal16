@@ -67,6 +67,7 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
                     .then(function (data) {
                         vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
                         vm.suggestedCountryNode = _.head(vm.suggestedNodes);
+
                     });
             }
         }

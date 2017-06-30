@@ -64,10 +64,15 @@ var apiConfig = {
     publisher: {
         url: baseUrl + 'organization/'
     },
+    // publisherCreate: {
+    //     url: baseUrl + 'organization/',
+    //     canonical: 'organization/'
+    // },
     publisherCreate: {
-        url: baseUrl + 'organization/',
+        url: "http://10.62.193.6:8080/" + 'organization/',
         canonical: 'organization/'
     },
+
     taxon: {
         url: baseUrl + 'species/'
     },

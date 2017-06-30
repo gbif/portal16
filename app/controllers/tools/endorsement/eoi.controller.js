@@ -25,6 +25,7 @@ function create(req, res) {
 function handleError(res, statusCode) {
     statusCode = statusCode || 500;
     return function(err) {
+       // throw err;
         res.status(err.statusCode || statusCode);
         res.json(err.body);
     };

@@ -28,21 +28,21 @@
                         <div layout-wrap layout-gt-sm="row">
 
 
-                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.ResourceMetaData" aria-label="Resources metadata" class="md-primary md-align-top-left">
+                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.ResourceMetaData" aria-label="Resources metadata" class="md-primary md-align-top-left">
                                     Resources metadata
                                 </md-checkbox>
 
 
-                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.ChecklistData" aria-label="Checklist data" class="md-primary md-align-top-left">
+                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.ChecklistData" aria-label="Checklist data" class="md-primary md-align-top-left">
                                     Checklist data
                                 </md-checkbox>
 
 
-                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.OccurenceData" aria-label="Occurrence-only data" class="md-primary md-align-top-left">
+                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.OccurenceData" aria-label="Occurrence-only data" class="md-primary md-align-top-left">
                                     Occurrence-only data
                                 </md-checkbox>
 
-                                <md-checkbox ng-model="eoi.form.expectToPublishDataTypes.SamplingEventData" aria-label="Sampling-event data" class="md-primary md-align-top-left">
+                                <md-checkbox ng-model="eoi.form.comments.expectToPublishDataTypes.SamplingEventData" aria-label="Sampling-event data" class="md-primary md-align-top-left">
                                     Sampling-event data
                                 </md-checkbox>
 
