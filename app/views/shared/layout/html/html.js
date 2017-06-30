@@ -288,9 +288,6 @@ require('../../../pages/species/key2/references/references.ctrl');
 require('../../../pages/dataset/search/dataset.ctrl');
 require('../../../pages/dataset/search/table/datasetTable.ctrl');
 
-require('../../../pages/developer/developer.ctrl');
-
-
 require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 require('../../../pages/custom/becomePublisher/becomePublisher.ctrl');
 
