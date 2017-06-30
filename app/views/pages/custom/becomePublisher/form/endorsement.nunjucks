@@ -1,4 +1,4 @@
-<div >
+<div>
     <md-card>
         <md-card-title>
             <md-card-title-text>
@@ -20,21 +20,20 @@
 
                     </md-radio-group>
 
-                    <div layout="row">
+                    <div layout="column">
+                        <span class="md-subhead">{{ (eoi.suggestedCountryNode !== undefined) ? 'Another node' :  'A node' }} I am affiliated with:</span>
+
                         <md-input-container flex="50">
-                            <label ng-if="eoi.suggestedCountryNode">Another node I am affiliated with – click to select</label>
-                            <label ng-if="!eoi.suggestedCountryNode">A node I am affiliated with – click to select</label>
+                            <label>Click to select</label>
 
 
-                            <md-select required name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
+                            <md-select  name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
                                 <md-option><em>None</em></md-option>
                                 <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
                                     {{participant.name}}
                                 </md-option>
                             </md-select>
-                            {#<div ng-messages="eoi.publisherForm.organizationCountry.$error">#}
-                                {#<div ng-message="required">Please select a country</div>#}
-                            {#</div>#}
+
                         </md-input-container>
                     </div>
 
