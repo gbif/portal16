@@ -14,6 +14,7 @@ function portalCtrl(BUILD_VERSION, env) {
     vm.dataApiV2 = env.dataApiV2;
     vm.tileApi = env.tileApi;
     vm.imageCache = env.imageCache;
+    vm.mapCapabilities = env.mapCapabilities;
 }
 
 module.exports = portalCtrl;
