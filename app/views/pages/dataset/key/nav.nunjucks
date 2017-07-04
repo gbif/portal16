@@ -51,10 +51,10 @@
                             <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
                                 aria-labelledby="btn-append-to-body">
                                 <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
-                                    <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})">Processed occurrences <span class="small text-brand-color">recommended</span></a>
+                                    <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="datasetKey.processedOccurrences"></span> <span class="small text-brand-color" translate="datasetKey.recommended"></span></a>
                                 </li>
-                                <li role="menuitem"><a href="{{ datasetKey.originalArchive.url }}">Published archive</a></li>
-                                <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document">GBIF annotated meta data (EML)</a></li>
+                                <li role="menuitem"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="protocol.{{ datasetKey.originalArchive.type }}"></span></a></li>
+                                <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="datasetKey.annotatedEml"></span> <span class="discreet--very small" translate="protocol.EML"></span></a></li>
                             </ul>
                         </li>
 
