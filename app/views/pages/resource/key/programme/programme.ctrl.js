@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -16,7 +17,15 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
     };
     var tabs = ['about', 'news', 'events', 'projects'];
 
-    vm.projects = ResourceSearch.query({q: vm.key, contentType: 'project', limit:500});
+    ResourceSearch.query({q: vm.key, contentType: 'project', limit:500}, function(data){
+        //filter results since we ask by free text query. the API for some reason do not support querying by programme id. This would be nice to have
+        data.results = _.filter(data.results, function(e){
+            return _.get(e, 'programme.id') == vm.key;
+        });
+        data.count = data.results.length;
+        vm.projects = data;
+        console.log(vm.projects);
+    });
 
     $http.get('/api/resource/key/search', {
             params: {key: vm.key, type: 'news'}

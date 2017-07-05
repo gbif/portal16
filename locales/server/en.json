@@ -1701,7 +1701,7 @@
       "about_region" : "about the region"
     },
     "literatureType": {
-      "journal": "journal",
+      "journal": "journal article",
       "book": "book",
       "generic": "generic",
       "book_section": "book section",
@@ -2352,6 +2352,12 @@
         "Public stakeholders": "Public stakeholders"
       }
     }
+  },
+  "datasetKey": {
+    "originalArchive": "Source archive",
+    "annotatedEml": "GBIF annotated metadata",
+    "recommended": "recommended",
+    "processedOccurrences": "GBIF annotated archive"
   },
   "error": {
     "USER_ALREADY_EXIST": "User already exists. Please try another username or email",

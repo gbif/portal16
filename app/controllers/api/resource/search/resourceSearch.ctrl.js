@@ -96,8 +96,8 @@ function transformResult(results, listPath, preferedLocale) {
     parsedResult.images = _.mapValues(contentItem.resolved.Asset, 'fields.file.url');
 
     resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
-    resourceResultParser.renameField(parsedResult.results, 'event', 'country.sys.id', 'country.id');//rename literature.abcstract to summary for consistency with other content types
-    resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
+    resourceResultParser.renameField(parsedResult.results, 'event', 'country.sys.id', '_country');
+    resourceResultParser.renameField(parsedResult.results, 'event', '_country', 'country');
 
     resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
     resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'title']);

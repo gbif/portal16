@@ -16,7 +16,6 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
-            type_status: undefined,
             occurrence_id: undefined,
             organism_id: undefined,
             publishing_country: undefined,
