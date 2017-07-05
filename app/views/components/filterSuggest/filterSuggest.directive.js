@@ -32,12 +32,12 @@ function filterSuggestDirective(BUILD_VERSION) {
         vm.hasFacets = vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
 
         vm.hasFacetSuggestions = !!vm.filterConfig.faceted;
-        vm.query = $filter('uniqueLower')(vm.filterState.query[vm.queryKey]);
+        vm.query = $filter('unique')(vm.filterState.query[vm.queryKey]);
 
         $scope.$watch(function () {
             return vm.filterState.query[vm.queryKey]
         }, function (newQuery) {
-            vm.query = $filter('uniqueLower')(newQuery);
+            vm.query = $filter('unique')(newQuery);
         });
 
         $scope.$watchCollection(function () {
@@ -108,7 +108,7 @@ function filterSuggestDirective(BUILD_VERSION) {
 
         vm.typeaheadSelect = function (item) { //  model, label, event
             if (angular.isUndefined(item)) return;
-            var searchString = item.toString().toLowerCase();
+            var searchString = item.toString();//.toLowerCase();
             if (searchString !== '' && vm.query.indexOf(searchString) < 0) {
                 vm.query.push(searchString);
                 vm.selected = '';
