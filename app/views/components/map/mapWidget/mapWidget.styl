@@ -37,8 +37,7 @@
             margin-left 20px
         }
         .mapWidget__control {
-            //position relative
-            padding 0// 0 5px 5px
+            padding 0
             overflow auto
             bottom 0
             left 0
@@ -89,6 +88,7 @@
         position relative
     }
     &__controls {
+        z-index 100
         border-top 1px solid rgba(0, 0, 0, 0.2)
         background white
     }
@@ -128,6 +128,7 @@
         .menubox__close {
             margin 5px 10px
         }
+        z-index 200
         position absolute
         padding 10px
         max-height calc(100% - 40px)
