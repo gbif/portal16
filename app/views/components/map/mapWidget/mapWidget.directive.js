@@ -123,17 +123,24 @@ function mapWidgetDirective(BUILD_VERSION) {
 
             var disableZoomTimer;
             element[0].addEventListener('click', function(e){
-                zoomInteraction.setActive(true);
+                if (!zoomInteraction.getActive()) {
+                    zoomInteraction.setActive(true);
+                    registerSingleClickSearch();
+                }
             });
-            element[0].addEventListener('doubleclick', function(e){
-                zoomInteraction.setActive(true);
+            element[0].addEventListener('doubleclick', function(){
+                if (!zoomInteraction.getActive()) {
+                    zoomInteraction.setActive(true);
+                    registerSingleClickSearch();
+                }
             });
-            element[0].addEventListener('mouseleave', function(e){
+            element[0].addEventListener('mouseleave', function(){
                 disableZoomTimer = $timeout(function(){
                     zoomInteraction.setActive(false);
-                }, 3000);
+                    map.map.un('singleclick', searchOnClick);
+                }, 2500);
             });
-            element[0].addEventListener('mouseenter', function(e){
+            element[0].addEventListener('mouseenter', function(){
                 if(disableZoomTimer) {
                     $timeout.cancel(disableZoomTimer);
                     disableZoomTimer = undefined;
@@ -167,7 +174,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }, 0);
             });
 
-            map.on('singleclick', function (e) {
+            function searchOnClick(e) {
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 7;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
@@ -179,8 +186,13 @@ function mapWidgetDirective(BUILD_VERSION) {
                     coordinate[0] = coordinate[0] - 360;
                 }
                 getOccurrencesInArea(coordinate[1], coordinate[0], offset);
-            });
-            //getOccurrencesInArea(47.3515625, 2.8125, 1);
+            }
+
+            function registerSingleClickSearch() {
+                $timeout(function(){
+                    map.on('singleclick', searchOnClick);
+                }, 500);
+            }
         };
 
         function createSlider(element, startYear, endYear) {
@@ -250,6 +262,16 @@ function mapWidgetDirective(BUILD_VERSION) {
                 map.map.updateSize();
                 map.map.render();
             }, 100);
+        };
+
+        vm.zoomIn = function() {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() + 1);
+        };
+
+        vm.zoomOut = function() {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() - 1);
         };
 
         vm.getProjection = function () {

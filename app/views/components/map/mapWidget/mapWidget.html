@@ -3,6 +3,8 @@
         <div class="mapWidget__mapArea"></div>
         <div class="mapWidget__progress"></div>
         <div class="mapWidget__mapButtons">
+            <a href="" ng-click="vm.zoomIn()">+</a>
+            <a href="" ng-click="vm.zoomOut()">-</a>
             <a href="" ng-click="vm.toggleFullscreen()" ng-class="{'gb-icon-fullscreen': !vm.fullscreen, 'gb-icon-fullscreen-exit': vm.fullscreen}"></a>
         </div>
     </div>
