@@ -2,6 +2,13 @@
     position relative
     overflow initial
     background $lightBackground
+    &__mapArea {
+        position relative
+        z-index 10
+    }
+    .mapPopups {
+        z-index 60
+    }
     &.fullscreen, &.fullscreen.fixedSizes {
         position fixed
         z-index 1000
@@ -44,6 +51,7 @@
     }
     &__mapButtons {
         position absolute
+        z-index 50
         left 0.5rem
         top 0.5rem
         background #aaa
