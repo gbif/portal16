@@ -55,8 +55,10 @@ function createMap(element, options) {
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        interactions: ol.interaction.defaults({mouseWheelZoom:false})
+        interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+        controls: ol.control.defaults({zoom:false})
     });
+    window.map = map;
     this.update(options);
 
     this.getViewExtent = function () {

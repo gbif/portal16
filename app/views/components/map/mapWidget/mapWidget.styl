@@ -5,13 +5,13 @@
     &.fullscreen, &.fullscreen.fixedSizes {
         position fixed
         z-index 1000
-        top 0
+        top $navBar_height
         bottom 0
         width 100%
         left 0
         right 0
         .mapWidget__mapWrapper, .mapWidget__mapArea {
-            height calc(100vh - 40px)
+            height "calc(100vh - 40px - %s)" % $navBar_height
         }
     }
     &.fitSize {
@@ -30,16 +30,22 @@
             margin-left 20px
         }
         .mapWidget__control {
-            position relative
-            padding 0 5px 5px
-            bottom: 0
-            margin-top 40px
+            //position relative
+            padding 0// 0 5px 5px
+            overflow auto
+            bottom 0
+            left 0
+            top 0
+            >div {
+                min-height 100%
+                min-width 100%
+            }
         }
     }
     &__mapButtons {
         position absolute
         left 0.5rem
-        top 56px
+        top 0.5rem
         background #aaa
         >a {
             background #fff
@@ -194,17 +200,15 @@
     }
 }
 
-.ol-control {
-    button {
-        background-color white
-        color $bodyTextColor
-        &:hover, &:focus {
-            background #efefef
-        }
-    }
-    &.ol-zoom {
-        background-color #aaa
-        padding 0
-        border-radius 0
-    }
-}
+//.ol-control {
+//    button {
+//        background-color white
+//        color $bodyTextColor
+//        &:hover, &:focus {
+//            background #efefef
+//        }
+//    }
+//    background-color transparent
+//    padding 0
+//    border-radius 0
+//}
