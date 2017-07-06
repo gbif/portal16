@@ -79,7 +79,7 @@ var config = {
         verification: verification || '/var/lib/human-verification/images',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
