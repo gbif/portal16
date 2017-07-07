@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in pages.results %}
+        <url>
+            <loc>{$ _meta.domain $}/dataset/{$ page.key $}</loc>
+            {#<lastmod>{$ page.updatedAt $}</lastmod>#} {# Since other things on the page could have changed, then do not set this #}
+            <changefreq>weekly</changefreq>
+            <priority>0.7</priority>
+        </url>
+    {% endfor %}
+</urlset>

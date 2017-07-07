@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /occurrence/
 Disallow: /en/occurrence/
+
+Sitemap: https://demo.gbif.org/sitemap.xml

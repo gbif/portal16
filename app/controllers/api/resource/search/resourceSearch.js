@@ -42,6 +42,7 @@ async function search(requestQuery, __, requestTimeout) {
     resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
     resourceResultParser.truncate(parsedResult.results, ['abstract'], 300);
     resourceResultParser.addSlug(parsedResult.results, 'title');
+    resourceResultParser.addUrl(parsedResult.results);
     resourceResultParser.transformFacets(parsedResult, __);
     resourceResultParser.addFilters(parsedResult, requestQuery, __);
 
@@ -314,7 +315,8 @@ function arrayify(value) {
 
 module.exports = {
     search: search,
-    buildQuery: buildQuery
+    buildQuery: buildQuery,
+    contentTypes: defaultContentTypes.slice()
 };
 //var q = {q: 'data', "vocabularyDataUse": 'Science use', countryOfCoverage: ['US', 'DE'], facet: ['countryOfCoverage', 'vocabularyDataUse', 'vocabularyTopic'], facetMultiselect: true};
 //
