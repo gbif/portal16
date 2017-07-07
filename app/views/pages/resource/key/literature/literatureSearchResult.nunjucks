@@ -49,7 +49,7 @@
                 </li>
             </ul>
             <div ng-if="result._gbifDOIs.length > 0">
-                <span class="small discreet">GBIF DOI</span>
+                <span class="small discreet--very">Data used in study</span>
                 <ul class="list-chips">
                     <li ng-repeat="doi in result._gbifDOIs | limitTo: 50">
                         <doi link="{{ doi }}"></doi>

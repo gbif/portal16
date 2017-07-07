@@ -36,20 +36,21 @@
                 </li>
 
                 <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
-                    <span>
+                    <span ng-if="speciesKey2.occurrences.$resolved">
                         <a ng-if="speciesKey2.occurrences.count > 0" href=""
                            class="gb-button--brand"
                            ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count
                             | localNumber }} <span class="gb-button--brand__label">occurrences</span></a>
-                    <a ng-if="speciesKey2.occurrences.count == 0"
-                       ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet">No occurrences in GBIF</a>
-                    <a ng-if="!speciesKey2.occurrences.$resolved"
-                       class="gb-button--discreet"><span class="loading"></span> occurrences</a>
+                        <a ng-if="speciesKey2.occurrences.count == 0"
+                           ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet">No occurrences in GBIF</a>
+                    </span>
+                    <span ng-if="!speciesKey2.occurrences.$resolved">
+                        <a class="gb-button--discreet"><span class="loading"></span> occurrences</a>
                     </span>
                 </li>
 
                 <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
-                    <span>
+                    <span ng-if="speciesKey2.subsumedSpecies.$resolved">
                         <a ng-if="speciesKey2.subsumedSpecies.count > 0" href=""
                            class="gb-button--primary"
                            ui-sref="speciesSearchList({highertaxon_key:speciesKey2.species.key, rank: 'SPECIES', status: ['ACCEPTED', 'DOUBTFUL']})">{{ speciesKey2.subsumedSpecies.count
@@ -57,7 +58,9 @@
                             <span ng-if="speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label">Infraspecies</span>
                             <span ng-if="!speciesKey2.isSpeciesOrBelow" class="gb-button--primary__label">Species</span>
                         </a>
-                        <a ng-if="!speciesKey2.subsumedSpecies.$resolved" class="gb-button--discreet"><span class="loading"></span></a>
+                    </span>
+                    <span ng-if="!speciesKey2.subsumedSpecies.$resolved">
+                        <a class="gb-button--discreet"><span class="loading"></span> species</a>
                     </span>
                 </li>
 

@@ -2,6 +2,13 @@
     position relative
     overflow initial
     background $lightBackground
+    &__mapArea {
+        position relative
+        z-index 10
+    }
+    .mapPopups {
+        z-index 60
+    }
     &.fullscreen, &.fullscreen.fixedSizes {
         position fixed
         z-index 1000
@@ -30,8 +37,7 @@
             margin-left 20px
         }
         .mapWidget__control {
-            //position relative
-            padding 0// 0 5px 5px
+            padding 0
             overflow auto
             bottom 0
             left 0
@@ -44,6 +50,7 @@
     }
     &__mapButtons {
         position absolute
+        z-index 50
         left 0.5rem
         top 0.5rem
         background #aaa
@@ -81,6 +88,7 @@
         position relative
     }
     &__controls {
+        z-index 100
         border-top 1px solid rgba(0, 0, 0, 0.2)
         background white
     }
@@ -120,6 +128,7 @@
         .menubox__close {
             margin 5px 10px
         }
+        z-index 200
         position absolute
         padding 10px
         max-height calc(100% - 40px)
