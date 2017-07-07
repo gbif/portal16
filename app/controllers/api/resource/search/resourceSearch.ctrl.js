@@ -106,6 +106,7 @@ function transformResult(results, listPath, preferedLocale) {
     resourceResultParser.truncate(parsedResult.results, ['title'], 150);
     resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
     resourceResultParser.addSlug(parsedResult.results, 'title', contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
+    resourceResultParser.addUrl(parsedResult.results);
     return parsedResult;
 }
 

@@ -12,6 +12,7 @@ module.exports = {
     truncate: truncate,
     selectLocale: selectLocale,
     addSlug: addSlug,
+    addUrl: addUrl,
     renameField: renameField,
     concatFields: concatFields,
     transformFacets: transformFacets,
@@ -169,6 +170,16 @@ function addSlug(results, field) {
         let value = _.get(e, field);
         if (_.isString(value)) {
             e._slug = getSlug(value);
+        }
+    });
+}
+
+function addUrl(results) {
+    results.forEach(function(e){
+        if (e.urlAlias) {
+            e._url = e.urlAlias;
+        } else {
+            e._url = '/' + changeCase.paramCase(e.contentType ) + '/' + e.id + '/' + e._slug;
         }
     });
 }

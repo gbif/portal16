@@ -8,8 +8,8 @@
         </div>
         <ul class="fab__options">
             <li>
-                <a href="https://www.facebook.com/sharer.php?u={$ _meta.domain | encodeURI $}{$ _meta.originalUrl | encodeURI $}"
-                   onclick="window.open('https://www.facebook.com/sharer.php?u={$ _meta.domain | encodeURI $}{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
+                <a href="https://www.facebook.com/sharer.php?u={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}"
+                   onclick="window.open('https://www.facebook.com/sharer.php?u={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
                    class="action-flow btn btn-lg btn-highlight btn-circle"
                    tooltip="facebook">
                     <i class="gb-icon-facebook"></i>
@@ -25,16 +25,16 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={$ _meta.domain $}{$ _meta.originalUrl | encodeURI $}"
-                   onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url={$ _meta.domain | encodeURI $}{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={$ _meta.domain $}/{$ _meta.originalUrl | encodeURI $}"
+                   onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
                    class="action-flow btn btn-lg btn-highlight btn-circle"
                    tooltip="linkedin">
                     <i class="gb-icon-linkedin"></i>
                 </a>
             </li>
             <li>
-                <a href="https://plus.google.com/share?url={$ _meta.domain | encodeURI $}{$ _meta.originalUrl | encodeURI $}"
-                   onclick="window.open('https://plus.google.com/share?url={$ _meta.domain | encodeURI $}{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
+                <a href="https://plus.google.com/share?url={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}"
+                   onclick="window.open('https://plus.google.com/share?url={$ _meta.domain | encodeURI $}/{$ _meta.originalUrl | encodeURI $}', 'newwindow', 'width=600, height=350'); return false;"
                    class="action-flow btn btn-lg btn-highlight btn-circle"
                    tooltip="google+">
                     <i class="gb-icon-google"></i>

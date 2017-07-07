@@ -138,6 +138,13 @@ function decodeHtml(text) {
     return entities.decode(text);
 }
 
+function encodeHtml(text) {
+    if (!_.isString(text)) {
+        return '';
+    }
+    return entities.encode(text);
+}
+
 function prettifyLicense(text) {
     if (!text) {
         return 'UNSPECIFIED';
@@ -305,6 +312,7 @@ module.exports = {
     readableDOI: linkTools.readableDOI,
     toCamelCase: toCamelCase,
     decodeHtml: decodeHtml,
+    encodeHtml: encodeHtml,
     compactInteger: compactInteger,
     dateRange: dateRange,
     timeRange: timeRange,

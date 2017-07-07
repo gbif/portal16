@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for page in pages.results %}
+    <url>
+        <loc>{$ _meta.domain $}{$ page._url | encodeHtml $}</loc>
+        {#<lastmod>{$ page.updatedAt $}</lastmod>#} {# Since other things on the page could have changed, then do not set this #}
+        <changefreq>weekly</changefreq>
+        {% if page.contentType == 'programme' or page.contentType == 'project' or page.contentType == 'article' %}
+            <priority>0.5</priority>
+        {% else %}
+            <priority>0.3</priority>
+        {% endif %}
+    </url>
+    {% endfor %}
+</urlset>

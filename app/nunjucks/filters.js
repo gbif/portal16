@@ -226,6 +226,10 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('encodeHtml', format.encodeHtml);
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateMiddle', function (data, len) {
             if (!data) {
                 return false;
