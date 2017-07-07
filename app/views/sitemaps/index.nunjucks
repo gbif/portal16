@@ -3,13 +3,4 @@
     <sitemap>
         <loc>{$ _meta.domain $}/sitemap/prose.xml</loc>
     </sitemap>
-    <sitemap>
-        <loc>{$ _meta.domain $}/sitemap/dataset.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>{$ _meta.domain $}/sitemap/species.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>{$ _meta.domain $}/sitemap/publisher.xml</loc>
-    </sitemap>
 </sitemapindex>

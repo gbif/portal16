@@ -151,6 +151,14 @@ config.assets = {
 };
 
 /**
+ * build robots txt to match sitemap that has to be absolute
+ */
+config.robots = {
+    paths: [loc('app/assets/robots.txt')],
+    dest: config.paths.dist
+};
+
+/**
  * Static assets from vendors. fx. leaflet icon images
  */
 config.vendorAssets = {
