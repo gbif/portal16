@@ -3,7 +3,8 @@
         <div class="col-xs-12">
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>
             <div ng-if="resourceList.hasData()">
-                <p class="m-b-1 discreet small" ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey" translate="help.citationExplainer"></p>
+                <!--temporary disabled as coms have not yet decided what should go here if anything-->
+                <!--<p class="m-b-1 discreet small" ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey" translate="help.citationExplainer"></p>-->
                 <div ng-repeat="result in resourceList.state.data.results">
                     <ng-include src="'/api/template/search/articleResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'article'"></ng-include>
                     <ng-include src="'/api/template/search/eventResult.html?v=' +       resourceList.BUILD_VERSION" ng-if="result.contentType == 'event'"></ng-include>
