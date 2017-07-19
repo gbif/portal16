@@ -3,6 +3,7 @@ let _ = require('lodash'),
     camelCase = require('camelcase'),
     Q = require('q'),
     http = require('http'),
+    moment = require("moment"),
     url = require('url'),
     helper = rootRequire('app/models/util/util'),
     intervalTypes = ['YEAR', 'EVENT_DATE', 'ELEVATION', 'DEPTH'];
@@ -260,6 +261,13 @@ function requestPromise(queryOptions) {
 
 
 function isFileAvailable(download) {
+    let creationDate = download.record.created,
+        yesterday, created;
+    if (creationDate) {
+        yesterday = moment().subtract(1, 'day');
+        created = moment(download.record.created);
+    }
+
     var deferred = Q.defer();
     var fileUrl = _.get(download, 'record.downloadLink'),
         status = _.get(download, 'record.status', 'KILLED'),
@@ -268,17 +276,18 @@ function isFileAvailable(download) {
         download.isFileAvailable = false;
         deferred.resolve(false);
     } else {
-options = {
-    method: 'HEAD',
-    host: url.parse(fileUrl).host,
-    port: 80,
-    path: url.parse(fileUrl).pathname
-};
-var req = http.request(options, function (r) {
-    download.isFileAvailable = r.statusCode == 200;
-    download.isFileDeleted = !download.isFileAvailable;//if not available and status==succeeded then is must have been deleted/removed
-    deferred.resolve(r.statusCode == 200);
-});
+        options = {
+            method: 'HEAD',
+            host: url.parse(fileUrl).host,
+            port: 80,
+            path: url.parse(fileUrl).pathname
+        };
+        var req = http.request(options, function (r) {
+            download.isFileAvailable = r.statusCode == 200;
+            //if not available and status==succeeded then is must have been deleted/removed - but to be sure then require creation date to be older than yesterday - we should delete things only just created anyhow
+            download.isFileDeleted = !download.isFileAvailable && creationDate && created.isBefore(yesterday);
+            deferred.resolve(r.statusCode == 200);
+        });
         req.end();
     }
     return deferred.promise;
