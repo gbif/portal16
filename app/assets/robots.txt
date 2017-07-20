@@ -10,4 +10,4 @@ Sitemap: {{DOMAIN}}/sitemap-publisher.xml
 Sitemap: {{DOMAIN}}/sitemap-node.xml
 Sitemap: {{DOMAIN}}/sitemap-network.xml
 Sitemap: {{DOMAIN}}/sitemap-installation.xml
-Sitemap: {{DATA_API}}sitemap/species
+Sitemap: {{DOMAIN}}/sitemap-species.xml
