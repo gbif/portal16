@@ -47,14 +47,14 @@ function getInstallationList(query) {
 }
 
 function getNetworkIntervals() {
-    return getIntervals(apiConfig.network.url, {}, 1000);
+    return getIntervals(apiConfig.network.url, {});
 }
 function getNetworkList(query) {
     return getList(apiConfig.network.url, query);
 }
 
 function getNodeIntervals() {
-    return getIntervals(apiConfig.node.url, {}, 1000);
+    return getIntervals(apiConfig.node.url, {});
 }
 function getNodeList(query) {
     return getList(apiConfig.node.url, query);
