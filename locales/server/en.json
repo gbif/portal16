@@ -1385,6 +1385,7 @@
     "noDescription": "No description available",
     "resources": "resources",
     "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
+    "nServedDatasets": "{NUMBER} {NUMBER, select, 0{served datasets} 1{served dataset} other{served datasets}}",
     "topics": "topics",
     "purposes": "purposes",
     "audiences": "audiences",

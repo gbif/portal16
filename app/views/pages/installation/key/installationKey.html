@@ -50,7 +50,7 @@
                                 </dl>
                             </div>
                         </div>
-                        <div class="m-b-1">
+                        <div class="m-b-1" ng-if="installationKey.installation._computedValues.contributors.all.length > 0">
                             <h4 class="small discreet text-uppercase" translate="stdTerms.contacts"
                                 translate-values="{ NUMBER: installationKey.installation._computedValues.contributors.all.length + 1}">
                                 Contacts</h4>
@@ -62,7 +62,8 @@
                         </div>
                         <div class="m-b-1" ng-if="installationKey.servedDatasets.count > 0">
                             <span class="relative-anchor-offset"><a id="servedDatasets"></a></span>
-                            <h4 class="small discreet text-uppercase">
+                            <h4 class="small discreet text-uppercase" translate="stdTerms.nServedDatasets"
+                                translate-values="{ NUMBER: installationKey.servedDatasets.count}">
                                 Served datasets
                             </h4>
 

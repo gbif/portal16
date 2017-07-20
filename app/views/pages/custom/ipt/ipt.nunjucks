@@ -31,8 +31,8 @@
                             <div class="col-xs-12 col-sm-4 text-center"><span
                                         class="ng-cloak">{{ ipt.installations.length }} </span>publishers
                             </div>
-                            <div class="col-xs-12 col-sm-4 text-center">171 installations</div>
-                            <div class="col-xs-12 col-sm-4 text-center">50 countries</div>
+                            <div class="col-xs-12 col-sm-4 text-center">181 installations</div>
+                            <div class="col-xs-12 col-sm-4 text-center">53 countries</div>
                         </div>
                     </div>
                 </div>

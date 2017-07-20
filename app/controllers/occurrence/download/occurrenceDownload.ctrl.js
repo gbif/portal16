@@ -5,8 +5,7 @@ var express = require('express'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     queryResolver = require('./queryResolver'),
     router = express.Router(),
-    downloadHelper = require('./downloadKeyHelper'),
-    minute = 60000;
+    downloadHelper = require('./downloadKeyHelper');
 
 module.exports = function (app) {
     app.use('/occurrence', router);
@@ -77,7 +76,7 @@ function renderPage(req, res, next, download, template) {
             if (download.record.status == 'PREPARING' || download.record.status == 'RUNNING') {
                 res.setHeader('Cache-Control', 'no-cache');
             } else {
-                res.setHeader('Cache-Control', 'public, max-age=' + minute*15);
+                res.setHeader('Cache-Control', 'public, max-age=' + 600);//10 minutes
             }
             res.render(template, {
                 download: download,

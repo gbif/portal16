@@ -7,7 +7,7 @@ A new GBIF.org, scheduled to be completed in 2016
 
 ### Requirements
 
-* Node version 8.x installed.
+* Node version v7.10.0 installed.
 * Working gyp command line tools. On Mac that means that either xcode or the Command Line Tools needs to installed: `xcode-select --install`
 
 ### Install
