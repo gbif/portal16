@@ -58,7 +58,7 @@ module.exports = function (app, config) {
     app.use(compress());
     app.use(express.static(config.root + '/public', {
         cacheControl: true,
-        maxAge: '100d',
+        maxAge: '3d',
         etag: false
     }));
     app.use(methodOverride());
