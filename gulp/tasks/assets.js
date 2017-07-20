@@ -13,6 +13,7 @@ gulp.task('assets', [], function () {
 gulp.task('robots', [], function () {
     return gulp.src(config.robots.paths)
         .pipe(g.replace('{{DOMAIN}}', configEnv.domain))
+        .pipe(g.replace('{{DATA_API}}', configEnv.serverProtocol + configEnv.dataApi))
         .pipe(gulp.dest(config.robots.dest));
 });
 

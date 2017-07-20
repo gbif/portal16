@@ -3,6 +3,7 @@ let express = require('express'),
     router = express.Router(),
     helper = rootRequire('app/models/util/util'),
     pager = require('./pager'),
+    species = require('./species'),
     prose = require('./prose');
 
 
@@ -42,13 +43,30 @@ router.get('/sitemap/node/:offset/:limit.xml', getList(pager.node.list, 'sitemap
 router.get('/sitemap-dataset.xml', getIntervals(pager.dataset.intervals, 'sitemaps/dataset/index'));
 router.get('/sitemap/dataset/:offset/:limit.xml', getList(pager.dataset.list, 'sitemaps/dataset/dataset'));
 
-//species in backbone
-router.get('/sitemap-species.xml', getIntervals(pager.species.intervals, 'sitemaps/species/index'));
-router.get('/sitemap/species/:offset/:limit.xml', getList(pager.species.list, 'sitemaps/species/species'));
-
 //publisher
 router.get('/sitemap-publisher.xml', getIntervals(pager.publisher.intervals, 'sitemaps/publisher/index'));
 router.get('/sitemap/publisher/:offset/:limit.xml', getList(pager.publisher.list, 'sitemaps/publisher/publisher'));
+
+//species in backbone
+//router.get('/sitemap-species.xml', getIntervals(pager.species.intervals, 'sitemaps/species/index'));
+//router.get('/sitemap/species/:offset/:limit.xml', getList(pager.species.list, 'sitemaps/species/species'));
+//species in backbone
+//router.get('/sitemap-species.xml', function (req, res, next) {
+//    species.getSpeciesSiteMapIndex().then(function(sitemapIndex){
+//        res.set('Content-Type', 'text/xml');
+//        res.send(sitemapIndex);
+//    }).catch(function(e){
+//        next(e);
+//    });
+//});
+//router.get('/sitemap/species/:no.txt', function (req, res, next) {
+//    species.getSpeciesSiteMap(req.params.no).then(function(sitemap){
+//        res.set('Content-Type', 'text/plain');
+//        res.send(sitemap);
+//    }).catch(function(e){
+//        next(e);
+//    });
+//});
 
 
 function getIntervals(f, template){
