@@ -14,7 +14,7 @@
         <meta property="og:description" content="{$ _meta.description $}" />
     {% endif %}
     {% if _meta.image %}
-        <meta property="og:image" content="{$ _meta.imageCache $}http:{$ _meta.image | encodeURI $}" />
+        <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
     {% endif %}
 
     <meta charset="UTF-8">
