@@ -1,0 +1,196 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="Xhidden">
+        <h1>
+            {$ dataset.title $}
+        </h1>
+
+        {% if dataset.homepage %}
+            <p><a href="{$ dataset.homepage $}">Dataset homepage</a></p>
+        {% endif %}
+
+        {% if dataset.description %}
+        <section>
+            <h2>Description</h2>
+            {$ dataset.description | decodeHtml | linkify | sanitize | safe $}
+        </section>
+        {% endif %}
+
+        {% if dataset.purpose %}
+            <section>
+                <h2>Purpose</h2>
+                {$ dataset.purpose | decodeHtml | linkify | sanitize | safe $}
+            </section>
+        {% endif %}
+
+        {% if dataset.samplingDescription %}
+            <section>
+                <h2>Sampling Description</h2>
+
+                {% if dataset.samplingDescription.studyExtent %}
+                    <div>
+                        <h3>Study Extent</h3>
+                        {$ dataset.samplingDescription.studyExtent | decodeHtml | linkify | sanitize | safe $}
+                    </div>
+                {% endif %}
+                {% if dataset.samplingDescription.sampling %}
+                    <div>
+                        <h3>Sampling</h3>
+                        {$ dataset.samplingDescription.sampling | decodeHtml | linkify | sanitize | safe $}
+                    </div>
+                {% endif %}
+                {% if dataset.samplingDescription.qualityControl %}
+                    <div>
+                        <h3>Quality Control</h3>
+                        {$ dataset.samplingDescription.qualityControl | decodeHtml | linkify | sanitize | safe $}
+                    </div>
+                {% endif %}
+                {% if dataset.samplingDescription.methodSteps %}
+                    <div>
+                        <h3>Method steps</h3>
+                        <ol>
+                            {% for step in dataset.samplingDescription.methodSteps %}
+                                <li>
+                                    {$ step | decodeHtml | linkify | sanitize | safe $}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                {% endif %}
+            </section>
+        {% endif %}
+
+
+        {% if dataset.additionalInfo %}
+            <section>
+                <h2>Additional info</h2>
+                {$ dataset.additionalInfo | decodeHtml | linkify | sanitize | safe $}
+            </section>
+        {% endif %}
+
+        {% if dataset.taxonomicCoverages %}
+            <section>
+                <h2>Taxonomic Coverages</h2>
+                {% for taxonomicCoverage in dataset.taxonomicCoverages %}
+                    <div>
+                        {$ taxonomicCoverage.description | decodeHtml | linkify | sanitize | safe $}
+                        <ol>
+                            {% for coverage in taxonomicCoverage.coverages %}
+                                <li>
+                                    <div>{$ coverage.scientificName $}</div>
+                                    {% if coverage.commonName %}common name: {$ coverage.commonName $}{% endif %}
+                                    {% if coverage.rank %}rank: {$ coverage.rank.verbatim $}{% endif %}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        {% if dataset.geographicCoverages %}
+            <section>
+                <h2>Geographic Coverages</h2>
+                {% for geographicCoverage in dataset.geographicCoverages %}
+                    <div>
+                        {$ geographicCoverage.description | decodeHtml | linkify | sanitize | safe $}
+                    </div>
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        {% if dataset.bibliographicCitations %}
+        <section>
+            <h2>Bibliographic Citations</h2>
+            <ol>
+                {% for reference in dataset.bibliographicCitations %}
+                <li>{$ reference.text $} - {$ reference.identifier $}</li>
+                {% endfor %}
+            </ol>
+        </section>
+        {% endif %}
+
+
+        {% if dataset.contacts %}
+            <div>
+                <h2>Contacts</h2>
+                {% for contact in dataset.contacts %}
+                    <address>
+
+                        {% if contact.firstName or contact.lastName %}
+                            {$ contact.firstName $} {$ contact.lastName $}<br/>
+                        {% endif %}
+
+                        {% if contact.type %}
+                            {$ contact.type | prettifyEnum $}<br/>
+                        {% endif %}
+
+                        {% if contact.position.length > 0 %}
+                            {% for position in contact.position %}
+                                position: {$ position $}<br>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if contact.organization %}
+                            {$ contact.organization $}<br/>
+                        {% endif %}
+
+                        {% if contact.address.length > 0 %}
+                            {% for addressLine in contact.address %}
+                                <span>{$ addressLine $}</span><br/>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if contact.city %}
+                            {$ contact.city $}<br/>
+                        {% endif %}
+
+                        {% if contact.postalCode %}
+                            {$ contact.postalCode $}<br/>
+                        {% endif %}
+
+                        {% if contact.province %}
+                            {$ contact.province $}<br/>
+                        {% endif %}
+
+                        {% if contact.country %}
+                            {$ contact.country $}<br/>
+                        {% endif %}
+
+                        {% if contact.phone.length > 0 %}
+                            {% for phone in contact.phone %}
+                                Telephone: {$ phone $}<br>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if contact.email.length > 0 %}
+                            {% for email in contact.email %}
+                                email: {$ email $}<br>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if contact.homepage.length > 0 %}
+                            {% for homepage in contact.homepage %}
+                                homepage: {$ homepage $}<br>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if contact.userId.length > 0 %}
+                            {% for userId in contact.userId %}
+                                userId: {$ userId $}<br>
+                            {% endfor %}
+                        {% endif %}
+
+                    </address>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </article>
+
+{% endblock %}
+
+{% block head %}
+    {% include('./metatags.nunjucks') %}
+{% endblock %}

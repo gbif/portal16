@@ -1,0 +1,25 @@
+{% if dataset.doi %}
+    <meta name="DC.identifier" content="{$ dataset.doi $}" />
+    <meta name="citation_doi" content="{$ dataset.doi $}" />
+{% endif %}
+
+{% if dataset.title %}
+    <meta name="DC.title" content="{$ dataset.title $}" />
+    <meta name="citation_title" content="{$ dataset.title $}" />
+{% endif %}
+
+{% for contact in dataset.contacts %}
+    {% if contact.type == 'ORIGINATOR' and contact.firstName and contact.lastName %}
+        <meta name="DC.creator" content="{$ contact.firstName $} {$ contact.lastName $}" />
+        <meta name="citation_author" content="{$ contact.firstName $} {$ contact.lastName $}" />
+    {% endif %}
+{% endfor %}
+
+{# TODO what format should language code be in? en or eng #}
+{% if dataset.language %}
+    <meta name="DC.language" content="{$ dataset.language $}" />
+{% endif %}
+
+{% if dataset.license %}
+    <meta name="DC.rights" content="{$ dataset.license $}" />
+{% endif %}
