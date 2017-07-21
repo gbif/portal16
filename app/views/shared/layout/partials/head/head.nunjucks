@@ -1,98 +1,101 @@
+{#<title>{$ _meta.title $}</title>#}
+<title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
 
-
-    {#<title>{$ _meta.title $}</title>#}
-    <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
-
-    {# open graph tags - server rendered as social media sites necessarily always run js #}
-    {% if _meta.title %}
+{# open graph tags - server rendered as social media sites necessarily always run js #}
+<meta property="fb:app_id" content="{$ _meta.fbAppId $}" />
+{% if _meta.title %}
     <meta property="og:title" content="{$ _meta.title $}" />
-    {% endif %}
-    {% if _meta.canonicalUrl %}
-        <meta property="og:url" content="{$ _meta.canonicalUrl $}" />
-    {% endif %}
-    {% if _meta.description %}
-        <meta property="og:description" content="{$ _meta.description $}" />
-    {% endif %}
-    {% if _meta.image %}
-        <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
-    {% endif %}
+{% endif %}
 
-    <meta charset="UTF-8">
+{% if _meta.canonicalUrl %}
+    <meta property="og:url" content="{$ _meta.domain $}{$ _meta.canonicalUrl $}" />
+{% elif _meta.originalUrl %}
+    <meta property="og:url" content="{$ _meta.domain $}{$ _meta.originalUrl $}" />
+{% endif %}
 
-    <!-- If IE use the latest rendering engine -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% if _meta.description %}
+    <meta property="og:description" content="{$ _meta.description $}" />
+{% endif %}
+{% if _meta.image %}
+    <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
+{% endif %}
 
-    <!-- Set the page to the width of the device and set the zoom level -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <meta name="theme-color" content="#4c9e45">
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v={$ BUILD_VERSION $}">
-    {% if _meta.useEmbeddedStyleSheet %}
-        <link rel="stylesheet" type="text/css" href="/css/base/shared/style/embed.css?v={$ BUILD_VERSION $}">
-    {% else %}
-        <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v={$ BUILD_VERSION $}">
-    {% endif %}
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#4c9e45">
 
-    <!--[if !IE]> -->
-    <!-- <![endif]-->
+<link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v={$ BUILD_VERSION $}">
+{% if _meta.useEmbeddedStyleSheet %}
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/embed.css?v={$ BUILD_VERSION $}">
+{% else %}
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v={$ BUILD_VERSION $}">
+{% endif %}
 
-    <!--[if IE]>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
 
-    <![endif]-->
-    {#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
-    <!--[if lt IE 9]>
-    {#
-    <script src="https://cdn.jsdelivr.net/css3-mediaqueries/0.1/css3-mediaqueries.min.js"></script>
-    <script src="https://rawgit.com/closingtag/calc-polyfill/master/calc.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<!--[if !IE]> -->
+<!-- <![endif]-->
+
+<!--[if IE]>
+
+<![endif]-->
+{#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
+<!--[if lt IE 9]>
+{#
+<script src="https://cdn.jsdelivr.net/css3-mediaqueries/0.1/css3-mediaqueries.min.js"></script>
+<script src="https://rawgit.com/closingtag/calc-polyfill/master/calc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aight/1.2.2/aight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
-    #}
-    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aight/1.2.2/aight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+#}
+<![endif]-->
 
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-42057855-4', 'auto');
-        ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-42057855-4', 'auto');
+    ga('send', 'pageview');
+</script>
 
