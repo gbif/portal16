@@ -3,27 +3,15 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     config = rootRequire('config/config'),
     querystring = require('querystring'),
     request = require('requestretry'),
-    _ = require('lodash'),
-    backboneQuery = {
-        datasetKey: config.backboneDatasetKey
-    };
+    _ = require('lodash');
 
 module.exports = {
     installation: {intervals: getInstallationIntervals, list: getInstallationList },
-    species: {intervals: getSpeciesIntervals, list: getSpeciesList },
     dataset: {intervals: getDatasetIntervals, list: getDatasetList },
     node: {intervals: getNodeIntervals, list: getNodeList },
     network: {intervals: getNetworkIntervals, list: getNetworkList },
     publisher: {intervals: getPublisherIntervals, list: getPublisherList }
 };
-
-function getSpeciesIntervals() {
-    return getIntervals(apiConfig.taxonSearch.url, backboneQuery);
-}
-function getSpeciesList(query) {
-    query.datasetKey = backboneQuery.datasetKey;
-    return getList(apiConfig.taxonSearch.url, query);
-}
 
 function getDatasetIntervals() {
     return getIntervals(apiConfig.datasetSearch.url, {});
@@ -61,7 +49,7 @@ function getNodeList(query) {
 }
 
 async function getIntervals(url, query, limit) {
-    limit = limit || 10000;
+    limit = limit || 1000;
     let options = {
         url: url + '?' + querystring.stringify(query),
         method: 'GET',

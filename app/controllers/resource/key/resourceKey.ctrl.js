@@ -88,6 +88,8 @@ function prose(req, res, next, type, template){
 
             contentItem._meta = {
                 title: preview ? 'preview' : itemTitle,
+                description: _.get(contentItem, 'main.fields.summary'),
+                image: _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id')+ '].fields.file.url'),
                 slugTitle: slugTitle
             };
 
