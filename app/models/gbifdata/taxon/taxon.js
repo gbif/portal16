@@ -51,6 +51,10 @@ Taxon.prototype.expand = function (fieldNames) {
                 resource: api.dataset.url + this.record.datasetKey,
                 extendToField: 'dataset'
             },
+            descriptions: {
+                resource: api.taxon.url + this.record.key + '/descriptions',
+                extendToField: 'descriptions'
+            },
             parents: {
                 resource: api.taxon.url + this.record.key + '/parents',
                 extendToField: 'parents'
