@@ -257,6 +257,16 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('truncate', function (text, length) {
+            length = length || 10;
+            if (typeof text !== 'string') {
+                return '';
+            }
+            return text.length > length ? text.slice(0, length) + '…' : text;
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('truncateHtml', function (htmlText, len) {
             if (!_.isString(htmlText)) {
                 return '';
