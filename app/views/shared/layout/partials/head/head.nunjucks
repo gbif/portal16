@@ -14,7 +14,8 @@
 {% endif %}
 
 {% if _meta.description %}
-    <meta property="og:description" content="{$ _meta.description | striptags $}" />
+    {#TODO truncate with elipsis instead#}
+    <meta property="og:description" content="{$ _meta.description | striptags | slice(0, 600) $}" />
 {% endif %}
 {% if _meta.image %}
     <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
