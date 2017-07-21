@@ -2,6 +2,21 @@
 
     {#<title>{$ _meta.title $}</title>#}
     <title ng-bind="head.getTitle('{$ _meta.title | replace("'", "")$}')">{$ _meta.title $}</title>
+
+    {# open graph tags - server rendered as social media sites necessarily always run js #}
+    {% if _meta.title %}
+    <meta property="og:title" content="{$ _meta.title $}" />
+    {% endif %}
+    {% if _meta.canonicalUrl %}
+        <meta property="og:url" content="{$ _meta.canonicalUrl $}" />
+    {% endif %}
+    {% if _meta.description %}
+        <meta property="og:description" content="{$ _meta.description $}" />
+    {% endif %}
+    {% if _meta.image %}
+        <meta property="og:image" content="{$ _meta.imageCache $}http:{$ _meta.image | encodeURI $}" />
+    {% endif %}
+
     <meta charset="UTF-8">
 
     <!-- If IE use the latest rendering engine -->
