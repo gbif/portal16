@@ -56,7 +56,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     },
     dev: {
         env: env,
@@ -83,7 +84,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     },
     uat: {
         env: env,
@@ -110,7 +112,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     },
     prod: {
         env: env,
@@ -137,7 +140,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     },
     c5prod: {
         env: env,
@@ -164,7 +168,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     },
     test: {
         env: env,
@@ -191,7 +196,8 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey
+        backboneDatasetKey: backboneDatasetKey,
+        fbAppId: 1534726343485342
     }
 };
 

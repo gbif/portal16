@@ -96,6 +96,7 @@ function renderPage(req, res, next, data, template) {
     data._meta.title = data._meta.title || req.originalUrl;
     data._meta.domain = config.domain;
     data._meta.originalUrl = req.originalUrl;
+    data._meta.fbAppId = config.fbAppId;
     try {
         if (req.params.ext == 'debug') {
             res.json(data);

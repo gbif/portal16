@@ -45,6 +45,16 @@ module.exports = function (nunjucksConfiguration) {
     })();
 
     (function () {
+        nunjucksConfiguration.addFilter('uniqBy', function (arr, keys) {
+            return _.uniqBy(arr, function(e){
+                return _.reduce(keys, function(identifier, key) {
+                    return identifier + ' ' + e[key];
+                }, '');
+            });
+        });
+    })();
+
+    (function () {
         nunjucksConfiguration.addFilter('addition', function (number, otherNumbers) {
             if (!_.isArray(otherNumbers)) {
                 otherNumbers = [otherNumbers];
