@@ -4,7 +4,7 @@
 {# open graph tags - server rendered as social media sites necessarily always run js #}
 <meta property="fb:app_id" content="{$ _meta.fbAppId $}" />
 {% if _meta.title %}
-    <meta property="og:title" content="{$ _meta.title | striptags $}" />
+    <meta property="og:title" content="{$ _meta.title | striptags | truncate: 600 $}" />
 {% endif %}
 
 {% if _meta.canonicalUrl %}
@@ -14,8 +14,7 @@
 {% endif %}
 
 {% if _meta.description %}
-    {#TODO truncate with elipsis instead#}
-    <meta property="og:description" content="{$ _meta.description | striptags | slice(0, 600) $}" />
+    <meta property="og:description" content="{$ _meta.description | striptags | truncate: 600 $}" />
 {% endif %}
 {% if _meta.image %}
     <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
