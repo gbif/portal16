@@ -39,7 +39,7 @@ function get4326() {
         //tile_grid_14: tile_grid_14,
         tileGrid: tile_grid_16,
         resolutions: resolutions,
-        fitExtent: [-1, -80, 1, 80],
+        fitExtent: [-179, -1, 179, 1],
         getView: function (lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
