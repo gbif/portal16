@@ -1,13 +1,20 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="Xhidden">
+    <article class="hidden">
         <h1>
             {$ dataset.title $}
         </h1>
 
         {% if dataset.homepage %}
             <p><a href="{$ dataset.homepage $}">Dataset homepage</a></p>
+        {% endif %}
+
+        {% if dataset.citation %}
+            <section>
+                <h2>Citation</h2>
+                {$ dataset.citation.text | decodeHtml | linkify | sanitize | safe $}
+            </section>
         {% endif %}
 
         {% if dataset.description %}

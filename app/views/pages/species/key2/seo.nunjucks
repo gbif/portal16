@@ -1,0 +1,120 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="hidden">
+        <h1>
+            {$ species.record.scientificName $}
+        </h1>
+
+        <div>
+            {% if species.record.nubKey == species.record.key %}
+                Species as seen by the GBIF backbone. <a href="/occurrence/search?taxon_key={$ species.record.key $}">Explore occurrences and images</a> from over 30.000 datasets.
+            {% else %}
+                Species as seen by: {$ species.dataset.title $}.
+            {% endif %}
+
+            {% if species.record.rank != 'KINGDOM' %}
+            <div>
+                Classification:
+                <span class="classification-list discreet">
+                    {% for taxa in [
+                    "DOMAIN",
+                    "SUPERKINGDOM",
+                    "KINGDOM",
+                    "SUBKINGDOM",
+                    "INFRAKINGDOM",
+                    "SUPERPHYLUM",
+                    "PHYLUM",
+                    "SUBPHYLUM",
+                    "INFRAPHYLUM",
+                    "SUPERCLASS",
+                    "CLASS",
+                    "SUBCLASS",
+                    "INFRACLASS",
+                    "PARVCLASS",
+                    "SUPERLEGION",
+                    "LEGION",
+                    "SUBLEGION",
+                    "INFRALEGION",
+                    "SUPERCOHORT",
+                    "COHORT",
+                    "SUBCOHORT",
+                    "INFRACOHORT",
+                    "MAGNORDER",
+                    "SUPERORDER",
+                    "GRANDORDER",
+                    "ORDER",
+                    "SUBORDER",
+                    "INFRAORDER",
+                    "PARVORDER",
+                    "SUPERFAMILY",
+                    "FAMILY",
+                    "SUBFAMILY",
+                    "INFRAFAMILY",
+                    "SUPERTRIBE",
+                    "TRIBE",
+                    "SUBTRIBE",
+                    "INFRATRIBE",
+                    "SUPRAGENERIC_NAME",
+                    "GENUS",
+                    "SUBGENUS",
+                    "INFRAGENUS",
+                    "SECTION",
+                    "SUBSECTION",
+                    "SERIES",
+                    "SUBSERIES",
+                    "INFRAGENERIC_NAME",
+                    "SPECIES_AGGREGATE",
+                    "SPECIES",
+                    "INFRASPECIFIC_NAME",
+                    "GREX",
+                    "SUBSPECIES",
+                    "CULTIVAR_GROUP",
+                    "CONVARIETY",
+                    "INFRASUBSPECIFIC_NAME",
+                    "PROLES",
+                    "RACE",
+                    "NATIO",
+                    "ABERRATION",
+                    "MORPH",
+                    "VARIETY",
+                    "SUBVARIETY",
+                    "FORM",
+                    "SUBFORM",
+                    "PATHOVAR",
+                    "BIOVAR",
+                    "CHEMOVAR",
+                    "MORPHOVAR",
+                    "PHAGOVAR",
+                    "SEROVAR",
+                    "CHEMOFORM",
+                    "FORMA_SPECIALIS",
+                    "CULTIVAR",
+                    "STRAIN",
+                    "OTHER",
+                    "UNRANKED"
+                    ] %}
+                        {% if species.record[taxa | lower] %}
+                            <span>{$ species.record[taxa | lower] $}</span>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+            </div>
+            {% endif %}
+
+
+            {% if species.record.publishedIn %}
+                <div>Published in: {$ species.record.publishedIn $}</div>
+            {% endif %}
+
+            {% if species.record.nubKey != species.record.key and species.descriptions.results.length > 0 %}
+                {% for desc in species.descriptions.results %}
+                    <h3>{$ desc.type $}</h3>
+                    <div>{$ desc.description | decodeHtml | linkify | sanitize | safe $}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </article>
+
+{% endblock %}
