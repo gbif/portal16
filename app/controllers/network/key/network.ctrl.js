@@ -1,6 +1,7 @@
 var express = require('express'),
     Network = require('../../../models/gbifdata/gbifdata').Network,
     contributors = require('../../dataset/key/contributors/contributors'),
+    helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -36,18 +37,11 @@ router.get('/network/:key\.:ext?', function (req, res, next) {
 });
 
 function renderPage(req, res, next, network) {
-    try {
-        if (req.params.ext == 'debug') {
-            res.json(network);
-        } else {
-            res.render('pages/network/key/networkKey', {
-                network: network,
-                _meta: {
-                    title: 'Network ' + network.record.title
-                }
-            });
+    helper.renderPage(req, res, next, {
+        network: network,
+        _meta: {
+            title: network.record.title,
+            description: network.record.description
         }
-    } catch (e) {
-        next(e);
-    }
+    }, 'pages/network/key/networkKey');
 }

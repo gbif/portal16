@@ -5,6 +5,8 @@
 <meta property="fb:app_id" content="{$ _meta.fbAppId $}" />
 {% if _meta.title %}
     <meta property="og:title" content="{$ _meta.title | striptags | truncate(400) $}" />
+{% else %}
+    <meta property="og:title" content="{$ __('phrases.defaultPageTitle') $}" />
 {% endif %}
 
 {% if _meta.canonicalUrl %}
@@ -14,8 +16,9 @@
 {% endif %}
 
 {% if _meta.description %}
-    {#TODO truncate with elipsis instead#}
     <meta property="og:description" content="{$ _meta.description | striptags | truncate(600) $}" />
+{% else %}
+    <meta property="og:description" content="{$ __('phrases.defaultPageDescription') $}" />
 {% endif %}
 {% if _meta.image %}
     <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/{$ _meta.image | encodeURI $}" />

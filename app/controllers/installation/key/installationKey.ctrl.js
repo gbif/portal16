@@ -1,5 +1,6 @@
 var express = require('express'),
     Installation = require('../../../models/gbifdata/gbifdata').Installation,
+    helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -16,18 +17,11 @@ router.get('/installation/:key\.:ext?', function (req, res, next) {
 });
 
 function renderPage(req, res, next, installation) {
-    try {
-        if (req.params.ext == 'debug') {
-            res.json(installation);
-        } else {
-            res.render('pages/installation/key/installationKey', {
-                installation: installation,
-                _meta: {
-                    title: 'Installation: ' + req.params.key
-                }
-            });
+    helper.renderPage(req, res, next, {
+        installation: installation,
+        _meta: {
+            title: installation.record.title,
+            description: installation.record.description
         }
-    } catch (e) {
-        next(e);
-    }
+    }, 'pages/installation/key/installationKey');
 }
