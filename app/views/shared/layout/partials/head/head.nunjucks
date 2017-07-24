@@ -18,7 +18,7 @@
     <meta property="og:description" content="{$ _meta.description | striptags | truncate(600) $}" />
 {% endif %}
 {% if _meta.image %}
-    <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/http:{$ _meta.image | encodeURI $}" />
+    <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/{$ _meta.image | encodeURI $}" />
 {% endif %}
 
 <meta charset="UTF-8">
