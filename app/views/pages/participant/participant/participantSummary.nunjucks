@@ -4,41 +4,43 @@
             <dl class="inline">
                 <div>
                     <dt>Member status</dt>
-                    <dd class="text-capitalize">{{ 'participationStatus.' + countryKey.country.participant.participationStatus | translate }}</dd>
+                    <dd class="text-capitalize">{{ 'participationStatus.' + participantKey.participant.participant.participationStatus | translate }}</dd>
                 </div>
                 <div>
-                    <dt>GBIF participant since</dt>
-                    <dd class="text-capitalize">{{ countryKey.country.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
+                    <dt>GBIF participant started</dt>
+                    <dd class="text-capitalize">{{ participantKey.participant.participant.membershipStart | amDateFormat:'YYYY' }}</dd>
                 </div>
                 <div>
                     <dt>GBIF region</dt>
-                    <dd class="text-capitalize">{{ 'region.' + countryKey.country.participant.gbifRegion | translate }}</dd>
+                    <dd class="text-capitalize">{{ 'region.' + participantKey.participant.participant.gbifRegion | translate }}</dd>
                 </div>
                 <div>
                     <dt>Head of delegation</dt>
-                    <dd><a href="#contact{{countryKey.country.headOfDelegation.personId}}">{{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.headOfDelegation.personId].surname }}</a></dd>
+                    <dd ng-if="participantKey.participant.headOfDelegation.personId"><a href="#contact{{participantKey.participant.headOfDelegation.personId}}">{{ participantKey.participant.contacts[participantKey.participant.headOfDelegation.personId].firstName }} {{ participantKey.participant.contacts[participantKey.participant.headOfDelegation.personId].surname }}</a></dd>
+                    <dd ng-if="!participantKey.participant.headOfDelegation.personId">Pending</dd>
                 </div>
             </dl>
         </div>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-6" ng-if="participantKey.participant.node">
         <div>
             <dl class="inline">
                 <div>
                     <dt>Node name</dt>
-                    <dd><a ng-href="#nodeAddress">{{ countryKey.country.node.name }}</a></dd>
+                    <dd><a ng-href="#nodeAddress">{{ participantKey.participant.node.name }}</a></dd>
                 </div>
                 <div>
-                    <dt>Node established</dt>
-                    <dd>{{ countryKey.country.prose.main.fields.nodeEstablishmentDate | amDateFormat:'YYYY' }}</dd>
+                    <dt>Node created</dt>
+                    <dd>{{ participantKey.participant.node.created | amDateFormat:'YYYY' }}</dd>
                 </div>
-                <div>
+                <div ng-if="participantKey.participant.node.nodeUrl">
                     <dt>Website</dt>
-                    <dd><a ng-href="{{ countryKey.country.node.nodeUrl }}">{{ countryKey.country.node.nodeUrl }}</a></dd>
+                    <dd><a ng-href="{{ participantKey.participant.node.nodeUrl }}">{{ participantKey.participant.node.nodeUrl }}</a></dd>
                 </div>
                 <div>
                     <dt>Participant node manager</dt>
-                    <dd><a ng-href="#contact{{countryKey.country.nodeManager.personId}}">{{ countryKey.country.contacts[countryKey.country.nodeManager.personId].firstName }} {{ countryKey.country.contacts[countryKey.country.nodeManager.personId].surname }}</a></dd>
+                    <dd ng-if="participantKey.participant.nodeManager.personId"><a ng-href="#contact{{participantKey.participant.nodeManager.personId}}">{{ participantKey.participant.contacts[participantKey.participant.nodeManager.personId].firstName }} {{ participantKey.participant.contacts[participantKey.participant.nodeManager.personId].surname }}</a></dd>
+                    <dd ng-if="!participantKey.participant.nodeManager.personId">Pending</dd>
                 </div>
             </dl>
         </div>

@@ -110,21 +110,21 @@ async function expandParticipant(participant, locale) {
     //get first list of promises
         prosePromise = resource.getParticipant(id, 2, false, locale),
         participantHistoryPromise = signedGet(apiConfig.directoryParticipantPerson.url + '?status=all&participant_id=' + id),
-        registryNodePromise = signedGet(apiConfig.country.url + countryCode),
+        registryNodePromise = signedGet(apiConfig.node.url + '?identifier=' + id),
         nodePromise = getNodeById(nodeId),
-        nodeHistoryPromise = signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId),
+        nodeHistoryPromise = signedGet(apiConfig.directoryNodePerson.url + '?status=all&node_id=' + nodeId);
 
     //wait for them to finish
-        values = await Promise.all([prosePromise, participantHistoryPromise, nodePromise, nodeHistoryPromise, registryNodePromise]),
+    let values = await Promise.all([prosePromise, participantHistoryPromise, nodePromise, nodeHistoryPromise, registryNodePromise]),
     //asign them to nicer names
         prose = values[0],
         participantHistory = values[1],
         node = values[2],
         nodeHistory = values[3],
-        registryNode = values[4],
+        registryNode = values[4].results[0];
 
     //get the people historical related to the participant and node
-        peopleIds = _.map(_.concat([], participantHistory.results, nodeHistory.results), 'personId'),
+    let peopleIds = _.map(_.concat([], participantHistory.results, nodeHistory.results), 'personId'),
         people = await getPeople(peopleIds),
     //remove sensitive information from the people objects
         contacts = people.map(removeSensitiveInformation);
@@ -142,15 +142,11 @@ async function expandParticipant(participant, locale) {
         nodeHistory: nodeHistory.results,
         participantHistory: participantHistory.results,
         registryNode: registryNode,
-        type: 'COUNTRY',
+        type: participant.type,
         country: {
             countryCode: participant.countryCode
         }
     };
-
-    if (participant.type !== 'COUNTRY') {
-        delete result.registryNode;
-    }
 
     return result;
 }

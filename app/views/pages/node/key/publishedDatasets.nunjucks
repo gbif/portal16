@@ -1,0 +1,31 @@
+<div class="horizontal-stripe light-background ng-cloak p-t-0" ng-if="nodeKey.datasets.count > 0">
+    <span class="relative-anchor-offset"><a id="datasets"></a></span>
+    <div class="container--narrow">
+        <p class="small discreet text-uppercase">
+            Latest datasets published
+        </p>
+        <div>
+            <div>
+                <div ng-show="nodeKey.datasets.count > 0">
+                    <ul class="p-0">
+                        <li ng-repeat="result in nodeKey.datasets.results">
+                            <ng-include src="'/api/template/search/datasetResult.html?v=' + portal.BUILD_VERSION"></ng-include>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="nodeKey.datasets.count > nodeKey.limit">
+                    <uib-pagination
+                            total-items="nodeKey.datasets.count"
+                            ng-model="nodeKey.currentPage_datasets"
+                            max-size="nodeKey.maxSize"
+                            items-per-page="nodeKey.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="nodeKey.pageChanged_datasets()">
+                    </uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@ var angular = require('angular');
                 });
         })
         .factory('Country', function ($resource) {
-            return $resource('/api/country/about/:key', null, {
+            return $resource('/api/country/:key', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,

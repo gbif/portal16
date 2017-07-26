@@ -4,32 +4,75 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('countryKeyCtrl', countryKeyCtrl);
+    .controller('participantKeyCtrl', participantKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl(OccurrenceSearch) {
+function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $state, $stateParams) {
     var vm = this;
-    vm.countryCode = gb.countryCode;
-    vm.isParticipant = gb.isParticipant;
+    vm.limit = 5;
+    vm.endorsed = {};
+    vm.datasets = {};
+    vm.maxSize = 5;
+    vm.limit = 5;
+    vm.key = $stateParams.key;
 
-    OccurrenceSearch.query({
-        country: vm.countryCode,
-        limit: 0
-    }, function(data){
-        vm.countAbout = data.count;
-    }, function(){
-        //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
+    vm.participant = Participant.get({id: vm.key});
+
+    vm.getEndorsed = function () {
+        vm.participant.$promise.then(function(){
+            NodeEndorsedPublishers.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.offset_endorsed},
+                function (response) {
+                    vm.endorsed = response;
+                },
+                function () {
+                    //TODO handle errors
+                }
+            );
+        });
+    };
+
+    vm.getDatasets = function () {
+        vm.participant.$promise.then(function(){
+            NodeDatasets.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.currentPage_datasets},
+                function (response) {
+                    vm.datasets = response;
+                },
+                function () {
+                    //TODO handle errors
+                }
+            );
+        });
+    };
+
+    vm.setPageNumbers = function () {
+        vm.offset_endorsed = $stateParams.offset_endorsed || 0;
+        vm.currentPage_endorsed = Math.floor(vm.offset_endorsed / vm.limit) + 1;
+
+        vm.offset_datasets = $stateParams.offset_datasets || 0;
+        vm.currentPage_datasets = Math.floor(vm.offset_datasets / vm.limit) + 1;
+        vm.getDatasets();
+        vm.getEndorsed();
+    };
+
+    vm.participant.$promise.then(function() {
+        if (vm.participant.registryNode) {
+            vm.setPageNumbers();
+        }
     });
 
-    OccurrenceSearch.query({
-        publishing_country: vm.countryCode,
-        limit: 0
-    }, function(data){
-        vm.countPublished = data.count;
-    }, function(){
-        //TODO how to handle api failures here. toast that we are seeing outages? ask user to refresh
-    });
+    vm.pageChanged_endorsed = function () {
+        vm.offset_endorsed = (vm.currentPage_endorsed - 1) * vm.limit;
+        var offset = vm.offset_endorsed == 0 ? undefined : vm.offset_endorsed;
+        $state.go($state.current, {limit: vm.limit, offset_endorsed: offset, '#': 'endorsedPublishers'}, {inherit: true, notify: false, reload: true});
+        vm.getEndorsed();
+    };
+    vm.pageChanged_datasets = function () {
+        vm.offset_datasets = (vm.currentPage_datasets - 1) * vm.limit;
+        var offset = vm.offset_datasets == 0 ? undefined : vm.offset_datasets;
+        $state.go($state.current, {limit: vm.limit, offset_datasets: offset, '#': 'datasets'}, {inherit: true, notify: false, reload: true});
+        vm.getDatasets();
+    };
 }
 
-module.exports = countryKeyCtrl;
 
+module.exports = participantKeyCtrl;

@@ -151,4 +151,12 @@ router.get('/developer/:page/tpl.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/developer/'+req.params.page+'.nunjucks');
 });
 
+router.get('/node/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/node/key/nodeKey.template.nunjucks');
+});
+
+router.get('/participant/key.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/participant/participant.template.nunjucks');
+});
+
 

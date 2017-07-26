@@ -34,6 +34,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('Participant', function ($resource) {
+            return $resource('/api/participant/:id', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
     ;
 })();
 

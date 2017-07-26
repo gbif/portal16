@@ -306,6 +306,7 @@ require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
 require('../../../pages/participant/country/countryKey.ctrl');
+require('../../../pages/participant/participant/participantKey.ctrl');
 
 require('../../../pages/resource/key/programme/programme.ctrl');
 require('../../../pages/resource/key/project/project.ctrl');

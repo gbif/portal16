@@ -10,6 +10,7 @@
 {% endif %}
 
 {% if _meta.canonicalUrl %}
+    <link rel="canonical" href="{$ _meta.domain $}{$ _meta.canonicalUrl $}">
     <meta property="og:url" content="{$ _meta.domain $}{$ _meta.canonicalUrl $}" />
 {% elif _meta.originalUrl %}
     <meta property="og:url" content="{$ _meta.domain $}{$ _meta.originalUrl $}" />

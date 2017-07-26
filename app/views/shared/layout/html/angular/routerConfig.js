@@ -307,9 +307,20 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             url: '/node/:key?offset_datasets&offset_endorsed',
             views: {
                 main: {
-                    templateUrl: '/templates/pages/node/key/node.html?v=' + BUILD_VERSION,
+                    templateUrl: '/api/template/node/key.html?v=' + BUILD_VERSION,
                     controller: 'nodeKeyCtrl',
                     controllerAs: 'nodeKey'
+                }
+            }
+        })
+        .state('participant', {
+            parent: 'localization',
+            url: '/participant/:key?offset_datasets&offset_endorsed',
+            views: {
+                main: {
+                    templateUrl: '/api/template/participant/key.html?v=' + BUILD_VERSION,
+                    controller: 'participantKeyCtrl',
+                    controllerAs: 'participantKey'
                 }
             }
         })

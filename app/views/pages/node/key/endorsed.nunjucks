@@ -1,4 +1,4 @@
-<div ng-if="participantKey.endorsed.count > 0">
+<div class="horizontal-stripe light-background ng-cloak" ng-if="nodeKey.endorsed.count > 0">
     <span class="relative-anchor-offset"><a id="endorsedPublishers"></a></span>
     <div class="container--narrow">
         <p class="small discreet text-uppercase">
@@ -6,29 +6,26 @@
         </p>
         <div>
             <div>
-                <div ng-show="participantKey.endorsed.count > 0">
+                <div ng-show="nodeKey.endorsed.count > 0">
                     <ul class="p-0">
-                        <li ng-repeat="result in participantKey.endorsed.results">
+                        <li ng-repeat="result in nodeKey.endorsed.results">
                             <ng-include src="'/api/template/search/publisherResult.html?v=' + portal.BUILD_VERSION"></ng-include>
                         </li>
                     </ul>
                 </div>
-                <div ng-if="participantKey.endorsed.count > participantKey.limit">
+                <div ng-if="nodeKey.endorsed.count > nodeKey.limit">
                     <uib-pagination
-                            total-items="participantKey.endorsed.count"
-                            ng-model="participantKey.currentPage_endorsed"
-                            max-size="participantKey.maxSize"
-                            items-per-page="participantKey.limit"
+                            total-items="nodeKey.endorsed.count"
+                            ng-model="nodeKey.currentPage_endorsed"
+                            max-size="nodeKey.maxSize"
+                            items-per-page="nodeKey.limit"
                             class="pagination-sm"
                             boundary-link-numbers="false"
                             rotate="false"
-                            ng-change="participantKey.pageChanged_endorsed()">
+                            ng-change="nodeKey.pageChanged_endorsed()">
                     </uib-pagination>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="emptyInfo--small" ng-if="!participantKey.endorsed.count">
-    <h3>No endorsed publishers</h3>
 </div>
