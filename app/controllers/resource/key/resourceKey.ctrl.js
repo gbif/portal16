@@ -86,12 +86,15 @@ function prose(req, res, next, type, template){
             resource.mapLegacyData(contentItem);
             resource.removeUnresovable(contentItem.main.fields, contentItem.resolved);
 
+            let img = _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id')+ '].fields.file.url');
             contentItem._meta = {
                 title: preview ? 'preview' : itemTitle,
                 description: _.get(contentItem, 'main.fields.summary'),
-                image: _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id')+ '].fields.file.url'),
                 slugTitle: slugTitle
             };
+            if (img) {
+                contentItem._meta.image = 'http:' + img;
+            }
 
             //if not a preview, then make sure the title is a part of the url by redirecting if necessary
             if (!preview) {

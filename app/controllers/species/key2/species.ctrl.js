@@ -23,7 +23,7 @@ router.get('/species/:key/verbatim', function render(req, res) {
 function renderSpeciesPage(req, res, next) {
     let speciesKey = req.params.key;
     var options = {
-        expand: ['descriptions', 'dataset']
+        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular']
     };
 
     Taxon.get(speciesKey, options).then(function (taxon){

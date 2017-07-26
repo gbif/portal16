@@ -44,7 +44,7 @@ var config = {
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif.org:7003/',
+        identityApi: identityApi || '//api.gbif-dev.org/v1/',
         cmsApi: cmsApi || '//cms-api.gbif.org/api/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-dev.org',

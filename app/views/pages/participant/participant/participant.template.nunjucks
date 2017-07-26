@@ -1,0 +1,31 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="light-background">
+            <article class="wrapper-horizontal-stripes">
+
+                {% include "./header.nunjucks" ignore missing %}
+                {#{% include "./about.nunjucks" ignore missing %}#}
+
+                <div class="horizontal-stripe white-background ng-cloak">
+                    <div class="container--narrow">
+                        {% include "./participantSummary.nunjucks" ignore missing %}
+                    </div>
+                </div>
+
+                <div class="horizontal-stripe light-background ng-cloak">
+                    {% include "./endorsed.nunjucks" ignore missing %}
+                    {% include "./publishedDatasets.nunjucks" ignore missing %}
+                </div>
+
+                {% include "./contacts.nunjucks" ignore missing %}
+
+            </article>
+        </div>
+        {#<div ng-if="!nodeKey.node.$resolved">#}
+            {#<div class="emptyInfo">#}
+                {#<h3>Loading</h3>#}
+            {#</div>#}
+        {#</div>#}
+        <ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>
+    </div>
+</div>

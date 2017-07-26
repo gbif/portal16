@@ -44,7 +44,7 @@ async function confirm(challengeCode, userName) {
     let options = {
         method: 'POST',
         body: {
-            challengeCode: challengeCode
+            confirmationKey: challengeCode
         },
         url: apiConfig.userConfirm.url,
         canonicalPath: apiConfig.userConfirm.canonical,
@@ -113,7 +113,7 @@ async function updateForgottenPassword(body) {
 async function isValidChallenge(userName, challengeCode) {
     let options = {
         method: 'GET',
-        url: apiConfig.userChallengeCodeValid.url + '?challengeCode=' + challengeCode,
+        url: apiConfig.userChallengeCodeValid.url + '?confirmationKey=' + challengeCode,
         userName: userName
     };
     let response = await authOperations.authenticatedRequest(options);

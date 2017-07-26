@@ -602,6 +602,23 @@
                                 </code>
                             </td>
                         </tr>
+                        <tr>
+                            <td>isNotNull</td>
+                            <td>has a non-empty value</td>
+                            <td>
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notification_address": ["userName@gbif.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"isNotNull",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"parameter":"ISSUE"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }<br/>
+                                </code>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 

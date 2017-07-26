@@ -1511,6 +1511,44 @@
       "AFFILIATE": "An affiliate participant from {REGION}",
       "FORMER": "A former participant from {REGION}",
       "undefined": "unknown"
+    },
+    "type": {
+      "COUNTRY": {
+        "description": {
+          "VOTING":  "A GBIF Voting participant from {REGION}",
+          "ASSOCIATE": "An associate participant from {REGION}",
+          "OBSERVER": "An observing participant from {REGION}",
+          "AFFILIATE": "An affiliate participant from {REGION}",
+          "FORMER": "A former participant from {REGION}",
+          "undefined": "unknown"
+        },
+        "longForm": {
+          "VOTING":  "Voting participant",
+          "ASSOCIATE": "Associate participant",
+          "OBSERVER": "Observing participant",
+          "AFFILIATE": "Affiliate participant",
+          "FORMER": "Former participant",
+          "undefined": "Unknown"
+        }
+      },
+      "OTHER": {
+        "description": {
+          "VOTING":  "A GBIF Voting participant organization from {REGION}",
+          "ASSOCIATE": "An associate participant organization from {REGION}",
+          "OBSERVER": "An observing participant organization from {REGION}",
+          "AFFILIATE": "An affiliate participant organization from {REGION}",
+          "FORMER": "A former participant organization from {REGION}",
+          "undefined": "unknown"
+        },
+        "longForm": {
+          "VOTING":  "Voting participant organization",
+          "ASSOCIATE": "Associate participant organization",
+          "OBSERVER": "Observing participant organization",
+          "AFFILIATE": "Affiliate participant organization",
+          "FORMER": "Former participant organization",
+          "undefined": "Unknown"
+        }
+      }
     }
   },
   "installation": {
@@ -2395,5 +2433,9 @@
   "help": {
     "citationExplainer": "We do our best to find literature citing GBIF downloads. When a paper cite using a DOI we can track it to the individual datasets and publishers. This list only shows usage known to GBIF. The data might have been filtered further after download.",
     "locationFilterWarning": "This map may include records known to have issues. Would you like to apply filters to hide any records with known coordinate issues?"
+  },
+  "phrases": {
+    "defaultPageTitle": "GBIF",
+    "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   }
 }

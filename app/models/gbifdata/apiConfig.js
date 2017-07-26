@@ -146,8 +146,8 @@ var apiConfig = {
         canonical: 'admin/user/updatePassword'
     },
     userChallengeCodeValid: {
-        url: identityBaseUrl + 'admin/user/challengeCodeValid',
-        canonical: 'admin/user/challengeCodeValid'
+        url: identityBaseUrl + 'admin/user/confirmationKeyValid',
+        canonical: 'admin/user/confirmationKeyValid'
     },
     userChangePassword: {
         url: identityBaseUrl + 'user/changePassword',

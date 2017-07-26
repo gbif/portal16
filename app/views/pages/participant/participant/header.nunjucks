@@ -1,16 +1,18 @@
-<div class="horizontal-stripe article-header white-background p-b-05">
+<div class="horizontal-stripe article-header white-background">
     <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
                 <nav class="article-header__category article-header__category--deep">
                     <span class="article-header__category__upper">Participant</span>
-                    <span class="article-header__category__lower">{$ participant.participationStatus $}</span>
+                    <span class="article-header__category__lower">{{ participantKey.participant.participant.participationStatus }}</span>
                 </nav>
 
                 <h1 class="text-center">
-                {# TODO why is it the name of the node we show and not the participant - this is simply duplicated from existing site #}
-                    <span>{$ node.name or participant.name $}</span>
+                    <span>{{ participantKey.participant.participant.name }}</span>
                 </h1>
+                <div ng-if="participantKey.participant.$resolved" class="ng-cloak">
+                    <div translate="participationStatus.type.OTHER.description.{{ participantKey.participant.participant.participationStatus }}" translate-values="{REGION: ('region.' + participantKey.participant.participant.gbifRegion | translate)}"></div>
+                </div>
             </header>
         </div>
     </div>

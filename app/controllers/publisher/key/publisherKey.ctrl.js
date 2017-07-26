@@ -1,5 +1,6 @@
 var express = require('express'),
     Publisher = require('../../../models/gbifdata/gbifdata').Publisher,
+    helper = rootRequire('app/models/util/util'),
     contributors = require('../../dataset/key/contributors/contributors'),
     router = express.Router();
 
@@ -40,7 +41,13 @@ function render(req, res, next) {
                     contacts.push(organizationContact);
                 }
                 publisher._computedValues.contributors = contributors.getContributors(contacts);
-                renderPage(req, res, next, publisher);
+                helper.renderPage(req, res, next, {
+                    publisher: publisher,
+                    _meta: {
+                        title: publisher.record.title,
+                        description: publisher.record.description
+                    }
+                }, 'pages/publisher/key/seo');
             } catch (error) {
                 next(error);
             }
@@ -51,22 +58,5 @@ function render(req, res, next) {
                 next(err);
             }
         });
-    }
-}
-
-function renderPage(req, res, next, publisher) {
-    try {
-        if (req.params.ext == 'debug') {
-            res.json(publisher);
-        } else {
-            res.render('pages/publisher/key/seo', {
-                publisher: publisher,
-                _meta: {
-                    title: 'Publisher Detail ' + req.params.key
-                }
-            });
-        }
-    } catch (e) {
-        next(e);
     }
 }

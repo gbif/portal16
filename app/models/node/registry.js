@@ -17,7 +17,7 @@ async function getNodeById(id) {
     if (node.statusCode > 299) {
         throw node;
     }
-    decorateNode(node.body);
+    //decorateNode(node.body);
     return node.body;
 }
 

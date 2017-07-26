@@ -1,0 +1,18 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="light-background" ng-if="nodeKey.node.$resolved">
+            <article class="wrapper-horizontal-stripes nodeKey">
+                {% include "./header.nunjucks" ignore missing %}
+                {% include "./about.nunjucks" ignore missing %}
+                {% include "./endorsed.nunjucks" ignore missing %}
+                {% include "./publishedDatasets.nunjucks" ignore missing %}
+            </article>
+        </div>
+        <div ng-if="!nodeKey.node.$resolved">
+            <div class="emptyInfo">
+                <h3>Loading</h3>
+            </div>
+        </div>
+        <ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>
+    </div>
+</div>

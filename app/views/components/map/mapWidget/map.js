@@ -31,7 +31,7 @@ function createMap(element, options) {
             currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
             map.setView(currentProjection.getView(0, 0, 1));
             if (currentProjection.fitExtent) {
-                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
+                map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
             }
         }
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
