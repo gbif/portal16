@@ -104,7 +104,9 @@ function renderCountry(req, res, next) {
             .then(function (context) {
                 context._meta.canonicalUrl = res.locals.gb.locales.urlPrefix + '/country/' + context.country.countryCode + '/summary';
                 context._meta.title = res.__('country.' + context.country.countryCode);
-                context._meta.description = res.__mf('participationStatus.type.COUNTRY.description.' + context.participant.participationStatus, { REGION: res.__('region.' + context.participant.gbifRegion) });
+                if (_.has(context, 'participant.participationStatus')) {
+                    context._meta.description = res.__mf('participationStatus.type.COUNTRY.description.' + context.participant.participationStatus, { REGION: res.__('region.' + context.participant.gbifRegion) });
+                }
                 helper.renderPage(req, res, next, context, 'pages/participant/country/country');
             })
             .catch(function (err) {

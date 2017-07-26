@@ -81,7 +81,7 @@
             <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/published'" class="countryKey__normalCards"></div>
         </section>
     </div>
-    <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
+    <div class="emptyInfo" ng-if="countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
         <h3>No data publising activity</h3>
         <p>This country hasn't shared any data through GBIF</p>
     </div>
