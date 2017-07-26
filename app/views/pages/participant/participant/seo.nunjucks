@@ -1,7 +1,7 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="wrapper-horizontal-stripes xhidden">
+    <article class="wrapper-horizontal-stripes hidden">
         <h1>{$ participant.name $}</h1>
     </article>
 {% endblock %}
