@@ -1,7 +1,6 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-sdfbn
     {% set main = prose.main %}
     {% set resolved = prose.resolved %}
 

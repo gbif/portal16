@@ -20,10 +20,10 @@ router.get('/download', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/user/user');
 });
 
-router.get('/:userName/confirm/:challengeCode', function (req, res, next) {
+router.get('/confirm', function (req, res, next) {
     //ask user service if this user and challenge is valid. If so then sets the token returned and shows success page. If no, then show failed validation page.
-    let challengeCode = req.params.challengeCode,
-        userName = req.params.userName;
+    let challengeCode = req.query.code,
+        userName = req.query.username;
 
     userModel.confirm(challengeCode, userName)
         .then(function(user){
@@ -49,10 +49,10 @@ router.get('/:userName/confirm/:challengeCode', function (req, res, next) {
         });
 });
 
-router.get('/:userName/update-password/:challengeCode', function (req, res, next) {
+router.get('/update-password', function (req, res, next) {
     //ask if valid reset token. if so show form that posts to update password service with token and new password. if not valid then inform user.
-    let challengeCode = req.params.challengeCode,
-        userName = req.params.userName;
+    let challengeCode = req.query.code,
+        userName = req.query.username;
 
     userModel.isValidChallenge(userName, challengeCode)
         .then(function(){
