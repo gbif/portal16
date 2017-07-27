@@ -1976,7 +1976,7 @@
     }
   },
   "directory": {
-    "title": "Directory of Contacts",
+    "title": "Who we are",
     "contact": "contact",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participant": {
@@ -2157,7 +2157,7 @@
     "becomeMember": "Become a member",
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
-    "contactDirectory": "Directory of contacts",
+    "contactDirectory": "Who we are",
     "contactUs": "Contact us",
     "information": "News & communications",
     "news": "News",
