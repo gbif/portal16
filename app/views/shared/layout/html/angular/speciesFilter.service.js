@@ -13,7 +13,7 @@ angular
 
         //when in not advanced mode then prefill parameters with default values
         var advancedDefaults = {
-            dataset_key: constantKeys.backboneKey,
+            dataset_key: constantKeys.dataset.backbone,
             name_type: undefined,
             constituent_key: undefined
         };

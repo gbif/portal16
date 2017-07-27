@@ -7,7 +7,7 @@ angular
     .controller('countrySummaryCtrl', countrySummaryCtrl);
 
 /** @ngInject */
-function countrySummaryCtrl($http, env, $stateParams, MapCapabilities, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, Country) {
+function countrySummaryCtrl($stateParams) {
     var vm = this;
     vm.countryCode = $stateParams.key;
 }

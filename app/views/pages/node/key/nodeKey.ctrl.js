@@ -7,7 +7,7 @@ angular
     .controller('nodeKeyCtrl', nodeKeyCtrl);
 
 /** @ngInject */
-function nodeKeyCtrl(Node, NodeEndorsedPublishers, NodeDatasets, $state, $stateParams, $timeout) {
+function nodeKeyCtrl(Node, NodeEndorsedPublishers, NodeDatasets, $state, $stateParams, constantKeys, $window) {
     var vm = this;
     vm.limit = 5;
     vm.endorsed = {};
@@ -15,6 +15,9 @@ function nodeKeyCtrl(Node, NodeEndorsedPublishers, NodeDatasets, $state, $stateP
     vm.maxSize = 5;
     vm.limit = 5;
     vm.key = $stateParams.key;
+    if (vm.key == constantKeys.node.secretariat) {
+        $window.location.href = '/404';
+    }
 
     vm.node = Node.get({id: vm.key});
 

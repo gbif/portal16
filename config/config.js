@@ -14,7 +14,16 @@ var path = require('path'),
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
     contentfulPreviewApi = yargs.contentfulPreviewApi,
-    backboneDatasetKey = 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+    publicConstantKeys = {
+        dataset: {
+            backbone: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+            col: '7ddf754f-d193-4cc9-b351-99906754a03b'
+        },
+        node: {
+            secretariat: '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
+            participantNodeManagersCommittee: '7f48e0c8-5c96-49ec-b972-30748e339115'
+        }
+    },
     elasticContentful = yargs.elasticContentful,
     apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api",
     locales = ['en', 'es', 'da'],
@@ -56,7 +65,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     },
     dev: {
@@ -84,7 +93,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     },
     uat: {
@@ -112,7 +121,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     },
     prod: {
@@ -140,7 +149,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     },
     c5prod: {
@@ -168,7 +177,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     },
     test: {
@@ -196,7 +205,7 @@ var config = {
         locales: locales,
         defaultLocale: defaultLocale,
         contentfulLocaleMap: contentfulLocaleMap,
-        backboneDatasetKey: backboneDatasetKey,
+        publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342
     }
 };

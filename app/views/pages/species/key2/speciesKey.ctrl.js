@@ -29,7 +29,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
     vm.$state = $state;
-    vm.backboneKey = constantKeys.backboneKey;
+    vm.backboneKey = constantKeys.dataset.backbone;
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
