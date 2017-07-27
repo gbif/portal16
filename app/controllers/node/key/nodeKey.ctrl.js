@@ -93,13 +93,12 @@ router.get('/country/:iso/participation\.:ext?', renderCountry);
 
 function renderCountry(req, res, next) {
     let isoCode = req.params.iso.toUpperCase();
-    let country = getCountry(isoCode, res.locals.gb.locales.current);
     if (!countryMap[isoCode]) {
         next();
     } else if(isoCode !== req.params.iso) {
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + isoCode + '/summary');
     } else {
-        country
+        getCountry(isoCode, res.locals.gb.locales.current)
             .then(function (context) {
                 context._meta.canonicalUrl = res.locals.gb.locales.urlPrefix + '/country/' + isoCode + '/summary';
                 context._meta.title = res.__('country.' + isoCode);
@@ -109,6 +108,9 @@ function renderCountry(req, res, next) {
                 helper.renderPage(req, res, next, context, 'pages/participant/country/country');
             })
             .catch(function (err) {
+                if (err.statusCode == 404) {
+                    next();
+                }
                 next(err);
             });
     }
@@ -133,8 +135,8 @@ router.get('/api/country/:iso', function (req, res) {
         .then(function (context) {
             res.json(context);
         })
-        .catch(function () {
-            res.status(500);
+        .catch(function (err) {
+            res.status(err.statusCode || 500);
             res.send('Failed to get country data');
         });
 });
