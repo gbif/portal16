@@ -1,6 +1,7 @@
 'use strict';
 var angular = require('angular'),
-    env = require('./env');
+    env = require('./env'),
+    constants = require('./constants');
 
 angular
     .module('portal')
@@ -31,6 +32,8 @@ angular
     }).constant('token', {
     }).constant('BUILD_VERSION',
         gb.buildVersion
+    ).constant('constantKeys',
+        constants
     ).constant('LOCALE',
         gb.locale
     );

@@ -31,8 +31,8 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
     vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
-    vm.isPartOfCOL = constantKeys.col === vm.key;
-    vm.isBackbone = constantKeys.backboneKey === vm.key;
+    vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
+    vm.isBackbone = constantKeys.dataset.backbone === vm.key;
     vm.literature = ResourceSearch.query({contentType: 'literature', gbifDatasetKey: vm.key, limit: 0});
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
@@ -77,7 +77,7 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
             $anchorScroll();
         });
         vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
-        vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.col === vm.dataset.parentDatasetKey;
+        vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
     });
 
 

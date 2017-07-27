@@ -170,7 +170,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
-                datasetKey: constantKeys.backboneKey,
+                datasetKey: constantKeys.dataset.backbone,
                 limit: 10
             }
         }).then(function (response) {

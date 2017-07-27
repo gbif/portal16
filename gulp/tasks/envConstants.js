@@ -19,9 +19,10 @@ gulp.task('env-constants', [], function () {
         .pipe(g.replace('{{DATA_URL}}', DATA_URL))
         .pipe(g.replace('{{TILE_URL}}', TILE_URL))
         .pipe(g.replace('{{CMS_URL}}', CMS_URL))
+        .pipe(g.replace('{{PUBLIC_CONSTANT_KEYS}}', JSON.stringify(configEnv.publicConstantKeys, null, 2)))
         .pipe(g.replace('{{ANALYTICS_IMG}}', ANALYTICS_IMG))
         .pipe(g.rename(function (path) {
-            path.extname = ".js"
+            path.extname = ".json"
         }))
         .pipe(gulp.dest(config.envConstants.dest));
 });

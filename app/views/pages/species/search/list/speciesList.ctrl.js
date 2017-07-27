@@ -15,7 +15,7 @@ angular
 /** @ngInject */
 function speciesListCtrl(hotkeys, SpeciesFilter, env, constantKeys, BUILD_VERSION) {
     var vm = this, offset;
-    vm.backboneKey = constantKeys.backboneKey;
+    vm.backboneKey = constantKeys.dataset.backbone;
     vm.state = SpeciesFilter.getState();
     vm.tileApi = env.tileApi;
     vm.dataApi = env.dataApi;
