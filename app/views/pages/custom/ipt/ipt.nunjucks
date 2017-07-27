@@ -28,11 +28,11 @@
                 <div class="heading-image">
                     <div class="container-fluid">
                         <div class="row ipt__map-stats">
-                            <div class="col-xs-12 col-sm-4 text-center"><span
-                                        class="ng-cloak">{{ ipt.installations.length }} </span>publishers
-                            </div>
-                            <div class="col-xs-12 col-sm-4 text-center">181 installations</div>
-                            <div class="col-xs-12 col-sm-4 text-center">53 countries</div>
+                            <div class="col-xs-12 col-sm-6 text-center">181 installations</div>
+                            <div class="col-xs-12 col-sm-6 text-center">53 countries</div>
+                        </div>
+                        <div class="small discreet">
+                            <div>Don't see your IPT? Send <a href="mailto:helpdesk@gbif.org" title="Mail to GBIF Helpdesk requesting IPT be added to map">GBIF</a> your coordinates.</div>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,12 @@ function decorate(participant) {
     participant.headOfDelegation = _.find(participantPeople, {role: 'HEAD_OF_DELEGATION'});
     participant.nodeManager = _.find(nodePeople, {role: 'NODE_MANAGER'});
 
+    //is the participant an active one?
+    let participationStatus = _.get(participant, 'participant.participationStatus');
+    let acceptedParticipationStates = ['VOTING', 'ASSOCIATE', 'AFFILIATE'];
+    let isActiveParticipant = acceptedParticipationStates.indexOf(participationStatus) > -1;
+    participant.isActiveParticipant = isActiveParticipant;
+
     let activeRelations = _.concat([], participantPeople, nodePeople);
 
     var activePeople = getOrderedListOfPeople(activeRelations, participant.contacts);

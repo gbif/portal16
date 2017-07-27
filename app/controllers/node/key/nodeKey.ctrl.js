@@ -99,11 +99,13 @@ function renderCountry(req, res, next) {
             statusCode: 404,
             message: 'Not a known country code'
         });
+    } else if(isoCode !== req.params.iso) {
+        res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + isoCode + '/summary');
     } else {
         country
             .then(function (context) {
-                context._meta.canonicalUrl = res.locals.gb.locales.urlPrefix + '/country/' + context.country.countryCode + '/summary';
-                context._meta.title = res.__('country.' + context.country.countryCode);
+                context._meta.canonicalUrl = res.locals.gb.locales.urlPrefix + '/country/' + isoCode + '/summary';
+                context._meta.title = res.__('country.' + isoCode);
                 if (_.has(context, 'participant.participationStatus')) {
                     context._meta.description = res.__mf('participationStatus.type.COUNTRY.description.' + context.participant.participationStatus, { REGION: res.__('region.' + context.participant.gbifRegion) });
                 }
