@@ -16,7 +16,7 @@
                         <ul>
                             <li><a href="{$ gb.locales.urlPrefix $}/contact-us" class="inherit">Contact us</a></li>
                             <li><a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="inherit">About GBIF</a></li>
-                            {#<li><a href="{$ gb.locales.urlPrefix $}/terms" class="inherit">Terms of use</a></li>#}
+                            <li><a href="{$ gb.locales.urlPrefix $}/terms/data-user" class="inherit">Data user agreement</a></li>
                             <li><a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy" class="inherit">Privacy policy</a></li>
                         </ul>
                     </li>
