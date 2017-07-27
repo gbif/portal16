@@ -1,4 +1,5 @@
-{% extends "../html-prose.nunjucks" %}
+{#{% extends "../html-prose.nunjucks" %}#}
+{% extends "../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
     <article class="wrapper-horizontal-stripes" ng-controller="directoryCtrl as vm">
