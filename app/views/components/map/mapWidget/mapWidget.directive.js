@@ -82,12 +82,12 @@ function mapWidgetDirective(BUILD_VERSION) {
             },
             GREEN: {
                 baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 35}],
+                overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 40}],
                 background: '#e0e0e0'
             },
             DARK: {
                 baseMap: {style: 'gbif-dark'},
-                overlay: [],
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 100}],
                 background: '#272727'
             }
         };
