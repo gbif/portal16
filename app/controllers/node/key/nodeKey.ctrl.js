@@ -95,10 +95,7 @@ function renderCountry(req, res, next) {
     let isoCode = req.params.iso.toUpperCase();
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     if (!countryMap[isoCode]) {
-        next({
-            statusCode: 404,
-            message: 'Not a known country code'
-        });
+        next();
     } else if(isoCode !== req.params.iso) {
         res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + isoCode + '/summary');
     } else {
