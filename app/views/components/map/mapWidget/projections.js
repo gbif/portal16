@@ -15,7 +15,7 @@ proj4.defs("EPSG:3031", "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0
 //set up projections an dshared variables
 var halfWidth = Math.sqrt(2) * 6371007.2;
 var tile_size = 512;
-var max_zoom = 16;
+var max_zoom = 18;
 
 function get4326() {
     var extent = 180.0;
