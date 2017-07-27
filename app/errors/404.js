@@ -19,9 +19,9 @@ module.exports = function (app) {
         res.render('error/404/404', {
             title: '404',
             message: 'Page missing and some content for navigation. everything is expected to work',
-            meta: {
+            _meta: {
                 title: 'Page Not Found',
-                hideFeedback: true
+                state: 404
             }
         });
     });

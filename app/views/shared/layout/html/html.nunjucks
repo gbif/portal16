@@ -56,6 +56,9 @@
 <script>
     window.gb = window.gb || {};
     window.gb.locale = '{$ gb.locales.current $}';
+    {% if _meta.state %}
+        window.gb.state = {$ _meta.state $}
+    {% endif %}
     window.gb.urlPrefix = '{$ gb.locales.urlPrefix $}';
     window.gb.buildVersion = '{$ BUILD_VERSION $}';
 </script>

@@ -14,7 +14,7 @@
                     <ol>
                         <li class="counted-section--connected" ng-repeat="step in datasetKey.dataset.samplingDescription.methodSteps">
                             <div>
-                                <span class="badge badge--white">{{ $index }}</span>
+                                <span class="badge badge--white">{{ $index + 1 }}</span>
                             </div>
                             <div ng-bind-html="step"></div>
                         </li>
