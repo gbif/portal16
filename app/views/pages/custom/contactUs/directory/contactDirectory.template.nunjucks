@@ -1,0 +1,50 @@
+<div class="light-background p-t-05 seperator">
+    <div class="container--desktop">
+        list of contacts goes here
+        <section>
+            <div class="m-b-1">
+                <div class="">
+                    <input type="text" ng-model="contactDirectory.q">
+                </div>
+            </div>
+        </section>
+
+        <section ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']" ng-if="(contactDirectory[committee] | filter:contactDirectory.q).length > 0">
+            <div class="card m-b-1">
+                <div class="card__content">
+                    <h3>{{ committee }}</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+                <div class="scrollable-y">
+                    <div class="table-container">
+                        <table class="table search-table smaller">
+                            <thead>
+                            <tr>
+                                <th class="text-capitalize"
+                                    ng-repeat="col in ['name', 'role']">
+                                    <span class="inline-block text-nowrap">
+                                        <span>{{ col }}</span>
+                                    </span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q">
+                                    <td>
+                                        <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ person.role }} {{ person.jobTitle }}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>

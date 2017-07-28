@@ -160,3 +160,6 @@ router.get('/participant/key.html', function (req, res, next) {
 });
 
 
+router.get('/contactUs/directory.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/custom/contactUs/directory/contactDirectory.template.nunjucks');
+});
