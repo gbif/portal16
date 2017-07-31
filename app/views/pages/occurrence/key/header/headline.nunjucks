@@ -4,9 +4,9 @@
     {% if not occurrence.record.scientificName and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"]  %}
         <span > "{$ occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] $}"</span>
 
-        {% elif occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] %}
+        {% elif occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] %}
         <span > "{$ occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] $}"</span>
-        {% elif occurrence.record.issues.indexOf("TAXON_MATCH_NONE") and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] %}
+        {% elif occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] %}
         <span > "{$ occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] $}"</span>
         {% elif not occurrence.record.scientificName %}
         <span class="error">{$ __('occurrence.title.unknownSpecies') $}</span>
