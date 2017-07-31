@@ -32,6 +32,12 @@ router.get('/occurrence/search', function (req, res) {
                 {
                     fromKey: 'speciesKey',
                     type: expandConfig.SPECIES_KEY
+                },
+                {
+                    fromKey: 'key',
+                    toKey: 'verbatimRecord',
+                    fields: ['http://rs.tdwg.org/dwc/terms/scientificName'],
+                    type: expandConfig.VERBATIM_RECORD
                 }
             ],
             expandConfig: expandConfig
@@ -88,5 +94,10 @@ const expandConfig = {
         type: 'KEY',
         endpoint: apiConfig.taxon.url,
         fromKey: 'scientificName'
+    },
+    VERBATIM_RECORD: {
+    type: 'TEMPLATE',
+    templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
+    fromKey: 'key',
     }
 };

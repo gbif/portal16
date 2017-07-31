@@ -77,7 +77,7 @@
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" href="/occurrence/{{image.key}}">
                     <img ng-src="{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"
                          gallery-image on-img-error="occGallery.imageFailed">
-                    <div class="summary smaller">{{image.scientificName}}</div>
+                    <div class="summary smaller">{{((image.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || image.issues.indexOf('TAXON_MATCH_NONE') > -1) && image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']) ?   '"'+image._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName'] +'"' : image.scientificName}}</div>
                 </a>
                 <div class="imageGallery__more" ng-click="occGallery.loadMore()" ng-if="!occGallery.endOfRecords"><span>More</span>
                 </div>

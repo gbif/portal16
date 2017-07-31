@@ -7,7 +7,7 @@ angular
     .controller('occurrenceGalleryCtrl', occurrenceGalleryCtrl);
 
 /** @ngInject */
-function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) {
+function occurrenceGalleryCtrl($scope, OccurrenceTableSearch, env, OccurrenceFilter) {
     var vm = this,
         limit = 100,
         offset = 0;
@@ -24,7 +24,7 @@ function occurrenceGalleryCtrl($scope, OccurrenceSearch, env, OccurrenceFilter) 
         query.mediaType = 'stillImage';
         vm.endOfRecords = true;
         if (latestData.$cancelRequest) latestData.$cancelRequest();
-        latestData = OccurrenceSearch.query(vm.query, function (data) {
+        latestData = OccurrenceTableSearch.query(vm.query, function (data) {
             vm.count = data.count;
             vm.endOfRecords = data.endOfRecords;
             data.results.forEach(function (e) {

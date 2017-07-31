@@ -19,7 +19,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     var regionCenters = {
         'GLOBAL': {zoom: 2, lat: 0, lng: 0},
-        'ASIA': {zoom: 4, lat: 11, lng: 114},
+        'ASIA': {zoom: 3, lat: 11, lng: 114},
         'AFRICA': {zoom: 3, lat: 6.6, lng: 16.4},
         'EUROPE': {zoom: 4, lat: 56, lng: 11},
         'LATIN_AMERICA': {zoom: 3, lat: -15, lng: -86},
@@ -258,7 +258,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
            };
             loadRegionalReps(vm.currentRegion);
 
-            if (vm.currentRegion !== 'GLOBAL' && vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS') {
+            if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS') {
 
                 zoomToRegion(region);
 
