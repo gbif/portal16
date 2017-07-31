@@ -2431,7 +2431,7 @@
     "appendix": "Appendix"
   },
   "help": {
-    "citationExplainer": "We do our best to find literature citing GBIF downloads. When a paper cite using a DOI we can track it to the individual datasets and publishers. This list only shows usage known to GBIF. The data might have been filtered further after download.",
+    "citationExplainer": "Read more about literature, how it's discovered and linked to GBIF-mediated data.",
     "locationFilterWarning": "This map may include records known to have issues. Would you like to apply filters to hide any records with known coordinate issues?"
   },
   "phrases": {
