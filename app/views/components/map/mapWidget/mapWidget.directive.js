@@ -424,6 +424,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         $scope.$watchCollection(function () {
             return vm.filter
         }, function () {
+            vm.activeControl = undefined;
             map.update({filters: getQuery()});
         });
     }

@@ -83,26 +83,26 @@ nature, PLOS, ... and
                 <div class="articles">
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
-                            <h3>Occurrence records</h3>
+                            <h3 class="discreet">Occurrence records</h3>
                             <div count="{{ portal.dataApi }}occurrence/search">700,000,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
-                        <a ng-href="{{ portal.urlPrefix }}/species/search" class="inherit noUnderline">
-                            <h3>Species</h3>
-                            <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}">1,700,00</div>
+                        <a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">
+                            <h3 class="discreet">Species</h3>
+                            <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
-                            <h3>Datasets</h3>
+                            <h3 class="discreet">Datasets</h3>
                             <div count="{{ portal.dataApi }}dataset/search">30,000</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
-                            <h3>Publishers</h3>
-                                <div count="{{ portal.dataApi }}organization">900</div>
+                            <h3 class="discreet">Publishers</h3>
+                            <div count="{{ portal.dataApi }}organization">900</div>
                         </a>
                     </article>
                 </div>
@@ -133,44 +133,21 @@ nature, PLOS, ... and
             </div>
         </div>
 
-        {#<div class="horizontal-stripe light-background">#}
-            {#<div class="container--narrow">#}
-                {#<div>#}
-                    {#<h2 class="text-center">{$ main.fields.aboutTitle $}</h2>#}
-                    {#<div class="row">#}
-                        {#<div class="col-xs-12">#}
-                            {#<div class="home__about body-text">#}
-                                {#<div>#}
-                                    {#{$ main.fields.aboutBody | renderTrustedMarkdown(gb.locales.urlPrefix) | addPortalClasses | safe $}#}
-                                    {#<p>#}
-                                        {#GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.#}
-                                    {#</p>#}
-                                    {#<p>#}
-                                        {#Coordinated through its Secretariat in Copenhagen, the GBIF network of member states and organizations—formally known as Participants—provides data-holding institutions around the world with common standards and open-source tools that enable them to share information about where and when species have been recorded.#}
-                                    {#</p>#}
-                                    {#<div>#}
-                                        {#<a href="{$ gb.locale.urlPrefix $}/what-is-gbif">Read more</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-
-        <div class="horizontal-stripe--paddingless light-background">
-            <map-widget></map-widget>
-            {#<div>#}
-                {#<div class="Xcard home__map ng-cloak m-b-1 m-t-1">#}
-                    {#<div class="Xcard">#}
-                        {#<div>#}
-                            {#<gbmap mapstyle="'light'" map-view="home.mapView" map-options="home.mapOptions"></gbmap>#}
-                            {#<map-widget></map-widget>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
+        <div class="horizontal-stripe--paddingless light-background ng-cloak">
+            <map-widget filter="home.mapFilter">
+                <form class="search-box mapPopup fixedSize">
+                    <input type="text"
+                           autocomplete="off"
+                           class="fit-suggestions--searchBox"
+                           ng-model="home.selectedSpecies"
+                           placeholder="Select a species"
+                           uib-typeahead="suggestion.scientificName for suggestion in home.getSuggestions($viewValue)"
+                           typeahead-on-select="home.typeaheadSelect($item, $model, $label, $event)"
+                           typeahead-focus-first="true"
+                           typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"
+                           ng-keyup="home.searchOnEnter($event)">
+                </form>
+            </map-widget>
         </div>
 
 
