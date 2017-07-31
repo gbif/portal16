@@ -77,17 +77,44 @@ nature, PLOS, ... and
                 </div>
             </div>
         </div>
-        
-        <div class="horizontal-stripe--paddingless light-background">
+
+        <div class="horizontal-stripe light-background">
             <div class="container--desktop">
+                <div class="articles">
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
+                            <h3>Occurrence records</h3>
+                            <div count="{{ portal.dataApi }}occurrence/search">700,000,000</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/species/search" class="inherit noUnderline">
+                            <h3>Species</h3>
+                            <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}">1,700,00</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
+                            <h3>Datasets</h3>
+                            <div count="{{ portal.dataApi }}dataset/search">30,000</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
+                            <h3>Publishers</h3>
+                                <div count="{{ portal.dataApi }}organization">900</div>
+                        </a>
+                    </article>
+                </div>
+
                 {% if highlights | isNotEmpty %}
                     <div class="home__news">
-                        <div class="text-center">
-                            <h2>News from the network</h2>
-                        </div>
+                        {#<div class="text-center">#}
+                            {#<h2>News from the network</h2>#}
+                        {#</div>#}
 
                         <div class="articles">
-                        {% for feature in highlights | slice(0,4) %}
+                        {% for feature in highlights | slice(0,8) %}
                             {% if feature.contentType == 'news' or feature.contentType == 'dataUse'%}
                                 {$ newsArticle(feature, __) $}
                             {% elif feature.contentType == 'event' %}
@@ -106,15 +133,15 @@ nature, PLOS, ... and
             </div>
         </div>
 
-        <div class="horizontal-stripe light-background">
-            <div class="container--narrow">
-                <div>
-                    <h2 class="text-center">{$ main.fields.aboutTitle $}</h2>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="home__about body-text">
-                                <div>
-                                    {$ main.fields.aboutBody | renderTrustedMarkdown(gb.locales.urlPrefix) | addPortalClasses | safe $}
+        {#<div class="horizontal-stripe light-background">#}
+            {#<div class="container--narrow">#}
+                {#<div>#}
+                    {#<h2 class="text-center">{$ main.fields.aboutTitle $}</h2>#}
+                    {#<div class="row">#}
+                        {#<div class="col-xs-12">#}
+                            {#<div class="home__about body-text">#}
+                                {#<div>#}
+                                    {#{$ main.fields.aboutBody | renderTrustedMarkdown(gb.locales.urlPrefix) | addPortalClasses | safe $}#}
                                     {#<p>#}
                                         {#GBIF—the Global Biodiversity Information Facility—is an open-data research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere to access data about all types of life on Earth.#}
                                     {#</p>#}
@@ -124,26 +151,26 @@ nature, PLOS, ... and
                                     {#<div>#}
                                         {#<a href="{$ gb.locale.urlPrefix $}/what-is-gbif">Read more</a>#}
                                     {#</div>#}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
 
-        <div class="horizontal-stripe light-background">
-            <div class="container--desktop">
-
-                <div class="card home__map ng-cloak m-b-2">
-                    <div class="card">
-                        <div>
+        <div class="horizontal-stripe--paddingless light-background">
+            <map-widget></map-widget>
+            {#<div>#}
+                {#<div class="Xcard home__map ng-cloak m-b-1 m-t-1">#}
+                    {#<div class="Xcard">#}
+                        {#<div>#}
                             {#<gbmap mapstyle="'light'" map-view="home.mapView" map-options="home.mapOptions"></gbmap>#}
-                            <map-widget></map-widget>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            {#<map-widget></map-widget>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
         </div>
 
 

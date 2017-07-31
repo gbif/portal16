@@ -30,6 +30,9 @@ router.get('/', function (req, res, next) {
         Promise.all([homepage, news, dataUse, event])
             .then(function (values) {
                 let highlights = [];
+                highlights.push(_.get(values[1], 'results[0]'));
+                highlights.push(_.get(values[2], 'results[0]'));
+                highlights.push(_.get(values[3], 'results[0]'));
                 _.get(values[0], 'main.fields.features', []).forEach(function (e) {
                     let featureItem = _.get(values[0], 'resolved.Entry.' + _.get(e, 'sys.id'));
                     if (featureItem) {
@@ -40,9 +43,6 @@ router.get('/', function (req, res, next) {
                         highlights.push(featureItem);
                     }
                 });
-                highlights.push(_.get(values[1], 'results[0]'));
-                highlights.push(_.get(values[2], 'results[0]'));
-                highlights.push(_.get(values[3], 'results[0]'));
                 values[0].highlights = highlights;
 
 
