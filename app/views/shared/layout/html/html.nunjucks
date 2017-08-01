@@ -13,7 +13,7 @@
     {% block head %}{% endblock %}
     {% block styles %}{% endblock %}
 </head>
-<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}" ng-controller="portalCtrl as portal">
+<body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="portal.urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}" ng-controller="portalCtrl as portal">
 
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">

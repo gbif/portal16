@@ -98,8 +98,9 @@
             </div>
         </div>
 
-        <div class="mapPopups" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
-            <div class="mapPopup" ng-class="{isLoading: vm.mapMenu.isLoading}">
+        <div class="mapPopups">
+            <ng-transclude></ng-transclude>
+            <div class="mapPopup" ng-class="{isLoading: vm.mapMenu.isLoading}" ng-if="vm.activeControl == vm.controls.OCCURRENCES">
                 <div class="mapPopup__header">
                     <h4>
                         <span ng-if="!vm.mapMenu.isLoading && vm.mapMenu.occurrences.count == 0">No occurrences</span>

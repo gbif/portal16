@@ -150,7 +150,7 @@ function filterObj(obj, reference) {
  */
 function getResultTasks(results, expandList, cb) {
     let tasks = {};
-    //create 1 task per key as there is no reason to do 20 llokups of the same key. and results often have fx the same datasetKey
+    //create 1 task per key as there is no reason to do 20 lookups of the same key. and results often have fx the same datasetKey
     if (!_.isArray(expandList)) {
         expandList = [];
     }

@@ -55,7 +55,7 @@ function buildQuery(query) {
     //ignore facet paing for now as we do not use it
     let from = getInteger(query.offset, 0),
         size = getInteger(query.limit, 20),
-        facetSize = 10,
+        facetSize = 20,
         showPastEvents = query._showPastEvents === '' || query._showPastEvents === 'true',
         facetMultiselect = query.facetMultiselect === 'true' || query.facetMultiselect === true,
         body = {//always require items to be either searchable (contentful bool field) or type literature (from Mendeley)

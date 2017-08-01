@@ -68,9 +68,9 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             margin 5px 2px 0 0
         }
     }
-    &__news {
-        padding-top vrBlock(2)
-    }
+    //&__news {
+    //    padding-top vrBlock(2)
+    //}
 }
 
 //LAPTOPS
@@ -110,14 +110,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     .article-box {
         width 300px
         max-width 100%
-        color black
         margin $halfGutter auto
-        //&:hover {
-        //    text-decoration none
-        //    .article-box__title {
-        //        color $linkColor
-        //    }
-        //}
         &__details {
             background white
             padding 10px 0
@@ -140,12 +133,21 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             font-weight normal
             color #aaa
         }
+        &--stats {
+            padding 0 20px
+            h3 {
+                margin 0
+            }
+            div {
+                font-size 35px
+            }
+        }
     }
 }
 
 +isAbove(500px) {
     .articles {
-        margin $halfGutter -($halfGutter)
+        margin $halfGutter (-($halfGutter / 2))
         display flex
         flex-wrap wrap
         justify-content center
@@ -153,7 +155,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             margin $halfGutter ($halfGutter/ 2)
             flex 1 1 auto
             width "calc(100% / 2 - %s)" % ($halfGutter* 2)
-            max-width 300px
         }
     }
 }
@@ -163,7 +164,6 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         .article-box {
             width "calc(100% / 4 - %s)" % ($halfGutter* 2)
             flex 1 1 auto
-            max-width 300px
         }
     }
 }

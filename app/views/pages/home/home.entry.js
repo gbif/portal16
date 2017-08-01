@@ -7,12 +7,13 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl($http) {
+function homeCtrl($http, suggestEndpoints) {
     var vm = this;
     vm.mapView = undefined;
     vm.mapOptions = {
         points: true
     };
+    vm.mapFilter = {};
 
     function getLatest() {
         var geoip = $http.get('/api/utils/geoip/country');
@@ -64,8 +65,30 @@ function homeCtrl($http) {
         //
         //});
     }
-
     getLatest();
+
+    vm.getSuggestions = function (val) {
+        return $http.get(suggestEndpoints.taxon, {
+            params: {
+                q: val,
+                limit: 10
+            }
+        }).then(function (response) {
+            return response.data;
+        });
+    };
+
+    vm.typeaheadSelect = function (item) { //  model, label, event
+        vm.mapFilter = {taxon_key: item.key};
+    };
+
+    vm.searchOnEnter = function() {
+        vm.searchOnEnter = function (event) {
+            if (event.which === 13 && !vm.selectedSpecies) {
+                vm.mapFilter = {};
+            }
+        };
+    }
 }
 
 module.exports = homeCtrl;

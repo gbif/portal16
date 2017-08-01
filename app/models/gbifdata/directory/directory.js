@@ -496,7 +496,7 @@ function getParticipantPeopleDetails(participant, contacts) {
 
 Directory.getCommitteeContacts = (group, contacts) => {
     let deferred = Q.defer();
-    let requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + '/' + group + '?format=json' : dataApi.directoryCommittee.url + '/' + group;
+    let requestUrl = (group == 'gbif_secretariat') ? dataApi.directoryReport.url + group + '?format=json' : dataApi.directoryCommittee.url + group;
     let options = Directory.authorizeApiCall(requestUrl);
 
     helper.getApiDataPromise(requestUrl, options)

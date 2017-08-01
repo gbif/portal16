@@ -1,0 +1,33 @@
+<div>
+    <article class="wrapper-horizontal-stripes">
+        <div class="horizontal-stripe article-header white-background">
+            <header class="text-center">
+                <h1>{$ main.fields.title $}</h1>
+                <div class="article-header__intro">
+                    {$ main.fields.summary | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                </div>
+                {% if main.fields.numberOfResourceUsed | isNotEmpty %}
+                    <span class="article-header__meta">
+                    {$ main.fields.numberOfResourceUsed | striptags $}
+                    </span>
+                {% endif %}
+            </header>
+        </div>
+
+        {% include "../primaryImage.nunjucks" %}
+
+        <div class="horizontal-stripe white-background">
+            <div class="container--narrow">
+                {% include "../body.nunjucks" %}
+
+                <div class="article-secondary">
+                    {% include "../documentsLinks.nunjucks" %}
+                </div>
+
+                {% include "../auxiliary.nunjucks" %}
+            </div>
+        </div>
+
+    </article>
+</div>
+{% include "../preview.nunjucks" %}

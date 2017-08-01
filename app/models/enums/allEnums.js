@@ -11,5 +11,11 @@ module.exports = {
     "license": require('./basic/license.json'),
     "datasetType": require('./basic/datasetType.json'),
     "downloadFormats": require('./basic/downloadFormats.json'),
-    "protocol": require('./basic/protocol.json')
+    "protocol": require('./basic/protocol.json'),
+    "cms": {
+        "topics": require('./cms/topics.json'),
+        "purposes": require('./cms/purpose.json'),
+        "audiences": require('./cms/audience.json'),
+        "literatureType": require('./cms/literatureType.json')
+    }
 };

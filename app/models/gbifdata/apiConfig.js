@@ -91,6 +91,9 @@ var apiConfig = {
     directoryParticipant: {
         url: baseUrl + 'directory/participant/'
     },
+    directorySecretariat: {
+        url: baseUrl + 'directory/report/11?format=json'
+    },
     directoryNode: {
         url: baseUrl + 'directory/node/'
     },
@@ -107,10 +110,10 @@ var apiConfig = {
         url: baseUrl + 'directory/person_role?limit=100'
     },
     directoryCommittee: {
-        url: baseUrl + 'directory/committee'
+        url: baseUrl + 'directory/committee/'
     },
     directoryReport: {
-        url: baseUrl + 'directory/report'
+        url: baseUrl + 'directory/report/'
     },
     countryEnumeration: {
         url: baseUrl + 'enumeration/country'

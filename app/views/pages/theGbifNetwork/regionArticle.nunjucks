@@ -19,10 +19,10 @@
 
 
 
-            <div class="horizontal-stripe white-background">
+            <div class="white-background p-t-1" >
                 <div class="container--normal">
                     <div class="body-text--markdown">
-                        <h2>{$ main.fields.title $}</h2>
+                        <h3>{$ main.fields.title $}</h3>
                     </div>
                     {% include "../resource/key/body.nunjucks" %}
 

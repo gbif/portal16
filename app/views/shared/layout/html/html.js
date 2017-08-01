@@ -317,6 +317,9 @@ require('../../../pages/participant/participant/participantKey.ctrl');
 require('../../../pages/resource/key/programme/programme.ctrl');
 require('../../../pages/resource/key/project/project.ctrl');
 
+require('../../../pages/custom/contactUs/contactUs.ctrl');
+require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
+
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
 require('./angular/remarks.service');

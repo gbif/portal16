@@ -270,6 +270,24 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'resourceListCtrl',
             controllerAs: 'resourceList'
         })
+        .state('contactUs', {
+            parent: 'localization',
+            url: '/contact-us2',
+            views: {
+                main: {
+                    templateUrl: '/api/template/contactUs/contactUs.html?v=' + BUILD_VERSION,
+                    controller: 'contactUsCtrl',
+                    controllerAs: 'contactUs'
+                }
+            }
+        })
+        .state('contactDirectory', {
+            parent: 'contactUs',
+            url: '/directory',
+            templateUrl: '/api/template/contactUs/directory.html?v=' + BUILD_VERSION,
+            controller: 'contactDirectoryCtrl',
+            controllerAs: 'contactDirectory'
+        })
         .state('user', {
             parent: 'localization',
             url: '/user',
