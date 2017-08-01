@@ -48,7 +48,8 @@
             </div>
         </main>
 
-        {% include "../partials/popups/terms/terms.html" %}
+        {#{% include "../partials/popups/terms/terms.html" %}#}
+        <div terms></div>
 
     </div>
 </div>
