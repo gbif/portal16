@@ -65,7 +65,7 @@
                                     </li>
                                     <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
                                         <span>
-                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q="{{  downloadKey.doi }}"' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
+                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q={{  downloadKey.doi }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
                                         </span>
                                     </li>
                                     {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
