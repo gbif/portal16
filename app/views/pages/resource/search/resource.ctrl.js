@@ -7,7 +7,7 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, NAV_EVENTS, BUILD_VERSION) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION) {
     var vm = this;
     vm.state = ResourceFilter.getState();
     Page.setTitle('Resource search');
@@ -45,14 +45,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         }
     };
 
-    vm.filters.literatureType = {
-        queryKey: 'literatureType',
-        facetKey: 'LITERATURE_TYPE',
-        title: 'literatureType',
-        translationPrefix: 'enums.cms.vocabularyTypes',
-        filter: ResourceFilter
-    };
-
     vm.filters.contentType = {
         queryKey: 'contentType',
         facetKey: 'CONTENT_TYPE',
@@ -74,15 +66,21 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
 
-    var facetedEnumFilters = ['language', 'audiences', 'purposes', 'topics'];
+    var facetedEnumFilters = ['purposes', 'topics', 'literatureType'];
     facetedEnumFilters.forEach(function(e){
         vm.filters[e] = {
+            titleTranslation: 'enums.cms.vocabularyTypes.' + e,
             queryKey: e,
-            facetKey: e.toUpperCase(),
-            title: e,
-            valueTranslationPrefix: 'enums.cms.vocabularyTerms.',
             filter: ResourceFilter,
-            multiSelect: true
+            enumTranslationPath: 'enums.cms.vocabularyTerms.',
+            showAll: true,
+            enums: enums.cms[e],
+            reversible: true,
+            multiSelect: true,
+            facets: {
+                hasFacets: true,
+                facetKey: _.toUpper(_.snakeCase(e))
+            }
         };
     });
 

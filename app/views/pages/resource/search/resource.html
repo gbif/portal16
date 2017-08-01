@@ -28,12 +28,12 @@
         </div>
 
         <div ng-if="resource.state.query.contentType == 'literature'">
-            <div filter-facet filter-config="resource.filters.literatureType" filter-state="resource.state"></div>
+            <div filter-enum filter-config="resource.filters.literatureType" filter-state="resource.state"></div>
             <div filter-interval filter-config="resource.filters.year" filter-state="resource.state"></div>
         </div>
 
-        <div ng-if="resource.state.query.topics || resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'news'">
-            <div filter-facet filter-config="resource.filters.topics" filter-state="resource.state"></div>
+        <div ng-if="resource.state.query.topics || resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'news' || resource.state.query.contentType == 'literature'">
+            <div filter-enum filter-config="resource.filters.topics" filter-state="resource.state"></div>
         </div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.dataset" filter-state="resource.state"></div>
@@ -42,7 +42,7 @@
 
 <!--{{angular.equals({}, resource.state.data.facets.PURPOSES.count)}}-->
         <div ng-if="resource.state.query.purposes || resource.state.query.contentType == 'project'">
-            <div filter-facet filter-config="resource.filters.purposes" filter-state="resource.state"></div>
+            <div filter-enum filter-config="resource.filters.purposes" filter-state="resource.state"></div>
         </div>
 
         <!--<div ng-if="resource.state.query.contentType == 'event'">-->
