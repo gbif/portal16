@@ -48,9 +48,6 @@ let apiConfig = {
     },
     urlLookup: {
         url: baseUrl + 'v1/url-lookup/'
-    },
-    datasetRefLookup: {
-        url: baseUrl + 'v1/dataset-ref-lookup/'
     }
 };
 

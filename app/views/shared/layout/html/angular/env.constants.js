@@ -9,8 +9,6 @@ angular
         dataApiV2: env.dataApiV2,
         dataApi: env.dataApi,
         tileApi: env.tileApi,
-        cmsApi: env.cmsApi,
-        cmsProxy: env.cmsProxy,
         analyticsImg: env.analyticsImg,
         imageCache: env.imageCache,
         mapCapabilities: env.mapCapabilities

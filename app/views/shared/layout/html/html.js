@@ -306,8 +306,6 @@ require('../../../pages/resource/search/list/resourceList.ctrl');
 require('./angular/cmsFilter.service');
 require('../../../pages/cms/search/cms.ctrl');
 require('../../../pages/cms/search/table/cmsTable.ctrl');
-require('../../../pages/about/programme/programme.ctrl');
-require('../../../pages/about/project/project.ctrl');
 require('../../../pages/about/directory/directory.ctrl');
 require('../../../pages/theGbifNetwork/theGbifNetwork.ctrl');
 
