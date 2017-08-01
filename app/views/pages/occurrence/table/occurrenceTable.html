@@ -120,7 +120,8 @@
                         <tbody>
                         <tr ng-repeat="result in occTable.occurrenceState.table.results">
                             <td class="table-cell--wide">
-                                <a ng-href="{{result.key}}" >{{((result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']) ?   '"'+result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName'] +'"' : result.scientificName}}</a>
+                                <a ng-href="{{result.key}}" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
+                                <a ng-href="{{result.key}}" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') === -1 && result.issues.indexOf('TAXON_MATCH_NONE') === -1) || !result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']">{{result.scientificName}}</a>
                             </td>
                             <td class="table-cell--normal">
                                 <a ng-href="{{result.key}}" translate="country.{{result.countryCode}}" ng-if="result.countryCode && result.countryCode != 'ZZ'">{{result.country}}</a>
