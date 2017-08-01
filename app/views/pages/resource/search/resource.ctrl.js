@@ -66,13 +66,13 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     };
 
 
-    var facetedEnumFilters = ['purposes', 'topics', 'literatureType'];
+    var facetedEnumFilters = ['purposes', 'topics', 'literatureType', 'relevance'];
     facetedEnumFilters.forEach(function(e){
         vm.filters[e] = {
             titleTranslation: 'enums.cms.vocabularyTypes.' + e,
             queryKey: e,
             filter: ResourceFilter,
-            enumTranslationPath: 'enums.cms.vocabularyTerms.',
+            enumTranslationPath: 'enums.cms.vocabularyTerms.' + e + '.',
             showAll: true,
             enums: enums.cms[e],
             reversible: true,
