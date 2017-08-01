@@ -1497,7 +1497,7 @@
     "FORMER": "former",
     "undefined": "unknown",
     "longForm": {
-      "VOTING":  "Voting participant",
+      "VOTING": "Voting participant",
       "ASSOCIATE": "Associate participant",
       "OBSERVER": "Observing participant",
       "AFFILIATE": "Affiliate participant",
@@ -1505,7 +1505,7 @@
       "undefined": "Unknown"
     },
     "description": {
-      "VOTING":  "A GBIF Voting participant from {REGION}",
+      "VOTING": "A GBIF Voting participant from {REGION}",
       "ASSOCIATE": "An associate participant from {REGION}",
       "OBSERVER": "An observing participant from {REGION}",
       "AFFILIATE": "An affiliate participant from {REGION}",
@@ -1515,7 +1515,7 @@
     "type": {
       "COUNTRY": {
         "description": {
-          "VOTING":  "A GBIF Voting participant from {REGION}",
+          "VOTING": "A GBIF Voting participant from {REGION}",
           "ASSOCIATE": "An associate participant from {REGION}",
           "OBSERVER": "An observing participant from {REGION}",
           "AFFILIATE": "An affiliate participant from {REGION}",
@@ -1523,7 +1523,7 @@
           "undefined": "unknown"
         },
         "longForm": {
-          "VOTING":  "Voting participant",
+          "VOTING": "Voting participant",
           "ASSOCIATE": "Associate participant",
           "OBSERVER": "Observing participant",
           "AFFILIATE": "Affiliate participant",
@@ -1533,7 +1533,7 @@
       },
       "OTHER": {
         "description": {
-          "VOTING":  "A GBIF Voting participant organization from {REGION}",
+          "VOTING": "A GBIF Voting participant organization from {REGION}",
           "ASSOCIATE": "An associate participant organization from {REGION}",
           "OBSERVER": "An observing participant organization from {REGION}",
           "AFFILIATE": "An affiliate participant organization from {REGION}",
@@ -1541,7 +1541,7 @@
           "undefined": "unknown"
         },
         "longForm": {
-          "VOTING":  "Voting participant organization",
+          "VOTING": "Voting participant organization",
           "ASSOCIATE": "Associate participant organization",
           "OBSERVER": "Observing participant organization",
           "AFFILIATE": "Affiliate participant organization",
@@ -1737,7 +1737,7 @@
       "link": "link",
       "generic": "generic",
       "literature": "literature",
-      "about_region" : "about the region"
+      "about_region": "about the region"
     },
     "literatureType": {
       "journal": "journal article",
@@ -2336,7 +2336,8 @@
         "countriesOfCoverage": "countries of coverage",
         "countriesOfResearcher": "countries of researcher",
         "literatureType": "literature type",
-        "topics": "topics",
+        "topics": "topic",
+        "purposes": "purpose",
         "language": "language"
       },
       "vocabularyTerms": {
@@ -2349,6 +2350,7 @@
         "Human health": "Human health",
         "Agriculture": "Agriculture",
         "Biogeography": "Biogeography",
+        "Citizen science": "Citizen Science",
         "Marine": "Marine",
         "literature": "literature",
         "event": "event",
@@ -2388,7 +2390,17 @@
         "Data users": "Data users",
         "Decision makers": "Decision makers",
         "Biodiversity knowledge experts": "Biodiversity knowledge experts",
-        "Public stakeholders": "Public stakeholders"
+        "Public stakeholders": "Public stakeholders",
+        "journal": "journal",
+        "conference_proceedings": "conference proceedings",
+        "book_section": "book section",
+        "report": "report",
+        "thesis": "thesis",
+        "book": "book",
+        "working_paper": "working paper",
+        "generic": "generic",
+        "web_page": "web page",
+        "magazine_article": "magazine article"
       }
     }
   },
@@ -2413,7 +2425,7 @@
     "DD": "Data Deficient",
     "NE": "Not Evaluated"
   },
-  "nameUsageOrigin" : {
+  "nameUsageOrigin": {
     "SOURCE": "Record came straight from source record.",
     "DENORMED_CLASSIFICATION": "Implicit usage from a denormalised classification.",
     "VERBATIM_PARENT": "Implicit usage from a verbatim parent name usage.",
