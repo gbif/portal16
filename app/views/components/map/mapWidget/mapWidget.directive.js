@@ -122,25 +122,26 @@ function mapWidgetDirective(BUILD_VERSION) {
             map.map.addInteraction(zoomInteraction);
 
             var disableZoomTimer;
-            element[0].addEventListener('click', function(e){
+            var mapArea = element[0].querySelector('.mapWidget__mapArea');
+            mapArea.addEventListener('click', function(e){
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                     registerSingleClickSearch();
                 }
             });
-            element[0].addEventListener('doubleclick', function(){
+            mapArea.addEventListener('doubleclick', function(){
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                     registerSingleClickSearch();
                 }
             });
-            element[0].addEventListener('mouseleave', function(){
+            mapArea.addEventListener('mouseleave', function(){
                 disableZoomTimer = $timeout(function(){
                     zoomInteraction.setActive(false);
                     map.map.un('singleclick', searchOnClick);
                 }, 2500);
             });
-            element[0].addEventListener('mouseenter', function(){
+            mapArea.addEventListener('mouseenter', function(){
                 if(disableZoomTimer) {
                     $timeout.cancel(disableZoomTimer);
                     disableZoomTimer = undefined;
