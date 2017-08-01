@@ -100,6 +100,11 @@ theGbifNetwork.counts = query => {
                 })
                 .then(result => {
                     count[query.membershipType] = result.length;
+                    query.membershipType = 'gbif_affiliate';
+                    return DirectoryParticipants.groupBy(query);
+                })
+                .then(result => {
+                    count[query.membershipType] = result.length;
 
                     // add regional publishers
                     return PublisherRegional.groupBy(query);

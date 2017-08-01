@@ -1995,7 +1995,10 @@
       "one": "Former participant",
       "other": "Former participants"
     },
-    "gbif_affiliate": "GBIF affiliate",
+    "gbif_affiliate": {
+      "one": "GBIF affiliate",
+      "other": "GBIF affiliates"
+    },
     "observer": "Observer",
     "others": "Other",
     "participant": "participant",
@@ -2035,6 +2038,7 @@
     "voting_participant": "Voting participant",
     "associate_country_participant": "Associate country participant",
     "other_associate_participant": "Other associate participant",
+    "gbif_affiliate" : "GBIF affiliate",
     "dataset": "{NUMBER, select, one{dataset} other{datasets}}",
     "regionalRepresentative": "{NUMBER, select, one{representative} other{representatives}}"
   },
@@ -2225,7 +2229,12 @@
     "nonCountryParticipant": {
       "one": "Participant organisation",
       "other": "Participant organisations"
+    },
+    "gbifAffiliate": {
+      "one": "GBIF affiliate",
+      "other": "GBIF affiliates"
     }
+
   },
   "feedback": {
     "intro": {

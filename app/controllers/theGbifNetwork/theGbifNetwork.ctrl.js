@@ -19,7 +19,7 @@ module.exports = function (app) {
 router.get('/the-gbif-network/:region?', (req, res, next) => {
 
     let query = {},
-        validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'PARTICIPANT_ORGANISATIONS'],
+        validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'PARTICIPANT_ORGANISATIONS', 'GBIF_AFFILIATES'],
 
         region;
 
