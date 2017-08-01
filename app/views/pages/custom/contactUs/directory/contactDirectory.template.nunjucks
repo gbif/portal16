@@ -1,15 +1,18 @@
 <div class="light-background p-t-05 seperator">
-    <div class="container--desktop">
-        list of contacts goes here
+    <div class="container--narrow">
         <section>
-            <div class="m-b-1">
-                <div class="">
-                    <input type="text" ng-model="contactDirectory.q">
+            <div class="m-b-05">
+                <div class="search-box">
+                    <input type="text" ng-model="contactDirectory.q" placeholder="search">
                 </div>
+            </div>
+            <div class="m-b-1">
+                <a href="" ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}" ng-click="contactDirectory.selectedSection = undefined">All</a>
+                <a href="" ng-class="{'gb-button--brand': contactDirectory.selectedSection == committee, 'gb-button--discreet': contactDirectory.selectedSection != committee}" ng-click="contactDirectory.selectedSection = committee" ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']">{{ committee }}</a>
             </div>
         </section>
 
-        <section ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']" ng-if="(contactDirectory[committee] | filter:contactDirectory.q).length > 0">
+        <section ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']" ng-if="(contactDirectory.selectedSection == committee || !contactDirectory.selectedSection) && (contactDirectory[committee] | filter:contactDirectory.q).length > 0">
             <div class="card m-b-1">
                 <div class="card__content">
                     <h3>{{ committee }}</h3>
@@ -36,7 +39,8 @@
                                         <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
                                     </td>
                                     <td>
-                                        <span>{{ person.role }} {{ person.jobTitle }}</span>
+                                        <span ng-if="person.role" class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
+                                        <span ng-if="!person.role" class="text-capitalize">{{ person.jobTitle }}</span>
                                     </td>
                                 </tr>
                             </tbody>
