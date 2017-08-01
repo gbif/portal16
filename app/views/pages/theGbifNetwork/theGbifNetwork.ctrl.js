@@ -194,7 +194,8 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     vm.participantTypes = [
         'voting_participant',
         'associate_country_participant',
-        'other_associate_participant'
+        'other_associate_participant',
+        'gbif_affiliate'
     ];
     //var literatureCounts = [
     //    'literature',
@@ -222,17 +223,28 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         vm.totalParticipantCount = 0;
         delete vm.contentfulResourceUrl;
 
-            var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : {
+            var query;
 
-                'membershipType': 'other_associate_participant'
-            };
+        switch(region) {
+            case 'PARTICIPANT_ORGANISATIONS':
+                query = {'membershipType': 'other_associate_participant'};
+                break;
+            case 'GBIF_AFFILIATES':
+                query = {'membershipType': 'gbif_affiliate'};
+                break;
+            default:
+                query = {'gbifRegion': region};
+        }
+
 
             DirectoryParticipantsCount.get(query).$promise
                 .then(function (response) {
                     vm.participantTypes.forEach(function (pType) {
                         if (response[pType]) {
-                            vm.count[pType] = response[pType];
+                            vm.count[pType] = response[pType] ;
                             vm.totalParticipantCount += parseInt(response[pType]);
+                        } else {
+                            vm.count[pType] = 0;
                         }
                         ;
                     });
@@ -248,17 +260,17 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                     return error;
                 });
 
-           if(vm.currentRegion !== 'GLOBAL') {
+     //    if(vm.currentRegion !== 'GLOBAL') {
                loadParticipantsDigest(vm.currentRegion);
 
-           } else {
-               delete vm.activeParticipantsDigest;
+       //    } else {
+         //      delete vm.activeParticipantsDigest;
 
-               vm.tableLoaded = true;
-           };
+           //    vm.tableLoaded = true;
+           //};
             loadRegionalReps(vm.currentRegion);
 
-            if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS') {
+            if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' && vm.currentRegion !== 'GBIF_AFFILIATES') {
 
                 zoomToRegion(region);
 
@@ -295,7 +307,18 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         vm.tableLoaded = false;
         delete vm.activeParticipantsDigest;
 
-        var query = (region !== 'PARTICIPANT_ORGANISATIONS') ? {'gbifRegion': region} : { 'membershipType': 'other_associate_participant'};
+        var query;
+
+        switch(region) {
+            case 'PARTICIPANT_ORGANISATIONS':
+                query = {'membershipType': 'other_associate_participant'};
+                break;
+            case 'GBIF_AFFILIATES':
+                query = {'membershipType': 'gbif_affiliate'};
+                break;
+            default:
+                query = {'gbifRegion': region};
+        };
 
         ParticipantsDigest.get(query).$promise
             .then(function(response){
