@@ -57,10 +57,6 @@ Dataset.prototype.expand = function (fieldNames) {
             occurrenceDownloadEvents: {
                 resource: api.occurrenceDownloadDataset.url + this.record.key,
                 extendToField: 'occurrenceDownloadEvents'
-            },
-            datasetRefLookup: {
-                resource: cmsApi.datasetRefLookup.url + this.record.key,
-                extendToField: 'datasetRefLookup'
             }
         };
     fieldNames.forEach(function (e) {

@@ -7,11 +7,17 @@ angular
     .controller('termsCtrl', termsCtrl);
 
 /** @ngInject */
-function termsCtrl($localStorage) {
+function termsCtrl($cookies) {
     var vm = this;
-    vm.userAcceptance = $localStorage.userAcceptance;
+    vm.userAcceptance = $cookies.get('userAcceptance') === 'true';
     vm.accept = function () {
-        $localStorage.userAcceptance = true;
+        // this will set the expiration to 12 months
+        var now = new Date(),
+            exp = new Date(now.getFullYear()+1, now.getMonth(), now.getDate());
+        $cookies.put('userAcceptance', 'true', {
+            path: '/',
+            expires: exp
+        });
         vm.userAcceptance = true;
     }
 }

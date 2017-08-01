@@ -29,6 +29,7 @@
 
         <div ng-if="resource.state.query.contentType == 'literature'">
             <div filter-enum filter-config="resource.filters.literatureType" filter-state="resource.state"></div>
+            <div filter-enum filter-config="resource.filters.relevance" filter-state="resource.state"></div>
             <div filter-interval filter-config="resource.filters.year" filter-state="resource.state"></div>
         </div>
 

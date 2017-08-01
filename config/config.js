@@ -8,7 +8,6 @@ var path = require('path'),
     dataApi = yargs.dataapi,
     tileApi = yargs.tileapi,
     identityApi = yargs.identityApi,
-    cmsApi = yargs.cmsapi,
     credentials = yargs.credentials,
     verification = yargs.verification,
     analyticsImg = yargs.analyticsImg,
@@ -54,7 +53,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//api.gbif-dev.org/v1/',
-        cmsApi: cmsApi || '//cms-api.gbif.org/api/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-dev.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -82,7 +80,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
         identityApi: identityApi || '//labs.gbif-uat.org:7003/',
-        cmsApi: cmsApi || '//cms-api.gbif-dev.org/api/', // NB not dev!
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-dev.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -110,7 +107,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not uat!
         identityApi: identityApi || '//labs.gbif-uat.org:7003/',
-        cmsApi: cmsApi || '//cms-api.gbif.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-uat.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -138,7 +134,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//labs.gbif.org:7003/',
-        cmsApi: cmsApi || '//cms-api.gbif.org/api/', // NB not prod!
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -166,7 +161,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//labs.gbif.org:7003/',
-        cmsApi: cmsApi || '//www.gbif.org/api/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif.org',
         credentials: credentials || '/etc/portal16/credentials',
@@ -194,7 +188,6 @@ var config = {
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//labs.gbif-uat.org:7003/',
-        cmsApi: cmsApi || '//cms-api.gbif-uat.org/api/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-dev.org',
         credentials: credentials || '/etc/portal16/credentials',

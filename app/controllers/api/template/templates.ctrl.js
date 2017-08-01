@@ -18,6 +18,10 @@ router.get('/footer.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/footer/footer');
 });
 
+router.get('/terms.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'shared/layout/partials/popups/terms/terms');
+});
+
 router.get('/search.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/navigation/search/search');
 });

@@ -16,6 +16,7 @@ module.exports = {
         "topics": require('./cms/topics.json'),
         "purposes": require('./cms/purpose.json'),
         "audiences": require('./cms/audience.json'),
-        "literatureType": require('./cms/literatureType.json')
+        "literatureType": require('./cms/literatureType.json'),
+        "relevance": require('./cms/relevance.json')
     }
 };
