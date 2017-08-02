@@ -1,4 +1,4 @@
-<div class="light-background p-t-05 seperator">
+<div class="light-background p-t-05 seperator horizontal-stripe directory">
     <div class="container--narrow">
         <section>
             <div class="m-b-05">
@@ -8,7 +8,7 @@
             </div>
             <div class="m-b-1">
                 <a href="" ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}" ng-click="contactDirectory.selectedSection = undefined">All</a>
-                <a href="" ng-class="{'gb-button--brand': contactDirectory.selectedSection == committee, 'gb-button--discreet': contactDirectory.selectedSection != committee}" ng-click="contactDirectory.selectedSection = committee" ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']">{{ committee }}</a>
+                <a href="" ng-class="{'gb-button--brand': contactDirectory.selectedSection == committee, 'gb-button--discreet': contactDirectory.selectedSection != committee}" ng-click="contactDirectory.selectedSection = committee" ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat', 'voting', 'associateCountries']">{{ committee }}</a>
             </div>
         </section>
 
@@ -34,13 +34,53 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q">
+                                <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q" ng-click="contactDirectory.showPerson(person.personId || person.id)">
                                     <td>
                                         <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
                                     </td>
                                     <td>
-                                        <span ng-if="person.role" class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
+                                        <span ng-if="person.roles" class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
                                         <span ng-if="!person.role" class="text-capitalize">{{ person.jobTitle }}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section ng-repeat="participationGroup in ['voting', 'associateCountries']" ng-if="(contactDirectory.selectedSection == participationGroup || !contactDirectory.selectedSection) && (contactDirectory[participationGroup] | filter:contactDirectory.q).length > 0">
+            <div class="card m-b-1">
+                <div class="card__content">
+                    <h3>{{ participationGroup }}</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                </div>
+                <div class="scrollable-y">
+                    <div class="table-container">
+                        <table class="table search-table smaller">
+                            <thead>
+                            <tr>
+                                <th class="text-capitalize"
+                                    ng-repeat="col in ['name', 'role', 'country']">
+                                    <span class="inline-block text-nowrap">
+                                        <span>{{ col }}</span>
+                                    </span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="person in contactDirectory[participationGroup] | filter:contactDirectory.q" ng-click="contactDirectory.showPerson(person.id)">
+                                    <td>
+                                        <span>{{ person.firstName }} {{ person.surname }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{ 'country.' + person.participant_countryCode | translate }}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -52,3 +92,6 @@
 
     </div>
 </div>
+<script type="text/ng-template" id="modalDirectoryPerson.html">
+    <div directory-person person-id="vm.personId"></div>
+</script>

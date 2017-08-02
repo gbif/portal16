@@ -7,6 +7,14 @@ var angular = require('angular');
 
     angular
         .module('portal')
+        .factory('DirectoryPerson', function ($resource) {
+            return $resource('/api/directory/person/:id', null, {
+                'get': {
+                    method: 'GET',
+                    isArray: false
+                }
+            });
+        })
         .factory('DirectoryContacts', function ($resource) {
             return $resource('/api/directory/contacts', null, {
                 'get': {
