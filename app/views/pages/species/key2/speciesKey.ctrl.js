@@ -117,6 +117,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
         return $http.get(suggestEndpoints.taxon, {
             params: {
                 q: val,
+                datasetKey: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
                 limit: 10
             }
         }).then(function (response) {
