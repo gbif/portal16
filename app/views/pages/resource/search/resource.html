@@ -19,12 +19,12 @@
 
         </div>
 
-        <div ng-if="resource.state.query.contentType == 'news' || resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'literature'">
-            <div filter-enum filter-config="resource.filters.countriesOfCoverage" filter-state="resource.state"></div>
-        </div>
-
         <div ng-if="resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'literature'">
             <div filter-enum filter-config="resource.filters.countriesOfResearcher" filter-state="resource.state"></div>
+        </div>
+
+        <div ng-if="resource.state.query.contentType == 'news' || resource.state.query.contentType == 'dataUse' || resource.state.query.contentType == 'literature'">
+            <div filter-enum filter-config="resource.filters.countriesOfCoverage" filter-state="resource.state"></div>
         </div>
 
         <div ng-if="resource.state.query.contentType == 'literature'">
