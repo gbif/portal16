@@ -30,3 +30,22 @@
     //    font-size 34px
     //}
 }
+
+.modal-content {
+    box-shadow 0 3px 2px rgba(0,0,0,.2)
+    border 1px solid rgba(0,0,0,.01)
+}
+
+.modal-dialog {
+    margin-top 70px
+}
++isAbove(600px) {
+    .modal-dialog {
+        margin-top 90px
+    }
+}
++isAbove($laptop) {
+    .modal-dialog {
+        margin-top 100px
+    }
+}

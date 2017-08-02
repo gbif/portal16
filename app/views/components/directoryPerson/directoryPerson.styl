@@ -1,42 +1,23 @@
-$termsPosition = vrBlock(0.5);
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        right $termsPosition
+.directoryPerson {
+    &__header {
+        padding 10px
+        text-align  center
     }
-    20% {
-        opacity: 0;
+    .card__content {
+        max-width 500px
+        margin auto
     }
-    40% {
-        opacity: 1;
+    tr {
+        padding-bottom 20px
+        >td:first-of-type {
+            text-align right
+            vertical-align top
+            padding-right 10px
+            color $discreetInk
+            white-space nowrap
+        }
     }
-    100% {
-        opacity: 1;
-        right $termsPosition
-    }
-}
-
-.termsPopup {
-    //display none
-    opacity 0
-    right -9999px;
-    &.is-shown {
-        display block
-        animation fadeIn 5s
-        right $termsPosition
-        opacity 1
-    }
-    position fixed
-    bottom 0
-    margin 10px
-    width 350px
-    max-width 90%
-    min-height 100px
-    z-index 10000
-    p {
-        font-weight 300
-    }
-    a {
-        text-transform uppercase
+    td {
+        padding 10px
     }
 }
