@@ -1976,6 +1976,52 @@
     }
   },
   "directory": {
+    "group": {
+      "executiveCommittee": {
+        "title": "Executive committee",
+        "description": "lorem ipsum"
+      },
+      "scienceCommittee": {
+        "title": "Science committee",
+        "description": "The four Chair positions of the science committee are also selected by the Governing Board in two-year terms (with only one extension possible). The committee also includes five at-large members appointed by the Executive Committee."
+      },
+      "budgetCommittee": {
+        "title": "Budget committee",
+        "description": "lorem ipsum"
+      },
+      "nsg": {
+        "title": "Node steering group",
+        "description": "lorem ipsum"
+      },
+      "nodesCommittee": {
+        "title": "Nodes committee",
+        "description": "The Participant Node Managers Committee (or Nodes Committee) is a dynamic group formed by the node managers appointed by all Participants (countries and international organizations). The committee includes three Chair positions established through voting by the Governing Board for a maximum of two two-year terms."
+      },
+      "secretariat": {
+        "title": "Secretariat",
+        "description": "GBIF Secretariat is hosted in Copenhagen, Denmark."
+      },
+      "voting": {
+        "title": "Voting participants",
+        "description": "lorem ipsum"
+      },
+      "associateCountries": {
+        "title": "Associate country participant",
+        "description": "lorem ipsum"
+      },
+      "associateParticipants": {
+        "title": "Other associate participant",
+        "description": "lorem ipsum"
+      }
+    },
+    "columns": {
+      "role": "Role",
+      "name": "Name",
+      "participant": "Participant",
+      "participationStatus": "Participant status"
+    }
+  },
+  "directory2": {
     "title": "Who we are",
     "contact": "contact",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
@@ -2005,6 +2051,8 @@
     "delegationMembers": "delegation members",
     "role": "role",
     "institution": "institution",
+    "group": {
+    },
     "executive_committee": "Executive committee",
     "budget_committee": "Budget committee",
     "science_committee": "Science committee",

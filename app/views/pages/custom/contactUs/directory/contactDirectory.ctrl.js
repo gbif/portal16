@@ -11,10 +11,11 @@ angular
     .controller('contactDirectoryCtrl', contactDirectoryCtrl);
 
 /** @ngInject */
-function contactDirectoryCtrl(Page, $state, $stateParams, $http, $uibModal) {
+function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
     var vm = this;
     Page.setTitle('Directory');
     vm.$state = $state;
+    vm.state = {};
 
     vm.sections = {
         executiveCommittee: {
@@ -80,25 +81,6 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http, $uibModal) {
         $state.go('.', {personId: personId}, {inherit: false, notify: false, reload: false});
         vm.personId = personId;
         vm.showModal = true;
-        // vm.modalInstance = $uibModal.open({
-        //     animation: true,
-        //     ariaLabelledBy: 'modal-title',
-        //     ariaDescribedBy: 'modal-body',
-        //     templateUrl: 'modalDirectoryPerson.html',
-        //     controller: 'ModalDirectoryPersonInstanceCtrl',
-        //     controllerAs: 'vm',
-        //     resolve: {
-        //         personId: function () {
-        //             return personId;
-        //         }
-        //     }
-        // });
-        // //This will run when modal dismisses itself when clicked outside or
-        // //when you explicitly dismiss the modal using .dismiss function.
-        // vm.modalInstance.result.catch(function(){
-        //     //Do stuff with respect to dismissal
-        //     $state.go('.', {}, {inherit: false, notify: false, reload: false});
-        // });
     };
 
     if ($stateParams.personId) {
@@ -109,15 +91,20 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http, $uibModal) {
         vm.showModal = false;
         $state.go('.', {}, {inherit: false, notify: false, reload: false});
     }
+
+    vm.changeSortOrder = function(col) {
+        if (vm.state.sortType == col) {
+            if (vm.state.sortReverse) {
+                vm.state.sortType = undefined;
+                vm.state.sortReverse = undefined;
+            } else {
+                vm.state.sortReverse = true;
+            }
+        } else {
+            vm.state.sortType = col;
+            vm.state.sortReverse = false;
+        }
+    }
 }
 
 module.exports = contactDirectoryCtrl;
-
-/** @ngInject */
-angular.module('portal').controller('ModalDirectoryPersonInstanceCtrl', function ($uibModalInstance, personId) {
-    var vm = this;
-    vm.personId = personId;
-    vm.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});

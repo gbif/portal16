@@ -23,13 +23,14 @@ async function getCommittee(type) {
 }
 
 async function getSecretariat() {
-    return proxyGet(apiConfig.directorySecretariat.url);
+    let people = await proxyGet(apiConfig.directorySecretariat.url);
+    return people.map(cleanPerson);
 }
 
 async function participantSearch(query) {
     //let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     let participants = await proxyGet('https://api.gbif-dev.org/v1/directory/participant?' + querystring.stringify(query));
-    participants.results = participants.results.map(cleanParticipant);
+    participants.results = participants.results.map(function(p){return cleanParticipant(p)});
     return participants;
 }
 
@@ -42,6 +43,7 @@ async function participantPeopleSearch(query) {
         people = people.concat(flattenParticipantPeople(p));
     });
     people = _.sortBy(people, ['participant_country', 'roleOrder']);
+
     return people;
 }
 
@@ -134,6 +136,7 @@ async function proxyGet(url) {
 function cleanPerson(p) {
     let pers = _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
     if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, "\n");
+    pers.name = pers.name ? pers.name : pers.firstName + ' ' + pers.surname;
     return pers;
 }
 
@@ -152,7 +155,7 @@ function flattenParticipantPeople(participant) {
     if (!_.isArray(participant.people)) return [];
     let people = participant.people.map(function(p){
         p.person.participant_countryCode = participant.countryCode;
-        p.person.participant_name = participant.name;
+        p.person.participant = participant.name;
         p.person.participant_type = participant.type;
         p.person.participant_participationStatus = participant.participationStatus;
         p.person.role = p.role;
@@ -161,3 +164,4 @@ function flattenParticipantPeople(participant) {
     });
     return people;
 }
+
