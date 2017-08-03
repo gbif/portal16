@@ -41,7 +41,7 @@
                         </li>
 
 
-                        <li class="tab" uib-dropdown dropdown-append-to-body ng-if="datasetKey.originalArchive || datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT'">
+                        <li class="tab" uib-dropdown dropdown-append-to-body>
                             <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
                                 <span class="gb-icon-file-download"></span>
                                 <span>
@@ -53,7 +53,7 @@
                                 <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
                                     <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="datasetKey.processedOccurrences"></span> <span class="small text-brand-color" translate="datasetKey.recommended"></span></a>
                                 </li>
-                                <li role="menuitem"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="protocol.{{ datasetKey.originalArchive.type }}"></span></a></li>
+                                <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified'"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="protocol.{{ datasetKey.originalArchive.type }}"></span></a></li>
                                 <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="datasetKey.annotatedEml"></span> <span class="discreet--very small" translate="protocol.EML"></span></a></li>
                             </ul>
                         </li>

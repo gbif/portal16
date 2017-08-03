@@ -90,6 +90,10 @@ function keepKeys(obj, keys) {
 }
 
 function renderPage(req, res, next, data, template) {
+    if (req.params.ext && req.params.ext !== 'debug'){
+        next();
+        return;
+    }
     data._meta = data._meta || {};
     data._meta.imageCache = data._meta.imageCache || imageCachePrefix;
     data._meta.clientTileApi = data._meta.tileApi || clientTileApi;

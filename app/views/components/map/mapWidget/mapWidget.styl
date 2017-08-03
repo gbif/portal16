@@ -12,13 +12,14 @@
     &.fullscreen, &.fullscreen.fixedSizes {
         position fixed
         z-index 1000
-        top $navBar_height
+        top 0//$navBar_height
         bottom 0
         width 100%
         left 0
         right 0
         .mapWidget__mapWrapper, .mapWidget__mapArea {
-            height "calc(100vh - 40px - %s)" % $navBar_height
+            //height "calc(100vh - 40px - %s)" % $navBar_height
+            height calc(100vh - 40px)
         }
     }
     &.fitSize {

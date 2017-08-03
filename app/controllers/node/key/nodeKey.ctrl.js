@@ -55,6 +55,10 @@ router.get('/participant/:key(\\d+)\.:ext?', function (req, res, next) {
         let participant = Participant.get(key);
 
         participant.then(function (p) {
+            if (p.participant.type == 'COUNTRY') {
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/country/' + p.participant.countryCode);
+                return;
+            }
             p = participantView(p);
             p._meta = {
                 title: p.participant.name,
