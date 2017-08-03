@@ -19,14 +19,13 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
     vm.terms = {};
     vm.form = {
         comments: {},
-        pointOfContact: {},
-        administrativeContact: {},
-        technicalContact: {},
+        pointOfContact: { type: "POINT_OF_CONTACT"},
+        administrativeContact: { type: "ADMINISTRATIVE_POINT_OF_CONTACT"},
+        technicalContact: {type: "TECHNICAL_POINT_OF_CONTACT"},
         expectToPublishDataTypes: {}
 
     };
 
-    // vm.form = {"comments":{},"pointOfContact":{"firstName":"sdf","lastName":"dfg"},"administrativeContact":{},"technicalContact":{},"title":"asd","address":"lkjh","city":"lkjh","country":"DK","logoUrl":"lkjh","description":"kljh"};
 
     vm.getPublisherSuggestions = function (val) {
         var deferred = $q.defer();
@@ -203,10 +202,14 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
     vm.createOrganization = function(){
         var body = getBody();
         var creation = $http.post('/api/eoi/create', body);
-        creation.then(function () {
-            //show info about success
-        }, function () {
-            //TODO inform of failed creation
+        creation.then(function (res) {
+            vm.state.submissionComplete = true;
+            vm.state.submissionError = false;
+            vm.state.newPublisherKey = res.data;
+        }, function (err) {
+            vm.state.submissionComplete = true;
+            vm.state.submissionError = true;
+
         });
         return creation;
     };
@@ -214,11 +217,11 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
     function getBody() {
         var body = _.assign({}, vm.form);
         body.contacts = [];
-        if (!body.hasAdminContact && body.administrativeContact.firstName) {
-
+        if (vm.state.hasAdminContact && body.administrativeContact.firstName && body.administrativeContact.lastName && body.administrativeContact.email) {
+            body.contacts.push(body.administrativeContact)
         }
-        if (body.technicalContact.firstName) {
-
+        if (vm.state.hasTechContact && body.technicalContact.firstName && body.technicalContact.lastName && body.technicalContact.email) {
+            body.contacts.push(body.technicalContact)
         }
         body.contacts.push(body.pointOfContact);
         return body;

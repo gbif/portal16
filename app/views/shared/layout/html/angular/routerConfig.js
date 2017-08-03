@@ -241,6 +241,10 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'publisherListCtrl',
             controllerAs: 'publisherList'
         })
+        .state('publisherConfirmEndorsement', {
+            url: '/publisher/confirm'
+
+        })
         .state('publisherKey', {
             parent: 'localization',
             url: '/publisher/:key',

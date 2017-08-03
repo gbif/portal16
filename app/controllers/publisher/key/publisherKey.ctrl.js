@@ -2,6 +2,9 @@ var express = require('express'),
     Publisher = require('../../../models/gbifdata/gbifdata').Publisher,
     helper = rootRequire('app/models/util/util'),
     contributors = require('../../dataset/key/contributors/contributors'),
+    authOperations = require('../../auth/gbifAuthRequest'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
+    log = require('../../../../config/log'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -17,7 +20,9 @@ module.exports = function (app) {
     app.use('/', router);
 };
 
+router.get('/publisher/confirm', confirm);
 router.get('/publisher/:key\.:ext?', render);
+
 
 function render(req, res, next) {
     var key = req.params.key;
@@ -59,4 +64,37 @@ function render(req, res, next) {
             }
         });
     }
+}
+
+function confirm(req, res, next) {
+    var key = req.query.key;
+    var code = req.query.code;
+
+    let opts = {
+        method: 'POST',
+        body: {"confirmationKey": code},
+        url: apiConfig.publisherCreate.url + key + "/endorsement",
+        canonicalPath: apiConfig.publisherCreate.canonical + key + "/endorsement"
+
+    };
+
+
+    return authOperations.authenticatedRequest(opts)
+        .then(function(response){
+            console.log(JSON.stringify(response))
+            if (response.statusCode !== 204) {
+                throw response;
+            }
+          return  helper.renderPage(req, res, next, {
+                publisherKey: key
+            }, 'pages/custom/confirmEndorsement/confirmEndorsement');
+        })
+        .catch(function(err){
+            log.error("Failed to confirm endorsement for organization["+key+"] : "+err.body)
+            return  helper.renderPage(req, res, next, {
+                publisherKey: key
+            }, 'pages/custom/confirmEndorsement/invalidToken');
+
+        });
+
 }
