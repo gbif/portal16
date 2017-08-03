@@ -4,13 +4,14 @@ var angular = require('angular'),
     _ = require('lodash');
 
 require('../../../../components/directoryPerson/directoryPerson.directive');
+require('../../../../components/modal/modal.directive');
 
 angular
     .module('portal')
     .controller('contactDirectoryCtrl', contactDirectoryCtrl);
 
 /** @ngInject */
-function contactDirectoryCtrl(Page, $state, $http, $uibModal) {
+function contactDirectoryCtrl(Page, $state, $stateParams, $http, $uibModal) {
     var vm = this;
     Page.setTitle('Directory');
     vm.$state = $state;
@@ -76,22 +77,43 @@ function contactDirectoryCtrl(Page, $state, $http, $uibModal) {
     });
 
     vm.showPerson = function(personId) {
-        var modalInstance = $uibModal.open({
-            animation: true,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: 'modalDirectoryPerson.html',
-            controller: 'ModalDirectoryPersonInstanceCtrl',
-            controllerAs: 'vm',
-            resolve: {
-                personId: personId
-            }
-        });
+        $state.go('.', {personId: personId}, {inherit: false, notify: false, reload: false});
+        vm.personId = personId;
+        vm.showModal = true;
+        // vm.modalInstance = $uibModal.open({
+        //     animation: true,
+        //     ariaLabelledBy: 'modal-title',
+        //     ariaDescribedBy: 'modal-body',
+        //     templateUrl: 'modalDirectoryPerson.html',
+        //     controller: 'ModalDirectoryPersonInstanceCtrl',
+        //     controllerAs: 'vm',
+        //     resolve: {
+        //         personId: function () {
+        //             return personId;
+        //         }
+        //     }
+        // });
+        // //This will run when modal dismisses itself when clicked outside or
+        // //when you explicitly dismiss the modal using .dismiss function.
+        // vm.modalInstance.result.catch(function(){
+        //     //Do stuff with respect to dismissal
+        //     $state.go('.', {}, {inherit: false, notify: false, reload: false});
+        // });
     };
+
+    if ($stateParams.personId) {
+        vm.showPerson($stateParams.personId);
+    }
+
+    vm.hideModal = function(){
+        vm.showModal = false;
+        $state.go('.', {}, {inherit: false, notify: false, reload: false});
+    }
 }
 
 module.exports = contactDirectoryCtrl;
 
+/** @ngInject */
 angular.module('portal').controller('ModalDirectoryPersonInstanceCtrl', function ($uibModalInstance, personId) {
     var vm = this;
     vm.personId = personId;

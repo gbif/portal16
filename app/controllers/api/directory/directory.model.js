@@ -56,6 +56,9 @@ async function person(id) {
     let personRoles = person.roles || [];
     let personNodes = person.nodes || [];
     let personParticipants = person.participants || [];
+    if (personRoles.length == 0 && personNodes.length == 0 && personParticipants.length == 0) {
+        throw {statusCode: 404};
+    }
 
     //prune roles
     _.remove(personRoles, function(r) {
@@ -78,7 +81,7 @@ async function person(id) {
     let participantIds = personParticipants.map(function(p){
         return p.participantId;
     });
-    participantIds.concat(nodes.map(function(n){return n.participantId;}));
+    participantIds = participantIds.concat(nodes.map(function(n){return n.participantId;}));
     let participantPromises = participantIds.map(function(id){
         return participant(id);
     });
@@ -129,7 +132,9 @@ async function proxyGet(url) {
 }
 
 function cleanPerson(p) {
-    return _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+    let pers = _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+    if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, "\n");
+    return pers;
 }
 
 function cleanParticipant(p) {
@@ -147,7 +152,8 @@ function flattenParticipantPeople(participant) {
     if (!_.isArray(participant.people)) return [];
     let people = participant.people.map(function(p){
         p.person.participant_countryCode = participant.countryCode;
-        p.person.participant_country = participant.name;
+        p.person.participant_name = participant.name;
+        p.person.participant_type = participant.type;
         p.person.participant_participationStatus = participant.participationStatus;
         p.person.role = p.role;
         p.person.roleOrder = p.role == 'HEAD_OF_DELEGATION' ? 0 : 1;
