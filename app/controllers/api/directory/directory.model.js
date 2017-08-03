@@ -42,7 +42,7 @@ async function participantPeopleSearch(query) {
     participants.results.forEach(function(p){
         people = people.concat(flattenParticipantPeople(p));
     });
-    people = _.sortBy(people, ['participant_country', 'roleOrder']);
+    people = _.sortBy(people, ['participant', 'roleOrder']);
 
     return people;
 }
@@ -164,4 +164,3 @@ function flattenParticipantPeople(participant) {
     });
     return people;
 }
-
