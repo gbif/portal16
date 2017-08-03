@@ -8,27 +8,43 @@
                 <td>Contact details</td>
                 <td>
                     <div>
-                        <div translate="country.{{vm.person.countryCode}}"></div>
-                        <div>{{vm.person.address}}</div>
-                        <div>{{vm.person.phone}}</div>
-                        <div>{{vm.person.email}}</div>
+                        <div ng-if="vm.person.institutionName" class="text-italic discreet--very">{{vm.person.institutionName}}</div>
+                        <div ng-if="vm.person.address">{{vm.person.address}}</div>
+                        <div ng-if="vm.person.countryCode" translate="country.{{vm.person.countryCode}}"></div>
+                        <div ng-if="vm.person.phone"><a href="tel:{{vm.person.phone}}" class="inherit">{{vm.person.phone}}</a></div>
+                        <div ng-if="vm.person.email"><a href="mailto:{{vm.person.email}}" class="inherit">{{vm.person.email}}</a></div>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>Roles</td>
                 <td>
-                    <div>
-                        <div ng-repeat="role in vm.person.roles">
-                            <span class="text-capitalize">{{ 'role.' + role.role | translate }}</span> <span class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</span>
-                        </div>
-                        <div ng-repeat="role in vm.person.participants">
-                            <a class="text-capitalize" ng-href="{{portal.urlPrefix}}/participant/{{role.participantId}}">{{ 'role.' + role.role | translate }}</a> <span class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</span>
-                        </div>
-                        <div ng-repeat="role in vm.person.nodes">
-                            <a class="text-capitalize" ng-href="{{portal.urlPrefix}}/node/{{role.nodeId}}">{{ 'role.' + role.role | translate }}</a> since <span class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</span>
-                        </div>
-                    </div>
+                    <ul>
+                        <li ng-repeat="role in vm.person.roles">
+                            <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                            <div ng-if="role.role == 'GBIFS_STAFF_MEMBER'">{{ vm.person.jobTitle }}</div>
+                            <div class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</div>
+                        </li>
+                        <li ng-repeat="role in vm.person.participants">
+                            <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                            <div class="discreet small">
+                                <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                            </div>
+                            <div class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</div>
+                        </li>
+                        <li ng-repeat="role in vm.person.nodes">
+                            <div class="text-capitalize">{{ 'role.' + role.role | translate }}</div>
+                            <div ng-if="role.participant" class="discreet small">
+                                <a ng-href="{{portal.urlPrefix}}/country/{{role.participant.countryCode}}" ng-if="role.participant.type == 'COUNTRY'">{{ 'country.' + role.participant.countryCode | translate }}</a>
+                                <a ng-href="{{portal.urlPrefix}}/participant/{{role.participant.id}}" ng-if="role.participant.type != 'COUNTRY'">{{ role.participant.name }}</a>
+                            </div>
+                            <div ng-if="!role.participant">
+                                <a ng-href="{{portal.urlPrefix}}/node/{{role.nodeId}}">{{ role.node.name }}</a>
+                            </div>
+                            <div class="discreet small">since {{role.term.start | amDateFormat:'D MMMM YYYY' }}</div>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         </table>

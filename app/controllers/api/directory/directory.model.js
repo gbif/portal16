@@ -53,7 +53,67 @@ async function personSearch(query) {
 
 async function person(id) {
     let person = await proxyGet(apiConfig.directoryPerson.url + id);
+    let personRoles = person.roles || [];
+    let personNodes = person.nodes || [];
+    let personParticipants = person.participants || [];
+
+    //prune roles
+    _.remove(personRoles, function(r) {
+        return r.role.startsWith('DIRECTORY') || r.role.endsWith('_SUPPORT');
+    });
+    _.remove(personNodes, function(r) {
+        return r.role.startsWith('DIRECTORY') || r.role.endsWith('_SUPPORT');
+    });
+    _.remove(personParticipants, function(r) {
+        return r.role.startsWith('DIRECTORY') || r.role.endsWith('_SUPPORT');
+    });
+
+    //get nodes
+    let nodePromises = personNodes.map(function(n){
+        return node(n.nodeId);
+    });
+    let nodes = await Promise.all(nodePromises);
+
+    //get participants
+    let participantIds = personParticipants.map(function(p){
+        return p.participantId;
+    });
+    participantIds.concat(nodes.map(function(n){return n.participantId;}));
+    let participantPromises = participantIds.map(function(id){
+        return participant(id);
+    });
+    let participants = await Promise.all(participantPromises);
+
+    //add node info to person
+    nodes = _.keyBy(nodes, 'id');
+    participants = _.keyBy(participants, 'id');
+
+    personNodes.forEach(function(n){
+        let node = nodes[n.nodeId];
+        n.node = _.pick(node, ['id', 'name', 'participantId']);
+        if (_.has(n, 'node.participantId')) {
+            let p = participants[_.get(n, 'node.participantId')];
+            n.participant = _.pick(p, ['id', 'type', 'participationStatus', 'countryCode', 'name']);
+        }
+    });
+
+    personParticipants.forEach(function(p){
+        p.participant = _.pick(participants[p.participantId], ['id', 'type', 'participationStatus', 'countryCode', 'name']);
+    });
+    person.roles = personRoles;
+    person.nodes = personNodes;
+    person.participants = personParticipants;
     return cleanPerson(person);
+}
+
+async function node(id) {
+    let node = await proxyGet(apiConfig.directoryNode.url + id);
+    return node;
+}
+
+async function participant(id) {
+    let p = await proxyGet(apiConfig.directoryParticipant.url + id);
+    return cleanParticipant(p);
 }
 
 async function proxyGet(url) {
