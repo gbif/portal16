@@ -36,7 +36,7 @@ router.get('/api/template/contactUs/contactUs.html', function(req, res, next){
     });
 });
 
-router.get('/contact-us/who-we-are', function(req, res, next){
+router.get('/contact-us/directory', function(req, res, next){
     if (req.query.personId) {
         //render person
         directory.person(req.query.personId)
@@ -61,6 +61,6 @@ router.get('/contact-us/who-we-are', function(req, res, next){
             });
     } else {
         //render contact us page
-        helper.renderPage(req, res, next, {_meta: {noIndex: true, title: 'Who we are'}}, 'pages/custom/contactUs/seo');
+        helper.renderPage(req, res, next, {_meta: {noIndex: true, title: 'Directory'}}, 'pages/custom/contactUs/seo');
     }
 });
