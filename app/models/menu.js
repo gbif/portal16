@@ -178,7 +178,7 @@ module.exports = [
           },
           {
             "name": "contactDirectory",
-            "url": "/contact-us/who-we-are"
+            "url": "/contact-us/directory"
           }
         ]
       },

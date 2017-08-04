@@ -1578,6 +1578,7 @@
     "_PRIMARY_CONTACT": "primary contact",
     "POINT_OF_CONTACT": "point of contact",
     "ORIGINATOR": "originator",
+    "GBIFS_STAFF_MEMBER": "GBIF staff member",
     "METADATA_AUTHOR": "metadata author",
     "PRINCIPAL_INVESTIGATOR": "principal investigator",
     "AUTHOR": "author",
@@ -1985,7 +1986,7 @@
   "contactUs": {
     "tabs": {
       "main": "contact us",
-      "directory": "who we are"
+      "directory": "directory"
     }
   },
   "directory": {
@@ -2035,7 +2036,7 @@
     }
   },
   "gbifNetwork": {
-    "title": "Who we are",
+    "title": "Directory",
     "contact": "contact",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
     "voting_participant": {
@@ -2222,7 +2223,7 @@
     "becomeMember": "Become a member",
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
-    "contactDirectory": "Who we are",
+    "contactDirectory": "Directory",
     "contactUs": "Contact us",
     "information": "News & communications",
     "news": "News",
