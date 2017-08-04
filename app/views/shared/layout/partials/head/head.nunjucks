@@ -25,6 +25,10 @@
     <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/{$ _meta.image | encodeURI $}" />
 {% endif %}
 
+{% if _meta.noIndex %}
+    <meta name="robots" content="noindex">
+{% endif %}
+
 <meta charset="UTF-8">
 
 <!-- If IE use the latest rendering engine -->

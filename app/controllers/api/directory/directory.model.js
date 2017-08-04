@@ -2,9 +2,7 @@
 
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     chai = require('chai'),
-    expect = chai.expect,
     querystring = require('querystring'),
-    request = require('requestretry'),
     _ = require('lodash'),
     authOperations = require('../../auth/gbifAuthRequest');
 
