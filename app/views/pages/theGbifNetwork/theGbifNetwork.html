@@ -60,11 +60,11 @@
                     <div class="outline" >
                         <i style="background:#4E9F37"></i>
                     </div>
-                    <div class="info-label" translate="directory.voting_participant.other"></div>
+                    <div class="info-label" translate="gbifNetwork.voting_participant.other"></div>
                     <div class="outline" >
                         <i style="background:#58BAE9"></i>
                     </div>
-                    <div class="info-label" translate="directory.associate_country_participant.other"></div>
+                    <div class="info-label" translate="gbifNetwork.associate_country_participant.other"></div>
 
                 </div>
 
@@ -73,8 +73,8 @@
             </div>
         <div class="container--normal">
         <span ng-repeat="participantType in vm.participantTypes" >
-                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.other"></span></span>
-                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] === 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="directory.{{ participantType }}.one"></span></span>
+                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.other"></span></span>
+                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] === 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.one"></span></span>
 
                 </span>
 
