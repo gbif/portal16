@@ -16,7 +16,7 @@
         <h3>The request failed with a server error. That shouldn't happen :(</h3>
     </div>
 
-<div class="container--desktop m-t-1">
+<div class="container--narrow m-t-1">
     {% include "./warnings.nunjucks" %}
 
 </div>
@@ -24,12 +24,7 @@
 
     <div class="horizontal-stripe p-t-0" ng-if="speciesKey2.images.$resolved && speciesKey2.capabilities.$resolved">
 
-        <div class="container--desktop">
-            <div class="row">
-
-
-                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
-
+        <div class="container--narrow">
 
                     <div class="m-t-1" ng-if="speciesKey2.isSpeciesOrBelow && speciesKey2.descriptions.results.length > 0">
                         <h4 class="text-muted small text-uppercase">Description</h4>
@@ -48,8 +43,7 @@
 
 
 
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+
 
                     <div class="m-t-1" ng-show="speciesKey2.status && speciesKey2.status.category != 'NE'">
                         <h4 class="text-muted small text-uppercase">IUCN status</h4>
@@ -58,6 +52,21 @@
                         </div>
                     </div>
 
+            <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
+                <h4 class="text-muted small text-uppercase">Distributions</h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
+                            <h5 class="text-muted small text-uppercase">Present in {{ distribution.country | countryCodeToName }}{{(distribution.locationId) ? ', '+ distribution.locationId : '' }}{{(distribution.locality && distribution.locality !== distribution.locationId ) ? ', '+ distribution.locality : '' }} </h5>
+                            <p ng-if="distribution.threatStatus">Threat status: {{ distribution.threatStatus | formatThreatStatus }}</p>
+                            <p class="small source">Source: <a class="inherit"
+                                                               ng-href="/species/{{ distribution.sourceTaxonKey }}">{{ distribution.source }}</a>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
                     <div class="m-t-1" ng-show="speciesKey2.references.hasResults">
@@ -66,17 +75,6 @@
                     </div>
 
 
-
-                </div>
-
-
-
-
-
-
-
-
-            </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 
@@ -92,14 +90,10 @@
                 </div>
 
             </div>
-            <div class="row">
-                <div class="container--desktop">
                 <div class=" m-t-1">
                     <type-specimen key="{{ speciesKey2.key }}" rank="{{ speciesKey2.species.rank }}"></type-specimen>
                 </div>
-                </div>
 
-                <div class="container--desktop">
 
                     <div class="m-t-1" >
                         <h4 class="text-muted small text-uppercase">Citation</h4>
@@ -117,11 +111,9 @@
                         </div>
                     </div>
 
-                </div>
 
                 {% include "./partners.nunjucks" %}
 
-            </div>
         </div>
 
     </div>

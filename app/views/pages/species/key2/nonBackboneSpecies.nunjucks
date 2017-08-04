@@ -1,92 +1,47 @@
 <div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
-    <div class="container--desktop m-t-1">
 
-
-            {% include "./warnings.nunjucks" %}
-
-            {#<div class="card"#}
-                 {#ng-if="!speciesKey2.isNub || speciesKey2.species.origin !== 'SOURCE' || speciesKey2.species.issues.length > 0">#}
-                {#<div class="card__content card__content--warning">#}
-                    {#<p ng-if="!speciesKey2.isNub">This is the interpretation of the species as published#}
-                        {#in {{ speciesKey2.dataset.title }}.#}
-                        {#<span ng-if="!speciesKey2.isNub && speciesKey2.species.nubKey">To view GBIFs view on this species see <a#}
-                                    {#ui-sref="speciesKey({speciesKey: speciesKey2.species.nubKey})">the backbone version</a>#}
-                             {#</span>#}
-                    {#</p>#}
-
-                    {#<span ng-if="speciesKey2.species.origin !== 'SOURCE'">#}
-
-                {#<p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>#}
-                    {#<p>Origin: <span translate=" nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>#}
-
-                    {#</span>#}
-
-                    {#<p ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0"><span#}
-                                {#translate="stdTerms.issues"></span>: <span#}
-                                {#ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning"#}
-                                {#translate="taxon.issueEnum.{{ issue }}"></span></p>#}
-
-                {#</div>#}
-            {#</div>#}
-
-
-
-        {#<div class="row m-t-1" ng-if="speciesKey2.species.origin !== 'SOURCE'">#}
-            {#<div class="card">#}
-                {#<div class="card__content card__content--warning">#}
-                    {#<p>This record has been created during indexing and did not explicitly exist in the source data as such.</p>#}
-                    {#<p>Origin: <span translate="nameUsageOrigin.{{ speciesKey2.species.origin }}"></span></p>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-
-
-
-        {#<div class="row m-t-1" ng-if="speciesKey2.species.$resolved && speciesKey2.species.issues.length > 0">#}
-            {#<dt class="text-capitalize" translate="stdTerms.issues"></dt>#}
-            {#<dd class="issue-summary__list">#}
-
-
-                        {#<span ng-repeat="issue in speciesKey2.species.issues" class="badge badge--warning" translate="taxon.issueEnum.{{issue}}"></span>#}
-
-
-            {#</dd>#}
-        {#</div>#}
-
-
-    </div>
 
     {% include "./speciesImages.nunjucks" %}
 
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
-        <div class="container--desktop">
+        <div class="container--narrow">
 
 
+            {% include "./warnings.nunjucks" %}
 
 
-
-    <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
-        <h4 class="text-muted small text-uppercase">Description</h4>
-        <div class="card">
-
-            <div class="card__content descriptions--columns">
-                <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1 no-break">
-                    <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
-                    <div ng-bind-html="description.description"></div>
-                    <p class="small source" >Source: <span class="inherit" ng-if="description.source" ng-bind-html="description.source | parseUrlFilter:'_blank': 'source'" ></span><span ng-if="!description.source">missing</span>
-                    </p>
+            <div class="m-t-1" ng-if="speciesKey2.descriptions.results.length > 0">
+                <h4 class="text-muted small text-uppercase">Description</h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1">
+                            <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
+                            <div ng-bind-html="description.description"></div>
+                            <p class="small source">Source: <a class="inherit"
+                                                               ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </div>
-    </div>
+            <div class="m-t-1" ng-if="speciesKey2.distributions.results.length > 0">
+                <h4 class="text-muted small text-uppercase">Distributions</h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
+                            <h5 class="text-muted small text-uppercase">Present in {{ distribution.country | countryCodeToName }}</h5>
+                            <p ng-if="distribution.threatStatus">Threat status: {{ distribution.threatStatus | formatThreatStatus }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
-        </div>
 
-        <div class="container--desktop">
 
             <div class="m-t-1" >
                 <h4 class="text-muted small text-uppercase">Citation</h4>

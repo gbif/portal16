@@ -43,6 +43,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesDistributions', function ($resource, env) {
+            return $resource(env.dataApi + 'species/:id/distributions', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesChildren', function ($resource, env) {
             return $resource(env.dataApi + 'species/:id/children', null, {
                     'query': {
