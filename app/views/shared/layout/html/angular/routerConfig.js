@@ -276,7 +276,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('contactUs', {
             parent: 'localization',
-            url: '/contact-us2',
+            url: '/contact-us',
             views: {
                 main: {
                     templateUrl: '/api/template/contactUs/contactUs.html?v=' + BUILD_VERSION,
@@ -287,7 +287,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('contactDirectory', {
             parent: 'contactUs',
-            url: '/directory',
+            url: '/directory?personId&group',
             templateUrl: '/api/template/contactUs/directory.html?v=' + BUILD_VERSION,
             controller: 'contactDirectoryCtrl',
             controllerAs: 'contactDirectory'

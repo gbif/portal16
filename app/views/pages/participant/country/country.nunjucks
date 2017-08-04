@@ -10,6 +10,34 @@
             {% set main = prose.main %}
             {% set resolved = prose.resolved %}
             {% include "./participation/about.nunjucks" %}
+
+            {% if activePeople %}
+                <div>
+                    <h2>Contacts</h2>
+                    {% for contact in activePeople %}
+                        <address>
+
+                            {% if contact.firstName or contact.surname %}
+                                {$ contact.firstName $} {$ contact.surname $}<br/>
+                            {% endif %}
+
+                            {% if contact.institutionName %}
+                                {$ contact.institutionName $}<br/>
+                            {% endif %}
+
+                            {% if contact.address %}
+                                {$ contact.address $}<br/>
+                            {% endif %}
+
+                            {% if contact.countryCode %}
+                                {$ __('country.' + contact.countryCode) $}<br/>
+                            {% endif %}
+
+                        </address>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
         </div>
     </article>
 {% endblock %}

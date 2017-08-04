@@ -173,12 +173,12 @@ module.exports = [
             "url": "/awards"
           },
           {
-            "name": "contactDirectory",
-            "url": "/directory/people"
-          },
-          {
             "name": "contactUs",
             "url": "/contact-us"
+          },
+          {
+            "name": "contactDirectory",
+            "url": "/contact-us/directory"
           }
         ]
       },

@@ -2,9 +2,7 @@
 
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     chai = require('chai'),
-    expect = chai.expect,
     querystring = require('querystring'),
-    request = require('requestretry'),
     _ = require('lodash'),
     authOperations = require('../../auth/gbifAuthRequest');
 
@@ -23,13 +21,14 @@ async function getCommittee(type) {
 }
 
 async function getSecretariat() {
-    return proxyGet(apiConfig.directorySecretariat.url);
+    let people = await proxyGet(apiConfig.directorySecretariat.url);
+    return people.map(cleanPerson);
 }
 
 async function participantSearch(query) {
     //let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     let participants = await proxyGet('https://api.gbif-dev.org/v1/directory/participant?' + querystring.stringify(query));
-    participants.results = participants.results.map(cleanParticipant);
+    participants.results = participants.results.map(function(p){return cleanParticipant(p)});
     return participants;
 }
 
@@ -41,7 +40,8 @@ async function participantPeopleSearch(query) {
     participants.results.forEach(function(p){
         people = people.concat(flattenParticipantPeople(p));
     });
-    people = _.sortBy(people, ['participant_country', 'roleOrder']);
+    people = _.sortBy(people, ['participant', 'roleOrder']);
+
     return people;
 }
 
@@ -56,6 +56,9 @@ async function person(id) {
     let personRoles = person.roles || [];
     let personNodes = person.nodes || [];
     let personParticipants = person.participants || [];
+    if (personRoles.length == 0 && personNodes.length == 0 && personParticipants.length == 0) {
+        throw {statusCode: 404};
+    }
 
     //prune roles
     _.remove(personRoles, function(r) {
@@ -78,7 +81,7 @@ async function person(id) {
     let participantIds = personParticipants.map(function(p){
         return p.participantId;
     });
-    participantIds.concat(nodes.map(function(n){return n.participantId;}));
+    participantIds = participantIds.concat(nodes.map(function(n){return n.participantId;}));
     let participantPromises = participantIds.map(function(id){
         return participant(id);
     });
@@ -129,7 +132,10 @@ async function proxyGet(url) {
 }
 
 function cleanPerson(p) {
-    return _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+    let pers = _.pick(p, ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+    if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, "\n");
+    pers.name = pers.name ? pers.name : pers.firstName + ' ' + pers.surname;
+    return pers;
 }
 
 function cleanParticipant(p) {
@@ -147,7 +153,8 @@ function flattenParticipantPeople(participant) {
     if (!_.isArray(participant.people)) return [];
     let people = participant.people.map(function(p){
         p.person.participant_countryCode = participant.countryCode;
-        p.person.participant_country = participant.name;
+        p.person.participant = participant.name;
+        p.person.participant_type = participant.type;
         p.person.participant_participationStatus = participant.participationStatus;
         p.person.role = p.role;
         p.person.roleOrder = p.role == 'HEAD_OF_DELEGATION' ? 0 : 1;

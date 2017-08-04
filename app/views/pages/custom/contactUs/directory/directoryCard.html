@@ -1,0 +1,44 @@
+<div class="card card--spaced m-b-1">
+    <div class="card__content">
+        <h3 translate="directory.group.{{ committee }}.title"></h3>
+        <p translate="directory.group.{{ committee }}.description"></p>
+    </div>
+    <div class="scrollable-y">
+        <div>
+            <table class="table search-table smaller">
+                <thead>
+                <tr>
+                    <th class="text-capitalize"
+                        ng-repeat="col in ['name', 'role']">
+                        <a href=""
+                           ng-click="contactDirectory.changeSortOrder(col)">
+                            <span class="inline-block">
+                                <span class="inline-block text-nowrap">
+                                <span translate="directory.columns.{{ col }}">{{ col }}</span>
+                            </span>
+                                
+                            <span ng-show="contactDirectory.state.sortType == col && !contactDirectory.state.sortReverse"
+                                  class="sortReverse">&#x25B2;</span>
+                            <span ng-show="contactDirectory.state.sortType == col && contactDirectory.state.sortReverse"
+                                  class="sortReverse">&#x25BC;</span>
+                            </span>
+                        </a>
+                                    
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.personId || person.id)">
+                    <td>
+                        <span>{{ person.name }}</span>
+                    </td>
+                    <td>
+                        <span ng-if="person.roles" class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                        <span ng-if="!person.role" class="text-capitalize">{{ person.jobTitle }}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

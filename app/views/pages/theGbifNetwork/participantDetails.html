@@ -10,10 +10,10 @@
     </a>
     <ul class="info-pane__header participant-details-list m-b-1">
         <li ng-if="vm.currentParticipantProps.membershipType">
-            <strong translate="directory.{{vm.currentParticipantProps.membershipType}}.one"></strong>
+            <strong translate="gbifNetwork.{{vm.currentParticipantProps.membershipType}}.one"></strong>
         </li>
         <li ng-if="vm.currentParticipantProps.membershipStart">
-            <span translate="theGbifNetwork.memberSince"></span>
+            <span translate="stdTerms.memberSince"></span>
             <span ng-bind="vm.currentParticipantProps.membershipStart"></span>
         </li>
         <li ng-if="vm.digestLoaded === false">

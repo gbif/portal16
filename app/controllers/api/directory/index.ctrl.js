@@ -22,7 +22,7 @@ router.get('/directory/committee/:committee', function(req, res) {
 });
 
 router.get('/directory/secretariat', function(req, res) {
-    directory.getSecretariat()
+    directory.getSecretariat(req.__)
         .then(data => {
             res.json(data);
         })
@@ -34,7 +34,7 @@ router.get('/directory/secretariat', function(req, res) {
 });
 
 router.get('/directory/participant', function(req, res) {
-    directory.participantSearch(req.query)
+    directory.participantSearch(req.query, req.__)
         .then(data => {
             res.json(data);
         })
@@ -48,6 +48,15 @@ router.get('/directory/participant', function(req, res) {
 router.get('/directory/participantPeople', function(req, res) {
     directory.participantPeopleSearch(req.query)
         .then(data => {
+            //add server translation of role for better sorting client side
+            data.forEach(function (p) {
+                if (p.role) p._role = req.__('role.' + p.role);
+                if (p.participant_type == 'COUNTRY') {
+                    p.participant = req.__('country.' + p.participant_countryCode);
+                } else {
+                    p.participant_countryName = req.__('country.' + p.participant_countryCode);
+                }
+            });
             res.json(data);
         })
         .catch(err => {
@@ -58,7 +67,7 @@ router.get('/directory/participantPeople', function(req, res) {
 });
 
 router.get('/directory/person', function(req, res) {
-    directory.personSearch(req.query)
+    directory.personSearch(req.query, req.__)
         .then(data => {
             res.json(data);
         })

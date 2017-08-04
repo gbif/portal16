@@ -24,9 +24,10 @@ function directoryPersonDirective(BUILD_VERSION) {
     /** @ngInject */
     function directoryPerson(DirectoryPerson) {
         var vm = this;
-        console.log('directoryPerson');
-        console.log(vm.personId);
         vm.person = DirectoryPerson.get({id: vm.personId});
+        vm.person.$promise.catch(function(err){
+            vm.error = err;
+        });
     }
 }
 

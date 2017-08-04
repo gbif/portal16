@@ -4,29 +4,23 @@ var angular = require('angular'),
     _ = require('lodash');
 
 require('../../../../components/directoryPerson/directoryPerson.directive');
+require('../../../../components/modal/modal.directive');
 
 angular
     .module('portal')
     .controller('contactDirectoryCtrl', contactDirectoryCtrl);
 
 /** @ngInject */
-function contactDirectoryCtrl(Page, $state, $http, $uibModal) {
+function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
     var vm = this;
     Page.setTitle('Directory');
     vm.$state = $state;
+    vm.state = {};
+    vm.groups = ['voting', 'associateCountries', 'associateParticipants', 'executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat'];
+    if (vm.groups.indexOf($stateParams.group) != -1) {
+        vm.selectedSection = $stateParams.group;
+    }
 
-    vm.sections = {
-        executiveCommittee: {
-            title: 'executiveCommittee key',
-            description: 'executiveCommittee description key',
-            columns: [
-                {name: 'name', type:'TEXT'},
-                {name: 'role', type:'ENUM', 'path': 'role.'}
-            ],
-            personId: 'personId',
-            people: []
-        }
-    };
     $http.get('/api/directory/committee/executive_committee').then(function (response) {
         vm.executiveCommittee = response.data;
     });
@@ -76,26 +70,38 @@ function contactDirectoryCtrl(Page, $state, $http, $uibModal) {
     });
 
     vm.showPerson = function(personId) {
-        var modalInstance = $uibModal.open({
-            animation: true,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: 'modalDirectoryPerson.html',
-            controller: 'ModalDirectoryPersonInstanceCtrl',
-            controllerAs: 'vm',
-            resolve: {
-                personId: personId
-            }
-        });
+        $state.go('.', {personId: personId}, {inherit: true, notify: false, reload: false});
+        vm.personId = personId;
+        vm.showModal = true;
     };
+
+    if ($stateParams.personId) {
+        vm.showPerson($stateParams.personId);
+    }
+
+    vm.hideModal = function(){
+        vm.showModal = false;
+        $state.go('.', {personId: undefined}, {inherit: true, notify: false, reload: false});
+    };
+
+    vm.changeGroup = function(g){
+        vm.selectedSection = g;
+        $state.go('.', {group: g}, {inherit: true, notify: false, reload: false});
+    };
+
+    vm.changeSortOrder = function(col) {
+        if (vm.state.sortType == col) {
+            if (vm.state.sortReverse) {
+                vm.state.sortType = undefined;
+                vm.state.sortReverse = undefined;
+            } else {
+                vm.state.sortReverse = true;
+            }
+        } else {
+            vm.state.sortType = col;
+            vm.state.sortReverse = false;
+        }
+    }
 }
 
 module.exports = contactDirectoryCtrl;
-
-angular.module('portal').controller('ModalDirectoryPersonInstanceCtrl', function ($uibModalInstance, personId) {
-    var vm = this;
-    vm.personId = personId;
-    vm.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
-    };
-});

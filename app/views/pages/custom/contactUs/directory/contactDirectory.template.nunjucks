@@ -3,46 +3,65 @@
         <section>
             <div class="m-b-05">
                 <div class="search-box">
-                    <input type="text" ng-model="contactDirectory.q" placeholder="search">
+                    <input type="text" ng-model="contactDirectory.q" placeholder="{{ 'stdTerms.search' | translate }}">
                 </div>
             </div>
-            <div class="m-b-1">
-                <a href="" ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}" ng-click="contactDirectory.selectedSection = undefined">All</a>
-                <a href="" ng-class="{'gb-button--brand': contactDirectory.selectedSection == committee, 'gb-button--discreet': contactDirectory.selectedSection != committee}" ng-click="contactDirectory.selectedSection = committee" ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat', 'voting', 'associateCountries']">{{ committee }}</a>
+            <div class="m-b-1 filter-buttons">
+                <a href=""
+                   ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}"
+                   ng-click="contactDirectory.changeGroup()"
+                   translate="stdTerms.all"></a>
+                <a href=""
+                   ng-class="{'gb-button--brand': contactDirectory.selectedSection == group, 'gb-button--discreet': contactDirectory.selectedSection != group}"
+                   ng-click="contactDirectory.changeGroup(group)"
+                   ng-repeat="group in contactDirectory.groups"
+                   translate="directory.group.{{ group }}.title">{{ group }}</a>
             </div>
         </section>
-
-        <section ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']" ng-if="(contactDirectory.selectedSection == committee || !contactDirectory.selectedSection) && (contactDirectory[committee] | filter:contactDirectory.q).length > 0">
-            <div class="card m-b-1">
+        <section ng-repeat="participationGroup in ['voting', 'associateCountries', 'associateParticipants']" ng-if="(contactDirectory.selectedSection == participationGroup || !contactDirectory.selectedSection) && (contactDirectory[participationGroup] | filter:contactDirectory.q).length > 0">
+            <div class="card card--spaced m-b-1">
                 <div class="card__content">
-                    <h3>{{ committee }}</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
+                    <h3 translate="directory.group.{{ participationGroup }}.title"></h3>
+                    <p translate="directory.group.{{ participationGroup }}.description"></p>
                 </div>
                 <div class="scrollable-y">
-                    <div class="table-container">
+                    <div>
                         <table class="table search-table smaller">
                             <thead>
                             <tr>
                                 <th class="text-capitalize"
-                                    ng-repeat="col in ['name', 'role']">
-                                    <span class="inline-block text-nowrap">
-                                        <span>{{ col }}</span>
-                                    </span>
+                                    ng-repeat="col in ['name', 'role', 'participant']">
+                                    {#<span class="inline-block text-nowrap">#}
+                                        {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
+                                    {#</span>#}
+                                    <a href=""
+                                       ng-click="contactDirectory.changeSortOrder(col)">
+                                        <span class="inline-block">
+                                            <span class="inline-block text-nowrap">
+                                            <span translate="directory.columns.{{ col }}">{{ col }}</span>
+                                        </span>
+
+                                        <span ng-show="contactDirectory.state.sortType == col && !contactDirectory.state.sortReverse"
+                                              class="sortReverse">&#x25B2;</span>
+                                        <span ng-show="contactDirectory.state.sortType == col && contactDirectory.state.sortReverse"
+                                              class="sortReverse">&#x25BC;</span>
+                                        </span>
+                                    </a>
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q" ng-click="contactDirectory.showPerson(person.personId || person.id)">
-                                    <td>
-                                        <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
-                                    </td>
-                                    <td>
-                                        <span ng-if="person.roles" class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
-                                        <span ng-if="!person.role" class="text-capitalize">{{ person.jobTitle }}</span>
-                                    </td>
-                                </tr>
+                            <tr ng-repeat="person in contactDirectory[participationGroup] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.id)">
+                                <td>
+                                    <span>{{ person.firstName }} {{ person.surname }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
+                                </td>
+                                <td>
+                                    <span>{{ person.participant }}</span>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -50,48 +69,73 @@
             </div>
         </section>
 
-        <section ng-repeat="participationGroup in ['voting', 'associateCountries']" ng-if="(contactDirectory.selectedSection == participationGroup || !contactDirectory.selectedSection) && (contactDirectory[participationGroup] | filter:contactDirectory.q).length > 0">
-            <div class="card m-b-1">
+        <section ng-repeat="committee in ['executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg']">
+            <div ng-include="'/templates/pages/custom/contactUs/directory/directoryCard.html'" ng-if="(contactDirectory.selectedSection == committee || !contactDirectory.selectedSection) && (contactDirectory[committee] | filter:contactDirectory.q).length > 0"></div>
+        </section>
+
+        <section ng-repeat="committee in ['nodesCommittee']" ng-if="(contactDirectory.selectedSection == committee || !contactDirectory.selectedSection) && (contactDirectory[committee] | filter:contactDirectory.q).length > 0">
+            <div class="card card--spaced m-b-1">
                 <div class="card__content">
-                    <h3>{{ participationGroup }}</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
+                    <h3 translate="directory.group.{{ committee }}.title"></h3>
+                    <p translate="directory.group.{{ committee }}.description"></p>
                 </div>
                 <div class="scrollable-y">
-                    <div class="table-container">
+                    <div>
                         <table class="table search-table smaller">
                             <thead>
                             <tr>
                                 <th class="text-capitalize"
-                                    ng-repeat="col in ['name', 'role', 'country']">
-                                    <span class="inline-block text-nowrap">
-                                        <span>{{ col }}</span>
-                                    </span>
+                                    ng-repeat="col in ['name', 'role', 'participant', 'participationStatus']">
+                                    {#<span class="inline-block text-nowrap">#}
+                                        {#<span translate="directory.columns.{{ col }}">{{ col }}</span>#}
+                                    {#</span>#}
+                                    <a href=""
+                                       ng-click="contactDirectory.changeSortOrder(col)">
+                                        <span class="inline-block">
+                                            <span class="inline-block text-nowrap">
+                                            <span translate="directory.columns.{{ col }}">{{ col }}</span>
+                                        </span>
+
+                                        <span ng-show="contactDirectory.state.sortType == col && !contactDirectory.state.sortReverse"
+                                              class="sortReverse">&#x25B2;</span>
+                                        <span ng-show="contactDirectory.state.sortType == col && contactDirectory.state.sortReverse"
+                                              class="sortReverse">&#x25BC;</span>
+                                        </span>
+                                    </a>
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="person in contactDirectory[participationGroup] | filter:contactDirectory.q" ng-click="contactDirectory.showPerson(person.id)">
-                                    <td>
-                                        <span>{{ person.firstName }} {{ person.surname }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-capitalize">{{ 'role.' + person.role | translate }}</span>
-                                    </td>
-                                    <td>
-                                        <span>{{ 'country.' + person.participant_countryCode | translate }}</span>
-                                    </td>
-                                </tr>
+                            <tr ng-repeat="person in contactDirectory[committee] | filter:contactDirectory.q | orderBy:contactDirectory.state.sortType:contactDirectory.state.sortReverse" ng-click="contactDirectory.showPerson(person.personId || person.id)">
+                                <td>
+                                    <span>{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-capitalize" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-capitalize">{{ person.participant }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-capitalize">{{ 'participationStatus.' + person.participationStatus | translate }}</span>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section ng-repeat="committee in ['secretariat']">
+            <div ng-include="'/templates/pages/custom/contactUs/directory/directoryCard.html'" ng-if="(contactDirectory.selectedSection == committee || !contactDirectory.selectedSection) && (contactDirectory[committee] | filter:contactDirectory.q).length > 0"></div>
         </section>
 
     </div>
 </div>
-<script type="text/ng-template" id="modalDirectoryPerson.html">
-    <div directory-person person-id="vm.personId"></div>
-</script>
+<div gb-modal on-dismiss="contactDirectory.hideModal()" ng-if="contactDirectory.showModal">
+    <div class="card">
+        <div directory-person person-id="contactDirectory.personId"></div>
+    </div>
+</div>
+</div>

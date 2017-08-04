@@ -157,6 +157,16 @@ function buildQuery(query) {
                     }
                 }
             ];
+        } else if (query.contentType == 'literature') {
+            body.sort = [
+                {
+                    "created": {
+                        "order": "desc",
+                        "missing": "_last",
+                        "unmapped_type": "date"
+                    }
+                }
+            ];
         } else {
             body.query = {
                 "function_score": {

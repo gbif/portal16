@@ -33,7 +33,7 @@ function participantKeyCtrl(Participant, NodeEndorsedPublishers, NodeDatasets, $
 
     vm.getDatasets = function () {
         vm.participant.$promise.then(function(){
-            NodeDatasets.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.currentPage_datasets},
+            NodeDatasets.get({id: vm.participant.registryNode.key, limit: vm.limit, offset: vm.offset_datasets},
                 function (response) {
                     vm.datasets = response;
                 },

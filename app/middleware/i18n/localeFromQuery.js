@@ -43,7 +43,7 @@ function use(app, locales, defaultLocale) {
                 urlPrefix: '/' + locale,
                 current: locale
             };
-        } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale) {
+        } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
             req.setLocale(queryLocale);
             res.locals.gb = {};
             res.locals.gb.locales = {
