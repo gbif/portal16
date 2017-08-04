@@ -1,0 +1,49 @@
+$modalTransitionOpacityTime = 200ms
+$modalTransitionSlideTime = 350ms
+.gbModal {
+    position fixed
+    top 0
+    bottom 0
+    right 0
+    left 0
+    z-index 2000
+    &__backdrop {
+        background-color rgba(0,0,0,0.0)
+        position absolute
+        top 0
+        bottom 0
+        right 0
+        left 0
+        z-index 5
+        overflow-y auto
+        overflow-x hidden
+        transition background-color $modalTransitionOpacityTime ease
+        &.fadeIn {
+            background-color rgba(0,0,0,0.1)
+        }
+    }
+    &__dialog {
+        position relative
+        z-index 10
+        width 500px
+        max-width calc(100vw - 30px)
+        margin auto
+        margin-top 5px
+        transition margin-top $modalTransitionSlideTime ease, opacity $modalTransitionOpacityTime ease
+        opacity 0
+        &.fadeIn {
+            margin-top 15px
+            opacity 1
+        }
+    }
+}
++isAbove($tablet) {
+    .gbModal {
+        &__dialog {
+            margin-top 50px
+            &.fadeIn {
+                margin-top 100px
+            }
+        }
+    }
+}

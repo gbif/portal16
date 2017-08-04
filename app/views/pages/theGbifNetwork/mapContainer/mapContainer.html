@@ -12,7 +12,7 @@
         <section class="info-pane__content" ng-if="digestLoaded === true">
             <ul class="info-pane__header">
                 <li ng-if="vm.heads.participantInfo.membershipType">
-                    <strong translate="directory.{{vm.heads.participantInfo.membershipType}}.one"></strong>
+                    <strong translate="gbifNetwork.{{vm.heads.participantInfo.membershipType}}.one"></strong>
                 </li>
                 <li ng-if="vm.heads.participantInfo.membershipStart">
                     <span translate="theGbifNetwork.memberSince"></span>
@@ -97,11 +97,11 @@
         <ul>
             <li ng-click="vm.vpChecked = !vm.vpChecked; vm.toggleParticipant()">
                 <div ng-class="vm.vpChecked ? 'square-vp--checked': 'square-vp--unchecked'"></div>
-                <label translate="directory.voting_participant.one"></label>
+                <label translate="gbifNetwork.voting_participant.one"></label>
             </li>
             <li ng-click="vm.acpChecked = !vm.acpChecked; vm.toggleParticipant()">
                 <div ng-class="vm.acpChecked ? 'square-acp--checked':'square-acp--unchecked'"></div>
-                <label translate="directory.associate_country_participant.one"></label>
+                <label translate="gbifNetwork.associate_country_participant.one"></label>
             </li>
         </ul>
     </div>

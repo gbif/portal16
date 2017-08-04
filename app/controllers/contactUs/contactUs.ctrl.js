@@ -4,14 +4,16 @@ const express = require('express'),
     router = express.Router(),
     helper = rootRequire('app/models/util/util'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
+    directory = require('../api/directory/directory.model'),
     _ = require('lodash'),
+    json2md = require("json2md"),
     log = rootRequire('config/log');
 
 module.exports = app => {
     app.use('/', router);
 };
 
-router.get('/contact-us2', function(req, res, next){
+router.get('/contact-us', function(req, res, next){
     let isPreview = !_.isUndefined(req.query._isPreview);
     let cmsContent = resource.getByAlias('/contact-us', 2, isPreview, res.locals.gb.locales.current);
     cmsContent.then(function(content){
@@ -34,6 +36,31 @@ router.get('/api/template/contactUs/contactUs.html', function(req, res, next){
     });
 });
 
-router.get('/contact-us2/directory', function(req, res, next){
-    helper.renderPage(req, res, next, {}, 'pages/custom/contactUs/seo');
+router.get('/contact-us/who-we-are', function(req, res, next){
+    if (req.query.personId) {
+        //render person
+        directory.person(req.query.personId)
+            .then(function(person) {
+                let personMd = json2md([
+                    {h2: person.name},
+                    {ul: [
+                        person.institutionName,
+                        person.address
+                    ]}
+                ]);
+                let context = {
+                    person: personMd,
+                    _meta: {
+                        title: person.name
+                    }
+                };
+                helper.renderPage(req, res, next, context, 'pages/custom/contactUs/directory/seo');
+            })
+            .catch(function(err) {
+                next(err);
+            });
+    } else {
+        //render contact us page
+        helper.renderPage(req, res, next, {_meta: {noIndex: true}}, 'pages/custom/contactUs/seo');
+    }
 });

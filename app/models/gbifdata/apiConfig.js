@@ -69,7 +69,7 @@ var apiConfig = {
     //     canonical: 'organization/'
     // },
     publisherCreate: {
-        url: "http://10.62.193.6:8080/" + 'organization/',
+        url: baseUrl + 'organization/',
         canonical: 'organization/'
     },
 

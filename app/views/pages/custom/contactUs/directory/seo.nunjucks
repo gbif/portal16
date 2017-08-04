@@ -1,5 +1,7 @@
 {% extends "../../../../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-
+<div class="hidden">
+    {$ person | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+</div>
 {% endblock %}

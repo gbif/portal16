@@ -18,7 +18,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     var regionCenters = {
-        'GLOBAL': {zoom: 2, lat: 0, lng: 0},
+        'GLOBAL': {zoom: 2, lat: 0, lng: 9},
         'ASIA': {zoom: 3, lat: 11, lng: 114},
         'AFRICA': {zoom: 3, lat: 6.6, lng: 16.4},
         'EUROPE': {zoom: 4, lat: 56, lng: 11},

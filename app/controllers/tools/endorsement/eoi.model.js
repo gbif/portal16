@@ -1,11 +1,7 @@
 "use strict";
 
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
-    // chai = require('chai'),
-    // expect = chai.expect,
-    // querystring = require('querystring'),
-    // request = require('requestretry'),
-    // _ = require('lodash'),
+    json2md = require('json2md'),
     authOperations = require('../../auth/gbifAuthRequest');
 
 const DEFAULT_ENDORSING_NODE_KEY = "02c40d2a-1cba-4633-90b7-e36e5e97aba8"; // the GBiF secretariat
@@ -14,50 +10,101 @@ module.exports = {
     create: create
 };
 
-async function create(body) {
-
-    /*
-
-        TODO: After the post of the new publisher, do posts of each body.contacts and format body.comments to markdown and post it as well
-     */
+function create(body) {
 
 
+    body.contacts.forEach((c) => {
+        c.email = [c.email];
+        if (c.phone) {
+            c.phone = [c.phone];
+        }
+    });
 
     let org = {
-        "endorsingNodeKey": (body.suggestedNodeKey === "other")? DEFAULT_ENDORSING_NODE_KEY  : body.suggestedNodeKey,
+        "endorsingNodeKey": (body.suggestedNodeKey === "other") ? DEFAULT_ENDORSING_NODE_KEY : body.suggestedNodeKey,
         "title": (body.title) ? body.title : "",
-  //      "abbreviation": null,
-        "description": (body.description) ? body.description :"",
- //       "language": null,
-        "email": (body.email) ?  [body.email] : [],
+        "description": (body.description) ? body.description : "",
+        "language": "ENGLISH",
+        "email": (body.email) ? [body.email] : [],
         "phone": (body.phone) ? [body.phone] : [],
         "homepage": (body.homepage) ? [body.homepage] : [],
         "logoUrl": (body.logoUrl) ? body.logoUrl : "",
-        "address": (body.address) ? body.address : "",
+        "address": (body.address) ? [body.address] : [],
         "city": (body.city) ? body.city : "",
         "province": (body.province) ? body.province : "",
-        "country": (body.country) ? body.country: "",
+        "country": (body.country) ? body.country : "",
         "postalCode": (body.postalCode) ? body.postalCode : "",
         "latitude": (body.latitude) ? body.latitude : "",
-        "longitude": (body.longitude) ? body.longitude: "" };
-
-    console.log(org);
-
-    return {};
+        "longitude": (body.longitude) ? body.longitude : "",
+        "contacts": body.contacts
+    };
 
 
-    // let options = {
-    //     method: 'POST',
-    //     body: org,
-    //     url: apiConfig.publisherCreate.url,
-    //     canonicalPath: apiConfig.publisherCreate.canonical
-    // };
-    // console.log(options);
-    // let response = await authOperations.authenticatedRequest(options);
-    // console.log(response);
-    // if (response.statusCode !== 201) {
-    //     throw response;
-    // }
-    //
-    // return response.body;
+    let markdownJson = [];
+
+    if (body.comments.isAssociatedWithGBIFfundedProject) {
+
+        markdownJson.push({p: "Is associated with a GBIF-funded project: " + body.comments.isAssociatedWithGBIFfundedProject});
+
+        if (body.comments.projectIdentifier) {
+            markdownJson.push({p: "Project identifier: " + body.comments.projectIdentifier})
+        }
+        ;
+
+    }
+    ;
+
+    if (body.comments.expectToPublishDataTypes) {
+        markdownJson.push({p: "Expects to publish:"});
+        markdownJson.push({
+            ul: Object.keys(body.comments.expectToPublishDataTypes)
+        });
+    }
+
+    if (body.comments.serverCapable) {
+        markdownJson.push({p: "Will run a server which exposes data: " + body.comments.serverCapable})
+    }
+    if (body.comments.toolPlanned) {
+        markdownJson.push({p: "Plans to run publishing software (e.g. an IPT): " + body.comments.toolPlanned})
+    }
+
+    if (body.comments.helpNeeded) {
+        markdownJson.push({p: "Needs help for data publishing: " + body.comments.helpNeeded})
+    }
+
+
+    let options = {
+        method: 'POST',
+        body: org,
+        url: apiConfig.publisherCreate.url,
+        canonicalPath: apiConfig.publisherCreate.canonical
+    };
+
+    var newOrganistaionUUI;
+    return authOperations.authenticatedRequest(options)
+        .then((res) => {
+            if (res.statusCode !== 201) {
+                throw res;
+            }
+
+            let opts = {
+                method: 'POST',
+                body: {"content": json2md(markdownJson)},
+                url: apiConfig.publisherCreate.url + res.body + "/comment",
+                canonicalPath: apiConfig.publisherCreate.canonical + res.body + "/comment"
+
+            };
+            newOrganistaionUUI = res.body;
+            return authOperations.authenticatedRequest(opts);
+        })
+        .then((commentResponse) => {
+
+            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUI !== 'undefined') {
+                throw commentResponse;
+            }
+
+            return newOrganistaionUUI;
+        })
+
+
 }

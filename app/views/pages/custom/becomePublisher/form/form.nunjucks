@@ -1,5 +1,5 @@
 <div class="horizontal-stripe light-background seperator ng-cloak">
-    <div class="container--narrow">
+    <div class="container--narrow" ng-if="!eoi.state.submissionComplete">
 
         {% include "./preform/existingOrganization.nunjucks" %}
 
@@ -26,5 +26,9 @@
             </form>
         </div>
 
+    </div>
+    <div class="container--narrow" ng-if="eoi.state.submissionComplete">
+    {% include "./postform/failedSubmit.nunjucks" %}
+    {% include "./postform/submitted.nunjucks" %}
     </div>
 </div>

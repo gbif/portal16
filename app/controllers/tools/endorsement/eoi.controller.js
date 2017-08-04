@@ -1,5 +1,6 @@
 'use strict';
 var auth = require('../../auth/auth.service'),
+    log = require('../../../../config/log'),
     eoi = require('./eoi.model');
 
 module.exports = {
@@ -11,10 +12,10 @@ module.exports = {
  */
 function create(req, res) {
     eoi.create(req.body)
-        .then(function(){
+        .then(function(result){
             res.status(201);
             auth.setNoCache(res);
-            res.json({type:'CONFIRM_MAIL'});
+            res.json(result);
         })
         .catch(handleError(res, 422));
 }
@@ -27,6 +28,7 @@ function handleError(res, statusCode) {
     return function(err) {
        // throw err;
         res.status(err.statusCode || statusCode);
-        res.json(err.body);
+        log.error('Become a publisher form submission failure: '+err.body)
+        res.send();
     };
 }

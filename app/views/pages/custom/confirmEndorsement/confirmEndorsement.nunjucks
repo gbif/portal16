@@ -1,0 +1,24 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <article class="wrapper-horizontal-stripes confirmUser imageWithCaption" >
+        <section class="horizontal-stripe article-header">
+            <div class="container--narrow">
+                <div class="card card--spaced">
+                    <div class="card__content">
+                        <div class="text-center">
+                            <div class="h3">Endorsement approved successfully</div>
+                            <p>
+                                <a href="/publisher/{$ publisherKey $}">Go to publisher</a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="imageWithCaption__caption">
+            <a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+        </div>
+    </article>
+{% endblock %}
