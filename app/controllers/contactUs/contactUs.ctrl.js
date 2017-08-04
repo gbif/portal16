@@ -61,6 +61,6 @@ router.get('/contact-us/who-we-are', function(req, res, next){
             });
     } else {
         //render contact us page
-        helper.renderPage(req, res, next, {_meta: {noIndex: true}}, 'pages/custom/contactUs/seo');
+        helper.renderPage(req, res, next, {_meta: {noIndex: true, title: 'Who we are'}}, 'pages/custom/contactUs/seo');
     }
 });
