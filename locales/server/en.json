@@ -1387,7 +1387,11 @@
     "contacts": "{NUMBER, select, 0{contacts} 1{contact} other{contacts}}",
     "nServedDatasets": "{NUMBER} {NUMBER, select, 0{served datasets} 1{served dataset} other{served datasets}}",
     "roles": "roles",
+    "role": "role",
+    "name": "name",
+    "participant": "participant",
     "since": "since",
+    "memberSince": "Member since",
     "details": "details",
     "topics": "topics",
     "purposes": "purposes",
@@ -1978,6 +1982,12 @@
       }
     }
   },
+  "contactUs": {
+    "tabs": {
+      "main": "contact us",
+      "directory": "who we are"
+    }
+  },
   "directory": {
     "group": {
       "executiveCommittee": {
@@ -2024,7 +2034,7 @@
       "participationStatus": "Participant status"
     }
   },
-  "directory2": {
+  "gbifNetwork": {
     "title": "Who we are",
     "contact": "contact",
     "contactUsSubtitle": "Contact information for committees, members and Secretariat staff",
