@@ -287,7 +287,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('contactDirectory', {
             parent: 'contactUs',
-            url: '/directory?personId',
+            url: '/who-we-are?personId&group',
             templateUrl: '/api/template/contactUs/directory.html?v=' + BUILD_VERSION,
             controller: 'contactDirectoryCtrl',
             controllerAs: 'contactDirectory'

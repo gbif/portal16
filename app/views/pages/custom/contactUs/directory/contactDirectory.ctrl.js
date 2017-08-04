@@ -16,19 +16,11 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
     Page.setTitle('Directory');
     vm.$state = $state;
     vm.state = {};
+    vm.groups = ['voting', 'associateCountries', 'associateParticipants', 'executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat'];
+    if (vm.groups.indexOf($stateParams.group) != -1) {
+        vm.selectedSection = $stateParams.group;
+    }
 
-    vm.sections = {
-        executiveCommittee: {
-            title: 'executiveCommittee key',
-            description: 'executiveCommittee description key',
-            columns: [
-                {name: 'name', type:'TEXT'},
-                {name: 'role', type:'ENUM', 'path': 'role.'}
-            ],
-            personId: 'personId',
-            people: []
-        }
-    };
     $http.get('/api/directory/committee/executive_committee').then(function (response) {
         vm.executiveCommittee = response.data;
     });
@@ -78,7 +70,7 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
     });
 
     vm.showPerson = function(personId) {
-        $state.go('.', {personId: personId}, {inherit: false, notify: false, reload: false});
+        $state.go('.', {personId: personId}, {inherit: true, notify: false, reload: false});
         vm.personId = personId;
         vm.showModal = true;
     };
@@ -89,8 +81,13 @@ function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
 
     vm.hideModal = function(){
         vm.showModal = false;
-        $state.go('.', {}, {inherit: false, notify: false, reload: false});
-    }
+        $state.go('.', {personId: undefined}, {inherit: true, notify: false, reload: false});
+    };
+
+    vm.changeGroup = function(g){
+        vm.selectedSection = g;
+        $state.go('.', {group: g}, {inherit: true, notify: false, reload: false});
+    };
 
     vm.changeSortOrder = function(col) {
         if (vm.state.sortType == col) {

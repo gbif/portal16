@@ -9,12 +9,12 @@
             <div class="m-b-1 filter-buttons">
                 <a href=""
                    ng-class="{'gb-button--brand': !contactDirectory.selectedSection, 'gb-button--discreet': contactDirectory.selectedSection}"
-                   ng-click="contactDirectory.selectedSection = undefined"
+                   ng-click="contactDirectory.changeGroup()"
                    translate="stdTerms.all"></a>
                 <a href=""
                    ng-class="{'gb-button--brand': contactDirectory.selectedSection == group, 'gb-button--discreet': contactDirectory.selectedSection != group}"
-                   ng-click="contactDirectory.selectedSection = group"
-                   ng-repeat="group in ['voting', 'associateCountries', 'associateParticipants', 'executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat']"
+                   ng-click="contactDirectory.changeGroup(group)"
+                   ng-repeat="group in contactDirectory.groups"
                    translate="directory.group.{{ group }}.title">{{ group }}</a>
             </div>
         </section>
