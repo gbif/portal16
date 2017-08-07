@@ -12,6 +12,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, env, BUILD_VERSION) {
     vm.tileApi = env.tileApi;
     vm.imageCache = env.imageCache;
     vm.BUILD_VERSION = BUILD_VERSION;
+    vm.dataApi = env.dataApi;
 
     //* pagination */
     function updatePaginationCounts() {
