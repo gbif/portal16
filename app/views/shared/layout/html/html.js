@@ -530,8 +530,8 @@ function closeMenusOnClickOutside(event) {
         closeMenus();
     }
 }
-document.addEventListener('click', closeMenusOnClickOutside);
-document.addEventListener('touchend', closeMenusOnClickOutside);
+//document.addEventListener('click', closeMenusOnClickOutside);
+//document.addEventListener('touchend', closeMenusOnClickOutside);
 
 //Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 window.gb = window.gb || {};

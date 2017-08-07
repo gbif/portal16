@@ -1,15 +1,15 @@
 /*The icon font stylus file is templated. Changes to the compiled file will be overwritten. Make sure to edit on the nunjucks file /app/assets/icons/fontteplate.nunjucks.styl*/
 @font-face {
     font-family: 'gbificons';
-    src:url('/iconfont/gbificons.eot?v=1497210849');
-    src:url('/iconfont/gbificons.eot?v=1497210849#iefix') format('embedded-opentype'),
-    url('/iconfont/gbificons.ttf?v=1497210849') format('truetype'),
-    url('/iconfont/gbificons.woff?v=1497210849') format('woff');
+    src:url('/iconfont/gbificons.eot?v=1502109982');
+    src:url('/iconfont/gbificons.eot?v=1502109982#iefix') format('embedded-opentype'),
+    url('/iconfont/gbificons.ttf?v=1502109982') format('truetype'),
+    url('/iconfont/gbificons.woff?v=1502109982') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-[class^="gb-icon-"]:before, [class*=" gb-icon-"]:before {
+[class^="gb-icon-"]:before, [class*=" gb-icon-"]:before, .iconFont {
     font-family: 'gbificons';
     speak: none;
     font-style: normal;
@@ -37,14 +37,6 @@ $icon-string-leaf = "\EA02"
 
 .gb-icon-leaf:before {
                            content: "\EA02";
-                       }
-
-
-
-$icon-string-menu = "\EA03"
-
-.gb-icon-menu:before {
-                           content: "\EA03";
                        }
 
 
@@ -709,5 +701,13 @@ $icon-string-fullscreen = "\EA56"
 
 .gb-icon-fullscreen:before {
                            content: "\EA56";
+                       }
+
+
+
+$icon-string-menu = "\EA03"
+
+.gb-icon-menu:before {
+                           content: "\EA03";
                        }
 
