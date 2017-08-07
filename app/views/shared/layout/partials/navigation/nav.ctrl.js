@@ -27,6 +27,10 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
         });
     };
 
+    vm.toggleMobileMenu = function(){
+        vm.mobileMenuActive = !vm.mobileMenuActive;
+    };
+
     vm.toggleNotifications = function () {
         vm.openMenu(NAV_EVENTS.toggleNotifications);
     };

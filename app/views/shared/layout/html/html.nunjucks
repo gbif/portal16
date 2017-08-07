@@ -14,14 +14,17 @@
     {% block styles %}{% endblock %}
 </head>
 <body {% if _meta.bodyClass | isNotEmpty %}class="{$ _meta.bodyClass $}"{% endif %} ng-init="portal.urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}" ng-controller="portalCtrl as portal">
-
+{# if the users haven't enable javascript then tell them that the site do nto work without #}
+<div class="no-js-enabled" style="display: none"><span>{$ __('help.noJavascriptEnabled') $}</span></div>
+{% include "../partials/navigation2/navigation.nunjucks" %}
 {# Main layout #}
 <div id="site-wrapper" class="site-wrapper">
     <div id="site-canvas" class="site-canvas">
         {# Navigation #}
-        {% if not _meta.removeMenu %}
-            {% include "../partials/navigation/navigation.nunjucks" %}
-        {% endif %}
+        {#{% if not _meta.removeMenu %}#}
+            {#{% include "../partials/navigation/navigation.nunjucks" %}#}
+        {#{% endif %}#}
+
         {# Navigation end #}
         
         {% if not _meta.removeMenu %}

@@ -77,18 +77,7 @@
 <![endif]-->
 {#<link rel="stylesheet" type="text/css" href="/css/base/ie/index.css">#}
 <!--[if lt IE 9]>
-{#
-<script src="https://cdn.jsdelivr.net/css3-mediaqueries/0.1/css3-mediaqueries.min.js"></script>
-<script src="https://rawgit.com/closingtag/calc-polyfill/master/calc.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.2.0/es5-shim.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aight/1.2.2/aight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.3.6/nwmatcher.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
-#}
 <![endif]-->
 
 <script>
@@ -107,4 +96,13 @@
     ga('create', 'UA-42057855-4', 'auto');
     ga('send', 'pageview');
 </script>
+
+<noscript>
+    <style>
+        body {display: block !important}
+        .no-js-enabled {display: block !important}
+        .no-js-enabled {position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(120,181,120,0.99);color:#fff;z-index:9999;text-align:center}
+        .no-js-enabled span{position:relative;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);}
+    </style>
+</noscript>
 

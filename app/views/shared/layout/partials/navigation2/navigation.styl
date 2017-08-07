@@ -1,0 +1,332 @@
+//navbar
+.stickyNav {
+  height 3.125rem
+  position fixed
+  width 100%
+  z-index 200
+  left 0
+  top 0
+//pretty
+  color $navBar_textColor
+  background $navBar_background
+  user-select none
+  box-shadow 0 2px 2px rgba(0, 0, 0, .2)
+  a {
+    color inherit
+    &:hover {
+      text-decoration none
+    }
+  }
+  &__container {
+    position relative
+    max-width 100%
+  //pretty
+    margin-left 1rem
+    margin-right 1rem
+  }
+  .gbif-logo {
+    float left
+    position relative
+    z-index 10
+  //pretty
+    margin-top 0.8125rem
+    svg {
+      display inline-block
+      width 2.5rem
+      height 1.375rem
+      .gbif-logo-svg {
+        fill $navBar_textColor
+      }
+    }
+  }
+  &__actions {
+    user-select none
+    position absolute
+    right 0
+    top 1.125rem
+    z-index 10
+    &__menu {
+      display inline-block
+    }
+    &__action {
+      display none
+    }
+  }
+}
+
++isAbove($laptop) {
+  .stickyNav {
+    ul {
+      padding 0
+    }
+    ul li ul {
+      color $bodyTextColor
+    }
+    &__actions {
+      &__menu {
+        display none
+      }
+      &__action {
+        display inline-block
+      }
+    }
+  }
+}
+
+//navigation area
+.mainNavigation {
+  padding-top 3.125rem //TODO menu offset
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  display block !important
+  overflow auto
+  visibility hidden //fade in
+  opacity 0
+  transition opacity 200ms ease-in
+  overflow-x hidden
+//pretty
+//font-size 0 //why ?
+  background-color #76a576
+  &.isActive {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+  }
+}
+
+.mainMenu {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 3.625rem;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.2s cubic-bezier(0, 0, 0.28, 1);
+  &__firstLevel {
+    border-bottom: 1px solid #737f8b;
+  }
+}
+
+.mainMenu a {
+  display: block;
+  user-select: none;
+}
+
+.mainMenu__parentItem {
+  font-size: 1.125rem;
+  padding: 0.875rem 0;
+  position: relative;
+}
+
+.mainMenu .mainMenu__childGroup {
+  display: block !important;
+  overflow: hidden;
+  max-height: 0;
+  font-size: 1.125rem;
+  transform: translate3d(100%, 0, 0);
+}
+
+.mainMenu__columns {
+  margin-bottom: 0.625rem;
+}
+
+.mainMenu h2 {
+  font-size: 0.9375rem;
+  margin-bottom: 1.25rem;
+  color: #737f8b;
+  letter-spacing: 0.0225rem;
+  margin-top: 1.125rem;
+}
+
+.mainMenu__childItem li {
+  border-bottom: 1px solid #737f8b;
+}
+
+.mainMenu__childItem a {
+  padding: 0.875rem 0;
+  font-weight: normal;
+}
+
+.mainMenu--hasChild .mainMenu__parentItem::after {
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  display: inline-block;
+  font-size: 0.5rem;
+  position: absolute;
+  margin-top: -0.1875rem;
+  top: 50%;
+  right: 0;
+  width: 0.5rem;
+  height: 0.5625rem;
+}
+
+.icon-dropdown-angle::before, .mainMenu--hasChild .mainMenu__parentItem::after {
+  content: '\e914';
+}
+
+//active
+.mainMenu .mainMenu_child_active {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  border-bottom: 0;
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.mainMenu .mainMenu__childGroup {
+  display: block !important;
+  overflow: hidden;
+  max-height: 0;
+  font-size: 1.125rem;
+  transform: translate3d(100%, 0, 0);
+}
+
+.mainMenu__firstLevel_active .mainMenu {
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.2s cubic-bezier(0.28, 0, 1, 1);
+  position: relative;
+}
+
+.mainMenu--hasChild.mainMenu_child_active .mainMenu__childGroup {
+  max-height: 125rem;
+  padding-top: 3.625rem;
+  transform: translate3d(0, 0, 0);
+}
+
+//larger screens
+
++isAbove($laptop) {
+  .stickyNav {
+    height 3.5625rem
+    .gbif-logo {
+      svg {
+        width 3.25rem
+        height 1.75rem
+      }
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .mainMenu {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mainMenu > ul {
+    width: 30.67047%;
+  }
+
+  .mainMenu .mainMenu_child_active {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mainMenu__columns:nth-child(3n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0;
+  }
+
+  .mainMenu__columns {
+    width: 30.67047%;
+    float: left;
+  }
+
+  .mainMenu__columns:nth-child(3n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0;
+  }
+
+  .mainMenu__columns {
+    width: 31.29771%;
+    float: left;
+  }
+}
+
+@media (min-width: 64em) {
+  .mainMenu__firstLevel {
+    display: inline-block;
+    border: 0;
+  }
+
+  .mainMenu__firstLevel_active .mainMenu {
+    transform: translate3d(0, 0, 0);
+    position: static;
+  }
+
+  .mainNavigation {
+    color: inherit;
+    position: static;
+    padding-top: 0;
+    background-color: transparent;
+    width: auto;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+    transition: none;
+  }
+
+  .mainMenu {
+    float: left;
+    padding: 0;
+  }
+
+  .mainMenu > ul {
+    width: auto;
+  }
+
+  .mainMenu .mainMenu_child_active {
+    padding: 0;
+    width: auto;
+    position: relative;
+    left: auto;
+  }
+
+  .mainMenu_child_active .mainMenu__parentItem {
+    position: relative;
+    top: auto;
+    font-size: 0.875rem;
+    background-color: #0061d5;
+    color: #fff !important;
+  }
+
+  .mainMenu--hasChild.mainMenu_child_active .mainMenu__childGroup {
+    overflow: visible;
+    padding-top: 0;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 200ms cubic-bezier(0, 0, 0.5, 1);
+  }
+
+  .mainMenu .mainMenu__childGroup {
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0.1875rem 0.375rem 0 rgba(44, 62, 80, 0.25);
+    border-radius: 0 0 0.125rem 0.125rem;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 200ms cubic-bezier(0.5, 0, 1, 1);
+  }
+
+  .mainMenu__columns {
+    padding: 0.5rem 1.1875rem;
+    min-width: 13.125rem;
+    max-width: 15.625rem;
+    width: auto;
+    border-right: 1px solid rgba(189, 195, 199, 0.2);
+    margin: 0 !important;
+  }
+}
