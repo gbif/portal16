@@ -1,0 +1,31 @@
+<div class="light-background documentPage">
+    <article class="wrapper-horizontal-stripes">
+        <div class="horizontal-stripe p-b-05">
+            <div class="article-header">
+                <nav class="article-header__category article-header__category--deep">
+                    <span class="article-header__category__upper">
+                        <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType=event">{$ __('cms.contentType.document') $}</a>
+                    </span>
+                    <span class="article-header__category__lower">{$ main.sys.createdAt | formatDate(gb.locales.current) $}</span>
+                </nav>
+            </div>
+        </div>
+        <div class="horizontal-stripe p-t-0">
+            <div class="container--narrow">
+                <div class="card card--spaced">
+                    <div class="card__content text-center seperator--b">
+                        <h3>{$ main.fields.title $}</h3>
+                        <a href="{$ resolved.Asset[main.fields.document.sys.id].fields.file.url $}" class="gb-button--brand">Download <span class="gb-icon-file-download"></span></a>
+                    </div>
+                    <div class="card__content clearfix">
+                        <div class="clearfix">
+                            {$ (main.fields.body or main.fields.summary) | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+</div>
+{% include "../preview.nunjucks" %}

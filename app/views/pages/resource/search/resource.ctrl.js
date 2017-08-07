@@ -152,32 +152,6 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
         return false;
     };
 
-    var secondaryContentTypesInOrder = ['programme', 'literature', 'tool', 'document'];
-    vm.getExtraTabContentType = function(){
-        var mainContentTypes = ['news', 'dataUse', 'event', 'project'];
-
-        //if there is a selected contenttype that isn't one of the main ones, then give it a tab
-        if (vm.state.query.contentType && mainContentTypes.indexOf(vm.state.query.contentType) == -1) {
-            return vm.state.query.contentType;
-        }
-
-        var availableContentTypes = _.get(vm, 'state.facetMultiselect.facets.CONTENT_TYPE.counts', {});
-        var firstSecondaryWithResults = secondaryContentTypesInOrder.find(function(e){
-            return availableContentTypes[e];
-        });
-        if (firstSecondaryWithResults) {
-            return firstSecondaryWithResults;
-        }
-    };
-
-    vm.getMoreOptions = function(){
-        var alreadyShownTab = vm.getExtraTabContentType();
-        var availableContentTypes = _.get(vm, 'state.facetMultiselect.facets.CONTENT_TYPE.counts', {});
-        return secondaryContentTypesInOrder.filter(function(e){
-            return e !== alreadyShownTab && availableContentTypes[e];
-        });
-    };
-
 }
 
 module.exports = resourceCtrl;
