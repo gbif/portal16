@@ -91,7 +91,7 @@
                         {#<a class="mainMenu__parentItem" href="/search">Search</a>#}
                     {#</li>#}
                     <li class="mainMenu__firstLevel hide-on-laptop">
-                        <a class="mainMenu__parentItem" href="" ng-click="nav.toggleUserMenu()">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
+                        <a class="mainMenu__parentItem" href="/user/profile">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
                     </li>
                 </ul>
             </nav>

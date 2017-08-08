@@ -34,4 +34,4 @@ angular
         constants
     ).constant('LOCALE',
         gb.locale
-    );
+    ).constant('IS_TOUCH', window.gb.supportsTouch);

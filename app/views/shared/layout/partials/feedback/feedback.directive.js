@@ -21,7 +21,7 @@ function feedbackDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function feedback($scope, $location, NAV_EVENTS, $http) {
+    function feedback($scope, $location, NAV_EVENTS, $http, IS_TOUCH) {
         var vm = this;
         vm.location = $location.path();
         vm.isActive = false;
@@ -38,6 +38,12 @@ function feedbackDirective(BUILD_VERSION) {
             QUESTION: 'question'
         };
         vm.selected = undefined;
+
+        vm.clickedOutside = function() {
+            if (!IS_TOUCH) {
+                vm.isActive = false;
+            }
+        };
 
         $scope.$on(NAV_EVENTS.toggleFeedback, function (event, data) {
             //open feedback on the relevant tab ((question, bug etc.))

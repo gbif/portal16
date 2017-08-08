@@ -1,3 +1,19 @@
+//Create a global GBIF Object
+(function (global) {
+    var gb = global.gb || {},
+        util = {VERSION: '0.0.1'};
+    gb.util = util;
+    global.gb = gb;
+})(window);
+
+
+//Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+window.gb = window.gb || {};
+window.gb.supportsTouch = !!('ontouchstart' in window || navigator.msMaxTouchPoints);
+if (window.gb.supportsTouch) {
+    document.body.classList.add('isTouch'); //could be useful to have in stylesheet. for example to make targets larger on touch devices
+}
+
 var angular = require('angular');
 //require('./errorLogging'); //TODO temporarily disabled as it isn't tested for DOS and stability
 require('angular-ui-router');
@@ -368,21 +384,5 @@ require('./angular/translate');
 var isIE = require('./ieDetection.js')();
 if (isIE) {
     document.body.className += 'IE IE' + isIE;
-}
-
-//Create a global GBIF Object
-(function (global) {
-    var gb = global.gb || {},
-        util = {VERSION: '0.0.1'};
-    gb.util = util;
-    global.gb = gb;
-})(window);
-
-
-//Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
-window.gb = window.gb || {};
-window.gb.supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-if (window.gb.supportsTouch) {
-    document.body.classList.add('isTouch'); //could be useful to have in stylesheet. for example to make targets larger on touch devices
 }
 
