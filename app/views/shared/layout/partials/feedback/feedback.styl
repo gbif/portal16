@@ -1,4 +1,4 @@
-$feedbackPrimaryColor = #7faf68// #6599a2 //#1f8ceb //#398194
+$feedbackPrimaryColor = #94b974// #6599a2 //#1f8ceb //#398194
 $feedbackPrimaryInk = white
 $menuboxBorderRadius = 4px;
 
@@ -6,7 +6,7 @@ $menuboxBorderRadius = 4px;
     display none
     &.is-active {
         display block
-        animation menuboxSlideIn .5s
+        //animation menuboxSlideIn .5s
     }
     position fixed
     z-index 3000
@@ -140,12 +140,12 @@ $menuboxBorderRadius = 4px;
             }
         }
         &--select {
-            ul {
+            >ul {
                 padding 0
-                li {
+                >li {
                     display block
                     border-bottom 1px solid $stripeBorderColor
-                    a, div {
+                    >a, >div {
                         display block
                         padding 10px 20px
                         transition background 200ms ease
@@ -306,6 +306,9 @@ $menuboxBorderRadius = 4px;
         &__wrapper {
             border-radius $menuboxBorderRadius
             background transparent
+        }
+        &.is-active {
+            animation menuboxSlideIn .5s
         }
     }
 }

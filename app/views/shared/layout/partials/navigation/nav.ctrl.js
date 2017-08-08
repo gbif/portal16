@@ -24,8 +24,6 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
             vm.scrollOffset = offset;
         }, 0);
     });
-
-    vm.mobileMenuActive = true;
     vm.activeMenu = undefined;
     vm.toggleMenu = function(firstLevelItem) {
         if (vm.activeMenu == firstLevelItem) {
