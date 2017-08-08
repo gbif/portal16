@@ -11,7 +11,8 @@ router.get('/tools/observation-trends', function (req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrends', {
             _meta: {
-                title: 'Observation Trends',
+                title: req.__("meta.observationTrendsTitle"),
+                description: req.__("meta.observationTrendsDescription"),
                 hideFooter: true
             },
             aboutUrl: 'tools/observation-trends/about'
@@ -25,7 +26,8 @@ router.get('/embed/observation-trends', function (req, res, next) {
     try {
         res.render('pages/tools/observationTrends/observationTrendsEmbed', {
             _meta: {
-                title: 'Observation Trends',
+                title: req.__("meta.observationTrendsTitle"),
+                description: req.__("meta.observationTrendsDescription"),
                 hideFooter: true,
                 removeMenu: true,
                 useEmbeddedStyleSheet: true

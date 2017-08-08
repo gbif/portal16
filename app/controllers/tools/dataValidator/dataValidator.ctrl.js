@@ -8,7 +8,8 @@ module.exports = function (app) {
 router.get('/tools/data-validator', function (req, res) {
     res.render('pages/tools/dataValidator/dataValidator_tmp', {
         _meta: {
-            title: 'Data validator'
+            title: 'Data validator',
+            noIndex: true
         }
     });
 });
@@ -16,7 +17,8 @@ router.get('/tools/data-validator', function (req, res) {
 router.get('/tools/data-validator-test', function (req, res) {
     res.render('pages/tools/dataValidator/dataValidator', {
         _meta: {
-            title: 'Data validator'
+            title: 'Data validator',
+            noIndex: true
         }
     });
 });
@@ -24,7 +26,8 @@ router.get('/tools/data-validator-test', function (req, res) {
 router.get('/tools/data-validator-test/:jobid', function (req, res) {
     res.render('pages/tools/dataValidator/dataValidatorResults', {
         _meta: {
-            title: 'Data validator'
+            title: 'Data validator',
+            noIndex: true
         },
         jobId: req.params.jobid
     });

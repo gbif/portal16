@@ -58,11 +58,12 @@ function redirectOldQueries(req, res) {
 function renderSearch(req, res) {
     if (!redirectOldQueries(req, res)) {
         res.render('pages/occurrence/ocurrence', {
-            title: 'Ocurrences',
+            title: 'Occurrences',
             _meta: {
                 hasTools: true,
                 hideFooter: true,
-                title: res.__('stdTerms.search')
+                title: res.__('stdTerms.search'),
+                description: 'Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
             }
         });
     }

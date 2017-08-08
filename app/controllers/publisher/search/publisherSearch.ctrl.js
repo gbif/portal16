@@ -12,7 +12,9 @@ function renderSearch(req, res) {
             hideSearchAction: true,
             hasTools: true,
             hideFooter: true,
-            title: res.__('stdTerms.search')
+            title: res.__('stdTerms.search'),
+            description: 'Search for publishers in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
+
         }
     });
 }

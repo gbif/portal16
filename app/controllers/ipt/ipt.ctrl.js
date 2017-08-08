@@ -19,7 +19,8 @@ router.get('/ipt\.:ext?', function (req, res, next) {
             helper.renderPage(req, res, next, {
                 prose: data,
                 _meta: {
-                    title: 'IPT'
+                    title: 'IPT',
+                    description: req.__("meta.iptDescription")
                 }
             }, 'pages/custom/ipt/ipt');
         },

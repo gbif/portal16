@@ -17,7 +17,8 @@ function eoiPage(req, res, next) {
             helper.renderPage(req, res, next, {
                 prose: data,
                 _meta: {
-                    title: 'Become a publisher'
+                    title: req.__("meta.eoiTitle"),
+                    description: req.__("meta.eoiDescription")
                 }
             }, 'pages/custom/becomePublisher/becomePublisher');
         },

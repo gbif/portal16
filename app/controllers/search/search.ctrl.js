@@ -18,14 +18,20 @@ router.get('/search', function (req, res, next) {
         );
     }
     try {
-        var searchString = req.query.q,
+        var searchTerm = req.query.q,
+        description =  req.__("meta.searchDescription") ;
+
+        if(searchTerm){
+        description += " "+ req.__("meta.searchDescriptionDetail", {searchTerm: searchTerm}) ;
+        }
             context = {
-                query: searchString,
+                query: searchTerm,
                 _meta: {
                     bodyClass: 'omnisearch',
                     tileApi: baseConfig.tileApi,
                     hideFooter: true,
-                    title: res.__('stdTerms.search')
+                    title: req.__('stdTerms.search'),
+                    description: description
                 }
             };
 

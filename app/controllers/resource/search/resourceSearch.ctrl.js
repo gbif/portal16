@@ -6,11 +6,16 @@ module.exports = function (app) {
 };
 
 function renderSearch(req, res) {
-    res.render('pages/resource/search/resourceSearch', {
+
+
+
+        res.render('pages/resource/search/resourceSearch', {
         _meta: {
             hasTools: true,
             hideFooter: true,
-            title: 'Resources'
+            title: req.__('stdTerms.resources'),
+            description: req.__('meta.resourceDescription')
+
         }
     });
 }

@@ -8,7 +8,8 @@ module.exports = function (app) {
 router.get('/tools/data-repository', function (req, res) {
     res.render('pages/tools/dataRepo/dataRepo', {
         _meta: {
-            title: 'Data repository'
+            title: 'Data repository',
+            noIndex: true
         }
     });
 });
