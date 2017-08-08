@@ -16,8 +16,7 @@ module.exports = {
 };
 
 async function getCommittee(type) {
-    //return proxyGet(apiConfig.directoryCommittee.url + type);
-    return proxyGet('https://api.gbif-dev.org/v1/directory/committee/' + type);
+    return proxyGet(apiConfig.directoryCommittee.url + type);
 }
 
 async function getSecretariat() {
@@ -26,15 +25,13 @@ async function getSecretariat() {
 }
 
 async function participantSearch(query) {
-    //let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
-    let participants = await proxyGet('https://api.gbif-dev.org/v1/directory/participant?' + querystring.stringify(query));
+    let participants = await proxyGet(apiConfig.directoryParticipants.url + '?' + querystring.stringify(query));
     participants.results = participants.results.map(function(p){return cleanParticipant(p)});
     return participants;
 }
 
 async function participantPeopleSearch(query) {
-    //let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
-    let participants = await proxyGet('https://api.gbif-dev.org/v1/directory/participant?' + querystring.stringify(query));
+    let participants = await proxyGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     participants.results = participants.results.map(cleanParticipant);
     let people = [];
     participants.results.forEach(function(p){
