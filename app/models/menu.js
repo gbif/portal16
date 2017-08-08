@@ -175,10 +175,6 @@ module.exports = [
           {
             "name": "contactUs",
             "url": "/contact-us"
-          },
-          {
-            "name": "contactDirectory",
-            "url": "/contact-us/directory"
           }
         ]
       },
