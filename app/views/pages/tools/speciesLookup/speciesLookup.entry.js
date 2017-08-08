@@ -73,6 +73,8 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
                     vm.error = err;
                 } else if(result.length == 0) {
                     vm.error = 'There are no rows in the data.';
+                } else if(result.length > 6000) {
+                    vm.error = 'Too many rows (maximum 6.000) - try using our APIs instead';
                 } else {
                 //make all keys lower to avoid casing issues
                     result = result.map(function (e) {
@@ -132,6 +134,8 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
         async.eachLimit(vm.species, 10, lookupName, function (err) {
             if (err) {
                 //TODO inform the user that not everything could be matched
+            } else {
+                vm.lookupComplete = true;
             }
         });
     }
