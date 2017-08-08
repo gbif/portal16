@@ -72,7 +72,10 @@ var apiConfig = {
         url: baseUrl + 'organization/',
         canonical: 'organization/'
     },
-
+    newsroom: {
+   url: 'webcal:' + baseUrl + 'newsroom/events/'
+  //  url: 'webcal://api.gbif-dev.org/v1/'+ 'newsroom/events/'
+    },
     taxon: {
         url: baseUrl + 'species/'
     },

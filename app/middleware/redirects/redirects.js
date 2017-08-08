@@ -1,7 +1,7 @@
 /**
  For redirects to have pretty urls for menu items and selected items. Could also support legacy urls
  */
-const redirectList = require('./redirectTable'),
+const redirectList = rootRequire('config/redirects'),
     redirectTable = {},
     ignoreTrailingSlashes = true,
     querystring = require('querystring');
@@ -26,5 +26,8 @@ function handleRedirects(req, res, next) {
 function removeSlashes(str){
     return str.replace(/(\/)+$/,'');
 }
+
+console.log("###########")
+console.log(redirectList)
 
 module.exports = handleRedirects;

@@ -21,10 +21,21 @@ require('../../../components/scientificName/scientificName.directive.js');
 
 angular
     .module('portal')
+    .filter('formatThreatStatus', function() {
+    return function(input) {
+        if(!!input){
+            input = input.replace('_', ' ');
+            return input.charAt(0).toUpperCase() + input.substr(1).toLowerCase();
+        } else {
+            return '';
+        }
+
+    }
+})
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations,SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species');
     vm.key = $stateParams.speciesKey;
@@ -39,7 +50,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
     vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
-
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
@@ -84,6 +94,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
 
     vm.combinations = SpeciesCombinations.query({id: vm.key});
 
+    vm.distributions = SpeciesDistributions.query({id: vm.key});
 
     vm.species.$promise
         .then(function(resp){

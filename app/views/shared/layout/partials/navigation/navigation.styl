@@ -1,721 +1,471 @@
-//shared between elements and media queries
-siteHeaderBar() {
-    background $navBar_background
+$menuBackgroundColor = $navBar_background_color //#76a576
+//navbar
+.stickyNav {
     height $navBar_height
-    border-bottom $navBar_borderWidth solid $navBar_borderColor
-    z-index 200
-    color $navBar_textColor
-    box-shadow $navBar_boxShadow
-}
-
-//navigation layout
-.site-nav {
-    font-weight $navBar_fontWeight
-    position absolute
+    position fixed
+    width 100%
+    z-index 2000
+    left 0
     top 0
-    overflow-y auto
-    -webkit-overflow-scrolling touch
-    height 100%
-    width $drawerWidth
-    a {
-        text-decoration none
-        color inherit
-    }
+    //pretty
+    font-size 1.125rem
+    color $navBar_textColor
+    background $navBar_background
+    user-select none
+    box-shadow 0 2px 2px rgba(0, 0, 0, .2)
     ul {
-        padding-left 0
+        padding 0
+    }
+    a {
+        color inherit
+        outline none
+        &:focus {
+            outline none
+        }
+        &:hover {
+            text-decoration none
+        }
+    }
+    &__container {
+        position relative
+        max-width 100%
+        //pretty
+        margin-left 1rem
+        margin-right 1rem
+    }
+    .gbif-logo {
+        float left
+        position relative
+        z-index 10
+        //pretty
+        margin-top 0.6rem
+        svg {
+            display inline-block
+            width 2.3rem
+            height 2.3rem
+            .gbif-logo-svg {
+                fill $navBar_textColor
+            }
+        }
+    }
+    &__actions {
+        user-select none
+        position absolute
+        right 0
+        z-index 10
+        &__menu, &__action {
+            font-size 1.85rem
+            line-height $navBar_height
+            width 2.5rem
+            text-align center
+            display inline-block
+        }
+        &__menu {
+            display inline-block
+        }
+        &__login {
+            display none
+        }
+        &__action {
+            //display none
+            position relative
+            &--notification {
+                &::after {
+                    content ' '
+                    display block
+                    position absolute
+                    width 10px
+                    height 10px
+                    background tomato
+                    border-radius 50%
+                    top 15px
+                    right 5px
+                }
+            }
+        }
+    }
+}
+body.hasTransparentMenu {
+    padding-top 0
+    .stickyNav {
+        background transparent
+        transition background 300ms ease
+        box-shadow none
+        &:hover {
+            background rgba(0,0,0,0.2)
+        }
+        &.hasOffset {
+            background $navBar_background
+            box-shadow 0 2px 2px rgba(0, 0, 0, .2)
+        }
     }
 }
 
-+isBelow($laptop) {
-    nav {
-        left -($drawerWidth)
+//navigation area
+.mainNavigation {
+    padding-top 3.125rem //TODO menu offset
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    display block !important
+    overflow auto
+    visibility hidden //fade in
+    opacity 0
+    transition opacity 200ms ease-in
+    overflow-x hidden
+    //pretty
+    background-color $menuBackgroundColor
+    &.isActive {
+        visibility visible
+        opacity 1
+        transition opacity 200ms ease-in
+    }
+}
+
+.mobileMenu--active {
+    .mainNavigation::before {
+        content ''
+        background-color $menuBackgroundColor
+        width 100%
+        height 3.125rem
+        display block
+        top 0
+        left 0
+        z-index 1
+        position fixed
+    }
+}
+
+.mainMenu {
+    padding-left 0.75rem
+    padding-right 0.75rem
+    padding-top 3.625rem
+    transform translate3d(0, 0, 0)
+    transition transform 0.2s cubic-bezier(0, 0, 0.28, 1)
+    a, a:focus {
+        display block
+        user-select none
+    }
+    h2 {
+        font-size 1.2rem
+        margin-bottom 1.25rem
+        color darken($menuBackgroundColor, 20)
+        letter-spacing 0.0225rem
+        margin-top 3rem
+        text-transform uppercase
+    }
+    &__parentItem {
+        padding 0.875rem 0
+        position relative
+    }
+    &__firstLevel {
+        border-bottom 1px solid darken($menuBackgroundColor, 10)
+    }
+    &__columns {
+        margin-bottom 0.625rem
+    }
+    &__childItem {
+        a {
+            padding 0.875rem 0
+        }
+        li {
+            border-bottom 1px solid darken($menuBackgroundColor, 10)
+        }
+    }
+    &__greenText {
+        color darken($menuBackgroundColor, 20)
+    }
+}
+
+.mainMenu .mainMenu__childGroup {
+    display block
+    overflow hidden
+    max-height 0
+    transform translate3d(100%, 0, 0)
+}
+
+.mainMenu--hasChild .mainMenu__parentItem::after {
+    @extends .iconFont
+    transform rotate(-90deg)
+    display inline-block
+    font-size 1.5rem
+    position absolute
+    margin-top -0.1875rem
+    top 50%
+    right 0
+    width 1.5rem
+    height 1.5rem
+    content $icon-string-angle-down
+}
+
+.mainMenu--childActive .mainMenu__parentItem {
+    &::before {
+        @extends .iconFont
+        font-size 1.375rem
+        content $icon-string-angle-left
+    }
+    &::after {
+        content none
+    }
+}
+
+//active
+.mainMenu .mainMenu--childActive {
+    position absolute
+    left 100%
+    top 0
+    border-bottom 0
+    width 100%
+    padding-left 0.75rem
+    padding-right 0.75rem
+}
+
+.mainMenu--childActive .mainMenu__parentItem {
+    font-size: 0;
+    position: absolute;
+    top: 0.375rem;
+    z-index: 1;
+}
+
+.mainMenu .mainMenu__childGroup {
+    display block !important
+    overflow hidden
+    max-height 0
+    transform translate3d(100%, 0, 0)
+}
+
+.mainMenu--firstLevelActive .mainMenu {
+    transform translate3d(-100%, 0, 0)
+    transition transform 0.2s cubic-bezier(0.28, 0, 1, 1)
+    position relative
+}
+
+.mainMenu--hasChild.mainMenu--childActive .mainMenu__childGroup {
+    max-height 200rem
+    padding-top 2rem
+    padding-bottom 6rem
+    transform translate3d(0, 0, 0)
+}
+
++isAbove($tablet) {
+    .mainMenu {
+        padding-left 1rem
+        padding-right 1rem
     }
 
-    .site-canvas {
-        transition: left 500ms ease;
-        position relative
-        width 100%
-        left 0
-        &.hasActiveMenu {
-            left $drawerWidth
-            .menu-link {
+    .mainMenu > ul {
+        width 33%
+    }
+
+    .mainMenu .mainMenu--childActive {
+        padding-left 1rem
+        padding-right 1rem
+    }
+
+    //.mainMenu__columns:nth-child(3n + 1) {
+    //    margin-left 0
+    //    margin-right -100%
+    //    clear both
+    //    margin-left 0
+    //}
+    //.mainMenu__columns:nth-child(3n + 2) {
+    //    margin-left 30%
+    //    margin-right -100%
+    //    clear both
+    //    margin-left 0
+    //}
+
+    .mainMenu__childGroup {
+        margin 0 (-($halfGutter))
+    }
+    .mainMenu__columns {
+        width 33%
+        float left
+        padding-left $halfGutter
+        padding-right $halfGutter
+    }
+}
+
++isAbove($laptop) {
+    .stickyNav {
+        font-size $htmlFontSize
+        ul {
+            padding 0
+        }
+        ul li ul {
+            color $bodyTextColor
+        }
+        &__actions {
+            &__menu {
                 display none
             }
-            .close-link {
+            &__action {
                 display inline-block
             }
-        }
-    }
-}
-
-+isAbove($laptop) {
-    .site-header {
-        display none
-    }
-    .site-nav {
-        &.is-expanded {
-            > div > ul > li.is-category.is-expanded > a {
-                position relative
-                &:after {
-                    position absolute
-                    top ($navBar_height - vrBlock(0.5))
-                    left 50%
-                    margin-left -(vrBlock(0.25) * 2)
-                    content ''
-                    triangle: 'up'(vrBlock(0.25) * 2) $navBar_dropDownBackground
-                }
+            &__login {
+                display inline
             }
         }
-        top 0
-        left 0
-        z-index 200
-        height $navBar_height
-        width 100%
+        .gbif-logo {
+            margin-right 3rem
+        }
+    }
+
+    .mainMenu .mainMenu__childGroup {
+        display none
+    }
+
+    .mainMenu__firstLevel {
+        display inline-block
+        border 0
+    }
+
+    .mainMenu--firstLevelActive .mainMenu {
+        transform translate3d(0, 0, 0)
+        position static
+    }
+
+    .mainNavigation {
+        color inherit
+        position static
+        padding-top 0
+        background-color transparent
+        width auto
         overflow visible
-        position fixed //use fixed navifation on laptop and above
-        > div > ul > li {
-            > a {
-                menuTextShadow()
-            }
-            display inline-block
-            &.is-category {
-                > ul {
-                    top $navBar_height
-                    background $navBar_dropDownBackground
-                    position absolute
-                    padding vrBlock(0.25) 0
-                    box-shadow 0px 2px 3px rgba(0, 0, 0, 0.2)
-                    li {
-                        display block
-                        a {
-                            color $navBar_dropDownColor
-                            display block
-                            padding vrBlock(0.25) vrBlock(1)
-                            &:hover {
-                                background darken($navBar_dropDownBackground, 7%)
-                            }
-                            &.category-header {
-                                &:hover {
-                                    background none
-                                }
-                            }
-                        }
-                    }
-                }
-                /*&.is-expanded {*/
-                /*>a {*/
-                /*position relative*/
-                /*&:after {*/
-                /*position absolute*/
-                /*top vrBlock(2.75)*/
-                /*left 50%*/
-                /*margin-left -vrBlock(0.25) * 2*/
-                /*content ''*/
-                /*triangle: 'up'(vrBlock(0.25) * 2) $navBar_dropDownBackground*/
-                /*}*/
-                /*}*/
-                /*}*/
-
-                &.is-mega {
-                    > ul {
-                        left 0
-                        right 0
-                        width 100% //500px
-                        padding vrBlock(0.25) vrBlock(3)
-                        > li {
-                            lost-column: 1 / 4
-                            > a {
-                                cursor default
-                                color $navBar_dropDownHeaderColor
-                                font-weight $navBar_dropDownHeaderWeight
-                            }
-                            > ul {
-                                display block
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .service-menu {
-            > ul > li {
-                position relative
-                > ul {
-                    right 0
-                }
-            }
-        }
-        .main-menu {
-            display relative
-            > ul, > a {
-                float left
-            }
-            > ul {
-                float right
-            }
-            > ul > li > a {
-                .main-menu__icon {
-                    display none
-                }
-            }
-            > ul > li > a, > a {
-                white-space nowrap
-                display inline-block
-                line-height ($navBar_height - $navBar_borderWidth)
-                height ($navBar_height - $navBar_borderWidth)
-                padding 0 vrBlock(0.75)
-            }
-            .main-menu__home {
-                width vrBlock(3)
-                position relative
-                .main-menu__home__text {
-                    position absolute
-                    left -9999px
-                }
-                .main-menu__icon {
-                    font-size vrBlock(1.5)
-                    position absolute
-                    line-height ($navBar_height - $navBar_borderWidth)
-                    text-align center
-                    &.gb-icon-home {
-                        display none
-                    }
-                }
-                //&:before {
-                //    content $icon-string-logo
-                //    font-size vrBlock(2)
-                //    position absolute
-                //    bottom vrBlock(0.5)
-                //}
-            }
-        }
-    }
-}
-
-//mobile navigation content
-+isBelow($laptop) {
-    .site-nav {
-        //set base colors
-        background $navDrawer_background
-        color $navDrawer_color
-        .main-menu__icon.gb-icon-logo {
-            display none
-        }
-        .main-menu__icon {
-            font-size vrBlock(1)
-            position absolute
-            left 10px
-            top vrBlock(0.5)
-        }
-        //all list items should have the same padding
-        li > a, .main-menu > a {
-            display block
-            padding vrBlock(0.5) vrBlock(1) vrBlock(0.5) vrBlock(2)
-            line-height vrBlock(1)
-        }
-        > div {
-            //draw a thin line between sections
-            > * {
-                box-shadow 0 1px 0 lighten($navDrawer_background, 5%) //used instead of border to keep the height
-            }
-
-            //items with icons need additional styling
-            a {
-                position relative
-                //&:before {
-                //    font-size vrBlock(1)
-                //    position absolute
-                //    left 10px
-                //    top vrBlock(0.5)
-                //}
-
-                //add an overlay instead of dark color since background changes
-                &:hover, &.is-active {
-                    background-color rgba(0, 0, 0, 0.15)
-                    /*color lighten($navDrawer_color, 50%)*/
-                }
-            }
-            > ul > li > ul > li {
-                > a {
-                    color darken($navDrawer_color, 20%)
-                    /*padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)*/
-                }
-                > ul > li > a {
-                    background darken($navDrawer_background, 8%)
-                    padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(3)
-                }
-                > ul > li > ul > li > a {
-                    background darken($navDrawer_background, 16%)
-                    padding vrBlock(0.25) vrBlock(1) vrBlock(0.25) vrBlock(4)
-                }
-
-            }
-            li {
-                &.is-category {
-                    > a {
-                        &:after {
-                            content '+'
-                            font-size (vrBlock(1) / $perfectFifth)
-                            font-family 'Helvetica' //gbificons
-                            position absolute
-                            right 10px
-                        }
-                    }
-                    > ul, > div > ul {
-                        position relative
-                        max-height 0
-                        overflow hidden
-                    }
-                    &.is-expanded {
-                        > a {
-                            &:after {
-                                content '–'
-                            }
-                        }
-                        > ul, > div > ul {
-                            transition max-height 1.3s
-                            max-height 1000px //arbitraty height to support the max-height transisition
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-//nav content continues
-+isAbove($laptop) {
-    .site-nav {
-        siteHeaderBar()
-    }
-}
-
-//navigation interaction
-
-+isBelow($laptop) {
-    .site-nav .is-category > ul {
-        max-height 0
-        overflow hidden
-        margin 0
-    }
-
-    .site-nav .is-category.is-expanded {
-        > ul {
-            transition: max-height 500ms ease;
-            max-height 500px
-        }
-    }
-}
-
-+isAbove($laptop) {
-    .site-nav .is-category > ul {
-        display none
-    }
-    .site-nav > .service-menu > ul {
-        display block
-    }
-
-    .site-nav.is-expanded .is-category.is-expanded {
-        > ul {
-            display block
-        }
-    }
-    /*.site-nav--collapseMenu .is-category.is-expanded {*/
-    /*> ul {*/
-    /*display none*/
-    /*}*/
-    /*}*/
-}
-
-actionIcon() {
-    display inline-block
-    //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
-    relative()
-    height vrBlock(2.75)
-    font-size (100 /$majorThird) %
-    line-height vrBlock(1)
-    &:before {
-        display block
-        width 100%
-        text-align center
-        absolute(top left)
-        setType(2)
-        line-height vrBlock(0)
-        margin-top vrBlock(1)
-    }
-}
-
-a.action-icon {
-    actionIcon()
-}
-
-//service menu
-+isBelow($laptop) {
-    .service-menu {
-        .service-menu__teaser {
-            > a {
-                display block
-                height 100%
-                width 100%
-            }
-            height vrBlock(6)
-            width 100%
-            background url("/img/moth_pattern1.jpg")
-            background-size cover
-            position relative
-            .service-menu__teaser-message {
-                line-height vrBlock(1.5)
-                padding 0 vrBlock(0.5)
-                font-size (100 /$majorSecond) %
-                position absolute
-                bottom 0
-                background rgba(0, 0, 0, 0.5)
-                width 100%
-                &:after {
-                    display block
-                    content '+'
-                    position absolute
-                    right vrBlock(0.5)
-                    top 0
-                }
-            }
-        }
-        //interaction
-        &.is-expanded {
-            .service-menu__teaser-message:after {
-                content '-'
-            }
-        }
-    }
-}
-
-//only beacuse ther isn't a js service to load user and such yet.
-$service-menu_teaser_pos_r = vrBlock(0.5);
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        right $service-menu_teaser_pos_r
-    }
-    20% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 1;
-    }
-    84% {
-        opacity: 1;
-    }
-    90% {
-        right $service-menu_teaser_pos_r
-    }
-    100% {
-        opacity: 0;
-        right -200px;
-    }
-}
-
-.service-menu {
-    .menu-notification {
-        float right
-        position absolute
-        top vrBlock(0.75)
-        right vrBlock(0.5)
-    }
-}
-
-+isAbove($laptop) {
-    .service-menu {
-        float right
-        //position absolute
-        //right 0
-        li {
-            display inline-block
-        }
-        .service-menu__teaser {
-            display none //TODO what to do with this if anything at all
-            position absolute
-            top vrBlock(3.5)
-            width auto
-            white-space nowrap
-            padding vrBlock(0.25) vrBlock(1)
-            opacity 0
-            right -9999px;
-            animation fadeInOut 5s
-            background $plum
-            color $mist
-        }
-        > ul > li {
-            &:last-of-type {
-                margin-right 1rem
-            }
-            > a {
-                height ($navBar_height - $navBar_borderWidth)
-                .service-menu__icon {
-                    //position absolute
-                    font-size 28px
-                    width 3rem
-                    display inline-block
-                    text-align center
-                    overflow hidden
-                    height ($navBar_height - $navBar_borderWidth)
-                    line-height ($navBar_height - $navBar_borderWidth)
-                }
-                .service-menu__buttonWrapper {
-                    width 3rem
-                    display inline-block
-                    text-align center
-                    overflow hidden
-                    height ($navBar_height - $navBar_borderWidth)
-                    line-height ($navBar_height - $navBar_borderWidth)
-                    width initial
-                    .service-menu__button {
-                        padding 3px 5px
-                        width 100px
-                        background white
-                        color darken($navBar_background_color, 5)
-                        font-weight 500
-                        text-shadow none
-                        display inline-block
-                        padding 0 10px
-                        line-height 2em
-                        margin 0 10px
-                        border-radius 2px
-                        transition max-width 200ms ease
-                        overflow hidden
-                        text-overflow ellipsis
-                        white-space nowrap
-                        position relative
-                        top 7px
-                    }
-                }
-                .service-menu__text {
-                    position absolute
-                    bottom vrBlock(0.25)
-                    text-align center
-                    left 0
-                    width 3rem
-                    display none
-                }
-                display inline-block
-                //width 3rem
-                //padding vrBlock(1.5) vrBlock(1) vrBlock(0.25) vrBlock(1)
-                relative()
-                font-size (100 /$majorThird) %
-                //&:before {
-                //    display block
-                //    width 100%
-                //    height vrBlock(2.75)
-                //    text-align center
-                //    absolute(top left)
-                //    setType(2)
-                //    line-height vrBlock(2.75)
-                //}
-            }
-        }
-    }
-}
-
-//can there be multilayer menu and push on desktop
-+isBelow($laptop) {
-    .service-menu {
-        .service-menu__search {
-            display none
-        }
-        .service-menu__feedback {
-            display none
-        }
-    }
-    .is-own-menu {
-        left -100%
-        transition: left 500ms ease;
-        position absolute
-        top 0
-        background pink
-        width 100%
-        height 100%
-        > a {
-            background #333
-            display block //visual
-            &:before {
-                content 'back '
-            }
-        }
-        &.is-active {
-            left 0%
-        }
-    }
-}
-
-+isAbove($laptop) {
-    .is-own-menu {
-        > ul {
-            top $navBar_height
-            right -300px
-            transition: right 500ms ease;
-            position absolute
-            background pink
-            width 300px
-            height "calc(100vh - %s)" % $navBar_height
-            > a {
-                background #333
-                display block //visual
-                &:before {
-                    content 'back '
-                }
-            }
-        }
-        &.is-active > ul {
-            right 0px
-        }
-    }
-}
-
-main {
-    position relative
-    //position 0 simply to avoid reflows that could be expensive
-    /*position absolute*/
-    padding-top 0
-    /*top $navBar_height*/
-    width 100%
-    /*height "calc(100vh - %s)" % $navBar_height*/
-    height "calc(100% - %s)" % $navBar_height
-    // overflow hidden
-}
-
-+isAbove($laptop) {
-    main {
-        padding-top $navBar_height
-    }
-}
-
-.site-content {
-    background $content_background
-    position relative //to be pushable by the filter drawer
-    overflow hidden
-    min-height "calc(100vh - %s)" % $navBar_height
-    transition: right 500ms ease;
-    &__page {
-        min-height "calc(100vh - %s)" % $navBar_height
-        display flex
-        flex-direction column
-        > div {
-            flex 1 0 auto
-        }
-        > footer {
-            flex 0 0 auto
-        }
-    }
-}
-
-+isBelow($laptop) {
-    .site-content {
-        height: 100%
-        right 0 //to make the transitition smooth we need a starting position
-
-        &__page {
-            min-height 100%
-            -webkit-overflow-scrolling touch
-            overflow-y auto
-            //overflow-x hidden
-            height 100%
-        }
-    }
-
-}
-
-/*+isAbove($laptop) {*/
-/*.page {*/
-/*padding-left 85px*/
-/*}*/
-/*}*/
-
-//FILTERS
-
-//use sibling elements
-
-.site-drawer {
-    z-index 100
-    width $filterDrawerWidth
-    max-width calc(100% - 25px) //todo parameterizs drawer toggle width
-    position absolute
-    top 0px
-    //transition right 200ms ease;
-    transition width 200ms ease;
-    height 100% //"calc(100vh - %s)" % $navBar_height
-    //right -($filterDrawerWidth + 3)
-    right 0
-    width 0
-    
-    &__wrapper {
-        width $filterDrawerWidth
-        max-width 100%
-        overflow hidden
-    }
-    &__wrapped-content {
-        overflow hidden
-        width 100%// $filterDrawerWidth
-    }
-    .site-drawer__section {
-        //height "calc(100vh - %s)" % vrBlock(6)
-        height "calc(100vh - %s - %s)" % ( $navBar_height $searchTabBar-height )
-        overflow-y auto
-        -webkit-overflow-scrolling touch
-        //&--bottom-panel {
-        //	height "calc(100vh - %s)" % vrBlock(8)
-        //}
-    }
-    &.is-active {
-        right 0
-        width $filterDrawerWidth
-        // max-width 100%
-    }
-    // &.site-drawer--wide {
-    //     .site-drawer__wrapper {
-    //         width $filterDrawerWidthWide
-    //     }
-    //     .site-drawer__wrapped-content {
-    //         width $filterDrawerWidthWide
-    //     }
-    //     &.is-active {
-    //         width $filterDrawerWidthWide
-    //     }
-    // }
-}
-
-forceShowDrawer() {
-    transition initial
-    //right 0
-    width $filterDrawerWidth
-    // overflow visible
-    ~ .site-content {
-        padding-left $filterDrawerWidth
-    }
-    //&:target ~ .site-content {
-    //	right 0
-    //}
-}
-
-+isAbove($laptop) {
-    .site-drawer {
-        //left -($filterDrawerWidth + 3)
-        left 0
-        width 0
-        position fixed
-        top $navBar_height
-        height "calc(100vh - %s)" % $navBar_height
-        &.is-locked {
-            forceShowDrawer()
-        }
-        //forceShowDrawer()
-    }
-    .site-content {
+        visibility visible
+        opacity 1
         transition none
-        right 0
+    }
+    .mobileMenu--active .mainNavigation::before {
+        content none
+    }
+
+    .mainMenu {
+        //float left
+        padding 0
+        max-width $desktop
+        margin auto
+    }
+
+    .mainMenu {
+        > ul {
+            width auto
+        }
+        h2 {
+            font-size 0.9em
+            color lighten($discreetInk, 20)
+            margin 0
+            padding 10px 0
+            height 4em
+            display none
+        }
+        &--hasGrandChild {
+            h2 {
+                display block
+            }
+        }
+    }
+
+    .mainMenu__childItem {
+        li {
+            border-bottom none
+        }
+        a {
+            padding 0.5rem 1.1875rem
+            margin 0 -1.1875rem
+            &:hover {
+                background #f2f2f2
+            }
+        }
+    }
+    .mainMenu .mainMenu--childActive {
+        padding 0
+        width auto
+        position relative
+        left auto
+    }
+
+    .mainMenu__parentItem {
+        padding 0 1rem
+        line-height $navBar_height
+        letter-spacing 0.02em
+    }
+
+    .mainMenu--hasChild .mainMenu__parentItem {
+        &::after, &::before {
+            content none
+        }
+    }
+
+    .mainMenu--childActive .mainMenu__parentItem {
+        position relative
+        top auto
+        font-size $htmlFontSize
+        background-color darken($menuBackgroundColor, 5)
+        color #fff !important
+    }
+
+    .mainMenu--hasChild.mainMenu--childActive .mainMenu__childGroup {
+        overflow visible
+        padding-top 0
+        visibility visible
+        opacity 1
+        transition opacity 200ms cubic-bezier(0, 0, 0.5, 1)
+        padding-bottom 0
+    }
+
+    .mainMenu .mainMenu__childGroup {
+        margin 0 //
+        transform translate3d(0, 0, 0)
+        position absolute
+        top 100%
+        left 0
+        background-color #fff
+        box-shadow 0 0.1875rem 0.375rem 0 rgba(44, 62, 80, 0.25)
+        border-radius 0 0 0.125rem 0.125rem
+        display flex !important
+        width auto
+        visibility hidden
+        opacity 0
+        transition opacity 200ms cubic-bezier(0.5, 0, 1, 1)
+    }
+
+    .mainMenu__columns {
+        padding 0.5rem 1.1875rem
+        min-width 14rem
+        max-width 17rem
+        width auto
+        border-right 1px solid rgba(190, 195, 200, 0.2)
+        margin 0 !important
     }
 }
 
-//+isAbove($desktop) {
-//	.site-drawer {
-//		forceShowDrawer()
-//	}
-//}
+
+
+.stickyNav__actions__login {
+    font-size 12px
+    text-align center
+    overflow hidden
+    line-height $navBar_height
+    position relative
+    top 1px
+    .service-menu__button {
+        padding 3px 5px
+        width 100px
+        background white
+        color darken($navBar_background_color, 5)
+        font-weight 500
+        text-shadow none
+        display inline-block
+        padding 0 10px
+        line-height 2em
+        margin 0 10px
+        border-radius 2px
+        transition max-width 200ms ease
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+    }
+}

@@ -1,9 +1,7 @@
-<div class="horizontal-stripe--paddingless m-t-1" ng-if="speciesKey2.images.$resolved && speciesKey2.mappedOccurrences.$resolved">
-    <div class="container--desktop">
-        <h4 class="text-muted small text-uppercase">See also</h4>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="card">
+    <div class="m-t-1" ng-if="speciesKey2.images.$resolved && speciesKey2.mappedOccurrences.$resolved">
+            <h4 class="text-muted small text-uppercase">See also</h4>
+
+            <div class="card" >
                     <div class="container-fluid card--padded">
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 text-center">
@@ -28,7 +26,4 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
-</div>

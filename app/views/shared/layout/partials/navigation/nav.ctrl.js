@@ -8,7 +8,7 @@ angular
     .controller('navCtrl', navCtrl);
 
 /** @ngInject */
-function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, Notifications) {
+function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS, $sessionStorage, $scope, $state, hotkeys, NOTIFICATIONS, $timeout) {
     var vm = this;
     var toggleGroup = [
         NAV_EVENTS.toggleSearch,
@@ -16,6 +16,22 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
         NAV_EVENTS.toggleNotifications,
         NAV_EVENTS.toggleUserMenu
     ];
+
+    vm.scrollOffset = 0;
+    angular.element($window).bind('scroll', function(){
+        var offset = this.pageYOffset;
+        $timeout(function () {
+            vm.scrollOffset = offset;
+        }, 0);
+    });
+    vm.activeMenu = undefined;
+    vm.toggleMenu = function(firstLevelItem) {
+        if (vm.activeMenu == firstLevelItem) {
+            vm.activeMenu = undefined;
+        } else {
+            vm.activeMenu = firstLevelItem
+        }
+    };
 
     vm.openMenu = function(navEvent){
         toggleGroup.forEach(function(e){
@@ -25,6 +41,10 @@ function navCtrl($window, $http, $location, $rootScope, NAV_EVENTS, AUTH_EVENTS,
                 $rootScope.$broadcast(e, {state: false});
             }
         });
+    };
+
+    vm.toggleMobileMenu = function(){
+        vm.mobileMenuActive = !vm.mobileMenuActive;
     };
 
     vm.toggleNotifications = function () {

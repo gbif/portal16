@@ -1,171 +1,111 @@
-{% include "./mobileheader/mobileheader.nunjucks" %}
-
-<nav id="nav" class="site-nav" role="navigation" ng-controller="navCtrl as nav">
-    <div class="service-menu is-category">
-        <div class="service-menu__teaser">
-            <a href="">
-                {#<div class="service-menu__teaser-message">#}
-                {#<span>Welcome back</span>#}
-                {#<span>Doctor J. Lamiales</span>#}
-                {#</div>#}
-            </a>
-        </div>
-        <ul>
-            <!-- <li class="service-menu__search is-category">
-                <a href="#search">Search</a>
-            </li> -->
-            {#{% if not _meta.hideSearchAction %}#}
-            <li class="service-menu__search">
-                <a href="" ng-click="nav.toggleSearch()">
-                    <span class="service-menu__icon gb-icon-search2"></span>
-                    <span class="service-menu__text">Search</span>
-                </a>
-            </li>
-            {#{% endif %}#}
-
-            {% if not meta.hideFeedback %}
-                <li class="service-menu__feedback">
-                    <a href="" ng-click="nav.toggleFeedback()">
-                        <span class="service-menu__icon gb-icon-bubble"></span>
-                        <span class="service-menu__text">Feedback</span>
-                    </a>
-                    <span class="badge badge--error menu-notification ng-cloak"
-                          ng-if="nav.issuesCount">{{ nav.issuesCount }}</span>
-                </li>
-            {% endif %}
-
-            <li class="service-menu__notifications">
-                <a href="" ng-click="nav.toggleNotifications()">
-                    <span class="service-menu__icon gb-icon-notifications"></span>
-                    <span class="service-menu__text">Notifications</span>
-                </a>
-                <span class="notification-circle menu-notification {{ nav.notifications.severity.className }}" ng-if="nav.notifications.count > 0"></span>
-            </li>
-
-            <li class="service-menu__profile">
-                <!-- <a href="{$ gb.locales.urlPrefix $}/user/login"> -->
-                <a href="" ng-click="nav.toggleUserMenu()">
-                    <span class="service-menu__buttonWrapper">
-                        <span class="service-menu__button hoverBox">
-                            <div class="inline-block">
-                                <span class="ng-cloak">{{nav.loginGreeting}}</span>
-                            </div>
-                        </span>
-                    </span>
-                </a>
-            </li>
-
-            {#<li class="service-menu__profile is-category">#}
-                {#<a href="">#}
-                    {#<span class="service-menu__icon gb-icon-account"></span>#}
-                    {#<span class="service-menu__text">Account</span>#}
-                {#</a>#}
-                {#<ul>#}
-                    {#<li>#}
-                        {#<a href="">Not implemented yet</a>#}
-                    {#</li>#}
-                    {#<!--li>#}
-                       {#<a href="#2">Register</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                       {#<a href="#3">Sign out</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                       {#<a href="#4">My datasets</a>#}
-                    {#</li-->#}
-                {#</ul>#}
-            {#</li>#}
-
-
-
-            <!-- <li class="service-menu__language is-category">
-               <a href="#" class="gb-icon-global">Language</a>
-               <ul>
-                  <li>
-                     <a href="#1">English</a>
-                  </li>
-                  <li>
-                     <a href="#2">Other languages not implemented yet</a>
-                  </li>
-               </ul>
-            </li>
-            <li class="service-menu__notifications is-own-menu is-active-x">
-               <a href="#" class="gb-icon-search">Search</a>
-               <ul>
-                  <li>
-                     <a href="#1">sdf</a>
-                  </li>
-                  <li>
-                     <a href="#2">Swfghahili</a>
-                  </li>
-                  <li>
-                     <a href="#3">Spawernish</a>
-                  </li>
-                  <li>
-                     <a href="#4">Ruscvbsian</a>
-                  </li>
-               </ul>
-            </li> -->
-        </ul>
-    </div>
-
-
-    <div class="main-menu">
-        <a href="{$ gb.locales.urlPrefix $}/" class="main-menu__home">
-            <span class="main-menu__icon gb-icon-home"></span>
-            <span class="main-menu__icon gb-icon-logo"></span>
-            <span class="main-menu__home__text">{$ __('menu.home') $}</span>
+<div class="stickyNav"
+     ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
+     ng-controller="navCtrl as nav">
+    <div class="stickyNav__container">
+        <a href="/" id="block-logo" class="gbif-logo">
+            <svg viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
+                <path class="gbif-logo-svg"
+                      d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"/>
+                <path class="gbif-logo-svg" d="M534.3,731c24.4,0,43.2-3.5,62.4-10.5c0-71-42.4-121.8-117.2-158.4c-57.2-28.7-127.7-43.6-192.1-43.6
+	c28.2-84.6,7.6-189.7-19.7-247.4c-30.3,60.4-49.2,164-20.1,248.3c-57.1,4.2-102.4,29.1-121.6,61.9c-1.4,2.5-4.4,7.8-2.6,8.8
+	c1.4,0.7,3.6-1.5,4.9-2.7c20.6-19.1,47.9-28.4,74.2-28.4c60.7,0,103.4,50.3,133.7,80.5C401.3,704.3,464.8,731.2,534.3,731"/>
+            </svg>
         </a>
-        <ul>
-            {% for menuGroup in gb.menu %}
-                {% if menuGroup.type == 'normal' %}
-                    <li class="main-menu__item is-category">
-                        <a href="">
-                            <span class="main-menu__icon {$ menuGroup.icon $}"></span>
-                            <span class="main-menu__text">{$ __('menu.' + menuGroup.name) $}</span>
-                        </a>
-                        <ul>
-                            {% for item in menuGroup.items %}
-                                <li>
-                                    <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$
-                                        __('menu.' + item.name) $}
-                                        {% if item.type == 'EXTERNAL' %}
-                                            <span class="gb-icon-link"></span>
-                                        {% endif %}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
+
+        <div class="stickyNav__actions">
+            <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
+                <span class="service-menu__button hoverBox">
+                    <div class="inline-block">
+                        <span class="ng-cloak">{{nav.loginGreeting}}</span>
+                    </div>
+                </span>
+            </a>
+            <a href="" class="stickyNav__actions__action gb-icon-notifications stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()" ng-class="{'stickyNav__actions__action--notification': nav.issuesCount}"></a>
+            <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()" ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>
+        </div>
+        <div class="mainNavigation" ng-class="{'isActive': nav.mobileMenuActive}">
+            <nav class="mainMenu" click-outside="nav.toggleMenu()">
+                <ul>
+                    {% for menuGroup in gb.menu %}
+                        {% if menuGroup.type == 'normal' %}
+                            <li class="mainMenu--hasChild mainMenu__firstLevel"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == '{$ menuGroup.name $}'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')">{$ __('menu.' + menuGroup.name) $}</a>
+                                <ul class="mainMenu__childGroup">
+                                    <li class="mainMenu__columns">
+                                        <nav><h2>{# NO SUB HEADER SINCE THERE IS ONLY ONE CHILD #}</h2>
+                                            <ul class="mainMenu__childItem">
+                                                {% for item in menuGroup.items %}
+                                                    <li>
+                                                        <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$
+                                                            __('menu.' + item.name) $}
+                                                            {% if item.type == 'EXTERNAL' %}
+                                                                <span class="gb-icon-link"></span>
+                                                            {% endif %}
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </nav>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        {% if menuGroup.type == 'mega' %}
+                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild"
+                                ng-class="{'mainMenu--childActive': nav.activeMenu == '{$ menuGroup.name $}'}">
+                                <a class=" mainMenu__parentItem" href=""
+                                   ng-click="nav.toggleMenu('{$ menuGroup.name $}')">{$ __('menu.' + menuGroup.name)
+                                    $}</a>
+                                <ul class="mainMenu__childGroup">
+                                    {% for category in menuGroup.items %}
+                                        <li class="mainMenu__columns">
+                                            <nav><h2>{$ __('menu.' + category.name) $}</h2>
+                                                <ul class="mainMenu__childItem">
+                                                    {% for item in category.items %}
+                                                        <li>
+                                                            <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$
+                                                                __('menu.' + item.name) $}
+                                                                {% if item.type == 'EXTERNAL' %}
+                                                                    <span class="gb-icon-link"></span>
+                                                                {% endif %}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </nav>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
+                        {#<a class="mainMenu__parentItem" href=""#}
+                           {#ng-click="nav.mobileMenuActive = false; nav.toggleFeedback()">Feedback</a>#}
+                    {#</li>#}
+                    {#<li class="mainMenu__firstLevel hide-on-laptop">#}
+                        {#<a class="mainMenu__parentItem" href="/search">Search</a>#}
+                    {#</li>#}
+                    <li class="mainMenu__firstLevel hide-on-laptop">
+                        <a class="mainMenu__parentItem" href="" ng-click="nav.toggleUserMenu()">User profile <span ng-bind="nav.loginGreeting" class="mainMenu__greenText m-l-1"></span></a>
                     </li>
-                {% endif %}
-                {% if menuGroup.type == 'mega' %}
-                    <li class="is-category is-mega">
-                        <a href="">
-                            <span class="main-menu__icon {$ menuGroup.icon $}"></span>
-                            <span class="main-menu__text">{$ __('menu.' + menuGroup.name) $}</span>
-                        </a>
-                        <ul>
-                            {% for category in menuGroup.items %}
-                                <li class="is-category">
-                                    <a class="category-header" href="#">{$ __('menu.' + category.name) $}</a>
-                                    <ul>
-                                        {% for item in category.items %}
-                                            <li>
-                                                <a href="{% if item.type != 'EXTERNAL' %}{$ gb.locales.urlPrefix $}{% endif %}{$ item.url $}">{$
-                                                    __('menu.' + item.name) $}
-                                                    {% if item.type == 'EXTERNAL' %}
-                                                        <span class="gb-icon-link"></span>
-                                                    {% endif %}
-                                                </a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+                </ul>
+            </nav>
+            {#<nav class="user-menu">#}
+            {#<ul>#}
+            {#<li class="user-menu__firstLevel"><a href="https://account.box.com/login"#}
+            {#class="user-menu_log-in user-menu__parentItem">Log in</a></li>#}
+            {#<li class="user-menu__firstLevel"><a href="/pricing"#}
+            {#class="user-menu_sign-up user-menu__parentItem">Sign Up</a>#}
+            {#</li>#}
+            {#</ul>#}
+            {#</nav>#}
+
+        </div>
+
     </div>
-</nav>
+</div>

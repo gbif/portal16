@@ -5,6 +5,7 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
     auth = require('../../auth/auth.service'),
+    apiConfig = require('../../../models/gbifData/apiConfig'),
     resource = require('./resourceKey');
 
 module.exports = function (app) {
@@ -21,6 +22,10 @@ router.get('/dataUse/:id/:title?\.:ext?', function (req, res) {
 
 router.get('/article/:id/:title?\.:ext?', function (req, res, next) {
     prose(req, res, next, 'article', 'pages/resource/key/article/article');
+});
+
+router.get('/document/:id/:title?\.:ext?', function (req, res, next) {
+    prose(req, res, next, 'document', 'pages/resource/key/document/document');
 });
 
 router.get('/event/:id/:title?\.:ext?', function (req, res, next) {
@@ -92,6 +97,9 @@ function prose(req, res, next, type, template){
                 description: _.get(contentItem, 'main.fields.summary'),
                 slugTitle: slugTitle
             };
+            if(type === 'event'){
+                contentItem._meta.calendarEventLink = apiConfig.newsroom.url + contentItem.main.sys.id;
+            }
             if (img) {
                 contentItem._meta.image = 'http:' + img;
             }
