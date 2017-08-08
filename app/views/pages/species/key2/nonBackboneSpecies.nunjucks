@@ -1,8 +1,8 @@
 <div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
 
-
+    <div class="container--narrow">
     {% include "./speciesImages.nunjucks" %}
-
+    </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
 
         <div class="container--narrow">
@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card__content">
                         <div ng-repeat="distribution in speciesKey2.distributions.results" class="m-b-1">
-                            <h5 class="text-muted small text-uppercase">Present in {{ distribution.country | countryCodeToName }}</h5>
+                            <h5 class="text-muted small text-uppercase">Present in {{ distribution.country | CountryCodeToName }}</h5>
                             <p ng-if="distribution.threatStatus">Threat status: {{ distribution.threatStatus | formatThreatStatus }}</p>
 
                         </div>

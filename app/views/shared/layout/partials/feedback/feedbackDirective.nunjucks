@@ -153,9 +153,10 @@
                         <label>
                             <span>{$ __('feedback.placeholders.summary') $}</span>
                             <input type="text"
+                                   ng-class="{(vm.functionalityForm)}"
                                    ng-model="vm.issue.title"
                                    placeholder="{$ __('feedback.placeholders.summary') $}"
-                                   focus-me="true">
+                                   focus-me="true" required>
                         </label>
                     </div>
 
