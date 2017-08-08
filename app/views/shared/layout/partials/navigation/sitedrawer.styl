@@ -1,0 +1,80 @@
+.site-drawer {
+  z-index 100
+  width $filterDrawerWidth
+  max-width calc(100% - 25px) //todo parameterizs drawer toggle width
+  position absolute
+  top 0px
+//transition right 200ms ease;
+  transition width 200ms ease;
+  height 100% //"calc(100vh - %s)" % $navBar_height
+//right -($filterDrawerWidth + 3)
+  right 0
+  width 0
+
+  &__wrapper {
+    width $filterDrawerWidth
+    max-width 100%
+    overflow hidden
+  }
+  &__wrapped-content {
+    overflow hidden
+    width 100%// $filterDrawerWidth
+  }
+  .site-drawer__section {
+  //height "calc(100vh - %s)" % vrBlock(6)
+    height "calc(100vh - %s - %s)" % ( $navBar_height $searchTabBar-height )
+    overflow-y auto
+    -webkit-overflow-scrolling touch
+  //&--bottom-panel {
+  //	height "calc(100vh - %s)" % vrBlock(8)
+  //}
+  }
+  &.is-active {
+    right 0
+    width $filterDrawerWidth
+  // max-width 100%
+  }
+// &.site-drawer--wide {
+//     .site-drawer__wrapper {
+//         width $filterDrawerWidthWide
+//     }
+//     .site-drawer__wrapped-content {
+//         width $filterDrawerWidthWide
+//     }
+//     &.is-active {
+//         width $filterDrawerWidthWide
+//     }
+// }
+}
+
+forceShowDrawer() {
+  transition initial
+//right 0
+  width $filterDrawerWidth
+// overflow visible
+  ~ .site-content {
+    padding-left $filterDrawerWidth
+  }
+//&:target ~ .site-content {
+//	right 0
+//}
+}
+
++isAbove($laptop) {
+  .site-drawer {
+  //left -($filterDrawerWidth + 3)
+    left 0
+    width 0
+    position fixed
+    top $navBar_height
+    height "calc(100vh - %s)" % $navBar_height
+    &.is-locked {
+      forceShowDrawer()
+    }
+  //forceShowDrawer()
+  }
+  .site-content {
+    transition none
+    right 0
+  }
+}

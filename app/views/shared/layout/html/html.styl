@@ -1,8 +1,11 @@
-html, body, .site-wrapper {
-    height 100%
+html, body {
+    min-height 100%
     width 100%
-    overflow-x hidden
     background $content_background
+    touch-action manipulation
+}
+body {
+    padding-top 50px
 }
 
 +isAbove($laptop) {
@@ -12,10 +15,10 @@ html, body, .site-wrapper {
     }
 }
 
-.site-canvas {
-    height 100%
-    width 100%
-}
+//.site-canvas {
+//    height 100%
+//    width 100%
+//}
 
 ul, ol {
     margin 0

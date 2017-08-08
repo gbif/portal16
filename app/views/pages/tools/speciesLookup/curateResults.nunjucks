@@ -118,8 +118,11 @@
                     </div>
                 </div>
 
-                <div class="speciesLookup__generate">
+                <div class="speciesLookup__generate" ng-if="speciesLookup.lookupComplete">
                     <a href="" ng-click="speciesLookup.generateCsv()" class="text-uppercase pull-right">generate CSV</a>
+                </div>
+                <div ng-if="!speciesLookup.lookupComplete" class="pull-right discreet">
+                    Looking up names - hang on
                 </div>
             </div>
         </div>

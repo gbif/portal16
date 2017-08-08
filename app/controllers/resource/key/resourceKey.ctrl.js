@@ -5,7 +5,7 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
     auth = require('../../auth/auth.service'),
-    apiConfig = require('../../../models/gbifData/apiConfig'),
+    apiConfig = require('../../../models/gbifdata/apiConfig'),
     resource = require('./resourceKey');
 
 module.exports = function (app) {

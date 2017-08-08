@@ -365,179 +365,19 @@ require('../../../components/focusMe/focusMe.directive');
 
 require('./angular/translate');
 
-var menu = require('../partials/navigation/navigation.js');
-
 var isIE = require('./ieDetection.js')();
 if (isIE) {
     document.body.className += 'IE IE' + isIE;
 }
 
-(function () {
-    function appendScript(conditionalScript) {
-        var el = document.createElement('script');
-        el.setAttribute('src', conditionalScript);
-        document.head.appendChild(el);
-    }
-
-    //We wan't classlist and this is not supported in ie9
-    if (!document.body.classList) {
-        appendScript('//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js');
-    }
-})();
-
-
-//Matches there are vendor prefixes and no suport in ie9
-this.Element && function (ElementPrototype) {
-    ElementPrototype.matchesSelector = ElementPrototype.matchesSelector ||
-        ElementPrototype.mozMatchesSelector ||
-        ElementPrototype.msMatchesSelector ||
-        ElementPrototype.oMatchesSelector ||
-        ElementPrototype.webkitMatchesSelector ||
-        function (selector) {
-            var node = this, nodes = (node.parentNode || node.document).querySelectorAll(selector), i = -1;
-            while (nodes[++i] && nodes[i] != node);
-            return !!nodes[i];
-        }
-}(Element.prototype);
-
-
-function increaseNumber(num) {
-    return num + menu.myvar;
-}
-
-module.exports = {
-    increaseNumber: increaseNumber
-};
-
-
 //Create a global GBIF Object
 (function (global) {
     var gb = global.gb || {},
         util = {VERSION: '0.0.1'};
-
-
-    //event listeners
-    util.addEventListenerAll = function (selector, eventName, handler) {
-        util.forEachElement(selector, function (el) {
-            el.addEventListener(eventName, handler);
-        })
-    };
-
-    //misc
-    util.forEachElement = function (selector, fn) {
-        var elements = document.querySelectorAll(selector);
-        for (var i = 0; i < elements.length; i++)
-            fn(elements[i], i);
-    };
-
-    //consider moving into polyfill
-    util.matches = function (el, selector) {
-        var p = Element.prototype;
-        var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function (s) {
-                return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
-            };
-        return f.call(el, selector);
-    };
-
-
     gb.util = util;
     global.gb = gb;
 })(window);
 
-
-var searchToggleSelector = '.site-header__search-toggle',
-    navToggleSelector = '.site-header__menu-toggle';
-var toggleMenu = function () {
-    document.getElementById('site-header').classList.toggle('is-active');
-    document.getElementById('site-canvas').classList.toggle('hasActiveMenu');
-
-    gb.util.forEachElement(searchToggleSelector, function (el) {
-        el.classList.remove('is-active');
-    });
-
-    var searchAreaEl = document.getElementById('site-search');
-    searchAreaEl.classList.remove('is-active');
-};
-gb.util.addEventListenerAll(navToggleSelector, 'click', toggleMenu);
-
-
-function getAncestors(el, stopEl) {
-    var ancestors = [];
-    while ((el = el.parentElement) && el != stopEl) ancestors.push(el);
-    return ancestors;
-}
-
-//collapse and expand menu items
-var siteNav = document.getElementById('nav');
-if (siteNav) {
-    var SiteNavCategoryItems = siteNav.querySelectorAll('.is-category');
-    gb.util.addEventListenerAll('.is-category>a', 'click', function (event) {
-        var ancestors = getAncestors(this, siteNav),
-            child, i;
-
-        //collpase all items that are not parents
-        for (i = 0; i < SiteNavCategoryItems.length; i++) {
-            child = SiteNavCategoryItems[i];
-            if (ancestors.indexOf(child) == -1) {
-                child.classList.remove('is-expanded');
-            }
-        }
-
-        if (!siteNav.classList.contains('is-expanded')) {
-            //for horizontal layout. When changing from laptop to mobile this means that the first menu click is ignored
-            this.parentNode.classList.add('is-expanded');
-        }
-        else {
-            this.parentNode.classList.toggle('is-expanded');
-        }
-        siteNav.classList.add('is-expanded');//use for horizontal layout
-        event.preventDefault(); //do not scroll to top
-    });
-
-    //collapse expand service menu
-    gb.util.addEventListenerAll('.service-menu__teaser>a', 'click', function () {
-        this.parentNode.parentNode.classList.toggle('is-expanded');
-    });
-}
-
-//Search toggling
-function toggleSearchDrawer() {
-    "use strict";
-    gb.util.forEachElement(searchToggleSelector, function (el) {
-        el.classList.toggle('is-active');
-    });
-
-    var searchAreaEl = document.getElementById('site-search');
-    searchAreaEl.classList.toggle('is-active');
-    if (searchAreaEl.classList.contains('is-active')) {
-        //searchAreaEl.querySelector('input').focus();
-        window.setTimeout(function () {
-            searchAreaEl.querySelector('input').focus();
-        }, 150);
-    }
-    closeMenus();
-}
-gb.util.addEventListenerAll(searchToggleSelector, 'click', function (event) {
-    toggleSearchDrawer();
-    event.preventDefault();
-});
-
-
-//close menu when clicking outside
-function closeMenus() {
-    siteNav.classList.remove('is-expanded');
-    if (document.getElementById('site-canvas').classList.contains('hasActiveMenu')) {
-        toggleMenu();
-    }
-}
-function closeMenusOnClickOutside(event) {
-    var clickOnContent = gb.util.matches(event.target, '#main *');
-    if (clickOnContent) {
-        closeMenus();
-    }
-}
-document.addEventListener('click', closeMenusOnClickOutside);
-document.addEventListener('touchend', closeMenusOnClickOutside);
 
 //Small test to add a class if it is a touch device. Will not catch all devices, so only use as a supplement. See http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
 window.gb = window.gb || {};
