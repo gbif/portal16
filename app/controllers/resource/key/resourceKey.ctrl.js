@@ -5,6 +5,7 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router(),
     auth = require('../../auth/auth.service'),
+    apiConfig = require('../../../models/gbifData/apiConfig'),
     resource = require('./resourceKey');
 
 module.exports = function (app) {
@@ -96,6 +97,9 @@ function prose(req, res, next, type, template){
                 description: _.get(contentItem, 'main.fields.summary'),
                 slugTitle: slugTitle
             };
+            if(type === 'event'){
+                contentItem._meta.calendarEventLink = apiConfig.newsroom.url + contentItem.main.sys.id;
+            }
             if (img) {
                 contentItem._meta.image = 'http:' + img;
             }

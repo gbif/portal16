@@ -78,13 +78,19 @@ require('angular-svg-round-progressbar');
     //}
 
     /** @ngInject */
-    function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig) {
+    function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
         $localStorageProvider.setKeyPrefix('gbif.');
         $sessionStorageProvider.setKeyPrefix('gbif.');
         // localStorageServiceProvider
         //     .setPrefix('gbif')
         //     .setStorageType('localStorage')
         //     .setDefaultToCookie(false);
+
+
+
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|webcal):/);
+
+
 
         angular.extend(toastrConfig, {
             autoDismiss: false,

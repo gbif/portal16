@@ -19,7 +19,7 @@
                                 {% if main.fields.primaryLink %}
                                 <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small">{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
                                 {% endif %}
-                                <a href="" class="gb-button--discreet small">Add to calendar</a>
+                                <a href="{$ _meta.calendarEventLink $}" class="gb-button--discreet small">Add to calendar</a>
                             </div>
 
                             <div class="article-header__highlights">
