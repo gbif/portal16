@@ -30,21 +30,21 @@
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th ><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
+                <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
                        translate="theGbifNetwork.dataset"
                        translate-values="{NUMBER: 'one'}">
                     </a>
                     <div ng-show="sort.field == 'datasetFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'datasetFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th ><a ng-click="sort.field = 'occurrenceFromCountSort'; sort.Reverse = !sort.Reverse"
+                <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'occurrenceFromCountSort'; sort.Reverse = !sort.Reverse"
                        translate="theGbifNetwork.record"
                        translate-values="{NUMBER: 'one'}">
                     </a>
                     <div ng-show="sort.field == 'occurrenceFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'occurrenceFromCountSort' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th ><a ng-click="sort.field = 'endorsedPublishersSort'; sort.Reverse = !sort.Reverse"
+                <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'"><a ng-click="sort.field = 'endorsedPublishersSort'; sort.Reverse = !sort.Reverse"
                        translate="stdTerms.publisher">
                     </a>
                     <div ng-show="sort.field == 'endorsedPublishersSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
@@ -71,20 +71,20 @@
                     <span ng-if="!participant.memberSince && participant.membershipStart"> {{participant.membershipStart.split('-')[0]}}</span>
                 </td>
 
-                <td >
+                <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'">
                     <a ng-if="participant.type === 'COUNTRY'"
                        ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"
                        href="/dataset/search?type=OCCURRENCE&publishing_country={{ participant.iso2 }}"></a>
                     <span ng-if="participant.type === 'OTHER'" ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"></span>
                 </td>
 
-                <td >
+                <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'">
                     <a ng-if="participant.type === 'COUNTRY'"
                        ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"
                        href="/occurrence/search?publishing_country={{ participant.iso2 }}&advanced=1"></a>
                     <span ng-if="participant.type === 'OTHER'" ng-bind="participant.occurrenceFromCountSort | localNumber:gb.locale"></span>
                 </td>
-                <td  ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td>
+                <td  ng-if="vm.currentRegion !== 'GBIF_AFFILIATES'" ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td>
             </tr>
             </tbody>
         </table>

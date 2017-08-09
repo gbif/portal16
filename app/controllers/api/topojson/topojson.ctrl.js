@@ -63,13 +63,10 @@ router.get('/topojson/world/participants', (req, res, next) => {
                 }
             });
 
-                worldTopoJson.objects.world.geometries = worldTopoJson.objects.world.geometries.filter(geo => {
+                worldTopoJson.objects.world.geometries.forEach(geo => {
                     if (keyed[geo.properties.ISO2]) {
                         geo.properties = Object.assign(geo.properties, keyed[geo.properties.ISO2]);
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    } ;
                 });
 
 

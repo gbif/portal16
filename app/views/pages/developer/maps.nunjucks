@@ -38,9 +38,13 @@
         </section>
 
         <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+
+            <div layout="row">
+                <div flex-gt-sm="25">
             {% set sections = {'features':'Feature overview', 'spec':'The tile URL format', 'layers':'Layer content', 'colors':'Styling a layer', 'preview':'Preview'} %}
             {$ api.submenu(sections) $}
-
+                </div>
+                <div>
             <section id="features" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Feature overview</h3>
@@ -535,6 +539,8 @@
                     </div>
                 </div>
             </section>
+        </div>
+            </div>
         </div>
 
     </article>

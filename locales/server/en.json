@@ -2362,8 +2362,8 @@
     "issueTracking": "All issues are visible to the public at {Github}",
     "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
-    "commentSingular": "{{commentCount}} comment",
-    "commentPlural": "{{commentCount}} comments"
+    "commentSingular": "{commentCount} comment",
+    "commentPlural": "{commentCount} comments"
   },
   "installationType": {
     "IPT_INSTALLATION": "IPT installation",

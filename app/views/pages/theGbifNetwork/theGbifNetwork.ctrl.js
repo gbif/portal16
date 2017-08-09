@@ -61,7 +61,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
             var  width = (currentlySelectedFeature === feature) ? 2 : 1;
             return new ol.style.Style({
                 fill: new ol.style.Fill({
-                    color: colors[feature.O.membershipType]
+                    color: colors[feature.O.membershipType] || '#A9A9A9'
                 }),
                 stroke: new ol.style.Stroke({
                     color: stroke,
@@ -233,7 +233,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                 query = {'membershipType': 'gbif_affiliate'};
                 break;
             default:
-                query = {'gbifRegion': region};
+                query = {'gbifRegion': region };
         }
 
 
@@ -333,6 +333,11 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                         r.endorsedPublishersSort = r.endorsedPublishers;
                     }
                 });
+                if(regionCenters[region]){
+                response = response.filter(function(p){
+                    return p.participationStatus !== "AFFILIATE"
+                })
+                }
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
             }, function(error) {

@@ -51,7 +51,7 @@
                                                   translate-values="{commentCount: item.comments}"></span>
                                             <span ng-if="item.comments==1" translate="feedback.commentSingular"
                                                   translate-values="{commentCount: item.comments}"></span>
-                                            <span ng-if="item.comments>1" translate="feedback.commentPlural"
+                                            <span ng-if="1 < item.comments" translate="feedback.commentPlural"
                                                   translate-values="{commentCount: item.comments}"></span>
                                         </span>
                                     </div>
