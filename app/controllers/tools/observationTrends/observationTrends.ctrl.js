@@ -13,7 +13,6 @@ router.get('/tools/observation-trends', function (req, res, next) {
             _meta: {
                 title: req.__("meta.observationTrendsTitle"),
                 description: req.__("meta.observationTrendsDescription"),
-                hideFooter: true
             },
             aboutUrl: 'tools/observation-trends/about'
         });

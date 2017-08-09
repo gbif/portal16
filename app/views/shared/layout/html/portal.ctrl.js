@@ -7,7 +7,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH) {
+function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH, Page) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.constantKeys = constantKeys;
@@ -17,6 +17,7 @@ function portalCtrl(BUILD_VERSION, env, constantKeys, IS_TOUCH) {
     vm.imageCache = env.imageCache;
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
+    vm.getDrawer = Page.drawer;
 }
 
 module.exports = portalCtrl;

@@ -17,6 +17,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pa
     var vm = this;
     vm.state = DatasetFilter.getState();
     Page.setTitle('Dataset search');
+    Page.drawer(true);
 
 
     vm.filters = {};

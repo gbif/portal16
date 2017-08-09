@@ -9,6 +9,7 @@ angular
 function occurrenceCtrl($scope, $state, hotkeys, enums, OccurrenceFilter, suggestEndpoints, Species, Dataset, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher) {
     var vm = this;
     Page.setTitle('Occurrence search');
+    Page.drawer(true);
     vm.occurrenceState = OccurrenceFilter.getOccurrenceData();
 
     vm.filters = {};

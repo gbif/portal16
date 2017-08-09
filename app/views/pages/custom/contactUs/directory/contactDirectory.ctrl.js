@@ -14,6 +14,7 @@ angular
 function contactDirectoryCtrl(Page, $state, $stateParams, $http) {
     var vm = this;
     Page.setTitle('Directory');
+    Page.drawer(false);
     vm.$state = $state;
     vm.state = {};
     vm.groups = ['voting', 'associateCountries', 'associateParticipants', 'executiveCommittee', 'scienceCommittee', 'budgetCommittee', 'nsg', 'nodesCommittee', 'secretariat'];

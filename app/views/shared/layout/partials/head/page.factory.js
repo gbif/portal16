@@ -8,10 +8,17 @@ angular
 
 /** @ngInject */
 function pageFactory() {
-    var title = undefined;
+    var title = undefined,
+        drawer = false;
     return {
         title: function() { return title; },
-        setTitle: function(newTitle) { title = newTitle; }
+        setTitle: function(newTitle) { title = newTitle; },
+        drawer: function(drawerBool) {
+            if (typeof drawerBool === 'boolean') {
+                drawer = drawerBool;
+            }
+            return drawer;
+        }
     };
 }
 

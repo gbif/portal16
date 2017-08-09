@@ -12,7 +12,6 @@ function renderSearch(req, res) {
         res.render('pages/resource/search/resourceSearch', {
         _meta: {
             hasTools: true,
-            hideFooter: true,
             title: req.__('stdTerms.resources'),
             description: req.__('meta.resourceDescription')
 

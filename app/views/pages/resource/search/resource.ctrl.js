@@ -11,6 +11,7 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Dataset, Publisher, su
     var vm = this;
     vm.state = ResourceFilter.getState();
     Page.setTitle('Resource search');
+    Page.drawer(true);
     vm.filters = {};
 
     vm.filters.countriesOfCoverage = {

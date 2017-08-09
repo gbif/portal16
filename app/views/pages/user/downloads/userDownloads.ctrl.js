@@ -12,6 +12,7 @@ function userDownloadsCtrl($state, $rootScope, $http, NAV_EVENTS, endpoints, $st
     var vm = this;
     User.loadActiveUser();
     Page.setTitle('My downloads');//TODO move into translation file
+    Page.drawer(false);
 
     function updatePaginationCounts() {
         vm.offset = parseInt($stateParams.offset) || 0;
