@@ -17,13 +17,15 @@ router.get('/:page', function (req, res, next) {
 });
 
 function renderPage(req, res, next, page) {
+
+    var title = (page === 'summary') ? 'GBIF REST API' :'GBIF ' + _.camelCase(page) + ' API';
     try {
         res.render('pages/developer/' + page, {
             page: page,
             apiBase: apiCfg.base.url,
             apidocs: cfg.apidocs,
             _meta: {
-                title: 'GBIF ' + _.camelCase(page) + ' API'
+                title: title
             }
         });
     } catch (e) {

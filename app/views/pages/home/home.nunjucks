@@ -88,12 +88,6 @@ nature, PLOS, ... and
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
-                        <a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">
-                            <h3 class="discreet">Species</h3>
-                            <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>
-                        </a>
-                    </article>
-                    <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
                             <h3 class="discreet">Datasets</h3>
                             <div count="{{ portal.dataApi }}dataset/search">30,000</div>
@@ -103,6 +97,12 @@ nature, PLOS, ... and
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
                             <h3 class="discreet">Publishers</h3>
                             <div count="{{ portal.dataApi }}organization">900</div>
+                        </a>
+                    </article>
+                    <article class="article-box article-box--stats">
+                        <a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">
+                            <h3 class="discreet">Species</h3>
+                            <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>
                         </a>
                     </article>
                 </div>
@@ -134,7 +134,7 @@ nature, PLOS, ... and
         </div>
 
         <div class="horizontal-stripe--paddingless light-background ng-cloak">
-            <map-widget filter="home.mapFilter">
+            <map-widget filter="home.mapFilter" map-style="{suggested: 'CLASSIC'}">
                 <form class="search-box mapPopup fixedSize">
                     <input type="text"
                            autocomplete="off"

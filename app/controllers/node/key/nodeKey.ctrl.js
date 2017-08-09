@@ -14,8 +14,8 @@ module.exports = function (app) {
 
 let Participant = rootRequire('app/models/node/participant'),
     Node = rootRequire('app/models/node/node'),
-    countries = rootRequire('app/models/util/country-codes'),
-    countryMap = _.keyBy(_.filter(countries, 'ISO3166-1-Alpha-2'), 'ISO3166-1-Alpha-2'),
+    countries = rootRequire('app/models/enums/basic/country'),
+    countryMap = _.keyBy(countries, _.identity),
     participantView = require('./viewModel');
 
 router.get('/node/:key\.:ext?', function (req, res, next) {
@@ -170,7 +170,7 @@ async function getCountry(isoCode, currentLocale) {
                 }
             };
             nonParticipant._meta = {
-                title: countryMap[isoCode].name
+                title: isoCode
             };
             return nonParticipant;
         }

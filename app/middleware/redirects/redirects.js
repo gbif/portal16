@@ -27,7 +27,5 @@ function removeSlashes(str){
     return str.replace(/(\/)+$/,'');
 }
 
-console.log("###########")
-console.log(redirectList)
 
 module.exports = handleRedirects;

@@ -21,7 +21,7 @@ function menuSearchDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function menuSearch($scope, NAV_EVENTS, $timeout) {
+    function menuSearch($scope, NAV_EVENTS, $timeout, IS_TOUCH) {
         var vm = this;
         vm.isActive = false;
 
@@ -47,6 +47,12 @@ function menuSearchDirective(BUILD_VERSION) {
 
         vm.closeOnEsc = function (event) {
             if (event.which === 27) {
+                vm.isActive = false;
+            }
+        };
+
+        vm.clickedOutside = function() {
+            if (!IS_TOUCH) {
                 vm.isActive = false;
             }
         };

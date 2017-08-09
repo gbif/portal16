@@ -16,13 +16,13 @@
 
             <div class="m-b-5">
                 <form class="gb-form" name="userProfile.profileForm" ng-submit="userProfile.updateProfile()">
-                    <fieldset ng-disabled="!userProfile.inEditMode">
+                    <fieldset>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
                                 <div class="gb-form__group">
                                     <label>
                                         <span>First name</span>
-                                        <input type="text" name="firstName" ng-model="userProfile.profile.firstName">
+                                        <input type="text" name="firstName" ng-model="userProfile.profile.firstName" ng-disabled="!userProfile.inEditMode">
                                     </label>
                                     <!--<div ng-messages="vm.createUserForm.firstName.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
                                         <!--<div ng-message="required">Username required</div>-->
@@ -33,7 +33,7 @@
                                 <div class="gb-form__group">
                                     <label>
                                         <span>Last name</span>
-                                        <input type="text" name="lastName" ng-model="userProfile.profile.lastName">
+                                        <input type="text" name="lastName" ng-model="userProfile.profile.lastName" ng-disabled="!userProfile.inEditMode">
                                     </label>
                                     <!--<div ng-messages="vm.createUserForm.username.$error" class="text-error small" role="alert" ng-show="vm.formInvalid">-->
                                         <!--<div ng-message="required">Username required</div>-->
@@ -45,7 +45,7 @@
                                 <div class="gb-form__group">
                                     <label>
                                         <span>Email</span>
-                                        <input type="text" ng-pattern="userProfile.emailPattern" name="email" required ng-model="userProfile.profile.email">
+                                        <input type="text" ng-pattern="userProfile.emailPattern" name="email" required ng-model="userProfile.profile.email" ng-disabled="!userProfile.inEditMode">
                                     </label>
                                     <div ng-messages="userProfile.profileForm.email.$error" class="text-error small" role="alert" ng-show="userProfile.profileFormInvalid">
                                         <div ng-message="required">Email required</div>
@@ -69,7 +69,8 @@
                                                typeahead-no-results="userProfile.invalidCountry"
                                                typeahead-select-on-blur="true"
                                                typeahead-editable="false"
-                                               typeahead-focus-first="true">
+                                               typeahead-focus-first="true"
+                                               ng-disabled="!userProfile.inEditMode">
                                     </label>
                                     <div ng-messages="userProfile.profileForm.country.$error" class="text-error small" role="alert" ng-show="userProfile.profileFormInvalid">
                                         <div ng-message="required">Country required</div>

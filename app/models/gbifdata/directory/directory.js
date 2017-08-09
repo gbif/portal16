@@ -516,7 +516,7 @@ Directory.getCommitteeContacts = (group, contacts) => {
             // determine the role to show
             committee.forEach(function (member) {
                 if (!member.hasOwnProperty('participantName')) {
-                    if (member.participants.length > 0) {
+                    if (member.participants && member.participants.length > 0) {
                         member.participantName = member.participants[0].participantName;
                     }
                 }
@@ -524,13 +524,13 @@ Directory.getCommitteeContacts = (group, contacts) => {
                     if (!member.hasOwnProperty('roles')) {
                         member.roles = [];
                     }
-                    if (member.nodes.length > 0) {
+                    if (member.nodes && member.nodes.length > 0) {
                         member.nodes.forEach(function (node) {
                             member.roles.push({'nodeId': node.nodeId, 'role': node.role});
                         });
                     }
                     // if member is from Nodes Committee, get their participant name from Node object.
-                    if (member.nodes.length > 0) {
+                    if (member.nodes && member.nodes.length > 0) {
                         member.nodes.forEach(function (node) {
                             if (node.role == 'NODE_MANAGER') {
                                 member.participantName = node.participantName;

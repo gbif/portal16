@@ -14,6 +14,7 @@ angular
 function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtended, OccurrenceSearch, ResourceSearch, Node, Page, PublisherInstallations, DatasetSearch, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Publisher');
+    Page.drawer(false);
     vm.key = $stateParams.key;
     vm.capabilities = MapCapabilities.get({publishingOrg: vm.key});
     vm.$state = $state;

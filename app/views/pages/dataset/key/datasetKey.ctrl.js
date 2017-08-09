@@ -23,6 +23,7 @@ angular
 function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
+    Page.drawer(false);
 
     vm.key = $stateParams.key;
     vm.capabilities = MapCapabilities.get({datasetKey: vm.key});

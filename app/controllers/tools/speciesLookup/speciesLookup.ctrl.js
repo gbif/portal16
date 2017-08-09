@@ -8,7 +8,8 @@ module.exports = function (app) {
 router.get('/tools/species-lookup', function (req, res) {
     res.render('pages/tools/speciesLookup/speciesLookup', {
         _meta: {
-            title: 'Species lookup'
+            title: req.__("meta.speciesLookupTitle"),
+            description: req.__("meta.speciesLookupDescription"),
         }
     });
 });

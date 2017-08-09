@@ -1,5 +1,5 @@
 <aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
-       click-outside="vm.isActive = false">
+       click-outside="vm.clickedOutside()">
     <div class="menubox__wrapper">
         <div class="menubox__top">
             <div class="menubox__header">
@@ -51,7 +51,7 @@
                                                   translate-values="{commentCount: item.comments}"></span>
                                             <span ng-if="item.comments==1" translate="feedback.commentSingular"
                                                   translate-values="{commentCount: item.comments}"></span>
-                                            <span ng-if="item.comments>1" translate="feedback.commentPlural"
+                                            <span ng-if="1 < item.comments" translate="feedback.commentPlural"
                                                   translate-values="{commentCount: item.comments}"></span>
                                         </span>
                                     </div>
@@ -153,9 +153,10 @@
                         <label>
                             <span>{$ __('feedback.placeholders.summary') $}</span>
                             <input type="text"
+                                   ng-class="{(vm.functionalityForm)}"
                                    ng-model="vm.issue.title"
                                    placeholder="{$ __('feedback.placeholders.summary') $}"
-                                   focus-me="true">
+                                   focus-me="true" required>
                         </label>
                     </div>
 

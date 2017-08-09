@@ -2,8 +2,9 @@
 
 var _ = require('lodash'),
     Fuse = require('fuse.js'),
+    countryCodes = rootRequire('app/models/enums/basic/country'),
     countryTranslations = rootRequire('locales/server/en').country,
-    countries = Object.keys(countryTranslations).map(function(key){
+    countries = countryCodes.map(function(key){
         return {title: countryTranslations[key], key: key }
     }),
     Participant = rootRequire('app/models/node/participant'),

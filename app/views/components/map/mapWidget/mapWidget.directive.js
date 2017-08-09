@@ -57,6 +57,11 @@ function mapWidgetDirective(BUILD_VERSION) {
             OCCURRENCES: 5
         };
         vm.styles = {
+            CLASSIC_HEX: {
+                baseMap: {style: 'gbif-classic'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
+                background: '#272727'
+            },
             CLASSIC: {
                 baseMap: {style: 'gbif-classic'},
                 overlay: [],
@@ -87,7 +92,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             },
             DARK: {
                 baseMap: {style: 'gbif-dark'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 100}],
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
                 background: '#272727'
             }
         };
@@ -103,9 +108,9 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         $scope.create = function (element) {
 
-
-            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC')] || vm.styles.CLASSIC;
-            vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC');
+            console.log(vm.mapStyle);
+            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.styles.CLASSIC_HEX;
+            vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX');
             vm.widgetContextStyle = {
                 background: suggestedStyle.background
             };

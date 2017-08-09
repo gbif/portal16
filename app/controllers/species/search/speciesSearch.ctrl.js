@@ -7,11 +7,11 @@ module.exports = function (app) {
 
 function renderSearch(req, res) {
     res.render('pages/species/search/speciesSearch', {
-        title: 'Ocurrences',
+        title: 'Species',
         _meta: {
-            hasTools: true,
-            hideFooter: true,
-            title: res.__('stdTerms.search')
+            title: res.__('stdTerms.search'),
+            description: 'Search for species in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.'
+
         }
     });
 }

@@ -1,6 +1,7 @@
 var express = require('express'),
     cfg = require('../../../config/config'),
     apiCfg = require('../../models/gbifdata/apiConfig'),
+    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -23,6 +24,23 @@ router.get('/country/:country/published', function (req, res, next) {
 
 
 function renderPage(req, res, next, path, country, about) {
+
+    let description;
+
+    if (about && country){
+        description =  req.__("meta.analyticsCountry.fromDescription", {country: req.__("country."+country)})  ;
+
+    } else if(country){
+
+        description =  req.__("meta.analyticsCountry.publishedByDescription", {country: req.__("country."+country)})  ;
+
+
+    } else {
+        description = req.__("meta.analyticsGlobalDescription");
+    }
+
+
+
     try {
         res.render('pages/analytics/analytics', {
             country: country,
@@ -30,7 +48,10 @@ function renderPage(req, res, next, path, country, about) {
             thumbBase: apiCfg.image.url + "fit-in/300x250/http://" + cfg.analyticsImg + path + "/figure/",
             imgBase: apiCfg.image.url + "http://" + cfg.analyticsImg + path + "/figure/",
             _meta: {
-                title: 'Data Trends'
+                title: req.__("meta.analyticsTitle"),
+                description: description,
+                imageCache: apiCfg.image.url ,
+                image : "http://" + cfg.analyticsImg + path + "/figure/occ_repatriation.png"
             }
         });
     } catch (e) {

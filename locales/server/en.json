@@ -1514,7 +1514,7 @@
     "description": {
       "VOTING": "A GBIF Voting participant from {REGION}",
       "ASSOCIATE": "An associate participant from {REGION}",
-      "OBSERVER": "An observing participant from {REGION}",
+      "OBSERVER": "A GBIF Observer Country from {REGION}",
       "AFFILIATE": "An affiliate participant from {REGION}",
       "FORMER": "A former participant from {REGION}",
       "undefined": "unknown"
@@ -1941,6 +1941,26 @@
     "literature": {
       "keywords": "Keywords"
     }
+
+  },
+  "meta": {
+    "resourceDescription" : "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "analyticsCountry" : {
+      "fromDescription" : "Change over time in data about species from {{country}} available from GBIF.org",
+      "publishedByDescription": "Change over time in the data published by institutions within {{country}} available from GBIF.org"
+    },
+    "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2016",
+    "analyticsTitle" : "Data trends",
+    "eoiDescription" : "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
+    "eoiTitle" : "Become a publisher",
+    "observationTrendsTitle" : "Observation Trends",
+    "observationTrendsDescription" : "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
+    "speciesLookupDescription" :"Normalize species names from a csv file against the GBIF backbone. The file is expected to be have a column called 'scientificName' and an optional column 'kingdom' and 'id'.",
+    "speciesLookupTitle" : "Species name matching",
+    "searchDescription": "Search GBIF.org",
+    "searchDescriptionDetail" : "for '{{searchTerm}}'",
+    "iptDescription" : "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
+
   },
   "intervals": {
     "elevation": {
@@ -2223,8 +2243,7 @@
     "becomeMember": "Become a member",
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
-    "contactDirectory": "Directory",
-    "contactUs": "Contact us",
+    "contactUs": "Contacts",
     "information": "News & communications",
     "news": "News",
     "literature": "Literature",
@@ -2342,8 +2361,8 @@
     "issueTracking": "All issues are visible to the public at {Github}",
     "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
-    "commentSingular": "{{commentCount}} comment",
-    "commentPlural": "{{commentCount}} comments"
+    "commentSingular": "{commentCount} comment",
+    "commentPlural": "{commentCount} comments"
   },
   "installationType": {
     "IPT_INSTALLATION": "IPT installation",

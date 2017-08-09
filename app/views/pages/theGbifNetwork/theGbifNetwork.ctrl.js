@@ -21,7 +21,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         'GLOBAL': {zoom: 2, lat: 0, lng: 9},
         'ASIA': {zoom: 3, lat: 11, lng: 114},
         'AFRICA': {zoom: 3, lat: 6.6, lng: 16.4},
-        'EUROPE': {zoom: 4, lat: 56, lng: 11},
+        'EUROPE': {zoom: 3.8, lat: 50, lng: 11},
         'LATIN_AMERICA': {zoom: 3, lat: -15, lng: -86},
         'NORTH_AMERICA': {zoom: 3, lat: 51, lng: -107},
         'OCEANIA': {zoom: 4, lat: -30, lng: 138}
@@ -61,7 +61,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
             var  width = (currentlySelectedFeature === feature) ? 2 : 1;
             return new ol.style.Style({
                 fill: new ol.style.Fill({
-                    color: colors[feature.O.membershipType]
+                    color: colors[feature.O.membershipType] || '#A9A9A9'
                 }),
                 stroke: new ol.style.Stroke({
                     color: stroke,
@@ -233,7 +233,7 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                 query = {'membershipType': 'gbif_affiliate'};
                 break;
             default:
-                query = {'gbifRegion': region};
+                query = {'gbifRegion': region };
         }
 
 
@@ -333,6 +333,11 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                         r.endorsedPublishersSort = r.endorsedPublishers;
                     }
                 });
+                if(regionCenters[region]){
+                response = response.filter(function(p){
+                    return p.participationStatus !== "AFFILIATE"
+                })
+                }
                 vm.activeParticipantsDigest = response;
                 vm.tableLoaded = true;
             }, function(error) {

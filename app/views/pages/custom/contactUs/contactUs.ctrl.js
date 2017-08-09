@@ -11,6 +11,7 @@ angular
 function contactUsCtrl(Page, $state) {
     var vm = this;
     Page.setTitle('Contact us');
+    Page.drawer(false);
     vm.$state = $state;
 }
 
