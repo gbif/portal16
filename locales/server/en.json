@@ -861,7 +861,7 @@
     "YE": "Yemen",
     "ZM": "Zambia",
     "ZW": "Zimbabwe",
-    "ZZ": "Unknown"
+    "ZZ": "Unknown country"
   },
   "occurrenceIssue": {
     "ZERO_COORDINATE": "Zero coordinate",
