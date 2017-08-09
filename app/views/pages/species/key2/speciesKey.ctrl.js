@@ -21,23 +21,13 @@ require('../../../components/scientificName/scientificName.directive.js');
 
 angular
     .module('portal')
-    .filter('formatThreatStatus', function() {
-    return function(input) {
-        if(!!input){
-            input = input.replace('_', ' ');
-            return input.charAt(0).toUpperCase() + input.substr(1).toLowerCase();
-        } else {
-            return '';
-        }
-
-    }
-})
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations,SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations,SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION, $translate) {
     var vm = this;
     Page.setTitle('Species');
+    vm.$translate = $translate;
     vm.key = $stateParams.speciesKey;
     vm.$state = $state;
     vm.backboneKey = constantKeys.dataset.backbone;
