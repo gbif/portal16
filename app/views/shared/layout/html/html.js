@@ -1,3 +1,5 @@
+require('./polyfills/polyfills');
+
 //Create a global GBIF Object
 (function (global) {
     var gb = global.gb || {},

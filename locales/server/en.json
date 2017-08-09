@@ -861,7 +861,7 @@
     "YE": "Yemen",
     "ZM": "Zambia",
     "ZW": "Zimbabwe",
-    "ZZ": "Unknown"
+    "ZZ": "Unknown country"
   },
   "occurrenceIssue": {
     "ZERO_COORDINATE": "Zero coordinate",
@@ -2539,5 +2539,23 @@
   "phrases": {
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
+  },
+  "species":{
+    "distribution" : {
+      "presentIn": "Present in {country}",
+      "presentInNonCountry" : "Present in {location}",
+      "threatStatus": {
+        "EXTINCT": "Extinct",
+        "EXTINCT_IN_THE_WILD": "Extinct in the Wild",
+        "CRITICALLY_ENDANGERED": "Critically Endangered",
+        "ENDANGERED": "Endangered",
+        "VULNERABLE": "Vulnerable",
+        "NEAR_THREATENED": "Near Threatened",
+        "LEAST_CONCERN": "Least Concern",
+        "DATA_DEFICIENT": "Data Deficient",
+        "NOT_EVALUATED": "Not Evaluated" ,
+        "threatStatus": "Threat status: {status}"
+      }
+    }
   }
 }
