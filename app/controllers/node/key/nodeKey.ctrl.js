@@ -170,7 +170,7 @@ async function getCountry(isoCode, currentLocale) {
                 }
             };
             nonParticipant._meta = {
-                title: req.__(isoCode)
+                title: isoCode
             };
             return nonParticipant;
         }
