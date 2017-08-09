@@ -36,6 +36,7 @@
 
                             </h5>
                             <h5 ng-if="distribution.locality && !distribution.country" class="text-muted small text-uppercase" translate="species.distribution.presentInNonCountry" translate-values="{location: distribution.locality}"></h5>
+                            <h5 ng-if="!distribution.locality && !distribution.country && distribution.locationId" class="text-muted small text-uppercase" ng-bind="distribution.locationId"></h5>
 
                             <p ng-if="distribution.threatStatus" translate="species.distribution.threatStatus.threatStatus" translate-values="{status: speciesKey2.$translate.instant('species.distribution.threatStatus.'+ distribution.threatStatus)}"></p>
 
