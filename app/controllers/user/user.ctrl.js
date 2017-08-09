@@ -34,7 +34,6 @@ router.get('/confirm', function (req, res, next) {
             helper.renderPage(req, res, next, {
                 _meta: {
                     bodyClass: 'hasTransparentMenu',
-                    hideFooter: true,
                     title: 'Welcome'
                 }
             }, 'pages/user/confirmUser/confirmUser');

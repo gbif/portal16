@@ -1,4 +1,4 @@
-html, body {
+html, body, .site-wrapper {
     min-height 100%
     width 100%
     background $content_background
@@ -11,10 +11,16 @@ body {
 +isAbove($laptop) {
     html, body, .site-wrapper {
         min-height 100%
-        height auto
     }
 }
 
+.site-wrapper {
+    display flex
+    flex-direction column
+    >main {
+        flex 1 1 auto
+    }
+}
 //.site-canvas {
 //    height 100%
 //    width 100%
@@ -30,7 +36,6 @@ ul, ol {
     z-index 10
     width 50px
     height 50px
-    background red
 }
 
 +isBelow($laptop) {

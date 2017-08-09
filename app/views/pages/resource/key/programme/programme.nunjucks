@@ -5,7 +5,7 @@
         var gb = gb || {};
         gb.programmeKey = '{$ main.sys.id $}';
     </script>
-    <article class="wrapper-horizontal-stripes programme" ng-controller="programmeKeyCtrl as programmeKey">
+    <article class="wrapper-horizontal-stripes programme white-background" ng-controller="programmeKeyCtrl as programmeKey">
         {% include "./header.nunjucks" %}
 
         {% include "./nav.nunjucks" %}

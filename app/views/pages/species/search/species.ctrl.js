@@ -9,6 +9,7 @@ angular
 function speciesCtrl($state, SpeciesFilter, Page) {
     var vm = this;
     Page.setTitle('Species search');
+    Page.drawer(true);
     vm.state = SpeciesFilter.getState();
     vm.$state = $state;
     vm.filters = {};

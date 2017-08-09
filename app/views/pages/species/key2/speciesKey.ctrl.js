@@ -28,6 +28,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     var vm = this;
     Page.setTitle('Species');
     vm.$translate = $translate;
+    Page.drawer(true);
     vm.key = $stateParams.speciesKey;
     vm.$state = $state;
     vm.backboneKey = constantKeys.dataset.backbone;

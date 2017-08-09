@@ -33,7 +33,7 @@ function use(app, locales, defaultLocale) {
     //Use middleware to set current language based on url
     app.use(function (req, res, next) {
         var locale = getLocaleFromUrl(req.url, locales);
-        var queryLocale = req.query.locale;
+        var queryLocale = req.query.locale || req.query.lang;
 
         if (locale) {
             req.url = removeLocaleFromUrl(req.url, locale);

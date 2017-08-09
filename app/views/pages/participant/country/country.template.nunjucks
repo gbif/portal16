@@ -13,6 +13,6 @@
         <div ng-if="!countryKey.country.$resolved" class="emptyInfo">
             <h3 class="loading"></h3>
         </div>
-        <ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>
+        {#<ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>#}
     </div>
 </div>

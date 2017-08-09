@@ -16,6 +16,7 @@ angular
 function publisherCtrl($state, hotkeys, PublisherFilter, Page) {
     var vm = this;
     Page.setTitle('Publisher search');
+    Page.drawer(true);
     vm.state = PublisherFilter.getState();
 
     vm.filters = {};
