@@ -36,7 +36,7 @@
                 <p>GBIF provides RSS feeds for all news or the subset relevant to a specific country.
                     These feeds are currently not accessible through the API and are linked from the respective country
                     pages,
-                    for example the <a href="/country/ES/news">Spanish news</a>.
+                    for example the <a href="/resource/search?contentType=news&countriesOfCoverage=ES">Spanish news</a>.
                 </p>
             </div>
         </section>
