@@ -96,7 +96,7 @@ module.exports = [
           },
           {
             "name": "gbifSoftware",
-            "url": "/gbif-software"
+            "url": "/data-processing"
           },
           {
             "name": "rgbif",
