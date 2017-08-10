@@ -12,7 +12,7 @@
                     <a href="#description" translate="dataset.description" class="text-capitalize"></a>
                 </li>
 
-                <li class="nav-chapter" du-scrollspy="purposeArea" ng-if="datasetKey.dataset.purpose">
+                <li class="nav-chapter" du-scrollspy="purposeBlock" ng-if="datasetKey.dataset.purpose">
                     <a href="#purpose" translate="dataset.purpose" class="text-capitalize"></a>
                 </li>
 

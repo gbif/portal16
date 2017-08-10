@@ -1,15 +1,19 @@
 .site-drawer {
   z-index 100
-  width $filterDrawerWidth
+  //width $filterDrawerWidth
   max-width calc(100% - 25px) //todo parameterizs drawer toggle width
-  position absolute
-  top 0px
+  //position absolute
+  //top 0px
 //transition right 200ms ease;
   transition width 200ms ease;
   height 100% //"calc(100vh - %s)" % $navBar_height
 //right -($filterDrawerWidth + 3)
   right 0
   width 0
+
+  position fixed
+  top $navBar_height
+  height "calc(100vh - %s)" % $navBar_height
 
   &__wrapper {
     width $filterDrawerWidth

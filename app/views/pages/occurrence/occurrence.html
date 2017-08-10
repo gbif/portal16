@@ -1,4 +1,4 @@
-<div search-drawer filter="occurrence.occurrenceState" content-type="occurrences">
+<div search-drawer filter="occurrence.occurrenceState" content-type="occurrences" ng-class="{'is-active': occurrence.showFilters}">
     <div class="site-drawer__section">
         <div class="search-bar filter-group">
             <form class="search-bar__term" ng-submit="occurrence.search()">
@@ -57,7 +57,6 @@
         <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
 
         <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
-
 
         <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
 
@@ -129,16 +128,24 @@
     </div>
 
 </div>
-
+<div class="content__overlay hide-on-laptop" ng-click="occurrence.showFilters = false" ng-if="occurrence.showFilters"></div>
 <div class="site-content">
 
-    <div class="site-content__page">
+    <div class="site-content__page" ng-click="occurrence.showFilters = false">
         <div class="occurrence-search-results lighter-background">
             <div ui-view>
 
             </div>
         </div>
     </div>
+
+    <div class="fab hide-on-laptop">
+        <a href="" class="gb-button--brand" ng-click="occurrence.showFilters = !occurrence.showFilters">
+            <span ng-if="!occurrence.showFilters">Filters</span>
+            <span ng-if="occurrence.showFilters">Results</span>
+        </a>
+    </div>
+
 </div>
 
 

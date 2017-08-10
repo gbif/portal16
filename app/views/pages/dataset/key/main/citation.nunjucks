@@ -1,4 +1,4 @@
-<section class="horizontal-stripe--paddingless dataset-key__citation" style="height:100vh" ng-if="datasetKey.dataset.citation.text">
+<section class="horizontal-stripe--paddingless dataset-key__citation" style="height:100vh; min-height: 200px;" ng-if="datasetKey.dataset.citation.text">
     <div>
         <a href="" id="citation"></a>
         <div class="anchor-block--tabs" id="citationBlock">
