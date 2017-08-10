@@ -2,6 +2,7 @@
     'use strict';
     var angular = require('angular'),
         Humanize = require('humanize-plus'),
+        md = require('marked'),
         _ = require('lodash');
 
     angular
@@ -175,6 +176,11 @@
 
                 return text;
             };
+        })
+        .filter('md2html', function(){
+            return function(markdown) {
+                return (!!markdown) ? md(markdown) : '';
+            }
         })
 
 })();

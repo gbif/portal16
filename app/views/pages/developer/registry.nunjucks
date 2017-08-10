@@ -46,14 +46,13 @@
             </div>
         </section>
 
-        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
+        <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
 
-            <div layout="row">
-            <div flex-gt-sm="25">
+            <div class="col-md-2">
             {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
             {$ api.submenu(sections) $}
             </div>
-            <div>
+            <div class="col-md-10">
             <section id="datasets" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Datasets</h3>

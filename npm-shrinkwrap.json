@@ -6063,7 +6063,7 @@
     },
     "marked": {
       "version": "0.3.6",
-      "from": "marked@>=0.3.6 <0.4.0",
+      "from": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz",
       "resolved": "https://registry.npmjs.org/marked/-/marked-0.3.6.tgz"
     },
     "marked-terminal": {

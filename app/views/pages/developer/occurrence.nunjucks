@@ -55,13 +55,12 @@
             </div>
         </section>
 
-        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-            <div layout="row">
-                <div flex-gt-sm="25">
+        <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
+                <div class="col-md-2">
             {% set sections = {'occurrence':'Occurrences', 'search':'Search Occurrences', 'download':'Occurrence Downloads', 'predicates':'Download Filters', 'metrics':'Occurrence Metrics', 'inventories':'Occurrence Inventories', 'parameters':'Query Parameters'} %}
             {$ api.submenu(sections) $}
                 </div>
-                <div>
+                <div class="col-md-10">
             <section id="occurrence" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Occurrences</h3>

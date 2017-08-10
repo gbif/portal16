@@ -52,12 +52,8 @@ module.exports = [
         "url": "/become-a-publisher"
       },
       {
-        "name": "darwinCore",
-        "url": "/darwin-core"
-      },
-      {
-        "name": "digitizingCollections",
-        "url": "/digitizing-collections"
+        "name": "standards",
+        "url": "/standards"
       },
       {
         "name": "dataPapers",
@@ -88,10 +84,6 @@ module.exports = [
           {
             "name": "suggestDataset",
             "url": "/suggest-dataset"
-          },
-          {
-            "name": "collectionManagement",
-            "url": "/collection-management"
           }
         ]
       },
@@ -104,7 +96,7 @@ module.exports = [
           },
           {
             "name": "gbifSoftware",
-            "url": "/gbif-software"
+            "url": "/data-processing"
           },
           {
             "name": "rgbif",

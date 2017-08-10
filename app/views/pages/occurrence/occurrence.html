@@ -140,12 +140,9 @@
     </div>
 
     <div class="fab hide-on-laptop">
-        <a href="" class="gb-button--brand" ng-click="occurrence.showFilters = !occurrence.showFilters">
-            <span ng-if="!occurrence.showFilters">Filters</span>
-            <span ng-if="occurrence.showFilters">Results</span>
+        <a href="" class="gb-button--brand" ng-click="occurrence.showFilters = !occurrence.showFilters" ng-if="!occurrence.showFilters">
+            <span><span class="gb-icon-filters"></span> Filters</span>
         </a>
     </div>
 
 </div>
-
-

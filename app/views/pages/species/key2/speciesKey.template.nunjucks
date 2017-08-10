@@ -1,5 +1,7 @@
 {% include "./siteDrawer.nunjucks" %}
 
+<div class="content__overlay hide-on-laptop" ng-click="speciesKey2.showFilters = false" ng-if="speciesKey2.showFilters"></div>
+
 <div class="site-content">
     <div class="site-content__page">
         <div class="speciesKey2 light-background" ng-class="{'bare-background': speciesKey2.isNub}" ng-if="speciesKey2.species.$resolved">
@@ -24,5 +26,11 @@
             </div>
         </div>
         {#<ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>#}
+    </div>
+
+    <div class="fab hide-on-laptop">
+        <a href="" class="gb-button--brand" ng-click="speciesKey2.showFilters = !speciesKey2.showFilters" ng-if="!speciesKey2.showFilters">
+            <span><span class="gb-icon-taxonomy"></span> Classification</span>
+        </a>
     </div>
 </div>

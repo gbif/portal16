@@ -1,4 +1,4 @@
-<div search-drawer filter="resource.state" content-type="resources">
+<div search-drawer filter="resource.state" content-type="resources" ng-class="{'is-active': resource.showFilters}">
     <div class="site-drawer__section">
         <div class="search-bar filter-group">
 
@@ -68,6 +68,8 @@
         </div>
     </div>
 </div>
+
+<div class="content__overlay hide-on-laptop" ng-click="resource.showFilters = false" ng-if="resource.showFilters"></div>
 
 <div class="site-content">
 
@@ -146,7 +148,7 @@
                                         </a>
                                     </li>
 
-                                    <li class="tab" ng-if="resource.isTabShown('document')" ng-class="{isActive: resource.state.query.contentType == 'documents'}">
+                                    <li class="tab" ng-if="resource.isTabShown('document')" ng-class="{isActive: resource.state.query.contentType == 'document'}">
                                         <a href="" ui-sref="resourceSearchList({contentType:['document'], _showPastEvents:undefined, offset:undefined})">
                                             Documents
                                         </a>
@@ -199,5 +201,11 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="fab hide-on-laptop">
+        <a href="" class="gb-button--brand" ng-click="resource.showFilters = !resource.showFilters" ng-if="!resource.showFilters">
+            <span><span class="gb-icon-filters"></span> Filters</span>
+        </a>
     </div>
 </div>

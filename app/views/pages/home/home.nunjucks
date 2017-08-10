@@ -96,7 +96,7 @@ nature, PLOS, ... and
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
                             <h3 class="discreet">Publishers</h3>
-                            <div count="{{ portal.dataApi }}organization">900</div>
+                            <div count="{{ portal.dataApi }}organization" subtract="{{ portal.dataApi }}organization/nonPublishing">900</div>
                         </a>
                     </article>
                     <article class="article-box article-box--stats">

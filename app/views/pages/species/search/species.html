@@ -1,4 +1,4 @@
-<div search-drawer filter="species.state" content-type="species">
+<div search-drawer filter="species.state" content-type="species" ng-class="{'is-active': species.showFilters}">
     <div class="site-drawer__section">
 
         <div class="search-bar filter-group">
@@ -54,16 +54,8 @@
     </div>
 </div>
 
-<!--<div class="site-content">-->
 
-    <!--<div class="site-content__page">-->
-        <!--<div class="species-search-results">-->
-            <!--<div ui-view>-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+<div class="content__overlay hide-on-laptop" ng-click="species.showFilters = false" ng-if="species.showFilters"></div>
 
 <div class="site-content">
     <div class="site-content__page">
@@ -132,5 +124,11 @@
         </div>
 
 
+    </div>
+
+    <div class="fab hide-on-laptop">
+        <a href="" class="gb-button--brand" ng-click="species.showFilters = !species.showFilters" ng-if="!species.showFilters">
+            <span><span class="gb-icon-filters"></span> Filters</span>
+        </a>
     </div>
 </div>
