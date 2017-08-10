@@ -197,6 +197,7 @@ Bug by Edward Boatman from the Noun Project - https://thenounproject.com/search/
 Idea by Edward Boatman from the Noun Project - https://thenounproject.com/search/?q=idea&i=762
 User by Viktor Vorobyev from the Noun Project - https://thenounproject.com/search/?q=user&i=415727
 Filter by Landan Lloyd from the Noun Project - https://thenounproject.com/search/?q=filter&i=1181313
+Data Architecture by MRFA from the Noun Project - https://thenounproject.com/search/?q=family%20tree&i=440017
 
 ### data
 ISO country codes - http://data.okfn.org/data/core/country-codes

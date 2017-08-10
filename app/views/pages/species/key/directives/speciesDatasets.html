@@ -9,32 +9,28 @@
             <ul>
                 <li ng-repeat="result in vm.data.results" class="card--references__item">
                     <div ng-if="vm.type === 'CHECKLIST'" >
-                        <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="/dataset/{{result.key}}" >
+                        <div class="text-muted"><a class="inherit max2Lines"  ng-href="/dataset/{{result.key}}" >
                             {{result.title}}
-                        </a></h4>
+                        </a></div>
                         <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
-                        <div class="small" >
+                        <div class="small">
                             As
                             <a class="" ng-href="/species/{{result._relatedTaxon.key}}">
-                            <span scientific-name key="{{result._relatedTaxon.key}}" name="{{result._relatedTaxon.scientificName}}"></span>
-
+                                <span scientific-name key="{{result._relatedTaxon.key}}" name="{{result._relatedTaxon.scientificName}}"></span>
                             </a>
 
                         </div>
 
                     </div>
                     <div ng-if="vm.type === 'OCCURRENCE'">
-                        <h4 class="text-muted small text-uppercase extension-header"><a class="inherit"  ng-href="/dataset/{{result.datasetKey}}" >
+                        <div class="text-muted "><a class="inherit max2Lines"  ng-href="/dataset/{{result.datasetKey}}" >
                             {{result._dataset.title}}
-                        </a></h4>
+                        </a></div>
                         <!--<div ng-bind-html="result.title" class="max2Lines">{{ result.citation }}</div>-->
                         <div class="small" >
-
-                            <a class="" ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
-                                {{result.count | localNumber}} Occurrences
-
+                            <a ng-href="/occurrence/search?dataset_key={{result.datasetKey}}&taxon_key={{vm.key}}">
+                                View occurrences
                             </a>
-
                         </div>
 
                     </div>
