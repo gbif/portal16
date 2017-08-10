@@ -1,4 +1,4 @@
-<div search-drawer filter="dataset.state" content-type="datasets">
+<div search-drawer filter="dataset.state" content-type="datasets" ng-class="{'is-active': dataset.showFilters}">
     <div class="site-drawer__section">
         <div class="search-bar filter-group">
 
@@ -43,6 +43,8 @@
 
     </div>
 </div>
+
+<div class="content__overlay hide-on-laptop" ng-click="dataset.showFilters = false" ng-if="dataset.showFilters"></div>
 
 <div class="site-content">
     <div class="site-content__page">
@@ -127,7 +129,12 @@
             </div>
 
         </div>
+        
+    </div>
 
-
+    <div class="fab hide-on-laptop">
+        <a href="" class="gb-button--brand" ng-click="dataset.showFilters = !dataset.showFilters" ng-if="!dataset.showFilters">
+            <span><span class="gb-icon-filters"></span> Filters</span>
+        </a>
     </div>
 </div>
