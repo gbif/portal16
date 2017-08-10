@@ -47,15 +47,15 @@
             </div>
         </section>
 
-        <div class="submenu-wrapper horizontal-stripe" id="submenuWrapper">
-            <div layout="row">
+        <div class="submenu-wrapper horizontal-stripe white-background" id="submenuWrapper">
+            <div class="row">
 
-            <div flex-gt-sm="25">
+            <div class="col-md-2">
 
             {% set sections = {'nameUsages':'Name Usages', 'searching':'Searching', 'parser':'Name parser', 'parameters':'Query Parameters'} %}
             {$ api.submenu(sections) $}
             </div>
-            <div>
+            <div class="col-md-10">
             <section id="nameUsages" class="white-background">
                 <div class="container--narrow anchor-block">
                     <h3>Working with Name Usages</h3>
@@ -250,6 +250,8 @@
             $}
         </div>
         </div>
+        </div>
+
         </div>
     </article>
 
