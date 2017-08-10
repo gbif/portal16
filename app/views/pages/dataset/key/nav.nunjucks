@@ -2,106 +2,110 @@
     <div class="container--desktop">
         <div class="row">
             <div class="col-xs-12">
-                <nav class="tabs tabs--noBorder">
-                    <ul>
-                        <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKey')}">
-                            <a ui-sref="datasetKey({key:datasetKey.dataset.key})">
-                                Dataset
-                            </a>
-                        </li>
+                <div class="tabs__wrapper">
+                    <div class="tabs__actions">
+                        <ul>
+                            <li class="tab tab-right ng-cloak" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">
+                                        <span>
+                                            <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">
+                                                {{ datasetKey.occurrences.count | localNumber }}
+                                                <span class="gb-button--brand__label">
+                                                    Occurrences
+                                                </span>
+                                            </a>
+                                        </span>
+                            </li>
 
-                        {#<li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyTaxonomy')}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">#}
-                            {#<a ui-sref="datasetKeyTaxonomy({key:datasetKey.dataset.key})">#}
-                                {#Taxonomy#}
-                            {#</a>#}
-                        {#</li>#}
+                            <li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">
+                                        <span>
+                                            <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced:true})" class="gb-button--primary">
+                                                {{ datasetKey.taxa.count | localNumber }}
+                                                <span class="gb-button--primary__label">
+                                                    Records
+                                                </span>
+                                            </a>
+                                        </span>
+                            </li>
 
-                        <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyProject')}" ng-if="datasetKey.dataset.project && !datasetKey.projectEmpty">
-                            <a ui-sref="datasetKeyProject({key:datasetKey.dataset.key})">
-                                Project
-                            </a>
-                        </li>
+                            <li class="tab tab-right ng-cloak" ng-if="datasetKey.literature.count > 0">
+                                        <span>
+                                            <a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey.key, contentType: 'literature'})" class="gb-button--dark">
+                                                {{ datasetKey.literature.count | localNumber }}
+                                                <span translate="stdTerms.citations" translate-values="{ NUMBER: datasetKey.literature.count }">
+                                                    Citations
+                                                </span>
+                                            </a>
+                                        </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="tabs tabs--noBorder">
+                        <ul>
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKey')}">
+                                <a ui-sref="datasetKey({key:datasetKey.dataset.key})">
+                                    Dataset
+                                </a>
+                            </li>
 
-                        <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyConstituents')}" ng-if="datasetKey.constituents.count > 0">
-                            <a ui-sref="datasetKeyConstituents({key:datasetKey.dataset.key})">
-                                Constituents
-                            </a>
-                        </li>
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyTaxonomy')}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">
+                                <a ui-sref="datasetKeyTaxonomy({key:datasetKey.dataset.key})">
+                                    Taxonomy
+                                </a>
+                            </li>
 
-                        <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyStats')}">
-                            <a ui-sref="datasetKeyStats({key:datasetKey.dataset.key})">
-                                Stats
-                            </a>
-                        </li>
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyProject')}" ng-if="datasetKey.dataset.project && !datasetKey.projectEmpty">
+                                <a ui-sref="datasetKeyProject({key:datasetKey.dataset.key})">
+                                    Project
+                                </a>
+                            </li>
 
-                        <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyActivity')}" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">
-                            <a ui-sref="datasetKeyActivity({key:datasetKey.dataset.key})">
-                                Activity
-                            </a>
-                        </li>
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyConstituents')}" ng-if="datasetKey.constituents.count > 0">
+                                <a ui-sref="datasetKeyConstituents({key:datasetKey.dataset.key})">
+                                    Constituents
+                                </a>
+                            </li>
+
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyStats')}">
+                                <a ui-sref="datasetKeyStats({key:datasetKey.dataset.key})">
+                                    Stats
+                                </a>
+                            </li>
+
+                            <li class="tab" ng-class="{isActive: datasetKey.$state.is('datasetKeyActivity')}" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">
+                                <a ui-sref="datasetKeyActivity({key:datasetKey.dataset.key})">
+                                    Activity
+                                </a>
+                            </li>
 
 
-                        <li class="tab" uib-dropdown dropdown-append-to-body>
-                            <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
-                                <span class="gb-icon-file-download"></span>
-                                <span>
-                                    Download
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
-                                aria-labelledby="btn-append-to-body">
-                                <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
-                                    <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="datasetKey.processedOccurrences"></span> <span class="small text-brand-color" translate="datasetKey.recommended"></span></a>
-                                </li>
-                                <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified'"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="protocol.{{ datasetKey.originalArchive.type }}"></span></a></li>
-                                <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="datasetKey.annotatedEml"></span> <span class="discreet--very small" translate="protocol.EML"></span></a></li>
-                            </ul>
-                        </li>
-
-                        <li class="tab" ng-if="datasetKey.dataset.homepage">
-                            <a ng-href="{{ datasetKey.dataset.homepage }}">
-                                <span class="gb-icon-link"></span>
-                                <span>
-                                    Dataset Homepage
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="tab tab-right ng-cloak" ng-if="datasetKey.dataset.type == 'OCCURRENCE' || datasetKey.dataset.type == 'SAMPLING_EVENT' || datasetKey.occurrences.count > 0">
-                            <span>
-                                <a ui-sref="occurrenceSearchTable({dataset_key:datasetKey.key})" class="gb-button--brand">
-                                    {{ datasetKey.occurrences.count | localNumber }}
-                                    <span class="gb-button--brand__label">
-                                        Occurrences
+                            <li class="tab" uib-dropdown dropdown-append-to-body>
+                                <a href="" id="btn-append-to-body" type="button" uib-dropdown-toggle>
+                                    <span class="gb-icon-file-download"></span>
+                                    <span>
+                                        Download
                                     </span>
                                 </a>
-                            </span>
-                        </li>
+                                <ul class="dropdown-menu dropdown-menu-right ng-cloak" uib-dropdown-menu role="menu"
+                                    aria-labelledby="btn-append-to-body">
+                                    <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
+                                        <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="datasetKey.processedOccurrences"></span> <span class="small text-brand-color" translate="datasetKey.recommended"></span></a>
+                                    </li>
+                                    <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified'"><a href="{{ datasetKey.originalArchive.url }}"><span translate="datasetKey.originalArchive"></span> <span class="discreet--very small" translate="protocol.{{ datasetKey.originalArchive.type }}"></span></a></li>
+                                    <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="datasetKey.annotatedEml"></span> <span class="discreet--very small" translate="protocol.EML"></span></a></li>
+                                </ul>
+                            </li>
 
-                        <li class="tab tab-right ng-cloak" ng-if="datasetKey.taxa.count > 0">
-                            <span>
-                                <a ui-sref="speciesSearchList({dataset_key:datasetKey.key, advanced:true})" class="gb-button--primary">
-                                    {{ datasetKey.taxa.count | localNumber }}
-                                    <span class="gb-button--primary__label">
-                                        Records
+                            <li class="tab" ng-if="datasetKey.dataset.homepage">
+                                <a ng-href="{{ datasetKey.dataset.homepage }}">
+                                    <span class="gb-icon-link"></span>
+                                    <span>
+                                        Dataset Homepage
                                     </span>
                                 </a>
-                            </span>
-                        </li>
-
-                        <li class="tab tab-right ng-cloak" ng-if="datasetKey.literature.count > 0">
-                            <span>
-                                <a ui-sref="resourceSearchList({gbifDatasetKey:datasetKey.key, contentType: 'literature'})" class="gb-button--dark">
-                                    {{ datasetKey.literature.count | localNumber }}
-                                    <span translate="stdTerms.citations" translate-values="{ NUMBER: datasetKey.literature.count }">
-                                        Citations
-                                    </span>
-                                </a>
-                            </span>
-                        </li>
-
-                    </ul>
-                </nav>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

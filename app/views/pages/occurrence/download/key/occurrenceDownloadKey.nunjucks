@@ -48,35 +48,38 @@
             {% if download.isFileAvailable or download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                 <div class="container--normal">
                     <div class="row">
-                        <div>
-                            <nav class="tabs tabs--noBorder">
-                                <ul>
-                                    <li class="tab tab-right">
-                                        {% if download.record.status === 'SUCCEEDED' %}
+                        <div class="col-xs-12">
+                            <div class="tabs__wrapper">
+                                <div class="tabs__actions">
+                                    <ul>
+                                        <li class="tab tab-right">
+                                            {% if download.record.status === 'SUCCEEDED' %}
+                                                <span>
+                                                    <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
+                                                </span>
+                                                {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
+                                                <span class="gb-button--flat gb-button--loader pull-right">
+                                                    <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
+                                                    {$ __('downloadKey.status.' + download.record.status) $}
+                                                </span>
+                                            {% endif %}
+                                        </li>
+                                        <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
                                             <span>
-                                                <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
+                                                <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q={{  downloadKey.doi }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
                                             </span>
-                                        {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
-                                            <span class="gb-button--flat gb-button--loader pull-right">
-                                                <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
-                                                {$ __('downloadKey.status.' + download.record.status) $}
+                                        </li>
+                                        {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
+                                            <li class="tab tab-right ng-cloak" ng-if="downloadKey.recentDownload.isRecent && downloadKey.isCancelable">
+                                            <span>
+                                                <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
                                             </span>
+                                            </li>
                                         {% endif %}
-                                    </li>
-                                    <li class="tab tab-right ng-cloak" ng-if="downloadKey.literature.count > 0">
-                                        <span>
-                                            <a ng-href='{$ gb.locales.urlPrefix $}/resource/search?contentType=literature&q={{  downloadKey.doi }}' class="gb-button--dark" translate="stdTerms.nCitations" translate-values="{ NUMBER: downloadKey.literature.count }"></a>
-                                        </span>
-                                    </li>
-                                    {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
-                                    <li class="tab tab-right ng-cloak" ng-if="downloadKey.recentDownload.isRecent && downloadKey.isCancelable">
-                                        <span>
-                                            <a href="" class="gb-button--error" ng-click="downloadKey.cancelDownload(downloadKey.key)">Cancel</a>
-                                        </span>
-                                    </li>
-                                    {% endif %}
-                                </ul>
-                            </nav>
+                                    </ul>
+                                </div>
+                                <nav class="tabs tabs--noBorder"></nav>
+                            </div>
                         </div>
                     </div>
                 </div>
