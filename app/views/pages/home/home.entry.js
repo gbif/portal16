@@ -7,9 +7,12 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 /** @ngInject */
-function homeCtrl($http, suggestEndpoints) {
+function homeCtrl($http, suggestEndpoints, Page) {
     var vm = this;
+    Page.setTitle('GBIF');
+    Page.drawer(false);
     vm.mapView = undefined;
+    vm.freeTextQuery;
     vm.mapOptions = {
         points: true
     };
@@ -27,43 +30,6 @@ function homeCtrl($http, suggestEndpoints) {
                 zoom: 3
             };
         });
-
-        //geoip.then(function () {
-        //
-        //    OccurrenceSearch.query({
-        //        mediaType: 'stillImage',
-        //        country: vm.country.countryCode,
-        //        limit:10
-        //    }, function (data) {
-        //        vm.localOccurrences = data;
-        //        vm.localOccurrences.results.forEach(function (e) {
-        //            //select first image
-        //            e._images = [];
-        //            for (var i = 0; i < e.media.length; i++) {
-        //                if (e.media[i].type == 'StillImage') {
-        //                    e._images.push(e.media[i]);
-        //                }
-        //            }
-        //        });
-        //    });
-        //
-        //    OccurrenceSearch.query({
-        //        mediaType: 'stillImage',
-        //        limit:10
-        //    }, function (data) {
-        //        vm.occurrences = data;
-        //        vm.occurrences.results.forEach(function (e) {
-        //            //select first image
-        //            e._images = [];
-        //            for (var i = 0; i < e.media.length; i++) {
-        //                if (e.media[i].type == 'StillImage') {
-        //                    e._images.push(e.media[i]);
-        //                }
-        //            }
-        //        });
-        //    });
-        //
-        //});
     }
     getLatest();
 
@@ -88,7 +54,11 @@ function homeCtrl($http, suggestEndpoints) {
                 vm.mapFilter = {};
             }
         };
-    }
+    };
+
+    vm.updateSearch = function () {
+        location.href = '/search?q=' + encodeURIComponent(vm.freeTextQuery);
+    };
 }
 
 module.exports = homeCtrl;

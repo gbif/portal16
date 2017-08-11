@@ -96,7 +96,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('datasetSearch', {
             parent: 'localization',
-            url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade&taxon_key&project_id',
+            url: '/dataset?offset&limit&q&type&keyword&publishing_org&hosting_org&publishing_country&decade&taxon_key&project_id&license',
             views: {
                 main: {
                     templateUrl: '/templates/pages/dataset/search/dataset.html?v=' + BUILD_VERSION,

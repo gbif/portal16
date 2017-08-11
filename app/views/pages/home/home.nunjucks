@@ -33,7 +33,7 @@ nature, PLOS, ... and
 {# home page, or front page #}
 {% block page %}
     <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
-        <div class="home__header" ng-controller="searchCtrl as omniSearch" style="background-image: url('{$ _meta.imageCache $}1500x750/http:{$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.file.url | encodeURI  $}')">
+        <div class="home__header" style="background-image: url('{$ _meta.imageCache $}1500x750/http:{$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.file.url | encodeURI  $}')">
             <div>
                 <div class="container--desktop">
                     <div class="home__header__hero-text">
@@ -44,23 +44,23 @@ nature, PLOS, ... and
                             {$ main.fields.summary $}
                         </h1>
                         <div class="home__searchFilters">
-                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ omniSearch.freeTextQuery }}">Occurrences</a>
-                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ omniSearch.freeTextQuery }}">Species</a>
-                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ omniSearch.freeTextQuery }}">Datasets</a>
-                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ omniSearch.freeTextQuery }}">Publishers</a>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ omniSearch.freeTextQuery }}">Resources</a>
+                            <a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/occurrence/search?q={{ home.freeTextQuery }}">Occurrences</a>
+                            <a href="{$ gb.locales.urlPrefix $}/species/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/species/search?q={{ home.freeTextQuery }}">Species</a>
+                            <a href="{$ gb.locales.urlPrefix $}/dataset/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/dataset/search?q={{ home.freeTextQuery }}">Datasets</a>
+                            <a href="{$ gb.locales.urlPrefix $}/publisher/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/publisher/search?q={{ home.freeTextQuery }}">Publishers</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search" class="inherit noUnderline" ng-href="{$ gb.locales.urlPrefix $}/resource/search?q={{ home.freeTextQuery }}">Resources</a>
                         </div>
                         <div class="home__header__search-bar search-box">
                             <form action="{$ gb.locales.urlPrefix $}/search"
-                                  ng-submit="omniSearch.updateSearch()">
+                                  ng-submit="home.updateSearch()">
                                 <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off"
                                        value=""
-                                       ng-init="omniSearch.freeTextQuery == ''"
-                                       ng-model="omniSearch.freeTextQuery"
+                                       ng-init="home.freeTextQuery == ''"
+                                       ng-model="home.freeTextQuery"
                                        aria-invalid="false"
                                        focus-me="true">
                                 <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                   ng-href="{$ gb.locales.urlPrefix $}/search?q={{ omniSearch.freeTextQuery }}" type="submit">
+                                   ng-href="{$ gb.locales.urlPrefix $}/search?q={{ home.freeTextQuery }}" type="submit">
                                     <span class="sr-only">search</span>
                                 </a>
                             </form>
