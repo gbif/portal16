@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Page, BUILD_VERSION) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, enums, Page, BUILD_VERSION) {
     var vm = this;
     vm.state = DatasetFilter.getState();
     Page.setTitle('Dataset search');
@@ -46,6 +46,19 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Pa
         title: 'hostingOrg',
         translationPrefix: 'dataset.terms',
         filter: DatasetFilter
+    };
+
+    vm.filters.license = {
+        titleTranslation: 'ocurrenceFieldNames.license',
+        queryKey: 'license',
+        filter: DatasetFilter,
+        enumTranslationPath: 'license.',
+        showAll: true,
+        enums: enums.license,
+        facets: {
+            hasFacets: true,
+            facetKey: 'LICENSE'
+        }
     };
     // vm.filters.publishingCountry = {
     //     queryKey: 'publishing_country',
