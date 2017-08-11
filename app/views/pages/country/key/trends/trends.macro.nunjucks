@@ -5,7 +5,7 @@
             <p>{$ info $}</p>
         </div>
         <div class="figure">
-            <img src="{$ thumbBase $}{$ imgfile $}.png" data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"
+            <img src="{$ thumbBase $}{$ imgfile $}.png"  data-jslghtbx="{$ imgBase $}{$ imgfile $}.png"
                  class="img-thumbnail">
         </div>
     </div>
