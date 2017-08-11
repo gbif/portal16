@@ -41,10 +41,10 @@
                     <div class="hint discreet--very small">Remember to prefix with country code</div>
                 </md-input-container>
 
-                <md-input-container flex="50">
-                    <label>User id</label>
-                    <input name="contactUserId" ng-model="eoi.form.pointOfContact.userId">
-                </md-input-container>
+                {#<md-input-container flex="50">#}
+                    {#<label>User id</label>#}
+                    {#<input name="contactUserId" ng-model="eoi.form.pointOfContact.userId">#}
+                {#</md-input-container>#}
             </div>
             <div layout="row">
                 <p>
