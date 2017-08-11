@@ -25,7 +25,7 @@ PublisherRegional.groupBy = (query) => {
         publishers = [],
         requestUrl = dataApi.publisher.url,
         gbifRegionEnum = ['AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA', 'GLOBAL'],
-        limit = 50,
+        limit = 2000,
         options = {
             timeoutMilliSeconds: 10000,
             retries: 5,
@@ -39,32 +39,33 @@ PublisherRegional.groupBy = (query) => {
     helper.getApiDataPromise(requestUrl, options)
         .then(result => {
             // Get all publishers from GBIF API
-            let tasks = [],
-                offset = 0;
-
-            publishers = publishers.concat(result.results);
-
-            // iterate and collect publishers
-            do {
-                offset += 50;
-                options.offset = offset;
-                tasks.push(helper.getApiDataPromise(requestUrl, options)
-                    .then(result => {
-                        publishers = publishers.concat(result.results);
-                    })
-                    .catch(e => {
-                        log.info(e);
-                    })
-                );
-            } while (offset < result.count);
-
-            return Q.all(tasks)
-                .then(() => {
-                    return publishers;
-                })
-                .catch(e => {
-                    deferred.reject(e + ' in publisherRegional.groupBy().')
-                });
+            return result.results
+            // let tasks = [],
+            //     offset = 0;
+            //
+            // publishers = publishers.concat(result.results);
+            //
+            // // iterate and collect publishers
+            // do {
+            //     offset += 50;
+            //     options.offset = offset;
+            //     tasks.push(helper.getApiDataPromise(requestUrl, options)
+            //         .then(result => {
+            //             publishers = publishers.concat(result.results);
+            //         })
+            //         .catch(e => {
+            //             log.info(e);
+            //         })
+            //     );
+            // } while (offset < result.count);
+            //
+            // return Q.all(tasks)
+            //     .then(() => {
+            //         return publishers;
+            //     })
+            //     .catch(e => {
+            //         deferred.reject(e + ' in publisherRegional.groupBy().')
+            //     });
         })
         .then(publishers => {
             // Breakdown to region if param exists
