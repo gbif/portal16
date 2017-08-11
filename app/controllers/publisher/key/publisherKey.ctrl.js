@@ -81,7 +81,6 @@ function confirm(req, res, next) {
 
     return authOperations.authenticatedRequest(opts)
         .then(function(response){
-            console.log(JSON.stringify(response))
             if (response.statusCode !== 204) {
                 throw response;
             }
