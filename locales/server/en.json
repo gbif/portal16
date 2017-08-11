@@ -1256,6 +1256,9 @@
     "issue": "issue",
     "status": "status",
     "nameType": "name type",
+    "noOccurencesInGbif": "No occurrences in GBIF",
+    "viewInGbifBackbone" : "View in GBIF backbone",
+    "publisherRecord" : "Publisher record",
     "nameTypeEnum": {
       "SCIENTIFIC": "scientific name",
       "DOUBTFUL": "doubtful",
@@ -1431,6 +1434,7 @@
     "remarks": "remarks",
     "specimenType": "type",
     "species": "species",
+    "infraspecies": "infraspecies",
     "country": "country",
     "installation": "installation",
     "occurrence": "occurrence",
