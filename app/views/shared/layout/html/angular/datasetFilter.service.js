@@ -14,14 +14,14 @@ angular
 
 
         //for fields where we want faceting and will always ask for all possible. This is the case for most enums
-        var exhaustiveFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id'];
+        var exhaustiveFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id', 'license'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function (facet) {
             exhaustiveFacets.push(facet);
         });
 
         //for fields with low cardinality and that isn't enums
-        var multiSelectFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id'];
+        var multiSelectFacetsKeys = ['type', 'publishing_org', 'hosting_org', 'publishing_country', 'project_id', 'license'];
 
         function getState() {
             return state;
