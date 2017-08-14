@@ -34,7 +34,7 @@
     &.isSmall {
         .mapWidget__options, .mapWidget__inlineOption {
             width 100%
-            display block
+            display inline-block
         }
         .time-slider__container {
             margin-left 20px
@@ -83,6 +83,8 @@
         background deepskyblue
         width 0
         transition width 250ms
+        max-width 100%
+        z-index 100
     }
     //&.isLarge {
     //  border-left 5px solid green
@@ -157,7 +159,6 @@
 
 .time-slider__card {
     display inline-block
-    background white
     //border 1px solid rgba(0, 0, 0, 0.2)
     //border-radius 3px
     font-size 12px
@@ -224,3 +225,141 @@
 //    padding 0
 //    border-radius 0
 //}
+
+
+.mapWidget {
+    md-checkbox {
+        margin-bottom 12px
+    }
+    &__help {
+        position absolute
+        margin 10px
+        padding 10px
+        color white
+        background #444
+        z-index 500
+        bottom 0
+        right 0
+    }
+}
+
+.mapWidget__controlsArea {
+    z-index 70
+    border-top 1px solid rgba(0, 0, 0, 0.2)
+    background white
+    height 40px
+    &__toggleArea {
+        float right
+        margin 0 10px
+        height 40px
+        >a {
+            font-size 18px
+            line-height 40px
+            width 30px
+            text-align center
+            display inline-block
+            &.is-active {
+                color $navBar_background_color
+            }
+        }
+        >span {
+            top -3px
+            position relative
+            left -5px
+        }
+    }
+    &__section {
+        max-height calc(100vh - 7rem)
+        display flex
+        flex-direction column
+        box-shadow 1px 2px 3px 3px rgba(0,0,0,.1)
+        &__content {
+            flex 1 1 auto
+            overflow auto
+            >div {
+                padding 10px
+                border-bottom 1px solid $stripeBorderColor
+            }
+        }
+        &__header {
+            flex 0 0 auto
+            padding 10px
+            margin 0
+            text-align center
+            border-bottom 1px solid $stripeBorderColor
+        }
+    }
+}
+
+.mapWidget.isSmall {
+    .mapWidget__controlsArea {
+        &__overlay {
+            z-index 60
+            position fixed
+            top 0
+            bottom 0
+            left 0
+            right 0
+            background rgba(0,0,0,0.3)
+        }
+        &__popup {
+            position fixed
+            top 6rem
+            width 100%
+            background white
+            z-index 70
+            left 0
+            overflow auto
+        }
+    }
+}
++isAbove(400px) {
+    .mapWidget.isSmall {
+        .mapWidget__controlsArea {
+            &__popup {
+                width 400px
+                left calc(50% - 200px)
+            }
+        }
+    }
+}
+
+.mapWidget.isLarge {
+    .mapWidget{
+        md-checkbox, md-radio-button {
+            margin-bottom 12px
+        }
+    }
+    .mapWidget__controlsArea {
+        &__section {
+            position absolute
+            bottom 40px
+            right 0
+            width 250px
+            max-width 50%
+            background white
+            z-index 50
+            margin 10px
+            .options {
+                >* {
+                    display block
+                    padding 5px 10px
+                }
+            }
+            &--bar {
+                position static
+                margin 0
+                height 40px
+                width auto
+                display inline-block
+                background transparent
+                >div {
+                    padding 0
+                }
+            }
+        }
+        &__tabs {
+            display none
+        }
+    }
+}

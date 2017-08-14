@@ -71,15 +71,21 @@
             </div>
 
             </div>
-        <div class="container--normal">
-        <span ng-repeat="participantType in vm.participantTypes" >
-                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.other"></span></span>
-                    <span class="theGbifNetWork__badges" ng-if="vm.count[participantType] === 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.one"></span></span>
+        <div class="container--normal" >
+
+        <span ng-repeat="participantType in vm.participantTypes" ng-if="participantType !== 'gbif_affiliate'" >
+                    <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded && vm.count[participantType] > 1" ng-cloak>{{ vm.count[participantType] }}<span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.other"></span></span>
+                    <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded && vm.count[participantType] === 1" ng-cloak>{{ vm.count[participantType] }} <span class="gb-button--brand__label" translate="gbifNetwork.{{ participantType }}.one"></span></span>
 
                 </span>
 
         <span>
-                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.publisher }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+                    <span class="theGbifNetWork__badges" ng-if="vm.tableLoaded" ng-cloak>{{ vm.count.publisher | localNumber }} <span class="gb-button--brand__label" translate="stdTerms.publishers"></span></span>
+
+                </span>
+
+            <span ng-if="vm.tableLoaded && vm.currentRegion !== 'GLOBAL' && vm.currentRegion !== 'GBIF_AFFILIATES'">
+                    <span class="theGbifNetWork__badges" ng-cloak>{{ vm.count.occurrence | localNumber }} <span class="gb-button--brand__label" translate="stdTerms.occurrences"></span></span>
 
                 </span>
         </div>

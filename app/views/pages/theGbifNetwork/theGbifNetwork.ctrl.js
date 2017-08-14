@@ -13,7 +13,7 @@ angular
 
 
 /** @ngInject */
-function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, PublisherCount,  $scope, $state, $stateParams, $filter, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService) {
+function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
@@ -197,28 +197,14 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
         'other_associate_participant',
         'gbif_affiliate'
     ];
-    //var literatureCounts = [
-    //    'literature',
-    //    'literatureAuthors',
-    //    'literatureAuthorFromCountries'
-    //];
+
 
     vm.query = $stateParams;
-    vm.updatedCounts = 2;
 
-    vm.nonCountryParticipants = [];
-    if (vm.nonCountryParticipants.length == 0) {
-        DirectoryParticipants.get({'gbifRegion': vm.currentRegion, 'membershipType': 'other_associate_participant'}).$promise
-            .then(function(response){
-                vm.nonCountryParticipants = response;
-            }, function (error){
-                return error;
-            });
-    };
+
 
     vm.selectRegion = function(region) {
         vm.showParticipantDetails = false;
-        vm.updatedCounts = 0;
         vm.currentRegion = region;
         vm.totalParticipantCount = 0;
         delete vm.contentfulResourceUrl;
@@ -236,38 +222,8 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                 query = {'gbifRegion': region };
         }
 
+        loadParticipantsDigest(vm.currentRegion);
 
-            DirectoryParticipantsCount.get(query).$promise
-                .then(function (response) {
-                    vm.participantTypes.forEach(function (pType) {
-                        if (response[pType]) {
-                            vm.count[pType] = response[pType] ;
-                            vm.totalParticipantCount += parseInt(response[pType]);
-                        } else {
-                            vm.count[pType] = 0;
-                        }
-                        ;
-                    });
-                    vm.updatedCounts += 1;
-                }, function (error) {
-                    return error;
-                });
-            PublisherCount.get(query).$promise
-                .then(function (response) {
-                    if (response.publisher) vm.count.publisher = $filter('localNumber')(response.publisher, gb.locale);
-                    vm.updatedCounts += 1;
-                }, function (error) {
-                    return error;
-                });
-
-     //    if(vm.currentRegion !== 'GLOBAL') {
-               loadParticipantsDigest(vm.currentRegion);
-
-       //    } else {
-         //      delete vm.activeParticipantsDigest;
-
-           //    vm.tableLoaded = true;
-           //};
             loadRegionalReps(vm.currentRegion);
 
             if (vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' && vm.currentRegion !== 'GBIF_AFFILIATES') {
@@ -319,6 +275,14 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
             default:
                 query = {'gbifRegion': region};
         };
+        var publisherCount = 0;
+
+        vm.participantTypes.forEach(function (pType) {
+            vm.count[pType] = 0;
+        })
+        vm.count.occurrence = 0;
+        vm.count.dataset = 0;
+
 
         ParticipantsDigest.get(query).$promise
             .then(function(response){
@@ -329,10 +293,23 @@ function theGbifNetworkCtrl( DirectoryParticipants, DirectoryParticipantsCount, 
                             r[c + 'Sort'] = r.counts[c];
                         }
                     });
+
+                    if(r.counts && !isNaN(r.counts.occurrenceFromCount)){
+                        vm.count.occurrence += r.counts.occurrenceFromCount;
+                    };
+                    if(r.counts && !isNaN(r.counts.datasetFromCount)){
+                        vm.count.dataset += r.counts.datasetFromCount;
+                    };
+
                     if (r.hasOwnProperty('endorsedPublishers')) {
                         r.endorsedPublishersSort = r.endorsedPublishers;
+                        publisherCount += r.endorsedPublishers;
                     }
+
+                    vm.count[r.membershipType] ++;
                 });
+
+                vm.count.publisher = publisherCount;
                 if(regionCenters[region]){
                 response = response.filter(function(p){
                     return p.participationStatus !== "AFFILIATE"

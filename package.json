@@ -150,7 +150,7 @@
     "nunjucks-markdown": "^2.0.0",
     "object-hash": "1.1.4",
     "octonode": "^0.7.6",
-    "openlayers": "^4.1.1",
+    "openlayers": "^4.2.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-http": "^0.3.0",

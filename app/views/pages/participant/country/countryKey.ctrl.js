@@ -86,6 +86,8 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
     }, function () {
         //TODO couldn't get the data
     });
+
+        vm.lightbox = new Lightbox();
 }
 
 module.exports = countryKeyCtrl;
