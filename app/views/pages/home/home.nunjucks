@@ -100,6 +100,9 @@ nature, PLOS, ... and
                         </a>
                     </article>
                     <article class="article-box article-box--stats">
+
+
+                        {#<a ng-href="/about-species-counts" class="inherit noUnderline">#}
                         <a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">
                             <h3 class="discreet">Species</h3>
                             <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>
