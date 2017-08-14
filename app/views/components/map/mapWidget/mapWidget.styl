@@ -84,7 +84,7 @@
         width 0
         transition width 250ms
         max-width 100%
-        z-index 100
+        z-index 20
     }
     //&.isLarge {
     //  border-left 5px solid green
@@ -236,10 +236,25 @@
         margin 10px
         padding 10px
         color white
-        background #444
-        z-index 500
+        background #333
+        z-index 20
         bottom 0
         right 0
+    }
+    &__info {
+        position absolute
+        background #333
+        bottom 0
+        left 0
+        z-index 15
+        opacity 0.5
+        color white
+        padding 5px
+        font-size 12px
+        transition opacity 200ms ease
+        &:hover {
+            opacity 1
+        }
     }
 }
 
@@ -286,7 +301,6 @@
             padding 10px
             margin 0
             text-align center
-            border-bottom 1px solid $stripeBorderColor
         }
     }
 }
