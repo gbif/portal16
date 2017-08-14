@@ -4,7 +4,8 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     json2md = require('json2md'),
     authOperations = require('../../auth/gbifAuthRequest');
 
-const DEFAULT_ENDORSING_NODE_KEY = "7f48e0c8-5c96-49ec-b972-30748e339115"; // the GBiF secretariat
+const DEFAULT_ENDORSING_NODE_KEY = rootRequire('config/config').publicConstantKeys.node.participantNodeManagersCommittee; // the GBiF secretariat
+
 
 module.exports = {
     create: create

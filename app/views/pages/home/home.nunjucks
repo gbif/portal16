@@ -103,6 +103,7 @@ nature, PLOS, ... and
                         <a ng-href="{{ portal.urlPrefix }}/species/search?rank=SPECIES&status=ACCEPTED" class="inherit noUnderline">
                             <h3 class="discreet">Species</h3>
                             <div count="{{ portal.dataApi }}species/search?datasetKey={{ portal.constantKeys.dataset.backbone }}&rank=SPECIES&status=ACCEPTED">1,700,00</div>
+                            {#<div><h4 >{$ main.fields.aboutSpeciesCounts $}</h4></div>#}
                         </a>
                     </article>
                 </div>
