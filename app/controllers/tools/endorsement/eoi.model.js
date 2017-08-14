@@ -81,7 +81,7 @@ function create(body) {
         canonicalPath: apiConfig.publisherCreate.canonical
     };
 
-    var newOrganistaionUUI;
+    var newOrganistaionUUID;
     return authOperations.authenticatedRequest(options)
         .then((res) => {
             if (res.statusCode !== 201) {
@@ -95,16 +95,16 @@ function create(body) {
                 canonicalPath: apiConfig.publisherCreate.canonical + res.body + "/comment"
 
             };
-            newOrganistaionUUI = res.body;
+            newOrganistaionUUID = res.body;
             return authOperations.authenticatedRequest(opts);
         })
         .then((commentResponse) => {
 
-            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUI !== 'undefined') {
+            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUID !== 'undefined') {
                 throw commentResponse;
             }
 
-            return newOrganistaionUUI;
+            return newOrganistaionUUID;
         })
 
 
