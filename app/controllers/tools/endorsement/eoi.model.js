@@ -4,7 +4,8 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     json2md = require('json2md'),
     authOperations = require('../../auth/gbifAuthRequest');
 
-const DEFAULT_ENDORSING_NODE_KEY = "7f48e0c8-5c96-49ec-b972-30748e339115"; // the GBiF secretariat
+const DEFAULT_ENDORSING_NODE_KEY = rootRequire('config/config').publicConstantKeys.node.participantNodeManagersCommittee; // the GBiF secretariat
+
 
 module.exports = {
     create: create
@@ -80,7 +81,7 @@ function create(body) {
         canonicalPath: apiConfig.publisherCreate.canonical
     };
 
-    var newOrganistaionUUI;
+    var newOrganistaionUUID;
     return authOperations.authenticatedRequest(options)
         .then((res) => {
             if (res.statusCode !== 201) {
@@ -94,16 +95,16 @@ function create(body) {
                 canonicalPath: apiConfig.publisherCreate.canonical + res.body + "/comment"
 
             };
-            newOrganistaionUUI = res.body;
+            newOrganistaionUUID = res.body;
             return authOperations.authenticatedRequest(opts);
         })
         .then((commentResponse) => {
 
-            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUI !== 'undefined') {
+            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUID !== 'undefined') {
                 throw commentResponse;
             }
 
-            return newOrganistaionUUI;
+            return newOrganistaionUUID;
         })
 
 
