@@ -22,7 +22,8 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
         pointOfContact: { type: "POINT_OF_CONTACT"},
         administrativeContact: { type: "ADMINISTRATIVE_POINT_OF_CONTACT"},
         technicalContact: {type: "TECHNICAL_POINT_OF_CONTACT"},
-        expectToPublishDataTypes: {}
+        expectToPublishDataTypes: {},
+        suggestedNodeKey :"other"
 
     };
 
@@ -58,6 +59,7 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
                  Node.query({identifierType: "GBIF_PARTICIPANT", identifier: vm.chineseTaipei.id}).$promise
                     .then(function(data){
                         vm.suggestedCountryNode = _.head(data.results);
+                        vm.form.suggestedNodeKey = (vm.suggestedCountryNode) ? vm.suggestedCountryNode.key : "other";
                     });
 
 
@@ -66,6 +68,8 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
                     .then(function (data) {
                         vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
                         vm.suggestedCountryNode = _.head(vm.suggestedNodes);
+                        vm.form.suggestedNodeKey = (vm.suggestedCountryNode) ? vm.suggestedCountryNode.key : "other";
+
 
                     });
             }
