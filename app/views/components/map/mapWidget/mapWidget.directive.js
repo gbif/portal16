@@ -35,7 +35,7 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($scope, $timeout, enums, $httpParamSerializer, MapCapabilities, OccurrenceSearch) {
+    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, OccurrenceSearch) {
         var vm = this;
         vm.styleBreaks = {
             breakpoints: [0, 700],
@@ -50,12 +50,98 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.activeProjection = vm.projections.PLATE_CAREE;
         vm.activeControl = undefined;
         vm.controls = {
-            PROJECTION: 1,
-            BOR: 2,
-            STYLE: 3,
-            YEAR: 4,
-            OCCURRENCES: 5
+            OCCURRENCES: 1,
+            PROJECTION: 10,
+            BOR: 11,
+            STYLE: 12,
+            YEAR: 13,
+            FILTERS: 14
         };
+
+        vm.basemaps = [
+            {
+                name: 'classic',
+                query: {style: 'gbif-classic'}
+            },
+            {
+                name: 'light',
+                query: {style: 'gbif-light'}
+            },
+            {
+                name: 'dark',
+                query: {style: 'gbif-dark'}
+            },
+            {
+                name: 'roads',
+                query: {style: 'osm-bright'}
+            }
+        ];
+        vm.selectedBaseMap = vm.basemaps[0];
+        vm.binningOptions = [
+            {
+                name: 'PIXEL',
+                query: {},
+                type: 'POINT'
+            },
+            {
+                name: 'SMALL_HEX',
+                query: {bin: 'hex', hexPerTile: 79},
+                type: 'POLY'
+            },
+            {
+                name: 'LARGE_HEX',
+                query: {bin: 'hex', hexPerTile: 17},
+                type: 'POLY'
+            },
+            {
+                name: 'SMALL_SQUARE',
+                query: {bin: 'square', squareSize: 64},
+                type: 'POLY'
+            },
+            {
+                name: 'LARGE_SQUARE',
+                query: {bin: 'square', squareSize: 256},
+                type: 'POLY'
+            }
+        ];
+        vm.selectedBinning = vm.binningOptions[0];
+        vm.colorOptions = [
+            {
+                name: 'classic',
+                query: ['classic.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'classic',
+                query: ['classic.poly'],
+                type: 'POLY'
+            },
+            {
+                name: 'purpleYellow',
+                query: ['purpleYellow.poly'],
+                type: 'POLY'
+            },
+            {
+                name: 'blueCluster',
+                query: ['outline.poly', 'blue.marker'],
+                type: 'POLY'
+            }
+        ];
+        vm.selectedColor = vm.colorOptions[0];
+        vm.overlays = [
+            {
+                name: 'blueHeat',
+                query: [{style: 'blueHeat.point'}]
+            },
+            {
+                name: 'classic',
+                query: [{style: 'classic.point'}]
+            },
+            {
+                name: 'classic',
+                query: [{style: 'classic.poly'}]
+            }
+        ];
         vm.styles = {
             CLASSIC_HEX: {
                 baseMap: {style: 'gbif-classic'},
@@ -96,6 +182,41 @@ function mapWidgetDirective(BUILD_VERSION) {
                 background: '#272727'
             }
         };
+        //vm.styleUpdate = function () {
+        //    var s = {
+        //        baseMap: vm.selectedBaseMap.query,
+        //        overlay: vm.styles.CLASSIC.overlay
+        //    };
+        //    console.log(vm.selectedBaseMap);
+        //    console.log(s);
+        //    map.update(s);
+        //};
+        //vm.binningUpdate = function () {
+        //    var s = {
+        //        baseMap: vm.selectedBinning.query,
+        //        overlay: vm.styles.CLASSIC.overlay
+        //    };
+        //    console.log(vm.selectedBaseMap);
+        //    console.log(s);
+        //    map.update(s);
+        //};
+        vm.composeCustomStyle = function() {
+            var style;
+            vm.selectedBinning = vm.selectedBinning || {};
+            vm.selectedColor = vm.selectedColor || {};
+            if (vm.selectedColor.query) {
+                style = vm.selectedColor.query.map(function(e){
+                    return _.assign({style: e}, vm.selectedBinning.query);
+                });
+            }
+            var s = {
+                baseMap: _.get(vm.selectedBaseMap, 'query') || vm.basemaps[0].query,
+                overlay: style
+            };
+            console.log(s);
+            map.update(s);
+        };
+
         vm.styleOptions = Object.keys(vm.styles);
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
@@ -107,8 +228,6 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-
-            console.log(vm.mapStyle);
             var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.styles.CLASSIC_HEX;
             vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX');
             vm.widgetContextStyle = {
@@ -131,19 +250,16 @@ function mapWidgetDirective(BUILD_VERSION) {
             mapArea.addEventListener('click', function(e){
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
-                    registerSingleClickSearch();
                 }
             });
             mapArea.addEventListener('doubleclick', function(){
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
-                    registerSingleClickSearch();
                 }
             });
             mapArea.addEventListener('mouseleave', function(){
                 disableZoomTimer = $timeout(function(){
                     zoomInteraction.setActive(false);
-                    map.map.un('singleclick', searchOnClick);
                 }, 2500);
             });
             mapArea.addEventListener('mouseenter', function(){
@@ -181,8 +297,12 @@ function mapWidgetDirective(BUILD_VERSION) {
             });
 
             function searchOnClick(e) {
+                if (vm.activeControl !== vm.controls.OCCURRENCES) {
+                    return;
+                }
+                console.log(e);
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
-                var size = 7;
+                var size = 30;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
                 var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));//lazy failsafe for those odd cases in polar projections
                 while (_.isNumber(coordinate[0]) && coordinate[0] < -180) {
@@ -193,12 +313,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }
                 getOccurrencesInArea(coordinate[1], coordinate[0], offset);
             }
-
-            function registerSingleClickSearch() {
-                $timeout(function(){
-                    map.on('singleclick', searchOnClick);
-                }, 500);
-            }
+            map.on('singleclick', searchOnClick);
         };
 
         function createSlider(element, startYear, endYear) {
@@ -305,7 +420,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             q = _.mapKeys(q, function (value, key) {
                 return _.snakeCase(key);
             });
-            return $httpParamSerializer(q);
+            return q;
         };
 
         /**
@@ -415,16 +530,19 @@ function mapWidgetDirective(BUILD_VERSION) {
 
             vm.clickedQuery.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
             vm.clickedQuery.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
+            vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
-            vm.activeControl = vm.controls.OCCURRENCES;
-            vm.mapMenu.isLoading = true;
-            vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
-                utils.attachImages(data.results);
-                vm.mapMenu.isLoading = false;
-                vm.mapMenu.occurrences = data;
-            }, function () {
-                //TODO error handling
-            });
+            vm.clickedQuery.has_coordinate = true;
+            $state.go('occurrenceSearchTable', vm.getClickedQuery(), {inherit: false, notify: true, reload: true});
+            //vm.activeControl = vm.controls.OCCURRENCES;
+            //vm.mapMenu.isLoading = true;
+            //vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
+            //    utils.attachImages(data.results);
+            //    vm.mapMenu.isLoading = false;
+            //    vm.mapMenu.occurrences = data;
+            //}, function () {
+            //    //TODO error handling
+            //});
         }
 
         $scope.$watchCollection(function () {

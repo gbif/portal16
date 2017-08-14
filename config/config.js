@@ -50,7 +50,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//api.gbif-uat.org/v1/',

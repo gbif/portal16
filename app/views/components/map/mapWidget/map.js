@@ -10,6 +10,7 @@ module.exports = {
     createMap: createMap
 };
 
+
 function createMap(element, options) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var progressElement = element[0].querySelector('.mapWidget__progress');
@@ -52,11 +53,12 @@ function createMap(element, options) {
         }
     };
 
+    var interactions = ol.interaction.defaults({altShiftDragRotate:false, pinchRotate:false, mouseWheelZoom:false});
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        interactions: ol.interaction.defaults({mouseWheelZoom:false}),
-        controls: ol.control.defaults({zoom:false})
+        controls: ol.control.defaults({zoom:false}),
+        interactions: interactions
     });
     window.map = map;
     this.update(options);
