@@ -76,5 +76,5 @@
     <div class="container--desktop">
         <h4 class="text-muted small text-uppercase">Trends about {{ 'country.' + countryKey.countryCode | translate }}</h4>
     </div>
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__normalCards"></div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" class="countryKey__normalCards" onload="countryKey.lightbox.load()"></div>
 </section>

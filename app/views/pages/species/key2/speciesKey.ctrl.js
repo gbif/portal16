@@ -67,6 +67,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 vm.verbatim.$promise.then(function(){
                     vm.verbatimHasExtensions = Object.keys(vm.verbatim.extensions).length > 0;
                 })
+                    .catch(function(err){
+                        delete vm.verbatim;
+                    })
                 vm.dwcextensions = DwcExtension.get();
 
             }

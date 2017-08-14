@@ -1256,6 +1256,9 @@
     "issue": "issue",
     "status": "status",
     "nameType": "name type",
+    "noOccurencesInGbif": "No occurrences in GBIF",
+    "viewInGbifBackbone" : "View in GBIF backbone",
+    "publisherRecord" : "Publisher record",
     "nameTypeEnum": {
       "SCIENTIFIC": "scientific name",
       "DOUBTFUL": "doubtful",
@@ -1431,6 +1434,7 @@
     "remarks": "remarks",
     "specimenType": "type",
     "species": "species",
+    "infraspecies": "infraspecies",
     "country": "country",
     "installation": "installation",
     "occurrence": "occurrence",
@@ -2017,11 +2021,11 @@
       },
       "scienceCommittee": {
         "title": "Science committee",
-        "description": "The GBIF Science Committee is an advisory committee that oversees the development and progress of the GBIF work programme and makes recommendations to the Governing Board, the Executive Committee and the Secretariat. You can read its terms of reference [here.](http://www.gbif.org/resource/80877)"
+        "description": "The GBIF Science Committee is an advisory committee that oversees the development and progress of the GBIF work programme and makes recommendations to the Governing Board, the Executive Committee and the Secretariat. You can read its terms of reference [here.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
         "title": "Budget committee",
-        "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF's auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](http://www.gbif.org/resource/80669)"
+        "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF's auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "Node steering group",

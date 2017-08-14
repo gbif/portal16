@@ -69,7 +69,7 @@ var apiConfig = {
     //     canonical: 'organization/'
     // },
     publisherCreate: {
-        url: '//api.gbif-dev.org/v1/' + 'organization/',
+        url: baseConfig.serverProtocol + '//api.gbif-dev.org/v1/' + 'organization/',
         canonical: 'organization/'
     },
     newsroom: {

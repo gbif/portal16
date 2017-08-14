@@ -1,3 +1,4 @@
 <div class="p-t-05 seperator">
-    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'"></div>
+    <div ng-include="'/api/country/'+ countryKey.countryCode +'/trends/about'" ng-init="countryKey.lightbox.load()"></div>
+
 </div>
