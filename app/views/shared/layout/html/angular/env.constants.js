@@ -1,18 +1,9 @@
 'use strict';
-var angular = require('angular'),
-    env = require('./env'),
-    constants = require('./constants');
+var angular = require('angular');
 
 angular
     .module('portal')
-    .constant('env', {
-        dataApiV2: env.dataApiV2,
-        dataApi: env.dataApi,
-        tileApi: env.tileApi,
-        analyticsImg: env.analyticsImg,
-        imageCache: env.imageCache,
-        mapCapabilities: env.mapCapabilities
-    })
+    .constant('env', window.gb.env)
     .constant('suggestEndpoints', {
         recordedBy: env.dataApi + 'occurrence/search/recordedBy',
         recordNumber: env.dataApi + 'occurrence/search/recordNumber',
@@ -31,7 +22,7 @@ angular
     }).constant('BUILD_VERSION',
         gb.buildVersion
     ).constant('constantKeys',
-        constants
+        window.gb.constantKeys
     ).constant('LOCALE',
         gb.locale
     ).constant('IS_TOUCH', window.gb.supportsTouch);
