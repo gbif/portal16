@@ -26,7 +26,6 @@ function create(body) {
         "title": (body.title) ? body.title : "",
         "description": (body.description) ? body.description : "",
         "language": "ENGLISH",
-        "email": (body.email) ? [body.email] : [],
         "phone": (body.phone) ? [body.phone] : [],
         "homepage": (body.homepage) ? [body.homepage] : [],
         "logoUrl": (body.logoUrl) ? body.logoUrl : "",
@@ -34,10 +33,18 @@ function create(body) {
         "city": (body.city) ? body.city : "",
         "province": (body.province) ? body.province : "",
         "country": (body.country) ? body.country : "",
-        "postalCode": (body.postalCode) ? body.postalCode : "",
         "latitude": (body.latitude) ? body.latitude : "",
         "longitude": (body.longitude) ? body.longitude : "",
         "contacts": body.contacts
+    };
+
+    if(body.email){
+        org.email=  [body.email];
+
+    };
+
+    if(body.postalCode){
+        org.postalCode = body.postalCode;
     };
 
 
