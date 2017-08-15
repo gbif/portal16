@@ -35,7 +35,7 @@ function mapWidgetDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, OccurrenceSearch) {
+    function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
         var vm = this;
         vm.styleBreaks = {
             breakpoints: [0, 700],
@@ -112,6 +112,36 @@ function mapWidgetDirective(BUILD_VERSION) {
                 type: 'POINT'
             },
             {
+                name: 'fire',
+                query: ['fire.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'glacier',
+                query: ['glacier.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'purpleYellow',
+                query: ['purpleYellow.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'blueHeat',
+                query: ['blueHeat.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'orangeHeat',
+                query: ['orangeHeat.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'green',
+                query: ['green2.point'],
+                type: 'POINT'
+            },
+            {
                 name: 'classic',
                 query: ['classic.poly'],
                 type: 'POLY'
@@ -125,24 +155,16 @@ function mapWidgetDirective(BUILD_VERSION) {
                 name: 'blueCluster',
                 query: ['outline.poly', 'blue.marker'],
                 type: 'POLY'
+            },
+            {
+                name: 'green',
+                query: ['green2.poly'],
+                type: 'POLY'
             }
         ];
         vm.selectedColor = vm.colorOptions[0];
-        vm.overlays = [
-            {
-                name: 'blueHeat',
-                query: [{style: 'blueHeat.point'}]
-            },
-            {
-                name: 'classic',
-                query: [{style: 'classic.point'}]
-            },
-            {
-                name: 'classic',
-                query: [{style: 'classic.poly'}]
-            }
-        ];
-        vm.styles = {
+
+        vm.predefinedStyles = {
             CLASSIC_HEX: {
                 baseMap: {style: 'gbif-classic'},
                 overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
@@ -182,42 +204,42 @@ function mapWidgetDirective(BUILD_VERSION) {
                 background: '#272727'
             }
         };
-        //vm.styleUpdate = function () {
-        //    var s = {
-        //        baseMap: vm.selectedBaseMap.query,
-        //        overlay: vm.styles.CLASSIC.overlay
-        //    };
-        //    console.log(vm.selectedBaseMap);
-        //    console.log(s);
-        //    map.update(s);
-        //};
-        //vm.binningUpdate = function () {
-        //    var s = {
-        //        baseMap: vm.selectedBinning.query,
-        //        overlay: vm.styles.CLASSIC.overlay
-        //    };
-        //    console.log(vm.selectedBaseMap);
-        //    console.log(s);
-        //    map.update(s);
-        //};
+
+        vm.customMap = $localStorage.customMap;
+        if (vm.customMap) {
+            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
+            vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
+            vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
+        }
         vm.composeCustomStyle = function() {
             var style;
             vm.selectedBinning = vm.selectedBinning || {};
-            vm.selectedColor = vm.selectedColor || {};
+            if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
+                var colorMatch = _.find(vm.colorOptions, { type: vm.selectedBinning.type, name: vm.prevColorName });
+                if (!colorMatch) {
+                    colorMatch = _.find(vm.colorOptions, { type: vm.selectedBinning.type });
+                }
+                vm.selectedColor = colorMatch;
+            }
             if (vm.selectedColor.query) {
                 style = vm.selectedColor.query.map(function(e){
                     return _.assign({style: e}, vm.selectedBinning.query);
                 });
             }
-            var s = {
+            vm.prevColorName = vm.selectedColor.name;
+            vm.customMap = {
                 baseMap: _.get(vm.selectedBaseMap, 'query') || vm.basemaps[0].query,
                 overlay: style
             };
-            console.log(s);
-            map.update(s);
+            $localStorage.customMap = {
+                binning: vm.selectedBinning,
+                color: vm.selectedColor,
+                basemap: vm.selectedBaseMap
+            };
+            map.update(vm.customMap);
         };
 
-        vm.styleOptions = Object.keys(vm.styles);
+        vm.styleOptions = Object.keys(vm.predefinedStyles);
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
@@ -228,7 +250,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.styles.CLASSIC_HEX;
+            var suggestedStyle = vm.predefinedStyles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.predefinedStyles.CLASSIC_HEX;
             vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX');
             vm.widgetContextStyle = {
                 background: suggestedStyle.background
@@ -346,7 +368,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.setStyle = function (style) {
-            var s = vm.styles[style] || vm.styles.CLASSIC;
+            var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
             vm.widgetContextStyle = {
                 background: s.background
             };
