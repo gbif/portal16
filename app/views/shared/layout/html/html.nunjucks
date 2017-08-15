@@ -29,7 +29,7 @@
         {% include "../partials/menuSearch/menuSearch.nunjucks" %}
     {% endif %}
 
-    <main id="main" class="main" role="main" {% if not _meta.customUiView %} ui-view {% endif %}>
+    <main id="main" class="main" role="main" ui-view autoscroll="true">
         <div class="site-content">
             {% block tools %}{% endblock %}
             {# use page--fixed-width to restrict main column width #}
