@@ -199,6 +199,9 @@ User by Viktor Vorobyev from the Noun Project - https://thenounproject.com/searc
 Filter by Landan Lloyd from the Noun Project - https://thenounproject.com/search/?q=filter&i=1181313
 Data Architecture by MRFA from the Noun Project - https://thenounproject.com/search/?q=family%20tree&i=440017
 Click by Viktor Vorobyev from the Noun Project - https://thenounproject.com/search/?q=mouse%20arrow&i=859256
+youtube by Roman Shvets from the Noun Project - https://thenounproject.com/search/?q=youtube&i=897674
+Vimeo by <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
 
 ### data
 ISO country codes - http://data.okfn.org/data/core/country-codes

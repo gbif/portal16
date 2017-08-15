@@ -2,43 +2,36 @@
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="horizontal-stripe light-background site-footer__upper">
             <div class="container--normal">
-                <ul class="site-footer__menu clearfix">
-                    <li>
-                        <h4>Secretariat</h4>
-                        <ul>
-                            <li>Universitetsparken 15</li>
-                            <li>DK-2100 Copenhagen Ø</li>
-                            <li>Denmark</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="{$ gb.locales.urlPrefix $}/contact-us" class="inherit">Contact us</a></li>
-                            <li><a href="{$ gb.locales.urlPrefix $}/what-is-gbif" class="inherit">About GBIF</a></li>
-                            <li><a href="{$ gb.locales.urlPrefix $}/terms/data-user" class="inherit">Data user agreement</a></li>
-                            <li><a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy" class="inherit">Privacy policy</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="https://twitter.com/GBIF">Twitter</a></li>
-                            <li><a href="https://www.facebook.com/gbifnews">Facebook</a></li>
-                            <li><a href="https://www.linkedin.com/groups/GBIF-55171">LinkedIn</a></li>
-                            <li><a href="https://www.youtube.com/user/GBIFvideo">Youtube</a></li>
-                            <li><a href="https://vimeo.com/gbif">Vimeo</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
+                <nav class="site-footer__menu">
+                    <div>
+                        <a href="{$ gb.locales.urlPrefix $}/what-is-gbif">What is GBIF?</a>
+                        <a href="{$ gb.locales.urlPrefix $}/developer/summary">API</a>
+                        <a href="{$ gb.locales.urlPrefix $}/faq">FAQ</a>
+                        <a href="{$ gb.locales.urlPrefix $}/newsletters">Newsletter</a>
+                        <a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy">Privacy</a>
+                        <a href="{$ gb.locales.urlPrefix $}/terms">Terms and agreements</a>
+                        <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">Citation</a>
+                    </div>
+                    <div>
+                        <a href="{$ gb.locales.urlPrefix $}/contact-us">Contact</a>
+                        <span>
+                            <span href=""><span>GBIF Secretariat </span>Universitetsparken 15</span>
+                            <span href="">DK-2100 Copenhagen Ø</span>
+                            <span href="">Denmark</span>
+                        </span>
+                    </div>
+                </nav>
             </div>
         </div>
         <div class="horizontal-stripe site-footer__lower">
             <div class="container--normal text-center">
-                <div class="newsletterButton hoverBox">
-                    <a href="{$ gb.locales.urlPrefix $}/newsletters" class="inherit noUnderline">Sign up for the newsletter</a>
+                <img src="/img/full_logo_white.svg">
+                <div class="site-footer__social">
+                    <a href="https://www.facebook.com/gbifnews" class="btn btn-lg btn-circle"><i class="gb-icon-facebook"></i></a>
+                    <a href="https://twitter.com/GBIF" class="btn btn-lg btn-circle"><i class="gb-icon-twitter"></i></a>
+                    <a href="https://www.linkedin.com/groups/GBIF-55171" class="btn btn-lg btn-circle"><i class="gb-icon-linkedin"></i></a>
+                    <a href="https://www.youtube.com/user/GBIFvideo" class="btn btn-lg btn-circle"><i class="gb-icon-youtube"></i></a>
+                    <a href="https://vimeo.com/gbif" class="btn btn-lg btn-circle"><i class="gb-icon-vimeo"></i></a>
                 </div>
             </div>
         </div>
