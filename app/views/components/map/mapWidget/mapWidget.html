@@ -42,7 +42,7 @@
 
                 <div ng-class="{'mapWidget__controlsArea__section': vm.styleBreaks.current == 0}" ng-show="vm.styleBreaks.current > 0 || vm.activeControl == vm.controls.FILTERS">
 
-                    <div class="mapWidget__controlsArea__section__header seperator--b" ng-if="vm.styleBreaks.current == 0">
+                    <div class="mapWidget__controlsArea__section__header" ng-if="vm.styleBreaks.current == 0">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Filters</h4>
                     </div>
@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="mapWidget__controlsArea__section"  ng-if="vm.activeControl == vm.controls.BOR">
-                    <div class="mapWidget__controlsArea__section__header seperator--b">
+                    <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Basis of record</h4>
                     </div>
@@ -182,7 +182,7 @@
                     <!--</div>-->
                 </div>
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.PROJECTION">
-                    <div class="mapWidget__controlsArea__section__header seperator--b">
+                    <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Projection</h4>
                     </div>
