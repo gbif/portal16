@@ -42,7 +42,7 @@
 
                 <div ng-class="{'mapWidget__controlsArea__section': vm.styleBreaks.current == 0}" ng-show="vm.styleBreaks.current > 0 || vm.activeControl == vm.controls.FILTERS">
 
-                    <div class="mapWidget__controlsArea__section__header seperator--b" ng-if="vm.styleBreaks.current == 0">
+                    <div class="mapWidget__controlsArea__section__header" ng-if="vm.styleBreaks.current == 0">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Filters</h4>
                     </div>
@@ -93,7 +93,7 @@
                                     <label>Base map</label>
                                     <md-select ng-model="vm.selectedBaseMap" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="basemap in vm.basemaps" ng-value="basemap">
-                                            {{basemap.name}}
+                                            {{'map.basemap.' + basemap.name | translate }}
                                         </md-option>
                                     </md-select>
                                 </md-input-container>
@@ -103,7 +103,7 @@
                                     <label>Binning</label>
                                     <md-select ng-model="vm.selectedBinning" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="bin in vm.binningOptions" ng-value="bin">
-                                            {{bin.name}}
+                                            {{'map.bin.' + bin.name | translate }}
                                         </md-option>
                                     </md-select>
                                 </md-input-container>
@@ -113,7 +113,7 @@
                                     <label>Colors</label>
                                     <md-select ng-model="vm.selectedColor" ng-change="vm.composeCustomStyle()" class="md-no-underline">
                                         <md-option ng-repeat="colors in vm.colorOptions | filter:{ type: vm.selectedBinning.type }" ng-value="colors">
-                                            {{colors.name}}
+                                            {{'map.colors.' + colors.name | translate }}
                                         </md-option>
                                     </md-select>
                                 </md-input-container>
@@ -122,7 +122,7 @@
                         <div ng-if="vm.styleTab != 'CREATE'">
                             <md-radio-group ng-model="vm.style" class="md-primary" ng-change="vm.setStyle(vm.style)">
                                 <md-radio-button ng-repeat="option in vm.styleOptions"
-                                                 ng-value="option">{{option | prettifyEnum}}<br/>
+                                                 ng-value="option">{{'map.predefined.' + option | translate }}<br/>
                                 </md-radio-button>
                             </md-radio-group>
                         </div>
@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="mapWidget__controlsArea__section"  ng-if="vm.activeControl == vm.controls.BOR">
-                    <div class="mapWidget__controlsArea__section__header seperator--b">
+                    <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Basis of record</h4>
                     </div>
@@ -182,7 +182,7 @@
                     <!--</div>-->
                 </div>
                 <div class="mapWidget__controlsArea__section" ng-if="vm.activeControl == vm.controls.PROJECTION">
-                    <div class="mapWidget__controlsArea__section__header seperator--b">
+                    <div class="mapWidget__controlsArea__section__header">
                         <a href="" class="gb-icon-close inherit menubox__close" ng-click="vm.activeControl = undefined"></a>
                         <h4>Projection</h4>
                     </div>

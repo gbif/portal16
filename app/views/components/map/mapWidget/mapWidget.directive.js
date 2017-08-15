@@ -60,23 +60,23 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         vm.basemaps = [
             {
-                name: 'classic',
+                name: 'CLASSIC',
                 query: {style: 'gbif-classic'}
             },
             {
-                name: 'light',
+                name: 'LIGHT',
                 query: {style: 'gbif-light'}
             },
             {
-                name: 'dark',
+                name: 'DARK',
                 query: {style: 'gbif-dark'}
             },
             {
-                name: 'roads',
+                name: 'OSM',
                 query: {style: 'osm-bright'}
             }
         ];
-        vm.selectedBaseMap = vm.basemaps[0];
+        vm.selectedBaseMap = vm.basemaps[1];
         vm.binningOptions = [
             {
                 name: 'PIXEL',
@@ -104,87 +104,96 @@ function mapWidgetDirective(BUILD_VERSION) {
                 type: 'POLY'
             }
         ];
-        vm.selectedBinning = vm.binningOptions[0];
+        vm.selectedBinning = vm.binningOptions[2];
         vm.colorOptions = [
             {
-                name: 'classic',
+                name: 'CLASSIC',
                 query: ['classic.point'],
                 type: 'POINT'
             },
             {
-                name: 'fire',
-                query: ['fire.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'glacier',
-                query: ['glacier.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'purpleYellow',
+                name: 'PURPLE_YELLOW',
                 query: ['purpleYellow.point'],
                 type: 'POINT'
             },
             {
-                name: 'blueHeat',
+                name: 'PURPLE_HEAT',
+                query: ['purpleHeat.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'BLUE_HEAT',
                 query: ['blueHeat.point'],
                 type: 'POINT'
             },
             {
-                name: 'orangeHeat',
+                name: 'ORANGE_HEAT',
                 query: ['orangeHeat.point'],
                 type: 'POINT'
             },
             {
-                name: 'green',
+                name: 'GREEN',
                 query: ['green2.point'],
                 type: 'POINT'
             },
             {
-                name: 'classic',
+                name: 'FIRE',
+                query: ['fire.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'GLACIER',
+                query: ['glacier.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'CLASSIC',
                 query: ['classic.poly'],
                 type: 'POLY'
             },
             {
-                name: 'purpleYellow',
+                name: 'PURPLE_YELLOW',
                 query: ['purpleYellow.poly'],
                 type: 'POLY'
             },
             {
-                name: 'blueCluster',
+                name: 'GREEN',
+                query: ['green2.poly'],
+                type: 'POLY'
+            },
+            {
+                name: 'BLUE_CLUSTER',
                 query: ['outline.poly', 'blue.marker'],
                 type: 'POLY'
             },
             {
-                name: 'green',
-                query: ['green2.poly'],
+                name: 'ORANGE_CLUSTER',
+                query: ['outline.poly', 'orange.marker'],
                 type: 'POLY'
             }
         ];
-        vm.selectedColor = vm.colorOptions[0];
+        vm.selectedColor = vm.colorOptions[8];
+
+        vm.customMap = $localStorage.customMap;
+        if (vm.customMap) {
+            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
+            vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
+            vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
+        }
 
         vm.predefinedStyles = {
-            CLASSIC_HEX: {
-                baseMap: {style: 'gbif-classic'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
-                background: '#272727'
-            },
+            CUSTOM: vm.customMap,
             CLASSIC: {
                 baseMap: {style: 'gbif-classic'},
                 overlay: [],
                 background: '#02393d'
             },
-            ORANGE_DOTS: {
-                baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
-                    style: 'orange.marker',
-                    bin: 'hex',
-                    hexPerTile: 15
-                }],
-                background: '#e0e0e0'
+            CLASSIC_HEX: {
+                baseMap: {style: 'gbif-classic'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
+                background: '#272727'
             },
-            OSM: {
+            STREETS: {
                 baseMap: {style: 'osm-bright'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                     style: 'orange.marker',
@@ -193,25 +202,16 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }],
                 background: '#e0e0e0'
             },
-            GREEN: {
-                baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 40}],
-                background: '#e0e0e0'
-            },
-            DARK: {
+            GLACIER: {
                 baseMap: {style: 'gbif-dark'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
-                background: '#272727'
+                overlay: [{style: 'blueHeat.point'}],
+                background: '#e0e0e0'
             }
         };
+        vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
+        console.log(vm.style);
 
-        vm.customMap = $localStorage.customMap;
-        if (vm.customMap) {
-            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
-            vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
-            vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
-        }
-        vm.composeCustomStyle = function() {
+        vm.updateCustomStyle = function() {
             var style;
             vm.selectedBinning = vm.selectedBinning || {};
             if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
@@ -229,13 +229,18 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.prevColorName = vm.selectedColor.name;
             vm.customMap = {
                 baseMap: _.get(vm.selectedBaseMap, 'query') || vm.basemaps[0].query,
-                overlay: style
+                overlay: style,
+                background: '#e0e0e0'
             };
             $localStorage.customMap = {
                 binning: vm.selectedBinning,
                 color: vm.selectedColor,
                 basemap: vm.selectedBaseMap
             };
+            return vm.customMap;
+        };
+        vm.composeCustomStyle = function() {
+            vm.updateCustomStyle();
             map.update(vm.customMap);
         };
 
@@ -250,14 +255,17 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-            var suggestedStyle = vm.predefinedStyles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.predefinedStyles.CLASSIC_HEX;
-            vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX');
-            vm.widgetContextStyle = {
-                background: suggestedStyle.background
-            };
+            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC';
+            var activeStyle = vm.predefinedStyles[vm.style];
+            if (vm.style == 'CUSTOM') {
+                activeStyle = vm.updateCustomStyle();
+            }
+            //vm.widgetContextStyle = {
+            //    background: suggestedStyle.background
+            //};
             map = mapController.createMap(element, {
-                baseMap: suggestedStyle.baseMap,
-                overlay: suggestedStyle.overlay,
+                baseMap: activeStyle.baseMap,
+                overlay: activeStyle.overlay,
                 filters: getQuery()
             });
 
@@ -322,7 +330,6 @@ function mapWidgetDirective(BUILD_VERSION) {
                 if (vm.activeControl !== vm.controls.OCCURRENCES) {
                     return;
                 }
-                console.log(e);
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 30;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
@@ -368,11 +375,16 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.setStyle = function (style) {
-            var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
-            vm.widgetContextStyle = {
-                background: s.background
-            };
-            map.update(s);
+            $localStorage.selectedMapStyle = style || 'CLASSIC';
+            if (style == 'CUSTOM') {
+                vm.composeCustomStyle();
+            } else {
+                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
+                vm.widgetContextStyle = {
+                    background: s.background
+                };
+                map.update(s);
+            }
         };
 
         vm.setProjection = function (epsg) {
@@ -555,7 +567,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            $state.go('occurrenceSearchTable', vm.getClickedQuery(), {inherit: false, notify: true, reload: true});
+            window.location.href = "/occurrence/search?" + $httpParamSerializer(vm.getClickedQuery());
             //vm.activeControl = vm.controls.OCCURRENCES;
             //vm.mapMenu.isLoading = true;
             //vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {

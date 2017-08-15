@@ -74,6 +74,9 @@
                     <div ng-messages="eoi.publisherForm.toolPlanned.$error" ng-if="eoi.submitAttempted" class="text-error small">
                         <div ng-message="required">Please select a value</div>
                     </div>
+                    <div class="m-t-1 text-warning" ng-if="eoi.form.comments.toolPlanned == 'yes'">
+                        In this case, it is recommended that you first try reusing an existing trusted <a href="https://github.com/gbif/ipt/wiki/dataHostingCentres">IPT data hosting centre</a>
+                    </div>
                 </div>
 
                 <div class="m-b-1">

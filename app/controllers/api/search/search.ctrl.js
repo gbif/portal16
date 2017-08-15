@@ -37,7 +37,7 @@ async function search(query, preferedLocale, __) {
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3});
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true});
     let resources = resourceSearch.search({q: query, local: preferedLocale, limit: 10}, __);
-    let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article'], local: preferedLocale, limit: 2}, __);
+    let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'], local: preferedLocale, limit: 2}, __);
     let country = Country.query(query);
 
     let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights]);
