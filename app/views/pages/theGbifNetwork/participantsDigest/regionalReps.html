@@ -59,7 +59,8 @@
                         </div>
                     </address>
                 </td>
-                <td ng-bind="person.participantName"></td>
+                <td ng-if="person.participantName" ng-bind="person.participantName"></td>
+                <td ng-if="!person.participantName && person.nodes.length > 0" ng-bind="person.nodes[0].name"></td>
             </tr>
             </tbody>
         </table>

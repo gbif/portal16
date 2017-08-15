@@ -1,7 +1,7 @@
 .mapWidget {
-    position relative
     overflow initial
     background $lightBackground
+    position relative
     &__mapArea {
         position relative
         z-index 10
@@ -11,7 +11,7 @@
     }
     &.fullscreen, &.fullscreen.fixedSizes {
         position fixed
-        z-index 3000
+        z-index $zSiteOverlay
         height auto
         top 0//$navBar_height
         bottom 0
@@ -55,7 +55,7 @@
     }
     &__mapButtons {
         position absolute
-        z-index 50
+        z-index 20
         left 0.5rem
         top 0.5rem
         background #aaa
@@ -93,70 +93,71 @@
     //}
     &__mapWrapper {
         position relative
+        z-index 5
     }
-    &__controls {
-        z-index 100
-        border-top 1px solid rgba(0, 0, 0, 0.2)
-        background white
-    }
+    //&__controls {
+    //    z-index 100
+    //    border-top 1px solid rgba(0, 0, 0, 0.2)
+    //    background white
+    //}
     &__inlineOption, &__options {
         display inline-block
     }
-    &__options {
-        float right
-        padding 0 5px
-        > div {
-            float right
-            > a {
-                color lighten($discreetInk, 30)
-                display inline-block
-                font-size 22px
-                width 30px
-                line-height 30px
-                height 30px
-                margin-top 7px
-                text-align center
-                &.is-active {
-                    color inherit
-                }
-            }
-        }
-        > span {
-            display inline-block
-            float left
-            font-size 12px
-            padding 5px
-            > a {
-                display table-cell
-            }
-        }
-    }
-    &__control {
-        .menubox__close {
-            margin 5px 10px
-        }
-        z-index 200
-        position absolute
-        padding 10px
-        max-height calc(100% - 40px)
-        max-width 100%
-        //overflow auto
-        bottom 40px
-        right 0
-        > div {
-            max-width 300px
-            background white
-            border 1px solid rgba(0, 0, 0, 0.2)
-            border-radius 2px
-            padding 10px
-            .gb-radio {
-                > label {
-                    display block
-                    font-weight inherit
-                }
-            }
-        }
-    }
+    //&__options {
+    //    float right
+    //    padding 0 5px
+    //    > div {
+    //        float right
+    //        > a {
+    //            color lighten($discreetInk, 30)
+    //            display inline-block
+    //            font-size 22px
+    //            width 30px
+    //            line-height 30px
+    //            height 30px
+    //            margin-top 7px
+    //            text-align center
+    //            &.is-active {
+    //                color inherit
+    //            }
+    //        }
+    //    }
+    //    > span {
+    //        display inline-block
+    //        float left
+    //        font-size 12px
+    //        padding 5px
+    //        > a {
+    //            display table-cell
+    //        }
+    //    }
+    //}
+    //&__control {
+    //    .menubox__close {
+    //        margin 5px 10px
+    //    }
+    //    z-index 200
+    //    position absolute
+    //    padding 10px
+    //    max-height calc(100% - 40px)
+    //    max-width 100%
+    //    //overflow auto
+    //    bottom 40px
+    //    right 0
+    //    > div {
+    //        max-width 300px
+    //        background white
+    //        border 1px solid rgba(0, 0, 0, 0.2)
+    //        border-radius 2px
+    //        padding 10px
+    //        .gb-radio {
+    //            > label {
+    //                display block
+    //                font-weight inherit
+    //            }
+    //        }
+    //    }
+    //}
 }
 
 .time-slider__card {
@@ -243,9 +244,24 @@
         padding 10px
         color white
         background #444
-        z-index 500
+        z-index 20
         bottom 0
         right 0
+    }
+    &__info {
+        position absolute
+        opacity 0.5
+        background #444
+        color white
+        bottom 0
+        left 0
+        z-index 15
+        padding 3px 5px
+        font-size 12px
+        transition opacity 200ms ease
+        &:hover {
+            opacity 1
+        }
     }
 }
 
@@ -298,7 +314,7 @@
 .mapWidget.isSmall {
     .mapWidget__controlsArea {
         &__overlay {
-            z-index 60
+            z-index $zPageOverlay
             position fixed
             top 0
             bottom 0
@@ -311,7 +327,7 @@
             top 6rem
             width 100%
             background white
-            z-index 70
+            z-index ($zPageOverlay + 1)
             left 0
             overflow auto
         }

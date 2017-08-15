@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res) {
-    res.redirect('/developer/summary');
+    res.redirect(302, '/developer/summary');
 });
 
 router.get('/:page', function (req, res, next) {

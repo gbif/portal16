@@ -61,7 +61,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             var  width = (currentlySelectedFeature === feature) ? 2 : 1;
             return new ol.style.Style({
                 fill: new ol.style.Fill({
-                    color: colors[feature.O.membershipType] || '#A9A9A9'
+                    color: colors[feature.getProperties().membershipType] || '#A9A9A9'
                 }),
                 stroke: new ol.style.Stroke({
                     color: stroke,
@@ -86,14 +86,14 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
 
         if (feature) {
             currentlySelectedFeature = feature;
-            vm.updateParticipantDetails(feature.O);
+            vm.updateParticipantDetails(feature.getProperties());
             var extent = feature.getGeometry().getExtent();
             var longitudeSpan = (extent[2] - extent[0]);
             // A check if to see if the extent of a country crosses the date line, if so zoom to region rather than fit the entire globe
             if(longitudeSpan < 180){
                 map.getView().fit(ol.proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
             } else {
-                zoomToRegion(feature.O.gbifRegion);
+                zoomToRegion(feature.getProperties().gbifRegion);
             }
 
         } else {

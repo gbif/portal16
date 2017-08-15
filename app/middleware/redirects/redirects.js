@@ -3,6 +3,7 @@
  */
 const redirectList = rootRequire('config/redirects'),
     redirectTable = {},
+    _ = require('lodash'),
     ignoreTrailingSlashes = true,
     querystring = require('querystring');
 
@@ -16,8 +17,11 @@ function handleRedirects(req, res, next) {
         redirectTo = redirectTable[removeSlashes(req.path)];
     }
     if (redirectTo) {
-        req.url = redirectTo + '?' + querystring.stringify(req.query);
-        next();
+        let q = '';
+        if (!_.isEmpty(req.query)) {
+            q = '?' + querystring.stringify(req.query);
+        }
+        res.redirect(302, redirectTo + q);
     } else {
         next();
     }

@@ -431,6 +431,12 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'theGbifNetworkCtrl',
             controllerAs: 'vm'
         })
+        .state('developerMaps', {
+
+            url: '/developer/maps',
+            controller: 'developerMapsCtrl',
+            controllerAs: 'vm'
+        })
 
 
         //theGbifNetworkCtrl

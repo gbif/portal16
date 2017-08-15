@@ -34,61 +34,39 @@ ul, ol {
     list-style none
 }
 
-//fixed toggle
-.toggle-drawer {
-    z-index 10
-    width 50px
-    height 50px
-}
-
-+isBelow($laptop) {
-    .toggle-drawer {
-        position absolute
-        bottom 20px
-        right 20px
-    }
-}
-
-+isAbove($laptop) {
-    .toggle-drawer {
-        position fixed
-        top 95px
-        right initial
-    }
-}
-
 .page__fixed-width {
     max-width $desktop
     margin 0 auto
 }
 
-.page__tabs {
-    width 100%
-    background rgba(255, 255, 255, 0.5)
-    position absolute
-    bottom 20px
-    left 20px
-    z-index 10
-    width 50px
-    height 50px
-    overflow hidden
-    ol {
-        max-width 100%
-    }
-    li {
-        display inline-block
-        width 50px
-        height 50px
-        border-radius 25px
-        margin 0 10px 10px 0
-        background deepskyblue
-        float left
-    }
-    &:hover {
-        width auto
-        height auto
-    }
-}
+//TODO don't seem used
+//.page__tabs {
+//    width 100%
+//    background rgba(255, 255, 255, 0.5)
+//    position absolute
+//    bottom 20px
+//    left 20px
+//    z-index 10
+//    width 50px
+//    height 50px
+//    overflow hidden
+//    ol {
+//        max-width 100%
+//    }
+//    li {
+//        display inline-block
+//        width 50px
+//        height 50px
+//        border-radius 25px
+//        margin 0 10px 10px 0
+//        background deepskyblue
+//        float left
+//    }
+//    &:hover {
+//        width auto
+//        height auto
+//    }
+//}
 
 //TABS
 /*+isBelow($laptop) {*/
@@ -121,12 +99,12 @@ ul, ol {
 /*}*/
 /*}*/
 
-+isAbove($laptop) {
-    .page__tabs {
-        position fixed
-        top 150px
-    }
-}
+//+isAbove($laptop) {
+//    .page__tabs {
+//        position fixed
+//        top 150px
+//    }
+//}
 
 //SIMILUATE IE11 SCROLLBARS
 //.site-wrapper * {

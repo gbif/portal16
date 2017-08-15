@@ -64,10 +64,6 @@ module.exports = function (app, config) {
     app.use(methodOverride());
     app.use(passport.initialize());
 
-    //add middleware to handle redirects of old urls or shortened menu items
-    let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
-    app.use(redirects);
-
     // Node doesn't include other locales than english per default. Include these to use Intl.
     require(config.root + '/app/helpers/intlPolyfill.js').setSupportedLocales(config.locales);
 
@@ -94,6 +90,12 @@ module.exports = function (app, config) {
 
     // require(config.root + '/app/urlHandling/urlHandling.js')(app); //disable all drupal route handling - as part of the development to move to contentful
     require(config.root + '/app/controllers/resource/key/resourceBySlugCtrl.js')(app);
+
+    //add middleware to handle redirects of old urls or shortened menu items
+    let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
+    app.use(redirects);
+
+    //add error and missing page routes
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
 
