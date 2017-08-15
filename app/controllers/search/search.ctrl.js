@@ -7,6 +7,7 @@ module.exports = function (app) {
 };
 
 router.get('/search', function (req, res, next) {
+    //TODO CHANGE_FOR_PROD
     var referer = req.header('Referer');
     if (referer && referer.indexOf('www.gbif.org') !== -1) {
         res.cookie('isRedirectedFromProd', 'true',
