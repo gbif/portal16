@@ -96,15 +96,15 @@
     "occurrence":"Occurrence"
   },
   "occurrenceDownload":{
-    "csvDescription":"Tab delimited csv. Only contains the data after GBIF interpretation.",
+    "csvDescription":"Tab delimited CSV. Only contains the data after GBIF interpretation.",
     "dwcaDescription":"The Darwin Core Archive contains both the original data as publisher provided it and the GBIF interpretation.",
-    "estimatedSize":"est size",
+    "estimatedSize":"Estimated size",
     "knownIssues":"Known issues",
     "knownIssuesDescription":"A part of the GBIF processing is to flag occurrences that have suspicious fields",
     "FossilsIncluded":"Fossils",
-    "FossilsIncludedDescription":"There are fossils among you results. That can mean species occurrences at unexpected locations",
+    "FossilsIncludedDescription":"There are fossils among your results. That can mean species occurrences at unexpected locations",
     "livingSpecimensIncluded":"Living specimens",
-    "livingSpecimensIncludedDescription":"You search includes living specimens such as occurrences in botanical and zoological gardens.",
+    "livingSpecimensIncludedDescription":"Your search includes living specimens such as occurrences in botanical and zoological gardens.",
     "loaderText":"Please hang on while we analyze your download",
     "authorizationFailed":"Auth failed"
   },

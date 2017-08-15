@@ -153,7 +153,6 @@
                         <label>
                             <span>{$ __('feedback.placeholders.summary') $}</span>
                             <input type="text"
-                                   ng-class="{(vm.functionalityForm)}"
                                    ng-model="vm.issue.title"
                                    placeholder="{$ __('feedback.placeholders.summary') $}"
                                    focus-me="true" required>
@@ -195,7 +194,7 @@
                                 safe $}</p>
                         </div>
                         <div class="clearfix">
-                            <button ng-disabled="!vm.functionalityForm.$valid" type="submit"
+                            <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
                                     ng-click="vm.createIssue(vm.issue)"
                                     class="btn btn-default flat pull-right">{$
                                 __('tools.suggestDataset.form.submit') $}

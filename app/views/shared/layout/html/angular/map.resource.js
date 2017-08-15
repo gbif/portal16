@@ -18,7 +18,7 @@ var angular = require('angular');
             );
         })
         .factory('MapCapabilities', function ($resource, env) {
-            return $resource(env.dataApiV2 + 'map/occurrence/density/capabilities.json', null, {
+            return $resource(env.mapCapabilities, null, {
                     'query': {
                         method: 'GET',
                         isArray: false

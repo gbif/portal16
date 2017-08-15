@@ -172,7 +172,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 type: 'POLY'
             }
         ];
-        vm.selectedColor = vm.colorOptions[8];
+        vm.selectedColor = vm.colorOptions[10];
 
         vm.customMap = $localStorage.customMap;
         if (vm.customMap) {
@@ -209,7 +209,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
         };
         vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
-        console.log(vm.style);
 
         vm.updateCustomStyle = function() {
             var style;

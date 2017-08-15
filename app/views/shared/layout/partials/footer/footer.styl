@@ -1,54 +1,53 @@
 .site-footer {
     .site-footer__upper {
-        border-top 1px solid #dbe3e7
-        //color $discreetInk
-        color darken($navBar_background_color, 15)
-        padding vrBlock(4) 0 vrBlock(2) 0
-        //margin-top vrBlock(8)
-        h4 {
-            font-weight normal
-            font-size 16px
-            margin-bottom 20px
-        }
-        >div {
-            text-align center
-        }
+        background $navBar_background
+        border-top 1px solid $stripeBorderColor
     }
     &__menu {
-        text-align left
-        display inline-block
-        >li {
-            float left
-            margin-right 100px
-            li {
-                font-weight 300
-                a {
-                    color inherit
-                }
+        text-align center
+        color white
+        font-weight 300
+        a {
+            color inherit
+            &:hover {
+                text-decoration none
             }
+        }
+        a, span>span {
+            &:after {
+                content '|'
+                margin 0 5px
+            }
+            &:last-child:after {
+                content none
+            }
+        }
+        span>span>span {
+            font-weight 500
+        }
+        div {
+            margin-bottom vrBlock(0.5)
         }
     }
     &__lower {
         color white
         border-top $navBar_borderWidth solid $navBar_borderColor
-        background $navBar_background
-    }
-    ul {
-        padding 0
-    }
-    .newsletterButton {
-        background white
-        > a {
-            padding 15px 30px
-            display inline-block
+        background black
+        text-align center
+        img {
+            width 300px
+            max-width 100%
+            padding 20px
         }
-        color $navBar_background_color
-        font-size 16px
+    }
+    &__social {
         display inline-block
-        margin auto
-        border-radius 3px
-        margin 20px
-        margin-bottom 50px
+        >a {
+            display inline-block
+            background white
+            color black
+            margin 10px
+        }
     }
 }
 
@@ -57,6 +56,11 @@
         .site-footer {
             //display none
             padding-left $filterDrawerWidth;
+        }
+    }
+    .site-footer {
+        img {
+            padding 0 50px
         }
     }
 }
