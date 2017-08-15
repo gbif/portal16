@@ -571,7 +571,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.clickedGeometry = vm.clickedGeometry;
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
-            $state.go('occurrenceSearchTable', vm.getClickedQuery(), {inherit: false, notify: true, reload: true});
+            window.location.href = "/occurrence/search?" + $httpParamSerializer(vm.getClickedQuery());
             //vm.activeControl = vm.controls.OCCURRENCES;
             //vm.mapMenu.isLoading = true;
             //vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
