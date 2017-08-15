@@ -71,6 +71,15 @@ function adhocMapDirective(BUILD_VERSION) {
                 }],
                 background: '#e0e0e0'
             },
+            SQUARE_DOTS: {
+                baseMap: {style: 'gbif-light'},
+                overlay: [{style: 'outline.poly', bin: 'square', squareSize: 256}, {
+                    style: 'orange.marker',
+                    bin: 'square',
+                    squareSize: 256
+                }],
+                background: '#e0e0e0'
+            },
             OSM: {
                 baseMap: {style: 'osm-bright'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
