@@ -40,7 +40,7 @@ Progress.prototype.addLoaded = function() {
 Progress.prototype.update = function() {
     var width = (this.loaded / this.loading * 100).toFixed(1) + '%';
     this.el.style.width = width;
-    if (this.loading === this.loaded) {
+    if (this.loading <= this.loaded) {
         this.loading = 0;
         this.loaded = 0;
         var this_ = this;
