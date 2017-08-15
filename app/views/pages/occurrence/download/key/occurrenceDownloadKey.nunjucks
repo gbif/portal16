@@ -128,7 +128,7 @@
                                                 <div>
                                                     <dt class="text-capitalize">{$ __('downloadKey.citation') $}</dt>
                                                     <dd>
-                                                        GBIF.org ({$ download.record.created | formatDate(gb.locales.current) $}) GBIF Occurrence Download {$ download.record.doi $}
+                                                        GBIF Occurrence Download {$ download.record.doi $} accessed via GBIF.org on {$ download.record.created | formatDate(gb.locales.current, 'DD MMM YYYY') $}
                                                     </dd>
                                                 </div>
                                                 {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}

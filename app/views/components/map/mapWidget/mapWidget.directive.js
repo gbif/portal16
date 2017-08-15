@@ -60,19 +60,19 @@ function mapWidgetDirective(BUILD_VERSION) {
 
         vm.basemaps = [
             {
-                name: 'classic',
+                name: 'CLASSIC',
                 query: {style: 'gbif-classic'}
             },
             {
-                name: 'light',
+                name: 'LIGHT',
                 query: {style: 'gbif-light'}
             },
             {
-                name: 'dark',
+                name: 'DARK',
                 query: {style: 'gbif-dark'}
             },
             {
-                name: 'roads',
+                name: 'OSM',
                 query: {style: 'osm-bright'}
             }
         ];
@@ -107,58 +107,68 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.selectedBinning = vm.binningOptions[2];
         vm.colorOptions = [
             {
-                name: 'classic',
+                name: 'CLASSIC',
                 query: ['classic.point'],
                 type: 'POINT'
             },
             {
-                name: 'fire',
-                query: ['fire.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'glacier',
-                query: ['glacier.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'purpleYellow',
+                name: 'PURPLE_YELLOW',
                 query: ['purpleYellow.point'],
                 type: 'POINT'
             },
             {
-                name: 'blueHeat',
+                name: 'PURPLE_HEAT',
+                query: ['purpleHeat.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'BLUE_HEAT',
                 query: ['blueHeat.point'],
                 type: 'POINT'
             },
             {
-                name: 'orangeHeat',
+                name: 'ORANGE_HEAT',
                 query: ['orangeHeat.point'],
                 type: 'POINT'
             },
             {
-                name: 'green',
+                name: 'GREEN',
                 query: ['green2.point'],
                 type: 'POINT'
             },
             {
-                name: 'classic',
+                name: 'FIRE',
+                query: ['fire.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'GLACIER',
+                query: ['glacier.point'],
+                type: 'POINT'
+            },
+            {
+                name: 'CLASSIC',
                 query: ['classic.poly'],
                 type: 'POLY'
             },
             {
-                name: 'purpleYellow',
+                name: 'PURPLE_YELLOW',
                 query: ['purpleYellow.poly'],
                 type: 'POLY'
             },
             {
-                name: 'blueCluster',
+                name: 'GREEN',
+                query: ['green2.poly'],
+                type: 'POLY'
+            },
+            {
+                name: 'BLUE_CLUSTER',
                 query: ['outline.poly', 'blue.marker'],
                 type: 'POLY'
             },
             {
-                name: 'green',
-                query: ['green2.poly'],
+                name: 'ORANGE_CLUSTER',
+                query: ['outline.poly', 'orange.marker'],
                 type: 'POLY'
             }
         ];
@@ -172,26 +182,18 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.predefinedStyles = {
-            CLASSIC_HEX: {
-                baseMap: {style: 'gbif-classic'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
-                background: '#272727'
-            },
+            CUSTOM: vm.customMap,
             CLASSIC: {
                 baseMap: {style: 'gbif-classic'},
                 overlay: [],
                 background: '#02393d'
             },
-            ORANGE_DOTS: {
-                baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
-                    style: 'orange.marker',
-                    bin: 'hex',
-                    hexPerTile: 15
-                }],
-                background: '#e0e0e0'
+            CLASSIC_HEX: {
+                baseMap: {style: 'gbif-classic'},
+                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
+                background: '#272727'
             },
-            OSM: {
+            STREETS: {
                 baseMap: {style: 'osm-bright'},
                 overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
                     style: 'orange.marker',
@@ -200,17 +202,11 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }],
                 background: '#e0e0e0'
             },
-            GREEN: {
-                baseMap: {style: 'gbif-light'},
-                overlay: [{style: 'green2.poly', bin: 'hex', hexPerTile: 40}],
-                background: '#e0e0e0'
-            },
-            DARK: {
+            GLACIER: {
                 baseMap: {style: 'gbif-dark'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
-                background: '#272727'
-            },
-            CUSTOM: vm.customMap
+                overlay: [{style: 'blueHeat.point'}],
+                background: '#e0e0e0'
+            }
         };
         vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
         console.log(vm.style);

@@ -803,8 +803,8 @@
     "SH": "Saint Helena",
     "KN": "Saint Kitts and Nevis",
     "LC": "Saint Lucia",
-    "BL" : "Saint-Barthélemy",
-    "MF" : "Saint-Martin (French part)",
+    "BL": "Saint-Barthélemy",
+    "MF": "Saint-Martin (French part)",
     "PM": "Saint Pierre and Miquelon",
     "VC": "Saint Vincent and the Grenadines",
     "WS": "Samoa",
@@ -1263,8 +1263,8 @@
     "status": "status",
     "nameType": "name type",
     "noOccurencesInGbif": "No occurrences in GBIF",
-    "viewInGbifBackbone" : "View in GBIF backbone",
-    "publisherRecord" : "Publisher record",
+    "viewInGbifBackbone": "View in GBIF backbone",
+    "publisherRecord": "Publisher record",
     "nameTypeEnum": {
       "SCIENTIFIC": "scientific name",
       "DOUBTFUL": "doubtful",
@@ -1951,26 +1951,24 @@
     "literature": {
       "keywords": "Keywords"
     }
-
   },
   "meta": {
-    "resourceDescription" : "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
-    "analyticsCountry" : {
-      "fromDescription" : "Change over time in data about species from {{country}} available from GBIF.org",
+    "resourceDescription": "Search for resources in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "analyticsCountry": {
+      "fromDescription": "Change over time in data about species from {{country}} available from GBIF.org",
       "publishedByDescription": "Change over time in the data published by institutions within {{country}} available from GBIF.org"
     },
     "analyticsGlobalDescription": "Trends in data availability on the GBIF network, 2008 to 2016",
-    "analyticsTitle" : "Data trends",
-    "eoiDescription" : "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
-    "eoiTitle" : "Become a publisher",
-    "observationTrendsTitle" : "Observation Trends",
-    "observationTrendsDescription" : "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
-    "speciesLookupDescription" :"Normalize species names from a csv file against the GBIF backbone. The file is expected to be have a column called 'scientificName' and an optional column 'kingdom' and 'id'.",
-    "speciesLookupTitle" : "Species name matching",
+    "analyticsTitle": "Data trends",
+    "eoiDescription": "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
+    "eoiTitle": "Become a publisher",
+    "observationTrendsTitle": "Observation Trends",
+    "observationTrendsDescription": "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
+    "speciesLookupDescription": "Normalize species names from a csv file against the GBIF backbone. The file is expected to be have a column called 'scientificName' and an optional column 'kingdom' and 'id'.",
+    "speciesLookupTitle": "Species name matching",
     "searchDescription": "Search GBIF.org",
-    "searchDescriptionDetail" : "for '{{searchTerm}}'",
-    "iptDescription" : "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
-
+    "searchDescriptionDetail": "for '{{searchTerm}}'",
+    "iptDescription": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
   },
   "intervals": {
     "elevation": {
@@ -2327,25 +2325,25 @@
   "feedback": {
     "intro": {
       "title": "Feedback and questions",
-      "example": "You can help us solve the issue by choosing a feedback type."
+      "example": "Help us resolve any issues by choosing which type of feedback you're providing"
     },
     "content": {
       "title": "Content",
-      "example": "E.g. that species don't exist. This taxonomy is so '90s",
+      "example": "Such as: That species doesn't exist. That location seems suspect. The new URL for that organization is...",
       "annotate": "This publisher has a website for handling feedback. We recommend using that",
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
       "title": "Bug",
-      "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
+      "example": "Such as: The search button doesn't work. The page doesn't load. I can't read this because the columns overlap."
     },
     "idea": {
       "title": "Idea",
-      "example": "E.g. I want GBIF for my smart watch."
+      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
     },
     "question": {
       "title": "Helpdesk",
-      "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
+      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
     },
@@ -2548,10 +2546,10 @@
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."
   },
-  "species":{
-    "distribution" : {
+  "species": {
+    "distribution": {
       "presentIn": "Present in {country}",
-      "presentInNonCountry" : "Present in {location}",
+      "presentInNonCountry": "Present in {location}",
       "threatStatus": {
         "EXTINCT": "Extinct",
         "EXTINCT_IN_THE_WILD": "Extinct in the Wild",
@@ -2561,9 +2559,43 @@
         "NEAR_THREATENED": "Near Threatened",
         "LEAST_CONCERN": "Least Concern",
         "DATA_DEFICIENT": "Data Deficient",
-        "NOT_EVALUATED": "Not Evaluated" ,
+        "NOT_EVALUATED": "Not Evaluated",
         "threatStatus": "Threat status: {status}"
       }
+    }
+  },
+  "map": {
+    "predefined": {
+      "CLASSIC_HEX": "Classic outliers",
+      "CLASSIC": "Classic density",
+      "STREETS": "Streets",
+      "GLACIER": "Glacier",
+      "CUSTOM": "Custom"
+    },
+    "basemap": {
+      "CLASSIC": "Magenta",
+      "LIGHT": "Light",
+      "DARK": "Dark",
+      "OSM": "Roads"
+    },
+    "bin": {
+      "PIXEL": "Points",
+      "SMALL_HEX": "Small hexagons",
+      "LARGE_HEX": "Hexagons",
+      "SMALL_SQUARE": "Small squares",
+      "LARGE_SQUARE": "Squares"
+    },
+    "colors": {
+      "CLASSIC": "Classic",
+      "FIRE": "Fire",
+      "GLACIER": "Glacier",
+      "PURPLE_YELLOW": "Purple yellow",
+      "PURPLE_HEAT": "Purple heat",
+      "BLUE_HEAT": "Blue heat",
+      "ORANGE_HEAT": "Orange heat",
+      "GREEN": "Green",
+      "BLUE_CLUSTER": "Blue cluster",
+      "ORANGE_CLUSTER": "Orange cluster"
     }
   }
 }
