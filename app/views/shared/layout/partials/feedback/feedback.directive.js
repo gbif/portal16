@@ -71,6 +71,7 @@ function feedbackDirective(BUILD_VERSION) {
         };
 
         vm.createIssue = function (formData) {
+            vm.state = 'SENDING';
             var issue = {
                 width: window.innerWidth,
                 height: window.innerHeight,

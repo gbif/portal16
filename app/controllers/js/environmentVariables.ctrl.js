@@ -9,7 +9,7 @@ let environment = {
     tileApi: config.tileApi,
     analyticsImg: config.analyticsImg,
     imageCache: config.dataApi + 'image/unsafe/',
-    mapCapabilities: config.tileApi
+    mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json'
 };
 
 let constantKeys = config.publicConstantKeys;
