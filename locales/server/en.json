@@ -2325,25 +2325,25 @@
   "feedback": {
     "intro": {
       "title": "Feedback and questions",
-      "example": "You can help us solve the issue by choosing a feedback type."
+      "example": "Help us resolve any issues by choosing which type of feedback you're providing"
     },
     "content": {
       "title": "Content",
-      "example": "E.g. that species don't exist. This taxonomy is so '90s",
+      "example": "Such as: That species doesn't exist. That location seems suspect. The new URL for that organization is...",
       "annotate": "This publisher has a website for handling feedback. We recommend using that",
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
       "title": "Bug",
-      "example": "E.g. search button don't work. The content is displayed in the wrong way. The Gopher site doesn't respond."
+      "example": "Such as: The search button doesn't work. The page doesn't load. I can't read this because the columns overlap."
     },
     "idea": {
       "title": "Idea",
-      "example": "E.g. I want GBIF for my smart watch."
+      "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
     },
     "question": {
       "title": "Helpdesk",
-      "example": "E.g. how to download data? And what is GBIFs take on animals privacy?",
+      "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
       "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at info@gbif.org or at communication@gbif.org for press matters."
     },
