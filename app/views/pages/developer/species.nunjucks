@@ -56,8 +56,8 @@
             {$ api.submenu(sections) $}
             </div>
             <div class="col-md-10">
-            <section id="nameUsages" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="nameUsages" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Working with Name Usages</h3>
                     <p>A name usage is the usage of a scientific name according to one
                         particular Checklist including the <a href="/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c">GBIF
@@ -141,9 +141,9 @@
                 </div>
             </section>
 
-            <section id="searching" class="white-background">
-                <div class="container--narrow anchor-block">
-                    <div class="anchor-block" id="temporalCoverages">
+            <section id="searching" class="white-background page--developer__anchor">
+                <div class="container--narrow">
+                    <div class="page--developer__anchor" id="temporalCoverages">
                         <h3>Searching Names</h3>
                         <p>GBIF provides 4 different ways of finding name usages.
                             They differ in their matching behavior, response format and also the actual content covered.
@@ -180,8 +180,8 @@
                     </div>
             </section>
 
-            <section id="parser" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="parser" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Name Parser</h3>
                     <p>GBIF exposes its java based name parser library through our API.
                         The service takes one or a list of simple scientific name strings, parses each and returns a

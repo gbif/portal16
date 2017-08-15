@@ -138,7 +138,7 @@ nature, PLOS, ... and
         </div>
 
         <div class="horizontal-stripe--paddingless light-background ng-cloak">
-            <map-widget filter="home.mapFilter" map-style="{suggested: 'CLASSIC'}">
+            <map-widget filter="home.mapFilter" map-style="{forceSelect: 'CLASSIC'}">
                 <form class="search-box mapPopup fixedSize">
                     <input type="text"
                            autocomplete="off"

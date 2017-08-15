@@ -76,7 +76,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 query: {style: 'osm-bright'}
             }
         ];
-        vm.selectedBaseMap = vm.basemaps[0];
+        vm.selectedBaseMap = vm.basemaps[1];
         vm.binningOptions = [
             {
                 name: 'PIXEL',
@@ -104,7 +104,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 type: 'POLY'
             }
         ];
-        vm.selectedBinning = vm.binningOptions[0];
+        vm.selectedBinning = vm.binningOptions[2];
         vm.colorOptions = [
             {
                 name: 'classic',
@@ -162,7 +162,14 @@ function mapWidgetDirective(BUILD_VERSION) {
                 type: 'POLY'
             }
         ];
-        vm.selectedColor = vm.colorOptions[0];
+        vm.selectedColor = vm.colorOptions[8];
+
+        vm.customMap = $localStorage.customMap;
+        if (vm.customMap) {
+            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
+            vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
+            vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
+        }
 
         vm.predefinedStyles = {
             CLASSIC_HEX: {
@@ -202,16 +209,13 @@ function mapWidgetDirective(BUILD_VERSION) {
                 baseMap: {style: 'gbif-dark'},
                 overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
                 background: '#272727'
-            }
+            },
+            CUSTOM: vm.customMap
         };
+        vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
+        console.log(vm.style);
 
-        vm.customMap = $localStorage.customMap;
-        if (vm.customMap) {
-            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
-            vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
-            vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
-        }
-        vm.composeCustomStyle = function() {
+        vm.updateCustomStyle = function() {
             var style;
             vm.selectedBinning = vm.selectedBinning || {};
             if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
@@ -229,13 +233,18 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.prevColorName = vm.selectedColor.name;
             vm.customMap = {
                 baseMap: _.get(vm.selectedBaseMap, 'query') || vm.basemaps[0].query,
-                overlay: style
+                overlay: style,
+                background: '#e0e0e0'
             };
             $localStorage.customMap = {
                 binning: vm.selectedBinning,
                 color: vm.selectedColor,
                 basemap: vm.selectedBaseMap
             };
+            return vm.customMap;
+        };
+        vm.composeCustomStyle = function() {
+            vm.updateCustomStyle();
             map.update(vm.customMap);
         };
 
@@ -250,14 +259,17 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-            var suggestedStyle = vm.predefinedStyles[_.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX')] || vm.predefinedStyles.CLASSIC_HEX;
-            vm.style = _.get(vm.mapStyle, 'suggested', 'CLASSIC_HEX');
-            vm.widgetContextStyle = {
-                background: suggestedStyle.background
-            };
+            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC';
+            var activeStyle = vm.predefinedStyles[vm.style];
+            if (vm.style == 'CUSTOM') {
+                activeStyle = vm.updateCustomStyle();
+            }
+            //vm.widgetContextStyle = {
+            //    background: suggestedStyle.background
+            //};
             map = mapController.createMap(element, {
-                baseMap: suggestedStyle.baseMap,
-                overlay: suggestedStyle.overlay,
+                baseMap: activeStyle.baseMap,
+                overlay: activeStyle.overlay,
                 filters: getQuery()
             });
 
@@ -322,7 +334,6 @@ function mapWidgetDirective(BUILD_VERSION) {
                 if (vm.activeControl !== vm.controls.OCCURRENCES) {
                     return;
                 }
-                console.log(e);
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 30;
                 var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
@@ -368,11 +379,16 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.setStyle = function (style) {
-            var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
-            vm.widgetContextStyle = {
-                background: s.background
-            };
-            map.update(s);
+            $localStorage.selectedMapStyle = style || 'CLASSIC';
+            if (style == 'CUSTOM') {
+                vm.composeCustomStyle();
+            } else {
+                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
+                vm.widgetContextStyle = {
+                    background: s.background
+                };
+                map.update(s);
+            }
         };
 
         vm.setProjection = function (epsg) {
