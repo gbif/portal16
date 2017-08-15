@@ -77,10 +77,10 @@ module.exports = [
             "name": "ipt",
             "url": "/ipt"
           },
-          {
-            "name": "dataValidator",
-            "url": "/tools/data-validator"
-          },
+          //{
+          //  "name": "dataValidator",
+          //  "url": "/tools/data-validator"
+          //},
           {
             "name": "suggestDataset",
             "url": "/suggest-dataset"
