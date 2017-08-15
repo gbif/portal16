@@ -1,9 +1,10 @@
 'use strict';
 var angular = require('angular');
+var env = window.gb.env;
 
 angular
     .module('portal')
-    .constant('env', window.gb.env)
+    .constant('env', env)
     .constant('suggestEndpoints', {
         recordedBy: env.dataApi + 'occurrence/search/recordedBy',
         recordNumber: env.dataApi + 'occurrence/search/recordNumber',
