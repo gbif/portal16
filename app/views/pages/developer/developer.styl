@@ -35,4 +35,18 @@
     nav.developer-submenu {
         padding: 20px 15px !important;
     }
+    
+    &__anchor:target {
+        &:before {
+            display block
+            content " "
+            height $navBar_height
+            margin-top -($navBar_height)
+            visibility hidden
+            z-index -999
+            position relative
+        }
+    }
+
+
 }

@@ -49,8 +49,8 @@
 {% endmacro %}
 
 {% macro paramArticle(params, apiName, apiBase, addSearchParams=false) %}
-    <section id="parameters" class="white-background">
-        <div class="container--narrow anchor-block">
+    <section id="parameters" class="white-background page--developer__anchor">
+        <div class="container--narrow">
             {% if addSearchParams %}
                 {% set params = params | merge({
                 "hl": "Set hl=true to highlight terms matching the query when in fulltext search fields. The highlight will be an emphasis tag of class 'gbifH1' e.g. <a href='{$ action.cfg.apiBaseUrl $}dataset/search?q=plant&amp;hl=true' target='_blank'>/search?q=plant&amp;hl=true</a>. Fulltext search fields include: title, keyword, country, publishing country, publishing organization title, hosting organization title, and description. One additional full text field is searched which includes information from metadata documents, but the text of this field is not returned in the response.",

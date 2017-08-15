@@ -61,8 +61,8 @@
             {$ api.submenu(sections) $}
                 </div>
                 <div class="col-md-10">
-            <section id="occurrence" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="occurrence" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Occurrences</h3>
                     <p>This API provides services related to the retrieval of single occurrence records.</p>
                     <table class='api table table-bordered table-striped table-params'>
@@ -84,8 +84,8 @@
                 </div>
             </section>
 
-            <section id="search" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="search" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Searching</h3>
                     <p>This API provides services for searching occurrence records that have been indexed by GBIF.
                         In order to retrieve all results for a given search filter you need to issue individual requests
@@ -146,8 +146,8 @@
                 </div>
             </section>
 
-            <section id="download" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="download" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Occurrence Downloads</h3>
                     <p>This API provides services to download occurrence records and retrieve information about those
                         downloads.</p>
@@ -214,8 +214,8 @@
                 </div>
             </section>
 
-            <section id="metrics" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="metrics" class="white-background page--developer__anchor">
+                <div class="container--narrow ">
                     <h3>Occurrence Metrics</h3>
                     <p>This API provides services to retrieve various counts and metrics provided about occurrence
                         records.
@@ -243,8 +243,8 @@
                 </div>
             </section>
 
-            <section id="inventories" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="inventories" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Occurrence Inventories</h3>
                     <p>This API provides services that list all distinct values together with their occurrence count for
                         a given occurrence property.
@@ -376,8 +376,8 @@
                     href='"+apiBase+"occurrence/search?facet=datasetKey&datasetKey.facetLimit=5&datasetKey.facetOffset=10&limit=0'>occurrence/search?facet=datasetKey&amp;datasetKey.facetLimit=5&amp;datasetKey.facetOffset=10&amp;limit=0</a>"
             }) $}
 
-            <section id="predicates" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="predicates" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Occurrence Download Predicates</h3>
                     <p>A download predicate is an query expression to retrieve occurrence record downloads.</p>
                     <p>If you are interested in seeing some examples of how to use the Java API to build predicates,
@@ -627,8 +627,8 @@
                 </div>
             </section>
 
-            <section id="download_limits" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="download_limits" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Occurrence Download Limits</h3>
                     <p>Occurrence downloads is a very resource demanding service which needs to be monitored and limited
                         according to the GBIF platform load.

@@ -53,8 +53,8 @@
             {$ api.submenu(sections) $}
             </div>
             <div class="col-md-10">
-            <section id="datasets" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="datasets" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Datasets</h3>
                     <p>
                         The dataset API provides CRUD and discovery services for datasets. Its most prominent use on the
@@ -165,8 +165,8 @@
             {% macro trowS(url, resp="DatasetSearchResult", respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/dataset"+url, httpMethod="GET", resp=resp, respLink=respLink, authRequired=undefined, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="datasetSearch" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="datasetSearch" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Dataset Search</h3>
                     <p>The dataset search API provides search services for datasets.</p>
 
@@ -186,8 +186,8 @@
                 </div>
             </section>
 
-            <section id="datasetMetrics" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="datasetMetrics" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Dataset Metrics</h3>
                     <p>The dataset metrics API provides metrics for datasets of type CHECKLIST only.</p>
 
@@ -206,8 +206,8 @@
             {% macro trowI(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/installation"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="installations" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="installations" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Installations</h3>
                     <p>The installation API provides CRUD and discovery services for installations.</p>
                     <p>Please note deletion of installations is logical, meaning installation entries remain registered
@@ -287,8 +287,8 @@
             {% macro trowO(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/organization"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="organizations" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="organizations" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Organizations</h3>
                     <p>The organization API provides CRUD and discovery services for organizations. Its most prominent
                         use on the GBIF portal is to drive the <a href="/publisher/search">data publisher search</a>.
@@ -383,8 +383,8 @@
             {% macro trowNo(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/node"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="nodes" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="nodes" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Nodes</h3>
                     <p>The node API provides CRUD and discovery services for nodes. Its most prominent use on the GBIF
                         portal is to drive the <a href="/country">country pages</a>.</p>
@@ -471,8 +471,8 @@
             {% macro trowNe(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/network"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            <section id="networks" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="networks" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>Networks</h3>
                     <p>The network API provides CRUD and discovery services for networks.</p>
                     <p>Please note deletion of networks is logical, meaning network entries remain registered forever
@@ -584,8 +584,8 @@
             country are legal values but not yet implemented, so data will not yet be returned for them."
             }) $}
 
-            <section id="oai-pmh" class="white-background">
-                <div class="container--narrow anchor-block">
+            <section id="oai-pmh" class="white-background page--developer__anchor">
+                <div class="container--narrow">
                     <h3>OAI-PMH</h3>
                     <p>In addition to the RESTful JSON API, Datasets are exposed using OAI-PMH. Two metadata formats can
                         be retrieved: Ecological Metadata Language (EML) and OAI Dublin Core. Datasets are grouped into
