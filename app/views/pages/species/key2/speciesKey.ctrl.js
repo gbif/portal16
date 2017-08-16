@@ -9,6 +9,7 @@ require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
 
+
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');
 //require('./directives/dbpedia.directive.js');
@@ -34,6 +35,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
+
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
@@ -41,6 +43,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
     vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
+
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
@@ -48,8 +51,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.speciesImages.$promise.then(function(resp){
         utils.attachImages(resp.results);
     });
-
-
 
     vm.isNub = false;
 
@@ -66,17 +67,19 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 vm.verbatim = SpeciesVerbatim.get({id: vm.key});
                 vm.verbatim.$promise.then(function(){
                     vm.verbatimHasExtensions = Object.keys(vm.verbatim.extensions).length > 0;
-                })
-                    .catch(function(err){
-                        delete vm.verbatim;
-                    })
-                vm.dwcextensions = DwcExtension.get();
+                }).catch(function(err){
+                    delete vm.verbatim;
+                });
+                vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
 
+                vm.dwcextensions = DwcExtension.get();
+                vm.dwcextensions.$promise.catch(vm.nonCriticalErrorHandler);
+
+                angular.element(document).ready(function () {
+                    vm.lightbox = new Lightbox();
+                    vm.lightbox.load()
+                });
             }
-            // else {
-            //     vm.checklistsWithSpecies = DatasetSearch.query({taxonKey:vm.species.key, type: 'CHECKLIST'});
-            //     vm.occurrenceDatasetsWithSpecies = SpeciesOccurrenceDatasets.get({id: vm.species.key})
-            // }
             vm.isSynonym = typeof vm.species.taxonomicStatus !== 'undefined' && vm.species.taxonomicStatus.indexOf('SYNONYM') > -1 && vm.species.accepted && vm.species.acceptedKey && vm.species.acceptedKey !== vm.species.key;
             getCitesStatus(resp.kingdom, resp.canonicalName);
         });
@@ -97,6 +100,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     datasetKey: resp.datasetKey,
                     taxonKey: resp.key
                 });
+                vm.synonyms.$promise.catch(vm.nonCriticalErrorHandler);
             }
             if (vm.species.sourceTaxonKey) {
                 vm.sourceTaxon = Species.get({id: vm.species.sourceTaxonKey});
@@ -133,6 +137,28 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.typeaheadSelect = function (item) { //  model, label, event
         $state.go($state.current, {speciesKey: item.key}, {inherit: false, notify: true, reload: false});
     };
+
+    vm.hasCriticalError;
+    vm.criticalErrorHandler = function () {
+        vm.criticalErrorHandler = true;
+    };
+    vm.hasNonCriticalError;
+    vm.nonCriticalErrorHandler = function () {
+        vm.hasNonCriticalError = true;
+    };
+    vm.species.$promise.catch(vm.criticalErrorHandler);
+    vm.mappedOccurrences.$promise.catch(vm.criticalErrorHandler);
+    vm.occurrences.$promise.catch(vm.criticalErrorHandler);
+    vm.capabilities.$promise.catch(vm.criticalErrorHandler);
+
+    vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.images.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.descriptions.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.combinations.$promise.catch(vm.nonCriticalErrorHandler);
+    vm.distributions.$promise.catch(vm.nonCriticalErrorHandler);
+    //vm.cites.$promise.catch(vm.nonCriticalErrorHandler); //broken cites isn't worth mentioning
+    //vm.sourceTaxon.$promise.catch(vm.nonCriticalErrorHandler); //this is often failing when the ref taxon has been deleted
 }
 
 module.exports = speciesKey2Ctrl;

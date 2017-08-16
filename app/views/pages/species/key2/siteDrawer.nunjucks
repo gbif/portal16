@@ -10,7 +10,10 @@
                           Classification
                     </span>
                 </div>
+
             </div>
+
+
         </div>
 
         <div class="site-drawer__section">
@@ -32,9 +35,15 @@
                     <!--ng-click="speciesKey2.updateSearch()">-->
                     <!--<span class="sr-only">{$ __('stdTerms.search') $}</span>-->
                     <!--</a>-->
+
                 </form>
+
+
             </div>
-            <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}" dataset-key="{{speciesKey2.species.datasetKey}}"></taxonomy-browser>
+            <div class="checklist-info" ng-if="speciesKey2.species.$resolved && !speciesKey2.isNub">
+                <div>You are browsing: <a class="inherit" href="" ui-sref="datasetKey({key: speciesKey2.species.datasetKey})">{{ speciesKey2.dataset.title  }}</a></div>
+            </div>
+            <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}" dataset-key="{{speciesKey2.species.datasetKey}}" ng-if="speciesKey2.species.datasetKey"></taxonomy-browser>
         </div>
     </div>
 </aside>

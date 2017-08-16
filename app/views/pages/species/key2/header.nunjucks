@@ -17,14 +17,9 @@
 
                 <p class="source" ng-if="speciesKey2.species.publishedIn">Published in: <span ng-bind-html="speciesKey2.species.publishedIn | parseUrlFilter:'_blank':'inherit' "></span></p>
 
-                <p ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym">
-                    {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym of' : 'Synonym of' }} <a scientific-name key="{{ speciesKey2.species.acceptedKey }}" name="{{speciesKey2.species.accepted}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})"></a>
 
-                </p>
 
-                <p ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey">
-                    Basionym: <a scientific-name key="{{ speciesKey2.species.basionymKey }}" name="{{speciesKey2.species.basionym}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})"></a>
-                </p>
+
 
 
                 <p ng-if="speciesKey2.dataset.$resolved && speciesKey2.species.datasetKey != speciesKey2.backboneKey" class="source">in <a class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a></p>
@@ -34,6 +29,9 @@
                 {#</span>#}
 
                 <div class="article-header__highlights">
+
+
+
                     <div ng-if="speciesKey2.vernacularName.vernacularName" class="text-capitalize">
                         <div>
                             <span class="article-header__meta">{{ speciesKey2.vernacularName.vernacularName }}</span>
@@ -64,6 +62,23 @@
                             </span>
                         </div>
                     </div>
+
+
+                    <div ng-if="speciesKey2.species.$resolved && speciesKey2.isSynonym" class="text-capitalize">
+                        <div>
+                            <span class="article-header__meta"> {{(speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey === speciesKey2.species.basionymKey && speciesKey2.species.acceptedKey !== speciesKey2.species.key) ? 'Homotypic synonym' : 'Synonym' }} of</span>
+                            <span class="discreet--very"><a scientific-name key="{{ speciesKey2.species.acceptedKey }}" name="{{speciesKey2.species.accepted}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.acceptedKey})"></a></span>
+                        </div>
+                    </div>
+                    <div ng-if="speciesKey2.species.$resolved && !speciesKey2.isSynonym && speciesKey2.species.basionymKey" class="text-capitalize">
+                        <div>
+                            <span class="article-header__meta">Basionym:</span>
+                            <span class="discreet--very"><a scientific-name key="{{ speciesKey2.species.basionymKey }}" name="{{speciesKey2.species.basionym}}" class="inherit" ui-sref="speciesKey({speciesKey: speciesKey2.species.basionymKey})"></a></span>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
             </header>

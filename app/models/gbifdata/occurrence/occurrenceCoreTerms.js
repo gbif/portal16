@@ -59,6 +59,9 @@ function getOccurrenceMetaData() {
     var deferred = Q.defer();
     async.parallel({terms: getTerms, remarks: getRemarkTypes}, function (err, data) {
         if (err !== null) {
+            console.error('failed to load occurrence terms');
+            console.error(err.statusMessage);
+            //process.exit(1);
             deferred.reject(new Error(err));
         } else if (data) {
             data.terms = sortTerms(data.terms);
