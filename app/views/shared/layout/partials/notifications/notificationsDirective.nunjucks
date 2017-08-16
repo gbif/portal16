@@ -7,12 +7,6 @@
                 <div class="menubox__header__title text-center">
                     <span>Notifications</span>
                 </div>
-                <div class="menubox__header__description text-center" ng-if="vm.notifications.count == 0">
-                    <p>This redesigned early-access version of GBIF.org is an active development site with
-                        limited functionality. The content exposed here is the same as that presented on <a
-                                class="inherit"
-                                href="http://www.gbif.org">the current site</a>.</p>
-                </div>
             </div>
         </div>
         <div class="menubox__content">
