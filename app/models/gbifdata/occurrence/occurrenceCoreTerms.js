@@ -61,7 +61,7 @@ function getOccurrenceMetaData() {
         if (err !== null) {
             console.error('failed to load occurrence terms');
             console.error(err.statusMessage);
-            process.exit(1);
+            //process.exit(1);
             deferred.reject(new Error(err));
         } else if (data) {
             data.terms = sortTerms(data.terms);

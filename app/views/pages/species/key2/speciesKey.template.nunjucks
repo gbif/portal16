@@ -10,6 +10,10 @@
                 {% include "./header.nunjucks" %}
 
                 {% include "./nav.nunjucks" %}
+                <div ng-if="speciesKey2.hasNonCriticalError" class="emptyInfo--small">
+                    <h3>Partial page</h3>
+                    <p>Not all data is currently available. You are seeing a partial view of the data. Try to refresh and please report the issue of it continues.</p>
+                </div>
                 <div ui-view>
                     {% include "./backboneSpecies.nunjucks" %}
 
@@ -25,7 +29,6 @@
                 <h3>Loading</h3>
             </div>
         </div>
-        {#<ng-include src="'/api/template/site/footer.html?v=' + portal.BUILD_VERSION"></ng-include>#}
     </div>
 
     <div class="fab hide-on-laptop">

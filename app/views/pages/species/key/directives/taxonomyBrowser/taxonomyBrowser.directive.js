@@ -25,7 +25,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl($stateParams, $http, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, SpeciesRoot, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
+    function taxonomyBrowserCtrl($stateParams, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, SpeciesRoot, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
@@ -42,13 +42,13 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         vm.isOcc = vm.occ == 'true';
 
         vm.hasCriticalError;
-        vm.criticalErrorHandler = function (err) {
+        vm.criticalErrorHandler = function () {
             vm.criticalErrorHandler = true;
         };
 
+        vm.rootOptions = SpeciesRoot.get({key: vm.datasetKey, limit: 100});
         vm.showRoot = function () {
             vm.showRootSelector = true;
-            vm.rootOptions = SpeciesRoot.get({key: vm.datasetKey, limit: 100});
         };
         if ($stateParams.root) {
             vm.showRoot();
