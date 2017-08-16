@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="uppercase-first">
-                        <a href="http://www.gbif.org/occurrence/{$ occurrence.record.key $}/fragment">
+                        <a href="{{ portal.dataApi }}occurrence/{$ occurrence.record.key $}/fragment">
                             {$ __('stdTerms.raw') $}
                         </a>
                     </li>
