@@ -4,6 +4,7 @@ var angular = require('angular'),
     mapController = require('./map'),
     ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
+    options = require('./options'),
 //globeCreator = require('./globe'),
     _ = require('lodash');
 
@@ -58,121 +59,14 @@ function mapWidgetDirective(BUILD_VERSION) {
             FILTERS: 14
         };
 
-        vm.basemaps = [
-            {
-                name: 'CLASSIC',
-                query: {style: 'gbif-classic'}
-            },
-            {
-                name: 'LIGHT',
-                query: {style: 'gbif-light'}
-            },
-            {
-                name: 'DARK',
-                query: {style: 'gbif-dark'}
-            },
-            {
-                name: 'OSM',
-                query: {style: 'osm-bright'}
-            }
-        ];
-        vm.selectedBaseMap = vm.basemaps[1];
-        vm.binningOptions = [
-            {
-                name: 'PIXEL',
-                query: {},
-                type: 'POINT'
-            },
-            {
-                name: 'SMALL_HEX',
-                query: {bin: 'hex', hexPerTile: 79},
-                type: 'POLY'
-            },
-            {
-                name: 'LARGE_HEX',
-                query: {bin: 'hex', hexPerTile: 17},
-                type: 'POLY'
-            },
-            {
-                name: 'SMALL_SQUARE',
-                query: {bin: 'square', squareSize: 64},
-                type: 'POLY'
-            },
-            {
-                name: 'LARGE_SQUARE',
-                query: {bin: 'square', squareSize: 256},
-                type: 'POLY'
-            }
-        ];
-        vm.selectedBinning = vm.binningOptions[2];
-        vm.colorOptions = [
-            {
-                name: 'CLASSIC',
-                query: ['classic.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'PURPLE_YELLOW',
-                query: ['purpleYellow.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'PURPLE_HEAT',
-                query: ['purpleHeat.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'BLUE_HEAT',
-                query: ['blueHeat.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'ORANGE_HEAT',
-                query: ['orangeHeat.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'GREEN',
-                query: ['green2.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'FIRE',
-                query: ['fire.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'GLACIER',
-                query: ['glacier.point'],
-                type: 'POINT'
-            },
-            {
-                name: 'CLASSIC',
-                query: ['classic.poly'],
-                type: 'POLY'
-            },
-            {
-                name: 'PURPLE_YELLOW',
-                query: ['purpleYellow.poly'],
-                type: 'POLY'
-            },
-            {
-                name: 'GREEN',
-                query: ['green2.poly'],
-                type: 'POLY'
-            },
-            {
-                name: 'BLUE_CLUSTER',
-                query: ['outline.poly', 'blue.marker'],
-                type: 'POLY'
-            },
-            {
-                name: 'ORANGE_CLUSTER',
-                query: ['outline.poly', 'orange.marker'],
-                type: 'POLY'
-            }
-        ];
-        vm.selectedColor = vm.colorOptions[10];
+        vm.basemaps = options.basemaps;
+        vm.selectedBaseMap = vm.basemaps[ options.defaults.basemap ];
+
+        vm.binningOptions = options.binning;
+        vm.selectedBinning = vm.binningOptions[ options.defaults.bin ];
+
+        vm.colorOptions = options.colors;
+        vm.selectedColor = vm.colorOptions[ options.defaults.color ];
 
         vm.customMap = $localStorage.customMap;
         if (vm.customMap) {
@@ -181,33 +75,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
         }
 
-        vm.predefinedStyles = {
-            CUSTOM: vm.customMap,
-            CLASSIC: {
-                baseMap: {style: 'gbif-classic'},
-                overlay: [],
-                background: '#02393d'
-            },
-            CLASSIC_HEX: {
-                baseMap: {style: 'gbif-classic'},
-                overlay: [{style: 'classic.poly', bin: 'hex', hexPerTile: 70}],
-                background: '#272727'
-            },
-            STREETS: {
-                baseMap: {style: 'osm-bright'},
-                overlay: [{style: 'outline.poly', bin: 'hex', hexPerTile: 15}, {
-                    style: 'orange.marker',
-                    bin: 'hex',
-                    hexPerTile: 15
-                }],
-                background: '#e0e0e0'
-            },
-            GLACIER: {
-                baseMap: {style: 'gbif-dark'},
-                overlay: [{style: 'blueHeat.point'}],
-                background: '#e0e0e0'
-            }
-        };
+        vm.predefinedStyles = options.predefined;
         vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
 
         vm.updateCustomStyle = function() {
@@ -244,6 +112,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         };
 
         vm.styleOptions = Object.keys(vm.predefinedStyles);
+        vm.styleOptions.push('CUSTOM');
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
