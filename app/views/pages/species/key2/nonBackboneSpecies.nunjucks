@@ -1,6 +1,6 @@
 <div ng-if="!speciesKey2.isNub && !speciesKey2.$state.is('speciesKeyVerbatim')">
 
-    <div class="container--narrow">
+    <div >
     {% include "./speciesImages.nunjucks" %}
     </div>
     <div class="horizontal-stripe" ng-if="speciesKey2.speciesImages.$resolved && speciesKey2.capabilities.$resolved">
