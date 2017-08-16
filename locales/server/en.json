@@ -2540,7 +2540,8 @@
   "help": {
     "citationExplainer": "Read more about literature, how it's discovered and linked to GBIF-mediated data.",
     "locationFilterWarning": "This map may include records known to have issues. Would you like to apply filters to hide any records with known coordinate issues?",
-    "noJavascriptEnabled": "We're sorry, but GBIF doesn't work properly without JavaScript enabled."
+    "noJavascriptEnabled": "We're sorry, but GBIF doesn't work properly without JavaScript enabled.",
+    "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser."
   },
   "phrases": {
     "defaultPageTitle": "GBIF",
