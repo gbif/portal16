@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -17,7 +18,15 @@ function installationKeyCtrl($state, $stateParams, $anchorScroll, InstallationDa
     vm.installation = InstallationExtended.get({id:vm.key});
 
     vm.installation.$promise.then(function(installation){
-        vm.publisher = Publisher.get({id: installation.organizationKey})
+        vm.publisher = Publisher.get({id: installation.organizationKey});
+        console.log('installation');
+        if (installation.type == 'IPT_INSTALLATION') {
+            var iptRssFeed = _.find(installation.endpoints, ['type', 'FEED']);
+            if (iptRssFeed) {
+                var iptHomePage = iptRssFeed.url.replace(/rss\.do$/, '');
+                installation.homepage = [iptHomePage];
+            }
+        }
     });
 
 
@@ -25,9 +34,7 @@ function installationKeyCtrl($state, $stateParams, $anchorScroll, InstallationDa
         InstallationDatasets.get({id: vm.key, limit: vm.limit, offset: vm.offset},
             function (response) {
                 vm.servedDatasets = response;
-
                     $anchorScroll(['servedDatasets']);
-
             },
             function () {
                 //TODO handle errors
