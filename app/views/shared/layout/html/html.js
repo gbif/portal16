@@ -341,7 +341,6 @@ require('../../../pages/resource/key/project/project.ctrl');
 
 require('../../../pages/custom/contactUs/contactUs.ctrl');
 require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
-require('../../../pages/developer/developerMaps.ctrl');
 
 
 require('./angular/publisher.resource');

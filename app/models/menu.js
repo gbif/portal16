@@ -35,6 +35,10 @@ module.exports = [
     "icon": "gb-icon-cloud-upload",
     "type": "normal",
     "items": [
+        {
+            "name": "publishingGuide",
+            "url": "/publishing-guide"
+        },
       {
         "name": "dataPublishing",
         "url": "/data-publishing"
@@ -43,10 +47,7 @@ module.exports = [
         "name": "datasetClasses",
         "url": "/dataset-classes"
       },
-      {
-        "name": "publishingGuide",
-        "url": "/publishing-guide"
-      },
+
       {
         "name": "endorsement",
         "url": "/become-a-publisher"
