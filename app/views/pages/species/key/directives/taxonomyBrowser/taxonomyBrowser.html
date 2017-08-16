@@ -1,7 +1,8 @@
 <div class="taxonomyBrowser">
     <div>
         <ul>
-            <li ng-repeat="tax in vm.parents">
+            <li ng-repeat="tax in vm.parents" class="taxonomyBrowser__parent">
+                <a href="" class="gb-icon-more2 pull-right inherit noUnderline taxonomyBrowser__action" ng-if="$index==0"></a>
                 <a class="taxonomyBrowser__parent noUnderline inherit" ui-sref=".({speciesKey:tax.key})" href="">
                     <div class="taxonomyBrowser__term taxonomyBrowser__rank" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                     <div class="taxonomyBrowser__description">
