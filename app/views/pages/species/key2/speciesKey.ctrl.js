@@ -9,6 +9,7 @@ require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
 
+
 //require('./directives/cites.directive.js');
 //require('./directives/redlist.directive.js');
 //require('./directives/dbpedia.directive.js');
@@ -72,6 +73,12 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                     })
                 vm.dwcextensions = DwcExtension.get();
 
+                angular.element(document).ready(function () {
+                    vm.lightbox = new Lightbox();
+                    vm.lightbox.load()
+                })
+
+
             }
             // else {
             //     vm.checklistsWithSpecies = DatasetSearch.query({taxonKey:vm.species.key, type: 'CHECKLIST'});
@@ -133,6 +140,10 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.typeaheadSelect = function (item) { //  model, label, event
         $state.go($state.current, {speciesKey: item.key}, {inherit: false, notify: true, reload: false});
     };
+
+
+
+
 }
 
 module.exports = speciesKey2Ctrl;

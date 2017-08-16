@@ -4,7 +4,7 @@
         <div>
 
             <a ng-repeat="image in speciesKey2.speciesImages.results"  class="galleryBar__img showBroken inherit noUnderline hoverBox">
-                <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load>
+                <img ng-src="{{ image.identifier | imgCache:200:150 }}" gb-load data-jslghtbx="{{ image.identifier | imgCache:1200:900 }}" data-jslghtbx-caption="&copy; {{ image.rightsHolder }}">
 
                 <div class="summary smaller">&copy; {{ image.rightsHolder }} </div>
 
