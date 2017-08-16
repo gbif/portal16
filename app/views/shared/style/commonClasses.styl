@@ -626,6 +626,58 @@ sub {
     bottom 0
     left 0
     right 0
-    background rgba(0,0,0,.1)
-    z-index $zContentOverlay
+    background rgba(0,0,0,.2)
+    z-index $zPageOverlay
+    &__card {
+        background white
+        width 500px
+        max-width 100%
+        max-height 100%
+        overflow hidden
+        margin auto
+        position absolute
+        left 0
+        right 0
+        top 2rem
+        box-shadow 0 3px 2px rgba(0, 0, 0, 0.2)
+        display flex
+        flex-direction column
+        font-size 14px
+        &__header {
+            flex 0 0 auto
+            padding 10px
+            text-align center
+        }
+        &__list {
+            flex 1 1 auto
+            overflow auto
+            ul {
+                padding 0
+            }
+            li {
+                &:nth-of-type(even) {
+                    background $alternativeTableRow
+                }
+                &:hover {
+                    background darken($alternativeTableRow, 5)
+                }
+            }
+            a {
+                display block
+                padding 10px 20px
+                div>span {
+                    margin-right 10px
+                }
+            }
+        }
+    }
+}
++isAbove($tablet) {
+    .content__overlay {
+        &__card {
+            max-height calc(100% - 2rem)
+            left calc(50% - 250px)
+            top 1rem
+        }
+    }
 }

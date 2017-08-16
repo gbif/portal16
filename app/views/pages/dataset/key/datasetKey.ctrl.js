@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
+function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -59,6 +59,8 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
                             _.get(vm.taxa, 'facets.STATUS.counts.PROPARTE_SYNONYM.count', 0) +
                             _.get(vm.taxa, 'facets.STATUS.counts.HOMOTYPIC_SYNONYM.count', 0);
     });
+
+    vm.rootElements = SpeciesRoot.get({key: vm.key, limit: 2});
 
     vm.dataset.$promise.then(function () {
         Page.setTitle(vm.dataset.title);

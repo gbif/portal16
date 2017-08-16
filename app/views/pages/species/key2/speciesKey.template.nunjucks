@@ -10,7 +10,6 @@
                 {% include "./header.nunjucks" %}
 
                 {% include "./nav.nunjucks" %}
-
                 <div ui-view>
                     {% include "./backboneSpecies.nunjucks" %}
 
@@ -20,6 +19,7 @@
                 </div>
             </div>
         </div>
+
         <div ng-if="!speciesKey2.species.$resolved">
             <div class="emptyInfo">
                 <h3>Loading</h3>

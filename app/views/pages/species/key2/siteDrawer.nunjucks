@@ -14,9 +14,10 @@
         </div>
 
         <div class="site-drawer__section">
-            <div class="m-05" ng-if="speciesKey2.isNub">
+            <div class="m-05">
                 <form class="search-box" ng-submit="speciesKey2.updateSearch()">
                     <input type="text"
+                           ng-disabled="!speciesKey2.species.datasetKey"
                            focus-me="speciesKey2.filterConfig.expanded"
                            autocomplete="off"
                            class="fit-suggestions--searchBox"
@@ -33,7 +34,7 @@
                     <!--</a>-->
                 </form>
             </div>
-            <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}"></taxonomy-browser>
+            <taxonomy-browser occ="false" taxon-key="{{speciesKey2.key}}" dataset-key="{{speciesKey2.species.datasetKey}}"></taxonomy-browser>
         </div>
     </div>
 </aside>

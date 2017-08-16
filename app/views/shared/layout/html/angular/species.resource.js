@@ -163,6 +163,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesRoot', function ($resource, env) {
+            return $resource(env.dataApi + 'species/root/:key', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesSuggest', function ($resource, env) {
             return $resource(env.dataApi + 'species/suggest', null, {
                     'query': {
