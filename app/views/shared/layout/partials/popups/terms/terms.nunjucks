@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card__stripe card__stripe--actions">
-            <a href="http://www.gbif.org/terms/privacy-policy">
+            <a href="{{ portal.urlPrefix }}/terms/privacy-policy">
                 {$ __('terms.readTerms') $}
             </a>
             <a href="" ng-click="vm.accept()">

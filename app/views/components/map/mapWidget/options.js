@@ -1,8 +1,8 @@
 module.exports = {
     defaults: {
         basemap: 1,
-        bin: 2,
-        color: 10
+        bin: 1,
+        color: 8
     },
     basemaps: [
         {

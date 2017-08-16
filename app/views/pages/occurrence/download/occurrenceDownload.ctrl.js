@@ -212,7 +212,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
                 });
             } else {
                 toastService.error({
-                    message: 'We currently cannot process your download request. Please report the error and try the production site instead at <a href="http://www.gbif.org/occurrence/search">GBIF.org</a>'
+                    message: 'We currently cannot process your download request. Please report the error if it continues.'
                 });
             }
         });
