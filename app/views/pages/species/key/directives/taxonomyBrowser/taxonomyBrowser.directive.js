@@ -29,15 +29,6 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
-        // if (vm.taxonKey == 'root') {
-        //     $http.get('//api.gbif.org/v1/species/root/' + vm.datasetKey)
-        //         .then(function (resp) {
-        //             console.log(resp);
-        //         })
-        //         .catch(function (err) {
-        //             console.log(err);
-        //         });
-        // }
         vm.$state = $state;
         vm.$sessionStorage = $sessionStorage;
         vm.taxon;
@@ -50,9 +41,12 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
         vm.linkPrefix = keys.nubKey == vm.datasetKey ? '/species/' : '/dataset/' + vm.datasetKey + '/taxonomy/';
         vm.isOcc = vm.occ == 'true';
 
+        vm.hasCriticalError;
+        vm.criticalErrorHandler = function (err) {
+            vm.criticalErrorHandler = true;
+        };
 
-        vm.showRoot = function() {
-            console.log('open root');
+        vm.showRoot = function () {
             vm.showRootSelector = true;
             vm.rootOptions = SpeciesRoot.get({key: vm.datasetKey, limit: 100});
         };
@@ -75,8 +69,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                     vm.offsetChildren = children.offset + resp.results.length;
                     processChildren(resp);
                 })
-                .catch(function () {
-                });
+                .catch(vm.criticalErrorHandler);
             return children;
         };
 
@@ -84,15 +77,9 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             vm.taxon.$promise.then(function () {
                 if (!vm.taxon.synonym) {
                     vm.classifiedChildren = _.concat(vm.classifiedChildren, children.results);
-                    //vm.classifiedChildren = _.concat(vm.classifiedChildren, _.filter(children.results, ['rank', vm.nextRank]));
-                    //children.results.forEach(function (e) {
-                    //    if (e.rank !== vm.nextRank) {
-                    //        vm.unclassifiedChildren.push(e);
-                    //    }
-                    //});
                 }
                 vm.loadingChildren = false;
-            });
+            }).catch(vm.criticalErrorHandler);
         }
 
 
@@ -129,44 +116,36 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
             vm.combinations = TaxonomyCombinations.query({
                 taxonKey: vm.taxonKey,
                 occ: vm.occ
-            })
+            });
 
             vm.classifiedChildren = [];
             vm.unclassifiedChildren = [];
             vm.getChildren(20).$promise
                 .then(function (resp) {
                     vm.getChildren(250, resp.results.length);
-                });
-
-            // var initialChildren = TaxonomyChildren.query({
-            //     datasetKey: vm.datasetKey,
-            //     taxonKey: vm.taxonKey,
-            //     occ: vm.occ,
-            //     limit: 50
-            // });
+                }).catch(vm.criticalErrorHandler);
 
             vm.taxon = TaxonomyDetail.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey
             });
 
-            $q.all([vm.taxon.$promise, vm.combinations.$promise]).then(function(){
+            $q.all([vm.taxon.$promise, vm.combinations.$promise]).then(function () {
 
-                if(vm.taxon.acceptedKey !== vm.taxon.key && vm.combinations.length >0){
-                    for(var i=0; i < vm.combinations.length; i++ ){
-                        if(vm.combinations[i].key === vm.taxon.acceptedKey){
+                if (vm.taxon.acceptedKey !== vm.taxon.key && vm.combinations.length > 0) {
+                    for (var i = 0; i < vm.combinations.length; i++) {
+                        if (vm.combinations[i].key === vm.taxon.acceptedKey) {
 
                             vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
                         }
                     }
 
-                    vm.combinations = vm.combinations.filter(function(c){
+                    vm.combinations = vm.combinations.filter(function (c) {
                         return c.key !== vm.taxon.acceptedKey;
                     })
 
                 }
-            });
-
+            }).catch(vm.criticalErrorHandler);
 
             vm.taxon.$promise.then(function () {
                 vm.nextRank = vm.getNextRank(vm.taxon.rank);
@@ -177,44 +156,34 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                             datasetKey: vm.datasetKey,
                             taxonKey: vm.taxon.acceptedKey
                         });
-
-
-
-                            if(vm.taxon.basionymKey === vm.taxon.acceptedKey){
-
-                                vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
-                            }
-
-
+                        if (vm.taxon.basionymKey === vm.taxon.acceptedKey) {
+                            vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                        }
                     }
-                }).catch(function () {
-                });
+                }).catch(vm.criticalErrorHandler);
 
                 if (!vm.taxon.synonym) {
 
                     $q.all([synonyms.$promise, vm.combinations.$promise])
-                    .then(function (data) {
-                        vm.synonyms = data[0].results;
-                        var homoTypicSynonymKeys = {};
-                        for(var i=0; i < vm.combinations.length; i++ ){
-                            homoTypicSynonymKeys[vm.combinations[i].key] = true;
-                        }
-
-                        for(var i=0; i < vm.synonyms.length; i++ ){
-                            if(homoTypicSynonymKeys[vm.synonyms[i].key] === true || vm.synonyms[i].key === vm.taxon.basionymKey){
-
-                                vm.synonyms[i].taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                        .then(function (data) {
+                            vm.synonyms = data[0].results;
+                            var homoTypicSynonymKeys = {};
+                            for (var i = 0; i < vm.combinations.length; i++) {
+                                homoTypicSynonymKeys[vm.combinations[i].key] = true;
                             }
-                        }
 
+                            for (var i = 0; i < vm.synonyms.length; i++) {
+                                if (homoTypicSynonymKeys[vm.synonyms[i].key] === true || vm.synonyms[i].key === vm.taxon.basionymKey) {
 
-                        vm.taxonNumOccurrences = data.numOccurrences;
-                    }).catch(function () {
-                    });
+                                    vm.synonyms[i].taxonomicStatus = "HOMOTYPIC_SYNONYM"
+                                }
+                            }
+
+                            vm.taxonNumOccurrences = data.numOccurrences;
+                        }).catch(vm.criticalErrorHandler);
                 }
 
-            }).catch(function () {
-            });
+            }).catch(vm.criticalErrorHandler);
 
         } else {
             TaxonomyRoot.query({
@@ -223,13 +192,11 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 occ: vm.occ
             }, function (data) {
                 vm.children = data.results;
-
-
             }, function () {
+                vm.criticalErrorHandler();
             })
         }
     }
-
 }
 
 module.exports = taxonomyBrowserDirective;
