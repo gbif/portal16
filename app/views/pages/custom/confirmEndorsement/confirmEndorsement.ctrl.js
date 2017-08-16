@@ -8,7 +8,7 @@ angular
 
 /** @ngInject */
 function confirmEndorsementCtrl($cookies) {
-
+    //TODO is this inteded for usage?
 }
 
 module.exports = confirmEndorsementCtrl;

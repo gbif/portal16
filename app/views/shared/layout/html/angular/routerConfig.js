@@ -191,7 +191,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species/:speciesKey?refOffset&occurrenceDatasetOffset&checklistDatasetOffset',
+            url: '/species/:speciesKey?refOffset&occurrenceDatasetOffset&checklistDatasetOffset&root',
             params: {
                 advanced: {
                     value: false,

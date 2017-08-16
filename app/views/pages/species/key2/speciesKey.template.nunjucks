@@ -19,40 +19,7 @@
                 </div>
             </div>
         </div>
-        {# TODO thomas here is a list you can dup possible root elements into - clicking outsire should close the dailog.#}
-        <div class="content__overlay" ng-if="speciesKey2.showRootSelector">
-            <div class="content__overlay__card">
-                <div class="content__overlay__card__header seperator--b">Select root</div>
-                <div class="content__overlay__card__list">
-                    <ul>
-                        <li>
-                            <a href="/sdf">
-                                <span>Fungi</span>
-                                <div class="small discreet--very">
-                                    <span>Kingdom</span><span>212 decendants</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/sdf">
-                                <span>Animalia</span>
-                                <div class="small discreet--very">
-                                    <span>Kingdom</span><span>1 decendants</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/sdf">
-                                <span>Unknown</span>
-                                <div class="small discreet--very">
-                                    <span>Super Kingdom</span><span>318 decendants</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
         <div ng-if="!speciesKey2.species.$resolved">
             <div class="emptyInfo">
                 <h3>Loading</h3>
