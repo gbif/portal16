@@ -1,36 +1,5 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
-{#
-## header
-name and search bar
-
-## news and ?events
-
-## what is gbif
-GBIF is a non profit organisation that aims to share biodiversity freely with the world ...
-video?
-
-## 700 million occurrences and counting
-map
-see occurrence search
-
-## gallery
-images of observations, speciemsn and holotypes
-background images
-see gallery
-
-## Featured datastories
-Allowing resarchers to understand how life on earth changes over time
-See featured stories
-
-## Data papers
-all of this is only possible because researchers and publishers all around the world is sharing their data.
-nature, PLOS, ... and 
-
-#}
-
-
-{# home page, or front page #}
 {% block page %}
     <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
         <div class="home__header" style="background-image: url('{$ _meta.imageCache $}1500x750/http:{$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.file.url | encodeURI  $}')">
@@ -71,7 +40,6 @@ nature, PLOS, ... and
                         </div>
                     </div>
                     <div class="caption">
-                        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/1253299481">White leadtree (<em>Leucaena leucocephala</em>)</a>. Photo by Tony Iwane licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.#}
                         {$ resolved.Asset[main.fields.primaryImage[0].sys.id].fields.description | sanitize | safe $}
                     </div>
                 </div>
@@ -113,10 +81,6 @@ nature, PLOS, ... and
 
                 {% if highlights | isNotEmpty %}
                     <div class="home__news">
-                        {#<div class="text-center">#}
-                            {#<h2>News from the network</h2>#}
-                        {#</div>#}
-
                         <div class="articles">
                         {% for feature in highlights | slice(0,8) %}
                             {% if feature.contentType == 'news' or feature.contentType == 'dataUse'%}
@@ -127,17 +91,13 @@ nature, PLOS, ... and
                                 {$ featureArticle(feature, __) $}
                             {% endif %}
                         {% endfor %}
-
                         </div>
-                        {#<div class="text-center">#}
-                            {#<a class="gb-button--brand" href="{$ gb.locale.urlPrefix $}/resource/search">Explore news, events and more</a>#}
-                        {#</div>#}
                     </div>
                 {% endif %}
             </div>
         </div>
 
-        <div class="horizontal-stripe--paddingless light-background ng-cloak">
+        <div class="horizontal-stripe--paddingless light-background seperator ng-cloak">
             <map-widget filter="home.mapFilter" map-style="{forceSelect: 'CLASSIC'}">
                 <form class="search-box mapPopup fixedSize">
                     <input type="text"
@@ -153,170 +113,6 @@ nature, PLOS, ... and
                 </form>
             </map-widget>
         </div>
-
-
-        {#<article class="horizontal-stripe--paddingless home__featured bg-attached">#}
-            {#<div class="container--normal">#}
-                {#<div class="home__featured__text">#}
-                    {#<p>#}
-                        {#Data use#}
-                    {#</p>#}
-                    {#<div class="clearfix">#}
-                        {#<h1>#}
-                            {#<a class="inherit noUnderline"#}
-                               {#href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Is climate change#}
-                                {#the most important cause of biodiversity loss?</a>#}
-                        {#</h1>#}
-                    {#</div>#}
-                    {#<p>#}
-                        {#<a class="inherit" href="http://demo.gbif.org/data-use/newsroom/uses/2015-murray-et-al">Read#}
-                            {#more</a>#}
-                    {#</p>#}
-                {#</div>#}
-            {#</div>#}
-        {#</article>#}
-
-        {#<div class="horizontal-stripe--paddingless white-background">#}
-            {#<div class="home__occurrences">#}
-                {#<div class="container--desktop">#}
-                    {#<h1 count="//api.gbif.org/v1/occurrence/search">#}
-                        {#&nbsp;#}
-                    {#</h1>#}
-                    {#<p>#}
-                        {#Species observations and specimens#}
-                    {#</p>#}
-                    {#<p>#}
-                        {#Data distributed by GBIF is the result of thousands of researchers, publishers and and other#}
-                        {#that believe that data about life on our planet brings most value when shared.#}
-                    {#</p>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-
-        {#<section class="horizontal-stripe--paddingless seperator features ng-cloak" xng-if="home.underDevelopment">#}
-            {#<div class="features__intro container--normal">#}
-                {#<h1>What is GBIF?</h1>#}
-                {#<p>#}
-                    {#A world in which biodiversity information is freely and universally available for science, society and a sustainable future.#}
-                {#</p>#}
-            {#</div>#}
-            {#<div class="container--desktop">#}
-                {#<div class="row">#}
-                    {#<div class="col-xs-12">#}
-                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2104216/original.jpg?1436381798')">#}
-                            {#<div class="container-fluid">#}
-                                {#<div class="row">#}
-                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
-                                        {#<h2>#}
-                                            {#A tool for science and society#}
-                                        {#</h2>#}
-                                        {#<p>#}
-                                            {#Data discovered and accessed through GBIF are being used in many areas of scientific research and decision making. The GBIF network thus supports international policies and responses to key targets that seek to stop the loss of biodiversity.#}
-                                        {#</p>#}
-                                        {#<a href="{$ gb.locales.urlPrefix $}/cms/search?type=data_use" class="inherit underline">Explore featured data usages</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="col-xs-12 col-md-6">#}
-                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/1670392/original.jpg?1427736194')">#}
-                            {#<div class="container-fluid">#}
-                                {#<div class="row">#}
-                                    {#<div class="feature__summary col-xs-12">#}
-                                        {#<h2>#}
-                                            {#A connected community#}
-                                        {#</h2>#}
-                                        {#<p>#}
-                                            {#GBIF’s Participants collaborate by sharing skills, experience and technology to mobilize and use data about biodiversity for the public good.#}
-                                        {#</p>#}
-                                        {#<a href="{$ gb.locales.urlPrefix $}/gbif-network" class="inherit underline">Learn more about the GBIF network</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="col-xs-12 col-md-6">#}
-                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/2253573/original.jpg?1439318676')">#}
-                            {#<div class="container-fluid">#}
-                                {#<div class="row">#}
-                                    {#<div class="feature__summary col-xs-12">#}
-                                        {#<h2>#}
-                                            {#A window on biodiversity#}
-                                        {#</h2>#}
-                                        {#<p>#}
-                                            {#Data published through the GBIF network describe where and when hundreds of millions of individual organisms have been observed or collected, helping countries to unlock knowledge about their own biodiversity from around the world.#}
-                                        {#</p>#}
-                                        {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="inherit underline">Explore occurrences</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="col-xs-12">#}
-                        {#<div class="feature" style="background-image:url('//api.gbif.org/v1/image/unsafe/http://static.inaturalist.org/photos/4140961/original.JPG?1467258661')">#}
-                            {#<div class="container-fluid">#}
-                                {#<div class="row">#}
-                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
-                                        {#<h2>#}
-                                            {#An informatics infrastructure#}
-                                        {#</h2>#}
-                                        {#<p>#}
-                                            {#GBIF encourages adoption and use of agreed, community-built data standards and informatics tools. This enables anyone to discover and use thousands of datasets of many different types and coming from all over the world.#}
-                                        {#</p>#}
-                                        {#<a href="{$ gb.locales.urlPrefix $}/informatics-infratructure" class="inherit underline">Read all about the technical infrastructure</a>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-            {#<div class="features__intro container--normal">#}
-                {#<h1>Start exploring</h1>#}
-                {#<div>#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/occurrence/search" class="gb-button--primary">Occurrences</a>#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/species/search" class="gb-button--primary">Species</a>#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/dataset/search" class="gb-button--primary">Datasets</a>#}
-                    {#<a href="{$ gb.locales.urlPrefix $}/publisher/search" class="gb-button--primary">Publishers</a>#}
-                {#</div>#}
-            {#</div>#}
-            {#<div class="container--desktop">#}
-                {#<div class="row">#}
-                    {#<div class="col-xs-12" style="padding:50px 0">#}
-                        {#<div class="feature feature--blank">#}
-                            {#<div class="container-fluid">#}
-                                {#<div class="row">#}
-                                    {#<div class="feature__summary col-xs-12 col-sm-6">#}
-                                        {#<h2>#}
-                                            {#The GBIF history#}
-                                        {#</h2>#}
-                                        {#<p>#}
-                                            {#Established in 2004 with the vision of a world in which biodiversity information is freely and universally available for science, society and a sustainable future.#}
-                                        {#</p>#}
-                                        {#<p>#}
-                                            {#Get the full account straight from the horse's mouth as our director Donald Hobern tells the story of where we were and where we are going.#}
-                                        {#</p>#}
-                                    {#</div>#}
-                                    {#<div class="col-xs-12 col-sm-6">#}
-                                        {#<div>#}
-                                            {#<img src="/img/donaldTmp.png">#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-
-        {#</section>#}
-
-        {#<div class="horizontal-stripe--paddingless home__map">#}
-            {#<gbmap taxon-key="'1'" mapstyle="'light'"></gbmap>#}
-        {#</div>#}
-
-
     </div>
 {% endblock %}
 
@@ -343,10 +139,6 @@ nature, PLOS, ... and
                     <span class="article-box__footer">{$ article.createdAt | formatDate(gb.locales.current) $}</span>
                 </div>
             </div>
-            {#<div class="text-center">#}
-            {#<a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">{$ article.contentType $}</a>#}
-            {#</div>#}
-            {#</div>#}
         </article>
     {% endif %}
 {% endmacro %}
@@ -380,9 +172,6 @@ nature, PLOS, ... and
                     <span class="article-box__footer">{$ article.start | dateRange(article.end, false, gb.locales.current) $}</span>
                 </div>
             </div>
-            {#<div class="text-center">#}
-            {#<a href="{$ gb.locale.urlPrefix $}/resource/search?contentType={$ article.contentType $}" class="gb-button--discreet" style="margin:10px">events</a>#}
-            {#</div>#}
         </article>
     {% endif %}
 {% endmacro %}
