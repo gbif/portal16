@@ -2567,8 +2567,8 @@
   },
   "map": {
     "predefined": {
-      "CLASSIC_HEX": "Classic outliers",
-      "CLASSIC": "Classic density",
+      "CLASSIC_HEX": "Classic hexagons",
+      "CLASSIC": "Classic points",
       "STREETS": "Streets",
       "GLACIER": "Glacier",
       "CUSTOM": "Custom"

@@ -111,8 +111,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             map.update(vm.customMap);
         };
 
-        vm.styleOptions = Object.keys(vm.predefinedStyles);
-        vm.styleOptions.push('CUSTOM');
+        vm.styleOptions = ['CUSTOM'].concat(Object.keys(vm.predefinedStyles));
         vm.basisOfRecord = {};
         enums.basisOfRecord.forEach(function (bor) {
             vm.basisOfRecord[bor] = false;
