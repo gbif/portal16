@@ -3,7 +3,7 @@
         <div class="publisherKey light-background">
             <div class="wrapper-horizontal-stripes" ng-if="installationKey.installation.$resolved">
 
-                <div class="horizontal-stripe article-header white-background p-b-1 seperator--b">
+                <div class="horizontal-stripe article-header white-background p-b-1">
                     <div class="container">
                         <div class="row">
                             <header class="col-xs-12">
@@ -17,7 +17,36 @@
                         </div>
                     </div>
                 </div>
-                <section class="horizontal-stripe--paddingless m-t-1">
+
+                <section class="horizontal-stripe--paddingless white-background" ng-if="installationKey.installation.homepage.length > 0">
+                    <div class="container--narrow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tabs__wrapper">
+                                    <nav class="tabs tabs--noBorder">
+                                        <ul>
+                                            <li class="tab isActive">
+                                                <span>
+                                                    Summary
+                                                </span>
+                                            </li>
+                                            <li class="tab">
+                                                <a ng-href="{{ installationKey.installation.homepage[0] }}">
+                                                    <span class="gb-icon-link"></span>
+                                                    <span>
+                                                        Homepage
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="horizontal-stripe--paddingless p-t-1 seperator">
                     <div class="container--narrow">
                         <div class="card card--spaced m-b-1">
                             <div class="card__content">

@@ -50,7 +50,7 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
         identityApi: identityApi || '//api.gbif-uat.org/v1/',
@@ -78,9 +78,9 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',// NB not dev!
-        dataApi: dataApi || '//api.gbif.org/v1/',// NB not dev!
-        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not dev!
+        dataApiV2: dataApiV2 || '//api.gbif-dev.org/v2/',// NB not dev!
+        dataApi: dataApi || '//api.gbif-dev.org/v1/',// NB not dev!
+        tileApi: tileApi || '//api.gbif-dev.org/v1/map/density/tile.png',// NB not dev!
         identityApi: identityApi || '//api.gbif-dev.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-dev.org',
@@ -107,8 +107,8 @@ var config = {
         serverProtocol: 'http:',
         apidocs: apidocs,
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
-        dataApi: dataApi || '//api.gbif.org/v1/',// NB not uat!
-        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',// NB not uat!
+        dataApi: dataApi || '//api.gbif-uat.org/v1/',// NB not uat!
+        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',// NB not uat!
         identityApi: identityApi || '//api.gbif-uat.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
         domain: 'https://demo.gbif-uat.org',
@@ -134,40 +134,12 @@ var config = {
         log: log,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
         tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif.org:7003/',
+        identityApi: identityApi || '//api.gbif-uat.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
-        domain: 'https://demo.gbif.org',
-        credentials: credentials || '/etc/portal16/credentials',
-        redirects: redirects || '/etc/portal16/redirects',
-        verification: verification || '/var/lib/human-verification/images',
-        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
-        locales: locales,
-        defaultLocale: defaultLocale,
-        contentfulLocaleMap: contentfulLocaleMap,
-        publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342
-    },
-    c5prod: {
-        env: env,
-        root: rootPath,
-        app: {
-            name: 'portal - c5prod'
-        },
-        port: port || 8080,
-        log: log,
-        serverProtocol: 'http:',
-        apidocs: apidocs,
-        dataApiV2: dataApiV2 || '//api-c5.gbif.org/v2/',
-        dataApi: dataApi || '//api-c5.gbif.org/v1/',
-        tileApi: tileApi || '//api-c5.gbif.org/v1/map/density/tile.png',
-        identityApi: identityApi || '//labs.gbif.org:7003/',
-        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
-        domain: 'https://demo.gbif.org',
+        domain: 'https://gbif.org',
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
         verification: verification || '/var/lib/human-verification/images',
