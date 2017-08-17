@@ -58,7 +58,7 @@ var config = {
         domain: 'https://gbif.org',
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
-        verification: verification || '/var/lib/human-verification/images',
+        verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
         elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
