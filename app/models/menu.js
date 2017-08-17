@@ -37,7 +37,7 @@ module.exports = [
     "items": [
         {
             "name": "publishingGuide",
-            "url": "/publishing-guide"
+            "url": "/publishing-data"
         },
       {
         "name": "dataPublishing",
