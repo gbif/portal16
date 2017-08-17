@@ -46,7 +46,6 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
 
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);
-        console.log(5);
     });
 
     vm.speciesImages.$promise.then(function(resp){
