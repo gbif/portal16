@@ -1,4 +1,4 @@
-<aside class="site-drawer is-locked" id="site-search"  ng-class="{'is-active': speciesKey2.showFilters}">
+<aside class="site-drawer is-locked"  ng-class="{'is-active': speciesKey2.showFilters}">
     <!--<div class="site-drawer__fab" ng-style="vm.fabStyle">-->
     <!--Apply filters-->
     <!--</div>-->
