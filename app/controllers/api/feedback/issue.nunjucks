@@ -1,6 +1,6 @@
 {% if form.title %}**{$ form.title | striptags $}**{% endif %}
 
-{% if form.description %}{$ form.description $}{% endif %}
+{% if form.description %}{$ form.description | safe $}{% endif %}
 
 -----
 {% if __fbitem %}{$ __fbitem $}{% endif %}

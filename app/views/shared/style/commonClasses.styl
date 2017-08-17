@@ -627,7 +627,7 @@ sub {
     left 0
     right 0
     background rgba(0,0,0,.2)
-    z-index $zPageOverlay
+    z-index $zContentOverlay
     &__card {
         background white
         width 500px
@@ -671,6 +671,10 @@ sub {
             }
         }
     }
+}
+.page__overlay {
+    @extends .content__overlay
+    z-index $zPageOverlay
 }
 +isAbove($tablet) {
     .content__overlay {
