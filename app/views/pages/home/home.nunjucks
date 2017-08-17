@@ -82,7 +82,7 @@
                 {% if highlights | isNotEmpty %}
                     <div class="home__news">
                         <div class="articles">
-                        {% for feature in highlights | slice(0,8) %}
+                        {% for feature in highlights | slice(0,9) %}
                             {% if feature.contentType == 'news' or feature.contentType == 'dataUse'%}
                                 {$ newsArticle(feature, __) $}
                             {% elif feature.contentType == 'event' %}
