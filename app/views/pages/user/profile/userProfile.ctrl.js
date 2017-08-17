@@ -10,7 +10,7 @@ angular
 /** @ngInject */
 function userProfileCtrl(User, BUILD_VERSION, LOCALE, regexPatterns, $http, toastService) {
     var vm = this;
-    vm.disableEditing = true;
+    vm.disableEditing = false;
     vm.emailPattern = regexPatterns.email;
 
     vm.getUser = function() {
