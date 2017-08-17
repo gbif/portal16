@@ -142,7 +142,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
 
     vm.hasCriticalError;
     vm.criticalErrorHandler = function () {
-        vm.criticalErrorHandler = true;
+        vm.hasCriticalError = true;
     };
     vm.hasNonCriticalError;
     vm.nonCriticalErrorHandler = function () {
