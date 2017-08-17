@@ -1,12 +1,15 @@
 'use strict';
 
+
 var angular = require('angular'),
     mapController = require('./map'),
     ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
     options = require('./options'),
 //globeCreator = require('./globe'),
+    moment = require('moment'),
     _ = require('lodash');
+
 
 angular
     .module('portal')
@@ -14,6 +17,8 @@ angular
 
 /** @ngInject */
 function mapWidgetDirective(BUILD_VERSION) {
+
+
     var directive = {
         restrict: 'E',
         transclude: true,
@@ -38,6 +43,8 @@ function mapWidgetDirective(BUILD_VERSION) {
     /** @ngInject */
     function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
         var vm = this;
+        vm.moment = moment;
+
         vm.styleBreaks = {
             breakpoints: [0, 700],
             classes: ['isSmall', 'isLarge']
@@ -174,6 +181,10 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.capabilities = MapCapabilities.get(query);
             var zoomAreaPadding = 2;
             vm.capabilities.$promise.then(function (response) {
+
+                //
+                vm.capabilities.generated = moment(vm.capabilities.generated).subtract(2, 'Hours');
+
                 //only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {
                     map.setExtent([response.minLng - zoomAreaPadding, response.minLat - zoomAreaPadding, response.maxLng + zoomAreaPadding, response.maxLat + zoomAreaPadding]);//expand with one degree as the API sometimes crop away content see https://github.com/gbif/maps/issues/17

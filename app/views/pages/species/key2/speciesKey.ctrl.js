@@ -56,6 +56,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
 
     vm.species.$promise
         .then(function(resp){
+            vm.criticalErrorHandler()
             Page.setTitle(vm.species.scientificName);
             vm.isSpeciesOrBelow = !!resp.speciesKey;
             var searchRank = vm.isSpeciesOrBelow ? undefined : 'SPECIES';
@@ -74,6 +75,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
 
                 vm.dwcextensions = DwcExtension.get();
                 vm.dwcextensions.$promise.catch(vm.nonCriticalErrorHandler);
+
 
                 angular.element(document).ready(function () {
                     vm.lightbox = new Lightbox();
