@@ -35,13 +35,9 @@ module.exports = [
     "icon": "gb-icon-cloud-upload",
     "type": "normal",
     "items": [
-        {
-            "name": "publishingGuide",
-            "url": "/publishing-data"
-        },
       {
-        "name": "dataPublishing",
-        "url": "/data-publishing"
+          "name": "publishingGuide",
+          "url": "/publishing-data"
       },
       {
         "name": "datasetClasses",
