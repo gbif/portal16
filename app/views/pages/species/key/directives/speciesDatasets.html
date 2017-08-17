@@ -16,7 +16,7 @@
                         <div class="small">
                             As
                             <a class="" ng-href="/species/{{result._relatedTaxon.key}}">
-                                <span scientific-name key="{{result._relatedTaxon.key}}" name="{{result._relatedTaxon.scientificName}}"></span>
+                                <span ng-bind-html="result._relatedTaxon._parsedName || result._relatedTaxon.scientificName"></span>
                             </a>
 
                         </div>

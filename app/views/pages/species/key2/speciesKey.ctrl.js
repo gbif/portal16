@@ -145,8 +145,11 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
         vm.hasCriticalError = true;
     };
     vm.hasNonCriticalError;
-    vm.nonCriticalErrorHandler = function () {
-        vm.hasNonCriticalError = true;
+    vm.nonCriticalErrorHandler = function (err) {
+        if(err.status >= 500){
+            vm.hasNonCriticalError = true;
+        }
+
     };
     vm.species.$promise.catch(vm.criticalErrorHandler);
     vm.mappedOccurrences.$promise.catch(vm.criticalErrorHandler);

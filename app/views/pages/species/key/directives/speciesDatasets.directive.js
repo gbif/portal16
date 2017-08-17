@@ -24,7 +24,7 @@ function speciesDatasetsDirective() {
     return directive;
 
     /** @ngInject */
-    function speciesDatasetsCtrl($scope, $state, $stateParams, SpeciesChecklistDatasets, SpeciesOccurrenceDatasets, $location, $anchorScroll) {
+    function speciesDatasetsCtrl($scope, $state, $stateParams, SpeciesChecklistDatasets, SpeciesOccurrenceDatasets, $location, $anchorScroll, SpeciesBulkParsedNames) {
         var vm = this;
         vm.data = {
             limit: 10,
@@ -38,6 +38,24 @@ function speciesDatasetsDirective() {
         //vm.offset = 0;
         //vm.endOfRecords = false;
 
+        function attachParsedNames(data){
+            if(data && data.length > 0){
+                var taxonKeys = data.map(function(r){
+                    return r._relatedTaxon.key
+                });
+                SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
+                    .then(function(nameMap){
+                        for(var i=0; i < data.length; i++){
+                            if(nameMap[data[i]._relatedTaxon.key]){
+                                data[i]._relatedTaxon._parsedName = nameMap[data[i]._relatedTaxon.key]
+                            }
+
+                        }
+                    });
+            }
+
+        }
+
         function getSpeciesDataset() {
 
             if(vm.type ==="CHECKLIST"){
@@ -45,7 +63,7 @@ function speciesDatasetsDirective() {
                     .$promise.then(function(data){
                         vm.data = data;
                         setHeight();
-
+                        attachParsedNames(data.results);
                     });
             } else if(vm.type === "OCCURRENCE"){
                 vm.data = SpeciesOccurrenceDatasets.query({id: vm.key, limit: vm.defaultLimit , offset: vm.data.offset || 0})

@@ -3,7 +3,8 @@ var express = require('express'),
     router = express.Router(),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     ranks = rootRequire('app/models/enums/allEnums').rank,
-    request = require('requestretry');
+    request = require('requestretry'),
+    Q = require('q');
 
 const FAMILY_RANK_INDEX =   ranks.indexOf('FAMILY'); //15;
 const SPECIES_RANK_INDEX = ranks.indexOf('SPECIES'); //27;
@@ -87,7 +88,44 @@ module.exports = function (app) {
     app.use('/api', router);
 };
 
+router.get('/species/names', function (req, res) {
 
+    if(typeof req.query.q === 'undefined'){
+        res.status(400);
+        res.send();
+    }
+    else {
+        var nameMap = {
+            failed: {}
+        };
+        var promises = [];
+
+        var keys = req.query.q.split(",");
+
+        keys.forEach(function(key){
+            promises.push(getParsedName(key)
+                .then(function(name){
+                    nameMap[key] = name;
+                })
+                .catch(function(){
+
+                    nameMap.failed[key] = true;
+                }))
+
+        })
+
+        Q.allSettled(promises).then(function () {
+
+            return   res.status(200).json(nameMap);
+
+        }).catch(function () {
+            res.status(500);
+            res.send();
+        });
+    }
+
+
+});
 
 router.get('/species/:key/name', function (req, res) {
     let namePromise = getParsedName(req.params.key);
