@@ -11,8 +11,8 @@
 
                 {% include "./nav.nunjucks" %}
                 <div ng-if="speciesKey2.hasNonCriticalError" class="emptyInfo--small">
-                    <h3>Partial page</h3>
-                    <p>Not all data is currently available. You are seeing a partial view of the data. Try to refresh and please report the issue of it continues.</p>
+                    <h3 translate="stdTerms.partialPage"></h3>
+                    <p translate="stdTerms.nonCriticalErrorMsg"></p>
                 </div>
                 <div ui-view>
                     {% include "./backboneSpecies.nunjucks" %}

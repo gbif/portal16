@@ -12,7 +12,7 @@
             <span>Click to search an area</span>
         </div>
         <div class="mapWidget__info">
-            <span><time am-time-ago="(vm.capabilities.generated || '2017-05-01')"></time></span>
+            <span><time am-time-ago="(vm.moment(vm.capabilities.generated).subtract(2, 'Hours') || '2017-05-01')"></time></span>
         </div>
     </div>
     <div class="mapWidget__controlsArea">

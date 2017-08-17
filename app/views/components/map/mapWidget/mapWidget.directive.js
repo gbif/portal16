@@ -1,12 +1,15 @@
 'use strict';
 
+
 var angular = require('angular'),
     mapController = require('./map'),
     ol = require('openlayers'),
     utils = require('../../../shared/layout/html/utils/utils'),
     options = require('./options'),
 //globeCreator = require('./globe'),
+    moment = require('moment'),
     _ = require('lodash');
+
 
 angular
     .module('portal')
@@ -14,6 +17,8 @@ angular
 
 /** @ngInject */
 function mapWidgetDirective(BUILD_VERSION) {
+
+
     var directive = {
         restrict: 'E',
         transclude: true,
@@ -38,6 +43,8 @@ function mapWidgetDirective(BUILD_VERSION) {
     /** @ngInject */
     function mapWidget($state, $scope, $timeout, enums, $httpParamSerializer, MapCapabilities, $localStorage) {
         var vm = this;
+        vm.moment = moment;
+
         vm.styleBreaks = {
             breakpoints: [0, 700],
             classes: ['isSmall', 'isLarge']
