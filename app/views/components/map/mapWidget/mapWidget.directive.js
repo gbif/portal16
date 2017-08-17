@@ -181,6 +181,9 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.capabilities = MapCapabilities.get(query);
             var zoomAreaPadding = 2;
             vm.capabilities.$promise.then(function (response) {
+
+                vm.capabilities.generated = moment(vm.capabilities.generated).subtract(2, 'Hours');
+
                 //only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {
                     map.setExtent([response.minLng - zoomAreaPadding, response.minLat - zoomAreaPadding, response.maxLng + zoomAreaPadding, response.maxLat + zoomAreaPadding]);//expand with one degree as the API sometimes crop away content see https://github.com/gbif/maps/issues/17
