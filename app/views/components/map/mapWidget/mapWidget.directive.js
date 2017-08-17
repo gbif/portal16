@@ -182,6 +182,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             var zoomAreaPadding = 2;
             vm.capabilities.$promise.then(function (response) {
 
+                //
                 vm.capabilities.generated = moment(vm.capabilities.generated).subtract(2, 'Hours');
 
                 //only zoom in if the area is less than half the world
