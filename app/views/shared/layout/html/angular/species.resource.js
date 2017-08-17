@@ -124,6 +124,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesBulkParsedNames', function ($resource) {
+            return $resource('/api/species/names', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesOccurrenceDatasets', function ($resource, env) {
             return $resource('/api/species/:id/occurencedatasets', null, {
                     'query': {

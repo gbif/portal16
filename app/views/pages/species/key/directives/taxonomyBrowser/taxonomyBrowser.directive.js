@@ -25,7 +25,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
     return directive;
 
     /** @ngInject */
-    function taxonomyBrowserCtrl($stateParams, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, SpeciesRoot, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations) {
+    function taxonomyBrowserCtrl($stateParams, $q, $sessionStorage, $state, TaxonomyDetail, TaxonomyRoot, TaxonomyChildren, SpeciesRoot, TaxonomySynonyms, TaxonomyParents, TaxonomyCombinations, SpeciesBulkParsedNames, SpeciesParsedName) {
         var vm = this;
         // default to backbone
         vm.datasetKey = vm.datasetKey || keys.nubKey;
@@ -43,7 +43,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
 
         vm.hasCriticalError;
         vm.criticalErrorHandler = function () {
-            vm.criticalErrorHandler = true;
+            vm.criticalError = true;
         };
 
         vm.rootOptions = SpeciesRoot.get({key: vm.datasetKey, limit: 100});
@@ -68,6 +68,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                     vm.endOfChildren = vm.endOfChildren || resp.endOfRecords;
                     vm.offsetChildren = children.offset + resp.results.length;
                     processChildren(resp);
+                    attachParsedNames(resp.results)
                 })
                 .catch(vm.criticalErrorHandler);
             return children;
@@ -80,6 +81,24 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 }
                 vm.loadingChildren = false;
             }).catch(vm.criticalErrorHandler);
+        }
+
+        function attachParsedNames(taxa){
+            if(taxa && taxa.length > 0){
+                var taxonKeys = taxa.map(function(r){
+                    return r.key
+                });
+                SpeciesBulkParsedNames.get({q: taxonKeys.toString()}).$promise
+                    .then(function(nameMap){
+                        for(var i=0; i < taxa.length; i++){
+                            if(nameMap[taxa[i].key]){
+                                taxa[i]._parsedName = nameMap[taxa[i].key]
+                            }
+
+                        }
+                    });
+            }
+
         }
 
 
@@ -107,16 +126,24 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 occ: vm.occ
             });
 
+            vm.parents.$promise.then(attachParsedNames)
+
             var synonyms = TaxonomySynonyms.query({
                 datasetKey: vm.datasetKey,
                 taxonKey: vm.taxonKey,
                 occ: vm.occ
             });
 
+            synonyms.$promise.then(function(r){
+                attachParsedNames(r.results)
+            })
+
             vm.combinations = TaxonomyCombinations.query({
                 taxonKey: vm.taxonKey,
                 occ: vm.occ
             });
+
+            vm.combinations.$promise.then(attachParsedNames)
 
             vm.classifiedChildren = [];
             vm.unclassifiedChildren = [];
@@ -156,10 +183,29 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                             datasetKey: vm.datasetKey,
                             taxonKey: vm.taxon.acceptedKey
                         });
+                        vm.acceptedTaxon.$promise.then(function(){
+
+                            SpeciesParsedName.get({id: vm.acceptedTaxon.key}).$promise
+                                .then(function(res){
+                                    if(res.n){
+                                        vm.acceptedTaxon._parsedName = res.n
+                                    }
+
+                                })
+
+                        })
                         if (vm.taxon.basionymKey === vm.taxon.acceptedKey) {
                             vm.taxon.taxonomicStatus = "HOMOTYPIC_SYNONYM"
                         }
                     }
+
+                    SpeciesParsedName.get({id: vm.taxon.key}).$promise
+                        .then(function(res){
+                            if(res.n){
+                                vm.taxon._parsedName = res.n
+                            }
+
+                        })
                 }).catch(vm.criticalErrorHandler);
 
                 if (!vm.taxon.synonym) {
