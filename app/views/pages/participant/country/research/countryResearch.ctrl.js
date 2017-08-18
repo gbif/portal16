@@ -4,18 +4,25 @@ var angular = require('angular');
 
 angular
     .module('portal')
-    .controller('countryAboutCtrl', countryAboutCtrl);
+    .controller('countryResearchCtrl', countryResearchCtrl);
 
 /** @ngInject */
-function countryAboutCtrl($stateParams, OccurrenceTableSearch, OccurrenceDatasetSearch) {
+function countryResearchCtrl($stateParams, ResourceSearch) {
     var vm = this;
     vm.countryCode = $stateParams.key;
+    vm.limit = 20;
 
-    OccurrenceDatasetSearch.query({country: vm.countryCode}, function (data) {
-        vm.datasetsAbout = data;
+    ResourceSearch.query({countriesOfCoverage: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
+        vm.literatureAbout = data;
+    }, function () {
+        //TODO handle request error
+    });
+
+    ResourceSearch.query({countriesOfResearcher: vm.countryCode, contentType: 'literature', limit: vm.limit}, function (data) {
+        vm.literatureFrom = data;
     }, function () {
         //TODO handle request error
     });
 }
 
-module.exports = countryAboutCtrl;
+module.exports = countryResearchCtrl;
