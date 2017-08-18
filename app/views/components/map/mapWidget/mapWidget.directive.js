@@ -86,7 +86,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.predefinedStyles = options.predefined;
-        vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
+        vm.style = $localStorage.selectedMapStyle || 'CLASSIC_HEX';
 
         vm.updateCustomStyle = function () {
             var style;
@@ -132,7 +132,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC';
+            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC_HEX';
             var activeStyle = vm.predefinedStyles[vm.style];
             if (vm.style == 'CUSTOM') {
                 activeStyle = vm.updateCustomStyle();
@@ -259,11 +259,11 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.setStyle = function (style) {
-            $localStorage.selectedMapStyle = style || 'CLASSIC';
+            $localStorage.selectedMapStyle = style || 'CLASSIC_HEX';
             if (style == 'CUSTOM') {
                 vm.composeCustomStyle();
             } else {
-                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
+                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC_HEX;
                 vm.widgetContextStyle = {
                     background: s.background
                 };
