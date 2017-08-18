@@ -18,3 +18,14 @@ router.get('/newsroom/news/rss', function (req, res) {
         })
         .pipe(res);
 });
+
+router.get('/newsroom/uses/rss', function (req, res) {
+
+    request
+        .get(apiConfig.newsroom.url + 'uses/rss')
+        .on('error', function(err) {
+            log.error(err)
+        })
+        .pipe(res);
+});
+
