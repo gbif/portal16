@@ -66,6 +66,8 @@ function mapWidgetDirective(BUILD_VERSION) {
             FILTERS: 14
         };
 
+        vm.fullscreen = _.get(vm.mapStyle, 'fullscreen', false);
+
         vm.basemaps = options.basemaps;
         vm.selectedBaseMap = vm.basemaps[options.defaults.basemap];
 
@@ -468,6 +470,15 @@ function mapWidgetDirective(BUILD_VERSION) {
         }, function () {
             vm.activeControl = undefined;
             map.update({filters: getQuery()});
+        });
+
+        $scope.$watchCollection(function () {
+            return vm.mapStyle
+        }, function () {
+            if (!_.isUndefined(vm.mapStyle.fullscreen)) {
+                vm.fullscreen = !vm.mapStyle.fullscreen;
+                vm.toggleFullscreen();
+            }
         });
     }
 }
