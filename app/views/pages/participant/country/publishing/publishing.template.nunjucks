@@ -84,6 +84,13 @@
     <div class="emptyInfo" ng-if="countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
         <h3>No data publising activity</h3>
         <p>This country hasn't shared any data through GBIF</p>
+        <div async-if="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryKey.countryCode }}" class="m-t-1">
+            <p>But there is publishers using GBIF data</p>
+            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryKey.countryCode})" class="gb-button--discreet">
+                <span count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryKey.countryCode }}"></span>
+                publications from {{ 'country.' + countryKey.countryCode | translate }}
+            </a>
+        </div>
     </div>
     <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved">
         <h3 class="loading"></h3>
