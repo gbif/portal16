@@ -29,6 +29,16 @@
                 <div class="container--narrow">
                     {% include "../body.nunjucks" %}
 
+                    {% if main.fields.primaryLink %}
+                        <div class="text-center">
+                            <a href="{$ resolved.Entry[main.fields.primaryLink.sys.id].fields.url $}" class="gb-button--discreet small"><span class="gb-icon-link"></span> {$ resolved.Entry[main.fields.primaryLink.sys.id].fields.label $}</a>
+                        </div>
+                    {% endif %}
+
+                    <div class="article-secondary">
+                        {% include "../documentsLinks.nunjucks" %}
+                    </div>
+
                     {% include "../auxiliary.nunjucks" %}
                 </div>
             </div>

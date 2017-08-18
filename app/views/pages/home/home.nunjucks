@@ -97,21 +97,23 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe--paddingless light-background seperator ng-cloak">
-            <map-widget filter="home.mapFilter" map-style="{forceSelect: 'CLASSIC'}">
-                <form class="search-box mapPopup fixedSize">
-                    <input type="text"
-                           autocomplete="off"
-                           class="fit-suggestions--searchBox"
-                           ng-model="home.selectedSpecies"
-                           placeholder="Select a species"
-                           uib-typeahead="suggestion.scientificName for suggestion in home.getSuggestions($viewValue)"
-                           typeahead-on-select="home.typeaheadSelect($item, $model, $label, $event)"
-                           typeahead-focus-first="true"
-                           typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"
-                           ng-keyup="home.searchOnEnter($event)">
-                </form>
-            </map-widget>
+        {#<form class="search-box mapPopup">#}
+            {#<input type="text"#}
+                   {#autocomplete="off"#}
+                   {#class="fit-suggestions--searchBox"#}
+                   {#ng-model="home.selectedSpecies"#}
+                   {#placeholder="Select a species"#}
+                   {#uib-typeahead="suggestion.scientificName for suggestion in home.getSuggestions($viewValue)"#}
+                   {#typeahead-on-select="home.typeaheadSelect($item, $model, $label, $event)"#}
+                   {#typeahead-focus-first="true"#}
+                   {#typeahead-template-url="/templates/components/filterTaxon/suggestTaxonTemplate.html"#}
+                   {#ng-keyup="home.searchOnEnter($event)">#}
+        {#</form>#}
+        <div class="horizontal-stripe--paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">
+            <span class="relative-anchor-offset"><a href="" id="map"></a></span>
+            <div style="position:absolute;top:0;bottom:0;left:0;right:0;">
+                <map-widget filter="home.mapFilter" map-style="{forceSelect: 'CLASSIC'}" class="fitSize"></map-widget>
+            </div>
         </div>
     </div>
 {% endblock %}

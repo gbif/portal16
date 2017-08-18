@@ -22,6 +22,14 @@
                             {$ (main.fields.body or main.fields.summary) | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
                         </div>
                     </div>
+                    {% if main.fields.citation %}
+                    <div class="card__content seperator">
+                        <h4>Citations</h4>
+                        <div class="smaller">
+                            {$ main.fields.citation | renderMarkdown | sanitize | linkify | safe $}
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

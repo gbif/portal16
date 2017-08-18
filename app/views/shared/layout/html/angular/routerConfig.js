@@ -487,6 +487,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         requireBase: false,
         rewriteLinks: false
     });
+    $locationProvider.hashPrefix('!');
 }
 
 module.exports = routerConfig;

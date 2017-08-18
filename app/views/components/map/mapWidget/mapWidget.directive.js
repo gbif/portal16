@@ -66,37 +66,42 @@ function mapWidgetDirective(BUILD_VERSION) {
             FILTERS: 14
         };
 
+        vm.fullscreen = _.get(vm.mapStyle, 'fullscreen', false);
+
         vm.basemaps = options.basemaps;
-        vm.selectedBaseMap = vm.basemaps[ options.defaults.basemap ];
+        vm.selectedBaseMap = vm.basemaps[options.defaults.basemap];
 
         vm.binningOptions = options.binning;
-        vm.selectedBinning = vm.binningOptions[ options.defaults.bin ];
+        vm.selectedBinning = vm.binningOptions[options.defaults.bin];
 
         vm.colorOptions = options.colors;
-        vm.selectedColor = vm.colorOptions[ options.defaults.color ];
+        vm.selectedColor = vm.colorOptions[options.defaults.color];
 
         vm.customMap = $localStorage.customMap;
         if (vm.customMap) {
-            vm.selectedBinning = _.find(vm.binningOptions, {name: vm.customMap.binning.name, type: vm.customMap.binning.type});
+            vm.selectedBinning = _.find(vm.binningOptions, {
+                name: vm.customMap.binning.name,
+                type: vm.customMap.binning.type
+            });
             vm.selectedColor = _.find(vm.colorOptions, {name: vm.customMap.color.name, type: vm.customMap.color.type});
             vm.selectedBaseMap = _.find(vm.basemaps, {name: vm.customMap.basemap.name});
         }
 
         vm.predefinedStyles = options.predefined;
-        vm.style = $localStorage.selectedMapStyle || 'CLASSIC';
+        vm.style = $localStorage.selectedMapStyle || 'CLASSIC_HEX';
 
-        vm.updateCustomStyle = function() {
+        vm.updateCustomStyle = function () {
             var style;
             vm.selectedBinning = vm.selectedBinning || {};
             if (!vm.selectedColor || vm.selectedColor.type != vm.selectedBinning.type) {
-                var colorMatch = _.find(vm.colorOptions, { type: vm.selectedBinning.type, name: vm.prevColorName });
+                var colorMatch = _.find(vm.colorOptions, {type: vm.selectedBinning.type, name: vm.prevColorName});
                 if (!colorMatch) {
-                    colorMatch = _.find(vm.colorOptions, { type: vm.selectedBinning.type });
+                    colorMatch = _.find(vm.colorOptions, {type: vm.selectedBinning.type});
                 }
                 vm.selectedColor = colorMatch;
             }
             if (vm.selectedColor.query) {
-                style = vm.selectedColor.query.map(function(e){
+                style = vm.selectedColor.query.map(function (e) {
                     return _.assign({style: e}, vm.selectedBinning.query);
                 });
             }
@@ -113,7 +118,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             };
             return vm.customMap;
         };
-        vm.composeCustomStyle = function() {
+        vm.composeCustomStyle = function () {
             vm.updateCustomStyle();
             map.update(vm.customMap);
         };
@@ -129,7 +134,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function (element) {
-            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC';
+            vm.style = _.get(vm.mapStyle, 'forceSelect') || vm.style || 'CLASSIC_HEX';
             var activeStyle = vm.predefinedStyles[vm.style];
             if (vm.style == 'CUSTOM') {
                 activeStyle = vm.updateCustomStyle();
@@ -151,23 +156,23 @@ function mapWidgetDirective(BUILD_VERSION) {
 
             var disableZoomTimer;
             var mapArea = element[0].querySelector('.mapWidget__mapArea');
-            mapArea.addEventListener('click', function(e){
+            mapArea.addEventListener('click', function (e) {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('doubleclick', function(){
+            mapArea.addEventListener('doubleclick', function () {
                 if (!zoomInteraction.getActive()) {
                     zoomInteraction.setActive(true);
                 }
             });
-            mapArea.addEventListener('mouseleave', function(){
-                disableZoomTimer = $timeout(function(){
+            mapArea.addEventListener('mouseleave', function () {
+                disableZoomTimer = $timeout(function () {
                     zoomInteraction.setActive(false);
                 }, 2500);
             });
-            mapArea.addEventListener('mouseenter', function(){
-                if(disableZoomTimer) {
+            mapArea.addEventListener('mouseenter', function () {
+                if (disableZoomTimer) {
                     $timeout.cancel(disableZoomTimer);
                     disableZoomTimer = undefined;
                 }
@@ -187,7 +192,9 @@ function mapWidgetDirective(BUILD_VERSION) {
 
                 //only zoom in if the area is less than half the world
                 if (response.maxLng - response.minLng < 180) {
-                    map.setExtent([response.minLng - zoomAreaPadding, response.minLat - zoomAreaPadding, response.maxLng + zoomAreaPadding, response.maxLat + zoomAreaPadding]);//expand with one degree as the API sometimes crop away content see https://github.com/gbif/maps/issues/17
+                    map.setExtent([response.minLng, response.minLat, response.maxLng, response.maxLat]);
+                    var v = map.map.getView();//zoom out a bit see https://github.com/gbif/maps/issues/17
+                    v.setZoom(v.getZoom() - 0.5);
                 }
                 //only create the slider if there are any years in the data to filter on
                 if (response.maxYear) {
@@ -220,6 +227,7 @@ function mapWidgetDirective(BUILD_VERSION) {
                 }
                 getOccurrencesInArea(coordinate[1], coordinate[0], offset);
             }
+
             map.on('singleclick', searchOnClick);
         };
 
@@ -253,11 +261,11 @@ function mapWidgetDirective(BUILD_VERSION) {
         }
 
         vm.setStyle = function (style) {
-            $localStorage.selectedMapStyle = style || 'CLASSIC';
+            $localStorage.selectedMapStyle = style || 'CLASSIC_HEX';
             if (style == 'CUSTOM') {
                 vm.composeCustomStyle();
             } else {
-                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC;
+                var s = vm.predefinedStyles[style] || vm.predefinedStyles.CLASSIC_HEX;
                 vm.widgetContextStyle = {
                     background: s.background
                 };
@@ -289,20 +297,20 @@ function mapWidgetDirective(BUILD_VERSION) {
             }
         };
 
-        vm.toggleFullscreen = function() {
+        vm.toggleFullscreen = function () {
             vm.fullscreen = !vm.fullscreen;
-            $timeout(function(){
+            $timeout(function () {
                 map.map.updateSize();
                 map.map.render();
             }, 100);
         };
 
-        vm.zoomIn = function() {
+        vm.zoomIn = function () {
             var view = map.map.getView();
             view.setZoom(view.getZoom() + 1);
         };
 
-        vm.zoomOut = function() {
+        vm.zoomOut = function () {
             var view = map.map.getView();
             view.setZoom(view.getZoom() - 1);
         };
@@ -424,7 +432,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             var decimalLatitudeMax = lat + offset;
             var decimalLongitudeMin = lng - offset;
             var decimalLongitudeMax = lng + offset;
-            vm.clickedGeometry =  'POLYGON' + '((W S,W N,E N,E S,W S))'
+            vm.clickedGeometry = 'POLYGON' + '((W S,W N,E N,E S,W S))'
                     .replace(/N/g, decimalLatitudeMin)
                     .replace(/S/g, decimalLatitudeMax)
                     .replace(/W/g, decimalLongitudeMin)
@@ -462,6 +470,15 @@ function mapWidgetDirective(BUILD_VERSION) {
         }, function () {
             vm.activeControl = undefined;
             map.update({filters: getQuery()});
+        });
+
+        $scope.$watchCollection(function () {
+            return vm.mapStyle
+        }, function () {
+            if (!_.isUndefined(vm.mapStyle.fullscreen)) {
+                vm.fullscreen = !vm.mapStyle.fullscreen;
+                vm.toggleFullscreen();
+            }
         });
     }
 }
