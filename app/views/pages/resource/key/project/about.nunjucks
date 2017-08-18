@@ -67,8 +67,6 @@
             </section>
             {#{% endif %}#}
 
-            {% include "../documentsLinks.nunjucks" %}
-
             <section>
                 <dl class="inline">
 
@@ -152,7 +150,7 @@
                                     <span>{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</span>
                                 {% endif %}
                             {% endif %}
-                            
+
                         </dd>
                     </div>
                     {% endif %}
@@ -169,6 +167,8 @@
                     {% endif %}
                 </dl>
             </section>
+
+            {% include "../documentsLinks.nunjucks" %}
 
         </div>
         {% include "../auxiliary.nunjucks" %}
