@@ -80,6 +80,10 @@
                         <references key="{{ speciesKey2.key }}" references="speciesKey2.references"></references>
                     </div>
 
+            {#<div class="m-t-1" >#}
+                {#<h4 class="text-muted small text-uppercase">Vernacular names</h4>#}
+                {#<vernacularnames key="{{ speciesKey2.key }}" ></vernacularnames>#}
+            {#</div>#}
 
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">

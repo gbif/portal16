@@ -23,25 +23,25 @@ function create(body) {
 
     let org = {
         "endorsingNodeKey": (body.suggestedNodeKey === "other") ? DEFAULT_ENDORSING_NODE_KEY : body.suggestedNodeKey,
-        "title": (body.title) ? body.title : "",
-        "description": (body.description) ? body.description : "",
+        "title": (body.title) ? body.title : null,
+        "description": (body.description) ? body.description : null,
         "language": "ENGLISH",
         "phone": (body.phone) ? [body.phone] : [],
         "homepage": (body.homepage) ? [body.homepage] : [],
-        "logoUrl": (body.logoUrl) ? body.logoUrl : "",
+        "logoUrl": (body.logoUrl) ? body.logoUrl : null,
         "address": (body.address) ? [body.address] : [],
-        "city": (body.city) ? body.city : "",
-        "province": (body.province) ? body.province : "",
-        "country": (body.country) ? body.country : "",
-        "latitude": (body.latitude) ? body.latitude : "",
-        "longitude": (body.longitude) ? body.longitude : "",
+        "city": (body.city) ? body.city : null,
+        "province": (body.province) ? body.province : null,
+        "country": (body.country) ? body.country : null,
+        "latitude": (body.latitude) ? body.latitude : null,
+        "longitude": (body.longitude) ? body.longitude : null,
         "contacts": body.contacts
     };
 
     if(body.email){
         org.email=  [body.email];
 
-    };
+    }
 
     if(body.postalCode){
         org.postalCode = body.postalCode;

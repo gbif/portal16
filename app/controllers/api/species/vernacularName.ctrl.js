@@ -27,6 +27,20 @@ router.get('/species/:key/vernacularName', function (req, res) {
     });
 });
 
+router.get('/species/:key/vernacularNames', function (req, res) {
+    let namePromise = getVernacularNamesProcessed(req.params.key);
+    namePromise.then(function(name){
+        if (name) {
+            res.send(name);
+        }
+        res.status(204);
+        res.send();
+    }).catch(function(){
+        res.status(500);
+        res.send();
+    });
+});
+
 async function getVernacularName(speciesKey, reqAcceptLanguage) {
     let names = await getVernacularNames(speciesKey);
     let uniqueNames = _.filter(_.uniqBy(names.results, 'language'), 'language');
@@ -43,6 +57,45 @@ async function getVernacularName(speciesKey, reqAcceptLanguage) {
         let matched3Letter = _.get(langs.where('1', matched2Letter), '3');
         return uniqueNames[matched3Letter];
     }
+}
+
+async function getVernacularNamesProcessed(speciesKey){
+    let names = await getVernacularNames(speciesKey);
+    let namesWithLanguage = {};
+    let namesWithoutLanguage = [];
+        for(var i = 0; i< names.results.length; i++){
+            if(!names.results[i].language){
+                namesWithoutLanguage.push(names.results[i]);
+            } else {
+
+                if(!namesWithLanguage[names.results[i].language]) {
+
+                    namesWithLanguage[names.results[i].language] = {};
+                };
+
+               if(!namesWithLanguage[names.results[i].language][names.results[i].vernacularName.toLowerCase()]){
+                   namesWithLanguage[names.results[i].language][names.results[i].vernacularName.toLowerCase()] = [names.results[i]]
+                } else {
+                   namesWithLanguage[names.results[i].language][names.results[i].vernacularName.toLowerCase()].push(names.results[i])
+                }
+            }
+        }
+
+        _.each(namesWithoutLanguage, function(n){
+            _.find(namesWithLanguage, function(val, key){
+                 return  _.find(val, function(v,k){
+                            if(n.vernacularName.toLowerCase() === k){
+                                v.push(n);
+                                return true;
+                            } else {
+                                return false;
+                            }
+                    } )
+            })
+        });
+
+     return namesWithLanguage
+
 }
 
 async function getVernacularNames(speciesKey) {

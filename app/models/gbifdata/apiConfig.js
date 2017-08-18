@@ -64,16 +64,17 @@ var apiConfig = {
     publisher: {
         url: baseUrl + 'organization/'
     },
-    // publisherCreate: {
-    //     url: baseUrl + 'organization/',
-    //     canonical: 'organization/'
-    // },
     publisherCreate: {
-        url: baseConfig.serverProtocol + '//api.gbif-dev.org/v1/' + 'organization/',
+        url: baseUrl + 'organization/',
         canonical: 'organization/'
     },
+    // publisherCreate: {
+    //     url: baseConfig.serverProtocol + '//api.gbif-dev.org/v1/' + 'organization/',
+    //     canonical: 'organization/'
+    // },
     newsroomWebcal: {
-   url: 'webcal:' + baseUrl + 'newsroom/events/'
+
+     url: 'webcal:' + baseUrl + 'newsroom/events/'
   //  url: 'webcal://api.gbif-dev.org/v1/'+ 'newsroom/events/'
     },
     newsroom: {

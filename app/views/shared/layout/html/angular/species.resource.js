@@ -115,6 +115,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesVernacularNames', function ($resource) {
+            return $resource('/api/species/:id/vernacularNames', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesParsedName', function ($resource) {
             return $resource('/api/species/:id/name', null, {
                     'query': {

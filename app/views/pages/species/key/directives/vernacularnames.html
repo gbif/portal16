@@ -1,0 +1,32 @@
+<div >
+    <!--<span class="discreet text-uppercase small">References</span>-->
+    <section id="references" class="card--references card">
+    <p>kdhfbvkdsb</p>
+        <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
+            <ul>
+                <li ng-repeat="(lang, value) in vm.vernacularnames" class="card--references__item">
+                    <div>
+                        <div translate="language.{{lang}}" class="max2Lines"></div>
+                        <!--<div class="small">-->
+                            <!--<span class="source text-capitalize" ng-if="result.type">{{ result.type}} - </span>-->
+                            <!--<span class="source text-capitalize" ng-if="result.source">{{ result.source }} </span>-->
+                            <!--<a class="" ng-href="{{result.doi}}" ng-if="result.doi">-->
+                                <!--{{result.doi}}-->
+                            <!--</a>-->
+                            <!--<a class="" ng-href="https://scholar.google.com/scholar?q={{result.citation}}" ng-if="!result.doi">-->
+                                <!--Google Scholar-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    </div>
+                </li>
+                <li ng-if="vm.vernacularnames.offset > 0 && vm.vernacularnames.results.length < 5" ng-repeat="ref in [1,2,3,4,5] | limitTo:(5-vm.vernacularnames.results.length)"></li>
+            </ul>
+        </div>
+        <div ng-if="vm.hasPages">
+            <div class="clearfix m-05">
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.vernacularnames.offset==0}">Previous</a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.vernacularnames.endOfRecords}">Next</a>
+            </div>
+        </div>
+    </section>
+</div>
