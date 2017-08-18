@@ -98,7 +98,7 @@ function prose(req, res, next, type, template){
                 slugTitle: slugTitle
             };
             if(type === 'event'){
-                contentItem._meta.calendarEventLink = apiConfig.newsroom.url + contentItem.main.sys.id;
+                contentItem._meta.calendarEventLink = apiConfig.newsroomWebcal.url + contentItem.main.sys.id;
             }
             if (img) {
                 contentItem._meta.image = 'http:' + img;
