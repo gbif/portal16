@@ -27,6 +27,9 @@
             <div class="horizontal-stripe white-background">
                 <div class="container--narrow">
                     {% include "../body.nunjucks" %}
+                    <div class="article-secondary">
+                        {% include "../documentsLinks.nunjucks" %}
+                    </div>
                     {% include "../auxiliary.nunjucks" %}
                 </div>
             </div>
