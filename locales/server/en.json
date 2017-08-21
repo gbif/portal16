@@ -1173,7 +1173,8 @@
     "verbatimLatitude": "verbatim latitude",
     "verbatimLongitude": "verbatim longitude",
     "scientificNameAuthorship": "scientific name authorship",
-    "undefined": "unknown field"
+    "undefined": "unknown field",
+    "noImages" : "No occurrences with images"
   },
   "taxonRank": {
     "undefined": "unknown taxon",

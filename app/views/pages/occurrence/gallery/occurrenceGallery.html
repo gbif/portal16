@@ -71,7 +71,12 @@
             </div>
         </div>
     </section>
+    <div ng-if="occGallery.count === 0" class="emptyInfo">
+        <h3 translate="ocurrenceFieldNames.noImages">
 
+        </h3>
+
+    </div>
     <ng-include src="'/templates/components/loader/loader.html'" ng-if="occGallery.count < 0"></ng-include>
     <section class="horizontal-stripe light-background seperator" ng-if="occGallery.count > 0">
         <div class="container-fluid">
