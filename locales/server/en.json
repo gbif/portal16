@@ -1388,7 +1388,7 @@
   },
   "network": {
     "title": "network",
-    "participatingDatasets": "participating datasets"
+    "participatingDatasets": "{n} participating datasets"
   },
   "stdTerms": {
     "contactHelpdesk": "Contact helpdesk",
