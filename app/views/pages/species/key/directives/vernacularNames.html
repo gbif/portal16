@@ -1,0 +1,60 @@
+<div class="m-t-1" ng-if="vm.vernacularNames.$resolved && vm.vernacularNames.results.length > 0" id="vernacularnames">
+    <h4 class="text-muted small text-uppercase">Vernacular names</h4>
+    <!--<span class="discreet text-uppercase small">References</span>-->
+    <section  class="card--references card">
+
+        <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
+            <ul>
+                <li ng-repeat="name in vm.vernacularNames.results | limitTo: vm.limit : vm.offset" class="card--references__item">
+                    <div  class="text-capitalize">
+                        <div>
+                            <span class="article-header__meta">{{ name.vernacularName }}</span>
+                            <span class="discreet--very">in <span translate="language.{{ name.language }}"></span></span>
+                        </div>
+                        <div class="small" ng-if="vm.isNub ==='true'">
+                            {{(name.datasets.length === 1) ? 'source' : 'sources' }}:
+                            <a class="" ui-sref=".({speciesKey:name.datasets[0].sourceTaxonKey})" >
+                                <span ng-bind-html="name.datasets[0].source"></span>
+                            </a>
+
+                            <a class="inherit cursor-pointer"  ng-click="vm.showDatasets(name)" ng-if="name.datasets.length > 1">
+                              + <span translate="stdTerms.nMore" translate-values="{n: name.datasets.length-1}" ></span><span> {{(name.datasets.length-1 <  2) ? 'stdTerms.dataset' : 'stdTerms.datasets' | translate}}</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </li>
+                <li ng-if="vm.vernacularnames.offset > 0 && vm.vernacularnames.results.length < 5" ng-repeat="ref in [1,2,3,4,5] | limitTo:(5-vm.vernacularnames.results.length)"></li>
+            </ul>
+        </div>
+        <div ng-if="vm.hasPages">
+            <div class="clearfix m-05">
+                <a href="" class="gb-button--discreet m-b-1" ng-click="vm.prev()" ng-class="{invisible: vm.offset==0}">Previous</a>
+                <a href="" class="pull-right gb-button--discreet m-b-1" ng-click="vm.next()" ng-class="{invisible: vm.endOfRecords}">Next</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="page__overlay" ng-if="vm.showCurrentDatasets" ng-click="vm.showCurrentDatasets = false">
+    <div class="content__overlay__card">
+        <div class="content__overlay__card__header seperator--b">
+            <div class="text-capitalize">
+                <span class="article-header__meta">{{ vm.currentName.vernacularName }}</span>
+                <span class="discreet--very">in <span translate="language.{{ vm.currentName.language }}"></span></span>
+            </div>
+        <div class="content__overlay__card__list">
+
+            <ul >
+                <li ng-repeat="option in vm.currentName.datasets">
+                    <a ui-sref=".({speciesKey:option.sourceTaxonKey})" ui-sref-opts="{inherit: false}" class="inherit noUnderline">
+                        <span>{{ option.source }}</span>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+

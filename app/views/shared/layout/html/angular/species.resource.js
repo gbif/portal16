@@ -117,7 +117,7 @@ var angular = require('angular');
         })
         .factory('SpeciesVernacularNames', function ($resource) {
             return $resource('/api/species/:id/vernacularNames', null, {
-                    'query': {
+                    'get': {
                         method: 'GET',
                         isArray: false
                     }

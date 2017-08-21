@@ -1452,7 +1452,7 @@
     "search": "search",
     "occurrences": "occurrences",
     "datasets": "datasets",
-    "nMore": "%s more",
+    "nMore": "{n} more",
     "publishedBy": "published by",
     "publishers": "publishers",
     "dataPublishers": "data publishers",

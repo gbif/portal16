@@ -84,7 +84,7 @@ async function getVernacularNamesProcessed(speciesKey){
         _.each(namesWithoutLanguage, function(n){
             _.find(namesWithLanguage, function(val, key){
                  return  _.find(val, function(v,k){
-                            if(n.vernacularName.toLowerCase() === k){
+                            if(n.vernacularName === k){
                                 v.push(n);
                                 return true;
                             } else {
@@ -94,7 +94,15 @@ async function getVernacularNamesProcessed(speciesKey){
             })
         });
 
-     return namesWithLanguage
+        var results= [];
+
+        _.each(namesWithLanguage, function(val, lang){
+            _.each(val, function(v,k){
+                results.push({vernacularName: k, language: lang, datasets: v})
+            })
+        })
+
+     return {count: results.length, results: results}
 
 }
 
