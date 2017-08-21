@@ -3,25 +3,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <div ng-repeat="result in projectKey.newsEvents.results">
-                    <div class="card m-b-05 searchCard">
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <span class="searchCard__type" translate="cms.contentType.{{ result.contentType }}"></span>
-                                <h3>
-                                    <a ng-href="{$ gb.locales.urlPrefix $}/{{ result.contentType }}/{{result.id}}/{{result._slug}}">{{result.title}}</a>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="card__stripe">
-                            <div class="card__content">
-                                <img class="searchCard__img"
-                                     ng-src="{{ projectKey.imageCache }}128x64/{{ 'http:' + projectKey.newsEvents.images[result.primaryImage.sys.id] | encodeURIComponent }}" ng-if="projectKey.newsEvents.images[result.primaryImage.sys.id]">
-                                <p>
-                                    {{result._summary}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ng-include src="'/api/template/search/eventResult.html?v=' +       portal.BUILD_VERSION" ng-if="result.contentType == 'event'"></ng-include>
+                    <ng-include src="'/api/template/search/newsResult.html?v=' +        portal.BUILD_VERSION" ng-if="result.contentType == 'news'"></ng-include>
                 </div>
             </div>
         </div>

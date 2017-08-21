@@ -111,6 +111,10 @@ router.get('/country/participation.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/participation/participation.template.nunjucks');
 });
 
+router.get('/country/research.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/research/research.template.nunjucks');
+});
+
 
 router.get('/species/key.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key2/speciesKey.template.nunjucks');

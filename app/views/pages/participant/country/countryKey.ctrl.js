@@ -6,6 +6,7 @@ require('./summary/countrySummary.ctrl');
 require('./about/countryAbout.ctrl');
 require('./publishing/countryPublishing.ctrl');
 require('./participation/countryParticipation.ctrl');
+require('./research/countryResearch.ctrl');
 
 angular
     .module('portal')

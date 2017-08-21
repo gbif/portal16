@@ -66,7 +66,7 @@ function mapWidgetDirective(BUILD_VERSION) {
             FILTERS: 14
         };
 
-        vm.fullscreen = _.get(vm.mapStyle, 'fullscreen', false);
+        vm.fullscreen = _.get(vm, 'mapStyle.fullscreen', false);
 
         vm.basemaps = options.basemaps;
         vm.selectedBaseMap = vm.basemaps[options.defaults.basemap];
@@ -475,7 +475,7 @@ function mapWidgetDirective(BUILD_VERSION) {
         $scope.$watchCollection(function () {
             return vm.mapStyle
         }, function () {
-            if (!_.isUndefined(vm.mapStyle.fullscreen)) {
+            if (_.has(vm, 'mapStyle.fullscreen')) {
                 vm.fullscreen = !vm.mapStyle.fullscreen;
                 vm.toggleFullscreen();
             }

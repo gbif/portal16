@@ -82,7 +82,7 @@
         </section>
     </div>
     <div class="emptyInfo" ng-if="countryPublishing.datasetsFrom.$resolved && countryPublishing.datasetsFrom.count == 0">
-        <h3>No data publising activity</h3>
+        <h3>No data publishing activity</h3>
         <p>This country hasn't shared any data through GBIF</p>
     </div>
     <div class="emptyInfo" ng-if="!countryPublishing.datasetsFrom.$resolved">
