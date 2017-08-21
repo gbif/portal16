@@ -82,6 +82,7 @@ function vernacularNamesDirective() {
             vm.offset = vm.offset - vm.limit;
             $state.go('.', {vnOffset: vm.offset}, {inherit: true, notify: false, reload: false});
             vm.endOfRecords = (vm.offset+vm.limit) >= vm.vernacularNames.results.length;
+            setHeight();
 
         };
 
@@ -89,7 +90,10 @@ function vernacularNamesDirective() {
 
         function setHeight() {
             if (vm.offset > 0 || !vm.endOfRecords && _.get(vm.vernacularnames, 'results.length', 0) > 0) {
-                vm.height = (77 * 5) + 'px';
+
+                var fact = Math.min(vm.vernacularNames.results.length - (vm.offset), 10);
+                console.log(fact)
+                vm.height = (77 * fact) + 'px';
                 vm.hasPages = true;
             }
         }
