@@ -1480,8 +1480,8 @@
     "readMore": "read more",
     "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
     "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}",
-    "nonCriticalErrorMsg" : "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
-    "partialPage" : "Partial page"
+    "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
+    "partialPage": "Partial page"
   },
   "event": {
     "location": "Location",
@@ -2443,63 +2443,63 @@
       },
       "vocabularyTerms": {
         "relevance": {
-          "GBIF_used": "GBIF used",
-          "GBIF_cited": "GBIF cited",
-          "GBIF_discussed": "GBIF discussed",
-          "GBIF_primary": "GBIF primary",
-          "GBIF_acknowledged": "GBIF acknowledged",
-          "GBIF_published": "GBIF published",
-          "GBIF_author": "GBIF author",
-          "GBIF_mentioned": "GBIF mentioned",
-          "GBIF_funded": "GBIF funded"
+          "GBIF_USED": "GBIF used",
+          "GBIF_CITED": "GBIF cited",
+          "GBIF_DISCUSSED": "GBIF discussed",
+          "GBIF_PRIMARY": "GBIF primary",
+          "GBIF_ACKNOWLEDGED": "GBIF acknowledged",
+          "GBIF_PUBLISHED": "GBIF published",
+          "GBIF_AUTHOR": "GBIF author",
+          "GBIF_MENTIONED": "GBIF mentioned",
+          "GBIF_FUNDED": "GBIF funded"
         },
         "topics": {
-          "Agriculture": "Agriculture",
-          "Biodiversity_science": "Biodiversity science",
-          "Biogeography": "Biogeography",
-          "Citizen_science": "Citizen science",
-          "Climate_change": "Climate change",
-          "Conservation": "Conservation",
-          "Data_management": "Data management",
-          "Data_paper": "Data paper",
-          "Ecology": "Ecology",
-          "Ecosystem_services": "Ecosystem services",
-          "Evolution": "Evolution",
-          "Freshwater": "Freshwater",
-          "Human_health": "Human health",
-          "Invasives": "Invasives",
-          "Marine": "Marine",
-          "Phylogenetics": "Phylogenetics",
-          "Species_distributions": "Species distributions",
-          "Taxonomy": "Taxonomy"
+          "AGRICULTURE": "Agriculture",
+          "BIODIVERSITY_SCIENCE": "Biodiversity science",
+          "BIOGEOGRAPHY": "Biogeography",
+          "CITIZEN_SCIENCE": "Citizen science",
+          "CLIMATE_CHANGE": "Climate change",
+          "CONSERVATION": "Conservation",
+          "DATA_MANAGEMENT": "Data management",
+          "DATA_PAPER": "Data paper",
+          "ECOLOGY": "Ecology",
+          "ECOSYSTEM_SERVICES": "Ecosystem services",
+          "EVOLUTION": "Evolution",
+          "FRESHWATER": "Freshwater",
+          "HUMAN_HEALTH": "Human health",
+          "INVASIVES": "Invasives",
+          "MARINE": "Marine",
+          "PHYLOGENETICS": "Phylogenetics",
+          "SPECIES_DISTRIBUTIONS": "Species distributions",
+          "TAXONOMY": "Taxonomy"
         },
         "purposes": {
-          "Capacity enhancement": "Capacity enhancement",
-          "Data access": "Data access",
-          "Data analysis": "Data analysis",
-          "Data curation & quality": "Data curation & quality",
-          "Data digitization": "Data digitization",
-          "Data publishing": "Data publishing"
+          "CAPACITY_ENHANCEMENT": "Capacity enhancement",
+          "DATA_ACCESS": "Data access",
+          "DATA_ANALYSIS": "Data analysis",
+          "DATA_CURATION_QUALITY": "Data curation & quality",
+          "DATA_DIGITIZATION": "Data digitization",
+          "DATA_PUBLISHING": "Data publishing"
         },
         "literatureType": {
-          "book": "book",
-          "book_section": "book_section",
-          "conference_proceedings": "conference_proceedings",
-          "generic": "generic",
-          "journal": "journal",
-          "magazine_article": "magazine_article",
-          "report": "report",
-          "thesis": "thesis",
-          "web_page": "web_page",
-          "working_paper": "working_paper"
+          "BOOK": "book",
+          "BOOK_SECTION": "book_section",
+          "CONFERENCE_PROCEEDINGS": "conference_proceedings",
+          "GENERIC": "generic",
+          "JOURNAL": "journal",
+          "MAGAZINE_ARTICLE": "magazine_article",
+          "REPORT": "report",
+          "THESIS": "thesis",
+          "WEB_PAGE": "web_page",
+          "WORKING_PAPER": "working_paper"
         },
         "audience": {
-          "Biodiversity knowledge experts": "Biodiversity knowledge experts",
-          "Data holders": "Data holders",
-          "Data users": "Data users",
-          "Decision makers": "Decision makers",
-          "GBIF network": "GBIF network",
-          "Public stakeholders": "Public stakeholders"
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
+          "DATA_HOLDERS": "Data holders",
+          "DATA_USERS": "Data users",
+          "DECISION_MAKERS": "Decision makers",
+          "GBIF_NETWORK": "GBIF network",
+          "PUBLIC_STAKEHOLDERS": "Public stakeholders"
         }
       }
     }
