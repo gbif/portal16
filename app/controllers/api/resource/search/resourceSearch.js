@@ -8,7 +8,7 @@ const _ = require('lodash'),
     elasticContentful = rootRequire('config/config').elasticContentful,
     filterHelper = require('./filter');
 
-let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance'],
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'urlAlias'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 var client = new elasticsearch.Client({

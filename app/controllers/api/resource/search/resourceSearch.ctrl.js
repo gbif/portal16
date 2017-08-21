@@ -51,14 +51,17 @@ router.get('/resource/alias', function (req, res) {
 
     resource.getByAlias(urlAlias, 2, false, preferedLocale)
         .then(result => {
-            res.json(result);
+            if (req.query.html == 'true') {
+                res.render('pages/resource/key/help/help', result);
+            } else {
+                res.json(result);
+            }
         })
         .catch(err =>{
             console.trace(err);
             res.status(500);
             res.send(err.message);
         })
-
 });
 
 function transformResult(results, listPath, preferedLocale) {

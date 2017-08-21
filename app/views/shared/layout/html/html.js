@@ -301,6 +301,8 @@ require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');
 require('../../../pages/network/key/networkKey.ctrl');
 
+require('../../../components/gbHelp/gbHelp.directive');
+
 require('../../../components/userLogin/userLogin.directive');
 require('../../../pages/user/updatePassword/updatePassword.ctrl');
 require('../../../pages/user/profile/userProfile.ctrl');

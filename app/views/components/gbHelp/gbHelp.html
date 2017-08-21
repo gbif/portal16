@@ -1,0 +1,15 @@
+<span class="gbHelp">
+    <ng-transclude ng-click="vm.showPopup()"></ng-transclude>
+    <div class="gbHelp__overlay" ng-if="vm.show">
+        <div class="loading"></div>
+        <div class="gbHelp__content">
+            <div class="card">
+                <h2>title missing</h2>
+                <div>
+                    <ng-include src="'/api/resource/alias?contentType=article&html=true&id=1K2rq58saEEAAkqMM8SuyY'"></ng-include>
+                </div>
+            </div>
+        </div>
+        <div class="gbHelp__close" ng-click="vm.show = false"><h1>LUK</h1></div>
+    </div>
+</span>
