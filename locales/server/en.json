@@ -2483,16 +2483,16 @@
           "DATA_PUBLISHING": "Data publishing"
         },
         "literatureType": {
-          "BOOK": "book",
-          "BOOK_SECTION": "book section",
-          "CONFERENCE_PROCEEDINGS": "conference proceedings",
-          "GENERIC": "generic",
-          "JOURNAL": "journal",
-          "MAGAZINE_ARTICLE": "magazine article",
-          "REPORT": "report",
-          "THESIS": "thesis",
-          "WEB_PAGE": "web page",
-          "WORKING_PAPER": "working paper"
+          "book": "book",
+          "book_section": "book section",
+          "conference_proceedings": "conference proceedings",
+          "generic": "generic",
+          "journal": "journal",
+          "magazine_article": "magazine article",
+          "report": "report",
+          "thesis": "thesis",
+          "web_page": "web page",
+          "working_paper": "working paper"
         },
         "audience": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
