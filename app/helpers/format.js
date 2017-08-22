@@ -277,7 +277,7 @@ function addPortalClasses(raw) {
     let clean = sanitizeHtml(raw, {
             allowedTags: false,
             allowedAttributes: {
-                '*': ['href', 'name', 'target', 'src', 'class', 'frameborder', 'width', 'height', 'allowfullscreen']
+                '*': ['style', 'href', 'name', 'target', 'src', 'class', 'frameborder', 'width', 'height', 'allowfullscreen']
             },
             transformTags: {
                 'table': sanitizeHtml.simpleTransform('table', {class: 'table'})

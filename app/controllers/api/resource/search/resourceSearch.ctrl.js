@@ -49,13 +49,25 @@ router.get('/resource/alias', function (req, res) {
     let urlAlias = req.query.urlAlias,
         preferedLocale = req.query.locale;
 
-    resource.getByAlias(urlAlias, 2, false, preferedLocale)
+    resourceSearch.getByAlias(urlAlias, 2, false, preferedLocale)
         .then(result => {
             if (req.query.html == 'true') {
                 res.render('pages/resource/key/help/help', result);
             } else {
                 res.json(result);
             }
+        })
+        .catch(err =>{
+            console.trace(err);
+            res.status(500);
+            res.send(err.message);
+        })
+});
+
+router.get('/resource/item', function (req, res) {
+    resourceSearch.getItem(req.query, req.__)
+        .then(result => {
+            res.json(result);
         })
         .catch(err =>{
             console.trace(err);

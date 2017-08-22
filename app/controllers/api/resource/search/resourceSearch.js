@@ -15,7 +15,7 @@ var client = new elasticsearch.Client({
     host: elasticContentful
 });
 
-async function getItem(requestQuery, __) {
+async function getItem(requestQuery, __, options) {
     let preferedLocale = requestQuery.locale,
         query = buildQuery(requestQuery);
 
@@ -26,16 +26,11 @@ async function getItem(requestQuery, __) {
     let resp = await client.search(query);
 
     let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
-
-    // resourceResultParser.renameField(parsedResult.results, 'literature', 'abstract', 'summary');//rename literature.abcstract to summary for consistency with other content types
-    resourceResultParser.renameField(parsedResult.results, 'event', 'description', 'summary');
-
-    //resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'abstract', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'projectId', 'status', 'location', 'venue', 'primaryLink.url', 'programme.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
     parsedResult.results = resourceResultParser.getLocaleVersion(parsedResult.results, contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
 
-    resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract', 'title']);
     resourceResultParser.addSlug(parsedResult.results, 'title');
     resourceResultParser.addUrl(parsedResult.results);
+    resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract']);
 
     return parsedResult;
 }
