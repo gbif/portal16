@@ -32,7 +32,7 @@ function gbHelpDirective() {
         console.log($stateParams.locale);
         vm.showPopup = function(){
             vm.show = true;
-            vm.helpHtml = ResourceItem.query({contentType: 'help', identifier: vm.helpIdentifier, html: true});
+            vm.helpItem = ResourceItem.query({contentType: 'help', identifier: vm.helpIdentifier, html: true});
         }
     }
 }

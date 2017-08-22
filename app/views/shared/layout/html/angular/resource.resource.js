@@ -26,7 +26,7 @@ var angular = require('angular');
             );
         })
         .factory('ResourceItem', function ($resource) {
-            return $resource('/api/resource/alias', null, {
+            return $resource('/api/resource/item', null, {
                     'query': {
                         method: 'GET',
                         isArray: false

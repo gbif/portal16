@@ -66,8 +66,13 @@ router.get('/resource/alias', function (req, res) {
 
 router.get('/resource/item', function (req, res) {
     resourceSearch.getItem(req.query, req.__)
-        .then(result => {
-            res.json(result);
+        .then(resp => {
+            if (resp.count > 0) {
+                res.json(results[0]);
+            } else {
+                res.status(404);
+                res.send();
+            }
         })
         .catch(err =>{
             console.trace(err);
