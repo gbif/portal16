@@ -426,7 +426,7 @@
     "nia": "Nias",
     "nic": "Niger-Kordofanian languages",
     "niu": "Niuean",
-    "nld": "Flemish",
+    "nld": "Dutch",
     "nno": "Nynorsk, Norwegian",
     "nob": "Norwegian Bokmål",
     "nog": "Nogai",
@@ -963,7 +963,7 @@
     "isVersionOf": "is version of",
     "issued": "issued",
     "language": "language",
-    "license": "license",
+    "license": "Record license",
     "mediator": "mediator",
     "medium": "medium",
     "modified": "modified",
@@ -2484,15 +2484,15 @@
         },
         "literatureType": {
           "BOOK": "book",
-          "BOOK_SECTION": "book_section",
-          "CONFERENCE_PROCEEDINGS": "conference_proceedings",
+          "BOOK_SECTION": "book section",
+          "CONFERENCE_PROCEEDINGS": "conference proceedings",
           "GENERIC": "generic",
           "JOURNAL": "journal",
-          "MAGAZINE_ARTICLE": "magazine_article",
+          "MAGAZINE_ARTICLE": "magazine article",
           "REPORT": "report",
           "THESIS": "thesis",
-          "WEB_PAGE": "web_page",
-          "WORKING_PAPER": "working_paper"
+          "WEB_PAGE": "web page",
+          "WORKING_PAPER": "working paper"
         },
         "audience": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversity knowledge experts",
