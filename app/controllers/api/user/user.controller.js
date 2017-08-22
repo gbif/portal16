@@ -105,12 +105,12 @@ function changePassword(req, res) {
 }
 
 /**
- * Updates the password given a short lived token sent to the users email
+ * Get my downloads
  */
 function getDownloads(req, res) {
     userModel.getDownloads(req.user.userName, req.query)
         .then(function(downloads){
-            res.setHeader('Cache-Control', 'private, max-age=' + 10000); //allow the user to store the list of downloads locally
+            res.setHeader('Cache-Control', 'private, max-age=' + 10); //10 seconds - allow the user to store the list of downloads locally
             res.json(downloads);
         })
         .catch(handleError(res, 422));

@@ -27,11 +27,19 @@
                     </div>
                 </div>
             </a>
-            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
+            {#<a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">#}
+                {#<div>#}
+                    {#<div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryKey.countryCode }}">3692</div>#}
+                    {#<div class="summaryStats__simple__description">#}
+                        {#Publications from {{ 'country.' + countryKey.countryCode | translate }}#}
+                    {#</div>#}
+                {#</div>#}
+            {#</a>#}
+            <a ui-sref="publisherSearchList({country: countryKey.countryCode})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__simple">
                 <div>
-                    <div class="summaryStats__simple__count" count="/api/resource/search?contentType=literature&countriesOfResearcher={{ countryKey.countryCode }}">3692</div>
+                    <div class="summaryStats__simple__count" count="/api/publisher/search?country={{ countryKey.countryCode }}"></div>
                     <div class="summaryStats__simple__description">
-                        Publications from {{ 'country.' + countryKey.countryCode | translate }}
+                        Publishers from {{ 'country.' + countryKey.countryCode | translate }}
                     </div>
                 </div>
             </a>

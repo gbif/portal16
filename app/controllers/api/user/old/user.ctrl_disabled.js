@@ -34,7 +34,7 @@ router.get('/logout', function (req, res) {
 router.get('/usersDownloads', function (req, res) {
     var cookie = req.cookies[apiConfig.cookieNames.userSession];
     if (cookie) {
-        res.setHeader('Cache-Control', 'private, max-age=' + 10000);
+        res.setHeader('Cache-Control', 'private, max-age=' + 10);
 
         user.getDownloads(cookie, req.query).then(
             function (downloads) {

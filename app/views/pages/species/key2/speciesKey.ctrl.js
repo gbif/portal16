@@ -5,6 +5,8 @@ var angular = require('angular'),
 
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('../key/directives/speciesDatasets.directive.js');
+require('../key/directives/vernacularNames.directive.js');
+
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');

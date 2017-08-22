@@ -55,7 +55,7 @@
                                   ng-if="result.status">{{ result.status }}</span>
                         </td>
                         <td class="table-cell--widder">
-                            <span ng-if="result.status">{{ result.call.title }}</span>
+                            <span ng-if="result.status">{{ result.call }}</span>
                         </td>
                     </tr>
                     </tbody>

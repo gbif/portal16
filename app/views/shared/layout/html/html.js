@@ -97,6 +97,7 @@ require('angular-svg-round-progressbar');
 
     /** @ngInject */
     function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
+
         $localStorageProvider.setKeyPrefix('gbif.');
         $sessionStorageProvider.setKeyPrefix('gbif.');
         // localStorageServiceProvider

@@ -119,9 +119,9 @@ function adhocMapDirective(BUILD_VERSION) {
             map = mapController.createMap(element, {
                 baseMap: suggestedStyle.baseMap,
                 overlay: suggestedStyle.overlay,
-                filters: getQuery()
+                filters: getQuery(),
+                fitExtent: true
             });
-
             map.on('singleclick', function (e) {
                 var coordinate = map.getProjectedCoordinate(e.coordinate);
                 var size = 150;
@@ -223,7 +223,7 @@ function adhocMapDirective(BUILD_VERSION) {
         $scope.$watchCollection(function () {
             return vm.filter
         }, function () {
-            map.update({filters: getQuery()});
+            map.update({filters: getQuery(), fitExtent: true});
         });
     }
 }
