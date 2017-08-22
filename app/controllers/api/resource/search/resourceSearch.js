@@ -8,7 +8,7 @@ const _ = require('lodash'),
     elasticContentful = rootRequire('config/config').elasticContentful,
     filterHelper = require('./filter');
 
-let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance'],
+let knownFilters = ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher', 'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey', 'gbifDownloadKey', 'relevance', 'start', 'end'],
     defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 var client = new elasticsearch.Client({
@@ -16,11 +16,13 @@ var client = new elasticsearch.Client({
 });
 
 
-async function search(requestQuery, __, requestTimeout) {
+async function search(requestQuery, __, options) {
     let preferedLocale = requestQuery.locale,
         query = buildQuery(requestQuery);
 
-    query.requestTimeout = requestTimeout || 10000;
+    options = options || {};
+
+    query.requestTimeout = options.requestTimeout || 10000;
 
     let resp = await client.search(query);
 
@@ -35,16 +37,18 @@ async function search(requestQuery, __, requestTimeout) {
     //resourceResultParser.selectLocale(parsedResult.results, ['body', 'summary', 'abstract', 'title', 'primaryImage.description', 'primaryImage.file', 'primaryImage.title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'projectId', 'status', 'location', 'venue', 'primaryLink.url', 'programme.title'], contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
     parsedResult.results = resourceResultParser.getLocaleVersion(parsedResult.results, contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
 
-    resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract', 'title']);
-    resourceResultParser.stripHtml(parsedResult.results, ['body', 'summary', 'title', 'abstract']);
-    resourceResultParser.concatFields(parsedResult.results, ['summary', 'body'], '_summary');
-    resourceResultParser.truncate(parsedResult.results, ['title'], 150);
-    resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
-    resourceResultParser.truncate(parsedResult.results, ['abstract'], 300);
-    resourceResultParser.addSlug(parsedResult.results, 'title');
-    resourceResultParser.addUrl(parsedResult.results);
-    resourceResultParser.transformFacets(parsedResult, __);
-    resourceResultParser.addFilters(parsedResult, requestQuery, __);
+    if (!options.rawResponse) {
+        resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract', 'title']);
+        resourceResultParser.stripHtml(parsedResult.results, ['body', 'summary', 'title', 'abstract']);
+        resourceResultParser.concatFields(parsedResult.results, ['summary', 'body'], '_summary');
+        resourceResultParser.truncate(parsedResult.results, ['title'], 150);
+        resourceResultParser.truncate(parsedResult.results, ['body', 'summary', '_summary'], 200);
+        resourceResultParser.truncate(parsedResult.results, ['abstract'], 300);
+        resourceResultParser.addSlug(parsedResult.results, 'title');
+        resourceResultParser.addUrl(parsedResult.results);
+        resourceResultParser.transformFacets(parsedResult, __);
+        resourceResultParser.addFilters(parsedResult, requestQuery, __);
+    }
 
     return parsedResult;
 }
@@ -61,10 +65,7 @@ function buildQuery(query) {
         body = {//always require items to be either searchable (contentful bool field) or type literature (from Mendeley)
             query: {
                 bool: {
-                    must: [
-                        showPastEvents ? oldEventOrSomethingElse : newEventOrSomethingElse
-                    ]
-
+                    must: []
                 }
             }
         },
@@ -73,19 +74,21 @@ function buildQuery(query) {
             size: size
         };
 
-    query.contentType = query.contentType || defaultContentTypes;
-    //if (query.contentType == 'event') {
-    //    from.index = 'event';
-    //}
-    arrayifyParams(query);
-
-    //add free text query to query
     if (query.q) {
         query.q = '"' + query.q.toLowerCase() + '"';
-        _.set(body, 'query.bool.must[1].query_string.query', query.q);
+        _.set(body, 'query.bool.must[0].query_string.query', query.q);
     } else {
-        _.set(body, 'query.bool.must[1].match_all', {});
+        _.set(body, 'query.bool.must[0].match_all', {});
     }
+
+    if (!query.contentType || defaultContentTypes.indexOf(query.contentType) > -1) {
+        _.set(body, 'query.bool.must[1]', showPastEvents ? oldEventOrSomethingElse : newEventOrSomethingElse);
+    }
+
+    query.contentType = query.contentType || defaultContentTypes;
+
+    arrayifyParams(query);
+
 
     //not facet filters should simply be added to the query filters.
     let notFactedFilters = getNotFacetedFilters(query);
@@ -278,7 +281,7 @@ function addToFilter(filter, field, value) {
 
 function getFilter(field, value) {
     let isRange = false;
-    if (field == 'year') {
+    if (['year', 'start', 'end'].indexOf(field) != -1) {
         isRange = true;
     }
     return filterHelper.getFilter(field, value, isRange);
