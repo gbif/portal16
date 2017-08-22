@@ -6,22 +6,48 @@
         bottom 0
         left 0
         right 0
-        background rgba(0,0,0,.2)
+        background $navBar_background
         z-index $zSiteOverlay
+        overflow auto
     }
     &__close {
-        background red
         position absolute
         top 0
         left 0
         right 0
         bottom 0
         z-index 1
+        &:before {
+            content 'BACK'
+            display block
+            position absolute
+            top 0
+            left 0
+            color white
+            margin 10px
+        }
     }
     &__content {
         z-index 2
         position relative
-        margin auto
-        nackground white
+        top 0
+        max-height 100vh
+        margin 3rem auto
+        max-width $contentWidth--narrow
+    }
+    .card {
+    }
+}
+
++isAbove($tablet) {
+    .gbHelp {
+        &__overlay {
+            background rgba(0, 0, 0, .2)
+        }
+        &__close {
+            &:before {
+                content none
+            }
+        }
     }
 }

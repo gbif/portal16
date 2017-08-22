@@ -1,16 +1,15 @@
 <span class="gbHelp">
     <ng-transclude ng-click="vm.showPopup()"></ng-transclude>
     <div class="gbHelp__overlay" ng-if="vm.show">
-        <div class="loading"></div>
         <div class="gbHelp__content">
             <div class="card">
-                <h2>title missing</h2>
-                <div>
-                {{ vm.helpItem }}
-                    <!--<ng-include src="'/api/resource/item?contentType=article&html=true&id=1K2rq58saEEAAkqMM8SuyY'"></ng-include>-->
+                <div class="card__content">
+                    <!--<div class="loading" ng-if="vm.loading"></div>-->
+                    <h3 ng-bind-html="vm.helpItem.title" class="text-center"></h3>
+                    <div ng-bind-html="vm.helpItem.body" class="m-t-1"></div>
                 </div>
             </div>
         </div>
-        <div class="gbHelp__close" ng-click="vm.show = false"><h1>LUK</h1></div>
+        <div class="gbHelp__close" ng-click="vm.show = false"></div>
     </div>
 </span>
