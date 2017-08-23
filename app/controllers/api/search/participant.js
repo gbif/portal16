@@ -53,13 +53,19 @@ async function query(participantName){
         matchAllTokens: true,
         includeScore: true
     });
-    var participantResults = fuse.search(participantName);
-
+    let participantResults = fuse.search(participantName).filter((p)=>{ return p.score < 0.3});
     let pts = await Q.all(_.map(participantResults,  (p) =>{
         return Participant.get(p.item.id);
      }));
-
-    return { results: pts, count: pts.length};
+    let highlights = _.remove(pts, (ptcpt)=>{
+        let p = ptcpt.participant;
+        return (p.name.toLowerCase() === participantName.toLowerCase() || (p.abbreviatedName && p.abbreviatedName.toLowerCase() === participantName.toLowerCase()));
+    })
+    let response = { results: pts.slice(0, 4), count: pts.length};
+    if(highlights.length > 0){
+        response.highlights = highlights;
+    }
+    return response;
 }
 
 module.exports = {

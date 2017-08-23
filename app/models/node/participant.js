@@ -93,7 +93,8 @@ async function getParticipantByIso(isoCode) {
 
 async function getParticipantsByType(type) {
     let query = {
-        type: type
+        type: type,
+        limit: 2000
     };
     let participantSearchResults = await signedGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
     return participantSearchResults;

@@ -51,8 +51,10 @@ async function search(query, preferedLocale, __) {
         resources: values[4],
         country: values[5],
         resourceHighlights: values[6],
-        participants : values[7]
+        participants : values[7],
+
     };
+
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
     response.speciesMatches = transformMatches(response.speciesMatches);
     //response.species.results = _.slice(_.concat(response.speciesMatches.results, response.species.results), 0, 3);
