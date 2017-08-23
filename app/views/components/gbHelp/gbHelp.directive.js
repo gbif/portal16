@@ -1,8 +1,7 @@
 'use strict';
 
-var angular = require('angular'),
-    _ = require('lodash');
-console.log('loaded');
+var angular = require('angular');
+
 angular
     .module('portal')
     .directive('gbHelp', gbHelpDirective);
@@ -14,7 +13,8 @@ function gbHelpDirective() {
         transclude: true,
         templateUrl: '/templates/components/gbHelp/gbHelp.html',
         scope: {
-            gbHelp: '@'
+            gbHelp: '@',
+            gbHelpOptions: '@'
         },
         controller: gbHelpCtrl,
         controllerAs: 'vm',
@@ -27,14 +27,14 @@ function gbHelpDirective() {
     function gbHelpCtrl($stateParams, ResourceItem) {
         var vm = this;
         vm.helpIdentifier = vm.gbHelp;
-        console.log('sdf');
-        console.log(vm.helpIdentifier);
-        console.log($stateParams.locale);
         vm.showPopup = function(){
             vm.show = true;
             vm.loading = true;
-            vm.helpItem = ResourceItem.query({contentType: 'help', identifier: vm.helpIdentifier});
-            vm.helpItem.then(function(){
+            //console.log(gbHelpOptions);
+            //console.log(gbHelpOptions.translationKey);
+
+            vm.helpItem = ResourceItem.query({contentType: 'help', identifier: vm.helpIdentifier, locale: $stateParams.locale});
+            vm.helpItem.$promise.then(function(){
                 vm.loading = false;
             });
         }

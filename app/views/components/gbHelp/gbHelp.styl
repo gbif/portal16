@@ -1,4 +1,28 @@
+.gbHelp--transcluded {
+    .gbHelp__question {
+        display none
+    }
+    .gbHelp__transcluded {
+        display inline
+    }
+}
 .gbHelp {
+    &__transcluded {
+        display none
+    }
+    &__question {
+        background #75b3a3
+        color white
+        display inline-block
+        width 1em
+        height 1em
+        border-radius 50%
+        line-height 1em
+        text-align center
+    }
+    &__trigger {
+        display inline-block
+    }
     &__overlay {
         display block
         position fixed
@@ -6,25 +30,31 @@
         bottom 0
         left 0
         right 0
-        background $navBar_background
+        background rgba(0, 0, 0, .2)
         z-index $zSiteOverlay
         overflow auto
     }
     &__close {
-        position absolute
+        position fixed
         top 0
         left 0
         right 0
         bottom 0
         z-index 1
         &:before {
-            content 'BACK'
+            font-family gbificons
+            content $icon-string-arrow-left-bold-circle-outline
             display block
             position absolute
             top 0
             left 0
             color white
-            margin 10px
+            line-height $navBar_height
+            height $navBar_height
+            font-size 22px
+            padding 0 ($navBar_height / 2)
+            width 100%
+            background $navBar_background
         }
     }
     &__content {
@@ -32,8 +62,10 @@
         position relative
         top 0
         max-height 100vh
-        margin 3rem auto
+        margin $navBar_height auto
         max-width $contentWidth--narrow
+        top 20%
+        transform translateY(-20%)
     }
     .card {
     }
@@ -41,9 +73,9 @@
 
 +isAbove($tablet) {
     .gbHelp {
-        &__overlay {
-            background rgba(0, 0, 0, .2)
-        }
+        //&__overlay {
+        //    background rgba(0, 0, 0, .2)
+        //}
         &__close {
             &:before {
                 content none
