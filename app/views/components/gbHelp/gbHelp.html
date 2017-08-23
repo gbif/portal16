@@ -1,0 +1,15 @@
+<span class="gbHelp">
+    <ng-transclude ng-click="vm.showPopup()"></ng-transclude>
+    <div class="gbHelp__overlay" ng-if="vm.show">
+        <div class="gbHelp__content">
+            <div class="card">
+                <div class="card__content">
+                    <!--<div class="loading" ng-if="vm.loading"></div>-->
+                    <h3 ng-bind-html="vm.helpItem.title" class="text-center"></h3>
+                    <div ng-bind-html="vm.helpItem.body" class="m-t-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gbHelp__close" ng-click="vm.show = false"></div>
+    </div>
+</span>

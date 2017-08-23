@@ -15,6 +15,25 @@ var client = new elasticsearch.Client({
     host: elasticContentful
 });
 
+async function getItem(requestQuery, __, options) {
+    let preferedLocale = requestQuery.locale,
+        query = buildQuery(requestQuery);
+
+    options = options || {};
+
+    query.requestTimeout = options.requestTimeout || 10000;
+
+    let resp = await client.search(query);
+
+    let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
+    parsedResult.results = resourceResultParser.getLocaleVersion(parsedResult.results, contentfulLocaleMap[preferedLocale], contentfulLocaleMap[defaultLocale]);
+
+    resourceResultParser.addSlug(parsedResult.results, 'title');
+    resourceResultParser.addUrl(parsedResult.results);
+    resourceResultParser.renderMarkdown(parsedResult.results, ['body', 'summary', 'abstract']);
+
+    return parsedResult;
+}
 
 async function search(requestQuery, __, options) {
     let preferedLocale = requestQuery.locale,
@@ -334,7 +353,8 @@ function arrayify(value) {
 module.exports = {
     search: search,
     buildQuery: buildQuery,
-    contentTypes: defaultContentTypes.slice()
+    contentTypes: defaultContentTypes.slice(),
+    getItem: getItem
 };
 //var q = {q: 'data', "vocabularyDataUse": 'Science use', countryOfCoverage: ['US', 'DE'], facet: ['countryOfCoverage', 'vocabularyDataUse', 'vocabularyTopic'], facetMultiselect: true};
 //

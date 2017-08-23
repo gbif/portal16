@@ -32,7 +32,8 @@ router.get('/', function (req, res, next) {
                 let highlights = [];
                 highlights.push(_.get(values[1], 'results[0]'));
                 highlights.push(_.get(values[2], 'results[0]'));
-                highlights.push(_.get(values[3], 'results[0]'));
+                if(_.has(values[3], 'results[0]')) highlights.push(_.get(values[3], 'results[0]'));
+
                 _.get(values[0], 'main.fields.features', []).forEach(function (e) {
                     let featureItem = _.get(values[0], 'resolved.Entry.' + _.get(e, 'sys.id'));
                     if (featureItem) {
@@ -75,4 +76,3 @@ router.get('/', function (req, res, next) {
             });
     }
 });
-
