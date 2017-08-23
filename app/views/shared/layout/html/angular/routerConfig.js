@@ -292,6 +292,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'contactDirectoryCtrl',
             controllerAs: 'contactDirectory'
         })
+        .state('faq', {
+            parent: 'localization',
+            url: '/faq2?helpId',
+            views: {
+                main: {
+                    templateUrl: '/api/template/faq.html?v=' + BUILD_VERSION,
+                    controller: 'faqCtrl',
+                    controllerAs: 'faq'
+                }
+            }
+        })
         .state('user', {
             parent: 'localization',
             url: '/user',

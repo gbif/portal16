@@ -2,7 +2,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.literature') | capitalize $}</span>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a ng-href="https://doi.org/{{result.identifiers.doi}}" ng-if="result.identifiers.doi">
                     {{result.title}}
                     <span class="gb-icon-link"></span>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content">
+        <div class="card__content searchCard__content">
             <div class="searchCard__meta">
                 <span ng-repeat="author in result.authors | limitTo:6 " class="text-capitalize">{{ author.lastName }}, {{ author.firstName | limitTo:1 }}. </span>
                 <span class="text-capitalize" ng-if="result.authors[6]">... - </span>
@@ -33,9 +33,9 @@
                     </span>
                 </span>
             </div>
-            <div>
+            <p>
                 {{result.abstract}}
-            </div>
+            </p>
             <div class="m-b-025">
                 <ul class="inline-bullet-list discreet--very smaller">
                     <li ng-repeat="keyword in result.keywords | limitTo: 6">

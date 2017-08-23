@@ -2,7 +2,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.document') | capitalize $}</span>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a href="{{ urlPrefix }}/document/{{result.id}}/{{result._slug}}" ng-if="!result.urlAlias">
                     {{result.title}}
                 </a>
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content clearfix">
+        <div class="card__content searchCard__content clearfix">
             <p>
                 {{result._summary}}
             </p>

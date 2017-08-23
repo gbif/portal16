@@ -27,8 +27,11 @@ function gbHelpDirective() {
     /** @ngInject */
     function gbHelpCtrl($stateParams, ResourceItem, $sce) {
         var vm = this;
-        vm.helpIdentifier = vm.gbHelp;
+        vm.helpIdentifier = vm.gbHelp || _.get(vm.gbHelpOptions, 'identifier');
         vm.hideIcon = _.get(vm.gbHelpOptions, 'hideIcon');
+        vm.forceShow = _.get(vm.gbHelpOptions, 'forceShow');
+        vm.onClose = _.get(vm.gbHelpOptions, 'onClose');
+
         vm.showPopup = function(){
             vm.show = true;
             vm.translationKey = _.get(vm.gbHelpOptions, 'translationKey');
@@ -48,7 +51,18 @@ function gbHelpDirective() {
                     vm.loading = false;
                 });
             }
+        };
+
+        if (vm.forceShow) {
+            vm.showPopup();
         }
+
+        vm.close = function(){
+            if (vm.onClose) {
+                vm.onClose();
+            }
+            vm.show = false;
+        };
     }
 }
 

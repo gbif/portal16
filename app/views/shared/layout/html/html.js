@@ -345,6 +345,8 @@ require('../../../pages/resource/key/project/project.ctrl');
 require('../../../pages/custom/contactUs/contactUs.ctrl');
 require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
 
+require('../../../pages/custom/faq/faq.ctrl');
+
 
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');
