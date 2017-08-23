@@ -1,15 +1,4 @@
-.gbHelp--transcluded {
-    .gbHelp__question {
-        display none
-    }
-    .gbHelp__transcluded {
-        display inline
-    }
-}
 .gbHelp {
-    &__transcluded {
-        display none
-    }
     &__question {
         background #75b3a3
         color white
@@ -55,6 +44,7 @@
             padding 0 ($navBar_height / 2)
             width 100%
             background $navBar_background
+            text-align left
         }
     }
     &__content {
@@ -66,20 +56,39 @@
         max-width $contentWidth--narrow
         top 20%
         transform translateY(-20%)
+        text-align center
     }
     .card {
+        text-align left
+        display inline-block
+        width 200px
+        margin-bottom 4rem
+        &.gbHelp__card--loaded {
+            width auto
+            animation popup_bounce_in .3s
+        }
+        &__content {
+            padding 2rem
+        }
     }
 }
 
 +isAbove($tablet) {
     .gbHelp {
-        //&__overlay {
-        //    background rgba(0, 0, 0, .2)
-        //}
         &__close {
             &:before {
                 content none
             }
         }
+        .card {
+            &__content {
+                padding 2rem 4rem
+            }
+        }
     }
+}
+
+@keyframes popup_bounce_in {
+    0% {transform:scale3d(.1,.1,1)}
+    100% {transform:scale3d(1,1,1)}
 }

@@ -77,7 +77,7 @@ router.get('/resource/item', function (req, res) {
         .catch(err =>{
             console.trace(err);
             res.status(500);
-            res.send(err.message);
+            res.send('Failed to get the resource');
         })
 });
 
