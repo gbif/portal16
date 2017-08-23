@@ -12,10 +12,12 @@ redirectList.forEach(function(e){
 });
 
 function handleRedirects(req, res, next) {
+
     let redirectTo = redirectTable[req.path];
-    if (!redirectTo && ignoreTrailingSlashes) {
+    if (!redirectTo && ignoreTrailingSlashes ) {
         redirectTo = redirectTable[removeSlashes(req.path)];
     }
+
     if (redirectTo) {
         let q = '';
         if (!_.isEmpty(req.query)) {

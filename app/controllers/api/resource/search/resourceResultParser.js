@@ -2,8 +2,15 @@
 const _ = require('lodash'),
     format = require('../../../../helpers/format'),
     slug = require("slug"),
-    md = require('markdown-it')({html: true, linkify: true, typographer: true}),
+    md = require('markdown-it')({html: true, linkify: true, typographer: true, breaks: true}),
     changeCase = require('change-case');
+
+md.use(require('markdown-it-video'), {
+    youtube: {width: 640, height: 390},
+    vimeo: {width: 500, height: 281},
+    vine: {width: 600, height: 600, embed: 'simple'},
+    prezi: {width: 550, height: 400}
+});
 
 module.exports = {
     normalize: normalize,

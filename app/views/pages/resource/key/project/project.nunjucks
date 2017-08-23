@@ -34,9 +34,9 @@
         {$ funderMacro.organisationsAndParticipants('€ ' + main.fields.fundsAllocated | locInt(gb.locales.current) + ' funded by', resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations, resolved) $}
         {% endif %}
 
-        {% if main.fields.matchingFunds and main.fields.fundingOrganisations | isNotEmpty %}
-        {$ funderMacro.organisationsAndParticipants('€ ' + main.fields.matchingFunds | locInt(gb.locales.current) + ' co Funded by', main.fields.fundingOrganisations, resolved) $}
-        {% endif %}
+        {#{% if main.fields.matchingFunds and main.fields.fundingOrganisations | isNotEmpty %}#}
+        {#{$ funderMacro.organisationsAndParticipants('€ ' + main.fields.matchingFunds | locInt(gb.locales.current) + ' co Funded by', main.fields.fundingOrganisations, resolved) $}#}
+        {#{% endif %}#}
 
     </article>
     {% include "../preview.nunjucks" %}

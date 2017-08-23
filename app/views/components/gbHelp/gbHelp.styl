@@ -1,0 +1,94 @@
+.gbHelp {
+    &__question {
+        background #75b3a3
+        color white
+        display inline-block
+        width 1em
+        height 1em
+        border-radius 50%
+        line-height 1em
+        text-align center
+    }
+    &__trigger {
+        display inline-block
+    }
+    &__overlay {
+        display block
+        position fixed
+        top 0
+        bottom 0
+        left 0
+        right 0
+        background rgba(0, 0, 0, .2)
+        z-index $zSiteOverlay
+        overflow auto
+    }
+    &__close {
+        position fixed
+        top 0
+        left 0
+        right 0
+        bottom 0
+        z-index 1
+        &:before {
+            font-family gbificons
+            content $icon-string-arrow-left-bold-circle-outline
+            display block
+            position absolute
+            top 0
+            left 0
+            color white
+            line-height $navBar_height
+            height $navBar_height
+            font-size 22px
+            padding 0 ($navBar_height / 2)
+            width 100%
+            background $navBar_background
+            text-align left
+        }
+    }
+    &__content {
+        z-index 2
+        position relative
+        top 0
+        max-height 100vh
+        margin $navBar_height auto
+        max-width $contentWidth--narrow
+        top 20%
+        transform translateY(-20%)
+        text-align center
+    }
+    .card {
+        text-align left
+        display inline-block
+        width 200px
+        margin-bottom 4rem
+        &.gbHelp__card--loaded {
+            width auto
+            animation popup_bounce_in .3s
+        }
+        &__content {
+            padding 2rem
+        }
+    }
+}
+
++isAbove($tablet) {
+    .gbHelp {
+        &__close {
+            &:before {
+                content none
+            }
+        }
+        .card {
+            &__content {
+                padding 2rem 4rem
+            }
+        }
+    }
+}
+
+@keyframes popup_bounce_in {
+    0% {transform:scale3d(.1,.1,1)}
+    100% {transform:scale3d(1,1,1)}
+}

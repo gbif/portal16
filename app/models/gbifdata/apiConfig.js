@@ -72,9 +72,14 @@ var apiConfig = {
     //     url: baseConfig.serverProtocol + '//api.gbif-dev.org/v1/' + 'organization/',
     //     canonical: 'organization/'
     // },
-    newsroom: {
-   url: 'webcal:' + baseUrl + 'newsroom/events/'
+    newsroomWebcal: {
+
+     url: 'webcal:' + baseUrl + 'newsroom/events/'
   //  url: 'webcal://api.gbif-dev.org/v1/'+ 'newsroom/events/'
+    },
+    newsroom: {
+        url: baseUrl + 'newsroom/'
+
     },
     taxon: {
         url: baseUrl + 'species/'

@@ -5,7 +5,6 @@
         {% include "../body.nunjucks" %}
         <div class="article-secondary">
 
-            {#{% if main.fields.documents or main.fields.secondaryLinks%}#}
             <span class="relative-anchor-offset"><a id="details"></a></span>
             <section class="row">
 
@@ -68,10 +67,48 @@
             </section>
             {#{% endif %}#}
 
-            {% include "../documentsLinks.nunjucks" %}
-
             <section>
                 <dl class="inline">
+
+                    {% if main.fields.fundsAllocated and resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations | isNotEmpty %}
+                        <div>
+                            <dt>Funded by</dt>
+                            <dd>
+                                <ul class="inline-bullet-list">
+                                    {% for funder in resolved.Entry[main.fields.programme.sys.id].fields.fundingOrganisations %}
+                                        <li>
+                                        {% if resolved.Entry[funder.sys.id].fields.url %}
+                                            <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                        {% else %}
+                                            <span>{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                        {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
+                        </div>
+                    {% endif %}
+
+                    {% if main.fields.matchingFunds and main.fields.fundingOrganisations | isNotEmpty %}
+                        <div>
+                            <dt>Co funded by</dt>
+                            <dd>
+                                <ul class="inline-bullet-list">
+                                    {% for funder in main.fields.fundingOrganisations %}
+                                        <li>
+                                            {% if resolved.Entry[funder.sys.id].fields.url %}
+                                                <a href="{$ resolved.Entry[funder.sys.id].fields.url $}">{$ resolved.Entry[funder.sys.id].fields.title $}</a>
+                                            {% else %}
+                                                <span>{$ resolved.Entry[funder.sys.id].fields.title $}</span>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </dd>
+                        </div>
+                    {% endif %}
+
+
                     {% if main.fields.additionalPartners | isNotEmpty %}
                     <div>
                         <dt>Partners</dt>
@@ -114,7 +151,6 @@
                                 {% endif %}
                             {% endif %}
 
-                            {#<a href="">{$ resolved.Entry[main.fields.leadPartner.sys.id].fields.title $}</a>#}
                         </dd>
                     </div>
                     {% endif %}
@@ -131,6 +167,8 @@
                     {% endif %}
                 </dl>
             </section>
+
+            {% include "../documentsLinks.nunjucks" %}
 
         </div>
         {% include "../auxiliary.nunjucks" %}

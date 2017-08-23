@@ -5,6 +5,8 @@ var angular = require('angular'),
 
 require('../key/directives/taxonomyBrowser/taxonomyBrowser.directive.js');
 require('../key/directives/speciesDatasets.directive.js');
+require('../key/directives/vernacularNames.directive.js');
+
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
@@ -25,7 +27,7 @@ angular
     .controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
 /** @ngInject */
-function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations,SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesRelated, constantKeys, Page, MapCapabilities, BUILD_VERSION, $translate) {
+function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, OccurrenceSearch, SpeciesVernacularName, SpeciesSearch, SpeciesDescriptions, SpeciesMedia, SpeciesVerbatim, Dataset, SpeciesCombinations,SpeciesDistributions, CitesApi, TaxonomySynonyms, suggestEndpoints, SpeciesVernacularNames, constantKeys, Page, MapCapabilities, BUILD_VERSION, $translate) {
     var vm = this;
     Page.setTitle('Species');
     vm.$translate = $translate;
@@ -43,6 +45,7 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
     vm.mappedOccurrences = OccurrenceSearch.query({taxon_key: vm.key, has_coordinate: true, has_geospatial_issue: false, limit:0});
     vm.images = OccurrenceSearch.query({taxon_key: vm.key, media_type: 'stillImage', limit: 20});
     vm.speciesImages = SpeciesMedia.get({id: vm.key, media_type: 'stillImage', limit: 50});
+
 
     vm.images.$promise.then(function(resp){
         utils.attachImages(resp.results);

@@ -2,7 +2,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.event') | capitalize $}</span>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a ng-href="{{ result.primaryLink.url }}" ng-if="result.primaryLink.url">
                     {{result.title}}
                     <span class="gb-icon-link"></span>
@@ -14,15 +14,15 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content">
+        <div class="card__content searchCard__content">
             <div class="clearfix">
                 <div class="searchCard__date">
                     <div>{{ result.start | amDateFormat: 'D MMM' }}</div>
                     <span>{{ result.start | amDateFormat:'YYYY' }}</span>
                 </div>
-                <div class="m-b-025">
+                <p class="m-b-025">
                     {{result._summary}}
-                </div>
+                </p>
                 <div class="discreet--very smaller" ng-if="result.start">
                     <div ng-if="result.country || result.location || result.venue">
                         <span class="gb-icon-marker"></span><span translate="country.{{ result.country }}" ng-if="result.country"></span>

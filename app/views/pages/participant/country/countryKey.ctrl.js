@@ -6,18 +6,20 @@ require('./summary/countrySummary.ctrl');
 require('./about/countryAbout.ctrl');
 require('./publishing/countryPublishing.ctrl');
 require('./participation/countryParticipation.ctrl');
+require('./research/countryResearch.ctrl');
 
 angular
     .module('portal')
     .controller('countryKeyCtrl', countryKeyCtrl);
 
 /** @ngInject */
-function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
+function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, env, MapCapabilities, OccurrenceSearch, OccurrenceCountPublishingCountries, OccurrenceCountCountries, OccurrenceCountDatasets, OccurrenceTableSearch) {
     var vm = this;
     vm.countryCode = gb.countryCode;
     vm.isParticipant = gb.isParticipant;
     vm.countryCode = $stateParams.key;
     vm.$state = $state;
+    Page.drawer(false);
 
     $translate('country.' + vm.countryCode).then(function (translation) {
         Page.setTitle(translation);
@@ -28,16 +30,18 @@ function countryKeyCtrl($http, $stateParams, $state, Country, Page, $translate, 
     vm.countryCapabilities = MapCapabilities.get({country: vm.key});
     vm.publishingCountryCapabilities = MapCapabilities.get({publishingCountry: vm.countryCode});
 
-    vm.publishingCountries = OccurrenceCountPublishingCountries.get({country: vm.countryCode});
-    vm.publishingCountries.$promise
-        .then(function(){
-            vm.publishingCountriesCount = Object.keys(vm.publishingCountries).length;
+    vm.publishingCountriesSearch = OccurrenceSearch.get({country: vm.countryCode, facet: 'publishing_country', facetLimit: 500});
+    vm.publishingCountriesSearch.$promise
+        .then(function(data){
+            vm.publishingCountries = data.facets[0].counts;
+            vm.publishingCountriesCount = vm.publishingCountries.length;
         });
 
-    vm.countries = OccurrenceCountCountries.get({publishingCountry: vm.countryCode});
-    vm.countries.$promise
-        .then(function(){
-            vm.countriesCount = Object.keys(vm.countries).length;
+    vm.countriesSearch = OccurrenceSearch.get({publishingCountry: vm.countryCode, facet: 'country', facetLimit: 500});
+    vm.countriesSearch.$promise
+        .then(function(data){
+            vm.countries = data.facets[0].counts;
+            vm.countriesCount = vm.countries.length;
         });
 
     vm.datasets = OccurrenceCountDatasets.get({country: vm.countryCode});

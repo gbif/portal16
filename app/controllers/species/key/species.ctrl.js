@@ -19,6 +19,10 @@ router.get('/species/:key(\\d+)\.:ext?', function render(req, res, next) {
     renderSpeciesPage(req, res, next);
 });
 
+router.get('/species/:key(\\d+)/:ignore', function render(req, res) {
+    res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + req.params.key);
+});
+
 
 
 

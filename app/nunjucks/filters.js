@@ -1,5 +1,6 @@
 var format = require('../helpers/format'),
     _ = require('lodash'),
+    changeCase = require('change-case'),
     urlRegex = require('url-regex'),
     truncate = require('html-truncate'),
     url = require('url'),
@@ -92,6 +93,10 @@ module.exports = function (nunjucksConfiguration) {
 
     (function () {
         nunjucksConfiguration.addFilter('toCamelCase', format.toCamelCase);
+    })();
+
+    (function () {
+        nunjucksConfiguration.addFilter('constantCase', changeCase.constantCase);
     })();
 
     (function () {

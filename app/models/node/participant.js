@@ -48,7 +48,7 @@ function getParticipant(key, locale) {
     let participantPromise;
 
     var promise = new Promise(function (resolve, reject) {
-        if (key.match(/^[0-9]+$/)) {
+        if (! isNaN(key) || key.match(/^[0-9]+$/)) {
             participantPromise = getParticipantById(key);
         } else {
             participantPromise = getParticipantByIso(key);
@@ -89,6 +89,15 @@ async function getParticipantByIso(isoCode) {
     }
     let participant = await getParticipantById(participantItem.id);
     return participant;
+}
+
+async function getParticipantsByType(type) {
+    let query = {
+        type: type,
+        limit: 2000
+    };
+    let participantSearchResults = await signedGet(apiConfig.directoryParticipant.url + '?' + querystring.stringify(query));
+    return participantSearchResults;
 }
 
 async function getParticipantById(id) {
@@ -183,5 +192,6 @@ async function getNodePeople(id) {
 module.exports = {
     get: getParticipant,
     getParticipantById: getParticipantById,
-    getParticipantByIso: getParticipantByIso
+    getParticipantByIso: getParticipantByIso,
+    getParticipantsByType: getParticipantsByType
 };

@@ -191,7 +191,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('speciesKey', {
             parent: 'localization',
-            url: '/species/:speciesKey?refOffset&occurrenceDatasetOffset&checklistDatasetOffset&root',
+            url: '/species/:speciesKey?refOffset&occurrenceDatasetOffset&checklistDatasetOffset&root&vnOffset',
             params: {
                 advanced: {
                     value: false,
@@ -291,6 +291,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             templateUrl: '/api/template/contactUs/directory.html?v=' + BUILD_VERSION,
             controller: 'contactDirectoryCtrl',
             controllerAs: 'contactDirectory'
+        })
+        .state('faq', {
+            parent: 'localization',
+            url: '/faq2?helpId',
+            views: {
+                main: {
+                    templateUrl: '/api/template/faq.html?v=' + BUILD_VERSION,
+                    controller: 'faqCtrl',
+                    controllerAs: 'faq'
+                }
+            }
         })
         .state('user', {
             parent: 'localization',
@@ -407,22 +418,29 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'countryParticipationCtrl',
             controllerAs: 'countryParticipation'
         })
-        .state('countryTrends', {
-           parent: 'country',
-           url: '/trends/{direction:(?:about|published)}',
-           params: {direction: {squash: true, value: 'about'}},
-           templateUrl: '/templates/pages/participant/country/trends.html?v=' + BUILD_VERSION,
-           controller: 'countryActivityCtrl',
-           controllerAs: 'countryActivity'
+        .state('countryResearch', {
+            parent: 'country',
+            url: '/research',
+            templateUrl: '/api/template/country/research.html?v=' + BUILD_VERSION,
+            controller: 'countryResearchCtrl',
+            controllerAs: 'countryResearch'
         })
-        .state('countryActivity', {
-           parent: 'country',
-           url: '/activity/{direction:(?:about|published)}',
-           params: {direction: {squash: true, value: 'about'}},
-           templateUrl: '/templates/pages/participant/country/activity.html?v=' + BUILD_VERSION,
-           controller: 'countryActivityCtrl',
-           controllerAs: 'countryActivity'
-        })
+        //.state('countryTrends', {
+        //   parent: 'country',
+        //   url: '/trends/{direction:(?:about|published)}',
+        //   params: {direction: {squash: true, value: 'about'}},
+        //   templateUrl: '/templates/pages/participant/country/trends.html?v=' + BUILD_VERSION,
+        //   controller: 'countryActivityCtrl',
+        //   controllerAs: 'countryActivity'
+        //})
+        //.state('countryActivity', {
+        //   parent: 'country',
+        //   url: '/activity/{direction:(?:about|published)}',
+        //   params: {direction: {squash: true, value: 'about'}},
+        //   templateUrl: '/templates/pages/participant/country/activity.html?v=' + BUILD_VERSION,
+        //   controller: 'countryActivityCtrl',
+        //   controllerAs: 'countryActivity'
+        //})
         .state('theGbifNetwork', {
 
             url: '/the-gbif-network/:region?',
@@ -487,6 +505,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         requireBase: false,
         rewriteLinks: false
     });
+    $locationProvider.hashPrefix('!');
 }
 
 module.exports = routerConfig;

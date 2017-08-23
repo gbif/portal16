@@ -79,7 +79,7 @@ require('angular-svg-round-progressbar');
         });
 
         $rootScope.$on('$stateChangeStart', function(e) {
-            if (window.gb.state == 404) {
+            if (window.gb.state > 399) {
                 e.preventDefault();
             }
         });
@@ -97,6 +97,7 @@ require('angular-svg-round-progressbar');
 
     /** @ngInject */
     function configBlock($localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
+
         $localStorageProvider.setKeyPrefix('gbif.');
         $sessionStorageProvider.setKeyPrefix('gbif.');
         // localStorageServiceProvider
@@ -301,6 +302,8 @@ require('../../../pages/node/key/nodeKey.ctrl');
 require('../../../pages/installation/key/installationKey.ctrl');
 require('../../../pages/network/key/networkKey.ctrl');
 
+require('../../../components/gbHelp/gbHelp.directive');
+
 require('../../../components/userLogin/userLogin.directive');
 require('../../../pages/user/updatePassword/updatePassword.ctrl');
 require('../../../pages/user/profile/userProfile.ctrl');
@@ -341,6 +344,8 @@ require('../../../pages/resource/key/project/project.ctrl');
 
 require('../../../pages/custom/contactUs/contactUs.ctrl');
 require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
+
+require('../../../pages/custom/faq/faq.ctrl');
 
 
 require('./angular/publisher.resource');

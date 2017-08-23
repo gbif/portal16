@@ -81,6 +81,9 @@
                     </div>
 
 
+                <vernacular-names key="{{ speciesKey2.key }}" is-nub="{{ speciesKey2.isNub }}" ></vernacular-names>
+
+
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
 

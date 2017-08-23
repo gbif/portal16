@@ -1,0 +1,3 @@
+<div class="body-text--markdown">
+    {$ main.fields.body | renderMarkdown | sanitizeTrusted | addPortalClasses | safe $}
+</div>

@@ -22,6 +22,7 @@ function programmeKeyCtrl(ResourceSearch, env, $http, $location, $rootScope) {
         data.results = _.filter(data.results, function(e){
             return _.get(e, 'programme.id') == vm.key;
         });
+        _.forEach(data.results, function(e){e.call = _.get(e.call, 'title');});
         data.count = data.results.length;
         vm.projects = data;
         console.log(vm.projects);

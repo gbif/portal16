@@ -2,7 +2,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <span class="searchCard__type">{$ __('cms.contentType.news') | capitalize $}</span>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a ng-href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                     {{result.title}}
                 </a>
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content clearfix">
+        <div class="card__content searchCard__content clearfix">
             <a href="{{ urlPrefix }}/{{result.contentType}}/{{result.id}}/{{result._slug}}">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>

@@ -45,7 +45,7 @@
                     {% endif %}
                     {% for tag in main.fields.topics %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?topics={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?topics={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
                         </li>
                     {% endfor %}
 
@@ -56,7 +56,7 @@
                     {% endif %}
                     {% for tag in main.fields.audiences %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?audiences={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?audiences={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
                         </li>
                     {% endfor %}
 
@@ -67,7 +67,7 @@
                     {% endif %}
                     {% for tag in main.fields.purposes %}
                         <li>
-                            <a href="{$ gb.locales.urlPrefix $}/resource/search?purposes={$ resolved.Entry[tag.sys.id].fields.term $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
+                            <a href="{$ gb.locales.urlPrefix $}/resource/search?purposes={$ resolved.Entry[tag.sys.id].fields.term | constantCase $}">{$ resolved.Entry[tag.sys.id].fields.term $}</a>
                         </li>
                     {% endfor %}
                 </ul>

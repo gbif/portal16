@@ -34,7 +34,6 @@ router.get('/search/documentResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/document/documentSearchResult');
 });
 
-
 router.get('/search/dataUseResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/dataUse/dataUseSearchResult');
 });
@@ -91,6 +90,10 @@ router.get('/search/countryResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/countrySearchResult');
 });
 
+router.get('/search/participantResult.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/participantSearchResult');
+});
+
 router.get('/country.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/country.template.nunjucks');
 });
@@ -109,6 +112,10 @@ router.get('/country/publishing.html', function (req, res, next) {
 
 router.get('/country/participation.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/participant/country/participation/participation.template.nunjucks');
+});
+
+router.get('/country/research.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/participant/country/research/research.template.nunjucks');
 });
 
 
@@ -171,4 +178,8 @@ router.get('/participant/key.html', function (req, res, next) {
 
 router.get('/contactUs/directory.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/custom/contactUs/directory/contactDirectory.template.nunjucks');
+});
+
+router.get('/faq.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/custom/faq/faq.template.nunjucks');
 });

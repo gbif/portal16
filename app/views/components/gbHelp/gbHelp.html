@@ -1,0 +1,27 @@
+<span class="gbHelp">
+    <a ng-click="vm.showPopup()" class="gbHelp__trigger inherit noUnderline" href="">
+        <ng-transclude></ng-transclude>
+        <span class="gbHelp__question gb-icon-unknown" ng-class="{hidden: vm.hideIcon}"></span>
+    </a>
+    <div class="gbHelp__overlay" ng-if="vm.show">
+        <div class="gbHelp__content">
+            <div class="card" ng-class="{'gbHelp__card--loaded': vm.helpItem.$resolved || vm.translationKey}">
+                <div class="card__content" ng-if="!vm.translationKey">
+                    <div class="body-text" ng-class="{hidden: !vm.helpItem.$resolved && !vm.failed}">
+                        <h3 ng-bind-html="vm.helpItem.title" class="text-center"></h3>
+                        <div ng-bind-html="vm.trustedBody" class="m-t-1"></div>
+                    </div>
+                    <div class="text-center" ng-class="{hidden: vm.helpItem.$resolved}"><span class="loading"></span></div>
+                </div>
+                <div class="card__content" ng-if="vm.translationKey">
+                    <div translate="{{vm.translationKey}}"></div>
+                </div>
+                <div ng-if="vm.failed" class="emptyInfo">
+                    <h3>Item is not available</h3>
+                    <p>This shouldn't happen. Please report the issue.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gbHelp__close" ng-click="vm.close()"></div>
+    </div>
+</span>

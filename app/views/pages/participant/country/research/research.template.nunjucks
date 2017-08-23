@@ -1,0 +1,60 @@
+<section class="horizontal-stripe light-background p-t-05 seperator">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12 ng-cloak" ng-if="!countryResearch.literatureFrom.$resolved || !countryResearch.literatureAbout.$resolved">
+                <div class="emptyInfo">
+                    <h3>Loading</h3>
+                    <span class="loading"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 ng-cloak" ng-if="countryResearch.literatureFrom.count > 0 || countryResearch.literatureAbout.count > 0">
+
+                <div class="m-t-1 m-b-05 filter-buttons clearfix">
+                    <a class="gb-icon-filters pull-right inherit noUnderline m-t-05"
+                       ng-if="!countryResearch.showLiteratureFrom"
+                       ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryResearch.countryCode})"></a>
+                    <a class="gb-icon-filters pull-right inherit noUnderline m-t-05"
+                       ng-if="countryResearch.showLiteratureFrom"
+                       ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryResearch.countryCode})"></a>
+
+                    <a href=""
+                       ng-class="{'gb-button--brand': countryResearch.showLiteratureFrom, 'gb-button--discreet': !countryResearch.showLiteratureFrom}"
+                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom"> {{ countryResearch.literatureFrom.count }} from</a>
+                    <a href=""
+                       ng-class="{'gb-button--brand': !countryResearch.showLiteratureFrom, 'gb-button--discreet': countryResearch.showLiteratureFrom}"
+                       ng-click="countryResearch.showLiteratureFrom = !countryResearch.showLiteratureFrom">{{ countryResearch.literatureAbout.count }} about</a>
+                </div>
+
+                <div ng-if="!countryResearch.showLiteratureFrom">
+                    <div ng-if="countryResearch.literatureAbout.count > 0">
+                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"
+                                    ng-repeat="result in countryResearch.literatureAbout.results" ></ng-include>
+                        <div ng-if="countryResearch.literatureAbout.count > countryResearch.limit" class="text-center m-t-1">
+                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: countryResearch.countryCode})" class="gb-button--discreet">View all {{ countryResearch.literatureAbout.count }}</a>
+                        </div>
+                    </div>
+                    <div class="emptyInfo" ng-if="countryResearch.literatureAbout.count == 0">
+                        <h3>No publications</h3>
+                    </div>
+                </div>
+
+                <div ng-if="countryResearch.showLiteratureFrom">
+                    <div ng-if="countryResearch.literatureFrom.count > 0">
+                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION"
+                                    ng-repeat="result in countryResearch.literatureFrom.results"></ng-include>
+                        <div ng-if="countryResearch.literatureFrom.count > countryResearch.limit" class="text-center m-t-1">
+                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfResearcher: countryResearch.countryCode})" class="gb-button--discreet">View all {{ countryResearch.literatureFrom.count }}</a>
+                        </div>
+                    </div>
+                    <div class="emptyInfo" ng-if="countryResearch.literatureFrom.count == 0">
+                        <h3>No publications</h3>
+                    </div>
+                </div>
+
+            </div>
+            <div class="emptyInfo" ng-if="countryResearch.literatureFrom.count == 0 && countryResearch.literatureAbout.count == 0">
+                <h3>No publications</h3>
+            </div>
+        </div>
+    </div>
+</section>

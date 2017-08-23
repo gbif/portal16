@@ -1,0 +1,56 @@
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        <section>
+            <div class="m-b-05">
+                <form class="search-box" ng-submit="faq.search()">
+                    <input type="text"
+                           autocomplete="off"
+                           ng-model="faq.q"
+                           placeholder="{{ 'stdTerms.search' | translate }}"
+                           Xng-keydown="faq.closeOnEsc($event)">
+                    <a href="" type="submit" class="search-box__submit gb-icon-search2 inherit"
+                       ng-click="faq.search()">
+                        <span class="sr-only">{$ __('stdTerms.search') $}</span>
+                    </a>
+                </form>
+            </div>
+            <div>
+                {#<ng-include src="'/templates/components/loader/loader.html'" ng-if="!faq.hasData()"></ng-include>#}
+                <div ng-if="faq.answers.$resolved">
+                    <div ng-repeat="result in faq.answers.results">
+                        {#<ng-include src="'/api/template/search/helpResult.html?v=' + portal.BUILD_VERSION"></ng-include>#}
+                        <div class="card m-b-05 searchCard">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <h3 class="searchCard__headline">
+                                        <a href="" ng-click="faq.showPopup(result.identifier); faq.helpId = result.identifier">{{result.title}}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content clearfix">
+                                    <p>
+                                        {{result._summary}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <uib-pagination
+                            total-items="faq.answers.count"
+                            ng-model="faq.currentPage"
+                            max-size="faq.maxSize"
+                            items-per-page="faq.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="faq.pageChanged()"
+                            ng-show="faq.answers.count > faq.limit">
+                    </uib-pagination>
+                </div>
+            </div>
+            <span gb-help gb-help-options="{hideIcon: true, forceShow: true, identifier: faq.helpId, onClose: faq.closePopup}" ng-if="faq.helpId"></span>
+        </section>
+    </div>
+</div>

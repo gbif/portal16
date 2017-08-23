@@ -2,7 +2,7 @@
     <div class="card__stripe">
         <div class="card__content">
             <span href="" class="inherit searchCard__type hoverBox" ng-if="result.participant" translate="participationStatus.longForm.{{ result.participant.participationStatus }}"></span>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a ng-href="{{ urlPrefix }}/country/{{result.countryCode}}" translate="country.{{ result.countryCode }}">{{ result.countryCode }}</a>
             </h3>
         </div>

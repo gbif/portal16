@@ -3,12 +3,13 @@
 var ol = require('openlayers'),
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
-    //utils = require('../../../shared/layout/html/utils/utils'),
     projections = require('../mapWidget/projections');
+
 
 module.exports = {
     createMap: createMap
 };
+
 
 function createMap(element, options) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
@@ -28,9 +29,7 @@ function createMap(element, options) {
         filters = options.filters || filters || {};
         map.getLayers().clear();
         map.setView(currentProjection.getView(0, 0, 1));
-        if (currentProjection.fitExtent) {
-            map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
-        }
+
         map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
 
         filters = _.omitBy(_.clone(filters), function(e){
@@ -50,12 +49,41 @@ function createMap(element, options) {
                 //}
             });
         }
+
+        if(options.fitExtent && options.filters.geometry){
+            setTimeout(function(){
+                map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry),'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+
+            });
+        }
+        else if (currentProjection.fitExtent) {
+            map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
+        }
     };
+
+    var extentFromWKT = function(wkt){
+        var format = new ol.format.WKT()
+        if (_.isArray(wkt)){
+            var coll = new ol.geom.GeometryCollection(wkt.map(function(w){
+                return format.readGeometry(w);
+            }))
+            return coll.getExtent();
+        } else {
+            var geom = format.readGeometry(wkt);
+            return geom.getExtent();
+        }
+
+    };
+
 
     var map = new ol.Map({
         target: mapElement,
         logo: false
     });
+    // var testControl = new ol.control.ZoomToExtent({
+    //     extent: extentFromWKT(options.filters.geometry)
+    // });
+    // map.addControl(testControl);
     this.update(options);
 
     this.getViewExtent = function () {
@@ -72,12 +100,11 @@ function createMap(element, options) {
     };
 
     this.setExtent = function (extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
-            nearest: false,
-            maxZoom: 10,
-            minZoom: 0
-        });
+        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
     };
+
+
+
 
     return {
         map: map,
