@@ -109,10 +109,20 @@
                                             <ng-include src="'/api/template/search/countryResult.html?v=' +     portal.BUILD_VERSION"></ng-include>
                                         </div>
 
+
                                         <div ng-if="rootSearch.results.speciesMatches.count > 0">
                                             <div ng-repeat="result in rootSearch.results.speciesMatches.results">
                                                 <ng-include src="'/api/template/search/speciesResult.html?v=' +     portal.BUILD_VERSION"></ng-include>
                                             </div>
+                                        </div>
+                                        <div ng-if="rootSearch.results.participants.count > 0">
+                                            <p class="clearfix small m-t-1">
+                                                <span class="discreet--very text-uppercase">Participants</span>
+                                                <span class="discreet--very text-uppercase pull-right">{{ rootSearch.results.participants.count | localNumber}} results</span>
+                                            </p>
+                                        <div ng-repeat="result in rootSearch.results.participants.results">
+                                            <ng-include src="'/api/template/search/participantResult.html?v=' +     portal.BUILD_VERSION"></ng-include>
+                                        </div>
                                         </div>
 
                                         <div ng-if="rootSearch.results.datasets.count > 0">

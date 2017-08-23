@@ -9,6 +9,7 @@ var express = require('express'),
     Species = require('./species'),
     SpeciesMatch = require('./speciesMatches'),
     Publisher = require('./publisher'),
+    Participant = require('./participant'),
     Country = require('./countrySearch');
 
 module.exports = function (app) {
@@ -34,13 +35,14 @@ async function search(query, preferedLocale, __) {
     query = _.isString(query) ? query.toLowerCase() : query;
     let datasets = Dataset.query({q: query, limit: 3});
     let publishers = Publisher.query({q: query, limit: 3});
+    let participants = Participant.query(query);
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3});
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true});
     let resources = resourceSearch.search({q: query, local: preferedLocale, limit: 10}, __);
     let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'], local: preferedLocale, limit: 2}, __);
     let country = Country.query(query);
 
-    let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights]);
+    let values = await Promise.all([speciesMatches, species, datasets, publishers,  resources, country, resourceHighlights, participants]);
     let response = {
         speciesMatches: values[0],
         species: values[1],
@@ -48,7 +50,8 @@ async function search(query, preferedLocale, __) {
         publishers: values[3],
         resources: values[4],
         country: values[5],
-        resourceHighlights: values[6]
+        resourceHighlights: values[6],
+        participants : values[7]
     };
     response.species.results = pruneDuplicateSpecies(response.speciesMatches, response.species.results);
     response.speciesMatches = transformMatches(response.speciesMatches);
