@@ -3,7 +3,6 @@
 var ol = require('openlayers'),
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
-    querystring = require('querystring'),
     projections = require('../mapWidget/projections');
 
 

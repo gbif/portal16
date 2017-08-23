@@ -6,7 +6,7 @@
 
                 {% if occurrence.record.continent | isNotEmpty or occurrence.record.country | isNotEmpty %}
                     <p>
-                        This record isn't published with coordinates, but with a textual description of its location.
+                        This record is published without coordinates, but it includes a textual description of its location.
                     <dl class="inline">
                         <div>
                             <dt>{$ __('stdTerms.location') $}</dt>
