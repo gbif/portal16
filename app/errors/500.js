@@ -21,6 +21,7 @@ module.exports = function (app) {
      */
     app.use(function (err, req, res, next) { //eslint-disable-line no-unused-vars
         // TODO needs implementation
+        let errorStatus = err.status || 500;
         log.error(
             {
                 err: {
@@ -28,13 +29,17 @@ module.exports = function (app) {
                     message: err.message,
                     stack: err.stack
                 }
-            }, err.status || 500
+            }, errorStatus
         );
-        res.status(err.status || 500);
+        res.status(errorStatus);
         res.render('error/500/500', {
             message: 'no server info here. just an excuse',
             error: {},
-            title: 'error'
+            title: 'error',
+            _meta: {
+                title: 'Page Not Found',
+                state: errorStatus
+            }
         });
     });
 };

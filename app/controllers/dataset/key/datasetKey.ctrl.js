@@ -38,7 +38,11 @@ function render(req, res, next) {
             helper.renderPage(req, res, next, contentItem, 'pages/dataset/key/seo');
         })
         .catch(function(err){
-            next(err);
+            if (err.statusCode == 404) {
+                next();
+            } else {
+                next(err);
+            }
         });
 }
 

@@ -79,7 +79,7 @@ require('angular-svg-round-progressbar');
         });
 
         $rootScope.$on('$stateChangeStart', function(e) {
-            if (window.gb.state == 404) {
+            if (window.gb.state > 399) {
                 e.preventDefault();
             }
         });
