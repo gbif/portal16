@@ -2,13 +2,13 @@
     <div class="card__stripe">
         <div class="card__content">
             <a href="" ng-href="{{ urlPrefix }}/dataset/search?type={{ result.type }}" translate="dataset.longType.{{ result.type }}" class="inherit searchCard__type hoverBox text-capitalize"></a>
-            <h3>
+            <h3 class="searchCard__headline">
                 <a ng-href="{{ urlPrefix }}/dataset/{{result.key}}">{{result.title}}</a>
             </h3>
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content clearfix">
+        <div class="card__content searchCard__content clearfix">
             <div class="searchCard__img asyncIf--isHidden" async-if="{{ portal.mapCapabilities }}?datasetKey={{ result.key }}" async-if-key="total">
                 <div class="teaser-map--small">
                     <img src="/img/tile000/basemap-grey-light2.png">

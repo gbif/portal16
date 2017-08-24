@@ -1,7 +1,7 @@
 <div class="card m-b-05 searchCard">
     <div class="card__stripe">
         <div class="card__content">
-            <h3>
+            <h3 class="searchCard__headline">
                 <a href="{{ urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
                     {{result.title}}
                 </a>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="card__stripe">
-        <div class="card__content clearfix">
+        <div class="card__content searchCard__content clearfix">
             <a href="{{ urlPrefix }}{{result.urlAlias}}" ng-if="result.urlAlias">
                 <img class="searchCard__img" ng-src="{$ _meta.imageCache $}128x64/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}" ng-if="result.primaryImage.file.url">
             </a>

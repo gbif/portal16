@@ -49,7 +49,7 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, en
     };
 
     vm.filters.license = {
-        titleTranslation: 'ocurrenceFieldNames.license',
+        titleTranslation: 'stdTerms.license',
         queryKey: 'license',
         filter: DatasetFilter,
         enumTranslationPath: 'license.',

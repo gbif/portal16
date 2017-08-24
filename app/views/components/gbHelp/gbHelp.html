@@ -7,7 +7,7 @@
         <div class="gbHelp__content">
             <div class="card" ng-class="{'gbHelp__card--loaded': vm.helpItem.$resolved || vm.translationKey}">
                 <div class="card__content" ng-if="!vm.translationKey">
-                    <div ng-class="{hidden: !vm.helpItem.$resolved && !vm.failed}">
+                    <div class="body-text" ng-class="{hidden: !vm.helpItem.$resolved && !vm.failed}">
                         <h3 ng-bind-html="vm.helpItem.title" class="text-center"></h3>
                         <div ng-bind-html="vm.trustedBody" class="m-t-1"></div>
                     </div>
@@ -22,6 +22,6 @@
                 </div>
             </div>
         </div>
-        <div class="gbHelp__close" ng-click="vm.show = false"></div>
+        <div class="gbHelp__close" ng-click="vm.close()"></div>
     </div>
 </span>
