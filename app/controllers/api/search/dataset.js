@@ -66,14 +66,25 @@ function extractHighlights(data, query) {
 
         }
 
-        // if(item.keywords){
-        //     let kwMatch = _.find(item.keywords, query.q);
-        //     if(kwMatch){
-        //
-        //
-        //     }
-        //
-        // }
+        if(item.keywords && query.q){
+            let kwMatch = _.find(item.keywords, function(k){
+                return k.toLowerCase() === query.q.toLowerCase();
+            });
+            if(kwMatch){
+
+
+                var remainders = _.filter(item.keywords, function(k){
+                    return k !== kwMatch;
+                });
+
+                highlights.keywords = '<em class="gbifHl">'+kwMatch+'</em>, '+ remainders.slice(0, 2).join(", ");
+                if(remainders.length > 2){
+                    highlights.keywords += "....."
+                }
+
+            }
+
+        }
 
 
         item.highlights = highlights;

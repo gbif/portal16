@@ -15,8 +15,9 @@ module.exports = function (app) {
 };
 
 router.get('/dataset/search', function (req, res) {
+    req.query.hl = true;
     datasetSearch(req.query).then(function (data) {
-        DataSetOmniSearch.extractHighlights(data);
+        DataSetOmniSearch.extractHighlights(data, req.query);
         let settings = {
             facets: true,
             query: req.query,

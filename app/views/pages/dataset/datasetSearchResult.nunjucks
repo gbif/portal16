@@ -25,8 +25,8 @@
                 <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
 
             </p>
-            <p ng-if="result.highlights && result.highlights.keywords && result.highlights.keywords">
-                <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
+            <p ng-if="result.highlights && result.highlights.keywords">
+                Keywords: <span ng-bind-html="result.highlights.keywords"></span>
 
             </p>
             <ul class="list-chips" ng-if="result.type != 'METADATA'">
