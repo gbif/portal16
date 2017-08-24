@@ -26,7 +26,7 @@ Installation.prototype.expand = function (fieldNames) {
         resourceLookup = {
             endorsingPublisher: {
                 resource: api.publisher.url + this.record.organizationKey,
-                extendToField: 'endorsingPublisher'
+                extendToField: '_endorsingPublisher'
             }
         };
     fieldNames.forEach(function (e) {

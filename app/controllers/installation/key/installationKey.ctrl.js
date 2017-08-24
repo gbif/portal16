@@ -12,7 +12,11 @@ router.get('/installation/:key\.:ext?', function (req, res, next) {
     Installation.get(key, {expand: ['endorsingPublisher']}).then(function (installation) {
         renderPage(req, res, next, installation);
     }, function (err) {
-        next(err);
+        if (err.type == 'NOT_FOUND') {
+            next();
+        } else {
+            next(err);
+        }
     });
 });
 
