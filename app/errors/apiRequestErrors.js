@@ -7,11 +7,12 @@ function handleErrors(err, req, res, next) {
 
     if (err && ERRORS[err.type]) {
 
-        res.status(STATUS_CODES[err.type] || 500).send(err.type)
+        res.status(STATUS_CODES[err.type] || 500)
 
-    } else {
-        next();
-    }
+    } ;
+
+    next();
+
 }
 
 
