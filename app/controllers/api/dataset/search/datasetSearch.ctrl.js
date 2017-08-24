@@ -5,6 +5,7 @@ let express = require('express'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    DataSetOmniSearch = require('../../search/dataset'),
     gbifData = require('../../../../models/gbifdata/gbifdata');
 
 const querystring = require('querystring');
@@ -15,6 +16,7 @@ module.exports = function (app) {
 
 router.get('/dataset/search', function (req, res) {
     datasetSearch(req.query).then(function (data) {
+        DataSetOmniSearch.extractHighlights(data);
         let settings = {
             facets: true,
             query: req.query,

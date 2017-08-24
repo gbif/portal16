@@ -21,6 +21,14 @@
             <p class="discreet--very smaller" ng-if="result.publishingOrganizationTitle">
                 Published by {{ result.publishingOrganizationTitle | limitTo:100 }}
             </p>
+            <p ng-if="result.highlights && result.highlights.description">
+                <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
+
+            </p>
+            <p ng-if="result.highlights && result.highlights.keywords && result.highlights.keywords">
+                <span>... <span ng-bind-html="result.highlights.description"></span> ...</span>
+
+            </p>
             <ul class="list-chips" ng-if="result.type != 'METADATA'">
                 <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">
                     <a ui-sref="occurrenceSearchTable({dataset_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">&nbsp;</span> occurrences</a>

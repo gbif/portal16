@@ -94,10 +94,12 @@ module.exports = function (app, config) {
     //add middleware to handle redirects of old urls or shortened menu items
     let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
     app.use(redirects);
-
+    let apiRequestErrors = require(config.root + '/app/errors/apiRequestErrors.js');
+    app.use(apiRequestErrors);
     //add error and missing page routes
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);
+
 
     process.on('unhandledRejection', function(reason, p){
         log.error("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);

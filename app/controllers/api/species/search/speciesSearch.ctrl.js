@@ -5,6 +5,7 @@ var express = require('express'),
     Q = require('q'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
+    SpeciesOmniSearch = require('../../search/species'),
     gbifData = require('../../../../models/gbifdata/gbifdata');
 
 const querystring = require('querystring');
@@ -15,6 +16,7 @@ module.exports = function (app) {
 
 router.get('/species/search', function (req, res) {
     speciesSearch(req.query).then(function (data) {
+        SpeciesOmniSearch.extractHighlights(data);
         data = prune(data, ['descriptions']);
         let settings = {
             facets: true,
@@ -51,6 +53,8 @@ router.get('/species/search', function (req, res) {
     });
 });
 
+
+
 function prune(data, keys) {
     "use strict";
     data.results.forEach(function (item) {
@@ -63,6 +67,7 @@ function prune(data, keys) {
 
 function speciesSearch(query) {
     "use strict";
+    query.hl = true;
     var deferred = Q.defer();
     helper.getApiData(apiConfig.taxonSearch.url + '?' + querystring.stringify(query), function (err, data) {
         if (typeof data.errorType !== 'undefined') {

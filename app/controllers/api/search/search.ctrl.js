@@ -33,11 +33,11 @@ router.get('/omniSearch', function (req, res) {
 
 async function search(query, preferedLocale, __) {
     query = _.isString(query) ? query.toLowerCase() : query;
-    let datasets = Dataset.query({q: query, limit: 3});
+    let datasets = Dataset.query({q: query, limit: 3, hl: true});
     let publishers = Publisher.query({q: query, limit: 3});
     let participants = Participant.query(query);
-    let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3});
-    let speciesMatches = SpeciesMatch.query({name: query, verbose: true});
+    let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3, hl: true});
+    let speciesMatches = SpeciesMatch.query({name: query, verbose: true, hl: true});
     let resources = resourceSearch.search({q: query, local: preferedLocale, limit: 10}, __);
     let resourceHighlights = resourceSearch.search({keywords: query, contentType: ['dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document'], local: preferedLocale, limit: 2}, __);
     let country = Country.query(query);

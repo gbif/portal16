@@ -16,6 +16,17 @@ var ERRORS = Object.freeze({
     BACKEND_FETCH_FAILED: 'BACKEND_FETCH_FAILED'
 });
 
+var STATUS_CODES = Object.freeze({
+    API_TIMEOUT: 408,
+    NO_CONTENT: 204,
+    API_ERROR: 502,
+    BAD_REQUEST: 400,
+    NOT_FOUND: 404,
+    UNAUTHORIZED: 401,
+    INVALID_RESPONSE: 502,
+    BACKEND_FETCH_FAILED: 503
+});
+
 function getData(cb, path, options) {
     //console.log("####### "+path)
     var requestOptions = {
@@ -76,7 +87,7 @@ function getData(cb, path, options) {
                     log.error(response.statusCode + ' ' + path + ' ' + response.body);
                     break;
             }
-            cb(error, null);
+            cb(error, {statusCode: response.statusCode});
         }
 
         //if no response data
@@ -199,5 +210,6 @@ function getApiDataPromise(requestUrl, options) {
 module.exports = {
     getApiData: getApiData,
     getApiDataPromise: getApiDataPromise,
-    ERRORS: ERRORS
+    ERRORS: ERRORS,
+    STATUS_CODES : STATUS_CODES
 };

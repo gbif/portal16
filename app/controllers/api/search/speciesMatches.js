@@ -3,6 +3,7 @@
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     _ = require('lodash'),
     querystring = require('querystring'),
+    Species = require('./species'),
     request = require('requestretry');
 
 async function query(query, options){
@@ -21,6 +22,7 @@ async function query(query, options){
     if (items.statusCode > 299) {
         throw items;
     }
+    Species.extractHighlights(items);
     return getSuggestions(items.body, threshold);
 }
 

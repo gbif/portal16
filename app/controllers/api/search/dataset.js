@@ -2,6 +2,7 @@
 
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
+    _ = require('lodash'),
     request = require('requestretry');
 
 async function get(key, depth) {
@@ -44,10 +45,45 @@ async function query(query, options){
     if (datasets.statusCode > 299) {
         throw datasets;
     }
+    extractHighlights(datasets.body, query)
     return datasets.body;
+}
+
+function extractHighlights(data, query) {
+    "use strict";
+    var re = /(([^\s>]+)\s){0,3}(\s*<em class="gbifHl">[^<]*<\/em>\s*)+([^\s<]+\s){0,2}([^\s<]*)/;
+
+    _.each(data.results, function (item) {
+        let highlights = {};
+        if(item.description){
+
+
+                let match = re.exec(item.description);
+                if(match){
+                    highlights.description = (match[0])
+                }
+
+
+        }
+
+        // if(item.keywords){
+        //     let kwMatch = _.find(item.keywords, query.q);
+        //     if(kwMatch){
+        //
+        //
+        //     }
+        //
+        // }
+
+
+        item.highlights = highlights;
+
+    });
+    return data
 }
 
 module.exports = {
     get: get,
-    query: query
+    query: query,
+    extractHighlights : extractHighlights
 };
