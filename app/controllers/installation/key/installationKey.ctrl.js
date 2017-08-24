@@ -1,5 +1,6 @@
 var express = require('express'),
     resourceItem = rootRequire('app/helpers/resourceItem'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
@@ -11,7 +12,7 @@ router.get('/installation/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
 
     try {
-        let a = resourceItem.get('http://api.gbif.org/v1/installation/' + key, {
+        let a = resourceItem.get(apiConfig.installation.url + key, {
             expand: [
                 {
                     urlTemplate: 'http://api.gbif.org/v1/organization/{$ organizationKey $}',
