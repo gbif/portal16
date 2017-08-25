@@ -1,5 +1,4 @@
-var Installation = require('./installation/installation'),
-    Network = require('./network/network'),
+var Network = require('./network/network'),
     Node = require('./node/node'),
     Occurrence = require('./occurrence/occurrence'),
     Publisher = require('./publisher/publisher'),
@@ -9,7 +8,6 @@ var Installation = require('./installation/installation'),
     Dataset = require('./dataset/dataset');
 
 module.exports = {
-    Installation: Installation,
     Network: Network,
     Occurrence: Occurrence,
     Publisher: Publisher,

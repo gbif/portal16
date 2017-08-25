@@ -170,11 +170,12 @@ function getDescription(data, agent, referer) {
     let contact = data.form.contact,
         now = moment();
 
-    if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
-        data.__contact = '@' + contact;
-    } else {
-        data.__contact = contact;
-    }
+    //if (contact && !contact.match(/[@\s]/gi)) { //if defined and not containing @ or spaces then assume it is a github username
+    //    data.__contact = '@' + contact;
+    //} else {
+    //    data.__contact = contact;
+    //}
+    data.__contact = contact; //simply use the raw value instead of prefacing with @ so that the user isn't poked in github
 
     //add agent info
     data.__agent = agent.toString();

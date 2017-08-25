@@ -1,5 +1,6 @@
 var express = require('express'),
-    Installation = require('../../../models/gbifdata/gbifdata').Installation,
+    resourceItem = rootRequire('app/helpers/resourceItem'),
+    apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     helper = rootRequire('app/models/util/util'),
     router = express.Router();
 
@@ -9,15 +10,25 @@ module.exports = function (app) {
 
 router.get('/installation/:key\.:ext?', function (req, res, next) {
     var key = req.params.key;
-    Installation.get(key, {expand: ['endorsingPublisher']}).then(function (installation) {
-        renderPage(req, res, next, installation);
-    }, function (err) {
-        if (err.type == 'NOT_FOUND') {
-            next();
-        } else {
+
+    try {
+        let a = resourceItem.get(apiConfig.installation.url + key, {
+            expand: [
+                {
+                    urlTemplate: 'http://api.gbif.org/v1/organization/{$ organizationKey $}',
+                    expect: ['organizationKey'],
+                    toField: 'endorsingPublisher'
+                }
+            ]
+        });
+        a.then(function (installation) {
+            renderPage(req, res, next, installation);
+        }).catch(function (err) {
             next(err);
-        }
-    });
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 function renderPage(req, res, next, installation) {
