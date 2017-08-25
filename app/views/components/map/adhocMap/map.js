@@ -78,8 +78,46 @@ function createMap(element, options) {
 
     var map = new ol.Map({
         target: mapElement,
-        logo: false
+        logo: false,
+        controls: ol.control.defaults({zoom:false})
+
     });
+    var drawLayer;
+
+    function enableDraw(cb){
+        var format = new ol.format.WKT();
+        var source = new ol.source.Vector({wrapX: false});
+        var draw = new ol.interaction.Draw({
+            source: source,
+            type: 'Circle',
+            geometryFunction: ol.interaction.Draw.createBox()
+        });
+
+        drawLayer = new ol.layer.Vector({
+            source: source
+        });
+        map.addLayer(drawLayer);
+
+            map.addInteraction(draw)
+
+
+        draw.on('drawend', function(evt){
+
+            setTimeout(function() {
+                source.forEachFeature(function (f) {
+                    if(cb){
+                       cb(format.writeGeometry(f.getGeometry()));
+                    }
+                    map.removeInteraction(draw);
+                })
+            })
+            //console.log(evt)
+        });
+    }
+
+    function removeDrawnItems(){
+        map.removeLayer(drawLayer)
+    }
     // var testControl = new ol.control.ZoomToExtent({
     //     extent: extentFromWKT(options.filters.geometry)
     // });
@@ -108,6 +146,8 @@ function createMap(element, options) {
 
     return {
         map: map,
+        enableDraw: enableDraw,
+        removeDrawnItems: removeDrawnItems,
         update: this.update,
         on: function (str, action) {
             return map.on(str, action);

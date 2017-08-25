@@ -136,8 +136,8 @@ router.get('/species/:key/name', function (req, res) {
             res.status(204);
             res.send();
         }
-    }).catch(function () {
-        res.status(500);
+    }).catch(function (err) {
+        res.status(err.statusCode || 500);
         res.send();
     });
 });
