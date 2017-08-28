@@ -12,6 +12,14 @@
                     <a ng-href="{{ resourceList.dataApi }}newsroom/events/upcoming.xml" class="gb-button--discreet text-uppercase small"><span class="gb-icon-rss"></span> Rss</a>
 
                 </p>
+                <p ng-if="resource.state.query.contentType == 'dataUse'" class="text-right">
+                    <a ng-href="{{ resourceList.dataApi }}newsroom/uses/rss" class="gb-button--discreet text-uppercase small"><span class="gb-icon-rss"></span> Rss</a>
+
+                </p>
+                <p ng-if="resource.state.query.contentType == 'news'" class="text-right">
+                    <a ng-href="{{ resourceList.dataApi }}newsroom/news/rss" class="gb-button--discreet text-uppercase small"><span class="gb-icon-rss"></span> Rss</a>
+
+                </p>
                 <div ng-repeat="result in resourceList.state.data.results">
                     <ng-include src="'/api/template/search/articleResult.html?v=' +     resourceList.BUILD_VERSION" ng-if="result.contentType == 'article'"></ng-include>
                     <ng-include src="'/api/template/search/eventResult.html?v=' +       resourceList.BUILD_VERSION" ng-if="result.contentType == 'event'"></ng-include>
