@@ -18,13 +18,13 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.validRegions = ['GLOBAL', 'AFRICA', 'ASIA', 'EUROPE', 'LATIN_AMERICA', 'NORTH_AMERICA', 'OCEANIA'];
     var regionCenters = {
-        'GLOBAL': {zoom: 2, lat: 0, lng: 9},
-        'ASIA': {zoom: 3, lat: 11, lng: 114},
-        'AFRICA': {zoom: 3, lat: 6.6, lng: 16.4},
-        'EUROPE': {zoom: 3.8, lat: 50, lng: 11},
-        'LATIN_AMERICA': {zoom: 3, lat: -15, lng: -86},
-        'NORTH_AMERICA': {zoom: 3, lat: 51, lng: -107},
-        'OCEANIA': {zoom: 4, lat: -30, lng: 138}
+        'GLOBAL': {zoom: 2, lat: 0, lng: 9, extent: [-160.1015625, -84.55078125, 178.1015625, 84.55078125]},
+        'ASIA': {zoom: 3, lat: 11, lng: 114, extent: [29.44921875, -31.275390625, 198.55078125, 53.275390625]},
+        'AFRICA': {zoom: 3, lat: 6.6, lng: 16.4, extent: [-68.15078125, -35.675390625, 100.95078125, 48.875390625]},
+        'EUROPE': {zoom: 3.8, lat: 50, lng: 11, extent: [-37.561671667794585, 25.719164166102708, 59.561671667794585, 74.2808358338973]},
+        'LATIN_AMERICA': {zoom: 3, lat: -15, lng: -86, extent: [-170.55078125, -57.275390625, -1.44921875, 27.275390625]},
+        'NORTH_AMERICA': {zoom: 3, lat: 51, lng: -107, extent: [-191.55078125, 8.724609375, -22.44921875, 93.275390625]},
+        'OCEANIA': {zoom: 4, lat: -30, lng: 138, extent: [95.724609375, -51.1376953125, 180.275390625, -8.8623046875]}
     };
 
 // ###############################################
@@ -38,6 +38,12 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
         ]
     });
 
+    // function onMoveEnd(evt) {
+    //     var map = evt.map;
+    //     var extent = map.getView().calculateExtent(map.getSize());
+    //     console.log(extent);
+    // }
+    // map.on('moveend', onMoveEnd);
     map.setView(currentProjection.getView(0, 0, 1, 1, maxZoom));
     if (currentProjection.fitExtent) {
         map.getView().fit(currentProjection.fitExtent);
@@ -115,15 +121,9 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     vm.mapIsLoaded = true;
 
     var zoomToRegion = function(region){
-        var view =  new ol.View({
 
-            center: [regionCenters[region].lng, regionCenters[region].lat],
-            zoom: regionCenters[region].zoom,
-            projection: 'EPSG:4326',
-            maxZoom: maxZoom,
-            minZoom: 0
-        })
-        map.setView(view);
+       map.getView().fit(regionCenters[region].extent);
+
     }
 
 //###########################################

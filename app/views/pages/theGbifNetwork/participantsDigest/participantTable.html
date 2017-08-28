@@ -1,6 +1,8 @@
 <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.tableLoaded === false"></ng-include>
 
-<div class="participants__table ng-cloak" ng-show="vm.tableLoaded === true && vm.activeParticipantsDigest.length > 0">
+
+
+<div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && vm.activeParticipantsDigest.length > 0">
     <div class="table-container--participant"
         ng-init="sort = {field: '', reverse: false };">
         <h4 translate="theGbifNetwork.participant"

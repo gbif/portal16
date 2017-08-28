@@ -85,6 +85,7 @@ function createMap(element, options) {
     var drawLayer;
 
     function enableDraw(cb){
+
         var format = new ol.format.WKT();
         var source = new ol.source.Vector({wrapX: false});
         var draw = new ol.interaction.Draw({

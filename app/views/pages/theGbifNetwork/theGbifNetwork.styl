@@ -31,9 +31,7 @@
     display none
 }
 +isAbove($tablet) {
-    .region-selector-select {
-        display none
-    }
+
     .region-selector-tabs {
         display block
     }
@@ -286,9 +284,19 @@
 
 .participant-details {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 0px;
+    top: 0px;
+    z-index 2;
+}
+
++isAbove($mobile) {
+    .participant-details {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        z-index 2;
     }
+}
 
 .participant-details-list {
     margin-left: -38px;
@@ -302,7 +310,7 @@
     }
 
     &__legend {
-            position: absolute;
+            
             left: 8px;
             bottom: 10px;
             overflow: hidden;
@@ -321,6 +329,12 @@
             margin-right: 8px;
             opacity: .7;
         }
+        +isAbove($mobile){
+            position: absolute;
+        }
+        +isBelow($mobile){
+            margin-bottom: 10px;
+        }
     }
 
     &__badges {
@@ -337,5 +351,6 @@
          padding: 3px 10px;
          display: inline-block;
          text-decoration: none;
+         margin-bottom 10px;
     }
 }

@@ -1,13 +1,19 @@
-<div class="container-fluid card card--spaced m-b-1">
 
+<div class="container-fluid card card--spaced m-b-1">
+    <div class="menubox__header">
+        <a href=""  ng-click="vm.showParticipantDetails = false" class="inherit noUnderline menubox__close gb-icon-close"></a>
+        <div class="menubox__header__title text-center">
+            <a ng-href="/country/{{vm.currentParticipantProps.ISO2}}" >
+
+
+                <h3   translate="country.{{vm.currentParticipantProps.ISO2}}" ></h3>
+
+            </a>
+        </div>
+    </div>
 
 <section class="info-pane__content">
-    <a ng-href="/country/{{vm.currentParticipantProps.ISO2}}" >
 
-
-        <h1   translate="country.{{vm.currentParticipantProps.ISO2}}" ></h1>
-
-    </a>
     <ul class="info-pane__header participant-details-list m-b-1">
         <li ng-if="vm.currentParticipantProps.membershipType">
             <strong translate="gbifNetwork.{{vm.currentParticipantProps.membershipType}}.one"></strong>

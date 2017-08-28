@@ -136,6 +136,8 @@ function adhocMapDirective(BUILD_VERSION) {
         };
 
         vm.enableDraw = function(){
+            map.removeDrawnItems();
+            vm.activeControl = undefined;
             vm.drawActive = true;
             map.enableDraw(getOccurrencesInArea);
         }
@@ -196,7 +198,7 @@ function adhocMapDirective(BUILD_VERSION) {
             vm.clickedQuery = getQuery();
 
             vm.clickedGeometry =  geom;
-
+            vm.clickedQuery.geometry = vm.clickedGeometry;
 
             vm.activeControl = vm.controls.OCCURRENCES;
             vm.mapMenu.isLoading = true;
