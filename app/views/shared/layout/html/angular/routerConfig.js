@@ -13,7 +13,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
     //TODO We need a way to handle routes when refreshing. Server needs to know about these routes.
     $stateProvider
         .state('localization', { // http://stackoverflow.com/questions/32357615/option-url-path-ui-router
-            url: '/{locale:(?:en|da|es)}',
+            url: '/{locale:(?:en|da|es)}?qid',
             abstract: true,
             template: '<div ui-view="main" class="viewContentWrapper"></div>',
             params: {locale: {squash: true, value: 'en'}}
@@ -294,7 +294,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
         })
         .state('faq', {
             parent: 'localization',
-            url: '/faq2?helpId',
+            url: '/faq2?question',
             views: {
                 main: {
                     templateUrl: '/api/template/faq.html?v=' + BUILD_VERSION,

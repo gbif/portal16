@@ -1,0 +1,23 @@
+<span class="gbHelp">
+    <div class="gbHelp__overlay" ng-if="vm.show">
+        <div class="gbHelp__content">
+            <div class="card" ng-class="{'gbHelp__card--loaded': vm.helpItem.$resolved || !vm.isCms}">
+                <div class="card__content" ng-if="vm.isCms">
+                    <div class="body-text" ng-class="{hidden: !vm.helpItem.$resolved && !vm.failed}">
+                        <h3 ng-bind-html="vm.helpItem.title" class="text-center"></h3>
+                        <div ng-bind-html="vm.trustedBody" class="m-t-1"></div>
+                    </div>
+                    <div class="text-center" ng-class="{hidden: vm.helpItem.$resolved}"><span class="loading"></span></div>
+                </div>
+                <div class="card__content" ng-if="!vm.isCms">
+                    <div translate="{{vm.identifier}}"></div>
+                </div>
+                <div ng-if="vm.failed" class="emptyInfo">
+                    <h3>Item is not available</h3>
+                    <p>This shouldn't happen. Please report the issue.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gbHelp__close" ng-click="vm.close()"></div>
+    </div>
+</span>
