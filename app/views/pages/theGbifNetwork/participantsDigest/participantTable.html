@@ -4,7 +4,7 @@
 
 <div class="participants__table scrollable-y  ng-cloak" ng-show="vm.tableLoaded === true && vm.activeParticipantsDigest.length > 0">
     <div class="table-container--participant"
-        ng-init="sort = {field: '', reverse: false };">
+        ng-init="sort = {field: 'name', reverse: false };">
         <h4 translate="theGbifNetwork.participant"
                   translate-values="{NUMBER: vm.activeParticipantsDigest.length}"></h4>
 

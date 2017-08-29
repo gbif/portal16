@@ -137,7 +137,6 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     });
 
 
-
     vm.updateParticipantDetails = function (props) {
     delete vm.heads;
     delete vm.digest;
