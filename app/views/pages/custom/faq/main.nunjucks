@@ -23,7 +23,7 @@
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <h3 class="searchCard__headline">
-                                        <a href="" ng-click="faq.showPopup(result.identifier); faq.helpId = result.identifier">{{result.title}}</a>
+                                        <a href="" ng-click="faq.showPopup(result.identifier);">{{result.title}}</a>
                                     </h3>
                                 </div>
                             </div>
@@ -50,7 +50,6 @@
                     </uib-pagination>
                 </div>
             </div>
-            <span gb-help gb-help-options="{hideIcon: true, forceShow: true, identifier: faq.helpId, onClose: faq.closePopup}" ng-if="faq.helpId"></span>
         </section>
     </div>
 </div>

@@ -11,6 +11,7 @@
                         <a href="{$ gb.locales.urlPrefix $}/terms/privacy-policy">Privacy</a>
                         <a href="{$ gb.locales.urlPrefix $}/terms">Terms and agreements</a>
                         <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">Citation</a>
+                        <a href="{$ gb.locales.urlPrefix $}/acknowledgements">Acknowledgements</a>
                     </div>
                     <div>
                         <a href="{$ gb.locales.urlPrefix $}/contact-us">Contact</a>
