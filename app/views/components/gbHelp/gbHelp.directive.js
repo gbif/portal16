@@ -37,7 +37,7 @@ function gbHelpDirective() {
         vm.onClose = _.get(vm.gbHelpOptions, 'onClose');
 
         vm.showPopup = function(){
-            HelpService.updateState(true, vm.helpIdentifier);
+            HelpService.updateState(true, vm.helpIdentifier, _.get(vm.gbHelpOptions, 'isCms'));
         };
 
         if (vm.forceShow) {
@@ -48,7 +48,7 @@ function gbHelpDirective() {
 
 module.exports = gbHelpDirective;
 
-
-//<div gb-help="time-to-index-dataset" gb-help-options="{hideIcon: false}">Show icon</div>
-//<div gb-help="time-to-index-dataset" gb-help-options="{hideIcon: true}">Hide icon</div>
-//<span gb-help="testthis" gb-help-options="{translationKey: 'help.isSplashScreen'}">Take popup from translation key</span>
+//<div gb-help="testthis">plain in div</div>
+//<div>Part of a <span gb-help="testthis" style="color: tomato">sentence</span></div>
+//<div gb-help gb-help-options="{identifier: 'testthis', hideIcon: true}">without icon</div>
+//<div gb-help="help.locationFilterWarning" gb-help-options="{isCms: false}">Popup text from translation file</div>
