@@ -7,6 +7,7 @@
 const express = require('express'),
       router = express.Router(),
       helper = require('../../../models/util/util'),
+      _ = require("lodash"),
       worldRobinson = require('./c-robinson-quantized-topo.json');
 
       //apicache = require('apicache');
@@ -44,12 +45,14 @@ router.get('/topojson/world-robinson', (req, res, next) => {
         });
 });
 
+
 router.get('/topojson/world/participants', (req, res, next) => {
     let options = {'qs': {'gbifRegion':'GLOBAL'}};
     let worldTopoJson = require('./world.topo.json');
+
     helper.getApiDataPromise('http://' + req.get('host') + '/api/directory/participants/count', options)
         .then( count =>{
-        return helper.getApiDataPromise('http://' + req.get('host') + '/api/directory/participants/active', options)
+            return helper.getApiDataPromise('http://' + req.get('host') + '/api/directory/participants/active', options)
         })
         .then(participants => {
 
@@ -63,13 +66,11 @@ router.get('/topojson/world/participants', (req, res, next) => {
                 }
             });
 
-                worldTopoJson.objects.world.geometries.forEach(geo => {
-                    if (keyed[geo.properties.ISO2]) {
-                        geo.properties = Object.assign(geo.properties, keyed[geo.properties.ISO2]);
-                    } ;
-                });
-
-
+            worldTopoJson.objects.countries.geometries.forEach(geo => {
+                if (keyed[geo.properties.countryCode]) {
+                    geo.properties = Object.assign(geo.properties, keyed[geo.properties.countryCode]);
+                } ;
+            });
 
             res.json(worldTopoJson);
         })

@@ -58,6 +58,7 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
     var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
             url: '/api/topojson/world/participants',
+
             format: new ol.format.TopoJSON(),
             overlaps: false
         }),
@@ -152,8 +153,8 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             var mStart = vm.currentParticipantProps.membershipStart;
             vm.currentParticipantProps.membershipStart = moment(mStart, 'MMMM YYYY').format('YYYY');
         }
-        if (props && props.ISO2) {
-            tasks.digest = CountryDataDigest.get({iso2: props.ISO2}).$promise;
+        if (props && props.countryCode) {
+            tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
         }
 
         $q.all(tasks).then(function(results){
