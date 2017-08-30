@@ -4,25 +4,17 @@
         text-transform capitalize
     }
     table.table {
-        thead, tbody, tr, th, td {
-            display block
-        }
+
         thead tr th {
-            position absolute
             text-transform capitalize
-            top -9999px
-            left -9999px
+           
         }
         tr {
             border-top 1px solid #ccc
         }
         tbody {
             tr {
-                th, td {
-                    position relative
-                    display inline-block
-                    width 49%
-                }
+
                 th {
                     font-weight bold
                     text-transform capitalize
@@ -33,7 +25,7 @@
     }
 }
 
-+isAbove($tablet) {
+
     .participants__table {
 
         .table-container--participant {
@@ -143,7 +135,7 @@
             }
         }
     }
-}
+
 
 +isAbove(900px) {
     .participants__table {

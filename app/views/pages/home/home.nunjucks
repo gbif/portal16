@@ -46,9 +46,9 @@
             </div>
         </div>
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe light-background p-t-05">
             <div class="container--desktop">
-                <div class="articles">
+                <div class="home__counts">
                     <article class="article-box article-box--stats">
                         <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="inherit noUnderline">
                             <h3 class="discreet">Occurrence records</h3>

@@ -5,6 +5,7 @@ var express = require('express'),
     helper = rootRequire('app/models/util/util'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     Taxon = require('../../../models/gbifdata/gbifdata').Taxon,
+    _ = require('lodash'),
     router = express.Router();
 
 module.exports = function (app) {
@@ -41,6 +42,10 @@ function renderSpeciesPage(req, res, next) {
         };
         helper.renderPage(req, res, next, contentItem, 'pages/species/key2/seo');
     }).catch(function(err){
-        next(err);
+        if (err.type == 'NOT_FOUND') {
+            next();
+        } else {
+            next(err);
+        }
     });
 }

@@ -80,6 +80,8 @@ function create(body) {
         markdownJson.push({p: "Needs help for data publishing: " + body.comments.helpNeeded})
     }
 
+    org.comments = [{"content" : json2md(markdownJson)}];
+
 
     let options = {
         method: 'POST',
@@ -88,31 +90,16 @@ function create(body) {
         canonicalPath: apiConfig.publisherCreate.canonical
     };
 
-    var newOrganistaionUUID;
     return authOperations.authenticatedRequest(options)
         .then((res) => {
             if (res.statusCode !== 201) {
                 throw res;
             }
 
-            let opts = {
-                method: 'POST',
-                body: {"content": json2md(markdownJson)},
-                url: apiConfig.publisherCreate.url + res.body + "/comment",
-                canonicalPath: apiConfig.publisherCreate.canonical + res.body + "/comment"
+            return res.body;
 
-            };
-            newOrganistaionUUID = res.body;
-            return authOperations.authenticatedRequest(opts);
         })
-        .then((commentResponse) => {
 
-            if (commentResponse.statusCode !== 201 && typeof newOrganistaionUUID !== 'undefined') {
-                throw commentResponse;
-            }
-
-            return newOrganistaionUUID;
-        })
 
 
 }

@@ -347,6 +347,8 @@ require('../../../pages/custom/contactUs/directory/contactDirectory.ctrl');
 
 require('../../../pages/custom/faq/faq.ctrl');
 
+require('../../../pages/tools/dataValidator/dataValidator.ctrl');
+
 
 require('./angular/publisher.resource');
 require('./angular/publisherFilter.service');

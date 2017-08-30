@@ -122,21 +122,30 @@ function adhocMapDirective(BUILD_VERSION) {
                 filters: getQuery(),
                 fitExtent: true
             });
-            map.on('singleclick', function (e) {
-                var coordinate = map.getProjectedCoordinate(e.coordinate);
-                var size = 150;
-                var onePixelOffset = map.getProjectedCoordinate(map.map.getCoordinateFromPixel([e.pixel[0] + size, e.pixel[1] + size]));
-                var offset = Math.min(2, Math.max(Math.abs(onePixelOffset[0] - coordinate[0]), Math.abs(onePixelOffset[1] - coordinate[1])));//lazy failsafe for those odd cases in polar projections
-                while (_.isNumber(coordinate[0]) && coordinate[0] < -180) {
-                    coordinate[0] = coordinate[0] + 360;
-                }
-                while (_.isNumber(coordinate[0]) && coordinate[0] > 180) {
-                    coordinate[0] = coordinate[0] - 360;
-                }
-                getOccurrencesInArea(coordinate[1], coordinate[0], offset);
-            });
-            //getOccurrencesInArea(47.3515625, 2.8125, 1);
+
         };
+
+        vm.zoomIn = function () {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() + 1);
+        };
+
+        vm.zoomOut = function () {
+            var view = map.map.getView();
+            view.setZoom(view.getZoom() - 1);
+        };
+
+        vm.enableDraw = function(){
+            map.removeDrawnItems();
+            vm.activeControl = undefined;
+            vm.drawActive = true;
+            map.enableDraw(getOccurrencesInArea);
+        }
+
+        vm.removeDrawnItems = function(){
+            vm.drawActive = false;
+            map.removeDrawnItems();
+        }
 
         vm.setStyle = function (style) {
             var s = vm.styles[style] || vm.styles.CLASSIC;
@@ -183,32 +192,14 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.mapMenu = {};
         vm.clickedQuery = {};
         vm.clickedGeometry;
-        function getOccurrencesInArea(lat, lng, offset) {
+        function getOccurrencesInArea(geom) {
             if (vm.occurrenceRequest && vm.occurrenceRequest.$cancelRequest) vm.occurrenceRequest.$cancelRequest();
 
             vm.clickedQuery = getQuery();
-            var decimalLatitudeMin = lat - offset;
-            var decimalLatitudeMax = lat + offset;
-            var decimalLongitudeMin = lng - offset;
-            var decimalLongitudeMax = lng + offset;
-            vm.clickedGeometry =  'POLYGON' + '((W S,W N,E N,E S,W S))'
-                    .replace(/N/g, decimalLatitudeMin)
-                    .replace(/S/g, decimalLatitudeMax)
-                    .replace(/W/g, decimalLongitudeMin)
-                    .replace(/E/g, decimalLongitudeMax);
 
-            decimalLatitudeMin = Math.max(-90, decimalLatitudeMin);
-            decimalLongitudeMin = Math.max(-180, decimalLongitudeMin);
-            decimalLatitudeMin = Math.min(90, decimalLatitudeMin);
-            decimalLongitudeMin = Math.min(180, decimalLongitudeMin);
+            vm.clickedGeometry =  geom;
+            vm.clickedQuery.geometry = vm.clickedGeometry;
 
-            decimalLatitudeMax = Math.min(90, decimalLatitudeMax);
-            decimalLongitudeMax = Math.min(180, decimalLongitudeMax);
-            decimalLatitudeMax = Math.max(-90, decimalLatitudeMax);
-            decimalLongitudeMax = Math.max(-180, decimalLongitudeMax);
-
-            vm.clickedQuery.decimalLatitude = decimalLatitudeMin + ',' + decimalLatitudeMax;
-            vm.clickedQuery.decimalLongitude = decimalLongitudeMin + ',' + decimalLongitudeMax;
             vm.activeControl = vm.controls.OCCURRENCES;
             vm.mapMenu.isLoading = true;
             vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {

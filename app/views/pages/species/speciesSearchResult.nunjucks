@@ -32,6 +32,14 @@
                       ng-if="result[taxa] && taxa != result.rank.toLowerCase()"
                       ng-bind-html="result[taxa]"></span>
             </p>
+            <p ng-if="result.highlights && result.highlights.vernacularNames && result.highlights.vernacularNames.length > 0">
+                Vernacular name: <span ng-bind-html="result.highlights.vernacularNames[0].vernacularName"></span> <span ng-if="result.highlights.vernacularNames[0].language">in <span translate="language.{{result.highlights.vernacularNames[0].language  }}"></span></span>
+
+            </p>
+            <p ng-if="result.highlights && result.highlights.descriptions && result.highlights.descriptions.length > 0">
+                <span ng-repeat="hl in result.highlights.descriptions">... <span ng-bind-html="hl"></span> ...</span>
+
+            </p>
             <ul class="list-chips">
                 <li ng-if="result.taxonomicStatus">
                     <a href="" ui-sref="speciesSearchList({status:result.taxonomicStatus})" translate="taxonomicStatus.{{ result.taxonomicStatus }}">{{ result.taxonomicStatus }}</a>
@@ -39,7 +47,7 @@
                 <li ng-if="result.rank">
                     <a href="" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.{{ result.rank }}">{{ result.rank }}</a>
                 </li>
-                <li ng-if="result.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
+                <li ng-if="!result.datasetKey || result.datasetKey == 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'">
                     <a ui-sref="occurrenceSearchTable({taxon_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?taxon_key={{ result.key }}">&nbsp;</span> occurrences</a>
                 </li>
             </ul>

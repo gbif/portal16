@@ -4,7 +4,7 @@
 
 -----
 {% if __fbitem %}{$ __fbitem $}{% endif %}
-{% if __contact %}Reported by: {$ __contact | striptags $}{% endif %}
+{% if __contact %}User provided contact info: {$ __contact | striptags $}{% endif %}
 {% if __agent %}System: {$ __agent $}{% endif %}
 {% if __referer %}Referer: {$ __referer | safe $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}

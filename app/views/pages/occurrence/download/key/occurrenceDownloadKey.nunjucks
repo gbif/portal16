@@ -58,7 +58,7 @@
                                                     <a href="{$ download.record.downloadLink $}" class="gb-button--brand">{$ __('stdTerms.download') $}</a>
                                                 </span>
                                                 {% elif download.record.status === 'PREPARING' or download.record.status === 'RUNNING' or download.record.status === 'SUSPENDED'%}
-                                                <span class="gb-button--flat gb-button--loader pull-right">
+                                                <span class="gb-button--flat gb-button--loader pull-right m-t-0">
                                                     <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
                                                     {$ __('downloadKey.status.' + download.record.status) $}
                                                 </span>

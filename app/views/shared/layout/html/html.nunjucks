@@ -47,6 +47,7 @@
     {#{% include "../partials/popups/terms/terms.html" %}#}
     <div terms></div>
 </div>
+<div gb-help-overlay></div>
 
 <script>
     window.gb = window.gb || {};

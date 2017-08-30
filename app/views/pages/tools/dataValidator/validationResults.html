@@ -1,0 +1,69 @@
+<div ng-if="vm.jobId">
+ {{ vm.jobId }} - {{ vm.jobStatus }}
+</div>
+
+<div ng-if="vm.validationResults.summary" class="horizontal-stripe white-background ng-cloak">
+
+    <h2 translate="validation.summary"></h2>
+    <div class="table-container">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="table-cell--wide" translate="validation.indexeable"></td>
+                    <td class="table-cell--wide">{{ vm.validationResults.summary.indexeable }}</td>
+                </tr>
+                <tr ng-if="vm.validationResults.summary.errorCode">
+                    <td class="table-cell--wide" translate="validation.error"></td>
+                    <td class="table-cell--wide">{{ vm.validationResults.summary.errorCode }}</td>
+                </tr>
+                <tr ng-if="vm.validationResults.summary.fileFormat">
+                    <td class="table-cell--wide" translate="validation.fileFormat.title"></td>
+                    <td class="table-cell--wide" translate="validation.fileFormat.{{ vm.validationResults.summary.fileFormat }}"></td>
+                </tr>
+                <tr ng-if="vm.validationResults.summary.validationProfile">
+                    <td class="table-cell--wide" translate="validation.validationProfile.title"></td>
+                    <td class="table-cell--wide" translate="validation.validationProfile.{{ vm.validationResults.summary.validationProfile }}"></td>
+                </tr>
+                <tr ng-if="vm.validationResults.summary.fileName">
+                    <td class="table-cell--wide">File name</td>
+                    <td class="table-cell--wide">{{ vm.validationResults.summary.fileName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-repeat="resultPerResource in vm.validationResults.results">
+        <h3>{{ resultPerResource.fileName }}</h3>
+        <div class="table-container">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="table-cell--wide">rowType</td>
+                            <td class="table-cell--wide">{{ resultPerResource.rowType }}</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell--wide" translate="validation.numberOfLines"></td>
+                            <td class="table-cell--wide">{{ resultPerResource.numberOfLines}}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
+                            <td class="table-cell--wide" translate="validation.interpretedCounts.date"></td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
+                            <td class="table-cell--wide" translate="validation.interpretedCounts.taxon"></td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>
+                        </tr>
+                        <tr ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
+                            <td class="table-cell--wide" translate="validation.interpretedCounts.location"></td>
+                            <td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <ng-include
+                    src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION" ></ng-include>
+        <ng-include
+                    src="'/api/template/tools/dataValidator/results/issues.html?v=' + vm.BUILD_VERSION" ></ng-include>
+
+    </div>
+</div>

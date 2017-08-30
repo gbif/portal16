@@ -2,19 +2,26 @@
     <div class="mapWidget__mapWrapper">
         <div class="mapWidget__mapArea"></div>
         <div class="mapWidget__progress"></div>
+        <div class="mapWidget__mapButtons">
+            <a href="" ng-click="vm.zoomIn()">+</a>
+            <a href="" ng-click="vm.zoomOut()">-</a>
+            <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableDraw()"
+               ng-class="{'is-active': vm.drawActive }"></a>
+        </div>
 
     </div>
+
     <div class="mapWidget__controls clearfix">
         <div class="mapPopups">
             <div class="mapPopup fixedSize" ng-if="!vm.ignoreCoordinateIssues && (vm.filter.has_coordinate !== 'true' || vm.filter.has_geospatial_issue !== 'false')">
                 <div class="card small">
                     <div class="card__stripe">
-                        <div class="card__content" translate="help.locationFilterWarning">
+                        <div class="card__content" ng-bind-html="'help.locationFilterWarning' | translate | md2html">
                         </div>
                     </div>
                     <div class="card__stripe--actions">
-                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase">Yes</a>
-                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true">No</a>
+                        <a href="" ui-sref="occurrenceSearchMap({has_coordinate: true, has_geospatial_issue: false})" class="gb-button--flat text-uppercase" translate="help.yesHideThem"></a>
+                        <a href="" class="gb-button--flat text-uppercase" ng-click="vm.ignoreCoordinateIssues = true" translate="help.noShowThem"></a>
                     </div>
                 </div>
             </div>
@@ -27,7 +34,7 @@
                             Searching for occurrences in area <span class="loading"></span>
                         </span>
                         <a href="" class="gb-icon-close_L inherit pull-right"
-                           ng-click="vm.activeControl = undefined"></a>
+                           ng-click="vm.activeControl = undefined; vm.drawActice = undefined; vm.removeDrawnItems()"></a>
                     </h4>
                 </div>
                 <div class="mapPopup__results seperator" ng-if="!vm.mapMenu.isLoading">

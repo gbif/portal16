@@ -10,8 +10,9 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $window) {
+function dataValidatorCtrl($http, $window, $stateParams) {
     var vm = this;
+
 
     vm.resourceToValidate = {};
 
@@ -62,6 +63,11 @@ function dataValidatorCtrl($http, $window) {
         });
     };
 
+    if($stateParams.jobid){
+        vm.jobid = $stateParams.jobid;
+        vm.getValidationResults(vm.jobid)
+    };
+
     function loadEvaluationCategory() {
         $http({
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
@@ -74,7 +80,7 @@ function dataValidatorCtrl($http, $window) {
 
     function handleValidationSubmitResponse(data) {
         //TODO validate that there is a jobId and if not display error message
-        $window.location.href = '/tools/data-validator-test/' + data.jobId;
+        $window.location.href = '/tools/data-validator/' + data.jobId;
     }
 
     function handleValidationResult(responseData) {

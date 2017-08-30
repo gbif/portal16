@@ -48,9 +48,9 @@ gulp.task('dataRepo', function () {
 gulp.task('speciesLookup', function () {
     return build('./app/views/pages/tools/speciesLookup/speciesLookup.entry.js', 'pages/speciesLookup.js');
 });
-gulp.task('dataValidator', function () {
-    return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
-});
+// gulp.task('dataValidator', function () {
+//     return build('./app/views/pages/tools/dataValidator/dataValidator.entry.js', 'pages/dataValidator.js');
+// });
 gulp.task('observationTrends', function () {
     return build('./app/views/pages/tools/observationTrends/observationTrends.entry.js', 'pages/observationTrends.js');
 });

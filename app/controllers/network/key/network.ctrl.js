@@ -32,7 +32,11 @@ router.get('/network/:key\.:ext?', function (req, res, next) {
             next(error);
         }
     }, function (err) {
-        next(err);
+        if (err.type == 'NOT_FOUND') {
+            next();
+        } else {
+            next(err);
+        }
     });
 });
 

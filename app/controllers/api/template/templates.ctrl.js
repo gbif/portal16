@@ -183,3 +183,19 @@ router.get('/contactUs/directory.html', function (req, res, next) {
 router.get('/faq.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/custom/faq/faq.template.nunjucks');
 });
+
+router.get('/tools/dataValidator.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/dataValidator.html');
+});
+
+router.get('/tools/dataValidator/results/issues.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/results/issues.html');
+});
+
+router.get('/tools/dataValidator/results/termsFrequency.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/results/termsFrequency.html');
+});
+
+router.get('/tools/dataValidator/validationResults.html', function (req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/validationResults.html');
+});

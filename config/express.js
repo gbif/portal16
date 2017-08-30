@@ -95,6 +95,9 @@ module.exports = function (app, config) {
     let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
     app.use(redirects);
 
+    //let apiRequestErrors = require(config.root + '/app/errors/apiRequestErrors.js');
+    //app.use(apiRequestErrors);
+
     //add error and missing page routes
     require(config.root + '/app/errors/404.js')(app);
     require(config.root + '/app/errors/500.js')(app);

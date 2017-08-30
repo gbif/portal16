@@ -106,7 +106,7 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
     }
 }
 
-.articles {
+.articles, .home__counts {
     .article-box {
         width 300px
         max-width 100%
@@ -134,12 +134,11 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
             color #aaa
         }
         &--stats {
-            padding 0 20px
             h3 {
                 margin 0
             }
             div {
-                font-size 35px
+                font-size 30px
             }
             
             p {
@@ -152,8 +151,8 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 }
 
 +isAbove(500px) {
-    .articles {
-        margin $halfGutter (-($halfGutter / 2))
+    .articles, .home__counts {
+        margin 0 (-($halfGutter / 2))
         display flex
         flex-wrap wrap
         justify-content center
@@ -166,11 +165,17 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 }
 
 +isAbove(1000px) {
-    .articles {
+    .articles, .home__counts {
         .article-box {
             width "calc(100% / 4 - %s)" % ($halfGutter* 2)
             flex 1 1 auto
         }
+    }
+}
+
+.home__counts {
+    .article-box--stats {
+        margin-bottom 0
     }
 }
 
