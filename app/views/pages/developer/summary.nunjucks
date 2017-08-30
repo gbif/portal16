@@ -152,7 +152,7 @@
                     <p>POST, PUT, and DELETE requests require authentication.
                         The GBIF API uses <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic
                             Authentication</a>
-                        with any <a href="/user/register">GBIF user account</a> that you have created before.
+                        with any <a href="/user/profile">GBIF user account</a> that you have created before.
                     </p>
                     <p>For example to issue a new download programmatically using curl with a <a
                                 href="/developer/occurrence#predicates">query filter as JSON</a> in a file called
@@ -171,7 +171,7 @@
                         topics.
                         Often these are based on existing standards such as ISO or <a
                                 href="http://www.tdwg.org/standards/">TDWG</a>.
-                        The enumerations are part of the <a href='{$ api.apidocs $}/vocabulary/package-summary.html'
+                        The enumerations are part of the <a href='{$ apidocs $}/vocabulary/package-summary.html'
                                                             target='_blank'>GBIF Java API</a>,
                         but the currently active version can also be dynamically accessed through our JSON webservices
                         to support more dynamic clients.

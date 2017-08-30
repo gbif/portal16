@@ -449,6 +449,28 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION) {
             controller: 'theGbifNetworkCtrl',
             controllerAs: 'vm'
         })
+        .state('dataValidator', {
+            parent: 'localization',
+            url: '/tools/data-validator',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/dataValidator.html?v=' + BUILD_VERSION,
+                    controller: 'dataValidatorCtrl',
+                    controllerAs: 'vm'
+                }
+            }
+        })
+        .state('dataValidatorKey', {
+            parent: 'localization',
+            url: '/tools/data-validator/:jobid',
+            views: {
+                main: {
+                    templateUrl: '/api/template/tools/dataValidator.html?v=' + BUILD_VERSION,
+                    controller: 'dataValidatorCtrl',
+                    controllerAs: 'vm'
+                }
+            }
+        })
 
 
 

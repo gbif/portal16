@@ -1,8 +1,9 @@
-{% extends "../../../shared/layout/html/html.nunjucks" %}
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
 
 {% block page %}
     <article class="wrapper-horizontal-stripes page--data"
-             ng-controller="dataValidatorCtrl as dataValidator">
+             >
 
         <div class="container-fluid white-background search-header">
             <div class="row">
@@ -15,11 +16,10 @@
             </div>
         </div>
 
-        {% include "./upload.nunjucks" %}
     </article>
 {% endblock %}
 
 
-{% block scripts %}
-    <script src="/js/base/pages/dataValidator.js?v={$ BUILD_VERSION $}"></script>
-{% endblock %}
+{#{% block scripts %}#}
+    {#<script src="/js/base/pages/dataValidator.js?v={$ BUILD_VERSION $}"></script>#}
+{#{% endblock %}#}

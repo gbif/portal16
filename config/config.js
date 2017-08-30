@@ -25,7 +25,7 @@ var path = require('path'),
         }
     },
     elasticContentful = yargs.elasticContentful,
-    apidocs = "//gbif.github.io/gbif-api/apidocs/org/gbif/api",
+    apidocs = "http://gbif.github.io/gbif-api/apidocs/org/gbif/api",
     locales = ['en', 'es', 'da'],
     contentfulLocaleMap = {
         'en': 'en-GB',

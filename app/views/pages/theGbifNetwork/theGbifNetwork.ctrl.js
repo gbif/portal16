@@ -5,6 +5,7 @@ require('./theGbifNetworkMap.service');
 var angular = require('angular'),
     moment = require('moment'),
     topojson = require('topojson'),
+    _ = require('lodash'),
     ol = require('openlayers');
 
 angular
@@ -348,12 +349,22 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
                         if(picked === true){
                             idMap[contact.id] = true;
                         }
+
                         return picked;
 
                     }
 
 
-                });
+                })
+                if(region !== 'GLOBAL'){
+                    reps.sort(function(a,b){
+                        return (_.find(a.roles, function(r){
+                            return (r.role.indexOf(region) !== -1 && r.role.indexOf("DEPUTY") !== -1)
+                        })) ? 1 : -1;
+
+                    });
+                }
+
                 vm.reps = reps;
                 vm.repTableLoaded = true;
             }, function(error){
@@ -370,6 +381,8 @@ function theGbifNetworkCtrl(  $scope, $state, $stateParams, ParticipantsDigest, 
             vm.toggleStatus[personId] = 'contact--show';
         }
     };
+
+
 
 
 }

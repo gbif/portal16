@@ -1,7 +1,7 @@
 <ng-include src="'/templates/components/loader/loader.html'" ng-if="vm.repTableLoaded === false"></ng-include>
 
 <div class="reps__table ng-cloak" ng-if="vm.repTableLoaded === true && vm.reps.length > 0">
-    <div class="table-container--participant" ng-init="sort = {field: '', reverse: false };">
+    <div class="table-container--participant" ng-init="sortField = 'role'; sortReverse= false ;">
         <h4 translate="theGbifNetwork.regionalRepresentative"
             translate-values="{NUMBER: vm.reps.length}"></h4>
 

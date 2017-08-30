@@ -5,6 +5,17 @@
         md = require('marked'),
         _ = require('lodash');
 
+    md.setOptions({
+        renderer: new md.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: true,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+    });
+
     angular
         .module('portal')
         .filter('prettifyEnum', function () {
@@ -179,7 +190,7 @@
         })
         .filter('md2html', function(){
             return function(markdown) {
-                return (!!markdown) ? md(markdown) : '';
+                return (!!markdown) ? md(markdown).replace('\n','<br>') : '';
             }
         })
 
