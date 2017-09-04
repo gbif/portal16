@@ -1,0 +1,116 @@
+<div class="submenu-wrapper ng-cloak" id="submenuWrapper">
+    <div id="dataset__prose">
+        <section class="horizontal-stripe--paddingless white-background">
+            <div class="container--desktop">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 ">
+                        <div>
+                            {% include('./submenu.nunjucks') %}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-8  body-text">
+                        <div>
+                            <div class="body-text">
+                                <div class="container--narrow ">
+                                    <section class="card m-t-1 m-b-1" ng-repeat="resultPerResource in vm.validationResults.results" >
+                                    <div class="row card__content">
+                                    <div class="col-xs-12">
+                                        <a href="" id="{{ resultPerResource.fileName }}"></a>
+                                        <div class="anchor-block--tabs click-through" id="{{ resultPerResource.fileName }}Block">
+                                        <h3 >File name: {{ resultPerResource.fileName }}</h3>
+                                        <div >
+                                            <div class="row" ng-if="vm.validationResults.summary.indexeable">
+                                            <dl class="inline">
+                                                <div class="col-xs-6">
+                                                    <dt class="text-capitalize">rowType</dt>
+                                                    <dd translate="validation.dataTypes.{{ resultPerResource.rowType }}">
+
+                                                    </dd>
+                                                </div>
+
+                                                <div class="col-xs-6">
+                                                    <dt class="text-capitalize" translate="validation.numberOfLines"></dt>
+                                                    <dd>
+                                                        {{ resultPerResource.numberOfLines }}
+                                                    </dd>
+                                                </div>
+
+                                                <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
+                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.date"></dt>
+                                                    <dd>
+                                                        {{ resultPerResource.interpretedValueCounts['dwc:year'] }}
+                                                    </dd>
+                                                </div>
+
+                                                <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
+                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.taxon"></dt>
+                                                    <dd>
+                                                        {{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}
+                                                    </dd>
+                                                </div>
+
+                                                <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
+                                                    <dt class="text-capitalize" translate="validation.interpretedCounts.location"></dt>
+                                                    <dd>
+                                                        {{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}
+                                                    </dd>
+                                                </div>
+                                            </dl>
+                                            </div>
+                                            {#<table>#}
+                                                {#<tbody>#}
+                                                {#<tr>#}
+                                                    {#<td class="table-cell--wide">rowType</td>#}
+                                                    {#<td class="table-cell--wide">{{ resultPerResource.rowType }}</td>#}
+                                                {#</tr>#}
+                                                {#<tr>#}
+                                                    {#<td class="table-cell--wide" translate="validation.numberOfLines"></td>#}
+                                                    {#<td class="table-cell--wide">{{ resultPerResource.numberOfLines}}</td>#}
+                                                {#</tr>#}
+                                                {#<tr ng-if="resultPerResource.interpretedValueCounts['dwc:year']">#}
+                                                    {#<td class="table-cell--wide" translate="validation.interpretedCounts.date"></td>#}
+                                                    {#<td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:year'] }}</td>#}
+                                                {#</tr>#}
+                                                {#<tr ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">#}
+                                                    {#<td class="table-cell--wide" translate="validation.interpretedCounts.taxon"></td>#}
+                                                    {#<td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}</td>#}
+                                                {#</tr>#}
+                                                {#<tr ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">#}
+                                                    {#<td class="table-cell--wide" translate="validation.interpretedCounts.location"></td>#}
+                                                    {#<td class="table-cell--wide">{{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}</td>#}
+                                                {#</tr>#}
+                                                {#</tbody>#}
+                                            {#</table>#}
+                                        </div>
+                                        </div>
+                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="vm.validationResults.summary.indexeable"></a>
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable">
+                                            {% include('../results/termsFrequency.html') %}
+                                        {#<ng-include#}
+                                                {#src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION"  ></ng-include>#}
+                                        </div>
+                                        <a href="" id="{{ resultPerResource.fileName+'-Issues'}}" ></a>
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-IssuesBlock'}}" >
+                                            {% include('../results/issues.html') %}
+                                        {#<ng-include#}
+                                                {#src="'/api/template/tools/dataValidator/results/issues.html?v=' + vm.BUILD_VERSION" ></ng-include>#}
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="white-background p-t-1">
+                                <div class="container--narrow seperator m-t-1">
+                                    {#{% include "./dataDescription.nunjucks" %}#}
+                                    {#{% include "./registration.nunjucks" %}#}
+                                    {#{% include "./citation.nunjucks" %}#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

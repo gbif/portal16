@@ -1,0 +1,56 @@
+<div class="site-content">
+    <div class="site-content__page">
+        <div class="datasetKey2 light-background">
+            <div class="wrapper-horizontal-stripes" >
+
+                {% include "./header.nunjucks" %}
+
+                {#<div id="tabsScrollable">#}
+                    {#{% include "./nav.nunjucks" %}#}
+                {#</div>#}
+                {#<div class="tabs-fixed-container" id="tabsFixedContainer" ng-init="datasetKey.attachTabListener()">#}
+                    {#{% include "./nav.nunjucks" %}#}
+                {#</div>#}
+
+                <div>
+
+                    <div ng-if="vm.hasApiCriticalError" class="emptyInfo--small">
+                        <h3 translate="stdTerms.criticalErrorMsg"></h3>
+
+                    </div>
+                    <!-- Select file -->
+                    <div>
+                        <div ng-if="!vm.jobid">
+                            <div class="text-center">
+                                <div class="dataValidator__input-file">
+                                    <input type="file" name="myfile" file-upload on-file-change="vm.handleUploadFile">
+                                    <a href="">Select file</a>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <form name="fileUrlForm" novalidate>
+                                    <label for="fileurl">URL:</label>
+                                    <input type="text" name="fileurl" ng-model="vm.resourceToValidate.fileUrl"/><br/>
+                                    <br/>
+                                    <button type="submit"
+                                            ng-click="vm.handleFileUrl(vm.resourceToValidate)">Submit
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% include "./intro/intro.nunjucks" %}
+
+                    {% include "./main/main.nunjucks" %}
+                </div>
+
+                <div ui-view>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

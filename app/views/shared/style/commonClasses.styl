@@ -573,6 +573,9 @@ sub {
         height $navBar_height + $searchTabBar-height //todo parameterize tab bar?
         margin-top -($navBar_height + $searchTabBar-height)
     }
+    &.click-through {
+        pointer-events none
+    }
 }
 
 .anchor-block__above {

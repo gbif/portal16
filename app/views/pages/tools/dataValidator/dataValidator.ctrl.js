@@ -1,6 +1,9 @@
 'use strict';
-var _ = require('lodash');
+var _ = require('lodash'),
+    fixedUtil = require('../../dataset/key/main/submenu');
+
 require('../../../components/fileUpload/fileUpload.directive');
+
 
 //only available on dev for now
 var devApiUrl = '//api.gbif-dev.org/v1/';
@@ -10,7 +13,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $window, $stateParams) {
+function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
     var vm = this;
 
 
@@ -58,7 +61,8 @@ function dataValidatorCtrl($http, $window, $stateParams) {
             url: devApiUrl + 'validator/jobserver/status/' + jobid
         }).success(function (data) {
             handleValidationResult(data);
-        }).error(function () { //data, status, headers, config
+        }).error(function (err) { //data, status, headers, config
+            handleWSError(err)
             // TODO handle error things
         });
     };
@@ -88,53 +92,100 @@ function dataValidatorCtrl($http, $window, $stateParams) {
         vm.jobId = responseData.jobId;
         vm.jobStatus = responseData.status;
 
-        var data = responseData.result;
+        if(vm.jobStatus === "RUNNING"){
+            $timeout(function(){
+                $window.location.href = '/tools/data-validator/' + vm.jobId;
 
-        vm.validationResults = {
-            summary: _.omit(data, 'results'),
-            results: []
-        };
+            }, 1000)
+        } else {
 
-        angular.forEach(data.results, function(resourceResult) {
-            var vmResourceResult = _.omit(resourceResult, 'issues');
-            //the order of the evaluationCategory is important
-            vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
+            var data = responseData.result;
 
-            //prepare terms frequency
-            vmResourceResult.termsFrequency = {};
-            angular.forEach(resourceResult.termsFrequency, function(value, key) {
-                var termFreqData = {};
-                termFreqData.count = value;
-                termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
-                this[key] = termFreqData;
-            }, vmResourceResult.termsFrequency);
+            data.results.sort(function(a, b){
+                if(a.fileType === "CORE" && b.fileType !== "CORE"){
+                    return -1
+                } else if(a.fileType !== "CORE" && b.fileType === "CORE"){
+                    return 1
+                } else {
+                    return 0
+                };
+            })
 
-            vmResourceResult.issuesMap = {};
-            var issueBlock, issueSample;
-            angular.forEach(resourceResult.issues, function(value) {
-                this[value.issueCategory] = this[value.issueCategory] || [];
+            vm.extensionCount = 0;
 
-                //rewrite sample to exclude redundant information (e.g. evaluationType)
-                //TODO to the same thing for issues with non sample
-                issueBlock = _.omit(value, 'sample');
-                angular.forEach(value.sample, function(sample) {
-                    this.sample = this.sample || [];
-                    issueSample = {};
-                    issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
-                    issueSample.relatedData = sample.relatedData;
-                    this.sample.push(issueSample);
-                }, issueBlock);
+            for(var i=0; i< data.results.length; i++){
+                if(data.results[i].fileType === "CORE"){
+                    vm.coreDataType = data.results[i].rowType;
+                } else if(data.results[i].fileType === "EXTENSION"){
+                    vm.extensionCount ++
+                }
+            }
 
-                this[value.issueCategory].push(issueBlock);
-            }, vmResourceResult.issuesMap);
+            vm.validationResults = {
+                summary: _.omit(data, 'results'),
+                results: []
+            };
+            vm.validationResults.summary.issueTypesFound = {}
+            angular.forEach(data.results, function(resourceResult) {
+                var vmResourceResult = _.omit(resourceResult, 'issues');
+                //the order of the evaluationCategory is important
+                vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
 
-            this.push(vmResourceResult);
-        }, vm.validationResults.results);
+                //prepare terms frequency
+                if(resourceResult.termsFrequency){
+                    vmResourceResult.termsFrequency = {};
+                    angular.forEach(resourceResult.termsFrequency, function(value, key) {
+                        var termFreqData = {};
+                        termFreqData.count = value;
+                        termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
+                        this[key] = termFreqData;
+                    }, vmResourceResult.termsFrequency);
+                }
+
+
+                vmResourceResult.issuesMap = {};
+                var issueBlock, issueSample;
+                angular.forEach(resourceResult.issues, function(value) {
+                    this[value.issueCategory] = this[value.issueCategory] || [];
+
+                    vm.validationResults.summary.hasIssues = true;
+                    vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
+                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = true;
+                    //rewrite sample to exclude redundant information (e.g. evaluationType)
+                    //TODO to the same thing for issues with non sample
+                    issueBlock = _.omit(value, 'sample');
+                    angular.forEach(value.sample, function(sample) {
+                        this.sample = this.sample || [];
+                        issueSample = {};
+                        issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
+                        issueSample.relatedData = sample.relatedData;
+                        this.sample.push(issueSample);
+                    }, issueBlock);
+
+                    this[value.issueCategory].push(issueBlock);
+                }, vmResourceResult.issuesMap);
+
+                this.push(vmResourceResult);
+            }, vm.validationResults.results);
+
+
+        }
+
     }
 
     function handleWSError(data) {
-        vm.validationResults = data;
+        vm.hasApiCriticalError = true;
+      //  alert("error")
     }
+
+
+    vm.attachTabListener = function () {
+        fixedUtil.updateTabs();
+    };
+
+    vm.attachMenuListener = function () {
+        fixedUtil.updateMenu();
+    };
 }
 
 module.exports = dataValidatorCtrl;
