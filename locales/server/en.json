@@ -2287,7 +2287,11 @@
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Record referential integrity violation",
       "UNKNOWN_TERM" : "Unknown term",
       "TITLE_MISSING_OR_TOO_SHORT" : "Title missing or too short",
-      "CORE_ROWTYPE_UNDETERMINED" : "Core row type undetermined"
+      "CORE_ROW_TYPE_UNDETERMINED" : "Core row type undetermined",
+      "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "Resource contacts missing or incomplete",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT" : "Description missing or too short",
+      "LICENSE_MISSING_OR_UNKNOWN" : "License missing or unknown",
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified"
     },
     "fileFormat": {
       "title": "File format",
@@ -2314,7 +2318,16 @@
       "taxon": "Number of interpreted taxa",
       "location": "Number of interpreted coordinates"
     },
-    "status": "Status",
+    "status": {
+      "title": "Status",
+      "SUBMITTED" : "Sending file",
+       "FETCHING" : "Fetching file",
+      "ACCEPTED" : "Validation started",
+       "RUNNING" : "Validation in progress",
+       "FINISHED" : "Validation completed",
+       "FAILED" : "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location."
+     },
+     "jobId" : "Job id",
     "indexeable": "The file can be indexed by GBIF",
     "notIndexeable": "The file cannot be indexed by GBIF",
     "numberOfLines": "Number of lines",

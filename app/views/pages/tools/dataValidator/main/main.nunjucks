@@ -1,5 +1,5 @@
-<div class="submenu-wrapper ng-cloak" id="submenuWrapper">
-    <div id="dataset__prose">
+<div class="submenu-wrapper ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED'">
+    <div id="validationResults">
         <section class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
                 <div class="row">

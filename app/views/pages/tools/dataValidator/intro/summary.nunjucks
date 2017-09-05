@@ -1,5 +1,24 @@
 <div class="container-fluid card">
-    <div class="row card__content">
+    <div class="row card__content" ng-if="vm.jobStatus ==='RUNNING' || vm.jobStatus ==='ACCEPTED' || vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'"
+    >
+        <div class="col-xs-12">
+        <h2 translate="validation.status.title"></h2>
+        <dl class="inline" ng-if="vm.jobId">
+
+            <div>
+                <dt class="text-capitalize" translate="validation.jobId"></dt>
+                <dd >{{ vm.jobId }}
+
+                </dd>
+            </div>
+        </dl>
+        <div layout="row">
+    <span  translate="validation.status.{{ vm.jobStatus }}"></span> <span class="m-l-1"><md-progress-circular md-diameter="18px"></md-progress-circular></span>
+        </div>
+    </div>
+</div>
+
+    <div class="row card__content" ng-if="vm.jobStatus==='FINISHED'">
         <div class="col-xs-12 col-sm-6 col-md-8">
             <div >
                 <h2 translate="validation.summary"></h2>

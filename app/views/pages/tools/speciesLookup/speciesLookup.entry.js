@@ -2,7 +2,7 @@
 
 var async = require('async');
 
-require('./droppable.directive');
+// require('./droppable.directive');
 
 var Converter = require("csvtojson").Converter;
 

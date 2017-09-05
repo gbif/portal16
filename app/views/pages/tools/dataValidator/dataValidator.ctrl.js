@@ -13,9 +13,9 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
     var vm = this;
-
+    vm.$state = $state;
 
     vm.resourceToValidate = {};
 
@@ -25,7 +25,7 @@ function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
         formData.append('file', params.files[0]);
-
+        vm.jobStatus = "SUBMITTED";
         $http({
             url: devApiUrl + 'validator/jobserver/submit',
             method: "POST",
@@ -42,7 +42,7 @@ function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
     vm.handleFileUrl = function(params) {
         var postParams = {params: {}};
         _.merge(postParams.params, params);
-
+        vm.jobStatus = "FETCHING";
         var url = devApiUrl + 'validator/jobserver/submiturl';
         $http.post(url, null, postParams)
             .success(function (data, status) {
@@ -54,16 +54,22 @@ function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
     };
 
     vm.getValidationResults = function(jobid) {
-
         loadEvaluationCategory();
 
-        $http({
-            url: devApiUrl + 'validator/jobserver/status/' + jobid
-        }).success(function (data) {
-            handleValidationResult(data);
-        }).error(function (err) { //data, status, headers, config
-            handleWSError(err)
-            // TODO handle error things
+        $http.get(
+            devApiUrl + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
+
+        ).success(function (data) {
+            handleValidationSubmitResponse(data);
+        }).error(function (err, status, headers) { //data, status, headers, config
+
+            if(err.statusCode === 404 || status === 404){
+                handleValidationSubmitResponse(err)
+            } else{
+
+                handleWSError(err)
+
+            }
         });
     };
 
@@ -73,31 +79,48 @@ function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
     };
 
     function loadEvaluationCategory() {
-        $http({
+       return $http({
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function (data) {
             vm.evaluationCategory = data;
-        }).error(function () { //data, status, headers, config
-            // TODO handle error things
+        }).error(function (err) { //data, status, headers, config
+
+            handleWSError(err)
+
         });
     }
 
     function handleValidationSubmitResponse(data) {
-        //TODO validate that there is a jobId and if not display error message
-        $window.location.href = '/tools/data-validator/' + data.jobId;
+
+        vm.jobStatus = data.status;
+
+        if((data.status === "RUNNING" || data.status === "ACCEPTED" || data.status === "NOT_FOUND") && data.jobId){
+
+            vm.jobId = data.jobId;
+            $timeout(function(){
+
+                if($state.is('dataValidatorKey')){
+                    vm.getValidationResults($stateParams.jobid)
+                } else if($state.is('dataValidator')){
+
+                    $state.go("dataValidatorKey", {jobid: vm.jobId});
+
+                }
+
+            }, 1000)
+        } else if(data.status === "FAILED"){
+            handleFailedJob(data);
+        } else if(data.status === "FINISHED"){
+            handleValidationResult(data);
+        }
+        //$window.location.href = '/tools/data-validator/' + data.jobId;
     }
 
     function handleValidationResult(responseData) {
 
-        vm.jobId = responseData.jobId;
-        vm.jobStatus = responseData.status;
 
-        if(vm.jobStatus === "RUNNING"){
-            $timeout(function(){
-                $window.location.href = '/tools/data-validator/' + vm.jobId;
 
-            }, 1000)
-        } else {
+
 
             var data = responseData.result;
 
@@ -169,13 +192,21 @@ function dataValidatorCtrl($http, $window, $stateParams, $timeout) {
             }, vm.validationResults.results);
 
 
-        }
+
 
     }
+
+    vm.handleDrop = function (e) {
+        vm.handleUploadFile(e.dataTransfer);
+    };
 
     function handleWSError(data) {
         vm.hasApiCriticalError = true;
       //  alert("error")
+    }
+
+    function handleFailedJob(data){
+        vm.jobStatus = data.status;
     }
 
 

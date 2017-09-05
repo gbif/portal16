@@ -10,7 +10,7 @@
                       translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span ng-if="issueCategory !== 'OCC_INTERPRETATION_BASED'"
                       translate="validation.issueType.{{ issueBlock.issue }}"></span>
-                : {{ issueBlock.count }}</a>
+                : {{ (issueBlock.issue !== 'UNKNOWN_TERM') ? issueBlock.count : issueBlock.relatedData}}</a>
 
 
 

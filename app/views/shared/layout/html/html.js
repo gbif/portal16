@@ -303,6 +303,8 @@ require('../../../pages/installation/key/installationKey.ctrl');
 require('../../../pages/network/key/networkKey.ctrl');
 
 require('../../../components/gbHelp/gbHelp.directive');
+require('../../../pages/tools/speciesLookup/droppable.directive');
+
 
 require('../../../components/userLogin/userLogin.directive');
 require('../../../pages/user/updatePassword/updatePassword.ctrl');
