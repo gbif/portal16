@@ -20,12 +20,14 @@ $submenuProgressColor = lighten($blueTintedBlack, 10);
             padding 2.5rem 0
             ul {
                 padding 0
+
             }
             a {
                 color inherit
                 &:hover {
                     text-decoration none
                 }
+                
             }
             .nav-parts {
                 margin 0
@@ -47,6 +49,10 @@ $submenuProgressColor = lighten($blueTintedBlack, 10);
                     display block
                     line-height 1rem
                     border-left 2px solid $greyBackground
+                    
+                    &.subitem {
+                        padding-left 20px
+                    }
                 }
                 &.active {
                     a {
@@ -58,6 +64,9 @@ $submenuProgressColor = lighten($blueTintedBlack, 10);
                 &.submenu--fixed {
                     top $navBar_height + 3rem //tab bar height TODO move to var
                 }
+            }
+            &.validator--tabs {
+                width: auto
             }
         }
         .submenu--bottom {

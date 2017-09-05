@@ -1,0 +1,80 @@
+<div class="container-fluid card">
+    <div class="row card__content" ng-if="vm.jobStatus ==='RUNNING' || vm.jobStatus ==='ACCEPTED' || vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'"
+    >
+        <div class="col-xs-12">
+        <h2 translate="validation.status.title"></h2>
+        <dl class="inline" ng-if="vm.jobId">
+
+            <div>
+                <dt class="text-capitalize" translate="validation.jobId"></dt>
+                <dd >{{ vm.jobId }}
+
+                </dd>
+            </div>
+        </dl>
+        <div layout="row">
+    <span  translate="validation.status.{{ vm.jobStatus }}"></span> <span class="m-l-1"><md-progress-circular md-diameter="18px"></md-progress-circular></span>
+        </div>
+    </div>
+</div>
+
+    <div class="row card__content" ng-if="vm.jobStatus==='FINISHED'">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div >
+                <h2 translate="validation.summary"></h2>
+                <p>{{ vm.validationResults.summary.fileName  }}</p>
+                <p ng-if="vm.validationResults.summary.indexeable === true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.indexeable"></span></p>
+                <p ng-if="vm.validationResults.summary.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
+                <p ng-if="vm.validationResults.summary.hasIssues">
+                   <div class="inline"> <span class="issue-bullet__warn">●</span> <span  translate="validation.fileHasIssues"></span>:</div>
+                   <div class="inline">
+                <span ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">
+
+                    <span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED')? "occurrenceIssue."+issue : "validation.issueType."+issue | translate }}</span>
+                </span>
+                   </div>
+                </p>
+            </div>
+
+
+        </div>
+        {#<div class="col-xs-12 col-sm-6 col-md-2">#}
+            {#<div class="pull-right">#}
+                {#<img ng-src="{{ datasetKey.images.results[0]._image.identifier | imgCache:200:150 }}">#}
+            {#</div>#}
+        {#</div>#}
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+            <dl class="inline">
+                {#<div>#}
+                    {#<dt class="text-capitalize">Publisher</dt>#}
+                    {#<dd>#}
+                        {#<a ng-href="/publisher/{{ datasetKey.dataset.publishingOrganizationKey }}">#}
+                            {#{{ datasetKey.publisher.title }}#}
+                        {#</a>#}
+                    {#</dd>#}
+                {#</div>#}
+                <div>
+                    <dt class="text-capitalize" translate="validation.fileFormat.title"></dt>
+                    <dd translate="validation.fileFormat.{{ vm.validationResults.summary.fileFormat }}">
+
+                    </dd>
+                </div>
+                <div>
+                    <dt class="text-capitalize">Data type</dt>
+                    <dd translate="validation.dataTypes.{{ vm.coreDataType }}">
+
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="text-capitalize">Extensions</dt>
+                    <dd>
+                        {{ vm.extensionCount }}
+                    </dd>
+                </div>
+
+            </dl>
+        </div>
+    </div>
+</div>
