@@ -13,7 +13,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) {
     var vm = this;
     vm.$state = $state;
 
@@ -21,6 +21,8 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
 
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
+
+    vm.dwcextensions = DwcExtension.get();
 
     vm.handleUploadFile = function(params) {
         var formData = new FormData();

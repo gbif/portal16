@@ -23,7 +23,8 @@
                                             <dl class="inline">
                                                 <div class="col-xs-6">
                                                     <dt class="text-capitalize">rowType</dt>
-                                                    <dd translate="validation.dataTypes.{{ resultPerResource.rowType }}">
+                                                    <dd >
+                                                    {{ vm.dwcextensions[resultPerResource.rowType].title }}
 
                                                     </dd>
                                                 </div>
