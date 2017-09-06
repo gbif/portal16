@@ -44,7 +44,7 @@
                             <div layout="row">
                             <md-input-container md-no-float class="md-block" flex-gt-xs="33" flex-offset-gt-xs="33" flex>
 
-                            <input type="text" name="fileurl" placeholder="http://example.com/dwc.zip" ng-model="vm.resourceToValidate.fileUrl">
+                            <input type="url" name="fileurl" placeholder="http://example.com/dwc.zip" ng-model="vm.resourceToValidate.fileUrl">
                                 </md-input-container>
                             </div>
                             <button type="submit" class="md-raised md-primary md-button md-ink-ripple"
@@ -53,24 +53,7 @@
 
                             </form>
                             </div>
-                            {#<div class="text-center">#}
-                                {#<div class="dataValidator__input-file">#}
-                                    {#<input type="file" name="myfile" file-upload on-file-change="vm.handleUploadFile">#}
-                                    {#<a href="">Select file</a>#}
-                                {#</div>#}
-                            {#</div>#}
 
-                            {#<div class="text-center">#}
-                                {#<form name="fileUrlForm" novalidate>#}
-                                    {#<label for="fileurl">URL:</label>#}
-                                    {#<input type="text" name="fileurl" ng-model="vm.resourceToValidate.fileUrl"/><br/>#}
-                                    {#<br/>#}
-                                    {#<button type="submit"#}
-                                            {#ng-click="vm.handleFileUrl(vm.resourceToValidate)">Submit#}
-                                    {#</button>#}
-
-                                {#</form>#}
-                            {#</div>#}
                         </div>
                     </div>
                     {% include "./intro/intro.nunjucks" %}

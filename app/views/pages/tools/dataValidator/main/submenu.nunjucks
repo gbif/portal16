@@ -12,11 +12,16 @@
                     <a ng-href="#{{resultPerResource.fileName}}"  class="text-uppercase">{{resultPerResource.fileName}}</a>
                     <ul >
                         <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable">
-                            <a ng-href="#{{resultPerResource.fileName}}-TermsFrequency"  class="text-capitalize subitem" translate="validation.termsFrequency.title"></a>
+                            <a ng-href="#{{resultPerResource.fileName}}-TermsFrequency"  class="text-capitalize subitem" >
+                            <span class="issue-bullet discreet--very" >●</span>
+                            {{ 'validation.termsFrequency.title' | translate }}</a>
 
                         </li>
                         <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-Issues'}}" >
-                            <a ng-href="#{{resultPerResource.fileName}}-Issues"  class="text-capitalize subitem" translate="validation.issues"></a>
+                            <a ng-href="#{{resultPerResource.fileName}}-Issues"  class="text-capitalize subitem" >
+                            <span class="issue-bullet__warn" ng-if="resultPerResource.issues.length > 0">●</span>
+                                <span class="issue-bullet__approved" ng-if="resultPerResource.issues.length === 0">●</span>
+                                {{ 'validation.issues' | translate }}</a>
 
                         </li>
                     </ul>

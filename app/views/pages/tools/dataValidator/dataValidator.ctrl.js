@@ -63,7 +63,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
 
-            if(err.statusCode === 404 || status === 404){
+            if((err && err.statusCode === 404 )|| status === 404){
                 handleValidationSubmitResponse(err)
             } else{
 
