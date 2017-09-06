@@ -8,25 +8,48 @@
                             {% include('./submenu.nunjucks') %}
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-8  body-text">
+                    <div class="col-xs-12 col-md-8">
                         <div>
-                            <div class="body-text">
+                            <div >
                                 <div class="container--narrow ">
                                     <section class="card m-t-1 m-b-1" ng-repeat="resultPerResource in vm.validationResults.results" >
                                     <div class="row card__content">
                                     <div class="col-xs-12">
                                         <a href="" id="{{ resultPerResource.fileName }}"></a>
                                         <div class="anchor-block--tabs click-through" id="{{ resultPerResource.fileName }}Block">
-                                        <h3 >File name: {{ resultPerResource.fileName }}</h3>
+                                        <h2 >File name: {{ resultPerResource.fileName }}</h2>
                                         <div >
-                                            <div class="row" ng-if="vm.validationResults.summary.indexeable">
-                                            <dl class="inline">
-                                                <div class="col-xs-6">
+                                            <div class="row" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType === 'METADATA'">
+                                                <dl class="inline">
+                                                    <div class="col-xs-12">
+                                                        <dt class="text-capitalize">rowType</dt>
+                                                        <dd >
+                                                            Metadata
+                                                            <div class="discreet--very small" translate="validation.metadata.description"></div>
+
+                                                        </dd>
+
+
+                                                    </div>
+
+                                                </dl>
+                                            </div>
+                                            <div class="row" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA'">
+                                                <dl class="inline">
+                                                <div class="col-xs-12">
                                                     <dt class="text-capitalize">rowType</dt>
-                                                    <dd translate="validation.dataTypes.{{ resultPerResource.rowType }}">
+                                                    <dd >
+                                                        {{ vm.dwcextensions[resultPerResource.rowType].title }}
+                                                        <div class="discreet--very small">{{ vm.dwcextensions[resultPerResource.rowType].description }}</div>
 
                                                     </dd>
+                                                    <br>
+
                                                 </div>
+
+                                                </dl>
+                                            <dl class="inline">
+
 
                                                 <div class="col-xs-6">
                                                     <dt class="text-capitalize" translate="validation.numberOfLines"></dt>
@@ -83,8 +106,8 @@
                                             {#</table>#}
                                         </div>
                                         </div>
-                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="vm.validationResults.summary.indexeable"></a>
-                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable">
+                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA'"></a>
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA'">
                                             {% include('../results/termsFrequency.html') %}
                                         {#<ng-include#}
                                                 {#src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION"  ></ng-include>#}

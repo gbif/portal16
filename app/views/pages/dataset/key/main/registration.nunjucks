@@ -15,7 +15,7 @@
                         <dd>{{ datasetKey.dataset.modified | amDateFormat:'D MMMM YYYY' }}</dd>
                     </div>
 
-                    <div ng-if="datasetKey.dataset.modified">
+                    <div ng-if="datasetKey.dataset.pubDate">
                         <dt class="text-capitalize">Publication date</dt>
                         <dd>{{ datasetKey.dataset.pubDate | amDateFormat:'D MMMM YYYY' }}</dd>
                     </div>

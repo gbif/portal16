@@ -13,7 +13,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) {
     var vm = this;
     vm.$state = $state;
 
@@ -21,6 +21,8 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
 
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
+
+    vm.dwcextensions = DwcExtension.get();
 
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
@@ -63,7 +65,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
 
-            if(err.statusCode === 404 || status === 404){
+            if((err && err.statusCode === 404 )|| status === 404){
                 handleValidationSubmitResponse(err)
             } else{
 
@@ -167,10 +169,13 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout) {
 
 
                 vmResourceResult.issuesMap = {};
+                vmResourceResult.unknownTermMap = {};
                 var issueBlock, issueSample;
                 angular.forEach(resourceResult.issues, function(value) {
                     this[value.issueCategory] = this[value.issueCategory] || [];
-
+                    if(value.issue === "UNKNOWN_TERM"){
+                        vmResourceResult.unknownTermMap[value.relatedData] = true;
+                    };
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
                     vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = true;
