@@ -1484,6 +1484,7 @@
     "nCitations": "{NUMBER} {NUMBER, select, 0{citations} 1{citation} other{citations}}",
     "citations": "{NUMBER, select, 0{citations} 1{citation} other{citations}}",
     "nonCriticalErrorMsg": "Not all data is currently available. You are seeing a partial view of the data. Try to refresh the page and please report the issue if it continues.",
+    "criticalErrorMsg": "The system is currently not able to process your request. Try to refresh the page and please report the issue if it continues.",
     "partialPage": "Partial page"
   },
   "event": {
@@ -2277,7 +2278,8 @@
       "RESOURCE_INTEGRITY" : "Resource integrity",
       "RECORD_STRUCTURE": "Record Structure",
       "OCC_INTERPRETATION_BASED": "GBIF Occurrence Interpretation",
-      "METADATA_CONTENT" : "Metadata Content"
+      "METADATA_CONTENT" : "Metadata Content",
+      "CLB_INTERPRETATION_BASED" : "GBIF Taxon Interpretation"
     },
     "issueType": {
       "DWCA_UNREADABLE": "Darwin Core Archive unreadable",
@@ -2312,6 +2314,7 @@
     "issues": "Validation Issues",
     "fileHasIssues" : "The file has issues",
     "error": "Error",
+    "metadata": {"description" : "Metadata describing the data"},
     "termsFrequency": {
       "title": "Term Frequency",
       "term": "Term",
@@ -2319,8 +2322,8 @@
       "percentage": "Percentage"
     },
     "interpretedCounts": {
-      "date": "Number of interpreted date",
-      "taxon": "Number of interpreted taxa",
+      "date": "Number of interpreted dates",
+      "taxon": "Number of rows with interpreted taxon",
       "location": "Number of interpreted coordinates"
     },
     "status": {
@@ -2333,13 +2336,10 @@
        "FAILED" : "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location."
      },
      "jobId" : "Job id",
+     "unknown" : "unknown",
     "indexeable": "The file can be indexed by GBIF",
     "notIndexeable": "The file cannot be indexed by GBIF",
-    "numberOfLines": "Number of lines",
-    "dataTypes":{
-      "http://rs.tdwg.org/dwc/terms/Occurrence" : "Occurrence",
-      "http://rs.tdwg.org/dwc/terms/Taxon": "Taxon"
-    }
+    "numberOfLines": "Number of lines"
   },
   "terms": {
     "headline": "Use of cookies on GBIF",

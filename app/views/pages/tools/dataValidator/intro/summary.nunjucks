@@ -2,7 +2,7 @@
     <div class="row card__content" ng-if="vm.jobStatus ==='RUNNING' || vm.jobStatus ==='ACCEPTED' || vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'"
     >
         <div class="col-xs-12">
-        <h2 translate="validation.status.title"></h2>
+        <h2 class="m-t-0" translate="validation.status.title"></h2>
         <dl class="inline" ng-if="vm.jobId">
 
             <div>
@@ -21,18 +21,31 @@
     <div class="row card__content" ng-if="vm.jobStatus==='FINISHED'">
         <div class="col-xs-12 col-sm-6 col-md-8">
             <div >
-                <h2 translate="validation.summary"></h2>
+                <h2 class="m-t-0" translate="validation.summary"></h2>
                 <p>{{ vm.validationResults.summary.fileName  }}</p>
                 <p ng-if="vm.validationResults.summary.indexeable === true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.indexeable"></span></p>
                 <p ng-if="vm.validationResults.summary.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
                 <p ng-if="vm.validationResults.summary.hasIssues">
                    <div class="inline"> <span class="issue-bullet__warn">●</span> <span  translate="validation.fileHasIssues"></span>:</div>
-                   <div class="inline">
-                <span ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">
 
-                    <span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED')? "occurrenceIssue."+issue : "validation.issueType."+issue | translate }}</span>
-                </span>
-                   </div>
+                   <table class="table dataValidator__summaryTable">
+
+                       <tbody>
+                       <tr ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">
+                           <td class="categoryTitle">{{ 'validation.category.'+issueCat | translate }}</td>
+                       <td >
+                           <span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue : (issueCat === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue : "validation.issueType."+issue | translate }}</span>
+
+                       </td>
+                       </tr>
+
+                       </tbody>
+                   </table>
+                {#<div ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">#}
+                    {#<span>{{ 'validation.category.'+issueCat | translate }}</span>#}
+                    {#<span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED')? "occurrenceIssue."+issue : "validation.issueType."+issue | translate }}</span>#}
+                {#</div>#}
+
                 </p>
             </div>
 
@@ -62,8 +75,8 @@
                 </div>
                 <div>
                     <dt class="text-capitalize">Data type</dt>
-                    <dd translate="validation.dataTypes.{{ vm.coreDataType }}">
-
+                    <dd >
+                        {{ (vm.coreDataType) ? vm.dwcextensions[vm.coreDataType].title : 'validation.unknown' | translate }}
                     </dd>
                 </div>
 

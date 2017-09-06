@@ -10,9 +10,24 @@
         </thead>
         <tbody>
         <tr ng-repeat="(k,v) in resultPerResource.termsFrequency">
-            <td>{{ k }}</td>
+            <td ng-class="{'dataValidator__unknownTerm' : resultPerResource.unknownTermMap[k] === true }" >{{ k }}</td>
             <td>{{ v.count }}</td>
-            <td>{{ v.percentage }} %</td>
+            <td>
+                <div class="termFrequencyStats__circle">
+                    <round-progress
+                            max="100"
+                            current="v.percentage"
+                            bgcolor="#dbefef"
+                            color="#71b171"
+                            responsive="true">
+                    </round-progress>
+                </div>
+                <div class="termFrequencyStats__percentage">
+                    <span>{{ v.percentage }}%</span>
+
+                </div>
+
+             </td>
         </tr>
         </tbody>
     </table>

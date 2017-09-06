@@ -11,7 +11,7 @@
                 <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName}}Block" ng-repeat="resultPerResource in vm.validationResults.results">
                     <a ng-href="#{{resultPerResource.fileName}}"  class="text-uppercase">{{resultPerResource.fileName}}</a>
                     <ul >
-                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable">
+                        <li class="nav-chapter" du-scrollspy="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="vm.validationResults.summary.indexeable && resultPerResource.fileType !== 'METADATA'">
                             <a ng-href="#{{resultPerResource.fileName}}-TermsFrequency"  class="text-capitalize subitem" >
                             <span class="issue-bullet discreet--very" >●</span>
                             {{ 'validation.termsFrequency.title' | translate }}</a>

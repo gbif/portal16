@@ -52,4 +52,40 @@
         border-left 2px solid $tomato
         
     }
+    &__unknownTerm {
+        border-left: 2px solid #fdb002 !important;
+    }
+    
+    &__summaryTable {
+        tbody>tr>td {
+            border-top 0px !important;
+        }
+        
+        td.categoryTitle {
+            font-weight: 700;
+        }
+        
+    }
+    &__termFrequency_progress_container{
+     max-height 24px;
+    }
+}
+
+.termFrequencyStats {
+    &__circle {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 24px;
+        margin: auto;
+        display: inline-block;
+        float: left;
+        color: #c4cfd5;
+        text-decoration: none;
+    }
+    &__percentage {
+        margin-left 32px;
+        overflow: hidden;
+    }
+
 }
