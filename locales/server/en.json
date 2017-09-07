@@ -1411,6 +1411,9 @@
     "coordinates": "coordinates",
     "monthAndyear": "month & year",
     "ok": "ok",
+    "or" : "or",
+    "selectFile" : "Select file",
+    "fetchFileFromLocation" : "Fetch file from location",
     "location": "location",
     "basisOfRecord": "basis of record",
     "dataset": "dataset",
@@ -2314,6 +2317,12 @@
     "issues": "Validation Issues",
     "fileHasIssues" : "The file has issues",
     "error": "Error",
+    "errors": {
+      "404" : "The validation job ID was not found. If you believe this is an error, please report it.",
+      "400" : "The file could not be processed, or it may be missing if you provided a URL.",
+      "413" : "The file is too large, to be processed by the data validator."
+    },
+    "backToValidator" : "Take me back to the validator",
     "metadata": {"description" : "Metadata describing the data"},
     "termsFrequency": {
       "title": "Term Frequency",
@@ -2333,7 +2342,8 @@
       "ACCEPTED" : "Validation started",
        "RUNNING" : "Validation in progress",
        "FINISHED" : "Validation completed",
-       "FAILED" : "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location."
+       "FAILED" : "Validation failed. Please check the file type, or if you submitted a url, please check that the file exists on the location.",
+       "CONTACTING_SERVER" : "Contacting server..."
      },
      "jobId" : "Job id",
      "unknown" : "unknown",
