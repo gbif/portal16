@@ -1,4 +1,4 @@
-<div class="anchor-block--tabs" id="summary" ng-if="!vm.hasApiCriticalError">
+<div class="anchor-block--tabs" id="summary" ng-if="!vm.hasError">
     <section class="horizontal-stripe light-background seperator--b">
         <div class="container--desktop">
             <div class="row">

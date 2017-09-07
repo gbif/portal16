@@ -14,19 +14,26 @@
 
                 <div>
 
-                    <div ng-if="vm.hasApiCriticalError" class="emptyInfo--small">
-                        <h3 translate="stdTerms.criticalErrorMsg"></h3>
+                    <div ng-if="vm.hasError" class="emptyInfo--small">
+                        <h3 ng-if="vm.hasApiCriticalError" translate="stdTerms.criticalErrorMsg"></h3>
+                        <h3 ng-if="vm.hasApi413Error" translate="validation.errors.413"></h3>
+                        <h3 ng-if="vm.hasApi404Error" translate="validation.errors.404"></h3>
+                        <h3 ng-if="vm.hasApi400Error" translate="validation.errors.400"></h3>
+
+                        <button  class="md-raised md-primary md-button md-ink-ripple"
+                                ng-click="vm.$state.go('dataValidator', {}, {reload: true})" translate="validation.backToValidator">
+                        </button>
 
                     </div>
                     <!-- Select file -->
-                    <div ng-if="!vm.hasApiCriticalError">
+                    <div ng-if="!vm.hasError">
                         <div ng-if="vm.$state.is('dataValidator') && vm.jobStatus !=='SUBMITTED' && vm.jobStatus !=='FETCHING' && vm.jobStatus !=='NOT_FOUND' && vm.jobStatus !=='ACCEPTED' ">
                             <div class="text-center m-t-1">
                                 <div class="speciesLookup__input-file">
                                     <input type="file" name="myfile" file-upload on-file-change="vm.handleUploadFile"/>
-                                    <a href="">Select file</a>
+                                    <a href="" translate="stdTerms.selectFile"></a>
                                 </div>
-                                <p class="ng-cloak">or</p>
+                                <p class="ng-cloak" translate="stdTerms.or"></p>
                             </div>
                             <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">Drop here</p>
                             <!-- <input type="file" id="input" onchange="angular.element(this).scope().handleFiles(this.files)"/> -->
@@ -39,12 +46,12 @@
                             </div>
 
                             <div class="text-center m-t-1">
-                                <p class="ng-cloak">or fetch file from location:</p>
+                                <p class="ng-cloak"><span translate="stdTerms.or"></span> <span translate="stdTerms.fetchFileFromLocation"></span>:</p>
                             <form name="fileUrlForm" novalidate>
                             <div layout="row">
                             <md-input-container md-no-float class="md-block" flex-gt-xs="33" flex-offset-gt-xs="33" flex>
 
-                            <input type="url" name="fileurl" placeholder="http://example.com/dwc.zip" ng-model="vm.resourceToValidate.fileUrl">
+                            <input type="url" name="fileurl" placeholder="http://example.com/dwca.zip" ng-model="vm.resourceToValidate.fileUrl">
                                 </md-input-container>
                             </div>
                             <button type="submit" class="md-raised md-primary md-button md-ink-ripple"

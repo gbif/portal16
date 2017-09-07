@@ -36,27 +36,25 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
             headers: {'Content-Type': undefined}
         }).success(function (data, status) {
             handleValidationSubmitResponse(data, status);
-        }).error(function (data) {
-            handleWSError(data);
+        }).error(function (data, status) {
+            handleWSError(data, status);
         });
     };
 
     vm.handleFileUrl = function(params) {
-        var postParams = {params: {}};
-        _.merge(postParams.params, params);
+
         vm.jobStatus = "FETCHING";
         var url = devApiUrl + 'validator/jobserver/submiturl';
-        $http.post(url, null, postParams)
+        $http({url: url, params: params, method : "POST"})
             .success(function (data, status) {
                 handleValidationSubmitResponse(data, status);
             })
-            .error(function (data) {
-                handleWSError(data);
+            .error(function (data, status, headers) {
+                handleWSError(data, status);
             });
     };
 
     vm.getValidationResults = function(jobid) {
-        loadEvaluationCategory();
 
         $http.get(
             devApiUrl + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
@@ -69,7 +67,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
                 handleValidationSubmitResponse(err)
             } else{
 
-                handleWSError(err)
+                handleWSError(err, status)
 
             }
         });
@@ -77,7 +75,11 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
 
     if($stateParams.jobid){
         vm.jobid = $stateParams.jobid;
-        vm.getValidationResults(vm.jobid)
+        loadEvaluationCategory().then(function(){
+            vm.getValidationResults(vm.jobid)
+
+        })
+
     };
 
     function loadEvaluationCategory() {
@@ -85,24 +87,42 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
             url: devApiUrl + 'validator/enumeration/simple/EvaluationCategory'
         }).success(function (data) {
             vm.evaluationCategory = data;
-        }).error(function (err) { //data, status, headers, config
+        }).error(function (err, status) { //data, status, headers, config
 
-            handleWSError(err)
+            handleWSError(err, status)
 
         });
     }
-
+    vm.retries404 = 5;
     function handleValidationSubmitResponse(data) {
 
         vm.jobStatus = data.status;
 
         if((data.status === "RUNNING" || data.status === "ACCEPTED" || data.status === "NOT_FOUND") && data.jobId){
+            /* currently the validator webservice may return 404 and then after a few attempts it will return 200
+                We give it 5 attempts before throwing 404
 
+             */
             vm.jobId = data.jobId;
+            if(data.status === "NOT_FOUND"){
+                vm.retries404 --;
+            }
             $timeout(function(){
 
                 if($state.is('dataValidatorKey')){
-                    vm.getValidationResults($stateParams.jobid)
+
+                    if(data.status === "NOT_FOUND" && vm.retries404 < 1){
+                        handleWSError(data, 404)
+                    } else {
+
+                        // pretend the job is running if we haven´t reached 404 retry limit
+                        if(data.status === "NOT_FOUND" && vm.retries404 > 0){
+                            vm.jobStatus = "CONTACTING_SERVER";
+                        }
+                        vm.getValidationResults($stateParams.jobid)
+
+                    };
+
                 } else if($state.is('dataValidator')){
 
                     $state.go("dataValidatorKey", {jobid: vm.jobId});
@@ -205,8 +225,23 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
         vm.handleUploadFile(e.dataTransfer);
     };
 
-    function handleWSError(data) {
-        vm.hasApiCriticalError = true;
+    function handleWSError(data, status) {
+
+        vm.hasError = true;
+        switch(status) {
+            case 413:
+                vm.hasApi413Error = true;
+                break;
+            case 404:
+                vm.hasApi404Error = true;
+                break;
+            case 400:
+                vm.hasApi400Error = true;
+                break;
+            default:
+                vm.hasApiCriticalError = true;
+        }
+        //vm.hasApiCriticalError = true;
       //  alert("error")
     }
 
