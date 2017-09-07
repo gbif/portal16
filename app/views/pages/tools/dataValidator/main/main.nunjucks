@@ -54,28 +54,28 @@
                                                 <div class="col-xs-6">
                                                     <dt class="text-capitalize" translate="validation.numberOfLines"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.numberOfLines }}
+                                                        {{ resultPerResource.numberOfLines  | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
                                                     <dt class="text-capitalize" translate="validation.interpretedCounts.date"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.interpretedValueCounts['dwc:year'] }}
+                                                        {{ resultPerResource.interpretedValueCounts['dwc:year'] | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
                                                     <dt class="text-capitalize" translate="validation.interpretedCounts.taxon"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] }}
+                                                        {{ resultPerResource.interpretedValueCounts['gbif:taxonKey'] | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:decimalLatitude']">
                                                     <dt class="text-capitalize" translate="validation.interpretedCounts.location"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] }}
+                                                        {{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
                                             </dl>

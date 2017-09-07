@@ -383,6 +383,8 @@ require('../../../components/count/count.directive');
 require('../../../components/asyncIf/asyncIf.directive');
 require('../../../components/elementQuery/elementQuery.directive');
 require('../../../components/taxonImg/taxonImg.directive');
+require('../../../components/taxonImg/taxonOccImg.directive');
+
 
 require('../../../components/filterEnum/filterEnum.directive');
 require('../../../components/filterTernary/filterTernary.directive');

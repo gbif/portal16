@@ -15,7 +15,9 @@
                     <img ng-src="{$ _meta.clientTileApi $}?x=0&y=0&z=0&palette=yellows_reds&key={{result.key}}&type=TAXON&resolution=4">
                 </div>
             </div>
-            <div class="pull-right hideInvalid" taxon-img="{{ result.key }}" ng-if="result.rank == 'SPECIES' || result.rank == 'GENUS'"></div>
+            <div class="pull-right hideInvalid" taxon-occ-img="{{ result.key }}" ng-if="result.key === result.nubKey && (result.rank == 'SPECIES' || result.rank == 'GENUS')"></div>
+            <div class="pull-right hideInvalid" taxon-img="{{ result.key }}" ng-if="result.key !== result.nubKey && (result.rank == 'SPECIES' || result.rank == 'GENUS')"></div>
+
             <div class="searchCard__meta" ng-if="result.publishedIn">
                 Published in: {{ result.publishedIn | truncate:180 }}
             </div>

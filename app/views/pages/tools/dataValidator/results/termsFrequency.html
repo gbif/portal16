@@ -11,7 +11,7 @@
         <tbody>
         <tr ng-repeat="(k,v) in resultPerResource.termsFrequency">
             <td ng-class="{'dataValidator__unknownTerm' : resultPerResource.unknownTermMap[k] === true }" >{{ k }}</td>
-            <td>{{ v.count }}</td>
+            <td>{{ v.count | localNumber:gb.locale }}</td>
             <td>
                 <div class="termFrequencyStats__circle">
                     <round-progress

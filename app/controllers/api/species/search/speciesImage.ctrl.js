@@ -29,7 +29,7 @@ router.get('/species/:key/images', function (req, res) {
         });
 });
 
-router.get('/species/:key/image', function (req, res) {
+router.get('/species/:key/occimage', function (req, res) {
     let taxonKey = req.params.key,
         images = query({
             media_type: 'StillImage',
@@ -41,13 +41,34 @@ router.get('/species/:key/image', function (req, res) {
         .then(function (response) {
             let imgList = getImages(response.results);
             if (imgList.length > 0) {
+                //select first image
                 res.send(imgList[0]);
             } else {
                 res.status(204);
                 res.send();
             }
         })
-        .catch(function () {
+        .catch(function (err) {
+            console.log(err)
+            res.status(500);
+            res.send('SERVER FAILURE');
+        });
+});
+
+router.get('/species/:key/image', function (req, res) {
+    let
+        images = getSpeciesImages(req.params.key);
+
+    images
+        .then(function (imgList) {
+            if (imgList.length > 0) {
+                res.send(imgList[0]);
+            } else {
+                res.status(204);
+                res.send();
+            }
+        })
+        .catch(function (err) {
             res.status(500);
             res.send('SERVER FAILURE');
         });
@@ -71,14 +92,38 @@ async function query(query, options) {
     return items.body;
 }
 
+async function getSpeciesImages(taxonKey) {
+
+    let baseRequest = {
+        url: apiConfig.taxon.url + taxonKey + "/media",
+        timeout: 30000,
+        method: 'GET',
+        json: true
+    };
+
+    let items = await request(baseRequest);
+    if (items.statusCode > 299) {
+        throw items;
+    }
+    let images = [];
+
+        //select first image
+        for (var i = 0; i < items.body.results.length; i++) {
+            if (items.body.results[i].type == 'StillImage') {
+                images.push(items.body.results[i].identifier);
+            }
+        }
+
+    return images;
+}
+
 function getImages(results) {
     let images = [];
     results.forEach(function (e) {
-        //select first image
+
         for (var i = 0; i < e.media.length; i++) {
             if (e.media[i].type == 'StillImage') {
                 images.push(e.media[i].identifier);
-                return;
             }
         }
     });
