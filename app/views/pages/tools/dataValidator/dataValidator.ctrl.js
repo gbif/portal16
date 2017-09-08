@@ -98,7 +98,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
 
         vm.jobStatus = data.status;
 
-        if((data.status === "RUNNING" || data.status === "ACCEPTED" || data.status === "NOT_FOUND") && data.jobId){
+        if((data.status === "RUNNING"  || data.status === "ACCEPTED" || data.status === "NOT_FOUND") && data.jobId){
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
 
@@ -119,6 +119,9 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
                         if(data.status === "NOT_FOUND" && vm.retries404 > 0){
                             vm.jobStatus = "CONTACTING_SERVER";
                         }
+                        if(data.status === "RUNNING" && data.result){
+                            handleValidationResult(data);
+                        }
                         vm.getValidationResults($stateParams.jobid)
 
                     };
@@ -134,6 +137,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
             handleFailedJob(data);
         } else if(data.status === "FINISHED"){
             handleValidationResult(data);
+            console.log(vm.validationResults.summary)
         }
         //$window.location.href = '/tools/data-validator/' + data.jobId;
     }

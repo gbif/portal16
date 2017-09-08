@@ -32,8 +32,12 @@
                 <p>{{ vm.validationResults.summary.fileName  }}</p>
                 <p ng-if="vm.validationResults.summary.indexeable === true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.indexeable"></span></p>
                 <p ng-if="vm.validationResults.summary.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
-                <p ng-if="vm.validationResults.summary.hasIssues">
-                   <div class="inline"> <span class="issue-bullet__warn">●</span> <span  translate="validation.fileHasIssues"></span>:</div>
+                <p ng-if="vm.validationResults.summary.hasIssues !== true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.fileHasNoIssues"></span></p>
+                <span ng-if="vm.validationResults.summary.hasIssues === true">
+                   <div class="inline">
+                   <span class="issue-bullet__warn">●</span>
+                   <span  translate="validation.fileHasIssues"></span>:
+                   </div>
 
                    <table class="table dataValidator__summaryTable">
 
@@ -45,15 +49,26 @@
 
                        </td>
                        </tr>
+                       <tr ng-if="!vm.validationResults.summary.issueTypesFound.OCC_INTERPRETATION_BASED && vm.coreDataType === 'http://rs.tdwg.org/dwc/terms/Occurrence'">
+                           <td class="categoryTitle">{{ 'validation.category.OCC_INTERPRETATION_BASED' | translate }}</td>
+                       <td >
+                           <span  class="badge badge--approved" translate="validation.issueType.NoIssuesFound"></span>
+
+                       </td>
+                       </tr>
+                       <tr ng-if="!vm.validationResults.summary.issueTypesFound.CLB_INTERPRETATION_BASED && vm.coreDataType === 'http://rs.tdwg.org/dwc/terms/Taxon'">
+                           <td class="categoryTitle">{{ 'validation.category.CLB_INTERPRETATION_BASED' | translate }}</td>
+                       <td >
+                           <span  class="badge badge--approved" translate="validation.issueType.NoIssuesFound"></span>
+
+                       </td>
+                       </tr>
 
                        </tbody>
                    </table>
-                {#<div ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">#}
-                    {#<span>{{ 'validation.category.'+issueCat | translate }}</span>#}
-                    {#<span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED')? "occurrenceIssue."+issue : "validation.issueType."+issue | translate }}</span>#}
-                {#</div>#}
 
-                </p>
+
+                </span>
             </div>
 
 
@@ -81,6 +96,12 @@
                     </dd>
                 </div>
                 <div>
+                    <dt class="text-capitalize" translate="validation.receivedMediaType"></dt>
+                    <dd >{{ vm.validationResults.summary.receivedMediaType }}
+
+                    </dd>
+                </div>
+                <div>
                     <dt class="text-capitalize">Data type</dt>
                     <dd >
                         {{ (vm.coreDataType) ? vm.dwcextensions[vm.coreDataType].title : 'validation.unknown' | translate }}
@@ -95,6 +116,7 @@
                 </div>
 
             </dl>
+            <div class="card__content--warning p-l-05 m-t-1" ng-if="vm.validationResults.summary.receivedMediaType.indexOf('zip') > -1 && vm.validationResults.summary.fileFormat !== 'DWCA'">Please notice that the supplied file was a zipped archive, but was not interpreted as a Darwin Core Archive due to lacking / unparsable MetaData</div>
         </div>
     </div>
 </div>
