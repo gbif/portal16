@@ -123,6 +123,12 @@ function adhocMapDirective(BUILD_VERSION) {
                 fitExtent: true
             });
 
+            map.enableDragDrop(function(geom){
+
+                getOccurrencesInArea(geom)
+
+            })
+
         };
 
         vm.zoomIn = function () {
@@ -146,6 +152,8 @@ function adhocMapDirective(BUILD_VERSION) {
             vm.drawActive = false;
             map.removeDrawnItems();
         }
+
+
 
         vm.setStyle = function (style) {
             var s = vm.styles[style] || vm.styles.CLASSIC;
@@ -202,12 +210,21 @@ function adhocMapDirective(BUILD_VERSION) {
 
             vm.activeControl = vm.controls.OCCURRENCES;
             vm.mapMenu.isLoading = true;
-            vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery, function (data) {
+            vm.occurrenceRequest = OccurrenceSearch.query(vm.clickedQuery).$promise.then(function (data) {
                 utils.attachImages(data.results);
                 vm.mapMenu.isLoading = false;
                 vm.mapMenu.occurrences = data;
-            }, function () {
-                //TODO error handling
+            }).catch(function (err) {
+                vm.activeControl = undefined;
+                vm.hasError = true;
+                if(err.status === 414 || err.status === 413){
+                // handle request uri too long / payload too large
+                    vm.hasApi413Error = true;
+                } else {
+                    vm.hasApiCriticalError = true;
+
+                }
+
             });
         }
 

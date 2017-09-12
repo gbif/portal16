@@ -13,6 +13,21 @@
 
     <div class="mapWidget__controls clearfix">
         <div class="mapPopups">
+            <div class="mapPopup fixedSize" ng-if="vm.hasError">
+                <div class="card small">
+                    <div class="card__stripe">
+                        <div class="card__content card__content--warning">
+                            <a href="" class="gb-icon-close_L inherit pull-right"
+                               ng-click="vm.hasError=false"></a>
+                                <h4 ng-if="vm.hasApiCriticalError" ><span translate="stdTerms.criticalErrorMsg"></span></h4>
+                                <h4 ng-if="vm.hasApi413Error" ><span translate="map.errors.413"></span></h4>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <div class="mapPopup fixedSize" ng-if="!vm.ignoreCoordinateIssues && (vm.filter.has_coordinate !== 'true' || vm.filter.has_geospatial_issue !== 'false')">
                 <div class="card small">
                     <div class="card__stripe">

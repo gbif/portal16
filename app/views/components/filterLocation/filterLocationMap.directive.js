@@ -130,6 +130,8 @@ function createMap(element, OccurrenceFilter) {
             var geojsonGeometry = parseGeometry(wktStr);
             editableLayers.addLayer(L.GeoJSON.geometryToLayer(geojsonGeometry));
         });
+        setTimeout(function(){map.fitBounds(editableLayers.getBounds());}, 0)
+
     }
 
     return {

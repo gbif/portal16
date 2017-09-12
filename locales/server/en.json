@@ -2651,6 +2651,9 @@
       "GREEN": "Green",
       "BLUE_CLUSTER": "Blue cluster",
       "ORANGE_CLUSTER": "Orange cluster"
+    },
+    "errors": {
+      "413" : "The geometry file is too large to be processed by the data api."
     }
   }
 }

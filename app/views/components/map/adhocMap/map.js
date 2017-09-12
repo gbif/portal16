@@ -75,18 +75,85 @@ function createMap(element, options) {
 
     };
 
+    var dragAndDropInteraction = new ol.interaction.DragAndDrop({
+        formatConstructors: [
+            ol.format.GPX,
+            ol.format.GeoJSON,
+            ol.format.IGC,
+            ol.format.KML,
+            ol.format.TopoJSON
+        ]
+    });
 
     var map = new ol.Map({
+        interactions: ol.interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
         controls: ol.control.defaults({zoom:false})
 
     });
+
+
+
     var drawLayer;
+    var format = new ol.format.WKT();
+    function enableDragDrop(cb) {
+        dragAndDropInteraction.on('addfeatures', function (event) {
+
+
+            var geometries =[];
+            event.features.forEach(function (f) {
+                var original = f.getGeometry();
+
+                if(typeof original.getPolygons === 'function'){
+                    var polys = original.getPolygons();
+                    for(var i =0; i< polys.length; i++){
+                        geometries.push(new ol.Feature({ geometry:polys[i]}));
+                    }
+                } else {
+                    geometries.push(new ol.Feature({ geometry:original}));
+
+                }
+
+
+            })
+
+            var vectorSource = new ol.source.Vector({
+                features: geometries
+            });
+
+
+            drawLayer = new ol.layer.Vector({
+                source: vectorSource
+            })
+            map.addLayer(drawLayer);
+
+            map.getView().fit(vectorSource.getExtent());
+
+
+            setTimeout(function() {
+               var wkt = geometries.map(function (f) {
+
+                   var w = format.writeGeometry(f.getGeometry());
+
+
+                   return w;
+                })
+
+                if(cb){
+                    cb(wkt);
+                }
+            })
+
+
+        });
+    }
+
+
 
     function enableDraw(cb){
 
-        var format = new ol.format.WKT();
+
         var source = new ol.source.Vector({wrapX: false});
         var draw = new ol.interaction.Draw({
             source: source,
@@ -148,6 +215,7 @@ function createMap(element, options) {
     return {
         map: map,
         enableDraw: enableDraw,
+        enableDragDrop: enableDragDrop,
         removeDrawnItems: removeDrawnItems,
         update: this.update,
         on: function (str, action) {
