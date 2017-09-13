@@ -2262,7 +2262,7 @@
     "communitySite": "Community site",
     "strategicPlan": " Strategic plan",
     "contactUs": "Contacts",
-    "information": "News & communications",
+    "information": "News & Outreach",
     "news": "News",
     "literature": "Literature",
     "newsletters": "Newsletters and lists",
@@ -2273,7 +2273,8 @@
     "capacitySupport": "Capacity enhancement",
     "bidProgramme": "BID: Biodiversity Information for Development",
     "bifaProgramme": "BIFA: Biodiversity Information Fund for Asia",
-    "funders": "Funders"
+    "funders": "Funders",
+    "governance" : "Governance"
   },
   "validation": {
     "category": {

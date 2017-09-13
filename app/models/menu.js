@@ -149,6 +149,10 @@ module.exports = [
             "name": "becomeMember",
             "url": "/become-member"
           },
+            {
+                "name": "governance",
+                "url": "/governance"
+            },
           {
             "name": "funders",
             "url": "/funders"
@@ -156,10 +160,6 @@ module.exports = [
           {
             "name": "strategicPlan",
             "url": "/strategic-plan"
-          },
-          {
-            "name": "awards",
-            "url": "/awards"
           },
           {
             "name": "contactUs",
@@ -186,6 +186,10 @@ module.exports = [
             "name": "newsletters",
             "url": "/newsletters"
           },
+            {
+                "name": "awards",
+                "url": "/awards"
+            },
           {
             "name": "communitySite",
             "url": "http://community.gbif.org",
