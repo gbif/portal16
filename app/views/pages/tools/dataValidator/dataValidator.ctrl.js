@@ -174,8 +174,10 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
                 summary: _.omit(data, 'results'),
                 results: []
             };
-            vm.validationResults.summary.issueTypesFound = {}
-            angular.forEach(data.results, function(resourceResult) {
+            vm.validationResults.summary.issueTypesFound = {};
+             vm.unknownTermMap = {};
+
+        angular.forEach(data.results, function(resourceResult) {
                 var vmResourceResult = _.omit(resourceResult, 'issues');
                 //the order of the evaluationCategory is important
                 vmResourceResult.issues = _.orderBy(resourceResult.issues, function (value) {return _.indexOf(vm.evaluationCategory, value.issueCategory)});
@@ -193,12 +195,11 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
 
 
                 vmResourceResult.issuesMap = {};
-                vmResourceResult.unknownTermMap = {};
                 var issueBlock, issueSample;
                 angular.forEach(resourceResult.issues, function(value) {
                     this[value.issueCategory] = this[value.issueCategory] || [];
                     if(value.issue === "UNKNOWN_TERM"){
-                        vmResourceResult.unknownTermMap[value.relatedData] = true;
+                        vm.unknownTermMap[value.relatedData] = true;
                     };
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};

@@ -72,6 +72,9 @@ function speciesKey2Ctrl($state, $stateParams, Species, $http, DwcExtension, Occ
                 vm.verbatim = SpeciesVerbatim.get({id: vm.key});
                 vm.verbatim.$promise.then(function(){
                     vm.verbatimHasExtensions = Object.keys(vm.verbatim.extensions).length > 0;
+                    if(vm.verbatim['http://purl.org/dc/terms/bibliographicCitation']){
+                        vm.species.bibliographicCitation = vm.verbatim['http://purl.org/dc/terms/bibliographicCitation']
+                    };
                 }).catch(function(err){
                     delete vm.verbatim;
                 });
