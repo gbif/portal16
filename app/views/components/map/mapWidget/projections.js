@@ -16,6 +16,7 @@ proj4.defs("EPSG:3031", "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0
 var halfWidth = Math.sqrt(2) * 6371007.2;
 var tile_size = 512;
 var max_zoom = 18;
+var pixel_ratio = parseInt(window.devicePixelRatio) || 1;
 
 function get4326() {
     var extent = 180.0;
@@ -56,11 +57,11 @@ function get4326() {
             return getLayer(baseMaps.EPSG_4326.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         },
         getAdhocLayer: function (params) {
             params.srs = '4326';//only supports this projection
-            return getLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         }
     };
 }
@@ -97,7 +98,7 @@ function get3857() {
             return getLayer(baseMaps.EPSG_3857.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         }
     };
 }
@@ -144,7 +145,7 @@ function get3575() {
             return getLayer(baseMaps.EPSG_3575.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         }
     };
 }
@@ -192,7 +193,7 @@ function get3031() {
             return getLayer(baseMaps.EPSG_3031.url, this, params);
         },
         getOccurrenceLayer: function (params) {
-            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@1x.png?', this, params);
+            return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixel_ratio + 'x.png?', this, params);
         }
     };
 }
@@ -206,7 +207,7 @@ function getLayer(baseUrl, proj, params) {
     var source = new ol.source.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
-        tilePixelRatio: 1,
+        tilePixelRatio: pixel_ratio,
         url: baseUrl + querystring.stringify(params),
         wrapX: proj.wrapX
     });
