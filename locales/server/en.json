@@ -2311,6 +2311,19 @@
       "TABULAR": "Tabular File (.csv, .tsv)",
       "SPREADSHEET": "Spreadsheet (.xlsx)"
     },
+    "fileType": {
+      "title": "File type",
+      "CORE": {"title" : "Core type"},
+      "EXTENSION": {"title" : "Extensions"},
+      "METADATA": {
+        "description" : "Metadata describing the data in EML (Ecological Metadata Language)",
+        "title": "Metadata"
+        },
+      "META_DESCRIPTOR" : {
+        "description" : "Metadata describing how the data is structured (columns, ids etc)",
+        "title": "Meta description"
+        }
+    },
     "receivedMediaType": "Mime Type",
     "validationProfile": {
       "title": "Validation Profile",
@@ -2327,7 +2340,7 @@
       "413" : "The file is too large, to be processed by the data validator."
     },
     "backToValidator" : "Take me back to the validator",
-    "metadata": {"description" : "Metadata describing the data"},
+
     "termsFrequency": {
       "title": "Term Frequency",
       "term": "Term",
