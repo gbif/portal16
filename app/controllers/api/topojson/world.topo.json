@@ -4096,6 +4096,7 @@
         "id" : 121,
         "properties" : {
           "name" : "Kosovo",
+          "countryCode" : "XK",
           "color" : "#d62728",
           "capital" : "Pristina",
           "lat" : "42.666666666666664",
@@ -4475,7 +4476,7 @@
         "id" : 143,
         "properties" : {
           "name" : "Macedonia, the former Yugoslav Republic of",
-          "countryCode" : "MD",
+          "countryCode" : "MK",
           "capital" : "Skopje",
           "lat" : "42",
           "lon" : "21.433333333333334"
