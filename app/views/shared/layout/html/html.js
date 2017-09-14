@@ -378,7 +378,6 @@ require('../../../components/filterLocation/filterLocationMap.directive');
 require('../../../components/filterLocation/bboxFilter/bboxFilter.directive');
 require('../../../components/filterInterval/filterInterval.directive');
 require('../../../components/filterFacet/filterFacet.directive');
-require('../../../components/filterFacetSuggest/filterFacetSuggest.directive');
 
 require('../../../components/filterFacetedEnum/filterFacetedEnum.directive');
 require('../../../components/count/count.directive');
