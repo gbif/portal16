@@ -6,7 +6,7 @@ angular
     .controller('speciesCtrl', speciesCtrl);
 
 /** @ngInject */
-function speciesCtrl($state, SpeciesFilter, Page) {
+function speciesCtrl($state, SpeciesFilter, Page, suggestEndpoints, Dataset, BUILD_VERSION) {
     var vm = this;
     Page.setTitle('Species search');
     Page.drawer(true);
@@ -23,12 +23,34 @@ function speciesCtrl($state, SpeciesFilter, Page) {
         filter: SpeciesFilter
     };
 
-    vm.filters.datasetKey = {
+    // vm.filters.datasetKey = {
+    //     queryKey: 'dataset_key',
+    //     facetKey: 'DATASET_KEY',
+    //     title: 'dataset',
+    //     translationPrefix: 'taxon',
+    //     filter: SpeciesFilter
+    // };
+    vm.filters.dataset = {
+        titleTranslation: 'stdTerms.dataset',
         queryKey: 'dataset_key',
-        facetKey: 'DATASET_KEY',
-        title: 'dataset',
-        translationPrefix: 'taxon',
-        filter: SpeciesFilter
+        filter: SpeciesFilter,
+        expand: {
+            resource: Dataset,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'DATASET_KEY'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'search TRANSLATE',
+            suggestEndpoint: suggestEndpoints.dataset,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
     };
 
     vm.filters.constituentKey = {
@@ -38,6 +60,8 @@ function speciesCtrl($state, SpeciesFilter, Page) {
         translationPrefix: 'taxon',
         filter: SpeciesFilter
     };
+
+
 
     vm.filters.highertaxonKey = {
         queryKey: 'highertaxon_key',

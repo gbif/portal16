@@ -73,7 +73,7 @@ function filterTaxonDirective(BUILD_VERSION) {
         vm.setFacetSuggestions = function () {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
-                if (vm.query.length > 0) {
+                if (vm.query.length > 0 && vm.filterState.facetMultiselect && vm.filterState.facetMultiselect.$promise) {
                     vm.filterState.facetMultiselect.$promise.then(function (data) {
                         vm.hideFacetCounts = false;
                         vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];

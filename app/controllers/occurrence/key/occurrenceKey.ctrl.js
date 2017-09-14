@@ -39,6 +39,7 @@ function renderPage(req, res, next, occurrence) {
             });
         }
     } catch (e) {
+        console.log(e)
         next(e);
     }
 }

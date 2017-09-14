@@ -85,3 +85,21 @@
         border-left 1px solid lighten(#F5CC27, 5%)
     }
 }
+
+.badge-composite--info {
+    @extends .badge-composite
+    .badge {
+        background #D3D3D3
+        color $bodyTextColor
+        font-weight inherit
+    }
+    .badge:first-of-type {
+        background darken(#D3D3D3, 10%)
+        border-right 1px solid darken(#D3D3D3, 15%)
+    }
+    .badge:last-of-type {
+        border-radius 0 10px 10px 0
+        display inline-block
+        border-left 1px solid lighten(#D3D3D3, 5%)
+    }
+}

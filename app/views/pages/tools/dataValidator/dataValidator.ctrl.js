@@ -13,7 +13,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks) {
     var vm = this;
     vm.$state = $state;
 
@@ -21,8 +21,16 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
 
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
+    vm.remarks = {};
 
     vm.dwcextensions = DwcExtension.get();
+
+    Remarks.then(function (response) {
+        vm.remarks = {};
+        response.data.remarks.map(function (remark) {
+            vm.remarks[remark.type] = remark;
+        });
+    });
 
     vm.handleUploadFile = function(params) {
         var formData = new FormData();
@@ -142,6 +150,17 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
         //$window.location.href = '/tools/data-validator/' + data.jobId;
     }
 
+
+    function getIssueSeverity(e) {
+
+
+                return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
+
+
+
+
+    };
+
     function handleValidationResult(responseData) {
 
 
@@ -201,6 +220,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension) 
                     if(value.issue === "UNKNOWN_TERM"){
                         vm.unknownTermMap[value.relatedData] = true;
                     };
+                    value.severity = getIssueSeverity(value.issue);
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
                     vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = true;
