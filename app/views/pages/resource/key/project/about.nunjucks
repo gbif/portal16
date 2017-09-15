@@ -51,7 +51,7 @@
                         {% if resolved.Entry[main.fields.programme.sys.id].fields.acronym %}
                             <div>
                                 <dt>Programme</dt>
-                                <dd><a href="{$ gb.locales.urlPrefix $}/programme2/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.acronym $}</a></dd>
+                                <dd><a href="{$ gb.locales.urlPrefix $}/programme/{$ resolved.Entry[main.fields.programme.sys.id].sys.id $}">{$ resolved.Entry[main.fields.programme.sys.id].fields.acronym $}</a></dd>
                             </div>
                         {% endif %}
                         {% if main.fields.projectId %}
