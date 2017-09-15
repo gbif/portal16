@@ -17,7 +17,9 @@ function getAngularInitData(occurrence) {
         'eventDate',
         'taxonKey',
         'lastParsed',
-        'coordinateUncertaintyInMeters'
+        'coordinateUncertaintyInMeters',
+        'elevation',
+        'elevationAccuracy'
     ];
     var selectedData = {};
     keys.forEach(function (e) {

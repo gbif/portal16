@@ -70,6 +70,7 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
         coordinateUncertaintyTemplate: '<dt>Coordinate uncertainty</dt><dd>{{coordinateUncertainty}}m</dd>',
         weatherTemplate: '<dt>Temperature<span>from Forecast.io</span></dt><dd>{{temperatureMin}}&deg;c to {{temperatureMax}}&deg;c</dd>',
         elevationTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}}</dd>',
+        elevationAccuracyTemplate: '<dt>Elevation<span>{{elevationSource}}</span></dt><dd>{{elevation}} ±{{elevationAccuracy}}m</dd>',
         weather: undefined,
         elevation: undefined
     };
@@ -89,8 +90,13 @@ function occurrenceKeyCtrl(leafletData, env, moment, $http, hotkeys) {
 
         if (vm.markerMessage.elevation) {
             var e = vm.markerMessage.elevation.elevation + 'm';
+            var eAccuracy = vm.markerMessage.elevation.elevationAccuracy;
             var source = vm.markerMessage.elevation.source || '';
-            elevation = vm.markerMessage.elevationTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source);
+            if (typeof eAccuracy !== 'undefined') {
+                elevation = vm.markerMessage.elevationAccuracyTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source).replace('{{elevationAccuracy}}', eAccuracy);
+            } else {
+                elevation = vm.markerMessage.elevationTemplate.replace('{{elevation}}', e).replace('{{elevationSource}}', source);
+            }
         }
 
         if (weather || elevation || coordinateUncertainty) {

@@ -28,6 +28,15 @@
                         </div>
                     {% endif %}
 
+                    {% if occurrence.record.elevation %}
+                        <div>
+                            <dt class="text-capitalize">{$ __('ocurrenceFieldNames.elevation') $}</dt>
+                            <dd class="classification-list">
+                                <span>{$ occurrence.record.elevation $}m {% if occurrence.record.elevationAccuracy %}<span>±{$ occurrence.record.elevationAccuracy $}m</span>{% endif %}</span>
+                            </dd>
+                        </div>
+                    {% endif %}
+
                     <div>
                         <dt class="text-capitalize">{$ __('stdTerms.basisOfRecord') $}</dt>
                         <dd class="text-capitalize">{$ __('basisOfRecord.' + occurrence.record.basisOfRecord) $}</dd>
