@@ -11,7 +11,7 @@
                 <div layout-wrap layout-gt-sm="row">
                     <div>
                         <md-checkbox ng-model="eoi.terms.agreement" aria-label="Data sharing agreement" class="md-primary md-align-top-left">
-                            I have read and understood <a href="/terms/data-publisher">GBIF's Data Publisher Agreement</a> and agree to its terms.
+                            I have read and understood <a href="/terms/data-publisher" target="_blank">GBIF's Data Publisher Agreement</a> and agree to its terms.
                         </md-checkbox>
                     </div>
                     <div>
@@ -31,42 +31,3 @@
         </md-card-content>
     </md-card>
 </div>
-
-{#<section id="step_terms" class="card card--spaced">#}
-    {#<div class="card__content">#}
-        {#<h3>Terms and conditions</h3>#}
-        {#<div class="checkbox">#}
-            {#<label for="dua_read">#}
-                {#<input type="checkbox" ng-model="eoiCtrl.formData.terms.duaRead" id="dua_read" required> I have read and#}
-                {#understood GBIF's <a href="http://www.gbif.org/disclaimer/datasharing">Data Sharing Agreement</a> and#}
-                {#agree to its terms.#}
-            {#</label>#}
-        {#</div>#}
-        {#<div class="checkbox">#}
-            {#<label for="on_behalf">#}
-                {#<input type="checkbox" ng-model="eoiCtrl.formData.terms.onBehalf" id="on_behalf" required> I understand#}
-                {#that I am seeking registration on behalf of my organization, and confirm that the responsible#}
-                {#authorities of my organization are aware of this registration.#}
-            {#</label>#}
-        {#</div>#}
-        {#<div class="checkbox">#}
-            {#<label for="made_public">#}
-                {#<input type="checkbox" theme="light" ng-model="eoiCtrl.formData.terms.madePublic" id="made_public"#}
-                       {#required> I understand that my organizational information, including the contact details#}
-                {#provided, will be made publicly available through GBIF.org.#}
-            {#</label>#}
-        {#</div>#}
-        {#<label>Prove you are human</label>#}
-        {#<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async#}
-                {#defer></script>#}
-        {#<div vc-recaptcha theme="'light'" key="eoiCtrl.model.key" on-create="eoiCtrl.setWidgetId(widgetId)"#}
-             {#on-success="eoiCtrl.setResponse(response)" on-expire="eoiCtrl.cbExpiration()"></div>#}
-        {#<div class="recaptcha-invalid" ng-show="eoiCtrl.formControl.recaptcha_invalid">reCaptcha challenge failed.#}
-            {#Please try again.#}
-        {#</div>#}
-        {#<div class="bottom-button">#}
-            {#<input type="submit" value="submit" class="btn btn-primary next-step" ng-disabled="eoiForm.$invalid"><span#}
-                    {#class="hint-2lines" ng-show="eoiForm.$invalid">This button will be activated once all terms are agreed and human verification is passed.</span>#}
-        {#</div>#}
-    {#</div>#}
-{#</section>#}
