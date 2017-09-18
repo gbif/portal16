@@ -18,9 +18,21 @@
                         <div ng-repeat="description in speciesKey2.descriptions.results" class="m-b-1">
                             <h5 class="text-muted small text-uppercase">{{ description.type }}</h5>
                             <div ng-bind-html="description.description"></div>
-                            <p class="small source">Source: <a class="inherit"
+                            <p class="small source" ng-if="description.source">Source: <a class="inherit"
                                                                ng-href="/species/{{ description.sourceTaxonKey }}">{{ description.source }}</a>
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-t-1" ng-if="speciesKey2.species.remarks">
+                <h4 class="text-muted small text-uppercase">Remarks</h4>
+                <div class="card">
+                    <div class="card__content">
+                        <div >
+                            <p ng-bind-html="speciesKey2.species.remarks"></p>
+
                         </div>
                     </div>
                 </div>
