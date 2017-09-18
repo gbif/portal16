@@ -89,7 +89,7 @@
                         The format of the url is as follows:
                     </p>
                     <p>
-                        <code>{$ cfg.tileServerBaseUrl $}/density/tile?x={x}&y={y}&z={z}</code>
+                        <code>{$ cfg.tileServerBaseUrl $}/map/density/tile?x={x}&y={y}&z={z}</code>
                     </p>
                     <p>With the following parameters:
                     <table class="table table-bordered">
