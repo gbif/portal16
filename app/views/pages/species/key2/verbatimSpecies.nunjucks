@@ -7,7 +7,7 @@
 
         <div class="container--desktop">
 
-            <div class="card row"
+            <div class="card"
                  >
                 <div class="card__content card__content--warning">
                     <p >This listing shows the original information as received by GBIF from the data publisher, without further interpretation processing.
@@ -24,7 +24,7 @@
                 <h4 class="text-muted small text-uppercase m-t-1">
                     Last crawled {{ speciesKey2.verbatim.lastCrawled | date : 'longDate' }}
                 </h4>
-                <div class="card m-b-05 searchCard row" >
+                <div class="card m-b-05 searchCard " >
                     <div class="card__stripe">
                         <div class="card__content card__content--warning">
                             <table class="table table--compact">
@@ -62,7 +62,7 @@
                         </a></h4>
                 <p class="discreet--very smaller extension-subheader">{{speciesKey2.dwcextensions[nameSpace].description}}</p>
                     <div >
-                        <div class="card m-b-05 searchCard row" ng-repeat="item in extension">
+                        <div class="card m-b-05 searchCard " ng-repeat="item in extension">
                             <div class="card__stripe">
                                 <div class="card__content card__content--warning">
                                 <table class="table table--compact">
