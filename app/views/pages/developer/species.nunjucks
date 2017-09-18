@@ -2,7 +2,7 @@
 {% import "./developer.macros.nunjucks" as api %}
 
 {% macro trow(url, resp, httpMethod="GET", respLink, paging=undefined, params=[]) %}
-    {$ api.trow(url="/species/"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
+    {$ api.trow(url="/species"+url, httpMethod=httpMethod, resp=resp, respLink=respLink, params=params, paging=paging, authRequired=undefined, description=caller()) $}
 {% endmacro %}
 
 {% block page %}
