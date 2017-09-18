@@ -10,7 +10,7 @@
         <md-card-content>
             <div>
                 <div layout="row">
-                    <p> GBIF.org supports publication of four types of data, explained <a href='/dataset-classes'>here.</a> Responsibility for formatting the data and hosting the original datasets remains with the data publisher, but we can help you find appropriate technical solutions.     </p>           </div>
+                    <p> GBIF.org supports publication of four types of data, explained <a href="/dataset-classes" target="_blank">here.</a> Responsibility for formatting the data and hosting the original datasets remains with the data publisher, but we can help you find appropriate technical solutions.     </p>           </div>
                 {#<div layout="row">#}
                     {#<md-input-container flex="100">#}
                         {#<label>Data sample</label>#}
@@ -65,7 +65,7 @@
 
                 <div class="m-b-1">
                     <p>
-                        Are you planning to instal and run publishing software (such as the <a href="/ipt">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
+                        Are you planning to instal and run publishing software (such as the <a href="/ipt" target="_blank">Integrated Publishing Toolkit – IPT</a>) to publish your data directly to GBIF.org?
                     </p>
                     <md-radio-group ng-model="eoi.form.comments.toolPlanned" name="toolPlanned" layout="row" layout-align="start" required>
                         <md-radio-button value="yes" class="md-primary">Yes</md-radio-button>
@@ -75,7 +75,7 @@
                         <div ng-message="required">Please select a value</div>
                     </div>
                     <div class="m-t-1 text-warning" ng-if="eoi.form.comments.toolPlanned == 'yes'">
-                        In this case, it is recommended that you first try reusing an existing trusted <a href="https://github.com/gbif/ipt/wiki/dataHostingCentres">IPT data hosting centre</a>
+                        In this case, it is recommended that you first try reusing an existing trusted <a href="https://github.com/gbif/ipt/wiki/dataHostingCentres" target="_blank">IPT data hosting centre</a>
                     </div>
                 </div>
 
