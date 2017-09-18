@@ -13,7 +13,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location) {
     var vm = this;
     vm.$state = $state;
 
@@ -83,6 +83,9 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
     if($stateParams.jobid){
         vm.jobid = $stateParams.jobid;
+
+
+
         loadEvaluationCategory().then(function(){
             vm.getValidationResults(vm.jobid)
 
@@ -144,8 +147,10 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
         } else if(data.status === "FAILED"){
             handleFailedJob(data);
         } else if(data.status === "FINISHED"){
+            var port = ($location.port() !== 80 && $location.port() !== 443) ? ":"+$location.port() : "";
+
+            vm.jobUrl =   $location.protocol()+"://"+$location.host()+port+$location.path() ;
             handleValidationResult(data);
-            console.log(vm.validationResults.summary)
         }
         //$window.location.href = '/tools/data-validator/' + data.jobId;
     }
@@ -234,7 +239,9 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                         issueSample.relatedData = sample.relatedData;
                         this.sample.push(issueSample);
                     }, issueBlock);
-
+                    // issueBlock = _.sortBy(issueBlock, function(n) {
+                    //     return - Object.keys(n.sample.relatedData).length
+                    // });
                     this[value.issueCategory].push(issueBlock);
                 }, vmResourceResult.issuesMap);
 

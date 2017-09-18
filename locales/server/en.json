@@ -2330,6 +2330,9 @@
       "title": "Validation Profile",
       "GBIF_INDEXING_PROFILE": "GBIF Indexing Profile"
     },
+    "uniqueIdentifier" : "Unique identifier",
+    "reportLocation" : "This report has been written to",
+    "reportDeletion" : "It will be deleted after one month. Until then you can revisit the report at your convenience.",
     "summary": "Validation Summary",
     "issues": "Validation Issues",
     "fileHasIssues" : "The file has issues",

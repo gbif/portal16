@@ -23,11 +23,11 @@ function typeSpecimenDirective() {
     return directive;
 
     /** @ngInject */
-    function typeSpecimenCtrl(OccurrenceSearch) {
+    function typeSpecimenCtrl(OccurrenceTableSearch) {
         var vm = this;
         vm.specimen;
 
-        OccurrenceSearch.query({
+        OccurrenceTableSearch.query({
             taxonKey: vm.key,
             typeStatus: "*"
 

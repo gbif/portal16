@@ -10,7 +10,9 @@
         </thead>
         <tbody>
         <tr ng-repeat="(k,v) in resultPerResource.termsFrequency">
-            <td ng-class="{'dataValidator__unknownTerm' : (vm.unknownTermMap[k] === true  || (k.indexOf('http://unknown.org/') > -1 && k !== 'http://unknown.org/ARCHIVE_RECORD_ID')) }" >{{ k }}</td>
+            <td ng-class="{'dataValidator__unknownTerm' : (vm.unknownTermMap[k] === true  || (k.indexOf('http://unknown.org/') > -1 && k !== 'http://unknown.org/ARCHIVE_RECORD_ID')) }" >
+                <span ng-class="{'dataValidator__idField' : resultPerResource.idTerm === k}">{{ k }}</span> <span class="dataValidator__idField" ng-if="resultPerResource.idTerm === k">({{'validation.uniqueIdentifier' | translate}})</span>
+            </td>
             <td>{{ v.count | localNumber:gb.locale }}</td>
             <td>
                 <div class="termFrequencyStats__circle">

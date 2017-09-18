@@ -30,6 +30,8 @@
             <div >
                 <h2 class="m-t-0" translate="validation.summary"></h2>
                 <p>{{ vm.validationResults.summary.fileName  }}</p>
+                <p class="discreet--very smaller"><span translate="validation.reportLocation"></span> <span ng-bind-html="vm.jobUrl | linky"></span><br> <span translate="validation.reportDeletion"></span></p>
+
                 <p ng-if="vm.validationResults.summary.indexeable === true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.indexeable"></span></p>
                 <p ng-if="vm.validationResults.summary.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
                 <p ng-if="vm.validationResults.summary.hasIssues !== true" ><span class="issue-bullet__approved">●</span> <span  translate="validation.fileHasNoIssues"></span></p>
