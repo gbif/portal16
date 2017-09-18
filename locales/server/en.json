@@ -1,6 +1,6 @@
 {
   "search": {
-    "partialResultExplanation": "You're seeing a partial search result. Sometimes our systems are very busy - instead of keeping you waiting we return what is available at the moment.",
+    "partialResultExplanation": "You’re seeing a partial search result. Sometimes our systems are very busy — instead of keeping you waiting we return what is available at the moment.",
     "placeholder": "search",
     "taxonSearchPlaceholder": "search species ... kingdom",
     "datasetSearchPlaceholder": "search datasets"
@@ -278,7 +278,7 @@
     "grn": "Guarani",
     "gsw": "Swiss German",
     "guj": "Gujarati",
-    "gwi": "Gwich'in",
+    "gwi": "Gwich’in",
     "hai": "Haida",
     "hat": "Haitian Creole",
     "hau": "Hausa",
@@ -432,7 +432,7 @@
     "nog": "Nogai",
     "non": "Norse, Old",
     "nor": "Norwegian",
-    "nqo": "N'Ko",
+    "nqo": "N’Ko",
     "nso": "Sotho, Northern",
     "nub": "Nubian languages",
     "nwc": "Old Newari",
@@ -668,7 +668,7 @@
     "CD": "Congo, The Democratic Republic of the",
     "CK": "Cook Islands",
     "CR": "Costa Rica",
-    "CI": "Côte d'Ivoire",
+    "CI": "Côte d’Ivoire",
     "HR": "Croatia",
     "CU": "Cuba",
     "CW": "Curaçao",
@@ -731,12 +731,12 @@
     "KZ": "Kazakhstan",
     "KE": "Kenya",
     "KI": "Kiribati",
-    "KP": "Democratic People's Republic of Korea",
+    "KP": "Democratic People’s Republic of Korea",
     "KR": "Korea, Republic of",
     "XK": "Kosovo",
     "KW": "Kuwait",
     "KG": "Kyrgyzstan",
-    "LA": "Lao People's Democratic Republic",
+    "LA": "Lao People’s Democratic Republic",
     "LV": "Latvia",
     "LB": "Lebanon",
     "LS": "Lesotho",
@@ -1368,7 +1368,7 @@
     "infoAboutStorage": {
       "title": "We store all download files as long as possible",
       "paragraphA": "This page will always resolve, but the file itself might be removed in the future.",
-      "paragraphB": "But what does this mean? It means that storage space and funding isn't infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
+      "paragraphB": "But what does this mean? It means that storage space and funding isn’t infinite. We strive to store all downloads forever, but prioritize downloads that have been cited."
     },
     "status": {
       "PREPARING": "preparing",
@@ -1976,10 +1976,10 @@
     "eoiTitle": "Become a publisher",
     "observationTrendsTitle": "Observation Trends",
     "observationTrendsDescription": "A pilot to explore whether relative observation trends for species distribution within GBIF provide useful information for researchers",
-    "speciesLookupDescription": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called 'scientificName' and an optional column 'kingdom' and 'id'.",
+    "speciesLookupDescription": "Normalize species names from a CSV file against the GBIF backbone. The file is expected to be have a column called ‘scientificName’ and an optional column ‘kingdom’ and ‘id’.",
     "speciesLookupTitle": "Species name matching",
     "searchDescription": "Search GBIF.org",
-    "searchDescriptionDetail": "for '{{searchTerm}}'",
+    "searchDescriptionDetail": "for ‘{{searchTerm}}’",
     "iptDescription": "The Integrated Publishing Toolkit (IPT) is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the GBIF network. The IPT can also be configured with either a DataCite or EZID account in order to assign DOIs to datasets transforming it into a data repository."
   },
   "intervals": {
@@ -2041,11 +2041,11 @@
       },
       "budgetCommittee": {
         "title": "Budget committee",
-        "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF's auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
+        "description": "The Budget Committee is an advisory committee dealing with various financial issues relating to the administration of GBIF funds. Among other functions, it oversees the audit of the annual accounts submitted to the Governing Board, and it provides guidance for the selection of GBIF’s auditing company. The committee makes recommendations to the Governing Board, the Executive Committee and the Secretariat. Its terms of reference can be found [here.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "Nodes Steering Group",
-        "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF's six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG's objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF's annual work programmes as they relate to the efforts of GBIF nodes."
+        "description": "Established in 2011, the Nodes Steering Group (NSG) consists of the chair and vice-chairs of the [Participant Node Managers Committee](/contact-us/directory?group=nodesCommittee) joined by a regional representative from each of GBIF’s six regions ([Africa](/the-gbif-network/africa), [Asia](/the-gbif-network/asia), [Europe](/the-gbif-network/europe), [Latin America](/the-gbif-network/latin-america), [North America](/the-gbif-network/north-america) and [Oceania](/the-gbif-network/oceania)). The NSG’s objectives are to formulate specific recommendations to relevant GBIF bodies based on feedback provided by Participant nodes, and to provide advice on GBIF’s annual work programmes as they relate to the efforts of GBIF nodes."
       },
       "nodesCommittee": {
         "title": "Node Managers Committee",
@@ -2168,8 +2168,8 @@
         "taxon": "Taxonomic scope",
         "whyImportant": "why is this dataset important",
         "howWouldYouRateIt": "how would you rate its importance",
-        "high": "essential - GBIF have no data in this area",
-        "medium": "important - GBIF have little data in this area",
+        "high": "essential — GBIF have no data in this area",
+        "medium": "important — GBIF have little data in this area",
         "low": "it would be a nice supplement to the existing data",
         "bibliographicRef": "bibliographic reference",
         "type": "dataset type",
@@ -2217,7 +2217,7 @@
       "geojson": "GeoJSON",
       "range": "Range",
       "noFiltersAdded": "No area filters added",
-      "wktPlaceholder": "WKT or GeoJson - multipolygons are not supported",
+      "wktPlaceholder": "WKT or GeoJSON — multipolygons are not supported",
       "invalidTextInput": "Invalid WKT or GeoJSON",
       "invalidRange": "Invalid bounding box"
     }
@@ -2393,17 +2393,17 @@
   "feedback": {
     "intro": {
       "title": "Feedback and questions",
-      "example": "Help us resolve any issues by choosing which type of feedback you're providing"
+      "example": "Help us resolve any issues by choosing which type of feedback you’re providing"
     },
     "content": {
       "title": "Content",
-      "example": "Such as: That species doesn't exist. That location seems suspect. The new URL for that organization is...",
+      "example": "Such as: That species doesn’t exist. That location seems suspect. The new URL for that organization is...",
       "annotate": "This publisher has a website for handling feedback. We recommend using that",
       "contactPerMail": "Get in touch with the dataset contact"
     },
     "bug": {
       "title": "Bug",
-      "example": "Such as: The search button doesn't work. The page doesn't load. I can't read this because the columns overlap."
+      "example": "Such as: The search button doesn’t work. The page doesn’t load. I can’t read this because the columns overlap."
     },
     "idea": {
       "title": "Idea",
@@ -2433,7 +2433,7 @@
     "bugRedirect": "If you believe it has to do with GBIFs processing of the record, then please fill a %s",
     "bugReport": "bug",
     "issueTracking": "All issues are visible to the public at {Github}",
-    "failure": "This isn't good - the feedback system doesn't work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
+    "failure": "This isn’t good — the feedback system doesn’t work. Please send us a mail or go straight to {Github}. We are sorry about the trouble.",
     "commentsNone": "No comments",
     "commentSingular": "{commentCount} comment",
     "commentPlural": "{commentCount} comments"
@@ -2596,7 +2596,7 @@
     "VERBATIM_BASIONYM": "Implicit usage from a verbatim basionym/original name.",
     "PROPARTE": "Duplicated usage from a single pro parte record.",
     "AUTONYM": "Generated, missing autonym.",
-    "IMPLICIT_NAME": "Generated, missing genus or species for 'orphaned' lower name.",
+    "IMPLICIT_NAME": "Generated, missing genus or species for ‘orphaned’ lower name.",
     "MISSING_ACCEPTED": "Artificial accepted usage for a synonym if its missing to preserve the taxonomic hierarchy.",
     "BASIONYM_PLACEHOLDER": "Placeholder usage for a missing or implicit basionym.",
     "EX_AUTHOR_SYNONYM": "Implicit synonym based on the illegitimate ex author. See ICN article 46: http://www.iapt-taxon.org/nomen/main.php?page=art46",
@@ -2606,11 +2606,11 @@
     "appendix": "Appendix"
   },
   "help": {
-    "citationExplainer": "Read more about literature, how it's discovered and linked to GBIF-mediated data.",
-    "locationFilterWarning": "GBIF’s indexing and quality-check routines have flagged the coordinates for some records as suspicious. Would you like to filter these records from your current map view?\n**Note:** you can always reset the view to see all georeferenced records by going to the ‘Location’ filter and choosing to 'include records where coordinates are flagged as suspicious’.",
+    "citationExplainer": "Read more about literature, how it’s discovered and linked to GBIF-mediated data.",
+    "locationFilterWarning": "GBIF’s indexing and quality-check routines have flagged the coordinates for some records as suspicious. Would you like to filter these records from your current map view?\n**Note:** you can always reset the view to see all georeferenced records by going to the ‘Location’ filter and choosing to ‘include records where coordinates are flagged as suspicious’.",
     "noShowThem": "No, show them",
     "yesHideThem": "Yes, hide them",
-    "noJavascriptEnabled": "We're sorry, but GBIF doesn't work properly without JavaScript enabled.",
+    "noJavascriptEnabled": "We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.",
     "isSplashScreen": "Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.",
     "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records"
   },
@@ -2670,7 +2670,7 @@
       "ORANGE_CLUSTER": "Orange cluster"
     },
     "errors": {
-      "413" : "The geometry file is too large to be processed by the data api."
+      "413" : "The geometry file is too large to be processed by the data API."
     }
   }
 }
