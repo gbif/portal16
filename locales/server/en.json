@@ -875,7 +875,7 @@
     "COORDINATE_INVALID": "Coordinate invalid",
     "COORDINATE_ROUNDED": "Coordinate rounded",
     "GEODETIC_DATUM_INVALID": "Geodetic datum invalid",
-    "GEODETIC_DATUM_ASSUMED_WGS84": "Geodetic datum assumed wgs84",
+    "GEODETIC_DATUM_ASSUMED_WGS84": "Geodetic datum assumed WGS84",
     "COORDINATE_REPROJECTED": "Coordinate reprojected",
     "COORDINATE_REPROJECTION_FAILED": "Coordinate reprojection failed",
     "COORDINATE_REPROJECTION_SUSPICIOUS": "Coordinate reprojection suspicious",
