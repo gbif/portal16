@@ -17,9 +17,7 @@ function getAngularInitData(occurrence) {
         'eventDate',
         'taxonKey',
         'lastParsed',
-        'coordinateUncertaintyInMeters',
-        'elevation',
-        'elevationAccuracy'
+        'coordinateUncertaintyInMeters'
     ];
     var selectedData = {};
     keys.forEach(function (e) {
@@ -140,7 +138,7 @@ function getOccurrenceModel(occurrenceKey, __) {
 
     var promises = [
         Occurrence.get(occurrenceKey, getOptions),
-        occurrenceCoreTerms
+        occurrenceCoreTerms()
     ];
 
     Q.all(promises).spread(function (occurrence, occurrenceMeta) {

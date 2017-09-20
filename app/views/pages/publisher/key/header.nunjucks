@@ -11,8 +11,11 @@
                     </span>
                 </nav>
                 <h1>
-                    {{ publisherKey.publisher.title }}
+                    <span ng-class="{'text-error': publisherKey.publisher.deleted}">{{ publisherKey.publisher.title }}</span>
                 </h1>
+                <p class="text-error text-center" ng-if="publisherKey.publisher.deleted">
+                    This publisher was deleted {{ publisherKey.publisher.deleted | amDateFormat:'D MMMM YYYY' }}
+                </p>
             </header>
         </div>
 

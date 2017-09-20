@@ -16,8 +16,12 @@ var format = require('../helpers/format'),
 module.exports = function (nunjucksConfiguration) {
 
     (function () {
-        nunjucksConfiguration.addFilter('rawJson', function (data) {
-            return JSON.stringify(data);
+        nunjucksConfiguration.addFilter('rawJson', function (data, pretty) {
+            if (pretty) {
+                return JSON.stringify(data, undefined, 2);
+            } else {
+                return JSON.stringify(data);
+            }
         });
     })();
 

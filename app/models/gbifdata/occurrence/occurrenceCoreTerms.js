@@ -59,7 +59,7 @@ function getOccurrenceMetaData() {
     var deferred = Q.defer();
     async.parallel({terms: getTerms, remarks: getRemarkTypes}, function (err, data) {
         if (err !== null) {
-            console.error('failed to load occurrence terms');
+            console.error('Error while getting initial occurrence terms and issue types');
             console.error(err.statusMessage);
             //process.exit(1);
             deferred.reject(new Error(err));
@@ -75,4 +75,4 @@ function getOccurrenceMetaData() {
     return deferred.promise;
 }
 
-module.exports = getOccurrenceMetaData();
+module.exports = getOccurrenceMetaData;

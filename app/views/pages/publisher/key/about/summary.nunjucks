@@ -52,6 +52,13 @@
                             <a ng-href="mailto:{{ publisherKey.technicalContact.email[0] }}">{{ publisherKey.technicalContact.firstName }} {{ publisherKey.technicalContact.lastName }}</a>
                         </dd>
                     </div>
+
+                    <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
+                        <dt class="text-capitalize">Hosting</dt>
+                        <dd>
+                            <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})">{{ publisherKey.hostStats.datasetCount | localNumber }} datasets</a> (<ul class="inline-bullet-list"><li>{{ publisherKey.hostStats.publisherCount | localNumber }} publishers</li><li>{{ publisherKey.hostStats.countryCount | localNumber }} countries</li></ul>)
+                        </dd>
+                    </div>
                     {#<div ng-if="publisherKey.publisher.email[0]">#}
                         {#<dt class="text-capitalize">Publisher</dt>#}
                         {#<dd>#}
