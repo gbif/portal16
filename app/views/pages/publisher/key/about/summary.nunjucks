@@ -53,7 +53,7 @@
                         </dd>
                     </div>
 
-                    <div ng-if="publisherKey.hostStats.datasetCount">
+                    <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
                         <dt class="text-capitalize">Hosting</dt>
                         <dd>
                             <a ui-sref="datasetSearchTable({hosting_org:publisherKey.key})">{{ publisherKey.hostStats.datasetCount | localNumber }} datasets</a> (<ul class="inline-bullet-list"><li>{{ publisherKey.hostStats.publisherCount | localNumber }} publishers</li><li>{{ publisherKey.hostStats.countryCount | localNumber }} countries</li></ul>)
