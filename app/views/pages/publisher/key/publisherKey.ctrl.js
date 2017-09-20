@@ -22,6 +22,7 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
     vm.publisher = PublisherExtended.get({key: vm.key});
     vm.installations = PublisherInstallations.get({id: vm.key, limit:100});
     vm.datasets = DatasetSearch.get({publishing_org: vm.key, limit:0});
+    vm.hostedStats = DatasetSearch.get({hosting_org: vm.key, limit:0, facet:['publishing_org', 'publishing_country'], facetLimit:5000});
     vm.literature = ResourceSearch.query({contentType: 'literature', publishingOrganizationKey: vm.key, limit: 0});
     vm.occurrences = OccurrenceSearch.query({publishing_org: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({publishing_org: vm.key, media_type: 'StillImage'});
@@ -34,6 +35,13 @@ function publisherKeyCtrl($stateParams, $state, MapCapabilities, PublisherExtend
         has_coordinate: true,
         has_geospatial_issue: false,
         limit: 0
+    });
+
+    vm.hostStats = {};
+    vm.hostedStats.$promise.then(function(resp){
+        vm.hostStats.countryCount = Object.keys(resp.facets.PUBLISHING_COUNTRY.counts).length;
+        vm.hostStats.publisherCount = Object.keys(resp.facets.PUBLISHING_ORG.counts).length;
+        vm.hostStats.datasetCount = resp.count;
     });
 
     vm.publisher.$promise.then(function(){
