@@ -129,6 +129,8 @@ function adhocMapDirective(BUILD_VERSION) {
 
             })
 
+
+
         };
 
         vm.zoomIn = function () {

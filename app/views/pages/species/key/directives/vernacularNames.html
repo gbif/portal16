@@ -6,9 +6,9 @@
         <div class="tableList discreet" ng-style="{height: vm.getHeight()}">
             <ul>
                 <li ng-repeat="name in vm.vernacularNames.results | limitTo: vm.limit : vm.offset" class="card--references__item">
-                    <div  class="text-capitalize">
+                    <div  >
                         <div>
-                            <span class="article-header__meta">{{ name.vernacularName }}</span>
+                            <span class="vernacular">{{ name.datasets[0].vernacularName }}</span>
                             <span class="discreet--very">in <span translate="language.{{ name.language }}"></span></span>
                         </div>
                         <div class="small" ng-if="vm.isNub ==='true'">

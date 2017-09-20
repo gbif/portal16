@@ -50,15 +50,22 @@ function createMap(element, options) {
             });
         }
 
+
+
         if(options.fitExtent && options.filters.geometry){
             setTimeout(function(){
                 map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry),'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+
+                initGeometry(options.filters.geometry)
 
             });
         }
         else if (currentProjection.fitExtent) {
             map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
         }
+
+
+
     };
 
     var extentFromWKT = function(wkt){
@@ -95,8 +102,10 @@ function createMap(element, options) {
 
 
 
+
     var drawLayer;
     var format = new ol.format.WKT();
+
     function enableDragDrop(cb) {
         dragAndDropInteraction.on('addfeatures', function (event) {
 
@@ -148,8 +157,30 @@ function createMap(element, options) {
 
         });
     }
-
-
+    //
+    // function showPoly(){
+    //
+    //     var wkt = 'POLYGON((10.689 -25.092, 34.595 ' +
+    //         '-20.170, 38.814 -35.639, 13.502 ' +
+    //         '-39.155, 10.689 -25.092))';
+    //
+    //     var format = new ol.format.WKT();
+    //
+    //     var feature = format.readFeature(wkt, {
+    //         dataProjection: 'EPSG:4326',
+    //         featureProjection: 'EPSG:4326'
+    //     });
+    //
+    //     var vector = new ol.layer.Vector({
+    //         source: new ol.source.Vector({
+    //             features: [feature]
+    //         })
+    //     });
+    //     vector.setZIndex(1000);
+    //
+    //     map.addLayer(vector)
+    //
+    // }
 
     function enableDraw(cb){
 
@@ -182,6 +213,43 @@ function createMap(element, options) {
             //console.log(evt)
         });
     }
+    function initGeometry(geometry){
+
+
+        var geometries = [];
+
+
+        if(_.isArray(geometry)){
+            var polys = geometry;
+            for(var i =0; i< polys.length; i++){
+                geometries.push(format.readFeature(polys[i], {
+                    dataProjection: 'EPSG:4326',
+                    featureProjection: 'EPSG:4326'
+                }));
+            }
+        } else {
+            geometries.push(format.readFeature(geometry, {
+                dataProjection: 'EPSG:4326',
+                featureProjection: 'EPSG:4326'
+            }));
+
+        }
+
+
+            drawLayer = new ol.layer.Vector({
+                source: new ol.source.Vector(
+                    {
+                        wrapX: false,
+                        features: geometries
+
+                        }
+                    )
+            });
+            map.addLayer(drawLayer);
+
+
+    }
+
 
     function removeDrawnItems(){
         map.removeLayer(drawLayer)
