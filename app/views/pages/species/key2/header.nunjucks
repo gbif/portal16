@@ -39,7 +39,7 @@
 
                     <div ng-if="speciesKey2.vernacularName.vernacularName" class="text-capitalize">
                         <div>
-                            <span class="article-header__meta">{{ speciesKey2.vernacularName.vernacularName }}</span>
+                            <span class="vernacular">{{ speciesKey2.vernacularName.vernacularName }}</span>
                             <span class="discreet--very">in <span translate="language.{{ speciesKey2.vernacularName.language }}"></span></span>
                         </div>
                     </div>
