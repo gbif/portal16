@@ -260,9 +260,9 @@
                     those shared by publishers from other countries.</p>
                 {% elif country %}
                 <p>This chart shows the number of records shared by publishers within {$
-                    __('country.'+country) $}
+                    __('country.'+country.code) $}
                     over time, with separate colours for records about species occurring in {$
-                    __('country.'+country) $} and those occurring in other countries.</p>
+                    __('country.'+country.code) $} and those occurring in other countries.</p>
             {% else %}
                 <p>This chart shows the total number of records published through GBIF over time, with
                     separate
