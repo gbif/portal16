@@ -3,6 +3,12 @@
         <div class="balanced-row">
             <div>
                 <dl class="inline">
+                    {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 or occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 %}
+                        <div>
+                            <dt class="text-capitalize">GBIF Taxon interpretation</dt>
+                            {% if occurrence.record.issues.indexOf("TAXON_MATCH_NONE") > -1 %}   <dd >none</dd>{% endif %}
+                        </div>
+                    {% endif %}
                     {% if occurrence.record.taxonRank | isNotEmpty %}
                         <div>
                             <dt class="text-capitalize">{$ __('taxonRank.' + occurrence.record.taxonRank) $}</dt>
@@ -10,12 +16,8 @@
                                     occurrence.record.scientificName $}</a></dd>
                         </div>
                     {% endif %}
-                    {% if occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] and occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] !== ccurrence.record.scientificName %}
-                        <div>
-                            <dt class="text-capitalize">Verbatim name</dt>
-                            <dd>{$ occurrence.verbatim['http://rs.tdwg.org/dwc/terms/scientificName'] $}</dd>
-                        </div>
-                    {% endif %}
+
+
 
                     {% if occurrence.record.country | isNotEmpty or occurrence.record.continent | isNotEmpty %}
                         <div>

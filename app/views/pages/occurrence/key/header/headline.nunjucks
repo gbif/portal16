@@ -1,7 +1,7 @@
 {% import "../../../../components/common.macros.nunjucks" as commonMacros %}
 
 <h1 class="text-center">
-    {% if not occurrence.record.scientificName and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"]  %}
+    {% if not occurrence.record.scientificName and not occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"]  %}
         <span > "{$ occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] $}"</span>
 
         {% elif occurrence.record.issues.indexOf("TAXON_MATCH_HIGHERRANK") > -1 and occurrence.verbatim["http://rs.tdwg.org/dwc/terms/scientificName"] %}
