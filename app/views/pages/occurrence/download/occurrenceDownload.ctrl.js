@@ -69,8 +69,8 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     Remarks.then(function (response) {
         vm.remarks = {};
-        response.data.remarks.map(function (remark) {
-            vm.remarks[remark.type] = remark;
+        response.data.map(function (remark) {
+            vm.remarks[remark.id] = remark;
         });
     });
 

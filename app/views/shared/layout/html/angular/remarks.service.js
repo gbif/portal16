@@ -8,8 +8,10 @@ var angular = require('angular');
     angular
         .module('portal')
         .service('Remarks', function ($http, env) {
-            var remarks = $http.get(env.dataApi + 'occurrence/interpretation');
+            var remarks = $http.get(env.dataApi + 'enumeration/interpretationRemark');
             return remarks;
         });
 })();
+
+
 
