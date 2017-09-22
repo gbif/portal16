@@ -155,21 +155,29 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
         //$window.location.href = '/tools/data-validator/' + data.jobId;
     }
 
+    var sortIssues = function(issues){
+
+
+
+      return  _.sortBy(issues,[
+        function(issue){
+            return (issue.severity === 'INFO') ? 3 : (issue.severity === 'WARNING') ? 2 : 1;
+        },
+          function(issue){
+              return (issue.count) ? (- parseInt(issue.count)) : 0 ;
+          },
+        ]);
+
+
+    }
 
     function getIssueSeverity(e) {
 
-
                 return (vm.remarks[e]) ? vm.remarks[e].severity : "WARNING";
-
-
-
 
     };
 
     function handleValidationResult(responseData) {
-
-
-
 
 
             var data = responseData.result;
@@ -228,7 +236,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                     value.severity = getIssueSeverity(value.issue);
                     vm.validationResults.summary.hasIssues = true;
                     vm.validationResults.summary.issueTypesFound[value.issueCategory] = vm.validationResults.summary.issueTypesFound[value.issueCategory] || {};
-                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] = true;
+                    vm.validationResults.summary.issueTypesFound[value.issueCategory][value.issue] =  vm.remarks[value.issue] || {severity: "WARNING", id: value.issue};
                     //rewrite sample to exclude redundant information (e.g. evaluationType)
                     //TODO to the same thing for issues with non sample
                     issueBlock = _.omit(value, 'sample');
@@ -244,9 +252,16 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                     // });
                     this[value.issueCategory].push(issueBlock);
                 }, vmResourceResult.issuesMap);
-
+               _.each(vmResourceResult.issuesMap, function(val, key){
+                   vmResourceResult.issuesMap[key] =  sortIssues(val)
+                })
                 this.push(vmResourceResult);
             }, vm.validationResults.results);
+
+        _.each(vm.validationResults.summary.issueTypesFound, function(val, key){
+                vm.validationResults.summary.issueTypesFound[key] =  _.values(sortIssues(val));
+        })
+
 
 
 

@@ -47,7 +47,7 @@
                        <tr ng-repeat="(issueCat, issues) in vm.validationResults.summary.issueTypesFound">
                            <td class="categoryTitle">{{ 'validation.category.'+issueCat | translate }}</td>
                        <td >
-                           <span ng-repeat="(issue, val) in issues" class="badge badge--warning">{{ (issueCat === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue : (issueCat === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue : "validation.issueType."+issue | translate }}</span>
+                           <span ng-repeat="issue in issues" class="badge badge--{{issue.severity | lowercase }}">{{ (issueCat === 'OCC_INTERPRETATION_BASED') ? "occurrenceIssue."+issue.id : (issueCat === 'CLB_INTERPRETATION_BASED')?  "taxon.issueEnum."+issue.id : "validation.issueType."+issue.id | translate }}</span>
 
                        </td>
                        </tr>
