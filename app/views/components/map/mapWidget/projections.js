@@ -3,7 +3,8 @@
 var ol = require('openlayers'),
     proj4 = require('proj4'),
     querystring = require('querystring'),
-    env = require('../../../shared/layout/html/angular/env'),
+    //env = require('../../../shared/layout/html/angular/env'),
+    env = window.gb.env,
     baseMaps = require('./baseMapConfig');
 
 ol.proj.setProj4(proj4);
