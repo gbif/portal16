@@ -13,7 +13,7 @@ angular
     .controller('datasetCtrl', datasetCtrl);
 
 /** @ngInject */
-function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, enums, Page, BUILD_VERSION) {
+function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, Publisher, enums, Page, BUILD_VERSION) {
     var vm = this;
     vm.state = DatasetFilter.getState();
     Page.setTitle('Dataset search');
@@ -31,23 +31,6 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, en
         filter: DatasetFilter
     };
 
-    vm.filters.publishingOrg = {
-        queryKey: 'publishing_org',
-        facetKey: 'PUBLISHING_ORG',
-        title: 'publishingOrg',
-        translationPrefix: 'dataset.terms',
-        filter: DatasetFilter
-    };
-
-
-    vm.filters.hostingOrg = {
-        queryKey: 'hosting_org',
-        facetKey: 'HOSTING_ORG',
-        title: 'hostingOrg',
-        translationPrefix: 'dataset.terms',
-        filter: DatasetFilter
-    };
-
     vm.filters.license = {
         titleTranslation: 'stdTerms.license',
         queryKey: 'license',
@@ -60,56 +43,6 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, en
             facetKey: 'LICENSE'
         }
     };
-    // vm.filters.publishingCountry = {
-    //     queryKey: 'publishing_country',
-    //     facetKey: 'PUBLISHING_COUNTRY',
-    //     title: 'publishingCountry',
-    //     translationPrefix: 'dataset.terms',
-    //     filter: DatasetFilter
-    // };
-
-
-    //vm.filters.publishingCountry = {
-    //    titleTranslation: 'ocurrenceFieldNames.publishingCountry',
-    //    queryKey: 'publishing_country',
-    //    filter: DatasetFilter,
-    //    enumTranslationPath: 'country.',
-    //    search: {
-    //        isSearchable: true,
-    //        placeholder: 'ocurrenceFieldNames.TRANSLATE',
-    //        suggestEndpoint: '/api/country/suggest.json?lang=' + vm.state.query.locale
-    //    },
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'PUBLISHING_COUNTRY'
-    //    }
-    //};
-    //
-    //vm.filters.type = {
-    //    titleTranslation: 'ocurrenceFieldNames.type',
-    //    queryKey: 'type',
-    //    filter: DatasetFilter,
-    //    enumTranslationPath: 'dataset.type.',
-    //    showAll: true,
-    //    enums: enums.datasetType,
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'TYPE'
-    //    }
-    //};
-    //
-    //vm.filters.hostingOrg = {
-    //    titleTranslation: 'dataset.terms.hosting_org',
-    //    queryKey: 'hosting_org',
-    //    filter: DatasetFilter,
-    //    search: {
-    //        isSearchable: false
-    //    },
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'HOSTING_ORG'
-    //    }
-    //};
 
     vm.filters.taxonKey = {
         titleTranslation: 'ocurrenceFieldNames.scientificName',
@@ -153,35 +86,51 @@ function datasetCtrl($state, DatasetFilter, $http, suggestEndpoints, Species, en
         }
     };
 
-    //vm.filters.publishingOrg = {
-    //    titleTranslation: 'dataset.terms.publishingOrg',
-    //    queryKey: 'publishing_org',
-    //    filter: DatasetFilter,
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'PUBLISHING_ORG'
-    //    },
-    //    search: {
-    //        isSearchable: true,
-    //        placeholder: 'dataset.terms.publishingOrg',
-    //        suggestEndpoint: suggestEndpoints.publishingOrg
-    //    }
-    //};
-    //
-    //vm.filters.hostingOrg = {
-    //    titleTranslation: 'dataset.terms.hostingOrg',
-    //    queryKey: 'hosting_org',
-    //    filter: DatasetFilter,
-    //    facets: {
-    //        hasFacets: true,
-    //        facetKey: 'HOSTING_ORG'
-    //    },
-    //    search: {
-    //        isSearchable: true,
-    //        placeholder: 'dataset.terms.hostingOrg',
-    //        suggestEndpoint: suggestEndpoints.publishingOrg
-    //    }
-    //};
+    vm.filters.publisher = {
+        titleTranslation: 'stdTerms.publisher',
+        queryKey: 'publishing_org',
+        filter: DatasetFilter,
+        expand: {
+            resource: Publisher,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'PUBLISHING_ORG'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'dataset.terms.publishingOrg',
+            suggestEndpoint: suggestEndpoints.publisher,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
+    vm.filters.hostingOrg = {
+        titleTranslation: 'dataset.terms.hostingOrg',
+        queryKey: 'hosting_org',
+        filter: DatasetFilter,
+        expand: {
+            resource: Publisher,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: true,
+            facetKey: 'HOSTING_ORG'
+        },
+        search: {
+            isSearchable: true,
+            placeholder: 'dataset.terms.hostingOrg',
+            suggestEndpoint: suggestEndpoints.publisher,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
 
     vm.filters.projectId = {
         titleTranslation: 'dataset.terms.projectId',
