@@ -1,18 +1,26 @@
-.filter-group--search {
-    .dropdown-menu > li {
+.dropdown-menu > li {
+    .discreet {
+        color #aaa
+    }
+    &.active {
         .discreet {
-            color #aaa
-            font-weight 300
+            color darken($navBar_background_color, 30)
         }
-        &.active {
-            .discreet {
-                color #8b9fa9
+        > a .dropdown--expandOnFocus{
+            white-space normal
+        }
+
+        .discreet, .classification-list.discreet span {
+            color darken($navBar_background_color, 35)
+            &:after {
+                color darken($navBar_background_color, 20)
             }
         }
-        > a {
-            > div {
-                white-space normal
-            }
+
+    }
+    > a {
+        > div {
+            white-space normal
         }
     }
 }
