@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+_ = require('lodash');
 
 angular
     .module('portal')
@@ -97,7 +98,9 @@ function filterTaxonDirective(BUILD_VERSION) {
                         limit: 10
                     }
                 }).then(function (response) {
-                    return response.data;
+                    return _.filter(response.data, function(e){
+                        return  !vm.usedKeys[e.key]
+                    });
                 });
             }
         };

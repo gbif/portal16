@@ -104,7 +104,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
         });
     }
-    vm.retries404 = 5;
+    vm.retries404 = 10;
     function handleValidationSubmitResponse(data) {
 
         vm.jobStatus = data.status;
@@ -117,6 +117,8 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
             vm.jobId = data.jobId;
             if(data.status === "NOT_FOUND"){
                 vm.retries404 --;
+            } else {
+                vm.retries404 = 10;
             }
             $timeout(function(){
 
