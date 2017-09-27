@@ -33,6 +33,9 @@
                 <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">
                     <a ui-sref="occurrenceSearchTable({dataset_key:result.key})"><span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ result.key }}">&nbsp;</span> occurrences</a>
                 </li>
+                <li class="asyncIf--isHidden" async-if="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">
+                    <a ui-sref="speciesSearchList({dataset_key:result.key, advanced:1})"><span count="{{ portal.dataApi }}species/search?dataset_key={{ result.key }}">&nbsp;</span> records</a>
+                </li>
             </ul>
         </div>
     </div>

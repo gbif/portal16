@@ -48,7 +48,7 @@ function getSummary(occurrenceIssues, remarks) {
     occurrenceIssues.forEach(function (e) {
         let remark = remarks[e];
 
-        //handle remarks that isn't listed in the remarks endpoint http://api.gbif.org/v1/occurrence/interpretation
+        //handle remarks that isn't listed in the remarks endpoint http://api.gbif.org/v1/enumeration/interpretationRemark/
         if (_.isUndefined(remark)) {
 
             // Dummy remark: show remarks that isn't known as warnings. Translations is likely to be missing

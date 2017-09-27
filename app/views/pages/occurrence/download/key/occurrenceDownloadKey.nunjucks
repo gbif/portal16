@@ -131,6 +131,14 @@
                                                         GBIF Occurrence Download {$ download.record.doi $} accessed via GBIF.org on {$ download.record.created | formatDate(gb.locales.current, 'DD MMM YYYY') $}
                                                     </dd>
                                                 </div>
+                                                {% if download.record.license %}
+                                                <div>
+                                                    <dt class="text-capitalize">{$ __('stdTerms.license') $}</dt>
+                                                    <dd>
+                                                        <license link="{$ download.record.license $}"></license>
+                                                    </dd>
+                                                </div>
+                                                {% endif %}
                                                 {% if download.record.status !== 'PREPARING' and download.record.status !== 'RUNNING' %}
                                                 <div>
                                                     <dt class="text-capitalize">{$ __('downloadKey.file') $}</dt>
@@ -148,6 +156,9 @@
                                                 </div>
                                                 {% endif %}
                                             </dl>
+                                            <p class="m-t-05">
+                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">datause agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
+                                            </p>
                                         </div>
                                     {% endif %}
                                 </div>
