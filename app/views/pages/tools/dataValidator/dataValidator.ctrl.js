@@ -218,13 +218,16 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
 
                 //prepare terms frequency
                 if(resourceResult.termsFrequency){
-                    vmResourceResult.termsFrequency = {};
-                    angular.forEach(resourceResult.termsFrequency, function(value, key) {
-                        var termFreqData = {};
-                        termFreqData.count = value;
-                        termFreqData.percentage = Math.round((value/ resourceResult.numberOfLines)*100);
-                        this[key] = termFreqData;
-                    }, vmResourceResult.termsFrequency);
+
+                    for(var i=0; i < resourceResult.termsFrequency.length; i++){
+
+                        var key = Object.keys(resourceResult.termsFrequency[i])[0];
+                        resourceResult.termsFrequency[i].key = key;
+                        resourceResult.termsFrequency[i].count = resourceResult.termsFrequency[i][key];
+                        resourceResult.termsFrequency[i].percentage = Math.round((resourceResult.termsFrequency[i].count/ resourceResult.numberOfLines)*100);
+
+                    }
+
                 }
 
 
@@ -247,11 +250,24 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                         issueSample = {};
                         issueSample.issueData = _.omit(sample, ['evaluationType', 'relatedData']);
                         issueSample.relatedData = sample.relatedData;
+                        issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData)
                         this.sample.push(issueSample);
                     }, issueBlock);
-                    // issueBlock = _.sortBy(issueBlock, function(n) {
-                    //     return - Object.keys(n.sample.relatedData).length
-                    // });
+
+                    issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
+
+                    return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0 }
+
+                    ]);
+
+
+                    if(issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData){
+                        issueBlock.headers = Object.keys(issueBlock.sample[0].issueData).concat(Object.keys(issueBlock.sample[0].relatedData));
+
+                    } else if(issueBlock.sample.length > 0 && issueBlock.sample[0].issueData ){
+                        issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
+                    }
+
                     this[value.issueCategory].push(issueBlock);
                 }, vmResourceResult.issuesMap);
                _.each(vmResourceResult.issuesMap, function(val, key){
