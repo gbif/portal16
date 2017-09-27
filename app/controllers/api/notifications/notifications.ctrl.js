@@ -11,7 +11,7 @@ module.exports = function (app) {
 
 router.get('/', function (req, res) {
     notifications.getNotifications(req.__).then(function(result){
-        res.setHeader('Cache-Control', 'private, max-age=' + 30);//30 seconds
+        res.setHeader('Cache-Control', 'public, max-age=' + 30);//30 seconds
         res.json(result);
     }).catch(function(err){
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
