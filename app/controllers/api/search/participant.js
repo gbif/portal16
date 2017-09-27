@@ -5,8 +5,8 @@ var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     Fuse = require('fuse.js'),
     Q = require('q'),
     _ = require('lodash'),
-    querystring = require('querystring'),
-    request = require('requestretry');
+    request = require('requestretry'),
+    maxPatternLength = 50;
 
 
 
@@ -37,8 +37,9 @@ async function expand(participant){
 }
 
 async function query(participantName){
-
-
+    if (!_.isString(participantName) || maxPatternLength <= participantName.length) {
+        return;
+    }
     let participants = await Participant.getParticipantsByType('OTHER');
 
     if (participants.statusCode > 299) {
@@ -51,16 +52,19 @@ async function query(participantName){
         shouldSort: true,
         tokenize: false,
         matchAllTokens: true,
-        includeScore: true
+        includeScore: true,
+        maxPatternLength: maxPatternLength
     });
-    let participantResults = fuse.search(participantName).filter((p)=>{ return p.score < 0.3});
+
+    let participantResults = fuse.search(participantName).filter((p)=>{ return p.score < 0.3}); //TODO how to best handle that fuse don't like pattern longer than around 50 chars
+
     let pts = await Q.all(_.map(participantResults,  (p) =>{
         return Participant.get(p.item.id);
      }));
     let highlights = _.remove(pts, (ptcpt)=>{
         let p = ptcpt.participant;
         return (p.name.toLowerCase() === participantName.toLowerCase() || (p.abbreviatedName && p.abbreviatedName.toLowerCase() === participantName.toLowerCase()));
-    })
+    });
     let response = { results: pts.slice(0, 4), count: pts.length};
     if(highlights.length > 0){
         response.highlights = highlights;

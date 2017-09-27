@@ -8,6 +8,7 @@ var _ = require('lodash'),
         return {title: countryTranslations[key], key: key }
     }),
     Participant = rootRequire('app/models/node/participant'),
+    maxPatternLength = 50,
     options = {
         keys: ['title'],
         threshold: 0.2,
@@ -15,24 +16,25 @@ var _ = require('lodash'),
         shouldSort: true,
         tokenize: false,
         matchAllTokens: true,
-        includeScore: true
+        includeScore: true,
+        maxPatternLength: maxPatternLength
     };
 
 var fuse = new Fuse(countries, options);
 
 async function query(countryName){
-    if (!_.isString(countryName)) {
+    if (!_.isString(countryName) || maxPatternLength <= countryName.length) {
         return;
     }
     countryName = countryName.toLowerCase();
-    var countryResults = fuse.search(countryName);
+    var countryResults = fuse.search(countryName); //TODO how to best handle that fuse don't like pattern longer than around 50 chars
     let match = countryResults[0];
     if (!match) {
         return;
     }
     var parts = match.item.title.toLowerCase().replace(',', ' ').split(' ');
     var wordCount = parts.length;
-    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (parts[0] !== countryName && wordCount > 1 && (countryName.length/match.item.title.length) < 0.33)){
+    if (match.score > 0.3 || (wordCount == 1 && match.score !== 0) || (parts[0] !== countryName && wordCount > 1 && (countryName.length / match.item.title.length) < 0.33)) {
         return;
     }
     let countryKey = match.item.key;
@@ -48,7 +50,8 @@ async function query(countryName){
                     }
                 ]
             };
-        } catch(err) {
+        } catch (err) {
+            console.log(err);
             return {
                 count: 1,
                 results: [
