@@ -1,5 +1,6 @@
 'use strict';
 var _ = require('lodash'),
+moment = require('moment'),
     fixedUtil = require('../../dataset/key/main/submenu');
 
 require('../../../components/fileUpload/fileUpload.directive');
@@ -13,7 +14,7 @@ angular
     .controller('dataValidatorCtrl', dataValidatorCtrl);
 
 /** @ngInject */
-function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location) {
+function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, Remarks, $location,  $sessionStorage) {
     var vm = this;
     vm.$state = $state;
 
@@ -22,6 +23,8 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
     vm.issueSampleExpanded = {};
     vm.issuesMap = {};
     vm.remarks = {};
+
+
 
     vm.dwcextensions = DwcExtension.get();
 
@@ -68,8 +71,10 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
             devApiUrl + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
 
         ).success(function (data) {
+            vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
             handleValidationSubmitResponse(data);
         }).error(function (err, status, headers) { //data, status, headers, config
+            vm.startTimestamp = moment(data.startTimestamp).subtract(moment().utcOffset(), 'minutes').fromNow();
 
             if((err && err.statusCode === 404 )|| status === 404){
                 handleValidationSubmitResponse(err)
@@ -253,7 +258,7 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                         issueSample.allData = _.assign({}, issueSample.issueData, issueSample.relatedData)
                         this.sample.push(issueSample);
                     }, issueBlock);
-
+                    if(issueBlock.related)
                     issueBlock.sample = _.sortBy(issueBlock.sample, [function(o) {
 
                     return (_.isArray(o.relatedData)) ? - Object.keys(o.relatedData).length : 0 }
@@ -261,12 +266,13 @@ function dataValidatorCtrl($http, $stateParams, $state, $timeout, DwcExtension, 
                     ]);
 
 
-                    if(issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData){
+
+                    if(issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData && issueBlock.sample[0].relatedData){
                         issueBlock.headers = Object.keys(issueBlock.sample[0].issueData).concat(Object.keys(issueBlock.sample[0].relatedData));
 
-                    } else if(issueBlock.sample.length > 0 && issueBlock.sample[0].issueData ){
+                    } else if(issueBlock.sample && issueBlock.sample.length > 0 && issueBlock.sample[0].issueData ){
                         issueBlock.headers = Object.keys(issueBlock.sample[0].issueData);
-                    }
+                    };
 
                     this[value.issueCategory].push(issueBlock);
                 }, vmResourceResult.issuesMap);

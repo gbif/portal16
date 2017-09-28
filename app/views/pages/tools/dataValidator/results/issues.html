@@ -23,7 +23,7 @@
                        translate="occurrenceIssue.{{ issueBlock.issue }}"></span>
                 <span  class="badge" ng-if="issueCategory === 'CLB_INTERPRETATION_BASED'"
                        translate="taxon.issueEnum.{{ issueBlock.issue }}"></span>
-              <span class="badge" ng-if="issueBlock.issue === 'UNKNOWN_TERM' || issueBlock.count"> {{ (issueBlock.issue !== 'UNKNOWN_TERM') ? issueBlock.count : issueBlock.relatedData}}</span>
+              <span class="badge" ng-if="issueBlock.issue === 'UNKNOWN_TERM' || issueBlock.count"> {{ (issueBlock.issue !== 'UNKNOWN_TERM') ? issueBlock.count : issueBlock.relatedData.term}}</span>
                 <span class="badge" ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && !issueBlock.count">!</span>
 
             </a>
@@ -59,7 +59,7 @@
                 </tbody>
             </table>
 
-            <table ng-if="!issueBlock.sample || issueBlock.sample.length ===0" class="table table-bordered table-striped"
+            <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && !(issueBlock.sample || issueBlock.sample.length ===0)" class="table table-bordered table-striped"
                    ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
                 <thead>
                 <tr>
@@ -71,6 +71,24 @@
                 <tbody>
                 <tr>
                     <td ng-repeat="(key, val) in issueBlock" class="table-cell--wide">
+                        {{ val }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && issueBlock.issue === 'UNKNOWN_TERM'" class="table table-bordered table-striped"
+                   ng-show="dataValidator.issueSampleExpanded[issueBlock.issue]">
+                <thead>
+                <tr>
+                    <th ng-repeat="(key, val) in issueBlock.relatedData">
+                        {{ key }}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ng-repeat="(key, val) in issueBlock.relatedData" class="table-cell--wide">
                         {{ val }}
                     </td>
                 </tr>
