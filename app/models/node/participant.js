@@ -6,6 +6,7 @@ let credentials = rootRequire('config/credentials').directory,
     _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
+    log = rootRequire('config/log'),
     querystring = require('querystring');
 
 async function signedGet(requestUrl) {
@@ -60,8 +61,9 @@ function getParticipant(key, locale) {
                     .then(function (result) {
                         resolve(result);
                     })
-                    .catch(function () {
+                    .catch(function (err) {
                         //ignore missing relations
+                        log.error({error: err}, 'Failing relations in participant request');
                         resolve({
                             participant: participant,
                             _incomplete: true
@@ -133,7 +135,7 @@ async function expandParticipant(participant, locale) {
         registryNode = values[4].results[0];
 
     //get the people historical related to the participant and node
-    let peopleIds = _.map(_.concat([], participantHistory.results, nodeHistory.results), 'personId'),
+    let peopleIds = _.map(_.concat([], _.get(participantHistory, 'results', []), _.get(nodeHistory, 'results', [])), 'personId'),
         people = await getPeople(peopleIds),
     //remove sensitive information from the people objects
         contacts = people.map(removeSensitiveInformation);

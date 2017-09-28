@@ -65,6 +65,8 @@ router.get('/participant/:key(\\d+)\.:ext?', function (req, res, next) {
                 description: res.__mf('participationStatus.type.OTHER.description.' + p.participant.participationStatus, { REGION: res.__('region.' + p.participant.gbifRegion) })
             };
             helper.renderPage(req, res, next, p, 'pages/participant/participant/seo');
+        }).catch(function(err){
+            next(err);
         });
     } catch (err) {
         next(err);
