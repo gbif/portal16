@@ -22,10 +22,6 @@ router.get('/terms.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'shared/layout/partials/popups/terms/terms');
 });
 
-router.get('/search.html', function (req, res, next) {
-    helper.renderPage(req, res, next, {}, 'shared/layout/partials/navigation/search/search');
-});
-
 router.get('/search/eventResult.html', function (req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/event/eventSearchResult');
 });
