@@ -31,8 +31,14 @@ router.get('/geoip', function (req, res) {
 });
 
 router.get('/geoip/country', function (req, res) {
-    let referer = req.headers.referer,
-        parsedReferer = url.parse(referer, true),
+    let referer = req.headers.referer;
+    if (!referer) {
+        log.error('unable to match ip to country using ip: ' + ip);
+        res.setHeader('Cache-Control', 'no-cache');
+        res.status(404);
+        res.send();
+    }
+    let parsedReferer = url.parse(referer, true),
         mockIp = _.get(parsedReferer, 'query.mockip'),
         ip = mockIp || req.clientIp,
         country = getGeoIp(ip),
@@ -46,7 +52,7 @@ router.get('/geoip/country', function (req, res) {
     } else {
         res.setHeader('Cache-Control', 'private, max-age=' + hour);
         var location = countryCodes2CrudeCoordinates[countryCode];
-        res.send({
+        res.json({
             countryCode: countryCode,
             location: location
         });
