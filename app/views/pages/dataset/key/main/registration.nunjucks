@@ -108,11 +108,10 @@
                         <dt class="text-capitalize">Crawls in total</dt>
                         <dd>{{ datasetKey.processSummary.analyzedCount }}</dd>
                     </div>
-                    {# TODO Is it worth menioning that there are no logged crawl attempts #}
-                    {#<div ng-if="datasetKey.processSummary.finished == 0">#}
-                        {#<p class="discreet small">This dataset has no crawl entries</p>#}
-                    {#</div>#}
                 </dl>
+                <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created <= '2013-11-06'">Crawled before 2013-11-06</p>
+                <p ng-if="datasetKey.processSummary.finished == 0 && datasetKey.dataset.created > '2013-11-06'" class="discreet">This dataset has no crawl entries <span gb-help="why-hasn-t-gbif-re-indexed-my-dataset-yet"></span> </p>
+                <p class="discreet" ng-if="datasetKey.currentCrawlingStatus.datasetKey">Currently being crawled <span gb-help="time-to-index-dataset"></span></p>
             </div>
         </div>
     </div>

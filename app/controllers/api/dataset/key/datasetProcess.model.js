@@ -78,8 +78,15 @@ async function getCrawling() {
 
 async function isDatasetBeingCrawled(key) {
     let crawls = await getCrawling();
-    let ongoingCrawl = _.find(crawls, function(e){return e.datasetKey == key && !e.finishedCrawling});
-    return ongoingCrawl;
+    if (_.isArray(crawls)) {
+        let ongoingCrawl = _.find(crawls, function (e) {
+            return e && e.datasetKey == key && !e.finishedCrawling
+        });
+        return ongoingCrawl;
+    } else {
+        console.log('crawler endpoint returns something that is not an array');//TODO put in logs.
+        return;
+    }
 }
 
 module.exports = {
