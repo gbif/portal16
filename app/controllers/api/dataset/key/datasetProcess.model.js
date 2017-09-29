@@ -1,6 +1,7 @@
 "use strict";
 var apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
+    _ = require('lodash'),
     request = require('requestretry');
 
 async function getProcess(key, query) {
@@ -20,8 +21,8 @@ async function getProcess(key, query) {
 }
 
 async function getProcessSummary(key) {
-    let limit = 500;
-    let attempts = await getProcess(key, {limit: 500});
+    let limit = 2000;
+    let attempts = await getProcess(key, {limit: limit});
     let summary = {
         lastAttempt: undefined,
         lastSuccess: undefined,
@@ -51,7 +52,7 @@ async function getProcessSummary(key) {
         if (attempt.finishReason) {
             summary.stats[attempt.finishReason] = summary.stats[attempt.finishReason] ? summary.stats[attempt.finishReason] + 1 : 1;
             summary.finished++;
-        } else {
+        } else if(attempt.startedCrawling && !attempt.finishedCrawling) {
             summary.unfinished++;
         }
     });
@@ -59,7 +60,31 @@ async function getProcessSummary(key) {
     return summary;
 }
 
+async function getCrawling() {
+    let baseRequest = {
+        url: apiConfig.crawlingDatasetProcessRunning.url + '?t=' + Date.now(),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+
+    let response = await request(baseRequest);
+    if (response.statusCode > 299) {
+        throw response;
+    }
+    let process = response.body;
+    return process;
+}
+
+async function isDatasetBeingCrawled(key) {
+    let crawls = await getCrawling();
+    let ongoingCrawl = _.find(crawls, function(e){return e.datasetKey == key && !e.finishedCrawling});
+    return ongoingCrawl;
+}
+
 module.exports = {
     getProcessSummary: getProcessSummary,
-    getProcess: getProcess
+    getProcess: getProcess,
+    getCrawling: getCrawling,
+    isDatasetBeingCrawled: isDatasetBeingCrawled
 };

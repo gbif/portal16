@@ -75,6 +75,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetCurrentCrawlingStatus', function ($resource) {
+            return $resource('/api/dataset/:key/crawling', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
     ;
 
 })();

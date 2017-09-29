@@ -23,3 +23,26 @@ router.get('/dataset/:key/processSummary', function (req, res, next) {
             res.send();
         });
 });
+
+router.get('/dataset/:key/crawling', function (req, res, next) {
+    var datasetKey = req.params.key;
+    if (!utils.isGuid(datasetKey)) {
+        next();
+        return;
+    }
+    processModel.isDatasetBeingCrawled(datasetKey)
+        .then(function(currentCrawl){
+            if (currentCrawl) {
+                res.json(currentCrawl);
+            }
+             else {
+                res.status(204);
+                res.send();
+            }
+        })
+        .catch(function(err){
+            res.status(err.statusCode || 500);
+            console.error(err);
+            res.send();
+        });
+});

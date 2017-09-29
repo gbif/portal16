@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
+function datasetKeyCtrl($timeout, $state, $stateParams, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -31,6 +31,7 @@ function datasetKeyCtrl($timeout, $state, $stateParams, OccurrenceSearch, Specie
     vm.dataset = DatasetExtended.get({key: vm.key});
     vm.metrics = DatasetMetrics.get({key: vm.key});
     vm.processSummary = DatasetProcessSummary.get({key: vm.key});
+    vm.currentCrawlingStatus = DatasetCurrentCrawlingStatus.get({key: vm.key});
     vm.constituents = DatasetConstituents.get({key: vm.key, limit: 0});
     vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
     vm.isBackbone = constantKeys.dataset.backbone === vm.key;

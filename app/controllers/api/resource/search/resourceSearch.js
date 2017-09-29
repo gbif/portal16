@@ -201,7 +201,7 @@ function buildQuery(query) {
                         {
                             "gauss": {
                                 "createdAt": {
-                                    "origin": "now/d",
+                                    "origin": "now",
                                     "scale": "7d",
                                     "decay": 0.75
                                 }
@@ -231,7 +231,7 @@ function buildQuery(query) {
                     {
                         "gauss": {
                             "createdAt": {
-                                "origin": "now/d",
+                                "origin": "now",
                                 "scale": "7d",
                                 "decay": 0.75
                             }
@@ -398,7 +398,7 @@ let newEventOrSomethingElse = {
                             {
                                 "range": {
                                     "start": {
-                                        "gte": "now/d"
+                                        "gte": "now"
                                     }
                                 }
                             },
@@ -424,6 +424,6 @@ let newEventOrSomethingElse = {
 
 oldEventOrSomethingElse.bool.should[0].bool.must[0].range = {
     "start": {
-        "lt": "now/d"
+        "lt": "now"
     }
 };
