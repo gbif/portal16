@@ -38,7 +38,7 @@ router.get('/issues', function (req, res) {
 
         //query github for issues with the extracted page identifier in the title
         ghsearch.issues({
-            q: item + ' is:issue is:open label:content label:"public relevance" in:body+repo:' + credentials.repository,
+            q: item + ' is:issue is:open label:"public relevance" in:body+repo:' + credentials.repository,
             sort: 'created', //'reactions-+1',
             order: 'desc',
             per_page: 5
