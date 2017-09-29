@@ -1385,7 +1385,8 @@
       },
       "and": "and",
       "or": "or",
-      "not": "not"
+      "not": "not",
+      "isNotNull": "Is defined"
     }
   },
   "network": {
