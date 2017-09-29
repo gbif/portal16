@@ -219,7 +219,7 @@
             <div class="horizontal-stripe bare-background">
                 <span class="relative-anchor-offset"><a id="datasets"></a></span>
                 <div class="container--normal">
-                    <h4>{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</h4>
+                    <p class="small discreet text-uppercase">{$ __n('downloadKey.nConstituentDatasets', download.datasets.count, {count: download.datasets.count | locInt(gb.locales.current)}) $}</p>
                     <div class="card">
                         <div class="card__stripe">
                             <div class="stripeList">
