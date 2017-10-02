@@ -13,14 +13,14 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     var vm = this;
     vm.MAGIC_OBIS_KEY = constantKeys.node.IOC_UNESCO;
     vm.state = {
-        notExisting: true,
+        notExisting: false,
         hasAdminContact: false,
         hasTechContact: false
     };
     vm.terms = {
-        agreement: true,
-        authorized: true,
-        public: true
+        //agreement: true,
+        //authorized: true,
+        //public: true
     };
     vm.form = {
         comments: {},
