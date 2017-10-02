@@ -12,14 +12,14 @@ angular
 function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,DirectoryParticipants, Node, NodeCountry) {
     var vm = this;
     vm.state = {
-        notExisting: true,
+        notExisting: false,
         hasAdminContact: false,
         hasTechContact: false
     };
     vm.terms = {
-        agreement: true,
-        authorized: true,
-        public: true
+        //agreement: true,
+        //authorized: true,
+        //public: true
     };
     vm.form = {
         comments: {},
@@ -82,12 +82,15 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
     };
 
     vm.getNonCountryParticipants = function(){
-        DirectoryParticipants.get({membershipType: 'other_associate_participant'}).$promise
+        DirectoryParticipants.get().$promise
             .then(function(response){
                 vm.nonCountryParticipants = _.filter(response, function(p){
+                    return p.membershipType == 'other_associate_participant' || p.membershipType == 'gbif_affiliate';
+                });
+                vm.nonCountryParticipants = _.filter(vm.nonCountryParticipants, function(p){
                     if(p.id === 239 && p.countryCode === 'TW'){
                         vm.chineseTaipei = p;
-                    };
+                    }
                     return p.id !== 239 && p.countryCode !== 'TW';
                 });
             }, function (error){

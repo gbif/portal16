@@ -22,12 +22,12 @@
 
                     <div layout="column">
                         <span class="md-subhead">{{ (eoi.suggestedCountryNode !== undefined) ? 'Another node' :  'A node' }} I am affiliated with:</span>
-
+                        <p class="small discreet--very">Publishers from the OBIS network, select this: Intergovernmental Oceanographic Commission of the UNESCO</p>
                         <md-input-container flex="50">
                             <label>Click to select</label>
 
 
-                            <md-select  name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
+                            <md-select name="organizationNode" ng-model="eoi.selectedNonCountryParticipant" ng-change="eoi.setSuggestedNode(eoi.selectedNonCountryParticipant)">
                                 <md-option><em>None</em></md-option>
                                 <md-option ng-repeat="participant in eoi.nonCountryParticipants" ng-value="participant.id">
                                     {{participant.name}}
