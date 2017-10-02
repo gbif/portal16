@@ -20,7 +20,7 @@ angular
     .controller('datasetKeyCtrl', datasetKeyCtrl);
 
 /** @ngInject */
-function datasetKeyCtrl($timeout, $state, $stateParams, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
+function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -36,6 +36,8 @@ function datasetKeyCtrl($timeout, $state, $stateParams, DatasetCurrentCrawlingSt
     vm.isPartOfCOL = constantKeys.dataset.col === vm.key;
     vm.isBackbone = constantKeys.dataset.backbone === vm.key;
     vm.literature = ResourceSearch.query({contentType: 'literature', gbifDatasetKey: vm.key, limit: 0});
+
+    vm.profile = $sessionStorage.user;
 
     vm.occurrences = OccurrenceSearch.query({dataset_key: vm.key, limit: 0});
     vm.images = OccurrenceSearch.query({dataset_key: vm.key, media_type: 'StillImage'});
@@ -82,7 +84,17 @@ function datasetKeyCtrl($timeout, $state, $stateParams, DatasetCurrentCrawlingSt
         });
         vm.projectEmpty = !vm.dataset.project || (!vm.dataset.project.studyAreaDescription && !vm.dataset.project.designDescription && !vm.dataset.project.funding);
         vm.isPartOfCOL = vm.isPartOfCOL || constantKeys.dataset.col === vm.dataset.parentDatasetKey;
+        checkIfUserIsContact();
     });
+
+    function checkIfUserIsContact() {
+        if (vm.profile.email) {
+            var contacts = _.get(vm.dataset, 'contacts', []);
+            vm.matchedContact = _.find(contacts, function(contact){
+                return contact.email == vm.profile.email || contact.email.indexOf(vm.profile.email) > -1;
+            });
+        }
+    }
 
 
     function getOriginalDarwinCoreArchive(endpoints) {

@@ -2,6 +2,10 @@
     <section class="horizontal-stripe light-background seperator--b">
         <div class="container--desktop">
             <div class="row">
+                {#<div class="col-xs-12">#}
+                    {#{% include('./publisherInfo.nunjucks') %}#}
+                {#</div>#}
+
                 <div class="col-xs-12">
                     {% include('./summary.nunjucks') %}
                 </div>
