@@ -9,8 +9,9 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,DirectoryParticipants, Node, NodeCountry) {
+function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry) {
     var vm = this;
+    var MAGIC_OBIS_PARTICIPANT_KEY = constantKeys.participant.OBIS;
     vm.state = {
         notExisting: false,
         hasAdminContact: false,
@@ -85,7 +86,7 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
         DirectoryParticipants.get().$promise
             .then(function(response){
                 vm.nonCountryParticipants = _.filter(response, function(p){
-                    return p.membershipType == 'other_associate_participant' || p.membershipType == 'gbif_affiliate';
+                    return p.membershipType == 'other_associate_participant' || p.id == MAGIC_OBIS_PARTICIPANT_KEY ; //p.membershipType == 'gbif_affiliate';
                 });
                 vm.nonCountryParticipants = _.filter(vm.nonCountryParticipants, function(p){
                     if(p.id === 239 && p.countryCode === 'TW'){
