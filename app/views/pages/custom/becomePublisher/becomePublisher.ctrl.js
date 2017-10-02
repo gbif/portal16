@@ -211,7 +211,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
 
     vm.createOrganization = function(){
         var body = getBody();
-        var creation = $http.post('/api/eoi/createTEST', body);
+        var creation = $http.post('/api/eoi/create', body);
         creation.then(function (res) {
             vm.state.submissionComplete = true;
             vm.state.submissionError = false;
