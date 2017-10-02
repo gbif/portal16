@@ -11,16 +11,16 @@ angular
 /** @ngInject */
 function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry) {
     var vm = this;
-    var MAGIC_OBIS_PARTICIPANT_KEY = constantKeys.participant.OBIS;
+    vm.MAGIC_OBIS_KEY = constantKeys.node.IOC_UNESCO;
     vm.state = {
-        notExisting: false,
+        notExisting: true,
         hasAdminContact: false,
         hasTechContact: false
     };
     vm.terms = {
-        //agreement: true,
-        //authorized: true,
-        //public: true
+        agreement: true,
+        authorized: true,
+        public: true
     };
     vm.form = {
         comments: {},
@@ -83,12 +83,9 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     };
 
     vm.getNonCountryParticipants = function(){
-        DirectoryParticipants.get().$promise
+        DirectoryParticipants.get({membershipType: 'other_associate_participant'}).$promise
             .then(function(response){
                 vm.nonCountryParticipants = _.filter(response, function(p){
-                    return p.membershipType == 'other_associate_participant' || p.id == MAGIC_OBIS_PARTICIPANT_KEY ; //p.membershipType == 'gbif_affiliate';
-                });
-                vm.nonCountryParticipants = _.filter(vm.nonCountryParticipants, function(p){
                     if(p.id === 239 && p.countryCode === 'TW'){
                         vm.chineseTaipei = p;
                     }
@@ -214,7 +211,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
 
     vm.createOrganization = function(){
         var body = getBody();
-        var creation = $http.post('/api/eoi/create', body);
+        var creation = $http.post('/api/eoi/createTEST', body);
         creation.then(function (res) {
             vm.state.submissionComplete = true;
             vm.state.submissionError = false;

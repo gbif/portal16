@@ -22,10 +22,8 @@ var path = require('path'),
         },
         node: {
             secretariat: '02c40d2a-1cba-4633-90b7-e36e5e97aba8',
-            participantNodeManagersCommittee: '7f48e0c8-5c96-49ec-b972-30748e339115'
-        },
-        participant: {
-            OBIS: 368
+            participantNodeManagersCommittee: '7f48e0c8-5c96-49ec-b972-30748e339115',
+            'IOC_UNESCO': 'a0206c54-ec0d-4f3f-9279-7db1d3eb1e7a'
         }
     },
     elasticContentful = yargs.elasticContentful,
