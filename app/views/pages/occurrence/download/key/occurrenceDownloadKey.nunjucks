@@ -157,7 +157,7 @@
                                                 {% endif %}
                                             </dl>
                                             <p class="m-t-05">
-                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">datause agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
+                                                Make sure to read the <a href="{$ gb.locales.urlPrefix $}/terms/data-user">data user agreement</a> and <a href="{$ gb.locales.urlPrefix $}/citation-guidelines">citation guidelines</a>.
                                             </p>
                                         </div>
                                     {% endif %}
