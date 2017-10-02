@@ -73,6 +73,9 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
             vm.host = Publisher.get({id: vm.installation.organizationKey});
         });
         vm.parentDataset = Dataset.get({id: vm.dataset.parentDatasetKey});
+        if (vm.dataset.duplicateOfDatasetKey) {
+            vm.duplicateOfDataset = Dataset.get({id: vm.dataset.duplicateOfDatasetKey});
+        }
         vm.coverages = geoJsonFromCoverage(vm.dataset.geographicCoverages);
         vm.originalArchive = getOriginalDarwinCoreArchive(vm.dataset.endpoints);
         vm.dataset._endpoints = _.filter(vm.dataset.endpoints, 'url');
@@ -95,7 +98,6 @@ function datasetKeyCtrl($timeout, $state, $stateParams, $sessionStorage, Dataset
             });
         }
     }
-
 
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
