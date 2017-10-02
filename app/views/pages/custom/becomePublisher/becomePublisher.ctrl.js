@@ -9,14 +9,18 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,DirectoryParticipants, Node) {
+function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,DirectoryParticipants, Node, NodeCountry) {
     var vm = this;
     vm.state = {
-        notExisting: false,
+        notExisting: true,
         hasAdminContact: false,
         hasTechContact: false
     };
-    vm.terms = {};
+    vm.terms = {
+        agreement: true,
+        authorized: true,
+        public: true
+    };
     vm.form = {
         comments: {},
         pointOfContact: { type: "POINT_OF_CONTACT"},
@@ -64,13 +68,14 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
 
 
             } else {
-                Node.query({q: country}).$promise
+                NodeCountry.query({countryCode: country}).$promise
                     .then(function (data) {
-                        vm.suggestedNodes = _.filter(data.results, {type: 'COUNTRY', country: country});
-                        vm.suggestedCountryNode = _.head(vm.suggestedNodes);
-                        vm.form.suggestedNodeKey = (vm.suggestedCountryNode) ? vm.suggestedCountryNode.key : "other";
-
-
+                        if (data.key) {
+                            vm.suggestedCountryNode = data;
+                            vm.form.suggestedNodeKey = vm.suggestedCountryNode.key;
+                        } else {
+                            vm.form.suggestedNodeKey = "other";
+                        }
                     });
             }
         }
@@ -88,7 +93,7 @@ function becomePublisherCtrl($timeout, $q, $http, suggestEndpoints, Publisher,Di
             }, function (error){
                 return error;
             });
-    }
+    };
     vm.getNonCountryParticipants();
 
     vm.setSuggestedNode = function(participantId){
