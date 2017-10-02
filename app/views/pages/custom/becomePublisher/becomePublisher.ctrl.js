@@ -11,7 +11,7 @@ angular
 /** @ngInject */
 function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry) {
     var vm = this;
-    vm.MAGIC_OBIS_KEY = constantKeys.node.IOC_UNESCO;
+    vm.MAGIC_OBIS_KEY = constantKeys.node.OBIS_NODE_KEY;
     vm.state = {
         notExisting: false,
         hasAdminContact: false,

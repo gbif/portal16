@@ -16,7 +16,6 @@
                         <md-radio-button ng-show="eoi.suggestedNonCountryNode" value="{{ eoi.suggestedNonCountryNode.key }}" class="md-primary">{{ eoi.suggestedNonCountryNode.title }} </md-radio-button>
                         <md-radio-button value="{{ eoi.MAGIC_OBIS_KEY }}" class="md-primary">
                             Request endorsement for OBIS related data
-                            <p class="small discreet--very">Endorsement provided by  Intergovernmental Oceanographic Commission of the UNESCO</p>
                         </md-radio-button>
 
                     </md-radio-group>
